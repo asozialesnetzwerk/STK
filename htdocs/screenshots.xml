@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<page title="Screenshots"> 
+  <p>
+    <center>
+      <a href="images/screenshot8.jpg"><img src="images/screenshot8_thumb.jpg"/></a>
+      <a href="images/screenshot2.jpg"><img src="images/screenshot2_thumb.jpg"/></a>
+      <a href="images/screenshot3.jpg"><img src="images/screenshot3_thumb.jpg"/></a>
+      <br/>
+      <a href="images/screenshot4.jpg"><img src="images/screenshot4_thumb.jpg"/></a>
+      <a href="images/screenshot5.jpg"><img src="images/screenshot5_thumb.jpg"/></a>
+      <a href="images/screenshot6.jpg"><img src="images/screenshot6_thumb.jpg"/></a>
+      <br/>
+      <a href="images/screenshot7.jpg"><img src="images/screenshot7_thumb.jpg"/></a>
+      <a href="images/screenshot1.jpg"><img src="images/screenshot1_thumb.jpg"/></a>
+      <a href="images/screenshot10.jpg"><img src="images/screenshot10_thumb.jpg"/></a>
+    </center>
+  </p>
+</page>

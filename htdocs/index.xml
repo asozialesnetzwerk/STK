@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<page title="About"> 
+  <p>
+    SuperTuxKart is an enhanced version of <a
+      href="http://tuxkart.sourceforge.net/">TuxKart</a>, a kart
+      racing game, originaly done by Steve Baker, featuring Tux and a
+      bunch of his friends. SuperTuxKart is the work of the <a
+      href="http://www.happypenguin.org/forums/viewtopic.php?t=1407">GotM
+      run for TuxKart</a> at <a
+      href="happypenguin.org">happypenguin.org</a>. Due to some
+      disagreements that happened in that time this fork of TuxKart
+      was done.
+  </p>
+
+  <p>
+    SuperTuxKart features include:
+  </p>
+
+  <ul>
+    <li>new characters</li>
+    
+    <li>new tracks</li>
+
+    <li>a completly new userinterface</li>
+
+    <li>some smaller graphical improvemnts (skidmarks, smoke, animated wheels, etc.)</li>
+
+    <li>whole bunch of new bugs, in its current state its not really
+      playable</li>
+  </ul>
+</page>

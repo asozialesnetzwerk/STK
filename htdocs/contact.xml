@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<page title="Contact"> 
+  <section title="Mailing Lists">
+    <subsection title="SuperTux Development List">
+      <ul>
+        <li><a href="https://lists.berlios.de/pipermail/supertuxkart-devel">List Archive</a></li>
+        <li><a href="https://lists.berlios.de/mailman/listinfo/supertuxkart-devel">Subscribe/Unsubscribe</a></li>
+        <li>Write mail to <tt><a href="mailto:supertuxkart-devel@lists.berlios.de">supertuxkart-devel@lists.berlios.de</a></tt></li>
+      </ul>
+    </subsection>
+
+    <subsection title="SuperTux SVN Commit List">
+      <ul>
+        <li><a href="https://lists.berlios.de/pipermail/supertuxkart-commit">List Archive</a></li>
+        <li><a href="https://lists.berlios.de/mailman/listinfo/supertuxkart-commit">Subscribe/Unsubscribe</a></li>
+      </ul>
+    </subsection>
+  </section>
+
+  <section title="IRC">
+    Server: irc.freenode.net<br/>
+    Channel: #tuxkart<br/>
+  </section>
+</page>

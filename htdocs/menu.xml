@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<menu>
+  <item file="index.html">About</item>
+  <item file="screenshots.html">Screenshots</item>
+  <item file="download.html">Download</item>
+  <item file="contact.html">Contact</item>
+  <item file="http://netpanzer.berlios.de/tuxkart/">Wiki</item>
+  <item file="http://developer.berlios.de/projects/supertuxkart">BerliOS</item>
+</menu>
