@@ -1,0 +1,8 @@
+;; -*- mode: lisp -*-
+
+(tuxkart-track
+ (name "Shifting Sands")
+ (music "mods/tk7.mod"))
+
+;; EOF ;;
+

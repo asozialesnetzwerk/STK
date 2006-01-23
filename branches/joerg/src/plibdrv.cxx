@@ -1,0 +1,106 @@
+//  $Id: plibdrv.cxx 251 2005-08-19 20:51:56Z joh $
+//
+//  SuperTuxKart - a fun racing game with go-kart
+//  Copyright (C) 2004 Steve Baker <sjbaker1@airmail.net>
+//
+//  This program is free software; you can redistribute it and/or
+//  modify it under the terms of the GNU General Public License
+//  as published by the Free Software Foundation; either version 2
+//  of the License, or (at your option) any later version.
+//
+//  This program is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with this program; if not, write to the Free Software
+//  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+#include <plib/pw.h>
+#include <plib/pu.h>
+#include <plib/ssg.h>
+
+#include "Config.h"
+#include "plibdrv.h"
+
+#include "gui/BaseGUI.h"
+
+/*********************************\
+*                                 *
+* These functions capture mouse   *
+* and keystrokes and pass them on *
+* to PUI.                         *
+*                                 *
+\*********************************/
+
+void keyfn ( int key, int updown, int, int ) {
+  puKeyboard ( key, updown ) ;
+}
+
+void gui_motionfn ( int x, int y ) {
+  if(gui) {
+    gui->point(x,config->height-y);
+  }
+  puMouse ( x, y ) ;
+}
+
+void gui_mousefn ( int button, int updown, int x, int y ) {
+  if (button==0 && updown==0 && gui) {
+    gui->select();
+  } else if (guiStack.size()>1 && button==2 && updown==0) {
+    guiStack.pop_back();
+  }
+  puMouse ( button, updown, x, y ) ;
+}
+
+void pollEvents() {
+  int k=getKeystroke();
+  if(k) {
+    gui->keybd(k);
+  }   // if k
+}
+
+static unsigned int lastKeystroke = 0 ;
+
+static char keyIsDown [ MAXKEYS ] ;
+
+void keystroke ( int key, int updown, int, int ) {
+  if ( updown == PW_DOWN )
+    lastKeystroke = key ;
+
+  keyIsDown [ key ] = (updown == PW_DOWN) ;
+}
+
+
+int isKeyDown ( unsigned int k ) {
+  return keyIsDown [ k ] ;
+}
+
+int getKeystroke () {
+  int k = lastKeystroke ;
+  lastKeystroke = 0 ;
+  return k ;
+}
+
+void printkeys() {
+  int flag=0;
+  for(int i=0; i<512; i++) {
+    if(keyIsDown[i]) {
+      printf("%d, ",i);
+      flag=1;
+    }
+  }
+  if(flag) printf("\n");
+}
+                                                               
+void InitPlib() {
+  pwInit ( 0, 0, config->width, config->height, 
+	   FALSE, "Tux Kart by Steve Baker", TRUE, 0 ) ;
+
+  puInit () ;
+  ssgInit () ;
+  fntInit();
+  for ( int i = 0 ; i < 512 ; i++ )
+    keyIsDown [ i ] = FALSE ;
+}
