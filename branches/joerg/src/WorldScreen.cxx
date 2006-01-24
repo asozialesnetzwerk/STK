@@ -79,11 +79,6 @@ void WorldScreen::update() {
   if(config->profile) {
     if(frameCount++ == config->profile) {
       frameClock.update();
-      printf("fc: start=%lf, now=%lf, md=%lf, last=%lf\n",
-	     frameClock.start,frameClock.now,frameClock.max_delta,frameClock.last_time);
-      printf("Time for %d frames: %f seconds, or %f FPS\n",
-	     config->profile, frameClock.getDeltaTime(),
-	     config->profile/frameClock.getDeltaTime());
       exit(2);
     }
   }
