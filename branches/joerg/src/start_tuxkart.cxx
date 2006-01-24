@@ -1,4 +1,4 @@
-//  $Id: start_tuxkart.cxx,v 1.22 2005/09/30 16:54:36 joh Exp $
+//  $Id: start_tuxkart.cxx 304 2006-01-20 17:57:08Z joh $
 //
 //  SuperTuxKart - a fun racing game with go-kart
 //  Copyright (C) 2004 Steve Baker <sjbaker1@airmail.net>
@@ -227,7 +227,7 @@ int main ( int argc, char **argv ) {
   if(!handleCmdLine(argc, argv)) exit(0);
   // loadMaterials needs ssgLoadTextures (internally), which can
   // only be called after ssgInit (since this adds the actual loader)
-  // so this next call can't be in InitTuxkart. And InitPlib beeds
+  // so this next call can't be in InitTuxkart. And InitPlib needs
   // config, which gets defined in InitTuxkart, so swapping those two
   // calls is not possible either ... so loadMaterial has to be done here :(
   material_manager->loadMaterial();
@@ -245,6 +245,7 @@ int main ( int argc, char **argv ) {
     if(!config->profile) {
       if(config->singleWindowMenu) {
 	if(SingleWindowMenu()) exit(0);   // Quit selected
+	startScreen->switchToGame();
       } else if (!config->noStartScreen ) {
 	screen_manager->setScreen(startScreen);
       } else {
