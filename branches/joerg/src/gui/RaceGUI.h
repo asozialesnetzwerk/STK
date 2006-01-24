@@ -59,7 +59,7 @@ private:
 	
 	double time_left ;
 
-	char *pos_string [10];
+	char *pos_string [11];
 
   /* Display informat on screen */
 	void drawStatusText (const RaceSetup& raceSetup);
