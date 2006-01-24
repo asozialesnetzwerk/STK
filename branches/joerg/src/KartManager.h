@@ -1,4 +1,4 @@
-//  $Id: KartManager.h 141 2005-07-14 15:38:05Z joh $
+//  $Id: KartManager.h,v 1.2 2005/07/14 15:38:05 joh Exp $
 //
 //  SuperTuxKart - a fun racing game with go-kart
 //  Copyright (C) 2004 Ingo Ruhnke <grumbel@gmx.de>

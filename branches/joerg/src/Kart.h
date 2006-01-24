@@ -1,4 +1,4 @@
-//  $Id: Kart.h 283 2005-09-30 16:45:04Z joh $
+//  $Id: Kart.h,v 1.6 2005/09/30 16:45:04 joh Exp $
 //
 //  SuperTuxKart - a fun racing game with go-kart
 //  Copyright (C) 2004 Steve Baker <sjbaker1@airmail.net>

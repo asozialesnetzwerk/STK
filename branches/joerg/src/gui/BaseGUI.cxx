@@ -1,4 +1,4 @@
-//  $Id: BaseGUI.cxx 250 2005-08-19 20:51:07Z joh $
+//  $Id: BaseGUI.cxx,v 1.5 2005/08/19 20:51:07 joh Exp $
 //
 //  TuxKart - a fun racing game with go-kart
 //  Copyright (C) 2004 Steve Baker <sjbaker1@airmail.net>

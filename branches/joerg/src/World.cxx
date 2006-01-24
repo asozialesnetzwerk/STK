@@ -1,4 +1,4 @@
-//  $Id: World.cxx 288 2005-09-30 16:51:53Z joh $
+//  $Id: World.cxx,v 1.16 2005/09/30 16:51:53 joh Exp $
 //
 //  SuperTuxKart - a fun racing game with go-kart
 //  Copyright (C) 2004 Steve Baker <sjbaker1@airmail.net>

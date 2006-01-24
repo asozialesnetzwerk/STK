@@ -1,4 +1,4 @@
-//  $Id: widget_image.cxx 43 2005-05-30 21:16:09Z joh $
+//  $Id: widget_image.cxx,v 1.3 2005/05/30 21:16:09 joh Exp $
 //
 //  SuperTuxKart - a fun racing game with go-kart
 //  This code originally from Neverball copyright (C) 2003 Robert Kooima

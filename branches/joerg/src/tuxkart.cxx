@@ -1,4 +1,4 @@
-//  $Id: tuxkart.cxx 282 2005-09-30 16:43:43Z joh $
+//  $Id: tuxkart.cxx,v 1.16 2005/09/30 16:43:43 joh Exp $
 //
 //  SuperTuxKart - a fun racing game with go-kart
 //  Copyright (C) 2004 Steve Baker <sjbaker1@airmail.net>

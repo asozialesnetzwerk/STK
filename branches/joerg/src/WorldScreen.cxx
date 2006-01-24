@@ -1,4 +1,4 @@
-//  $Id: WorldScreen.cxx 302 2006-01-18 09:25:34Z joh $
+//  $Id: WorldScreen.cxx,v 1.6 2005/09/30 16:49:03 joh Exp $
 //
 //  SuperTuxKart - a fun racing game with go-kart
 //  Copyright (C) 2004 Steve Baker <sjbaker1@airmail.net>
@@ -79,11 +79,11 @@ void WorldScreen::update() {
   if(config->profile) {
     if(frameCount++ == config->profile) {
       frameClock.update();
-      //      printf("fc: start=%lf, now=%lf, md=%lf, last=%lf\n",
-      //frameClock.start,frameClock.now,frameClock.max_delta,frameClock.last_time);
-      //printf("Time for %d frames: %f seconds, or %f FPS\n",
-	//     config->profile, frameClock.getDeltaTime(),
-	//     config->profile/frameClock.getDeltaTime());
+      printf("fc: start=%lf, now=%lf, md=%lf, last=%lf\n",
+	     frameClock.start,frameClock.now,frameClock.max_delta,frameClock.last_time);
+      printf("Time for %d frames: %f seconds, or %f FPS\n",
+	     config->profile, frameClock.getDeltaTime(),
+	     config->profile/frameClock.getDeltaTime());
       exit(2);
     }
   }

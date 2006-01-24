@@ -1,4 +1,4 @@
-//  $Id: Difficulty.cxx 250 2005-08-19 20:51:07Z joh $
+//  $Id: Difficulty.cxx,v 1.3 2005/08/19 20:50:14 joh Exp $
 //
 //  TuxKart - a fun racing game with go-kart
 //  Copyright (C) 2004 Steve Baker <sjbaker1@airmail.net>

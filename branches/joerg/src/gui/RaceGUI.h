@@ -1,4 +1,4 @@
-//  $Id: RaceGUI.h 299 2005-10-10 18:16:50Z joh $
+//  $Id: RaceGUI.h,v 1.9 2005/08/17 22:36:34 joh Exp $
 //
 //  TuxKart - a fun racing game with go-kart
 //  Copyright (C) 2004 Steve Baker <sjbaker1@airmail.net>
@@ -48,9 +48,9 @@ public:
 	
 private:
 	void drawFPS();
-	void drawSpeed();
 	ulClock  fpsTimer;
 	int      fpsCounter;
+	int      fps_id;
 	
 	Material *herringbones_gst ;
 	Material *herring_gst ;
@@ -95,6 +95,7 @@ private:
 	void stToggle ();
 	void stPrintf ( char *fmt, ... );
 	bool stats_enabled ;
+	float tt[6] ;
 	char debug_strings [ MAX_STRING ][ MAX_STRING_LENGTH ] ;
 	int  next_string ;
 

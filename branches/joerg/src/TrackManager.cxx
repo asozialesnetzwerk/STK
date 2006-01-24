@@ -1,4 +1,4 @@
-//  $Id: TrackManager.cxx 14 2005-05-25 21:54:15Z joh $
+//  $Id: TrackManager.cxx,v 1.1 2005/05/25 21:52:09 joh Exp $
 //
 //  SuperTuxKart - a fun racing game with go-kart
 //  Copyright (C) 2004 Steve Baker <sjbaker1@airmail.net>

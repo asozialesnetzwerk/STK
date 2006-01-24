@@ -1,4 +1,4 @@
-//  $Id: Moveable.cxx 294 2005-09-30 16:59:46Z joh $
+//  $Id: Moveable.cxx,v 1.6 2005/09/30 16:59:46 joh Exp $
 //
 //  SuperTuxKart - a fun racing game with go-kart
 //  Copyright (C) 2004 Steve Baker <sjbaker1@airmail.net>

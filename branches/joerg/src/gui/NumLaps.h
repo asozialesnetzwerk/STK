@@ -1,4 +1,4 @@
-//  $Id: NumLaps.h 244 2005-08-19 20:43:04Z joh $
+//  $Id: NumLaps.h,v 1.1 2005/08/19 20:43:04 joh Exp $
 //
 //  TuxKart - a fun racing game with go-kart
 //  Copyright (C) 2004 Steve Baker <sjbaker1@airmail.net>

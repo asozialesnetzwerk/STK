@@ -1,4 +1,4 @@
-//  $Id: KartProperties.cxx 213 2005-08-10 08:02:34Z joh $
+//  $Id: KartProperties.cxx,v 1.5 2005/08/10 07:58:10 joh Exp $
 //
 //  SuperTuxKart - a fun racing game with go-kart
 //  Copyright (C) 2004 Steve Baker <sjbaker1@airmail.net>

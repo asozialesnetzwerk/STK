@@ -1,4 +1,4 @@
-//  $Id: MainMenu.cxx 44 2005-05-31 00:50:36Z joh $
+//  $Id: MainMenu.cxx,v 1.3 2005/05/31 00:49:50 joh Exp $
 //
 //  TuxKart - a fun racing game with go-kart
 //  Copyright (C) 2004 Steve Baker <sjbaker1@airmail.net>

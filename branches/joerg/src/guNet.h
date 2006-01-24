@@ -1,4 +1,4 @@
-//  $Id: guNet.h 251 2005-08-19 20:51:56Z joh $
+//  $Id: guNet.h,v 1.2 2005/08/19 20:51:56 joh Exp $
 //
 //  SuperTuxKart - a fun racing game with go-kart
 //  Copyright (C) 2004 Steve Baker <sjbaker1@airmail.net>

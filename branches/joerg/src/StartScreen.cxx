@@ -1,4 +1,4 @@
-//  $Id: StartScreen.cxx 161 2005-07-19 08:23:40Z joh $
+//  $Id: StartScreen.cxx,v 1.8 2005/07/19 08:23:40 joh Exp $
 //
 //  SuperTuxKart - a fun racing game with go-kart
 //  Copyright (C) 2004 Steve Baker <sjbaker1@airmail.net>

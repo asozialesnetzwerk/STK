@@ -1,4 +1,4 @@
-//  $Id: PlayerControls.cxx 130 2005-07-13 17:23:35Z joh $
+//  $Id: PlayerControls.cxx,v 1.3 2005/07/13 17:17:47 joh Exp $
 //
 //  TuxKart - a fun racing game with go-kart
 //  Copyright (C) 2004 Steve Baker <sjbaker1@airmail.net>

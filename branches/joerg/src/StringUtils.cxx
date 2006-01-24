@@ -1,4 +1,4 @@
-//  $Id: StringUtils.cxx 301 2006-01-18 09:23:15Z joh $
+//  $Id: StringUtils.cxx,v 1.1 2005/05/25 21:52:09 joh Exp $
 //
 //  SuperTuxKart - a fun racing game with go-kart
 //  Copyright (C) 2004 Steve Baker <sjbaker1@airmail.net>,
@@ -29,11 +29,7 @@ bool has_suffix(const std::string& lhs, const std::string rhs)
   if (lhs.length() < rhs.length())
     return false;
   else
-    // While this is basically correct, it fails with older 
-    // g++ versions, which have a wrong template. To avoid this
-    // issue, a more C-traditional way is used
-    // return lhs.compare(lhs.length() - rhs.length(), rhs.length(), rhs) == 0;
-    return strcmp(lhs.c_str()+(lhs.length()-rhs.length()), rhs.c_str())==0;
+    return lhs.compare(lhs.length() - rhs.length(), rhs.length(), rhs) == 0;
 }
 
 std::string basename(const std::string& filename)

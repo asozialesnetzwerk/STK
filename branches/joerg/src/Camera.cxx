@@ -1,4 +1,4 @@
-//  $Id: Camera.cxx 242 2005-08-17 22:36:34Z joh $
+//  $Id: Camera.cxx,v 1.2 2005/08/17 22:36:30 joh Exp $
 //
 //  SuperTuxKart - a fun racing game with go-kart
 //  Copyright (C) 2004 Steve Baker <sjbaker1@airmail.net>

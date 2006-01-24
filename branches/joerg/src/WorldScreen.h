@@ -1,4 +1,4 @@
-//  $Id: WorldScreen.h 286 2005-09-30 16:49:03Z joh $
+//  $Id: WorldScreen.h,v 1.3 2005/09/30 16:49:03 joh Exp $
 //
 //  SuperTuxKart - a fun racing game with go-kart
 //  Copyright (C) 2004 Steve Baker <sjbaker1@airmail.net>

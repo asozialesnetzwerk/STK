@@ -1,4 +1,4 @@
-//  $Id: SingleWindowMenu.cxx 304 2006-01-20 18:02:01Z joh $
+//  $Id: SingleWindowMenu.cxx,v 1.6 2005/08/19 20:51:56 joh Exp $
 //
 //  SuperTuxKart - a fun racing game with go-kart
 //  Copyright (C) 2004 Steve Baker <sjbaker1@airmail.net>
@@ -193,10 +193,6 @@ int SingleWindowMenu() {
   while(gui_state==GUI_ACTIVE) {
     displayfn();
   }
-  // The callbacks have top be restored, otherwise the
-  // game will have no keyboard input.
-  pwSetCallbacks(keystroke, gui_mousefn, gui_motionfn, NULL, NULL);
-
   if(gui_state==GUI_QUIT) {
     CleanupSingleWindowMenu();
     printf("Returning 1\n");

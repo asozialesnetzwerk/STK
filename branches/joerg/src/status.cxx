@@ -1,4 +1,4 @@
-//  $Id: status.cxx 267 2005-08-31 17:27:00Z joh $
+//  $Id: status.cxx,v 1.12 2005/08/31 17:27:00 joh Exp $
 //
 //  SuperTuxKart - a fun racing game with go-kart
 //  Copyright (C) 2004 Steve Baker <sjbaker1@airmail.net>

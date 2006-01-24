@@ -1,4 +1,4 @@
-//  $Id: OldGUI.cxx 251 2005-08-19 20:51:56Z joh $
+//  $Id: OldGUI.cxx,v 1.4 2005/08/19 20:51:47 joh Exp $
 //
 //  SuperTuxKart - a fun racing game with go-kart
 //  Copyright (C) 2004 Steve Baker <sjbaker1@airmail.net>

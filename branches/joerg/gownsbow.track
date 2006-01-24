@@ -1,0 +1,8 @@
+;; -*- mode: lisp -*-
+
+(tuxkart-track
+ (name "Gowns Bow")
+ (music "mods/tk5a.mod"))
+
+;; EOF ;;
+

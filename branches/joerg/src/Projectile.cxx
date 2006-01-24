@@ -1,4 +1,4 @@
-//  $Id: Projectile.cxx 291 2005-09-30 16:55:53Z joh $
+//  $Id: Projectile.cxx,v 1.13 2005/09/30 16:55:53 joh Exp $
 //
 //  SuperTuxKart - a fun racing game with go-kart
 //  Copyright (C) 2004 Steve Baker <sjbaker1@airmail.net>

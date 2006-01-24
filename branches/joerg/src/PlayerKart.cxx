@@ -1,4 +1,4 @@
-//  $Id: PlayerKart.cxx 261 2005-08-30 08:56:31Z joh $
+//  $Id: PlayerKart.cxx,v 1.11 2005/08/30 08:56:31 joh Exp $
 //
 //  SuperTuxKart - a fun racing game with go-kart
 //  Copyright (C) 2004 Steve Baker <sjbaker1@airmail.net>

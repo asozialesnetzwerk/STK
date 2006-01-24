@@ -1,4 +1,4 @@
-//  $Id: Explosion.h 227 2005-08-16 08:19:24Z joh $
+//  $Id: Explosion.h,v 1.5 2005/08/16 08:19:24 joh Exp $
 //
 //  SuperTuxKart - a fun racing game with go-kart
 //  Copyright (C) 2004 Steve Baker <sjbaker1@airmail.net>

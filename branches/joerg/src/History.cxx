@@ -1,4 +1,4 @@
-//  $Id: History.cxx 276 2005-09-28 17:00:42Z joh $
+//  $Id: History.cxx,v 1.1 2005/09/28 17:00:42 joh Exp $
 //
 //  SuperTuxKart - a fun racing game with go-kart
 //  Copyright (C) 2004 Steve Baker <sjbaker1@airmail.net>
