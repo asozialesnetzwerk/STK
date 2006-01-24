@@ -1,7 +1,0 @@
-;; -*- mode: lisp -*-
-
-(tuxkart-track
- (name "On the Beach"))
-
-;; EOF ;;
-

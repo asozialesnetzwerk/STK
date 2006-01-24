@@ -1,6 +1,0 @@
-;; -*- mode: lisp -*-
-
-(tuxkart-track
- (name "Around the Lighthouse"))
-
-;; EOF ;;
