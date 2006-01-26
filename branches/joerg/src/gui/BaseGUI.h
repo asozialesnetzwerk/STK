@@ -21,6 +21,8 @@
 #define HEADER_BASEGUI_H
 
 #include <vector>
+#include "../KartControl.h"
+
 class RaceSetup;
 
 enum GUISwitch
@@ -68,14 +70,14 @@ class BaseGUI
 public:
 	BaseGUI() {}
 	virtual ~BaseGUI() {}
-	
-	virtual void update(float dt) = 0;
+
+    virtual void update(float dt) = 0;
 	virtual void select() = 0;
 	virtual void keybd(int key);
-	virtual void point(int x, int y); 
-	virtual void stick(int whichAxis, int value);
-      virtual void joybutton(int whichJoy, int button);
-	
+	virtual void point(int x, int y);
+	virtual void stick(const int &whichAxis, const float &value);
+    virtual void joybuttons(int whichJoy, int buttons);
+
 protected:
 	int menu_id;
 };

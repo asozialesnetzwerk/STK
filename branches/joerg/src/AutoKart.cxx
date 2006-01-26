@@ -37,19 +37,19 @@ void AutoKart::update (float delta) {
     return;
   }
 
-#ifdef OLDSTEERING     
-  /* If moving left-to-right and on the left 
+#ifdef OLDSTEERING
+  /* If moving left-to-right and on the left
      - or right to left and on the right - do nothing. */
-   
+
   sgVec2 track_velocity ;
   sgSubVec2 ( track_velocity, curr_track_coords, last_track_coords ) ;
-  
+
   if ( ( track_velocity [ 0 ] < 0.0f && curr_track_coords [ 0 ] > 0.0f ) ||
        ( track_velocity [ 0 ] > 0.0f && curr_track_coords [ 0 ] < 0.0f ) )
     getVelocity()->hpr[0] = sgnsq(curr_track_coords[0])*3.0f ;
   else
     getVelocity()->hpr[0] = sgnsq(curr_track_coords[0])*12.0f ;
-   
+
   /* Slow down if we get too far ahead of the player... */
   if ( getPosition() < world->getPlayerKart(0)->getPosition () &&
        getVelocity()->xyz[1] > MIN_HANDICAP_VELOCITY ) {
@@ -62,14 +62,14 @@ void AutoKart::update (float delta) {
     else
       getVelocity()->xyz[1] += MAX_ACCELLERATION * delta ;
   }
-      
+
   getVelocity()->xyz[2] -= GRAVITY * delta ;
-   
-#else   
-   
+
+#else
+
   //If you want to try the new steering algorithm with the player kart check
    //PlayerDriver.cxx in the update function.
-   
+
   if(on_ground) { //You can't control your kart in the air!
     /*New steering algorithm. We find out which is the next dot that the AI
       should follow, then we calculate rotation needed to go in a straight
@@ -77,30 +77,30 @@ void AutoKart::update (float delta) {
       at once since it will not look smooth) is bigger than the amount we
       calculated, we rotate the rotation we planned. Otherwise, it rotates just
       what we need.*/
-   
+
     //1. Get which is the next dot that the AI should follow
       size_t next ;
-   
-      next = (track_hint + 1 >= world->track->driveline.size()) 
+
+      next = (track_hint + 1 >= world->track->driveline.size())
 	   ? 0 : track_hint + 1;
-            
+
       //2. Calculate the rotation we need using trigonometry, we get the sides
       //of a right triangle where the 2 points that define the hypotenuse are
       //the next dot and the current kart position. The angle adyacent to the
       //kart position in the triangle is what we look for.
-   
+
       SGfloat adjacent_line, opposite_line, theta;
       adjacent_line = world->track->driveline[next][0]
                     - getCoord()->xyz[0];
       opposite_line = world->track->driveline[next][1]
 	            - getCoord()->xyz[1];
-   
+
       theta = atanf(opposite_line/adjacent_line) * SG_RADIANS_TO_DEGREES;
-      
+
       //The real value depends on the side of the track that the kart is
       if (adjacent_line < 0.0f) theta = theta + 90.0f;
       else theta = theta - 90.0f;
-      
+
       //See in which direction we have to rotate, and does it.
       float rotation_direction = getCoord()->hpr[0] - theta;
       if (rotation_direction > 180.0f)//rotate counter-clockwise(theta=neg)
@@ -109,19 +109,19 @@ void AutoKart::update (float delta) {
 	getVelocity()->hpr[0] = -3.5f * getVelocity()->xyz[1];
       else { //If it's neither, the rotation doesn't jumps the gap
          switch (world->raceSetup.difficulty) {
-  	   case RD_EASY:
+	   case RD_EASY:
 	        getVelocity()->hpr[0] = 0.15f * -rotation_direction * getVelocity()->xyz[1];
 		break;
 	   case RD_MEDIUM:
 	        getVelocity()->hpr[0] = 0.25f * -rotation_direction * getVelocity()->xyz[1];
 		break;
-  	   case RD_HARD:
+	   case RD_HARD:
 	        getVelocity()->hpr[0] = 0.3f * -rotation_direction * getVelocity()->xyz[1];
 		break;
 	 }   // switch
 
       } //End of the new steering algorithm
-      
+
       switch (world->raceSetup.difficulty) {
         case RD_EASY:
 	     throttle = kart_properties->max_throttle * 0.7f;
@@ -135,16 +135,16 @@ void AutoKart::update (float delta) {
       }   // switch difficulty
   }   // if(on_ground)
 #endif
-   
+
   if ( wheelie_angle > 0.0f ) {
     wheelie_angle -= PITCH_RESTORE_RATE ;
-      
+
     if ( wheelie_angle <= 0.0f ) wheelie_angle = 0.0f ;
   }
-   
+
   if ( collectable.getType() != COLLECT_NOTHING ) {
     time_since_last_shoot += delta ;
-      
+
     if ( time_since_last_shoot > 10.0f ) {
       collectable.use() ;
       time_since_last_shoot = 0.0f ;

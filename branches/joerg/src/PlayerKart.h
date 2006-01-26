@@ -36,11 +36,11 @@ class PlayerKart : public Kart {
   PlayerKart(const KartProperties *kart_properties, 
 	     int position, Player *_player) : 
     Kart(kart_properties, position) { player=_player; penaltyTime=0.0; }
-   
+
   int     earlyStartPenalty () {return penaltyTime>0; }
   Player* getPlayer         () {return player;        }
   void    update            (float);
-  void    incomingJoystick  (KartControl* ji);
+  void    incomingJoystick  (const KartControl &ctrl);
   void    action            (int key);
 };
 

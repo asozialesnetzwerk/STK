@@ -105,22 +105,22 @@ void PlayerControls::point(int x, int y)
         widgetSet -> pulse(widgetSet -> point(menu_id, x, y), 1.2f);
 }
 
-void PlayerControls::stick(int whichAxis, int value)
+void PlayerControls::stick(const int &whichAxis, const float &value)
 {
     if (!grabInput)
         widgetSet -> pulse(widgetSet -> stick(menu_id, whichAxis, value), 1.2f);
 }
 
-void PlayerControls::joybutton(int whichJoy, int button)
+void PlayerControls::joybuttons(int whichJoy, int buttons)
 {
     if (grabInput && editKey != KC_LEFT && editKey != KC_RIGHT && whichJoy == config_index)
     {
-        config->player[config_index].buttons[editKey] = button;
+        config->player[config_index].buttons[editKey] = buttons;
         grabInput = false;
         changeKeyLabel(grab_id, editKey);
     }
     else
-        BaseGUI::joybutton(whichJoy, button);
+        BaseGUI::joybuttons(whichJoy, buttons);
 }
 
 void PlayerControls::addKeyLabel(int change_id, KartActions control, bool start)

@@ -42,13 +42,13 @@ std::vector<GUISwitch> guiStack;
 
 void updateGUI() {
   static unsigned int rememberSize = 0;
-	
+
   if (rememberSize != guiStack.size()) {
     delete gui;
     gui = 0;
-    
+
     rememberSize = guiStack.size();
-    if (guiStack.size()) {		
+    if (guiStack.size()) {
       switch (guiStack.back()) {
         case GUIS_MAINMENU:       gui = new MainMenu;          break;
         case GUIS_CHARSEL:        gui = new CharSel(0);        break;
@@ -74,12 +74,12 @@ void updateGUI() {
       }   // switch
     }   // if guiStack.size()
   }   // if rememberSize!=guiStack.size()
-	
+
   static ulClock now  = ulClock();
-  
+
   now.update();
   if (gui) gui -> update( now.getDeltaTime());
-		
+
   if(guiStack.empty()) screen_manager->abort();
 }   // updateGUI
 
@@ -91,7 +91,7 @@ void BaseGUI::keybd(int key) {
     case PW_KEY_UP:
     case PW_KEY_DOWN: widgetSet->pulse(widgetSet->cursor(menu_id, key), 1.2f);
                       break;
-		
+
     case ' ' :
     case '\r': select(); break;
     case 27:   guiStack.pop_back(); break;   // ESC
@@ -101,21 +101,36 @@ void BaseGUI::keybd(int key) {
 
 // -----------------------------------------------------------------------------
 void BaseGUI::point(int x, int y) {
+    if(widgetSet)
 	widgetSet -> pulse(widgetSet -> point(menu_id, x, y), 1.2f);
 }   // point
 
 // -----------------------------------------------------------------------------
-void BaseGUI::stick(int whichAxis, int value) {
-	widgetSet -> pulse(widgetSet -> stick(menu_id, whichAxis, value), 1.2f);
+void BaseGUI::stick(const int &whichAxis, const float &value) {
+    if(widgetSet)
+	widgetSet -> pulse(widgetSet -> stick(menu_id, whichAxis, (int)value), 1.2f);
 }   // stick
 
 // -----------------------------------------------------------------------------
-void BaseGUI::joybutton(int whichJoy, int button) {
+void BaseGUI::joybuttons( int whichJoy, int buttons ) {
     (void)whichJoy;
-    
-    if (button == 0)
-        select();
-    else if (guiStack.size() > 1 && button == 1)
-        guiStack.pop_back();
-}   // joybutton
 
+    static int button0_not_pressed = 1;
+    static int button1_not_pressed = 1;
+
+    if( !( buttons & 2 ) ) button0_not_pressed = 1;
+    else if (button0_not_pressed)
+    {
+        select();
+        button0_not_pressed = 0;
+    }
+
+    if( !( buttons & 1 ) ) button1_not_pressed = 1;
+    else if (guiStack.size() > 1 && button1_not_pressed)
+    {
+        guiStack.pop_back();
+        button1_not_pressed = 0;
+    }
+}   // joybuttons
+
+/* EOF */

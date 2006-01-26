@@ -30,17 +30,17 @@ class PlayerControls: public BaseGUI
 public:
 	PlayerControls(int whichPlayer);
 	~PlayerControls();
-	
+
 	void update(float dt);
 	void select();
 	void keybd(int key);
 	void point(int x, int y);
-	void stick(int x, int y);
-      void joybutton(int whichJoy, int button);
-      void addKeyLabel(int change_id, KartActions control, bool start);
-      void changeKeyLabel(int grab_id, KartActions control);
-      std::string getKeyInfoString(KartActions control);
-	
+	void stick(const int &whichAxis, const float &value);
+    void joybuttons(int whichJoy, int buttons);
+    void addKeyLabel(int change_id, KartActions control, bool start);
+    void changeKeyLabel(int grab_id, KartActions control);
+    std::string getKeyInfoString(KartActions control);
+
 private:
 	int grab_id;
 	int config_index;

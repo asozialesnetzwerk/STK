@@ -27,7 +27,7 @@ class MainMenu: public BaseGUI
 public:
 	MainMenu();
 	~MainMenu();
-	
+
 	void update(float dt);
 	void select();
 	void keybd(int key);

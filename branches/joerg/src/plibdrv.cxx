@@ -20,6 +20,7 @@
 #include <plib/pw.h>
 #include <plib/pu.h>
 #include <plib/ssg.h>
+#include <plib/js.h>
 
 #include "Config.h"
 #include "plibdrv.h"
@@ -54,11 +55,25 @@ void gui_mousefn ( int button, int updown, int x, int y ) {
   puMouse ( button, updown, x, y ) ;
 }
 
+static jsJoystick *joystick ;
+
 void pollEvents() {
-  int k=getKeystroke();
-  if(k) {
-    gui->keybd(k);
-  }   // if k
+  if(gui)
+  {
+    int k=getKeystroke();
+    if(k) {
+      gui->keybd(k);
+    }   // if k
+
+    if( !( joystick -> notWorking () ) )
+    {
+      KartControl controls;
+      joystick -> read ( &controls.buttons, controls.data) ;
+      gui -> stick( 0, controls.data[0]);
+      gui -> stick( 1, controls.data[1]);
+      gui -> joybuttons( 0, controls.buttons );
+    }
+  }
 }
 
 static unsigned int lastKeystroke = 0 ;
@@ -83,6 +98,7 @@ int getKeystroke () {
   return k ;
 }
 
+//printkeys() is not currently used, should be erased or used in debug mode.
 void printkeys() {
   int flag=0;
   for(int i=0; i<512; i++) {
@@ -93,14 +109,19 @@ void printkeys() {
   }
   if(flag) printf("\n");
 }
-                                                               
+
 void InitPlib() {
-  pwInit ( 0, 0, config->width, config->height, 
+  pwInit ( 0, 0, config->width, config->height,
 	   FALSE, "Tux Kart by Steve Baker", TRUE, 0 ) ;
 
   puInit () ;
   ssgInit () ;
   fntInit();
+  jsInit();
+
   for ( int i = 0 ; i < 512 ; i++ )
     keyIsDown [ i ] = FALSE ;
+  joystick = new jsJoystick ( 0 );
+  joystick -> setDeadBand( 0, 0.1 );
+  joystick -> setDeadBand( 1, 0.1 );
 }

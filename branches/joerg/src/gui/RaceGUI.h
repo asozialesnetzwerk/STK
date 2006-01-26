@@ -39,24 +39,25 @@ class RaceGUI: public BaseGUI {
 public:
 	RaceGUI();
 	~RaceGUI();
-	
+
 	void update(float dt);
 	void select() {}
 	void keybd(int key);
 	void point(int x, int y) { (void)x; (void)y; }
-	void stick(int whichAxis, int value) { (void)whichAxis; (void)value; }
-	
+	void stick(const int &whichAxis, const float &value) ;
+    void joybuttons(int whichJoy, int buttons ) ;
+
 private:
 	void drawFPS();
 	ulClock  fpsTimer;
 	int      fpsCounter;
 	int      fps_id;
-	
+
 	Material *herringbones_gst ;
 	Material *herring_gst ;
 	Material *magnet_gst ;
 	Material *zipper_gst ;
-	
+
 	double time_left ;
 
 	char *pos_string [11];

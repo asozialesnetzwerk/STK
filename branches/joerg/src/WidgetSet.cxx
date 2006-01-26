@@ -1355,33 +1355,40 @@ int WidgetSet::stick(int id, int whichAxis, int value)
 {
     /* Flag the axes to prevent uncontrolled scrolling. */
 
-    static int xflag = 1;
-    static int yflag = 1;
+    static int x_not_pressed = 1;
+    static int y_not_pressed = 1;
 
     int jd = 0;
 
     /* Find a new active widget in the direction of joystick motion. */
-    
-    //JH
-#define JOY_MID 16383
+
     if (whichAxis == 0)
     {
-        if (-JOY_MID <= value && value <= +JOY_MID)
-            xflag = 1;
-        else if (value < -JOY_MID && xflag && (jd = stick_L(id, active)))
-            xflag = 0;
-        else if (value > +JOY_MID && xflag && (jd = stick_R(id, active)))
-            xflag = 0;
+        if(value == 0) x_not_pressed = 1;
+        else if(value == -1 && x_not_pressed)
+        {
+            jd = stick_L(id, active);
+            x_not_pressed = 0;
+        }
+        else if (value == 1 && x_not_pressed)
+        {
+            jd = stick_R(id, active);
+            x_not_pressed = 0;
+        }
     }
-    
-    else //whichAxis must equal 1
+    else if(whichAxis == 1)
     {
-        if (-JOY_MID <= value && value <= +JOY_MID)
-            yflag = 1;
-        else if (value < -JOY_MID && yflag && (jd = stick_U(id, active)))
-            yflag = 0;
-        else if (value > +JOY_MID && yflag && (jd = stick_D(id, active)))
-            yflag = 0;
+        if(value == 0) y_not_pressed = 1;
+        else if(value == -1 && y_not_pressed)
+        {
+            jd = stick_U(id, active);
+            y_not_pressed = 0;
+        }
+        else if (value == 1 && y_not_pressed)
+        {
+            jd = stick_D(id, active);
+            y_not_pressed = 0;
+        }
     }
 
     /* If the active widget has changed, return the new active id. */
@@ -1395,7 +1402,7 @@ int WidgetSet::stick(int id, int whichAxis, int value)
 int WidgetSet::cursor(int id, int key)
 {
 	int jd = 0;
-	
+
 	switch (key)
 	{
 	case PW_KEY_LEFT:  jd = stick_L(id, active); break;

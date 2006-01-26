@@ -17,7 +17,6 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
-
 #include <iostream>
 #include <assert.h>
 #include "tuxkart.h"
@@ -33,12 +32,10 @@
 // Only keys which must keep on working when still being pressed
 // are handled here, not 'one time action' keys like fire, ...
 void PlayerKart::doSteering() {
-  controls.lr = isKeyDown(player->keys[KC_LEFT]) 
-                ? -1.0
-                : isKeyDown(player->keys[KC_RIGHT]) ? 1.0 : 0.0;
-
-  controls.accel = isKeyDown(player->keys[KC_UP]);
-  controls.brake = isKeyDown(player->keys[KC_DOWN]);
+  if(isKeyDown(player->keys[KC_LEFT])) controls.lr = -1.0f;
+  if(isKeyDown(player->keys[KC_RIGHT])) controls.lr = 1.0f;
+  if(isKeyDown(player->keys[KC_UP])) controls.accel = 1;
+  if(isKeyDown(player->keys[KC_DOWN])) controls.brake = 1;
 }   // doSteering
 
 // Gets called by RaceGUI when one of the non-steering keys
@@ -53,7 +50,6 @@ void PlayerKart::action(int key) {
     case KC_RESCUE:  controls.rescue  = true; break;
   }   // switch key
 }   // action
-
 // -----------------------------------------------------------------------------
 #define OLDUPDATE
 void PlayerKart::update(float dt) {
@@ -196,9 +192,14 @@ void PlayerKart::update(float dt) {
 }   // update
 
 // -----------------------------------------------------------------------------
-void PlayerKart::incomingJoystick  (KartControl* ctrl) {
-     printf("FIXME: Playerkart::incomingJoystick\n");
-     controls = *ctrl;
-}   // incomingJoysticl
+void PlayerKart::incomingJoystick  (const KartControl &ctrl) {
+  controls.lr = ctrl.data[0] ;
+  controls.accel = ctrl.buttons & 2 ;
+  controls.brake = ctrl.buttons & 1 ;
+  controls.rescue = ctrl.buttons & 0x04 ;
+  controls.fire = ctrl.buttons & 0x08 ;
+  controls.jump = ctrl.buttons & 0x10 ;
+  controls.wheelie = ctrl.buttons & 0x20 ;
+}   // incomingJoystick
 
 /* EOF */

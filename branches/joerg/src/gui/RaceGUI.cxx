@@ -17,6 +17,7 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
+#include "../KartControl.h"
 #include "RaceGUI.h"
 #include "tuxkart.h"
 #include "../MaterialManager.h"
@@ -50,6 +51,7 @@ RaceGUI::RaceGUI(): herringbones_gst(NULL),
       keysToKart[i]=0;
       typeForKey[i]=0;
     }
+
     for(int i=0; i<world->raceSetup.getNumPlayers(); i++) {
       PlayerKart* k = world->getPlayerKart(i);
       Player*     p = k->getPlayer();
@@ -61,7 +63,6 @@ RaceGUI::RaceGUI(): herringbones_gst(NULL),
       typeForKey[p->keys[KC_JUMP]   ] = KC_JUMP   ;
       typeForKey[p->keys[KC_RESCUE] ] = KC_RESCUE ;
       typeForKey[p->keys[KC_FIRE]   ] = KC_FIRE   ;
-      
     }
   }   // if !config->profile
 
@@ -111,7 +112,7 @@ void RaceGUI::keybd(int key)
   // Check if it's a user assigned key
   if(keysToKart[key]) {
     keysToKart[key]->action(typeForKey[key]);
-  } else { 
+  } else {
     switch ( key ) {
       case 0x12      : if(world->raceSetup.getNumPlayers()==1) {   // ctrl-r
                         Kart* kart = world->getPlayerKart(0);
@@ -120,7 +121,7 @@ void RaceGUI::keybd(int key)
 			//JH COLLECT_MISSILE:COLLECT_HOMING_MISSILE,
                      }
                      break;
-      case PW_KEY_F12: config->displayFPS = !config->displayFPS ; 
+      case PW_KEY_F12: config->displayFPS = !config->displayFPS ;
 	               if(config->displayFPS) {
 			 fpsTimer.reset();
 			 fpsTimer.setMaxDelta(1000);
@@ -139,8 +140,21 @@ void RaceGUI::keybd(int key)
 #endif
      default:   break;
     }   // switch
-  }   // if(keysToKart[key] else 
+  }   // if(keysToKart[key] else
 } // keybd
+
+static KartControl controls;
+
+void RaceGUI::stick(const int &whichAxis, const float &value){
+  controls.data[whichAxis] = value;
+  world -> getPlayerKart(0) -> incomingJoystick ( controls );
+}
+
+void RaceGUI::joybuttons( int whichJoy, int buttons ) {
+  (void)whichJoy;
+  controls.buttons = buttons;
+  world -> getPlayerKart(0) -> incomingJoystick ( controls );
+}
 
 void RaceGUI::drawFPS ()
 {

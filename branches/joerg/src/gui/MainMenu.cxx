@@ -80,8 +80,8 @@ void MainMenu::keybd(int key)
 	  case 27:   //ESC
           guiStack.clear();
 	    break;
-		
-	default:
+
+	  default:
 		BaseGUI::keybd(key);
 		break;
 	}
