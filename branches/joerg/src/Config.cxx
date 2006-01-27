@@ -90,8 +90,8 @@ void Config::setDefaults()
   player[2].setName("Player 3");
   player[3].setName("Player 4");
   /*player 1 default keyboard settings*/
-  player[0].keys[KC_LEFT]    = PW_CURSOR_LEFT;
-  player[0].keys[KC_RIGHT]   = PW_CURSOR_RIGHT;
+  player[0].keys[KC_LEFT]    = PW_KEY_LEFT;
+  player[0].keys[KC_RIGHT]   = PW_KEY_RIGHT;
   player[0].keys[KC_UP]      = PW_KEY_UP;
   player[0].keys[KC_DOWN]    = PW_KEY_DOWN;
   player[0].keys[KC_WHEELIE] = 'a';

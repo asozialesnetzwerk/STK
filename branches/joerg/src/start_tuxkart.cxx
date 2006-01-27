@@ -274,6 +274,7 @@ int main ( int argc, char **argv ) {
     }
     screen_manager->run();
   }
+  config->saveConfig();
 return 0 ;
 }
 
