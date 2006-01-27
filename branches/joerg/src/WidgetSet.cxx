@@ -205,12 +205,20 @@ void WidgetSet::set_label(int id, const char *text)
     if (glIsTexture(widgets[id].text_img))
         glDeleteTextures(1, &widgets[id].text_img);
     float l,r,b,t;
-    widgets[id].size       = 24;   //JH FIXME: we need a font size  here :(
     fnt->getBBox(text, widgets[id].size, 0, &l, &r, &b, &t);
     widgets[id].yOffset    = (int)b;
-    widgets[id].w          = (int)(r-l+0.99);
-    widgets[id].text_width = widgets[id].w;
-    widgets[id].h          = (int)(t-b+0.99);
+    widgets[id].text_width = (int)(r-l+0.99);
+    widgets[id]._text      = text;
+    // There is a potential bug here: if the label being set is
+    // larger than the current width, the container (parent) does
+    // not get wider ... the layout will be broken. Unfortunately,
+    // that's somewhat difficult to fix, since layout will in turn
+    // add the radius to width of button (see button_up), ...
+    // So for now we only print a warning:
+    if(widgets[id].text_width > widgets[id].w) {
+      fprintf(stderr,
+     "set_label increased width of parent container, layout will be invalid\n");
+    }
 }
 
 void WidgetSet::set_image(int id, const char *file)

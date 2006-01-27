@@ -36,16 +36,20 @@ public:
 	void keybd(int key);
 	void point(int x, int y);
 	void stick(const int &whichAxis, const float &value);
-    void joybuttons(int whichJoy, int buttons);
-    void addKeyLabel(int change_id, KartActions control, bool start);
-    void changeKeyLabel(int grab_id, KartActions control);
-    std::string getKeyInfoString(KartActions control);
+	void joybuttons(int whichJoy, int buttons);
+	void addKeyLabel(int change_id, KartActions control, bool start);
+	void changeKeyLabel(int grab_id, KartActions control);
+	void setKeyInfoString(KartActions control);
 
 private:
 	int grab_id;
-	int config_index;
+	int player_index;
 	bool grabInput;
-	KartActions editKey;
+	KartActions editAction;
+	// Stores the heading - making this an attribute here avoids
+	// memory leaks or complicated memory management
+	char Heading[60];
+	std::string KeyNames[KC_FIRE+1];
 };
 
 #endif

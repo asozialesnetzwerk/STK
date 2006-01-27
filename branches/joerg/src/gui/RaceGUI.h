@@ -63,21 +63,22 @@ private:
 	char *pos_string [11];
 
   /* Display informat on screen */
-	void drawStatusText (const RaceSetup& raceSetup);
-	void drawEnergyMeter ( float state, int offset_x, int offset_y, 
-			       float ratio_x, float ratio_y );
-	void drawCollectableIcons (Kart* player_kart, int offset_x, 
-				   int offset_y, float ratio_x, float ratio_y);
-	void drawEmergencyText (Kart* player_kart, int offset_x, 
-				int offset_y, float ratio_x, float ratio_y );
-	void drawPlayerIcons ();
-	void oldDrawPlayerIcons ();
-	void drawGameOverText ();
-	void drawMap ();
-	void drawScore (const RaceSetup& raceSetup, Kart* player_kart, 
-			int offset_x, int offset_y, float ratio_x, 
-			float ratio_y);
-	void drawTimer ();
+	void drawStatusText        (const RaceSetup& raceSetup);
+	void drawEnergyMeter       (float state, int offset_x, int offset_y, 
+				    float ratio_x, float ratio_y );
+	void drawCollectableIcons  (Kart* player_kart, int offset_x, 
+				    int offset_y, float ratio_x, float ratio_y);
+	void drawEmergencyText     (Kart* player_kart, int offset_x, 
+				    int offset_y, float ratio_x, float ratio_y );
+	void UpdateKeyboardMappings();
+	void drawPlayerIcons       ();
+	void oldDrawPlayerIcons    ();
+	void drawGameOverText      ();
+	void drawMap               ();
+	void drawTimer             ();
+	void drawScore             (const RaceSetup& raceSetup,
+				    Kart* player_kart, int offset_x, 
+				    int offset_y, float ratio_x, float ratio_y);
 
   /* Text drawing */
   /** Draw text to screen.

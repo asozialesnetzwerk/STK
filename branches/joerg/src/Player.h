@@ -22,14 +22,17 @@
 
 #include <string>
 
+// Some part (e.g. gui/PlayerControls) depend on KC_LEFT being the first
+// entry, and KC_FIRE being the last - so any action added should be
+// added in between those two values.
 enum KartActions { KC_LEFT,
-		  KC_RIGHT,
-		  KC_UP,
-		  KC_DOWN,
-		  KC_WHEELIE,
-		  KC_JUMP,
-		  KC_RESCUE,
-		  KC_FIRE };
+		   KC_RIGHT,
+		   KC_UP,
+		   KC_DOWN,
+		   KC_WHEELIE,
+		   KC_JUMP,
+		   KC_RESCUE,
+		   KC_FIRE };
 
 /*class for managing player name and control configuration*/
 class Player

@@ -24,140 +24,162 @@
 
 #include <string>
 
-PlayerControls::PlayerControls(int whichPlayer):
-        config_index(whichPlayer),
-        grabInput(false)
-{
-    menu_id = widgetSet -> vstack(0);
-    char output[60];
-    sprintf(output, "Choose your controls, %s", config->player[config_index].name.c_str());
-    widgetSet -> label(menu_id, output, GUI_LRG, GUI_ALL, 0, 0);
+PlayerControls::PlayerControls(int whichPlayer): player_index(whichPlayer),
+						 grabInput(false)          {
+  menu_id = widgetSet -> vstack(0);
+  sprintf(Heading, "Choose your controls, %s", 
+	  config->player[player_index].name.c_str());
+  widgetSet -> label(menu_id, Heading, GUI_LRG, GUI_ALL, 0, 0);
+  
+  int ha = widgetSet -> harray(menu_id);
+  int change_id = widgetSet -> varray(ha);
+  
+  for(int i=KC_LEFT; i<=KC_FIRE; i++) {
+    addKeyLabel(change_id, (KartActions)i,    i==0 );
+  }
 
-    int ha = widgetSet -> harray(menu_id);
-    int change_id = widgetSet -> varray(ha);
+  int label_id = widgetSet -> varray(ha);
+  widgetSet -> label(label_id, "Left",             GUI_MED, GUI_ALL, 0, 0);
+  widgetSet -> label(label_id, "Right",            GUI_MED, GUI_ALL, 0, 0);
+  widgetSet -> label(label_id, "Accelerate",       GUI_MED, GUI_ALL, 0, 0);
+  widgetSet -> label(label_id, "Brake",            GUI_MED, GUI_ALL, 0, 0);
+  widgetSet -> label(label_id, "Pull wheelie",     GUI_MED, GUI_ALL, 0, 0);
+  widgetSet -> label(label_id, "Jump",             GUI_MED, GUI_ALL, 0, 0);
+  widgetSet -> label(label_id, "Call for rescue",  GUI_MED, GUI_ALL, 0, 0);
+  widgetSet -> label(label_id, "Fire",             GUI_MED, GUI_ALL, 0, 0);
+  
+  widgetSet -> layout(menu_id, 0, 0);
+}   // PlayerControls
+
+// -----------------------------------------------------------------------------
+PlayerControls::~PlayerControls() {
+  widgetSet -> delete_widget(menu_id) ;
+}   // ~PlayerControls
+
+// -----------------------------------------------------------------------------
+void PlayerControls::update(float dt) {
+
+  widgetSet -> timer(menu_id, dt) ;
+  widgetSet -> paint(menu_id) ;
+}   // update
+
+// -----------------------------------------------------------------------------
+void PlayerControls::select() {
+  if (grabInput) return;
     
-    addKeyLabel(change_id, KC_LEFT, true);
-    addKeyLabel(change_id, KC_RIGHT, false);
-    addKeyLabel(change_id, KC_UP, false);
-    addKeyLabel(change_id, KC_DOWN, false);
-    addKeyLabel(change_id, KC_WHEELIE, false);
-    addKeyLabel(change_id, KC_JUMP, false);
-    addKeyLabel(change_id, KC_RESCUE, false);
-    addKeyLabel(change_id, KC_FIRE, false);
+  grab_id        = widgetSet -> click();
+  int menuChoice = widgetSet -> token (grab_id);
+  
+  if ( menuChoice == MENU_RETURN) {
+    config->saveConfig();
+    guiStack.pop_back();
+  } else {
+    editAction   = static_cast<KartActions>(menuChoice);
+    grabInput = true;
+    widgetSet->set_label(grab_id,"Press key");
+  }
+}   // select
 
-    int label_id = widgetSet -> varray(ha);
-    widgetSet -> label(label_id, "Left",  GUI_MED, GUI_ALL, 0, 0);
-    widgetSet -> label(label_id, "Right",  GUI_MED, GUI_ALL, 0, 0);
-    widgetSet -> label(label_id, "Accelerate",  GUI_MED, GUI_ALL, 0, 0);
-    widgetSet -> label(label_id, "Brake",  GUI_MED, GUI_ALL, 0, 0);
-    widgetSet -> label(label_id, "Pull wheelie",  GUI_MED, GUI_ALL, 0, 0);
-    widgetSet -> label(label_id, "Jump",  GUI_MED, GUI_ALL, 0, 0);
-    widgetSet -> label(label_id, "Call for rescue",  GUI_MED, GUI_ALL, 0, 0);
-    widgetSet -> label(label_id, "Fire",  GUI_MED, GUI_ALL, 0, 0);
+// -----------------------------------------------------------------------------
+void PlayerControls::keybd(int key) {
+  if (grabInput) {
+    //    printf("Setting %d: %lx: from %d to %d\n",
+    //	   player_index, config->player[player_index],config->player[player_index].keys[editAction],key);
+    config->player[player_index].keys[editAction] = key;
+    grabInput = false;
+    changeKeyLabel(grab_id, editAction);
+  } else
+    BaseGUI::keybd(key);
+}   // keybd
 
-    widgetSet -> layout(menu_id, 0, 0);
-}
-
-PlayerControls::~PlayerControls()
-{
-    widgetSet -> delete_widget(menu_id) ;
-}
-
-void PlayerControls::update(float dt)
-{
-
-    widgetSet -> timer(menu_id, dt) ;
-    widgetSet -> paint(menu_id) ;
-}
-
-void PlayerControls::select()
-{
-    if (grabInput)
-        return;
-
-    grab_id = widgetSet -> click();
-    int menuChoice = widgetSet -> token (grab_id);
-
-    if ( menuChoice == MENU_RETURN)
-        guiStack.pop_back();
-    else
-    {
-        editKey = static_cast<KartActions>(menuChoice);
-        grabInput = true;
-    }
-}
-
-void PlayerControls::keybd(int key)
-{
-    if (grabInput)
-    {
-        config->player[config_index].keys[editKey] = key;
-        grabInput = false;
-        changeKeyLabel(grab_id, editKey);
-    }
-    else
-        BaseGUI::keybd(key);
-}
-
-void PlayerControls::point(int x, int y)
-{
+// -----------------------------------------------------------------------------
+void PlayerControls::point(int x, int y) {
     if (!grabInput)
         widgetSet -> pulse(widgetSet -> point(menu_id, x, y), 1.2f);
-}
+}   // point
 
-void PlayerControls::stick(const int &whichAxis, const float &value)
-{
-    if (!grabInput)
-        widgetSet -> pulse(widgetSet -> stick(menu_id, whichAxis, value), 1.2f);
-}
+// -----------------------------------------------------------------------------
+void PlayerControls::stick(const int &whichAxis, const float &value) {
+  if (!grabInput)
+    widgetSet -> pulse(widgetSet -> stick(menu_id, whichAxis, value), 1.2f);
+}   // stick
 
-void PlayerControls::joybuttons(int whichJoy, int buttons)
-{
-    if (grabInput && editKey != KC_LEFT && editKey != KC_RIGHT && whichJoy == config_index)
-    {
-        config->player[config_index].buttons[editKey] = buttons;
+// -----------------------------------------------------------------------------
+void PlayerControls::joybuttons(int whichJoy, int buttons) {
+  if (grabInput && editAction != KC_LEFT && editAction != KC_RIGHT && 
+      whichJoy == player_index) {
+	config->player[player_index].buttons[editAction] = buttons;
         grabInput = false;
-        changeKeyLabel(grab_id, editKey);
+        changeKeyLabel(grab_id, editAction);
     }
     else
         BaseGUI::joybuttons(whichJoy, buttons);
-}
+}   // joybuttons
 
-void PlayerControls::addKeyLabel(int change_id, KartActions control, bool start)
-{
-    std::string currentKeys = getKeyInfoString(control);
-    
-    if (start)
-        widgetSet -> start(change_id, currentKeys.c_str(), GUI_MED, control, 0);
-    else
-        widgetSet -> state(change_id, currentKeys.c_str(), GUI_MED, control, 0);
-}
+// -----------------------------------------------------------------------------
+void PlayerControls::addKeyLabel(int change_id, KartActions control, 
+				 bool start)                           {
 
-void PlayerControls::changeKeyLabel(int grab_id, KartActions control)
-{
-    std::string currentKeys = getKeyInfoString(control);
-    
-    widgetSet -> set_label(grab_id, currentKeys.c_str());
-}
+  setKeyInfoString(control);
+  
+  if (start)
+    widgetSet -> start(change_id, KeyNames[control].c_str(), GUI_MED, 
+		       control, 0);
+  else
+    widgetSet -> state(change_id, KeyNames[control].c_str(), GUI_MED, 
+		       control, 0);
+}   // addKeyLabel
 
-std::string PlayerControls::getKeyInfoString(KartActions control)
-{
-  //JH    std::string ret = SDL_GetKeyName(static_cast<SDLKey>(config->player[config_index].keys[control]));
-  std::string ret = " ";
-    if (config->player[config_index].useJoy)
-    {
-        char joyInfo[60];
-        if (control == KC_LEFT)
-            sprintf(joyInfo, " or joystick left");
-        else if (control == KC_RIGHT)
-            sprintf(joyInfo, " or joystick right");
-        else
-            sprintf(joyInfo, " or joy button %d", config->player[config_index].buttons[control]);
-        ret += joyInfo;
-    }
-    
-    return ret;
-}
+// -----------------------------------------------------------------------------
+void PlayerControls::changeKeyLabel(int grab_id, KartActions control) {
+  setKeyInfoString(control);
+  widgetSet -> set_label(grab_id, KeyNames[control].c_str());
+  //  widgetSet -> layout(menu_id, 0, 0);
+}   // changeKeyLabel
+
+// -----------------------------------------------------------------------------
+void PlayerControls::setKeyInfoString(KartActions control) {
+  std::string ret;
+  int key = config->player[player_index].keys[control];
+
+  switch (key) {
+    case PW_KEY_RIGHT     : ret="right"  ; break;
+    case PW_KEY_LEFT      : ret="left"   ; break;
+    case PW_KEY_UP        : ret="up"     ; break;
+    case PW_KEY_DOWN      : ret="down"   ; break;
+    case PW_KEY_F1        : ret="F1"     ; break;
+    case PW_KEY_F2        : ret="F2"     ; break;
+    case PW_KEY_F3        : ret="F3"     ; break;
+    case PW_KEY_F4        : ret="F4"     ; break;
+    case PW_KEY_F5        : ret="F5"     ; break;
+    case PW_KEY_F6        : ret="F6"     ; break;
+    case PW_KEY_F7        : ret="F7"     ; break;
+    case PW_KEY_F8        : ret="F8"     ; break;
+    case PW_KEY_F9        : ret="F9"     ; break;
+    case PW_KEY_F10       : ret="F10"    ; break;
+    case PW_KEY_F11       : ret="F11"    ; break;
+    case PW_KEY_F12       : ret="F12"    ; break;
+    case PW_KEY_PAGE_UP   : ret="pg up"  ; break;
+    case PW_KEY_PAGE_DOWN : ret="pg down"; break;
+    case PW_KEY_HOME      : ret="home"   ; break;
+    case PW_KEY_END       : ret="end"    ; break;
+    case PW_KEY_INSERT    : ret="insert" ; break;
+    case 13               : ret="enter"  ; break;
+    case 32               : ret="space"  ; break;
+    default:                ret=" ";
+                            ret[0]=key;
+  }
+  if (config->player[player_index].useJoy) {
+    char joyInfo[60];
+    if      (control == KC_LEFT)  sprintf(joyInfo, " or joystick left");
+    else if (control == KC_RIGHT) sprintf(joyInfo, " or joystick right");
+    else sprintf(joyInfo, " or joy button %d", 
+		 config->player[player_index].buttons[control]);
+    ret += joyInfo;
+  }
+  KeyNames[control] = ret;
+
+}   // setKeyInfoString
 
 
 

@@ -42,28 +42,7 @@ RaceGUI::RaceGUI(): herringbones_gst(NULL),
 		    stats_enabled(false),
 		    next_string(0)             {
   if(!config->profile) {
-    // To avoid looping over all players to find out what
-    // player control key was pressed, a special data structure 
-    // is set up: keysToKArt contains for each (player assigned) 
-    // key which kart it applies to (and therefore which player),
-  // and typeForKey contains the assigned function of that key.
-    for(int i=0; i<MAXKEYS; i++) {
-      keysToKart[i]=0;
-      typeForKey[i]=0;
-    }
-
-    for(int i=0; i<world->raceSetup.getNumPlayers(); i++) {
-      PlayerKart* k = world->getPlayerKart(i);
-      Player*     p = k->getPlayer();
-      keysToKart[p->keys[KC_WHEELIE]] = k;
-      keysToKart[p->keys[KC_JUMP]   ] = k;
-      keysToKart[p->keys[KC_RESCUE] ] = k;
-      keysToKart[p->keys[KC_FIRE]   ] = k;
-      typeForKey[p->keys[KC_WHEELIE]] = KC_WHEELIE;
-      typeForKey[p->keys[KC_JUMP]   ] = KC_JUMP   ;
-      typeForKey[p->keys[KC_RESCUE] ] = KC_RESCUE ;
-      typeForKey[p->keys[KC_FIRE]   ] = KC_FIRE   ;
-    }
+    UpdateKeyboardMappings();
   }   // if !config->profile
 
   fpsCounter = 0;
@@ -96,7 +75,36 @@ RaceGUI::~RaceGUI()
 	widgetSet -> delete_widget(fps_id) ;
 	//FIXME: does all that material stuff need freeing somehow?
 }
-	
+
+// -----------------------------------------------------------------------------
+void RaceGUI::UpdateKeyboardMappings() {
+  // Defines the mappings for player keys to kart and action	
+  // To avoid looping over all players to find out what
+  // player control key was pressed, a special data structure 
+  // is set up: keysToKArt contains for each (player assigned) 
+  // key which kart it applies to (and therefore which player),
+  // and typeForKey contains the assigned function of that key.
+  for(int i=0; i<MAXKEYS; i++) {
+    keysToKart[i]=0;
+    typeForKey[i]=0;
+  }
+  
+  for(int i=0; i<world->raceSetup.getNumPlayers(); i++) {
+    PlayerKart* kart = world->getPlayerKart(i);
+    Player*     p    = kart->getPlayer();
+    keysToKart[p->keys[KC_WHEELIE]] = kart;
+    keysToKart[p->keys[KC_JUMP]   ] = kart;
+    keysToKart[p->keys[KC_RESCUE] ] = kart;
+    keysToKart[p->keys[KC_FIRE]   ] = kart;
+    typeForKey[p->keys[KC_WHEELIE]] = KC_WHEELIE;
+    typeForKey[p->keys[KC_JUMP]   ] = KC_JUMP   ;
+    typeForKey[p->keys[KC_RESCUE] ] = KC_RESCUE ;
+    typeForKey[p->keys[KC_FIRE]   ] = KC_FIRE   ;
+  }
+  printf("Updated keyboard mapping\n"); 
+}   // UpdateKeyControl
+// -----------------------------------------------------------------------------
+
 void RaceGUI::update(float dt)
 {
 	widgetSet -> timer(fps_id, dt) ;
@@ -134,6 +142,9 @@ void RaceGUI::keybd(int key)
 		       return ;
       case 27:         widgetSet -> tgl_paused();    // ESC
 	  	       guiStack.push_back(GUIS_RACEMENU);
+		       // The player might have changed the keyboard 
+		       // configuration, so we need to redefine the mappings
+		       UpdateKeyboardMappings();
 		       break;
 #ifdef DEBUG
       case PW_KEY_F10: stToggle () ; return ;

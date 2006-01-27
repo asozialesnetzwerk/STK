@@ -32,10 +32,12 @@
 // Only keys which must keep on working when still being pressed
 // are handled here, not 'one time action' keys like fire, ...
 void PlayerKart::doSteering() {
-  if(isKeyDown(player->keys[KC_LEFT])) controls.lr = -1.0f;
-  if(isKeyDown(player->keys[KC_RIGHT])) controls.lr = 1.0f;
-  if(isKeyDown(player->keys[KC_UP])) controls.accel = 1;
-  if(isKeyDown(player->keys[KC_DOWN])) controls.brake = 1;
+
+  if(isKeyDown(player->keys[KC_LEFT] )) controls.lr    = -1.0f;
+  if(isKeyDown(player->keys[KC_RIGHT])) controls.lr    =  1.0f;
+  if(isKeyDown(player->keys[KC_UP]   )) controls.accel =  1;
+  if(isKeyDown(player->keys[KC_DOWN] )) controls.brake =  1;
+
 }   // doSteering
 
 // Gets called by RaceGUI when one of the non-steering keys
@@ -188,6 +190,9 @@ void PlayerKart::update(float dt) {
   } else
     getVelocity()->hpr[0] = 0.0f ;
 #endif
+  controls.lr    = 0;
+  controls.accel = 0;
+  controls.brake = 0;
   Kart::update(dt);
 }   // update
 
