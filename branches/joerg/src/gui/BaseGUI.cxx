@@ -50,26 +50,27 @@ void updateGUI() {
     rememberSize = guiStack.size();
     if (guiStack.size()) {
       switch (guiStack.back()) {
-        case GUIS_MAINMENU:       gui = new MainMenu;          break;
-        case GUIS_CHARSEL:        gui = new CharSel(0);        break;
-        case GUIS_CHARSELP2:      gui = new CharSel(1);        break;
-        case GUIS_CHARSELP3:      gui = new CharSel(2);        break;
-        case GUIS_CHARSELP4:      gui = new CharSel(3);        break;
+        case GUIS_MAINMENU:       gui = new MainMenu;                     break;
+        case GUIS_CHARSEL:        gui = new CharSel(0);                   break;
+        case GUIS_CHARSELP2:      gui = new CharSel(1);                   break;
+        case GUIS_CHARSELP3:      gui = new CharSel(2);                   break;
+        case GUIS_CHARSELP4:      gui = new CharSel(3);                   break;
         case GUIS_DIFFICULTYGP:
-        case GUIS_DIFFICULTYSR:   gui = new Difficulty();      break;
-        case GUIS_GAMEMODE:       gui = new GameMode();        break;
-        case GUIS_OPTIONS:        gui = new Options;           break;
-        case GUIS_TRACKSEL:       gui = new TrackSel();        break;
-        case GUIS_NUMLAPS:        gui = new NumLaps();         break;
-        case GUIS_NUMPLAYERS:     gui = new NumPlayers();      break;
-        case GUIS_CONFIGCONTROLS: gui = new ConfigControls;    break;
-        case GUIS_CONFIGP1:       gui = new PlayerControls(0); break;
-        case GUIS_CONFIGP2:       gui = new PlayerControls(1); break;
-        case GUIS_CONFIGP3:       gui = new PlayerControls(2); break;
-        case GUIS_CONFIGP4:       gui = new PlayerControls(3); break;
-        case GUIS_CONFIGDISPLAY:  gui = new ConfigDisplay();   break;
-        case GUIS_RACE:           gui = new RaceGUI;           break;
-        case GUIS_RACEMENU:       gui = new RaceMenu;          break;
+        case GUIS_DIFFICULTYSR:   gui = new Difficulty();                 break;
+        case GUIS_GAMEMODE:       gui = new GameMode();                   break;
+        case GUIS_OPTIONS:        gui = new Options;                      break;
+        case GUIS_TRACKSEL:       gui = new TrackSel();                   break;
+        case GUIS_NUMLAPS:        gui = new NumLaps();                    break;
+        case GUIS_NUMPLAYERS:     gui = new NumPlayers();                 break;
+        case GUIS_CONFIGCONTROLS: gui = new ConfigControls;               break;
+        case GUIS_CONFIGP1:       gui = new PlayerControls(0);            break;
+        case GUIS_CONFIGP2:       gui = new PlayerControls(1);            break;
+        case GUIS_CONFIGP3:       gui = new PlayerControls(2);            break;
+        case GUIS_CONFIGP4:       gui = new PlayerControls(3);            break;
+        case GUIS_CONFIGDISPLAY:  gui = new ConfigDisplay();              break;
+        case GUIS_RACE:           gui = new RaceGUI;                      break;
+        case GUIS_NEXTRACE:       race_manager->next();                   break;
+        case GUIS_RACEMENU:       gui = new RaceMenu;                     break;
         case GUIS_EXITRACE:       guiStack.clear(); race_manager->next(); break;
       }   // switch
     }   // if guiStack.size()

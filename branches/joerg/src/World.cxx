@@ -200,6 +200,9 @@ void World::update(float delta) {
 
   checkRaceStatus();
 
+  if( getPhase() == World::FINISH_PHASE )
+      guiStack.push_back ( GUIS_NEXTRACE );
+
   float inc = 0.05;
   float dt  = delta;
   while (dt>0.0) {

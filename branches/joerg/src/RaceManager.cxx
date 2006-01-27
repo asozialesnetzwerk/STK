@@ -28,6 +28,7 @@
 #include "WorldScreen.h"
 #include "KartManager.h"
 #include "RaceManager.h"
+#include "gui/BaseGUI.h"
 
 RaceManager* race_manager=0;
 
@@ -89,11 +90,10 @@ GrandPrixMode::next()
 {
   stat.race += 1;
 
-  if (stat.race < int(cup.tracks.size()))
-    {
-      start_race(stat.race);
-    }
-  else
+
+ if( guiStack.back() == GUIS_NEXTRACE )
+   if( stat.race < int ( cup.tracks.size() ) ) start_race(stat.race);
+   else
     {
       // FIXME: Insert credits/extro stuff here
       startScreen = new StartScreen();

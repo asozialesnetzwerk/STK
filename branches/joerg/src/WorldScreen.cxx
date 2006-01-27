@@ -35,14 +35,14 @@ WorldScreen* WorldScreen::current_ = 0;
 
 WorldScreen::WorldScreen(const RaceSetup& raceSetup)
 {
-  // the constructor assigns this object to the global 
+  // the constructor assigns this object to the global
   // variable world. Admittedly a bit ugly, but simplifies
   // handling of objects which get created in the constructor
   // and need world to be defined.
   new World(raceSetup);
 
   current_ = this;
-  
+
   for(int i = 0; i < raceSetup.getNumPlayers(); ++i)
     cameras.push_back(new Camera(raceSetup.getNumPlayers(), i));
   fclock.reset();
@@ -57,8 +57,10 @@ WorldScreen::~WorldScreen()
   for (Cameras::iterator i = cameras.begin(); i != cameras.end(); ++i)
     delete *i;
 
+  if(current() == this) {
   delete world;
   world = 0;
+  }
 }
 
 void WorldScreen::update() {
@@ -86,7 +88,7 @@ void WorldScreen::update() {
   pwSwapBuffers() ;
 }
 
-void 
+void
 WorldScreen::draw()
 {
   const Track* track = world->track;
@@ -96,7 +98,7 @@ WorldScreen::draw()
   if (track->use_fog)
     {
       glEnable ( GL_FOG ) ;
-      
+
       glFogf ( GL_FOG_DENSITY, track->fog_density ) ;
       glFogfv( GL_FOG_COLOR  , track->fog_color ) ;
       glFogf ( GL_FOG_START  , track->fog_start ) ;
@@ -105,17 +107,17 @@ WorldScreen::draw()
       glHint ( GL_FOG_HINT   , GL_NICEST ) ;
 
       /* Clear the screen */
-      glClearColor (track->fog_color[0], 
-                    track->fog_color[1], 
-                    track->fog_color[2], 
+      glClearColor (track->fog_color[0],
+                    track->fog_color[1],
+                    track->fog_color[2],
                     track->fog_color[3]);
     }
   else
     {
       /* Clear the screen */
-      glClearColor (track->sky_color[0], 
-                    track->sky_color[1], 
-                    track->sky_color[2], 
+      glClearColor (track->sky_color[0],
+                    track->sky_color[1],
+                    track->sky_color[2],
                     track->sky_color[3]);
     }
 
