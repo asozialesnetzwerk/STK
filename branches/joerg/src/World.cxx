@@ -239,7 +239,6 @@ void World::update(float delta) {
 }
 
 void World::checkRaceStatus() {
-  clock=3.0;  // NECJH
   if (clock > 1.0 && ready_set_go == 0) {
       ready_set_go = -1;
   } else if (clock > 2.0 && ready_set_go == 1) {
