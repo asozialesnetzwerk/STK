@@ -33,10 +33,11 @@
 // are handled here, not 'one time action' keys like fire, ...
 void PlayerKart::doSteering() {
 
-  if(isKeyDown(player->keys[KC_LEFT] )) controls.lr    = -1.0f;
-  if(isKeyDown(player->keys[KC_RIGHT])) controls.lr    =  1.0f;
-  if(isKeyDown(player->keys[KC_UP]   )) controls.accel =  1;
-  if(isKeyDown(player->keys[KC_DOWN] )) controls.brake =  1;
+  if(isKeyDown(player->keys[KC_LEFT]   )) controls.lr      = -1.0f;
+  if(isKeyDown(player->keys[KC_RIGHT]  )) controls.lr      =  1.0f;
+  if(isKeyDown(player->keys[KC_UP]     )) controls.accel   =  1;
+  if(isKeyDown(player->keys[KC_DOWN]   )) controls.brake   =  1;
+  if(isKeyDown(player->keys[KC_WHEELIE])) controls.wheelie = true;
 
 }   // doSteering
 
@@ -47,7 +48,6 @@ void PlayerKart::doSteering() {
 void PlayerKart::action(int key) {
   switch (key) {
     case KC_FIRE:    controls.fire    = true; break;
-    case KC_WHEELIE: controls.wheelie = true; break;
     case KC_JUMP:    controls.jump    = true; break;
     case KC_RESCUE:  controls.rescue  = true; break;
   }   // switch key
@@ -190,9 +190,10 @@ void PlayerKart::update(float dt) {
   } else
     getVelocity()->hpr[0] = 0.0f ;
 #endif
-  controls.lr    = 0;
-  controls.accel = 0;
-  controls.brake = 0;
+  controls.lr      = 0;
+  controls.accel   = 0;
+  controls.brake   = 0;
+  controls.wheelie = false;
   Kart::update(dt);
 }   // update
 
