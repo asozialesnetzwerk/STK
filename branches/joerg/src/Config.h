@@ -26,15 +26,16 @@
 #include "Player.h"
 #include <string>
 
-
+#define CONFIGDIR ".tuxkart"
 /*class for managing general tuxkart configuration data*/
-class Config
-{
+class Config {
   private:
     std::string filename;
 
-    void setFilename();
-
+    void        setFilename      ();
+    int         CheckAndCreateDir();
+    std::string getConfigDir     ();
+    
   public:
     bool   fullscreen;
     bool   noStartScreen;

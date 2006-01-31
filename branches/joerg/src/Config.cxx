@@ -22,54 +22,72 @@
 #include <string.h>
 #include <stdexcept>
 
-#include "Config.h"
+// for mkdir:
+#ifndef WIN32
+#  include <sys/stat.h>
+#  include <sys/types.h>
+#endif
+
 #include <plib/pw.h>
+#include <plib/ul.h>
+
+#include "Config.h"
 #include "lisp/Lisp.h"
 #include "lisp/Parser.h"
 #include "lisp/Writer.h"
 
 Config *config;
 
-Config::Config()
-{
+Config::Config() {
   setDefaults();
   loadConfig();
-}
+}   // Config
 
-
-Config::Config(const std::string& filename)
-{
+// -----------------------------------------------------------------------------
+Config::Config(const std::string& filename) {
   setDefaults();
   loadConfig(filename);
+}   // Config
+
+
+// -----------------------------------------------------------------------------
+Config::~Config() {
 }
 
-
-Config::~Config()
-{
-}
-
-
-/*set the config filename for this platform*/
-void Config::setFilename()
-{
+// -----------------------------------------------------------------------------
+std::string Config::getConfigDir() {
+  std::string dirname;
 #ifdef WIN32
-  /*creates config file in current working directory*/
-  filename = "tuxkart.cfg";
+  // For now the old windows config way is used: store a config file
+  // in the current directory (in other OS a special subdirectory is created)
+  dirname=".";
 #else
-  /*if HOME environment variable exists
-  create config file as $HOME/.tuxkart/config*/
-  if(getenv("HOME")!=NULL)
-  {
-    filename = getenv("HOME");
-    filename += "/.tuxkart/config";
+  if(getenv("HOME")!=NULL) {
+    dirname = getenv("HOME");
+  } else{
+    dirname = ".";
   }
+  dirname += "/";
+  dirname += CONFIGDIR;
 #endif
-}
+  return dirname;
+}  // getConfigDir
 
+// -----------------------------------------------------------------------------
+/*set the config filename for this platform*/
+void Config::setFilename() {
+  filename = getConfigDir();
+  filename += "/";
+#ifdef WIN32
+  filename += "tuxkart.cfg";
+#else
+  filename += "config";
+#endif
+}   // setFilename
 
+// -----------------------------------------------------------------------------
 /*load default values for options*/
-void Config::setDefaults()
-{
+void Config::setDefaults() {
   setFilename();
   fullscreen       = false;
   noStartScreen    = false;
@@ -136,25 +154,58 @@ void Config::setDefaults()
   player[3].buttons[KC_JUMP]    = 3;
   player[3].buttons[KC_RESCUE]  = 4;
   player[3].buttons[KC_FIRE]    = 5;
-}
+}   // setDefaults
 
 
+// -----------------------------------------------------------------------------
 /*load default configuration file for this platform*/
-void Config::loadConfig()
-{
+void Config::loadConfig() {
   loadConfig(filename);
-}
+}   // loadConfig
 
+// -----------------------------------------------------------------------------
+// Checks for existance of the tuxkart configuration directory. If the 
+// directory does not exist, it will be created. Return values:
+// 1: config dir exists
+// 2: does not exist, but was created
+// 0: does not exist, and could not be created.
+int Config::CheckAndCreateDir() {
+  std::string dirname = getConfigDir();
+  ulDir*      u       = ulOpenDir(dirname.c_str());
+  if(u) {  // OK, directory exists
+    ulCloseDir(u);
+    return 1;
+  }
+  // The directory does not exist, try to create it
+  int bError;
+#if defined(WIN32) && !defined(__CYGWIN__)
+  bError = mkdir(dirname.c_str()      ) != 0;
+#else
+  bError = mkdir(dirname.c_str(), 0755) != 0;
+#endif
+  if(bError) {
+    fprintf(stderr, "Couldn't create '%s', config files will not be saved.\n",
+	    dirname.c_str());
+    return 0;
+  } else {
+    printf("Config directory '%s' successfully created.\n",dirname.c_str());
+    return 2;
+  }
 
+}   // CheckAndCreateDir
+
+// -----------------------------------------------------------------------------
 /*load configuration values from file*/
-void Config::loadConfig(const std::string& filename)
-{
+void Config::loadConfig(const std::string& filename) {
   std::string temp;
   const lisp::Lisp* root = 0;
   int i;
-
-  try
-  {
+  int dirExist = CheckAndCreateDir();
+  // Check if the config directory exists. If not, exit without an error
+  // message, an appropriate message was printed by CheckAndCreateDir
+  if (dirExist != 1) return;
+  
+  try {
     lisp::Parser parser;
     root = parser.parse(filename);
 
@@ -180,8 +231,7 @@ void Config::loadConfig(const std::string& filename)
     lisp->get("karts", karts);
 
     /*get player configurations*/
-    for(i=0; i<PLAYERS; ++i)
-    {
+    for(i=0; i<PLAYERS; ++i) {
       temp = "player-";
       temp += i+'1';
       
@@ -210,31 +260,35 @@ void Config::loadConfig(const std::string& filename)
       reader->get("joy-rescue",  player[i].buttons[KC_RESCUE]);
       reader->get("joy-fire",    player[i].buttons[KC_FIRE]);
     }
-  }
-  catch(std::exception& e)
-  {
+  } catch(std::exception& e) {
     std::cout << "Error while parsing config '" << filename
               << "': " << e.what() << "\n";
   }
   delete root;
-}
+}   // loadConfig
 
 
+// -----------------------------------------------------------------------------
 /*call saveConfig w/ the default filename for this platform*/
-void Config::saveConfig()
-{
+void Config::saveConfig() {
   saveConfig(filename);
-}
+}   // saveConfig
 
-
+// -----------------------------------------------------------------------------
 /*write settings to config file*/
-void Config::saveConfig(const std::string& filename)
-{
+void Config::saveConfig(const std::string& filename) {
   std::string temp;
   int i;
 
-  try
-  {
+  int dirExist = CheckAndCreateDir();
+  // Check if the config directory exists (again, since it was already checked 
+  // when reading the config file - this is done in case that the problem was
+  // fixed while tuxkart is running). If the directory does not exist and
+  // can not be created, an error message was already printed to stderr,
+  // and we can exit here without any further messages.
+  if (dirExist == 0) return;
+
+  try {
     lisp::Writer writer(filename);
 
     writer.beginList("tuxkart-config");
@@ -255,8 +309,7 @@ void Config::saveConfig(const std::string& filename)
     writer.write("karts\t", karts);
 
     /*write player configurations*/
-    for(i=0; i<PLAYERS; ++i)
-    {
+    for(i=0; i<PLAYERS; ++i) {
       temp = "player ";
       temp += i+'1';
       temp += " settings";
@@ -286,14 +339,12 @@ void Config::saveConfig(const std::string& filename)
       writer.write("joy-fire\t",    player[i].buttons[KC_FIRE]);
 
       writer.endList(temp);
-    }
+    }   // for i
 
     writer.endList("tuxkart-config");
-  }
-  catch(std::exception& e)
-  {
+  } catch(std::exception& e) {
     std::cout << "Couldn't write config: " << e.what() << "\n";
   }
-}
+}   // saveConfig
 
 /*EOF*/
