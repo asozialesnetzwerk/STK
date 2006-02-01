@@ -119,18 +119,18 @@ void BaseGUI::joybuttons( int whichJoy, int buttons ) {
     static int button0_not_pressed = 1;
     static int button1_not_pressed = 1;
 
-    if( !( buttons & 2 ) ) button0_not_pressed = 1;
-    else if (button0_not_pressed)
+    if( !( buttons & 2 ) ) button1_not_pressed = 1;
+    else if (button1_not_pressed)
     {
         select();
-        button0_not_pressed = 0;
+        button1_not_pressed = 0;
     }
 
-    if( !( buttons & 1 ) ) button1_not_pressed = 1;
-    else if (guiStack.size() > 1 && button1_not_pressed)
+    if( !( buttons & 1 ) ) button0_not_pressed = 1;
+    else if (guiStack.size() > 1 && button0_not_pressed)
     {
         guiStack.pop_back();
-        button1_not_pressed = 0;
+        button0_not_pressed = 0;
     }
 }   // joybuttons
 

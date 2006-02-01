@@ -27,13 +27,13 @@
 PlayerControls::PlayerControls(int whichPlayer): player_index(whichPlayer),
 						 grabInput(false)          {
   menu_id = widgetSet -> vstack(0);
-  sprintf(Heading, "Choose your controls, %s", 
+  sprintf(Heading, "Choose your controls, %s",
 	  config->player[player_index].name.c_str());
   widgetSet -> label(menu_id, Heading, GUI_LRG, GUI_ALL, 0, 0);
-  
+
   int ha = widgetSet -> harray(menu_id);
   int change_id = widgetSet -> varray(ha);
-  
+
   for(int i=KC_LEFT; i<=KC_FIRE; i++) {
     addKeyLabel(change_id, (KartActions)i,    i==0 );
   }
@@ -47,7 +47,7 @@ PlayerControls::PlayerControls(int whichPlayer): player_index(whichPlayer),
   widgetSet -> label(label_id, "Jump",             GUI_MED, GUI_ALL, 0, 0);
   widgetSet -> label(label_id, "Call for rescue",  GUI_MED, GUI_ALL, 0, 0);
   widgetSet -> label(label_id, "Fire",             GUI_MED, GUI_ALL, 0, 0);
-  
+
   widgetSet -> layout(menu_id, 0, 0);
 }   // PlayerControls
 
@@ -66,10 +66,10 @@ void PlayerControls::update(float dt) {
 // -----------------------------------------------------------------------------
 void PlayerControls::select() {
   if (grabInput) return;
-    
+
   grab_id        = widgetSet -> click();
   int menuChoice = widgetSet -> token (grab_id);
-  
+
   if ( menuChoice == MENU_RETURN) {
     config->saveConfig();
     guiStack.pop_back();
@@ -101,32 +101,48 @@ void PlayerControls::point(int x, int y) {
 // -----------------------------------------------------------------------------
 void PlayerControls::stick(const int &whichAxis, const float &value) {
   if (!grabInput)
-    widgetSet -> pulse(widgetSet -> stick(menu_id, whichAxis, value), 1.2f);
+    widgetSet -> pulse(widgetSet -> stick(menu_id, whichAxis, (int)value), 1.2f);
 }   // stick
 
 // -----------------------------------------------------------------------------
 void PlayerControls::joybuttons(int whichJoy, int buttons) {
-  if (grabInput && editAction != KC_LEFT && editAction != KC_RIGHT && 
-      whichJoy == player_index) {
-	config->player[player_index].buttons[editAction] = buttons;
-        grabInput = false;
-        changeKeyLabel(grab_id, editAction);
-    }
-    else
-        BaseGUI::joybuttons(whichJoy, buttons);
+//The next two lines are to make sure we don't catch the select and cancel
+//buttons at the wrong time. This dirty patch should be changed later.
+
+  static int button1_not_selecting = 0;
+  static int button0_selecting;
+  if(grabInput)
+  {
+      if( !(buttons & 2 ) ) button1_not_selecting = 1;
+      if( buttons & 1 ) button0_selecting = 1;
+
+      if (editAction != KC_LEFT && editAction != KC_RIGHT &&
+          whichJoy == player_index && button1_not_selecting && buttons != 0)
+      {
+          config->player[player_index].buttons[editAction] = buttons;
+          grabInput = false;
+          changeKeyLabel(grab_id, editAction);
+      }
+  }
+  else
+  {
+      if(!button0_selecting) BaseGUI::joybuttons(whichJoy, buttons);
+      button1_not_selecting = 0;
+      if( !(buttons & 1) ) button0_selecting = 0;
+  }
 }   // joybuttons
 
 // -----------------------------------------------------------------------------
-void PlayerControls::addKeyLabel(int change_id, KartActions control, 
-				 bool start)                           {
+void PlayerControls::addKeyLabel(int change_id, KartActions control, bool start)
+{
 
   setKeyInfoString(control);
-  
+
   if (start)
-    widgetSet -> start(change_id, KeyNames[control].c_str(), GUI_MED, 
+    widgetSet -> start(change_id, KeyNames[control].c_str(), GUI_MED,
 		       control, 0);
   else
-    widgetSet -> state(change_id, KeyNames[control].c_str(), GUI_MED, 
+    widgetSet -> state(change_id, KeyNames[control].c_str(), GUI_MED,
 		       control, 0);
 }   // addKeyLabel
 
@@ -171,10 +187,21 @@ void PlayerControls::setKeyInfoString(KartActions control) {
   }
   if (config->player[player_index].useJoy) {
     char joyInfo[60];
-    if      (control == KC_LEFT)  sprintf(joyInfo, " or joystick left");
-    else if (control == KC_RIGHT) sprintf(joyInfo, " or joystick right");
-    else sprintf(joyInfo, " or joy button %d", 
-		 config->player[player_index].buttons[control]);
+    if      (control == KC_LEFT)  sprintf(joyInfo, " or stick left");
+    else if (control == KC_RIGHT) sprintf(joyInfo, " or stick right");
+    else
+    {
+        const int TARGET_BUTTON = config->player[player_index].buttons[control];
+        int button_number = 0;
+        while((1 << button_number != TARGET_BUTTON) && (button_number < 16))
+            ++button_number;
+
+        if(button_number < 16)
+            sprintf(joyInfo, " or joybutton %d", button_number + 1 );
+        else
+            sprintf(joyInfo, " or unassigned" );
+
+    }
     ret += joyInfo;
   }
   KeyNames[control] = ret;

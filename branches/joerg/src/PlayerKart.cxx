@@ -200,12 +200,12 @@ void PlayerKart::update(float dt) {
 // -----------------------------------------------------------------------------
 void PlayerKart::incomingJoystick  (const KartControl &ctrl) {
   controls.lr = ctrl.data[0] ;
-  controls.accel = ctrl.buttons & 2 ;
-  controls.brake = ctrl.buttons & 1 ;
-  controls.rescue = ctrl.buttons & 0x04 ;
-  controls.fire = ctrl.buttons & 0x08 ;
-  controls.jump = ctrl.buttons & 0x10 ;
-  controls.wheelie = ctrl.buttons & 0x20 ;
+  controls.accel = player->buttons[KC_UP] & ctrl.buttons;
+  controls.brake = player->buttons[KC_DOWN] & ctrl.buttons;
+  controls.rescue = player->buttons[KC_RESCUE] & ctrl.buttons;
+  controls.fire = player->buttons[KC_FIRE] & ctrl.buttons;
+  controls.jump = player->buttons[KC_JUMP] & ctrl.buttons;
+  controls.wheelie = player->buttons[KC_WHEELIE] & ctrl.buttons;
 }   // incomingJoystick
 
 /* EOF */

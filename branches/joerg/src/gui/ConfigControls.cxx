@@ -25,13 +25,13 @@ ConfigControls::ConfigControls()
 {
 	menu_id = widgetSet -> vstack(0);
 	widgetSet -> label(menu_id, "Edit controls for which player?", GUI_LRG, GUI_ALL, 0, 0);
-	
+
 	int va = widgetSet -> varray(menu_id);
 	widgetSet -> start(va, "Player 1",  GUI_MED, 1, 0);
 	widgetSet -> state(va, "Player 2",  GUI_MED, 2, 0);
 	widgetSet -> state(va, "Player 3",  GUI_MED, 3, 0);
 	widgetSet -> state(va, "Player 4",  GUI_MED, 4, 0);
-	
+
 	widgetSet -> layout(menu_id, 0, 0);
 }
 
@@ -39,7 +39,7 @@ ConfigControls::~ConfigControls()
 {
 	widgetSet -> delete_widget(menu_id) ;
 }
-	
+
 void ConfigControls::update(float dt)
 {
 	widgetSet -> timer(menu_id, dt) ;

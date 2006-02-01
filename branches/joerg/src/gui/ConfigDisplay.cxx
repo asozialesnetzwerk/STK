@@ -26,7 +26,7 @@ ConfigDisplay::ConfigDisplay()
 {
 	menu_id = widgetSet -> vstack(0);
 	widgetSet -> label(menu_id, "Display Settings", GUI_LRG, GUI_ALL, 0, 0);
-	
+
 	int va = widgetSet -> varray(menu_id);
 	fullscreen_menu_id = widgetSet -> start(va, "Fullscreen mode",  GUI_MED, MENU_FULLSCREEN_TOGGLE, 0);
 
@@ -40,7 +40,7 @@ ConfigDisplay::~ConfigDisplay()
 {
 	widgetSet -> delete_widget(menu_id) ;
 }
-	
+
 void ConfigDisplay::update(float dt)
 {
 	widgetSet -> timer(menu_id, dt) ;

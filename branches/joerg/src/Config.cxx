@@ -107,6 +107,11 @@ void Config::setDefaults() {
   player[1].setName("Player 2");
   player[2].setName("Player 3");
   player[3].setName("Player 4");
+
+  player[0].useJoy = true;
+  player[1].useJoy = false;
+  player[2].useJoy = false;
+  player[3].useJoy = false;
   /*player 1 default keyboard settings*/
   player[0].keys[KC_LEFT]    = PW_KEY_LEFT;
   player[0].keys[KC_RIGHT]   = PW_KEY_RIGHT;
@@ -117,12 +122,12 @@ void Config::setDefaults() {
   player[0].keys[KC_RESCUE]  = 'd';
   player[0].keys[KC_FIRE]    = 'f';
   /*player 1 default joystick settings*/
-  player[0].buttons[KC_UP]      = 0;
+  player[0].buttons[KC_UP]      = 2;
   player[0].buttons[KC_DOWN]    = 1;
-  player[0].buttons[KC_WHEELIE] = 2;
-  player[0].buttons[KC_JUMP]    = 3;
-  player[0].buttons[KC_RESCUE]  = 4;
-  player[0].buttons[KC_FIRE]    = 5;
+  player[0].buttons[KC_WHEELIE] = 0x20;
+  player[0].buttons[KC_JUMP]    = 0x10;
+  player[0].buttons[KC_RESCUE]  = 0x04;
+  player[0].buttons[KC_FIRE]    = 0x08;
   /*player 2 default keyboard settings*/
   player[1].keys[KC_LEFT]    = 'j';
   player[1].keys[KC_RIGHT]   = 'l';
@@ -139,7 +144,7 @@ void Config::setDefaults() {
   player[1].buttons[KC_JUMP]    = 3;
   player[1].buttons[KC_RESCUE]  = 4;
   player[1].buttons[KC_FIRE]    = 5;
-  
+
   /*player 3 default joystick settings*/
   player[2].buttons[KC_UP]      = 0;
   player[2].buttons[KC_DOWN]    = 1;
@@ -234,14 +239,14 @@ void Config::loadConfig(const std::string& filename) {
     for(i=0; i<PLAYERS; ++i) {
       temp = "player-";
       temp += i+'1';
-      
+
       const lisp::Lisp* reader = lisp->getLisp(temp);
       if(!reader) {
         temp = "No " + temp + " node";
         throw std::runtime_error(temp);
       }
       reader->get("name",     player[i].name);
-      
+
       /*get keyboard configuration*/
       reader->get("left",    player[i].keys[KC_LEFT]);
       reader->get("right",   player[i].keys[KC_RIGHT]);
@@ -317,9 +322,9 @@ void Config::saveConfig(const std::string& filename) {
       temp = "player-";
       temp += i+'1';
       writer.beginList(temp);
-      
+
       writer.write("name\t", player[i].name);
-      
+
       writer.writeComment("keyboard layout");
       writer.write("left\t",    player[i].keys[KC_LEFT]);
       writer.write("right\t",   player[i].keys[KC_RIGHT]);
