@@ -31,7 +31,7 @@ Options::Options()
 	widgetSet -> state(menu_id, "Sound",  GUI_MED, 0, 0);
 	widgetSet -> space(menu_id);
 	
-	widgetSet -> layout(menu_id, 0, -1);
+	widgetSet -> layout(menu_id, 0, 0);
 }
 
 Options::~Options()

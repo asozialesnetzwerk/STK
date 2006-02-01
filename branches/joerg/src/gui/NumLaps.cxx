@@ -34,7 +34,7 @@ NumLaps::NumLaps() {
   widgetSet -> state(menu_id, "Five",  GUI_MED, 5, 0);
   widgetSet -> space(menu_id);
 
-  widgetSet -> layout(menu_id, 0, -1);
+  widgetSet -> layout(menu_id, 0, 0);
 }
 
 // -----------------------------------------------------------------------------
