@@ -21,17 +21,17 @@
 #include "MaterialManager.h"
 #include "World.h"
 
-int num_herring   ;                                                      
-HerringInstance herring [ MAX_HERRING ] ;                             
+int num_herring   ;
+HerringInstance herring [ MAX_HERRING ] ;
 
 void Herring::update ()
 {
   sgCoord c = { { 0.0, 0.0, 0.0 }, { 0.0, 0.0, 0.0 } } ;
- 
+
   c . hpr [ 0 ] = h ;
- 
+
   h += 5.0f ;
- 
+
   tr -> setTransform ( &c ) ;
 }
 

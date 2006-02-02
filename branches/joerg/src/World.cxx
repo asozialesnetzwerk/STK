@@ -92,6 +92,7 @@ World::World(const RaceSetup& raceSetup_) : raceSetup(raceSetup_) {
   preProcessObj ( silver_h -> getRoot());
   preProcessObj ( red_h -> getRoot());
   preProcessObj ( green_h -> getRoot());
+  num_herring = 0;
 
   assert(raceSetup.karts.size() > 0);
 
@@ -229,7 +230,7 @@ void World::update(float delta) {
   //JH and what about explosions??
   projectile_manager->update(delta);
 
-  for ( int i = 0 ; i < MAX_HERRING     ; i++ ) herring    [ i ] .  update () ;
+  for ( int i = 0 ; i < num_herring ; i++ ) herring [ i ] . update () ;
   for ( Karts::size_type i = 0 ; i < kart.size(); ++i) updateLapCounter ( i ) ;
 
   /* Routine stuff we do even when paused */
@@ -274,7 +275,7 @@ World::updateLapCounter ( int k )
          ( kart[j]->getLap() == kart[k]->getLap() && 
            kart[j]->getDistanceDownTrack() >
                             kart[k]->getDistanceDownTrack() ))
-      p++ ;      
+      p++ ;
   }
 
   kart [ k ] -> setPosition ( p ) ;
