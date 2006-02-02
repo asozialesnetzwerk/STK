@@ -1,6 +1,6 @@
 dnl Process this file with autoconf to produce a configure script.
 
-AC_INIT(src/tuxkart.cxx)
+AC_INIT(src/start_tuxkart.cxx)
 AM_INIT_AUTOMAKE(tuxkart, 0.4.0)
 
 dnl Checks for programs.
