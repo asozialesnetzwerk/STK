@@ -55,6 +55,7 @@ class HookManager {
  public:
   HookManager() {};
   void update ();
+  void clearAll();
   void addHook(void  (*hook)(ssgBranch  *, void *),
 	       void  (*hit )(ssgBranch  *, void *),
 	       ssgBranch *b,

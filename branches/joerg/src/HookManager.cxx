@@ -22,6 +22,7 @@
 
 HookManager* hook_manager=0;
 
+// -----------------------------------------------------------------------------
 void HookManager::update() {
   for(HookList::iterator i=hookList.begin();
                          i!=hookList.end(); i++) {
@@ -31,7 +32,18 @@ void HookManager::update() {
   }   // for i
 }
 
-
+// -----------------------------------------------------------------------------
+void HookManager::clearAll() {
+  for(HookList::iterator i=hookList.begin();
+                         i!=hookList.end(); i++) {
+    free (*i);
+  }   // for i
+  // JH FIXME: This might introduce a memory leak, since the ssgBranches
+  // created duringautodcsInit might not be freed (but they are put into
+  // the ssg as userdata, so plib might free it????
+  hookList.clear();
+}  // clearAll
+// -----------------------------------------------------------------------------
 void HookManager::addHook(void  (*hook)(ssgBranch  *, void *),
 			  void  (*hit )(ssgBranch  *, void *),
 			  ssgBranch *b,
@@ -48,6 +60,7 @@ void HookManager::addHook(void  (*hook)(ssgBranch  *, void *),
   b->setUserData(h);
 }
 
+// -----------------------------------------------------------------------------
 static void to_uppercase ( char *s ) {
   while ( *s != '\0' ) {
     if ( *s >= 'a' && *s <= 'z' ) *s = *s - 'a' + 'A' ;
@@ -56,6 +69,7 @@ static void to_uppercase ( char *s ) {
 }
  
                                                                                  
+// =============================================================================
 class AutoDCSParam {
 public:
   sgCoord init  ;
@@ -74,8 +88,9 @@ public:
     isDCS = TRUE  ;
   }
  
-} ;
+};   // AutoDCSParam
  
+// =============================================================================
 void autodcsHook ( ssgBranch *br, void *param ) {
   AutoDCSParam *p = (AutoDCSParam *) param ;
  
@@ -127,8 +142,8 @@ void autodcsHook ( ssgBranch *br, void *param ) {
 }   //autdcsHook
  
  
-static void *autoTexOrDCSInit ( char *data, int isDCS )
-{
+// -----------------------------------------------------------------------------
+static void *autoTexOrDCSInit ( char *data, int isDCS ) {
   AutoDCSParam *param = new AutoDCSParam ;
  
   param -> isDCS = isDCS ;
@@ -137,8 +152,7 @@ static void *autoTexOrDCSInit ( char *data, int isDCS )
  
   to_uppercase ( s ) ;
  
-  while ( s != NULL && *s != '\0' )
-  {
+  while ( s != NULL && *s != '\0' ) {
     while ( *s > ' ' ) s++ ;     /* Skip previous token */
     while ( *s <= ' ' && *s != '\0' ) s++ ; /* Skip spaces */
  
@@ -164,49 +178,49 @@ static void *autoTexOrDCSInit ( char *data, int isDCS )
 }
                                                                                 
 
-void *autodcsInit ( ssgBranch **br, char *data )
-{
+// -----------------------------------------------------------------------------
+void *autodcsInit ( ssgBranch **br, char *data ) {
   *br = new ssgTransform () ;
  
   return autoTexOrDCSInit ( data, TRUE ) ;
-}
+}   // autodcsInit
  
  
-void *autotexInit ( ssgBranch **br, char *data )
-{
+// -----------------------------------------------------------------------------
+void *autotexInit ( ssgBranch **br, char *data ) {
   *br = new ssgTexTrans () ;
  
   return autoTexOrDCSInit ( data, FALSE ) ;
-}
+}   //autotexInit
  
 
-void *billboardInit ( ssgBranch **br, char * )
-{
+// -----------------------------------------------------------------------------
+void *billboardInit ( ssgBranch **br, char * ) {
   *br = new ssgCutout () ;
   return NULL ;
-}
+}   // billboardInit
                                                                                 
 
-void *invisibleInit ( ssgBranch **br, char * )
-{
+// -----------------------------------------------------------------------------
+void *invisibleInit ( ssgBranch **br, char * ) {
   *br = new ssgInvisible () ;
  
   return NULL ;
-}
-                                                                                
+}   // invisibleInit
+                                                                               
 
-void *switchInit ( ssgBranch **br, char* )
-{
+// -----------------------------------------------------------------------------
+void *switchInit ( ssgBranch **br, char* ) {
   *br = new ssgSelector ;
 
   ((ssgSelector *)(*br)) -> select ( 0 ) ;
 
   return NULL ;
-}
+}   // switchInit
 
 
-void *animInit ( ssgBranch **br, char *data )
-{
+// -----------------------------------------------------------------------------
+void *animInit ( ssgBranch **br, char *data ) {
   while ( ! isdigit ( *data ) && *data != '\0' )
     data++ ;
 
@@ -229,9 +243,10 @@ void *animInit ( ssgBranch **br, char *data )
   ((ssgTimedSelector *)(*br)) -> control     ( SSG_ANIM_START ) ;
 
   return NULL ;
-}
+}   // animInit
 
 
+// -----------------------------------------------------------------------------
 ssgBranch *process_userdata ( char *data ) {
   ssgBranch *b = NULL ;
 
@@ -240,48 +255,42 @@ ssgBranch *process_userdata ( char *data ) {
 
   data++ ;   /* Skip the '@' */
 
-  if ( strncmp ( "billboard", data, strlen ( "billboard" ) ) == 0 )
-  {
+  if ( strncmp ( "billboard", data, strlen ( "billboard" ) ) == 0 ) {
     billboardInit ( &b, data ) ;
     return b ;
   }
 
-  if ( strncmp ( "invisible", data, strlen ( "invisible" ) ) == 0 )
-  {
+  if ( strncmp ( "invisible", data, strlen ( "invisible" ) ) == 0 ) {
     invisibleInit ( &b, data ) ;
     return b ;
   }
 
-  if ( strncmp ( "switch", data, strlen ( "switch" ) ) == 0 )
-  {
+  if ( strncmp ( "switch", data, strlen ( "switch" ) ) == 0 ) {
     void *p = switchInit ( &b, data ) ;
     hook_manager->addHook ( NULL, NULL, b, p ) ;
     return b ;
   }
 
-  if ( strncmp ( "animate", data, strlen ( "animate" ) ) == 0 )
-  {
+  if ( strncmp ( "animate", data, strlen ( "animate" ) ) == 0 ) {
     void *p = animInit ( &b, data ) ;
     hook_manager->addHook ( NULL, NULL, b, p ) ;
     return b ;
   }
 
-  if ( strncmp ( "autodcs", data, strlen ( "autodcs" ) ) == 0 )
-  {
+  if ( strncmp ( "autodcs", data, strlen ( "autodcs" ) ) == 0 ) {
     void *p = autodcsInit ( &b, data ) ;
     hook_manager->addHook ( autodcsHook, NULL, b, p ) ;
     return b ;
   }
 
-  if ( strncmp ( "autotex", data, strlen ( "autotex" ) ) == 0 )
-  {
+  if ( strncmp ( "autotex", data, strlen ( "autotex" ) ) == 0 ) {
     void *p = autotexInit ( &b, data ) ;
     hook_manager->addHook ( autodcsHook, NULL, b, p ) ;
     return b ;
   }
   
   return NULL ;
-}
+}   // process_userdata
 
 /* EOF */
 

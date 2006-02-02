@@ -95,6 +95,8 @@ World::World(const RaceSetup& raceSetup_) : raceSetup(raceSetup_) {
 
   assert(raceSetup.karts.size() > 0);
 
+  // Clear all hooks, which might still be stored there from a previous race.
+  hook_manager->clearAll();
   // Load the track models - this must be done before the karts so that the
   // karts can be positioned properly on (and not in) the tracks.
   loadTrack   ( ) ;
