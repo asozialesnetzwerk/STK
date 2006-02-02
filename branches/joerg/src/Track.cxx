@@ -19,7 +19,6 @@
 
 #include <stdexcept>
 #include <sstream>
-#include "tuxkart.h"
 #include "Loader.h"
 #include "Track.h"
 #include "StringUtils.h"

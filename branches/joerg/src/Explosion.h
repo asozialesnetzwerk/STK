@@ -21,7 +21,6 @@
 #define HEADER_EXPLOSION_H
 
 #include <plib/ssg.h>
-#include "tuxkart.h"
 #include "sound.h"
 #include "Projectile.h"
 

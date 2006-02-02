@@ -19,8 +19,8 @@
 
 #include <iostream>
 #include <plib/ul.h>
+#include <plib/pw.h>
 #include "World.h"
-#include "tuxkart.h"
 #include "WidgetSet.h"
 #include "RaceSetup.h"
 #include "WorldScreen.h"

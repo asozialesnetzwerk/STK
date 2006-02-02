@@ -120,7 +120,6 @@ public:
 	/* change the value of variables stored by already-existing widgets*/	
 	
 	void set_label(int, const char *);
-	void set_image(int, const char *);
 	void set_multi(int, const char *);
 	void set_count(int, int);
 	void set_clock(int, int);
@@ -212,7 +211,6 @@ public:
 	int  stick(int, int whichAxis, int value);
 	
 	/* keyboard cursors */
-	//JH int cursor(int id, SDLKey key);
 	int cursor(int id, int key);
 	
 	/* mouse click */

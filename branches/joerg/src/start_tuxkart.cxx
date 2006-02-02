@@ -26,7 +26,7 @@
 #include "Loader.h"
 #include "ScreenManager.h"
 #include "StartScreen.h"
-#include "SingleWindowMenu.h"
+#include "gui/SingleWindowMenu.h"
 #include "WidgetSet.h"
 #include "MaterialManager.h"
 #include "sound.h"

@@ -47,8 +47,6 @@ private:
     std::vector<std::string> searchPath;
 };
 
-void registerImageLoaders();
-
 extern Loader* loader;
 
 #endif

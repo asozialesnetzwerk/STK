@@ -19,7 +19,6 @@
 
 #include "TrackSel.h"
 #include "TrackManager.h"
-#include "tuxkart.h"
 #include "WidgetSet.h"
 #include "RaceManager.h"
 #include "TrackManager.h"

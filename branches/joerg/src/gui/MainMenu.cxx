@@ -18,7 +18,6 @@
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "MainMenu.h"
-#include "tuxkart.h"
 #include "WidgetSet.h"
 #include "RaceManager.h"
 #include "StartScreen.h"
@@ -76,13 +75,12 @@ void MainMenu::keybd(int key)
 {
 	switch ( key )
 	{
-	  //JH	case SDLK_ESCAPE:
-	  case 27:   //ESC
-          guiStack.clear();
-	    break;
+	case 27:   //ESC
+	        guiStack.clear();
+		break;
 
-	  default:
-		BaseGUI::keybd(key);
+	default:
+	        BaseGUI::keybd(key);
 		break;
 	}
 }

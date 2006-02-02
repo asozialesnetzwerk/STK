@@ -27,7 +27,7 @@
 #include "Herring.h"
 #include "ProjectileManager.h"
 #include "gui/BaseGUI.h"
-#include "tuxkart.h"
+#include "Kart.h"
 #include "Loader.h"
 #include "Material.h"
 #include "Camera.h"

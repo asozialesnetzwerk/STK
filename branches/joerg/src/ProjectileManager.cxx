@@ -24,7 +24,6 @@
 #include "Loader.h"
 #include "StringUtils.h"
 #include "ProjectileManager.h"
-//JH needed?  #include "Moveable.h"
 #include "Collectable.h"
 
 static ssgSelector *find_selector ( ssgBranch *b );

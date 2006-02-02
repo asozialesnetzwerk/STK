@@ -18,10 +18,10 @@
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include <stdexcept>
+#include <plib/pw.h>
 
 #include "Loader.h"
 #include "RaceSetup.h"
-#include "tuxkart.h"
 #include "WorldScreen.h"
 #include "ScreenManager.h"
 #include "RaceManager.h"

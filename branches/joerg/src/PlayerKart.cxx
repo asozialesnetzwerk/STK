@@ -19,7 +19,7 @@
 
 #include <iostream>
 #include <assert.h>
-#include "tuxkart.h"
+#include "constants.h"
 #include "sound.h"
 #include "KartProperties.h"
 #include "Kart.h"

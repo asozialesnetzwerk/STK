@@ -21,11 +21,10 @@
 #include <string.h>
 #include <stdio.h>
 #include <math.h>
+#include <plib/pw.h>
 
 #include "WidgetSet.h"
-#include "widget_image.h"
 
-#include "tuxkart.h"
 #include "Loader.h"
 #include "Config.h"
 #include "sound.h"
@@ -219,14 +218,6 @@ void WidgetSet::set_label(int id, const char *text)
       fprintf(stderr,
      "set_label increased width of parent container, layout will be invalid\n");
     }
-}
-
-void WidgetSet::set_image(int id, const char *file)
-{
-    if (glIsTexture(widgets[id].text_img))
-        glDeleteTextures(1, &widgets[id].text_img);
-
-    widgets[id].text_img = make_image_from_file(NULL, NULL, NULL, NULL, file);
 }
 
 void WidgetSet::set_count(int id, int value)

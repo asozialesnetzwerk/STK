@@ -21,7 +21,6 @@
 #include <iostream>
 #include "Loader.h"
 #include "CharSel.h"
-#include "tuxkart.h"
 #include "Loader.h"
 #include "KartManager.h"
 #include "preprocessor.h"

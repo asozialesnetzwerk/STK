@@ -17,7 +17,6 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
-#include "tuxkart.h"
 #include "World.h"
 #include "Kart.h"
 #include "Track.h"
@@ -358,7 +357,6 @@ float Moveable::getIsectData ( sgVec3 start, sgVec3 end ) {
   
     hot = -1000000.0f ;
 
-    int need_rescue = FALSE ;
     for ( i = 0 ; i < num_hits ; i++ ) {
       ssgHit *h = &results [ i ] ;
 

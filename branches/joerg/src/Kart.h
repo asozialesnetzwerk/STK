@@ -113,7 +113,7 @@ public:
   int            getPosition         () { return  racePosition ;            }
   const sgVec3*  getColour           () { return &kart_properties->color;   }
   float          getSteerAngle() const  { return steer_angle;               }
-  void           handleTinyTux       ();
+  void           handleRescue        ();
   void           beginPowerslide     ();
   void           endPowerslide       ();
   void           processSkidMarks    ();

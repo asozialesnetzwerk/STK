@@ -18,7 +18,6 @@
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "NumPlayers.h"
-#include "tuxkart.h"
 #include "RaceManager.h"
 #include "WidgetSet.h"
 

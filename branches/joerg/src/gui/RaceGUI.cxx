@@ -17,9 +17,9 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
+#include <plib/pw.h>
 #include "../KartControl.h"
 #include "RaceGUI.h"
-#include "tuxkart.h"
 #include "../MaterialManager.h"
 #include "../Track.h"
 #include "../constants.h"
@@ -27,7 +27,6 @@
 #include "WidgetSet.h"
 #include "World.h"
 #include "StartScreen.h"
-#include "../widget_image.h"
 #include "Loader.h"
 #include "RaceSetup.h"
 #include "plibdrv.h"

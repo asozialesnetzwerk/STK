@@ -21,6 +21,9 @@
 #include "MaterialManager.h"
 #include "World.h"
 
+int num_herring   ;                                                      
+HerringInstance herring [ MAX_HERRING ] ;                             
+
 void Herring::update ()
 {
   sgCoord c = { { 0.0, 0.0, 0.0 }, { 0.0, 0.0, 0.0 } } ;

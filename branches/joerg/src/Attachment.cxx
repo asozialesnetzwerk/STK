@@ -92,10 +92,10 @@ void Attachment::update(float dt, sgCoord *velocity) {
   switch (type) {
     case ATTACH_NOTHING:   // Nothing to do, but complete all cases for switch
     case ATTACH_MAX:       break;
-    case ATTACH_TINYTUX:   if(time_left<=0.0) kart->handleTinyTux();
+    case ATTACH_TINYTUX:   if(time_left<=0.0) kart->handleRescue();
                            sgZeroVec3 ( velocity->xyz ) ;
                            sgZeroVec3 ( velocity->hpr ) ;
-			   velocity->xyz[2] = 1.1 * GRAVITY * dt ;
+			   velocity->xyz[2] = 1.1 * GRAVITY * dt *10;
 	  		   break;
     case ATTACH_PARACHUTE: if(velocity->xyz[1]>MAX_PARACHUTE_VELOCITY) {
 			     velocity->xyz[1]=MAX_PARACHUTE_VELOCITY;

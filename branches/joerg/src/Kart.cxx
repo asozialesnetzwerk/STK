@@ -19,7 +19,8 @@
 
 
 #include <iostream>
-#include "tuxkart.h"
+#include <plib/ssg.h>
+
 #include "utils.h"
 #include "Herring.h"
 #include "sound.h"
@@ -424,12 +425,12 @@ void Kart::updatePhysics (float dt) {
 }   // updatePhysics
 
 // -----------------------------------------------------------------------------
-void Kart::handleTinyTux() {
+void Kart::handleRescue() {
   if ( trackHint > 0 ) trackHint-- ;
   float d = position.xyz[2] ;
   world ->track -> trackToSpatial ( position.xyz, trackHint ) ;
   position.xyz[2] = d ;
-}   // handleTinyTux
+}   // handleRescue
 
 // -----------------------------------------------------------------------------
 void Kart::processSkidMarks() {
