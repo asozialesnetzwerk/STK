@@ -57,6 +57,7 @@ void Projectile::update (float dt) {
     velocity.xyz[1] = MAX_PROJECTILE_VELOCITY / 5.0f ;
   // we don't even do any physics here - just set the
   // velocity, and ignore everything else for projectiles.
+  sgCopyCoord ( &last_pos        , &curr_pos         );
   Moveable::update(dt);
   doObjectInteractions();
 }   // update

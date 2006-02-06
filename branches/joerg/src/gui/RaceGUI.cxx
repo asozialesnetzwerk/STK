@@ -24,6 +24,7 @@
 #include "../Track.h"
 #include "../constants.h"
 #include "../Config.h"
+#include "../History.h"
 #include "WidgetSet.h"
 #include "World.h"
 #include "StartScreen.h"
@@ -65,15 +66,16 @@ RaceGUI::RaceGUI(): herringbones_gst(NULL),
   magnet_gst       = material_manager->getMaterial( "magnet.rgb"       );
   zipper_gst       = material_manager->getMaterial( "zipper.rgb"       );
 
-  if ((fps_id = widgetSet -> count(0, 1000, GUI_SML, GUI_SE)))
+  if ((fps_id = widgetSet -> count(0, 0, GUI_MED, GUI_SE))) {
     widgetSet -> layout(fps_id, -1, 1);
-}
+  }
+}   // RaceGUI
 
-RaceGUI::~RaceGUI()
-{
+// -----------------------------------------------------------------------------
+RaceGUI::~RaceGUI() {
 	widgetSet -> delete_widget(fps_id) ;
 	//FIXME: does all that material stuff need freeing somehow?
-}
+}   // ~Racegui
 
 // -----------------------------------------------------------------------------
 void RaceGUI::UpdateKeyboardMappings() {
@@ -102,19 +104,16 @@ void RaceGUI::UpdateKeyboardMappings() {
   }
   printf("Updated keyboard mapping\n"); 
 }   // UpdateKeyControl
-// -----------------------------------------------------------------------------
 
-void RaceGUI::update(float dt)
-{
+// -----------------------------------------------------------------------------
+void RaceGUI::update(float dt) {
 	widgetSet -> timer(fps_id, dt) ;
 	
 	drawStatusText (world->raceSetup) ;
-	if ( config->displayFPS )
-		drawFPS ();
-}
+}   // update
 
-void RaceGUI::keybd(int key)
-{
+// -----------------------------------------------------------------------------
+void RaceGUI::keybd(int key) {
   static int isWireframe = FALSE ;
   // Check if it's a user assigned key
   if(keysToKart[key]) {
@@ -123,7 +122,7 @@ void RaceGUI::keybd(int key)
     switch ( key ) {
       case 0x12      : if(world->raceSetup.getNumPlayers()==1) {   // ctrl-r
                         Kart* kart = world->getPlayerKart(0);
-			kart->setCollectable(COLLECT_MISSILE, 1000000);
+			kart->setCollectable(COLLECT_SPARK, 1000000);
 			//JH    kart->setCollectable((rand()%2)==0?
 			//JH COLLECT_MISSILE:COLLECT_HOMING_MISSILE,
                      }
@@ -145,6 +144,8 @@ void RaceGUI::keybd(int key)
 		       // configuration, so we need to redefine the mappings
 		       UpdateKeyboardMappings();
 		       break;
+//JH for debugging only.
+    case PW_KEY_F10: history->Save(); return;
 #ifdef DEBUG
       case PW_KEY_F10: stToggle () ; return ;
 #endif
@@ -153,32 +154,47 @@ void RaceGUI::keybd(int key)
   }   // if(keysToKart[key] else
 } // keybd
 
+// -----------------------------------------------------------------------------
 static KartControl controls;
 
+// -----------------------------------------------------------------------------
 void RaceGUI::stick(const int &whichAxis, const float &value){
   controls.data[whichAxis] = value;
   world -> getPlayerKart(0) -> incomingJoystick ( controls );
-}
+}   // stick
 
+// -----------------------------------------------------------------------------
 void RaceGUI::joybuttons( int whichJoy, int buttons ) {
   (void)whichJoy;
   controls.buttons = buttons;
   world -> getPlayerKart(0) -> incomingJoystick ( controls );
-}
+}   // joybuttons
 
-void RaceGUI::drawFPS ()
-{
-  if (++fpsCounter>=100) {
+// -----------------------------------------------------------------------------
+void RaceGUI::drawFPS () {
+  if (++fpsCounter>=10) {
     fpsTimer.update();
     widgetSet -> set_count(fps_id, (int)(fpsCounter/fpsTimer.getDeltaTime()));
     fpsCounter = 0;
     fpsTimer.setMaxDelta(1000);
   }    
   widgetSet -> paint(fps_id) ;
-}
+}   // drawFPS
 
-void RaceGUI::stToggle ()
-{
+// -----------------------------------------------------------------------------
+void RaceGUI::drawSpeed() {
+  char str[256];
+  // JH This needs to be adjusted when the new physics are running. Displaying
+  // JH in KPH gives just very small values (about 4), which isn't too exciting
+  // JH sprintf(str, "%3d", (int)(world->getPlayerKart(0)->getVelocity()->xyz[1]
+  // JH		    * KILOMETERS_PER_HOUR));
+  sprintf(str, "%3d", (int)(world->getPlayerKart(0)->getVelocity()->xyz[1]));
+  drawDropShadowText("Speed:", 28, config->width-180, config->height-150 );
+  drawDropShadowText(str,      36, config->width-180, config->height-180 );
+}   // drawSpeed
+
+// -----------------------------------------------------------------------------
+void RaceGUI::stToggle () {
   if ( stats_enabled )
     stats_enabled = FALSE ;
   else
@@ -190,10 +206,10 @@ void RaceGUI::stToggle ()
 
     next_string = 0 ;
   }
-}
+}   // stToggle
 
-void RaceGUI::stPrintf ( char *fmt, ... )
-{
+// -----------------------------------------------------------------------------
+void RaceGUI::stPrintf ( char *fmt, ... ) {
   char *p = debug_strings [ next_string++ ] ;
 
   if ( next_string >= MAX_STRING )
@@ -212,22 +228,24 @@ void RaceGUI::stPrintf ( char *fmt, ... )
   vsprintf ( p, fmt, ap ) ;
 
   va_end ( ap ) ;
-}
+}   // stPrintf
 
-void RaceGUI::drawInverseDropShadowText ( const char *str, int sz, int x, int y )
-{
+// -----------------------------------------------------------------------------
+void RaceGUI::drawInverseDropShadowText ( const char *str, int sz, 
+					  int x, int y              ) {
   widgetSet->drawText ( str, sz, x, y, 255, 255, 255 ) ;
   widgetSet->drawText ( str, sz, x+1, y+1, 0, 0, 0 ) ;
-}
+}   // drawInverseDropShadowText
 
-void RaceGUI::drawDropShadowText (const char *str, int sz, int x, int y )
-{
+// -----------------------------------------------------------------------------
+void RaceGUI::drawDropShadowText (const char *str, int sz, int x, int y ) {
   widgetSet->drawText ( str, sz, x, y, 0, 0, 0 ) ;
   widgetSet->drawText ( str, sz, x+1, y+1, 255, 255, 255 ) ;
-}
+}  // drawDropShadowText
 
-void RaceGUI::drawTexture(const GLuint texture, int w, int h, int red, int green, int blue, int x, int y)
-{
+// -----------------------------------------------------------------------------
+void RaceGUI::drawTexture(const GLuint texture, int w, int h, 
+			  int red, int green, int blue, int x, int y) {
   glEnable(GL_TEXTURE_2D);
   glBindTexture(GL_TEXTURE_2D, texture);
 
@@ -247,8 +265,9 @@ void RaceGUI::drawTexture(const GLuint texture, int w, int h, int red, int green
   glEnd();
 
   glDisable(GL_TEXTURE_2D);
-}
+}   // drawTexture
 
+// -----------------------------------------------------------------------------
 void RaceGUI::drawTimer () {
   if(world->getPhase()!=World::RACE_PHASE) return;
   char str [ 256 ] ;
@@ -262,12 +281,12 @@ void RaceGUI::drawTimer () {
   sprintf ( str, "%3d:%02d\"%d", min,  sec,  tenths ) ;
   drawDropShadowText ( "Time:", 28, config->width-180, config->height-50 ) ;
   drawDropShadowText ( str,     36, config->width-220, config->height-80 ) ;
-}
+}   // drawTimer
 
+// -----------------------------------------------------------------------------
 void RaceGUI::drawScore (const RaceSetup& raceSetup, Kart* player_kart,
 			 int offset_x, int offset_y, float ratio_x, 
-			 float ratio_y)
-{
+			 float ratio_y                                 ) {
   char str [ 256 ] ;
 
 #ifdef DEBUG
@@ -305,8 +324,9 @@ void RaceGUI::drawScore (const RaceSetup& raceSetup, Kart* player_kart,
   sprintf ( str, "%s", pos_string [ player_kart->getPosition() ] ) ;
   drawDropShadowText ( str, (int)(74*ratio_y), (int)(16*ratio_x)+offset_x, 
 		       (int)(2*ratio_y)+offset_y );
-}
+}   // drawScore
 
+// -----------------------------------------------------------------------------
 #define TRACKVIEW_SIZE 100
 
 void RaceGUI::drawMap () {
@@ -332,12 +352,10 @@ void RaceGUI::drawMap () {
   }
 
   glEnd () ;
-}
+}   // drawMap
 
-
-
-void RaceGUI::drawGameOverText ()
-{
+// -----------------------------------------------------------------------------
+void RaceGUI::drawGameOverText () {
   static int timer = 0 ;
 
   /* Calculate a color. This will result in an animation effect. */
@@ -357,10 +375,10 @@ void RaceGUI::drawGameOverText ()
     widgetSet->drawText ( "CONGRATULATIONS"  , 90, 130, 210, red, green, blue ) ;
     widgetSet->drawText ( "YOU WON THE RACE!", 90, 130, 210, red, green, blue ) ;
   }
-}
+}   // drawGameOverText
 
-void RaceGUI::oldDrawPlayerIcons ()
-{
+// -----------------------------------------------------------------------------
+void RaceGUI::oldDrawPlayerIcons () {
   int   x =  0 ;
   int   y = 10 ;
   float w = 640.0f - 64.0f ;
@@ -390,10 +408,10 @@ void RaceGUI::oldDrawPlayerIcons ()
 
     }   // for i
 
-}
+}   // oldDrawPlayerIcons
 
-void RaceGUI::drawPlayerIcons ()
-{
+// -----------------------------------------------------------------------------
+void RaceGUI::drawPlayerIcons () {
   /** Draw players position on the race */
 
   int x = 10;
@@ -431,12 +449,10 @@ void RaceGUI::drawPlayerIcons ()
 
       // draw text
       drawDropShadowText ( pos_string[position], 28, 55+x, y+10 ) ;
-
     }
+}   // drawPlayerIcons
 
-}
-
-
+// -----------------------------------------------------------------------------
 void RaceGUI::drawEmergencyText (Kart* player_kart, int offset_x, 
 				 int offset_y, float ratio_x, float ratio_y ) {
   static float wrong_timer = 0.0f ;
@@ -447,59 +463,49 @@ void RaceGUI::drawEmergencyText (Kart* player_kart, int offset_x,
   int   l = player_kart->getLap () ;
 
   if ( ( l < last_lap || ( l == last_lap && d < last_dist ) ) &&
-       player_kart -> getVelocity () -> xyz [ 1 ] > 0.0f )
-  {
-    wrong_timer += 0.05f; // FIXME: was world->clock -> getDeltaTime () ;
+       player_kart -> getVelocity () -> xyz [ 1 ] > 0.0f         ) {
+    wrong_timer += 0.05f; // JH FIXME: was world->clock -> getDeltaTime () ;
 
-    if ( wrong_timer > 2.0f )
-    {
+    if ( wrong_timer > 2.0f ) {
       static int i = FALSE ;
 
       int red, green, blue;
-      if ( i )
-        {
+      if ( i ) {
         red = blue = 255;
         green = 0;
-        }
-      else
-        {
+      } else {
         red = blue = 0;
         green = 255;
-        }
+      }
 
       widgetSet->drawText ( "WRONG WAY!", (int)(90*ratio_y), 
 			    (int)(130*ratio_x)+offset_x,
 			    (int)(210*ratio_y)+offset_y, red, green, blue ) ;
-      if ( ! i )
-        {
+      if ( ! i ) {
         red = blue = 255;
         green = 0;
-        }
-      else
-        {
+      } else {
         red = blue = 0;
         green = 255;
-        }
+      }
 
       widgetSet->drawText ( "WRONG WAY!", (int)(90*ratio_y), 
 			    (int)((130+2)*ratio_x)+offset_x,
 			    (int)((210+2)*ratio_y)+offset_y, red, green, blue ) ;
 
       i = ! i ;
-    }
-  }
-  else
+    }   // if wrong_timer>2.0
+  } else
     wrong_timer = 0.0f ;
 
   last_dist = d ;
   last_lap  = l ;
-}
+}   //drawEmergencyText
 
-
+// -----------------------------------------------------------------------------
 void RaceGUI::drawCollectableIcons ( Kart* player_kart, int offset_x, 
 				     int offset_y, float ratio_x, 
-				     float ratio_y )
-{
+				     float ratio_y                    ) {
   int zz = FALSE ;
   // Originally the hardcoded sizes were 320-32 and 400
   int x1 = (int)((config->width/2-32) * ratio_x) + offset_x ;
@@ -523,7 +529,6 @@ void RaceGUI::drawCollectableIcons ( Kart* player_kart, int offset_x,
 #ifdef JH
     case COLLECT_ZIPPER         : zipper_gst       -> apply () ;
                                   zz = TRUE ; break ;
-  }
 #endif
 
   int n  = player_kart->getNumCollectables() ;
@@ -536,10 +541,8 @@ void RaceGUI::drawCollectableIcons ( Kart* player_kart, int offset_x,
   glBegin ( GL_QUADS ) ;
     glColor4f    ( 1, 1, 1, 1 ) ;
 
-    for ( int i = 0 ; i < n ; i++ )
-    {
-      if ( zz )
-      {
+    for ( int i = 0 ; i < n ; i++ ) {
+      if ( zz ) {
 	glTexCoord2f ( 0, 2 ) ; glVertex2i ( i*40 + x1                  , y1    ) ;
 	glTexCoord2f ( 0, 0 ) ; glVertex2i ( i*40 + x1+(int)(32*ratio_x), y1    ) ;
 	glTexCoord2f ( 2, 0 ) ; glVertex2i ( i*40 + x1+(int)(64*ratio_x), y1+(int)(32*ratio_y) ) ;
@@ -549,20 +552,19 @@ void RaceGUI::drawCollectableIcons ( Kart* player_kart, int offset_x,
 	glTexCoord2f ( 0, 0 ) ; glVertex2i ( i*40 + x1+(int)(64*ratio_x), y1+(int)(32*ratio_y) ) ;
 	glTexCoord2f ( 2, 0 ) ; glVertex2i ( i*40 + x1+(int)(32*ratio_x), y1+(int)(64*ratio_y) ) ;
 	glTexCoord2f ( 2, 2 ) ; glVertex2i ( i*40 + x1                  , y1+(int)(64*ratio_y) ) ;
-      }
-      else
-      {
+      } else {
 	glTexCoord2f ( 0, 0 ) ; glVertex2i ( i*30 + x1                  , y1    ) ;
 	glTexCoord2f ( 1, 0 ) ; glVertex2i ( i*30 + x1+(int)(64*ratio_x), y1    ) ;
 	glTexCoord2f ( 1, 1 ) ; glVertex2i ( i*30 + x1+(int)(64*ratio_x), y1+(int)(64*ratio_y) ) ;
 	glTexCoord2f ( 0, 1 ) ; glVertex2i ( i*30 + x1                  , y1+(int)(64*ratio_y) ) ;
       }
-    }
+    }   // for i
   glEnd () ;
 
   glDisable(GL_TEXTURE_2D);
-}
+}   // drawCollectableIcons
 
+// -----------------------------------------------------------------------------
 /* Energy meter that gets filled with coins */
 
 // Meter fluid color (0 - 255)
@@ -571,8 +573,9 @@ void RaceGUI::drawCollectableIcons ( Kart* player_kart, int offset_x,
 // Meter border color (0.0 - 1.0)
 #define METER_BORDER_COLOR 0.0, 0.0, 0.0
 
-void RaceGUI::drawEnergyMeter ( float state, int offset_x, int offset_y, float ratio_x, float ratio_y )
-{
+// -----------------------------------------------------------------------------
+void RaceGUI::drawEnergyMeter ( float state, int offset_x, int offset_y, 
+				float ratio_x, float ratio_y             ) {
   int x = (int)(config->width-50 * ratio_x) + offset_x;
   int y = (int)(config->height/4 * ratio_y) + offset_y;
   int w = (int)(24 * ratio_x);
@@ -628,11 +631,11 @@ void RaceGUI::drawEnergyMeter ( float state, int offset_x, int offset_y, float r
     glVertex2i ( x+w, y + (int)(state * h));
     glVertex2i ( x,   y + (int)(state * h) ) ;
   glEnd () ;
-}
+}   // drawEnergyMeter
 
 
-void RaceGUI::drawStatusText (const RaceSetup& raceSetup)
-{
+// -----------------------------------------------------------------------------
+void RaceGUI::drawStatusText (const RaceSetup& raceSetup) {
   glMatrixMode   ( GL_MODELVIEW ) ;
   glPushMatrix   () ;
   glLoadIdentity () ;
@@ -716,14 +719,17 @@ void RaceGUI::drawStatusText (const RaceSetup& raceSetup)
       }
     }   // if getNumPlayers==1
 
-    drawTimer () ;
-    drawMap   () ;
+    drawTimer ();
+    drawSpeed ();
+    drawMap   ();
+    if ( config->displayFPS )
+      drawFPS ();
   }   // not game over
 
   glPopAttrib  () ;
   glPopMatrix  () ;
   glMatrixMode ( GL_MODELVIEW ) ;
   glPopMatrix  () ;
-}
+}   // drawStatusText
 
 /* EOF */

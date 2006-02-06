@@ -63,7 +63,6 @@ void Moveable::reset () {
 
   sgZeroVec3 ( velocity.xyz ) ;
   sgZeroVec3 ( velocity.hpr ) ;
-  sgCopyCoord ( &last_pos, &reset_pos ) ;
   sgCopyCoord ( &curr_pos, &reset_pos ) ;
   
 }   // reset
@@ -86,7 +85,6 @@ void Moveable::update (float dt) {
       sgCopyCoord(&(historyVelocity[history->GetCurrentIndex()]), &velocity);
     }
   }   // if historyVelocity
-  sgCopyCoord ( &last_pos        , &curr_pos         );
 
   /* Scale velocities to current time step. */
   sgScaleVec3 ( scaled_velocity.xyz, velocity.xyz, dt );

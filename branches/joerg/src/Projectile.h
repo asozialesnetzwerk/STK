@@ -23,11 +23,11 @@
 #include "Moveable.h"
 #include "Kart.h"
 
-class Projectile : public Moveable
-{
-  const Kart* owner ;
-  int type ;
-  bool hasHitSomething;
+class Projectile : public Moveable {
+  sgCoord     last_pos;
+  const Kart* owner;
+  int         type ;
+  bool        hasHitSomething;
 
 public:
 
@@ -39,6 +39,9 @@ public:
   void doObjectInteractions();
   void explode             ();
   bool hasHit              () {return hasHitSomething;}
+  void reset               () {Moveable::reset();
+                               sgCopyCoord ( &last_pos, &reset_pos );}
+   
 } ;
 
 

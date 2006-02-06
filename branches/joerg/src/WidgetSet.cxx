@@ -155,18 +155,19 @@ int WidgetSet::add_widget(int pd, int type)
         {
             /* Set the type and default properties. */
 
-            widgets[id].type     = type;
-            widgets[id].token    = 0;
-            widgets[id].value    = 0;
-            widgets[id].size     = 0;
-            widgets[id].rect     = GUI_NW | GUI_SW | GUI_NE | GUI_SE;
-            widgets[id].w        = 0;
-            widgets[id].h        = 0;
-            widgets[id].text_img = 0;
-            widgets[id].rect_obj = 0;
-            widgets[id].color0   = gui_wht;
-            widgets[id].color1   = gui_wht;
-            widgets[id].scale    = 1.0f;
+            widgets[id].type       = type;
+            widgets[id].token      = 0;
+            widgets[id].value      = 0;
+            widgets[id].size       = 0;
+            widgets[id].rect       = GUI_NW | GUI_SW | GUI_NE | GUI_SE;
+            widgets[id].w          = 0;
+            widgets[id].h          = 0;
+            widgets[id].text_img   = 0;
+            widgets[id].rect_obj   = 0;
+            widgets[id].color0     = gui_wht;
+            widgets[id].color1     = gui_wht;
+            widgets[id].scale      = 1.0f;
+            widgets[id].count_text = (char*)NULL;
 
             /* Insert the new widget into the parents's widget list. */
 
@@ -220,10 +221,15 @@ void WidgetSet::set_label(int id, const char *text)
     }
 }
 
-void WidgetSet::set_count(int id, int value)
-{
-    widgets[id].value = value;
-}
+void WidgetSet::set_count(int id, int value) {
+  widgets[id].value = value;
+  sprintf(widgets[id].count_text,"%d",value);
+  float l,r,b,t;
+  fnt->getBBox(widgets[id].count_text, widgets[id].size, 0, &l, &r, &b, &t);
+  widgets[id].yOffset    = (int)(b);
+  widgets[id].w          = (int)(r-l+0.99);
+  widgets[id].h          = (int)(t-b+0.99);
+}   // set_count
 
 void WidgetSet::set_clock(int id, int value)
 {
@@ -326,25 +332,29 @@ int WidgetSet::label(int pd, const char *text, int size, int rect, const float *
     }
     return id;
 }
-
-int WidgetSet::count(int pd, int value, int size, int rect)
-{
+// -----------------------------------------------------------------------------
+int WidgetSet::count(int pd, int value, int size, int rect) {
     int  id;
 
-    if ((id = add_widget(pd, GUI_COUNT)))
-    {
+    if ((id = add_widget(pd, GUI_COUNT))) {
       widgets[id].value  = value;
       widgets[id].size   = size;
       widgets[id].color0 = gui_yel;
       widgets[id].color1 = gui_red;
       widgets[id].rect   = rect;
+      widgets[id].count_text  = new char[20];
+      sprintf(widgets[id].count_text,"%d",value);
+      float l,r,b,t;
+      fnt->getBBox(widgets[id].count_text, size, 0, &l, &r, &b, &t);
+      widgets[id].yOffset    = (int)(b);
+      widgets[id].w          = (int)(r-l+0.99);
+      widgets[id].h          = (int)(t-b+0.99);
     }
-    printf("count: FIXME: value=%d, id=%d\n",value,id);
     return id;
-}
+}   // count
 
-int WidgetSet::clock(int pd, int value, int size, int rect)
-{
+// -----------------------------------------------------------------------------
+int WidgetSet::clock(int pd, int value, int size, int rect) {
     int id;
 
     if ((id = add_widget(pd, GUI_CLOCK)))
@@ -818,10 +828,8 @@ int WidgetSet::activate_widget(int id, int token, int value)
     return id;
 }
 
-int WidgetSet::delete_widget(int id)
-{
-    if (id)
-    {
+int WidgetSet::delete_widget(int id) {
+    if (id) {
         /* Recursively delete all subwidgets. */
 
         delete_widget(widgets[id].cdr);
@@ -836,7 +844,9 @@ int WidgetSet::delete_widget(int id)
             glDeleteLists(widgets[id].rect_obj, 1);
 
         /* Mark this widget unused. */
-
+	if(widgets[id].type==GUI_COUNT) {
+	  delete widgets[id].count_text;
+	}
         widgets[id].type     = GUI_FREE;
         widgets[id].text_img = 0;
         widgets[id].rect_obj = 0;
@@ -953,15 +963,11 @@ void WidgetSet::paint_image(int id)
     glPopMatrix();
 }
 
-void WidgetSet::paint_count(int id)
-{
-
-  char sFPS[100];
-  sprintf(sFPS,"%d",widgets[id].value);
-  drawText(sFPS, widgets[id].size, widgets[id].x,widgets[id].y,
+void WidgetSet::paint_count(int id) {
+  drawText(widgets[id].count_text, widgets[id].size, widgets[id].x,widgets[id].y,
 	   255,255,255,1.0, 1.0);
   return;
-}
+}   // paint_count
 
 void WidgetSet::paint_clock(int id)
 {

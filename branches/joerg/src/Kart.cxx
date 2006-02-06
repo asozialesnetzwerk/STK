@@ -154,8 +154,6 @@ void Kart::reset() {
   racePosition   = 9;
   ZipperTimeLeft = 0.0f ;
   Moveable::reset();
-  trackHint = world -> track -> absSpatialToTrack(last_track_coords, 
-						  last_pos.xyz      );
   trackHint = world -> track -> absSpatialToTrack(curr_track_coords,
 						  curr_pos.xyz      );
 }   // reset
@@ -405,10 +403,10 @@ void Kart::updatePhysics (float dt) {
   resistance[1] -= kart_properties->system_friction * velocity.xyz[1];
    
   // sum forces
-  force[0] += traction[0] + cos(steer_angle)*lateral_f[0] + lateral_r[1]
-           +  resistance[0];
-  force[1] += traction[1] + sin(steer_angle)*lateral_f[1] + lateral_r[1]
-           +  resistance[1];
+  force[0] = traction[0] + cos(steer_angle)*lateral_f[0] + lateral_r[1]
+           + resistance[0];
+  force[1] = traction[1] + sin(steer_angle)*lateral_f[1] + lateral_r[1]
+           + resistance[1];
    
   // torque - rotation force on kart body
   torque = (lateral_f[0] * wheelbase/2) - (lateral_r[0] * wheelbase/2);
@@ -671,7 +669,7 @@ void print_model(ssgEntity* entity, int indent, int maxLevel) {
 	      << entity->getPrintableName() 
 	      << "' '" 
 	      << (entity->getName() ? entity->getName() : "null")
-	      << "' " << int(entity) << std::endl;
+	      << "' " << entity << std::endl;
     
     ssgBranch* branch = dynamic_cast<ssgBranch*>(entity);
       

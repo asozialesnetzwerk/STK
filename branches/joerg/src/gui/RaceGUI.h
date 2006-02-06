@@ -49,6 +49,7 @@ public:
 
 private:
 	void drawFPS();
+	void drawSpeed();
 	ulClock  fpsTimer;
 	int      fpsCounter;
 	int      fps_id;

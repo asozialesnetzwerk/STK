@@ -70,7 +70,6 @@ class Moveable {
 protected:
   sgCoord       reset_pos;      /* Where to start in case of a reset           */
   sgCoord       curr_pos;       /* current position                            */
-  sgCoord       last_pos;       /* previous position                           */
   sgCoord       velocity;       /* current velocity                            */
   sgCoord       visi_pos;       /* The interpolated position of the kart, this 
 				   might differ a bit from the real position, 

@@ -48,8 +48,9 @@ Collectable::Collectable(Kart* kart_) {
   kart   = kart_;
   type   = COLLECT_NOTHING;
   number = 0;
-}
+}   // Collectable
 
+// -----------------------------------------------------------------------------
 void Collectable::set(collectableType _type, int n) {
   if (type==_type) {
     number+=n;
@@ -59,12 +60,14 @@ void Collectable::set(collectableType _type, int n) {
   number=n;
 }  // set
 
+// -----------------------------------------------------------------------------
 Material *Collectable::getIcon() {
   // Cheock if it's one of the types which have a separate
   // data file which includes the icon:
   return collectable_manager->getIcon(type);
 }
 
+// -----------------------------------------------------------------------------
 void Collectable::use() {
   number--;
   switch (type) {
@@ -86,10 +89,10 @@ void Collectable::use() {
   }                                                                           
 }   // use
 
+// -----------------------------------------------------------------------------
 void Collectable::hitRedHerring(int n) {
   collectableType newC=(collectableType)(rand()%5+1);
   if(type==COLLECT_NOTHING) {
-    if(newC<=COLLECT_HOMING_MISSILE) newC=COLLECT_ZIPPER;
     type=newC;
     number=n;
   } else if(newC==type) {

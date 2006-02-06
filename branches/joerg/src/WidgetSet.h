@@ -99,6 +99,7 @@ struct Widget
 	int     cdr;
 
         const char    *_text;
+        char    *count_text;
         int     text_width;
 	GLuint  text_img;
 	GLuint  rect_obj;
