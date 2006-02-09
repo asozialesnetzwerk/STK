@@ -102,7 +102,6 @@ void RaceGUI::UpdateKeyboardMappings() {
     typeForKey[p->keys[KC_RESCUE] ] = KC_RESCUE ;
     typeForKey[p->keys[KC_FIRE]   ] = KC_FIRE   ;
   }
-  printf("Updated keyboard mapping\n"); 
 }   // UpdateKeyControl
 
 // -----------------------------------------------------------------------------
@@ -121,12 +120,12 @@ void RaceGUI::keybd(int key) {
   } else {
     switch ( key ) {
       case 0x12      : if(world->raceSetup.getNumPlayers()==1) {   // ctrl-r
-                        Kart* kart = world->getPlayerKart(0);
-			kart->setCollectable(COLLECT_SPARK, 1000000);
-			//JH    kart->setCollectable((rand()%2)==0?
-			//JH COLLECT_MISSILE:COLLECT_HOMING_MISSILE,
-                     }
-                     break;
+                         Kart* kart = world->getPlayerKart(0);
+			 kart->setCollectable((rand()%2)?COLLECT_MISSILE
+					                :COLLECT_HOMING_MISSILE,
+					      10000);
+                        }
+                       break;
       case PW_KEY_F12: config->displayFPS = !config->displayFPS ;
 	               if(config->displayFPS) {
 			 fpsTimer.reset();

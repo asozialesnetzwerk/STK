@@ -173,7 +173,6 @@ float StaticSSG::hot(sgVec3 start, sgVec3 end, ssgLeaf** leaf) {
   int nHashStart = GetHash(start[0], start[1]);
   int nTriangles = (*buckets)[nHashStart].size();
 
-
   for(int i=0; i<nTriangles; i++) {
     InfoTriangle *t = (*buckets)[nHashStart][i];
     float hotnew = t->hot(start);
@@ -226,6 +225,9 @@ int StaticSSG::collision(sgSphere *s, AllHits *allHits) {
   for(int j=nMin; j<=nMax; j++) {
     for(int i=mMin; i<=mMax; i++) {
       int nHash  = GetHash(i, j);
+      if(nHash<0 || nHash>=n*m) {   // that should be a car off track
+	continue;                   // rescue should take care of this
+      }
       int nCount = (*buckets)[nHash].size();
       for(int k=0; k<nCount; k++) {
 	InfoTriangle *t = (*buckets)[nHash][k];
@@ -245,8 +247,6 @@ int StaticSSG::collision(sgSphere *s, AllHits *allHits) {
 }   // StaticSSG::collision
 
 // =============================================================================
-/* Further ideas for speedup: pass on current hot, and discard triangles
-   which have a highest point lower than current hot                      */
 float InfoTriangle::hot(sgVec3 s) {
   /*
     Does the X/Y coordinate lie outside the triangle's bbox, or

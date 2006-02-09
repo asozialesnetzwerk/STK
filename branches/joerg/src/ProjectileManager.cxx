@@ -24,51 +24,15 @@
 #include "Loader.h"
 #include "StringUtils.h"
 #include "ProjectileManager.h"
+#include "CollectableManager.h"
 #include "Collectable.h"
 
 static ssgSelector *find_selector ( ssgBranch *b );
 
-typedef struct {collectableType collectable; char* dataFilename;} 
-  initProjectileType;
-
-initProjectileType ipt[]={
-  {COLLECT_SPARK,          "spark.projectile"         },
-  {COLLECT_MISSILE,        "missile.projectile"       },
-  {COLLECT_HOMING_MISSILE, "homingmissile.projectile" },
-  {COLLECT_MAX,            0                          },
-};
-
 ProjectileManager *projectile_manager=0;
 
 // -----------------------------------------------------------------------------
-ProjectileManager::ProjectileManager() {
-  for(int i=0; i<COLLECT_MAX; i++) {
-    modelProjectiles[i] = NULL;
-    projectilesProp[i]  = NULL;
-  }   // for i<COLLECT_MAX
-}
-
-// -----------------------------------------------------------------------------
-ProjectileManager::~ProjectileManager()
-{
-  for(int i = 0; i<COLLECT_MAX; i++) {
-    if(modelProjectiles[i]) delete modelProjectiles[i];
-    if(projectilesProp[i]) delete projectilesProp[i];
-  }
-}
-
-// -----------------------------------------------------------------------------
 void ProjectileManager::loadData() {
-
-  for(int i=0; ipt[i].collectable!=COLLECT_MAX; i++) {
-    collectableType c=ipt[i].collectable;
-    std::string s=ipt[i].dataFilename;
-    // First load the .projectile file, which contains the icon
-    // filename and the model filename, both of which gets loaded
-    // within KartProperties.
-    projectilesProp [c]=new KartProperties("data/"+s, "tuxkart-projectile");
-    projectilesProp [c]->loadModel();
-  }
 
   // Load the explosion model and find the actual selector branch in int
   explosionModel = find_selector((ssgBranch*)ssgLoad("explode.ac", loader));
@@ -82,11 +46,15 @@ void ProjectileManager::loadData() {
 // -----------------------------------------------------------------------------
 void ProjectileManager::cleanup() {
   for(Projectiles::iterator i = activeProjectiles.begin();
-      i != activeProjectiles.end(); ++i)
+                            i != activeProjectiles.end(); ++i) {
     delete *i;
+  }
+  activeProjectiles.clear();
   for(Explosions::iterator i  = activeExplosions.begin(); 
-                           i != activeExplosions.end(); ++i)
+                           i != activeExplosions.end(); ++i) {
     delete *i;
+  }
+  activeExplosions.clear();
 }   // cleanup
 
 // -----------------------------------------------------------------------------

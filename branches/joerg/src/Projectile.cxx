@@ -20,12 +20,11 @@
 #include "constants.h"
 #include "Projectile.h"
 #include "World.h"
-#include "KartProperties.h"
 #include "ProjectileManager.h"
 #include "Attachment.h"
 #include "Collectable.h"
 
-Projectile::Projectile(Kart *kart, int collectable) : Moveable(0, false) {
+Projectile::Projectile(Kart *kart, int collectable) : Moveable(false) {
   init(kart, collectable);  
   getModel()->clrTraversalMaskBits(SSGTRAV_ISECT|SSGTRAV_HOT);
 }   // Projectile
@@ -35,29 +34,21 @@ void Projectile::init(Kart *kart, int collectable_) {
   owner              = kart;
   type               = collectable_;
   hasHitSomething    = false;
-  KartProperties *kp = projectile_manager->getByType(collectable_);
-  setKartProperties(kp);
-  setCoord(kart->getCoord());
+  speed              = collectable_manager->getSpeed(type);
   ssgTransform *m    = getModel();
-  m->addKid(kp->getModel());
+  m->addKid(collectable_manager->getModel(type));
+  setCoord(kart->getCoord());
   world->addToScene(m);
 }
 // -----------------------------------------------------------------------------
 Projectile::~Projectile() {
-  delete getKartProperties();
-}
+}   // ~Projectile
 // -----------------------------------------------------------------------------
 void Projectile::update (float dt) {
-  if ( type == COLLECT_HOMING_MISSILE )
-    velocity.xyz[1] = MAX_HOMING_PROJECTILE_VELOCITY ;
-  else
-  if ( type == COLLECT_MISSILE )
-    velocity.xyz[1] = MAX_PROJECTILE_VELOCITY ;
-  else
-    velocity.xyz[1] = MAX_PROJECTILE_VELOCITY / 5.0f ;
   // we don't even do any physics here - just set the
   // velocity, and ignore everything else for projectiles.
-  sgCopyCoord ( &last_pos        , &curr_pos         );
+  velocity.xyz[1] = speed;
+  sgCopyCoord ( &last_pos, &curr_pos);
   Moveable::update(dt);
   doObjectInteractions();
 }   // update
@@ -73,7 +64,7 @@ void Projectile::doObjectInteractions () {
     sgCoord *pos ;
  
     Kart *kart = world -> getKart(i);
-    pos = kart -> getCoord () ;
+    pos        = kart  -> getCoord();
  
     if ( type != COLLECT_NOTHING && kart != owner ) {
       float d = sgDistanceSquaredVec3 ( pos->xyz, getCoord()->xyz ) ;

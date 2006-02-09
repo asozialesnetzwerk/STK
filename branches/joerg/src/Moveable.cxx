@@ -25,8 +25,7 @@
 #include "Config.h"
 #include "History.h"
 
-Moveable::Moveable (const KartProperties* kart_properties, bool bHasHistory) {
-  this->kart_properties = kart_properties;
+Moveable::Moveable (bool bHasHistory) {
   shadow                = 0;
   firsttime             = TRUE ;
   model                 = new ssgTransform();
@@ -55,7 +54,6 @@ Moveable::~Moveable() {
 
 // -----------------------------------------------------------------------------
 void Moveable::reset () {
-  rescue           = FALSE ;
   on_ground        = TRUE ;
   collided         = FALSE;
   crashed          = FALSE ;
@@ -201,7 +199,7 @@ float Moveable::collectIsectData ( sgVec3 start, sgVec3 end ) {
   if ( nsteps > 100 ) {
     fprintf ( stderr, "WARNING: Speed too high for collision detect!\n" ) ;
     fprintf ( stderr, "WARNING: Nsteps=%d, Speed=%f!\n", nsteps,speed ) ;
-    fprintf(stderr, "moveable %x, vel=%f,%f,%f\n",this, vel[0],vel[1],vel[2]);
+    fprintf(stderr, "moveable %p, vel=%f,%f,%f\n",this, vel[0],vel[1],vel[2]);
     nsteps = 100 ;
   }
 
@@ -299,8 +297,8 @@ float Moveable::getIsectData ( sgVec3 start, sgVec3 end ) {
 	  collided = FALSE ;
 	if (material_manager->getMaterial( h->leaf ) -> isCrashable () ) 
 	  crashed  = TRUE  ;
-	if (material_manager->getMaterial( h->leaf ) -> isReset     () ) 
-	  rescue   = TRUE  ;
+	if (material_manager->getMaterial( h->leaf ) -> isReset     () )
+	  OutsideTrack(1);
       }   // if dist>0 && dist < getRadius
       else {
 	printf("dist=%f\n",dist);
@@ -333,7 +331,7 @@ float Moveable::getIsectData ( sgVec3 start, sgVec3 end ) {
       if (material_manager->getMaterial( (*i)->leaf ) -> isCrashable () ) 
 	crashed  = TRUE  ;
       if (material_manager->getMaterial( (*i)->leaf ) -> isReset     () ) 
-	rescue   = TRUE  ;
+	OutsideTrack(1);
     }   // for i in a
   }   // if new collision algorithm
 
@@ -344,7 +342,6 @@ float Moveable::getIsectData ( sgVec3 start, sgVec3 end ) {
 
 
   float top = COLLISION_SPHERE_RADIUS + ((start[2]>end[2]) ? start[2] : end[2]);
-  int need_rescue = FALSE ;
   if(config->oldHOT) {
     invmat[3][0] = - end [0] ;
     invmat[3][1] = - end [1] ;
@@ -368,7 +365,9 @@ float Moveable::getIsectData ( sgVec3 start, sgVec3 end ) {
 	// method is empty for moveables, but not for karts.
 	setGroundNormal(h->plane);
 
-	need_rescue = material_manager->getMaterial ( h->leaf ) -> isReset  () ;
+	if(material_manager->getMaterial ( h->leaf ) -> isReset  () ) {
+	  OutsideTrack(1);
+	}
 	if ( material_manager->getMaterial ( h->leaf ) -> isZipper ()) {
 	  // Drove over a zipper. Use callback function - if this object 
 	  // is not a kart (e.g. it's a projectile), the projectile will 
@@ -388,17 +387,16 @@ float Moveable::getIsectData ( sgVec3 start, sgVec3 end ) {
       // method is empty for moveables, but not for karts.
       //JH --> setGroundNormal(h->plane);
       Material *m = material_manager->getMaterial(leaf);
-      need_rescue = m->isReset();
+      if(m->isReset()) OutsideTrack(1);
       if(m->isZipper()) handleZipper();
     } else {
-      printf("No leaf found, hot=%f\n",hot);
-      need_rescue=TRUE;
+      printf("No leaf found for %p, hot=%f\n",this, hot);
+      OutsideTrack(0);
     }
       
   }   // if not config->oldHOT
   if (end[2] < hot ) {
     end[2] = hot ;
-    if ( need_rescue ) rescue = TRUE ;
   }   // end[2]<hot
   return hot ;
 }   // getIsectData

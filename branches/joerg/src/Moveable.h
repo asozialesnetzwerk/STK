@@ -21,14 +21,11 @@
 #define HEADER_MOVEABLE_H
 
 #include <plib/ssg.h>
-#include "KartProperties.h"
 #include "Shadow.h"
 
 /* Limits of Kart performance */
 
 #define MAX_VELOCITY            (200.0f * KILOMETERS_PER_HOUR )
-#define MAX_PROJECTILE_VELOCITY (200.0f * KILOMETERS_PER_HOUR )
-#define MAX_HOMING_PROJECTILE_VELOCITY (105.0f * KILOMETERS_PER_HOUR )
 #define MAX_NATURAL_VELOCITY    ( 60.0f * KILOMETERS_PER_HOUR )
 #define MAX_PARACHUTE_VELOCITY  ( 40.0f * KILOMETERS_PER_HOUR )
 #define MAX_ANVIL_VELOCITY      ( 10.0f * KILOMETERS_PER_HOUR )
@@ -86,7 +83,6 @@ protected:
   ssgTransform* shadow;
   int           collided;
   int           crashed;
-  int           rescue;
   sgVec3        surface_avoidance_vector ;
   int           firsttime ;
   float         wheelie_angle ;
@@ -97,17 +93,12 @@ protected:
   sgCoord*      historyPosition;
 
 public:
-  const KartProperties *kart_properties;
   
   /* start - New Physics */
   
 
-  Moveable (const KartProperties* kart_properties, bool bHasHistory=false);
+  Moveable (bool bHasHistory=false);
   virtual ~Moveable();
-  void  setKartProperties(const KartProperties *kp) {kart_properties=kp;}
-  const KartProperties* getKartProperties() const {
-    return kart_properties;
-  }
 
   void          setReset     (sgCoord* pos)  {sgCopyCoord( &reset_pos, pos ); }
   ssgTransform* getModel     ()              {return model ;                  }
@@ -122,6 +113,12 @@ public:
   virtual void  reset        ();
   virtual void  update       (float dt) ;
   virtual void  doCollisionAnalysis(float dt, float hot);
+
+  // Gets called when no high of terrain can be determined (isReset=0), or 
+  // there is a 'reset' material under the moveable --> karts need to be 
+  // rescued, missiles should explode.
+  virtual void  OutsideTrack (int isReset) {}
+
   float         getIsectData (sgVec3 start, sgVec3 end );
   void          WriteHistory (char* s, int kartNumber, int indx);
   void          ReadHistory  (char* s, int kartNumber, int indx);

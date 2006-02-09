@@ -75,7 +75,8 @@ public:
   void setPos ( sgVec3 pos ) { sgCopyVec3 ( xyz, pos ) ;
                                scs -> setTransform ( pos ) ; }
  
-  virtual void update () = 0 ;
+  virtual void  update             () = 0;
+  virtual      ~ActiveThingInstance()   {};
 } ;                                                                             
 
  

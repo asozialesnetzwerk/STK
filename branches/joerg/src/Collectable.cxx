@@ -17,35 +17,16 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
+#include <iostream>
+#include <stdexcept>
 #include "Collectable.h"
+#include "Loader.h"
 #include "MaterialManager.h"
 #include "ProjectileManager.h"
 
-typedef struct {collectableType collectable; char *iconFile;} 
-  initCollectableType;
-
-initCollectableType ict[]={
-  {COLLECT_ZIPPER,         "zipper.rgb"        },
-  {COLLECT_MAGNET,         "magnet.rgb"        },
-  {COLLECT_SPARK,          "spark.rgb"         },
-  {COLLECT_MISSILE,        "missile.rgb"       },
-  {COLLECT_HOMING_MISSILE, "homingmissile.rgb" },
-  {COLLECT_MAX,            0                   },
-};
-
-CollectableManager::CollectableManager() {
-  for(int i=0; ict[i].collectable!=COLLECT_MAX; i++) {
-    icons[ict[i].collectable]=material_manager->getMaterial(ict[i].iconFile);
-  }
-}
-
-CollectableManager *Collectable::collectable_manager=0;
-
+// -----------------------------------------------------------------------------
 Collectable::Collectable(Kart* kart_) {
-  if(!collectable_manager) {
-    collectable_manager=new CollectableManager();
-  }
-  kart   = kart_;
+  owner  = kart_;
   type   = COLLECT_NOTHING;
   number = 0;
 }   // Collectable
@@ -62,7 +43,7 @@ void Collectable::set(collectableType _type, int n) {
 
 // -----------------------------------------------------------------------------
 Material *Collectable::getIcon() {
-  // Cheock if it's one of the types which have a separate
+  // Check if it's one of the types which have a separate
   // data file which includes the icon:
   return collectable_manager->getIcon(type);
 }
@@ -71,13 +52,13 @@ Material *Collectable::getIcon() {
 void Collectable::use() {
   number--;
   switch (type) {
-    case COLLECT_MAGNET:   kart->attach(ATTACH_MAGNET, 10.0f);
+    case COLLECT_MAGNET:   owner->attach(ATTACH_MAGNET, 10.0f);
                            break ;
-    case COLLECT_ZIPPER:   kart->handleZipper();
+    case COLLECT_ZIPPER:   owner->handleZipper();
 			   break ;
     case COLLECT_HOMING_MISSILE: 
     case COLLECT_SPARK:
-    case COLLECT_MISSILE:  projectile_manager->newProjectile(kart, type);
+    case COLLECT_MISSILE:  projectile_manager->newProjectile(owner, type);
                            break ;
 	 
     case COLLECT_NOTHING:

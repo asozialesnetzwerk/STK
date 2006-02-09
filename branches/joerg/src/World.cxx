@@ -176,7 +176,6 @@ World::~World() {
     delete kart[i];
 
   kart.clear();
-
   projectile_manager->cleanup();
 
   delete gold_h;
@@ -203,8 +202,9 @@ void World::update(float delta) {
 
   checkRaceStatus();
 
-  if( getPhase() == World::FINISH_PHASE )
-      guiStack.push_back ( GUIS_NEXTRACE );
+  if( getPhase() == World::FINISH_PHASE ) {
+    guiStack.push_back ( GUIS_NEXTRACE );
+  }
 
   float inc = 0.05;
   float dt  = delta;
@@ -256,7 +256,6 @@ void World::checkRaceStatus() {
 
   // For multiplayer we need a more intelligent solution here!  JH
   if ( world->kart[0]->getLap () >= raceSetup.numLaps ) {
-    printf("Going to finishing phase\n");
     phase = FINISH_PHASE;
   }
 }

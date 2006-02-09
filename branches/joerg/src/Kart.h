@@ -81,26 +81,33 @@ private:
   int                 finishingPosition;    // saves the end rank
   float               throttle;
   float               brake;
+ protected:
+  int                 rescue;
 
   /** Search the given branch of objects that match the wheel names
       and if so assign them to wheel_* variables */
   void  load_wheels          (ssgBranch* obj);
     
 public:
+  const KartProperties *kart_properties;
+
   Kart(const KartProperties* kart_properties_, int position_ ) ;
   virtual ~Kart();
 
   void load_data();
 
   virtual void placeModel ();
-
+  const KartProperties* getKartProperties() const 
+                                        { return kart_properties; }
+  void           setKartProperties   (const KartProperties *kp) 
+                                        { kart_properties=kp;}
   void           attach              (attachmentType attachment_, float time)
                                         { attachment.set(attachment_, time);}
   void           gotZipper           (float angle, float time)
                                         { wheelie_angle=angle; 
 					  ZipperTimeLeft=time;            }
-  void           setCollectable      (collectableType t, int n) {
-                                          collectable.set(t, n);            }
+  void           setCollectable      (collectableType t, int n) 
+                                        { collectable.set(t, n);            }
   void           setGroundNormal     (sgVec3 n) {sgCopyVec3(groundNormal,n);}
   void           setPosition         (int p)    {racePosition = p;          }
   float          getDistanceDownTrack() { return curr_track_coords[1];      }
@@ -129,7 +136,8 @@ public:
   virtual void   doLapCounting       ();
   virtual void   doCollisionAnalysis (float dt, float hot );
   virtual void   update              (float dt );
-   
+  virtual void   OutsideTrack        (int isReset) {rescue=true;}
+  
 } ;
 
 class TrafficDriver : public Kart {

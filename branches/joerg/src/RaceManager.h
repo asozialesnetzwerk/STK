@@ -26,12 +26,11 @@
 class RaceMode
 {
 public:
-  /** Start the mode and go into the first race */
-  virtual void start() =0;
-
-  /** Do the 'next thing' after the race is finished, ie. return to
-      the start screen or start a new race */
-  virtual void next() =0;
+  virtual      ~RaceMode() {};	// avoid compiler warning
+  virtual void start()    = 0;  // Start the mode and go into the first race 
+  virtual void next ()    = 0;  // Do the 'next thing' after the race is 
+                                // finished, ie. return to the start screen or
+                                // start a new race
 };
 
 class GrandPrixMode : public RaceMode

@@ -113,7 +113,8 @@ void KartParticleSystem::particle_delete (int , Particle* ) {
 
 // =============================================================================
 Kart::Kart (const KartProperties* kart_properties_, int position_ ) 
-  : Moveable(kart_properties_, true), attachment(this), collectable(this) {
+  : Moveable(true), attachment(this), collectable(this) {
+  kart_properties      = kart_properties_;
   grid_position        = position_ ;
   num_herring_gobbled  = 0;
   finishingPosition    = 0;
@@ -153,6 +154,7 @@ void Kart::reset() {
   raceLap        = -1; 
   racePosition   = 9;
   ZipperTimeLeft = 0.0f ;
+  rescue         = FALSE;
   Moveable::reset();
   trackHint = world -> track -> absSpatialToTrack(curr_track_coords,
 						  curr_pos.xyz      );
@@ -531,7 +533,7 @@ void Kart::load_data() {
   this-> getModel() -> addKid ( lod ) ;
    
   // Attach Particle System
-  sgCoord pipe_pos = {{0, 0, .3}, {0, 0, 0}} ;
+  //JH  sgCoord pipe_pos = {{0, 0, .3}, {0, 0, 0}} ;
   smoke_system = new KartParticleSystem(this, 50, 100.0f, TRUE, 0.35f, 1000);
   smoke_system -> init(5);
   //JH      smoke_system -> setState (getMaterial ("smoke.png")-> getState() );

@@ -11,6 +11,7 @@ tuxkart_SOURCES =                                       \
 	MaterialManager.cxx	 MaterialManager.h      \
 	Attachment.cxx		 Attachment.h	        \
 	Collectable.cxx		 Collectable.h	        \
+	CollectableManager.cxx	 CollectableManager.h   \
 	sound.cxx		 sound.h                \
 	utils.cxx		 utils.h                \
 	isect.cxx		 isect.h                \

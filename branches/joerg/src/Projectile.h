@@ -26,6 +26,7 @@
 class Projectile : public Moveable {
   sgCoord     last_pos;
   const Kart* owner;
+  float       speed;  		// Speed of the projectile
   int         type ;
   bool        hasHitSomething;
 
@@ -41,6 +42,8 @@ public:
   bool hasHit              () {return hasHitSomething;}
   void reset               () {Moveable::reset();
                                sgCopyCoord ( &last_pos, &reset_pos );}
+  void OutsideTrack        (int isReset) {
+    printf("Outside track %p\n",this); explode();}
    
 } ;
 

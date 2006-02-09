@@ -28,8 +28,7 @@
 #include "Explosion.h"
 #include "Collectable.h"
 
-class ProjectileManager
-{
+class ProjectileManager {
  private:
   typedef std::vector<Projectile*> Projectiles;
   typedef std::vector<Explosion* > Explosions;
@@ -51,27 +50,24 @@ class ProjectileManager
   // The list of deleted explosion, which will be reused.
   Explosions       deletedExplosions;
 
-  ssgEntity*       modelProjectiles[COLLECT_MAX];
-  KartProperties*  projectilesProp [COLLECT_MAX];
   ssgSelector*     explosionModel;
   bool             somethingWasHit;
   bool             explosionEnded;
-public:
- 
-  ProjectileManager();
-  ~ProjectileManager();
 
-  KartProperties*       getByType        (int i) {return projectilesProp[i];}
-  const KartProperties* getProjectile    (const std::string ident);
-  int                   getProjectileId  (const std::string ident);
-  void                  loadData         ();
-  void                  cleanup          ();
-  void                  update           (float dt);
-  Projectile*           newProjectile    (Kart *kart, int type);
-  Explosion*            newExplosion     (Projectile *p);
-  void                  explode          (Projectile *p){somethingWasHit=true;}
-  void                  FinishedExplosion(Explosion *p){explosionEnded =true;}
-  ssgSelector*          getExplosionModel() {return (ssgSelector*)explosionModel->clone();}
+public:
+                   ProjectileManager() {};
+                  ~ProjectileManager(){};
+  void             explode          (Projectile *p){somethingWasHit=true;}
+  void             FinishedExplosion(Explosion *p) {explosionEnded =true;}
+  ssgSelector*     getExplosionModel()             {
+                             return (ssgSelector*)explosionModel->clone();}
+  int              getProjectileId  (const std::string ident);
+  void             loadData         ();
+  void             cleanup          ();
+  void             update           (float dt);
+  Projectile*      newProjectile    (Kart *kart, int type);
+  Explosion*       newExplosion     (Projectile *p);
+  void             Deactivate       (Projectile *p) {}
 };
 
 extern ProjectileManager *projectile_manager;

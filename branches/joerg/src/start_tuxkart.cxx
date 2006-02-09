@@ -22,6 +22,7 @@
 #include "TrackManager.h"
 #include "KartManager.h"
 #include "ProjectileManager.h"
+#include "CollectableManager.h"
 #include "RaceManager.h"
 #include "Loader.h"
 #include "ScreenManager.h"
@@ -207,14 +208,15 @@ void InitTuxkart() {
   config = new Config();
   sound  = new SoundSystem();
 
-  history            = new History();
-  material_manager   = new MaterialManager();
-  track_manager      = new TrackManager();
-  kart_manager       = new KartManager();
-  projectile_manager = new ProjectileManager();
-  race_manager       = new RaceManager();
-  screen_manager     = new ScreenManager();
-  hook_manager       = new HookManager();
+  history             = new History           ();
+  material_manager    = new MaterialManager   ();
+  track_manager       = new TrackManager      ();
+  kart_manager        = new KartManager       ();
+  projectile_manager  = new ProjectileManager ();
+  collectable_manager = new CollectableManager();
+  race_manager        = new RaceManager       ();
+  screen_manager      = new ScreenManager     ();
+  hook_manager        = new HookManager       ();
   track_manager   ->loadTrackList () ;
 }
 
@@ -230,10 +232,10 @@ int main ( int argc, char **argv ) {
   // so this next call can't be in InitTuxkart. And InitPlib needs
   // config, which gets defined in InitTuxkart, so swapping those two
   // calls is not possible either ... so loadMaterial has to be done here :(
-  material_manager->loadMaterial();
-  kart_manager ->loadKartData() ; 
-  projectile_manager->loadData();
-
+  material_manager   ->loadMaterial   ();
+  kart_manager       ->loadKartData   (); 
+  projectile_manager ->loadData       ();
+  collectable_manager->loadCollectable();
   startScreen = new StartScreen();
   widgetSet   = new WidgetSet;
   if(config->replayHistory) {

@@ -17,31 +17,33 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
-#ifndef HEADER_COLLECTABLE_H
-#define HEADER_COLLECTABLE_H
+#ifndef HEADER_COLLECTABLEMANAGER_H
+#define HEADER_COLLECTABLEMANAGER_H
 
 #include "Material.h"
-#include "CollectableManager.h"
 #include "lisp/Parser.h"
 #include "lisp/Lisp.h"
 
-class Kart;
+enum collectableType {COLLECT_NOTHING, COLLECT_MISSILE, 
+		      COLLECT_SPARK,   COLLECT_HOMING_MISSILE,
+		      COLLECT_ZIPPER,  COLLECT_MAGNET, 
+		      COLLECT_MAX};
 
-class Collectable {
+class CollectableManager {
  protected:
-  Kart*                      owner;
-  collectableType            type;
-  int                        number;
-
+  Material*    allIcons [COLLECT_MAX];
+  float        allSpeeds[COLLECT_MAX];
+  ssgEntity*   allModels[COLLECT_MAX];
+  void         LoadNode (const lisp::Lisp* lisp, int collectType);
  public:
-                  Collectable  (Kart* kart_);
-  void            set          (collectableType _type, int n=1);
-  void            clear        () {type=COLLECT_NOTHING; number=0;}
-  int             getNum       () {return number;}
-  collectableType getType      () {return type;}
-  void            hitRedHerring(int n);
-  Material*       getIcon      ();
-  void            use          ();
+  CollectableManager(){}
+  void      loadCollectable();
+  Material*  getIcon  (int type) {return allIcons [type];}
+  float      getSpeed (int type) {return allSpeeds[type];}
+  ssgEntity* getModel (int type) {return allModels[type];}
+  void       Load     (int collectType, std::string filename);
 };
+
+extern CollectableManager* collectable_manager;
 
 #endif
