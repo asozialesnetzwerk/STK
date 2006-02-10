@@ -106,22 +106,22 @@ World::World(const RaceSetup& raceSetup_) : raceSetup(raceSetup_) {
   //staticSSG->Draw(scene);
   //  exit(-1);
   int pos = 0;
-  int playerIndex=0;
-  for (RaceSetup::Karts::iterator i = raceSetup.karts.begin() ; 
+  int playerIndex = raceSetup.players.size();
+  for (RaceSetup::Karts::iterator i = raceSetup.karts.begin() ;
                                   i != raceSetup.karts.end() ; ++i ) {
     Kart* newkart;
     if(config->profile) {
       // In profile mode, load only the old kart
       newkart = new AutoKart (kart_manager->getKart("tuxkart"), pos);
     } else {
-      if (std::find(raceSetup.players.begin(), 
+      if (std::find(raceSetup.players.begin(),
 		    raceSetup.players.end(), pos) != raceSetup.players.end()) {
 	// the given position belongs to a player
 	// Not sure if this is correct: is it guaranteed that this
 	// kart really belongs to player[playerIndex]? If not, the
 	// controls will be swapped. CHECK JH
-	newkart = new PlayerKart (kart_manager->getKart(*i), pos,
-				  &(config->player[playerIndex++]));
+	    newkart = new PlayerKart (kart_manager->getKart(*i), pos,
+                      &(config->player[--playerIndex]));
       } else {
 	newkart = new AutoKart   (kart_manager->getKart(*i), pos);
       }
