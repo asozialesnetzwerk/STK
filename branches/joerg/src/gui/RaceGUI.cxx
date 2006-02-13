@@ -34,6 +34,7 @@
 #include <iostream>
 #include "Collectable.h"
 
+#define TEXT_START_X  (config->width-220)
 RaceGUI::RaceGUI(): herringbones_gst(NULL),
 		    herring_gst(NULL),
 		    magnet_gst(NULL),
@@ -66,14 +67,10 @@ RaceGUI::RaceGUI(): herringbones_gst(NULL),
   magnet_gst       = material_manager->getMaterial( "magnet.rgb"       );
   zipper_gst       = material_manager->getMaterial( "zipper.rgb"       );
 
-  if ((fps_id = widgetSet -> count(0, 0, GUI_MED, GUI_SE))) {
-    widgetSet -> layout(fps_id, -1, 1);
-  }
 }   // RaceGUI
 
 // -----------------------------------------------------------------------------
 RaceGUI::~RaceGUI() {
-	widgetSet -> delete_widget(fps_id) ;
 	//FIXME: does all that material stuff need freeing somehow?
 }   // ~Racegui
 
@@ -106,8 +103,6 @@ void RaceGUI::UpdateKeyboardMappings() {
 
 // -----------------------------------------------------------------------------
 void RaceGUI::update(float dt) {
-	widgetSet -> timer(fps_id, dt) ;
-	
 	drawStatusText (world->raceSetup) ;
 }   // update
 
@@ -173,24 +168,12 @@ void RaceGUI::joybuttons( int whichJoy, int buttons ) {
 void RaceGUI::drawFPS () {
   if (++fpsCounter>=10) {
     fpsTimer.update();
-    widgetSet -> set_count(fps_id, (int)(fpsCounter/fpsTimer.getDeltaTime()));
+    sprintf(fpsString, "%d",(int)(fpsCounter/fpsTimer.getDeltaTime()));
     fpsCounter = 0;
     fpsTimer.setMaxDelta(1000);
   }    
-  widgetSet -> paint(fps_id) ;
+  widgetSet->drawText (fpsString, 36, 0, config->height-36, 255, 255, 255 ) ;
 }   // drawFPS
-
-// -----------------------------------------------------------------------------
-void RaceGUI::drawSpeed() {
-  char str[256];
-  // JH This needs to be adjusted when the new physics are running. Displaying
-  // JH in KPH gives just very small values (about 4), which isn't too exciting
-  // JH sprintf(str, "%3d", (int)(world->getPlayerKart(0)->getVelocity()->xyz[1]
-  // JH		    * KILOMETERS_PER_HOUR));
-  sprintf(str, "%3d", (int)(world->getPlayerKart(0)->getVelocity()->xyz[1]));
-  drawDropShadowText("Speed:", 28, config->width-180, config->height-150 );
-  drawDropShadowText(str,      36, config->width-180, config->height-180 );
-}   // drawSpeed
 
 // -----------------------------------------------------------------------------
 void RaceGUI::stToggle () {
@@ -277,9 +260,8 @@ void RaceGUI::drawTimer () {
   int sec     = (int) floor ( time_left - (double) ( 60 * min ) ) ;
   int tenths  = (int) floor ( 10.0f * (time_left - (double)(sec + 60*min)));
 
-  sprintf ( str, "%3d:%02d\"%d", min,  sec,  tenths ) ;
-  drawDropShadowText ( "Time:", 28, config->width-180, config->height-50 ) ;
-  drawDropShadowText ( str,     36, config->width-220, config->height-80 ) ;
+  sprintf ( str, "%d:%02d\"%d", min,  sec,  tenths ) ;
+  drawDropShadowText ( str, 36, TEXT_START_X, config->height-80 ) ;
 }   // drawTimer
 
 // -----------------------------------------------------------------------------
@@ -288,41 +270,42 @@ void RaceGUI::drawScore (const RaceSetup& raceSetup, Kart* player_kart,
 			 float ratio_y                                 ) {
   char str [ 256 ] ;
 
-#ifdef DEBUG
   /* Show velocity */
   if ( player_kart->getVelocity()->xyz[1] < 0 )
     sprintf ( str, "Reverse" ) ;
-  else
-    sprintf(str,"%3dmph",(int)(player_kart->getVelocity()->xyz[1]/MILES_PER_HOUR));
-
-  drawDropShadowText ( str, (int)(18*ratio_y), 
-		       (int)((640-((strlen(str)-1)*18))*ratio_x)+offset_x, 
-		       offset_y ) ;
-#endif
+  else {
+    if(config->useKPH) {
+      sprintf(str,"%d kph",
+	      (int)(player_kart->getVelocity()->xyz[1]/KILOMETERS_PER_HOUR));
+    } else {
+      sprintf(str,"%d mph",
+	      (int)(player_kart->getVelocity()->xyz[1]/MILES_PER_HOUR));
+    }   // use KPH
+  }   // velocity<0
+  drawDropShadowText ( str, (int)(36*ratio_y), 
+		       (int)(offset_x+TEXT_START_X        *ratio_x),
+		       (int)(offset_y+(config->height-200)*ratio_y) );
 
   /* Show lap number */
   if ( player_kart->getLap() < 0 ) {
-    sprintf ( str, "Not Started Yet!" ) ;
+    //JH sprintf ( str, "Not Started Yet!" ) ;  Don't like this text; besides
+    // it's messed up because of the wrong lap count anyway.
+    sprintf ( str, " " ) ;  // One space to avoid warning about empty string
   }  else if ( player_kart->getLap() < raceSetup.numLaps - 1 ) {
-    sprintf ( str, "Lap: %d/%d",
+    sprintf ( str, "Lap:%d/%d",
 	      player_kart->getLap() + 1, raceSetup.numLaps ) ;
   } else {
-    static int flasher = 0 ;
-
-    if ( ++flasher & 32 ) {
-      sprintf ( str, "Last Lap!" );
-    } else {
-      sprintf ( str, "%s", pos_string [ player_kart->getPosition() ] ) ;
-    }
+    sprintf ( str, "Last Lap!" );
   }
-
-  drawDropShadowText ( str, (int)(38*ratio_y), (int)(10*ratio_x)+offset_x, 
-		       (int)((config->width-60)*ratio_y)+offset_y ) ;
+  drawDropShadowText ( str, (int)(38*ratio_y), 
+		       (int)(offset_x+TEXT_START_X        *ratio_x),
+		       (int)(offset_y+(config->height-250)*ratio_y) );
 
   /* Show player's position */
   sprintf ( str, "%s", pos_string [ player_kart->getPosition() ] ) ;
-  drawDropShadowText ( str, (int)(74*ratio_y), (int)(16*ratio_x)+offset_x, 
-		       (int)(2*ratio_y)+offset_y );
+  drawDropShadowText ( str, (int)(38*ratio_y), 
+  		       (int)(offset_x+TEXT_START_X        *ratio_x), 
+  		       (int)(offset_y+(config->height-300)*ratio_y) );
 }   // drawScore
 
 // -----------------------------------------------------------------------------
@@ -573,8 +556,10 @@ void RaceGUI::drawCollectableIcons ( Kart* player_kart, int offset_x,
 #define METER_BORDER_COLOR 0.0, 0.0, 0.0
 
 // -----------------------------------------------------------------------------
-void RaceGUI::drawEnergyMeter ( float state, int offset_x, int offset_y, 
+void RaceGUI::drawEnergyMeter ( Kart *player_kart, int offset_x, int offset_y, 
 				float ratio_x, float ratio_y             ) {
+  float state = (float)(player_kart->getNumHerring()) /
+                        MAX_HERRING_EATEN;
   int x = (int)(config->width-50 * ratio_x) + offset_x;
   int y = (int)(config->height/4 * ratio_y) + offset_y;
   int w = (int)(24 * ratio_x);
@@ -699,32 +684,34 @@ void RaceGUI::drawStatusText (const RaceSetup& raceSetup) {
 	offset_x = config->width/2;
 
       Kart* player_kart=world->getPlayerKart(pla);
-      drawCollectableIcons( player_kart, offset_x, offset_y,
-			    split_screen_ratio_x, split_screen_ratio_y ) ;
-      drawEnergyMeter( (float)(world->getPlayerKart(pla)->getNumHerring()) /
-		       MAX_HERRING_EATEN, offset_x, offset_y,
-		       split_screen_ratio_x, split_screen_ratio_y ) ;
-      drawScore(raceSetup, player_kart, offset_x, offset_y,
-		split_screen_ratio_x, split_screen_ratio_y ) ;
+      if(world->getPhase()==World::RACE_PHASE) {
+	drawCollectableIcons( player_kart, offset_x, offset_y,
+			      split_screen_ratio_x, split_screen_ratio_y ) ;
+	drawEnergyMeter     ( player_kart, offset_x, offset_y,
+			      split_screen_ratio_x, split_screen_ratio_y ) ;
+	drawScore           ( raceSetup, player_kart, offset_x, offset_y,
+			      split_screen_ratio_x, split_screen_ratio_y ) ;
+      }
       drawEmergencyText(player_kart, offset_x, offset_y,
 			split_screen_ratio_x, split_screen_ratio_y ) ;
     }   // for pla
 
-    if(raceSetup.getNumPlayers() == 1) {
-      if(config->oldStatusDisplay) {
-	oldDrawPlayerIcons();
-      } else {
-	drawPlayerIcons() ;
-      }
-    }   // if getNumPlayers==1
+    if(world->getPhase()==World::RACE_PHASE) {
+      //      if(raceSetup.getNumPlayers() == 1) {
+	if(config->oldStatusDisplay) {
+	  oldDrawPlayerIcons();
+	} else {
+	  drawPlayerIcons() ;
+	}
+	//      }   // if getNumPlayers==1
 
-    drawTimer ();
-    drawSpeed ();
-    drawMap   ();
-    if ( config->displayFPS )
-      drawFPS ();
+      drawTimer ();
+      drawMap   ();
+      if ( config->displayFPS )
+	drawFPS ();
+    }   // if RACE_PHASE
   }   // not game over
-
+  
   glPopAttrib  () ;
   glPopMatrix  () ;
   glMatrixMode ( GL_MODELVIEW ) ;

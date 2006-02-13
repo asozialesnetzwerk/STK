@@ -48,11 +48,9 @@ public:
     void joybuttons(int whichJoy, int buttons ) ;
 
 private:
-	void drawFPS();
-	void drawSpeed();
 	ulClock  fpsTimer;
 	int      fpsCounter;
-	int      fps_id;
+	char     fpsString[10];
 
 	Material *herringbones_gst ;
 	Material *herring_gst ;
@@ -65,21 +63,26 @@ private:
 
   /* Display informat on screen */
 	void drawStatusText        (const RaceSetup& raceSetup);
-	void drawEnergyMeter       (float state, int offset_x, int offset_y, 
-				    float ratio_x, float ratio_y );
-	void drawCollectableIcons  (Kart* player_kart, int offset_x, 
-				    int offset_y, float ratio_x, float ratio_y);
-	void drawEmergencyText     (Kart* player_kart, int offset_x, 
-				    int offset_y, float ratio_x, float ratio_y );
+	void drawEnergyMeter       (Kart *player_kart, 
+				    int   offset_x, int   offset_y, 
+				    float ratio_x,  float ratio_y  );
+	void drawCollectableIcons  (Kart* player_kart, 
+				    int   offset_x, int   offset_y, 
+				    float ratio_x,  float ratio_y  );
+	void drawEmergencyText     (Kart* player_kart, 
+				    int   offset_x, int   offset_y, 
+				    float ratio_x,  float ratio_y  );
+	void drawScore             (const RaceSetup& raceSetup,
+				    Kart* player_kart, 
+				    int   offset_x, int   offset_y, 
+				    float ratio_x,  float ratio_y  );
 	void UpdateKeyboardMappings();
 	void drawPlayerIcons       ();
 	void oldDrawPlayerIcons    ();
 	void drawGameOverText      ();
 	void drawMap               ();
 	void drawTimer             ();
-	void drawScore             (const RaceSetup& raceSetup,
-				    Kart* player_kart, int offset_x, 
-				    int offset_y, float ratio_x, float ratio_y);
+	void drawFPS               ();
 
   /* Text drawing */
   /** Draw text to screen.

@@ -99,6 +99,7 @@ void Config::setDefaults() {
   oldStatusDisplay = false;
   profile          = 0;
   oldHOT           = false;
+  useKPH           = false;
   replayHistory    = false;
   width            = 800;
   height           = 600;
@@ -227,6 +228,7 @@ void Config::loadConfig(const std::string& filename) {
     lisp->get("displayFPS", displayFPS);
     lisp->get("singlewindowmenu", singleWindowMenu);
     lisp->get("oldStatusDisplay", oldStatusDisplay);
+    lisp->get("useKPH", useKPH);
 
     /*get resolution width/height*/
     lisp->get("width", width);
@@ -305,6 +307,7 @@ void Config::saveConfig(const std::string& filename) {
     writer.write("displayFPS\t", displayFPS);
     writer.write("singleWindowMenu\t", singleWindowMenu);
     writer.write("oldStatusDisplay\t", oldStatusDisplay);
+    writer.write("useKPH\t", useKPH);
 
     writer.writeComment("screen resolution");
     writer.write("width\t", width);

@@ -24,14 +24,14 @@
 NumPlayers::NumPlayers()
 {
   menu_id = widgetSet -> varray(0);
-  widgetSet -> start(menu_id, "Two Players",  GUI_MED, 2, 0);
-  widgetSet -> state(menu_id, "Three Players",  GUI_MED, 3, 0);
+  widgetSet -> start(menu_id, "Two Players",   GUI_MED, 2, 0);
+  widgetSet -> state(menu_id, "Three Players", GUI_MED, 3, 0);
   widgetSet -> state(menu_id, "Four Players",  GUI_MED, 4, 0);
   widgetSet -> state(menu_id, "Network Game",  GUI_MED, MENU_NETWORK, 0);
   widgetSet -> space(menu_id);
   widgetSet -> space(menu_id);
 
-  widgetSet -> layout(menu_id, 0, -1);
+  widgetSet -> layout(menu_id, 0, 0);
 }
 
 NumPlayers::~NumPlayers()

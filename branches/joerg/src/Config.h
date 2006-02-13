@@ -49,6 +49,7 @@ class Config {
                             // -1 if no profiling. never saved in config file!
     bool   oldHOT;
     bool   replayHistory;
+    bool   useKPH;
     int    width;
     int    height;
     int    karts;
