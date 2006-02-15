@@ -63,11 +63,11 @@
 "tuxicon.rgb"      Y Y     Y      0.9     N     N   0.0     Y   N    N    N
 "possiicon.rgb"      Y Y     Y      0.9     N     N   0.0     Y   N    N    N
 "pennyicon.rgb"      Y Y     Y      0.9     N     N   0.0     Y   N    N    N
-"missile.rgb"      Y Y     Y      0.9     N     N   0.0     Y   N    N    N
+"missile.rgb"      Y Y     Y      0.1     N     N   0.0     Y   N    N    N
 "flames.rgb"       N N     N      0.9     N     N   0.0     Y   N    N    N
 "magnet.rgb"       Y Y     Y      0.1     N     N   0.0     Y   N    N    N
 "bzzt.rgb"         N N     Y      0.1     N     N   0.0     Y   N    N    N
-"homingmissile.rgb" Y Y     Y      0.9     N     N   0.0     Y   N    N    N
+"homingmissile.rgb" Y Y     Y      0.1     N     N   0.0     Y   N    N    N
 "herring.rgb"      Y Y     Y      0.9     N     N   0.0     Y   N    N    N
 "herringbones.rgb" Y Y     Y      0.2     N     N   0.0     Y   N    N    N
 
