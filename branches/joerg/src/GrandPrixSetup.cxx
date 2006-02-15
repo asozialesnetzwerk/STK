@@ -21,8 +21,14 @@
 
 GrandPrixSetup grand_prix_setup;
 
-GrandPrixSetup::Stat::Stat(const std::string& ident_, int points_, int position_)
-  : ident(ident_), points(points_), position(position_)
+GrandPrixSetup::Stat::Stat
+(
+  const std::string& ident_,
+  int points_,
+  int position_,
+  int player_
+)
+  : ident(ident_), points(points_), position(position_), player(player_)
 {
 }
 

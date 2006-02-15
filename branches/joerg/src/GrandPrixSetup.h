@@ -28,20 +28,25 @@ class GrandPrixSetup
 {
 public:
   struct Stat {
-    Stat(const std::string& ident, int points_, int position_);
+    Stat(const std::string& ident, int points_, int position_, int player_);
 
     /** ident of the kart (aka. .tkkf filename without .tkkf) */
     std::string ident;
 
-    /** Number of Points optained in the GrandPrix so far */
+    /** Number of Points obtained in the GrandPrix so far */
     int points;
-    
+
     /** Position of the kart in the next race (equal to the finishing
         position in the last race) */
     int position;
+
+    /** Which player controls the kart. If the kart is AI-controlled,
+        this value is equal to the last player + 1, but this value is
+        not given to raceSetup */
+    int player;
   };
 
-  /** The number of races which alread have been completed */
+  /** The number of races which already have been completed */
   int race;
 
   /** The karts that participate in the GrandPrix and there point,

@@ -40,15 +40,21 @@ GrandPrixMode::GrandPrixMode(const std::vector<std::string>& players_,
 {
   // Decide which karts should be used in the GrandPrix
   std::vector<std::string> karts;
-  karts.resize(6);
+  karts.resize(numKarts);
+
   for(int i = 0; i < int(players.size()); ++i)
-    karts[5-i] = players[i]; // Players starts last in the first race
+    karts[numKarts-1 - i] = players[players.size()-1 - i]; // Players starts last in the first race
+
   kart_manager->fillWithRandomKarts(karts);
 
   stat.race = 0;
+  int player_num = players.size();
   for(int i = 0; i < int(karts.size()); ++i)
     {
-      stat.karts.push_back(GrandPrixSetup::Stat(karts[i], 0, i));
+      if(player_num != int(players.size())) ++player_num;
+      else if(i == int(numKarts - players.size())) player_num = 0;
+
+      stat.karts.push_back(GrandPrixSetup::Stat(karts[i], 0, i, player_num));
     }
 }
 
@@ -59,23 +65,22 @@ GrandPrixMode::start_race(int n)
 
   raceSetup.mode       = RaceSetup::RM_GRAND_PRIX;
   raceSetup.difficulty = difficulty;
-  raceSetup.numLaps    = 3; 
+  raceSetup.numLaps    = 3;
   raceSetup.track      = cup.tracks[n];
 
   raceSetup.karts.resize(stat.karts.size());
   raceSetup.players.resize(players.size());
-  // FIXME: This still isn't really good enough, can't handle multiple of the same kart and stuff
+
   for(int i = 0; i < int(stat.karts.size()); ++i)
     {
       raceSetup.karts[stat.karts[i].position] = stat.karts[i].ident;
-      std::vector<std::string>::iterator j = std::find(players.begin(), players.end(), stat.karts[i].ident);
-      if (j != players.end())
+      if (stat.karts[i].player < int(players.size()))
         {
-          raceSetup.players[j - players.begin()] = i;
+          raceSetup.players[stat.karts[i].player] = i;
         }
     }
 
-  screen_manager->setScreen(new WorldScreen(raceSetup)); 
+  screen_manager->setScreen(new WorldScreen(raceSetup));
 }
 
 void
@@ -121,10 +126,11 @@ QuickRaceMode::start()
   raceSetup.numLaps    = numLaps;
   raceSetup.karts.resize(numKarts);
 
+  int first_player = numKarts - players.size();
   for(int i = 0; i < int(players.size()); ++i)
     {
-      raceSetup.karts[numKarts-i-1] = players[i]; // Players starts last in the first race
-      raceSetup.players.push_back(numKarts-i-1);
+      raceSetup.karts[first_player + i] = players[i]; // Players starts last in the first race
+      raceSetup.players.push_back(first_player + i);
     }
   
   kart_manager->fillWithRandomKarts(raceSetup.karts);
