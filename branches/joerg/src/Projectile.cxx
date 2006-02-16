@@ -143,7 +143,9 @@ void Projectile::explode() {
   projectile_manager->explode(this);
   
   // Now remove this projectile from the graph:
-  world->removeFromScene(getModel());
+  ssgTransform *m = getModel();
+  m->removeAllKids();
+  world->removeFromScene(m);
 }   // explode
 
 /* EOF */
