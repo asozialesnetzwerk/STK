@@ -27,7 +27,7 @@
 
 inline float sgnsq ( float x ) { return ( x < 0 ) ? -(x * x) : (x * x) ; }
 
-#define OLDSTEERING 1
+//#define OLDSTEERING 1
 
 void AutoKart::update (float delta) {
   // perhaps add a bit of delay depending on the difficulty?
@@ -81,8 +81,8 @@ void AutoKart::update (float delta) {
     //1. Get which is the next dot that the AI should follow
       size_t next ;
 
-      next = (track_hint + 1 >= world->track->driveline.size())
-	   ? 0 : track_hint + 1;
+      next = (trackHint + 1 >= world->track->driveline.size())
+	   ? 0 : trackHint + 1;
 
       //2. Calculate the rotation we need using trigonometry, we get the sides
       //of a right triangle where the 2 points that define the hypotenuse are
@@ -124,13 +124,19 @@ void AutoKart::update (float delta) {
 
       switch (world->raceSetup.difficulty) {
         case RD_EASY:
-	     throttle = kart_properties->max_throttle * 0.7f;
-	     break;
+             if(velocity.xyz[1] < MAX_NATURAL_VELOCITY *
+                 (1.0f + wheelie_angle/90.0f))
+                 velocity.xyz[1] += MAX_ACCELLERATION * 0.7f * delta;
+	         break;
         case RD_MEDIUM:
-             throttle = kart_properties->max_throttle * 0.9f;
+             if(velocity.xyz[1] < MAX_NATURAL_VELOCITY *
+                 (1.0f + wheelie_angle/90.0f))
+                 velocity.xyz[1] += MAX_ACCELLERATION * 0.9f * delta;
              break;
         case RD_HARD:
-             throttle = kart_properties->max_throttle;
+             if(velocity.xyz[1] < MAX_NATURAL_VELOCITY *
+                 (1.0f + wheelie_angle/90.0f))
+                 velocity.xyz[1] += MAX_ACCELLERATION * delta;
              break;
       }   // switch difficulty
   }   // if(on_ground)
