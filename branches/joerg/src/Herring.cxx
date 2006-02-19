@@ -24,13 +24,14 @@
 int num_herring   ;
 HerringInstance herring [ MAX_HERRING ] ;
 
-void Herring::update ()
+void Herring::update (float delta)
 {
   sgCoord c = { { 0.0, 0.0, 0.0 }, { 0.0, 0.0, 0.0 } } ;
 
   c . hpr [ 0 ] = h ;
 
-  h += 5.0f ;
+  // 
+  h += 180.0f*delta;
 
   tr -> setTransform ( &c ) ;
 }
@@ -113,7 +114,7 @@ Shadow::Shadow ( float x1, float x2, float y1, float y2 )
 }
 
 
-void HerringInstance::update ()
+void HerringInstance::update (float delta)
 {
   if ( eaten )
   {

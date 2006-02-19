@@ -40,7 +40,7 @@ class Herring {
 public:
   Herring ( sgVec4 colour ) ;
   ssgTransform *getRoot () { return tr ; }
-  void update () ;
+  void update (float delta) ;
 } ;
 
 
@@ -75,7 +75,7 @@ public:
   void setPos ( sgVec3 pos ) { sgCopyVec3 ( xyz, pos ) ;
                                scs -> setTransform ( pos ) ; }
  
-  virtual void  update             () = 0;
+  virtual void  update             (float delta) = 0;
   virtual      ~ActiveThingInstance()   {};
 } ;                                                                             
 
@@ -87,7 +87,7 @@ public:
   int      eaten  ;
   int      type   ;
   int      effect ;
-  void update () ;
+  void update (float delta) ;
 } ;
 
 

@@ -229,14 +229,14 @@ void World::update(float delta) {
   //JH and what about explosions??
   projectile_manager->update(delta);
 
-  for ( int i = 0 ; i < num_herring ; i++ ) herring [ i ] . update () ;
+  for ( int i = 0 ; i < num_herring ; i++ ) herring [ i ] . update (delta) ;
   for ( Karts::size_type i = 0 ; i < kart.size(); ++i) updateLapCounter ( i ) ;
 
   /* Routine stuff we do even when paused */
-  silver_h -> update ();
-  gold_h   -> update ();
-  red_h    -> update ();
-  green_h  -> update ();
+  silver_h -> update (delta);
+  gold_h   -> update (delta);
+  red_h    -> update (delta);
+  green_h  -> update (delta);
   hook_manager->update();
 }
 
