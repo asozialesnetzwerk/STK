@@ -73,8 +73,8 @@ void KartParticleSystem::particle_create(int, Particle *p) {
   p -> size = .5f;
   p -> time_to_live = 0.5 ;            /* Droplets evaporate after 5 seconds */
   
-  const sgCoord* pos = kart->getVisiCoord ();
-  const sgCoord* vel = kart->getVelocity ();
+  const sgCoord* pos = kart->getCoord();
+  const sgCoord* vel = kart->getVelocity();
   
   float xDirection = sgCos (pos->hpr[0] - 90.0f); // Point at the rear 
   float yDirection = sgSin (pos->hpr[0] - 90.0f); // Point at the rear
@@ -300,17 +300,12 @@ void Kart::doCollisionAnalysis ( float delta, float hot ) {
    
   /* Make sure that the car doesn't go through the floor */
   if ( isOnGround() ) {
-    position.xyz[2] = hot ;
     velocity.xyz[2] = 0.0f ;
-    
-    pr_from_normal( position.hpr, groundNormal ) ;
   }   // isOnGround
 }   // doCollisionAnalysis
 
 // -----------------------------------------------------------------------------
 void Kart::update (float dt) {
-  sgCoord temp;
-  sgCopyCoord(&temp, &position);
     
   wheel_position += sgLengthVec3(velocity.xyz) * dt;
    
@@ -427,9 +422,9 @@ void Kart::updatePhysics (float dt) {
 // -----------------------------------------------------------------------------
 void Kart::handleRescue() {
   if ( trackHint > 0 ) trackHint-- ;
-  float d = position.xyz[2] ;
-  world ->track -> trackToSpatial ( position.xyz, trackHint ) ;
-  position.xyz[2] = d ;
+  float d = curr_pos.xyz[2] ;
+  world ->track -> trackToSpatial ( curr_pos.xyz, trackHint ) ;
+  curr_pos.xyz[2] = d ;
 }   // handleRescue
 
 // -----------------------------------------------------------------------------
@@ -439,7 +434,7 @@ void Kart::processSkidMarks() {
     float length = 0.57;
     
     sgCoord wheelpos;
-    sgCopyCoord(&wheelpos, getVisiCoord());
+    sgCopyCoord(&wheelpos, getCoord());
     
     wheelpos.xyz[0] += length * sgSin(wheelpos.hpr[0] + angle);
     wheelpos.xyz[1] += length * -sgCos(wheelpos.hpr[0] + angle);
@@ -457,7 +452,7 @@ void Kart::processSkidMarks() {
     float length = 0.57;
     
     sgCoord wheelpos;
-    sgCopyCoord(&wheelpos, getVisiCoord());
+    sgCopyCoord(&wheelpos, getCoord());
     
     wheelpos.xyz[0] += length * sgSin(wheelpos.hpr[0] + angle);
     wheelpos.xyz[1] += length * -sgCos(wheelpos.hpr[0] + angle);

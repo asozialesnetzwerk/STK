@@ -361,10 +361,6 @@ float Moveable::getIsectData ( sgVec3 start, sgVec3 end ) {
     
       if ( hgt >= hot ) {
 	hot = hgt ;
-	// Not really necessary for moveable, but for karts. So this 
-	// method is empty for moveables, but not for karts.
-	setGroundNormal(h->plane);
-
 	if(material_manager->getMaterial ( h->leaf ) -> isReset  () ) {
 	  OutsideTrack(1);
 	}
@@ -383,9 +379,6 @@ float Moveable::getIsectData ( sgVec3 start, sgVec3 end ) {
     dummy[2]=top;
     hot = world->GetHOT(dummy, dummy, &leaf);
     if(leaf) {
-      // Not really necessary for moveable, but for karts. So this 
-      // method is empty for moveables, but not for karts.
-      //JH --> setGroundNormal(h->plane);
       Material *m = material_manager->getMaterial(leaf);
       if(m->isReset()) OutsideTrack(1);
       if(m->isZipper()) handleZipper();

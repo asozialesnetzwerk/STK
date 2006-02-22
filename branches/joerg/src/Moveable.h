@@ -68,14 +68,6 @@ protected:
   sgCoord       reset_pos;      /* Where to start in case of a reset           */
   sgCoord       curr_pos;       /* current position                            */
   sgCoord       velocity;       /* current velocity                            */
-  sgCoord       visi_pos;       /* The interpolated position of the kart, this 
-				   might differ a bit from the real position, 
-				   but it is used to both give a smoother 
-				   movement and to better visualize turns and 
-				   such, use it for everything that needs to be
-				   visual (smoke, skidmarks, kart placement), 
-				   but don't use it for physics, thats what 
-				   position is for                             */
   sgCoord       last_relax_pos; /* Used to save the last position of the kart, 
 				   which is then interpolated with the new one
 				   to form a smooth movement                   */
@@ -104,10 +96,8 @@ public:
   ssgTransform* getModel     ()              {return model ;                  }
   int           isOnGround   ()              {return on_ground;               }
   sgCoord*      getVelocity  ()              {return & velocity;              }
-  sgCoord*      getVisiCoord ()              {return &visi_pos;               }
   sgCoord*      getCoord     ()              {return &curr_pos;               }
   void          setCoord     (sgCoord* pos)  {sgCopyCoord ( &curr_pos,pos);   }
-  void          setGroundNormal(sgVec3 n)    {}
   virtual void  placeModel   ()              {model->setTransform(&curr_pos); }
   virtual void  handleZipper ()              {};
   virtual void  reset        ();

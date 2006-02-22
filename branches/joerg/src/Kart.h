@@ -61,7 +61,6 @@ protected:
 
 private:
   int                 num_herring_gobbled ;
-  sgVec3              groundNormal ;
   ssgSimpleState*     smokepuff ;
   // don't delete the following 2 vars (they're kids in the hirarchy)
   KartParticleSystem* smoke_system ;
@@ -76,7 +75,6 @@ private:
   SkidMark*           skidmark_left;
   SkidMark*           skidmark_right;
   
-  sgCoord             position;
   int                 raceLap;             // number of finished(!) laps
   int                 finishingPosition;    // saves the end rank
   float               throttle;
@@ -108,7 +106,6 @@ public:
 					  ZipperTimeLeft=time;            }
   void           setCollectable      (collectableType t, int n) 
                                         { collectable.set(t, n);            }
-  void           setGroundNormal     (sgVec3 n) {sgCopyVec3(groundNormal,n);}
   void           setPosition         (int p)    {racePosition = p;          }
   float          getDistanceDownTrack() { return curr_track_coords[1];      }
   attachmentType getAttachment       () { return  attachment.getType();     }
