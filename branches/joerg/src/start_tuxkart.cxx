@@ -171,7 +171,7 @@ int handleCmdLine(int argc, char **argv) {
     else if( !strcmp(argv[i], "--swm") ) {
       config->singleWindowMenu=true;
     }
-    else if( !strcmp(argv[i], "--oldStatusDisplay") ) {
+    else if( !strcmp(argv[i], "--oldstatus") ) {
       config->oldStatusDisplay=true;
     }
     else if( sscanf(argv[i], "--profile=%d",&n)==1) {
