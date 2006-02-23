@@ -38,7 +38,7 @@ static fntTexFont      *fnt               ;
 static puButton        *playButton        ;
 static puButton        *exitButton        ;
 static puButtonBox     *trackButtons      ;
-static puFont          *sorority          ;
+static puFont          *avantGarde        ;
 static int              numLaps           ;
 static char             numLapsLegend[100];
 static char           **track_names       ;
@@ -147,10 +147,10 @@ int SingleWindowMenu() {
 
   gui_state = GUI_ACTIVE;
   fnt = new fntTexFont ;
-  fnt -> load ( loader->getPath("fonts/sorority.txf").c_str());
-  sorority = new puFont ( fnt, 12 ) ;
+  fnt -> load ( loader->getPath("fonts/AvantGarde-Demi.txf").c_str(), GL_LINEAR, GL_LINEAR_MIPMAP_LINEAR);
+  avantGarde = new puFont ( fnt, 12 ) ;
 
-  puSetDefaultFonts        ( *sorority, *sorority ) ;
+  puSetDefaultFonts        ( *avantGarde, *avantGarde ) ;
   puSetDefaultStyle        ( PUSTYLE_SMALL_SHADED ) ;
   puSetDefaultColourScheme ( 243.0f/255.0f, 140.0f/255.0f, 34.0f/255.0f, 1.0) ;
 
@@ -231,7 +231,7 @@ int CleanupSingleWindowMenu() {
   puDeleteObject ( exitButton    ) ;
   puDeleteObject ( trackButtons  ) ;
   delete intro_gst ;
-  delete sorority  ;
+  delete avantGarde  ;
   delete fnt       ;
   delete track_names;
   return 0;

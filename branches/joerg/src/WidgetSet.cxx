@@ -38,10 +38,10 @@ WidgetSet::WidgetSet()
 	int h   = config->height;
 	int s   = (h < w) ? h : w;
 	radius  = s/60;
-	fnt     = new fntTexFont(loader->getPath("fonts/sorority.txf").c_str());
+	fnt     = new fntTexFont(loader->getPath("fonts/AvantGarde-Demi.txf").c_str(), GL_LINEAR, GL_LINEAR_MIPMAP_LINEAR);
 	textOut = new fntRenderer();
 	textOut->setFont(fnt);
-	
+
 	/* Initialize font rendering. */
 	memset(widgets, 0, sizeof (Widget) * MAXWIDGETS);
 

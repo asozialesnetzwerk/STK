@@ -261,7 +261,7 @@ void RaceGUI::drawTimer () {
   int tenths  = (int) floor ( 10.0f * (time_left - (double)(sec + 60*min)));
 
   sprintf ( str, "%d:%02d\"%d", min,  sec,  tenths ) ;
-  drawDropShadowText ( str, 36, TEXT_START_X, config->height-80 ) ;
+  drawDropShadowText ( str, 36, TEXT_START_X, config->height-80) ;
 }   // drawTimer
 
 // -----------------------------------------------------------------------------
@@ -282,6 +282,7 @@ void RaceGUI::drawScore (const RaceSetup& raceSetup, Kart* player_kart,
 	      (int)(player_kart->getVelocity()->xyz[1]/MILES_PER_HOUR));
     }   // use KPH
   }   // velocity<0
+
   drawDropShadowText ( str, (int)(36*ratio_y), 
 		       (int)(offset_x+TEXT_START_X        *ratio_x),
 		       (int)(offset_y+(config->height-200)*ratio_y) );
@@ -408,6 +409,10 @@ void RaceGUI::drawPlayerIcons () {
         continue;
 
       y = config->width/2-20 - ((position-1)*(55+5));
+
+      // draw text
+      drawDropShadowText ( pos_string[position], 28, 55+x, y+10 ) ;
+
       // draw icon
       Material* players_gst =
 	        world->getKart(i)->getKartProperties()->getIconMaterial();
@@ -418,6 +423,9 @@ void RaceGUI::drawPlayerIcons () {
       if(last_players_gst==players_gst) {
 	players_gst->getState()->force();
       }
+      //After calling apply the text appears aliased, since it seems the
+      //icon material isn't appropiated for text, so all text output should
+      //be done before this call.
       players_gst -> apply ();
       last_players_gst = players_gst;
       glBegin ( GL_QUADS ) ;
@@ -428,9 +436,6 @@ void RaceGUI::drawPlayerIcons () {
         glTexCoord2f ( 1, 1 ) ; glVertex2i ( x+55, y+55 ) ;
         glTexCoord2f ( 0, 1 ) ; glVertex2i ( x   , y+55 ) ;
       glEnd () ;
-
-      // draw text
-      drawDropShadowText ( pos_string[position], 28, 55+x, y+10 ) ;
     }
 }   // drawPlayerIcons
 
@@ -679,39 +684,40 @@ void RaceGUI::drawStatusText (const RaceSetup& raceSetup) {
       offset_x = offset_y = 0;
       if((pla == 0 && raceSetup.getNumPlayers() > 1) ||
           pla == 2)
-	offset_y = config->height/2;
+	    offset_y = config->height/2;
       if((pla == 2 || pla == 3) && raceSetup.getNumPlayers() > 2)
-	offset_x = config->width/2;
+	    offset_x = config->width/2;
 
       Kart* player_kart=world->getPlayerKart(pla);
       if(world->getPhase()==World::RACE_PHASE) {
-	drawCollectableIcons( player_kart, offset_x, offset_y,
-			      split_screen_ratio_x, split_screen_ratio_y ) ;
-	drawEnergyMeter     ( player_kart, offset_x, offset_y,
-			      split_screen_ratio_x, split_screen_ratio_y ) ;
-	drawScore           ( raceSetup, player_kart, offset_x, offset_y,
-			      split_screen_ratio_x, split_screen_ratio_y ) ;
+        drawCollectableIcons( player_kart, offset_x, offset_y,
+		  split_screen_ratio_x, split_screen_ratio_y ) ;
+	    drawEnergyMeter( player_kart, offset_x, offset_y,
+          split_screen_ratio_x, split_screen_ratio_y ) ;
+        drawScore( raceSetup, player_kart, offset_x, offset_y,
+          split_screen_ratio_x, split_screen_ratio_y ) ;
       }
       drawEmergencyText(player_kart, offset_x, offset_y,
 			split_screen_ratio_x, split_screen_ratio_y ) ;
     }   // for pla
 
     if(world->getPhase()==World::RACE_PHASE) {
+
+        drawTimer ();
+      drawMap   ();
+      if ( config->displayFPS ) drawFPS ();
+
       //      if(raceSetup.getNumPlayers() == 1) {
-	if(config->oldStatusDisplay) {
-	  oldDrawPlayerIcons();
-	} else {
-	  drawPlayerIcons() ;
-	}
+	  if(config->oldStatusDisplay) {
+	    oldDrawPlayerIcons();
+	  } else {
+	    drawPlayerIcons() ;
+	  }
 	//      }   // if getNumPlayers==1
 
-      drawTimer ();
-      drawMap   ();
-      if ( config->displayFPS )
-	drawFPS ();
     }   // if RACE_PHASE
   }   // not game over
-  
+
   glPopAttrib  () ;
   glPopMatrix  () ;
   glMatrixMode ( GL_MODELVIEW ) ;
