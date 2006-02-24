@@ -139,14 +139,14 @@ Kart::Kart (const KartProperties* kart_properties_, int position_ )
 // -----------------------------------------------------------------------------
 Kart::~Kart() {
   delete smokepuff;
-   
+
   ssgDeRefDelete(wheel_front_l);
   ssgDeRefDelete(wheel_front_r);
   ssgDeRefDelete(wheel_rear_l);
   ssgDeRefDelete(wheel_rear_r);
-  
-  ssgDeRefDelete(skidmark_left);
-  ssgDeRefDelete(skidmark_right);
+
+  delete skidmark_left;
+  delete skidmark_right;
 }   // ~Kart
 
 // -----------------------------------------------------------------------------
@@ -203,7 +203,7 @@ void Kart::doObjectInteractions () {
   }   // for i
    
    
-  for ( i = 0 ; i < MAX_HERRING ; i++ ) {
+  for ( i = 0 ; i < num_herring ; i++ ) {
     if ( herring[i].her == NULL || herring[i].eaten ) continue ;
       
     sgVec3 hpos ;
@@ -213,10 +213,10 @@ void Kart::doObjectInteractions () {
     if ( sgDistanceSquaredVec2 ( hpos, getCoord()->xyz ) < 0.8f ) {
       herring[i].eaten = TRUE ;
       herring[i].time_to_return = world->clock + 2.0f  ;
-      
+
       if ( this == world->getPlayerKart(0) )
 	sound->playSfx ( ( herring[i].type==HE_GREEN ) ? SOUND_UGH:SOUND_BURP);
-         
+
       switch ( herring[i].type ) {
         case HE_GREEN  : attachment.hitGreenHerring(); break;
         case HE_SILVER : num_herring_gobbled++ ;       break;
@@ -233,7 +233,7 @@ void Kart::doObjectInteractions () {
 // -----------------------------------------------------------------------------
 void Kart::doZipperProcessing (float delta) {
   if ( ZipperTimeLeft > delta ) {
-    ZipperTimeLeft -= delta ;  
+    ZipperTimeLeft -= delta ;
     if ( velocity.xyz[1] < ZIPPER_VELOCITY )
       velocity.xyz[1] = ZIPPER_VELOCITY ;
   } else ZipperTimeLeft = 0.0f ;                                                   
@@ -429,41 +429,111 @@ void Kart::handleRescue() {
 
 // -----------------------------------------------------------------------------
 void Kart::processSkidMarks() {
-  if (skidmark_left && (velocity.hpr[0] > 20.0f || velocity.hpr[0] < -20)) {
-    float angle  = -43;
-    float length = 0.57;
-    
-    sgCoord wheelpos;
-    sgCopyCoord(&wheelpos, getCoord());
-    
-    wheelpos.xyz[0] += length * sgSin(wheelpos.hpr[0] + angle);
-    wheelpos.xyz[1] += length * -sgCos(wheelpos.hpr[0] + angle);
-    
-    if (skidmark_left->newSkidmark) {
-      skidmark_left->addBreak (&wheelpos);
-      skidmark_left->newSkidmark--;
-    } else skidmark_left->add(&wheelpos);
-  } else if (skidmark_left) {
-    skidmark_left->newSkidmark = 2;
-  }
-   
-  if (skidmark_right && (velocity.hpr[0] > 20.0f || velocity.hpr[0] < -20)) {
-    float angle  = 43;
-    float length = 0.57;
-    
-    sgCoord wheelpos;
-    sgCopyCoord(&wheelpos, getCoord());
-    
-    wheelpos.xyz[0] += length * sgSin(wheelpos.hpr[0] + angle);
-    wheelpos.xyz[1] += length * -sgCos(wheelpos.hpr[0] + angle);
-    
-    if (skidmark_right->newSkidmark) {
-      skidmark_right->addBreak (&wheelpos);
-      skidmark_right->newSkidmark--;
-    } else skidmark_right->add(&wheelpos);
-  } else if (skidmark_right) { 
-    skidmark_right->newSkidmark = 2;
-  }
+
+  assert(skidmark_left);
+  assert(skidmark_right);
+
+      if (velocity.hpr[0] > 20.0f || velocity.hpr[0] < -20.0f)
+      {
+          if(on_ground)
+          {
+              const float length = 0.57f;
+
+              if(skidmark_left)
+              {
+                  const float angle  = -43.0f;
+
+                  sgCoord wheelpos;
+                  sgCopyCoord(&wheelpos, getCoord());
+
+                  wheelpos.xyz[0] += length * sgSin(wheelpos.hpr[0] + angle);
+                  wheelpos.xyz[1] += length * -sgCos(wheelpos.hpr[0] + angle);
+
+                  if(skidmark_left->wasSkidMarking())
+                      skidmark_left->add(&wheelpos);
+                  else
+                      skidmark_left->addBreak(&wheelpos);
+              }
+
+              if(skidmark_right)
+              {
+                  const float angle  = 43.0f;
+
+                  sgCoord wheelpos;
+                  sgCopyCoord(&wheelpos, getCoord());
+
+                  wheelpos.xyz[0] += length * sgSin(wheelpos.hpr[0] + angle);
+                  wheelpos.xyz[1] += length * -sgCos(wheelpos.hpr[0] + angle);
+
+                  if(skidmark_right->wasSkidMarking())
+                      skidmark_right->add(&wheelpos);
+                  else
+                      skidmark_right->addBreak(&wheelpos);
+              }
+          }
+          else
+          {
+              if(skidmark_left)
+              {
+                  const float length = 0.57f;
+                  const float angle  = -43.0f;
+
+                  sgCoord wheelpos;
+                  sgCopyCoord(&wheelpos, getCoord());
+
+                  wheelpos.xyz[0] += length * sgSin(wheelpos.hpr[0] + angle);
+                  wheelpos.xyz[1] += length * -sgCos(wheelpos.hpr[0] + angle);
+
+                  skidmark_left->addBreak(&wheelpos);
+              }
+
+              if(skidmark_right)
+              {
+                  const float length = 0.57f;
+                  const float angle  = 43.0f;
+
+                  sgCoord wheelpos;
+                  sgCopyCoord(&wheelpos, getCoord());
+
+                  wheelpos.xyz[0] += length * sgSin(wheelpos.hpr[0] + angle);
+                  wheelpos.xyz[1] += length * -sgCos(wheelpos.hpr[0] + angle);
+
+                  skidmark_right->addBreak(&wheelpos);
+              }
+          }
+      }
+      else
+      {
+         if(skidmark_left)
+            if(skidmark_left->wasSkidMarking())
+            {
+               const float angle  = -43.0f;
+               const float length = 0.57f;
+
+               sgCoord wheelpos;
+               sgCopyCoord(&wheelpos, getCoord());
+
+               wheelpos.xyz[0] += length * sgSin(wheelpos.hpr[0] + angle);
+               wheelpos.xyz[1] += length * -sgCos(wheelpos.hpr[0] + angle);
+
+               skidmark_left->addBreak(&wheelpos);
+            }
+
+         if(skidmark_right)
+            if(skidmark_right->wasSkidMarking())
+            {
+               const float angle  = 43.0f;
+               const float length = 0.57f;
+
+               sgCoord wheelpos;
+               sgCopyCoord(&wheelpos, getCoord());
+
+               wheelpos.xyz[0] += length * sgSin(wheelpos.hpr[0] + angle);
+               wheelpos.xyz[1] += length * -sgCos(wheelpos.hpr[0] + angle);
+
+               skidmark_right->addBreak(&wheelpos);
+            }
+      }
 }   // processSkidMarks
 
 // -----------------------------------------------------------------------------
@@ -536,28 +606,21 @@ void Kart::load_data() {
   //      exhaust_pipe = new ssgTransform (&pipe_pos);
   //      exhaust_pipe -> addKid (smoke_system) ;
   //      comp_model-> addKid (exhaust_pipe) ;
-  
+
   sgCoord cc ;
   sgSetCoord ( &cc, 0, 0, 2, 0, 0, 0 ) ;
   sgSetCoord ( &cc, 0, 0, 0, 0, 0, 0 ) ;
-  
+
 #if 0
   // matze: does this have any effect?
   ssgTransform *xxx = new ssgTransform ( & cc ) ;
   xxx -> addKid ( obj ) ;
   obj = xxx ;
 #endif
-   
-  if (1) {
-    skidmark_left  = new SkidMark();
-    skidmark_left->ref();
-    world->scene->addKid(skidmark_left);
-    
-    skidmark_right = new SkidMark();
-    skidmark_right->ref();
-    world->scene->addKid(skidmark_right);
-  }
-   
+
+  skidmark_left  = new SkidMark();
+  skidmark_right = new SkidMark();
+
   shadow = createShadow(kart_properties->shadow_file, -1, 1, -1, 1);
   shadow->ref();
   model->addKid ( shadow );

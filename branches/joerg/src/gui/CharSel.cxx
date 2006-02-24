@@ -21,7 +21,6 @@
 #include <iostream>
 #include "Loader.h"
 #include "CharSel.h"
-#include "Loader.h"
 #include "KartManager.h"
 #include "preprocessor.h"
 #include "WidgetSet.h"
@@ -54,14 +53,14 @@ CharSel::CharSel(int whichPlayer)
 	int icon_size = 64;
 	/* plib keeps track of textures which are already loaded.
 	   Since the icons are deleted, the texture 'cache' needs
-	   to be cleard. This problem actually appears only if 
-	   in the next menue (track) ESC is pressed and control
+	   to be cleared. This problem actually appears only if
+	   in the next menu (track) ESC is pressed and control
 	   returns to this menu: all icons are simply white then.
-	   Clearing the texsture cache can either be done with:
-	   loader->shared_textures.removeAll();
-	   which appears to be a bit hackish, the only other 
-	   usable function is:   */
-	loader->endLoad();   // remove cached textures
+	   Clearing the texture cache can either be done with:
+	   loader->shared_textures.removeAll(); or
+	   loader->endLoad(); which calls removeAll() */
+    loader->shared_textures.removeAll();   // remove cached textures
+
 	int row1 = widgetSet -> harray(va);
 	for(KartManager::KartPropertiesVector::size_type i = 0;
             i < kart_manager->karts.size(); ++i)
@@ -70,7 +69,7 @@ CharSel::CharSel(int whichPlayer)
 				     kart_manager->karts[i]->icon_file.c_str(),
 				     icon_size, icon_size);
 	  widgetSet -> activate_widget(c, i, 0);
-		
+
 	  if (i == kart_manager->karts.size() - 1)
 	    widgetSet -> set_active(c);
 	}
@@ -132,7 +131,7 @@ void CharSel::switch_to_character(int n)
 		preProcessObj ( kart, 0 );
 	}
 }
-	
+
 void CharSel::update(float dt)
 {
 	clock += dt * 40.0f;
@@ -145,8 +144,8 @@ void CharSel::update(float dt)
 	if (kart)
 	{
                 ssgContext* oldContext = ssgGetCurrentContext();
-                context -> makeCurrent();                                   
-            
+                context -> makeCurrent();
+
 		glClear(GL_DEPTH_BUFFER_BIT);
 		// FIXME: A bit hackish...
 		glViewport ( 0, 0, 800, 320);
@@ -186,7 +185,7 @@ void CharSel::select()
 			guiStack.push_back(GUIS_CHARSELP2); 
 			return;
 		}
-			
+
 		if (race_manager->getNumPlayers() > 2)
 		{
 			if (guiStack.back() == GUIS_CHARSELP2)
@@ -205,7 +204,7 @@ void CharSel::select()
 			}	
 		}	
 	}
-	
+
         if (race_manager->getRaceMode() != RaceSetup::RM_GRAND_PRIX)
           guiStack.push_back(GUIS_TRACKSEL); 
         else

@@ -28,7 +28,6 @@
 #include "WidgetSet.h"
 #include "World.h"
 #include "StartScreen.h"
-#include "Loader.h"
 #include "RaceSetup.h"
 #include "plibdrv.h"
 #include <iostream>

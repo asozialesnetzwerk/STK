@@ -132,9 +132,9 @@ QuickRaceMode::start()
       raceSetup.karts[first_player + i] = players[i]; // Players starts last in the first race
       raceSetup.players.push_back(first_player + i);
     }
-  
+
   kart_manager->fillWithRandomKarts(raceSetup.karts);
-  
+
   screen_manager->setScreen(new WorldScreen(raceSetup));
 }
 

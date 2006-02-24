@@ -27,7 +27,6 @@
 #include "Herring.h"
 #include "ProjectileManager.h"
 #include "gui/BaseGUI.h"
-#include "Kart.h"
 #include "Loader.h"
 #include "Material.h"
 #include "Camera.h"
@@ -71,6 +70,11 @@ World::World(const RaceSetup& raceSetup_) : raceSetup(raceSetup_) {
 
   /* Load the Herring */
 
+  //Clear textures that might be stored from things like the character select
+  //screen, otherwise, the tracks could get textures where they aren't
+  //suppposed to be, and if there is no texture, it just looks white.
+  loader->shared_textures.removeAll();
+
 #ifdef JH
   sgVec3 yellow = { 1.0, 1.0, 0.4 } ;
   gold_h    = new Herring ( yellow ) ; 
@@ -98,6 +102,7 @@ World::World(const RaceSetup& raceSetup_) : raceSetup(raceSetup_) {
 
   // Clear all hooks, which might still be stored there from a previous race.
   hook_manager->clearAll();
+
   // Load the track models - this must be done before the karts so that the
   // karts can be positioned properly on (and not in) the tracks.
   loadTrack   ( ) ;
@@ -289,7 +294,7 @@ void World::loadPlayers() {
 }
 
 void World::herring_command (char *s, char *str ) {
-  if ( num_herring >= MAX_HERRING )
+  if ( num_herring > MAX_HERRING )
   {
     fprintf ( stderr, "Too many herring\n" ) ;
     return ;
@@ -403,7 +408,7 @@ void World::loadTrack() {
         msg << "Syntax error in '" << path << "': " << s;
         throw std::runtime_error(msg.str());
       }
-      
+
       if ( need_hat ) {
 	sgVec3 nrm ;
 
@@ -413,7 +418,7 @@ void World::loadTrack() {
 	if ( fit_skin ) {
 	  float sy = sin ( -loc.hpr [ 0 ] * SG_DEGREES_TO_RADIANS ) ;
 	  float cy = cos ( -loc.hpr [ 0 ] * SG_DEGREES_TO_RADIANS ) ;
-   
+
 	  loc.hpr[2] =  SG_RADIANS_TO_DEGREES * atan2 ( nrm[0] * cy -
 							nrm[1] * sy, nrm[2] ) ;
 	  loc.hpr[1] = -SG_RADIANS_TO_DEGREES * atan2 ( nrm[1] * cy +

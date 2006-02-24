@@ -21,7 +21,6 @@
 #define HEADER_ATTACHMENT_H
 
 #include <plib/ssg.h>
-//#include "Kart.h"
 class Kart;
 
 // Some loop in Attachment.cxx depend on PARACHUTE being the first element,

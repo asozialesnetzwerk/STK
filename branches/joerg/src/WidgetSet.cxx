@@ -300,10 +300,10 @@ int WidgetSet::state(int pd, const char *text, int size, int token, int value)
       // Since the text will not be centered because of this,
       // the distance to the baseline y=0 is saved and during
       // output added to the y location.
-      widgets[id].yOffset    = (int)b;
       widgets[id].w          = (int)(r-l+0.99);
       widgets[id].text_width = widgets[id].w;
       widgets[id].h          = (int)(t-b+0.99);
+      widgets[id].yOffset    = (int)b - widgets[id].h/4 ;
       widgets[id].size       = size;
       widgets[id].token      = token;
       widgets[id].value      = value;
@@ -1060,9 +1060,9 @@ void WidgetSet::paint_label(int id)
 
       glScalef(widgets[id].scale, widgets[id].scale, widgets[id].scale);
       textOut->begin(); {
-	textOut->setPointSize(widgets[id].size);
-	textOut->start2f((GLfloat)-widgets[id].w/2 , (GLfloat)0.0);
-	textOut->puts(widgets[id]._text);
+	    textOut->setPointSize(widgets[id].size);
+        textOut->start2f((GLfloat)-widgets[id].w/2 , (GLfloat)widgets[id].yOffset);
+        textOut->puts(widgets[id]._text);
       }
       textOut->end();
     }

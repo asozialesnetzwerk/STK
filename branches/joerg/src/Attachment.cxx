@@ -21,9 +21,7 @@
 
 #include "Attachment.h"
 #include "Kart.h"
-#include "Loader.h"
 #include "constants.h"
-#include "Attachment.h"
 #include "Loader.h"
 #include "World.h"
 #include "sound.h"
