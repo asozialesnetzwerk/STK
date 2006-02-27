@@ -73,7 +73,7 @@ World::World(const RaceSetup& raceSetup_) : raceSetup(raceSetup_) {
   //Clear textures that might be stored from things like the character select
   //screen, otherwise, the tracks could get textures where they aren't
   //suppposed to be, and if there is no texture, it just looks white.
-  loader->shared_textures.removeAll();
+  if(raceSetup.mode != RaceSetup::RM_GRAND_PRIX) loader->shared_textures.removeAll();
 
 #ifdef JH
   sgVec3 yellow = { 1.0, 1.0, 0.4 } ;
