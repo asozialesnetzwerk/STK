@@ -20,7 +20,7 @@
 #include "Loader.h"
 #include "MaterialManager.h"
 
-ssgState *fuzzy_gst, *magnet_gst, *zipper_gst, *herringbones_gst, *herring_gst;
+ssgState *fuzzy_gst;
 
 MaterialManager *material_manager=0;
 
@@ -65,8 +65,6 @@ void MaterialManager::loadMaterial() {
 
   ssgSetAppStateCallback ( getAppState ) ;
   fuzzy_gst        = getMaterial("fuzzy.rgb")->getState();
-  herringbones_gst = getMaterial("herringbones.rgb")->getState();
-  herring_gst      = getMaterial("herring.rgb")->getState();
 }   // MaterialManager
 
 char* MaterialManager::parseFileName(char **str) {

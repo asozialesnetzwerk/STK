@@ -27,7 +27,7 @@
 
 
 Track::Track (const std::string& filename, float w, float h, bool stretch) {
-  fileGoldHerring="";
+  herringStyle  = "";
   track2DWidth  = w;
   track2DHeight = h;
   doStretch     = stretch;
@@ -182,22 +182,19 @@ void Track::loadTrack(const std::string& filename) {
 
   lisp->get("name",          name);
   lisp->get("music",         music_filename);
-  lisp->get("goldherring",   fileGoldHerring);
-  lisp->get("silverherring", fileSilverHerring);
-  lisp->get("redherring",    fileRedHerring);
-  lisp->get("greenherring",  fileGreenHerring);
+  lisp->get("herring",       herringStyle);
   lisp->get("sky-color",     sky_color);
 
   lisp->get("use-fog",       use_fog);
   lisp->get("fog-color",     fog_color);
-  lisp->get("fog-density", fog_density);
-  lisp->get("fog-start",   fog_start);
-  lisp->get("fog-end",     fog_end);
+  lisp->get("fog-density",   fog_density);
+  lisp->get("fog-start",     fog_start);
+  lisp->get("fog-end",       fog_end);
 
-  lisp->get("sun-position", sun_position);
-  lisp->get("sun-ambient",  ambientcol);
-  lisp->get("sun-specular", specularcol);
-  lisp->get("sun-diffuse",  diffusecol);
+  lisp->get("sun-position",  sun_position);
+  lisp->get("sun-ambient",   ambientcol);
+  lisp->get("sun-specular",  specularcol);
+  lisp->get("sun-diffuse",   diffusecol);
   delete root;
 }
 

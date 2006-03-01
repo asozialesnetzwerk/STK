@@ -22,7 +22,7 @@
 #include <plib/ssg.h>
 
 #include "utils.h"
-#include "Herring.h"
+#include "HerringManager.h"
 #include "sound.h"
 #include "Loader.h"
 #include "Shadow.h"
@@ -202,34 +202,26 @@ void Kart::doObjectInteractions () {
     }   // if sgLengthSquaredVec2(xy)<1.0
   }   // for i
    
-   
-  for ( i = 0 ; i < num_herring ; i++ ) {
-    if ( herring[i].her == NULL || herring[i].eaten ) continue ;
-      
-    sgVec3 hpos ;
-      
-    herring[i].getPos(hpos) ;
-      
-    if ( sgDistanceSquaredVec2 ( hpos, getCoord()->xyz ) < 0.8f ) {
-      herring[i].eaten = TRUE ;
-      herring[i].time_to_return = world->clock + 2.0f  ;
-
-      if ( this == world->getPlayerKart(0) )
-	sound->playSfx ( ( herring[i].type==HE_GREEN ) ? SOUND_UGH:SOUND_BURP);
-
-      switch ( herring[i].type ) {
-        case HE_GREEN  : attachment.hitGreenHerring(); break;
-        case HE_SILVER : num_herring_gobbled++ ;       break;
-        case HE_GOLD   : num_herring_gobbled += 3 ;    break;
-        case HE_RED    : int n=1 + 4*getNumHerring() / MAX_HERRING_EATEN;
-	                 collectable.hitRedHerring(n); break;
-      }   // switch herring[i].type
-      if ( num_herring_gobbled > MAX_HERRING_EATEN )
-	num_herring_gobbled = MAX_HERRING_EATEN ;
-    }   // if sqDistanceSquaredVec2
-  }   // for i<MAX_HERRING
+  // Check if any herring was hit.
+  herring_manager->hitHerring(this);
 }   // doObjectInteractions
 
+// -----------------------------------------------------------------------------
+void Kart::collectedHerring(Herring* herring) {
+  herringType type = herring->getType();
+  if ( this == world->getPlayerKart(0) )
+    sound->playSfx ( ( type==HE_GREEN ) ? SOUND_UGH:SOUND_BURP);
+  
+  switch (type) {
+    case HE_GREEN  : attachment.hitGreenHerring(); break;
+    case HE_SILVER : num_herring_gobbled++ ;       break;
+    case HE_GOLD   : num_herring_gobbled += 3 ;    break;
+    case HE_RED    : int n=1 + 4*getNumHerring() / MAX_HERRING_EATEN;
+                     collectable.hitRedHerring(n); break;
+  }   // switch type
+  if ( num_herring_gobbled > MAX_HERRING_EATEN )
+    num_herring_gobbled = MAX_HERRING_EATEN ;
+}   // hitHerring
 // -----------------------------------------------------------------------------
 void Kart::doZipperProcessing (float delta) {
   if ( ZipperTimeLeft > delta ) {

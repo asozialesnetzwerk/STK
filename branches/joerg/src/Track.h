@@ -31,25 +31,17 @@ public:
 
   std::string name;
   std::string music_filename;
-
-  std::string fileGoldHerring;
-  std::string fileSilverHerring;
-  std::string fileRedHerring;
-  std::string fileGreenHerring;
-  sgVec4 sky_color;
-
-  bool   use_fog;
-  sgVec4 fog_color;
-  float  fog_density;
-  float  fog_start;
-  float  fog_end;
-
-  /** Position of the sun */
-  sgVec3 sun_position;
-
-  sgVec4 ambientcol;
-  sgVec4 specularcol;
-  sgVec4 diffusecol;
+  std::string herringStyle;
+  sgVec4      sky_color;
+  bool        use_fog;
+  sgVec4      fog_color;
+  float       fog_density;
+  float       fog_start;
+  float       fog_end;
+  sgVec3      sun_position;   /** Position of the sun */
+  sgVec4      ambientcol;
+  sgVec4      specularcol;
+  sgVec4      diffusecol;
 
   /** sgVec3 is a float[3] array, so unfortunately we can't put it in a
    * std::vector because it lacks a copy-constructor, this hack should help...
@@ -101,7 +93,7 @@ public:
 
   float              getTrackLength   () const { return total_distance ; }
   const std::string& getIdent         () const { return ident; }
-
+  std::string        getHerringStyle  () const {return herringStyle;}
   void               glVtx            (sgVec2 v, float xoff, float yoff) const {
                                        glVertex2f(
                                        xoff+(v[0]-driveline_center[0])*scaleX,

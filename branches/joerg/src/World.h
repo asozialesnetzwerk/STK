@@ -64,11 +64,6 @@ public:
 
   const Track* track;
 private:
-  Herring *silver_h ;
-  Herring *gold_h   ;
-  Herring *red_h    ;
-  Herring *green_h  ;
-
   Phase phase;
 public:
   /** debug text that will be overlaid to the screen */

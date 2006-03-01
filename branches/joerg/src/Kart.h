@@ -27,8 +27,10 @@
 #include "Attachment.h"
 #include "Collectable.h"
 
+
 class SkidMark;
 class Kart;
+class Herring;
 
 class KartParticleSystem : public ParticleSystem
 {
@@ -126,6 +128,7 @@ public:
   void           handleMagnet        (float cdist, int closest);
   void           doZipperProcessing  (float dt);
   void           updatePhysics       (float dt);
+  void           collectedHerring    (Herring* herring);
   virtual void   reset               ();
   virtual void   handleZipper        ();
   virtual void   forceCrash          ();

@@ -52,11 +52,6 @@ private:
 	int      fpsCounter;
 	char     fpsString[10];
 
-	Material *herringbones_gst ;
-	Material *herring_gst ;
-	Material *magnet_gst ;
-	Material *zipper_gst ;
-
 	double time_left ;
 
 	char *pos_string [11];

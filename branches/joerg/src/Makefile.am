@@ -18,6 +18,7 @@ tuxkart_SOURCES =                                       \
 	guNet.cxx		 guNet.h                \
 	Track.cxx		 Track.h                \
 	Herring.cxx 		 Herring.h              \
+	HerringManager.cxx	 HerringManager.h       \
 	Explosion.cxx		 Explosion.h            \
 	Config.cxx 		 Config.h               \
 	Player.cxx		 Player.h               \

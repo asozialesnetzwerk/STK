@@ -34,11 +34,7 @@
 #include "Collectable.h"
 
 #define TEXT_START_X  (config->width-220)
-RaceGUI::RaceGUI(): herringbones_gst(NULL),
-		    herring_gst(NULL),
-		    magnet_gst(NULL),
-		    zipper_gst(NULL),
-		    time_left(0.0),
+RaceGUI::RaceGUI(): time_left(0.0),
 		    stats_enabled(false),
 		    next_string(0)             {
   if(!config->profile) {
@@ -61,11 +57,6 @@ RaceGUI::RaceGUI(): herringbones_gst(NULL),
   fpsTimer.setMaxDelta(1000);
   memset(tt, 0, sizeof(float) * 6);
   
-  herringbones_gst = material_manager->getMaterial( "herringbones.rgb" );
-  herring_gst      = material_manager->getMaterial( "herring.rgb"      );
-  magnet_gst       = material_manager->getMaterial( "magnet.rgb"       );
-  zipper_gst       = material_manager->getMaterial( "zipper.rgb"       );
-
 }   // RaceGUI
 
 // -----------------------------------------------------------------------------
@@ -511,11 +502,6 @@ void RaceGUI::drawCollectableIcons ( Kart* player_kart, int offset_x,
     return;
   }
   collectable->getIcon()->apply();
-
-#ifdef JH
-    case COLLECT_ZIPPER         : zipper_gst       -> apply () ;
-                                  zz = TRUE ; break ;
-#endif
 
   int n  = player_kart->getNumCollectables() ;
 

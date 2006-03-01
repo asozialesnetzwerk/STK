@@ -24,7 +24,7 @@
 #include <algorithm>
 #include "World.h"
 #include "preprocessor.h"
-#include "Herring.h"
+#include "HerringManager.h"
 #include "ProjectileManager.h"
 #include "gui/BaseGUI.h"
 #include "Loader.h"
@@ -68,35 +68,15 @@ World::World(const RaceSetup& raceSetup_) : raceSetup(raceSetup_) {
   trackBranch = new ssgBranch ;
   scene -> addKid ( trackBranch ) ;
 
-  /* Load the Herring */
+  //Clear textures that might be stored from things like the character select
+  //screen, otherwise, the tracks could get textures where they aren't
+  //suppposed to be, and if there is no texture, it just looks white.
+  loader->shared_textures.removeAll();
 
   //Clear textures that might be stored from things like the character select
   //screen, otherwise, the tracks could get textures where they aren't
   //suppposed to be, and if there is no texture, it just looks white.
   if(raceSetup.mode != RaceSetup::RM_GRAND_PRIX) loader->shared_textures.removeAll();
-
-#ifdef JH
-  sgVec3 yellow = { 1.0, 1.0, 0.4 } ;
-  gold_h    = new Herring ( yellow ) ; 
-  silver_h  = new Herring ( ssgLoad ( "coin.ac", loader )   ) ;
-  red_h     = new Herring ( ssgLoad ( "bonusblock.ac", loader )   ) ; 
-  green_h   = new Herring ( ssgLoad ( "banana.ac", loader )   ) ; 
-#else
-  sgVec3 yellow = { 1.0, 1.0, 0.4 } ;
-  sgVec3 cyan   = { 0.4, 1.0, 1.0 } ;
-  sgVec3 red    = { 0.8, 0.0, 0.0 } ;
-  sgVec3 green  = { 0.0, 0.8, 0.0 } ;
-  silver_h  = new Herring ( cyan   );
-  red_h     = new Herring ( red    );
-  green_h   = new Herring ( green  );
-  gold_h    = new Herring ( yellow ) ; 
-#endif
-
-  preProcessObj ( gold_h -> getRoot());
-  preProcessObj ( silver_h -> getRoot());
-  preProcessObj ( red_h -> getRoot());
-  preProcessObj ( green_h -> getRoot());
-  num_herring = 0;
 
   assert(raceSetup.karts.size() > 0);
 
@@ -182,11 +162,6 @@ World::~World() {
   kart.clear();
   projectile_manager->cleanup();
 
-  delete gold_h;
-  delete silver_h;
-  delete red_h;
-  delete green_h;
-
   delete scene ; 
 }
 
@@ -230,18 +205,12 @@ void World::update(float delta) {
     }
   }   // while dt>0
 
-  //JH Should the projectiles loop go with dt instead of delta as well?
-  //JH and what about explosions??
   projectile_manager->update(delta);
-
-  for ( int i = 0 ; i < num_herring ; i++ ) herring [ i ] . update (delta) ;
+  herring_manager->update(delta);
+  
   for ( Karts::size_type i = 0 ; i < kart.size(); ++i) updateLapCounter ( i ) ;
 
   /* Routine stuff we do even when paused */
-  silver_h -> update (delta);
-  gold_h   -> update (delta);
-  red_h    -> update (delta);
-  green_h  -> update (delta);
   hook_manager->update();
 }
 
@@ -294,39 +263,21 @@ void World::loadPlayers() {
 }
 
 void World::herring_command (char *s, char *str ) {
-  if ( num_herring > MAX_HERRING )
-  {
-    fprintf ( stderr, "Too many herring\n" ) ;
-    return ;
-  }
  
-  HerringInstance *h = & herring[num_herring] ;
   sgVec3 xyz ;
  
   sscanf ( s, "%f,%f", &xyz[0], &xyz[1] ) ;
- 
-  xyz[2] = 1000000.0f ;
+  // The height must be defined here, since getHeight only looks below
+  xyz[2] = 1000000.0f;
   xyz[2] = getHeight ( trackBranch, xyz ) + 0.06 ;
- 
-  sgCoord c ;
- 
-  sgSetVec3  ( c.hpr, 0.0f, 0.0f, 0.0f ) ;
-  sgCopyVec3 ( c.xyz, xyz ) ;
- 
-  if ( str[0]=='Y' || str[0]=='y' ){ h->her = gold_h   ; h->type = HE_GOLD   ;}
-  if ( str[0]=='G' || str[0]=='g' ){ h->her = green_h  ; h->type = HE_GREEN  ;}
-  if ( str[0]=='R' || str[0]=='r' ){ h->her = red_h    ; h->type = HE_RED    ;}
-  if ( str[0]=='S' || str[0]=='s' ){ h->her = silver_h ; h->type = HE_SILVER ;}
- 
-  sgCopyVec3 ( h->xyz, xyz ) ;
-  h->eaten = FALSE ;
-  h->scs   = new ssgTransform ;
-  h->scs -> setTransform ( &c ) ;
-  h->scs -> addKid ( h->her->getRoot () ) ;
-  scene  -> addKid ( h->scs ) ;
 
-  num_herring++ ;
-}
+  herringType type=HE_GREEN;
+  if ( str[0]=='Y' || str[0]=='y' ){ type = HE_GOLD   ;}
+  if ( str[0]=='G' || str[0]=='g' ){ type = HE_GREEN  ;}
+  if ( str[0]=='R' || str[0]=='r' ){ type = HE_RED    ;}
+  if ( str[0]=='S' || str[0]=='s' ){ type = HE_SILVER ;}
+  herring_manager->newHerring(type, xyz);
+}   // herring_command
 
 
 void World::loadTrack() {
@@ -334,6 +285,12 @@ void World::loadTrack() {
   path += track->getIdent();
   path += ".loc";
   path = loader->getPath(path);
+
+  // remove old herrings (from previous race), and remove old 
+  // track specific herring models
+  herring_manager->cleanup();
+  herring_manager->loadHerringData(track->getHerringStyle(), 
+				   HerringManager::ISTRACKDATA);
   FILE *fd = fopen (path.c_str(), "r" ) ;
   if ( fd == NULL ) {
     std::stringstream msg;

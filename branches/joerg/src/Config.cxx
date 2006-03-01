@@ -97,6 +97,7 @@ void Config::setDefaults() {
   displayFPS       = false;
   singleWindowMenu = false;
   oldStatusDisplay = false;
+  herringStyle     = "default";
   profile          = 0;
   oldHOT           = false;
   useKPH           = false;
@@ -220,19 +221,20 @@ void Config::loadConfig(const std::string& filename) {
       throw std::runtime_error("No tuxkart-config node");
 
     /*get toggles*/
-    lisp->get("fullscreen", fullscreen);
-    lisp->get("sound", sound);
-    lisp->get("nostartscreen", noStartScreen);
-    lisp->get("music", music);
-    lisp->get("smoke", smoke);
-    lisp->get("displayFPS", displayFPS);
+    lisp->get("fullscreen",       fullscreen);
+    lisp->get("sound",            sound);
+    lisp->get("nostartscreen",    noStartScreen);
+    lisp->get("music",            music);
+    lisp->get("smoke",            smoke);
+    lisp->get("displayFPS",       displayFPS);
     lisp->get("singlewindowmenu", singleWindowMenu);
     lisp->get("oldStatusDisplay", oldStatusDisplay);
-    lisp->get("useKPH", useKPH);
+    lisp->get("herringStyle",     herringStyle);
+    lisp->get("useKPH",           useKPH);
 
     /*get resolution width/height*/
-    lisp->get("width", width);
-    lisp->get("height", height);
+    lisp->get("width",            width);
+    lisp->get("height",           height);
 
     /*get number of karts*/
     lisp->get("karts", karts);
@@ -307,6 +309,7 @@ void Config::saveConfig(const std::string& filename) {
     writer.write("displayFPS\t", displayFPS);
     writer.write("singleWindowMenu\t", singleWindowMenu);
     writer.write("oldStatusDisplay\t", oldStatusDisplay);
+    writer.write("herringStyle\t", herringStyle);
     writer.write("useKPH\t", useKPH);
 
     writer.writeComment("screen resolution");

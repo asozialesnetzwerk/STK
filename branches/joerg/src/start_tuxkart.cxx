@@ -34,6 +34,7 @@
 #include "plibdrv.h"
 #include "HookManager.h"
 #include "History.h"
+#include "HerringManager.h"
 
 void cmdLineHelp (char* invocation) {
   fprintf ( stdout, 
@@ -53,6 +54,7 @@ void cmdLineHelp (char* invocation) {
 	    "  --players n             Define number of players to between 1 and 4.\n"
 	    "  --reverse               Enable reverse mode\n"
 	    "  --mirror                Enable mirror mode (when supported)\n"
+	    "  --herring style         Herring style to use\n"
 	    "  -f,  --fullscreen       Fullscreen display.\n"
 	    "  -w,  --windowed         Windowed display. (default)\n"
 	    "  --mwm                   New multi-window menu\n"
@@ -80,14 +82,14 @@ int handleCmdLine(int argc, char **argv) {
 	 !strcmp(argv[i], "-h")      ) {
       cmdLineHelp(argv[0]);
       return 0;
-    } else if( (!strcmp(argv[i], "--kart") && argc > 2 )) {
+    } else if( (!strcmp(argv[i], "--kart") && i+1<argc )) {
       race_manager->setPlayerKart(0, argv[i+1]);
     } else if( (!strcmp(argv[i], "--track") || !strcmp(argv[i], "-t")) 
 	       && argc > 2                                             ) {
       race_manager->setTrack(argv[i+1]);
       fprintf ( stdout, "You choose to start in track: %s.\n", argv[i+1] ) ;
-    } else if( (!strcmp(argv[i], "--numkarts") || !strcmp(argv[i], "-k")) 
-	       && argc > 2                                                ) {
+    } else if( (!strcmp(argv[i], "--numkarts") || !strcmp(argv[i], "-k")) && 
+	       i+1<argc ) {
       race_manager->setNumKarts(config->karts = atoi(argv[i+1]));
       fprintf ( stdout, "You choose to have %s karts.\n", argv[i+1] ) ;
     } else if( !strcmp(argv[i], "--list-tracks") || !strcmp(argv[i], "-l") ) {
@@ -128,12 +130,12 @@ int handleCmdLine(int argc, char **argv) {
   #else
       //raceSetup.mirror = 0 ;
   #endif
-    } else if ( !strcmp(argv[i], "--laps") && argc > 2 ) {
+    } else if ( !strcmp(argv[i], "--laps") && i+1<argc ) {
       fprintf ( stdout, "You choose to have %d laps.\n", atoi(argv[i+1]) ) ;
       race_manager->setNumLaps(atoi(argv[i+1]));
     }
     /* FIXME: 
-    else if ( !strcmp(argv[i], "--players") && argc > 2 ) {
+    else if ( !strcmp(argv[i], "--players") && i+1<argc ) {
       raceSetup.numPlayers = atoi(argv[i+1]);
       
       if ( raceSetup.numPlayers < 0 || raceSetup.numPlayers > 4) {
@@ -167,31 +169,26 @@ int handleCmdLine(int argc, char **argv) {
   #endif
     else if( !strcmp(argv[i], "--mwm") ) {
       config->singleWindowMenu=false;
-    }
-    else if( !strcmp(argv[i], "--swm") ) {
+    } else if( !strcmp(argv[i], "--swm") ) {
       config->singleWindowMenu=true;
-    }
-    else if( !strcmp(argv[i], "--oldstatus") ) {
+    } else if( !strcmp(argv[i], "--oldstatus") ) {
       config->oldStatusDisplay=true;
-    }
-    else if( sscanf(argv[i], "--profile=%d",&n)==1) {
+    } else if( sscanf(argv[i], "--profile=%d",&n)==1) {
       config->profile=n;
-    }
-    else if( !strcmp(argv[i], "--profile") ) {
+    } else if( !strcmp(argv[i], "--profile") ) {
       config->profile=500;
-    }
-    else if( !strcmp(argv[i], "--history") ) {
+    } else if( !strcmp(argv[i], "--history") ) {
       config->replayHistory=true;
-    }
-    else if( !strcmp(argv[i], "--oldhot") ) {
+    } else if( !strcmp(argv[i], "--oldhot") ) {
       config->oldHOT=true;
-    }
-    else {
+    } else if( !strcmp(argv[i], "--herring") && i+1<argc ) {
+      config->herringStyle=argv[i+1];
+    } else {
       fprintf ( stderr, "Invalid parameter: %s.\n\n", argv[i] );
       cmdLineHelp(argv[0]);
       return 0;
     }
-  }
+  }   // for i <argc
   if(config->profile) {
     printf("Profiling: %d frames.\n",config->profile);
   }
@@ -217,6 +214,7 @@ void InitTuxkart() {
   race_manager        = new RaceManager       ();
   screen_manager      = new ScreenManager     ();
   hook_manager        = new HookManager       ();
+  herring_manager     = new HerringManager    ();
   track_manager   ->loadTrackList () ;
 }
 
@@ -236,6 +234,7 @@ int main ( int argc, char **argv ) {
   kart_manager       ->loadKartData   (); 
   projectile_manager ->loadData       ();
   collectable_manager->loadCollectable();
+  herring_manager    ->loadAllHerrings();
   startScreen = new StartScreen();
   widgetSet   = new WidgetSet;
   if(config->replayHistory) {

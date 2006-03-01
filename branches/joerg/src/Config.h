@@ -46,7 +46,8 @@ class Config {
     bool   singleWindowMenu;
     bool   oldStatusDisplay;
     int    profile;         // Number of frames to profile, default 500
-                            // -1 if no profiling. never saved in config file!
+                            // -1 if no profiling. Never saved in config file!
+    std::string herringStyle;
     bool   oldHOT;
     bool   replayHistory;
     bool   useKPH;

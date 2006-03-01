@@ -34,14 +34,14 @@ class CollectableManager {
   Material*    allIcons [COLLECT_MAX];
   float        allSpeeds[COLLECT_MAX];
   ssgEntity*   allModels[COLLECT_MAX];
-  void         LoadNode (const lisp::Lisp* lisp, int collectType);
+  void         LoadNode       (const lisp::Lisp* lisp, int collectType);
  public:
-  CollectableManager(){}
-  void      loadCollectable();
-  Material*  getIcon  (int type) {return allIcons [type];}
-  float      getSpeed (int type) {return allSpeeds[type];}
-  ssgEntity* getModel (int type) {return allModels[type];}
-  void       Load     (int collectType, std::string filename);
+  CollectableManager          (){}
+  void         loadCollectable();
+  void         Load           (int collectType, std::string filename);
+  Material*    getIcon        (int type) {return allIcons [type];}
+  float        getSpeed       (int type) {return allSpeeds[type];}
+  ssgEntity*   getModel       (int type) {return allModels[type];}
 };
 
 extern CollectableManager* collectable_manager;

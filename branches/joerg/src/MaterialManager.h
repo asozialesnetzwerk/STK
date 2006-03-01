@@ -40,7 +40,7 @@ class MaterialManager {
   Material *getMaterial ( ssgLeaf *lf ) ;
 };
 
-extern ssgState *fuzzy_gst, *herringbones_gst, *herring_gst;
+extern ssgState *fuzzy_gst, *herringbones_gst;
 
 ssgState *getAppState ( char *fname ) ;
 extern MaterialManager *material_manager;
