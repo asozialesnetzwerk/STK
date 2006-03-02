@@ -36,8 +36,10 @@ Herring::Herring(herringType _type, sgVec3 xyz, ssgEntity* model) {
   root->addKid(rotate);
   world->addToScene(root);
 
-  type   = _type;
-  bEaten = 0;
+  type           = _type;
+  bEaten         = FALSE;
+  rotation       = 0.0;
+  time_to_return = 0.0;  // not strictly necessary, see isEaten()
 }   // Herring
 
 // -----------------------------------------------------------------------------
