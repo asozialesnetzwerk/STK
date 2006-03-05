@@ -19,10 +19,7 @@
 
 #include "constants.h"
 #include "World.h"
-#include "Kart.h"
 #include "AutoKart.h"
-#include "Collectable.h"
-#include "Track.h"
 #include <math.h>
 
 inline float sgnsq ( float x ) { return ( x < 0 ) ? -(x * x) : (x * x) ; }

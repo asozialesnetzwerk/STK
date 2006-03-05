@@ -54,7 +54,7 @@ World::World(const RaceSetup& raceSetup_) : raceSetup(raceSetup_) {
   track = NULL;
 
   clock = 0.0f;
-  
+
   // Grab the track centerline file
   try {
     track = track_manager->getTrack(raceSetup.track) ;
@@ -71,12 +71,8 @@ World::World(const RaceSetup& raceSetup_) : raceSetup(raceSetup_) {
   //Clear textures that might be stored from things like the character select
   //screen, otherwise, the tracks could get textures where they aren't
   //suppposed to be, and if there is no texture, it just looks white.
-  loader->shared_textures.removeAll();
-
-  //Clear textures that might be stored from things like the character select
-  //screen, otherwise, the tracks could get textures where they aren't
-  //suppposed to be, and if there is no texture, it just looks white.
-  if(raceSetup.mode != RaceSetup::RM_GRAND_PRIX) loader->shared_textures.removeAll();
+  if(raceSetup.mode != RaceSetup::RM_GRAND_PRIX)
+      loader->shared_textures.removeAll();
 
   assert(raceSetup.karts.size() > 0);
 
@@ -143,11 +139,11 @@ World::World(const RaceSetup& raceSetup_) : raceSetup(raceSetup_) {
 #ifdef SSG_BACKFACE_COLLISIONS_SUPPORTED
   //ssgSetBackFaceCollisions ( raceSetup.mirror ) ;
 #endif
-	
+
   guiStack.push_back(GUIS_RACE);
 
   std::string music = track_manager->getTrack(raceSetup.track)->music_filename;
-  
+
   if (!music.empty())
     sound -> change_track ( music.c_str() );
 
@@ -155,14 +151,14 @@ World::World(const RaceSetup& raceSetup_) : raceSetup(raceSetup_) {
   phase        = START_PHASE;
 }
 
-World::~World() {  
+World::~World() {
   for ( unsigned int i = 0 ; i < kart.size() ; i++ )
     delete kart[i];
 
   kart.clear();
   projectile_manager->cleanup();
 
-  delete scene ; 
+  delete scene ;
 }
 
 void World::draw() {
@@ -245,7 +241,7 @@ World::updateLapCounter ( int k )
     if ( int(j) == k ) continue ;
 
     if ( kart[j]->getLap() >  kart[k]->getLap() ||
-         ( kart[j]->getLap() == kart[k]->getLap() && 
+         ( kart[j]->getLap() == kart[k]->getLap() &&
            kart[j]->getDistanceDownTrack() >
                             kart[k]->getDistanceDownTrack() ))
       p++ ;
@@ -263,9 +259,9 @@ void World::loadPlayers() {
 }
 
 void World::herring_command (char *s, char *str ) {
- 
+
   sgVec3 xyz ;
- 
+
   sscanf ( s, "%f,%f", &xyz[0], &xyz[1] ) ;
   // The height must be defined here, since getHeight only looks below
   xyz[2] = 1000000.0f;
@@ -286,10 +282,10 @@ void World::loadTrack() {
   path += ".loc";
   path = loader->getPath(path);
 
-  // remove old herrings (from previous race), and remove old 
+  // remove old herrings (from previous race), and remove old
   // track specific herring models
   herring_manager->cleanup();
-  herring_manager->loadHerringData(track->getHerringStyle(), 
+  herring_manager->loadHerringData(track->getHerringStyle(),
 				   HerringManager::ISTRACKDATA);
   FILE *fd = fopen (path.c_str(), "r" ) ;
   if ( fd == NULL ) {
@@ -326,14 +322,14 @@ void World::loadTrack() {
 			   fname, &(loc.xyz[0]), &(loc.xyz[1]),
 			   &(loc.hpr[0]), &(loc.hpr[1]), &(loc.hpr[2])) == 6 ){
 	/* All 6 DOF specified - but need height */
-	need_hat = TRUE ; 
+	need_hat = TRUE ;
       } else if ( sscanf ( s, "\"%[^\"]\",%f,%f,%f,%f",
 			   fname, &(loc.xyz[0]), &(loc.xyz[1]), &(loc.xyz[2]),
 			   &(loc.hpr[0]) ) == 5 ) {
 	/* No Roll/Pitch specified - assumed zero */
 	need_hat = FALSE ;
       } else if ( sscanf ( s, "\"%[^\"]\",%f,%f,{},%f,{},{}",
-			   fname, &(loc.xyz[0]), &(loc.xyz[1]), 
+			   fname, &(loc.xyz[0]), &(loc.xyz[1]),
 			   &(loc.hpr[0]) ) == 3 ) {
 	/* All 6 DOF specified - but need height, roll, pitch */
 	need_hat = TRUE ;
@@ -344,7 +340,7 @@ void World::loadTrack() {
 	/* No Roll/Pitch specified - but need height */
 	need_hat = TRUE ;
       } else if ( sscanf ( s, "\"%[^\"]\",%f,%f,%f",
-			   fname, &(loc.xyz[0]), &(loc.xyz[1]), 
+			   fname, &(loc.xyz[0]), &(loc.xyz[1]),
 			   &(loc.xyz[2]) ) == 4 ) {
 	/* No Heading/Roll/Pitch specified - but need height */
 	need_hat = FALSE ;
@@ -379,7 +375,7 @@ void World::loadTrack() {
 	  loc.hpr[2] =  SG_RADIANS_TO_DEGREES * atan2 ( nrm[0] * cy -
 							nrm[1] * sy, nrm[2] ) ;
 	  loc.hpr[1] = -SG_RADIANS_TO_DEGREES * atan2 ( nrm[1] * cy +
-							nrm[0] * sy, nrm[2] ) ; 
+							nrm[0] * sy, nrm[2] ) ;
 	}
       }   // if need_hat
 

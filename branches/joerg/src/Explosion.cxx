@@ -18,7 +18,6 @@
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "Explosion.h"
-#include "Loader.h"
 #include "World.h"
 #include "ProjectileManager.h"
 

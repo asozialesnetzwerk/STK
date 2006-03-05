@@ -17,17 +17,11 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
-#include <iostream>
-#include <assert.h>
 #include "constants.h"
 #include "sound.h"
-#include "KartProperties.h"
-#include "Kart.h"
 #include "World.h"
-#include "WorldScreen.h"
 #include "PlayerKart.h"
 #include "plibdrv.h"
-#include "Collectable.h"
 
 // Only keys which must keep on working when still being pressed
 // are handled here, not 'one time action' keys like fire, ...
@@ -86,7 +80,7 @@ void PlayerKart::update(float dt) {
       wheelie_angle -= PITCH_RESTORE_RATE ;
       if ( wheelie_angle <= 0.0f ) wheelie_angle = 0.0f ;
     }
- 
+
     if (controls.jump) {
       if(on_ground) velocity.xyz[2] += JUMP_IMPULSE ;
       controls.jump=false;
@@ -132,15 +126,15 @@ void PlayerKart::update(float dt) {
 
 #else
   if ( controls.fire ) {
-    if ( getCollectable() == COLLECT_NOTHING ) 
-      beginPowerslide ();  
+    if ( getCollectable() == COLLECT_NOTHING )
+      beginPowerslide ();
     //sound -> playSfx ( SOUND_BEEP ) ;
-      
-    collectable.use();      
+
+    collectable.use();
     controls.fire = false;
   } else endPowerslide ();
-      
-  if ( ( controls.wheelie ) && 
+
+  if ( ( controls.wheelie ) &&
         getVelocity()->xyz[1] >= MIN_WHEELIE_VELOCITY ) {
     if ( wheelie_angle < WHEELIE_PITCH )
       wheelie_angle += WHEELIE_PITCH_RATE * dt ;
@@ -150,25 +144,25 @@ void PlayerKart::update(float dt) {
     wheelie_angle -= PITCH_RESTORE_RATE ;
     if ( wheelie_angle <= 0.0f ) wheelie_angle = 0.0f ;
   }
-   
+
   if (controls.jump) {
     if (on_ground) getVelocity()->xyz[2] += JUMP_IMPULSE ;
     controls.jump=false;
   }
-    
+
   if ( controls.rescue ) {
     sound -> playSfx ( SOUND_BEEP ) ;
     rescue = TRUE ;
     controls.rescue=false;
   }
-   
+
   if ((controls.accel) && (on_ground)) {
     throttle = kart_properties->max_throttle;
   } else if (throttle > 0) {
     throttle -= kart_properties->max_throttle * dt;
   } else throttle = 0.0f;
-   
-  if ((controls.brake) && (on_ground)) {  
+
+  if ((controls.brake) && (on_ground)) {
     if (getVelocity()->xyz[1] > 0) {
       brake = kart_properties->max_throttle/2;
       throttle = 0.0f;
@@ -179,14 +173,14 @@ void PlayerKart::update(float dt) {
   } else {
     brake = 0.0f;
   }   // if !controls.brake || !on_ground
-   
-  if ((wheelie_angle <= 0.0f) && (on_ground)) {      
+
+  if ((wheelie_angle <= 0.0f) && (on_ground)) {
     steer_angle = -kart_properties->turn_speed * controls.lr;
-    
+
     if ( steer_angle > kart_properties->max_wheel_turn)
       steer_angle = kart_properties->max_wheel_turn;
     if ( steer_angle < -kart_properties->max_wheel_turn)
-      steer_angle = -kart_properties->max_wheel_turn;	
+      steer_angle = -kart_properties->max_wheel_turn;
   } else
     getVelocity()->hpr[0] = 0.0f ;
 #endif
@@ -199,13 +193,16 @@ void PlayerKart::update(float dt) {
 
 // -----------------------------------------------------------------------------
 void PlayerKart::incomingJoystick  (const KartControl &ctrl) {
+  //Steering keys(hold)
   controls.lr = ctrl.data[0] ;
   controls.accel = player->buttons[KC_UP] & ctrl.buttons;
   controls.brake = player->buttons[KC_DOWN] & ctrl.buttons;
-  controls.rescue = player->buttons[KC_RESCUE] & ctrl.buttons;
-  controls.fire = player->buttons[KC_FIRE] & ctrl.buttons;
-  controls.jump = player->buttons[KC_JUMP] & ctrl.buttons;
   controls.wheelie = player->buttons[KC_WHEELIE] & ctrl.buttons;
+
+  //One time press keys; these are cleared each frame so we don't have to
+  if (player->buttons[KC_RESCUE] & ctrl.presses) controls.rescue = true;
+  if (player->buttons[KC_FIRE] & ctrl.presses) controls.fire = true;
+  if (player->buttons[KC_JUMP] & ctrl.presses) controls.jump = true;
 }   // incomingJoystick
 
 /* EOF */

@@ -18,10 +18,7 @@
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "World.h"
-#include "Kart.h"
-#include "Track.h"
 #include "MaterialManager.h"
-#include "sound.h"
 #include "Config.h"
 #include "History.h"
 

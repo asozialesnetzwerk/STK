@@ -36,7 +36,7 @@ public:
 	void keybd(int key);
 	void point(int x, int y);
 	void stick(const int &whichAxis, const float &value);
-	void joybuttons(int whichJoy, int buttons);
+	void joybuttons(int whichJoy, int hold, int presses, int releases);
 	void addKeyLabel(int change_id, KartActions control, bool start);
 	void changeKeyLabel(int grab_id, KartActions control);
 	void setKeyInfoString(KartActions control);

@@ -20,7 +20,6 @@
 #include "MainMenu.h"
 #include "WidgetSet.h"
 #include "RaceManager.h"
-#include "StartScreen.h"
 
 MainMenu::MainMenu()
 {

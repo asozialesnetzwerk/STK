@@ -19,8 +19,6 @@
 
 #include "RaceMenu.h"
 #include "World.h"
-#include "StartScreen.h"
-#include "ScreenManager.h"
 #include "WidgetSet.h"
 
 RaceMenu::RaceMenu()

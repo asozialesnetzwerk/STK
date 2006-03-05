@@ -26,6 +26,7 @@
 #include "plibdrv.h"
 
 #include "gui/BaseGUI.h"
+#include "KartControl.h"
 
 /*********************************\
 *                                 *
@@ -67,11 +68,17 @@ void pollEvents() {
 
     if( !( joystick -> notWorking () ) )
     {
-      KartControl controls;
+      static KartControl controls;
+      int prev_buttons = controls.buttons;
       joystick -> read ( &controls.buttons, controls.data) ;
       gui -> stick( 0, controls.data[0]);
       gui -> stick( 1, controls.data[1]);
-      gui -> joybuttons( 0, controls.buttons );
+
+      int changed_states = prev_buttons ^ controls.buttons;
+      controls.presses = controls.buttons & changed_states;
+      controls.releases = !controls.buttons & changed_states;
+      gui -> joybuttons( 0, controls.buttons, controls.presses,
+          controls.releases );
     }
   }
 }

@@ -18,8 +18,6 @@
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "Herring.h"
-#include "MaterialManager.h"
-#include "World.h"
 
 // =============================================================================
 Herring::Herring(herringType _type, sgVec3 xyz, ssgEntity* model) {
@@ -43,7 +41,7 @@ Herring::Herring(herringType _type, sgVec3 xyz, ssgEntity* model) {
 }   // Herring
 
 // -----------------------------------------------------------------------------
-int Herring::hitKart(Kart* kart) {  
+int Herring::hitKart(Kart* kart) {
   return sgDistanceSquaredVec2 ( kart->getCoord()->xyz, coord.xyz ) < 0.8f;
 }   // hitKart
 

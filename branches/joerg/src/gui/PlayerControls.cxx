@@ -105,30 +105,21 @@ void PlayerControls::stick(const int &whichAxis, const float &value) {
 }   // stick
 
 // -----------------------------------------------------------------------------
-void PlayerControls::joybuttons(int whichJoy, int buttons) {
-//The next two lines are to make sure we don't catch the select and cancel
-//buttons at the wrong time. This dirty patch should be changed later.
-
-  static int button1_not_selecting = 0;
-  static int button0_selecting;
+void PlayerControls::joybuttons(int whichJoy, int hold, int presses,
+                                int releases) {
   if(grabInput)
   {
-      if( !(buttons & 2 ) ) button1_not_selecting = 1;
-      if( buttons & 1 ) button0_selecting = 1;
-
       if (editAction != KC_LEFT && editAction != KC_RIGHT &&
-          whichJoy == player_index && button1_not_selecting && buttons != 0)
+          whichJoy == player_index && presses)
       {
-          config->player[player_index].buttons[editAction] = buttons;
+          config->player[player_index].buttons[editAction] = presses;
           grabInput = false;
           changeKeyLabel(grab_id, editAction);
       }
   }
   else
   {
-      if(!button0_selecting) BaseGUI::joybuttons(whichJoy, buttons);
-      button1_not_selecting = 0;
-      if( !(buttons & 1) ) button0_selecting = 0;
+      BaseGUI::joybuttons(whichJoy, hold, presses, releases);
   }
 }   // joybuttons
 

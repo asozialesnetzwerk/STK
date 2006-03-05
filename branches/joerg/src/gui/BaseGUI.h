@@ -21,7 +21,6 @@
 #define HEADER_BASEGUI_H
 
 #include <vector>
-#include "../KartControl.h"
 
 class RaceSetup;
 
@@ -77,7 +76,7 @@ public:
 	virtual void keybd(int key);
 	virtual void point(int x, int y);
 	virtual void stick(const int &whichAxis, const float &value);
-    virtual void joybuttons(int whichJoy, int buttons);
+    virtual void joybuttons(int whichJoy, int hold, int presses, int releases);
 
 protected:
 	int menu_id;

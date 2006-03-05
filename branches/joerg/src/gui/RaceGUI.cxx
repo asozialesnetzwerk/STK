@@ -18,20 +18,10 @@
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include <plib/pw.h>
-#include "../KartControl.h"
 #include "RaceGUI.h"
-#include "../MaterialManager.h"
-#include "../Track.h"
-#include "../constants.h"
-#include "../Config.h"
 #include "../History.h"
 #include "WidgetSet.h"
 #include "World.h"
-#include "StartScreen.h"
-#include "RaceSetup.h"
-#include "plibdrv.h"
-#include <iostream>
-#include "Collectable.h"
 
 #define TEXT_START_X  (config->width-220)
 RaceGUI::RaceGUI(): time_left(0.0),
@@ -139,19 +129,19 @@ void RaceGUI::keybd(int key) {
 } // keybd
 
 // -----------------------------------------------------------------------------
-static KartControl controls;
-
-// -----------------------------------------------------------------------------
 void RaceGUI::stick(const int &whichAxis, const float &value){
+  KartControl controls;
   controls.data[whichAxis] = value;
   world -> getPlayerKart(0) -> incomingJoystick ( controls );
 }   // stick
 
 // -----------------------------------------------------------------------------
-void RaceGUI::joybuttons( int whichJoy, int buttons ) {
-  (void)whichJoy;
-  controls.buttons = buttons;
-  world -> getPlayerKart(0) -> incomingJoystick ( controls );
+void RaceGUI::joybuttons( int whichJoy, int hold, int presses, int releases ) {
+  KartControl controls;
+  controls.buttons = hold;
+  controls.presses = presses;
+  controls.releases = releases;
+  world -> getPlayerKart(whichJoy) -> incomingJoystick ( controls );
 }   // joybuttons
 
 // -----------------------------------------------------------------------------

@@ -20,7 +20,6 @@
 #include <iostream>
 #include <stdexcept>
 #include <plib/ssg.h>
-#include <math.h>
 #include "MaterialManager.h"
 #include "lisp/Parser.h"
 #include "lisp/Lisp.h"

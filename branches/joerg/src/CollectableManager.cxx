@@ -22,7 +22,6 @@
 #include "CollectableManager.h"
 #include "Loader.h"
 #include "MaterialManager.h"
-#include "ProjectileManager.h"
 #include "preprocessor.h"
 
 typedef struct {collectableType collectable; std::string dataFile;} 

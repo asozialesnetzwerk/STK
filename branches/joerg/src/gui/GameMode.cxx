@@ -20,7 +20,6 @@
 #include "GameMode.h"
 #include "WidgetSet.h"
 #include "RaceManager.h"
-#include "World.h"
 
 GameMode::GameMode()
 {

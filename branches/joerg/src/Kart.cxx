@@ -21,21 +21,12 @@
 #include <iostream>
 #include <plib/ssg.h>
 
-#include "utils.h"
 #include "HerringManager.h"
 #include "sound.h"
 #include "Loader.h"
-#include "Shadow.h"
-#include "Kart.h"
-#include "ProjectileManager.h"
 #include "SkidMark.h"
-#include "World.h"
-#include "Track.h"
-#include "Material.h"
 #include "Config.h"
 #include "constants.h"
-#include "Collectable.h"
-#include "Attachment.h"
 
 static ssgTransform* add_transform(ssgBranch* branch);
 
@@ -127,9 +118,9 @@ Kart::Kart (const KartProperties* kart_properties_, int position_ )
   exhaust_pipe         = NULL;
   skidmark_left        = NULL;
   skidmark_right       = NULL;
-  
+
   wheel_position = 0;
-  
+
   wheel_front_l = NULL;
   wheel_front_r = NULL;
   wheel_rear_l  = NULL;
@@ -151,11 +142,12 @@ Kart::~Kart() {
 
 // -----------------------------------------------------------------------------
 void Kart::reset() {
-  raceLap        = -1; 
+  raceLap        = -1;
   racePosition   = 9;
   ZipperTimeLeft = 0.0f ;
   rescue         = FALSE;
   Moveable::reset();
+  num_herring_gobbled = 0;
   trackHint = world -> track -> absSpatialToTrack(curr_track_coords,
 						  curr_pos.xyz      );
 }   // reset
@@ -181,17 +173,17 @@ void Kart::doObjectInteractions () {
   int i;
   for ( i = 0 ; i < grid_position ; i++ ) {
     if ( i == grid_position ) continue ;
-      
+
     sgVec3 xyz ;
-      
+
     sgSubVec3(xyz, getCoord()->xyz, world->getKart(i)->getCoord()->xyz );
-      
+
     if ( sgLengthSquaredVec2 ( xyz ) < 1.0f ) {
       if ( this == world->getPlayerKart(0) || i == 0 )
 	sound->playSfx ( SOUND_OW ) ;
-         
+
       sgNormalizeVec2 ( xyz ) ;
-         
+
       if ( velocity.xyz[1] > world->getKart(i)->getVelocity()->xyz[1] ) {
 	forceCrash () ;
 	sgSubVec2 ( world->getKart(i)->getCoord()->xyz, xyz ) ;
@@ -201,7 +193,7 @@ void Kart::doObjectInteractions () {
       }
     }   // if sgLengthSquaredVec2(xy)<1.0
   }   // for i
-   
+
   // Check if any herring was hit.
   herring_manager->hitHerring(this);
 }   // doObjectInteractions
@@ -228,7 +220,7 @@ void Kart::doZipperProcessing (float delta) {
     ZipperTimeLeft -= delta ;
     if ( velocity.xyz[1] < ZIPPER_VELOCITY )
       velocity.xyz[1] = ZIPPER_VELOCITY ;
-  } else ZipperTimeLeft = 0.0f ;                                                   
+  } else ZipperTimeLeft = 0.0f ;
 }   // doZipperProcessing
 
 // -----------------------------------------------------------------------------
@@ -556,7 +548,7 @@ void Kart::load_wheels(ssgBranch* branch) {
 // -----------------------------------------------------------------------------
 void Kart::load_data() {
   float r [ 2 ] = { -10.0f, 100.0f } ;
-   
+
   smokepuff = new ssgSimpleState ();
   smokepuff -> setTexture        (loader->createTexture ("smoke.rgb", true, true, true)) ;
   smokepuff -> setTranslucent    () ;
@@ -570,25 +562,25 @@ void Kart::load_data() {
   smokepuff -> setMaterial       ( GL_DIFFUSE, 0, 0, 0, 1 ) ;
   smokepuff -> setMaterial       ( GL_SPECULAR, 0, 0, 0, 1 ) ;
   smokepuff -> setShininess      (  0 ) ;
-  
+
   ssgEntity *obj = kart_properties->getModel();
-   
+
   load_wheels(dynamic_cast<ssgBranch*>(obj));
-   
+
   // Optimize the model
   ssgBranch *newobj = new ssgBranch () ;
   newobj -> addKid ( obj ) ;
   ssgFlatten    ( obj ) ;
   ssgStripify   ( newobj ) ;
   obj = newobj;
-  
+
   ssgRangeSelector *lod = new ssgRangeSelector ;
-   
+
   lod -> addKid ( obj ) ;
   lod -> setRanges ( r, 2 ) ;
-   
+
   this-> getModel() -> addKid ( lod ) ;
-   
+
   // Attach Particle System
   //JH  sgCoord pipe_pos = {{0, 0, .3}, {0, 0, 0}} ;
   smoke_system = new KartParticleSystem(this, 50, 100.0f, TRUE, 0.35f, 1000);
@@ -599,12 +591,12 @@ void Kart::load_data() {
   //      exhaust_pipe -> addKid (smoke_system) ;
   //      comp_model-> addKid (exhaust_pipe) ;
 
+#if 0
+  //Coz: does this have any effect?
   sgCoord cc ;
   sgSetCoord ( &cc, 0, 0, 2, 0, 0, 0 ) ;
   sgSetCoord ( &cc, 0, 0, 0, 0, 0, 0 ) ;
 
-#if 0
-  // matze: does this have any effect?
   ssgTransform *xxx = new ssgTransform ( & cc ) ;
   xxx -> addKid ( obj ) ;
   obj = xxx ;

@@ -45,7 +45,7 @@ public:
 	void keybd(int key);
 	void point(int x, int y) { (void)x; (void)y; }
 	void stick(const int &whichAxis, const float &value) ;
-    void joybuttons(int whichJoy, int buttons ) ;
+    void joybuttons(int whichJoy, int hold, int presses, int releases ) ;
 
 private:
 	ulClock  fpsTimer;

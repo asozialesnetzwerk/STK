@@ -30,11 +30,11 @@ class PlayerKart : public Kart {
  private:
   Player *player;
   float  penaltyTime;
-   
+
   void doSteering();
  public:
-  PlayerKart(const KartProperties *kart_properties, 
-	     int position, Player *_player) : 
+  PlayerKart(const KartProperties *kart_properties,
+	     int position, Player *_player) :
     Kart(kart_properties, position) { player=_player; penaltyTime=0.0; }
 
   int     earlyStartPenalty () {return penaltyTime>0; }

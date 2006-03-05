@@ -21,8 +21,6 @@
 #include "RaceManager.h"
 #include "WidgetSet.h"
 
-#include <algorithm>
-
 Difficulty::Difficulty() {
   menu_id = widgetSet -> vstack(0);
 

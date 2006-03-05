@@ -113,25 +113,12 @@ void BaseGUI::stick(const int &whichAxis, const float &value) {
 }   // stick
 
 // -----------------------------------------------------------------------------
-void BaseGUI::joybuttons( int whichJoy, int buttons ) {
-    (void)whichJoy;
+void BaseGUI::joybuttons( int whichJoy, int hold, int presses, int releases ) {
+    (void)whichJoy; (void)hold; (void)releases;
 
-    static int button0_not_pressed = 1;
-    static int button1_not_pressed = 1;
+    if( presses & 2 ) select();
 
-    if( !( buttons & 2 ) ) button1_not_pressed = 1;
-    else if (button1_not_pressed)
-    {
-        select();
-        button1_not_pressed = 0;
-    }
-
-    if( !( buttons & 1 ) ) button0_not_pressed = 1;
-    else if (guiStack.size() > 1 && button0_not_pressed)
-    {
-        guiStack.pop_back();
-        button0_not_pressed = 0;
-    }
+    if (guiStack.size() > 1 && (presses & 1)) guiStack.pop_back();
 }   // joybuttons
 
 /* EOF */

@@ -22,8 +22,10 @@
 #include <plib/js.h>
 
 struct KartControl {
-  float data [ _JS_MAX_AXES ] ;
+  float data [ _JS_MAX_AXES ];
   int   buttons;
+  int   presses;
+  int   releases;
   float lr;
   bool  accel;
   bool  brake;
@@ -32,9 +34,9 @@ struct KartControl {
   bool  rescue;
   bool  fire;
 
-  KartControl() : lr(0.0f), accel(false), brake(false), wheelie(false), 
-		  jump(false),  rescue(false), fire(false)
-                  {}
+  KartControl() : buttons(0), presses(0),
+          releases(0), lr(0.0f), accel(false), brake(false),
+          wheelie(false), jump(false),  rescue(false), fire(false){}
 };
 
 #endif

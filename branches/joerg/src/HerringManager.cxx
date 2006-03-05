@@ -17,15 +17,12 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
-#include <set>
 #include <stdexcept>
 #include "preprocessor.h"
 #include "Config.h"
 #include "HerringManager.h"
 #include "Loader.h"
 #include "StringUtils.h"
-#include "lisp/Lisp.h"
-#include "lisp/Parser.h"
 #include "MaterialManager.h"
 
 // Simple shadow class, only used here for default herrings

@@ -17,11 +17,7 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
-#include <iostream>
-#include <stdexcept>
 #include "Collectable.h"
-#include "Loader.h"
-#include "MaterialManager.h"
 #include "ProjectileManager.h"
 
 // -----------------------------------------------------------------------------
@@ -56,18 +52,18 @@ void Collectable::use() {
                            break ;
     case COLLECT_ZIPPER:   owner->handleZipper();
 			   break ;
-    case COLLECT_HOMING_MISSILE: 
+    case COLLECT_HOMING_MISSILE:
     case COLLECT_SPARK:
     case COLLECT_MISSILE:  projectile_manager->newProjectile(owner, type);
                            break ;
-	 
+
     case COLLECT_NOTHING:
     default :             break ;
   }
-   
+
   if ( number <= 0 ) {
     clear();
-  }                                                                           
+  }
 }   // use
 
 // -----------------------------------------------------------------------------
@@ -78,6 +74,6 @@ void Collectable::hitRedHerring(int n) {
     number=n;
   } else if(newC==type) {
     number+=n;
-  }  
+  }
   // Ignore new collectable if it is different from the current one
 }   // hitRedHerring
