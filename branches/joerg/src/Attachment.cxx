@@ -102,7 +102,7 @@ void Attachment::update(float dt, sgCoord *velocity) {
 			     velocity->xyz[1]=MAX_ANVIL_VELOCITY;
 			   }
                            break;
-    case ATTACH_MAGNET:
+    case ATTACH_MAGNET:    break;
     case ATTACH_MAGNET_BZZT: float cdist; int closest;
                              kart->getClosestKart(&cdist, &closest);
 			     // if no closest kart, set type to

@@ -96,6 +96,7 @@ void Config::setDefaults() {
   singleWindowMenu = false;
   oldStatusDisplay = false;
   herringStyle     = "default";
+  disableMagnet    = false;
   profile          = 0;
   oldHOT           = false;
   useKPH           = false;
@@ -228,6 +229,7 @@ void Config::loadConfig(const std::string& filename) {
     lisp->get("singlewindowmenu", singleWindowMenu);
     lisp->get("oldStatusDisplay", oldStatusDisplay);
     lisp->get("herringStyle",     herringStyle);
+    lisp->get("disableMagnet",    disableMagnet);
     lisp->get("useKPH",           useKPH);
 
     /*get resolution width/height*/
@@ -308,6 +310,7 @@ void Config::saveConfig(const std::string& filename) {
     writer.write("singleWindowMenu\t", singleWindowMenu);
     writer.write("oldStatusDisplay\t", oldStatusDisplay);
     writer.write("herringStyle\t", herringStyle);
+    writer.write("disableMagnet\t", disableMagnet);
     writer.write("useKPH\t", useKPH);
 
     writer.writeComment("screen resolution");

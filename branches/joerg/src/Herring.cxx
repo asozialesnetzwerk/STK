@@ -56,7 +56,8 @@ void Herring::update(float delta) {
       hell[2] = ( t > 1.0f ) ? -1000000.0f : coord.xyz[2] - t / 2.0f;
       root -> setTransform(hell);
     } else {
-      bEaten = FALSE;
+      bEaten   = FALSE;
+      rotation = 0.0f;
       root -> setTransform(&coord);
     }   // t>0
     

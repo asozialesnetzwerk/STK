@@ -50,13 +50,15 @@ class Attachment {
   ssgSelector    *holder;    // where the attachment is put on the kart
  public:
   Attachment(Kart* _kart);
-  void           set(attachmentType _type, float time);
-  void           clear() {type=ATTACH_NOTHING; time_left=0.0;
-                          holder->select(0);}
-  attachmentType getType() {return type;}
-  float          getTimeLeft() {return time_left;}
+  void           set            (attachmentType _type, float time);
+  void           set            (attachmentType _type) 
+                                   {set(_type, time_left);             }
+  void           clear          () {type=ATTACH_NOTHING; time_left=0.0;
+                                    holder->select(0);                 }
+  attachmentType getType        () {return type;                       }
+  float          getTimeLeft    () {return time_left;                  }
   void           hitGreenHerring();
-  void           update(float dt, sgCoord *velocity);
+  void           update         (float dt, sgCoord *velocity);
 };
 
 #endif

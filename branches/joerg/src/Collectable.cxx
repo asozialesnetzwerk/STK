@@ -18,6 +18,7 @@
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "Collectable.h"
+#include "Config.h"
 #include "ProjectileManager.h"
 
 // -----------------------------------------------------------------------------
@@ -46,9 +47,17 @@ Material *Collectable::getIcon() {
 
 // -----------------------------------------------------------------------------
 void Collectable::use() {
+  if(config->disableMagnet) {
+    attachmentType at=owner->getAttachment();
+    if(at==ATTACH_MAGNET) {
+      owner->setAttachmentType(ATTACH_MAGNET_BZZT);
+    } else if(at==ATTACH_MAGNET_BZZT) {
+      owner->setAttachmentType(ATTACH_MAGNET     );
+    }   // if MAGNET_BZZT
+  }  // config->disableMagnet
   number--;
   switch (type) {
-    case COLLECT_MAGNET:   owner->attach(ATTACH_MAGNET, 10.0f);
+    case COLLECT_MAGNET:   owner->attach(ATTACH_MAGNET_BZZT, 10.0f);
                            break ;
     case COLLECT_ZIPPER:   owner->handleZipper();
 			   break ;
@@ -58,7 +67,7 @@ void Collectable::use() {
                            break ;
 
     case COLLECT_NOTHING:
-    default :             break ;
+    default :              break ;
   }
 
   if ( number <= 0 ) {

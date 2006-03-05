@@ -48,8 +48,8 @@ public:
 
 class Kart : public Moveable {
 protected:
-  Attachment  attachment;
-  Collectable collectable; 
+  Attachment   attachment;
+  Collectable  collectable; 
 
   int          grid_position ;
   int          racePosition;
@@ -105,12 +105,14 @@ public:
                                         { attachment.set(attachment_, time);}
   void           gotZipper           (float angle, float time)
                                         { wheelie_angle=angle; 
-					  ZipperTimeLeft=time;            }
+					  ZipperTimeLeft=time;              }
   void           setCollectable      (collectableType t, int n) 
                                         { collectable.set(t, n);            }
   void           setPosition         (int p)    {racePosition = p;          }
   float          getDistanceDownTrack() { return curr_track_coords[1];      }
   attachmentType getAttachment       () { return  attachment.getType();     }
+  void           setAttachmentType   (attachmentType t)
+                                        { attachment.set(t);                }
   Collectable   *getCollectable      () { return &collectable;              }
   int            getNumCollectables  () { return  collectable.getNum();     }
   int            getNumHerring       () { return  num_herring_gobbled;      }
@@ -123,7 +125,6 @@ public:
   void           beginPowerslide     ();
   void           endPowerslide       ();
   void           processSkidMarks    ();
-  void           processAttachments  (float delta);
   void           getClosestKart      (float *cdist, int *closest);
   void           handleMagnet        (float cdist, int closest);
   void           doZipperProcessing  (float dt);

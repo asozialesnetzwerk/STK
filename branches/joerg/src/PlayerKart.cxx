@@ -67,6 +67,8 @@ void PlayerKart::update(float dt) {
 #ifdef OLDUPDATE
  if ( controls.fire ) {
     if (collectable.getType()==COLLECT_NOTHING) sound->playSfx(SOUND_BEEP);
+    // use() needs to be called even if there currently is no collecteable
+    // since use() tests for switching a magnet on/off.
     collectable.use() ;
     controls.fire = false;
   }
