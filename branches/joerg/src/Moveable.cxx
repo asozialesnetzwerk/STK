@@ -213,6 +213,7 @@ float Moveable::collectIsectData ( sgVec3 start, sgVec3 end ) {
     float hot1 = getIsectData ( pos1, pos2 ) ;
     hot = max(hot, hot1);
     sgCopyVec3 ( pos1, pos2 ) ;    
+    if(collided) break;
   }
 
   sgCopyVec3 ( end, pos2 ) ;    
@@ -313,9 +314,9 @@ float Moveable::getIsectData ( sgVec3 start, sgVec3 end ) {
       sgVec3 nrm ;
       sgCopyVec3  ( nrm, (*i)->plane ) ;
       sgScaleVec3 ( nrm, nrm, dist ) ;
-	
+
       sgAddVec3 ( surface_avoidance_vector, nrm ) ;
-	
+
       sgVec3 tmp ;
       sgCopyVec3 ( tmp, sphere.getCenter() ) ;
       sgAddVec3 ( tmp, nrm ) ;
