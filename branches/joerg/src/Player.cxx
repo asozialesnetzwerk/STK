@@ -37,39 +37,6 @@ Player::setName(const std::string &name)
   Player::name=name;
 }
 
-//FIXMEJAMES: never used???
-void
-Player::setKeys(bool joystick,
-                     int left,
-                     int right,
-                     int up,
-                     int down,
-                     int wheelie,
-                     int jump,
-                     int rescue,
-                     int fire)
-{
-	if (joystick) {
-		buttons[KC_LEFT]    = left;
-		buttons[KC_RIGHT]   = right;
-		buttons[KC_UP]      = up;
-		buttons[KC_DOWN]    = down;
-		buttons[KC_WHEELIE] = wheelie;
-		buttons[KC_JUMP]    = jump;
-		buttons[KC_FIRE]    = fire;
-	}
-	else {
-		keys[KC_LEFT]    = left;
-		keys[KC_RIGHT]   = right;
-		keys[KC_UP]      = up;
-		keys[KC_DOWN]    = down;
-		keys[KC_WHEELIE] = wheelie;
-		keys[KC_JUMP]    = jump;
-		keys[KC_RESCUE]  = rescue;
-		keys[KC_FIRE]    = fire;
-  }
-}
-
 void Player::setKey(KartActions action, int key)
 {
   keys[action]=key;

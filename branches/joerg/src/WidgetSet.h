@@ -288,7 +288,6 @@ private:
 	void config_push_persp(float, float, float);
 	void config_push_ortho();
 	void config_pop_matrix();
-	void config_clear();
 	
 	/*---------------------------------------------------------------------------*/
 	

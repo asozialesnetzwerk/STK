@@ -25,16 +25,16 @@
 #include "World.h"
 #include "sound.h"
 
-typedef struct {attachmentType attachment; char*file;} initAttachmentType;
+struct  initAttachmentType {attachmentType attachment; char*file;};
 
-initAttachmentType iat[]={ 
+initAttachmentType iat[]={
   {ATTACH_PARACHUTE,   "parachute.ac"},
   {ATTACH_MAGNET,      "magnet.ac"},
   {ATTACH_MAGNET_BZZT, "magnetbzzt.ac"},
   {ATTACH_ANVIL,       "anvil.ac"},
   {ATTACH_TINYTUX,     "tinytux_magnet.ac"},
   {ATTACH_MAX,         ""},
- 
+
 };
 
 AttachmentManager::AttachmentManager() {
@@ -55,7 +55,7 @@ Attachment::Attachment(Kart* _kart) {
   kart      = _kart;
   holder    = new ssgSelector();
   kart->getModel()->addKid(holder);
-  
+
   for(int i=ATTACH_PARACHUTE; i<=ATTACH_TINYTUX; i++) {
     ssgEntity *p=attachment_manager->getModel((attachmentType)i);
     holder->addKid(p);
@@ -63,6 +63,13 @@ Attachment::Attachment(Kart* _kart) {
   holder->select(0);
 }
 
+Attachment::~Attachment() {
+    //For some reason, deleting the attachment manager causes a crash at
+    //Moveable.cxx, when delete historyPosition is called.
+    //if(attachment_manager) delete attachment_manager;
+
+    ssgDeRefDelete(holder);
+}
 void Attachment::set(attachmentType _type, float time) {
   holder->selectStep(_type);
   type      = _type;
@@ -93,7 +100,7 @@ void Attachment::update(float dt, sgCoord *velocity) {
                            sgZeroVec3 ( velocity->xyz ) ;
                            sgZeroVec3 ( velocity->hpr ) ;
 			   velocity->xyz[2] = 1.1 * GRAVITY * dt *10;
-	  		   break;
+               break;
     case ATTACH_PARACHUTE: if(velocity->xyz[1]>MAX_PARACHUTE_VELOCITY) {
 			     velocity->xyz[1]=MAX_PARACHUTE_VELOCITY;
 			   }
@@ -117,7 +124,7 @@ void Attachment::update(float dt, sgCoord *velocity) {
 			       if(kart==world->getKart(0) || closest==0) {
 				 sound->playSfx(SOUND_BZZT);
 			       }
-			       set(ATTACH_MAGNET_BZZT, 
+			       set(ATTACH_MAGNET_BZZT,
 				   time_left<4.0?4.0:time_left);
 			     }
 			     kart->handleMagnet(cdist, closest);

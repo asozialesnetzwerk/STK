@@ -21,7 +21,6 @@
 #include "Projectile.h"
 #include "World.h"
 #include "ProjectileManager.h"
-#include "Attachment.h"
 #include "Collectable.h"
 
 Projectile::Projectile(Kart *kart, int collectable) : Moveable(false) {

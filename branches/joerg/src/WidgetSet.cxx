@@ -1514,21 +1514,6 @@ void WidgetSet::config_pop_matrix()
     glMatrixMode(GL_MODELVIEW);
 }
 
-void WidgetSet::config_clear()
-{
-/* CONFIG REFLECTION not defined in tuxkart, and in fact this entire function is never used. 
-All this code is originally from Neverball
-    if (option_d[CONFIG_REFLECTION])
-        glClear(GL_COLOR_BUFFER_BIT |
-                GL_DEPTH_BUFFER_BIT |
-                GL_STENCIL_BUFFER_BIT);
-		    else
-		    */
-    
-        glClear(GL_COLOR_BUFFER_BIT |
-                GL_DEPTH_BUFFER_BIT);
-}
-	
 /*---------------------------------------------------------------------------*/
 
 

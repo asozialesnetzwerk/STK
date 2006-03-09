@@ -22,19 +22,6 @@
 #include "TrackManager.h"
 #include "Camera.h"
 
-   static inline void relaxation(float& target, float& prev, float rate)
-   {
-     const float direction = target - prev;
-     if(direction > 180.0f)
-       prev = 360 + prev;
-     else if (direction < -180.0f)
-       prev = -360 + prev;
-
-     target = prev + (rate * (target - prev));
-
-     prev = (target);
-   }
-
    void
    Camera::setScreenPosition ( int numPlayers, int pos )
    {
@@ -129,8 +116,7 @@
       if (mode == CM_NO_FAKE_DRIFT)
       {
          float steer_offset = world->getPlayerKart(whichKart)->getSteerAngle()*-10.0f;
-         relaxation(steer_offset, last_steer_offset, .25);
-                 
+
          sgMat4 cam_rot;
          sgMat4 tmp;
          sgMakeRotMat4(cam_rot, 0, -5, 0);

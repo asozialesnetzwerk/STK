@@ -26,7 +26,7 @@ class Kart;
 // Some loop in Attachment.cxx depend on PARACHUTE being the first element,
 // and TINYTUX being the last one. So if new elemts are added, make sure
 // to add them in between those values.
-enum attachmentType { ATTACH_PARACHUTE, ATTACH_MAGNET, 
+enum attachmentType { ATTACH_PARACHUTE, ATTACH_MAGNET,
 		      ATTACH_MAGNET_BZZT, ATTACH_ANVIL, ATTACH_TINYTUX,
                       ATTACH_MAX, ATTACH_NOTHING};
 
@@ -40,7 +40,7 @@ class AttachmentManager {
   AttachmentManager();
   ssgEntity *getModel(attachmentType type) {return attachments[type];}
 };
-		     
+
 class Attachment {
  private:
   static AttachmentManager *attachment_manager;
@@ -51,7 +51,7 @@ class Attachment {
  public:
   Attachment(Kart* _kart);
   void           set            (attachmentType _type, float time);
-  void           set            (attachmentType _type) 
+  void           set            (attachmentType _type)
                                    {set(_type, time_left);             }
   void           clear          () {type=ATTACH_NOTHING; time_left=0.0;
                                     holder->select(0);                 }
@@ -59,6 +59,7 @@ class Attachment {
   float          getTimeLeft    () {return time_left;                  }
   void           hitGreenHerring();
   void           update         (float dt, sgCoord *velocity);
+  ~Attachment();
 };
 
 #endif

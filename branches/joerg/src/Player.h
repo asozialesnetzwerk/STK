@@ -46,15 +46,6 @@ public:
     Player();
     Player(const std::string &name);
     void setName(const std::string &name);
-    void setKeys(bool joystick,
-                 int left,
-                 int right,
-                 int up,
-                 int down,
-                 int wheelie,
-                 int jump,
-                 int rescue,
-                 int fire);
     void setKey(KartActions action, int key);
     void setButton(KartActions action, int button);
 };
