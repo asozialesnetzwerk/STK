@@ -20,7 +20,7 @@
 #include <plib/ssg.h>
 
 #include "Attachment.h"
-#include "PlayerKart.h"
+#include "Kart.h"
 #include "constants.h"
 #include "Loader.h"
 #include "World.h"

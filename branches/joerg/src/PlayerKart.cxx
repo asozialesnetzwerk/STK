@@ -23,6 +23,7 @@
 #include "PlayerKart.h"
 #include "Player.h"
 #include "plibdrv.h"
+#include "HerringManager.h"
 
 // Only keys which must keep on working when still being pressed
 // are handled here, not 'one time action' keys like fire, ...
@@ -47,6 +48,7 @@ void PlayerKart::action(int key) {
     case KC_RESCUE:  controls.rescue  = true; break;
   }   // switch key
 }   // action
+
 // -----------------------------------------------------------------------------
 #define OLDUPDATE
 void PlayerKart::update(float dt) {
@@ -208,4 +210,21 @@ void PlayerKart::incomingJoystick  (const KartControl &ctrl) {
   if (player->buttons[KC_JUMP] & ctrl.presses) controls.jump = true;
 }   // incomingJoystick
 
+// -----------------------------------------------------------------------------
+void PlayerKart::forceCrash() {
+  Kart::forceCrash();
+  sound->playSfx( SOUND_BONK );
+}
+
+// -----------------------------------------------------------------------------
+void PlayerKart::handleZipper() {
+  Kart::forceCrash();
+  sound->playSfx ( SOUND_WEE );
+}
+
+// -----------------------------------------------------------------------------
+void PlayerKart::collectedHerring(Herring* herring) {
+    Kart::collectedHerring(herring);
+    sound->playSfx ( ( herring->getType()==HE_GREEN ) ? SOUND_UGH:SOUND_BURP);
+}
 /* EOF */

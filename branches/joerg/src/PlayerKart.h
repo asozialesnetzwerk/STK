@@ -25,7 +25,7 @@
 
 class Player;
 
-/** PlayerKart manages controll events from the player and moves
+/** PlayerKart manages control events from the player and moves
     them to the Kart */
 class PlayerKart : public Kart {
  private:
@@ -43,6 +43,9 @@ class PlayerKart : public Kart {
   void    update            (float);
   void    incomingJoystick  (const KartControl &ctrl);
   void    action            (int key);
+  void    forceCrash        ();
+  void    handleZipper      ();
+  void    collectedHerring  (Herring* herring);
 };
 
 #endif

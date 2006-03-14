@@ -29,12 +29,12 @@
 #include "constants.h"
 #include "Shadow.h"
 #include "Track.h"
-#include "PlayerKart.h"
+#include "Kart.h"
 
 static ssgTransform* add_transform(ssgBranch* branch);
 
 // =============================================================================
-KartParticleSystem::KartParticleSystem(Kart* kart_, 
+KartParticleSystem::KartParticleSystem(Kart* kart_,
                                        int num, float _create_rate, int _ttf,
                                        float sz, float bsphere_size)
   : ParticleSystem (num, _create_rate, _ttf, sz, bsphere_size),
@@ -157,8 +157,6 @@ void Kart::reset() {
 
 // -----------------------------------------------------------------------------
 void Kart::handleZipper() {
-  if ( this == world->getPlayerKart(0) ) sound->playSfx ( SOUND_WEE ) ;
-
   wheelie_angle  = ZIPPER_ANGLE;
   ZipperTimeLeft = ZIPPER_TIME;
 }   // handleZipper
@@ -182,9 +180,6 @@ void Kart::doObjectInteractions () {
     sgSubVec3(xyz, getCoord()->xyz, world->getKart(i)->getCoord()->xyz );
 
     if ( sgLengthSquaredVec2 ( xyz ) < 1.0f ) {
-      if ( this == world->getPlayerKart(0) || i == 0 )
-	sound->playSfx ( SOUND_OW ) ;
-
       sgNormalizeVec2 ( xyz ) ;
 
       if ( velocity.xyz[1] > world->getKart(i)->getVelocity()->xyz[1] ) {
@@ -204,9 +199,7 @@ void Kart::doObjectInteractions () {
 // -----------------------------------------------------------------------------
 void Kart::collectedHerring(Herring* herring) {
   herringType type = herring->getType();
-  if ( this == world->getPlayerKart(0) )
-    sound->playSfx ( ( type==HE_GREEN ) ? SOUND_UGH:SOUND_BURP);
-  
+
   switch (type) {
     case HE_GREEN  : attachment.hitGreenHerring(); break;
     case HE_SILVER : num_herring_gobbled++ ;       break;
@@ -228,11 +221,9 @@ void Kart::doZipperProcessing (float delta) {
 
 // -----------------------------------------------------------------------------
 void Kart::forceCrash () {
-  if ( this == world->getPlayerKart(0) )
-    sound->playSfx ( SOUND_BONK ) ;
-  
+
   wheelie_angle = CRASH_PITCH ;
-  
+
   velocity.xyz[0] = velocity.xyz[1] = velocity.xyz[2] =
     velocity.hpr[0] = velocity.hpr[1] = velocity.hpr[2] = 0.0f ;
 }  // forceCrash
