@@ -24,6 +24,8 @@
 #include "Loader.h"
 #include "StringUtils.h"
 #include "ProjectileManager.h"
+#include "Projectile.h"
+#include "Explosion.h"
 #include "CollectableManager.h"
 #include "Collectable.h"
 

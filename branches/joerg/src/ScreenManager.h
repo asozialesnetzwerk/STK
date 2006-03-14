@@ -20,7 +20,7 @@
 #ifndef HEADER_SCREENMANAGER_H
 #define HEADER_SCREENMANAGER_H
 
-#include "Screen.h"
+class Screen;
 
 /** Management class for the whole gameflow, this is where the
     main-loop is */

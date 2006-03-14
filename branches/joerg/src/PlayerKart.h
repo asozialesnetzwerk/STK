@@ -22,7 +22,8 @@
 #define HEADER_PLAYERKART_H
 
 #include "Kart.h"
-#include "Player.h"
+
+class Player;
 
 /** PlayerKart manages controll events from the player and moves
     them to the Kart */

@@ -22,6 +22,7 @@
 #include "Loader.h"
 #include "StringUtils.h"
 #include "KartManager.h"
+#include "KartProperties.h"
 
 KartManager *kart_manager=0;
 

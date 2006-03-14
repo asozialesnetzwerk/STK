@@ -22,11 +22,10 @@
 
 #include <vector>
 #include <plib/ssg.h>
-#include "KartProperties.h"
-#include "Kart.h"
-#include "Projectile.h"
-#include "Explosion.h"
-#include "Collectable.h"
+
+class Kart;
+class Projectile;
+class Explosion;
 
 class ProjectileManager {
  private:

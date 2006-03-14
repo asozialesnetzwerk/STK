@@ -20,7 +20,7 @@
 #ifndef HEADER_PREPROCESSOR_H
 #define HEADER_PREPROCESSOR_H
 
-#include <plib/ssg.h>
+class ssgEntity;
 
 void preProcessObj ( ssgEntity *n, bool mirror = false ) ;
 

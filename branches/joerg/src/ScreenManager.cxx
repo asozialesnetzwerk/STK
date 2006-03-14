@@ -19,6 +19,7 @@
 
 #include <assert.h>
 #include "ScreenManager.h"
+#include "Screen.h"
 
 ScreenManager* screen_manager = 0;
 

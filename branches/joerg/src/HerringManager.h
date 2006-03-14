@@ -22,11 +22,12 @@
 
 
 #include <vector>
-#include <plib/ssg.h>
-#include "Kart.h"
 #include "Herring.h"
+#include "lisp/Parser.h"
+#include "lisp/Lisp.h"
 
-
+class Kart;
+class ssgEntity;
 
 class HerringManager{
  public:

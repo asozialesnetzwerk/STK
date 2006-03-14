@@ -42,6 +42,7 @@
 #include "HookManager.h"
 #include "History.h"
 #include "constants.h"
+#include "sound.h"
 
 World* world = 0;
 

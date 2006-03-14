@@ -17,10 +17,30 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#ifdef WIN32
+#  ifdef __CYGWIN__
+#    include <unistd.h>
+#  endif
+#  include <windows.h>
+#  ifdef _MSC_VER
+#    include <io.h>
+#    include <direct.h>
+#  endif
+#else
+#  include <unistd.h>
+#endif
+#include <math.h>
+
 #include "start_tuxkart.h"
 #include "Config.h"
 #include "TrackManager.h"
+#include "Track.h"
 #include "KartManager.h"
+#include "PlayerKart.h"
 #include "ProjectileManager.h"
 #include "RaceManager.h"
 #include "Loader.h"
@@ -33,6 +53,7 @@
 #include "HookManager.h"
 #include "History.h"
 #include "HerringManager.h"
+#include "sound.h"
 
 void cmdLineHelp (char* invocation) {
   fprintf ( stdout, 

@@ -21,7 +21,8 @@
 #define HEADER_PROJECTILE_H
 
 #include "Moveable.h"
-#include "Kart.h"
+
+class Kart;
 
 class Projectile : public Moveable {
   sgCoord     last_pos;

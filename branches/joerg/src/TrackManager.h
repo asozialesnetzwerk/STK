@@ -21,7 +21,8 @@
 #define HEADER_TRACKMANAGER_H
 
 #include <string>
-#include "Track.h"
+#include <vector>
+class Track;
 
 /** Simple class to load and manage track data, track names and
     such */

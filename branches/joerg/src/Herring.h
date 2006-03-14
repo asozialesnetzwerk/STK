@@ -20,10 +20,11 @@
 #ifndef HEADER_HERRING_H
 #define HEADER_HERRING_H
 
-#include <plib/ssg.h>
-#include "Kart.h"
 #include "World.h"
 
+class Kart;
+class ssgTransform;
+class ssgEntity;
 
 // HE_SILVER must be the last entry, it is used in HerringManager
 enum herringType { HE_RED, HE_GREEN, HE_GOLD, HE_SILVER };

@@ -20,7 +20,8 @@
 #ifndef HEADER_ISECT_H
 #define HEADER_ISECT_H
 
-#include <plib/ssg.h>
+class ssgBranch;
+
 
 float getHeightAndNormal(ssgBranch* branch, sgVec3 my_position, sgVec3 normal);
 

@@ -20,6 +20,7 @@
 #include <plib/ssg.h>
 
 #include "Attachment.h"
+#include "PlayerKart.h"
 #include "constants.h"
 #include "Loader.h"
 #include "World.h"
@@ -64,9 +65,8 @@ Attachment::Attachment(Kart* _kart) {
 }
 
 Attachment::~Attachment() {
-    //For some reason, deleting the attachment manager causes a crash at
-    //Moveable.cxx, when delete historyPosition is called.
-    //if(attachment_manager) delete attachment_manager;
+    if(attachment_manager) delete attachment_manager;
+    attachment_manager = 0;
 
     ssgDeRefDelete(holder);
 }

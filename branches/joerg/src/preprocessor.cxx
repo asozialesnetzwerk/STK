@@ -20,6 +20,7 @@
 #include <plib/ssg.h>
 #include "preprocessor.h"
 #include "MaterialManager.h"
+#include "Material.h"
 
 void preProcessObj ( ssgEntity *n, bool mirror )
 {

@@ -20,13 +20,18 @@
 #ifndef HEADER_WORLD_H
 #define HEADER_WORLD_H
 
-#include <plib/ssg.h>
 #include <vector>
 #include "RaceSetup.h"
-#include "Track.h"
-#include "Projectile.h"
-#include "PlayerKart.h"
 #include "StaticSSG.h"
+
+class PlayerKart;
+
+class ssgRoot;
+class ssgBranch;
+class ssgLeaf;
+class ssgEntity;
+
+class Track;
 
 class Herring;
 class guUDPConnection;

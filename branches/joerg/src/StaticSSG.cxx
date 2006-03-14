@@ -1,6 +1,7 @@
 
 #include "StaticSSG.h"
 #include "MaterialManager.h"
+#include "Material.h"
 
 StaticSSG::StaticSSG(ssgEntity* start_, int nSize) {
   start  = start_;

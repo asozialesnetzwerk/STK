@@ -19,6 +19,7 @@
 
 #include "Loader.h"
 #include "MaterialManager.h"
+#include "Material.h"
 
 ssgState *fuzzy_gst;
 

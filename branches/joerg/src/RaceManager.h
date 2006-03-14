@@ -22,6 +22,7 @@
 
 #include "GrandPrixSetup.h"
 #include "RaceSetup.h"
+#include "CupData.h"
 
 class RaceMode
 {

@@ -22,6 +22,7 @@
 #include "../History.h"
 #include "WidgetSet.h"
 #include "World.h"
+#include "Track.h"
 
 #define TEXT_START_X  (config->width-220)
 RaceGUI::RaceGUI(): time_left(0.0),

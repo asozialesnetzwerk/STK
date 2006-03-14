@@ -21,10 +21,10 @@
 #define HEADER_WORLDSCREEN_H
 
 #include <plib/ul.h>
-#include "Camera.h"
 #include "Screen.h"
 
 
+class Camera;
 class World;
 class RaceSetup;
 

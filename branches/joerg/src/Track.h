@@ -20,8 +20,8 @@
 #ifndef HEADER_TRACK_H
 #define HEADER_TRACK_H
 
-#include <plib/sg.h>
 #include <plib/ssg.h>
+#include <plib/sg.h>
 #include <string>
 #include <vector>
 class Track

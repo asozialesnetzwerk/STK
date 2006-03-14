@@ -19,6 +19,8 @@
 
 #include "History.h"
 #include "World.h"
+#include "PlayerKart.h"
+#include "Track.h"
 #include "RaceManager.h"
 
 History* history = 0;

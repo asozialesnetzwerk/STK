@@ -20,22 +20,4 @@
 #ifndef HEADER_START_HUXKART_H
 #define HEADER_START_TUXKART_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <time.h>
-#ifdef WIN32
-#  ifdef __CYGWIN__
-#    include <unistd.h>
-#  endif
-#  include <windows.h>
-#  ifdef _MSC_VER
-#    include <io.h>
-#    include <direct.h>
-#  endif
-#else
-#  include <unistd.h>
-#endif
-#include <math.h>
-
 #endif

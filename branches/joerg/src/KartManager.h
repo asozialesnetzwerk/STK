@@ -21,7 +21,8 @@
 #define HEADER_KARTMANAGER_H
 
 #include <vector>
-#include "KartProperties.h"
+
+struct KartProperties;
 
 class KartManager
 {

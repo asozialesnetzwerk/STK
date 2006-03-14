@@ -20,10 +20,10 @@
 #ifndef HEADER_HISTORY_H
 #define HEADER_HISTORY_H
 
-#include <plib/sg.h>
-#include <vector>
-#include "Kart.h"
+#include <cstdio>
 #include "constants.h"
+
+class Kart;
 
 class History {
  protected:

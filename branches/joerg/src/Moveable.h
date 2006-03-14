@@ -21,7 +21,6 @@
 #define HEADER_MOVEABLE_H
 
 #include <plib/ssg.h>
-#include "Shadow.h"
 
 /* Limits of Kart performance */
 

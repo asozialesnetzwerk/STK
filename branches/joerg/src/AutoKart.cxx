@@ -19,6 +19,7 @@
 
 #include "constants.h"
 #include "World.h"
+#include "Track.h"
 #include "AutoKart.h"
 #include <math.h>
 

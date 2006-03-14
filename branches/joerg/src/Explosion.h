@@ -21,8 +21,8 @@
 #define HEADER_EXPLOSION_H
 
 #include <plib/ssg.h>
-#include "sound.h"
-#include "Projectile.h"
+
+class Projectile;
 
 
 class Explosion : public ssgTransform {

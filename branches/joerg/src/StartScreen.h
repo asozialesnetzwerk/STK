@@ -20,9 +20,10 @@
 #ifndef HEADER_STARTSCREEN_H
 #define HEADER_STARTSCREEN_H
 
-#include <plib/ssg.h>
 #include "Screen.h"
-#include "RaceSetup.h"
+
+class ssgSimpleState;
+
 
 class StartScreen : public Screen
 {

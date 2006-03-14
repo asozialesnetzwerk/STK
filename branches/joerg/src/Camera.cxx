@@ -19,7 +19,9 @@
 
 #include <plib/sg.h>
 #include "World.h"
+#include "PlayerKart.h"
 #include "TrackManager.h"
+#include "Track.h"
 #include "Camera.h"
 
    void

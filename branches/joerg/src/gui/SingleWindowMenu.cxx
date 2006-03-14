@@ -22,8 +22,10 @@
 #include <plib/pw.h>
 #include "SingleWindowMenu.h"
 #include "TrackManager.h"
+#include "Track.h"
 #include "RaceManager.h"
 #include "KartManager.h"
+#include "KartProperties.h"
 #include "Loader.h"
 #include "plibdrv.h"
 

@@ -20,6 +20,7 @@
 #include "Explosion.h"
 #include "World.h"
 #include "ProjectileManager.h"
+#include "Projectile.h"
 
 
 // -----------------------------------------------------------------------------

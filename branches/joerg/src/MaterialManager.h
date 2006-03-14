@@ -21,7 +21,8 @@
 #define HEADER_MATERIALMANAGER_H
 
 #include <plib/ssg.h>
-#include "Material.h"
+
+struct Material;
 
 class MaterialManager {
  private:

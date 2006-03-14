@@ -20,8 +20,8 @@
 #ifndef HEADER_ATTACHMENT_H
 #define HEADER_ATTACHMENT_H
 
-#include <plib/ssg.h>
 class Kart;
+class ssgEntity;
 
 // Some loop in Attachment.cxx depend on PARACHUTE being the first element,
 // and TINYTUX being the last one. So if new elemts are added, make sure

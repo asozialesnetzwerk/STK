@@ -28,6 +28,7 @@
 #include "Camera.h"
 #include "Config.h"
 #include "TrackManager.h"
+#include "Track.h"
 #include "plibdrv.h"
 #include "gui/BaseGUI.h"
 

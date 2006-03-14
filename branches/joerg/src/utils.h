@@ -18,6 +18,7 @@
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 
-void  pr_from_normal ( sgVec3 hpr, sgVec3 nrm ) ;
-void hpr_from_normal ( sgVec3 hpr, sgVec3 nrm ) ;
+#ifndef HEADER_UTILS_H
+#define HEADER_UTILS_H
 
+#endif

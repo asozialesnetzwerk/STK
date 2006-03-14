@@ -20,10 +20,7 @@
 #ifndef HEADER_COLLECTABLE_H
 #define HEADER_COLLECTABLE_H
 
-#include "Material.h"
 #include "CollectableManager.h"
-#include "lisp/Parser.h"
-#include "lisp/Lisp.h"
 
 class Kart;
 

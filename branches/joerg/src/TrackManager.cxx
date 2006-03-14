@@ -22,6 +22,7 @@
 #include "Loader.h"
 #include "StringUtils.h"
 #include "TrackManager.h"
+#include "Track.h"
 
 TrackManager* track_manager = 0;
 

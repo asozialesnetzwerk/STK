@@ -23,17 +23,17 @@
 class Camera
 {
 public:
-  enum Mode { 
-    CM_NORMAL, 
-    CM_CLOSEUP, 
+  enum Mode {
+    CM_NORMAL,
+    CM_CLOSEUP,
     CM_NO_FAKE_DRIFT,
     CM_SIMPLE_REPLAY
-  }; 
+  };
 protected:
   ssgContext *context  ;
 
   int    whichKart ;
-  Mode mode; 
+  Mode mode;
   float last_steer_offset;
   float x, y, w, h ;
 

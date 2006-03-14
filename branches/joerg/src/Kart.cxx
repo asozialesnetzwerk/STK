@@ -27,6 +27,9 @@
 #include "SkidMark.h"
 #include "Config.h"
 #include "constants.h"
+#include "Shadow.h"
+#include "Track.h"
+#include "PlayerKart.h"
 
 static ssgTransform* add_transform(ssgBranch* branch);
 
@@ -590,17 +593,6 @@ void Kart::load_data() {
   //      exhaust_pipe = new ssgTransform (&pipe_pos);
   //      exhaust_pipe -> addKid (smoke_system) ;
   //      comp_model-> addKid (exhaust_pipe) ;
-
-#if 0
-  //Coz: does this have any effect?
-  sgCoord cc ;
-  sgSetCoord ( &cc, 0, 0, 2, 0, 0, 0 ) ;
-  sgSetCoord ( &cc, 0, 0, 0, 0, 0, 0 ) ;
-
-  ssgTransform *xxx = new ssgTransform ( & cc ) ;
-  xxx -> addKid ( obj ) ;
-  obj = xxx ;
-#endif
 
   skidmark_left  = new SkidMark();
   skidmark_right = new SkidMark();

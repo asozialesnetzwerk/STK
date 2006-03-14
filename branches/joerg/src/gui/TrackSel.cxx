@@ -21,6 +21,7 @@
 #include "WidgetSet.h"
 #include "RaceManager.h"
 #include "TrackManager.h"
+#include "Track.h"
 
 TrackSel::TrackSel()
 {

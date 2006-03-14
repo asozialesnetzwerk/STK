@@ -20,6 +20,7 @@
 #include "constants.h"
 #include "Projectile.h"
 #include "World.h"
+#include "PlayerKart.h"
 #include "ProjectileManager.h"
 #include "Collectable.h"
 

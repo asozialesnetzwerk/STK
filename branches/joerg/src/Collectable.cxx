@@ -20,6 +20,7 @@
 #include "Collectable.h"
 #include "Config.h"
 #include "ProjectileManager.h"
+#include "Kart.h"
 
 // -----------------------------------------------------------------------------
 Collectable::Collectable(Kart* kart_) {

@@ -22,7 +22,6 @@
 
 #include <vector>
 #include <string>
-#include "CupData.h"
 
 class GrandPrixSetup
 {

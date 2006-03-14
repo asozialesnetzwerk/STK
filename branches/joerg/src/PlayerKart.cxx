@@ -21,6 +21,7 @@
 #include "sound.h"
 #include "World.h"
 #include "PlayerKart.h"
+#include "Player.h"
 #include "plibdrv.h"
 
 // Only keys which must keep on working when still being pressed

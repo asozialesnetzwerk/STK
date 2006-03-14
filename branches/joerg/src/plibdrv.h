@@ -20,8 +20,6 @@
 #ifndef HEADER_PLIBDRV_H
 #define HEADER_PLIBDRV_H
 
-#include "RaceSetup.h"
-
 #define MAXKEYS 512
 
 void InitPlib();

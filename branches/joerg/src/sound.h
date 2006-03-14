@@ -36,8 +36,6 @@
 
 #define NUM_SOUNDS 11
 
-#include <plib/sl.h>
-
 #include <string>
 
 using std::string;
