@@ -17,12 +17,7 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
-#include <string>
-#include <iostream>
-#include <stdexcept>
-#include <algorithm>
 #include "Loader.h"
-#include "StringUtils.h"
 #include "ProjectileManager.h"
 #include "Projectile.h"
 #include "Explosion.h"

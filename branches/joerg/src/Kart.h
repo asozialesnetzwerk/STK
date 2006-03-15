@@ -129,7 +129,7 @@ public:
   void           handleMagnet        (float cdist, int closest);
   void           doZipperProcessing  (float dt);
   void           updatePhysics       (float dt);
-  void           collectedHerring    (Herring* herring);
+  virtual void   collectedHerring    (Herring* herring);
   virtual void   reset               ();
   virtual void   handleZipper        ();
   virtual void   forceCrash          ();

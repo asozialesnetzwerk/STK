@@ -20,7 +20,9 @@
 #ifndef HEADER_RACEMANAGER_H
 #define HEADER_RACEMANAGER_H
 
-#include "GrandPrixSetup.h"
+#include <vector>
+#include <string>
+
 #include "RaceSetup.h"
 #include "CupData.h"
 
@@ -41,10 +43,26 @@ private:
 
   RaceDifficulty difficulty;
   int numKarts;
+
+  struct KartStatus
+  {
+      std::string ident;//The .tkkf filename without the .tkkf
+      int score;
+      int prev_finish_pos;
+      int player;//Which player controls the kart, for the AI this is
+                 //the number of players.
+
+      KartStatus(const std::string& ident_, const int& score_,
+                 const int& prev_finish_pos_, const int& player_) :
+          ident(ident_), score(score_), prev_finish_pos(prev_finish_pos_),
+          player(player_) {}
+  };
+
 public:
   std::vector<std::string> players;
   CupData cup;
-  GrandPrixSetup stat;
+  std::vector<KartStatus> karts;
+  int track;
 
   GrandPrixMode(const std::vector<std::string>& players_, 
                 const CupData& cup_,

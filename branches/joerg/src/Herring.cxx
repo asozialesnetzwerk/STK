@@ -18,7 +18,7 @@
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "Herring.h"
-#include "PlayerKart.h"
+#include "Kart.h"
 
 // =============================================================================
 Herring::Herring(herringType _type, sgVec3 xyz, ssgEntity* model) {

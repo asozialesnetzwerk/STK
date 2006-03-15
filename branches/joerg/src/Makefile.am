@@ -23,7 +23,6 @@ tuxkart_SOURCES =                                       \
 	Config.cxx 		 Config.h               \
 	Player.cxx		 Player.h               \
 	CupData.cxx   		 CupData.h              \
-	GrandPrixSetup.cxx	 GrandPrixSetup.h       \
 	KartManager.cxx		 KartManager.h          \
 	ProjectileManager.cxx	 ProjectileManager.h    \
 	KartProperties.cxx	 KartProperties.h       \

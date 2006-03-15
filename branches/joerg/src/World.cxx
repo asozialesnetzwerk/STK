@@ -18,20 +18,14 @@
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include <assert.h>
-#include <iostream>
 #include <sstream>
 #include <stdexcept>
-#include <algorithm>
 #include "World.h"
 #include "preprocessor.h"
 #include "HerringManager.h"
 #include "ProjectileManager.h"
 #include "gui/BaseGUI.h"
 #include "Loader.h"
-#include "Material.h"
-#include "Camera.h"
-#include "RaceSetup.h"
-#include "Kart.h"
 #include "PlayerKart.h"
 #include "AutoKart.h"
 #include "isect.h"

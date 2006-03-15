@@ -25,7 +25,7 @@
 #include "StringUtils.h"
 #include "MaterialManager.h"
 #include "Material.h"
-#include "PlayerKart.h"
+#include "Kart.h"
 
 // Simple shadow class, only used here for default herrings
 class Shadow {

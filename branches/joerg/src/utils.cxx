@@ -17,7 +17,7 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
-#include <plib/ssg.h>
+#include <plib/sg.h>
 
 void pr_from_normal ( sgVec3 hpr, sgVec3 nrm )
 {

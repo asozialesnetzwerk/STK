@@ -22,7 +22,6 @@
 #include "World.h"
 #include "PlayerKart.h"
 #include "ProjectileManager.h"
-#include "Collectable.h"
 
 Projectile::Projectile(Kart *kart, int collectable) : Moveable(false) {
   init(kart, collectable);  

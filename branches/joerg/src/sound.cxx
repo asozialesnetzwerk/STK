@@ -23,29 +23,21 @@
 
 SoundSystem *sound ;
 
+//FIXME: Not used.
 void SoundSystem::disable_music ()
 {
   sched -> stopMusic () ;
-  sched -> update    () ;  /* Ugh! Nasty Kludge! */
-  sched -> update    () ;  /* Ugh! Nasty Kludge! */
-
   config->music = false;
 }
 
 void SoundSystem::pause_music()
 {
   sched -> pauseMusic () ;
-  //FIXME: I'm just copying disable_music, no idea if the following is neccessary, let alone twice
-  sched -> update    () ;  /* Ugh! Nasty Kludge! */
-  sched -> update    () ;  /* Ugh! Nasty Kludge! */
 }
 
 void SoundSystem::resume_music()
 {
   sched -> resumeMusic () ;
-  //FIXME: I'm just copying disable_music, no idea if the following is neccessary, let alone twice
-  sched -> update    () ;  /* Ugh! Nasty Kludge! */
-  sched -> update    () ;  /* Ugh! Nasty Kludge! */
 }
 
 

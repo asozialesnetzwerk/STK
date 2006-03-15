@@ -17,10 +17,7 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <time.h>
+//Fixme: Not sure this is needed (Coz).
 #ifdef WIN32
 #  ifdef __CYGWIN__
 #    include <unistd.h>
@@ -33,14 +30,13 @@
 #else
 #  include <unistd.h>
 #endif
-#include <math.h>
 
 #include "start_tuxkart.h"
 #include "Config.h"
 #include "TrackManager.h"
 #include "Track.h"
 #include "KartManager.h"
-#include "PlayerKart.h"
+#include "Kart.h"
 #include "ProjectileManager.h"
 #include "RaceManager.h"
 #include "Loader.h"
@@ -56,7 +52,7 @@
 #include "sound.h"
 
 void cmdLineHelp (char* invocation) {
-  fprintf ( stdout, 
+  fprintf ( stdout,
 	    "Usage: %s [OPTIONS]\n\n"
 
 	    "Run SuperTuxKart, a racing game with go-kart that features"
@@ -83,7 +79,7 @@ void cmdLineHelp (char* invocation) {
 	    "                          Set the screen size (e.g. 320x200)\n"
 	    "  -v,  --version          Show version.\n"
 	    // should not be used by unaware users:
-            // "  --profile            Enable automatic driven profile mode\n"
+        // "  --profile            Enable automatic driven profile mode\n"
 	    // "  --history            Replay history file 'history.dat'\n"
 	    "\n"
 	    "You can visit SuperTuxKart's homepage at "
@@ -103,40 +99,40 @@ int handleCmdLine(int argc, char **argv) {
       return 0;
     } else if( (!strcmp(argv[i], "--kart") && i+1<argc )) {
       race_manager->setPlayerKart(0, argv[i+1]);
-    } else if( (!strcmp(argv[i], "--track") || !strcmp(argv[i], "-t")) 
+    } else if( (!strcmp(argv[i], "--track") || !strcmp(argv[i], "-t"))
 	       && argc > 2                                             ) {
       race_manager->setTrack(argv[i+1]);
       fprintf ( stdout, "You choose to start in track: %s.\n", argv[i+1] ) ;
-    } else if( (!strcmp(argv[i], "--numkarts") || !strcmp(argv[i], "-k")) && 
+    } else if( (!strcmp(argv[i], "--numkarts") || !strcmp(argv[i], "-k")) &&
 	       i+1<argc ) {
       race_manager->setNumKarts(config->karts = atoi(argv[i+1]));
       fprintf ( stdout, "You choose to have %s karts.\n", argv[i+1] ) ;
     } else if( !strcmp(argv[i], "--list-tracks") || !strcmp(argv[i], "-l") ) {
-      
+
       fprintf ( stdout, "  Available tracks:\n" );
       for (size_t i = 0; i != track_manager->getTrackCount(); i++)
-	fprintf ( stdout, "\t%10s: %s\n", 
+	fprintf ( stdout, "\t%10s: %s\n",
 		  track_manager->getTrack(i)->ident.c_str(),
 		  track_manager->getTrack(i)->name.c_str());
-      
+
       fprintf ( stdout, "Use --track N to choose track.\n\n" );
       delete track_manager;
       track_manager = 0;
-      
+
       return 0;
     } else if( !strcmp(argv[i], "--list-karts") ) {
       kart_manager->loadKartData () ;
-      
+
       fprintf ( stdout, "  Available karts:\n" );
       for (unsigned int i = 0; i != kart_manager->karts.size(); i++)
-	fprintf ( stdout, "\t%10s: %s\n", 
+	fprintf ( stdout, "\t%10s: %s\n",
 		  kart_manager->karts[i]->ident.c_str(),
 		  kart_manager->karts[i]->name.c_str() );
-      
+
       fprintf ( stdout, "\n" );
-      
+
       return 0;
-    } else if (    !strcmp(argv[i], "--no-start-screen") 
+    } else if (    !strcmp(argv[i], "--no-start-screen")
 		|| !strcmp(argv[i], "-N")                ) {
       config->noStartScreen = true;
     } else if ( !strcmp(argv[i], "--reverse") ) {
@@ -153,10 +149,10 @@ int handleCmdLine(int argc, char **argv) {
       fprintf ( stdout, "You choose to have %d laps.\n", atoi(argv[i+1]) ) ;
       race_manager->setNumLaps(atoi(argv[i+1]));
     }
-    /* FIXME: 
+    /* FIXME:
     else if ( !strcmp(argv[i], "--players") && i+1<argc ) {
       raceSetup.numPlayers = atoi(argv[i+1]);
-      
+
       if ( raceSetup.numPlayers < 0 || raceSetup.numPlayers > 4) {
 	fprintf ( stderr,
 		  "You choose an invalid number of players: %d.\n",
@@ -173,7 +169,7 @@ int handleCmdLine(int argc, char **argv) {
       config->fullscreen = false;
     } else if ( !strcmp(argv[i], "--screensize") || !strcmp(argv[i], "-s") ) {
       if (sscanf(argv[i+1], "%dx%d", &config->width, &config->height) == 2)
-	fprintf ( stdout, "You choose to be in %dx%d.\n", config->width, 
+	fprintf ( stdout, "You choose to be in %dx%d.\n", config->width,
 		  config->height );
       else {
 	fprintf ( stderr, "Error: --screensize argument must be given as WIDTHxHEIGHT\n");
@@ -240,17 +236,17 @@ void InitTuxkart() {
 // =============================================================================
 int main ( int argc, char **argv ) {
   InitTuxkart();
-  InitPlib();
-
-
+  //handleCmdLine() needs InitTuxkart() so it can't be called first
   if(!handleCmdLine(argc, argv)) exit(0);
+
+  InitPlib();
   // loadMaterials needs ssgLoadTextures (internally), which can
   // only be called after ssgInit (since this adds the actual loader)
   // so this next call can't be in InitTuxkart. And InitPlib needs
   // config, which gets defined in InitTuxkart, so swapping those two
   // calls is not possible either ... so loadMaterial has to be done here :(
   material_manager   ->loadMaterial   ();
-  kart_manager       ->loadKartData   (); 
+  kart_manager       ->loadKartData   ();
   projectile_manager ->loadData       ();
   collectable_manager->loadCollectable();
   herring_manager    ->loadAllHerrings();

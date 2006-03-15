@@ -84,6 +84,8 @@ void Collectable::hitRedHerring(int n) {
     number=n;
   } else if(newC==type) {
     number+=n;
+    const int MAX_COLLECTABLES = 5;
+    if(number > MAX_COLLECTABLES) number = MAX_COLLECTABLES;
   }
   // Ignore new collectable if it is different from the current one
 }   // hitRedHerring

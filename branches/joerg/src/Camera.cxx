@@ -18,6 +18,7 @@
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include <plib/sg.h>
+#include <plib/ssg.h>
 #include "World.h"
 #include "PlayerKart.h"
 #include "TrackManager.h"

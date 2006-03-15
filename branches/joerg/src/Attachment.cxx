@@ -20,7 +20,7 @@
 #include <plib/ssg.h>
 
 #include "Attachment.h"
-//#include "Kart.h"
+#include "Kart.h"
 #include "constants.h"
 #include "Loader.h"
 #include "World.h"
@@ -124,6 +124,7 @@ void Attachment::update(float dt, sgCoord *velocity) {
 			     }
 			     // Otherwise: set type to active magnet.
 			     if(type==ATTACH_MAGNET) {
+                 //FIXME: This shouldn't be for the first player only.
 			       if(kart==world->getKart(0) || closest==0) {
 				 sound->playSfx(SOUND_BZZT);
 			       }

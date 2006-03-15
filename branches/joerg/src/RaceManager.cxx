@@ -17,9 +17,7 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
-#include <assert.h>
 #include <iostream>
-#include <algorithm>
 #include "Loader.h"
 #include "TrackManager.h"
 #include "RaceSetup.h"
@@ -36,26 +34,28 @@ GrandPrixMode::GrandPrixMode(const std::vector<std::string>& players_,
                              const CupData& cup_,
                              RaceDifficulty difficulty_, 
                              int numKarts_)
-  : difficulty(difficulty_), numKarts(numKarts_), players(players_), cup(cup_)
+  : difficulty(difficulty_), numKarts(numKarts_), players(players_),
+    cup(cup_), track(0)
 {
-  // Decide which karts should be used in the GrandPrix
-  std::vector<std::string> karts;
-  karts.resize(numKarts);
 
-  for(int i = 0; i < int(players.size()); ++i)
-    karts[numKarts-1 - i] = players[players.size()-1 - i]; // Players starts last in the first race
+  std::vector<std::string> kart_names;
+  kart_names.resize(numKarts);
 
-  kart_manager->fillWithRandomKarts(karts);
+  const int numPlayers = players.size();
+  for(int i = 0; i < numPlayers; ++i){
+    /*Players position is behind the AI in the first race*/
+    kart_names[numKarts-1 - i] = players[numPlayers - 1 - i];
+  }
 
-  stat.race = 0;
-  int player_num = players.size();
-  for(int i = 0; i < int(karts.size()); ++i)
-    {
-      if(player_num != int(players.size())) ++player_num;
-      else if(i == int(numKarts - players.size())) player_num = 0;
+  kart_manager->fillWithRandomKarts(kart_names);
 
-      stat.karts.push_back(GrandPrixSetup::Stat(karts[i], 0, i, player_num));
-    }
+  const int numAIKarts = numKarts - numPlayers;
+  //Add the AI karts
+  for(int i = 0; i < numAIKarts; ++i)
+      karts.push_back(KartStatus(kart_names[i], 0, i, numPlayers));
+  //Add the player karts
+  for(int i = 0; i < numPlayers; ++i)
+      karts.push_back(KartStatus(kart_names[i+numAIKarts], 0, i+numAIKarts, i));
 }
 
 void
@@ -68,15 +68,16 @@ GrandPrixMode::start_race(int n)
   raceSetup.numLaps    = 3;
   raceSetup.track      = cup.tracks[n];
 
-  raceSetup.karts.resize(stat.karts.size());
+  raceSetup.karts.resize(karts.size());
   raceSetup.players.resize(players.size());
 
-  for(int i = 0; i < int(stat.karts.size()); ++i)
+  
+  for(int i = 0; i < int(karts.size()); ++i)
     {
-      raceSetup.karts[stat.karts[i].position] = stat.karts[i].ident;
-      if (stat.karts[i].player < int(players.size()))
+      raceSetup.karts[karts[i].prev_finish_pos] = karts[i].ident;
+      if (karts[i].player < int(players.size()))
         {
-          raceSetup.players[stat.karts[i].player] = i;
+          raceSetup.players[karts[i].player] = i;
         }
     }
 
@@ -86,18 +87,19 @@ GrandPrixMode::start_race(int n)
 void
 GrandPrixMode::start()
 {
-  stat.race = 0;
-  start_race(stat.race);
+//FIXME: Is this needed?
+//track = 0;
+  start_race(track);
 }
 
 void
 GrandPrixMode::next()
 {
-  stat.race += 1;
+  track += 1;
 
 
  if( guiStack.back() == GUIS_NEXTRACE )
-   if( stat.race < int ( cup.tracks.size() ) ) start_race(stat.race);
+   if( track < int ( cup.tracks.size() ) ) start_race(track);
    else
     {
       // FIXME: Insert credits/extro stuff here
