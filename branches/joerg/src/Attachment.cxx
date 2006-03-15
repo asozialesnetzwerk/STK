@@ -20,7 +20,7 @@
 #include <plib/ssg.h>
 
 #include "Attachment.h"
-#include "Kart.h"
+//#include "Kart.h"
 #include "constants.h"
 #include "Loader.h"
 #include "World.h"
@@ -65,8 +65,11 @@ Attachment::Attachment(Kart* _kart) {
 }
 
 Attachment::~Attachment() {
-    if(attachment_manager) delete attachment_manager;
-    attachment_manager = 0;
+    if(attachment_manager)
+    {
+      delete attachment_manager;
+      attachment_manager = 0;
+    }
 
     ssgDeRefDelete(holder);
 }

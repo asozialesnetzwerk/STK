@@ -218,7 +218,7 @@ void PlayerKart::forceCrash() {
 
 // -----------------------------------------------------------------------------
 void PlayerKart::handleZipper() {
-  Kart::forceCrash();
+  Kart::handleZipper();
   sound->playSfx ( SOUND_WEE );
 }
 
