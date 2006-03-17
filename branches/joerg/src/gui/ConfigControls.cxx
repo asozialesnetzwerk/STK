@@ -46,7 +46,8 @@ void ConfigControls::update(float dt)
   // so we have to check it and draw it as in pause
   if(widgetSet -> get_paused())
     widgetSet -> blank() ;
-	widgetSet -> paint(menu_id) ;
+
+  widgetSet -> paint(menu_id) ;
 }
 
 void ConfigControls::select()

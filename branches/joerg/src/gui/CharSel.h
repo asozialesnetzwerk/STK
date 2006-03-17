@@ -21,7 +21,6 @@
 #define HEADER_CHARSEL_H
 
 #include <vector>
-#include <plib/sg.h>
 #include "../KartProperties.h"
 #include "BaseGUI.h"
 

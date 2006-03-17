@@ -20,7 +20,7 @@
 #include "constants.h"
 #include "Projectile.h"
 #include "World.h"
-#include "PlayerKart.h"
+#include "Kart.h"
 #include "ProjectileManager.h"
 
 Projectile::Projectile(Kart *kart, int collectable) : Moveable(false) {

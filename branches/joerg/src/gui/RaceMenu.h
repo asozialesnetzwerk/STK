@@ -27,7 +27,7 @@ class RaceMenu: public BaseGUI
 public:
 	RaceMenu();
 	~RaceMenu();
-	
+
 	void update(float dt);
 	void select();
 	void keybd(int key);

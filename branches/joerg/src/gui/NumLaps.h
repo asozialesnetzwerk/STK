@@ -20,7 +20,6 @@
 #ifndef HEADER_NUMLAPS_H
 #define HEADER_NUMLAPS_H
 
-#include "../RaceSetup.h"
 #include "BaseGUI.h"
 
 class NumLaps: public BaseGUI {

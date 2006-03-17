@@ -3,7 +3,6 @@
 
 #include <vector>
 #include <plib/ssg.h>
-#include <plib/sg.h>
 
 #define NOINTERSECT -999999.9
 

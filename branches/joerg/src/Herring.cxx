@@ -17,6 +17,7 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
+#include "World.h"
 #include "Herring.h"
 #include "Kart.h"
 
@@ -69,4 +70,12 @@ void Herring::update(float delta) {
     rotate -> setTransform ( &c ) ;
   }
 }   // update
+
+// -----------------------------------------------------------------------------
+
+void Herring::isEaten()
+{
+    bEaten=TRUE;
+    time_to_return=world->clock+2.0f;
+}
 

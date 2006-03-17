@@ -200,11 +200,6 @@ Material *MaterialManager::getMaterial ( const char *fname )
     }
   }
 
-#if 0
-  // matze: what is this code good for?
-  strcpy ( fname, basename  ) ;
-  strcat ( fname, ".png"    ) ;
-#endif
   return NULL ;
 }
 

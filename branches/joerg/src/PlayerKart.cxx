@@ -22,7 +22,8 @@
 #include "PlayerKart.h"
 #include "Player.h"
 #include "plibdrv.h"
-#include "HerringManager.h"
+#include "Herring.h"
+#include "World.h"
 
 // Only keys which must keep on working when still being pressed
 // are handled here, not 'one time action' keys like fire, ...

@@ -20,7 +20,6 @@
 #ifndef HEADER_DIFFICULTY_H
 #define HEADER_DIFFICULTY_H
 
-#include "../RaceSetup.h"
 #include "BaseGUI.h"
 
 class Difficulty: public BaseGUI

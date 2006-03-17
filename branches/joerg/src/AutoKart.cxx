@@ -21,7 +21,7 @@
 #include "World.h"
 #include "Track.h"
 #include "AutoKart.h"
-#include <math.h>
+#include <cmath>
 
 inline float sgnsq ( float x ) { return ( x < 0 ) ? -(x * x) : (x * x) ; }
 

@@ -22,7 +22,8 @@
 #include "Config.h"
 #include "HerringManager.h"
 #include "Loader.h"
-#include "StringUtils.h"
+#include <string>
+#include <sstream>
 #include "MaterialManager.h"
 #include "Material.h"
 #include "Kart.h"

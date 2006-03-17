@@ -43,11 +43,11 @@ public:
     int keys[8]; //keyboard keymap and joystick button map
     int buttons[8];
 
-    Player();
-    Player(const std::string &name);
-    void setName(const std::string &name);
-    void setKey(KartActions action, int key);
-    void setButton(KartActions action, int button);
+    Player(){}
+    Player(const std::string &name_):name(name_){}
+    void setName(const std::string &name_){name = name_;}
+    void setKey(KartActions action, int key){keys[action]=key;}
+    void setButton(KartActions action, int button){buttons[action]=button;}
 };
 
 #endif

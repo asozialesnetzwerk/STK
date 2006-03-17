@@ -20,6 +20,8 @@
 #ifndef HEADER_COLLECTABLE_H
 #define HEADER_COLLECTABLE_H
 
+#define MAX_COLLECTABLES 5
+
 #include "CollectableManager.h"
 
 class Kart;

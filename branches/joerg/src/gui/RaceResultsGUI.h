@@ -21,7 +21,6 @@
 #define HEADER_RACERESULTSGUI_H
 
 #include "BaseGUI.h"
-#include "material.h"
 
 /** GUI that shows the RaceResults, times and such */
 class RaceResultsGUI : public BaseGUI

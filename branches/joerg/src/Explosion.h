@@ -20,8 +20,7 @@
 #ifndef HEADER_EXPLOSION_H
 #define HEADER_EXPLOSION_H
 
-#include <plib/ssg.h>
-
+class ssgSelector;
 class Projectile;
 
 

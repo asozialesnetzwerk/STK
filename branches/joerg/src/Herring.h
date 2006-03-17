@@ -20,7 +20,7 @@
 #ifndef HEADER_HERRING_H
 #define HEADER_HERRING_H
 
-#include "World.h"
+#include <plib/sg.h>
 
 class Kart;
 class ssgTransform;
@@ -44,8 +44,7 @@ class Herring {
               Herring   (herringType type, sgVec3 xyz, ssgEntity* model);
   void        update    (float delta);
   bool        wasEaten  ()            {return bEaten;}
-  void        isEaten   ()            {bEaten=TRUE;
-                                       time_to_return=world->clock+2.0f;}
+  void        isEaten   ();
   herringType getType   ()            {return type;}
   int         hitKart   (Kart* kart );
 };   // class Herring

@@ -20,7 +20,6 @@
 #ifndef HEADER_GAMEMODE_H
 #define HEADER_GAMEMODE_H
 
-#include "../RaceSetup.h"
 #include "BaseGUI.h"
 
 class GameMode: public BaseGUI

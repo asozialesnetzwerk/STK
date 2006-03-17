@@ -29,6 +29,7 @@
 #include "constants.h"
 #include "Shadow.h"
 #include "Track.h"
+#include "World.h"
 #include "Kart.h"
 
 static ssgTransform* add_transform(ssgBranch* branch);

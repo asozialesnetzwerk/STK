@@ -20,11 +20,11 @@
 #ifndef HEADER_COLLECTABLEMANAGER_H
 #define HEADER_COLLECTABLEMANAGER_H
 
-#include <plib/ssg.h>
 #include "lisp/Parser.h"
 #include "lisp/Lisp.h"
 
 class Material;
+class ssgEntity;
 
 enum collectableType {COLLECT_NOTHING, COLLECT_MISSILE, 
 		      COLLECT_SPARK,   COLLECT_HOMING_MISSILE,

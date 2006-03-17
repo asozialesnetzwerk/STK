@@ -20,7 +20,6 @@
 #ifndef HEADER_TRACKSEL_H
 #define HEADER_TRACKSEL_H
 
-#include "../RaceSetup.h"
 #include "BaseGUI.h"
 
 class TrackSel: public BaseGUI

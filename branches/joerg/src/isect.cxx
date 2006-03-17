@@ -18,7 +18,6 @@
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include <plib/ssg.h>
-#include <plib/sg.h>
 #include "isect.h"
 
 float getHeightAndNormal(ssgBranch* branch, sgVec3 my_position, sgVec3 normal)

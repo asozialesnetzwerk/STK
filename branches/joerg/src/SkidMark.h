@@ -24,9 +24,6 @@
 
 #include <plib/ssg.h>
 
-#if 0
-class SkidMark : public ssgVtxTable
-#endif
 class SkidMark
 {
 public:
@@ -38,12 +35,6 @@ public:
   //Begin or finish an skidmark
   void addBreak (sgCoord *coord);
 
-#if 0
-  void recalcBSphere();
-
-  int newSkidmark;
-#endif
-#if 1
   bool wasSkidMarking() const;
 private:
 
@@ -74,7 +65,6 @@ private:
   static float globalTrackOffset;
   std::vector <SkidMarkPos *> SkidMarks;
   ssgSimpleState *skidstate;
-#endif
 };
 
 #endif

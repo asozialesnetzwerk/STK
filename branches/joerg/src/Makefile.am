@@ -21,7 +21,6 @@ tuxkart_SOURCES =                                       \
 	HerringManager.cxx	 HerringManager.h       \
 	Explosion.cxx		 Explosion.h            \
 	Config.cxx 		 Config.h               \
-	Player.cxx		 Player.h               \
 	CupData.cxx   		 CupData.h              \
 	KartManager.cxx		 KartManager.h          \
 	ProjectileManager.cxx	 ProjectileManager.h    \

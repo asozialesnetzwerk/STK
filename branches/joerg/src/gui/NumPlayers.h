@@ -20,7 +20,6 @@
 #ifndef HEADER_NUMPLAYERS_H
 #define HEADER_NUMPLAYERS_H
 
-#include "../RaceSetup.h"
 #include "BaseGUI.h"
 
 class NumPlayers: public BaseGUI
