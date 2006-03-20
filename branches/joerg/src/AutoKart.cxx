@@ -21,6 +21,8 @@
 #include "World.h"
 #include "Track.h"
 #include "AutoKart.h"
+//PlayerKart.h is needed for the old steering algorithm
+//#include "PlayerKart.h"
 #include <cmath>
 
 inline float sgnsq ( float x ) { return ( x < 0 ) ? -(x * x) : (x * x) ; }

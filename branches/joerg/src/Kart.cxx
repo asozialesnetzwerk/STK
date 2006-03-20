@@ -310,8 +310,9 @@ void Kart::update (float dt) {
   sgCopyVec2  ( last_track_coords, curr_track_coords );
   Moveable::update (dt) ;
   doObjectInteractions();
-  trackHint = world->track->spatialToTrack(curr_track_coords, curr_pos.xyz,
-					   trackHint                       );
+  const unsigned int closestPoint = world->track->spatialToTrack(
+                        curr_track_coords, curr_pos.xyz, trackHint );
+  if (closestPoint > trackHint || closestPoint == 0) trackHint = closestPoint;
   doLapCounting () ;
   processSkidMarks();
   
