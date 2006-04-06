@@ -82,7 +82,7 @@ void PlayerKart::update(float dt) {
       else
         wheelie_angle = WHEELIE_PITCH ;
     } else if ( wheelie_angle > 0.0f ) {
-      wheelie_angle -= PITCH_RESTORE_RATE ;
+      wheelie_angle -= PITCH_RESTORE_RATE * dt;
       if ( wheelie_angle <= 0.0f ) wheelie_angle = 0.0f ;
     }
 
