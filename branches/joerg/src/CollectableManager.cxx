@@ -22,6 +22,7 @@
 #include "CollectableManager.h"
 #include "Loader.h"
 #include "MaterialManager.h"
+#include "Material.h"
 #include "preprocessor.h"
 
 typedef struct {collectableType collectable; std::string dataFile;} 
@@ -84,6 +85,9 @@ void CollectableManager::LoadNode(const lisp::Lisp* lisp, int collectType ) {
 
   // load material
   allIcons [collectType] = material_manager->getMaterial(sIconFile.c_str());
+
+  if(collectType == COLLECT_SPARK) allIcons[COLLECT_SPARK]->getState()->disable ( GL_CULL_FACE ) ;
+
   if(sModel!="") {
     ssgEntity* e = ssgLoadAC(sModel.c_str(), loader);
     allModels[collectType] = e;
