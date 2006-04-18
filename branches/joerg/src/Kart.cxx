@@ -332,6 +332,7 @@ static inline float _lateralForce (const KartProperties *properties,
 
 // -----------------------------------------------------------------------------
 void Kart::updatePhysics (float dt) {
+  if(!config->newPhysics) {
   sgVec2 resistance;
   sgVec2 traction;
   sgVec2 lateral_f;
@@ -396,6 +397,8 @@ void Kart::updatePhysics (float dt) {
    
   kart_angular_vel += kart_angular_acc * dt;
   velocity.hpr[0] = kart_angular_vel * 360.0f / (2*M_PI);
+  } else {
+  }   // new physics
    
 }   // updatePhysics
 

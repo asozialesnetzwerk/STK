@@ -6,7 +6,6 @@ bin_PROGRAMS = tuxkart
 
 tuxkart_SOURCES =                                       \
 	start_tuxkart.cxx	 start_tuxkart.h        \
-	gfx.cxx			 gfx.h                  \
 	Material.cxx		 Material.h             \
 	MaterialManager.cxx	 MaterialManager.h      \
 	Attachment.cxx		 Attachment.h	        \

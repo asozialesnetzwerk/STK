@@ -98,6 +98,7 @@ void Config::setDefaults() {
   herringStyle     = "default";
   disableMagnet    = false;
   profile          = 0;
+  newPhysics       = 0;
   oldHOT           = false;
   useKPH           = false;
   replayHistory    = false;
@@ -230,6 +231,7 @@ void Config::loadConfig(const std::string& filename) {
     lisp->get("oldStatusDisplay", oldStatusDisplay);
     lisp->get("herringStyle",     herringStyle);
     lisp->get("disableMagnet",    disableMagnet);
+    lisp->get("newPhysics",       newPhysics);
     lisp->get("useKPH",           useKPH);
 
     /*get resolution width/height*/
@@ -311,6 +313,7 @@ void Config::saveConfig(const std::string& filename) {
     writer.write("oldStatusDisplay\t", oldStatusDisplay);
     writer.write("herringStyle\t", herringStyle);
     writer.write("disableMagnet\t", disableMagnet);
+    writer.write("newPhysics", newPhysics);
     writer.write("useKPH\t", useKPH);
 
     writer.writeComment("screen resolution");
