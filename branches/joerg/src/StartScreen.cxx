@@ -17,6 +17,7 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
+#include <unistd.h>   // for usleep
 #include <plib/pw.h>
 
 #include "Loader.h"
@@ -52,8 +53,19 @@ StartScreen::update()
   glDisable      ( GL_FOG        ) ;
   glDisable      ( GL_CULL_FACE  ) ;
   glDisable      ( GL_ALPHA_TEST ) ;
-  //glOrtho        ( 0, 640, 0, 480, 0, 100 ) ;
 
+  // On at least one platform the X server apparently gets overloaded
+  // by the large texture, resulting in buffering of key events. This
+  // results in the menu being very unresponsive/slow - it can sometimes
+  // take (say) half a second before the menu reacts to a pressed key.
+  // This is caused by X buffering the key events, delivering them
+  // later (and sometimes even several at the same frame). This issue
+  // could either be solved by a lazy drawing of the background picture
+  // (i.e. draw the background only if something has changed) - which is
+  // a lot of implementation work ... or by sleeping for a little while,
+  // which apparently reduces the load for the X server, so that no 
+  // buffering is done --> all key events are handled in time.
+  usleep(2000);
   //Draw the splash screen
   introMaterial -> force () ;
 
