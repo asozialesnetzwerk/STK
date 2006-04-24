@@ -218,10 +218,21 @@ void World::checkRaceStatus() {
     ready_set_go = 2;
   }
 
-  // For multiplayer we need a more intelligent solution here!  JH
-  if ( world->kart[0]->getLap () >= raceSetup.numLaps ) {
-    phase = FINISH_PHASE;
+  /*if all players have finished, or if only one kart is not finished, the
+    race is over. Players are the last in the vector, so substracting the
+    number of players finds the first player's position.*/
+  unsigned int finished_karts = 0;
+  unsigned int finished_plyrs = 0;
+  for ( Karts::size_type i = 0; i < kart.size(); ++i)
+  {
+      if ( world->kart[i]->getLap () >= raceSetup.numLaps )
+      {
+          ++finished_karts;
+          if(i >= kart.size() - raceSetup.players.size()) ++finished_plyrs;
+      }
   }
+  if(finished_plyrs == raceSetup.players.size()) phase = FINISH_PHASE;
+  else if(finished_karts == kart.size() - 1) phase = FINISH_PHASE;
 }
 
 void
