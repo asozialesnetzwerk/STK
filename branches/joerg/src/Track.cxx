@@ -273,10 +273,10 @@ Track::loadDriveline()
   readDrivelineFromFile(right_driveline, ".drvr");
 
   if(right_driveline.size() != left_driveline.size())
-      std::cout << "Driveline's sizes do not match, right driveline is " <<
-          right_driveline.size() << " points long " <<  "and the left " <<
-          "driveline is " << left_driveline.size() << "points long. " <<
-          "track is " << name << " ." << std::endl;
+      std::cout << "Error: driveline's sizes do not match, right " <<
+          "driveline is " << right_driveline.size() << " points long " <<
+          "and the left driveline is " << left_driveline.size()
+          << " points long. Track is " << name << " ." << std::endl;
 
   SGfloat width;
   driveline.reserve(driveline_size);
