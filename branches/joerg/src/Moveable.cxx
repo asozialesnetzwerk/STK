@@ -61,6 +61,7 @@ void Moveable::reset () {
   sgZeroVec3 ( velocity.xyz ) ;
   sgZeroVec3 ( velocity.hpr ) ;
   sgCopyCoord ( &curr_pos, &reset_pos ) ;
+  sgZeroVec3 ( abs_velocity ) ;
   
 }   // reset
 
@@ -97,7 +98,11 @@ void Moveable::update (float dt) {
   float  hot   = collectIsectData(start, end               );
 
   sgCopyVec3 (result[3], end) ;
+
+  sgVec3 prev_pos;
+  sgCopyVec3(prev_pos, curr_pos.xyz);
   sgSetCoord (&curr_pos, result);
+  sgSubVec3  (abs_velocity, curr_pos.xyz, prev_pos);
 
   if(historyPosition) {
     if(config->replayHistory) {

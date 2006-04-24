@@ -93,30 +93,30 @@ WorldScreen::draw()
 
   glEnable ( GL_DEPTH_TEST ) ;
 
-  if (track->use_fog)
+  if (track->useFog())
     {
       glEnable ( GL_FOG ) ;
 
-      glFogf ( GL_FOG_DENSITY, track->fog_density ) ;
-      glFogfv( GL_FOG_COLOR  , track->fog_color ) ;
-      glFogf ( GL_FOG_START  , track->fog_start ) ;
-      glFogf ( GL_FOG_END    , track->fog_end ) ;
+      glFogf ( GL_FOG_DENSITY, track->getFogDensity() ) ;
+      glFogfv( GL_FOG_COLOR  , track->getFogColor() ) ;
+      glFogf ( GL_FOG_START  , track->getFogStart() ) ;
+      glFogf ( GL_FOG_END    , track->getFogEnd() ) ;
       glFogi ( GL_FOG_MODE   , GL_EXP2   ) ;
       glHint ( GL_FOG_HINT   , GL_NICEST ) ;
 
       /* Clear the screen */
-      glClearColor (track->fog_color[0],
-                    track->fog_color[1],
-                    track->fog_color[2],
-                    track->fog_color[3]);
+      glClearColor (track->getFogColor()[0],
+                    track->getFogColor()[1],
+                    track->getFogColor()[2],
+                    track->getFogColor()[3]);
     }
   else
     {
       /* Clear the screen */
-      glClearColor (track->sky_color[0],
-                    track->sky_color[1],
-                    track->sky_color[2],
-                    track->sky_color[3]);
+      glClearColor (track->getSkyColor()[0],
+                    track->getSkyColor()[1],
+                    track->getSkyColor()[2],
+                    track->getSkyColor()[3]);
     }
 
   glClear      ( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT ) ;
@@ -127,7 +127,7 @@ WorldScreen::draw()
       world->draw() ;
     }
 
-  if (track->use_fog)
+  if (track->useFog())
     {
       glDisable ( GL_FOG ) ;
     }

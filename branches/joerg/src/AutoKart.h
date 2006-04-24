@@ -25,9 +25,10 @@
 class AutoKart : public Kart {
 private:
   float time_since_last_shoot ;
+  size_t future_hint;
 public:
   AutoKart(const KartProperties *kart_properties, int position) : 
-    Kart(kart_properties, position) { time_since_last_shoot = 0.0f ;  }
+    Kart(kart_properties, position) { time_since_last_shoot = 0.0f; future_hint = 0; }
 
   virtual ~AutoKart() {}
 

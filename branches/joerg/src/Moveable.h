@@ -67,6 +67,8 @@ protected:
   sgCoord       reset_pos;      /* Where to start in case of a reset           */
   sgCoord       curr_pos;       /* current position                            */
   sgCoord       velocity;       /* current velocity                            */
+  sgVec3        abs_velocity;   /* world coordinates' velocity vector        */
+//FIXME:Is the last_relax_pos variable used anywhere?
   sgCoord       last_relax_pos; /* Used to save the last position of the kart, 
 				   which is then interpolated with the new one
 				   to form a smooth movement                   */

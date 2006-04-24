@@ -49,7 +49,7 @@ public:
 class Kart : public Moveable {
 protected:
   Attachment   attachment;
-  Collectable  collectable; 
+  Collectable  collectable;
 
   int          grid_position ;
   int          racePosition;
@@ -59,6 +59,8 @@ protected:
   float        ZipperTimeLeft;
   sgVec2       last_track_coords ;
   sgVec2       curr_track_coords ;
+  //FIXME: is the variable steer_angle ever used?
+  //Supposedly it's used for Camera.cxx but that part of the code is never called...
   float        steer_angle ;
 
 private:

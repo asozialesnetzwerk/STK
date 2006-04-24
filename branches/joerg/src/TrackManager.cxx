@@ -40,7 +40,7 @@ TrackManager::getTrack(const std::string& ident) const
 {
   for(Tracks::const_iterator i = tracks.begin(); i != tracks.end(); ++i)
     {
-      if ((*i)->ident == ident)
+      if ((*i)->getIdent() == ident)
         return *i;
     }
 

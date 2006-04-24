@@ -86,6 +86,8 @@ void CollectableManager::LoadNode(const lisp::Lisp* lisp, int collectType ) {
   // load material
   allIcons [collectType] = material_manager->getMaterial(sIconFile.c_str());
 
+  //FIXME: something probably forgets to disable GL_CULL_FACE after enabling it,
+  //this is just a quick fix.
   if(collectType == COLLECT_SPARK) allIcons[COLLECT_SPARK]->getState()->disable ( GL_CULL_FACE ) ;
 
   if(sModel!="") {

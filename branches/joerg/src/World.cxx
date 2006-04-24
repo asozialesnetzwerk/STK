@@ -50,7 +50,7 @@ World::World(const RaceSetup& raceSetup_) : raceSetup(raceSetup_) {
 
   clock = 0.0f;
 
-  // Grab the track centerline file
+  // Grab the track file
   try {
     track = track_manager->getTrack(raceSetup.track) ;
   } catch(std::runtime_error) {
@@ -137,7 +137,7 @@ World::World(const RaceSetup& raceSetup_) : raceSetup(raceSetup_) {
 
   guiStack.push_back(GUIS_RACE);
 
-  std::string music = track_manager->getTrack(raceSetup.track)->music_filename;
+  const std::string music = track_manager->getTrack(raceSetup.track)->getMusic();
 
   if (!music.empty())
     sound -> change_track ( music.c_str() );
@@ -158,10 +158,10 @@ World::~World() {
 
 void World::draw() {
 
-  ssgGetLight ( 0 ) -> setPosition ( track->sun_position ) ;
-  ssgGetLight ( 0 ) -> setColour ( GL_AMBIENT , track->ambientcol  ) ;
-  ssgGetLight ( 0 ) -> setColour ( GL_DIFFUSE , track->diffusecol  ) ;
-  ssgGetLight ( 0 ) -> setColour ( GL_SPECULAR, track->specularcol ) ;
+  ssgGetLight ( 0 ) -> setPosition ( track->getSunPos() ) ;
+  ssgGetLight ( 0 ) -> setColour ( GL_AMBIENT , track->getAmbientCol()  ) ;
+  ssgGetLight ( 0 ) -> setColour ( GL_DIFFUSE , track->getDiffuseCol() ) ;
+  ssgGetLight ( 0 ) -> setColour ( GL_SPECULAR, track->getSpecularCol() ) ;
 
   ssgCullAndDraw ( world->scene ) ;
 }

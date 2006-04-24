@@ -70,8 +70,8 @@
    
    // FIXME: clipping should be configurable for slower machines
       const Track* track = track_manager->getTrack(world->raceSetup.track);
-      if (track->use_fog)
-         context -> setNearFar ( 0.05f, track->fog_end ) ;
+      if (track->useFog())
+         context -> setNearFar ( 0.05f, track->getFogEnd() ) ;
       else
          context -> setNearFar ( 0.05f, 1000.0f ) ;
    

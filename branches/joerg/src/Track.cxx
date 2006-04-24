@@ -17,6 +17,7 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
+#include <iostream>
 #include <stdexcept>
 #include <sstream>
 #include "Loader.h"
@@ -46,21 +47,24 @@ int Track::spatialToTrack ( sgVec3 res, sgVec3 xyz, int hint ) const {
   float d ;
   float nearest_d = 99999 ;
 
-  /*
-    If we don't have a good hint, search all the
-    points on the track to find our nearest centerline point
-  */
 
-  for (size_t i = 0 ; i < driveline.size() ; ++i ) {
-    d = sgDistanceVec2 ( driveline[i], xyz ) ;
-    
-    if ( d < nearest_d ) {
-      nearest_d = d ;
-      nearest = i ;
-    }
-  }   // for i
+  const unsigned int driveline_size = driveline.size();
+  int temp_i;
+  //This checks which from the previous two, current, and next two hints is
+  //the closest, however checking for the previous, current, and next hint
+  //is enough on my machine, but it might not be on older computers.
+  for(int i = hint - 2; i < hint + 3; ++i)
+  {
+      temp_i = i;
+      if(temp_i < 0) temp_i = driveline_size - temp_i;
+      if(temp_i >= (int)driveline_size) temp_i -= driveline_size;
 
-    hint = nearest ;
+      d = sgDistanceVec2 ( driveline[temp_i], xyz ) ;
+      if ( d < nearest_d ) {
+        nearest_d = d;
+        nearest = temp_i;
+      }
+  }
 
   /*
     OK - so we have the closest point
@@ -104,7 +108,63 @@ int Track::spatialToTrack ( sgVec3 res, sgVec3 xyz, int hint ) const {
 
 // -----------------------------------------------------------------------------
 int Track::absSpatialToTrack ( sgVec3 res, sgVec3 xyz ) const {
-  return spatialToTrack ( res, xyz, 100000 ) ;
+  size_t nearest = 0 ;
+  float d ;
+  float nearest_d = 99999 ;
+
+  /*
+    Search all the points on the track to find our nearest
+    centerline point
+  */
+
+  const unsigned int driveline_size = driveline.size();
+  for (size_t i = 0 ; i < driveline_size ; ++i ) {
+    d = sgDistanceVec2 ( driveline[i], xyz ) ;
+
+    if ( d < nearest_d ) {
+      nearest_d = d ;
+      nearest = i ;
+    }
+  }   // for i
+
+  /*
+    OK - so we have the closest point
+  */
+
+  size_t prev,  next ;
+  float  dprev, dnext ;
+
+  prev = ( nearest   ==   0              ) ? driveline.size()-1 : (nearest - 1);
+  next = ( nearest+1 >= driveline.size() ) ?      0             : (nearest + 1);
+
+  dprev = sgDistanceVec2 ( driveline[prev], xyz ) ;
+  dnext = sgDistanceVec2 ( driveline[next], xyz ) ;
+
+  size_t p1, p2 ;
+  float  d1, d2 ;
+
+  if ( dnext < dprev ) {
+    p1 = nearest   ; p2 =  next ;
+    d1 = nearest_d ; d2 = dnext ;
+  } else {
+    p1 =  prev ; p2 = nearest   ;
+    d1 = dprev ; d2 = nearest_d ;
+  }
+
+  sgVec3 line_eqn ;
+  sgVec3 tmp ;
+
+  sgMake2DLine ( line_eqn, driveline[p1], driveline[p2] ) ;
+
+  res [ 0 ] = sgDistToLineVec2 ( line_eqn, xyz ) ;
+
+  sgAddScaledVec2 ( tmp, xyz, line_eqn, -res [0] ) ;
+
+  // driveline[i][2] contains the sum of the distances between
+  // all driveline points up to point i.
+  res [ 1 ] = sgDistanceVec2 ( tmp, driveline[p1] ) + driveline[p1][2] ;
+
+  return nearest ;
 }
 
 // -----------------------------------------------------------------------------
@@ -129,8 +189,9 @@ void Track::drawScaled2D(float x, float y, float w,
 
   if(!stretch) sx = sy = std::min(sx, sy);
 
+  const unsigned int driveline_size = driveline.size();
   glBegin ( GL_LINE_LOOP ) ;
-  for ( size_t i = 0 ; i < driveline.size() ; ++i ) {
+  for ( size_t i = 0 ; i < driveline_size ; ++i ) {
       glVertex2f ( x + ( driveline[i][0] - driveline_center[0] ) * sx,
                    y + ( driveline[i][1] - driveline_center[1] ) * sy ) ;
   }
@@ -140,9 +201,10 @@ void Track::drawScaled2D(float x, float y, float w,
 
 // -----------------------------------------------------------------------------
 void Track::draw2Dview (float x, float y) const {
- 
+
+  const unsigned int driveline_size = driveline.size();
   glBegin ( GL_LINE_LOOP ) ;
-  for ( size_t i = 0 ; i < driveline.size() ; ++i ) {
+  for ( size_t i = 0 ; i < driveline_size ; ++i ) {
       glVertex2f ( x + ( driveline[i][0] - driveline_center[0] ) * scaleX,
                    y + ( driveline[i][1] - driveline_center[1] ) * scaleY ) ;
   }
@@ -201,9 +263,79 @@ void Track::loadTrack(const std::string& filename) {
 void
 Track::loadDriveline()
 {
+  std::vector<sgVec3Wrapper> left_driveline;
+  std::vector<sgVec3Wrapper> right_driveline;
+
+  readDrivelineFromFile(left_driveline, ".drvl");
+
+  const unsigned int driveline_size = left_driveline.size();
+  right_driveline.reserve(driveline_size);
+  readDrivelineFromFile(right_driveline, ".drvr");
+
+  if(right_driveline.size() != left_driveline.size())
+      std::cout << "Driveline's sizes do not match, right driveline is " <<
+          right_driveline.size() << " points long " <<  "and the left " <<
+          "driveline is " << left_driveline.size() << "points long. " <<
+          "track is " << name << " ." << std::endl;
+
+  SGfloat width;
+  driveline.reserve(driveline_size);
+  for(unsigned int i = 0; i < driveline_size; ++i)
+  {
+      //Reuse the left_driveline as the center driveline to avoid copying
+      sgAddVec3(left_driveline[i], right_driveline[i]);
+      sgScaleVec3(left_driveline[i], 0.5f);
+      driveline.push_back(left_driveline[i]);
+
+      //Reuse the right_driveline as the width of the track to avoid copying
+      sgSubVec3(right_driveline[i], left_driveline[i]);
+      width = sgLengthVec3(right_driveline[i]);
+      if(width > 0.0f) path_width.push_back(width);
+      else path_width.push_back(-width);
+  }
+
+  sgSetVec2 ( driveline_min,  SG_MAX/2.0f,  SG_MAX/2.0f ) ;
+  sgSetVec2 ( driveline_max, -SG_MAX/2.0f, -SG_MAX/2.0f ) ;
+
+  float d = 0.0f ;
+  for ( size_t i = 0 ; i < driveline_size ; ++i )
+  {
+    if ( driveline[i][0] < driveline_min[0] )
+      driveline_min[0] = driveline[i][0] ;
+    if ( driveline[i][1] < driveline_min[1] )
+      driveline_min[1] = driveline[i][1] ;
+    if ( driveline[i][0] > driveline_max[0] )
+      driveline_max[0] = driveline[i][0] ;
+    if ( driveline[i][1] > driveline_max[1] )
+      driveline_max[1] = driveline[i][1] ;
+
+    driveline [i][2] = d ;
+
+    if ( i == driveline_size - 1 )
+      d += sgDistanceVec2 ( driveline[i], driveline[0] ) ;
+    else
+      d += sgDistanceVec2 ( driveline[i], driveline[i+1] ) ;
+  }
+
+  total_distance = d;
+  sgAddScaledVec2(driveline_center, driveline_min, driveline_max, 0.5);
+
+  sgVec2 sc ;
+  sgSubVec2 ( sc, driveline_max, driveline_center ) ;
+
+  scaleX = track2DWidth  / sc[0] ;
+  scaleY = track2DHeight / sc[1] ;
+
+  if(!doStretch) scaleX = scaleY = std::min(scaleX, scaleY);
+
+}   // loadDriveline
+
+void
+Track::readDrivelineFromFile(std::vector<sgVec3Wrapper>& line, const std::string& file_ext)
+{
   std::string path = "data/";
   path += ident;
-  path += ".drv";
+  path += file_ext;
   path = loader->getPath(path);
 
   FILE *fd = fopen ( path.c_str(), "ra" ) ;
@@ -214,6 +346,10 @@ Track::loadDriveline()
       exit ( 1 ) ;
     }
 
+  static int prev_point;
+  static SGfloat prev_distance;
+  prev_point = -1;
+  prev_distance = 1.51f;
   while(!feof(fd))
     {
       char s [ 1024 ] ;
@@ -237,46 +373,29 @@ Track::loadDriveline()
       sgVec3 point;
       point[0] = x;
       point[1] = y;
-      point[2] = z;
+      //FIXME: the driveline probably should be made 2D instead of this hack.
+      point[2] = 0.0f;
 
-      driveline.push_back(point);
+      SGfloat distance;
+      if(prev_point != -1)
+      {
+          distance = sgDistanceVec3 ( point, line[prev_point]);
+          if(distance < 0.0f) distance = -distance;
+          prev_distance += distance;
+      }
+
+
+//FIXME: make a warning for points with more than 15.0f distance between them.
+      if(prev_distance > 1.5f)
+      {
+          line.push_back(point);
+          ++prev_point;
+          prev_distance -= 1.5f;
+      }
+      else std::cerr << "In file " << path << " point " << prev_point + 1 <<
+          " is too close to previous point." << std::endl;
     }
 
   fclose ( fd ) ;
-
-  sgSetVec2 ( driveline_min,  SG_MAX/2.0f,  SG_MAX/2.0f ) ;
-  sgSetVec2 ( driveline_max, -SG_MAX/2.0f, -SG_MAX/2.0f ) ;
-
-  float d = 0.0f ;
-  for ( size_t i = 0 ; i < driveline.size() ; i++ )
-  {
-    if ( driveline[i][0] < driveline_min[0] )
-      driveline_min[0] = driveline[i][0] ;
-    if ( driveline[i][1] < driveline_min[1] )
-      driveline_min[1] = driveline[i][1] ;
-    if ( driveline[i][0] > driveline_max[0] )
-      driveline_max[0] = driveline[i][0] ;
-    if ( driveline[i][1] > driveline_max[1] )
-      driveline_max[1] = driveline[i][1] ;
-
-    driveline [i][2] = d ;
-
-    if ( i == driveline.size() - 1 )
-      d += sgDistanceVec2 ( driveline[i], driveline[0] ) ;
-    else
-      d += sgDistanceVec2 ( driveline[i], driveline[i+1] ) ;
-  }
-
-  total_distance = d;
-  sgAddScaledVec2(driveline_center, driveline_min, driveline_max, 0.5);
-
-  sgVec2 sc ;
-  sgSubVec2 ( sc, driveline_max, driveline_center ) ;
-
-  scaleX = track2DWidth  / sc[0] ;
-  scaleY = track2DHeight / sc[1] ;
-
-  if(!doStretch) scaleX = scaleY = std::min(scaleX, scaleY);
-
-}   // loadDriveline
+}
 
