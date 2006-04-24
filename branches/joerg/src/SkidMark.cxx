@@ -22,100 +22,39 @@
 
 float SkidMark::globalTrackOffset = 0.005f;
 
-SkidMark::SkidMark()
-{
+SkidMark::SkidMark() {
   skidstate = new ssgSimpleState ();
   skidstate -> enable (GL_BLEND);
   //This is just for the skidmarks, so the ones drawn when the kart is in
   //reverse get drawn
   skidstate -> disable (GL_CULL_FACE);
   SkidMarking = false;
-}
+}   // SkidMark
 
-SkidMark::~SkidMark()
-{
-  if(!SkidMarks.empty())
-  {
-      const unsigned int size = SkidMarks.size() -1;
-      for(unsigned int i = 0; i < size; ++i)
-      {
-          ssgDeRefDelete(SkidMarks[i]);
-      }
-  }
-}
+// -----------------------------------------------------------------------------
+SkidMark::~SkidMark() {
+  if(!SkidMarks.empty()) {
+    const unsigned int size = SkidMarks.size() -1;
+    for(unsigned int i = 0; i < size; ++i) {
+      ssgDeRefDelete(SkidMarks[i]);
+    }   // for
+  }   // if !empty
+}   // ~SkidMark
 
-SkidMark::SkidMarkPos::SkidMarkPos() : ssgVtxTable ( GL_QUAD_STRIP,
-                                                     new ssgVertexArray,
-                                                     new ssgNormalArray,
-                                                     new ssgTexCoordArray,
-                                                     new ssgColourArray )
-{
-}
-
-SkidMark::SkidMarkPos::SkidMarkPos( ssgVertexArray* vertices,
-                                    ssgNormalArray* normals,
-                                    ssgColourArray* colors,
-                                    float global_track_offset) :
-                                    ssgVtxTable ( GL_QUAD_STRIP,
-                                                  vertices,
-                                                  normals,
-                                                  new ssgTexCoordArray,
-                                                  colors )
-{
-  track_offset = global_track_offset;
-}
-
-SkidMark::SkidMarkPos::~SkidMarkPos()
-{
-}
-
-void
-SkidMark::add(sgCoord* coord)
-{
+// -----------------------------------------------------------------------------
+void SkidMark::add(sgCoord* coord) {
   assert(SkidMarking);
 
   const int current = SkidMarks.size() - 1;
   SkidMarks[current]->add(coord);
-}
+}   // add
 
-void
-SkidMark::SkidMarkPos::add(sgCoord* coord)
-{
-  // Width of the skidmark
-  const float width = 0.1f;
-
-  static float a = 1.0f;
-  sgVec3 pos;
-  sgSetVec3(pos,
-            coord->xyz[0] + sgSin(coord->hpr[0]+a*90) * width,
-            coord->xyz[1] - sgCos(coord->hpr[0]+a*90) * width,
-            coord->xyz[2] + track_offset);
-  vertices->add(pos);
-
-  sgSetVec3(pos,
-            coord->xyz[0] + sgSin(coord->hpr[0]-a*90) * width,
-            coord->xyz[1] - sgCos(coord->hpr[0]-a*90) * width,
-            coord->xyz[2] + track_offset);
-  vertices->add(pos);
-  a = (a > 0.0f ? -1.0f : 1.0f);
-
-  sgVec3 norm;
-  sgSetVec3(norm, 0, 0, 1);
-  normals->add(norm); normals->add(norm);
-
-  sgVec4 color;
-  sgSetVec4(color, 0.07f, 0.07f, 0.07f, 0.8f);
-  colours->add(color); colours->add(color);
-}
-
-void
-SkidMark::addBreak(sgCoord* coord)
-{
+// -----------------------------------------------------------------------------
+void SkidMark::addBreak(sgCoord* coord) {
   const unsigned int current = SkidMarks.size() - 1;
   if(SkidMarking)
     SkidMarks[current]->addEnd(coord);
-  else
-  {
+  else {
     globalTrackOffset += 0.005f;
     if(globalTrackOffset > 0.05f) globalTrackOffset = 0.01f;
 
@@ -159,14 +98,76 @@ SkidMark::addBreak(sgCoord* coord)
     newSkidMark-> setState (skidstate);
 
     SkidMarks.push_back(newSkidMark);
-  }
+  }   // if SkidMarking
 
   SkidMarking = !SkidMarking;
-}
+}   // addBreak
 
-void
-SkidMark::SkidMarkPos::addEnd(sgCoord* coord)
-{
+// -----------------------------------------------------------------------------
+bool SkidMark::wasSkidMarking() const {
+  return SkidMarking;
+}   // wasSkidMarking
+
+
+// =============================================================================
+SkidMark::SkidMarkPos::SkidMarkPos() : ssgVtxTable ( GL_QUAD_STRIP,
+                                                     new ssgVertexArray,
+                                                     new ssgNormalArray,
+                                                     new ssgTexCoordArray,
+                                                     new ssgColourArray ) {
+}   // SkidMarkPos
+
+// -----------------------------------------------------------------------------
+SkidMark::SkidMarkPos::SkidMarkPos( ssgVertexArray* vertices,
+                                    ssgNormalArray* normals,
+                                    ssgColourArray* colors,
+                                    float global_track_offset) :
+                                    ssgVtxTable ( GL_QUAD_STRIP,
+                                                  vertices,
+                                                  normals,
+                                                  new ssgTexCoordArray,
+                                                  colors )                {
+  track_offset = global_track_offset;
+}   // SkidMarkPos
+
+// -----------------------------------------------------------------------------
+SkidMark::SkidMarkPos::~SkidMarkPos() {
+}   // ~SkidMarkPos
+// -----------------------------------------------------------------------------
+void SkidMark::SkidMarkPos::recalcBSphere() {
+  bsphere . setRadius ( 1000.0f ) ;
+  bsphere . setCenter ( 0, 0, 0 ) ;
+}   // recalcBSphere
+// -----------------------------------------------------------------------------
+void SkidMark::SkidMarkPos::add(sgCoord* coord) {
+  // Width of the skidmark
+  const float width = 0.1f;
+
+  static float a = 1.0f;
+  sgVec3 pos;
+  sgSetVec3(pos,
+            coord->xyz[0] + sgSin(coord->hpr[0]+a*90) * width,
+            coord->xyz[1] - sgCos(coord->hpr[0]+a*90) * width,
+            coord->xyz[2] + track_offset);
+  vertices->add(pos);
+
+  sgSetVec3(pos,
+            coord->xyz[0] + sgSin(coord->hpr[0]-a*90) * width,
+            coord->xyz[1] - sgCos(coord->hpr[0]-a*90) * width,
+            coord->xyz[2] + track_offset);
+  vertices->add(pos);
+  a = (a > 0.0f ? -1.0f : 1.0f);
+
+  sgVec3 norm;
+  sgSetVec3(norm, 0, 0, 1);
+  normals->add(norm); normals->add(norm);
+
+  sgVec4 color;
+  sgSetVec4(color, 0.07f, 0.07f, 0.07f, 0.8f);
+  colours->add(color); colours->add(color);
+}   // add
+// -----------------------------------------------------------------------------
+void SkidMark::SkidMarkPos::addEnd(sgCoord* coord) {
   // Width of the skidmark
   const float width = 0.1f;
 
@@ -190,17 +191,10 @@ SkidMark::SkidMarkPos::addEnd(sgCoord* coord)
   sgVec4 color;
   sgSetVec4(color, 0.15f, 0.15f, 0.15f, 0.0f);
   colours->add(color); colours->add(color);
-}
-void
-SkidMark::SkidMarkPos::recalcBSphere()
-{
-  bsphere . setRadius ( 1000.0f ) ;
-  bsphere . setCenter ( 0, 0, 0 ) ;
-}
+}   // addEnd
 
-bool
-SkidMark::wasSkidMarking() const
-{
-  return SkidMarking;
-}
+
+
+
+
 /* EOF */
