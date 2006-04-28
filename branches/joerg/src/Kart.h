@@ -51,24 +51,25 @@ protected:
   Attachment   attachment;
   Collectable  collectable;
 
-  int          grid_position ;
+  int          grid_position;
   int          racePosition;
   bool         powersliding;
-  KartControl  controls;     /* The position of the karts controlls */
-  unsigned int trackHint ;   /* index in driveline                  */
+  KartControl  controls;           // The position of the karts controlls 
+  unsigned int trackHint;          // index in driveline                  
   float        ZipperTimeLeft;
-  sgVec2       last_track_coords ;
-  sgVec2       curr_track_coords ;
-  //FIXME: is the variable steer_angle ever used?
-  //Supposedly it's used for Camera.cxx but that part of the code is never called...
-  float        steer_angle ;
+  sgVec2       last_track_coords;
+  sgVec2       curr_track_coords;
+  float        prevAccel;          // acceleration at previous time step
+  float        steer_angle;
+  float        throttle;
+  bool         skidding;           // true if the kart is currently skidding
 
 private:
-  int                 num_herring_gobbled ;
-  ssgSimpleState*     smokepuff ;
+  int                 num_herring_gobbled;
+  ssgSimpleState*     smokepuff;
   // don't delete the following 2 vars (they're kids in the hirarchy)
-  KartParticleSystem* smoke_system ;
-  ssgTransform*       exhaust_pipe ;
+  KartParticleSystem* smoke_system;
+  ssgTransform*       exhaust_pipe;
 
   float               wheel_position;
   ssgTransform*       wheel_front_l;
@@ -81,7 +82,6 @@ private:
   
   int                 raceLap;             // number of finished(!) laps
   int                 finishingPosition;    // saves the end rank
-  float               throttle;
   float               brake;
  protected:
   int                 rescue;
@@ -131,6 +131,19 @@ public:
   void           handleMagnet        (float cdist, int closest);
   void           doZipperProcessing  (float dt);
   void           updatePhysics       (float dt);
+
+  // Functions to access the current kart properties (which might get changed,
+  // e.g. mass increase or air_friction increase depending on attachment etc.)
+  // -------------------------------------------------------------------------
+  float          getMass          () const {return kart_properties->mass;      }
+  float          getAirFriction   () const {return kart_properties->air_friction;}
+  float          getRollResistance() const {return kart_properties->roll_resistance;}
+  float          getMaxPower      () const {return kart_properties->engine_power;}
+  float          getWheelBase     () const {return kart_properties->wheel_base;}
+  float          getHeightCOG     () const {return kart_properties->heightCOG; }
+  float          getTireGrip      () const {return kart_properties->tire_grip; }
+
+
   virtual void   collectedHerring    (Herring* herring);
   virtual void   reset               ();
   virtual void   handleZipper        ();

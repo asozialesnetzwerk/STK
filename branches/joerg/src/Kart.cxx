@@ -325,11 +325,11 @@ void Kart::update (float dt) {
 #define max(m,n) ((m)>(n) ? (m) : (n))	/* return highest number */
 #define min(m,n) ((m)<(n) ? (m) : (n))	/* return lowest number */
 
-static inline float _lateralForce (const KartProperties *properties,
+static inline float _lateralForce (const Kart* kart,
 				   float cornering, float sideslip) {
-  return ( max(-properties->max_grip,
-	       min(properties->max_grip, cornering * sideslip))
-	   * properties->mass * 9.82 / 2 );
+  return ( max(-kart->getTireGrip(),
+	       min(kart->getTireGrip(), cornering * sideslip))
+	   * kart->getMass() * 9.82 / 2 );
 }   // _lateralForce
 
 // -----------------------------------------------------------------------------
@@ -365,9 +365,9 @@ void Kart::updatePhysics (float dt) {
                            velocity.xyz[1]);
    
   /*----- Lateral Forces -----*/
-  lateral_f[0] = _lateralForce(kart_properties, kart_properties->corn_f,
+  lateral_f[0] = _lateralForce(this, kart_properties->corn_f,
 			       sideslip + wheel_rot_angle - steer_angle);
-  lateral_r[0] = _lateralForce(kart_properties, kart_properties->corn_r,
+  lateral_r[0] = _lateralForce(this, kart_properties->corn_r,
 			       sideslip - wheel_rot_angle);
    
   // calculate traction
@@ -376,11 +376,11 @@ void Kart::updatePhysics (float dt) {
   
   // apply air friction and system friction
   resistance[0] -= velocity.xyz[0] * fabs (velocity.xyz[0])
-                 * kart_properties->air_friction;
+                 * getAirFriction();
   resistance[1] -= velocity.xyz[1] * fabs (velocity.xyz[1])
-                 * kart_properties->air_friction;
-  resistance[0] -= 10 * kart_properties->system_friction * velocity.xyz[0];
-  resistance[1] -= kart_properties->system_friction * velocity.xyz[1];
+                 * getAirFriction();
+  resistance[0] -= 10 * getRollResistance() * velocity.xyz[0];
+  resistance[1] -= getRollResistance() * velocity.xyz[1];
    
   // sum forces
   force[0] = traction[0] + cos(steer_angle)*lateral_f[0] + lateral_r[1]

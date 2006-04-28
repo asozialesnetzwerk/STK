@@ -26,46 +26,41 @@
 class Material;
 class ssgEntity;
 
-class KartProperties : public NoCopy
-{
-private:
+class KartProperties : public NoCopy {
+ private:
+
   Material* icon_material;
   ssgEntity* model;
-
-public:
-  /** The human readable Name of the karts driver */
-  std::string name;
-
-  /** The computer readable-name of the karts driver */
-  std::string ident;
-
-  /** Filename of the 3d model that is used for things kart */
-  std::string model_file;
-
-  /** Filename of the icon that represents the kart in the
-      statusbar and the character select screen */
-  std::string icon_file;
-
-  /** Filename of the image file that contains the shadow for this
-      kart */
-  std::string shadow_file;
-
-  /** Color the represents the kart in the status bar and on the
-      track-view */
-  float       color[3];
   
-  /** Physic properties */
-  float max_grip;
+ public:
+  /* Display and gui */
+  /* --------------- */
+  std::string name;         // The human readable Name of the karts driver
+  std::string ident;        // The computer readable-name of the karts driver
+  std::string model_file;   // Filename of 3d model that is used for kart
+  std::string icon_file;    // Filename of icon that represents the kart in
+			    // the statusbar and the character select screen  
+  std::string shadow_file;  // Filename of the image file that contains the 
+			    // shadow for this kart
+  float       color[3];     // Color the represents the kart in the status
+			    // bar and on the track-view
+  
+  /* Physic properties */
+  /* ----------------- */
+  float mass;               // weight of kart
+  float air_friction;       // air friction
+  float roll_resistance;    // rolling resistance etc
+  float wheel_base;         // distance between front and read wheels
+  float heightCOG;          // height of center of gravity
+  float engine_power;       // maximum force from engine
+  float tire_grip;          // grip of tires in longitudinal direction
+
+  /** old properties */
   float corn_f;
   float corn_r;
-  float mass;
   float inertia;
   float turn_speed;
   float max_wheel_turn;
-  float engine_power;
-  float max_throttle;
-  float air_friction;
-  float system_friction;
 
   // ideally this constructor would be deleted
   KartProperties();
@@ -73,10 +68,10 @@ public:
 		 char *node="tuxkart-kart");
   ~KartProperties();
   
-  void init_defaults();
-  void loadModel();
-  Material* getIconMaterial() const;
-  ssgEntity* getModel() const;
+  void       init_defaults  ();
+  void       loadModel      ();
+  Material*  getIconMaterial() const   { return icon_material; }
+  ssgEntity* getModel       () const   { return model;         }
 };
 
 #endif

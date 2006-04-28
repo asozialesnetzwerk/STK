@@ -28,15 +28,14 @@
 #include "StringUtils.h"
 #include "KartProperties.h"
 
-KartProperties::KartProperties()
-{
+KartProperties::KartProperties() {
   init_defaults();
-}
+}   // KartProperties
 
+// -----------------------------------------------------------------------------
 KartProperties::KartProperties(const std::string& filename,
 			       char *node)
-    : icon_material(0), model(0)
-{
+              : icon_material(0), model(0) {
   init_defaults();
 
   const lisp::Lisp* root = 0;
@@ -62,15 +61,16 @@ KartProperties::KartProperties(const std::string& filename,
     lisp->get("green",   color[1]);
     lisp->get("blue",    color[2]);
 
-    lisp->get("max-grip",       max_grip);
+    lisp->get("tire-grip",      tire_grip);
     lisp->get("corn-f",         corn_f);
     lisp->get("corn-r",         corn_r);
     lisp->get("mass",           mass);
     lisp->get("inertia",        inertia);
     lisp->get("turn-speed",     turn_speed);
     lisp->get("max-wheel-turn", max_wheel_turn);
+    lisp->get("wheel-base",     wheel_base);
+    lisp->get("heightCOG",      heightCOG);
     lisp->get("engine-power",   engine_power);
-    lisp->get("max-throttle",   max_throttle);
     lisp->get("air-friction",   air_friction);
   } catch(std::exception& err) {
     std::cout << "Error while parsing KartProperties '" << filename
@@ -80,60 +80,49 @@ KartProperties::KartProperties(const std::string& filename,
 
   // load material
   icon_material = material_manager->getMaterial(icon_file.c_str());
-}
+}   // KartProperties
 
-KartProperties::~KartProperties()
-{
+// -----------------------------------------------------------------------------
+KartProperties::~KartProperties() {
   ssgDeRefDelete(model);
-}
+}   // ~KartProperties
 
-void
-KartProperties::init_defaults()
-{
+// -----------------------------------------------------------------------------
+void KartProperties::init_defaults() {
   // Default to a standard Tux configuration in case anything goes wrong
-  name = "Tux";
-  ident = "tux";
-  model_file = "tuxkart.ac";
-  icon_file = "tuxicon.png";
-  shadow_file = "tuxkartshadow.png";
+  name          = "Tux";
+  ident         = "tux";
+  model_file    = "tuxkart.ac";
+  icon_file     = "tuxicon.png";
+  shadow_file   = "tuxkartshadow.png";
   icon_material = NULL;
 
   color[0] = 1.0f;
   color[1] = 0.0f;
   color[2] = 0.0f;
-  
-  max_throttle    = 100;
-  engine_power    = 60;
+    
+  wheel_base      = 1.2f;
+  heightCOG       = 0.5f;
+  engine_power    = 100.0f;
+  roll_resistance = 4.8f;
+  mass            = 90;
+  air_friction    = 0.8257;
+  tire_grip       = 4.0f;
+
   corn_f          = -7.2f;
   corn_r          = -5.0;
-  mass            = 90;
   inertia         = 13;
   turn_speed      = M_PI;
   max_wheel_turn  = M_PI/2;
-  max_grip        = 4.0f;
-  air_friction    = 0.8257;
-  system_friction = 4.8f;
   
   model = NULL;
-}
+}   // init_defaults
 
+// -----------------------------------------------------------------------------
 void KartProperties::loadModel() {
   model = ssgLoadAC ( model_file.c_str(), loader ) ;
   preProcessObj(model, 0);
   model->ref();
-}
-
-
-Material*
-KartProperties::getIconMaterial() const
-{
-  return icon_material;
-}
-
-ssgEntity*
-KartProperties::getModel() const
-{
-  return model;
-}
+}   // loadModel
 
 /* EOF */

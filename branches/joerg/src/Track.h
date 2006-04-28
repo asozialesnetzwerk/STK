@@ -28,11 +28,12 @@
 #include <plib/sg.h>
 #include <string>
 #include <vector>
-class Track
-{
-  private:
+class Track {
+ private:
+    float       gravity;
     std::string ident;
-
+  
+ public:
     std::string name;
     std::string music_filename;
     std::string herringStyle;
@@ -96,38 +97,34 @@ public:
   int                spatialToTrack   (sgVec2 last_pos, sgVec3 xyz,
 				       int hint                    ) const ;
 
-  float              getTrackLength   () const {return total_distance ; }
-  const std::string& getIdent         () const {return ident; }
-  const std::string& getName          () const {return name; }
-  const std::string& getMusic         () const {return music_filename; }
-  const sgVec3& getSunPos        () const {return sun_position; }
-  const sgVec4& getAmbientCol    () const {return ambientcol; }
-  const sgVec4& getDiffuseCol    () const {return diffusecol; }
-  const sgVec4& getSpecularCol   () const {return specularcol;}
-  const bool&   useFog           () const {return use_fog;}
-  const sgVec4& getFogColor      () const {return fog_color;}
-  const float&  getFogDensity    () const {return fog_density;}
-  const float&  getFogStart      () const {return fog_start;}
-  const float&  getFogEnd        () const {return fog_end;}
-  const sgVec4& getSkyColor      () const {return sky_color;}
+  float              getGravity       () const {return gravity;       }
+  float              getTrackLength   () const {return total_distance;}
+  const std::string& getIdent         () const {return ident;         }
+  const std::string& getName          () const {return name;          }
+  const std::string& getMusic         () const {return music_filename;}
+  const sgVec3& getSunPos             () const {return sun_position;  }
+  const sgVec4& getAmbientCol         () const {return ambientcol;    }
+  const sgVec4& getDiffuseCol         () const {return diffusecol;    }
+  const sgVec4& getSpecularCol        () const {return specularcol;   }
+  const bool&   useFog                () const {return use_fog;       }
+  const sgVec4& getFogColor           () const {return fog_color;     }
+  const float&  getFogDensity         () const {return fog_density;   }
+  const float&  getFogStart           () const {return fog_start;     }
+  const float&  getFogEnd             () const {return fog_end;       }
+  const sgVec4& getSkyColor           () const {return sky_color;     }
   const std::vector<sgVec3Wrapper>& getDriveline () const {return driveline;}
-  const std::vector<SGfloat>& getWidth     () const {return path_width;}
-  const std::string& getHerringStyle  () const {return herringStyle;}
+  const std::vector<SGfloat>& getWidth() const {return path_width;    }
+  const std::string& getHerringStyle  () const {return herringStyle;  }
   void               glVtx            (sgVec2 v, float xoff, float yoff) const {
                                        glVertex2f(
                                        xoff+(v[0]-driveline_center[0])*scaleX,
-				       yoff+(v[1]-driveline_center[1])*scaleY );
-
-  }
+				       yoff+(v[1]-driveline_center[1])*scaleY);}
 
 private:
-  void loadTrack(const std::string& filename);
-  void loadDriveline();
-  void readDrivelineFromFile
-  (
-    std::vector<sgVec3Wrapper>& line,
-    const std::string& file_ext
-  );
-};
+  void loadTrack                      (const std::string& filename);
+  void loadDriveline                  ();
+  void readDrivelineFromFile          (std::vector<sgVec3Wrapper>& line,
+				       const std::string& file_ext      );
+};   // class Track
 
 #endif
