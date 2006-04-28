@@ -156,6 +156,7 @@ TimeTrialMode::start()
 {
   RaceSetup raceSetup;
 
+  raceSetup.mode       = RaceSetup::RM_TIME_TRIAL;
   raceSetup.track = track;
   raceSetup.karts.push_back(kart);
   raceSetup.players.push_back(0);

@@ -218,9 +218,10 @@ void World::checkRaceStatus() {
     ready_set_go = 2;
   }
 
-  /*if all players have finished, or if only one kart is not finished, the
-    race is over. Players are the last in the vector, so substracting the
-    number of players finds the first player's position.*/
+  /*if all players have finished, or if only one kart is not finished when
+    not in time trial mode, the race is over. Players are the last in the
+    vector, so substracting the number of players finds the first player's
+    position.*/
   unsigned int finished_karts = 0;
   unsigned int finished_plyrs = 0;
   for ( Karts::size_type i = 0; i < kart.size(); ++i)
@@ -232,7 +233,7 @@ void World::checkRaceStatus() {
       }
   }
   if(finished_plyrs == raceSetup.players.size()) phase = FINISH_PHASE;
-  else if(finished_karts == kart.size() - 1) phase = FINISH_PHASE;
+  else if(finished_karts == kart.size() - 1 && raceSetup.mode != RaceSetup::RM_TIME_TRIAL) phase = FINISH_PHASE;
 }
 
 void
