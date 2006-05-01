@@ -1,7 +1,0 @@
-;; -*- mode: lisp -*-
-
-(tuxkart-cup
- (name "Herring Cup")
- (tracks "volcano" "race" "subseatrack"))
-
-;; EOF ;;

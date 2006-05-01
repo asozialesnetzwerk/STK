@@ -1,7 +1,0 @@
-;; -*- mode: lisp -*-
-
-(tuxkart-track
- (name "Volcano"))
-
-;; EOF ;;
-
