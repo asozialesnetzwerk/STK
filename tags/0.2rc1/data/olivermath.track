@@ -1,0 +1,10 @@
+;; -*- mode: lisp -*-
+
+(tuxkart-track
+ (name "Oliver's Math Class")
+ (description "Created by Oliver&Steve Baker")
+ (music "mods/Boom_boom_boom.mod")
+)
+
+;; EOF ;;
+

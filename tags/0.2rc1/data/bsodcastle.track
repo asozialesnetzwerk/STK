@@ -1,0 +1,10 @@
+;; -*- mode: lisp -*-
+
+(tuxkart-track
+ (name "BSODs Battlements")
+ (description "Created by Oliver&Steve Baker")
+ (music "mods/tuxr.mod")
+)
+
+;; EOF ;;
+
