@@ -1,0 +1,11 @@
+;; -*- mode: lisp -*-
+
+(tuxkart-track
+ (name "Geeko Peak")
+ (description "Created by Oliver & Steve Baker")
+ (music "mods/tk2.mod")
+ (screenshot "images/sshot-geekopeak.rgb")
+)
+
+;; EOF ;;
+

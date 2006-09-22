@@ -1,0 +1,72 @@
+SuperTuxKart - Release 0.2
+==========================
+SuperTuxKart is a new and improved version
+of tuxkart.
+
+http://supertuxkart.berlios.de/
+
+Project Leaders:
+-----------------
+   Joerg Henrichs (hiker)
+         - port from GotM supertuxkart into a 
+           playable game
+         - performance optimisation
+         - general redesign and bugfixes
+         - physics (in progress)
+
+   Eduardo Hernandez Munoz (coz)
+         - AI for computer karts
+         - general redesign and bugfixes
+         - improving art
+
+We would like to dedicate this version
+to the Linux Game-of-the-Month team, who
+did most of the graphical improvements.
+
+
+Additional coding:
+--------------------
+   Patrick Ammann
+         - bug fixes, code cleanup
+         - OpenAL support (in progress)
+
+
+    
+Previous releases
+=================
+
+Game of the Month group:
+----------------------------
+http://happypenguin.org/forums/viewforum.php?f=21
+
+   Ingo Ruhnke
+   Matthias Braun
+   James Gregory
+   Jacob Persson
+   Paul Carley
+   Craig Keogh
+   Pascal Giard
+   Caleb Sawtell
+   Ricardo Cruz
+   Oliver Jeeves
+   Jacob Persson
+   Willian Padovani Germano
+
+Original Tuxkart Design:
+--------------------------
+   Steve Baker
+   http://www.sjbaker.org/
+
+Models and Track Design:
+----------------------------
+   Original TuxKart models:
+   Steve Baker, Oliver Baker
+
+   New SuperTuxKart models:
+   Ingo Ruhnke
+
+Music:
+-------
+   Matt Thomas
+   
+

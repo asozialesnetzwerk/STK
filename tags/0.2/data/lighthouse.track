@@ -1,0 +1,10 @@
+;; -*- mode: lisp -*-
+
+(tuxkart-track
+ (name "Around the Lighthouse")
+ (description "Created by Ingo Ruhnke")
+ (music "mods/tk2.mod")
+ (screenshot "images/sshot-lighthouse.rgb")
+)
+
+;; EOF ;;
