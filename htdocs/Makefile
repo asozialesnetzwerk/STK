@@ -36,7 +36,7 @@ upload: berlios
 commit: berlios
 
 berlios: all
-	rsync -Ctrv . grumbel@shell.berlios.de:/home/groups/supertuxkart/htdocs/
+	rsync -Ctrv . sik0fewl@shell.berlios.de:/home/groups/supertuxkart/htdocs/
 
 .PHONY: all clean upload
 
