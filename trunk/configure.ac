@@ -11,7 +11,7 @@ dnl Initialize the automake stuff
 dnl set the $host variable based on local machine/os
 dnl ================================================
 AC_CANONICAL_TARGET
-AM_INIT_AUTOMAKE(supertuxkart, 0.3alpha)
+AM_INIT_AUTOMAKE(supertuxkart, 0.3SVN)
 
 dnl ===================
 dnl Check for compilers
@@ -62,9 +62,6 @@ dnl instead of AL/al.h.
 case "${host}" in
 *darwin*|*macosx*)
     opengl_LIBS="$LIBS -framework Carbon -framework OpenGL -framework IOKit -framework AGL"
-    if test x$have_al_lib = xyes; then
-       AC_CHECK_HEADER(OpenAL/al.h, have_al_hdr=yes)
-    fi
     ;;
 
 *-*-cygwin* | *-*-mingw32*)
@@ -78,9 +75,6 @@ case "${host}" in
     joystick_LIBS="$joystick_LIBS -lwinmm"
 
     echo "Will link apps with $LIBS"
-    if test x$have_al_lib = xyes; then
-       AC_CHECK_HEADER(AL/al.h, have_al_hdr=yes)
-    fi
     ;;
 
 *)
@@ -93,9 +87,6 @@ case "${host}" in
    if test "x$ac_cv_search_glNewList" = "x-lGLcore"; then
        dnl if GLcore found, then also check for GL
        AC_SEARCH_LIBS(glXCreateContext, GL)
-   fi
-   if test x$have_al_lib = xyes; then
-      AC_CHECK_HEADER(AL/al.h, have_al_hdr=yes)
    fi
    ;;
 esac
