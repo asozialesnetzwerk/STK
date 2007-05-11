@@ -760,31 +760,8 @@ void World::loadTrack()
             trans       -> addKid    ( lod   ) ;
             m_track_branch -> addKid ( trans ) ;
             lod         -> setRanges ( r, 2  ) ;
-#ifdef DEBUG_SHOW_DRIVEPOINTS
-            ssgaSphere *sphere;
-            sgVec3 center;
-            sgVec4 colour;
-            for(unsigned int i = 0; i < m_track->m_driveline.size(); ++i)
-            {
-                sphere = new ssgaSphere;
-                sgCopyVec3(center, m_track->m_driveline[i]);
-                sphere->setCenter(center);
-                sphere->setSize(m_track->getWidth()[i] / 4.0f);
-
-                if(i == 0)
-                {
-                    colour[0] = colour[2] = colour[3] = 255;
-                    colour[1] = 0;
-                }
-                else
-                {
-                    colour[0] = colour[1] = colour[3] = 255;
-                    colour[2] = 0;
-                }
-                sphere->setColour(colour);
-                m_scene->addKid(sphere);
-            }
-#endif
+            if(user_config->m_track_debug)
+                m_track->addDebugToScene(m_scene,user_config->m_track_debug);
 
         }
         else
@@ -799,7 +776,7 @@ void World::loadTrack()
 
     fclose ( fd ) ;
 #ifdef BULLET
-            m_physics->setTrack(m_track_branch);
+    m_physics->setTrack(m_track_branch);
 #endif
 }   // loadTrack
 

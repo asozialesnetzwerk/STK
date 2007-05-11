@@ -125,6 +125,14 @@ int handleCmdLine(int argc, char **argv)
         {
             user_config->m_keyboard_debug=true;
         }
+        else if(sscanf(argv[i], "--track-debug=%d",&n)==1)
+        {
+            user_config->m_track_debug=n;
+        }
+        else if(!strcmp(argv[i], "--track-debug"))
+        {
+            user_config->m_track_debug=1;
+        }
         else if( (!strcmp(argv[i], "--kart") && i+1<argc ))
         {
             race_manager->setPlayerKart(0, argv[i+1]);

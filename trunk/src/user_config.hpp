@@ -64,6 +64,7 @@ private:
                     Player& player);
 public:
     bool        m_keyboard_debug;
+    int         m_track_debug;
     bool        m_fullscreen;
     bool        m_no_start_screen;
     bool        m_sfx;

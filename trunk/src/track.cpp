@@ -20,6 +20,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <sstream>
+#include <plib/ssgAux.h>
 #include "loader.hpp"
 #include "track.hpp"
 #include "string_utils.hpp"
@@ -373,6 +374,66 @@ bool Track::isShortcut(const int OLDSEC, const int NEWSEC) const
         distance_sectors = m_driveline.size() - distance_sectors;
     return (distance_sectors>stk_config->m_shortcut_segments);
 }   // isShortcut
+
+//-----------------------------------------------------------------------------
+void Track::addDebugToScene(ssgRoot *scene, int type) const
+{
+    if(type&1)
+    {
+        ssgaSphere *sphere;
+        sgVec3 center;
+        sgVec4 colour;
+        for(unsigned int i = 0; i < m_driveline.size(); ++i)
+        {
+            sphere = new ssgaSphere;
+            sgCopyVec3(center, m_driveline[i]);
+            sphere->setCenter(center);
+            sphere->setSize(getWidth()[i] / 4.0f);
+        
+            if(i == 0)
+            {
+                colour[0] = colour[2] = colour[3] = 255;
+                colour[1] = 0;
+            }
+            else
+            {
+                colour[0] = colour[1] = colour[3] = 255;
+                colour[2] = 0;
+            }
+            sphere->setColour(colour);
+            scene->addKid(sphere);
+        }   // for i
+    }  /// type ==1
+    if(type&2)
+    {
+        ssgVertexArray* v_array = new ssgVertexArray();
+        ssgColourArray* c_array = new ssgColourArray();
+        for(unsigned int i = 0; i < m_driveline.size(); i++)
+        {
+            int ip1 = i==m_driveline.size()-1 ? 0 : i+1;
+            // The segment display must be slightly higher than the
+            // track, otherwise it's not clearly visible.
+            sgVec3 v;
+            sgCopyVec3(v,m_left_driveline [i  ]); v[2]+=0.1; v_array->add(v);
+            sgCopyVec3(v,m_right_driveline[i  ]); v[2]+=0.1; v_array->add(v);
+            sgCopyVec3(v,m_right_driveline[ip1]); v[2]+=0.1; v_array->add(v);
+            sgCopyVec3(v,m_left_driveline [ip1]); v[2]+=0.1; v_array->add(v);
+            sgVec4 vc;
+            vc[0] = i%2==0 ? 1.0f : 0.0f;
+            vc[1] = 1.0f-v[0];
+            vc[2] = 0;
+            vc[3] = 0.1;
+            c_array->add(vc);c_array->add(vc);c_array->add(vc);c_array->add(vc);
+        }   // for i
+        // if GL_QUAD_STRIP is used, the colours are smoothed, so the changes
+        // from one segment to the next are not visible.
+        ssgVtxTable* l = new ssgVtxTable(GL_QUADS, v_array,
+                                         (ssgNormalArray*)NULL,
+                                         (ssgTexCoordArray*)NULL,
+                                         c_array);
+        scene->addKid(l);
+    }
+}   // addDebugToScene
 
 //-----------------------------------------------------------------------------
 /** It's not the nicest solution to have two very similar version of a function,

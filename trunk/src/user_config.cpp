@@ -108,6 +108,7 @@ void UserConfig::setDefaults()
 {
     setFilename();
     m_keyboard_debug   = false;
+    m_track_debug      = 0;
     m_fullscreen       = false;
     m_no_start_screen  = false;
     m_sfx              = true;
