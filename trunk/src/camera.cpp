@@ -156,8 +156,6 @@ void Camera::apply ()
     int width  = user_config->m_width ;
     int height = user_config->m_height;
 
-    assert ( world->m_scene != NULL ) ;
-
     glViewport ( (int)((float)width  * m_x),
                  (int)((float)height * m_y),
                  (int)((float)width  * m_w),

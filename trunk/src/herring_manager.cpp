@@ -20,7 +20,6 @@
 #include <stdexcept>
 #include <string>
 #include <sstream>
-#include "preprocessor.hpp"
 #include "user_config.hpp"
 #include "herring_manager.hpp"
 #include "loader.hpp"
@@ -133,7 +132,6 @@ void HerringManager::loadDefaultHerrings()
             std::string shortName = StringUtils::without_extension(*i);
             h->ref();
             h->setName(shortName.c_str());
-            preProcessObj(h);
             m_all_models[shortName] = h;
         }   // for i
 
@@ -324,7 +322,6 @@ void HerringManager::CreateDefaultHerring(sgVec3 colour, std::string name)
     tr -> addKid ( sh -> getRoot () ) ;
     tr -> addKid ( gset ) ;
     tr -> ref () ; /* Make sure it doesn't get deleted by mistake */
-    preProcessObj(tr);
     m_all_models[name] = tr;
 
 }   // CreateDefaultHerring

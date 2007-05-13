@@ -1,8 +1,7 @@
-//  $Id$
+//  $Id: screen_manager.hpp 855 2006-11-17 01:50:37Z coz $
 //
 //  SuperTuxKart - a fun racing game with go-kart
-//  Copyright (C) 2004-2005 Steve Baker <sjbaker1@airmail.net>
-//  Copyright (C) 2006 SuperTuxKart-Team, Steve Baker
+//  Copyright (C) 2004 Ingo Ruhnke <grumbel@gmx.de>
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -18,40 +17,30 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
-#ifndef HEADER_CAMERA_H
-#define HEADER_CAMERA_H
+#ifndef HEADER_SCREENMANAGER_H
+#define HEADER_SCREENMANAGER_H
+#include <SDL/SDL_stdinc.h>
 
-class ssgContext;
-
-class Camera
+/** Management class for the whole gameflow, this is where the
+    main-loop is */
+class GameManager
 {
-public:
-    enum Mode {
-        CM_NORMAL,
-        CM_CLOSEUP,
-        //FIXME: NO_FAKE_DRIFT is broken
-        CM_NO_FAKE_DRIFT,
-        CM_SIMPLE_REPLAY
-    };
-protected:
-    ssgContext *m_context  ;
+private:
+    bool m_abort;
 
-    int    m_which_kart ;
-    Mode m_mode;
-    float m_last_steer_offset;
-    float m_x, m_y, m_w, m_h ;
+    int      m_frame_count;
+    bool     m_started;
+    Uint32   m_curr_time;
+    Uint32   m_prev_time;
 
 public:
-    Camera ( int numPlayers, int id ) ;
+    GameManager();
+    ~GameManager();
+    void run();
+    void abort();
+};
 
-    /** Set the camera to the given mode */
-    void setMode(Mode mode_);
-
-    void setScreenPosition ( int numPlayers, int pos ) ;
-
-    void update () ;
-    void apply  () ;
-} ;
+extern GameManager* game_manager;
 
 #endif
 

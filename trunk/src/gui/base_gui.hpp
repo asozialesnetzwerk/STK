@@ -35,6 +35,7 @@ public:
     virtual void inputKeyboard(int key, int pressed);
     void  TimeToString(const float time, char *s);
 protected:
+
     int m_menu_id;
 };
 

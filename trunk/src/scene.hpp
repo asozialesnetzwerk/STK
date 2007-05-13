@@ -1,8 +1,6 @@
-//  $Id$
 //
 //  SuperTuxKart - a fun racing game with go-kart
-//  Copyright (C) 2004-2005 Steve Baker <sjbaker1@airmail.net>
-//  Copyright (C) 2006 SuperTuxKart-Team, Steve Baker
+//  Copyright (C) 2004 SuperTuxKart-Team
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -18,41 +16,37 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
-#ifndef HEADER_CAMERA_H
-#define HEADER_CAMERA_H
+#ifndef HEADER_SCENE_H
+#define HEADER_SCENE_H
 
-class ssgContext;
+//FIXME: make the camera a pointer to vector so it can be forward declared.
+#include <vector>
+//#include <plib/ssg.h>
 
-class Camera
+class ssgRoot;
+class ssgEntity;
+class Camera;
+
+class Scene
 {
-public:
-    enum Mode {
-        CM_NORMAL,
-        CM_CLOSEUP,
-        //FIXME: NO_FAKE_DRIFT is broken
-        CM_NO_FAKE_DRIFT,
-        CM_SIMPLE_REPLAY
-    };
-protected:
-    ssgContext *m_context  ;
-
-    int    m_which_kart ;
-    Mode m_mode;
-    float m_last_steer_offset;
-    float m_x, m_y, m_w, m_h ;
+    ssgRoot *m_scenegraph;
+    typedef std::vector<Camera*> Cameras;
+    Cameras m_cameras;
 
 public:
-    Camera ( int numPlayers, int id ) ;
+    void clear();
 
-    /** Set the camera to the given mode */
-    void setMode(Mode mode_);
+    Scene  ();
+    ~Scene ();
 
-    void setScreenPosition ( int numPlayers, int pos ) ;
+    void add(ssgEntity *kid);
+    void remove(ssgEntity *kid);
+    void draw();
+    void set_race_cameras(int num_players);
 
-    void update () ;
-    void apply  () ;
-} ;
+    //TODO: add camera
+};
+
+extern Scene *scene;
 
 #endif
-
-/* EOF */

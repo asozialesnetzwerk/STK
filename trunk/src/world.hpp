@@ -36,8 +36,6 @@
 class World
 {
 public:
-    ssgRoot      *m_scene;
-
     typedef std::vector<Kart*> Karts;
     float      m_clock;
 
@@ -96,8 +94,6 @@ public:
         return m_kart[kartId];
     }
     int  getNumKarts() const                  {return (int)m_kart.size();          }
-    void addToScene(ssgEntity *kid)           {m_scene->addKid(kid);               }
-    void removeFromScene(ssgEntity *kid)      {m_scene->removeKid(kid);            }
     void addCollisions(int kartNumber, int n) {m_number_collisions[kartNumber]+=n; }
 
     /** Returns the phase of the game */

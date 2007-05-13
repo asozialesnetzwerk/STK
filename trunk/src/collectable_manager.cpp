@@ -23,7 +23,6 @@
 #include "loader.hpp"
 #include "material_manager.hpp"
 #include "material.hpp"
-#include "preprocessor.hpp"
 #include "translation.hpp"
 #if defined(WIN32) && !defined(__CYGWIN__)
 #  define snprintf _snprintf
@@ -137,7 +136,6 @@ void CollectableManager::LoadNode(const lisp::Lisp* lisp, int collectType )
     {
         ssgEntity* e = loader->load(sModel, CB_COLLECTABLE);
         m_all_models[collectType] = e;
-        preProcessObj(e, 0);
         e->ref();
     }
     else

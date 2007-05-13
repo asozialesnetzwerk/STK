@@ -70,6 +70,7 @@ public:
     void applyToLeaf ( ssgLeaf *l ) ;
 
     ssgSimpleState *getState () { return m_state ; }
+    int getIndex             () { return m_index ; }
     void      apply    () { m_state -> apply ()  ; }
 
     char *getTexFname  () { return m_texname     ; }

@@ -38,6 +38,7 @@
 #endif
 #include "moving_texture.hpp"
 #include "translation.hpp"
+#include "material_manager.hpp"
 
 Loader* loader = 0;
 
@@ -219,9 +220,9 @@ void Loader::listFiles(std::set<std::string>& result, const std::string& dir)
     }   // listFiles
 
 //-----------------------------------------------------------------------------
-/** Loads a kart model
+/** Loads a .ac model
  *
- *  Loads the kart model 'filename'. Callbacks contained in this file
+ *  Loads the .ac model 'filename'. Callbacks contained in this file
  *  are stored in the callback class t. If optimise is set to false,
  *  the file will not be flattened, which is necessary for the kart
  *  models - flattening them will remove the wheel nodes, withouth
@@ -239,9 +240,46 @@ ssgEntity *Loader::load(const std::string& filename, CallbackType t,
                         bool optimise)
 {
     m_current_callback_type=t;
-    return optimise ? ssgLoad  (filename.c_str(), this)
-           : ssgLoadAC(filename.c_str(), this);
+    ssgEntity *obj = optimise ? ssgLoad(filename.c_str(), this) :
+           ssgLoadAC(filename.c_str(), this);
+    preProcessObj(obj, false);
+    return obj;
 }   // load
+
+//-----------------------------------------------------------------------------
+void Loader::preProcessObj ( ssgEntity *n, bool mirror )
+{
+    if ( n == NULL ) return ;
+
+    n -> dirtyBSphere () ;
+
+    if ( n -> isAKindOf ( ssgTypeLeaf() ) )
+    {
+        if ( mirror )
+            for ( int i = 0 ; i < ((ssgLeaf *)n) -> getNumVertices () ; i++ )
+                ((ssgLeaf *)n) -> getVertex ( i ) [ 0 ] *= -1.0f ;
+
+        material_manager->getMaterial ( (ssgLeaf *) n ) -> applyToLeaf ( (ssgLeaf *) n ) ;
+        return ;
+    }
+
+    if ( mirror && n -> isAKindOf ( ssgTypeTransform () ) )
+    {
+        sgMat4 xform ;
+
+        ((ssgTransform *)n) -> getTransform ( xform ) ;
+        xform [ 0 ][ 0 ] *= -1.0f ;
+        xform [ 1 ][ 0 ] *= -1.0f ;
+        xform [ 2 ][ 0 ] *= -1.0f ;
+        xform [ 3 ][ 0 ] *= -1.0f ;
+        ((ssgTransform *)n) -> setTransform ( xform ) ;
+    }
+
+    ssgBranch *b = (ssgBranch *) n ;
+
+    for ( int i = 0 ; i < b -> getNumKids () ; i++ )
+        preProcessObj ( b -> getKid ( i ), mirror ) ;
+}
 
 //-----------------------------------------------------------------------------
 ssgBranch *Loader::animInit (char *data ) const

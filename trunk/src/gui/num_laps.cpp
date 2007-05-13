@@ -19,7 +19,6 @@
 
 #include "num_laps.hpp"
 #include "race_manager.hpp"
-#include "start_screen.hpp"
 #include "widget_set.hpp"
 #include "menu_manager.hpp"
 #if defined(WIN32) && !defined(__CYGWIN__)
@@ -70,7 +69,7 @@ void NumLaps::select()
 	break;
       case 30:
         race_manager->setNumLaps(laps);
-        startScreen->switchToGame();
+        race_manager->start();
         break;
       case -1:
         menu_manager->popMenu();

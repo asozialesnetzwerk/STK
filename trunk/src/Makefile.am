@@ -56,7 +56,6 @@ supertuxkart_SOURCES =             main.cpp  			\
 	string_utils.cpp	   string_utils.hpp          	\
 	track_manager.cpp	   track_manager.hpp         	\
 	world.cpp		   world.hpp                	\
-	preprocessor.cpp	   preprocessor.hpp	        \
 	callback.hpp		   music.hpp			\
 	sfx.hpp							\
 	moving_physics.hpp	   moving_physics.cpp		\
@@ -65,11 +64,8 @@ supertuxkart_SOURCES =             main.cpp  			\
 	physics.cpp                physics.hpp                  \
 	skid_mark.cpp		   skid_mark.hpp	        \
 	shadow.cpp		   shadow.hpp	        	\
-	start_screen.cpp	   start_screen.hpp	        \
-	world_screen.cpp	   world_screen.hpp	        \
-	empty_screen.cpp	   empty_screen.hpp	        \
 	particle_system.cpp	   particle_system.hpp       	\
-	screen_manager.cpp	   screen_manager.hpp        	\
+	game_manager.cpp	   game_manager.hpp        	\
 	widget_set.cpp		   widget_set.hpp	        \
 	camera.cpp		   camera.hpp	        	\
 	sdldrv.cpp		   sdldrv.hpp	        	\
@@ -80,11 +76,12 @@ supertuxkart_SOURCES =             main.cpp  			\
 	player_kart.cpp		   player_kart.hpp	        \
 	projectile.cpp 		   projectile.hpp	        \
 	history.cpp		   history.hpp	        	\
+	scene.hpp		   scene.cpp			\
 	race_setup.hpp	   	   no_copy.hpp	        	\
 	constants.hpp            	\
 	translation.hpp 					\
 	traffic.cpp 			  	        	\
-	player.hpp		   screen.hpp			\
+	player.hpp		   \
 	lisp/lisp.cpp		   lisp/lisp.hpp            	\
 	lisp/lexer.cpp		   lisp/lexer.hpp           	\
 	lisp/parser.cpp		   lisp/parser.hpp          	\

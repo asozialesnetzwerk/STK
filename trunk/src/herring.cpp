@@ -20,6 +20,7 @@
 #include "world.hpp"
 #include "herring.hpp"
 #include "kart.hpp"
+#include "scene.hpp"
 
 Herring::Herring(herringType _type, sgVec3* xyz, ssgEntity* model)
 {
@@ -34,7 +35,7 @@ Herring::Herring(herringType _type, sgVec3* xyz, ssgEntity* model)
     m_rotate->ref();
     m_rotate->addKid(model);
     m_root->addKid(m_rotate);
-    world->addToScene(m_root);
+    scene->add(m_root);
 
     m_type           = _type;
     m_eaten         = false;

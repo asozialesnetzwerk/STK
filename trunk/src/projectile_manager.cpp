@@ -17,13 +17,13 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
-#include "world.hpp"
 #include "loader.hpp"
 #include "projectile_manager.hpp"
 #include "projectile.hpp"
 #include "explosion.hpp"
 #include "collectable_manager.hpp"
 #include "collectable.hpp"
+#include "scene.hpp"
 
 static ssgSelector *find_selector ( ssgBranch *b );
 
@@ -69,7 +69,7 @@ void ProjectileManager::cleanup()
     for(Explosions::iterator i  = m_active_explosions.begin();
         i != m_active_explosions.end(); ++i)
     {
-        world->removeFromScene((ssgTransform*)*i);
+        scene->remove((ssgTransform*)*i);
         ssgDeRefDelete(*i);
     }
     m_active_explosions.clear();

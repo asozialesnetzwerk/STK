@@ -31,7 +31,6 @@
 #include <ctime>
 
 #include "world.hpp"
-#include "preprocessor.hpp"
 #include "herring_manager.hpp"
 #include "projectile_manager.hpp"
 #include "gui/menu_manager.hpp"
@@ -52,8 +51,7 @@
 #include "ssg_help.hpp"
 #include "translation.hpp"
 #include "highscore_manager.hpp"
-#include "gui/menu_manager.hpp"
-#include "gui/race_gui.hpp"
+#include "scene.hpp"
 
 #include "robots/default_robot.hpp"
 #if defined(WIN32) && !defined(__CYGWIN__)
@@ -75,7 +73,6 @@ World::World(const RaceSetup& raceSetup_) : m_race_setup(raceSetup_)
     world          = this;
     m_phase        = START_PHASE;
 
-    m_scene        = NULL;
     m_track        = NULL;
 
     m_clock        = 0.0f;
@@ -97,9 +94,8 @@ World::World(const RaceSetup& raceSetup_) : m_race_setup(raceSetup_)
     }
 
     // Start building the scene graph
-    m_scene       = new ssgRoot   ;
     m_track_branch = new ssgBranch ;
-    m_scene -> addKid ( m_track_branch ) ;
+    scene->add ( m_track_branch ) ;
 
     // Create the physics
     m_physics = new Physics(getGravity());
@@ -114,8 +110,7 @@ World::World(const RaceSetup& raceSetup_) : m_race_setup(raceSetup_)
     loadTrack   ( ) ;
 
     m_static_ssg = new StaticSSG(m_track_branch, 1000);
-    //  m_static_ssg->Draw(m_scene);
-    //  exit(-1);
+
     int pos = 0;
     int playerIndex = 0;
     for (RaceSetup::Karts::iterator i = m_race_setup.m_karts.begin() ;
@@ -167,7 +162,7 @@ World::World(const RaceSetup& raceSetup_) : m_race_setup(raceSetup_)
         }
         newkart -> getModel () -> clrTraversalMaskBits(SSGTRAV_ISECT|SSGTRAV_HOT);
 
-        m_scene -> addKid ( newkart -> getModel() ) ;
+        scene->add ( newkart -> getModel() ) ;
         m_kart.push_back(newkart);
         pos++;
     }  // for i
@@ -175,7 +170,6 @@ World::World(const RaceSetup& raceSetup_) : m_race_setup(raceSetup_)
     resetAllKarts();
     m_number_collisions = new int[m_race_setup.getNumKarts()];
     for(unsigned int i=0; i<m_race_setup.getNumKarts(); i++) m_number_collisions[i]=0;
-    preProcessObj ( m_scene ) ;
 
 #ifdef SSG_BACKFACE_COLLISIONS_SUPPORTED
     //ssgSetBackFaceCollisions ( m_race_setup.mirror ) ;
@@ -217,7 +211,6 @@ World::~World()
     m_kart.clear();
     projectile_manager->cleanup();
     delete [] m_number_collisions;
-    delete m_scene;
     delete m_physics;
 
     sound_manager -> stopMusic();
@@ -265,63 +258,6 @@ void World::resetAllKarts()
 //-----------------------------------------------------------------------------
 void World::draw()
 {
-
-    ssgGetLight ( 0 ) -> setPosition ( m_track->getSunPos() ) ;
-    ssgGetLight ( 0 ) -> setColour ( GL_AMBIENT , m_track->getAmbientCol()  ) ;
-    ssgGetLight ( 0 ) -> setColour ( GL_DIFFUSE , m_track->getDiffuseCol() ) ;
-    ssgGetLight ( 0 ) -> setColour ( GL_SPECULAR, m_track->getSpecularCol() ) ;
-
-#ifndef BULLETDEBUG
-    ssgCullAndDraw ( world->m_scene ) ;
-#else
-
-    // Use bullets debug drawer
-    GLfloat light_ambient[] = { 0.0, 0.0, 0.0, 1.0 };
-    GLfloat light_diffuse[] = { 1.0, 1.0, 1.0, 1.0 };
-    GLfloat light_specular[] = { 1.0, 1.0, 1.0, 1.0 };
-    /*	light_position is NOT default value	*/
-    GLfloat light_position0[] = { 1.0, 1.0, 1.0, 0.0 };
-    GLfloat light_position1[] = { -1.0, -1.0, -1.0, 0.0 };
-  
-    glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
-    glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse);
-    glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);
-    glLightfv(GL_LIGHT0, GL_POSITION, light_position0);
-  
-    glLightfv(GL_LIGHT1, GL_AMBIENT, light_ambient);
-    glLightfv(GL_LIGHT1, GL_DIFFUSE, light_diffuse);
-    glLightfv(GL_LIGHT1, GL_SPECULAR, light_specular);
-    glLightfv(GL_LIGHT1, GL_POSITION, light_position1);
-
-    glEnable(GL_LIGHTING);
-    glEnable(GL_LIGHT0);
-    glEnable(GL_LIGHT1);
- 
-
-    glShadeModel(GL_SMOOTH);
-    glEnable(GL_DEPTH_TEST);
-    glDepthFunc(GL_LESS);
-
-    glClearColor(0.8,0.8,0.8,0);
-
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    float f=2.0f;
-    glFrustum(-f, f, -f, f, 1.0, 1000.0);
-    
-    btVector3 pos;
-    sgCoord *c = getKart(getNumKarts()-1)->getCoord();
-    gluLookAt(c->xyz[0], c->xyz[1]-5.f, c->xyz[2]+4,
-              c->xyz[0], c->xyz[1],     c->xyz[2],
-              0.0f, 0.0f, 1.0f);
-    glMatrixMode(GL_MODELVIEW);
-
-    for ( Karts::size_type i = 0 ; i < m_kart.size(); ++i) 
-    {
-        m_kart[i]->draw();
-    }
-    m_physics->draw();
-#endif
 }
 
 //-----------------------------------------------------------------------------
@@ -761,7 +697,7 @@ void World::loadTrack()
             m_track_branch -> addKid ( trans ) ;
             lod         -> setRanges ( r, 2  ) ;
             if(user_config->m_track_debug)
-                m_track->addDebugToScene(m_scene,user_config->m_track_debug);
+                m_track->addDebugToScene(user_config->m_track_debug);
 
         }
         else

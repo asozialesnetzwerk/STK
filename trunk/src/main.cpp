@@ -47,8 +47,7 @@
 #include "projectile_manager.hpp"
 #include "race_manager.hpp"
 #include "loader.hpp"
-#include "screen_manager.hpp"
-#include "start_screen.hpp"
+#include "game_manager.hpp"
 #include "widget_set.hpp"
 #include "material_manager.hpp"
 #include "sdldrv.hpp"
@@ -60,6 +59,8 @@
 #include "stk_config.hpp"
 #include "translation.hpp"
 #include "highscore_manager.hpp"
+#include "gui/menu_manager.hpp"
+#include "scene.hpp"
 
 #ifdef BULLET
 #  ifdef __APPLE__
@@ -301,7 +302,6 @@ void InitTuxkart()
     projectile_manager      = new ProjectileManager    ();
     collectable_manager     = new CollectableManager   ();
     race_manager            = new RaceManager          ();
-    screen_manager          = new ScreenManager        ();
     callback_manager        = new CallbackManager      ();
     herring_manager         = new HerringManager       ();
     attachment_manager      = new AttachmentManager    ();
@@ -319,10 +319,13 @@ int main(int argc, char *argv[] )
         glutInit(&argc, argv);
 #endif
         InitTuxkart();
+
         //handleCmdLine() needs InitTuxkart() so it can't be called first
         if(!handleCmdLine(argc, argv)) exit(0);
 
+        //FIXME: this needs a better organization
         drv_init();
+        game_manager = new GameManager ();
         // loadMaterials needs ssgLoadTextures (internally), which can
         // only be called after ssgInit (since this adds the actual loader)
         // so this next call can't be in InitTuxkart. And InitPlib needs
@@ -334,8 +337,9 @@ int main(int argc, char *argv[] )
         collectable_manager     -> loadCollectables   ();
         herring_manager         -> loadDefaultHerrings();
         attachment_manager      -> loadModels         ();
-        startScreen = new StartScreen();
+        scene = new Scene();
         widgetSet   = new WidgetSet;
+        menu_manager->switchToMainMenu();
 
         // Replay a race
         // =============
@@ -343,8 +347,8 @@ int main(int argc, char *argv[] )
         {
             // This will setup the race manager etc.
             history->Load();
-            startScreen->switchToGame();
-            screen_manager->run();
+            race_manager->start();
+            game_manager->run();
             // well, actually run() will never return, since
             // it exits after replaying history (see history::GetNextDT()).
             // So the next line is just to make this obvious here!
@@ -355,16 +359,8 @@ int main(int argc, char *argv[] )
         // =============
         if(!user_config->m_profile)
         {
-            if(!user_config->m_no_start_screen)
+            if(user_config->m_no_start_screen)
             {
-                
-                // Normal multi window start
-                // =========================
-                screen_manager->setScreen(startScreen);
-            }
-            else
-            {
-
                 // Quickstart (-N)
                 // ===============
                 race_manager->setNumPlayers(1);
@@ -376,7 +372,7 @@ int main(int argc, char *argv[] )
                 //race_manager->setTrack     ("tuxtrack");
                 //race_manager->setTrack     ("sandtrack");
                 race_manager->setTrack     ("race");
-                startScreen->switchToGame();
+                race_manager->start();
             }
         }
         else  // profilie
@@ -389,9 +385,9 @@ int main(int argc, char *argv[] )
             race_manager->setRaceMode  (RaceSetup::RM_QUICK_RACE);
             race_manager->setDifficulty(RD_MEDIUM);
             race_manager->setNumLaps   (999999); // profile end depends on time
-            startScreen->switchToGame  ();
+            race_manager->start();
         }
-        screen_manager->run();
+        game_manager->run();
 
     }  // try
     catch (std::exception &e)

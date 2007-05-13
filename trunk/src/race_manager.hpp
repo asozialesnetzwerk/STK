@@ -136,6 +136,8 @@ private:
     int                              m_num_karts;
     unsigned int                     m_num_finished_karts;
     unsigned int                     m_num_finished_players;
+public:
+    bool                             m_active_race; //True if there is a race
 
 public:
     RaceManager();
@@ -165,6 +167,7 @@ public:
     void addFinishedKarts(int num)        { m_num_finished_karts += num;           }
     void PlayerFinishes()                 { m_num_finished_players++;          }
     int  allPlayerFinished()        {return m_num_finished_players==m_players.size();}
+    int  raceIsActive()                   {return m_active_race;}
 
     void setMirror() {/*FIXME*/}
     void setReverse(){/*FIXME*/}

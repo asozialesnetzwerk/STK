@@ -19,9 +19,9 @@
 
 #include <plib/ssg.h>
 #include "explosion.hpp"
-#include "world.hpp"
 #include "projectile_manager.hpp"
 #include "sound_manager.hpp"
+#include "scene.hpp"
 
 
 Explosion::Explosion(sgCoord* coord) : ssgTransform()
@@ -44,7 +44,7 @@ void Explosion::init(sgCoord* coord)
 
     setTransform(coord);
     m_step = -1;
-    world->addToScene(this);
+    scene->add(this);
 }
 
 //-----------------------------------------------------------------------------
@@ -54,7 +54,7 @@ void Explosion::update (float dt)
     if ( ++m_step >= m_seq->getNumKids() )
     {
         projectile_manager->FinishedExplosion();
-        world->removeFromScene((ssgTransform*)this);
+        scene->remove((ssgTransform*)this);
         return ;
     }
 

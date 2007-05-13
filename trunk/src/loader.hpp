@@ -57,6 +57,7 @@ private:
 
     void         makePath(char* path, const char* dir, const char* fname) const;
     ssgBranch   *createBranch(char *data) const;
+    void preProcessObj ( ssgEntity *n, bool mirror );
     ssgBranch   *animInit    (char *data) const;
 };
 

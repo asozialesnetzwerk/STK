@@ -22,13 +22,12 @@
 #include "loader.hpp"
 #include "track_manager.hpp"
 #include "race_setup.hpp"
-#include "screen_manager.hpp"
-#include "start_screen.hpp"
-#include "world_screen.hpp"
-#include "empty_screen.hpp"
+#include "game_manager.hpp"
 #include "kart_properties_manager.hpp"
 #include "race_manager.hpp"
 #include "gui/menu_manager.hpp"
+#include "world.hpp"
+#include "scene.hpp"
 
 RaceManager* race_manager= NULL;
 
@@ -43,8 +42,15 @@ RaceMode::next()
 void
 RaceMode::exit_race()
 {
-    startScreen = new StartScreen();
-    screen_manager->setScreen(startScreen);
+    menu_manager->switchToMainMenu();
+
+    delete world;
+    world = 0;
+
+    scene->clear();
+
+    race_manager->m_active_race = false;
+
 }
 
 //=============================================================================
@@ -100,7 +106,12 @@ GrandPrixMode::start_race(int n)
         }
     }
 
-    screen_manager->setScreen(new WorldScreen(raceSetup));
+    // the constructor assigns this object to the global
+    // variable world. Admittedly a bit ugly, but simplifies
+    // handling of objects which get created in the constructor
+    // and need world to be defined.
+    new World(raceSetup);
+    scene->set_race_cameras(raceSetup.getNumPlayers());
 }
 
 //-----------------------------------------------------------------------------
@@ -117,6 +128,7 @@ GrandPrixMode::next()
     m_track += 1;
     if (m_track < int(m_cup.m_tracks.size()))
     {
+        scene->clear();
         start_race(m_track);
 
     }
@@ -158,7 +170,7 @@ QuickRaceMode::start()
     raceSetup.m_mode       = RaceSetup::RM_QUICK_RACE;
     raceSetup.m_difficulty = m_difficulty;
     raceSetup.m_track      = m_track;
-    raceSetup.m_num_laps    = m_num_laps;
+    raceSetup.m_num_laps   = m_num_laps;
     raceSetup.m_karts.resize(m_num_karts);
 
     const int FIRST_PLAYER = m_num_karts - m_players.size();
@@ -170,7 +182,12 @@ QuickRaceMode::start()
 
     kart_properties_manager->fillWithRandomKarts(raceSetup.m_karts);
 
-    screen_manager->setScreen(new WorldScreen(raceSetup));
+    // the constructor assigns this object to the global
+    // variable world. Admittedly a bit ugly, but simplifies
+    // handling of objects which get created in the constructor
+    // and need world to be defined.
+    new World(raceSetup);
+    scene->set_race_cameras(raceSetup.getNumPlayers());
 }
 
 //=============================================================================
@@ -193,7 +210,12 @@ TimeTrialMode::start()
     raceSetup.m_karts.push_back(m_kart);
     raceSetup.m_players.push_back(0);
 
-    screen_manager->setScreen(new WorldScreen(raceSetup));
+    // the constructor assigns this object to the global
+    // variable world. Admittedly a bit ugly, but simplifies
+    // handling of objects which get created in the constructor
+    // and need world to be defined.
+    new World(raceSetup);
+    scene->set_race_cameras(raceSetup.getNumPlayers());
 }
 
 //=============================================================================
@@ -277,6 +299,8 @@ RaceManager::start()
     }
 
     m_mode->start();
+
+    m_active_race = true;
 }
 
 //-----------------------------------------------------------------------------

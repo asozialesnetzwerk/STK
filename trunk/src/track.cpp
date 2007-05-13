@@ -28,6 +28,7 @@
 #include "lisp/parser.hpp"
 #include "stk_config.hpp"
 #include "translation.hpp"
+#include "scene.hpp"
 #if defined(WIN32) && !defined(__CYGWIN__)
 #  define snprintf _snprintf
 #endif
@@ -376,7 +377,7 @@ bool Track::isShortcut(const int OLDSEC, const int NEWSEC) const
 }   // isShortcut
 
 //-----------------------------------------------------------------------------
-void Track::addDebugToScene(ssgRoot *scene, int type) const
+void Track::addDebugToScene(int type) const
 {
     if(type&1)
     {
@@ -401,7 +402,7 @@ void Track::addDebugToScene(ssgRoot *scene, int type) const
                 colour[2] = 0;
             }
             sphere->setColour(colour);
-            scene->addKid(sphere);
+            scene->add(sphere);
         }   // for i
     }  /// type ==1
     if(type&2)
@@ -431,7 +432,7 @@ void Track::addDebugToScene(ssgRoot *scene, int type) const
                                          (ssgNormalArray*)NULL,
                                          (ssgTexCoordArray*)NULL,
                                          c_array);
-        scene->addKid(l);
+        scene->add(l);
     }
 }   // addDebugToScene
 

@@ -18,7 +18,6 @@
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include <assert.h>
-#include <algorithm>
 
 #include "menu_manager.hpp"
 
@@ -38,8 +37,7 @@
 #include "race_results_gui.hpp"
 #include "grand_prix_ending.hpp"
 #include "race_manager.hpp"
-#include "screen_manager.hpp"
-#include "start_screen.hpp"
+#include "game_manager.hpp"
 #include "race_menu.hpp"
 #include "help_menu.hpp"
 #include "credits_menu.hpp"
@@ -139,7 +137,7 @@ void MenuManager::update()
                 break;
             case MENUID_EXITGAME:
                 m_menu_stack.clear();
-                screen_manager->abort();
+                game_manager->abort();
                 break;
 
             case MENUID_CONFIG_CONTROLS:

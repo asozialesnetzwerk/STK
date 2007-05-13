@@ -24,6 +24,7 @@
 #include "kart.hpp"
 #include "projectile_manager.hpp"
 #include "sound_manager.hpp"
+#include "scene.hpp"
 
 Projectile::Projectile(Kart *kart, int collectable) : Moveable(false)
 {
@@ -42,7 +43,7 @@ void Projectile::init(Kart *kart, int collectable_)
     ssgTransform *m    = getModel();
     m->addKid(collectable_manager->getModel(m_type));
     setCoord(kart->getCoord());
-    world->addToScene(m);
+    scene->add(m);
 }   // init
 
 //-----------------------------------------------------------------------------
@@ -170,7 +171,7 @@ void Projectile::explode()
     // Now remove this projectile from the graph:
     ssgTransform *m = getModel();
     m->removeAllKids();
-    world->removeFromScene(m);
+    scene->remove(m);
 }   // explode
 
 /* EOF */

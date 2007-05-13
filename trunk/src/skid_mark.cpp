@@ -17,7 +17,7 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
-#include "world.hpp"
+#include "scene.hpp"
 #include "skid_mark.hpp"
 
 float SkidMark::m_global_track_offset = 0.005f;
@@ -103,7 +103,7 @@ void SkidMark::addBreak(sgCoord* coord)
                                    SkidMarkColors,
                                    m_global_track_offset);
         new_skid_mark->ref();
-        world->m_scene->addKid(new_skid_mark);
+        scene->add(new_skid_mark);
         new_skid_mark-> setState (m_skid_state);
 
         m_skid_marks.push_back(new_skid_mark);

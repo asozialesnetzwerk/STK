@@ -20,23 +20,22 @@
 #include <sstream>
 #include <string>
 
+#include <SDL/SDL.h>
+
 #include "loader.hpp"
 #include "sound_manager.hpp"
 #include "grand_prix_ending.hpp"
 #include "kart_properties_manager.hpp"
-#include "preprocessor.hpp"
 #include "widget_set.hpp"
 #include "race_manager.hpp"
-#include "start_screen.hpp"
-#include "empty_screen.hpp"
-#include "screen_manager.hpp"
+#include "game_manager.hpp"
 #include "user_config.hpp"
 #include "menu_manager.hpp"
 #include "kart_properties.hpp"
 #include "translation.hpp"
 #include "kart.hpp"
 #include "world.hpp"
-#include "screen_manager.hpp"
+#include "scene.hpp"
 #if defined(WIN32) && !defined(__CYGWIN__)
 #  define snprintf _snprintf
 #endif
@@ -128,13 +127,18 @@ GrandPrixEnd::GrandPrixEnd()
     m_kart->ref();
     ssgEntity* kartentity = WINNING_KART->getModel();
     m_kart->addKid(kartentity);
-    preProcessObj ( m_kart, 0 );
 
     sound_manager->playSfx(SOUND_WINNER);
 
     m_clock = 0;
 
-    screen_manager->setScreen(new EmptyScreen());
+    //FIXME: this is taken from RaceMode::exit_race,
+    //this should be organized better.
+    delete world;
+    world = 0;
+    scene->clear();
+    race_manager->m_active_race = false;
+
 }
 
 //-----------------------------------------------------------------------------
@@ -185,14 +189,13 @@ void GrandPrixEnd::update(float dt)
 
     glDisable (GL_DEPTH_TEST);
     oldContext->makeCurrent();
-
     BaseGUI::update(dt);
+
+    SDL_GL_SwapBuffers();
 }
 
 //-----------------------------------------------------------------------------
 void GrandPrixEnd::select()
 {
-    startScreen = new StartScreen();
-    screen_manager->setScreen(startScreen);
     menu_manager->switchToMainMenu();
 }

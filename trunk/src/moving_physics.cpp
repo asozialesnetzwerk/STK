@@ -24,6 +24,7 @@
 #include "string_utils.hpp"
 #include "world.hpp"
 #include "ssg_help.hpp"
+#include "scene.hpp"
 
 #ifdef BULLET
 // -----------------------------------------------------------------------------
@@ -111,7 +112,7 @@ void MovingPhysics::init()
     ssgBranch *parent = getParent(0);
 
     parent->removeKid(this);
-    world->addToScene(this);
+    scene->add(this);
 
     // 2. Determine the original position of the object
     // ------------------------------------------------

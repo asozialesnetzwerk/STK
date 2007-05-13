@@ -24,7 +24,6 @@
 #include "lisp/parser.hpp"
 #include "lisp/lisp.hpp"
 #include "loader.hpp"
-#include "preprocessor.hpp"
 #include "string_utils.hpp"
 #include "kart_properties.hpp"
 #include "stk_config.hpp"
@@ -84,7 +83,6 @@ void KartProperties::load(const std::string filename, const std::string node)
     {
         m_model = loader->load(m_model_file, CB_KART, false);
         ssgStripify(m_model);
-        preProcessObj(m_model, 0);
         m_model->ref();
     }  // if
 

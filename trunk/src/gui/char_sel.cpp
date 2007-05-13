@@ -23,10 +23,8 @@
 #include "loader.hpp"
 #include "char_sel.hpp"
 #include "kart_properties_manager.hpp"
-#include "preprocessor.hpp"
 #include "widget_set.hpp"
 #include "race_manager.hpp"
-#include "start_screen.hpp"
 #include "user_config.hpp"
 #include "menu_manager.hpp"
 #include "kart_properties.hpp"
@@ -113,8 +111,6 @@ void CharSel::switchCharacter(int n)
         ssgEntity* kartentity = kp->getModel();
 
         m_kart->addKid(kartentity);
-
-        preProcessObj ( m_kart, 0 );
     }
 }
 
@@ -196,5 +192,5 @@ void CharSel::select()
     if (race_manager->getRaceMode() != RaceSetup::RM_GRAND_PRIX)
         menu_manager->pushMenu(MENUID_TRACKSEL);
     else
-        startScreen->switchToGame();
+        race_manager->start();
 }

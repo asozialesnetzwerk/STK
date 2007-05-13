@@ -36,6 +36,7 @@
 #include <cstdio>
 #include <iostream>
 #include "constants.hpp"
+#include "scene.hpp"
 #include "world.hpp"
 
 #include "default_robot.hpp"
@@ -574,7 +575,7 @@ void DefaultRobot::check_crashes( const int STEPS, sgVec3 const pos )
 #ifdef ERASE_PATH
         static ssgaSphere *last_sphere = 0;
 
-        if( last_sphere ) world->m_scene->removeKid( last_sphere );
+        if( last_sphere ) scene->remove( last_sphere );
 
         last_sphere = sphere;
 #endif
@@ -599,7 +600,7 @@ void DefaultRobot::check_crashes( const int STEPS, sgVec3 const pos )
             colour[3] = 255;
             sphere->setColour( colour );
         }
-        world->m_scene->addKid( sphere );
+        scene->add( sphere );
 #endif
 
         m_future_location[0] = step_coord[0]; m_future_location[1] =
@@ -687,7 +688,7 @@ void DefaultRobot::find_non_crashing_point( sgVec2 result )
 
                 static ssgaSphere *last_sphere = 0;
 
-                if(last_sphere) world->m_scene->removeKid( last_sphere );
+                if(last_sphere) scene->remove( last_sphere );
 
                 last_sphere = sphere;
 
@@ -703,7 +704,7 @@ void DefaultRobot::find_non_crashing_point( sgVec2 result )
                 colour[0] = colour[2] = 0;
                 sphere->setColour( colour );
 
-                world->m_scene->addKid( sphere );
+                scene->add( sphere );
 #endif
 
                 return;

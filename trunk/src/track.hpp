@@ -131,7 +131,7 @@ public:
                       float h=100, bool stretch=1);
     ~Track            ();
 
-    void               addDebugToScene  (ssgRoot *scene, int type    ) const;
+    void               addDebugToScene  (int type                    ) const;
     void               draw2Dview       (float x_offset,
                                          float y_offset              ) const;
     void               drawScaled2D     (float x, float y, float w,

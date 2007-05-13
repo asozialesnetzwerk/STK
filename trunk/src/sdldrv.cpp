@@ -27,14 +27,12 @@
 #include "widget_set.hpp"
 #include "material_manager.hpp"
 #include "kart_properties_manager.hpp"
-#include "start_screen.hpp"
-#include "screen_manager.hpp"
+#include "game_manager.hpp"
 #include "herring_manager.hpp"
 #include "collectable_manager.hpp"
 #include "attachment_manager.hpp"
 #include "projectile_manager.hpp"
 #include "loader.hpp"
-#include "screen_manager.hpp"
 #include "gui/menu_manager.hpp"
 #include "player.hpp"
 
@@ -47,7 +45,7 @@ SDL_Joystick **sticks;
 //-----------------------------------------------------------------------------
 void drv_init()
 {
-    SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK);
+    SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK | SDL_INIT_TIMER);
 
     flags = SDL_OPENGL | SDL_HWSURFACE;
 
@@ -155,7 +153,7 @@ void drv_loop()
         switch(ev.type)
         {
         case SDL_QUIT:
-            screen_manager->abort();
+            game_manager->abort();
             break;
 
         case SDL_KEYDOWN:
@@ -226,12 +224,5 @@ void drv_loop()
                   ev.jbutton.state);
             break;
         }  // switch
-
-        // If the event caused a new screen to be displayed, abort the current event
-        // loop. This avoids e.g. the problem of selecting the number of laps twice
-        // in the num_laps menu (by rapidly pressing enter), causing the game-start
-        // procedure to be done twice (which causes an assertion error in the
-        // screen_manager, since the new world_screen is added twice).
-        if(screen_manager->screenSwitchPending()) break;
     }   // while (SDL_PollEvent())
 }
