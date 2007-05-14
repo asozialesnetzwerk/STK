@@ -226,6 +226,7 @@ RaceManager::RaceManager()
     m_difficulty = RD_MEDIUM;
     m_race_mode  = RaceSetup::RM_QUICK_RACE;
     m_track      = "race";
+    m_active_race = false;
 
     m_players.push_back("tuxkart");
 }
