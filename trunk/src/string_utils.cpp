@@ -97,10 +97,10 @@ namespace StringUtils
     {
         std::vector<std::string> result;
     
-        unsigned int start=0;
+        std::string::size_type start=0;
         while(start!=std::string::npos)
         {
-            unsigned int i=s.find(c, start);
+            std::string::size_type i=s.find(c, start);
             if(i!=std::string::npos)
             {
                 result.push_back(std::string(s,start, i-start));
