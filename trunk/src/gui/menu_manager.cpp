@@ -19,9 +19,8 @@
 
 #include <cassert>
 
-#if defined(WIN32) && !defined(__CYGWIN__)
+//This is needed in various platforms, but not all
 # include <algorithm>
-#endif
 
 #include "menu_manager.hpp"
 
