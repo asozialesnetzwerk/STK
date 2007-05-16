@@ -271,6 +271,22 @@ case "${host}" in
    if test x$have_SDL_hdr != xyes -o x$have_SDL_lib != xyes; then
       AC_MSG_ERROR([Install SDL first...])
    fi
+
+    AC_TRY_RUN([
+    #  include <SDL/SDL.h>
+       int main() {
+       if ( SDL_VERSION_ATLEAST(1,2,10)) {
+          return 0;
+        }
+       return -1;
+       }
+     ],
+      :,
+        AC_MSG_WARN([Your SDL version uses deprecated
+    headers update to version 1.2.10 or higher if possible. Currently this
+    doesn't affects the game at all.])
+    )
+
 esac
 
 dnl =======================================================
