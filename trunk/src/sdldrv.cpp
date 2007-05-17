@@ -24,7 +24,6 @@
 
 #include "user_config.hpp"
 #include "sdldrv.hpp"
-#include "widget_set.hpp"
 #include "material_manager.hpp"
 #include "kart_properties_manager.hpp"
 #include "game_manager.hpp"
