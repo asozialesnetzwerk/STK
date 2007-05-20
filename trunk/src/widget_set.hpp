@@ -308,7 +308,15 @@ public:
 
     void tgl_paused();
     bool get_paused() const { return m_paused; }
-    GLuint rect(int x, int y, int w, int h, int f, int r);
+    GLuint rect
+    (
+        const int X,
+        const int Y,
+        const int WIDTH,
+        const int HEIGHT,
+        const int RECT,
+        const int RADIUS
+    );
 
 private:
     int hot(int id);

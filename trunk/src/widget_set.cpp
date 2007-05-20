@@ -96,11 +96,25 @@ int WidgetSet::hot(int id)
  *  corners, with texture coordinates to properly apply a texture
  *  map to the rectangle as though the corners were not rounded.
  */
-GLuint WidgetSet::rect(int x, int y, int w, int h, int rect, int radius)
+GLuint WidgetSet::rect
+(
+    const int X,
+    const int Y,
+    const int WIDTH,
+    const int HEIGHT,
+    const int RECT,
+    const int RADIUS
+)
 {
+    //TODO:Write warning to stderr when radius > half of the height
     GLuint list = glGenLists(1);
 
     const int NUM_QUADS = 8;
+#ifdef ENABLE_BORDER
+    const int NUM_VERTICES = NUM_QUADS * 4 + 4;
+    float border [NUM_VERTICES][2];
+#endif
+
     int i;
 
     glNewList(list, GL_COMPILE);
@@ -127,48 +141,127 @@ GLuint WidgetSet::rect(int x, int y, int w, int h, int rect, int radius)
                 //on that, we just split the radians in a corner in NUM_QUADS
                 //+ 1 parts, and use the angles at those parts to find the
                 //X and Y position of the points.
-                float angle = 0.5f * M_PI * (float) i / (float) NUM_QUADS;
-                float angle_x = radius * cos(angle);
-                float angle_y = radius * sin(angle);
+                const float ANGLE = 0.5f * M_PI * (float) i / (float) NUM_QUADS;
+                const float CIRCLE_X = RADIUS * cos(ANGLE);
+                const float CIRCLE_Y = RADIUS * sin(ANGLE);
 
                 //After we generate the positions in circle for the angles,
                 //we have to position each rounded corner properly depending
                 //on the position of the rectangle and the radius. The y
                 //position for the circle is dependant on rect; if a corner
-                //wasn't given, then the y position is compued as if it was
+                //wasn't given, then the y position is computed as if it was
                 //for a rectangle without rounder corners.
-                float X  = x     + radius - angle_x;
-                float Ya = y + h + ((rect & GUI_NW) ? (angle_y - radius) : 0);
-                float Yb = y     + ((rect & GUI_SW) ? (radius - angle_y) : 0);
-                glTexCoord2f((X - x) / w, 1 - (Ya - y) / h);
-                glVertex2f(X, Ya);
+                const float VERTEX_X  = X + RADIUS - CIRCLE_X;
+                const float VERTEX_YA = Y + HEIGHT + ((RECT & GUI_NW) ?
+                    (CIRCLE_Y - RADIUS) : 0);
+                const float VERTEX_YB = Y + ((RECT & GUI_SW) ?
+                    (RADIUS - CIRCLE_Y) : 0);
 
-                glTexCoord2f((X - x) / w, 1 - (Yb - y) / h);
-                glVertex2f(X, Yb);
+#ifdef ENABLE_BORDER
+                {
+                    //Store the vertex on top from the end to the beginning
+                    //of the array
+                    border [(NUM_VERTICES - 1) - i][0] = VERTEX_X;
+                    border [(NUM_VERTICES - 1) - i][1] = VERTEX_YA;
+
+                    //Store the vertex on the bottom from the beginning to
+                    //the end of the array
+                    border [i][0] = VERTEX_X;
+                    border [i][1] = VERTEX_YB;
+                }
+#endif
+
+                glTexCoord2f((VERTEX_X - X) / WIDTH,
+                    1 - (VERTEX_YA - Y) / HEIGHT);
+                glVertex2f(VERTEX_X, VERTEX_YA);
+
+                glTexCoord2f((VERTEX_X - X) / WIDTH,
+                    1 - (VERTEX_YB - Y) / HEIGHT);
+                glVertex2f(VERTEX_X, VERTEX_YB);
             }
 
-            //Draw the right side of a rectangle.
+            //Draw the right side of a rectangle
             for (i = 0; i <= NUM_QUADS; ++i)
             {
-                float angle = 0.5f * M_PI * (float) i / (float) NUM_QUADS;
+                const float ANGLE = 0.5f * M_PI * (float) i / (float) NUM_QUADS;
 
                 //By inverting the use of sin and cos we get corners that are
-                //drawn from left to right instead of right to left.
-                float angle_x = radius * sin(angle);
-                float angle_y = radius * cos(angle);
+                //drawn from left to right instead of right to left
+                const float CIRCLE_X = RADIUS * sin(ANGLE);
+                const float CIRCLE_Y = RADIUS * cos(ANGLE);
 
-                float X  = x + w - radius + angle_x;
-                float Ya = y + h + ((rect & GUI_NE) ? (angle_y - radius) : 0);
-                float Yb = y     + ((rect & GUI_SE) ? (radius - angle_y) : 0);
+                float VERTEX_X  = X + WIDTH - RADIUS + CIRCLE_X;
+                float VERTEX_YA = Y + HEIGHT + ((RECT & GUI_NE) ? (CIRCLE_Y - RADIUS) : 0);
+                float VERTEX_YB = Y + ((RECT & GUI_SE) ? (RADIUS - CIRCLE_Y) : 0);
 
-                glTexCoord2f((X - x) / w, 1 - (Ya - y) / h);
-                glVertex2f(X, Ya);
+                glTexCoord2f((VERTEX_X - X) / WIDTH, 1 - (VERTEX_YA - Y) / HEIGHT);
+                glVertex2f(VERTEX_X, VERTEX_YA);
 
-                glTexCoord2f((X - x) / w, 1 - (Yb - y) / h);
-                glVertex2f(X, Yb);
+                glTexCoord2f((VERTEX_X - X) / WIDTH, 1 - (VERTEX_YB - Y) / HEIGHT);
+                glVertex2f(VERTEX_X, VERTEX_YB);
+
+#ifdef ENABLE_BORDER
+                {
+                    border [(NUM_QUADS * 3 + 2) - i][0] = VERTEX_X;
+                    border [(NUM_QUADS * 3 + 2) - i][1] = VERTEX_YA;
+                    border [(NUM_QUADS + 1)+i][0] = VERTEX_X;
+                    border [(NUM_QUADS + 1)+i][1] = VERTEX_YB;
+                }
+#endif
             }
+
         }
         glEnd();
+#ifdef ENABLE_BORDER
+            {
+                float border_width = 10.0;
+                float vec[2];
+                glBegin(GL_QUAD_STRIP);
+                glColor3i(0,0,0);
+                for (i = 0; i < NUM_VERTICES; ++i)
+                {
+                    //Find vector from the center of the corner to the
+                    //border's vertex, depending on the direction.
+                    if( i < NUM_VERTICES / 4) //South west
+                    {
+                        vec[0] = border[i][0] - X - RADIUS;
+                        vec[1] = Y + HEIGHT - RADIUS + border[i][1];
+                    }
+                    else if( i < NUM_VERTICES / 2) //South east
+                    {
+                        vec[0] = -X - WIDTH + RADIUS + border[i][0];
+                        vec[1] = Y + HEIGHT - RADIUS + border[i][1];
+                    }
+                    else if( i < NUM_VERTICES / 4 * 3) //North east
+                    {
+                        vec[0] = -X - WIDTH + RADIUS + border[i][0];
+                        vec[1] = Y + RADIUS + border[i][1];
+                    }
+                    else //North west
+                    {
+                        vec[0] = border[i][0] - X - RADIUS;
+                        vec[1] = Y + RADIUS + border[i][1];
+                    }
+
+                    float vector_length = sqrt(vec[0]*vec[0]+vec[1]*vec[1]);
+
+                    //Prevent division by zero
+                    if(vector_length == 0) vector_length = 0.0000001;
+
+                    //Resize vector to border's width
+                    vec[0] = vec[0] / vector_length * border_width;
+                    vec[1] = vec[1] / vector_length * border_width;
+
+                    glVertex2f(border[i][0] + vec[0], border[i][1] + vec[1]);
+                    glVertex2f(border[i][0], border[i][1]);
+                }
+
+                //Close the border using the last value of vec
+                glVertex2f(border[0][0] + vec[0], border[0][1] + vec[1]);
+                glVertex2f(border[0][0], border[0][1]);
+                glEnd();
+            }
+#endif
     }
     glEndList();
 
@@ -192,7 +285,7 @@ int WidgetSet::add_widget(int parent, int type)
             m_widgets[id].token = 0;
             m_widgets[id].value = 0;
             m_widgets[id].size = 0;
-            m_widgets[id].rect = GUI_NW | GUI_SW | GUI_NE | GUI_SE;
+            m_widgets[id].rect = GUI_ALL;
             m_widgets[id].w          = 0;
             m_widgets[id].h          = 0;
             m_widgets[id].text_img   = 0;
