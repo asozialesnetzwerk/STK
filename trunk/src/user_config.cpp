@@ -111,11 +111,12 @@ void UserConfig::setDefaults()
     m_track_debug      = 0;
     m_fullscreen       = false;
     m_no_start_screen  = false;
-    m_sfx              = true;
-    m_music            = true;
+    m_sfx              = UC_ENABLE;
+    m_music            = UC_ENABLE;
     m_smoke            = false;
     m_display_fps      = false;
     m_herring_style    = "new";
+    m_background_music = "";
     m_disable_magnet   = true;
     m_profile          = 0;
     m_use_kph          = false;
@@ -300,12 +301,17 @@ void UserConfig::loadConfig(const std::string& filename)
 
         /*get toggles*/
         lisp->get("fullscreen",       m_fullscreen);
-        lisp->get("sfx" ,             m_sfx);
+        bool doSFX=false;                                // avoid warning
+        lisp->get("sfx" ,             doSFX);
+        m_sfx = doSFX ? UC_ENABLE : UC_DISABLE;
         lisp->get("nostartscreen",    m_no_start_screen);
-        lisp->get("music",            m_music);
+        bool doMusic=false;                              // avoid warning
+        lisp->get("music",            doMusic);
+        m_music = doMusic ? UC_ENABLE : UC_DISABLE;
         lisp->get("smoke",            m_smoke);
         lisp->get("displayFPS",       m_display_fps);
         lisp->get("herringStyle",     m_herring_style);
+        lisp->get("background-music", m_background_music);
         lisp->get("disableMagnet",    m_disable_magnet);
         lisp->get("useKPH",           m_use_kph);
         lisp->get("improvedPhysics",  m_improved_physics);
@@ -460,13 +466,15 @@ void UserConfig::saveConfig(const std::string& filename)
         writer.write("configFileVersion\t",   CURRENT_CONFIG_VERSION);
 
         writer.writeComment("the following options can be set to #t or #f:");
-        writer.write("sfx\t",   m_sfx);
-        writer.write("music\t", m_music);
+        writer.write("sfx\t",   !(m_sfx==UC_DISABLE));
+        writer.write("music\t", !(m_music==UC_DISABLE));
         writer.write("smoke\t", m_smoke);
         writer.writeComment("Display frame per seconds");
         writer.write("displayFPS\t", m_display_fps);
         writer.writeComment("Name of the .herring file to use.");
         writer.write("herringStyle\t", m_herring_style);
+        writer.writeComment("Background music file to use,");
+        writer.write("background-music\t", m_background_music);
         writer.writeComment("Allow players to disable a magnet");
         writer.write("disableMagnet\t", m_disable_magnet);
         writer.writeComment("Use of kilometers per hours (km/h) instead of mph");
