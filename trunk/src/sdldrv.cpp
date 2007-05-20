@@ -34,6 +34,7 @@
 #include "loader.hpp"
 #include "gui/menu_manager.hpp"
 #include "player.hpp"
+#include "widget_set.hpp"
 
 SDL_Surface *mainSurface;
 long flags;
