@@ -98,7 +98,7 @@ void drv_toggleFullscreen(int resetTextures)
         // models, then reload the textures from materials.dat, then reload
         // all models, textures etc.
 
-        startScreen             -> removeTextures();
+	//        startScreen             -> removeTextures();
         attachment_manager      -> removeTextures();
         projectile_manager      -> removeTextures();
         herring_manager         -> removeTextures();
@@ -114,7 +114,7 @@ void drv_toggleFullscreen(int resetTextures)
         projectile_manager      -> loadData();
         attachment_manager      -> loadModels();
 
-        startScreen             -> installMaterial();
+	//        startScreen             -> installMaterial();
         widgetSet               -> reInit();
     }
 #endif
