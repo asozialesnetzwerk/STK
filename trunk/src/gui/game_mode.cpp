@@ -59,7 +59,7 @@ GameMode::~GameMode()
 //-----------------------------------------------------------------------------
 void GameMode::select()
 {
-    switch ( widgetSet -> token (widgetSet -> click()) )
+    switch ( widgetSet -> get_token (widgetSet -> click()) )
     {
     case WTOK_GP:
         race_manager->setRaceMode(RaceSetup::RM_GRAND_PRIX);

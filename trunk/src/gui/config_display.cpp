@@ -72,7 +72,7 @@ void ConfigDisplay::update(float dt)
 //-----------------------------------------------------------------------------
 void ConfigDisplay::select()
 {
-    switch ( widgetSet -> token (widgetSet -> click()) )
+    switch ( widgetSet -> get_token (widgetSet -> click()) )
     {
     case WTOK_FULLSCREEN:
         drv_toggleFullscreen();

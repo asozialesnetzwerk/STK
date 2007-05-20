@@ -143,7 +143,7 @@ RaceResultsGUI::~RaceResultsGUI()
 //-----------------------------------------------------------------------------
 void RaceResultsGUI::select()
 {
-    switch( widgetSet->token( widgetSet->click() ) )
+    switch( widgetSet->get_token( widgetSet->click() ) )
     {
     case WTOK_CONTINUE:
         widgetSet->tgl_paused();

@@ -74,7 +74,7 @@ void Options::update(float dt)
 // -----------------------------------------------------------------------------
 void Options::select()
 {
-    switch ( widgetSet -> token (widgetSet -> click()) )
+    switch ( widgetSet -> get_token (widgetSet -> click()) )
     {
     case WTOK_CONTROLS:
         menu_manager->pushMenu(MENUID_CONFIG_CONTROLS);

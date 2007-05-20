@@ -120,7 +120,7 @@ void CharSel::update(float dt)
     m_clock += dt * 40.0f;
     BaseGUI::update(dt);
 
-    switchCharacter(widgetSet->token(widgetSet->click()));
+    switchCharacter(widgetSet->get_token(widgetSet->click()));
 
     if (m_kart != NULL)
     {
@@ -154,7 +154,7 @@ void CharSel::update(float dt)
 //----------------------------------------------------------------------------
 void CharSel::select()
 {
-    const int TOKEN = widgetSet -> token (widgetSet -> click());
+    const int TOKEN = widgetSet -> get_token (widgetSet -> click());
     const KartProperties* KP = kart_properties_manager->getKartById(TOKEN);
     if (KP != NULL)
     {

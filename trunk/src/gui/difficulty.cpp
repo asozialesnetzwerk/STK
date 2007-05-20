@@ -57,7 +57,7 @@ Difficulty::~Difficulty()
 //-----------------------------------------------------------------------------
 void Difficulty::select()
 {
-    switch ( widgetSet -> token (widgetSet -> click()) )
+    switch ( widgetSet -> get_token (widgetSet -> click()) )
     {
     case WTOK_EASY:
         race_manager->setDifficulty(RD_EASY);

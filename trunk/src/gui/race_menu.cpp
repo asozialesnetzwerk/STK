@@ -79,7 +79,7 @@ void RaceMenu::update(float dt)
 //-----------------------------------------------------------------------------
 void RaceMenu::select()
 {
-    int clicked_token = widgetSet->token(widgetSet->click());
+    int clicked_token = widgetSet->get_token(widgetSet->click());
     if(clicked_token != WTOK_OPTIONS && clicked_token != WTOK_HELP)
         widgetSet -> tgl_paused();
 

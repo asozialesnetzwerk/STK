@@ -53,7 +53,7 @@ NumPlayers::~NumPlayers()
 // -----------------------------------------------------------------------------
 void NumPlayers::select()
 {
-    const int CLICKED_ID = widgetSet -> token (widgetSet -> click());
+    const int CLICKED_ID = widgetSet -> get_token (widgetSet -> click());
     switch (CLICKED_ID)
     {
     case WTOK_PLAYER_2:

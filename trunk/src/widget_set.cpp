@@ -92,32 +92,54 @@ int WidgetSet::hot(int id)
 }
 
 
-/** Initialize a display list containing a rounded-corner rectangle (x,
- *  y, w, h).  Generate texture coordinates to properly apply a texture
+/** Initialize a display list containing a rectangle that can have rounded
+ *  corners, with texture coordinates to properly apply a texture
  *  map to the rectangle as though the corners were not rounded.
  */
-GLuint WidgetSet::rect(int x, int y, int w, int h, int f, int r)
+GLuint WidgetSet::rect(int x, int y, int w, int h, int rect, int radius)
 {
     GLuint list = glGenLists(1);
 
-    const int N = 8;
+    const int NUM_QUADS = 8;
     int i;
 
     glNewList(list, GL_COMPILE);
     {
+        //To create a rounded rectangle, we generate lines that are
+        //progressively bigger, which are given as vertex points for each
+        //quad.
         glBegin(GL_QUAD_STRIP);
         {
-            /* Left side... */
-
-            for (i = 0; i <= N; i++)
+            //Draw the left side of a rectangle.
+            for (i = 0; i <= NUM_QUADS; ++i)
             {
-                float a = 0.5f * M_PI * (float) i / (float) N;
-                float s = r * sin(a);
-                float c = r * cos(a);
+                //To find the position in the X and Y axis of each point of
+                //the quads, we use the property of the unit circle (a circle
+                //with radius = 1) that at any given angle, cos(angle) is the
+                //position of the unit circle at that angle in the X axis,
+                //and that sin(angle) is the position of the unit circle at
+                //that angle in the Y axis. Then the values from cos(angle)
+                //and sin(angle) are multiplied by the radius.
+                //
+                //First we find the angle: since 2 * pi is the number of
+                //radians in an entire circle, 0.5 * pi is a quarter of the
+                //circle, which is a corner of the rounded rectangle. Based
+                //on that, we just split the radians in a corner in NUM_QUADS
+                //+ 1 parts, and use the angles at those parts to find the
+                //X and Y position of the points.
+                float angle = 0.5f * M_PI * (float) i / (float) NUM_QUADS;
+                float angle_x = radius * cos(angle);
+                float angle_y = radius * sin(angle);
 
-                float X  = x     + r - c;
-                float Ya = y + h + ((f & GUI_NW) ? (s - r) : 0);
-                float Yb = y     + ((f & GUI_SW) ? (r - s) : 0);
+                //After we generate the positions in circle for the angles,
+                //we have to position each rounded corner properly depending
+                //on the position of the rectangle and the radius. The y
+                //position for the circle is dependant on rect; if a corner
+                //wasn't given, then the y position is compued as if it was
+                //for a rectangle without rounder corners.
+                float X  = x     + radius - angle_x;
+                float Ya = y + h + ((rect & GUI_NW) ? (angle_y - radius) : 0);
+                float Yb = y     + ((rect & GUI_SW) ? (radius - angle_y) : 0);
                 glTexCoord2f((X - x) / w, 1 - (Ya - y) / h);
                 glVertex2f(X, Ya);
 
@@ -125,17 +147,19 @@ GLuint WidgetSet::rect(int x, int y, int w, int h, int f, int r)
                 glVertex2f(X, Yb);
             }
 
-            /* ... Right side. */
-
-            for (i = 0; i <= N; i++)
+            //Draw the right side of a rectangle.
+            for (i = 0; i <= NUM_QUADS; ++i)
             {
-                float a = 0.5f * M_PI * (float) i / (float) N;
-                float s = r * sin(a);
-                float c = r * cos(a);
+                float angle = 0.5f * M_PI * (float) i / (float) NUM_QUADS;
 
-                float X  = x + w - r + s;
-                float Ya = y + h + ((f & GUI_NE) ? (c - r) : 0);
-                float Yb = y     + ((f & GUI_SE) ? (r - c) : 0);
+                //By inverting the use of sin and cos we get corners that are
+                //drawn from left to right instead of right to left.
+                float angle_x = radius * sin(angle);
+                float angle_y = radius * cos(angle);
+
+                float X  = x + w - radius + angle_x;
+                float Ya = y + h + ((rect & GUI_NE) ? (angle_y - radius) : 0);
+                float Yb = y     + ((rect & GUI_SE) ? (radius - angle_y) : 0);
 
                 glTexCoord2f((X - x) / w, 1 - (Ya - y) / h);
                 glVertex2f(X, Ya);
@@ -152,7 +176,7 @@ GLuint WidgetSet::rect(int x, int y, int w, int h, int f, int r)
 }
 
 //-----------------------------------------------------------------------------
-int WidgetSet::add_widget(int pd, int type)
+int WidgetSet::add_widget(int parent, int type)
 {
     int id;
 
@@ -164,11 +188,11 @@ int WidgetSet::add_widget(int pd, int type)
         {
             /* Set the type and default properties. */
 
-            m_widgets[id].type       = type;
-            m_widgets[id].token      = 0;
-            m_widgets[id].value      = 0;
-            m_widgets[id].size       = 0;
-            m_widgets[id].rect       = GUI_NW | GUI_SW | GUI_NE | GUI_SE;
+            m_widgets[id].type = type;
+            m_widgets[id].token = 0;
+            m_widgets[id].value = 0;
+            m_widgets[id].size = 0;
+            m_widgets[id].rect = GUI_NW | GUI_SW | GUI_NE | GUI_SE;
             m_widgets[id].w          = 0;
             m_widgets[id].h          = 0;
             m_widgets[id].text_img   = 0;
@@ -180,11 +204,11 @@ int WidgetSet::add_widget(int pd, int type)
 
             /* Insert the new widget into the parents's widget list. */
 
-            if (pd)
+            if (parent)
             {
                 m_widgets[id].car = 0;
-                m_widgets[id].cdr = m_widgets[pd].car;
-                m_widgets[pd].car = id;
+                m_widgets[id].cdr = m_widgets[parent].car;
+                m_widgets[parent].car = id;
             }
             else
             {
@@ -202,15 +226,15 @@ int WidgetSet::add_widget(int pd, int type)
 }
 
 //-----------------------------------------------------------------------------
-int WidgetSet::harray(int pd) { return add_widget(pd, GUI_HARRAY); }
+int WidgetSet::harray(int parent) { return add_widget(parent, GUI_HARRAY); }
 //-----------------------------------------------------------------------------
-int WidgetSet::varray(int pd) { return add_widget(pd, GUI_VARRAY); }
+int WidgetSet::varray(int parent) { return add_widget(parent, GUI_VARRAY); }
 //-----------------------------------------------------------------------------
-int WidgetSet::hstack(int pd) { return add_widget(pd, GUI_HSTACK); }
+int WidgetSet::hstack(int parent) { return add_widget(parent, GUI_HSTACK); }
 //-----------------------------------------------------------------------------
-int WidgetSet::vstack(int pd) { return add_widget(pd, GUI_VSTACK); }
+int WidgetSet::vstack(int parent) { return add_widget(parent, GUI_VSTACK); }
 //-----------------------------------------------------------------------------
-int WidgetSet::filler(int pd) { return add_widget(pd, GUI_FILLER); }
+int WidgetSet::filler(int parent) { return add_widget(parent, GUI_FILLER); }
 
 //-----------------------------------------------------------------------------
 void WidgetSet::set_label(int id, const char *text)
@@ -278,11 +302,11 @@ void WidgetSet::set_multi(int id, const char *text)
 }
 
 //-----------------------------------------------------------------------------
-int WidgetSet::image(int pd, int textureId, int w, int h, int rect)
+int WidgetSet::image(int parent, int textureId, int w, int h, int rect)
 {
     int id;
 
-    if ((id = add_widget(pd, GUI_IMAGE)))
+    if ((id = add_widget(parent, GUI_IMAGE)))
     {
         m_widgets[id].text_img = textureId;
         m_widgets[id].w     = w;
@@ -294,22 +318,22 @@ int WidgetSet::image(int pd, int textureId, int w, int h, int rect)
 }
 
 //-----------------------------------------------------------------------------
-int WidgetSet::start(int pd, const char *text, int size, int token, int value)
+int WidgetSet::start(int parent, const char *text, int size, int token, int value)
 {
     int id;
 
-    if ((id = state(pd, text, size, token, value)))
+    if ((id = state(parent, text, size, token, value)))
         m_active = id;
 
     return id;
 }
 
 //-----------------------------------------------------------------------------
-int WidgetSet::state(int pd, const char *text, int size, int token, int value)
+int WidgetSet::state(int parent, const char *text, int size, int token, int value)
 {
     int id;
 
-    if ((id = add_widget(pd, GUI_STATE)))
+    if ((id = add_widget(parent, GUI_STATE)))
     {
         m_widgets[id]._text = text;
         float l,r,b,t;
@@ -331,12 +355,12 @@ int WidgetSet::state(int pd, const char *text, int size, int token, int value)
 }
 
 //-----------------------------------------------------------------------------
-int WidgetSet::label(int pd, const char *text, int size, int rect, const float *c0,
+int WidgetSet::label(int parent, const char *text, int size, int rect, const float *c0,
                      const float *c1)
 {
     int id;
 
-    if ((id = add_widget(pd, GUI_LABEL)))
+    if ((id = add_widget(parent, GUI_LABEL)))
     {
         m_widgets[id]._text = text;
         float l,r,b,t;
@@ -354,11 +378,11 @@ int WidgetSet::label(int pd, const char *text, int size, int rect, const float *
 }
 
 //-----------------------------------------------------------------------------
-int WidgetSet::count(int pd, int value, int size, int rect)
+int WidgetSet::count(int parent, int value, int size, int rect)
 {
     int  id;
 
-    if ((id = add_widget(pd, GUI_COUNT)))
+    if ((id = add_widget(parent, GUI_COUNT)))
     {
         m_widgets[id].value  = value;
         m_widgets[id].size   = size;
@@ -377,11 +401,11 @@ int WidgetSet::count(int pd, int value, int size, int rect)
 }   // count
 
 //-----------------------------------------------------------------------------
-int WidgetSet::clock(int pd, int value, int size, int rect)
+int WidgetSet::clock(int parent, int value, int size, int rect)
 {
     int id;
 
-    if ((id = add_widget(pd, GUI_CLOCK)))
+    if ((id = add_widget(parent, GUI_CLOCK)))
     {
         printf("clock: FIXME\n");
         //m_widgets[id].w      = digit_w[size][0] * 6;
@@ -396,11 +420,11 @@ int WidgetSet::clock(int pd, int value, int size, int rect)
 }
 
 //-----------------------------------------------------------------------------
-int WidgetSet::space(int pd)
+int WidgetSet::space(int parent)
 {
     int id;
 
-    if ((id = add_widget(pd, GUI_SPACE)))
+    if ((id = add_widget(parent, GUI_SPACE)))
     {
         m_widgets[id].w = 0;
         m_widgets[id].h = 0;
@@ -487,11 +511,11 @@ void WidgetSet::drawDropShadowTextRace (const char *text, int sz, int x, int y,
 }
 
 //-----------------------------------------------------------------------------
-int WidgetSet::pause(int pd)
+int WidgetSet::pause(int parent)
 {
     int id;
 
-    if ((id = add_widget(pd, GUI_PAUSE)))
+    if ((id = add_widget(parent, GUI_PAUSE)))
     {
         m_widgets[id].value  = 0;
         m_widgets[id].rect   = GUI_ALL;
@@ -503,12 +527,12 @@ int WidgetSet::pause(int pd)
  *  Parse the  text for '\'  characters and treat them  as line-breaks.
  *  Preserve the rect specifation across the entire array.
  */
-int WidgetSet::multi(int pd, const char *text, int size, int rect, const float *c0,
+int WidgetSet::multi(int parent, const char *text, int size, int rect, const float *c0,
                      const float *c1)
 {
     int id = 0;
 
-    if (text && (id = varray(pd)))
+    if (text && (id = varray(parent)))
     {
         const char *p;
 #define MAX_NUMBER_OF_LINES 20
@@ -659,7 +683,7 @@ void WidgetSet::button_up(int id)
     if (m_widgets[id].w < m_widgets[id].h && m_widgets[id].w > 0)
         m_widgets[id].w = m_widgets[id].h;
 
-
+//TODO: check if we really want padded text elements
     /* Padded text elements look a little nicer. */
 
     if (m_widgets[id].w < user_config->m_width)
@@ -818,7 +842,7 @@ void WidgetSet::button_dn(int id, int x, int y, int w, int h)
 {
     /* Recall stored width and height for text rendering. */
 
-    int R = m_widgets[id].rect;
+    int rect = m_widgets[id].rect;
     int r = ((m_widgets[id].type & GUI_TYPE) == GUI_PAUSE ? m_radius * 4 : m_radius);
 
     m_widgets[id].x = x;
@@ -827,7 +851,7 @@ void WidgetSet::button_dn(int id, int x, int y, int w, int h)
     m_widgets[id].h = h;
     /* Create display lists for the text area and rounded rectangle. */
 
-    m_widgets[id].rect_obj = rect(-w / 2, -h / 2, w, h, R, r);
+    m_widgets[id].rect_obj = this->rect(-w / 2, -h / 2, w, h, rect, r);
 }
 
 //-----------------------------------------------------------------------------
@@ -1233,14 +1257,6 @@ void WidgetSet::paint(int id)
     }
 }
 
-#if 0
-//-----------------------------------------------------------------------------
-void WidgetSet::blank()
-{
-    paint(m_pause_id);
-}
-#endif
-
 //-----------------------------------------------------------------------------
 void WidgetSet::dump(int id, int d)
 {
@@ -1336,13 +1352,13 @@ int WidgetSet::click(void)
 }
 
 //-----------------------------------------------------------------------------
-int WidgetSet::token(int id) const
+int WidgetSet::get_token(int id) const
 {
     return id ? m_widgets[id].token : 0;
 }
 
 //-----------------------------------------------------------------------------
-int WidgetSet::value(int id) const
+int WidgetSet::get_value(int id) const
 {
     return id ? m_widgets[id].value : 0;
 }

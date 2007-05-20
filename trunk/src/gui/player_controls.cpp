@@ -81,7 +81,7 @@ void PlayerControls::select()
         m_grab_input = true;
         return;
     }
-    const int MENU_CHOICE = widgetSet -> token (m_grab_id);
+    const int MENU_CHOICE = widgetSet -> get_token (m_grab_id);
 
     if(MENU_CHOICE == -1)
     {

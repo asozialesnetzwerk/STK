@@ -54,7 +54,7 @@ NumLaps::~NumLaps()
 void NumLaps::select()
 {
     const int id = widgetSet->click();
-    const int n = widgetSet->token(id);
+    const int n = widgetSet->get_token(id);
     switch (n)
     {
       case 10:

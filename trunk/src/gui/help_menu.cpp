@@ -267,7 +267,7 @@ void HelpMenu::switch_to_second_screen()
 //-----------------------------------------------------------------------------
 void HelpMenu::select()
 {
-    switch( widgetSet->token (widgetSet->click()))
+    switch( widgetSet->get_token (widgetSet->click()))
     {
         case WTOK_FIRST_PAGE:
             widgetSet -> delete_widget(m_menu_id) ;

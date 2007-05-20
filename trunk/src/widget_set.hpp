@@ -109,12 +109,13 @@ const GLfloat gui_gry[4] = { 0.3f, 0.3f, 0.3f, 1.0f };
 struct Widget
 {
     int     type;
-    int     token;
+    int     token;//The token is a number supplied by the programmer to name
+                  //recognize a widget. You could also store the id, but
+                  //that wouldn't let you use a switch/enum combination.
     int     value;//On/Off switch using the WidgetValue.
     int     size;
     int     rect; //This uses the WidgetAreas, and determines which corners
                   //are rounded, GUI_ALL rounds all corners.
-
     int     x, y;
     int     w, h;
     int     yOffset;
@@ -136,68 +137,76 @@ struct Widget
 class WidgetSet
 {
 public:
+    /*
+     * Initialization/deinitialization functions
+     */
     WidgetSet();
     ~WidgetSet();
     void reInit();   // necessary in case of fullscreen/window mode change on windows
-    /*---------------------------------------------------------------------------*/
 
-    /* change the value of variables stored by already-existing widgets*/
+    /*
+     * Get/set functions
+     */
+    void set_label(int id, const char *);
+    void set_multi(int id, const char *);
+    void set_count(int id, int);
+    void set_clock(int id, int);
 
-    void set_label(int, const char *);
     const char* get_label(int id) { return m_widgets[id]._text; }
-    void set_multi(int, const char *);
-    void set_count(int, int);
-    void set_clock(int, int);
+    int  get_token(int id) const;
+    int  get_value(int id) const;
 
-    /*---------------------------------------------------------------------------*/
 
-    /* creation functions, the first argument is the parent id of the new widget (0 if no parent) */
-
-    /* arrays, these are used to setup the layout of your widgets*/
-
-    int  harray(int);
-    int  varray(int);
-    int  hstack(int);
-    int  vstack(int);
-
-    /* constructors - add new widget of type x */
+    /*
+     * Creation functions, the first argument is the parent id of the new
+     * widget (0 if no parent)
+     */
+    //arrays, these are used to setup the layout of your widgets
+    int  harray(int parent);
+    int  varray(int parent);
+    int  hstack(int parent);
+    int  vstack(int parent);
 
     //fills up space
-    int  filler(int);
+    int  filler(int parent);
 
     //a widget that consists of a texture (which must be completely
     //handled by the application)
-    int  image(int, int, int, int, int rect=GUI_ALL);
+    int  image(int parent, int, int, int, int rect=GUI_ALL);
 
     //a normal text menu entry, except that it is automatically immediately activated
-    int  start(int, const char *, int, int, int value=GUI_OFF);
+    int  start(int parent, const char *, int, int, int value=GUI_OFF);
 
     //a normal text menu entry
-    int  state(int, const char *, int, int, int value=GUI_OFF);
+    int  state(int parent, const char *, int, int, int value=GUI_OFF);
 
     //a text label (cannot be selected). c0 and c1 are two colours that the text is shaded with
-    int  label(int pd, const char *text, int size=GUI_MED, int rect=GUI_ALL,
+    int  label(int parent, const char *text, int size=GUI_MED, int rect=GUI_ALL,
                const float *c0=0, const float *c1=0);
 
-    /*
-    * Create  a multi-line  text box  using a  vertical array  of labels.
-    * Parse the  text for '\'  characters and treat them  as line-breaks.
-    * Preserve the rect specifation across the entire array.
-    */
-    int  multi(int, const char *, int size=GUI_MED, int rect=GUI_ALL,
+    //Create  a multi-line  text box  using a  vertical array  of labels.
+    //Parse the  text for '\'  characters and treat them  as line-breaks.
+    //Preserve the rect specifation across the entire array.
+    int  multi(int parent, const char *, int size=GUI_MED, int rect=GUI_ALL,
                const float *c0=0, const float *c1=0);
 
     //widget is a single number - e.g. an fps counter or whatever
-    int  count(int, int, int, int);
+    int  count(int parent, int, int, int);
 
     //widget consists of a time in minutes and seconds
-    int  clock(int, int, int, int);
+    int  clock(int parent, int, int, int);
 
     //just a blank space
-    int  space(int);
+    int  space(int parent);
+
+
+    /*
+     * Text drawing functions
+     */
     void drawText(const char *text, int sz, int x, int y,
                   int red=255, int green=255, int blue=255,
                   float scale_x=1.0, float scale_y=1.0);
+
     void drawText(std::string text, int sz, int x, int y,
                   int red=255, int green=255, int blue=255,
                   float scale_x=1.0, float scale_y=1.0)
@@ -205,9 +214,11 @@ public:
         drawText(text.c_str(), sz, x, y, red, green, blue,
                  scale_x, scale_y);
     }
+
     void drawDropShadowText(const char *text, int sz, int x, int y,
                             int red=255, int green=255, int blue=255,
                             float scale_x=1.0, float scale_y=1.0);
+
     void drawDropShadowText(std::string text, int sz, int x, int y,
                             int red=255, int green=255, int blue=255,
                             float scale_x=1.0, float scale_y=1.0)
@@ -215,9 +226,11 @@ public:
         drawDropShadowText(text.c_str(), sz, x, y, red, green, blue,
                            scale_x, scale_y);
     }
+
     void drawTextRace(const char *text, int sz, int x, int y,
                       int red=255, int green=255, int blue=255,
                       float scale_x=1.0, float scale_y=1.0);
+
     void drawTextRace(std::string text, int sz, int x, int y,
                       int red=255, int green=255, int blue=255,
                       float scale_x=1.0, float scale_y=1.0)
@@ -225,9 +238,11 @@ public:
         drawTextRace(text.c_str(), sz, x, y, red, green, blue,
                      scale_x, scale_y);
     }
+
     void drawDropShadowTextRace(const char *text, int sz, int x, int y,
                                 int red=255, int green=255, int blue=255,
                                 float scale_x=1.0, float scale_y=1.0);
+
     void drawDropShadowTextRace(std::string text, int sz, int x, int y,
                                 int red=255, int green=255, int blue=255,
                                 float scale_x=1.0, float scale_y=1.0)
@@ -238,42 +253,44 @@ public:
     /*---------------------------------------------------------------------------*/
 
     /* prints out debugging info */
-    void dump(int, int);
+    void dump(int id, int);
 
-    /* use this after you have first created your widgets to set their positioning
-       xd and yd have possible values of 1, 0, -1, I think these mean "left, middle, right; top, middle, bottom */
+    /* Use this after you have first created your widgets to set their
+     * positioning xd and yd have possible values of 1(right/top), 0(center),
+     * -1(left/bottom).
+     */
     void layout(int id, int xd, int yd);
 
-    int  search(int, int, int);
+    int  search(int id, int, int);
 
     /*
     * Activate a widget, allowing it  to behave as a normal state widget.
     * This may  be used  to create  image buttons, or  cause an  array of
     * widgets to behave as a single state widget.
     */
-    int  activate_widget(int, int, int);
+    int  activate_widget(int id, int, int);
 
     /* you only need to call this for parents, children will automatically be deleted by their parents */
-    int  delete_widget(int);
+    int  delete_widget(int id);
 
     /*---------------------------------------------------------------------------*/
 
     /* call once a frame to update your widgets on the screen
        You only need to call this for parents, children will automatically be painted by their parents */
-    void paint(int);
+    void paint(int id);
 
     /* call "gui_pulse(gui_point(id, x, y), 1.2f);" whenever the mouse moves to make widgets pulse when the mouse goes over them */
-    void pulse(int, float);
+    void pulse(int id, float);
 
     /* call once a frame, passing on the value given to BaseGUI::update(int)
        You only need to call this for parents, children will automatically be updated by their parents */
-    void timer(int, float);
+    void timer(int id, float);
 
     /* mouse movement */
-    int  point(int, int x, int y);
+    int  point(int id, int x, int y);
 
     /* joystick movement */
-    int  stick(int, int axis, int dir, int value);
+    int  stick(int id, int axis, int dir, int value);
 
     /* keyboard cursors */
     int cursor(int id, int key);
@@ -281,17 +298,8 @@ public:
     /* mouse click */
     int click();
 
-#if 0
-    /* called if the game is paused */
-    void blank();
-#endif
-
-    /* returns value of id's token */
-    int  token(int) const;
-    /* returns value of id's value */
-    int  value(int) const;
     /* where id's value is being used as a bool, this toggles it */
-    void toggle(int);
+    void toggle(int id);
 
     //force id to be the current active widget
     void set_active(int id);
@@ -306,9 +314,9 @@ private:
     int hot(int id);
 
     GLuint list(int x, int y, int w, int h, const float *c0, const float *c1);
-    int add_widget(int pd, int type);
+    int add_widget(int parent, int type);
 
-    int pause(int);
+    int pause(int parent);
 
     /*---------------------------------------------------------------------------*/
 

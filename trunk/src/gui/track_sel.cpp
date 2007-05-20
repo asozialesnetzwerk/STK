@@ -77,7 +77,7 @@ void TrackSel::update(float dt)
     glClear(GL_DEPTH_BUFFER_BIT);
 
     // draw a track preview of the currently highlighted track menu entry
-    const int CLICKED_TOKEN = widgetSet->token(widgetSet->click());
+    const int CLICKED_TOKEN = widgetSet->get_token(widgetSet->click());
     const Track* TRACK = track_manager->getTrack(CLICKED_TOKEN);
 
     glMatrixMode(GL_PROJECTION);
@@ -149,7 +149,7 @@ void TrackSel::update(float dt)
 //-----------------------------------------------------------------------------
 void TrackSel::select()
 {
-    const int CLICKED_TOKEN = widgetSet->token(widgetSet->click());
+    const int CLICKED_TOKEN = widgetSet->get_token(widgetSet->click());
     const Track* TRACK = track_manager->getTrack(CLICKED_TOKEN);
     race_manager->setTrack(TRACK->getIdent());
 

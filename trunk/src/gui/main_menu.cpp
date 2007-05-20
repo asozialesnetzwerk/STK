@@ -61,7 +61,7 @@ MainMenu::~MainMenu()
 //-----------------------------------------------------------------------------
 void MainMenu::select()
 {
-    switch ( widgetSet -> token (widgetSet -> click()) )
+    switch ( widgetSet -> get_token (widgetSet -> click()) )
     {
     case WTOK_SINGLE:
         race_manager->setNumPlayers(1);

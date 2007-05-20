@@ -71,7 +71,7 @@ GrandPrixSelect::~GrandPrixSelect()
 void GrandPrixSelect::update(float dt)
 {
     BaseGUI::update(dt);
-    const int CLICKED_TOKEN = widgetSet->token(widgetSet->click());
+    const int CLICKED_TOKEN = widgetSet->get_token(widgetSet->click());
     if(CLICKED_TOKEN == -1) return;
 
     glMatrixMode(GL_PROJECTION);
@@ -100,7 +100,7 @@ void GrandPrixSelect::update(float dt)
 //-----------------------------------------------------------------------------
 void GrandPrixSelect::select()
 {
-    const int CLICKED_TOKEN = widgetSet->token(widgetSet->click());
+    const int CLICKED_TOKEN = widgetSet->get_token(widgetSet->click());
     if(CLICKED_TOKEN == -1)
     {
         menu_manager->popMenu();

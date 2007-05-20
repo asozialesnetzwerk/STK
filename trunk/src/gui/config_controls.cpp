@@ -67,7 +67,7 @@ void ConfigControls::update(float dt)
 //-----------------------------------------------------------------------------
 void ConfigControls::select()
 {
-    switch ( widgetSet -> token (widgetSet -> click()) )
+    switch ( widgetSet -> get_token (widgetSet -> click()) )
     {
     case 1: menu_manager->pushMenu(MENUID_CONFIG_P1); break;
     case 2: menu_manager->pushMenu(MENUID_CONFIG_P2); break;

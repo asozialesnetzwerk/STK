@@ -79,7 +79,7 @@ void ConfigSound::update(float dt)
 //-----------------------------------------------------------------------------
 void ConfigSound::select()
 {
-    switch ( widgetSet -> token (widgetSet -> click()) )
+    switch ( widgetSet -> get_token (widgetSet -> click()) )
     {
     case WTOK_MUSIC:
         if(user_config->m_music)
