@@ -20,7 +20,6 @@
 #include <SDL/SDL.h>
 
 #include <plib/ssg.h>
-#include <plib/fnt.h>
 
 #include "user_config.hpp"
 #include "sdldrv.hpp"
@@ -65,7 +64,6 @@ void drv_init()
     SDL_WM_SetCaption("SuperTuxKart", NULL);
 
     ssgInit () ;
-    fntInit();
 }
 
 //-----------------------------------------------------------------------------

@@ -108,6 +108,7 @@ supertuxkart_SOURCES =             main.cpp  			\
 	gui/credits_menu.cpp	   gui/credits_menu.hpp		\
 	gui/scrolled_text.cpp	   gui/scrolled_text.hpp	\
 	gui/grand_prix_select.cpp  gui/grand_prix_select.hpp    \
+	gui/font.hpp		   gui/font.cpp                 \
 	robots/default_robot.cpp   robots/default_robot.hpp 
 
 # Link in the specific gcc 4.1 bug work around

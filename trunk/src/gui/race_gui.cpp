@@ -28,6 +28,7 @@
 #include "menu_manager.hpp"
 #include "sdldrv.hpp"
 #include "translation.hpp"
+#include "font.hpp"
 
 RaceGUI::RaceGUI(): m_time_left(0.0)
 {
@@ -218,8 +219,7 @@ void RaceGUI::drawFPS ()
         m_fps_counter = 0;
         m_fps_timer.setMaxDelta(1000);
     }
-    widgetSet->drawDropShadowTextRace (m_fps_string, 48, 0, 
-                                       user_config->m_height-50, 255, 255, 255);
+    font_race->PrintShadow(m_fps_string,48, 0, user_config->m_height-50);
 }   // drawFPS
 
 //-----------------------------------------------------------------------------
@@ -260,9 +260,8 @@ void RaceGUI::drawTimer ()
     m_time_left = world->m_clock;
 
     TimeToString(m_time_left, str);
-    widgetSet->drawDropShadowTextRace(str, 60, user_config->m_width-260, 
-                                      user_config->m_height-64, 
-                                      255, 255, 255);
+    font_race->PrintShadow(str, 60, user_config->m_width-260, 
+                           user_config->m_height-64);
 }   // drawTimer
 
 //-----------------------------------------------------------------------------
@@ -332,14 +331,14 @@ void RaceGUI::drawGameOverText (const float dt)
     {
         char s[255];
         sprintf(s,_("YOU FINISHED %s"),m_pos_string[finishing_position]);
-        widgetSet->drawDropShadowTextRace ( s  , 64, 130, 300, red, green, blue ) ;
+        font_race->PrintShadow(s, 64, 130, 300, red, green, blue);
     }
     else
     {
-        widgetSet->drawDropShadowTextRace ( _("CONGRATULATIONS")  , 
-                                            64, 130, 300, red, green, blue ) ;
-        widgetSet->drawDropShadowTextRace ( _("YOU WON THE RACE!"), 
-                                            64, 130, 210, red, green, blue ) ;
+        font_race->PrintShadow(_("CONGRATULATIONS"),   64, 130, 300, 
+                               red, green, blue);
+        font_race->PrintShadow(_("YOU WON THE RACE!"), 64, 130, 210, 
+                               red, green, blue);
     }
 }   // drawGameOverText
 
@@ -421,8 +420,8 @@ void RaceGUI::drawPlayerIcons ()
                 str[0]='+'; str[1]=0;
                 TimeToString(timeBehind, str+1);
             }
-            widgetSet->drawDropShadowTextRace(str, 30, ICON_PLAYER_WIDHT+x, y+5,
-                                              red, green, blue);
+            font_race->PrintShadow(str, 30, ICON_PLAYER_WIDHT+x, y+5,
+                                   red, green, blue);
         }
 
         glEnable(GL_CULL_FACE);
@@ -465,17 +464,17 @@ void RaceGUI::drawPlayerIcons ()
         char str[256];
 
         sprintf(str, "%d", kart->getPosition());
-        widgetSet->drawDropShadowTextRace ( str, 33, x-7, y-4);
+        font_race->PrintShadow(str, 33, x-7, y-4);
 
         // FIXME: translation
         if (kart->getPosition() == 1)
-            widgetSet->drawDropShadowTextRace ( "st", 13, x-7+17, y-4+17);
+            font_race->PrintShadow("st", 13, x-7+17, y-4+17);
         else if (kart->getPosition() == 2)
-            widgetSet->drawDropShadowTextRace ( "nd", 13, x-7+17, y-4+17);
+            font_race->PrintShadow("nd", 13, x-7+17, y-4+17);
         else if (kart->getPosition() == 3)
-            widgetSet->drawDropShadowTextRace ( "rd", 13, x-7+17, y-4+17);
+            font_race->PrintShadow("rd", 13, x-7+17, y-4+17);
         else
-            widgetSet->drawDropShadowTextRace ( "th", 13, x-7+17, y-4+17);
+            font_race->PrintShadow("th", 13, x-7+17, y-4+17);
 
         glEnable(GL_CULL_FACE);
     }
@@ -691,20 +690,20 @@ void RaceGUI::drawPosition(Kart* kart, int offset_x, int offset_y,
     offset_y += (int)(140*ratio_y);
 
     sprintf(str, "%d", kart->getPosition());
-    widgetSet->drawDropShadowTextRace ( str, (int)(100*ratio_y), offset_x, offset_y);
+    font_race->PrintShadow(str, (int)(100*ratio_y), offset_x, offset_y);
 
     offset_x += (int)(50*ratio_x);
     offset_y += (int)(50*ratio_y);
 
     // FIXME: translation
     if (kart->getPosition() == 1)
-        widgetSet->drawDropShadowTextRace ( "st", (int)(40*ratio_y), offset_x, offset_y);
+        font_race->PrintShadow("st", (int)(40*ratio_y), offset_x, offset_y);
     else if (kart->getPosition() == 2)
-        widgetSet->drawDropShadowTextRace ( "nd", (int)(40*ratio_y), offset_x, offset_y);
+        font_race->PrintShadow("nd", (int)(40*ratio_y), offset_x, offset_y);
     else if (kart->getPosition() == 3)
-        widgetSet->drawDropShadowTextRace ( "rd", (int)(40*ratio_y), offset_x, offset_y);
+        font_race->PrintShadow("rd", (int)(40*ratio_y), offset_x, offset_y);
     else
-        widgetSet->drawDropShadowTextRace ( "th", (int)(40*ratio_y), offset_x, offset_y);
+        font_race->PrintShadow("th", (int)(40*ratio_y), offset_x, offset_y);
 } // drawPosition
 
 //-----------------------------------------------------------------------------
@@ -736,17 +735,23 @@ void RaceGUI::drawSpeed(Kart* kart, int offset_x, int offset_y,
 #endif
 
     if ( !kart->isOnGround() )
-        widgetSet->drawDropShadowTextRace ( "!", (int)(60*minRatio), offset_x-(int)(30*minRatio), offset_y-(int)(10*minRatio));
-
+        font_race->PrintShadow("!", (int)(60*minRatio), 
+                               offset_x-(int)(30*minRatio), 
+                               offset_y-(int)(10*minRatio));
     /* Show speed */
     if ( speed < 0 )
-        widgetSet->drawDropShadowTextRace ( _("REV"), (int)(40*minRatio), offset_x+(int)(40*minRatio), offset_y+(int)(10*minRatio));
+        font_race->PrintShadow(_("REV"), (int)(40*minRatio), 
+                               offset_x+(int)(40*minRatio), 
+                               offset_y+(int)(10*minRatio));
     else
     {
         if ( speed >= kart->getMaxSpeed()*kart->getWheelieMaxSpeedRatio() )
         {
-            widgetSet->drawDropShadowTextRace ( "l", (int)(60*minRatio), offset_x+(int)(70*minRatio), offset_y);
-            widgetSet->drawDropShadowTextRace ( "^", (int)(60*minRatio), offset_x+(int)(65*minRatio), offset_y+(int)(7*minRatio));
+            font_race->PrintShadow("l", (int)(60*minRatio), 
+                                   offset_x+(int)(70*minRatio), offset_y);
+            font_race->PrintShadow("^", (int)(60*minRatio), 
+                                   offset_x+(int)(65*minRatio), 
+                                   offset_y+(int)(7*minRatio));
         }
 
         float speedRatio = speed/KILOMETERS_PER_HOUR/110.0f;
@@ -788,16 +793,17 @@ void RaceGUI::drawLap(Kart* kart, int offset_x, int offset_y,
     if ( kart->getLap() >= world->m_race_setup.m_num_laps )
     {
         sprintf(str, _("Finished"));
-        widgetSet->drawDropShadowTextRace ( str, (int)(48*maxRatio), offset_x, offset_y);
+        font_race->PrintShadow(str, (int)(48*maxRatio), offset_x, offset_y);
     }
     else
     {
-        widgetSet->drawDropShadowTextRace ( _("Lap"), (int)(48*maxRatio), offset_x, offset_y);
+        font_race->PrintShadow( _("Lap"), (int)(48*maxRatio), offset_x, offset_y);
 
         offset_y -= (int)(50*ratio_y);
 
-        sprintf(str, "%d/%d", kart->getLap()<0?0:kart->getLap()+1, world->m_race_setup.m_num_laps);
-        widgetSet->drawDropShadowTextRace ( str, (int)(48*maxRatio), offset_x, offset_y);
+        sprintf(str, "%d/%d", kart->getLap()<0?0:kart->getLap()+1, 
+                world->m_race_setup.m_num_laps);
+        font_race->PrintShadow(str, (int)(48*maxRatio), offset_x, offset_y);
     }
 } // drawLap
 
@@ -829,7 +835,7 @@ void RaceGUI::drawAllMessages(Kart* player_kart, int offset_x, int offset_y,
     x = SCREEN_CENTERED_TEXT;
     // First line of text somewhat under the top of the screen. For now
     // start just under the timer display
-    y = user_config->m_height -164;
+    y = (int)(ratio_y*(user_config->m_height -164)+offset_y);
     // The message are displayed in reverse order, so that a multi-line
     // message (addMessage("1", ...); addMessage("2",...) is displayed
     // in the right order: "1" on top of "2"
@@ -839,23 +845,12 @@ void RaceGUI::drawAllMessages(Kart* player_kart, int offset_x, int offset_y,
         // Display only messages for all karts, or messages for this kart
         if( (*i)->m_kart && (*i)->m_kart!=player_kart) continue;
 
-        // drawDropShadowTextRace can't handle 'SCREEN_CENTERED_TEXT',
-        // so it can't be used here (unless we do the computation for
-        // centering here).
-
-        // FIXME: x=SCREEN_CENTERED_TEXT is a problem in multi-player
-        // mode, since it will be centered on the whole screen, and not
-        // on the window of the kart. Best solution is probably to
-        // add optional parameters to widget set specifying the window
-        // parameters (left, top, right, bottom) on which to center the
-        // text. For now we leave it the way it is.
-        widgetSet->drawTextRace ( (*i)->m_message, 
-                                  (int)((*i)->m_font_size*ratio_x),
-                                  x,
-                                  (int)(y*ratio_y)+offset_y, 
-                                  (*i)->m_red, 
-                                  (*i)->m_green, 
-                                  (*i)->m_blue );
+        font_race->Print( (*i)->m_message, (*i)->m_font_size, 
+                          Font::ALIGN_CENTER, Font::CENTER_OF_SCREEN, 
+                          Font::ALIGN_BOTTOM, y,
+                          (*i)->m_red, (*i)->m_green, (*i)->m_blue,
+                          ratio_x, ratio_y,
+                          offset_x, offset_x+(int)(user_config->m_width*ratio_x));
         // Add 20% of font size as space between the lines
         y-=(*i)->m_font_size*12/10;
         
@@ -901,22 +896,28 @@ void RaceGUI::drawStatusText (const RaceSetup& raceSetup, const float dt)
     glOrtho        ( 0, user_config->m_width, 0, user_config->m_height, 0, 100 ) ;
     switch (world->m_ready_set_go)
     {
-    case 2: widgetSet->drawTextRace ( _("Ready!"), 90, SCREEN_CENTERED_TEXT,
-                                          SCREEN_CENTERED_TEXT, 230, 170, 160 ) ;
+    case 2: font_race->PrintShadow(_("Ready!"), 90, 
+                                   Font::ALIGN_CENTER, Font::CENTER_OF_SCREEN, 
+                                   Font::ALIGN_CENTER, Font::CENTER_OF_SCREEN, 
+                                   230, 170, 160);
         break;
-    case 1: widgetSet->drawTextRace ( _("Set!"), 90, SCREEN_CENTERED_TEXT,
-                                          SCREEN_CENTERED_TEXT, 230, 230, 160 ) ;
+    case 1: font_race->PrintShadow(_("Set!"), 90, 
+                                   Font::ALIGN_CENTER, Font::CENTER_OF_SCREEN, 
+                                   Font::ALIGN_CENTER, Font::CENTER_OF_SCREEN,
+                                   230, 230, 160);
         break;
-    case 0: widgetSet->drawTextRace ( _("Go!"), 120, SCREEN_CENTERED_TEXT,
-                                          SCREEN_CENTERED_TEXT, 100, 210, 100 ) ;
+    case 0: font_race->PrintShadow(_("Go!"), 90, 
+                                   Font::ALIGN_CENTER, Font::CENTER_OF_SCREEN, 
+                                   Font::ALIGN_CENTER, Font::CENTER_OF_SCREEN,
+                                   100, 210, 100);
         break;
     }   // switch
 
     for(int i = 0; i < 10; ++i)
     {
         if(world->m_debug_text[i] != "")
-            widgetSet->drawText(world->m_debug_text[i].c_str(), 20, 20, 200 - i*20,
-                                100, 210, 100);
+            font_race->Print(world->m_debug_text[i].c_str(),
+                             20, 20, 200 -i*20, 100, 210, 100);
     }
     if(world->getPhase()==World::START_PHASE)
     {
@@ -924,8 +925,9 @@ void RaceGUI::drawStatusText (const RaceSetup& raceSetup, const float dt)
         {
             if(world->getPlayerKart(i)->earlyStartPenalty())
             {
-                widgetSet->drawTextRace(_("Penalty time!!"),80, SCREEN_CENTERED_TEXT,
-                                        200, 200, 10, 10);
+                font_race->PrintShadow(_("Penalty time!!"), 80,
+                                       Font::ALIGN_CENTER, Font::CENTER_OF_SCREEN, 
+                                       Font::ALIGN_BOTTOM, 200, 200, 10, 10);
             }   // if penalty
         }  // for i < getNumPlayers
     }  // if not RACE_PHASE

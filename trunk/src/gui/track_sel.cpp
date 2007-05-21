@@ -26,6 +26,7 @@
 #include "user_config.hpp"
 #include "material.hpp"
 #include "material_manager.hpp"
+#include "font.hpp"
 #include "translation.hpp"
 
 enum WidgetTokens {
@@ -137,8 +138,9 @@ void TrackSel::update(float dt)
     glColor4fv(backgroundColour);
     glCallList(m_rect);
     glPopMatrix();
-    widgetSet->drawText(TRACK->getDescription(), GUI_MED, SCREEN_CENTERED_TEXT, 10,
-                        255,255,255);
+    font_gui->Print(TRACK->getDescription(), GUI_MED, 
+                    Font::ALIGN_CENTER, -1,
+                    Font::ALIGN_BOTTOM, 10);
     glDisable(GL_BLEND);
     glMatrixMode(GL_PROJECTION);
     glPopMatrix();

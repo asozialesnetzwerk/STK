@@ -25,6 +25,7 @@
 #include "menu_manager.hpp"
 #include "race_manager.hpp"
 #include "user_config.hpp"
+#include "font.hpp"
 #include "translation.hpp"
 
 GrandPrixSelect::GrandPrixSelect()
@@ -87,8 +88,8 @@ void GrandPrixSelect::update(float dt)
     glColor4fv(BACKGROUND_COLOUR);
     glCallList(m_rect);
     glPopMatrix();
-    widgetSet->drawText(cup->getDescription(), GUI_MED, SCREEN_CENTERED_TEXT, 10,
-                        255,255,255);
+    font_gui->Print(cup->getDescription(), GUI_MED, 
+                    Font::ALIGN_CENTER, -1, Font::ALIGN_BOTTOM, 10);
     glDisable(GL_BLEND);
     glMatrixMode(GL_PROJECTION);
     glPopMatrix();

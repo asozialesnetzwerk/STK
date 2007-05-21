@@ -21,7 +21,6 @@
 #define HEADER_SCROLL_TEXT_HPP
 
 #include <string>
-#include <plib/fnt.h>
 #include <vector>
 #include "base_gui.hpp"
 #include "player.hpp"

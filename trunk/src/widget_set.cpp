@@ -24,6 +24,7 @@
 #include "loader.hpp"
 #include "user_config.hpp"
 #include "sound_manager.hpp"
+#include "gui/font.hpp"
 
 WidgetSet *widgetSet;
 
@@ -34,17 +35,9 @@ WidgetSet::WidgetSet()
     const int height   = user_config->m_height;
     const int S   = (height < width) ? height : width ;
     m_radius  = S/60;
-    m_fnt     = new fntTexFont(loader->getPath("fonts/AvantGarde-Demi.txf").c_str(),
-                             GL_LINEAR, GL_LINEAR_MIPMAP_LINEAR);
-    m_text_out = new fntRenderer();
-    m_text_out->setFont(m_fnt);
 
-    m_fnt_race = new fntTexFont(loader->getPath("fonts/DomesticManners.txf").c_str(),
-                             GL_LINEAR, GL_LINEAR_MIPMAP_LINEAR);
-    m_text_out_race = new fntRenderer();
-    m_text_out_race->setFont(m_fnt_race);
+    init_fonts();
 
-    /* Initialize font rendering. */
     memset(m_widgets, 0, sizeof (Widget) * MAX_WIDGETS);
 
 }
@@ -65,23 +58,14 @@ WidgetSet::~WidgetSet()
         m_widgets[id].cdr      = 0;
         m_widgets[id].car      = 0;
     }
-
+    delete_fonts();
 }
 
 //-----------------------------------------------------------------------------
 void WidgetSet::reInit()
 {
-    if(m_fnt    ) delete m_fnt;
-    if(m_text_out) delete m_text_out;
-    m_fnt     = new fntTexFont(loader->getPath("fonts/AvantGarde-Demi.txf").c_str(),
-                             GL_LINEAR, GL_LINEAR_MIPMAP_LINEAR);
-    m_text_out = new fntRenderer();
-    m_text_out->setFont(m_fnt);
-    if(m_text_out_race) delete m_text_out_race;
-    m_fnt_race = new fntTexFont(loader->getPath("fonts/DomesticManners.txf").c_str(),
-                             GL_LINEAR, GL_LINEAR_MIPMAP_LINEAR);
-    m_text_out_race = new fntRenderer();
-    m_text_out_race->setFont(m_fnt_race);
+    delete_fonts();
+    init_fonts();
 
 }   // reInit
 
@@ -333,7 +317,7 @@ int WidgetSet::filler(int parent) { return add_widget(parent, GUI_FILLER); }
 void WidgetSet::set_label(int id, const char *text)
 {
     float l,r,b,t;
-    m_fnt->getBBox(text, m_widgets[id].size, 0.0f, &l, &r, &b, &t);
+    font_gui->getBBox(text, m_widgets[id].size, 0.0f, &l, &r, &b, &t);
     m_widgets[id].yOffset    = (int)b;
     m_widgets[id].text_width = (int)(r-l+0.99);
     m_widgets[id]._text      = text;
@@ -356,7 +340,7 @@ void WidgetSet::set_count(int id, int value)
     m_widgets[id].value = value;
     sprintf(m_widgets[id].count_text,"%d",value);
     float l,r,b,t;
-    m_fnt->getBBox(m_widgets[id].count_text, m_widgets[id].size, 0, &l, &r, &b, &t);
+    font_gui->getBBox(m_widgets[id].count_text, m_widgets[id].size, 0, &l, &r, &b, &t);
     m_widgets[id].yOffset    = (int)(b);
     m_widgets[id].w          = (int)(r-l+0.99);
     m_widgets[id].h          = (int)(t-b+0.99);
@@ -430,7 +414,7 @@ int WidgetSet::state(int parent, const char *text, int size, int token, int valu
     {
         m_widgets[id]._text = text;
         float l,r,b,t;
-        m_fnt->getBBox(text, size, 0, &l, &r, &b, &t);
+        font_gui->getBBox(text, size, 0, &l, &r, &b, &t);
         // Apparently the font system allows charater to be
         // under the y=0 line (e.g the character g, p, y)
         // Since the text will not be centered because of this,
@@ -457,7 +441,7 @@ int WidgetSet::label(int parent, const char *text, int size, int rect, const flo
     {
         m_widgets[id]._text = text;
         float l,r,b,t;
-        m_fnt->getBBox(text, size, 0, &l, &r, &b, &t);
+        font_gui->getBBox(text, size, 0, &l, &r, &b, &t);
         m_widgets[id].yOffset    = (int)(b);
         m_widgets[id].w          = (int)(r-l+0.99);
         m_widgets[id].h          = (int)(t-b+0.99);
@@ -485,7 +469,7 @@ int WidgetSet::count(int parent, int value, int size, int rect)
         m_widgets[id].count_text  = new char[20];
         sprintf(m_widgets[id].count_text,"%d",value);
         float l,r,b,t;
-        m_fnt->getBBox(m_widgets[id].count_text, size, 0, &l, &r, &b, &t);
+        font_gui->getBBox(m_widgets[id].count_text, size, 0, &l, &r, &b, &t);
         m_widgets[id].yOffset    = (int)(b);
         m_widgets[id].w          = (int)(r-l+0.99);
         m_widgets[id].h          = (int)(t-b+0.99);
@@ -523,84 +507,6 @@ int WidgetSet::space(int parent)
         m_widgets[id].h = 0;
     }
     return id;
-}
-
-//-----------------------------------------------------------------------------
-void WidgetSet::drawText (const char *text, int sz, int x, int y,
-                          int red, int green, int blue,
-                          float scale_x, float scale_y )
-{
-    float l,r,t,b, fontScaling;
-    // Only scale for lower resolution
-    fontScaling = user_config->m_width<800 ? ((float)user_config->m_width/800.0f) : 1.0f;
-    //    fontScaling = (float)user_config->m_width/800.0f;
-    sz = (int)(sz*std::max(scale_x,scale_y)*fontScaling);
-    m_fnt->getBBox(text, sz, 0, &l, &r, &b, &t);
-    const int W = (int)((r-l+0.99)*scale_x);
-    const int H = (int)((t-b+0.99)*scale_y);
-    if(x == SCREEN_CENTERED_TEXT)
-    {
-        x = (user_config->m_width - W) / 2;
-    }
-    if(y == SCREEN_CENTERED_TEXT)
-    {
-        y = (user_config->m_height - H) / 2;
-    }
-
-    m_text_out->begin();
-    m_text_out->setPointSize(sz);
-    m_text_out->start2f((GLfloat)x, (GLfloat)y);
-    glColor3ub(red, green, blue);
-    m_text_out->puts(text);
-    m_text_out->end();
-}
-
-//-----------------------------------------------------------------------------
-void WidgetSet::drawDropShadowText (const char *text, int sz, int x, int y,
-                                    int red, int green, int blue,
-                                    float scale_x, float scale_y )
-{
-    drawText ( text, sz, x, y, 0, 0, 0, scale_x, scale_y ) ;
-    drawText ( text, sz, x+2, y+2, red, green, blue, scale_x, scale_y ) ;
-}
-
-//-----------------------------------------------------------------------------
-void WidgetSet::drawTextRace (const char *text, int sz, int x, int y,
-                              int red, int green, int blue,
-                              float scale_x, float scale_y )
-{
-    float l,r,t,b, fontScaling;
-    // Only scale for lower resolution
-    fontScaling = user_config->m_width<800 ? ((float)user_config->m_width/800.0f) : 1.0f;
-    //    fontScaling = (float)user_config->m_width/800.0f;
-    sz = (int)(sz*std::max(scale_x,scale_y)*fontScaling);
-    m_fnt_race->getBBox(text, sz, 0, &l, &r, &b, &t);
-    const int W = (int)((r-l+0.99)*scale_x);
-    const int H = (int)((t-b+0.99)*scale_y);
-    if(x == SCREEN_CENTERED_TEXT)
-    {
-        x = (user_config->m_width - W) / 2;
-    }
-    if(y == SCREEN_CENTERED_TEXT)
-    {
-        y = (user_config->m_height - H) / 2;
-    }
-
-    m_text_out_race->begin();
-    m_text_out_race->setPointSize(sz);
-    m_text_out_race->start2f((GLfloat)x, (GLfloat)y);
-    glColor3ub(red, green, blue);
-    m_text_out_race->puts(text);
-    m_text_out_race->end();
-}
-
-//-----------------------------------------------------------------------------
-void WidgetSet::drawDropShadowTextRace (const char *text, int sz, int x, int y,
-                                        int red, int green, int blue,
-                                        float scale_x, float scale_y )
-{
-    drawTextRace ( text, sz, x, y, 0, 0, 0, scale_x, scale_y ) ;
-    drawTextRace ( text, sz, x+2, y+2, red, green, blue, scale_x, scale_y ) ;
 }
 
 //-----------------------------------------------------------------------------
@@ -1172,8 +1078,8 @@ void WidgetSet::paint_image(int id)
 //-----------------------------------------------------------------------------
 void WidgetSet::paint_count(int id)
 {
-    drawText(m_widgets[id].count_text, m_widgets[id].size, m_widgets[id].x,m_widgets[id].y,
-             255,255,255,1.0, 1.0);
+    font_gui->Print(m_widgets[id].count_text, m_widgets[id].size, 
+                    m_widgets[id].x, m_widgets[id].y               );
     return;
 }   // paint_count
 
@@ -1260,24 +1166,12 @@ void WidgetSet::paint_label(int id)
 {
     /* Draw the widget text box, textured using the glyph. */
 
-    glPushMatrix();
-    {
-        // These offsets are rather horrible, but at least they
-        // seem to give the right visuals
-        glTranslatef((GLfloat) (m_widgets[id].x + m_widgets[id].w+
-                                (m_radius-m_widgets[id].text_width)/2),
-                     (GLfloat) (m_widgets[id].y + (m_widgets[id].h-m_radius)/2), 0.f);
-
-        glScalef(m_widgets[id].scale, m_widgets[id].scale, m_widgets[id].scale);
-        m_text_out->begin();
-        {
-            m_text_out->setPointSize(m_widgets[id].size);
-            m_text_out->start2f((GLfloat)-m_widgets[id].w/2 , (GLfloat)m_widgets[id].yOffset);
-            m_text_out->puts(m_widgets[id]._text);
-        }
-        m_text_out->end();
-    }
-    glPopMatrix();
+    font_gui->Print(m_widgets[id]._text, m_widgets[id].size,
+                    Font::ALIGN_CENTER, m_widgets[id].x + m_widgets[id].w/2,
+                    Font::ALIGN_BOTTOM, m_widgets[id].y + 
+                                        (m_widgets[id].h-m_radius)/2,
+                    255, 255, 255, m_widgets[id].scale, m_widgets[id].scale);
+                    
 }
 
 //-----------------------------------------------------------------------------

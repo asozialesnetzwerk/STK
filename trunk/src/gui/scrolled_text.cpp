@@ -23,6 +23,7 @@
 #include "menu_manager.hpp"
 #include "user_config.hpp"
 #include "translation.hpp"
+#include "font.hpp"
 
 ScrolledText::ScrolledText()
 {
@@ -71,8 +72,8 @@ void ScrolledText::update(float dt)
     glColor4fv(backgroundColour);
     glCallList(m_rect);
     glPopMatrix();
-    widgetSet->drawText(_("Press <ESC> to go back"), 24,
-                        SCREEN_CENTERED_TEXT, 20, 255, 255, 255);
+    font_gui->Print(_("Press <ESC> to go back"), 24, 
+                    Font::ALIGN_CENTER, -1, Font::ALIGN_BOTTOM, 20);
     glViewport(m_x_left, m_y_bottom, m_x_right-m_x_left, m_y_top-m_y_bottom);
 
     glScalef(1.0f, user_config->m_width/(m_y_top-m_y_bottom), 1.0f);
@@ -81,8 +82,8 @@ void ScrolledText::update(float dt)
     {
 
         if((m_y_pos-i*m_font_size < m_y_top + m_y_bottom ) && m_y_pos-i*m_font_size > -m_font_size)
-            widgetSet->drawText(m_string_list[i],24,
-                                m_x_left,(int)m_y_pos-i*m_font_size,255,255,255);
+            font_gui->Print(m_string_list[i], 24,
+                            m_x_left,(int)m_y_pos-i*m_font_size);
     }
     glMatrixMode(GL_PROJECTION);
     glPopMatrix();

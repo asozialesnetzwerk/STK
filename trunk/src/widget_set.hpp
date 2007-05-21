@@ -28,7 +28,6 @@
 #endif
 #include <GL/gl.h>
 #endif
-#include <plib/fnt.h>
 #include <string>
 
 /*---------------------------------------------------------------------------*/
@@ -199,57 +198,6 @@ public:
     //just a blank space
     int  space(int parent);
 
-
-    /*
-     * Text drawing functions
-     */
-    void drawText(const char *text, int sz, int x, int y,
-                  int red=255, int green=255, int blue=255,
-                  float scale_x=1.0, float scale_y=1.0);
-
-    void drawText(std::string text, int sz, int x, int y,
-                  int red=255, int green=255, int blue=255,
-                  float scale_x=1.0, float scale_y=1.0)
-    {
-        drawText(text.c_str(), sz, x, y, red, green, blue,
-                 scale_x, scale_y);
-    }
-
-    void drawDropShadowText(const char *text, int sz, int x, int y,
-                            int red=255, int green=255, int blue=255,
-                            float scale_x=1.0, float scale_y=1.0);
-
-    void drawDropShadowText(std::string text, int sz, int x, int y,
-                            int red=255, int green=255, int blue=255,
-                            float scale_x=1.0, float scale_y=1.0)
-    {
-        drawDropShadowText(text.c_str(), sz, x, y, red, green, blue,
-                           scale_x, scale_y);
-    }
-
-    void drawTextRace(const char *text, int sz, int x, int y,
-                      int red=255, int green=255, int blue=255,
-                      float scale_x=1.0, float scale_y=1.0);
-
-    void drawTextRace(std::string text, int sz, int x, int y,
-                      int red=255, int green=255, int blue=255,
-                      float scale_x=1.0, float scale_y=1.0)
-    {
-        drawTextRace(text.c_str(), sz, x, y, red, green, blue,
-                     scale_x, scale_y);
-    }
-
-    void drawDropShadowTextRace(const char *text, int sz, int x, int y,
-                                int red=255, int green=255, int blue=255,
-                                float scale_x=1.0, float scale_y=1.0);
-
-    void drawDropShadowTextRace(std::string text, int sz, int x, int y,
-                                int red=255, int green=255, int blue=255,
-                                float scale_x=1.0, float scale_y=1.0)
-    {
-        drawDropShadowTextRace(text.c_str(), sz, x, y, red, green, blue,
-                               scale_x, scale_y);
-    }
     /*---------------------------------------------------------------------------*/
 
     /* prints out debugging info */
@@ -375,10 +323,6 @@ private:
     Widget m_widgets[MAX_WIDGETS];
     int           m_active;
     int           m_radius;
-    fntTexFont    *m_fnt;
-    fntRenderer   *m_text_out;
-    fntTexFont    *m_fnt_race;
-    fntRenderer   *m_text_out_race;
 
     int m_pause_id;
     bool m_paused;
