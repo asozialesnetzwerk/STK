@@ -93,7 +93,7 @@ void Physics::convertTrack(ssgEntity *track, sgMat4 m)
             mesh->addTriangle(vb1, vb2, vb3);
         }
 
-        btCollisionShape *mesh_shape = new btBvhTriangleMeshShape(mesh);
+        btCollisionShape *mesh_shape = new btBvhTriangleMeshShape(mesh, true);
         btTransform startTransform;
         startTransform.setIdentity();
         btDefaultMotionState *myMotionState = new btDefaultMotionState(startTransform);

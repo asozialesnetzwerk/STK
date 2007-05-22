@@ -165,10 +165,10 @@ void Kart::createPhysics(ssgEntity *obj)
     // -------------------------------------
     // The size for bullet must be specified in half extends!
     //    ssgEntity *model = getModel();
+#ifdef BULLET
     float x_min, x_max, y_min, y_max, z_min, z_max;
     MinMax(obj, &x_min, &x_max, &y_min, &y_max, &z_min, &z_max);
-    m_kart_width  = x_max-x_min;
-#ifdef BULLET
+    float kart_width  = x_max-x_min;
     float kart_length = y_max-y_min;
     if(kart_length<1.2) kart_length=1.5f;
 
@@ -716,8 +716,8 @@ void Kart::update (float dt)
        !m_rescue                                                             &&
        m_shortcut_type                              != SC_SKIPPED_SECTOR     &&
          fabsf(m_curr_track_coords[0])-stk_config->m_max_road_distance 
-         >  m_curr_track_coords[2] ) {
-               
+         >  m_curr_track_coords[2] ) 
+    {
         m_shortcut_sector = sector;
         // Increase the error count the first time this happens
         if(m_shortcut_type==SC_NONE)
