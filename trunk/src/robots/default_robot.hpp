@@ -122,6 +122,7 @@ private:
     float angle_to_control(float angle) const;
     float get_approx_radius(const int START, const int END) const;
     void find_curve();
+    int m_sector;
 
 public:
     DefaultRobot(const KartProperties *kart_properties, int position,

@@ -21,12 +21,17 @@
 #include "material.hpp"
 #include "camera.hpp"
 #include "track.hpp"
-#include  "world.hpp"
+#include "world.hpp"
 #include "user_config.hpp"
 
 
-#ifdef BULLETDEBUG
-#include "btBulletDynamicsCommon.h"
+#ifdef BULLET
+#  include "btBulletDynamicsCommon.h"
+#  ifdef __APPLE__
+#    include <GLUT/glut.h>
+#  else
+#    include <GL/glut.h>
+#  endif
 #endif
 
 #include "scene.hpp"
@@ -122,56 +127,63 @@ void Scene::draw()
         (*i)->update();
         (*i) -> apply () ;
 
-#ifndef BULLETDEBUG
-        ssgCullAndDraw ( m_scenegraph );
-#else
-        // Use bullets debug drawer
-        GLfloat light_ambient[] = { 0.0, 0.0, 0.0, 1.0 };
-        GLfloat light_diffuse[] = { 1.0, 1.0, 1.0, 1.0 };
-        GLfloat light_specular[] = { 1.0, 1.0, 1.0, 1.0 };
-        /*	light_position is NOT default value	*/
-        GLfloat light_position0[] = { 1.0, 1.0, 1.0, 0.0 };
-        GLfloat light_position1[] = { -1.0, -1.0, -1.0, 0.0 };
-
-        glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
-        glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse);
-        glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);
-        glLightfv(GL_LIGHT0, GL_POSITION, light_position0);
-
-        glLightfv(GL_LIGHT1, GL_AMBIENT, light_ambient);
-        glLightfv(GL_LIGHT1, GL_DIFFUSE, light_diffuse);
-        glLightfv(GL_LIGHT1, GL_SPECULAR, light_specular);
-        glLightfv(GL_LIGHT1, GL_POSITION, light_position1);
-
-        glEnable(GL_LIGHTING);
-        glEnable(GL_LIGHT0);
-        glEnable(GL_LIGHT1);
-
-        glShadeModel(GL_SMOOTH);
-        glEnable(GL_DEPTH_TEST);
-        glDepthFunc(GL_LESS);
-
-        glClearColor(0.8,0.8,0.8,0);
-
-        glMatrixMode(GL_PROJECTION);
-        glLoadIdentity();
-        float f=2.0f;
-        glFrustum(-f, f, -f, f, 1.0, 1000.0);
-
-        btVector3 pos;
-        sgCoord *c = getKart(getNumKarts()-1)->getCoord();
-        gluLookAt(c->xyz[0], c->xyz[1]-5.f, c->xyz[2]+4,
-                  c->xyz[0], c->xyz[1],     c->xyz[2],
-                  0.0f, 0.0f, 1.0f);
-        glMatrixMode(GL_MODELVIEW);
-
-        for ( Karts::size_type i = 0 ; i < m_kart.size(); ++i)
+#ifdef BULLET
+        if(!user_config->m_bullet_debug)
         {
-            m_kart[i]->draw();
-        }
-        m_physics->draw();
 #endif
-    }
+            ssgCullAndDraw ( m_scenegraph );
+#ifdef BULLET
+        }
+        else
+        {
+            // Use bullets debug drawer
+            GLfloat light_ambient[] = { 0.0, 0.0, 0.0, 1.0 };
+            GLfloat light_diffuse[] = { 1.0, 1.0, 1.0, 1.0 };
+            GLfloat light_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+            /*	light_position is NOT default value	*/
+            GLfloat light_position0[] = { 1.0, 1.0, 1.0, 0.0 };
+            GLfloat light_position1[] = { -1.0, -1.0, -1.0, 0.0 };
+            
+            glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
+            glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse);
+            glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);
+            glLightfv(GL_LIGHT0, GL_POSITION, light_position0);
+            
+            glLightfv(GL_LIGHT1, GL_AMBIENT, light_ambient);
+            glLightfv(GL_LIGHT1, GL_DIFFUSE, light_diffuse);
+            glLightfv(GL_LIGHT1, GL_SPECULAR, light_specular);
+            glLightfv(GL_LIGHT1, GL_POSITION, light_position1);
+            
+            glEnable(GL_LIGHTING);
+            glEnable(GL_LIGHT0);
+            glEnable(GL_LIGHT1);
+            
+            glShadeModel(GL_SMOOTH);
+            glEnable(GL_DEPTH_TEST);
+            glDepthFunc(GL_LESS);
+            
+            glClearColor(0.8,0.8,0.8,0);
+            
+            glMatrixMode(GL_PROJECTION);
+            glLoadIdentity();
+            float f=2.0f;
+            glFrustum(-f, f, -f, f, 1.0, 1000.0);
+            
+            btVector3 pos;
+            sgCoord *c = world->getKart(world->getNumKarts()-1)->getCoord();
+            gluLookAt(c->xyz[0], c->xyz[1]-5.f, c->xyz[2]+4,
+                      c->xyz[0], c->xyz[1],     c->xyz[2],
+                      0.0f, 0.0f, 1.0f);
+            glMatrixMode(GL_MODELVIEW);
+            
+            for (World::Karts::size_type i = 0 ; i < world->getNumKarts(); ++i)
+            {
+                world->getKart(i)->draw();
+            }
+            world->getPhysics()->draw();
+        }   //  bullet_debug
+#endif
+    }   // for cameras
 
     if (TRACK->useFog())
     {

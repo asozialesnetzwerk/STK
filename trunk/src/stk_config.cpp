@@ -50,6 +50,7 @@ void STKConfig::load(const std::string filename)
     CHECK_NEG(m_magnet_range_sq,         "magnet-range"                 );
     CHECK_NEG(m_magnet_time,             "magnet-time"                  );
     CHECK_NEG(m_brake_factor,            "brake-factor"                 );
+    CHECK_NEG(m_brake_force,             "brake-force"                  );
     CHECK_NEG(m_jump_impulse,            "jump-impulse"                 );
 
     CHECK_NEG(m_air_res_reduce[1],       "reduce-air-resistance-driver" );
@@ -80,6 +81,7 @@ void STKConfig::load(const std::string filename)
     CHECK_NEG(m_chassis_linear_damping,    "chassis-linear-damping"     );
     CHECK_NEG(m_chassis_angular_damping,   "chassis-angular-damping"    );
     CHECK_NEG(m_maximum_speed,             "maximum-speed"              );
+    CHECK_NEG(m_gravity_center_shift,      "gravity-center-shift"       );
     CHECK_NEG(m_parachute_time,            "parachute-time"             );
     CHECK_NEG(m_parachute_time_other,      "parachute-time-other"       );
     CHECK_NEG(m_bomb_time,                 "bomb-time"                  );
@@ -114,7 +116,7 @@ void STKConfig::init_defaults()
     m_friction_slip = m_roll_influence = m_wheel_radius = m_wheel_width =
     m_wheelie_lean_recovery = m_wheelie_step = m_wheelie_balance_recovery =
     m_wheelie_power_boost = m_chassis_linear_damping = m_chassis_angular_damping = 
-    m_maximum_speed = -99.9f;
+    m_maximum_speed = m_brake_force = m_gravity_center_shift = -99.9f;
 
     m_air_res_reduce[0]    = 1.0f;
 }   // init_defaults

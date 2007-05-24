@@ -137,7 +137,7 @@ public:
     void               drawScaled2D     (float x, float y, float w,
                                          float h                     ) const;
 
-    int                findRoadSector   (const sgVec3 XYZ            ) const;
+    void               findRoadSector   (const sgVec3 XYZ, int *sector) const;
     int                findOutOfRoadSector(const sgVec3 XYZ,
                                            const RoadSide SIDE,
                                            const int CURR_SECTOR

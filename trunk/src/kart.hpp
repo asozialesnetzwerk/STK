@@ -91,7 +91,6 @@ protected:
     float        m_current_friction;   // current friction
     float        m_lap_start_time;     // Time at start of a new lap
     char         m_fastest_lap_message[255];
-    float        m_kart_width;         // width of the kart
     int          m_shortcut_count;     // counts number of times a shortcut is used
     int          m_shortcut_sector;    // segment on which the shortcut was started
     enum        {SC_NONE,              // no shortcut
@@ -103,7 +102,7 @@ protected:
     btRaycastVehicle::btVehicleTuning  *m_tuning;
     btVehicleRaycaster                 *m_vehicle_raycaster;
     btRaycastVehicle                   *m_vehicle;
-    btBoxShape                         *m_kart_chassis;
+    btCompoundShape                    *m_kart_chassis;
     btRigidBody                        *m_kart_body;
     btDefaultMotionState               *m_motion_state;
     float                               m_kart_height;
@@ -203,6 +202,7 @@ public:
     float          getMaxPower      () const {return m_kart_properties->getMaxPower();}
     float          getTimeFullSteer () const {return m_kart_properties->getTimeFullSteer();}
     float          getBrakeFactor   () const {return m_kart_properties->getBrakeFactor();}
+    float          getBrakeForce    () const {return m_kart_properties->getBrakeForce();}
     float          getWheelBase     () const {return m_kart_properties->getWheelBase();}
     float          getHeightCOG     () const {return m_kart_properties->getHeightCOG();}
     float          getTireGrip      () const {return m_kart_properties->getTireGrip();}
@@ -210,21 +210,20 @@ public:
     float          getCornerStiffF  () const {return m_kart_properties->getCornerStiffF();}
     float          getCornerStiffR  () const {return m_kart_properties->getCornerStiffR();}
     float          getInertia       () const {return m_kart_properties->getInertia();     }
+    float          getGravityCenterShift   () const
+        {return m_kart_properties->getGravityCenterShift();                    }
     float          getWheelieMaxSpeedRatio () const
-        {return m_kart_properties->getWheelieMaxSpeedRatio();}
+        {return m_kart_properties->getWheelieMaxSpeedRatio();                  }
     float          getWheelieMaxPitch  () const
-        {return m_kart_properties->getWheelieMaxPitch();   }
+        {return m_kart_properties->getWheelieMaxPitch();                       }
     float          getWheeliePitchRate () const
-        {return m_kart_properties->getWheeliePitchRate();  }
+        {return m_kart_properties->getWheeliePitchRate();                      }
     float          getWheelieRestoreRate() const
-        {return m_kart_properties->getWheelieRestoreRate();}
+        {return m_kart_properties->getWheelieRestoreRate();                    }
     float          getWheelieSpeedBoost() const
-        {return m_kart_properties->getWheelieSpeedBoost(); }
+        {return m_kart_properties->getWheelieSpeedBoost();                     }
     float          getSteerAngle    () const
-    {
-        return m_controls.lr*
-               m_kart_properties->getMaxSteerAngle();
-    }
+        {return m_controls.lr*m_kart_properties->getMaxSteerAngle();           }
     float          getAirResistance () const;
     float          getSteerPercent  () const {return m_controls.lr;            }
     float          getMaxSpeed      () const {return m_max_speed;              }

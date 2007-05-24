@@ -17,13 +17,16 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
+
+#ifdef BULLET
+
 #include "physics.hpp"
 #include "ssg_help.hpp"
 #include "world.hpp"
 
-#ifdef BULLET
 #include "../bullet/Demos/OpenGL/GL_ShapeDrawer.h"
 #include "moving_physics.hpp"
+#include "user_config.hpp"
 
 /** Initialise physics. */
 Physics::Physics(float gravity)
@@ -36,11 +39,12 @@ Physics::Physics(float gravity)
     m_dynamics_world = new btDiscreteDynamicsWorld(dispatcher, pairCache, 
                                                    constraintSolver);
     m_dynamics_world->setGravity(btVector3(0.0f, 0.0f, -gravity));
-#ifdef BULLETDEBUG
-    m_debug_drawer=new GLDebugDrawer();
-    m_debug_drawer->setDebugMode(btIDebugDraw::DBG_DrawWireframe);
-    m_dynamics_world->setDebugDrawer(m_debug_drawer);
-#endif
+    if(user_config->m_bullet_debug)
+    {
+        m_debug_drawer=new GLDebugDrawer();
+        m_debug_drawer->setDebugMode(btIDebugDraw::DBG_DrawWireframe);
+        m_dynamics_world->setDebugDrawer(m_debug_drawer);
+    }
 }   // Physics
 
 //-----------------------------------------------------------------------------
@@ -156,26 +160,26 @@ void Physics::update(float dt)
 //* 
 void Physics::draw()
 {
-#ifdef BULLETDEBUG
-    int num_objects = m_dynamics_world->getNumCollisionObjects();
-    for(int i=0; i<num_objects; i++)
+    if(user_config->m_bullet_debug)
     {
-        btCollisionObject *obj = m_dynamics_world->getCollisionObjectArray()[i];
-        btRigidBody* body = btRigidBody::upcast(obj);
-        if(!body) continue;
-        //const btVector3 &pos=body->getCenterOfMassPosition();
-        //printf("body %d: %f %f %f dt %f\n",i, pos.x(), pos.y(), pos.z(),dt);
-        float m[16];
-        btVector3 wireColor(1,0,0);
-        btDefaultMotionState *myMotion = (btDefaultMotionState*)body->getMotionState();
-        if(myMotion) 
+        int num_objects = m_dynamics_world->getNumCollisionObjects();
+        for(int i=0; i<num_objects; i++)
         {
-            myMotion->m_graphicsWorldTrans.getOpenGLMatrix(m);
-            debugDraw(m, obj->getCollisionShape(), wireColor);
-        }
-
-    }  // for i
-#endif
+            btCollisionObject *obj = m_dynamics_world->getCollisionObjectArray()[i];
+            btRigidBody* body = btRigidBody::upcast(obj);
+            if(!body) continue;
+            //const btVector3 &pos=body->getCenterOfMassPosition();
+            //printf("body %d: %f %f %f dt %f\n",i, pos.x(), pos.y(), pos.z(),dt);
+            float m[16];
+            btVector3 wireColor(1,0,0);
+            btDefaultMotionState *myMotion = (btDefaultMotionState*)body->getMotionState();
+            if(myMotion) 
+            {
+                myMotion->m_graphicsWorldTrans.getOpenGLMatrix(m);
+                debugDraw(m, obj->getCollisionShape(), wireColor);
+            }
+        }  // for i
+    }   // if m_bullet_debug
 }   // draw
 
 // -----------------------------------------------------------------------------

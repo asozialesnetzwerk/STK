@@ -134,6 +134,10 @@ int handleCmdLine(int argc, char **argv)
         {
             user_config->m_track_debug=1;
         }
+        else if(!strcmp(argv[i], "--bullet-debug"))
+        {
+            user_config->m_bullet_debug=1;
+        }
         else if( (!strcmp(argv[i], "--kart") && i+1<argc ))
         {
             race_manager->setPlayerKart(0, argv[i+1]);

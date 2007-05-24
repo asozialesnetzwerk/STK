@@ -566,7 +566,7 @@ void DefaultRobot::check_crashes( const int STEPS, sgVec3 const pos )
         }
 
         /*Find if we crash with the drivelines*/
-        int sector = world->m_track->findRoadSector( step_coord );
+        world->m_track->findRoadSector(step_coord, &m_sector);
 
 #ifdef SHOW_FUTURE_PATH
 
@@ -586,7 +586,7 @@ void DefaultRobot::check_crashes( const int STEPS, sgVec3 const pos )
         center[2] = pos[2];
         sphere->setCenter( center );
         sphere->setSize( KART_LENGTH );
-        if( sector == Track::UNKNOWN_SECTOR )
+        if( m_sector == Track::UNKNOWN_SECTOR )
         {
             sgVec4 colour;
             colour[0] = colour[3] = 255;
@@ -606,7 +606,7 @@ void DefaultRobot::check_crashes( const int STEPS, sgVec3 const pos )
         m_future_location[0] = step_coord[0]; m_future_location[1] =
             step_coord[1];
 
-        if( sector == Track::UNKNOWN_SECTOR )
+        if( m_sector == Track::UNKNOWN_SECTOR )
         {
             m_future_sector = world->m_track->findOutOfRoadSector( step_coord,
                 Track::RS_DONT_KNOW, m_future_sector );
@@ -615,7 +615,7 @@ void DefaultRobot::check_crashes( const int STEPS, sgVec3 const pos )
         }
         else
         {
-            m_future_sector = sector;
+            m_future_sector = m_sector;
         }
 
 
@@ -717,6 +717,7 @@ void DefaultRobot::find_non_crashing_point( sgVec2 result )
 //-----------------------------------------------------------------------------
 void DefaultRobot::reset()
 {
+    m_sector      = Track::UNKNOWN_SECTOR;
     m_inner_curve = 0;
     m_curve_target_speed = getMaxSpeed();
     m_curve_angle = 0.0;

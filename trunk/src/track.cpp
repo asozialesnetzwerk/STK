@@ -106,8 +106,17 @@ int Track::pointInQuad
  *  The 'sector' could be defined as the number of the closest track
  *  segment to XYZ.
  */
-int Track::findRoadSector( const sgVec3 XYZ )const
+void Track::findRoadSector( const sgVec3 XYZ, int *sector )const
 {
+    if(*sector!=UNKNOWN_SECTOR)
+    {
+        int next = (unsigned)(*sector) + 1 <  m_left_driveline.size() ? *sector + 1 : 0;
+        if(pointInQuad( m_left_driveline[*sector], m_right_driveline[*sector],
+                        m_right_driveline[next],   m_left_driveline[next], 
+                        XYZ ) != QUAD_TRI_NONE)
+            // Still in the same sector, no changes
+            return;
+    }
     /* To find in which 'sector' of the track the kart is, we use a
        'point in triangle' algorithm for each triangle in the quad
        that forms each track segment.
@@ -136,63 +145,64 @@ int Track::findRoadSector( const sgVec3 XYZ )const
     if( POS_SEG_SIZE == 0 )
     {
         //xyz is not on the road
-        return UNKNOWN_SECTOR;
+        *sector = UNKNOWN_SECTOR;
+        return;
     }
-    else //POS_SEG_SIZE > 1
+
+    //POS_SEG_SIZE > 1
+    /* To find on top of which track segment the variable xyz is,
+       we get which of the possible triangles that are under xyz
+       has the lower distance on the height(Y or Z) axis.
+    */
+    float dist;
+    float near_dist = 99999;
+    int nearest = QUAD_TRI_NONE;
+    size_t segment;
+    sgVec4 plane;
+    
+    for( int i = 0; i < POS_SEG_SIZE; ++i )
     {
-        /* To find on top of which track segment the variable xyz is,
-           we get which of the possible triangles that are under xyz
-           has the lower distance on the height(Y or Z) axis.
-         */
-        float dist;
-        float near_dist = 99999;
-        int nearest = QUAD_TRI_NONE;
-        size_t segment;
-        sgVec4 plane;
-
-        for( int i = 0; i < POS_SEG_SIZE; ++i )
+        segment = possible_segment_tris[i].segment;
+        next = segment + 1 < DRIVELINE_SIZE ? segment + 1 : 0;
+        
+        if( possible_segment_tris[i].triangle == QUAD_TRI_FIRST )
         {
-             segment = possible_segment_tris[i].segment;
-             next = segment + 1 < DRIVELINE_SIZE ? segment + 1 : 0;
-
-             if( possible_segment_tris[i].triangle == QUAD_TRI_FIRST )
-             {
-                 sgMakePlane( plane, m_left_driveline[segment],
-                     m_right_driveline[segment], m_right_driveline[next] );
-             }
-             else //possible_segment_tris[i].triangle == QUAD_TRI_SECOND
-             {
-                  sgMakePlane( plane, m_right_driveline[next],
-                      m_left_driveline[next], m_left_driveline[segment] );
-             }
-
-             dist = sgHeightAbovePlaneVec3( plane, XYZ );
-
-             /* sgHeightAbovePlaneVec3 gives a negative dist if the plane
-                is on top, so we have to rule it out.
-
-                However, for some reason there are cases where we get
-                negative values for the track segment we should be on,
-                so we just use the absolute values, since the track
-                segment you are on will have a smaller absolute value
-                of dist anyways.
-              */
-             if( dist > -3.5 && dist < near_dist)
-             {
-                 near_dist = dist;
-                 nearest = i;
-             }
+            sgMakePlane( plane, m_left_driveline[segment],
+                         m_right_driveline[segment], m_right_driveline[next] );
         }
-
-        if( nearest != QUAD_TRI_NONE )
+        else //possible_segment_tris[i].triangle == QUAD_TRI_SECOND
         {
-            return possible_segment_tris[nearest].segment;
+            sgMakePlane( plane, m_right_driveline[next],
+                         m_left_driveline[next], m_left_driveline[segment] );
         }
-        else return UNKNOWN_SECTOR; //This only happens if the position is
-                                    //under all the possible sectors
+        
+        dist = sgHeightAbovePlaneVec3( plane, XYZ );
+        
+        /* sgHeightAbovePlaneVec3 gives a negative dist if the plane
+           is on top, so we have to rule it out.
+           
+           However, for some reason there are cases where we get
+           negative values for the track segment we should be on,
+           so we just use the absolute values, since the track
+           segment you are on will have a smaller absolute value
+           of dist anyways.
+        */
+        if( dist > -3.5 && dist < near_dist)
+        {
+            near_dist = dist;
+            nearest = i;
+        }
     }
+    
+    if( nearest != QUAD_TRI_NONE )
+    {
+        *sector=possible_segment_tris[nearest].segment;
+        return;
+    }
+    *sector = UNKNOWN_SECTOR;
+    return;                         // This only happens if the position is
+                                    // under all the possible sectors
 }   // findRoadSector
-
 //-----------------------------------------------------------------------------
 /** findOutOfRoadSector finds the sector where XYZ is, but as it name
     implies, it is more accurate for the outside of the track than the

@@ -137,6 +137,7 @@ Kart::Kart (const KartProperties* kartProperties_, int position_ ,
     m_exhaust_pipe         = NULL;
     m_skidmark_left        = NULL;
     m_skidmark_right       = NULL;
+    m_track_sector         = Track::UNKNOWN_SECTOR;
     sgCopyCoord(&m_reset_pos, &init_pos);
     // Neglecting the roll resistance (which is small for high speeds compared
     // to the air resistance), maximum speed is reached when the engine
@@ -176,9 +177,19 @@ void Kart::createPhysics(ssgEntity *obj)
     // position.
     m_kart_height  = z_max-z_min;
 
-    m_kart_chassis = new btBoxShape(btVector3(0.5*kart_width,
+    btBoxShape *shape = new btBoxShape(btVector3(0.5*kart_width,
                                               0.5*kart_length,
                                               0.5*m_kart_height));
+    m_kart_chassis = new btCompoundShape();
+    btTransform shiftCenterOfGravity;
+    shiftCenterOfGravity.setIdentity();
+    // Shift center of gravity downwards, so that the kart 
+    // won't topple over too easy. This must be between 0 and 0.5
+    // (it's in units of kart_height)
+    const float CENTER_SHIFT = getGravityCenterShift();
+    shiftCenterOfGravity.setOrigin(btVector3(0.0f,0.0f,CENTER_SHIFT*m_kart_height));
+    m_kart_chassis->addChildShape(shiftCenterOfGravity, shape);
+
     // Set mass and inertia
     // --------------------
     float mass=getMass();
@@ -218,7 +229,7 @@ void Kart::createPhysics(ssgEntity *obj)
     float wheel_width  = m_kart_properties->getWheelWidth();
     float wheel_radius = m_kart_properties->getWheelRadius();
     float suspension_rest = 0;
-    float connection_height = -0.5*m_kart_height;
+    float connection_height = -(0.5-CENTER_SHIFT)*m_kart_height;
     btVector3 wheel_direction(0.0f, 0.0f, -1.0f);
     btVector3 wheel_axle(1.0f,0.0f,0.0f);
 
@@ -292,6 +303,10 @@ Kart::~Kart()
     delete m_tuning;
     delete m_vehicle_raycaster;
     delete m_vehicle;
+    for(int i=0; i<m_kart_chassis->getNumChildShapes(); i++)
+    {
+        delete m_kart_chassis->getChildShape(i);
+    }
     delete m_kart_chassis;
     delete m_kart_body;
     delete m_motion_state;
@@ -356,7 +371,7 @@ void Kart::reset()
     m_controls.jump    = false;
     m_controls.fire    = false;
 
-    m_track_sector = world->m_track->findRoadSector(m_curr_pos.xyz);
+    world->m_track->findRoadSector(m_curr_pos.xyz, &m_track_sector);
 
     //If m_track_sector == UNKNOWN_SECTOR, then the kart is not on top of
     //the road, so we have to use another function to find the sector.
@@ -660,7 +675,7 @@ void Kart::update (float dt)
 
 
     int prev_sector = m_track_sector;
-    m_track_sector = world->m_track->findRoadSector(m_curr_pos.xyz);
+    world->m_track->findRoadSector(m_curr_pos.xyz, &m_track_sector);
     
     // Check if the kart is taking a shortcut (if it's not already doing one):
     if(m_shortcut_type!=SC_SKIPPED_SECTOR)
@@ -826,8 +841,8 @@ void Kart::updatePhysics (float dt)
         //only apply braking force when moving forward
         if(m_speed > 0.f)
         {
-            m_vehicle->applyEngineForce(-m_controls.brake*getBrakeFactor()*engine_power, 2);
-            m_vehicle->applyEngineForce(-m_controls.brake*getBrakeFactor()*engine_power, 3);
+            m_vehicle->setBrake(getBrakeForce(), 2);
+            m_vehicle->setBrake(getBrakeForce(), 3);
         }
         //should probably not allow the kart to reverse at same velocity as forward
         else
@@ -1441,7 +1456,7 @@ void Kart::getClosestKart(float *cdist, int *closest)
     *cdist   = SG_MAX ;
     *closest = -1 ;
 
-    for ( int i = 0; i < world->getNumKarts() ; ++i )
+    for ( unsigned int i = 0; i < world->getNumKarts() ; ++i )
     {
         if ( world->getKart(i) == this ) continue ;
         if ( world->getKart(i)->getDistanceDownTrack() < getDistanceDownTrack() )

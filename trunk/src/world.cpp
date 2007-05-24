@@ -57,13 +57,6 @@
 #if defined(WIN32) && !defined(__CYGWIN__)
 #  define snprintf  _snprintf
 #endif
-#ifdef BULLET
-#  ifdef __APPLE__
-#    include <GLUT/glut.h>
-#  else
-#    include <GL/glut.h>
-#  endif
-#endif
 
 World* world = 0;
 

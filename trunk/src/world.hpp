@@ -93,7 +93,7 @@ public:
                kartId < int(m_kart.size()));
         return m_kart[kartId];
     }
-    int  getNumKarts() const                  {return (int)m_kart.size();          }
+    unsigned int  getNumKarts() const         {return (int)m_kart.size();          }
     void addCollisions(int kartNumber, int n) {m_number_collisions[kartNumber]+=n; }
 
     /** Returns the phase of the game */

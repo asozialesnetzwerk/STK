@@ -73,6 +73,7 @@ public:
     // Attributes that are accessed directly.
     bool        m_keyboard_debug;
     int         m_track_debug;
+    bool        m_bullet_debug;
     bool        m_fullscreen;
     bool        m_no_start_screen;
     bool        m_smoke;

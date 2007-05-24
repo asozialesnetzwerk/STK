@@ -184,6 +184,11 @@ void RaceGUI::inputKeyboard(int key, int pressed)
             m_fps_counter=0;
         }
         break;
+#ifdef BULLET
+    case SDLK_F2:
+        user_config->m_bullet_debug = !user_config->m_bullet_debug;
+        break;
+#endif
     case SDLK_F11:
         glPolygonMode(GL_FRONT_AND_BACK, isWireframe ? GL_FILL : GL_LINE);
         isWireframe = ! isWireframe;
@@ -278,7 +283,7 @@ void RaceGUI::drawMap ()
 
     glBegin ( GL_QUADS ) ;
 
-    for ( int i = 0 ; i < world->getNumKarts() ; i++ )
+    for ( unsigned int i = 0 ; i < world->getNumKarts() ; i++ )
     {
         sgCoord *c ;
 
@@ -361,7 +366,7 @@ void RaceGUI::drawPlayerIcons ()
     // Find the best time for the lap. We can't simply use
     // the time of the kart at position 1, since the kart
     // might have been overtaken by now
-    for(int i = 0; i < world->getNumKarts() ; i++)
+    for(unsigned int i = 0; i < world->getNumKarts() ; i++)
     {
         Kart* kart     = world->getKart(i);
         float lap_time = kart->getTimeAtLap();
@@ -380,7 +385,7 @@ void RaceGUI::drawPlayerIcons ()
     }   // for i<getNumKarts
 
     int bFirst                 = 1;
-    for(int i = 0; i < world->getNumKarts() ; i++)
+    for(unsigned int i = 0; i < world->getNumKarts() ; i++)
     {
         Kart* kart   = world->getKart(i);
         int position = kart->getPosition();

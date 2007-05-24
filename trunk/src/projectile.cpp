@@ -67,7 +67,7 @@ void Projectile::doObjectInteractions ()
     float ndist = SG_MAX ;
     int nearest = -1 ;
 
-    for ( int i = 0 ; i < world->getNumKarts() ; i++ )
+    for ( unsigned int i = 0 ; i < world->getNumKarts() ; i++ )
     {
         sgCoord *pos ;
 

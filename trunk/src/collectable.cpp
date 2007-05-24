@@ -91,7 +91,7 @@ void Collectable::use()
     case COLLECT_ANVIL:
         //Attach an anvil(twice as good as the one given
         //by the bananas) to the kart in the 1st position.
-        for(int i = 0 ; i < world->getNumKarts(); ++i)
+        for(unsigned int i = 0 ; i < world->getNumKarts(); ++i)
         {
             if(world->getKart(i) == owner) continue;
             if(world->getKart(i)->getPosition() == 1)
@@ -115,7 +115,7 @@ void Collectable::use()
             //Attach a parachutte(that last as twice as the
             //one from the bananas) to all the karts that
             //are in front of this one.
-            for(int i = 0 ; i < world->getNumKarts(); ++i)
+            for(unsigned int i = 0 ; i < world->getNumKarts(); ++i)
             {
                 if(world->getKart(i) == owner) continue;
                 if(owner->getPosition() > world->
@@ -161,7 +161,7 @@ void Collectable::hitRedHerring(int n)
         {
             //If the driver in the first position has finished, give the driver
             //the parachute.
-            for(int i=0; i < world->getNumKarts(); ++i)
+            for(unsigned int i=0; i < world->getNumKarts(); ++i)
             {
                 if(world->getKart(i) == owner) continue;
                 if(world->getKart(i)->getPosition() == 1 && world->getKart(i)->

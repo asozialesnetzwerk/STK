@@ -110,6 +110,7 @@ void KartProperties::getAllData(const lisp::Lisp* lisp)
     lisp->get("engine-power",            m_engine_power);
     lisp->get("time-full-steer",         m_time_full_steer);
     lisp->get("brake-factor",            m_brake_factor);
+    lisp->get("brake-force",             m_brake_force);
     lisp->get("roll-resistance",         m_roll_resistance);
     lisp->get("mass",                    m_mass);
     lisp->get("air-resistance",          m_air_resistance);
@@ -139,6 +140,7 @@ void KartProperties::getAllData(const lisp::Lisp* lisp)
     lisp->get("chassis-linear-damping",    m_chassis_linear_damping   );
     lisp->get("chassis-angular-damping",   m_chassis_angular_damping  );
     lisp->get("maximum-speed",             m_maximum_speed            );
+    lisp->get("gravity-center-shift",      m_gravity_center_shift     );
 
 }   // getAllData
 
@@ -159,6 +161,7 @@ void KartProperties::init_defaults()
     m_engine_power              = stk_config->m_engine_power;
     m_time_full_steer           = stk_config->m_time_full_steer;
     m_brake_factor              = stk_config->m_brake_factor;
+    m_brake_force               = stk_config->m_brake_force;
     m_roll_resistance           = stk_config->m_roll_resistance;
     m_mass                      = stk_config->m_mass;
     m_air_resistance            = stk_config->m_air_resistance;
@@ -188,6 +191,7 @@ void KartProperties::init_defaults()
     m_chassis_linear_damping    = stk_config->m_chassis_linear_damping;
     m_chassis_angular_damping   = stk_config->m_chassis_angular_damping;
     m_maximum_speed             = stk_config->m_maximum_speed;
+    m_gravity_center_shift      = stk_config->m_gravity_center_shift;
 
 
 }   // init_defaults

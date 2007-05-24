@@ -56,6 +56,7 @@ protected:
     float m_height_cog;               // height of center of gravity
     float m_engine_power;             // maximum force from engine
     float m_brake_factor;             // braking factor * engine_power = braking force
+    float m_brake_force;              // braking force
     float m_tire_grip;                // grip of tires in longitudinal direction
     float m_max_steer_angle;          // maximum steering angle
     float m_time_full_steer;          // time for player karts to reach full steer angle
@@ -83,6 +84,7 @@ protected:
     float m_chassis_linear_damping;
     float m_chassis_angular_damping;
     float m_maximum_speed;
+    float m_gravity_center_shift;
 
 public:
     KartProperties   ();
@@ -106,6 +108,7 @@ public:
     float         getMaxPower            () const {return m_engine_power;           }
     float         getTimeFullSteer       () const {return m_time_full_steer;        }
     float         getBrakeFactor         () const {return m_brake_factor;           }
+    float         getBrakeForce          () const {return m_brake_force;            }
     float         getWheelBase           () const {return m_wheel_base;             }
     float         getHeightCOG           () const {return m_height_cog;             }
     float         getTireGrip            () const {return m_tire_grip;              }
@@ -134,6 +137,7 @@ public:
     float getChassisLinearDamping   () const {return m_chassis_linear_damping;   }
     float getChassisAngularDamping  () const {return m_chassis_angular_damping;  }
     float getMaximumSpeed           () const {return m_maximum_speed;            }
+    float getGravityCenterShift     () const {return m_gravity_center_shift;     }
 
 };
 
