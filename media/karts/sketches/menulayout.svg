@@ -1,0 +1,889 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"
+"http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   id="svg1"
+   sodipodi:version="0.32"
+   inkscape:version="0.38.1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   width="210mm"
+   height="297mm"
+   sodipodi:docbase="/home/ingo/projects/tuxkart"
+   sodipodi:docname="menulayout.svg">
+  <defs
+     id="defs3">
+    <linearGradient
+       id="linearGradient826">
+      <stop
+         style="stop-color:#000;stop-opacity:1;"
+         offset="0"
+         id="stop827" />
+      <stop
+         style="stop-color:#fff;stop-opacity:1;"
+         offset="1"
+         id="stop828" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#linearGradient826"
+       id="linearGradient829"
+       x1="-8.4446339e-15"
+       y1="0.50000000"
+       x2="1.0000000"
+       y2="0.50000000" />
+    <radialGradient
+       xlink:href="#linearGradient826"
+       id="radialGradient830"
+       cx="0.50000000"
+       cy="0.50000000"
+       r="0.50000000"
+       fx="0.50000000"
+       fy="0.50000000" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.86831672"
+     inkscape:cx="723.51834"
+     inkscape:cy="533.14170"
+     inkscape:window-width="1141"
+     inkscape:window-height="784"
+     showguides="true"
+     snaptoguides="true"
+     inkscape:window-x="21"
+     inkscape:window-y="21">
+    <sodipodi:guide
+       orientation="horizontal"
+       position="776.06793"
+       id="guide855" />
+    <sodipodi:guide
+       orientation="horizontal"
+       position="643.33019"
+       id="guide887" />
+    <sodipodi:guide
+       orientation="horizontal"
+       position="519.39573"
+       id="guide989" />
+    <sodipodi:guide
+       orientation="horizontal"
+       position="391.69851"
+       id="guide1040" />
+  </sodipodi:namedview>
+  <rect
+     style="fill:#ffffff;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:3.0000000pt;stroke:#000000;stroke-opacity:1.0000000;"
+     id="rect825"
+     width="169.86890"
+     height="132.44014"
+     x="309.43970"
+     y="403.11752" />
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="65.042341"
+     y="38.998469"
+     id="text831"
+     transform="scale(1.643621,3.172713)"><tspan
+       id="tspan832">TuxKart Logo</tspan></text>
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="132.33057"
+     y="149.51274"
+     id="text834"><tspan
+       id="tspan835">- Start</tspan><tspan
+       sodipodi:role="line"
+       id="tspan837"
+       x="132.33057"
+       y="161.51274">- Multiplayer</tspan><tspan
+       sodipodi:role="line"
+       id="tspan845"
+       x="132.33057"
+       y="173.51274">- Watch Replay</tspan><tspan
+       sodipodi:role="line"
+       id="tspan839"
+       x="132.33057"
+       y="185.51274">- Options</tspan><tspan
+       sodipodi:role="line"
+       id="tspan841"
+       x="132.33057"
+       y="197.51274">- Quit</tspan></text>
+  <rect
+     style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:3.0000000pt;stroke:#000000;stroke-opacity:1.0000000;"
+     id="rect847"
+     width="169.86890"
+     height="132.44014"
+     x="310.02144"
+     y="248.19945" />
+  <rect
+     style="fill:#ffffff;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:3.0000000pt;stroke:#000000;stroke-opacity:1.0000000;"
+     id="rect848"
+     width="169.86890"
+     height="132.44014"
+     x="306.96765"
+     y="84.152247" />
+  <rect
+     style="fill:#ffffff;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:3.0000000pt;stroke:#000000;stroke-opacity:1.0000000;"
+     id="rect849"
+     width="169.86890"
+     height="132.44014"
+     x="505.46352"
+     y="82.277270" />
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="353.22086"
+     y="158.51572"
+     id="text850"><tspan
+       id="tspan851">- GrandPrix</tspan><tspan
+       sodipodi:role="line"
+       id="tspan853"
+       x="353.22086"
+       y="170.51572">- TimeAttack</tspan></text>
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="425.13493"
+     y="45.304784"
+     id="text856"
+     transform="scale(1.251555,2.753047)"><tspan
+       id="tspan857">Difficulty Select</tspan></text>
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="257.94916"
+     y="39.785754"
+     id="text859"
+     transform="scale(1.254238,3.082523)"><tspan
+       id="tspan860">Game Mode Select</tspan></text>
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="540.51950"
+     y="156.58597"
+     id="text862"><tspan
+       id="tspan863">- Easy (50ccm)</tspan><tspan
+       sodipodi:role="line"
+       id="tspan865"
+       x="540.51947"
+       y="168.58597">- Medum (100ccm)</tspan><tspan
+       sodipodi:role="line"
+       id="tspan867"
+       x="540.51947"
+       y="180.58597">- Hard (150ccm)</tspan></text>
+  <rect
+     style="fill:#ffffff;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:3.0000000pt;stroke:#000000;stroke-opacity:1.0000000;"
+     id="rect869"
+     width="169.86890"
+     height="132.44014"
+     x="708.03109"
+     y="82.277270" />
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="383.64201"
+     y="49.948805"
+     id="text870"
+     transform="scale(1.914096,2.315278)"><tspan
+       id="tspan871">Cup Select</tspan></text>
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="717.63889"
+     y="156.58596"
+     id="text873"><tspan
+       id="tspan874">- Herring Cup</tspan><tspan
+       sodipodi:role="line"
+       id="tspan876"
+       x="717.63892"
+       y="168.58595">- IceFlower Cup</tspan><tspan
+       sodipodi:role="line"
+       id="tspan878"
+       x="717.63892"
+       y="180.58595">- Star Cup</tspan></text>
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="1178.3014"
+     y="34.939323"
+     id="text880"
+     transform="scale(0.698199,5.119634)"><tspan
+       id="tspan881">CupPicture</tspan></text>
+  <rect
+     style="fill:#ffffff;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:3.0000000pt;stroke:#000000;stroke-opacity:1.0000000;"
+     id="rect883"
+     width="169.86890"
+     height="132.44014"
+     x="1117.2277"
+     y="250.07445" />
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="216.23191"
+     y="34.510098"
+     id="text884"
+     transform="scale(5.202469,10.47387)"><tspan
+       id="tspan885">Race</tspan></text>
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="165.66810"
+     y="94.463913"
+     id="text888"
+     transform="scale(1.928876,3.015992)"><tspan
+       id="tspan889">Player Select</tspan></text>
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="702.53581"
+     y="595.54791"
+     id="text891"
+     transform="scale(0.463940,0.517914)"><tspan
+       id="tspan892">2 Player</tspan></text>
+  <rect
+     style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.50272721;"
+     id="rect894"
+     width="39.835003"
+     height="28.610308"
+     x="322.61512"
+     y="300.05957" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:0.75;"
+     d="M 322.68302,313.85577 L 362.89116,313.85577"
+     id="path895" />
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="882.99997"
+     y="595.54796"
+     id="text896"
+     transform="scale(0.463940,0.517914)"><tspan
+       id="tspan897">3 Player</tspan></text>
+  <rect
+     style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.50272721;"
+     id="rect899"
+     width="39.835003"
+     height="28.610308"
+     x="406.33965"
+     y="300.05959" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:0.75;"
+     d="M 406.40755,313.85580 L 446.61569,313.85580"
+     id="path900" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:0.75;"
+     d="M 425.49370,299.60479 L 426.51163,328.61572"
+     id="path904" />
+  <rect
+     style="fill:#0000ff;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:3.0000000pt;"
+     id="rect905"
+     width="19.340622"
+     height="15.268912"
+     x="426.51163"
+     y="313.34680" />
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="709.66668"
+     y="672.69144"
+     id="text906"
+     transform="scale(0.463940,0.517914)"><tspan
+       id="tspan907">4 Player</tspan></text>
+  <rect
+     style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.50272721;"
+     id="rect909"
+     width="39.835003"
+     height="28.610308"
+     x="325.92341"
+     y="340.01329" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:0.75;"
+     d="M 325.99129,353.80948 L 366.19943,353.80948"
+     id="path910" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:0.75;"
+     d="M 345.07744,339.55847 L 346.09537,368.56940"
+     id="path911" />
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="546.44034"
+     y="359.58204"
+     id="text913"
+     transform="scale(0.737317,0.978446)"><tspan
+       id="tspan914">Network</tspan><tspan
+       sodipodi:role="line"
+       id="tspan916"
+       x="546.44037"
+       y="371.58203">Multiplayer</tspan></text>
+  <rect
+     style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:3.0000000pt;stroke:#000000;stroke-opacity:1.0000000;"
+     id="rect918"
+     width="169.86890"
+     height="132.44014"
+     x="506.99040"
+     y="248.19945" />
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="254.87284"
+     y="92.786942"
+     id="text919"
+     transform="scale(2.044028,3.082523)"><tspan
+       id="tspan920">ModeSelect</tspan></text>
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="549.68083"
+     y="319.96334"
+     id="text922"><tspan
+       id="tspan923">- GrandPrix</tspan><tspan
+       sodipodi:role="line"
+       id="tspan927"
+       x="549.68085"
+       y="331.96335">- Match Race</tspan><tspan
+       sodipodi:role="line"
+       id="tspan925"
+       x="549.68085"
+       y="343.96335">- BattleMode</tspan></text>
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-width:1.2500000;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:0.75;stroke-dasharray:none;"
+     d="M 619.91785,313.52146 C 641.19495,309.45888 669.30999,317.63262 683.74914,301.33372 C 698.18829,285.03482 698.95157,244.26329 706.55278,215.72808"
+     id="path929"
+     sodipodi:nodetypes="czz" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:0.75;"
+     d="M 678.75579,154.79223 L 704.66799,154.79223"
+     id="path930" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:0.75;"
+     d="M 422.51288,153.35266 L 503.12863,154.07244"
+     id="path931"
+     sodipodi:nodetypes="cc" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:0.75;"
+     d="M 174.18759,145.43504 C 174.18759,145.43504 174.18759,145.43504 174.18759,145.43504"
+     id="path932" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:0.75;"
+     d="M 172.74803,146.15482 L 305.18818,150.47353"
+     id="path933" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:0.75;"
+     d="M 213.77568,155.51201 C 235.24922,158.39114 270.66857,161.99006 283.95457,187.18248 C 297.24058,212.37490 287.79342,281.23419 293.49170,306.66654 C 299.18999,332.09889 306.08791,313.38452 312.38601,316.74351"
+     id="path934"
+     sodipodi:nodetypes="czzz" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:0.75;"
+     d="M 479.37577,318.18307 L 506.72755,318.18307"
+     id="path935" />
+  <rect
+     style="fill:#0000ff;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:3.0000000pt;"
+     id="rect942"
+     width="66.220078"
+     height="10.076968"
+     x="756.49242"
+     y="307.38631" />
+  <rect
+     style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:3.0000000pt;stroke:#000000;stroke-opacity:1.0000000;"
+     id="rect936"
+     width="169.86890"
+     height="132.44014"
+     x="707.54713"
+     y="248.19945" />
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="501.63776"
+     y="119.49283"
+     id="text937"
+     transform="scale(1.435717,2.317557)"><tspan
+       id="tspan938">Character Select</tspan></text>
+  <path
+     sodipodi:type="arc"
+     style="fill:#ff0000;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:3.0000000pt;"
+     id="path940"
+     sodipodi:cx="762.25067"
+     sodipodi:cy="306.66653"
+     sodipodi:rx="5.7582674"
+     sodipodi:ry="5.7582674"
+     d="M 768.00894 306.66653 A 5.7582674 5.7582674 0 1 0 756.49240,306.66653 A 5.7582674 5.7582674 0 1 0 768.00894 306.66653 z"
+     transform="translate(2.879134,7.197834)" />
+  <path
+     sodipodi:type="arc"
+     style="fill:#ff0000;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:3.0000000pt;"
+     id="path941"
+     sodipodi:cx="810.83606"
+     sodipodi:cy="312.42480"
+     sodipodi:rx="9.7170763"
+     sodipodi:ry="9.3571844"
+     d="M 820.55314 312.42480 A 9.7170763 9.3571844 0 1 0 801.11898,312.42480 A 9.7170763 9.3571844 0 1 0 820.55314 312.42480 z"
+     transform="translate(3.598917,-0.719784)" />
+  <rect
+     style="fill:#0000ff;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:3.0000000pt;"
+     id="rect943"
+     width="8.6374016"
+     height="20.153936"
+     x="795.36070"
+     y="290.83129" />
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="898.82655"
+     y="475.74668"
+     id="text944"
+     transform="scale(0.822640,0.690102)"><tspan
+       id="tspan945">rotating 3D Preview</tspan></text>
+  <rect
+     style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:0.75000000;stroke:#000000;stroke-opacity:1.0000000;stroke-dasharray:none;"
+     id="rect947"
+     width="17.274803"
+     height="15.835236"
+     x="719.78348"
+     y="337.61722" />
+  <rect
+     style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:0.75000000;stroke:#000000;stroke-opacity:1.0000000;stroke-dasharray:none;"
+     id="rect948"
+     width="17.274803"
+     height="15.835236"
+     x="720.50320"
+     y="359.21075" />
+  <rect
+     style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:0.75000000;stroke:#000000;stroke-opacity:1.0000000;stroke-dasharray:none;"
+     id="rect949"
+     width="17.274803"
+     height="15.835236"
+     x="743.89621"
+     y="337.61722" />
+  <rect
+     style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:0.75000000;stroke:#000000;stroke-opacity:1.0000000;stroke-dasharray:none;"
+     id="rect950"
+     width="17.274803"
+     height="15.835236"
+     x="744.61593"
+     y="359.21072" />
+  <rect
+     style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:0.75000000;stroke:#000000;stroke-opacity:1.0000000;stroke-dasharray:none;"
+     id="rect951"
+     width="17.274803"
+     height="15.835236"
+     x="768.54879"
+     y="336.89740" />
+  <rect
+     style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:0.75000000;stroke:#000000;stroke-opacity:1.0000000;stroke-dasharray:none;"
+     id="rect952"
+     width="17.274803"
+     height="15.835236"
+     x="769.26852"
+     y="358.49097" />
+  <rect
+     style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:0.75000000;stroke:#000000;stroke-opacity:1.0000000;stroke-dasharray:none;"
+     id="rect953"
+     width="17.274803"
+     height="15.835236"
+     x="792.66153"
+     y="336.89740" />
+  <rect
+     style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:0.75000000;stroke:#000000;stroke-opacity:1.0000000;stroke-dasharray:none;"
+     id="rect954"
+     width="17.274803"
+     height="15.835236"
+     x="793.38125"
+     y="358.49094" />
+  <rect
+     style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:0.75000000;stroke:#000000;stroke-opacity:1.0000000;stroke-dasharray:none;"
+     id="rect955"
+     width="17.274803"
+     height="15.835236"
+     x="817.49411"
+     y="337.61722" />
+  <rect
+     style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:0.75000000;stroke:#000000;stroke-opacity:1.0000000;stroke-dasharray:none;"
+     id="rect956"
+     width="17.274803"
+     height="15.835236"
+     x="818.21377"
+     y="359.21075" />
+  <rect
+     style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:0.75000000;stroke:#000000;stroke-opacity:1.0000000;stroke-dasharray:none;"
+     id="rect957"
+     width="17.274803"
+     height="15.835236"
+     x="841.60678"
+     y="337.61722" />
+  <rect
+     style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:0.75000000;stroke:#000000;stroke-opacity:1.0000000;stroke-dasharray:none;"
+     id="rect958"
+     width="17.274803"
+     height="15.835236"
+     x="842.32650"
+     y="359.21072" />
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="548.12509"
+     y="136.14334"
+     id="text959"
+     transform="scale(1.324593,2.705077)"><tspan
+       id="tspan960">Character Icons</tspan></text>
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:0.75;"
+     d="M 629.09073,328.26003 L 705.38777,327.54025 L 708.26691,329.69960"
+     id="path962" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:0.75;"
+     d="M 629.09073,338.69689 L 705.38777,337.97711 L 708.26691,340.13646"
+     id="path963" />
+  <rect
+     style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:3.0000000pt;stroke:#000000;stroke-opacity:1.0000000;"
+     id="rect964"
+     width="169.86890"
+     height="132.44014"
+     x="913.40520"
+     y="248.19945" />
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="474.75851"
+     y="142.77313"
+     id="text965"
+     transform="scale(1.946748,1.930039)"><tspan
+       id="tspan966">Track Select</tspan></text>
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="927.80087"
+     y="316.02371"
+     id="text968"><tspan
+       id="tspan969">- Track1</tspan><tspan
+       sodipodi:role="line"
+       id="tspan971"
+       x="927.80084"
+       y="328.02371">- Track2</tspan><tspan
+       sodipodi:role="line"
+       id="tspan973"
+       x="927.80084"
+       y="340.02371">- Track3</tspan><tspan
+       sodipodi:role="line"
+       id="tspan975"
+       x="927.80084"
+       y="352.02371">- Track4</tspan><tspan
+       sodipodi:role="line"
+       id="tspan977"
+       x="927.80084"
+       y="364.02371">- Track5</tspan></text>
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="1521.7162"
+     y="291.55109"
+     id="text979"
+     transform="scale(0.609536,1.000000)"><tspan
+       id="tspan980">Herring Cup | IceFlower Cup | Star Cup</tspan></text>
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="1225.4141"
+     y="122.91341"
+     id="text982"
+     transform="scale(0.823501,2.690658)"><tspan
+       id="tspan983">Graphical</tspan><tspan
+       sodipodi:role="line"
+       id="tspan985"
+       x="1225.4141"
+       y="134.91341">Track View</tspan></text>
+  <rect
+     style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:1.5000000;stroke:#000000;stroke-opacity:1.0000000;stroke-dasharray:none;"
+     id="rect987"
+     width="66.939857"
+     height="71.978348"
+     x="1003.3781"
+     y="301.62805" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:0.75;"
+     d="M 190.02283,181.42421 C 218.81417,239.96660 262.17935,283.25273 276.39684,357.05137 C 290.61433,430.85001 275.37745,516.46537 279.64646,562.73905 C 283.91547,609.01273 293.11652,631.20098 302.01090,634.69346"
+     id="path988"
+     sodipodi:nodetypes="czzz" />
+  <rect
+     style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:3.0000000pt;stroke:#000000;stroke-opacity:1.0000000;"
+     id="rect990"
+     width="169.86890"
+     height="132.44014"
+     x="305.55866"
+     y="564.61408" />
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="351.62483"
+     y="634.43308"
+     id="text991"><tspan
+       id="tspan992">- Music</tspan><tspan
+       sodipodi:role="line"
+       id="tspan998"
+       x="351.62482"
+       y="646.43311">- Fullscreen</tspan><tspan
+       sodipodi:role="line"
+       id="tspan994"
+       x="351.62482"
+       y="658.43311">- Resolution</tspan><tspan
+       sodipodi:role="line"
+       id="tspan996"
+       x="351.62482"
+       y="670.43311">- Controls...</tspan></text>
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="102.20905"
+     y="183.25937"
+     id="text1000"
+     transform="scale(3.109442,3.293237)"><tspan
+       id="tspan1001">Options</tspan></text>
+  <rect
+     style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:3.0000000pt;stroke:#000000;stroke-opacity:1.0000000;"
+     id="rect1003"
+     width="169.86890"
+     height="132.44014"
+     x="499.90019"
+     y="564.61408" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:0.75;"
+     d="M 422.88336,668.26288 L 499.18041,658.18591"
+     id="path1004" />
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="316.40830"
+     y="240.53461"
+     id="text1005"
+     transform="scale(1.624089,2.487500)"><tspan
+       id="tspan1006">Control Config</tspan></text>
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="550.28501"
+     y="626.51544"
+     id="text1008"><tspan
+       id="tspan1009">- Player 1</tspan><tspan
+       sodipodi:role="line"
+       id="tspan1011"
+       x="550.28503"
+       y="638.51544">- Player 2</tspan><tspan
+       sodipodi:role="line"
+       id="tspan1013"
+       x="550.28503"
+       y="650.51544">- Player 3</tspan><tspan
+       sodipodi:role="line"
+       id="tspan1015"
+       x="550.28503"
+       y="662.51544">- Player 4</tspan></text>
+  <rect
+     style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:3.0000000pt;stroke:#000000;stroke-opacity:1.0000000;"
+     id="rect1017"
+     width="169.86890"
+     height="132.44014"
+     x="701.43955"
+     y="564.61408" />
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="405.27936"
+     y="239.66606"
+     id="text1018"
+     transform="scale(1.753430,2.487505)"><tspan
+       id="tspan1019">Player1 Config</tspan></text>
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="738.86827"
+     y="616.43848"
+     id="text1021"><tspan
+       id="tspan1022">- Accelerate</tspan><tspan
+       sodipodi:role="line"
+       id="tspan1024"
+       x="738.86829"
+       y="628.43848">- Break/Reverse </tspan><tspan
+       sodipodi:role="line"
+       id="tspan1026"
+       x="738.86829"
+       y="640.43848">- Special</tspan><tspan
+       sodipodi:role="line"
+       id="tspan1028"
+       x="738.86829"
+       y="652.43848">- Left</tspan><tspan
+       sodipodi:role="line"
+       id="tspan1030"
+       x="738.86829"
+       y="664.43848">- Right</tspan><tspan
+       sodipodi:role="line"
+       id="tspan1032"
+       x="738.86829"
+       y="676.43848">- Up</tspan><tspan
+       sodipodi:role="line"
+       id="tspan1034"
+       x="738.86829"
+       y="688.43848">- Down</tspan></text>
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:0.75;"
+     d="M 880.29515,161.27028 L 917.00411,161.27028"
+     id="path1036" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:0.75;"
+     d="M 1000.4990,248.36407 C 999.77921,248.19945 1000.4990,212.37490 1000.4990,212.37490"
+     id="path1037" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:0.75;"
+     d="M 877.41602,315.30393 L 914.12498,314.58415"
+     id="path1038" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:0.75;"
+     d="M 422.43992,362.20733 L 421.42199,403.11752"
+     id="path1041" />
+  <rect
+     style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:3.0000000pt;stroke:#000000;stroke-opacity:1.0000000;"
+     id="rect1042"
+     width="169.86890"
+     height="132.44014"
+     x="96.708244"
+     y="82.277270" />
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="257.97164"
+     y="131.53423"
+     id="text1043"
+     transform="scale(1.237923,3.366606)"><tspan
+       id="tspan1044">Network Multiplayer</tspan></text>
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="350.16707"
+     y="478.25106"
+     id="text1046"><tspan
+       id="tspan1047">- Host Game</tspan><tspan
+       sodipodi:role="line"
+       id="tspan1049"
+       x="350.16708"
+       y="490.25107">- Join Game</tspan></text>
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:0.75;"
+     d="M 610.37636,621.93168 C 619.28797,621.93168 664.73715,619.05255 701.06907,619.05255"
+     id="path1059"
+     sodipodi:nodetypes="cc" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:0.75;"
+     d="M 424.47577,487.41241 L 507.94583,489.44827"
+     id="path1060" />
+  <rect
+     style="fill:#ffffff;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:3.0000000pt;stroke:#000000;stroke-opacity:1.0000000;"
+     id="rect1062"
+     width="169.86890"
+     height="132.44014"
+     x="505.46352"
+     y="403.11752" />
+  <rect
+     style="fill:#ffffff;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:3.0000000pt;stroke:#000000;stroke-opacity:1.0000000;"
+     id="rect1063"
+     width="169.86890"
+     height="132.44014"
+     x="1118.5435"
+     y="82.277270" />
+  <rect
+     style="fill:#ffffff;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:3.0000000pt;stroke:#000000;stroke-opacity:1.0000000;"
+     id="rect1064"
+     width="169.86890"
+     height="132.44014"
+     x="921.32280"
+     y="84.152240" />
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="178.57578"
+     y="18.668559"
+     id="text1065"
+     transform="scale(5.202469,10.47387)"><tspan
+       id="tspan1066">Race</tspan></text>
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="576.01420"
+     y="33.848915"
+     id="text1068"
+     transform="scale(1.956094,3.740162)"><tspan
+       id="tspan1069">Race Results</tspan></text>
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="1140.0788"
+     y="152.51427"
+     id="text1071"><tspan
+       id="tspan1072">Tux ...</tspan><tspan
+       sodipodi:role="line"
+       id="tspan1074"
+       x="1140.0789"
+       y="164.51427">...</tspan><tspan
+       sodipodi:role="line"
+       id="tspan1076"
+       x="1140.0789"
+       y="176.51427">...</tspan><tspan
+       sodipodi:role="line"
+       id="tspan1078"
+       x="1140.0789"
+       y="188.51427">...</tspan></text>
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:0.75;"
+     d="M 1120.7382,164.72939 L 1092.2362,164.72939"
+     id="path1081" />
+  <rect
+     style="fill:#ffffff;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:3.0000000pt;stroke:#000000;stroke-opacity:1.0000000;"
+     id="rect1085"
+     width="169.86890"
+     height="132.44014"
+     x="1313.6979"
+     y="82.277270" />
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="610.51026"
+     y="33.963486"
+     id="text1082"
+     transform="scale(2.162922,3.804857)"><tspan
+       id="tspan1083">Cup Scores</tspan></text>
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:0.75;"
+     d="M 1290.7321,157.60390 L 1314.1444,156.58597"
+     id="path1089" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:0.75;"
+     d="M 1394.5607,82.277270 C 1386.5622,52.757372 1322.7233,59.624174 1184.8676,62.936642 C 1048.0298,65.231182 1006.1930,47.667735 1008.7662,82.277270"
+     id="path1090"
+     sodipodi:nodetypes="czz" />
+  <rect
+     style="fill:#ffffff;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:3.0000000pt;stroke:#000000;stroke-opacity:1.0000000;"
+     id="rect1091"
+     width="169.86890"
+     height="132.44014"
+     x="1512.1939"
+     y="82.277270" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:0.75;"
+     d="M 1083.0749,321.49023 L 1116.6665,321.49023"
+     id="path1092" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:0.75;"
+     d="M 1485.1562,154.55012 L 1513.6582,154.55012"
+     id="path1093" />
+  <text
+     xml:space="preserve"
+     style="fill:black;stroke:none;font-family:helvetica;font-style:normal;font-weight:normal;font-size:12px;fill-opacity:0.75;stroke-opacity:1;stroke-width:3pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     x="1429.4014"
+     y="33.910476"
+     id="text1094"
+     transform="scale(1.063188,4.880470)"><tspan
+       id="tspan1095">Credits/Extro/WinScreen</tspan></text>
+</svg>
