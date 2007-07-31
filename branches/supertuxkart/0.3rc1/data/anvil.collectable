@@ -1,9 +1,0 @@
-;; -*- mode: lisp -*-
-
-(tuxkart-collectable
- (name  "anvil")
- (model "anvil.ac")
- (icon  "anvil.rgb")
-)
-
-;; EOF ;;
