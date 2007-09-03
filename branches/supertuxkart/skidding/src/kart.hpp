@@ -108,6 +108,18 @@ protected:
     btDefaultMotionState               *m_motion_state;
     float                               m_kart_height;
     float                               m_time_since_stuck;
+    float                               m_throttle;
+    float                               m_throttle_save;
+    int                                 m_throttle_saved;
+    int                                 m_ausbruch;
+    float                               m_time_since_ausbruch;
+    float                               m_actual_fw;
+    float                               m_omega;
+    float                               m_delta_omega;
+    int                                 m_actual_gear;
+    float                               m_actual_gear_ratio;
+    float                               m_engine_speed;
+    float                               m_max_engine_drehzahl;
 #endif
 
 private:
@@ -242,6 +254,9 @@ public:
     float             getSpeed      () const {return m_speed;                 }
     float             handleWheelie(float dt);
     float             getActualWheelForce();
+    float             getActualFW();
+    float             getActualEnginePower();
+    float             setGear();
 #endif
     void           adjustSpeedWeight(float f);
     void           forceRescue      ();

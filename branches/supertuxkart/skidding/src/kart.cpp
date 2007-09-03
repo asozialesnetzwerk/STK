@@ -134,6 +134,12 @@ Kart::Kart (const KartProperties* kartProperties_, int position_ ,
     m_current_friction     = 1.0f;
 #ifdef BULLET
     m_time_since_stuck     = 0.0f;
+    m_actual_gear          = 1;
+    m_engine_speed      = 25.0f;
+    m_throttle_saved       = 0;
+    m_throttle             = 0.0f;
+    m_ausbruch             = false;
+    m_time_since_ausbruch  = 0.0f;
 #endif
     m_smokepuff            = NULL;
     m_smoke_system         = NULL;
@@ -149,6 +155,7 @@ Kart::Kart (const KartProperties* kartProperties_, int position_ ,
     m_max_speed               = m_kart_properties->getMaximumSpeed();
     m_max_speed_reverse_ratio = m_kart_properties->getMaxSpeedReverseRatio();
     m_speed                   = 0.0f;
+    m_max_engine_drehzahl     = 100.0; // => 6000 1/min
 #else
     m_max_speed               = sqrt(getMaxPower()/getAirResistance());
 #endif
@@ -191,7 +198,8 @@ void Kart::createPhysics(ssgEntity *obj)
     // won't topple over too easy. This must be between 0 and 0.5
     // (it's in units of kart_height)
     const float CENTER_SHIFT = getGravityCenterShift();
-    shiftCenterOfGravity.setOrigin(btVector3(0.0f,0.0f,CENTER_SHIFT*m_kart_height));
+shiftCenterOfGravity.setOrigin(btVector3(0.0f,-0.5f*m_kart_height,CENTER_SHIFT*m_kart_height));
+    //shiftCenterOfGravity.setOrigin(btVector3(0.0f,0.2f,CENTER_SHIFT*m_kart_height));
     m_kart_chassis->addChildShape(shiftCenterOfGravity, shape);
 
     // Set mass and inertia
@@ -572,16 +580,108 @@ void Kart::doZipperProcessing (float delta)
 
 #ifdef BULLET
 //-----------------------------------------------------------------------------
+float Kart::getActualEnginePower()
+{
+    // calculates actuel engine power in Watt
+    // power as function of engine rotation (simplyfied): n=0: P=5000 W;  n=100 1/s:  P=getMaxPower() * 1000 [W]
+
+if (m_controls.wheelie)
+    return (((getMaxPower()-5.0f)/m_max_engine_drehzahl)*100.0f + 5.0f)*1000.0f * m_throttle;
+else
+    return (((getMaxPower()-5.0f)/m_max_engine_drehzahl)*m_engine_speed + 5.0f)*1000.0f * m_throttle;
+
+}   // getActualEnginePower
+
+//-----------------------------------------------------------------------------
+float Kart::getActualFW()
+{
+    // calculates actuel resistance (Air- and track) in Watt
+    const float rho_luft = 1.0f; // kg/m^3
+    const float cw       = 1.6f; // I guess that as a real value
+    const float mue_roll = 0.1f; // rolling friction
+    const float surface  = 0.8f; // m^2
+    const float innen    = 3000.0f; // W internal losts (piston friction etc.)
+    m_actual_fw = 0.5f * cw * rho_luft * surface * m_speed * m_speed * m_speed +
+        m_kart_properties->getMass() * 9.81f * mue_roll * m_speed + innen;
+
+    return(m_actual_fw);
+
+}   // getActualFW
+
+//-----------------------------------------------------------------------------
+float Kart::setGear()
+{
+    // simulates an automatic gear box
+    // changes gear in function of engine_speed
+    // kickdown: (m_controls.wheelie == true)
+
+    m_engine_speed = m_speed * m_actual_gear_ratio / ( m_kart_properties->getWheelRadius()*M_PI * 2.0f );
+
+    if (m_engine_speed < m_max_engine_drehzahl*0.25f) m_engine_speed=25.0f;
+
+    if (m_engine_speed > m_max_engine_drehzahl && m_actual_gear < 6)
+    {
+        m_actual_gear++;
+    }
+    else if (m_engine_speed > m_max_engine_drehzahl*0.75f && m_actual_gear < 6)
+    {
+        if(!m_controls.wheelie) m_actual_gear++;
+    }
+    else if (m_engine_speed < m_max_engine_drehzahl*0.50f)
+    {
+        if(m_actual_gear != 1) m_actual_gear--;
+    }
+
+    // these values are only good for the applied (stk_config.data)
+    switch (m_actual_gear)
+    {
+    case 1:
+        m_actual_gear_ratio = 1.6f * 3.6f;
+        break;
+    case 2:
+        m_actual_gear_ratio = 1.45f * 3.6f;
+        break;
+    case 3:
+        m_actual_gear_ratio = 1.3f * 3.6f;
+        break;
+    case 4:
+        m_actual_gear_ratio = 1.15f * 3.6f;
+        break;
+    case 5:
+        m_actual_gear_ratio = 1.0f * 3.6f;
+        break;
+    case 6:
+        m_actual_gear_ratio = 0.85f * 3.6f;
+        break;
+    }
+
+    return m_actual_gear_ratio;
+}   // setGear
+
+//-----------------------------------------------------------------------------
 float Kart::getActualWheelForce()
 {
-    const std::vector<float>& gear_ratio=m_kart_properties->getGearSwitchRatio();
-    for(unsigned int i=0; i<gear_ratio.size(); i++)
-    {
-        if(m_speed <= m_max_speed*gear_ratio[i]) 
-            return getMaxPower()*m_kart_properties->getGearPowerIncrease()[i];
-    }
-    return getMaxPower();
+    const float fw = getActualFW();    // resistance = f(m_speed)
+    const float gear = setGear();      // sets appropriate gear and
+                                       // returns gear ratio
+    const float power = gear * getActualEnginePower();
 
+    const float n_wheel = m_engine_speed / gear;
+
+    // Calculation from power [Watt] into Force [Newton]
+    const float f_wheel = ( power - fw ) / (m_kart_properties->getWheelRadius()*M_PI * 2.0f * n_wheel);
+
+    return f_wheel;
+
+// just commented the original code
+//    const std::vector<float>& gear_ratio=m_kart_properties->getGearSwitchRatio();
+//    for(unsigned int i=0; i<gear_ratio.size(); i++)
+//    {
+//        if(m_speed <= m_max_speed*gear_ratio[i]) 
+//            return getMaxPower()*m_kart_properties->getGearPowerIncrease()[i];
+//    }
+//    return getMaxPower();
+//
 }   // getActualWheelForce
 #endif
 
@@ -922,48 +1022,85 @@ void Kart::updatePhysics (float dt)
 {
 
 #ifdef BULLET
-    float engine_power = getActualWheelForce() + handleWheelie(dt);
-    if(m_attachment.getType()==ATTACH_PARACHUTE) engine_power*=0.2;
+    if(m_controls.wheelie)
+    {   // kickdown, switch gear and open up throttle
+        if (!m_throttle_saved)
+        {
+            if (m_actual_gear > 1)
+            {
+                m_actual_gear--;
+                setGear();
+            }
+            m_throttle_save = m_throttle;
+            m_throttle_saved = 1;
+        }
+        m_throttle = 1.0f;
+    }
+    else
+    {
+        if (m_throttle_saved)
+        {
+            //FIXME    *0.5f is not good,must be more intelligent
+            // but if m_throttle_save == 0.7 and I was stuck and became free
+            // takes me to an unwanted take off :-(
+            m_throttle = m_throttle_save * 0.5f;
+            m_throttle_saved = 0;
+        }
+    }
 
     if(m_controls.accel)
     {   // accelerating
+        if(m_speed < 0)
+            m_throttle = 0.20f;
+        else
+            m_throttle += dt * 0.35f;
+        
+        // maximum normal-throttle, to have a reserve for kickdown
+        if (m_throttle>0.75f && !m_controls.wheelie) m_throttle=0.75f;
+    }
+
+    //     * 0.5f   because 2 wheels per axis
+    float engine_power = getActualWheelForce() * 0.5f + handleWheelie(dt);
+    if(m_attachment.getType()==ATTACH_PARACHUTE) engine_power*=0.2;
+
+    if(m_controls.brake)
+    {   // braking or moving backwards
+        m_throttle -= dt * 0.35f;
+        if (m_throttle<0.0f) m_throttle=0.0f;
+        if(m_speed > 0.f)
+        {   // going forward, apply brake force
+            // FIXME:    * 20.0f is not intelligent of course
+            //           just to make it working
+            m_vehicle->applyEngineForce(-1.0f*getBrakeFactor()*getMaxPower()*20.0f, 2);
+            m_vehicle->applyEngineForce(-1.0f*getBrakeFactor()*getMaxPower()*20.0f, 3);
+        }
+        else
+        {   // going backward, apply reverse gear ratio
+            if ( fabs(m_speed) <  m_max_speed*m_max_speed_reverse_ratio )
+            {
+                m_vehicle->applyEngineForce(-m_controls.brake*getMaxPower()*20.0f, 2);
+                m_vehicle->applyEngineForce(-m_controls.brake*getMaxPower()*20.0f, 3);
+            }
+            else
+            {
+                m_vehicle->applyEngineForce(0.f, 2);
+                m_vehicle->applyEngineForce(0.f, 3);
+            }
+        }
+    }
+    else
+    {
         m_vehicle->applyEngineForce(engine_power, 2);
         m_vehicle->applyEngineForce(engine_power, 3);
     }
-    else
-    {   // not accelerating
-        if(m_controls.brake)
-        {   // braking or moving backwards
-            if(m_speed > 0.f)
-            {   // going forward, apply brake force
-                m_vehicle->applyEngineForce(-1.0f*getBrakeFactor()*engine_power, 2);
-                m_vehicle->applyEngineForce(-1.0f*getBrakeFactor()*engine_power, 3);
-            }
-            else
-            {   // going backward, apply reverse gear ratio
-                if ( fabs(m_speed) <  m_max_speed*m_max_speed_reverse_ratio )
-                {
-                    m_vehicle->applyEngineForce(-m_controls.brake*engine_power, 2);
-                    m_vehicle->applyEngineForce(-m_controls.brake*engine_power, 3);
-                }
-                else
-                {
-                    m_vehicle->applyEngineForce(0.f, 2);
-                    m_vehicle->applyEngineForce(0.f, 3);
-                }
-            }
-        }
-        else
-        {   // lift the foot from throttle, brakes with 10% engine_power
-            m_vehicle->applyEngineForce(-m_controls.accel*engine_power*0.1f, 2);
-            m_vehicle->applyEngineForce(-m_controls.accel*engine_power*0.1f, 3);
-        }
-    }
+
     if(m_controls.jump)
     { // ignore gravity down when jumping
         // no jumping yet
     }
+
     const float steering = getMaxSteerAngle() * m_controls.lr * 0.00444;
+
     m_vehicle->setSteeringValue(steering, 0);
     m_vehicle->setSteeringValue(steering, 1);
 
@@ -1259,6 +1396,7 @@ void Kart::endRescue()
     m_curr_pos.hpr[0] = world->m_track->m_angle[m_track_sector] ;
     m_rescue = false ;
 #ifdef BULLET
+    m_throttle=0.0f;
     world->getPhysics()->addKart(this, m_vehicle);
     m_kart_body->setLinearVelocity (btVector3(0.0f,0.0f,0.0f));
     m_kart_body->setAngularVelocity(btVector3(0.0f,0.0f,0.0f));
