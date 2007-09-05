@@ -1,0 +1,35 @@
+In the branch/supertuxkart/skidding version you will find out some
+different behaviors in playing the game.
+
+Note that this is a trial version which is only tested on the race
+track.
+Computer karts can not deal with this new behavior. It's not worth
+to play it with computer karts.
+
+Start the game from command line with:
+supertuxkart -N --track race --numkarts 1
+
+
+
+PLAYING THE BRANCHE
+================
+
+To accelerate use your usual accelerate button.
+When you achive the speed you want just stop accelerating and your
+kart will maintain the speed.
+Think of a accelerotor pedal that you push more and more when you
+push the accelerate button. Braking is vice versa.
+The original wheelie button is used as a kick-down button. It shifts
+the gear down if possible and pushes the accelerotor pedal completely.
+The kick-down saves the pedal position so when you end kick-down
+you will go on with the pedal (speed) you had before kick-down.
+
+The faster you go your friction will decrease.
+When you go to fast in curves you will see that your kart does not
+follow the steering, that's the moment when skidding starts.
+So brake befor entering the curve.
+When you brake IN a curve within a certain speed you will see that
+the rear of the kart will lift up and that's the moment you should
+kick-down and steer against to maintain control. If not you will
+find your kart outside the track.
+
