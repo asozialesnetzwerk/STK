@@ -11,8 +11,8 @@ supertuxkart -N --track race --numkarts 1
 
 
 
-PLAYING THE BRANCHE
-================
+PLAYING THE BRANCH
+==================
 
 To accelerate use your usual accelerate button.
 When you achive the speed you want just stop accelerating and your
@@ -33,3 +33,8 @@ the rear of the kart will lift up and that's the moment you should
 kick-down and steer against to maintain control. If not you will
 find your kart outside the track.
 
+Included in the src directory is a history.dat.gz file which shows how
+it works in the game. To look at this history file, first uncompress
+it, and then start STK as:
+./supertuxkart --history
+from the src directory.
