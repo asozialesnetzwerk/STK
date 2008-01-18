@@ -1,0 +1,9 @@
+This game uses texture fonts (.txf) . Since they are not very widely used, it's a bit hard to create new fonts. The glut utility gentexfont can create a .txf file from an X11 font, but it is a bit confusing and doesn't gives antialiased fonts, plus you can only use X11's fonts.
+
+Because of this, to create a .txf antialiased font from the more common true type fonts (.ttf) you can do in Unix-like OSs:
+
+    export GS_FONTPATH=<wherever the font is>
+    ttf2afm yourfont.ttf > whatever.afm
+    font.pl whatever.afm
+
+The ttf2afm comes with ImageMagick, and font.pl is a perl script(it should be available in the same directory as this file) that needs a ghostscript interpreter. Even thought these instructions do not work on OSs like Windows, all the components of the above instructions are available somehow in Windows, so it could be ported.
