@@ -222,9 +222,13 @@ def WriteLocation(objs, filename):
 
     locline = '%s,%s,%s' % (x,y,z)
     if not hardcoded:
+      # Ignore names that do not end in ".ac"
+      if name[-3:].lower() != ".ac": continue
       name = '"'+name+'"'
       locline += ',%s,%s,%s' % (h,p,r)
-    locfile.write('%s,%s\n' % (name, locline))
+    if not hardcoded or name.upper() in ["GHERRING", "SHERRING", 
+                                         "RHERRING", "YHERRING"]:
+      locfile.write('%s,%s\n' % (name, locline))
 
   if TK_TUNE:
     locfile.write('MUSIC "%s"\n' % TK_TUNE)
