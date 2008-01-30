@@ -4,7 +4,8 @@ use strict;
 my $METRICS = shift or die; # AFM file
 
 # Texture size
-my $TEXSIZ = 512;
+my $TEXSIZE_X = 512;
+my $TEXSIZE_Y = 512;
 
 # Padding around each character, for mipmap separation
 my $PADDING = 4;
@@ -40,7 +41,29 @@ my %CHARS = ('space'=>32, 'exclam'=>33, 'quotedbl'=>34,
 	     'n'=>110, 'o'=>111, 'p'=>112, 'q'=>113, 'r'=>114,
 	     's'=>115, 't'=>116, 'u'=>117, 'v'=>118, 'w'=>119,
 	     'x'=>120, 'y'=>121, 'z'=>122, 'braceleft'=>123,
-	     'bar'=>124, 'braceright'=>125, 'asciitilde'=>126
+	     'bar'=>124, 'braceright'=>125, 'asciitilde'=>126,
+	     'Agrave'=>192,'Aacute'=>193,'Acircumflex'=>194,
+	     'Atilde'=>195, 'Adieresis'=>196,'Aring'=>197, 
+	     'AE'=>198, 'Ccedilla'=>199, 'Egrave'=>200, 
+	     'Eacute'=>201, 'Ecircumflex'=>202, 'Edieresis'=>203,
+	     'Igrave'=>204,'Iacute'=>205, 'Icircumflex'=>206,
+	     'Idieresis'=>207, 'ETH'=>208, 'Ntilde'=>209,
+	     'Ograve'=>210,'Oacute'=>211,'Ocircumflex'=>212,
+	     'Otilde'=>213,'Odieresis'=>214,'multiplication'=>215,
+	     'Ostroke'=>216, 'Ugrave'=>217,'Uacute'=>218,
+	     'Ucircumflex'=>219, 'Udieresis'=>220, 'Yacute'=>221,
+	     'Thorn'=>222, 'SharpS'=>223, 'agrave'=>224,
+	     'aacute'=>225,'acircumflex'=>226,'atilde'=>227,
+	     'adieresis'=>228,'aring'=>229,'ae'=>230,
+	     'ccedilla'=>231, 'egrave'=>232, 'eacute'=>233, 
+	     'ecircumflex'=>234, 'edieresis'=>235, 'igrave'=>236,
+	     'iacute'=>237, 'icircumflex'=>238, 'idieresis'=>239, 
+	     'eth'=>240, 'ntilde'=>241, 'ograve'=>242,
+	     'oacute'=>243,'ocircumflex'=>244, 'otilde'=>245,
+	     'odieresis'=>246, 'division'=>247,'ostroke'=>248,
+	     'ugrave'=>249,'uacute'=>250, 'ucircumflex'=>251, 
+	     'udieresis'=>252, 'yacute'=>253, 'thorn'=>254,
+	     'ydieresis'=>255,
 );
 
 my %metrics = ();
@@ -113,18 +136,24 @@ print STDERR " ($rows rows)\n";
 # Call ghostscript to render
 #
 print STDERR "Rendering Postscript...\n";
-my $res = $TEXSIZ * $DOWNSAMPLE;
-my $pid = open PS, "|gs -r$res -g${res}x${res} -sDEVICE=ppm -sOutputFile=$FONT.ppm > /dev/null";
+my $res_x = $TEXSIZE_X * $DOWNSAMPLE;
+my $res_y = $TEXSIZE_Y * $DOWNSAMPLE;
+my $pid = open PS, "|gs -r${res_x}x${res_y} -g${res_x}x${res_y} -sDEVICE=ppm -sOutputFile=$FONT.ppm > /dev/null";
 die "Couldn't spawn ghostscript interpreter" if !defined $pid;
 print PS join("\n", @$PS), "\n";
 close PS;
 waitpid($pid, 0);
 
+# if mogrify does not create proper ppm files (just view them and
+# you will see), abort here, and process the (large) ppm file with 
+# a working version of mogrify
+# die;
+
 #
 # Downsample with ImageMagick
 #
 print STDERR "Antialiasing image...\n";
-system("mogrify -geometry ${TEXSIZ}x${TEXSIZ} $FONT.ppm") == 0
+system("mogrify -geometry ${TEXSIZE_X}x${TEXSIZE_Y} $FONT.ppm") == 0
     or die "Couldn't rescale $FONT.ppm";
 
 #
@@ -142,26 +171,26 @@ open TXF, ">$FONT.txf" or die;
 print TXF pack "V", 0x667874ff;
 print TXF pack "V", 0x12345678;
 print TXF pack "V", 0;
-print TXF pack "V", $TEXSIZ;
-print TXF pack "V", $TEXSIZ;
-print TXF pack "V", round($TEXSIZ * $LINEHGT);
+print TXF pack "V", $TEXSIZE_X;
+print TXF pack "V", $TEXSIZE_Y;
+print TXF pack "V", round($TEXSIZE_Y * $LINEHGT);
 print TXF pack "V", 0;
 print TXF pack "V", scalar(keys(%metrics));
 my @chars = sort { $CHARS{$a} <=> $CHARS{$b} } (keys %metrics);
 foreach my $c (@chars) {
     my $m = $metrics{$c};
     my $p = $positions{$c};
-    my $step = round($m->[0] * $LINEHGT * $TEXSIZ);
+    my $step = round($m->[0] * $LINEHGT * $TEXSIZE_Y);
 
     # Pad the bounding box, to handle areas that outside.  This can
     # happen due to thick lines in the font path, or be an artifact of
     # the downsampling.
-    my $w = round($m->[3] * $LINEHGT * $TEXSIZ + 2*$PADDING);
-    my $h = round($m->[4] * $LINEHGT * $TEXSIZ + 2*$PADDING);
-    my $xoff = -round($m->[1] * $LINEHGT * $TEXSIZ - $PADDING);
-    my $yoff = -round($m->[2] * $LINEHGT * $TEXSIZ - $PADDING);
-    my $x = round($p->[0] * $TEXSIZ - $PADDING);
-    my $y = round($p->[1] * $TEXSIZ - $PADDING);
+    my $w = round($m->[3] * $LINEHGT * $TEXSIZE_X + 2*$PADDING);
+    my $h = round($m->[4] * $LINEHGT * $TEXSIZE_Y + 2*$PADDING);
+    my $xoff = -round($m->[1] * $LINEHGT * $TEXSIZE_X - $PADDING);
+    my $yoff = -round($m->[2] * $LINEHGT * $TEXSIZE_X - $PADDING);
+    my $x = round($p->[0] * $TEXSIZE_X - $PADDING);
+    my $y = round($p->[1] * $TEXSIZE_Y - $PADDING);
 
     print TXF pack "v", $CHARS{$c};
     print TXF pack "C", $w;
@@ -178,12 +207,12 @@ foreach my $c (@chars) {
 # won't generate pgm's) and write to the end of the .txf.  Remember to
 # swap the order of the rows; OpenGL textures are bottom-up.
 open PPM, "$FONT.ppm" or die;
-seek PPM, -3*$TEXSIZ*$TEXSIZ, 2 or die;
+seek PPM, -3*$TEXSIZE_X*$TEXSIZE_Y, 2 or die;
 my @rows = ();
 my $pixel;
-for(my $r=0; $r<$TEXSIZ; $r++) {
+for(my $r=0; $r<$TEXSIZE_Y; $r++) {
     my @row = ();
-    for(my $c=0; $c<$TEXSIZ; $c++) {
+    for(my $c=0; $c<$TEXSIZE_X; $c++) {
 	read PPM, $pixel, 3 or die;
 	push @row, substr($pixel, 0, 1);
     }
@@ -209,7 +238,7 @@ sub genPostscript {
     my @PS = ();
     
     # The canonical "point size" number, in texture space
-    $LINEHGT = ($rowhgt - 2*$PADDING/$TEXSIZ) / $maxhgt;
+    $LINEHGT = ($rowhgt - 2*$PADDING/$TEXSIZE_Y) / $maxhgt;
 
     # Get to where we want.  Draw the whole thing in a 1 inch square at
     # the bottom left of the "page".
@@ -228,8 +257,8 @@ sub genPostscript {
     # Generate our PUSH @PS, font
     push @PS, "/$FONT findfont $LINEHGT scalefont setfont";
     
-    my $x = $PADDING/$TEXSIZ;
-    my $y = 1 - $rowhgt + $PADDING/$TEXSIZ;
+    my $x = $PADDING/$TEXSIZE_X;
+    my $y = 1 - $rowhgt + $PADDING/$TEXSIZE_Y;
     my @chars = sort { $CHARS{$a} <=> $CHARS{$b} } (keys %CHARS);
     foreach my $c (@chars) {
 	my $m = $metrics{$c};
@@ -239,8 +268,8 @@ sub genPostscript {
 	
 	# No space?
 	my $w = $m->[3]*$LINEHGT;
-	if($x + $w + $PADDING/$TEXSIZ > 1) {
-	    $x = $PADDING/$TEXSIZ;
+	if($x + $w + $PADDING/$TEXSIZE_X > 1) {
+	    $x = $PADDING/$TEXSIZE_X;
 	    $y -= $rowhgt;
 	    return undef if $y < 0;
 	}
@@ -255,7 +284,7 @@ sub genPostscript {
 	push @PS, "<$id> show";
 	
 	# Next box...
-	$x += $w + 2*$PADDING/$TEXSIZ;
+	$x += $w + 2*$PADDING/$TEXSIZE_X;
     }
     
     push @PS, "showpage";
