@@ -85,7 +85,7 @@ HELPTEXT_LOC = [
 '- to have z,p or r calculated by the game, append them inside {};',
 '- names without an extension (.something) are considered hardcoded',
 '  game objects, like GHERRING (default if name is left as Empty);',
-'- item examples: zipper.ac, RHERRING, GHERRING, YHERRING;',
+'- item examples: zipper.ac, RHERRING, GHERRING, SHERRING, YHERRING;',
 '- don\'t worry about the .001 etc. extensions appended by Blender.',
 '',
 'You can assign a song file for your track in the Config screen.'
