@@ -12,7 +12,7 @@ OBJECT poly
 name "Profile.001"
 data 8
 Mesh.069
-texture "../images/rainbow3.rgb"
+texture "rainbow3.rgb"
 texrep 1 1
 numvert 570
 -58.93692 2.032257 -119.849487

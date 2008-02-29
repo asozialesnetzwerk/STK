@@ -200,7 +200,7 @@ OBJECT poly
 name "Mesh.001-sub3"
 data 8
 Mesh.004
-texture "../images/trackborder.rgb"
+texture "trackborder.rgb"
 texrep 1 1
 numvert 620
 1.701313 -0.98178 38.183517
@@ -2999,7 +2999,7 @@ OBJECT poly
 name "Mesh.001-sub2"
 data 8
 Mesh.003
-texture "../images/track.rgb"
+texture "track.rgb"
 texrep 1 1
 numvert 310
 -8.784264 -0.981787 -57.978436
@@ -4403,7 +4403,7 @@ OBJECT poly
 name "Mesh.001-sub1"
 data 8
 Mesh.002
-texture "../images/stones.rgb"
+texture "stones.rgb"
 texrep 1 1
 numvert 908
 3.391538 -0.98178 38.827724
@@ -10732,7 +10732,7 @@ OBJECT poly
 name "Mesh.001-sub0"
 data 8
 Mesh.001
-texture "../images/sand.rgb"
+texture "sand.rgb"
 texrep 1 1
 numvert 620
 2.546425 -0.98178 38.505619

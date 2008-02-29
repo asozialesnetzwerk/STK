@@ -30,7 +30,7 @@ OBJECT poly
 name "Plane.003"
 data 9
 Plane.003
-texture "island/sky2.rgb"
+texture "sky2.rgb"
 texrep 1 1
 crease 30
 numvert 16
@@ -112,7 +112,7 @@ OBJECT poly
 name "Object01_01.068"
 data 21
 Object01_01 - Def.074
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 275
@@ -2779,7 +2779,7 @@ OBJECT poly
 name "Object01_01.069"
 data 21
 Object01_01 - Def.075
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 275
@@ -5446,7 +5446,7 @@ OBJECT poly
 name "Sphere.123"
 data 10
 Sphere.123
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -5558,7 +5558,7 @@ OBJECT poly
 name "track.001_5.001"
 data 8
 Mesh.013
-texture "island/rock4.rgb"
+texture "rock4.rgb"
 texrep 1 1
 crease 80
 numvert 443
@@ -7868,7 +7868,7 @@ OBJECT poly
 name "Object01_01.062"
 data 21
 Object01_01 - Def.068
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 36
@@ -8292,7 +8292,7 @@ OBJECT poly
 name "Object01_01.063"
 data 21
 Object01_01 - Def.069
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 36
@@ -8716,7 +8716,7 @@ OBJECT poly
 name "Object01_01.060"
 data 21
 Object01_01 - Def.066
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 36
@@ -9140,7 +9140,7 @@ OBJECT poly
 name "Object01_01.061"
 data 21
 Object01_01 - Def.067
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 275
@@ -11807,7 +11807,7 @@ OBJECT poly
 name "Object01_01.066"
 data 21
 Object01_01 - Def.072
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 275
@@ -14474,7 +14474,7 @@ OBJECT poly
 name "Object01_01.067"
 data 21
 Object01_01 - Def.073
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 36
@@ -14898,7 +14898,7 @@ OBJECT poly
 name "Object01_01.064"
 data 21
 Object01_01 - Def.070
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 275
@@ -17565,7 +17565,7 @@ OBJECT poly
 name "Object01_01.065"
 data 21
 Object01_01 - Def.071
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 275
@@ -20232,7 +20232,7 @@ OBJECT poly
 name "Sphere.105"
 data 10
 Sphere.105
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -20344,7 +20344,7 @@ OBJECT poly
 name "Sphere.104"
 data 10
 Sphere.104
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -20456,7 +20456,7 @@ OBJECT poly
 name "Sphere.107"
 data 10
 Sphere.107
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -20568,7 +20568,7 @@ OBJECT poly
 name "Sphere.106"
 data 10
 Sphere.106
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -20680,7 +20680,7 @@ OBJECT poly
 name "Sphere.101"
 data 10
 Sphere.101
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -20792,7 +20792,7 @@ OBJECT poly
 name "Sphere.100"
 data 10
 Sphere.100
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -20904,7 +20904,7 @@ OBJECT poly
 name "Sphere.103"
 data 10
 Sphere.103
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -21016,7 +21016,7 @@ OBJECT poly
 name "Sphere.102"
 data 10
 Sphere.102
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -21128,7 +21128,7 @@ OBJECT poly
 name "Sphere.109"
 data 10
 Sphere.109
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -21240,7 +21240,7 @@ OBJECT poly
 name "Sphere.108"
 data 10
 Sphere.108
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -21352,7 +21352,7 @@ OBJECT poly
 name "Sphere.084"
 data 10
 Sphere.084
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -21464,7 +21464,7 @@ OBJECT poly
 name "Sphere.085"
 data 10
 Sphere.085
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -21576,7 +21576,7 @@ OBJECT poly
 name "Sphere.086"
 data 10
 Sphere.086
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -21688,7 +21688,7 @@ OBJECT poly
 name "Sphere.087"
 data 10
 Sphere.087
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -21800,7 +21800,7 @@ OBJECT poly
 name "Sphere.080"
 data 10
 Sphere.080
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -21912,7 +21912,7 @@ OBJECT poly
 name "Sphere.081"
 data 10
 Sphere.081
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -22024,7 +22024,7 @@ OBJECT poly
 name "Sphere.082"
 data 10
 Sphere.082
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -22136,7 +22136,7 @@ OBJECT poly
 name "Sphere.083"
 data 10
 Sphere.083
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -22248,7 +22248,7 @@ OBJECT poly
 name "Sphere.088"
 data 10
 Sphere.088
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -22360,7 +22360,7 @@ OBJECT poly
 name "Sphere.089"
 data 10
 Sphere.089
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -22472,7 +22472,7 @@ OBJECT poly
 name "track.001_2.001"
 data 8
 Mesh.010
-texture "island/road_sand_side.rgb"
+texture "road_sand_side.rgb"
 texrep 1 1
 crease 80
 numvert 1854
@@ -34276,7 +34276,7 @@ OBJECT poly
 name "Sphere.130"
 data 10
 Sphere.130
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -34388,7 +34388,7 @@ OBJECT poly
 name "Sphere.131"
 data 10
 Sphere.131
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -34519,7 +34519,7 @@ OBJECT poly
 name "Sphere.133"
 data 10
 Sphere.133
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -34631,7 +34631,7 @@ OBJECT poly
 name "Sphere.134"
 data 10
 Sphere.134
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -34743,7 +34743,7 @@ OBJECT poly
 name "Sphere.135"
 data 10
 Sphere.135
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -34855,7 +34855,7 @@ OBJECT poly
 name "Sphere.136"
 data 10
 Sphere.136
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -34967,7 +34967,7 @@ OBJECT poly
 name "Sphere.137"
 data 10
 Sphere.137
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -35079,7 +35079,7 @@ OBJECT poly
 name "Sphere.138"
 data 10
 Sphere.138
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -35191,7 +35191,7 @@ OBJECT poly
 name "Sphere.139"
 data 10
 Sphere.139
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -35303,7 +35303,7 @@ OBJECT poly
 name "Sphere.097"
 data 10
 Sphere.097
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -35415,7 +35415,7 @@ OBJECT poly
 name "Sphere.096"
 data 10
 Sphere.096
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -35527,7 +35527,7 @@ OBJECT poly
 name "Sphere.095"
 data 10
 Sphere.095
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -35639,7 +35639,7 @@ OBJECT poly
 name "track.001_4"
 data 8
 Mesh.012
-texture "island/road_sand.rgb"
+texture "road_sand.rgb"
 texrep 1 1
 crease 80
 numvert 436
@@ -37604,7 +37604,7 @@ OBJECT poly
 name "Sphere.093"
 data 10
 Sphere.093
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -37716,7 +37716,7 @@ OBJECT poly
 name "Sphere.092"
 data 10
 Sphere.092
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -37828,7 +37828,7 @@ OBJECT poly
 name "Sphere.091"
 data 10
 Sphere.091
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -37940,7 +37940,7 @@ OBJECT poly
 name "Sphere.090"
 data 10
 Sphere.090
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -38052,7 +38052,7 @@ OBJECT poly
 name "Sphere.099"
 data 10
 Sphere.099
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -38164,7 +38164,7 @@ OBJECT poly
 name "Sphere.098"
 data 10
 Sphere.098
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -38276,7 +38276,7 @@ OBJECT poly
 name "Sphere.132"
 data 10
 Sphere.132
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -38388,7 +38388,7 @@ OBJECT poly
 name "Sphere.122"
 data 10
 Sphere.122
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -38500,7 +38500,7 @@ OBJECT poly
 name "Sphere.121"
 data 10
 Sphere.121
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -38612,7 +38612,7 @@ OBJECT poly
 name "Sphere.120"
 data 10
 Sphere.120
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -38724,7 +38724,7 @@ OBJECT poly
 name "Sphere.127"
 data 10
 Sphere.127
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -38836,7 +38836,7 @@ OBJECT poly
 name "Sphere.126"
 data 10
 Sphere.126
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -38948,7 +38948,7 @@ OBJECT poly
 name "Sphere.125"
 data 10
 Sphere.125
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -39060,7 +39060,7 @@ OBJECT poly
 name "Sphere.124"
 data 10
 Sphere.124
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -39172,7 +39172,7 @@ OBJECT poly
 name "Sphere.129"
 data 10
 Sphere.129
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -39284,7 +39284,7 @@ OBJECT poly
 name "Sphere.128"
 data 10
 Sphere.128
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -39401,7 +39401,7 @@ OBJECT poly
 name "Plane.002"
 data 5
 Plane
-texture "island/water2.rgb"
+texture "water2.rgb"
 texrep 1 1
 crease 30
 numvert 4
@@ -39422,7 +39422,7 @@ OBJECT poly
 name "Sphere.141"
 data 10
 Sphere.141
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -39534,7 +39534,7 @@ OBJECT poly
 name "Sphere.140"
 data 10
 Sphere.140
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -39646,7 +39646,7 @@ OBJECT poly
 name "Sphere.143"
 data 10
 Sphere.143
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -39758,7 +39758,7 @@ OBJECT poly
 name "Sphere.142"
 data 10
 Sphere.142
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -39870,7 +39870,7 @@ OBJECT poly
 name "Sphere.145"
 data 10
 Sphere.145
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -39982,7 +39982,7 @@ OBJECT poly
 name "Sphere.144"
 data 10
 Sphere.144
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -40094,7 +40094,7 @@ OBJECT poly
 name "Sphere.147"
 data 10
 Sphere.147
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -40206,7 +40206,7 @@ OBJECT poly
 name "Sphere.146"
 data 10
 Sphere.146
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -40318,7 +40318,7 @@ OBJECT poly
 name "Sphere.148"
 data 10
 Sphere.148
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -40430,7 +40430,7 @@ OBJECT poly
 name "Object01_01.039"
 data 21
 Object01_01 - Def.007
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 36
@@ -40854,7 +40854,7 @@ OBJECT poly
 name "Object01_01.038"
 data 21
 Object01_01 - Def.006
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 36
@@ -41278,7 +41278,7 @@ OBJECT poly
 name "track.001_3.001"
 data 8
 Mesh.011
-texture "island/sand2.rgb"
+texture "sand2.rgb"
 texrep 1 1
 crease 80
 numvert 219
@@ -42605,7 +42605,7 @@ OBJECT poly
 name "Object01_01.053"
 data 21
 Object01_01 - Def.059
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 36
@@ -43029,7 +43029,7 @@ OBJECT poly
 name "Object01_01.052"
 data 21
 Object01_01 - Def.058
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 36
@@ -43453,7 +43453,7 @@ OBJECT poly
 name "Object01_01.051"
 data 21
 Object01_01 - Def.057
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 275
@@ -46120,7 +46120,7 @@ OBJECT poly
 name "Object01_01.050"
 data 21
 Object01_01 - Def.056
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 36
@@ -46544,7 +46544,7 @@ OBJECT poly
 name "Object01_01.057"
 data 21
 Object01_01 - Def.063
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 36
@@ -46968,7 +46968,7 @@ OBJECT poly
 name "Object01_01.056"
 data 21
 Object01_01 - Def.062
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 275
@@ -49635,7 +49635,7 @@ OBJECT poly
 name "Object01_01.055"
 data 21
 Object01_01 - Def.061
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 275
@@ -52302,7 +52302,7 @@ OBJECT poly
 name "Object01_01.054"
 data 21
 Object01_01 - Def.060
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 275
@@ -54969,7 +54969,7 @@ OBJECT poly
 name "Object01_01.059"
 data 21
 Object01_01 - Def.065
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 275
@@ -57636,7 +57636,7 @@ OBJECT poly
 name "Object01_01.058"
 data 21
 Object01_01 - Def.064
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 275
@@ -60303,7 +60303,7 @@ OBJECT poly
 name "Sphere.094"
 data 10
 Sphere.094
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -60415,7 +60415,7 @@ OBJECT poly
 name "Object01_01.070"
 data 21
 Object01_01 - Def.076
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 36
@@ -60839,7 +60839,7 @@ OBJECT poly
 name "Object01_01.044"
 data 21
 Object01_01 - Def.012
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 36
@@ -61263,7 +61263,7 @@ OBJECT poly
 name "Object01_01.045"
 data 21
 Object01_01 - Def.013
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 275
@@ -63930,7 +63930,7 @@ OBJECT poly
 name "Object01_01.046"
 data 21
 Object01_01 - Def.014
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 36
@@ -64354,7 +64354,7 @@ OBJECT poly
 name "Object01_01.047"
 data 21
 Object01_01 - Def.015
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 275
@@ -67021,7 +67021,7 @@ OBJECT poly
 name "track.001_0.001"
 data 8
 Mesh.008
-texture "island/grass2.rgb"
+texture "grass2.rgb"
 texrep 1 1
 crease 80
 numvert 77
@@ -67429,7 +67429,7 @@ OBJECT poly
 name "Object01_01.041"
 data 21
 Object01_01 - Def.009
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 36
@@ -67853,7 +67853,7 @@ OBJECT poly
 name "Object01_01.042"
 data 21
 Object01_01 - Def.010
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 275
@@ -70520,7 +70520,7 @@ OBJECT poly
 name "Object01_01.043"
 data 21
 Object01_01 - Def.011
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 275
@@ -73187,7 +73187,7 @@ OBJECT poly
 name "Object01_01.048"
 data 21
 Object01_01 - Def.016
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 36
@@ -73611,7 +73611,7 @@ OBJECT poly
 name "Object01_01.049"
 data 21
 Object01_01 - Def.017
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 275
@@ -76278,7 +76278,7 @@ OBJECT poly
 name "Object01_01.040"
 data 21
 Object01_01 - Def.008
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 36
@@ -76702,7 +76702,7 @@ OBJECT poly
 name "Object01_01.071"
 data 21
 Object01_01 - Def.077
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 275
@@ -79369,7 +79369,7 @@ OBJECT poly
 name "track.001_1.001"
 data 8
 Mesh.009
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 80
 numvert 342
@@ -81220,7 +81220,7 @@ OBJECT poly
 name "Object01_01.073"
 data 21
 Object01_01 - Def.079
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 275
@@ -83887,7 +83887,7 @@ OBJECT poly
 name "Object01_01.072"
 data 21
 Object01_01 - Def.078
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 275
@@ -86554,7 +86554,7 @@ OBJECT poly
 name "Object01_01.075"
 data 21
 Object01_01 - Def.081
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 36
@@ -86978,7 +86978,7 @@ OBJECT poly
 name "Object01_01.074"
 data 21
 Object01_01 - Def.080
-texture "island/palmtree3.rgb"
+texture "palmtree3.rgb"
 texrep 1 1
 crease 30
 numvert 36
@@ -87402,7 +87402,7 @@ OBJECT poly
 name "Sphere.118"
 data 10
 Sphere.118
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -87514,7 +87514,7 @@ OBJECT poly
 name "Sphere.119"
 data 10
 Sphere.119
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -87626,7 +87626,7 @@ OBJECT poly
 name "Sphere.112"
 data 10
 Sphere.112
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -87738,7 +87738,7 @@ OBJECT poly
 name "Sphere.113"
 data 10
 Sphere.113
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -87850,7 +87850,7 @@ OBJECT poly
 name "Sphere.110"
 data 10
 Sphere.110
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -87962,7 +87962,7 @@ OBJECT poly
 name "Sphere.111"
 data 10
 Sphere.111
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -88074,7 +88074,7 @@ OBJECT poly
 name "Sphere.116"
 data 10
 Sphere.116
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -88186,7 +88186,7 @@ OBJECT poly
 name "Sphere.117"
 data 10
 Sphere.117
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -88298,7 +88298,7 @@ OBJECT poly
 name "Sphere.114"
 data 10
 Sphere.114
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -88410,7 +88410,7 @@ OBJECT poly
 name "Sphere.115"
 data 10
 Sphere.115
-texture "island/rock1.rgb"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15

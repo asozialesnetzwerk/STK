@@ -136,11 +136,6 @@
 "butterfly.rgb"             Y Y    Y    0.8    N     N    1.0   Y   N   N   N
 "Penguin_orig.rgb"          N N    N    0.0    Y     N    1.0   N   N   N   N
 "grass.rgb"                 N N    N    0.0    Y     N    0.7   N   N   N   N
-"island/grass2.rgb"         N N    N    0.0    Y     N    0.7   N   N   N   N
-"island/rock1.rgb"          N N    N    0.0    Y     N    0.5   N   N   N   N
-"island/rock4.rgb"          N N    N    0.0    Y     N    0.5   N   N   N   N
-"island/water2.rgb"         N N    N    0.0    Y     N    1.0   N   N   Y   N
-"island/sand2.rgb"          N N    N    0.0    Y     N    0.7   N   N   N   N
 "track2.rgb"                N N    N    0.0    Y     N    1.0   N   N   N   N
 "zipper_collect.rgb"        N N    N    0.0    N     N    1.0   N   Y   N   N
 "zipper.rgb"                N N    N    0.0    N     N    1.0   N   Y   N   N
@@ -187,7 +182,6 @@
 "sea.rgb"                   N N    N    0.0    N     N    0.5   N   N   Y   Y
 "rock.rgb"                  N N    N    0.0    N     N    0.5   N   N   N   N
 "coniferous_tree.rgb"       Y Y    Y    0.5    N     N    0.5   N   N   N   N
-"island/sky2.rgb"           N N    N    0.0    N     N    1.0   N   N   N   N
 "window.rgb"                N N    Y    0.0    Y     N    1.0   N   N   N   N
 "waterfall.rgb"             N N    Y    0.0    N     N    1.0   N   N   Y   N
 
