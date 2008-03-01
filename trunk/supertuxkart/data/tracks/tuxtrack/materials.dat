@@ -1,0 +1,6 @@
+# See textures/materials.dat for a detailed description of the fields.
+
+# TextureName       Clamp Trans Alpha Light SphMp Frict Ign Zip Rst Col
+"Penguin_orig.rgb"          N N    N    0.0    Y     N    1.0   N   N   N   N
+"adverts.rgb"               N N    N    0.0    Y     N    1.0   N   N   N   Y
+# EOF #
