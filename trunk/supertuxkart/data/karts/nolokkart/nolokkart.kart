@@ -4,7 +4,7 @@
  (name        "Nolok")
  (model-file  "nolokkart-high.ac")
  (icon-file   "nolokicon.rgb")
- (shadow-file "tuxkartshadow.rgb")
+ (shadow-file "generickartshadow.rgb")
  
  (red         0.6)
  (green       0.6)
