@@ -108,6 +108,9 @@
 # default value is Y.
 
 # TextureName              Clamp Trans Alpha Light SphMp Frict Ign Zip Rst Col
+"signs.rgb"                 N N    Y    0.5    N     N    0.5   N   N   N   N
+"greenice.rgb"              N N    N    0.0    N     N    0.5   N   N   Y   N
+
 "chrome.rgb"                N N    N    0.0    N     Y    0.5   N   N   N   N
 "chrome2.rgb"               N N    N    0.0    N     Y    0.5   N   N   N   N
 "railing.rgb"               N Y    Y    0.5    Y     N    1.0   N   N   N   N
