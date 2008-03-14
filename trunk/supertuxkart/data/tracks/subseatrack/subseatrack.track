@@ -15,7 +15,7 @@
  (sun-specular 0.8 0.8 1.0 0.0)
   ;; The default x start coordinates are a bit too far to the right
  (start-x  2.0 -1.0 2.0 -1.0 2.0 -1.0 2.0 -1.0 2.0 -1.0 )
- (music      "tuxr.ogg")
+ (music      "tuxr.music")
  (screenshot "sshot-subseatrack.rgb")
  (topview    "topview-subseatrack.rgb")
  (AI-curve-speed-adjust  2.3)

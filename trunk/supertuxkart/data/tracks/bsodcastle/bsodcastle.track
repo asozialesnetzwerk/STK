@@ -3,7 +3,7 @@
 (tuxkart-track
  (name        "BSODs Battlements")
  (description "Created by Oliver & Steve Baker")
- (music       "Lava_Lagoon_2.ogg")
+ (music       "Lava_Lagoon_2.music")
  (screenshot  "sshot-bsodcastle.rgb")
  (topview     "topview-bsodcastle.rgb")
  (AI-curve-speed-adjust  2.0)

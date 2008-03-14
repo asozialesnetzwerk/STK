@@ -4,7 +4,7 @@
  (name        "SnowTux Peak")
  (description "Created by Oliver & Steve Baker,
  modified by M. Gagnon")
- (music       "tk2.ogg" "kart_grand_prix.ogg")
+ (music       "tk2.music" "kart_grand_prix.music")
  (screenshot  "sshot-snowtuxpeak.rgb")
  (topview     "topview-snowtuxpeak.rgb")
  (AI-curve-speed-adjust  2.0)

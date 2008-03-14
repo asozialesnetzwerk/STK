@@ -15,7 +15,7 @@
  (sun-diffuse  0.8 0.6 0.6 0.0)
  (sun-specular 1.0 0.8 0.8 0.0)
 
- (music      "tk5a.ogg" "KingArthursCastle.ogg")
+ (music      "tk5a.music" "KingArthursCastle.music")
  (screenshot "sshot-littlevolcano.rgb")
  (topview    "topview-littlevolcano.rgb")
  (AI-curve-speed-adjust  3.0)

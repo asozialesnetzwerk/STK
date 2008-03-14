@@ -4,7 +4,7 @@
  (name        "Around the Lighthouse")
  (description "Created by Ingo Ruhnke, 
 modified by M. Gagnon")
- (music       "tk2.ogg")
+ (music       "tk2.music")
  (screenshot  "sshot-lighthouse.rgb")
  (topview     "topview-lighthouse.rgb")
  (AI-curve-speed-adjust  1.7)

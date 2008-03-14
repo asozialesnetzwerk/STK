@@ -1,0 +1,6 @@
+(music-information
+  (title    "Tuxkart 2")
+  (composer "Matt Thomas")
+  (music    "tk2.ogg")
+  (loop     10)
+)

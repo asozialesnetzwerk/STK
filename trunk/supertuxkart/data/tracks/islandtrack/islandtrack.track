@@ -3,7 +3,7 @@
 (tuxkart-track
  (name        "The Island")
  (description "Created by Johannes Sjolund")
- (music       "Boom_boom_boom.ogg")
+ (music       "Boom_boom_boom.music")
  (screenshot  "sshot-islandtrack.rgb")
  (topview     "topview-islandtrack.rgb")
  (start-heading  0.0  3.7  9.5 11.5 15.1 17.0  20.2  22.0  26.0  36.0 )
