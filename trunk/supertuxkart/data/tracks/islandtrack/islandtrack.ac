@@ -5446,7 +5446,7 @@ OBJECT poly
 name "Sphere.123"
 data 10
 Sphere.123
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -20232,7 +20232,7 @@ OBJECT poly
 name "Sphere.105"
 data 10
 Sphere.105
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -20344,7 +20344,7 @@ OBJECT poly
 name "Sphere.104"
 data 10
 Sphere.104
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -20456,7 +20456,7 @@ OBJECT poly
 name "Sphere.107"
 data 10
 Sphere.107
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -20568,7 +20568,7 @@ OBJECT poly
 name "Sphere.106"
 data 10
 Sphere.106
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -20680,7 +20680,7 @@ OBJECT poly
 name "Sphere.101"
 data 10
 Sphere.101
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -20792,7 +20792,7 @@ OBJECT poly
 name "Sphere.100"
 data 10
 Sphere.100
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -20904,7 +20904,7 @@ OBJECT poly
 name "Sphere.103"
 data 10
 Sphere.103
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -21016,7 +21016,7 @@ OBJECT poly
 name "Sphere.102"
 data 10
 Sphere.102
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -21128,7 +21128,7 @@ OBJECT poly
 name "Sphere.109"
 data 10
 Sphere.109
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -21240,7 +21240,7 @@ OBJECT poly
 name "Sphere.108"
 data 10
 Sphere.108
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -21352,7 +21352,7 @@ OBJECT poly
 name "Sphere.084"
 data 10
 Sphere.084
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -21464,7 +21464,7 @@ OBJECT poly
 name "Sphere.085"
 data 10
 Sphere.085
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -21576,7 +21576,7 @@ OBJECT poly
 name "Sphere.086"
 data 10
 Sphere.086
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -21688,7 +21688,7 @@ OBJECT poly
 name "Sphere.087"
 data 10
 Sphere.087
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -21800,7 +21800,7 @@ OBJECT poly
 name "Sphere.080"
 data 10
 Sphere.080
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -21912,7 +21912,7 @@ OBJECT poly
 name "Sphere.081"
 data 10
 Sphere.081
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -22024,7 +22024,7 @@ OBJECT poly
 name "Sphere.082"
 data 10
 Sphere.082
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -22136,7 +22136,7 @@ OBJECT poly
 name "Sphere.083"
 data 10
 Sphere.083
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -22248,7 +22248,7 @@ OBJECT poly
 name "Sphere.088"
 data 10
 Sphere.088
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -22360,7 +22360,7 @@ OBJECT poly
 name "Sphere.089"
 data 10
 Sphere.089
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -34276,7 +34276,7 @@ OBJECT poly
 name "Sphere.130"
 data 10
 Sphere.130
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -34388,7 +34388,7 @@ OBJECT poly
 name "Sphere.131"
 data 10
 Sphere.131
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -34519,7 +34519,7 @@ OBJECT poly
 name "Sphere.133"
 data 10
 Sphere.133
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -34631,7 +34631,7 @@ OBJECT poly
 name "Sphere.134"
 data 10
 Sphere.134
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -34743,7 +34743,7 @@ OBJECT poly
 name "Sphere.135"
 data 10
 Sphere.135
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -34855,7 +34855,7 @@ OBJECT poly
 name "Sphere.136"
 data 10
 Sphere.136
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -34967,7 +34967,7 @@ OBJECT poly
 name "Sphere.137"
 data 10
 Sphere.137
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -35079,7 +35079,7 @@ OBJECT poly
 name "Sphere.138"
 data 10
 Sphere.138
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -35191,7 +35191,7 @@ OBJECT poly
 name "Sphere.139"
 data 10
 Sphere.139
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -35303,7 +35303,7 @@ OBJECT poly
 name "Sphere.097"
 data 10
 Sphere.097
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -35415,7 +35415,7 @@ OBJECT poly
 name "Sphere.096"
 data 10
 Sphere.096
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -35527,7 +35527,7 @@ OBJECT poly
 name "Sphere.095"
 data 10
 Sphere.095
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -37604,7 +37604,7 @@ OBJECT poly
 name "Sphere.093"
 data 10
 Sphere.093
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -37828,7 +37828,7 @@ OBJECT poly
 name "Sphere.091"
 data 10
 Sphere.091
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
@@ -37940,7 +37940,7 @@ OBJECT poly
 name "Sphere.090"
 data 10
 Sphere.090
-texture "rock1.bmp"
+texture "rock1.rgb"
 texrep 1 1
 crease 30
 numvert 15
