@@ -1,9 +1,8 @@
-# wavs/
+# sfx/
 
-pkgdatadir = $(datadir)/games/@PACKAGE@/wavs
+pkgdatadir = $(datadir)/games/@PACKAGE@/data/sfx
 
-pkgdata_DATA = $(wildcard *.wav)
+nobase_pkgdata_DATA =  $(shell find $(srcdir) -name "*.wav") \
+                       $(shell find $(srcdir) -name "README")
 
-SUBDIRS = radio tintagel
-
-EXTRA_DIST = $(pkgdata_DATA)
+EXTRA_DIST = $(nobase_pkgdata_DATA)
