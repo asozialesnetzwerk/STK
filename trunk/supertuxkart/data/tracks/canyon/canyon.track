@@ -1,0 +1,14 @@
+;; -*- mode: lisp -*-
+
+(tuxkart-track
+ (name                   "Canyon")
+ (description            "Created by Thomas Oppl")
+ (music                  "kart_grand_prix.music")
+ (screenshot             "canyon_screenshot.rgb")
+ (topview                "canyon_topview.rgb")
+ (AI-curve-speed-adjust  2.0)
+ (AI-angle-adjust        2.7)
+)
+
+;; EOF ;;
+
