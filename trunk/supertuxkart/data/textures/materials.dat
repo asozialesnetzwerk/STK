@@ -180,5 +180,7 @@
 "stonetex.rgb"		    N N    N    0.0    Y     N    0.0000002   N   N   N   N
 "redwhite.rgb"		    N N    N    0.0    Y     N    0.0000002   N   N   N   N
 "dirt.rgb"		    N N    N    0.0    Y     N    0.00000025  N   N   N   N
+"city_asphalt_1.rgb"	    N N    N    0.0    Y     N    0.0000003   N   N   N   N
+"city_checker.rgb"	    N N    N    0.0    Y     N    0.0000003   N   N   N   N
 
 # EOF #
