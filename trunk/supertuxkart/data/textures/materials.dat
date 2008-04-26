@@ -124,7 +124,6 @@
 "pyramidwall.rgb"           N N    N    0.0    Y     N    1.0   N   N   N   N
 "lava.rgb"                  N N    N    0.0    N     N    1.0   N   N   Y   Y
 "lava2.rgb"                 N N    N    0.0    N     N    1.0   N   N   Y   Y
-"Tuxclouds.rgb"             N N    N    0.1    Y     N    1.0   N   N   Y   Y
 "metalgrid.rgb"             N N    Y    0.3    Y     N    0.0000003   N   N   N   N
 "fuzzy_sand.rgb"            N N    Y    0.0    N     N    1.0   Y   N   N   N
 "roadway.rgb"               Y N    Y    0.0    Y     N    0.0000003   N   N   N   N
@@ -154,7 +153,6 @@
 "parachute.rgb"             Y Y    Y    0.1    N     N    1.0   Y   N   N   N
 "herring.rgb"               Y Y    Y    0.9    N     N    1.0   Y   N   N   N
 "wheel.rgb"                 Y Y    Y    0.0    N     N    1.0   Y   N   N   N
-"water.rgb"                 N N    N    0.1    Y     N    1.0   N   N   Y   N
 "speedback.rgb"             Y Y    Y    0.0    N     N    1.0   Y   N   N   N
 "speedfore.rgb"             Y Y    Y    0.0    N     N    1.0   Y   N   N   N
 "st_title_screen.rgb"       Y Y    N    1.0    N     N    1.0   N   N   N   Y
@@ -163,7 +161,6 @@
 "rock.rgb"                  N N    N    0.0    N     N    0.5   N   N   N   N
 "coniferous_tree.rgb"       Y Y    Y    0.5    N     N    0.5   N   N   N   N
 "window.rgb"                N N    Y    0.0    Y     N    1.0   N   N   N   N
-"waterfall.rgb"             N N    Y    0.0    N     N    1.0   N   N   Y   N
 "signs.rgb"                 N N    Y    0.5    N     N    0.5   N   N   N   N
 "greenice.rgb"              N N    N    0.0    N     N    0.5   N   N   Y   N
 "snow.rgb"		    N N    N	0.0    Y     N    0.00000018   N   N   N   N
