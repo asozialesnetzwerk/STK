@@ -1,8 +1,8 @@
 ;; -*- mode: lisp -*-
 
 (tuxkart-track
- (name        "BSODs Battlements")
- (description "Created by Oliver & Steve Baker")
+ (name        "Fort Magma")
+ (description "Created by Oliver & Steve Baker\nmodified by Marianne Gagnon")
  (music       "Lava_Lagoon_2.music")
  (screenshot  "sshot-bsodcastle.rgb")
  (topview     "topview-bsodcastle.rgb")
