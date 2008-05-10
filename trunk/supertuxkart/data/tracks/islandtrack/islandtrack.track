@@ -1,8 +1,8 @@
 ;; -*- mode: lisp -*-
 
 (tuxkart-track
- (name        "The Island")
- (description "Created by Johannes Sjolund")
+ (name        _("The Island"))
+ (description _("Created by Johannes Sjolund"))
  (music       "Boom_boom_boom.music")
  (screenshot  "sshot-islandtrack.rgb")
  (topview     "topview-islandtrack.rgb")

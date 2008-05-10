@@ -1,9 +1,9 @@
 ;; -*- mode: lisp -*-
 
 (tuxkart-track
- (name        "Around the Lighthouse")
- (description "Created by Ingo Ruhnke, 
-modified by M. Gagnon")
+ (name        _("Around the Lighthouse"))
+ (description _("Created by Ingo Ruhnke,
+modified by M. Gagnon"))
  (music       "tk2.music")
  (screenshot  "sshot-lighthouse.rgb")
  (topview     "topview-lighthouse.rgb")

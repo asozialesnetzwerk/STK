@@ -1,8 +1,8 @@
 ;; -*- mode: lisp -*-
 
 (tuxkart-track
- (name                   "Amazonian Journey")
- (description            "by M. Gagnon")
+ (name                   _("Amazonian Journey"))
+ (description            _("by M. Gagnon"))
  (music                  "kart_grand_prix.music")
  (screenshot             "sshot-jungle.rgb")
  (topview                "topview-jungle.rgb")

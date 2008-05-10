@@ -1,8 +1,8 @@
 ;; -*- mode: lisp -*-
 
 (tuxkart-track
- (name        "Tux Tollway")
- (description "Created by Oliver & Steve Baker")
+ (name        _("Tux Tollway"))
+ (description _("Created by Oliver & Steve Baker"))
  (music       "g4m-fan-track.music")
  (screenshot  "sshot-tuxtrack.rgb")
  (topview     "topview-tuxtrack.rgb")

@@ -1,8 +1,8 @@
 ;; -*- mode: lisp -*-
 
 (tuxkart-track
- (name        "Fort Magma")
- (description "Created by Oliver & Steve Baker\nmodified by Marianne Gagnon")
+ (name        _("Fort Magma"))
+ (description _("Created by Oliver & Steve Baker\nmodified by Marianne Gagnon"))
  (music       "Lava_Lagoon_2.music")
  (screenshot  "sshot-fortmagma.rgb")
  (topview     "topview-fortmagma.rgb")

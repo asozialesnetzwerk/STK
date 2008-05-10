@@ -1,9 +1,9 @@
 ;; -*- mode: lisp -*-
 
 (tuxkart-track
- (name "Star Track")
+ (name _("Star Track"))
  (sky-color    0.0 0.0 0.0 0.0)
- (description "Created by Ingo Ruhnke")
+ (description _("Created by Ingo Ruhnke"))
  (music "Ethereal_Spectrum_\(ver_loop\).music")
  (screenshot "sshot-startrack.rgb")
  (topview "topview-startrack.rgb")

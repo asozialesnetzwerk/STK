@@ -1,8 +1,8 @@
 ;; -*- mode: lisp -*-
 
 (tuxkart-track
- (name        "Oliver's Math Class")
- (description "Created by Oliver & Steve Baker")
+ (name        _("Oliver's Math Class"))
+ (description _("Created by Oliver & Steve Baker"))
  (music       "Boom_boom_boom.music")
  (screenshot  "sshot-olivermath.rgb")
  (topview     "topview-olivermath.rgb")

@@ -1,9 +1,9 @@
 ;; -*- mode: lisp -*-
 
 (tuxkart-track
- (name                   "On the Beach")
- (description            "Created by Ingo Ruhnke,
-modified by M. Gagnon")
+ (name                   _("On the Beach"))
+ (description            _("Created by Ingo Ruhnke,
+modified by M. Gagnon"))
  (music                  "CaribbeanMusic.music")
  (screenshot             "sshot-beach.rgb")
  (topview                "topview-beach.rgb")

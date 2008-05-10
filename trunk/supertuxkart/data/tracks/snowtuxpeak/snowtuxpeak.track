@@ -1,9 +1,9 @@
 ;; -*- mode: lisp -*-
 
 (tuxkart-track
- (name        "SnowTux Peak")
- (description "Created by Oliver & Steve Baker,
- modified by M. Gagnon")
+ (name        _("SnowTux Peak"))
+ (description _("Created by Oliver & Steve Baker,
+ modified by M. Gagnon"))
  (music       "tk2.music" "kart_grand_prix.music")
  (screenshot  "sshot-snowtuxpeak.rgb")
  (topview     "topview-snowtuxpeak.rgb")

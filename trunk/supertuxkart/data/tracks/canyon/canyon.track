@@ -1,8 +1,8 @@
 ;; -*- mode: lisp -*-
 
 (tuxkart-track
- (name                   "Canyon")
- (description            "Created by Thomas Oppl")
+ (name                   _("Canyon"))
+ (description            _("Created by Thomas Oppl"))
  (music                  "kart_grand_prix.music")
  (screenshot             "canyon_screenshot.rgb")
  (topview                "canyon_topview.rgb")
