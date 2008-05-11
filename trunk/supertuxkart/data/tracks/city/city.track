@@ -3,7 +3,7 @@
 (tuxkart-track
  (name                   _("City"))
  (designer               "Thomas Oppl")
- (music                  "kart_grand_prix.music")
+ (music                  "Penguin_Party.music")
  (screenshot             "city_screenshot.rgb")
  (topview                "city_topview.rgb")
  (AI-curve-speed-adjust  2.0)
