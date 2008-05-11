@@ -2,7 +2,7 @@
 
 (tuxkart-track
  (name                   _("Canyon"))
- (description            _("Created by Thomas Oppl"))
+ (designer               "Thomas Oppl")
  (music                  "kart_grand_prix.music")
  (screenshot             "canyon_screenshot.rgb")
  (topview                "canyon_topview.rgb")

@@ -2,7 +2,7 @@
 
 (tuxkart-track
  (name        _("Tux Tollway"))
- (description _("Created by Oliver & Steve Baker"))
+ (designer    "Oliver & Steve Baker")
  (music       "g4m-fan-track.music")
  (screenshot  "sshot-tuxtrack.rgb")
  (topview     "topview-tuxtrack.rgb")

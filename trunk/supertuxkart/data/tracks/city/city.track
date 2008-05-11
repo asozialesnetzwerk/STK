@@ -2,7 +2,7 @@
 
 (tuxkart-track
  (name                   _("City"))
- (description            _("Created by Thomas Oppl"))
+ (designer               "Thomas Oppl")
  (music                  "kart_grand_prix.music")
  (screenshot             "city_screenshot.rgb")
  (topview                "city_topview.rgb")

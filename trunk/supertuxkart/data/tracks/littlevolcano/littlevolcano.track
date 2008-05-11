@@ -1,8 +1,8 @@
 ;; -*- mode: lisp -*-
 
 (tuxkart-track
- (name _("Little Volcano"))
- (description _("Created by Ingo Ruhnke"))
+ (name     _("Little Volcano"))
+ (designer "Ingo Ruhnke")
  
  (use-fog      #t)
  (sky-color    0.45 0.0 0.0 0.0)

@@ -2,7 +2,7 @@
 
 (tuxkart-track
  (name _("Sub Sea"))
- (description _("Created by Ingo Ruhnke"))
+ (designer "Ingo Ruhnke")
  (use-fog #t)
  (sky-color    0.0 0.0 0.2 0.0)
  (fog-color    0.0 0.0 0.2 0.0)

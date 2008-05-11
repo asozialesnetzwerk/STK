@@ -2,7 +2,7 @@
 
 (tuxkart-track
  (name        _("Volcano"))
- (description _("Created by Ingo Ruhnke"))
+ (designer    "Ingo Ruhnke")
  (music       "Boom_boom_boom.music")
  (screenshot  "sshot-volcano.rgb")
  (topview     "topview-volcano.rgb")
