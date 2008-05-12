@@ -8,6 +8,7 @@ nobase_pkgdata_DATA = $(shell find $(srcdir) -name "readme.txt") \
                       $(shell find $(srcdir) -name "*.ac")    \
                       $(shell find $(srcdir) -name "*.rgb")   \
                       $(shell find $(srcdir) -name "materials.dat")   \
+                      $(shell find $(srcdir) -name "license.txt")   \
                       $(shell find $(srcdir) -name "*.music") \
                       $(shell find $(srcdir) -name "*.ogg")
 
