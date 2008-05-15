@@ -1,0 +1,7 @@
+(music-information
+  (title    "Caribbean Music"   )
+  (composer "Dr.Sternhagel"     )
+  (music    "CaribbeanMusic.ogg")
+  (loop     10                  )
+)
+

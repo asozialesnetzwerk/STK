@@ -1,0 +1,24 @@
+All textures in this directory are licensed under GPL except :
+
+* city_asphalt
+* city_concrete
+* city_checker
+    which are licensed along the city track (see license file in /data/tracks/city)
+
+* grass2
+* palmtree3
+* sand2
+    which are licensed along island track (see license file in /data/tracks/island)
+    
+* dirt2sand 
+* grass2dirt
+* roaddirt
+    which are derivated from island track textures (see license file in /data/tracks/island)
+    
+Credits for GPL textures :
+
+* greenice
+* ice
+* snow
+* snowyrock
+    are taken from Extreme Tux Racer game (http://extremetuxracer.com/)
