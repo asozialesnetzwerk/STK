@@ -1,7 +1,0 @@
-(music-information
-  (title    "Desert Dunes"    )
-  (composer "Zhetty"          )
-  (music    "desert_dunes.ogg")
-  (loop     10                )
-)
-
