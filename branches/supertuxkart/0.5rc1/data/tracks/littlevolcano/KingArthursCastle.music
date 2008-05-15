@@ -1,0 +1,6 @@
+(music-information
+  (title    "King Arthur's Castle")
+  (composer "Magne Djupvik"       )
+  (music    "KingArthursCastle.ogg")
+  (loop     10                    )
+)

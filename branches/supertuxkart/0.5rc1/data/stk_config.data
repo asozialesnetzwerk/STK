@@ -1,0 +1,93 @@
+;; -*- mode: lisp -*-
+
+(config
+
+ ;; STK parameters
+ ;; --------------
+ (max-karts                 10   )  ;; maximum number of karts
+ (scores            10 8 6 5 4 3 2 1 0 0 )
+ (grid-order	   	     1   )  ;; order for grand prix, 1 is most 
+				    ;; points 1st, 0 is least points
+				    ;; 1st
+ (title-music              "main_theme.music")
+
+ ;; Attachment related parameters
+ ;; -----------------------------
+ (anvil-weight             150.0 )  ;; additional weight an anvil adds to a kart
+ (anvil-speed-factor         0.2 )  ;; additional slowdown caused by anvil
+ (parachute-friction         2.0 )  ;; friction increase when a parachute is sttached
+ (parachute-time             4.0 )  ;; time an attached parachute is active
+ (parachute-time-other       8.0 )  ;; time a parachute attached from other kart is active
+ (parachute-done-fraction    0.7 )  ;; fraction of speed when lost will detach parachute
+ (bomb-time                 30.0 )  ;; time till a bomb explodes
+ (bomb-time-increase        -5.0 )  ;; time added to timer when bomb is passed on
+ (leader-intervals          30 20 10)  ;; Time till a kart is removed in follow leader mode
+ (anvil-time                 2.0 )  ;; time an anvil is active
+ (zipper-time                3.0 )  ;; time a zipper is active
+ (zipper-force             800.0 )  ;; additional zipper force
+ (zipper-speed-gain         10.0 )  ;; one time additional speed boost given by zippers
+ (shortcut-skipped-segments  5   )  ;; skipping more than this number of segments
+                                    ;; is considered to be a shortcut
+ (explosion-impulse     10000.0  )  ;; explosion impulse on not directly hit karts
+ (explosion-impulse-objects 500.0  )  ;; explosion impulse for physics objects (smaller
+                                    ;; else a cone e.g. will be pushed way too far)
+
+ ;; The following files are the defaults for karts
+ ;; ----------------------------------------------
+ (kart-defaults
+   (wheel-base               1.2 )
+   (heightCOG                0.2 )
+   (time-full-steer          0.3 )
+   (corn-f                   4   )
+   (corn-r                   4   )
+   (wheelie-max-speed-ratio  0.7 ) ;; percentage of max speed for wheelies to work
+   (wheelie-max-pitch       45.0 ) ;; maximum pitch to use when doing a wheelie
+   (wheelie-pitch-rate      60.0 ) ;; rate/sec with which the kart goes up
+   (wheelie-restore-rate    90.0 ) ;; rate/sec with which the kart does down
+   (wheelie-speed-boost     10.0 ) ;; speed boost while doing a wheelie
+   (wheelie-lean-recovery    1 )
+   (wheelie-balance-recovery 2 )
+   (wheelie-step             1 )
+   (wheelie-power-boost      1 )   ;; increase in engine power, i.e. 1=plus 100%
+
+   ;; Bullet physics attributes
+   (brake-factor              2.75 )
+   (max-steer-angle           6.4  )
+   (engine-power            400    )
+   (mass                    225    )
+   (suspension-stiffness      8.0  )
+   (wheel-damping-relaxation  2.3  )
+   (wheel-damping-compression 4.4  )
+   (friction-slip      10000000    )
+   (roll-influence            0.1  )
+   (wheel-radius              0.25 )
+   (wheel-width               0.3  )
+   (chassis-linear-damping    0.2  )
+   (chassis-angular-damping   0.2  )
+   (maximum-speed            22.22 ) ;; = 80 km/h
+   (max-speed-reverse-ratio   0.2  ) ;; percentage of max speed for reverse gear
+   (gravity-center-shift      0.4  ) ;; Shift center of gravity down by that many
+                                     ;; units of kart_height (usually between 0 and 0.5)
+   (suspension-rest           0.1  )
+
+   ;; The z-axis velocity set when a jump is initiated. This will cause the
+   ;; kart to start rising, till it is pulled back by gravity. A higher value
+   ;; means higher Z velocity, meaning the kart will rise faster and higher,
+   ;; and will be in the air longer
+   (jump-velocity             3.0  )
+
+   ;; The following two vectors define at what ratio of the maximum speed what
+   ;; gear is selected, e.g. 0.25 means: if speed <=0.25*maxSpeed --> gear 1,
+   ;;                        0.5  means: if speed <=0.5 *maxSpeed --> gear 2
+   ;; The next vector contains the increase in max power (to simulate different
+   ;; gears), e.g. 2.5 as first entry means: 2.5*maxPower in gear 1
+   (gear-switch-ratio         0.25  0.5  0.75)
+   (gear-power-increase       2.5   1.8  1.4 )
+   (upright-tolerance         0.2)
+   (upright-max-force         30)
+   (camera-max-accel          10)
+   (camera-max-brake          10)
+   (camera-distance           3.5) 
+  )   ;; end kart-defaults
+)
+;; EOF ;;
