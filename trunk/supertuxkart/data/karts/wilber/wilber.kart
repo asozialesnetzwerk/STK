@@ -2,7 +2,7 @@
 
 (tuxkart-kart
  (name        "Wilber")
- (model-file  "wilber-low.ac")
+ (model-file  "wilber-hi.ac")
  (icon-file   "wilbericon.rgb")
  (shadow-file "wilbershadow.rgb")
 
