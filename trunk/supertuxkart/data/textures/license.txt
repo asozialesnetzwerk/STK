@@ -22,3 +22,6 @@ Credits for GPL textures :
 * snow
 * snowyrock
     are taken from Extreme Tux Racer game (http://extremetuxracer.com/)
+
+* obelisk
+    is from the http://www.titusgames.de GLEST jungle set
