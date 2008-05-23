@@ -1,0 +1,6 @@
+This track and associated textures are released under the GNU GPL version 2 (or later).
+
+moon.rgb and planet_earth1.rgb (renamed from earth.rgb) were taken frm Celestia (www.shatters.net/celestia/) and are licensed under the GPL.
+stars.rgb is a screenshot taken from Celestia.
+startrack2.rgb and startrack3.rgb are original.
+
