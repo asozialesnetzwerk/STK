@@ -437,9 +437,10 @@ LazarusResources.Add('Tfrm_main','FORMDATA',[
   +'TMenuItem'#10'MenuItem13'#7'Caption'#6#8'Obstacle'#7'OnClick'#7#15'MenuItem'
   +'13Click'#0#0#9'TMenuItem'#9'MenuItem9'#7'Caption'#6#7'Decor64'#7'OnClick'#7
   +#14'MenuItem9Click'#0#0#9'TMenuItem'#10'MenuItem14'#7'Caption'#6#7'Decor16'#7
-  +'OnClick'#7#15'MenuItem14Click'#0#0#0#9'TMenuItem'#10'MenuItem15'#7'Caption'
-  +#6#3'Cut'#7'OnClick'#7#15'MenuItem15Click'#0#0#9'TMenuItem'#10'MenuItem16'#7
-  +'Caption'#6#4'Copy'#7'OnClick'#7#15'MenuItem16Click'#0#0#9'TMenuItem'#10'Men'
-  +'uItem17'#7'Caption'#6#5'Paste'#7'Enabled'#8#7'OnClick'#7#15'MenuItem17Click'
-  +#0#0#0#0
+  +'OnClick'#7#15'MenuItem14Click'#0#0#9'TMenuItem'#10'MenuItem18'#7'Caption'#6
+  +#12'Driveline ID'#7'OnClick'#7#15'MenuItem18Click'#0#0#0#9'TMenuItem'#10'Men'
+  +'uItem15'#7'Caption'#6#3'Cut'#7'OnClick'#7#15'MenuItem15Click'#0#0#9'TMenuIt'
+  +'em'#10'MenuItem16'#7'Caption'#6#4'Copy'#7'OnClick'#7#15'MenuItem16Click'#0#0
+  +#9'TMenuItem'#10'MenuItem17'#7'Caption'#6#5'Paste'#7'Enabled'#8#7'OnClick'#7
+  +#15'MenuItem17Click'#0#0#0#0
 ]);

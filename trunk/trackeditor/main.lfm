@@ -753,6 +753,10 @@ object frm_main: Tfrm_main
         Caption = 'Decor16'
         OnClick = MenuItem14Click
       end
+      object MenuItem18: TMenuItem
+        Caption = 'Driveline ID'
+        OnClick = MenuItem18Click
+      end
     end
     object MenuItem15: TMenuItem
       Caption = 'Cut'

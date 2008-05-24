@@ -194,7 +194,7 @@
 }
 
 {
-	type			:OBSTACLE
+	type			:BRIDGE
 	name		 	:l1_street_0
 	imageiso		 	:iso_l1_street.png
 	image  :l1_street_0.png

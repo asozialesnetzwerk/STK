@@ -53,6 +53,7 @@ type
     MenuItem15: TMenuItem;
     MenuItem16: TMenuItem;
     MenuItem17: TMenuItem;
+    MenuItem18: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
@@ -98,6 +99,7 @@ type
     procedure MenuItem15Click(Sender: TObject);
     procedure MenuItem16Click(Sender: TObject);
     procedure MenuItem17Click(Sender: TObject);
+    procedure MenuItem18Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
     procedure MenuItem4Click(Sender: TObject);
     procedure MenuItem5Click(Sender: TObject);
@@ -447,6 +449,47 @@ begin
   self.DrawMapGrid();
 end;
 
+procedure Tfrm_main.MenuItem18Click(Sender: TObject);
+var mx,my:integer;
+    del_drv:integer;
+begin
+
+     if (LEVEL.cell[level.mouse_pos.x+level.view_pos.x,level.mouse_pos.y+level.view_pos.y].drv_id=-1) then exit;
+
+     if (LEVEL.cell[level.mouse_pos.x+level.view_pos.x,level.mouse_pos.y+level.view_pos.y].drv_id_top>0) then
+     begin
+        del_drv:= LEVEL.cell[level.mouse_pos.x+level.view_pos.x,level.mouse_pos.y+level.view_pos.y].drv_id_top;
+     
+        LEVEL.drv_id_count:=del_drv;
+
+        for mx:=0 to LEVEL.size.x-1 do
+        for my:=0 to LEVEL.size.y-1 do
+        begin
+             if (LEVEL.cell[mx,my].drv_id_top>=del_drv) then LEVEL.cell[mx,my].drv_id_top:=-1;
+             if (LEVEL.cell[mx,my].drv_id>=del_drv) then LEVEL.cell[mx,my].drv_id:=-1;
+         end;
+     end
+     else
+     begin
+         del_drv:= LEVEL.cell[level.mouse_pos.x+level.view_pos.x,level.mouse_pos.y+level.view_pos.y].drv_id;
+         LEVEL.drv_id_count:=del_drv;
+
+        for mx:=0 to LEVEL.size.x-1 do
+        for my:=0 to LEVEL.size.y-1 do
+        begin
+
+             if (LEVEL.cell[mx,my].drv_id>=del_drv) then
+             begin
+                  if (LEVEL.cell[mx,my].drv_id_top>=del_drv) then LEVEL.cell[mx,my].drv_id_top:=-1;
+                  if (LEVEL.cell[mx,my].drv_id>=del_drv) then LEVEL.cell[mx,my].drv_id:=-1;
+             end;
+         end;
+
+     end;
+
+     DrawMapGridFull();
+end;
+
 
 
 // *****************************************************************************
@@ -564,6 +607,7 @@ var
     img_dec16_id:integer;
     drv_id:Integer;
     img_drv_id:integer;
+    img_drv_id_top:integer;
     
 begin
      if LEVEL.Flags.bDefinition=false then exit;
@@ -576,7 +620,8 @@ begin
           img_road_id:=LEVEL.GetCell(x,y,'ROAD');
           img_obstacle_id:=LEVEL.GetCell(x,y,'OBSTACLE');
           img_dec16_id:=LEVEL.GetCell(x,y,'DECOR64');
-          img_drv_id :=LEVEL.GetCellDRV(x,y);
+          img_drv_id :=LEVEL.GetCellDRV(x,y,'BOTTOM');
+          img_drv_id_top :=LEVEL.GetCellDRV(x,y,'TOP');
 
           if (img_road_id=-1) then
              self.Image1.Canvas.Draw(x*64,y*64,img_none.Picture.Graphic)
@@ -600,7 +645,23 @@ begin
                 
           end;
           
-          if ((img_drv_id<>-1) and (chk_drv_num.checked)) then self.Image1.Canvas.TextOut(x*64+8,y*64+8,IntToStr(img_drv_id));
+          self.Image1.Canvas.Brush.Style := bsclear;
+          self.Image1.Canvas.Font.Style:=[fsBold];
+          if ((img_drv_id<>-1) and (chk_drv_num.checked)) then
+          begin
+
+               self.Image1.Canvas.Font.Color  := clBlack;
+               self.Image1.Canvas.TextOut(x*64+8,y*64+(64-16),IntToStr(img_drv_id));
+               self.Image1.Canvas.Font.Color  := clRed;
+               self.Image1.Canvas.TextOut(x*64+8-1,y*64+(64-16)-1,IntToStr(img_drv_id));
+          end;
+          if ((img_drv_id_top<>-1) and (chk_drv_num.checked)) then
+          begin
+               self.Image1.Canvas.Font.Color  := clBlack;
+               self.Image1.Canvas.TextOut(x*64+8,y*64,IntToStr(img_drv_id_top));
+               self.Image1.Canvas.Font.Color  := clYellow;
+               self.Image1.Canvas.TextOut(x*64+8-1,y*64-1,IntToStr(img_drv_id_top));
+          end;
 
      end;
 end;
@@ -616,6 +677,7 @@ var
     img_decor_id:integer;
     img_dec16_id:integer;
     img_drv_id:integer;
+    img_drv_id_top:integer;
 begin
      if LEVEL.Flags.bDefinition=false then exit;
      
@@ -627,7 +689,8 @@ begin
           img_road_id:=LEVEL.GetCell(x,y,'ROAD');
           img_obstacle_id:=LEVEL.GetCell(x,y,'OBSTACLE');
           img_dec16_id:=LEVEL.GetCell(x,y,'DECOR64');
-          img_drv_id :=LEVEL.GetCellDRV(x,y);
+          img_drv_id :=LEVEL.GetCellDRV(x,y,'BOTTOM');
+          img_drv_id_top :=LEVEL.GetCellDRV(x,y,'TOP');
 
           if (img_road_id=-1) then
              self.Image1.Canvas.Draw(x*64,y*64,img_none.Picture.Graphic)
@@ -654,8 +717,24 @@ begin
 
           end;
           
+          self.Image1.Canvas.Brush.Style := bsclear;
+          self.Image1.Canvas.Font.Style:=[fsBold];
+
+          if ((img_drv_id<>-1) and (chk_drv_num.checked)) then
+          begin
+               self.Image1.Canvas.Font.Color  := clBlack;
+               self.Image1.Canvas.TextOut(x*64+8,y*64+(64-16),IntToStr(img_drv_id));
+               self.Image1.Canvas.Font.Color  := clRed;
+               self.Image1.Canvas.TextOut(x*64+8-1,y*64+(64-16)-1,IntToStr(img_drv_id));
+          end;
           
-          if ((img_drv_id<>-1) and (chk_drv_num.checked)) then self.Image1.Canvas.TextOut(x*64+8,y*64+8,IntToStr(img_drv_id));
+          if ((img_drv_id_top<>-1) and (chk_drv_num.checked)) then
+          begin
+               self.Image1.Canvas.Font.Color  := clBlack;
+               self.Image1.Canvas.TextOut(x*64+8,y*64,IntToStr(img_drv_id_top));
+               self.Image1.Canvas.Font.Color  := clYellow;
+               self.Image1.Canvas.TextOut(x*64+8-1,y*64-1,IntToStr(img_drv_id_top));
+          end;
 
 
      end;

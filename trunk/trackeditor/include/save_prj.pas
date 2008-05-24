@@ -40,12 +40,17 @@ begin
       data.Add(INtToStr(frm_main.LEVEL.size.x));
       // write size y
       data.Add(INtToStr(frm_main.LEVEL.size.y));
+      // write drv count
+      data.Add(INtToStr(frm_main.LEVEL.drv_id_count));
+      
       for mx:=0 to frm_main.LEVEL.size.x-1 do
           for my:=0 to frm_main.LEVEL.size.y-1 do
           begin
               data.Add(INtToStr(frm_main.LEVEL.cell[mx,my].item_road_id));
               data.Add(INtToStr(frm_main.LEVEL.cell[mx,my].item_obst_id));
               data.Add(INtToStr(frm_main.LEVEL.cell[mx,my].item_dec64_id));
+              data.Add(INtToStr(frm_main.LEVEL.cell[mx,my].drv_id));
+              data.Add(INtToStr(frm_main.LEVEL.cell[mx,my].drv_id_top));
               for sx:=0 to MAX_SUB_SIZE-1 do
               for sy:=0 to MAX_SUB_SIZE-1 do
               begin
@@ -90,8 +95,7 @@ begin
     frm_main.LEVEL.def_file_name:=getNextLine();
     frm_main.LEVEL.size.x := StrToInt(getNextLine());
     frm_main.LEVEL.size.y := StrToInt(getNextLine());
-    
-
+    frm_main.LEVEL.drv_id_count:= StrToInt(getNextLine());
 
     for mx:=0 to frm_main.LEVEL.size.x-1 do
     begin
@@ -101,6 +105,8 @@ begin
               frm_main.LEVEL.cell[mx,my].item_road_id:=StrToInt(getNextLine());
               frm_main.LEVEL.cell[mx,my].item_obst_id:=StrToInt(getNextLine());
               frm_main.LEVEL.cell[mx,my].item_dec64_id:=StrToInt(getNextLine());
+              frm_main.LEVEL.cell[mx,my].drv_id:=StrToInt(getNextLine());
+              frm_main.LEVEL.cell[mx,my].drv_id_top:=StrToInt(getNextLine());
               for sx:=0 to MAX_SUB_SIZE-1 do
                   for sy:=0 to MAX_SUB_SIZE-1 do
                   begin

@@ -28,6 +28,7 @@ type TSubCelItem=record
 // *****************************************************************************
 type TLevelCell=record
      drv_id:integer;
+     drv_id_top:integer;
      item_road_id:integer;
      item_obst_id:integer;
      item_dec64_id:integer;
@@ -54,6 +55,7 @@ type TLevelGrid = class
      DrvR_List:TStringList;
      DrvL_List:TStringList;
      drv_id_count:integer;
+
      cell:array[0..MAX_LEVEL_WIDTH-1,0 .. MAX_LEVEL_HEIGHT-1] of  TLevelCell;
      private
 
@@ -65,7 +67,7 @@ type TLevelGrid = class
          procedure SetCell(_x,_y:integer;name:string;id:integer);
          procedure SetCellDRV(_x,_y:integer);
          function GetCell(_x,_y:integer;src_cell:String):integer;
-         function GetCellDRV(_x,_y:integer):integer;
+         function GetCellDRV(_x,_y:integer;pos:string):integer;
          procedure SetSubCell(_x,_y,_sx,_sy:integer;name:string;id:integer);
          function GetSubCell(_x,_y,_sx,_sy:integer;src_cell:String):integer;
          function GetAllCell():TLevelCell;
@@ -116,6 +118,7 @@ begin
               self.cell[x,y].item_obst_id:=-1;
               self.cell[x,y].item_dec64_id:=-1;
               self.cell[x,y].drv_id:=-1;
+              self.cell[x,y].drv_id_top:=-1;
 
               for dx:=0 to MAX_SUB_SIZE-1 do
               for dy:=0 to MAX_SUB_SIZE-1 do
@@ -146,6 +149,11 @@ begin
      begin
         self.cell[_x+self.view_pos.x,_y+self.view_pos.y].item_obst_id:=id;
      end;
+
+     if (self.LevelItemDefinition.item[id].ItemType='BRIDGE') then
+     begin
+        self.cell[_x+self.view_pos.x,_y+self.view_pos.y].item_obst_id:=id;
+     end;
      
      if (self.LevelItemDefinition.item[id].ItemType='DECOR64') then
      begin
@@ -165,13 +173,47 @@ end;
 
 procedure TLevelGrid.SetCellDRV(_x,_y:integer);
 var dx,dy:integer;
+    l0_type,l1_type:string;
+    L0_id,L1_id:Integer;
 begin
 
-     // exit when is defined
-     if self.cell[_x+self.view_pos.x,_y+self.view_pos.y].drv_id<>-1 then exit;
 
-     inc(self.drv_id_count);
-     self.cell[_x+self.view_pos.x,_y+self.view_pos.y].drv_id:=self.drv_id_count-1;
+     l0_type:='';
+     l1_type:='';
+     // is OBSTACLE
+     L1_ID:= self.cell[_x+self.view_pos.x,_y+self.view_pos.y].item_obst_id;
+     // is ROAD
+     L0_ID:= self.cell[_x+self.view_pos.x,_y+self.view_pos.y].item_road_id;
+
+
+     if ((self.cell[_x+self.view_pos.x,_y+self.view_pos.y].drv_id_top<>-1) and
+         (self.cell[_x+self.view_pos.x,_y+self.view_pos.y].drv_id<>-1)) then exit;
+     
+     if ((L1_ID<>-1) and
+         (self.cell[_x+self.view_pos.x,_y+self.view_pos.y].drv_id_top=-1) and
+         (self.cell[_x+self.view_pos.x,_y+self.view_pos.y].drv_id<>-1)) then
+     begin
+          L1_type:=self.LevelItemDefinition.item[L1_ID].ItemType;
+          if (L1_type='BRIDGE') or ((L1_type='ROAD')) then
+          begin
+              self.cell[_x+self.view_pos.x,_y+self.view_pos.y].drv_id_top:=self.drv_id_count;
+              inc(self.drv_id_count);
+          end;
+     end;
+
+     if ((L0_ID<>-1) and
+         (self.cell[_x+self.view_pos.x,_y+self.view_pos.y].drv_id_top=-1) and
+         (self.cell[_x+self.view_pos.x,_y+self.view_pos.y].drv_id=-1)) then
+     begin
+          L0_type:=self.LevelItemDefinition.item[L0_ID].ItemType;
+          if (L0_type='BRIDGE') or ((L0_type='ROAD')) then
+          begin
+              self.cell[_x+self.view_pos.x,_y+self.view_pos.y].drv_id:=self.drv_id_count;
+              inc(self.drv_id_count);
+          end;
+     end;
+
+
 
 end;
 
@@ -192,9 +234,9 @@ end;
 function TLevelGrid.GetCell(_x,_y:integer;src_cell:String):integer;
 var res:integer;
 begin
-     if (src_cell='ROAD')then
+     if ((src_cell='ROAD') or (src_cell='GROUND'))then
         res:=self.cell[_x+self.view_pos.x,_y+self.view_pos.y].item_road_id;
-     if (src_cell='OBSTACLE')then
+     if ((src_cell='OBSTACLE') or (src_cell='BRIDGE'))then
         res:=self.cell[_x+self.view_pos.x,_y+self.view_pos.y].item_obst_id;
      if (src_cell='DECOR64')then
         res:=self.cell[_x+self.view_pos.x,_y+self.view_pos.y].item_dec64_id;
@@ -203,10 +245,13 @@ begin
 
 end;
 
-function TLevelGrid.GetCellDRV(_x,_y:integer):integer;
+function TLevelGrid.GetCellDRV(_x,_y:integer;pos:string):integer;
 var res:integer;
 begin
-        res:=self.cell[_x+self.view_pos.x,_y+self.view_pos.y].drv_id;
+        if (pos='BOTTOM') then res:=self.cell[_x+self.view_pos.x,_y+self.view_pos.y].drv_id;
+        if (pos='TOP') then res:=self.cell[_x+self.view_pos.x,_y+self.view_pos.y].drv_id_top;
+        
+        result:=res;
 end;
 
 
