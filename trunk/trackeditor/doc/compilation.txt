@@ -1,0 +1,14 @@
+Windows compilation:
+-------------------------------------------------------------------------------------------------------------------
+
+1) Download LAZARUS 0.95 from http://snapshots.lazarus.shikami.org/lazarus/
+
+	Win x64: http://snapshots.lazarus.shikami.org/lazarus/downloads/Lazarus-0.9.25-fpc-2.2.1-20080524-win64.exe
+	Win x32: http://snapshots.lazarus.shikami.org/lazarus/downloads/Lazarus-0.9.25-fpc-2.2.1-20080524-win32.exe
+
+2) Install.
+
+3) Open file STKed.lpi
+
+4) compile.
+	
