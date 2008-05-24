@@ -1,0 +1,109 @@
+unit agfx_config;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils,agfx_types,agfx_parser;
+
+type TConfig = class
+     private
+     public
+           UNIT_SIZE:integer;
+           DEF_FILE_LIST:Array[0..9] of String;
+           FLIP_X:integer;
+           FLIP_Y:integer;
+           MODEL_ANGLE:integer;
+           gherring 			: String;
+           yherring 			: String;
+           rherring 			: String;
+           sherring 			: String;
+           OGG                          : String;
+           topview                      : String;
+           sshot                        : String;
+           export_path                  : String;
+           bLOC                         : boolean;
+           bDRVL                         : boolean;
+           bDRVR                         : boolean;
+           bTRACK                         : boolean;
+           bHERRING                         : boolean;
+           refresh:integer;
+           constructor Create;
+           destructor Destroy;
+           procedure LoadFromFile(filename:String);
+     end;
+
+
+implementation
+
+constructor TConfig.Create();
+begin
+inherited create;
+export_path:='';
+self.bDRVL:=false;
+self.bDRVR:=false;
+self.bHERRING:=false;
+self.bTRACK:=false;
+self.bLOC:=false;
+end;
+
+destructor TConfig.Destroy();
+begin
+inherited destroy;
+end;
+
+procedure TConfig.LoadFromFile(filename:String);
+var i:integer;
+    loader: TF3D_TextParser;
+    BlockID: integer;
+begin
+
+    loader := TF3D_TextParser.Create();
+
+    loader.Separator._BEGIN := '{';
+    loader.Separator._END := '}';
+    loader.Separator._SPACES := 10;
+    loader.Separator._VALUE := ',';
+    loader.Separator._NAME := ':';
+    loader.Separator._IGNORE := ' ';
+
+
+
+    loader.Load(filename);
+    loader.Execute();
+
+    for BlockID := 0 to loader.BlocksCount - 1 do
+    begin
+    
+         self.DEF_FILE_LIST[0] := loader.GetValueAsString(BlockID, 'add_def_0');
+         self.DEF_FILE_LIST[1] := loader.GetValueAsString(BlockID, 'add_def_1');
+         self.DEF_FILE_LIST[2] := loader.GetValueAsString(BlockID, 'add_def_2');
+         self.DEF_FILE_LIST[3] := loader.GetValueAsString(BlockID, 'add_def_3');
+         self.DEF_FILE_LIST[4] := loader.GetValueAsString(BlockID, 'add_def_4');
+         self.DEF_FILE_LIST[5] := loader.GetValueAsString(BlockID, 'add_def_5');
+         self.DEF_FILE_LIST[6] := loader.GetValueAsString(BlockID, 'add_def_6');
+         self.DEF_FILE_LIST[7] := loader.GetValueAsString(BlockID, 'add_def_7');
+         self.DEF_FILE_LIST[8] := loader.GetValueAsString(BlockID, 'add_def_8');
+         self.DEF_FILE_LIST[9] := loader.GetValueAsString(BlockID, 'add_def_9');
+         self.UNIT_SIZE        := loader.GetValueAsInteger(BlockID,'unit_size');
+
+         self.OGG              := loader.GetValueAsString(BlockID, 'default_ogg');
+         self.sshot            := loader.GetValueAsString(BlockID, 'default_sshot');
+         self.topview          := loader.GetValueAsString(BlockID, 'default_topview');
+         
+         self.FLIP_X           := loader.GetValueAsInteger(BlockID, 'level_flip_x');
+         self.FLIP_Y           := loader.GetValueAsInteger(BlockID, 'level_flip_y');
+         self.MODEL_ANGLE      := loader.GetValueAsInteger(BlockID, 'model_angle');
+         self.sherring         := loader.GetValueAsString(BlockID, 'sherring');
+         self.gherring         := loader.GetValueAsString(BlockID, 'gherring');
+         self.yherring         := loader.GetValueAsString(BlockID, 'yherring');
+         self.rherring         := loader.GetValueAsString(BlockID, 'rherring');
+         self.refresh          := loader.GetValueAsString(BlockID, 'refresh');
+
+         
+    end;
+end;
+
+end.
+

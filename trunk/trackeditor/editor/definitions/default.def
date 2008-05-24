@@ -1,0 +1,245 @@
+{
+	type     : CLEAR
+	name     : clean
+	imageiso : none.png
+	image : none1.png
+	model    : track-editor/ground.ac
+	position : 0,0,0
+	rotation : 0,0,0
+}
+{
+	type     : ROAD
+	name     : cross_x
+	imageiso    : iso_icon_cross_x.png
+	image : icon_cross_x.png
+	model    : track-editor/cross.ac
+	position : 0,0,0
+	rotation : 0,0,0
+}
+{
+	type     : ROAD
+	name     : forward_0
+	imageiso    : iso_icon_forward_0.png
+	image : icon_forward_0.png
+	model    : track-editor/street.ac
+	position : 0,0,0
+	rotation : 0,0,0
+}
+{
+	type     : ROAD
+	name     : forward_1
+	imageiso    : iso_icon_forward_1.png
+	image : icon_forward_1.png
+	model    : track-editor/street.ac
+	position : 0,0,0
+	rotation : 90,0,0
+}
+{
+	type			:ROAD
+	name		 	:cross_t_0
+	imageiso		 	:iso_icon_cross_t_0.png
+	image  :icon_cross_t_0.png
+	model			:track-editor/tee.ac
+	position	:0,0,0
+	rotation	:90,0,0
+}
+{
+	type			:ROAD
+	name			:cross_t_1
+	imageiso			:iso_icon_cross_t_1.png
+	image  :icon_cross_t_1.png
+	model			:track-editor/tee.ac
+	position	:0,0,0
+	rotation	:0,0,0
+}
+{
+	type			:ROAD
+	name			:cross_t_2
+	imageiso			:iso_icon_cross_t_2.png
+	image  :icon_cross_t_2.png
+	model			:track-editor/tee.ac
+	position	:0,0,0
+	rotation	:270,0,0
+}
+{
+	type			:ROAD
+	name			:cross_t_3
+	imageiso			:iso_icon_cross_t_3.png
+	image  :icon_cross_t_3.png
+	model			:track-editor/tee.ac
+	position	:0,0,0
+	rotation	:180,0,0
+}
+{
+	type			:ROAD
+	name		 	:curve_0
+	imageiso		 	:iso_icon_curve_0.png
+	image  :icon_curve_0.png
+	model			:track-editor/curve.ac
+	position	:0,0,0
+	rotation	:90,0,0
+}
+{
+	type			:ROAD
+	name		 	:curve_1
+	imageiso		 	:iso_icon_curve_1.png
+	image  :icon_curve_1.png
+	model			:track-editor/curve.ac
+	position	:0,0,0
+	rotation	:270,0,0
+}
+{
+	type			:ROAD
+	name		 	:curve_2
+	imageiso		 	:iso_icon_curve_2.png
+	image  :icon_curve_2.png
+	model			:track-editor/curve.ac
+	position	:0,0,0
+	rotation	:180,0,0
+}
+{
+	type			:ROAD
+	name		 	:curve_3
+	imageiso		 	:iso_icon_curve_3.png
+	image  :icon_curve_3.png
+	model			:track-editor/curve.ac
+	position	:0,0,0
+	rotation	:0,0,0
+}
+{
+	type			:OBSTACLE
+	name		 	:Tree_01
+	imageiso		 	:tree_01.png
+	image  :tree_01.png
+	model			:track-editor/star.ac
+	position	:0,0,0
+	rotation	:0,0,0
+}
+{
+	type			:DECOR
+	name		 	:edge_01
+	imageiso  :decor_01.png
+	image  		:decor_01.png
+	model			:decor_01.ac
+	position	:0,0,0
+	rotation	:0,0,0
+}
+{
+	type			:DECOR
+	name		 	:edge_02
+	imageiso  :decor_02.png
+	image  		:decor_02.png
+	model			:decor_02.ac
+	position	:0,0,0
+	rotation	:0,0,0
+}
+{
+	type			:DECOR
+	name		 	:edge_03
+	imageiso  :decor_03.png
+	image  		:decor_03.png
+	model			:decor_03.ac
+	position	:0,0,0
+	rotation	:0,0,0
+}
+{
+	type			:DECOR
+	name		 	:edge_04
+	imageiso  :decor_04.png
+	image  		:decor_04.png
+	model			:decor_04.ac
+	position	:0,0,0
+	rotation	:0,0,0
+}
+{
+	type			:DECOR
+	name		 	:edge_05
+	imageiso  :decor_05.png
+	image  		:decor_05.png
+	model			:decor_05.ac
+	position	:0,0,0
+	rotation	:0,0,0
+}
+{
+	type			:DECOR
+	name		 	:edge_06
+	imageiso  :decor_06.png
+	image  		:decor_06.png
+	model			:decor_06.ac
+	position	:0,0,0
+	rotation	:0,0,0
+}
+{
+	type			:DECOR
+	name		 	:edge_07
+	imageiso  :decor_07.png
+	image  		:decor_07.png
+	model			:decor_07.ac
+	position	:0,0,0
+	rotation	:0,0,0
+}
+{
+	type			:DECOR
+	name		 	:edge_08
+	imageiso  :decor_08.png
+	image  		:decor_08.png
+	model			:decor_08.ac
+	position	:0,0,0
+	rotation	:0,0,0
+}
+{
+	type			:ROAD
+	name		 	:start_0
+	imageiso  :iso_icon_start.png
+	image  		:icon_start_0.png
+	model			:track-editor/start.ac
+	position	:0,0,0
+	rotation	:0,0,0
+}
+{
+	type			:ROAD
+	name		 	:start_1
+	imageiso  :iso_icon_start.png
+	image  		:icon_start_1.png
+	model			:track-editor/start.ac
+	position	:0,0,0
+	rotation	:90,0,0
+}
+{
+	type			:DECOR
+	name		 	:kuzel
+	imageiso  :iso_kuzel.png
+	image  		:kuzel.png
+	model			:track-editor/kuzel.ac
+	position	:0,0,0
+	rotation	:0,0,0
+}
+{
+	type			:DECOR
+	name		 	:tire
+	imageiso  :iso_tire.png
+	image  		:tire.png
+	model			:track-editor/tire.ac
+	position	:0,0,0
+	rotation	:0,0,0
+}
+{
+	type			:DECOR
+	name		 	:star
+	imageiso  :iso_star.png
+	image  		:star.png
+	model			:track-editor/star.ac
+	position	:0,0,0
+	rotation	:0,0,0
+}
+{
+     type               :OBSTACLE
+     name                :axis
+     imageiso  :axis.png
+     image            :axis.png
+     model               :track-editor/3d.ac
+     position     :0,0,1
+     rotation     :0,0,0
+}
+
+

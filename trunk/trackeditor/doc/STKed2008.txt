@@ -1,0 +1,91 @@
+LAYERS DESCRIPTION:
+--------------------------------------------------------------------------------
+
+LAYER ID 3 -> DECORATION 16 (subdivided to grid 4x4 per CELL)
+LAYER ID 2 -> DECORATION 64
+LAYER ID 1 -> OBSATCLE
+LAYER ID 0 -> ROAD/GROUND
+
+
+ITEM TYPE DESCRIPTION:
+--------------------------------------------------------------------------------
+
+-assign to layer by item type / Z align method
+
+  ROAD      -> LAYER 0 | Z = 0      + offset defined in position
+  GROUND    -> LAYER 0 | Z = 0      + offset defined in position
+  OBSTACLE  -> LAYER 1 | Z = auto   + offset defined in position (when auto align is disabled)
+  DECOR64   -> LAYER 2 | Z = auto   + offset defined in position (when auto align is disabled)
+  DECOR16   -> LAYER 3 | Z = auto   + offset defined in position (when auto align is disabled)
+
+
+EVENT DESCRIPTION:
+--------------------------------------------------------------------------------
+
+  - when missing then no event is used
+  
+START     - used for START ITEM
+AUTOZ     - is used to auto Z align for LAYER ID 1 - 3
+DRVR      -  item for RIGHT driving definition
+DRVL      -  item for LEFT driving definition
+HERRING  - item is used/exported as HEARRING
+  
+[EXAMPLES]
+  
+{
+     type     :DECOR16
+     event    : SHERRING
+     name     :S-HERRING
+     imageiso :iso_silvercoin.png
+     image    :silvercoin.png
+     model    :track-editor/3d.ac
+     position :0,0,0
+     rotation :0,0,0
+}   
+{
+  type      : DECOR16
+  event     : DRVL
+  name      : ROAD_DRVL
+  imageiso  : flag_drvl.png
+  image     : flag_drvl.png
+  model     : none
+  position  : 0,0,0
+  rotation  : 0,0,0
+  drvl_A    : x,y,z
+  drvl_B    : x,y,z
+  drvr_A    : x,y,z
+  drvr_B    : x,y,z 
+}
+
+{
+  type      : ROAD
+  name      : shop10_1
+  imageiso  : iso_shop10.png
+  image     : shop10_1.png
+  model     : track-editor/shop10.ac
+  position  : 0,0,0
+  rotation  : 270,0,0
+}
+  
+  
+MODEL DRV POINTS definition:
+
+   drvl_B                              drvr_B
+           X ---------------------- X
+           |                        |
+           |                        |
+           |                        |
+           |                        |
+           |                        |
+           |                        |
+           |                        |
+           |                        |
+           |                        |
+           |                        | 
+           X ---------------------- X  
+   drvl_A                             drvr_A
+   
+   
+   
+
+   

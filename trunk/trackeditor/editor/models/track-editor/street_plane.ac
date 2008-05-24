@@ -1,0 +1,65 @@
+AC3Db
+MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
+MATERIAL "cube1_auv" rgb 1 1 1 amb 0.5 0.5 0.5 emis 0 0 0 spec 1 1 1 shi 32 trans 0
+OBJECT world
+kids 1
+OBJECT poly
+name "cube1_cube1_auv_cube1"
+data 21
+cube1_cube1_auv_cube1
+texture "track-editor/track.rgb"
+texrep 1 1
+crease 30.000000
+numvert 8
+-5 0 5
+5 0 5
+5 0.5 5
+-5 0.5 5
+-5 0 -5
+5 0 -5
+-5 0.5 -5
+5 0.5 -5
+numsurf 6
+SURF 0x00
+mat 1
+refs 4
+0 0.0 0.47499999404
+1 1.0 0.47499999404
+2 1.0 0.524999976158
+3 0.0 0.524999976158
+SURF 0x00
+mat 1
+refs 4
+0 1.0 0.0
+4 1.0 1.0
+5 1.11022302463e-16 1.0
+1 0.0 1.11022302463e-16
+SURF 0x00
+mat 1
+refs 4
+4 0.0 0.47499999404
+0 1.0 0.47499999404
+3 1.0 0.524999976158
+6 0.0 0.524999976158
+SURF 0x00
+mat 1
+refs 4
+2 1.0 0.0
+7 1.0 1.0
+6 2.22044604925e-16 1.0
+3 2.22044604925e-16 0.0
+SURF 0x00
+mat 1
+refs 4
+1 0.0 0.47499999404
+5 1.0 0.47499999404
+7 1.0 0.524999976158
+2 0.0 0.524999976158
+SURF 0x00
+mat 1
+refs 4
+6 1.0 0.524999976158
+7 0.0 0.524999976158
+5 0.0 0.47499999404
+4 1.0 0.47499999404
+kids 0
