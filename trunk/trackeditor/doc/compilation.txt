@@ -11,4 +11,35 @@ Windows compilation:
 3) Open file STKed.lpi
 
 4) compile.
-	
+
+
+
+Linux compilation:
+-------------------------------------------------------------------------------------------------------------------
+
+1) Download LAZARUS 0.95, fpc and fpc-src from http://snapshots.lazarus.shikami.org/lazarus/
+
+2) Install.
+
+3) Open file STKed.lpi
+
+4) Compiler Options - change LCL to gtk2  
+
+5) compile.	
+
+Under Ubuntu 8.04 use Synaptic :)
+
+
+
+MAC compilation:
+-------------------------------------------------------------------------------------------------------------------
+
+1) Download LAZARUS 0.95, fpc and fpc-src from http://snapshots.lazarus.shikami.org/lazarus/
+
+2) Install.
+
+3) Open file STKed.lpi
+
+4) compile 
+
+
