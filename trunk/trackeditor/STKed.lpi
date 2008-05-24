@@ -39,7 +39,7 @@
         <UnitName Value="STKed"/>
         <CursorPos X="14" Y="1"/>
         <TopLine Value="1"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="5"/>
         <UsageCount Value="108"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -50,7 +50,7 @@
         <ResourceBaseClass Value="Form"/>
         <ResourceFilename Value="main.lrs"/>
         <UnitName Value="main"/>
-        <CursorPos X="104" Y="603"/>
+        <CursorPos X="24" Y="587"/>
         <TopLine Value="578"/>
         <EditorIndex Value="1"/>
         <UsageCount Value="108"/>
@@ -62,7 +62,7 @@
         <UnitName Value="AGFX_definition_class"/>
         <CursorPos X="40" Y="101"/>
         <TopLine Value="1"/>
-        <EditorIndex Value="8"/>
+        <EditorIndex Value="7"/>
         <UsageCount Value="108"/>
         <Loaded Value="True"/>
       </Unit2>
@@ -107,19 +107,19 @@
         <UnitName Value="frm_new"/>
         <CursorPos X="33" Y="64"/>
         <TopLine Value="77"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="3"/>
         <UsageCount Value="90"/>
         <Loaded Value="True"/>
       </Unit7>
       <Unit8>
-        <Filename Value="..\..\..\..\software\lazarus\lcl\extctrls.pp"/>
+        <Filename Value="..\..\software\lazarus\lcl\extctrls.pp"/>
         <UnitName Value="ExtCtrls"/>
         <CursorPos X="11" Y="575"/>
         <TopLine Value="570"/>
         <UsageCount Value="6"/>
       </Unit8>
       <Unit9>
-        <Filename Value="..\..\..\..\software\lazarus\lcl\controls.pp"/>
+        <Filename Value="..\..\software\lazarus\lcl\controls.pp"/>
         <UnitName Value="Controls"/>
         <CursorPos X="3" Y="135"/>
         <TopLine Value="115"/>
@@ -131,12 +131,12 @@
         <UnitName Value="save_prj"/>
         <CursorPos X="33" Y="282"/>
         <TopLine Value="267"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="2"/>
         <UsageCount Value="70"/>
         <Loaded Value="True"/>
       </Unit10>
       <Unit11>
-        <Filename Value="..\..\..\..\software\lazarus\lcl\forms.pp"/>
+        <Filename Value="..\..\software\lazarus\lcl\forms.pp"/>
         <UnitName Value="Forms"/>
         <CursorPos X="14" Y="505"/>
         <TopLine Value="488"/>
@@ -148,17 +148,15 @@
         <UnitName Value="agfx_config"/>
         <CursorPos X="115" Y="92"/>
         <TopLine Value="72"/>
-        <EditorIndex Value="9"/>
+        <EditorIndex Value="8"/>
         <UsageCount Value="51"/>
         <Loaded Value="True"/>
       </Unit12>
       <Unit13>
-        <Filename Value="..\..\..\..\software\lazarus\fpc\2.2.1\source\rtl\objpas\classes\classesh.inc"/>
+        <Filename Value="..\..\software\lazarus\fpc\2.2.1\source\rtl\objpas\classes\classesh.inc"/>
         <CursorPos X="41" Y="100"/>
         <TopLine Value="84"/>
-        <EditorIndex Value="2"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit13>
       <Unit14>
         <Filename Value="frm_eportdone_unit.pas"/>
@@ -169,7 +167,7 @@
         <UnitName Value="frm_EportDone_unit"/>
         <CursorPos X="20" Y="12"/>
         <TopLine Value="1"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="4"/>
         <UsageCount Value="38"/>
         <Loaded Value="True"/>
       </Unit14>
@@ -182,17 +180,12 @@
         <UnitName Value="frm_exp_track_unit"/>
         <CursorPos X="56" Y="7"/>
         <TopLine Value="1"/>
-        <EditorIndex Value="7"/>
+        <EditorIndex Value="6"/>
         <UsageCount Value="38"/>
         <Loaded Value="True"/>
       </Unit15>
     </Units>
-    <JumpHistory Count="1" HistoryIndex="0">
-      <Position1>
-        <Filename Value="main.pas"/>
-        <Caret Line="181" Column="52" TopLine="158"/>
-      </Position1>
-    </JumpHistory>
+    <JumpHistory Count="0" HistoryIndex="-1"/>
   </ProjectOptions>
   <CompilerOptions>
     <Version Value="5"/>
