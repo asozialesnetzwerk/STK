@@ -1,0 +1,350 @@
+<?xml version="1.0"?>
+<CONFIG>
+  <ProjectOptions>
+    <PathDelim Value="\"/>
+    <Version Value="6"/>
+    <General>
+      <MainUnit Value="0"/>
+      <IconPath Value="./"/>
+      <TargetFileExt Value=".exe"/>
+      <Title Value="STKed"/>
+      <ActiveEditorIndexAtStart Value="0"/>
+    </General>
+    <VersionInfo>
+      <ProjectVersion Value=""/>
+      <Language Value=""/>
+      <CharSet Value=""/>
+    </VersionInfo>
+    <PublishOptions>
+      <Version Value="2"/>
+      <IgnoreBinaries Value="False"/>
+      <IncludeFileFilter Value="*.(pas|pp|inc|lfm|lpr|lrs|lpi|lpk|sh|xml)"/>
+      <ExcludeFileFilter Value="*.(bak|ppu|ppw|o|so);*~;backup"/>
+    </PublishOptions>
+    <RunParams>
+      <local>
+        <FormatVersion Value="1"/>
+        <LaunchingApplication PathPlusParams="/usr/X11R6/bin/xterm -T 'Lazarus Run Output' -e $(LazarusDir)/tools/runwait.sh $(TargetCmdLine)"/>
+      </local>
+    </RunParams>
+    <RequiredPackages Count="1">
+      <Item1>
+        <PackageName Value="LCL"/>
+      </Item1>
+    </RequiredPackages>
+    <Units Count="16">
+      <Unit0>
+        <Filename Value="STKed.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="STKed"/>
+        <CursorPos X="14" Y="1"/>
+        <TopLine Value="1"/>
+        <EditorIndex Value="5"/>
+        <UsageCount Value="119"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="main.pas"/>
+        <ComponentName Value="frm_main"/>
+        <IsPartOfProject Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <ResourceFilename Value="main.lrs"/>
+        <UnitName Value="main"/>
+        <CursorPos X="23" Y="305"/>
+        <TopLine Value="295"/>
+        <EditorIndex Value="1"/>
+        <UsageCount Value="119"/>
+        <Loaded Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="include\agfx_definition_class.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="AGFX_definition_class"/>
+        <CursorPos X="40" Y="101"/>
+        <TopLine Value="1"/>
+        <EditorIndex Value="7"/>
+        <UsageCount Value="119"/>
+        <Loaded Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="include\agfx_globals.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="AGFX_GLOBALS"/>
+        <CursorPos X="1" Y="9"/>
+        <TopLine Value="1"/>
+        <UsageCount Value="119"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="include\agfx_types.pas"/>
+        <UnitName Value="agfx_types"/>
+        <CursorPos X="34" Y="154"/>
+        <TopLine Value="497"/>
+        <UsageCount Value="13"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="include\agfx_parser.pas"/>
+        <UnitName Value="AGFX_PARSER"/>
+        <CursorPos X="37" Y="180"/>
+        <TopLine Value="175"/>
+        <UsageCount Value="13"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="include\agfx_leveldesign_class.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="agfx_leveldesign_class"/>
+        <CursorPos X="67" Y="205"/>
+        <TopLine Value="177"/>
+        <EditorIndex Value="0"/>
+        <UsageCount Value="102"/>
+        <Loaded Value="True"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="frm_new.pas"/>
+        <ComponentName Value="frm_new_level"/>
+        <IsPartOfProject Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <ResourceFilename Value="frm_new.lrs"/>
+        <UnitName Value="frm_new"/>
+        <CursorPos X="33" Y="64"/>
+        <TopLine Value="77"/>
+        <EditorIndex Value="3"/>
+        <UsageCount Value="101"/>
+        <Loaded Value="True"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="..\..\software\lazarus\lcl\extctrls.pp"/>
+        <UnitName Value="ExtCtrls"/>
+        <CursorPos X="11" Y="575"/>
+        <TopLine Value="570"/>
+        <UsageCount Value="5"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="..\..\software\lazarus\lcl\controls.pp"/>
+        <UnitName Value="Controls"/>
+        <CursorPos X="3" Y="135"/>
+        <TopLine Value="115"/>
+        <UsageCount Value="5"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="include\save_prj.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="save_prj"/>
+        <CursorPos X="52" Y="109"/>
+        <TopLine Value="78"/>
+        <EditorIndex Value="2"/>
+        <UsageCount Value="81"/>
+        <Loaded Value="True"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="..\..\software\lazarus\lcl\forms.pp"/>
+        <UnitName Value="Forms"/>
+        <CursorPos X="14" Y="505"/>
+        <TopLine Value="488"/>
+        <UsageCount Value="8"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="include\agfx_config.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="agfx_config"/>
+        <CursorPos X="115" Y="92"/>
+        <TopLine Value="72"/>
+        <EditorIndex Value="8"/>
+        <UsageCount Value="62"/>
+        <Loaded Value="True"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="..\..\software\lazarus\fpc\2.2.1\source\rtl\objpas\classes\classesh.inc"/>
+        <CursorPos X="41" Y="100"/>
+        <TopLine Value="84"/>
+        <UsageCount Value="9"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="frm_eportdone_unit.pas"/>
+        <ComponentName Value="frm_ExportDone"/>
+        <IsPartOfProject Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <ResourceFilename Value="frm_eportdone_unit.lrs"/>
+        <UnitName Value="frm_EportDone_unit"/>
+        <CursorPos X="20" Y="12"/>
+        <TopLine Value="1"/>
+        <EditorIndex Value="4"/>
+        <UsageCount Value="49"/>
+        <Loaded Value="True"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="frm_exp_track_unit.pas"/>
+        <ComponentName Value="frm_export_track"/>
+        <IsPartOfProject Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <ResourceFilename Value="frm_exp_track_unit.lrs"/>
+        <UnitName Value="frm_exp_track_unit"/>
+        <CursorPos X="56" Y="7"/>
+        <TopLine Value="1"/>
+        <EditorIndex Value="6"/>
+        <UsageCount Value="49"/>
+        <Loaded Value="True"/>
+      </Unit15>
+    </Units>
+    <JumpHistory Count="30" HistoryIndex="29">
+      <Position1>
+        <Filename Value="include\agfx_leveldesign_class.pas"/>
+        <Caret Line="69" Column="43" TopLine="51"/>
+      </Position1>
+      <Position2>
+        <Filename Value="main.pas"/>
+        <Caret Line="665" Column="53" TopLine="637"/>
+      </Position2>
+      <Position3>
+        <Filename Value="main.pas"/>
+        <Caret Line="668" Column="33" TopLine="658"/>
+      </Position3>
+      <Position4>
+        <Filename Value="main.pas"/>
+        <Caret Line="102" Column="48" TopLine="101"/>
+      </Position4>
+      <Position5>
+        <Filename Value="main.pas"/>
+        <Caret Line="471" Column="72" TopLine="434"/>
+      </Position5>
+      <Position6>
+        <Filename Value="main.pas"/>
+        <Caret Line="458" Column="10" TopLine="439"/>
+      </Position6>
+      <Position7>
+        <Filename Value="main.pas"/>
+        <Caret Line="471" Column="29" TopLine="439"/>
+      </Position7>
+      <Position8>
+        <Filename Value="main.pas"/>
+        <Caret Line="467" Column="45" TopLine="448"/>
+      </Position8>
+      <Position9>
+        <Filename Value="main.pas"/>
+        <Caret Line="470" Column="30" TopLine="444"/>
+      </Position9>
+      <Position10>
+        <Filename Value="main.pas"/>
+        <Caret Line="467" Column="47" TopLine="448"/>
+      </Position10>
+      <Position11>
+        <Filename Value="main.pas"/>
+        <Caret Line="475" Column="132" TopLine="488"/>
+      </Position11>
+      <Position12>
+        <Filename Value="main.pas"/>
+        <Caret Line="653" Column="36" TopLine="640"/>
+      </Position12>
+      <Position13>
+        <Filename Value="main.pas"/>
+        <Caret Line="718" Column="54" TopLine="695"/>
+      </Position13>
+      <Position14>
+        <Filename Value="main.pas"/>
+        <Caret Line="478" Column="1" TopLine="456"/>
+      </Position14>
+      <Position15>
+        <Filename Value="main.pas"/>
+        <Caret Line="472" Column="39" TopLine="452"/>
+      </Position15>
+      <Position16>
+        <Filename Value="main.pas"/>
+        <Caret Line="341" Column="3" TopLine="339"/>
+      </Position16>
+      <Position17>
+        <Filename Value="main.pas"/>
+        <Caret Line="305" Column="23" TopLine="295"/>
+      </Position17>
+      <Position18>
+        <Filename Value="include\agfx_leveldesign_class.pas"/>
+        <Caret Line="68" Column="30" TopLine="49"/>
+      </Position18>
+      <Position19>
+        <Filename Value="include\agfx_leveldesign_class.pas"/>
+        <Caret Line="180" Column="72" TopLine="150"/>
+      </Position19>
+      <Position20>
+        <Filename Value="include\agfx_leveldesign_class.pas"/>
+        <Caret Line="171" Column="28" TopLine="153"/>
+      </Position20>
+      <Position21>
+        <Filename Value="include\agfx_leveldesign_class.pas"/>
+        <Caret Line="180" Column="75" TopLine="161"/>
+      </Position21>
+      <Position22>
+        <Filename Value="include\agfx_leveldesign_class.pas"/>
+        <Caret Line="182" Column="6" TopLine="161"/>
+      </Position22>
+      <Position23>
+        <Filename Value="include\agfx_leveldesign_class.pas"/>
+        <Caret Line="183" Column="10" TopLine="160"/>
+      </Position23>
+      <Position24>
+        <Filename Value="include\agfx_leveldesign_class.pas"/>
+        <Caret Line="199" Column="70" TopLine="171"/>
+      </Position24>
+      <Position25>
+        <Filename Value="include\agfx_leveldesign_class.pas"/>
+        <Caret Line="195" Column="75" TopLine="175"/>
+      </Position25>
+      <Position26>
+        <Filename Value="include\agfx_leveldesign_class.pas"/>
+        <Caret Line="184" Column="79" TopLine="163"/>
+      </Position26>
+      <Position27>
+        <Filename Value="include\agfx_leveldesign_class.pas"/>
+        <Caret Line="182" Column="9" TopLine="163"/>
+      </Position27>
+      <Position28>
+        <Filename Value="include\agfx_leveldesign_class.pas"/>
+        <Caret Line="218" Column="78" TopLine="178"/>
+      </Position28>
+      <Position29>
+        <Filename Value="include\agfx_leveldesign_class.pas"/>
+        <Caret Line="217" Column="10" TopLine="198"/>
+      </Position29>
+      <Position30>
+        <Filename Value="include\agfx_leveldesign_class.pas"/>
+        <Caret Line="1" Column="1" TopLine="237"/>
+      </Position30>
+    </JumpHistory>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="5"/>
+    <PathDelim Value="\"/>
+    <SearchPaths>
+      <OtherUnitFiles Value="include\"/>
+    </SearchPaths>
+    <CodeGeneration>
+      <Checks>
+        <IOChecks Value="True"/>
+        <RangeChecks Value="True"/>
+        <OverflowChecks Value="True"/>
+        <StackChecks Value="True"/>
+      </Checks>
+    </CodeGeneration>
+    <Linking>
+      <Debugging>
+        <GenerateDebugInfo Value="True"/>
+      </Debugging>
+      <Options>
+        <Win32>
+          <GraphicApplication Value="True"/>
+        </Win32>
+      </Options>
+    </Linking>
+    <Other>
+      <Verbosity>
+        <ShoLineNum Value="True"/>
+      </Verbosity>
+      <CompilerPath Value="$(CompPath)"/>
+    </Other>
+  </CompilerOptions>
+  <Debugging>
+    <BreakPoints Count="1">
+      <Item1>
+        <Source Value="include\agfx_parser.pas"/>
+        <Line Value="35"/>
+      </Item1>
+    </BreakPoints>
+  </Debugging>
+</CONFIG>

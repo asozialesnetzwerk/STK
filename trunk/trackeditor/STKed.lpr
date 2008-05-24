@@ -13,6 +13,7 @@ uses
   frm_exp_track_unit;
 
 begin
+  Application.Title:='STKed';
   Application.Initialize;
   Application.CreateForm(Tfrm_main, frm_main);
   Application.CreateForm(Tfrm_new_level, frm_new_level);
