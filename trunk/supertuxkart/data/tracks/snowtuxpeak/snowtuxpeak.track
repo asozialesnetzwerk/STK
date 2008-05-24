@@ -2,8 +2,7 @@
 
 (tuxkart-track
  (name        _("SnowTux Peak"))
- (description _("Created by Oliver & Steve Baker,
- modified by M. Gagnon"))
+ (description _("Created by Oliver & Steve Baker\nmodified by Marianne Gagnon"))
  (music       "tk2.music" "kart_grand_prix.music")
  (screenshot  "sshot-snowtuxpeak.rgb")
  (topview     "topview-snowtuxpeak.rgb")
