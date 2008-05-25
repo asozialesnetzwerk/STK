@@ -1,0 +1,24 @@
+object frm_ExportDone: Tfrm_ExportDone
+  Left = 263
+  Height = 57
+  Top = 118
+  Width = 253
+  HorzScrollBar.Page = 252
+  VertScrollBar.Page = 56
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'Export'
+  ClientHeight = 57
+  ClientWidth = 253
+  Position = poScreenCenter
+  LCLVersion = '0.9.25'
+  object Button1: TButton
+    Left = 16
+    Height = 25
+    Top = 16
+    Width = 219
+    Caption = 'OK'
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+end
