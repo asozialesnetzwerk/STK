@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<CONFIG>
+  <Compiler Value="E:\software\lazarus\fpc\2.2.1\bin\x86_64-win64\ppcx64.exe" Date="951080021"/>
+  <Params Value=" -S2cgi -Cirot -O1 -g -gl -WG -vewnhil -l -Fuinclude\ -FuE:\software\lazarus\lcl\units\x86_64-win64\ -FuE:\software\lazarus\lcl\units\x86_64-win64\win32\ -FuE:\software\lazarus\packager\units\x86_64-win64\ -Fu. -oSTKed.exe -dLCL -dLCLwin32 STKed.lpr"/>
+</CONFIG>

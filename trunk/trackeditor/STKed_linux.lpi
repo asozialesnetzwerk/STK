@@ -1,0 +1,229 @@
+<?xml version="1.0"?>
+<CONFIG>
+  <ProjectOptions>
+    <PathDelim Value="/"/>
+    <Version Value="6"/>
+    <General>
+      <MainUnit Value="0"/>
+      <IconPath Value="./"/>
+      <TargetFileExt Value=".exe"/>
+      <Title Value="STKed"/>
+      <ActiveEditorIndexAtStart Value="0"/>
+    </General>
+    <VersionInfo>
+      <ProjectVersion Value=""/>
+      <Language Value=""/>
+      <CharSet Value=""/>
+    </VersionInfo>
+    <PublishOptions>
+      <Version Value="2"/>
+      <IgnoreBinaries Value="False"/>
+      <IncludeFileFilter Value="*.(pas|pp|inc|lfm|lpr|lrs|lpi|lpk|sh|xml)"/>
+      <ExcludeFileFilter Value="*.(bak|ppu|ppw|o|so);*~;backup"/>
+    </PublishOptions>
+    <RunParams>
+      <local>
+        <FormatVersion Value="1"/>
+        <LaunchingApplication PathPlusParams="/usr/X11R6/bin/xterm -T 'Lazarus Run Output' -e $(LazarusDir)/tools/runwait.sh $(TargetCmdLine)"/>
+      </local>
+    </RunParams>
+    <RequiredPackages Count="1">
+      <Item1>
+        <PackageName Value="LCL"/>
+      </Item1>
+    </RequiredPackages>
+    <Units Count="16">
+      <Unit0>
+        <Filename Value="STKed.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="STKed"/>
+        <CursorPos X="14" Y="1"/>
+        <TopLine Value="1"/>
+        <EditorIndex Value="5"/>
+        <UsageCount Value="119"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="main.pas"/>
+        <ComponentName Value="frm_main"/>
+        <IsPartOfProject Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <ResourceFilename Value="main.lrs"/>
+        <UnitName Value="main"/>
+        <CursorPos X="23" Y="305"/>
+        <TopLine Value="295"/>
+        <EditorIndex Value="1"/>
+        <UsageCount Value="119"/>
+        <Loaded Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="include/agfx_definition_class.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="AGFX_definition_class"/>
+        <CursorPos X="40" Y="101"/>
+        <TopLine Value="1"/>
+        <EditorIndex Value="7"/>
+        <UsageCount Value="119"/>
+        <Loaded Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="include/agfx_globals.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="AGFX_GLOBALS"/>
+        <CursorPos X="1" Y="9"/>
+        <TopLine Value="1"/>
+        <UsageCount Value="119"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="include/agfx_types.pas"/>
+        <UnitName Value="agfx_types"/>
+        <CursorPos X="34" Y="154"/>
+        <TopLine Value="497"/>
+        <UsageCount Value="13"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="include/agfx_parser.pas"/>
+        <UnitName Value="AGFX_PARSER"/>
+        <CursorPos X="37" Y="180"/>
+        <TopLine Value="175"/>
+        <UsageCount Value="13"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="include/agfx_leveldesign_class.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="agfx_leveldesign_class"/>
+        <CursorPos X="1" Y="180"/>
+        <TopLine Value="177"/>
+        <EditorIndex Value="0"/>
+        <UsageCount Value="102"/>
+        <Loaded Value="True"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="frm_new.pas"/>
+        <ComponentName Value="frm_new_level"/>
+        <IsPartOfProject Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <ResourceFilename Value="frm_new.lrs"/>
+        <UnitName Value="frm_new"/>
+        <CursorPos X="33" Y="64"/>
+        <TopLine Value="77"/>
+        <EditorIndex Value="3"/>
+        <UsageCount Value="101"/>
+        <Loaded Value="True"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="../../software/lazarus/lcl/extctrls.pp"/>
+        <UnitName Value="ExtCtrls"/>
+        <CursorPos X="11" Y="575"/>
+        <TopLine Value="570"/>
+        <UsageCount Value="5"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="../../software/lazarus/lcl/controls.pp"/>
+        <UnitName Value="Controls"/>
+        <CursorPos X="3" Y="135"/>
+        <TopLine Value="115"/>
+        <UsageCount Value="5"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="include/save_prj.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="save_prj"/>
+        <CursorPos X="52" Y="109"/>
+        <TopLine Value="78"/>
+        <EditorIndex Value="2"/>
+        <UsageCount Value="81"/>
+        <Loaded Value="True"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="../../software/lazarus/lcl/forms.pp"/>
+        <UnitName Value="Forms"/>
+        <CursorPos X="14" Y="505"/>
+        <TopLine Value="488"/>
+        <UsageCount Value="8"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="include/agfx_config.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="agfx_config"/>
+        <CursorPos X="115" Y="92"/>
+        <TopLine Value="54"/>
+        <EditorIndex Value="8"/>
+        <UsageCount Value="62"/>
+        <Loaded Value="True"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="../../software/lazarus/fpc/2.2.1/source/rtl/objpas/classes/classesh.inc"/>
+        <CursorPos X="41" Y="100"/>
+        <TopLine Value="84"/>
+        <UsageCount Value="9"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="frm_eportdone_unit.pas"/>
+        <ComponentName Value="frm_ExportDone"/>
+        <IsPartOfProject Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <ResourceFilename Value="frm_eportdone_unit.lrs"/>
+        <UnitName Value="frm_EportDone_unit"/>
+        <CursorPos X="20" Y="12"/>
+        <TopLine Value="1"/>
+        <EditorIndex Value="4"/>
+        <UsageCount Value="49"/>
+        <Loaded Value="True"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="frm_exp_track_unit.pas"/>
+        <ComponentName Value="frm_export_track"/>
+        <IsPartOfProject Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <ResourceFilename Value="frm_exp_track_unit.lrs"/>
+        <UnitName Value="frm_exp_track_unit"/>
+        <CursorPos X="56" Y="7"/>
+        <TopLine Value="1"/>
+        <EditorIndex Value="6"/>
+        <UsageCount Value="49"/>
+        <Loaded Value="True"/>
+      </Unit15>
+    </Units>
+    <JumpHistory Count="0" HistoryIndex="-1"/>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="5"/>
+    <SearchPaths>
+      <OtherUnitFiles Value="include/"/>
+      <LCLWidgetType Value="gtk2"/>
+    </SearchPaths>
+    <CodeGeneration>
+      <Checks>
+        <IOChecks Value="True"/>
+        <RangeChecks Value="True"/>
+        <OverflowChecks Value="True"/>
+        <StackChecks Value="True"/>
+      </Checks>
+    </CodeGeneration>
+    <Linking>
+      <Debugging>
+        <GenerateDebugInfo Value="True"/>
+      </Debugging>
+      <Options>
+        <Win32>
+          <GraphicApplication Value="True"/>
+        </Win32>
+      </Options>
+    </Linking>
+    <Other>
+      <Verbosity>
+        <ShoLineNum Value="True"/>
+      </Verbosity>
+      <CompilerPath Value="$(CompPath)"/>
+    </Other>
+  </CompilerOptions>
+  <Debugging>
+    <BreakPoints Count="1">
+      <Item1>
+        <Source Value="include/agfx_parser.pas"/>
+        <Line Value="35"/>
+      </Item1>
+    </BreakPoints>
+  </Debugging>
+</CONFIG>
