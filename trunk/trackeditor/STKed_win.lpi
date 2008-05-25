@@ -186,31 +186,14 @@
         <Filename Value="include\agfx_helpers.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="agfx_helpers"/>
-        <CursorPos X="40" Y="12"/>
+        <CursorPos X="34" Y="22"/>
         <TopLine Value="1"/>
         <EditorIndex Value="2"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit16>
     </Units>
-    <JumpHistory Count="4" HistoryIndex="3">
-      <Position1>
-        <Filename Value="include\agfx_helpers.pas"/>
-        <Caret Line="21" Column="5" TopLine="1"/>
-      </Position1>
-      <Position2>
-        <Filename Value="include\agfx_helpers.pas"/>
-        <Caret Line="12" Column="42" TopLine="1"/>
-      </Position2>
-      <Position3>
-        <Filename Value="include\agfx_helpers.pas"/>
-        <Caret Line="44" Column="18" TopLine="7"/>
-      </Position3>
-      <Position4>
-        <Filename Value="include\agfx_helpers.pas"/>
-        <Caret Line="17" Column="38" TopLine="4"/>
-      </Position4>
-    </JumpHistory>
+    <JumpHistory Count="0" HistoryIndex="-1"/>
   </ProjectOptions>
   <CompilerOptions>
     <Version Value="5"/>
