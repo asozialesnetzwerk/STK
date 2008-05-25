@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<CONFIG>
-  <Compiler Value="/usr/bin/ppc386" Date="1207051037"/>
-  <Params Value=" -S2cgi -Cirot -O1 -g -gl -WG -vewnhil -l -Fuinclude/ -Fu/usr/lib/lazarus/lcl/units/i386-linux/ -Fu/usr/lib/lazarus/lcl/units/i386-linux/gtk2/ -Fu/usr/lib/lazarus/packager/units/i386-linux/ -Fu. -oSTKed -dLCL -dLCLgtk2 STKed.lpr"/>
-</CONFIG>
