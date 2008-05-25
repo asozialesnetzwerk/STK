@@ -6,8 +6,6 @@
  (icon-file   "tuxicon.rgb")
  (shadow-file "tuxkartshadow.rgb")
  
- (red         0.7)
- (green       0.0)
- (blue        0.0)
+ (rgb         0.7 0.0 0.0)
 )
 ;; EOF ;;

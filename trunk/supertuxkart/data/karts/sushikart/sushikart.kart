@@ -6,9 +6,7 @@
  (icon-file   "sushiicon.rgb")
  (shadow-file "sushishadow.rgb")
 
- (red         0.8)
- (green       0.0)
- (blue        0.5)
+ (rgb         0.8 0.0 0.5)
        
 )
 ;; EOF ;;

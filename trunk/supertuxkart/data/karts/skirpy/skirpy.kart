@@ -6,9 +6,7 @@
  (icon-file   "skirpyicon.rgb")
  (shadow-file "generickartshadow.rgb")
  
- (red   0.1)
- (green 0.5)
- (blue  0.1)
+ (rgb         0.1 0.5 0.1)
        
 )
 ;; EOF ;;
