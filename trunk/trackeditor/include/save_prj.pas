@@ -123,7 +123,7 @@ begin
   frm_main.LEVEL.view_pos.Y:=0;
   frm_main.LEVEL.real_pos.x:=0;
   frm_main.LEVEL.real_pos.y:=0;
-  frm_main.Caption:='STUXE 2008 - ['+frm_main.LEVEL.project_name+']';
+  frm_main.Caption:='STKed 2008 - ['+frm_main.LEVEL.project_name+']';
 
   frm_main.IconScrollBar.Position:=0;
   frm_main.IconScrollBar.Min:=0;
