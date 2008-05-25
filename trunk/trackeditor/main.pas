@@ -23,6 +23,10 @@ type
   { Tfrm_main }
 
   Tfrm_main = class(TForm)
+    chk_LRoad: TCheckBox;
+    chk_LBridge: TCheckBox;
+    chk_LDecor64: TCheckBox;
+    chk_LDecor16: TCheckBox;
     chk_drv_num: TCheckBox;
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
@@ -165,6 +169,8 @@ procedure Tfrm_main.chk_drv_numChange(Sender: TObject);
 begin
   DrawMapGridFull();
 end;
+
+
 
 // *****************************************************************************
 // MAIN:
@@ -639,7 +645,7 @@ var
     img_road_id:integer;
     img_obstacle_id:integer;
     img_decor_id:integer;
-    img_dec16_id:integer;
+    img_dec64_id:integer;
     drv_id:Integer;
     img_drv_id:integer;
     img_drv_id_top:integer;
@@ -654,28 +660,28 @@ begin
      begin
           img_road_id:=LEVEL.GetCell(x,y,'ROAD');
           img_obstacle_id:=LEVEL.GetCell(x,y,'OBSTACLE');
-          img_dec16_id:=LEVEL.GetCell(x,y,'DECOR64');
+          img_dec64_id:=LEVEL.GetCell(x,y,'DECOR64');
           img_drv_id :=LEVEL.GetCellDRV(x,y,'BOTTOM');
           img_drv_id_top :=LEVEL.GetCellDRV(x,y,'TOP');
 
-          if (img_road_id=-1) then
+          if ((img_road_id=-1) or (chk_LRoad.checked=false))then
              self.Image1.Canvas.Draw(x*64,y*64,img_none.Picture.Graphic)
           else
-              self.Image1.Canvas.Draw(x*64,y*64,LEVEL.LevelItemDefinition.item[img_road_id].image_data.Picture.Graphic);
+              if (chk_LRoad.checked) then self.Image1.Canvas.Draw(x*64,y*64,LEVEL.LevelItemDefinition.item[img_road_id].image_data.Picture.Graphic);
 
-          if (img_obstacle_id<>-1) then
-             self.Image1.Canvas.Draw(x*64,y*64,LEVEL.LevelItemDefinition.item[img_obstacle_id].image_data.Picture.Graphic);
+          if (img_obstacle_id<>-1)then
+             if (chk_LBridge.checked) then self.Image1.Canvas.Draw(x*64,y*64,LEVEL.LevelItemDefinition.item[img_obstacle_id].image_data.Picture.Graphic);
 
-          if (img_dec16_id<>-1) then
-             self.Image1.Canvas.Draw(x*64,y*64,LEVEL.LevelItemDefinition.item[img_dec16_id].image_data.Picture.Graphic);
+          if (img_dec64_id<>-1) then
+             if (chk_LDecor64.checked) then self.Image1.Canvas.Draw(x*64,y*64,LEVEL.LevelItemDefinition.item[img_dec64_id].image_data.Picture.Graphic);
 
           for sx:=0 to MAX_SUB_SIZE-1 do
           for sy:=0 to MAX_SUB_SIZE-1 do
           begin
                 img_decor_id:=LEVEL.GetSubCell(x,y,sx,sy,'DECOR16');
-                if (img_decor_id<>-1) then
+                if (img_decor_id<>-1)then
                 begin
-                     self.Image1.Canvas.Draw(x*64+(sx*16),y*64+(sy*16),LEVEL.LevelItemDefinition.item[img_decor_id].image_data.Picture.Graphic);
+                     if (chk_LDecor16.checked) then self.Image1.Canvas.Draw(x*64+(sx*16),y*64+(sy*16),LEVEL.LevelItemDefinition.item[img_decor_id].image_data.Picture.Graphic);
                 end;
                 
           end;
@@ -710,7 +716,7 @@ var
     img_road_id:integer;
     img_obstacle_id:integer;
     img_decor_id:integer;
-    img_dec16_id:integer;
+    img_dec64_id:integer;
     img_drv_id:integer;
     img_drv_id_top:integer;
 begin
@@ -723,20 +729,20 @@ begin
      begin
           img_road_id:=LEVEL.GetCell(x,y,'ROAD');
           img_obstacle_id:=LEVEL.GetCell(x,y,'OBSTACLE');
-          img_dec16_id:=LEVEL.GetCell(x,y,'DECOR64');
+          img_dec64_id:=LEVEL.GetCell(x,y,'DECOR64');
           img_drv_id :=LEVEL.GetCellDRV(x,y,'BOTTOM');
           img_drv_id_top :=LEVEL.GetCellDRV(x,y,'TOP');
 
-          if (img_road_id=-1) then
+          if ((img_road_id=-1) or (chk_LRoad.checked=false))then
              self.Image1.Canvas.Draw(x*64,y*64,img_none.Picture.Graphic)
           else
-              self.Image1.Canvas.Draw(x*64,y*64,LEVEL.LevelItemDefinition.item[img_road_id].image_data.Picture.Graphic);
+              if (chk_LRoad.checked) then self.Image1.Canvas.Draw(x*64,y*64,LEVEL.LevelItemDefinition.item[img_road_id].image_data.Picture.Graphic);
 
           if (img_obstacle_id<>-1) then
-             self.Image1.Canvas.Draw(x*64,y*64,LEVEL.LevelItemDefinition.item[img_obstacle_id].image_data.Picture.Graphic);
+             if (chk_LBridge.checked) then self.Image1.Canvas.Draw(x*64,y*64,LEVEL.LevelItemDefinition.item[img_obstacle_id].image_data.Picture.Graphic);
 
-          if (img_dec16_id<>-1) then
-             self.Image1.Canvas.Draw(x*64,y*64,LEVEL.LevelItemDefinition.item[img_dec16_id].image_data.Picture.Graphic);
+          if (img_dec64_id<>-1) then
+             if (chk_LDecor64.checked) then self.Image1.Canvas.Draw(x*64,y*64,LEVEL.LevelItemDefinition.item[img_dec64_id].image_data.Picture.Graphic);
 
 
           for sx:=0 to MAX_SUB_SIZE-1 do
@@ -745,7 +751,7 @@ begin
                 img_decor_id:=LEVEL.GetSubCell(x,y,sx,sy,'DECOR16');
                 if (img_decor_id<>-1) then
                 begin
-                     self.Image1.Canvas.Draw(x*64+(sx*16),y*64+(sy*16),LEVEL.LevelItemDefinition.item[img_decor_id].image_data.Picture.Graphic);
+                     if (chk_LDecor16.checked) then self.Image1.Canvas.Draw(x*64+(sx*16),y*64+(sy*16),LEVEL.LevelItemDefinition.item[img_decor_id].image_data.Picture.Graphic);
                      
 
                 end;
