@@ -760,7 +760,15 @@
 	position	:0,0,0
 	rotation	:0,0,0
 }
-
+{
+	type			:DECOR16
+	name		 	:parking-hours
+	imageiso		 	:iso_parking.png
+	image  :parking.png
+	model			:track-editor/parking.ac
+	position	:0,0,0
+	rotation	:0,0,0
+}
 
 
 
