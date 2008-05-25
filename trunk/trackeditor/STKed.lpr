@@ -10,7 +10,7 @@ uses
   Forms
   { you can add units after this }, main, AGFX_definition_class, AGFX_GLOBALS,
   agfx_leveldesign_class, frm_new, save_prj, agfx_config, frm_EportDone_unit,
-  frm_exp_track_unit;
+  frm_exp_track_unit, agfx_helpers;
 
 begin
   Application.Title:='STKed';
