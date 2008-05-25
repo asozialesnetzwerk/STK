@@ -1,27 +1,27 @@
 {
-	type     : CLEAR
-	name     : clean
-	imageiso : none.png
-	image : none1.png
-	model    : track-editor/ground.ac
-	position : 0,0,0
-	rotation : 0,0,0
+	type     	: CLEAR
+	name     	: clean
+	imageiso 	: none.png
+	image    	: none1.png
+	model    	: track-editor/ground.ac
+	position 	: 0,0,0
+	rotation 	: 0,0,0
 }
 {
-	type			:ROAD
-	name		 	:start_0
-	imageiso  :iso_icon_start.png
+	type		:ROAD
+	name	 	:start_0
+	imageiso 	:iso_icon_start.png
 	image  		:icon_start_0.png
-	model			:track-editor/start.ac
+	model		:track-editor/start.ac
 	position	:0,0,0
 	rotation	:0,0,0
 }
 {
-	type			:ROAD
-	name		 	:start_1
-	imageiso  :iso_icon_start.png
+	type		:ROAD
+	name		:start_1
+	imageiso  	:iso_icon_start.png
 	image  		:icon_start_1.png
-	model			:track-editor/start.ac
+	model		:track-editor/start.ac
 	position	:0,0,0
 	rotation	:90,0,0
 }
