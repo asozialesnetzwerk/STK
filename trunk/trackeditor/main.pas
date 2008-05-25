@@ -17,7 +17,6 @@ type
     chk_drv_num: TCheckBox;
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
-    GroupBox3: TGroupBox;
     Image1: TImage;
     item_image_1: TImage;
     img_none: TImage;
@@ -34,12 +33,6 @@ type
     item_image_8: TImage;
     item_image_9: TImage;
     Label1: TLabel;
-    Label2: TLabel;
-    Label3: TLabel;
-    Label4: TLabel;
-    Label5: TLabel;
-    Label6: TLabel;
-    Label7: TLabel;
     lbl_sel_name: TLabel;
     lbl_type: TLabel;
     LevelItemListBox: TListBox;
@@ -225,7 +218,8 @@ begin
          (LEVEL.LevelItemDefinition.item[item_id].itemtype='GROUND') or
          (LEVEL.LevelItemDefinition.item[item_id].itemtype='CLEAN')) then self.chk_road.Checked:=true;
 
-     if (LEVEL.LevelItemDefinition.item[item_id].itemtype='OBSTACLE')then self.chk_obstacle.Checked:=true;
+     if ((LEVEL.LevelItemDefinition.item[item_id].itemtype='OBSTACLE') or
+         (LEVEL.LevelItemDefinition.item[item_id].itemtype='BRIDGE')) then self.chk_obstacle.Checked:=true;
 
      if (LEVEL.LevelItemDefinition.item[item_id].itemtype='DECOR64')then self.chk_decor64.Checked:=true;
 
@@ -274,7 +268,8 @@ begin
          (LEVEL.LevelItemDefinition.item[LevelItemListBox.ItemIndex].itemtype='GROUND') or
          (LEVEL.LevelItemDefinition.item[LevelItemListBox.ItemIndex].itemtype='CLEAN')) then self.chk_road.Checked:=true;
          
-     if (LEVEL.LevelItemDefinition.item[LevelItemListBox.ItemIndex].itemtype='OBSTACLE')then self.chk_obstacle.Checked:=true;
+     if ((LEVEL.LevelItemDefinition.item[LevelItemListBox.ItemIndex].itemtype='OBSTACLE')  or
+         (LEVEL.LevelItemDefinition.item[LevelItemListBox.ItemIndex].itemtype='BRIDGE'))then self.chk_obstacle.Checked:=true;
      
      if (LEVEL.LevelItemDefinition.item[LevelItemListBox.ItemIndex].itemtype='DECOR64')then self.chk_decor64.Checked:=true;
      
@@ -817,12 +812,12 @@ begin
     self.DrawMapGrid();
 
 
-    label2.caption:='MAP  [x,y]='+IntToStr(LEVEL.view_pos.x)+','+IntToStr(LEVEL.view_pos.y);
-    label3.caption:='MOUSE[x,y]='+IntToStr(LEVEL.mouse_pos.x)+','+IntToStr(LEVEL.mouse_pos.y);
-    label4.caption:='GRID [x,y]='+IntToStr(LEVEL.real_pos.x)+','+IntToStr(LEVEL.real_pos.y);
-    label5.caption:='ROAD ID: ='+IntToStr(img_road_id);
-    label6.caption:='OBST ID: ='+IntToStr(img_obstacle_id);
-    label7.caption:='SUB [x,y]='+IntToStr((LEVEL.mouse_SUB_pos.x) mod 4)+','+IntToStr((LEVEL.mouse_SUB_pos.y)mod 4);
+//    label2.caption:='MAP  [x,y]='+IntToStr(LEVEL.view_pos.x)+','+IntToStr(LEVEL.view_pos.y);
+//    label3.caption:='MOUSE[x,y]='+IntToStr(LEVEL.mouse_pos.x)+','+IntToStr(LEVEL.mouse_pos.y);
+//    label4.caption:='GRID [x,y]='+IntToStr(LEVEL.real_pos.x)+','+IntToStr(LEVEL.real_pos.y);
+//    label5.caption:='ROAD ID: ='+IntToStr(img_road_id);
+//    label6.caption:='OBST ID: ='+IntToStr(img_obstacle_id);
+//    label7.caption:='SUB [x,y]='+IntToStr((LEVEL.mouse_SUB_pos.x) mod 4)+','+IntToStr((LEVEL.mouse_SUB_pos.y)mod 4);
     
     DrawMapCursor();
     
