@@ -742,3 +742,25 @@
 	position	:0,0,0
 	rotation	:90,0,0
 }
+{
+	type			:DECOR16
+	name		 	:dekel
+	imageiso		 	:iso_dekel.png
+	image  :dekel.png
+	model			:track-editor/dekel.ac
+	position	:0,0,0
+	rotation	:0,0,0
+}
+{
+	type			:DECOR16
+	name		 	:dekel-1
+	imageiso		 	:iso_dekel-1.png
+	image  :dekel-1.png
+	model			:track-editor/dekel1.ac
+	position	:0,0,0
+	rotation	:0,0,0
+}
+
+
+
+
