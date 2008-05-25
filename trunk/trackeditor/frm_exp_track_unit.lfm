@@ -1,21 +1,21 @@
 object frm_export_track: Tfrm_export_track
-  Left = 271
-  Height = 207
-  Top = 118
-  Width = 400
-  HorzScrollBar.Page = 399
-  VertScrollBar.Page = 206
+  Left = 460
+  Height = 226
+  Top = 173
+  Width = 412
+  HorzScrollBar.Page = 411
+  VertScrollBar.Page = 225
   Caption = 'STK export track'
-  ClientHeight = 207
-  ClientWidth = 400
+  ClientHeight = 226
+  ClientWidth = 412
   Font.Style = [fsBold]
   Position = poScreenCenter
   LCLVersion = '0.9.25'
   object Label1: TLabel
     Left = 20
-    Height = 16
+    Height = 17
     Top = 49
-    Width = 53
+    Width = 73
     Caption = 'Export file'
     ParentColor = False
   end
@@ -48,25 +48,25 @@ object frm_export_track: Tfrm_export_track
   end
   object CheckBox1: TCheckBox
     Left = 22
-    Height = 21
+    Height = 24
     Top = 72
-    Width = 53
+    Width = 61
     Caption = '*.drvr'
     TabOrder = 3
   end
   object CheckBox2: TCheckBox
     Left = 22
-    Height = 21
+    Height = 24
     Top = 96
-    Width = 52
+    Width = 59
     Caption = '*.drvl'
     TabOrder = 4
   end
   object CheckBox3: TCheckBox
     Left = 22
-    Height = 21
+    Height = 24
     Top = 120
-    Width = 49
+    Width = 54
     Caption = '*.loc'
     Checked = True
     State = cbChecked
@@ -74,9 +74,9 @@ object frm_export_track: Tfrm_export_track
   end
   object CheckBox4: TCheckBox
     Left = 22
-    Height = 21
+    Height = 24
     Top = 146
-    Width = 59
+    Width = 69
     Caption = '*.track'
     Checked = True
     State = cbChecked
@@ -84,9 +84,9 @@ object frm_export_track: Tfrm_export_track
   end
   object CheckBox5: TCheckBox
     Left = 22
-    Height = 21
+    Height = 24
     Top = 172
-    Width = 67
+    Width = 83
     Caption = '*.herring'
     Checked = True
     State = cbChecked

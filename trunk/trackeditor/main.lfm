@@ -1,16 +1,20 @@
 object frm_main: Tfrm_main
-  Left = 365
-  Height = 691
-  Top = 153
+  Left = 424
+  Height = 700
+  Top = 214
   Width = 900
   HorzScrollBar.Page = 899
-  VertScrollBar.Page = 662
+  VertScrollBar.Page = 671
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'STKed 2008'
-  ClientHeight = 663
+  ClientHeight = 672
   ClientWidth = 900
   Color = clSilver
+  Constraints.MaxHeight = 700
+  Constraints.MaxWidth = 900
+  Constraints.MinHeight = 700
+  Constraints.MinWidth = 900
   Font.Color = clGray
   Icon.Data = {
     36100000424D3610000000000000360000002800000020000000200000000100
@@ -171,6 +175,7 @@ object frm_main: Tfrm_main
     Width = 637
     Enabled = False
     Transparent = False
+    Visible = False
   end
   object img_none: TImage
     Left = 920
@@ -263,6 +268,7 @@ object frm_main: Tfrm_main
       49454E44AE426082
     }
     Transparent = False
+    Visible = False
   end
   object LevelPaintBox: TPaintBox
     Left = 169
