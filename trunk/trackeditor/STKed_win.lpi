@@ -38,7 +38,7 @@
         <CursorPos X="30" Y="16"/>
         <TopLine Value="1"/>
         <EditorIndex Value="5"/>
-        <UsageCount Value="119"/>
+        <UsageCount Value="120"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -48,10 +48,10 @@
         <ResourceBaseClass Value="Form"/>
         <ResourceFilename Value="main.lrs"/>
         <UnitName Value="main"/>
-        <CursorPos X="23" Y="305"/>
-        <TopLine Value="295"/>
+        <CursorPos X="15" Y="551"/>
+        <TopLine Value="538"/>
         <EditorIndex Value="1"/>
-        <UsageCount Value="119"/>
+        <UsageCount Value="120"/>
         <Loaded Value="True"/>
       </Unit1>
       <Unit2>
@@ -61,7 +61,7 @@
         <CursorPos X="40" Y="101"/>
         <TopLine Value="1"/>
         <EditorIndex Value="7"/>
-        <UsageCount Value="119"/>
+        <UsageCount Value="120"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -70,7 +70,7 @@
         <UnitName Value="AGFX_GLOBALS"/>
         <CursorPos X="1" Y="9"/>
         <TopLine Value="1"/>
-        <UsageCount Value="119"/>
+        <UsageCount Value="120"/>
       </Unit3>
       <Unit4>
         <Filename Value="include\agfx_types.pas"/>
@@ -93,7 +93,7 @@
         <CursorPos X="21" Y="184"/>
         <TopLine Value="177"/>
         <EditorIndex Value="0"/>
-        <UsageCount Value="102"/>
+        <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit6>
       <Unit7>
@@ -106,7 +106,7 @@
         <CursorPos X="33" Y="64"/>
         <TopLine Value="77"/>
         <EditorIndex Value="3"/>
-        <UsageCount Value="101"/>
+        <UsageCount Value="102"/>
         <Loaded Value="True"/>
       </Unit7>
       <Unit8>
@@ -130,7 +130,7 @@
         <CursorPos X="52" Y="109"/>
         <TopLine Value="78"/>
         <EditorIndex Value="2"/>
-        <UsageCount Value="81"/>
+        <UsageCount Value="82"/>
         <Loaded Value="True"/>
       </Unit10>
       <Unit11>
@@ -147,7 +147,7 @@
         <CursorPos X="115" Y="92"/>
         <TopLine Value="72"/>
         <EditorIndex Value="8"/>
-        <UsageCount Value="62"/>
+        <UsageCount Value="63"/>
         <Loaded Value="True"/>
       </Unit12>
       <Unit13>
@@ -166,7 +166,7 @@
         <CursorPos X="20" Y="12"/>
         <TopLine Value="1"/>
         <EditorIndex Value="4"/>
-        <UsageCount Value="49"/>
+        <UsageCount Value="50"/>
         <Loaded Value="True"/>
       </Unit14>
       <Unit15>
@@ -179,11 +179,28 @@
         <CursorPos X="56" Y="7"/>
         <TopLine Value="1"/>
         <EditorIndex Value="6"/>
-        <UsageCount Value="49"/>
+        <UsageCount Value="50"/>
         <Loaded Value="True"/>
       </Unit15>
     </Units>
-    <JumpHistory Count="0" HistoryIndex="-1"/>
+    <JumpHistory Count="4" HistoryIndex="3">
+      <Position1>
+        <Filename Value="main.pas"/>
+        <Caret Line="305" Column="23" TopLine="295"/>
+      </Position1>
+      <Position2>
+        <Filename Value="main.pas"/>
+        <Caret Line="547" Column="3" TopLine="542"/>
+      </Position2>
+      <Position3>
+        <Filename Value="main.pas"/>
+        <Caret Line="533" Column="21" TopLine="520"/>
+      </Position3>
+      <Position4>
+        <Filename Value="main.pas"/>
+        <Caret Line="559" Column="25" TopLine="550"/>
+      </Position4>
+    </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>
     <Version Value="5"/>

@@ -524,7 +524,7 @@ begin
   {$IfDef Linux}
           GetDir(0,cd);
           caption := cd;
-          OpenDialogPrj.InitialDir:=cd+'/editor/project - LINUX';
+          OpenDialogPrj.InitialDir:=cd+'/editor/project';
   {$else}
           GetDir(0,cd);
           caption := cd;
@@ -548,8 +548,17 @@ begin
 end;
 
 procedure Tfrm_main.MenuItem6Click(Sender: TObject);
+var cd:String;
 begin
-
+{$IfDef Linux}
+          GetDir(0,cd);
+          caption := cd;
+          SaveDialogPrj.InitialDir:=cd+'/editor/project';
+  {$else}
+          GetDir(0,cd);
+          caption := cd;
+          SaveDialogPrj.InitialDir:=cd+'\editor\project';
+  {$ENDIF}
 
   SaveDialogPrj.Execute();
   if Length(SaveDialogPrj.FileName)=0 then exit;
