@@ -50,9 +50,9 @@
 }
 {
 	type     : ROAD
-	name     : forward_right
-	imageiso : iso_icon_forward_0.png
-	image 	 : icon_forward_right.png
+	name     : forward_up
+	imageiso : iso_icon_forward_1.png
+	image 	 : icon_forward_up.png
 	model    : track-editor/street.ac
 	position : 0,0,0
 	rotation : 0,0,0
@@ -63,9 +63,9 @@
 }
 {
 	type     : ROAD
-	name     : forward_left
+	name     : forward_down
 	imageiso : iso_icon_forward_1.png
-	image 	 : icon_forward_left.png
+	image 	 : icon_forward_down.png
 	model    : track-editor/street.ac
 	position : 0,0,0
 	rotation : 180,0,0
@@ -76,9 +76,9 @@
 }
 {
 	type     : ROAD
-	name     : forward_up
+	name     : forward_right
 	imageiso : iso_icon_forward_0.png
-	image 	 : icon_forward_up.png
+	image 	 : icon_forward_right.png
 	model    : track-editor/street.ac
 	position : 0,0,0
 	rotation : 90,0,0
@@ -89,9 +89,9 @@
 }
 {
 	type     : ROAD
-	name     : forward_down
-	imageiso : iso_icon_forward_1.png
-	image 	 : icon_forward_down.png
+	name     : forward_left
+	imageiso : iso_icon_forward_0.png
+	image 	 : icon_forward_left.png
 	model    : track-editor/street.ac
 	position : 0,0,0
 	rotation : 270,0,0
@@ -167,9 +167,9 @@
 }
 {
 	type	 :BRIDGE
-	name	 :l1_street_right
+	name	 :l1_street_up
 	imageiso :iso_l1_street.png
-	image    :l1_street_right.png
+	image    :l1_street_up.png
 	model	 :track-editor/street.ac
 	position :0,0,2.5
 	rotation :0,0,0
@@ -180,9 +180,9 @@
 }
 {
 	type	 :BRIDGE
-	name	 :l1_street_left
+	name	 :l1_street_down
 	imageiso :iso_l1_street.png
-	image    :l1_street_left.png
+	image    :l1_street_down.png
 	model	 :track-editor/street.ac
 	position :0,0,2.5
 	rotation :180,0,0
@@ -193,9 +193,9 @@
 }
 {
 	type	 :BRIDGE
-	name	 :l1_street_up
+	name	 :l1_street_right
 	imageiso :iso_l1_street.png
-	image    :l1_street_up.png
+	image    :l1_street_right.png
 	model	 :track-editor/street.ac
 	position :0,0,2.5
 	rotation :90,0,0
@@ -206,9 +206,9 @@
 }
 {
 	type	 :BRIDGE
-	name	 :l1_street_down
+	name	 :l1_street_left
 	imageiso :iso_l1_street.png
-	image    :l1_street_down.png
+	image    :l1_street_left.png
 	model	 :track-editor/street.ac
 	position :0,0,2.5
 	rotation :270,0,0
