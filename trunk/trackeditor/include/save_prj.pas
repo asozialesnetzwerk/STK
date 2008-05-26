@@ -164,7 +164,7 @@ var out_level:TStringList;
     procedure AddToFile(m:String;mx:integer;my:integer;p:TF3D_Vector3f;R:TF3D_Vector3f;typ:string;sx,sy:Integer;ev:String);
     var fx,fy,fz,fax,fay,faz:single;
     begin
-         if ((TYP='ROAD') or (TYP='GROUND'))then
+         if ((TYP='ROAD') or (TYP='GROUND') or (TYP='CLEAR') )then
          begin
               fx:=(mx*frm_main.LEVEL.Config.UNIT_SIZE)+p.x-(frm_main.LEVEL.Config.UNIT_SIZE/2);
               fy:=(my*frm_main.LEVEL.Config.UNIT_SIZE)+p.y-(frm_main.LEVEL.Config.UNIT_SIZE/2);
