@@ -14,7 +14,7 @@
 	imageiso :iso_icon_start.png
 	image  	 :icon_start_0.png
 	model	 :track-editor/start.ac
-	position :2,0,0
+	position :0,0,0
 	rotation :0,0,0
 	drvl_A   :-5,0,0
 	drvl_B   :0,0,0
