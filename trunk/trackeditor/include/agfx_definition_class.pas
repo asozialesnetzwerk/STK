@@ -24,6 +24,8 @@ type TLevelItem = record
      rotation   :TF3D_Vector3f;
      image_data :TImage;
      image_iso_data :TImage;
+     drvl_A,drvl_B:TF3D_Vector3f;
+     drvr_A,drvr_B:TF3D_Vector3f;
      event:String;
      end;
      
@@ -103,6 +105,11 @@ begin
         self.item[BlockID].model_file  := loader.GetValueAsString(BlockID, 'model');
         self.item[BlockID].position    := loader.GetValueAsVector3f(BlockID, 'position');
         self.item[BlockID].rotation    := loader.GetValueAsVector3f(BlockID, 'rotation');
+        
+        self.item[BlockID].drvl_A      := loader.GetValueAsVector3f(BlockID, 'drvl_A');
+        self.item[BlockID].drvl_B      := loader.GetValueAsVector3f(BlockID, 'drvl_B');
+        self.item[BlockID].drvr_A      := loader.GetValueAsVector3f(BlockID, 'drvr_A');
+        self.item[BlockID].drvr_B      := loader.GetValueAsVector3f(BlockID, 'drvr_B');
 
 
         self.item[BlockID].image_data := TImage.Create(nil);

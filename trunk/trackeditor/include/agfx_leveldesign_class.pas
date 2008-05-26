@@ -7,7 +7,7 @@ unit agfx_leveldesign_class;
 interface
 
 uses
-  Classes, SysUtils,agfx_types,agfx_definition_class,agfx_config,frm_drv_cont_unit;
+  Classes, SysUtils,agfx_types,agfx_definition_class,agfx_config,frm_drv_cont_unit,agfx_helpers;
 
 const
 // *****************************************************************************
@@ -16,6 +16,14 @@ const
 MAX_LEVEL_WIDTH=100;
 MAX_LEVEL_HEIGHT=100;
 MAX_SUB_SIZE = 4;
+// *****************************************************************************
+//
+// *****************************************************************************
+type TDrvData=record
+     cx,cy:integer;
+     id:integer;
+     end;
+
 
 // *****************************************************************************
 //
@@ -32,6 +40,8 @@ type TLevelCell=record
      item_road_id:integer;
      item_obst_id:integer;
      item_dec64_id:integer;
+
+     
      item_decor_array:array[0..MAX_SUB_SIZE-1,0..MAX_SUB_SIZE-1] of TSubCelItem
      end;
 
@@ -73,6 +83,8 @@ type TLevelGrid = class
          function GetSubCell(_x,_y,_sx,_sy:integer;src_cell:String):integer;
          function GetAllCell():TLevelCell;
          procedure SetAllCell(c:TLevelCell);
+         procedure PrepareDriveLine();
+         function Get_item_by_DrvID(id:integer):TDrvData;
      end;
 
 implementation
@@ -309,7 +321,82 @@ begin
      result:=res;
 end;
 
+function TLevelGrid.Get_item_by_DrvID(id:integer):TDrvData;
+var cx,cy:integer;
+    res:TDrvData;
+begin
+     for cx:=0 to self.size.x-1 do
+     for cy:=0 to self.size.x-1 do
+     begin
+           if self.cell[cx,cy].drv_id = id then
+           begin
+                res.cx := cx;
+                res.cy := cy;
+                res.id:= self.cell[cx,cy].item_road_id;
+           end;
+           if self.cell[cx,cy].drv_id_top = id then
+           begin
+                res.cx := cx;
+                res.cy := cy;
+                res.id := self.cell[cx,cy].item_obst_id;
+           end;
 
+     end;
+     
+     result := res;
+end;
+
+
+procedure TLevelGrid.PrepareDriveLine();
+var item_id,i:Integer;
+    ItemD:TDrvData;
+    sx,sy,sz:single;
+    
+    i_LA:TF3D_Vector3f;
+    i_RA:TF3D_Vector3f;
+    i_ang:single;
+
+    i_rot_LA:TF3D_Vector3f;
+    i_rot_RA:TF3D_Vector3f;
+    final_POINT:TF3D_Vector3f;
+    
+begin
+
+     // clean
+     self.DrvL_List.Clear;
+     self.DrvR_List.Clear;
+     
+     for i:=0 to self.drv_id_count-1 do
+     begin
+        itemD:=self.Get_item_by_DrvID(i);
+
+        sx:=(itemD.cx*frm_main.LEVEL.Config.UNIT_SIZE)-(frm_main.LEVEL.Config.UNIT_SIZE/2);
+        sy:=(itemD.cy*frm_main.LEVEL.Config.UNIT_SIZE)-(frm_main.LEVEL.Config.UNIT_SIZE/2);
+        sz:=0;
+
+        i_ang:=self.LevelItemDefinition.item[itemD.id].rotation.X;
+        
+        i_LA:=self.LevelItemDefinition.item[itemD.id].drvl_A;
+        i_rot_LA:=GetRotatedDRV(i_LA,i_ang);
+        
+        final_POINT.x:= sx + i_rot_LA.x;
+        final_POINT.y:= sy + i_rot_LA.y;
+        final_POINT.z:= sz + i_rot_LA.z;
+
+        self.DrvL_List.Add(FloatToStr(final_POINT.x)+','+FloatToStr(final_POINT.y)+','+FloatToStr(final_POINT.z));
+        
+        i_RA:=self.LevelItemDefinition.item[itemD.id].drvr_A;
+        i_rot_RA:=GetRotatedDRV(i_RA,i_ang);
+        
+        final_POINT.x:= sx + i_rot_RA.x;
+        final_POINT.y:= sy + i_rot_RA.y;
+        final_POINT.z:= sz + i_rot_RA.z;
+
+        self.DrvR_List.Add(FloatToStr(final_POINT.x)+','+FloatToStr(final_POINT.y)+','+FloatToStr(final_POINT.z));
+        
+     end;
+
+end;
 
 
 end.

@@ -30,7 +30,7 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="18">
+    <Units Count="19">
       <Unit0>
         <Filename Value="STKed.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -38,7 +38,7 @@
         <CursorPos X="54" Y="13"/>
         <TopLine Value="1"/>
         <EditorIndex Value="7"/>
-        <UsageCount Value="124"/>
+        <UsageCount Value="126"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -48,20 +48,20 @@
         <ResourceBaseClass Value="Form"/>
         <ResourceFilename Value="main.lrs"/>
         <UnitName Value="main"/>
-        <CursorPos X="34" Y="529"/>
-        <TopLine Value="508"/>
+        <CursorPos X="3" Y="477"/>
+        <TopLine Value="478"/>
         <EditorIndex Value="2"/>
-        <UsageCount Value="124"/>
+        <UsageCount Value="126"/>
         <Loaded Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="include\agfx_definition_class.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="AGFX_definition_class"/>
-        <CursorPos X="58" Y="92"/>
-        <TopLine Value="81"/>
+        <CursorPos X="32" Y="112"/>
+        <TopLine Value="78"/>
         <EditorIndex Value="9"/>
-        <UsageCount Value="124"/>
+        <UsageCount Value="126"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -70,7 +70,7 @@
         <UnitName Value="AGFX_GLOBALS"/>
         <CursorPos X="1" Y="9"/>
         <TopLine Value="1"/>
-        <UsageCount Value="124"/>
+        <UsageCount Value="126"/>
       </Unit3>
       <Unit4>
         <Filename Value="include\agfx_types.pas"/>
@@ -90,10 +90,10 @@
         <Filename Value="include\agfx_leveldesign_class.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="agfx_leveldesign_class"/>
-        <CursorPos X="18" Y="225"/>
-        <TopLine Value="214"/>
+        <CursorPos X="36" Y="394"/>
+        <TopLine Value="364"/>
         <EditorIndex Value="0"/>
-        <UsageCount Value="107"/>
+        <UsageCount Value="109"/>
         <Loaded Value="True"/>
       </Unit6>
       <Unit7>
@@ -106,7 +106,7 @@
         <CursorPos X="1" Y="1"/>
         <TopLine Value="1"/>
         <EditorIndex Value="5"/>
-        <UsageCount Value="106"/>
+        <UsageCount Value="108"/>
         <Loaded Value="True"/>
       </Unit7>
       <Unit8>
@@ -127,10 +127,10 @@
         <Filename Value="include\save_prj.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="save_prj"/>
-        <CursorPos X="42" Y="14"/>
-        <TopLine Value="1"/>
+        <CursorPos X="37" Y="172"/>
+        <TopLine Value="256"/>
         <EditorIndex Value="4"/>
-        <UsageCount Value="86"/>
+        <UsageCount Value="88"/>
         <Loaded Value="True"/>
       </Unit10>
       <Unit11>
@@ -145,9 +145,9 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="agfx_config"/>
         <CursorPos X="115" Y="92"/>
-        <TopLine Value="72"/>
+        <TopLine Value="65"/>
         <EditorIndex Value="10"/>
-        <UsageCount Value="67"/>
+        <UsageCount Value="69"/>
         <Loaded Value="True"/>
       </Unit12>
       <Unit13>
@@ -166,7 +166,7 @@
         <CursorPos X="20" Y="12"/>
         <TopLine Value="1"/>
         <EditorIndex Value="6"/>
-        <UsageCount Value="54"/>
+        <UsageCount Value="56"/>
         <Loaded Value="True"/>
       </Unit14>
       <Unit15>
@@ -179,17 +179,17 @@
         <CursorPos X="56" Y="7"/>
         <TopLine Value="1"/>
         <EditorIndex Value="8"/>
-        <UsageCount Value="54"/>
+        <UsageCount Value="56"/>
         <Loaded Value="True"/>
       </Unit15>
       <Unit16>
         <Filename Value="include\agfx_helpers.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="agfx_helpers"/>
-        <CursorPos X="28" Y="3"/>
-        <TopLine Value="1"/>
+        <CursorPos X="52" Y="17"/>
+        <TopLine Value="3"/>
         <EditorIndex Value="3"/>
-        <UsageCount Value="23"/>
+        <UsageCount Value="25"/>
         <Loaded Value="True"/>
       </Unit16>
       <Unit17>
@@ -202,111 +202,101 @@
         <CursorPos X="36" Y="50"/>
         <TopLine Value="13"/>
         <EditorIndex Value="1"/>
-        <UsageCount Value="21"/>
+        <UsageCount Value="23"/>
         <Loaded Value="True"/>
       </Unit17>
+      <Unit18>
+        <Filename Value="E:\software\lazarus\fpc\2.2.1\source\rtl\objpas\sysutils\sysstrh.inc"/>
+        <CursorPos X="10" Y="107"/>
+        <TopLine Value="87"/>
+        <UsageCount Value="10"/>
+      </Unit18>
     </Units>
-    <JumpHistory Count="25" HistoryIndex="24">
+    <JumpHistory Count="21" HistoryIndex="20">
       <Position1>
-        <Filename Value="main.pas"/>
-        <Caret Line="707" Column="25" TopLine="705"/>
+        <Filename Value="include\agfx_leveldesign_class.pas"/>
+        <Caret Line="177" Column="23" TopLine="158"/>
       </Position1>
       <Position2>
-        <Filename Value="main.pas"/>
-        <Caret Line="528" Column="18" TopLine="526"/>
+        <Filename Value="include\agfx_leveldesign_class.pas"/>
+        <Caret Line="79" Column="10" TopLine="46"/>
       </Position2>
       <Position3>
         <Filename Value="main.pas"/>
-        <Caret Line="664" Column="40" TopLine="660"/>
+        <Caret Line="529" Column="34" TopLine="508"/>
       </Position3>
       <Position4>
-        <Filename Value="main.pas"/>
-        <Caret Line="317" Column="24" TopLine="307"/>
+        <Filename Value="include\agfx_leveldesign_class.pas"/>
+        <Caret Line="318" Column="1" TopLine="283"/>
       </Position4>
       <Position5>
-        <Filename Value="main.pas"/>
-        <Caret Line="64" Column="27" TopLine="63"/>
+        <Filename Value="include\agfx_leveldesign_class.pas"/>
+        <Caret Line="80" Column="57" TopLine="45"/>
       </Position5>
       <Position6>
-        <Filename Value="main.pas"/>
-        <Caret Line="66" Column="27" TopLine="63"/>
+        <Filename Value="include\agfx_leveldesign_class.pas"/>
+        <Caret Line="323" Column="42" TopLine="301"/>
       </Position6>
       <Position7>
-        <Filename Value="main.pas"/>
-        <Caret Line="112" Column="48" TopLine="111"/>
+        <Filename Value="include\agfx_leveldesign_class.pas"/>
+        <Caret Line="319" Column="38" TopLine="306"/>
       </Position7>
       <Position8>
-        <Filename Value="main.pas"/>
-        <Caret Line="519" Column="1" TopLine="514"/>
+        <Filename Value="include\agfx_leveldesign_class.pas"/>
+        <Caret Line="87" Column="57" TopLine="66"/>
       </Position8>
       <Position9>
         <Filename Value="include\agfx_leveldesign_class.pas"/>
-        <Caret Line="223" Column="10" TopLine="214"/>
+        <Caret Line="340" Column="24" TopLine="304"/>
       </Position9>
       <Position10>
         <Filename Value="include\agfx_leveldesign_class.pas"/>
-        <Caret Line="54" Column="1" TopLine="31"/>
+        <Caret Line="325" Column="23" TopLine="312"/>
       </Position10>
       <Position11>
         <Filename Value="include\agfx_leveldesign_class.pas"/>
-        <Caret Line="223" Column="11" TopLine="184"/>
+        <Caret Line="326" Column="5" TopLine="307"/>
       </Position11>
       <Position12>
         <Filename Value="include\agfx_leveldesign_class.pas"/>
-        <Caret Line="10" Column="78" TopLine="1"/>
+        <Caret Line="352" Column="20" TopLine="332"/>
       </Position12>
       <Position13>
-        <Filename Value="frm_drv_cont_unit.pas"/>
-        <Caret Line="30" Column="1" TopLine="1"/>
+        <Filename Value="include\agfx_leveldesign_class.pas"/>
+        <Caret Line="372" Column="24" TopLine="345"/>
       </Position13>
       <Position14>
         <Filename Value="include\agfx_leveldesign_class.pas"/>
-        <Caret Line="195" Column="11" TopLine="190"/>
+        <Caret Line="74" Column="29" TopLine="41"/>
       </Position14>
       <Position15>
-        <Filename Value="frm_new.pas"/>
-        <Caret Line="64" Column="33" TopLine="94"/>
+        <Filename Value="include\agfx_leveldesign_class.pas"/>
+        <Caret Line="372" Column="13" TopLine="345"/>
       </Position15>
       <Position16>
-        <Filename Value="frm_drv_cont_unit.pas"/>
-        <Caret Line="19" Column="45" TopLine="1"/>
+        <Filename Value="include\agfx_leveldesign_class.pas"/>
+        <Caret Line="375" Column="67" TopLine="345"/>
       </Position16>
       <Position17>
-        <Filename Value="frm_drv_cont_unit.pas"/>
-        <Caret Line="20" Column="5" TopLine="6"/>
+        <Filename Value="include\agfx_leveldesign_class.pas"/>
+        <Caret Line="361" Column="26" TopLine="347"/>
       </Position17>
       <Position18>
-        <Filename Value="include\agfx_leveldesign_class.pas"/>
-        <Caret Line="45" Column="1" TopLine="45"/>
+        <Filename Value="include\agfx_helpers.pas"/>
+        <Caret Line="44" Column="22" TopLine="11"/>
       </Position18>
       <Position19>
         <Filename Value="include\agfx_leveldesign_class.pas"/>
-        <Caret Line="229" Column="14" TopLine="198"/>
+        <Caret Line="10" Column="95" TopLine="1"/>
       </Position19>
       <Position20>
         <Filename Value="include\agfx_leveldesign_class.pas"/>
-        <Caret Line="226" Column="31" TopLine="204"/>
+        <Caret Line="380" Column="43" TopLine="352"/>
       </Position20>
       <Position21>
         <Filename Value="include\agfx_leveldesign_class.pas"/>
-        <Caret Line="237" Column="13" TopLine="209"/>
+        <Caret Line="395" Column="36" TopLine="364"/>
       </Position21>
-      <Position22>
-        <Filename Value="include\agfx_leveldesign_class.pas"/>
-        <Caret Line="236" Column="36" TopLine="215"/>
-      </Position22>
-      <Position23>
-        <Filename Value="include\agfx_leveldesign_class.pas"/>
-        <Caret Line="79" Column="11" TopLine="45"/>
-      </Position23>
-      <Position24>
-        <Filename Value="include\agfx_leveldesign_class.pas"/>
-        <Caret Line="286" Column="1" TopLine="97"/>
-      </Position24>
-      <Position25>
-        <Filename Value="include\agfx_leveldesign_class.pas"/>
-        <Caret Line="221" Column="50" TopLine="195"/>
-      </Position25>
     </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>
