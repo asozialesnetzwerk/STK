@@ -32,6 +32,7 @@ type
     GroupBox2: TGroupBox;
     GroupBox3: TGroupBox;
     Image1: TImage;
+    Image2: TImage;
     item_image_1: TImage;
     img_none: TImage;
     img_SelectedIcon: TImage;

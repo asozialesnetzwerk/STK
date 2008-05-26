@@ -48,8 +48,8 @@
         <ResourceBaseClass Value="Form"/>
         <ResourceFilename Value="main.lrs"/>
         <UnitName Value="main"/>
-        <CursorPos X="59" Y="259"/>
-        <TopLine Value="244"/>
+        <CursorPos X="20" Y="35"/>
+        <TopLine Value="34"/>
         <EditorIndex Value="2"/>
         <UsageCount Value="129"/>
         <Loaded Value="True"/>
@@ -212,75 +212,11 @@
         <UsageCount Value="10"/>
       </Unit18>
     </Units>
-    <JumpHistory Count="17" HistoryIndex="16">
+    <JumpHistory Count="1" HistoryIndex="0">
       <Position1>
         <Filename Value="main.pas"/>
-        <Caret Line="477" Column="3" TopLine="478"/>
+        <Caret Line="259" Column="59" TopLine="244"/>
       </Position1>
-      <Position2>
-        <Filename Value="frm_exp_track_unit.pas"/>
-        <Caret Line="7" Column="56" TopLine="1"/>
-      </Position2>
-      <Position3>
-        <Filename Value="include\agfx_leveldesign_class.pas"/>
-        <Caret Line="349" Column="39" TopLine="340"/>
-      </Position3>
-      <Position4>
-        <Filename Value="include\save_prj.pas"/>
-        <Caret Line="172" Column="37" TopLine="256"/>
-      </Position4>
-      <Position5>
-        <Filename Value="frm_exp_track_unit.pas"/>
-        <Caret Line="24" Column="17" TopLine="1"/>
-      </Position5>
-      <Position6>
-        <Filename Value="include\save_prj.pas"/>
-        <Caret Line="275" Column="39" TopLine="280"/>
-      </Position6>
-      <Position7>
-        <Filename Value="include\agfx_leveldesign_class.pas"/>
-        <Caret Line="86" Column="48" TopLine="76"/>
-      </Position7>
-      <Position8>
-        <Filename Value="include\agfx_leveldesign_class.pas"/>
-        <Caret Line="415" Column="13" TopLine="380"/>
-      </Position8>
-      <Position9>
-        <Filename Value="include\agfx_leveldesign_class.pas"/>
-        <Caret Line="397" Column="32" TopLine="377"/>
-      </Position9>
-      <Position10>
-        <Filename Value="main.pas"/>
-        <Caret Line="599" Column="2" TopLine="575"/>
-      </Position10>
-      <Position11>
-        <Filename Value="main.pas"/>
-        <Caret Line="97" Column="55" TopLine="96"/>
-      </Position11>
-      <Position12>
-        <Filename Value="main.pas"/>
-        <Caret Line="259" Column="6" TopLine="232"/>
-      </Position12>
-      <Position13>
-        <Filename Value="main.pas"/>
-        <Caret Line="217" Column="29" TopLine="207"/>
-      </Position13>
-      <Position14>
-        <Filename Value="main.pas"/>
-        <Caret Line="98" Column="55" TopLine="97"/>
-      </Position14>
-      <Position15>
-        <Filename Value="main.pas"/>
-        <Caret Line="266" Column="24" TopLine="264"/>
-      </Position15>
-      <Position16>
-        <Filename Value="main.pas"/>
-        <Caret Line="34" Column="20" TopLine="34"/>
-      </Position16>
-      <Position17>
-        <Filename Value="main.pas"/>
-        <Caret Line="259" Column="1" TopLine="239"/>
-      </Position17>
     </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>
