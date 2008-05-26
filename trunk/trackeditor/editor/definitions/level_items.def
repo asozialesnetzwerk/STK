@@ -76,12 +76,12 @@
 }
 {
 	type	 :ROAD
-	name	 :curve_0
-	imageiso :iso_icon_curve_0.png
-	image    :icon_curve_0.png
-	model	 :track-editor/curve.ac
-	position :0,0,0
-	rotation :90,0,0
+	name		: curve_0
+	imageiso	: iso_icon_curve_2.png
+	image  		: icon_curve_3.png
+	model		: track-editor/curve.ac
+	position	: 0,0,0
+	rotation	: 0,0,0
 	drvl_A   :-5,5,0
 	drvl_B   :0,0,0
 	drvr_A   :5,-5,0
@@ -89,12 +89,12 @@
 }
 {
 	type	 :ROAD
-	name	 :curve_1
-	imageiso :iso_icon_curve_1.png
-	image    :icon_curve_1.png
-	model	 :track-editor/curve.ac
-	position :0,0,0
-	rotation :270,0,0
+	name		: curve_1
+	imageiso	: iso_icon_curve_1.png
+	image  		: icon_curve_1.png
+	model		: track-editor/curve.ac
+	position	: 0,0,0
+	rotation	: 90,0,0
 	drvl_A   :-5,5,0
 	drvl_B   :0,0,0
 	drvr_A   :5,-5,0
@@ -102,12 +102,12 @@
 }
 {
 	type	 :ROAD
-	name	 :curve_2
-	imageiso :iso_icon_curve_2.png
-	image    :icon_curve_2.png
-	model	 :track-editor/curve.ac
-	position :0,0,0
-	rotation :180,0,0
+	name		: curve_2
+	imageiso	: iso_icon_curve_3.png
+	image  		: icon_curve_2.png
+	model		: track-editor/curve.ac
+	position	: 0,0,0
+	rotation	: 180,0,0
 	drvl_A   :-5,5,0
 	drvl_B   :0,0,0
 	drvr_A   :5,-5,0
@@ -115,12 +115,12 @@
 }
 {
 	type	 :ROAD
-	name	 :curve_3
-	imageiso :iso_icon_curve_3.png
-	image    :icon_curve_3.png
-	model	 :track-editor/curve.ac
-	position :0,0,0
-	rotation :0,0,0
+	name		: curve_3
+	imageiso	: iso_icon_curve_0.png
+	image  		: icon_curve_0.png
+	model		: track-editor/curve.ac
+	position	: 0,0,0
+	rotation	: 270,0,0
 	drvl_A   :-5,5,0
 	drvl_B   :0,0,0
 	drvr_A   :5,-5,0
