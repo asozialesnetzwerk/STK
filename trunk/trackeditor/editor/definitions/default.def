@@ -1,744 +1,426 @@
 {
-	type     : CLEAR
-	name     : clean
-	imageiso : none.png
-	image : none1.png
-	model    : track-editor/ground.ac
-	position : 0,0,0
-	rotation : 0,0,0
+	type     	: CLEAR
+	name     	: clean
+	imageiso 	: none.png
+	image 		: none1.png
+	model    	: track-editor/ground.ac
+	position 	: 0,0,0
+	rotation 	: 0,0,0
 }
 {
-	type			:ROAD
-	name		 	:start_0
-	imageiso  :iso_icon_start.png
-	image  		:icon_start_0.png
-	model			:track-editor/start.ac
-	position	:0,0,0
-	rotation	:0,0,0
+	type		: ROAD
+	event		: START
+	name		: start_0
+	imageiso  	: iso_icon_start.png
+	image  		: icon_start_0.png
+	model		: track-editor/start.ac
+	position	: 0,0,0
+	rotation	: 0,0,0
 }
 {
-	type			:ROAD
-	name		 	:start_1
-	imageiso  :iso_icon_start.png
-	image  		:icon_start_1.png
-	model			:track-editor/start.ac
-	position	:0,0,0
-	rotation	:90,0,0
+	type		: ROAD
+	name		: start_1
+	event		: START
+	imageiso  	: iso_icon_start.png
+	image  		: icon_start_1.png
+	model		: track-editor/start.ac
+	position	: 0,0,0
+	rotation	: 90,0,0
 }
 {
-	type     : ROAD
-	name     : cross_x
+	type     	: ROAD
+	name     	: cross_x
 	imageiso    : iso_icon_cross_x.png
-	image : icon_cross_x.png
-	model    : track-editor/cross.ac
-	position : 0,0,0
-	rotation : 0,0,0
+	image 		: icon_cross_x.png
+	model    	: track-editor/cross.ac
+	position 	: 0,0,0
+	rotation 	: 0,0,0
 }
 {
-	type     : ROAD
-	name     : forward_0
+	type     	: ROAD
+	name     	: forward_0
 	imageiso    : iso_icon_forward_0.png
-	image : icon_forward_0.png
-	model    : track-editor/street.ac
-	position : 0,0,0
-	rotation : 0,0,0
+	image 		: icon_forward_0.png
+	model    	: track-editor/street.ac
+	position 	: 0,0,0
+	rotation 	: 0,0,0
 }
 {
-	type     : ROAD
-	name     : forward_1
+	type     	: ROAD
+	name     	: forward_1
 	imageiso    : iso_icon_forward_1.png
-	image : icon_forward_1.png
-	model    : track-editor/street.ac
-	position : 0,0,0
-	rotation : 90,0,0
+	image 		: icon_forward_1.png
+	model    	: track-editor/street.ac
+	position 	: 0,0,0
+	rotation 	: 90,0,0
 }
 {
-	type			:ROAD
-	name		 	:cross_t_0
-	imageiso		 	:iso_icon_cross_t_0.png
-	image  :icon_cross_t_0.png
-	model			:track-editor/tee.ac
-	position	:0,0,0
-	rotation	:90,0,0
+	type		: ROAD
+	name		: cross_t_0
+	imageiso	: iso_icon_cross_t_0.png
+	image  		: icon_cross_t_0.png
+	model		: track-editor/tee.ac
+	position	: 0,0,0
+	rotation	: 90,0,0
 }
 {
-	type			:ROAD
-	name			:cross_t_1
-	imageiso			:iso_icon_cross_t_1.png
-	image  :icon_cross_t_1.png
-	model			:track-editor/tee.ac
-	position	:0,0,0
-	rotation	:0,0,0
+	type		: ROAD
+	name		: cross_t_1
+	imageiso	: iso_icon_cross_t_1.png
+	image  		: icon_cross_t_1.png
+	model		: track-editor/tee.ac
+	position	: 0,0,0
+	rotation	: 0,0,0
 }
 {
-	type			:ROAD
-	name			:cross_t_2
-	imageiso			:iso_icon_cross_t_2.png
-	image  :icon_cross_t_2.png
-	model			:track-editor/tee.ac
-	position	:0,0,0
-	rotation	:270,0,0
+	type		: ROAD
+	name		: cross_t_2
+	imageiso	: iso_icon_cross_t_2.png
+	image  		: icon_cross_t_2.png
+	model		: track-editor/tee.ac
+	position	: 0,0,0
+	rotation	: 270,0,0
 }
 {
-	type			:ROAD
-	name			:cross_t_3
-	imageiso			:iso_icon_cross_t_3.png
-	image  :icon_cross_t_3.png
-	model			:track-editor/tee.ac
-	position	:0,0,0
-	rotation	:180,0,0
+	type		: ROAD
+	name		: cross_t_3
+	imageiso	: iso_icon_cross_t_3.png
+	image  		: icon_cross_t_3.png
+	model		: track-editor/tee.ac
+	position	: 0,0,0
+	rotation	: 180,0,0
 }
 {
-	type			:ROAD
-	name		 	:curve_0
-	imageiso		 	:iso_icon_curve_0.png
-	image  :icon_curve_0.png
-	model			:track-editor/curve.ac
-	position	:0,0,0
-	rotation	:90,0,0
+	type		: ROAD
+	name		: curve_0
+	imageiso	: iso_icon_curve_0.png
+	image  		: icon_curve_0.png
+	model		: track-editor/curve.ac
+	position	: 0,0,0
+	rotation	: 90,0,0
 }
 {
-	type			:ROAD
-	name		 	:curve_1
-	imageiso		 	:iso_icon_curve_1.png
-	image  :icon_curve_1.png
-	model			:track-editor/curve.ac
-	position	:0,0,0
-	rotation	:270,0,0
+	type		: ROAD
+	name		: curve_1
+	imageiso	: iso_icon_curve_1.png
+	image  		: icon_curve_1.png
+	model		: track-editor/curve.ac
+	position	: 0,0,0
+	rotation	: 270,0,0
 }
 {
-	type			:ROAD
-	name		 	:curve_2
-	imageiso		 	:iso_icon_curve_2.png
-	image  :icon_curve_2.png
-	model			:track-editor/curve.ac
-	position	:0,0,0
-	rotation	:180,0,0
+	type		: ROAD
+	name		: curve_2
+	imageiso	: iso_icon_curve_2.png
+	image  		: icon_curve_2.png
+	model		: track-editor/curve.ac
+	position	: 0,0,0
+	rotation	: 180,0,0
 }
 {
-	type			:ROAD
-	name		 	:curve_3
-	imageiso		 	:iso_icon_curve_3.png
-	image  :icon_curve_3.png
-	model			:track-editor/curve.ac
-	position	:0,0,0
-	rotation	:0,0,0
+	type		: ROAD
+	name		: curve_3
+	imageiso	: iso_icon_curve_3.png
+	image  		: icon_curve_3.png
+	model		: track-editor/curve.ac
+	position	: 0,0,0
+	rotation	: 0,0,0
 }
 {
-	type			:ROAD
-	name		 	:icon_street_plane
-	imageiso		 	:iso_icon_street_plane.png
-	image  :icon_street_plane.png
-	model			:track-editor/street_plane.ac
-	position	:0,0,0
-	rotation	:0,0,0
-}
-
-{
-     type       :DECOR16
-     event		: RHERRING
-     name       :R-HERRING
-     imageiso  :iso_bonusblock.png
-     image            :bonusblock.png
-     model               :track-editor/3d.ac
-     position     :0,0,0
-     rotation     :0,0,0
-}
-{
-     type       :DECOR16
-     event		: GHERRING
-     name       :G-HERRING
-     imageiso  :iso_banana.png
-     image            :banana.png
-     model               :track-editor/3d.ac
-     position     :0,0,0
-     rotation     :0,0,0
-}
-{
-     type       :DECOR16
-     event		: SHERRING
-     name       :S-HERRING
-     imageiso  :iso_silvercoin.png
-     image            :silvercoin.png
-     model               :track-editor/3d.ac
-     position     :0,0,0
-     rotation     :0,0,0
-}
-{
-     type       :DECOR16
-     event		: YHERRING
-     name       :Y-HERRING
-     imageiso  :iso_goldcoin.png
-     image            :goldcoin.png
-     model               :track-editor/3d.ac
-     position     :0,0,0
-     rotation     :0,0,0
-}
-{
-	type			:DECOR16
-	name		 	:cone
-	imageiso  :iso_kuzel.png
-	image  		:kuzel.png
-	model			:track-editor/cone.ac
-	position	:0,0,0
-	rotation	:0,0,0
-}
-{
-	type			:DECOR16
-	name		 	:tire
-	imageiso  :iso_tire.png
-	image  		:tire.png
-	model			:track-editor/tire.ac
-	position	:0,0,0
-	rotation	:0,0,0
+	type		: ROAD
+	name		: icon_street_plane
+	imageiso	: iso_icon_street_plane.png
+	image  		: icon_street_plane.png
+	model		: track-editor/street_plane.ac
+	position	: 0,0,0
+	rotation	: 0,0,0
 }
 
 {
-	type			:BRIDGE
-	name		 	:l1_street_0
-	imageiso		 	:iso_l1_street.png
-	image  :l1_street_0.png
-	model			:track-editor/street.ac
-	position	:0,0,2.5
-	rotation	:0,0,0
+     type       : DECOR16
+     event		: HERRING
+     name       : R-HERRING
+     imageiso   : iso_bonusblock.png
+     image      : bonusblock.png
+     model      : track-editor/3d.ac
+     position   : 0,0,0
+     rotation   : 0,0,0
 }
 {
-	type			:OBSTACLE
-	name		 	:l1_street_1
-	imageiso		 	:iso_l1_street.png
-	image  :l1_street_1.png
-	model			:track-editor/street.ac
-	position	:0,0,2.5
-	rotation	:90,0,0
+     type       : DECOR16
+     event		: HERRING
+     name       : G-HERRING
+     imageiso  	: iso_banana.png
+     image      : banana.png
+     model      : track-editor/3d.ac
+     position   : 0,0,0
+     rotation   : 0,0,0
 }
 {
-	type			:OBSTACLE
-	name		 	:l1_cross
-	imageiso		 	:iso_l1_cross.png
-	image  :l1_cross.png
-	model			:track-editor/cross.ac
-	position	:0,0,2.5
-	rotation	:0,0,0
+     type       : DECOR16
+     event		: HERRING
+     name       : S-HERRING
+     imageiso   : iso_silvercoin.png
+     image      : silvercoin.png
+     model      : track-editor/3d.ac
+     position   : 0,0,0
+     rotation   : 0,0,0
 }
 {
-	type			:OBSTACLE
-	name		 	:l1_curve_0
-	imageiso		 	:iso_l1_curve.png
-	image  :l1_curve_0.png
-	model			:track-editor/curve.ac
-	position	:0,0,2.5
-	rotation	:90,0,0
+     type       : DECOR16
+     event		: HERRING
+     name       : Y-HERRING
+     imageiso   : iso_goldcoin.png
+     image      : goldcoin.png
+     model      : track-editor/3d.ac
+     position   : 0,0,0
+     rotation   : 0,0,0
 }
 {
-	type			:OBSTACLE
-	name		 	:l1_curve_1
-	imageiso		 	:iso_l1_curve.png
-	image  :l1_curve_1.png
-	model			:track-editor/curve.ac
-	position	:0,0,2.5
-	rotation	:270,0,0
+	type		: DECOR16
+	name		: cone
+	imageiso  	: iso_kuzel.png
+	image  		: kuzel.png
+	model		: track-editor/cone.ac
+	position	: 0,0,0
+	rotation	: 0,0,0
 }
 {
-	type			:OBSTACLE
-	name		 	:l1_curve_2
-	imageiso		 	:iso_l1_curve.png
-	image  :l1_curve_2.png
-	model			:track-editor/curve.ac
-	position	:0,0,2.5
-	rotation	:180,0,0
-}
-{
-	type			:OBSTACLE
-	name		 	:l1_curve_3
-	imageiso		 	:iso_l1_curve.png
-	image  :l1_curve_3.png
-	model			:track-editor/curve.ac
-	position	:0,0,2.5
-	rotation	:0,0,0
-}
-{
-	type			:OBSTACLE
-	name		 	:l1_tee_0
-	imageiso		 	:iso_l1_tee.png
-	image  :l1_tee_0.png
-	model			:track-editor/tee.ac
-	position	:0,0,2.5
-	rotation	:90,0,0
-}
-{
-	type			:OBSTACLE
-	name		 	:l1_tee_1
-	imageiso		 	:iso_l1_tee.png
-	image  :l1_tee_1.png
-	model			:track-editor/tee.ac
-	position	:0,0,2.5
-	rotation	:0,0,0
-}
-{
-	type			:OBSTACLE
-	name		 	:l1_tee_2
-	imageiso		 	:iso_l1_tee.png
-	image  :l1_tee_2.png
-	model			:track-editor/tee.ac
-	position	:0,0,2.5
-	rotation	:270,0,0
-}
-{
-	type			:OBSTACLE
-	name		 	:l1_tee_3
-	imageiso		 	:iso_l1_tee.png
-	image  :l1_tee_3.png
-	model			:track-editor/tee.ac
-	position	:0,0,2.5
-	rotation	:180,0,0
-}
-{
-	type			:OBSTACLE
-	name		 	:l1_start_0
-	imageiso		 	:iso_l1_start.png
-	image  :l1_start_0.png
-	model			:track-editor/start.ac
-	position	:0,0,2.5
-	rotation	:0,0,0
-}
-{
-	type			:OBSTACLE
-	name		 	:l1_start_1
-	imageiso		 	:iso_l1_start.png
-	image  :l1_start_1.png
-	model			:track-editor/start.ac
-	position	:0,0,2.5
-	rotation	:90,0,0
-}
-{
-	type			:OBSTACLE
-	name		 	:l1_street_plane
-	imageiso		 	:iso_l1_street_plane.png
-	image  :l1_street_plane.png
-	model			:track-editor/street_plane.ac
-	position	:0,0,2.5
-	rotation	:0,0,0
-}
-{
-	type			:ROAD
-	name		 	:street_30_up_0
-	imageiso		 	:iso_street_30_up.png
-	image  :street_30_up_0.png
-	model			:track-editor/street_30_up.ac
-	position	:0,0,0
-	rotation	:0,0,0
-}
-{
-	type			:ROAD
-	name		 	:street_30_up_1
-	imageiso		 	:iso_street_30_up.png
-	image  :street_30_up_1.png
-	model			:track-editor/street_30_up.ac
-	position	:0,0,0
-	rotation	:90,0,0
-}
-{
-	type			:ROAD
-	name		 	:street_30_down_0
-	imageiso		 	:iso_street_30_down.png
-	image  :street_30_down_0.png
-	model			:track-editor/street_30_down.ac
-	position	:0,0,0
-	rotation	:0,0,0
-}
-{
-	type			:ROAD
-	name		 	:street_30_down_1
-	imageiso		 	:iso_street_30_down.png
-	image  :street_30_down_1.png
-	model			:track-editor/street_30_down.ac
-	position	:0,0,0
-	rotation	:90,0,0
+	type		: DECOR16
+	name		: tire
+	imageiso  	: iso_tire.png
+	image  		: tire.png
+	model		: track-editor/tire.ac
+	position	: 0,0,0
+	rotation	: 0,0,0
 }
 
-
 {
-	type			:ROAD
-	name		 	:shop1_0
-	imageiso		 	:iso_shop1.png
-	image  :shop1_0.png
-	model			:track-editor/shop1.ac
-	position	:0,0,0
-	rotation	:0,0,0
+	type		: BRIDGE
+	name		: L1_street_0
+	imageiso	: iso_l1_street.png
+	image  		: l1_street_0.png
+	model		: track-editor/street.ac
+	position	: 0,0,2.5
+	rotation	: 0,0,0
 }
 {
-	type			:ROAD
-	name		 	:shop1_1
-	imageiso		 	:iso_shop1.png
-	image  :shop1_1.png
-	model			:track-editor/shop1.ac
-	position	:0,0,0
-	rotation	:270,0,0
+	type		: BRIDGE
+	name		: L1_street_1
+	imageiso	: iso_l1_street.png
+	image  		: l1_street_1.png
+	model		: track-editor/street.ac
+	position	: 0,0,2.5
+	rotation	: 90,0,0
 }
 {
-	type			:ROAD
-	name		 	:shop1_2
-	imageiso		 	:iso_shop1.png
-	image  :shop1_2.png
-	model			:track-editor/shop1.ac
-	position	:0,0,0
-	rotation	:180,0,0
+	type		: BRIDGE
+	name		: L1_cross
+	imageiso	: iso_l1_cross.png
+	image  		: l1_cross.png
+	model		: track-editor/cross.ac
+	position	: 0,0,2.5
+	rotation	: 0,0,0
 }
 {
-	type			:ROAD
-	name		 	:shop1_3
-	imageiso		 	:iso_shop1.png
-	image  :shop1_3.png
-	model			:track-editor/shop1.ac
-	position	:0,0,0
-	rotation	:90,0,0
-}
-
-
-{
-	type			:ROAD
-	name		 	:shop2_0
-	imageiso		 	:iso_shop2.png
-	image  :shop2_0.png
-	model			:track-editor/shop2.ac
-	position	:0,0,0
-	rotation	:0,0,0
+	type		: BRIDGE
+	name		: L1_curve_0
+	imageiso	: iso_l1_curve.png
+	image  		: l1_curve_0.png
+	model		: track-editor/curve.ac
+	position	: 0,0,2.5
+	rotation	: 90,0,0
 }
 {
-	type			:ROAD
-	name		 	:shop2_1
-	imageiso		 	:iso_shop2.png
-	image  :shop2_1.png
-	model			:track-editor/shop2.ac
-	position	:0,0,0
-	rotation	:270,0,0
+	type		: BRIDGE
+	name		: L1_curve_1
+	imageiso	: iso_l1_curve.png
+	image  		: l1_curve_1.png
+	model		: track-editor/curve.ac
+	position	: 0,0,2.5
+	rotation	: 270,0,0
 }
 {
-	type			:ROAD
-	name		 	:shop2_2
-	imageiso		 	:iso_shop2.png
-	image  :shop2_2.png
-	model			:track-editor/shop2.ac
-	position	:0,0,0
-	rotation	:180,0,0
+	type		: BRIDGE
+	name		: L1_curve_2
+	imageiso	: iso_l1_curve.png
+	image  		: l1_curve_2.png
+	model		: track-editor/curve.ac
+	position	: 0,0,2.5
+	rotation	: 180,0,0
 }
 {
-	type			:ROAD
-	name		 	:shop2_3
-	imageiso		 	:iso_shop2.png
-	image  :shop2_3.png
-	model			:track-editor/shop2.ac
-	position	:0,0,0
-	rotation	:90,0,0
-}
-
-
-
-{
-	type			:ROAD
-	name		 	:shop3_0
-	imageiso		 	:iso_shop3.png
-	image  :shop3_0.png
-	model			:track-editor/shop3.ac
-	position	:0,0,0
-	rotation	:0,0,0
+	type		: BRIDGE
+	name		: L1_curve_3
+	imageiso	: iso_l1_curve.png
+	image  		: l1_curve_3.png
+	model		: track-editor/curve.ac
+	position	: 0,0,2.5
+	rotation	: 0,0,0
 }
 {
-	type			:ROAD
-	name		 	:shop3_1
-	imageiso		 	:iso_shop3.png
-	image  :shop3_1.png
-	model			:track-editor/shop3.ac
-	position	:0,0,0
-	rotation	:270,0,0
+	type		: BRIDGE
+	name		:L1_tee_0
+	imageiso	: iso_l1_tee.png
+	image  		: l1_tee_0.png
+	model		: track-editor/tee.ac
+	position	: 0,0,2.5
+	rotation	: 90,0,0
 }
 {
-	type			:ROAD
-	name		 	:shop3_2
-	imageiso		 	:iso_shop3.png
-	image  :shop3_2.png
-	model			:track-editor/shop3.ac
-	position	:0,0,0
-	rotation	:180,0,0
+	type	    : BRIDGE
+	name		: L1_tee_1
+	imageiso	: iso_l1_tee.png
+	image  		: l1_tee_1.png
+	model		: track-editor/tee.ac
+	position	: 0,0,2.5
+	rotation	: 0,0,0
 }
 {
-	type			:ROAD
-	name		 	:shop3_3
-	imageiso		 	:iso_shop3.png
-	image  :shop3_3.png
-	model			:track-editor/shop3.ac
-	position	:0,0,0
-	rotation	:90,0,0
-}
-
-
-{
-	type			:ROAD
-	name		 	:shop4_0
-	imageiso		 	:iso_shop4.png
-	image  :shop4_0.png
-	model			:track-editor/shop4.ac
-	position	:0,0,0
-	rotation	:0,0,0
+	type		: BRIDGE
+	name		: l1_tee_2
+	imageiso	: iso_l1_tee.png
+	image  		: l1_tee_2.png
+	model		: track-editor/tee.ac
+	position	: 0,0,2.5
+	rotation	: 270,0,0
 }
 {
-	type			:ROAD
-	name		 	:shop4_1
-	imageiso		 	:iso_shop4.png
-	image  :shop4_1.png
-	model			:track-editor/shop4.ac
-	position	:0,0,0
-	rotation	:270,0,0
+	type		: BRIDGE
+	name		: l1_tee_3
+	imageiso	: iso_l1_tee.png
+	image  		: l1_tee_3.png
+	model		: track-editor/tee.ac
+	position	: 0,0,2.5
+	rotation	: 180,0,0
 }
 {
-	type			:ROAD
-	name		 	:shop4_2
-	imageiso		 	:iso_shop4.png
-	image  :shop4_2.png
-	model			:track-editor/shop4.ac
-	position	:0,0,0
-	rotation	:180,0,0
+	type		: BRIDGE
+	event		: START
+	name		: L1_start_0
+	imageiso	: iso_l1_start.png
+	image  		: l1_start_0.png
+	model		: track-editor/start.ac
+	position	: 0,0,2.5
+	rotation	: 0,0,0
 }
 {
-	type			:ROAD
-	name		 	:shop4_3
-	imageiso		 	:iso_shop4.png
-	image  :shop4_3.png
-	model			:track-editor/shop4.ac
-	position	:0,0,0
-	rotation	:90,0,0
-}
-
-
-
-{
-	type			:ROAD
-	name		 	:shop5_0
-	imageiso		 	:iso_shop5.png
-	image  :shop5_0.png
-	model			:track-editor/shop5.ac
-	position	:0,0,0
-	rotation	:0,0,0
+	type		: BRIDGE
+	name		: L1_start_1
+	imageiso	: iso_l1_start.png
+	image  		: l1_start_1.png
+	model		: track-editor/start.ac
+	position	: 0,0,2.5
+	rotation	: 90,0,0
 }
 {
-	type			:ROAD
-	name		 	:shop5_1
-	imageiso		 	:iso_shop5.png
-	image  :shop5_1.png
-	model			:track-editor/shop5.ac
-	position	:0,0,0
-	rotation	:270,0,0
+	type		: BRIDGE
+	name		: L1_street_plane
+	imageiso	: iso_l1_street_plane.png
+	image  		: l1_street_plane.png
+	model		: track-editor/street_plane.ac
+	position	: 0,0,2.5
+	rotation	: 0,0,0
 }
 {
-	type			:ROAD
-	name		 	:shop5_2
-	imageiso		 	:iso_shop5.png
-	image  :shop5_2.png
-	model			:track-editor/shop5.ac
-	position	:0,0,0
-	rotation	:180,0,0
+	type		: ROAD
+	name		: street_30_up_0
+	imageiso	: iso_street_30_up.png
+	image  		: street_30_up_0.png
+	model		: track-editor/street_30_up.ac
+	position	: 0,0,0
+	rotation	: 0,0,0
 }
 {
-	type			:ROAD
-	name		 	:shop5_3
-	imageiso		 	:iso_shop5.png
-	image  :shop5_3.png
-	model			:track-editor/shop5.ac
-	position	:0,0,0
-	rotation	:90,0,0
-}
-
-
-
-
-{
-	type			:ROAD
-	name		 	:shop6_0
-	imageiso		 	:iso_shop6.png
-	image  :shop6_0.png
-	model			:track-editor/shop6.ac
-	position	:0,0,0
-	rotation	:0,0,0
+	type		: ROAD
+	name		: street_30_up_1
+	imageiso	: iso_street_30_up.png
+	image  		: street_30_up_1.png
+	model		: track-editor/street_30_up.ac
+	position	: 0,0,0
+	rotation	: 90,0,0
 }
 {
-	type			:ROAD
-	name		 	:shop6_1
-	imageiso		 	:iso_shop6.png
-	image  :shop6_1.png
-	model			:track-editor/shop6.ac
-	position	:0,0,0
-	rotation	:270,0,0
+	type		: ROAD
+	name		: street_30_down_0
+	imageiso	: iso_street_30_down.png
+	image  		: street_30_down_0.png
+	model		: track-editor/street_30_down.ac
+	position	: 0,0,0
+	rotation	: 0,0,0
 }
 {
-	type			:ROAD
-	name		 	:shop6_2
-	imageiso		 	:iso_shop6.png
-	image  :shop6_2.png
-	model			:track-editor/shop6.ac
-	position	:0,0,0
-	rotation	:180,0,0
+	type		: ROAD
+	name		: street_30_down_1
+	imageiso	: iso_street_30_down.png
+	image  		: street_30_down_1.png
+	model		: track-editor/street_30_down.ac
+	position	: 0,0,0
+	rotation	: 90,0,0
 }
 {
-	type			:ROAD
-	name		 	:shop6_3
-	imageiso		 	:iso_shop6.png
-	image  :shop6_3.png
-	model			:track-editor/shop6.ac
-	position	:0,0,0
-	rotation	:90,0,0
-}
-
-
-{
-	type			:ROAD
-	name		 	:shop7_0
-	imageiso		 	:iso_shop7.png
-	image  :shop7_0.png
-	model			:track-editor/shop7.ac
-	position	:0,0,0
-	rotation	:0,0,0
+	type		: OBSTACLE
+	name		: shop1_0
+	imageiso	: iso_shop1.png
+	image  		: shop1_0.png
+	model		: track-editor/shop1.ac
+	position	: 0,0,0
+	rotation	: 0,0,0
 }
 {
-	type			:ROAD
-	name		 	:shop7_1
-	imageiso		 	:iso_shop7.png
-	image  :shop7_1.png
-	model			:track-editor/shop7.ac
-	position	:0,0,0
-	rotation	:270,0,0
+	type		: OBSTACLE
+	name		: shop1_1
+	imageiso	: iso_shop1.png
+	image  		: shop1_1.png
+	model		: track-editor/shop1.ac
+	position	: 0,0,0
+	rotation	: 270,0,0
 }
 {
-	type			:ROAD
-	name		 	:shop7_2
-	imageiso		 	:iso_shop7.png
-	image  :shop7_2.png
-	model			:track-editor/shop7.ac
-	position	:0,0,0
-	rotation	:180,0,0
+	type		: OBSTACLE
+	name		: shop1_2
+	imageiso	: iso_shop1.png
+	image  		: shop1_2.png
+	model		: track-editor/shop1.ac
+	position	: 0,0,0
+	rotation	: 180,0,0
 }
 {
-	type			:ROAD
-	name		 	:shop7_3
-	imageiso		 	:iso_shop7.png
-	image  :shop7_3.png
-	model			:track-editor/shop7.ac
-	position	:0,0,0
-	rotation	:90,0,0
-}
-
-
-
-{
-	type			:ROAD
-	name		 	:shop8_0
-	imageiso		 	:iso_shop8.png
-	image  :shop8_0.png
-	model			:track-editor/shop8.ac
-	position	:0,0,0
-	rotation	:0,0,0
+	type		: OBSTACLE
+	name		: shop1_3
+	imageiso	: iso_shop1.png
+	image  		: shop1_3.png
+	model		: track-editor/shop1.ac
+	position	: 0,0,0
+	rotation	: 90,0,0
 }
 {
-	type			:ROAD
-	name		 	:shop8_1
-	imageiso		 	:iso_shop8.png
-	image  :shop8_1.png
-	model			:track-editor/shop8.ac
-	position	:0,0,0
-	rotation	:270,0,0
+	type		: DECOR16
+	event		: AUTOZ
+	name		: dekel-0
+	imageiso	: iso_dekel.png
+	image  		: dekel.png
+	model		: track-editor/dekel.ac
+	position	: 0,0,0
+	rotation	: 0,0,0
 }
 {
-	type			:ROAD
-	name		 	:shop8_2
-	imageiso		 	:iso_shop8.png
-	image  :shop8_2.png
-	model			:track-editor/shop8.ac
-	position	:0,0,0
-	rotation	:180,0,0
+	type		: DECOR16
+	event		: AUTOZ
+	name		: dekel-1
+	imageiso	: iso_dekel-1.png
+	image  		: dekel-1.png
+	model		: track-editor/dekel1.ac
+	position	: 0,0,0
+	rotation	: 0,0,0
 }
 {
-	type			:ROAD
-	name		 	:shop8_3
-	imageiso		 	:iso_shop8.png
-	image  :shop8_3.png
-	model			:track-editor/shop8.ac
-	position	:0,0,0
-	rotation	:90,0,0
-}
-
-
-
-{
-	type			:ROAD
-	name		 	:shop9_0
-	imageiso		 	:iso_shop9.png
-	image  :shop9_0.png
-	model			:track-editor/shop9.ac
-	position	:0,0,0
-	rotation	:0,0,0
-}
-{
-	type			:ROAD
-	name		 	:shop9_1
-	imageiso		 	:iso_shop9.png
-	image  :shop9_1.png
-	model			:track-editor/shop9.ac
-	position	:0,0,0
-	rotation	:270,0,0
-}
-{
-	type			:ROAD
-	name		 	:shop9_2
-	imageiso		 	:iso_shop9.png
-	image  :shop9_2.png
-	model			:track-editor/shop9.ac
-	position	:0,0,0
-	rotation	:180,0,0
-}
-{
-	type			:ROAD
-	name		 	:shop9_3
-	imageiso		 	:iso_shop9.png
-	image  :shop9_3.png
-	model			:track-editor/shop9.ac
-	position	:0,0,0
-	rotation	:90,0,0
-}
-
-
-
-{
-	type			:ROAD
-	name		 	:shop10_0
-	imageiso		 	:iso_shop10.png
-	image  :shop10_0.png
-	model			:track-editor/shop10.ac
-	position	:0,0,0
-	rotation	:0,0,0
-}
-{
-	type			:ROAD
-	name		 	:shop10_1
-	imageiso		 	:iso_shop10.png
-	image  :shop10_1.png
-	model			:track-editor/shop10.ac
-	position	:0,0,0
-	rotation	:270,0,0
-}
-{
-	type			:ROAD
-	name		 	:shop10_2
-	imageiso		 	:iso_shop10.png
-	image  :shop10_2.png
-	model			:track-editor/shop10.ac
-	position	:0,0,0
-	rotation	:180,0,0
-}
-{
-	type			:ROAD
-	name		 	:shop10_3
-	imageiso		 	:iso_shop10.png
-	image  :shop10_3.png
-	model			:track-editor/shop10.ac
-	position	:0,0,0
-	rotation	:90,0,0
+	type		: DECOR16
+	event		: AUTOZ
+	name		: parking-hours
+	imageiso	: iso_parking.png
+	image  		: parking.png
+	model		: track-editor/parking.ac
+	position	: 0,0,0
+	rotation	: 0,0,0
 }

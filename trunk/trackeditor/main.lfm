@@ -1,14 +1,14 @@
 object frm_main: Tfrm_main
-  Left = 447
-  Height = 691
-  Top = 159
+  Left = 451
+  Height = 700
+  Top = 127
   Width = 900
   HorzScrollBar.Page = 899
-  VertScrollBar.Page = 670
+  VertScrollBar.Page = 679
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'STKed 2008'
-  ClientHeight = 671
+  ClientHeight = 680
   ClientWidth = 900
   Color = clSilver
   Constraints.MaxHeight = 700
@@ -857,7 +857,7 @@ object frm_main: Tfrm_main
         OnClick = MenuItem12Click
       end
       object MenuItem13: TMenuItem
-        Caption = 'Obstacle'
+        Caption = 'Bridge/Obstacle'
         OnClick = MenuItem13Click
       end
       object MenuItem9: TMenuItem
@@ -870,7 +870,14 @@ object frm_main: Tfrm_main
       end
       object MenuItem18: TMenuItem
         Caption = 'Driveline ID'
-        OnClick = MenuItem18Click
+        object MenuItem19: TMenuItem
+          Caption = 'All'
+          OnClick = MenuItem19Click
+        end
+        object MenuItem20: TMenuItem
+          Caption = 'from ID to End'
+          OnClick = MenuItem18Click
+        end
       end
     end
     object MenuItem15: TMenuItem

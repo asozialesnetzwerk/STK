@@ -1,0 +1,49 @@
+object frm_drv_cont: Tfrm_drv_cont
+  Left = 571
+  Height = 87
+  Top = 319
+  Width = 366
+  HorzScrollBar.Page = 365
+  VertScrollBar.Page = 86
+  Caption = 'Set Driveline ...'
+  ClientHeight = 87
+  ClientWidth = 366
+  Position = poScreenCenter
+  LCLVersion = '0.9.25'
+  object Label1: TLabel
+    Left = 16
+    Height = 16
+    Top = 16
+    Width = 97
+    Caption = 'Way continue on:'
+    Font.Style = [fsBold]
+    ParentColor = False
+  end
+  object Button1: TButton
+    Left = 16
+    Height = 25
+    Top = 40
+    Width = 75
+    Caption = 'ROAD'
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+  object Button2: TButton
+    Left = 104
+    Height = 25
+    Top = 40
+    Width = 75
+    Caption = 'BRIDGE'
+    OnClick = Button2Click
+    TabOrder = 1
+  end
+  object Button3: TButton
+    Left = 264
+    Height = 25
+    Top = 40
+    Width = 75
+    Caption = 'Cancel'
+    OnClick = Button3Click
+    TabOrder = 2
+  end
+end

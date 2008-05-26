@@ -7,7 +7,7 @@ unit agfx_leveldesign_class;
 interface
 
 uses
-  Classes, SysUtils,agfx_types,agfx_definition_class,agfx_config;
+  Classes, SysUtils,agfx_types,agfx_definition_class,agfx_config,frm_drv_cont_unit;
 
 const
 // *****************************************************************************
@@ -52,6 +52,7 @@ type TLevelGrid = class
      project_name:String;
      def_file_name:String;
      config:TConfig;
+     dst_drv_layer:integer;
      DrvR_List:TStringList;
      DrvL_List:TStringList;
      drv_id_count:integer;
@@ -75,7 +76,7 @@ type TLevelGrid = class
      end;
 
 implementation
-
+uses main;
 // *****************************************************************************
 //
 // *****************************************************************************
@@ -185,35 +186,64 @@ begin
      // is ROAD
      L0_ID:= self.cell[_x+self.view_pos.x,_y+self.view_pos.y].item_road_id;
 
-
+     // when is engaged -> EXIT
      if ((self.cell[_x+self.view_pos.x,_y+self.view_pos.y].drv_id_top<>-1) and
          (self.cell[_x+self.view_pos.x,_y+self.view_pos.y].drv_id<>-1)) then exit;
-     
-     if ((L1_ID<>-1) and
+
+
+     // ROAD = exist / BRIDGE = missing
+     if ((L0_ID<>-1) and (L1_ID=-1) and
          (self.cell[_x+self.view_pos.x,_y+self.view_pos.y].drv_id_top=-1) and
-         (self.cell[_x+self.view_pos.x,_y+self.view_pos.y].drv_id<>-1)) then
+         (self.cell[_x+self.view_pos.x,_y+self.view_pos.y].drv_id=-1)) then
+     begin
+          L0_type:=self.LevelItemDefinition.item[L0_ID].ItemType;
+          if (L0_type='ROAD')  then
+          begin
+              self.cell[_x+self.view_pos.x,_y+self.view_pos.y].drv_id:=self.drv_id_count;
+              inc(self.drv_id_count);
+          end;
+     end;
+     
+     
+     // ROAD = missing / BRIDGE = exist
+     if ((L1_ID<>-1) and (L0_ID=0)  and
+         (self.cell[_x+self.view_pos.x,_y+self.view_pos.y].drv_id_top=-1) and
+         (self.cell[_x+self.view_pos.x,_y+self.view_pos.y].drv_id=-1)) then
      begin
           L1_type:=self.LevelItemDefinition.item[L1_ID].ItemType;
-          if (L1_type='BRIDGE') or ((L1_type='ROAD')) then
+          if (L1_type='BRIDGE')  then
           begin
               self.cell[_x+self.view_pos.x,_y+self.view_pos.y].drv_id_top:=self.drv_id_count;
               inc(self.drv_id_count);
           end;
      end;
 
-     if ((L0_ID<>-1) and
-         (self.cell[_x+self.view_pos.x,_y+self.view_pos.y].drv_id_top=-1) and
-         (self.cell[_x+self.view_pos.x,_y+self.view_pos.y].drv_id=-1)) then
+     if ((L1_ID<>-1) and (L0_ID<>-1))  then
      begin
-          L0_type:=self.LevelItemDefinition.item[L0_ID].ItemType;
-          if (L0_type='BRIDGE') or ((L0_type='ROAD')) then
-          begin
-              self.cell[_x+self.view_pos.x,_y+self.view_pos.y].drv_id:=self.drv_id_count;
-              inc(self.drv_id_count);
-          end;
+     
+         L0_type:=self.LevelItemDefinition.item[L0_ID].ItemType;
+         L1_type:=self.LevelItemDefinition.item[L1_ID].ItemType;
+         if ((L0_type='ROAD') and (L1_type='BRIDGE')) then
+         begin
+              frm_drv_cont.ShowModal;
+         
+              // continue on ROAD
+              if self.dst_drv_layer=0 then
+              begin
+                   self.cell[_x+self.view_pos.x,_y+self.view_pos.y].drv_id:=self.drv_id_count;
+                   inc(self.drv_id_count);
+                   frm_main.DrawMapGridFull();
+              end;
+
+              // continue on BRIDGE
+              if self.dst_drv_layer=1 then
+              begin
+                   self.cell[_x+self.view_pos.x,_y+self.view_pos.y].drv_id_top:=self.drv_id_count;
+                   inc(self.drv_id_count);
+                   frm_main.DrawMapGridFull();
+              end;
+         end;
      end;
-
-
 
 end;
 

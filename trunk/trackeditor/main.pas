@@ -61,7 +61,9 @@ type
     MenuItem16: TMenuItem;
     MenuItem17: TMenuItem;
     MenuItem18: TMenuItem;
+    MenuItem19: TMenuItem;
     MenuItem2: TMenuItem;
+    MenuItem20: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
@@ -107,6 +109,7 @@ type
     procedure MenuItem16Click(Sender: TObject);
     procedure MenuItem17Click(Sender: TObject);
     procedure MenuItem18Click(Sender: TObject);
+    procedure MenuItem19Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
     procedure MenuItem4Click(Sender: TObject);
     procedure MenuItem5Click(Sender: TObject);
@@ -505,6 +508,22 @@ begin
 
      end;
 
+     DrawMapGridFull();
+end;
+
+procedure Tfrm_main.MenuItem19Click(Sender: TObject);
+var mx,my:integer;
+    del_drv:integer;
+begin
+
+
+        for mx:=0 to LEVEL.size.x-1 do
+        for my:=0 to LEVEL.size.y-1 do
+        begin
+             LEVEL.cell[mx,my].drv_id_top:=-1;
+             LEVEL.cell[mx,my].drv_id:=-1;
+         end;
+     LEVEL.drv_id_count:=0;
      DrawMapGridFull();
 end;
 
