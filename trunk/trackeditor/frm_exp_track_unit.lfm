@@ -1,7 +1,7 @@
 object frm_export_track: Tfrm_export_track
-  Left = 271
+  Left = 433
   Height = 207
-  Top = 118
+  Top = 184
   Width = 400
   HorzScrollBar.Page = 399
   VertScrollBar.Page = 206
@@ -52,6 +52,8 @@ object frm_export_track: Tfrm_export_track
     Top = 72
     Width = 53
     Caption = '*.drvr'
+    Checked = True
+    State = cbChecked
     TabOrder = 3
   end
   object CheckBox2: TCheckBox
@@ -60,6 +62,8 @@ object frm_export_track: Tfrm_export_track
     Top = 96
     Width = 52
     Caption = '*.drvl'
+    Checked = True
+    State = cbChecked
     TabOrder = 4
   end
   object CheckBox3: TCheckBox
@@ -91,5 +95,13 @@ object frm_export_track: Tfrm_export_track
     Checked = True
     State = cbChecked
     TabOrder = 7
+  end
+  object chk_drv_debug: TCheckBox
+    Left = 105
+    Height = 21
+    Top = 72
+    Width = 160
+    Caption = 'DRV output to Debug mode'
+    TabOrder = 8
   end
 end

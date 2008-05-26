@@ -21,6 +21,7 @@ type
     CheckBox3: TCheckBox;
     CheckBox4: TCheckBox;
     CheckBox5: TCheckBox;
+    chk_drv_debug: TCheckBox;
     DirectoryEdit1: TDirectoryEdit;
     Label1: TLabel;
     procedure Button1Click(Sender: TObject);
@@ -49,6 +50,7 @@ begin
   frm_main.LEVEL.COnfig.bLOC:=CheckBox3.Checked;
   frm_main.LEVEL.COnfig.bTRACK:=CheckBox4.Checked;
   frm_main.LEVEL.COnfig.bHERRING:=CheckBox5.Checked;
+  frm_main.LEVEL.COnfig.bDRVDEB:=chk_drv_debug.Checked;
   
   frm_main.LEVEL.COnfig.export_path:=DirectoryEdit1.Text;
   

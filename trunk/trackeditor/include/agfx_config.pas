@@ -28,6 +28,7 @@ type TConfig = class
            bDRVR                         : boolean;
            bTRACK                         : boolean;
            bHERRING                         : boolean;
+           bDRVDEB                          : boolean;
            refresh:integer;
            constructor Create;
            destructor Destroy;

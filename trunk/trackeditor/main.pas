@@ -93,6 +93,8 @@ type
     procedure FormShow(Sender: TObject);
     procedure IconScrollBarChange(Sender: TObject);
     procedure item_image_1Click(Sender: TObject);
+    procedure item_image_1MouseEnter(Sender: TObject);
+    procedure item_image_1MouseLeave(Sender: TObject);
     procedure LevelItemListBoxClick(Sender: TObject);
     procedure LevelPaintBoxClick(Sender: TObject);
     procedure LevelPaintBoxMouseDown(Sender: TObject; Button: TMouseButton;
@@ -249,6 +251,16 @@ begin
           self.chk_decor.Checked:=true;
           cursor_mode:=1;
      end;
+
+end;
+
+procedure Tfrm_main.item_image_1MouseEnter(Sender: TObject);
+begin
+
+end;
+
+procedure Tfrm_main.item_image_1MouseLeave(Sender: TObject);
+begin
 
 end;
 

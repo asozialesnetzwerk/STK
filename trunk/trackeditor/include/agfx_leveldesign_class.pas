@@ -83,7 +83,7 @@ type TLevelGrid = class
          function GetSubCell(_x,_y,_sx,_sy:integer;src_cell:String):integer;
          function GetAllCell():TLevelCell;
          procedure SetAllCell(c:TLevelCell);
-         procedure PrepareDriveLine();
+         procedure PrepareDriveLine(dbg:boolean);
          function Get_item_by_DrvID(id:integer):TDrvData;
      end;
 
@@ -347,7 +347,7 @@ begin
 end;
 
 
-procedure TLevelGrid.PrepareDriveLine();
+procedure TLevelGrid.PrepareDriveLine(dbg:boolean);
 var item_id,i:Integer;
     ItemD:TDrvData;
     sx,sy,sz:single;
@@ -359,6 +359,7 @@ var item_id,i:Integer;
     i_rot_LA:TF3D_Vector3f;
     i_rot_RA:TF3D_Vector3f;
     final_POINT:TF3D_Vector3f;
+    id_name:String;
     
 begin
 
@@ -378,21 +379,44 @@ begin
         
         i_LA:=self.LevelItemDefinition.item[itemD.id].drvl_A;
         i_rot_LA:=GetRotatedDRV(i_LA,i_ang);
-        
+        id_name:=self.LevelItemDefinition.item[itemD.id].name;
         final_POINT.x:= sx + i_rot_LA.x;
-        final_POINT.y:= sy + i_rot_LA.y;
+        final_POINT.y:= -sy + i_rot_LA.y;
         final_POINT.z:= sz + i_rot_LA.z;
 
-        self.DrvL_List.Add(FloatToStr(final_POINT.x)+','+FloatToStr(final_POINT.y)+','+FloatToStr(final_POINT.z));
+        if dbg then
+        begin
+             final_POINT.x:=i_rot_LA.x;
+             final_POINT.y:=i_rot_LA.y;
+             final_POINT.z:=i_rot_LA.z;
+        end;
+
+
+        if dbg then
+           self.DrvL_List.Add(format('%10s [%d,%d] = %f,%f,%f',[id_name,itemD.cx,itemD.cy,final_POINT.x,final_POINT.y,final_POINT.z]))
+        else
+            self.DrvL_List.Add(FloatToStr(final_POINT.x)+','+FloatToStr(final_POINT.y)+','+FloatToStr(final_POINT.z));
+
         
         i_RA:=self.LevelItemDefinition.item[itemD.id].drvr_A;
         i_rot_RA:=GetRotatedDRV(i_RA,i_ang);
         
         final_POINT.x:= sx + i_rot_RA.x;
-        final_POINT.y:= sy + i_rot_RA.y;
+        final_POINT.y:= -sy + i_rot_RA.y;
         final_POINT.z:= sz + i_rot_RA.z;
 
-        self.DrvR_List.Add(FloatToStr(final_POINT.x)+','+FloatToStr(final_POINT.y)+','+FloatToStr(final_POINT.z));
+        if dbg then
+        begin
+             final_POINT.x:=i_rot_RA.x;
+             final_POINT.y:=i_rot_RA.y;
+             final_POINT.z:=i_rot_RA.z;
+        end;
+
+        if dbg then
+            self.DrvR_List.Add(format('%10s [%d,%d] = %f,%f,%f',[id_name,itemD.cx,itemD.cy,final_POINT.x,final_POINT.y,final_POINT.z]))
+        else
+            self.DrvR_List.Add(FloatToStr(final_POINT.x)+','+FloatToStr(final_POINT.y)+','+FloatToStr(final_POINT.z));
+        
         
      end;
 

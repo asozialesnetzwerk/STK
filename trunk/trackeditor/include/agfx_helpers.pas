@@ -18,7 +18,7 @@ function GetRotatedDRV(V:TF3D_Vector3f;angle:single):TF3D_Vector3f;
 var res:TF3D_Vector3f;
 begin
 
-     if angle=90 then
+     if angle=0 then
      begin
           res:=v;
      end;
@@ -40,7 +40,7 @@ begin
      if angle=270 then
      begin
           res.x:=-v.y;
-          res.y:=-v.x;
+          res.y:=v.x;
           res.z:=v.z;
      end;
 
