@@ -1,0 +1,16 @@
+;; -*- mode: lisp -*-
+
+(tuxkart-track
+ (name        "track-editor")
+ (description "peter.kramarik@gmail.com & o.kollar@gmail.com")
+ (music       "oggs/kart_grand_prix.ogg")
+ (screenshot  "track-editor/sshot-track-editor.rgb")
+ (topview     "track-editor/topview-track-editor.rgb")
+ (AI-curve-speed-adjust  1.7)
+ (AI-angle-adjust        2.3)
+
+)
+
+;; EOF ;;
+
+
