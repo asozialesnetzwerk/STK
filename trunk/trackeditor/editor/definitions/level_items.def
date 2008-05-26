@@ -50,9 +50,9 @@
 }
 {
 	type     : ROAD
-	name     : forward_0
+	name     : forward_right
 	imageiso : iso_icon_forward_0.png
-	image 	 : icon_forward_0.png
+	image 	 : icon_forward_right.png
 	model    : track-editor/street.ac
 	position : 0,0,0
 	rotation : 0,0,0
@@ -63,12 +63,38 @@
 }
 {
 	type     : ROAD
-	name     : forward_1
+	name     : forward_left
 	imageiso : iso_icon_forward_1.png
-	image 	 : icon_forward_1.png
+	image 	 : icon_forward_left.png
+	model    : track-editor/street.ac
+	position : 0,0,0
+	rotation : 180,0,0
+	drvl_A   :-5,0,0
+	drvl_B   :0,0,0
+	drvr_A   :5,0,0
+	drvr_B   :0,0,0
+}
+{
+	type     : ROAD
+	name     : forward_up
+	imageiso : iso_icon_forward_0.png
+	image 	 : icon_forward_up.png
 	model    : track-editor/street.ac
 	position : 0,0,0
 	rotation : 90,0,0
+	drvl_A   :-5,0,0
+	drvl_B   :0,0,0
+	drvr_A   :5,0,0
+	drvr_B   :0,0,0
+}
+{
+	type     : ROAD
+	name     : forward_down
+	imageiso : iso_icon_forward_1.png
+	image 	 : icon_forward_down.png
+	model    : track-editor/street.ac
+	position : 0,0,0
+	rotation : 270,0,0
 	drvl_A   :-5,0,0
 	drvl_B   :0,0,0
 	drvr_A   :5,0,0
@@ -141,9 +167,9 @@
 }
 {
 	type	 :BRIDGE
-	name	 :l1_street_0
+	name	 :l1_street_right
 	imageiso :iso_l1_street.png
-	image    :l1_street_0.png
+	image    :l1_street_right.png
 	model	 :track-editor/street.ac
 	position :0,0,2.5
 	rotation :0,0,0
@@ -154,12 +180,38 @@
 }
 {
 	type	 :BRIDGE
-	name	 :l1_street_1
+	name	 :l1_street_left
 	imageiso :iso_l1_street.png
-	image    :l1_street_1.png
+	image    :l1_street_left.png
+	model	 :track-editor/street.ac
+	position :0,0,2.5
+	rotation :180,0,0
+	drvl_A   :-5,0,2.5
+	drvl_B   :0,0,0
+	drvr_A   :5,0,2.5
+	drvr_B   :0,0,0
+}
+{
+	type	 :BRIDGE
+	name	 :l1_street_up
+	imageiso :iso_l1_street.png
+	image    :l1_street_up.png
 	model	 :track-editor/street.ac
 	position :0,0,2.5
 	rotation :90,0,0
+	drvl_A   :-5,0,2.5
+	drvl_B   :0,0,0
+	drvr_A   :5,0,2.5
+	drvr_B   :0,0,0
+}
+{
+	type	 :BRIDGE
+	name	 :l1_street_down
+	imageiso :iso_l1_street.png
+	image    :l1_street_down.png
+	model	 :track-editor/street.ac
+	position :0,0,2.5
+	rotation :270,0,0
 	drvl_A   :-5,0,2.5
 	drvl_B   :0,0,0
 	drvr_A   :5,0,2.5
