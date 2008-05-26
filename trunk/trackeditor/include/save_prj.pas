@@ -158,12 +158,13 @@ var out_level:TStringList;
     model:string;
     POS:TF3D_Vector3f;
     ROT:TF3D_Vector3f;
+    itm_TYP,itm_EVENT:String;
     
     
     procedure AddToFile(m:String;mx:integer;my:integer;p:TF3D_Vector3f;R:TF3D_Vector3f;typ:string;sx,sy:Integer;ev:String);
     var fx,fy,fz,fax,fay,faz:single;
     begin
-         if (TYP='ROAD')then
+         if ((TYP='ROAD') or (TYP='GROUND'))then
          begin
               fx:=(mx*frm_main.LEVEL.Config.UNIT_SIZE)+p.x-(frm_main.LEVEL.Config.UNIT_SIZE/2);
               fy:=(my*frm_main.LEVEL.Config.UNIT_SIZE)+p.y-(frm_main.LEVEL.Config.UNIT_SIZE/2);
@@ -176,7 +177,7 @@ var out_level:TStringList;
               out_level.add('"'+m+'",'+FLoatToStr(frm_main.LEVEL.Config.FLIP_X*fx)+','+FLoatToStr(frm_main.LEVEL.Config.FLIP_Y*fy)+','+FLoatToStr(fz)+','+FLoatToStr(frm_main.LEVEL.Config.MODEL_ANGLE+fax)+','+FLoatToStr(fay)+','+FLoatToStr(faz));
          end;
          
-         if ((TYP='OBSTACLE') or (TYP='DECOR64')) then
+         if ((TYP='BRIDGE') or (TYP='OBSTACLE') or (TYP='DECOR64')) then
          begin
               fx:=(mx*frm_main.LEVEL.Config.UNIT_SIZE)+p.x-(frm_main.LEVEL.Config.UNIT_SIZE/2);
               fy:=(my*frm_main.LEVEL.Config.UNIT_SIZE)+p.y-(frm_main.LEVEL.Config.UNIT_SIZE/2);
@@ -217,7 +218,7 @@ begin
      
      
      // LOC FILE
-     out_level.Add('# Created by STUXE 2008 Editor.');
+     out_level.Add('# Created by STKed 2008 Editor.');
      out_level.Add('#');
 
      for mxx:=0 to frm_main.LEVEL.size.x-1 do
@@ -230,7 +231,10 @@ begin
               POS:=frm_main.LEVEL.LevelItemDefinition.item[ID].position;
               ROT:=frm_main.LEVEL.LevelItemDefinition.item[ID].rotation;
               
-              AddToFile(model,mxx,myy,POS,ROT,'ROAD',0,0,'none');
+              itm_TYP:=UpperCase(frm_main.LEVEL.LevelItemDefinition.item[ID].ItemType);
+              itm_EVENT:=UpperCase(frm_main.LEVEL.LevelItemDefinition.item[ID].event);
+
+              AddToFile(model,mxx,myy,POS,ROT,itm_TYP,0,0,itm_EVENT);
               
 
               ID:=frm_main.LEVEL.cell[mxx,myy].item_obst_id;
@@ -242,7 +246,10 @@ begin
                    POS:=frm_main.LEVEL.LevelItemDefinition.item[ID].position;
                    ROT:=frm_main.LEVEL.LevelItemDefinition.item[ID].rotation;
 
-                   AddToFile(model,mxx,myy,POS,ROT,'OBSTACLE',0,0,'none');
+                   itm_TYP:=UpperCase(frm_main.LEVEL.LevelItemDefinition.item[ID].ItemType);
+                   itm_EVENT:=UpperCase(frm_main.LEVEL.LevelItemDefinition.item[ID].event);
+              
+                   AddToFile(model,mxx,myy,POS,ROT,itm_TYP,0,0,itm_EVENT);
               end;
 
               for sx:=0 to MAX_SUB_SIZE-1 do

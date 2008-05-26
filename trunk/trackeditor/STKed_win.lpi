@@ -48,7 +48,7 @@
         <ResourceBaseClass Value="Form"/>
         <ResourceFilename Value="main.lrs"/>
         <UnitName Value="main"/>
-        <CursorPos X="45" Y="745"/>
+        <CursorPos X="25" Y="707"/>
         <TopLine Value="705"/>
         <EditorIndex Value="1"/>
         <UsageCount Value="121"/>
@@ -127,8 +127,8 @@
         <Filename Value="include\save_prj.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="save_prj"/>
-        <CursorPos X="52" Y="109"/>
-        <TopLine Value="78"/>
+        <CursorPos X="38" Y="11"/>
+        <TopLine Value="1"/>
         <EditorIndex Value="3"/>
         <UsageCount Value="83"/>
         <Loaded Value="True"/>
@@ -186,14 +186,23 @@
         <Filename Value="include\agfx_helpers.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="agfx_helpers"/>
-        <CursorPos X="34" Y="22"/>
+        <CursorPos X="28" Y="3"/>
         <TopLine Value="1"/>
         <EditorIndex Value="2"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit16>
     </Units>
-    <JumpHistory Count="0" HistoryIndex="-1"/>
+    <JumpHistory Count="2" HistoryIndex="1">
+      <Position1>
+        <Filename Value="include\save_prj.pas"/>
+        <Caret Line="179" Column="26" TopLine="163"/>
+      </Position1>
+      <Position2>
+        <Filename Value="include\save_prj.pas"/>
+        <Caret Line="257" Column="38" TopLine="246"/>
+      </Position2>
+    </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>
     <Version Value="5"/>
