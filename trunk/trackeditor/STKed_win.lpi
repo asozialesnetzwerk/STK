@@ -8,7 +8,7 @@
       <IconPath Value="./"/>
       <TargetFileExt Value=".exe"/>
       <Title Value="STKed"/>
-      <ActiveEditorIndexAtStart Value="0"/>
+      <ActiveEditorIndexAtStart Value="5"/>
     </General>
     <VersionInfo>
       <ProjectVersion Value=""/>
@@ -92,8 +92,8 @@
         <Filename Value="include\agfx_leveldesign_class.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="agfx_leveldesign_class"/>
-        <CursorPos X="86" Y="484"/>
-        <TopLine Value="469"/>
+        <CursorPos X="67" Y="274"/>
+        <TopLine Value="256"/>
         <EditorIndex Value="0"/>
         <UsageCount Value="115"/>
         <Loaded Value="True"/>
@@ -129,8 +129,8 @@
         <Filename Value="include\save_prj.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="save_prj"/>
-        <CursorPos X="37" Y="293"/>
-        <TopLine Value="260"/>
+        <CursorPos X="95" Y="273"/>
+        <TopLine Value="243"/>
         <EditorIndex Value="5"/>
         <UsageCount Value="94"/>
         <Loaded Value="True"/>
@@ -214,43 +214,11 @@
         <UsageCount Value="10"/>
       </Unit18>
     </Units>
-    <JumpHistory Count="9" HistoryIndex="8">
+    <JumpHistory Count="1" HistoryIndex="0">
       <Position1>
-        <Filename Value="include\agfx_definition_class.pas"/>
-        <Caret Line="98" Column="39" TopLine="90"/>
+        <Filename Value="include\save_prj.pas"/>
+        <Caret Line="212" Column="35" TopLine="178"/>
       </Position1>
-      <Position2>
-        <Filename Value="include\agfx_definition_class.pas"/>
-        <Caret Line="111" Column="28" TopLine="92"/>
-      </Position2>
-      <Position3>
-        <Filename Value="include\agfx_definition_class.pas"/>
-        <Caret Line="1" Column="1" TopLine="1"/>
-      </Position3>
-      <Position4>
-        <Filename Value="include\agfx_definition_class.pas"/>
-        <Caret Line="111" Column="38" TopLine="92"/>
-      </Position4>
-      <Position5>
-        <Filename Value="include\agfx_definition_class.pas"/>
-        <Caret Line="1" Column="1" TopLine="1"/>
-      </Position5>
-      <Position6>
-        <Filename Value="include\agfx_definition_class.pas"/>
-        <Caret Line="112" Column="87" TopLine="92"/>
-      </Position6>
-      <Position7>
-        <Filename Value="include\agfx_definition_class.pas"/>
-        <Caret Line="1" Column="1" TopLine="1"/>
-      </Position7>
-      <Position8>
-        <Filename Value="include\agfx_definition_class.pas"/>
-        <Caret Line="112" Column="28" TopLine="92"/>
-      </Position8>
-      <Position9>
-        <Filename Value="include\agfx_definition_class.pas"/>
-        <Caret Line="113" Column="50" TopLine="93"/>
-      </Position9>
     </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>

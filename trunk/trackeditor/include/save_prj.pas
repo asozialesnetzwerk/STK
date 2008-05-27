@@ -206,7 +206,11 @@ var out_level:TStringList;
 
               if (UpperCase(ev)='NONE') then out_level.add('"'+m+'",'+FLoatToStr(frm_main.LEVEL.Config.FLIP_X*fx)+','+FLoatToStr(frm_main.LEVEL.Config.FLIP_Y*fy)+','+FLoatToStr(fz)+','+FLoatToStr(frm_main.LEVEL.Config.MODEL_ANGLE+fax)+','+FLoatToStr(fay)+','+FLoatToStr(faz));
               if (UpperCase(ev)='AUTOZ') then out_level.add('"'+m+'",'+FLoatToStr(frm_main.LEVEL.Config.FLIP_X*fx)+','+FLoatToStr(frm_main.LEVEL.Config.FLIP_Y*fy)+',{},'+FLoatToStr(frm_main.LEVEL.Config.MODEL_ANGLE+fax)+','+FLoatToStr(fay)+','+FLoatToStr(faz));
-              if (UpperCase(ev)='HERRING') then out_level.add(ev+','+FLoatToStr(frm_main.LEVEL.Config.FLIP_X*fx)+','+FLoatToStr(frm_main.LEVEL.Config.FLIP_Y*fy))
+              if (UpperCase(ev)='YHERRING') then out_level.add(ev+','+FLoatToStr(frm_main.LEVEL.Config.FLIP_X*fx)+','+FLoatToStr(frm_main.LEVEL.Config.FLIP_Y*fy));
+              if (UpperCase(ev)='SHERRING') then out_level.add(ev+','+FLoatToStr(frm_main.LEVEL.Config.FLIP_X*fx)+','+FLoatToStr(frm_main.LEVEL.Config.FLIP_Y*fy)) ;
+              if (UpperCase(ev)='GHERRING') then out_level.add(ev+','+FLoatToStr(frm_main.LEVEL.Config.FLIP_X*fx)+','+FLoatToStr(frm_main.LEVEL.Config.FLIP_Y*fy)) ;
+              if (UpperCase(ev)='RHERRING') then out_level.add(ev+','+FLoatToStr(frm_main.LEVEL.Config.FLIP_X*fx)+','+FLoatToStr(frm_main.LEVEL.Config.FLIP_Y*fy)) ;
+              
 
 
          end;
@@ -249,6 +253,21 @@ begin
                    itm_TYP:=UpperCase(frm_main.LEVEL.LevelItemDefinition.item[ID].ItemType);
                    itm_EVENT:=UpperCase(frm_main.LEVEL.LevelItemDefinition.item[ID].event);
               
+                   AddToFile(model,mxx,myy,POS,ROT,itm_TYP,0,0,itm_EVENT);
+              end;
+              
+              ID:=frm_main.LEVEL.cell[mxx,myy].item_dec64_id;
+
+
+              if ID>=0 then
+              begin
+                   model:=frm_main.LEVEL.LevelItemDefinition.item[ID].model_file;
+                   POS:=frm_main.LEVEL.LevelItemDefinition.item[ID].position;
+                   ROT:=frm_main.LEVEL.LevelItemDefinition.item[ID].rotation;
+
+                   itm_TYP:=UpperCase(frm_main.LEVEL.LevelItemDefinition.item[ID].ItemType);
+                   itm_EVENT:=UpperCase(frm_main.LEVEL.LevelItemDefinition.item[ID].event);
+
                    AddToFile(model,mxx,myy,POS,ROT,itm_TYP,0,0,itm_EVENT);
               end;
 
