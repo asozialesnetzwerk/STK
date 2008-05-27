@@ -8,7 +8,7 @@
       <IconPath Value="./"/>
       <TargetFileExt Value=".exe"/>
       <Title Value="STKed"/>
-      <ActiveEditorIndexAtStart Value="4"/>
+      <ActiveEditorIndexAtStart Value="0"/>
     </General>
     <VersionInfo>
       <ProjectVersion Value=""/>
@@ -37,8 +37,8 @@
         <UnitName Value="STKed"/>
         <CursorPos X="54" Y="13"/>
         <TopLine Value="1"/>
-        <EditorIndex Value="7"/>
-        <UsageCount Value="129"/>
+        <EditorIndex Value="8"/>
+        <UsageCount Value="132"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -51,17 +51,17 @@
         <CursorPos X="20" Y="35"/>
         <TopLine Value="34"/>
         <EditorIndex Value="2"/>
-        <UsageCount Value="129"/>
+        <UsageCount Value="132"/>
         <Loaded Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="include\agfx_definition_class.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="AGFX_definition_class"/>
-        <CursorPos X="32" Y="112"/>
-        <TopLine Value="78"/>
-        <EditorIndex Value="9"/>
-        <UsageCount Value="129"/>
+        <CursorPos X="60" Y="118"/>
+        <TopLine Value="89"/>
+        <EditorIndex Value="10"/>
+        <UsageCount Value="132"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -70,14 +70,16 @@
         <UnitName Value="AGFX_GLOBALS"/>
         <CursorPos X="1" Y="9"/>
         <TopLine Value="1"/>
-        <UsageCount Value="129"/>
+        <UsageCount Value="132"/>
       </Unit3>
       <Unit4>
         <Filename Value="include\agfx_types.pas"/>
         <UnitName Value="agfx_types"/>
-        <CursorPos X="34" Y="154"/>
-        <TopLine Value="497"/>
-        <UsageCount Value="13"/>
+        <CursorPos X="18" Y="85"/>
+        <TopLine Value="75"/>
+        <EditorIndex Value="4"/>
+        <UsageCount Value="14"/>
+        <Loaded Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="include\agfx_parser.pas"/>
@@ -90,10 +92,10 @@
         <Filename Value="include\agfx_leveldesign_class.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="agfx_leveldesign_class"/>
-        <CursorPos X="61" Y="411"/>
-        <TopLine Value="388"/>
+        <CursorPos X="86" Y="484"/>
+        <TopLine Value="469"/>
         <EditorIndex Value="0"/>
-        <UsageCount Value="112"/>
+        <UsageCount Value="115"/>
         <Loaded Value="True"/>
       </Unit6>
       <Unit7>
@@ -105,8 +107,8 @@
         <UnitName Value="frm_new"/>
         <CursorPos X="1" Y="1"/>
         <TopLine Value="1"/>
-        <EditorIndex Value="5"/>
-        <UsageCount Value="111"/>
+        <EditorIndex Value="6"/>
+        <UsageCount Value="114"/>
         <Loaded Value="True"/>
       </Unit7>
       <Unit8>
@@ -127,10 +129,10 @@
         <Filename Value="include\save_prj.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="save_prj"/>
-        <CursorPos X="66" Y="165"/>
-        <TopLine Value="156"/>
-        <EditorIndex Value="4"/>
-        <UsageCount Value="91"/>
+        <CursorPos X="37" Y="293"/>
+        <TopLine Value="260"/>
+        <EditorIndex Value="5"/>
+        <UsageCount Value="94"/>
         <Loaded Value="True"/>
       </Unit10>
       <Unit11>
@@ -146,8 +148,8 @@
         <UnitName Value="agfx_config"/>
         <CursorPos X="12" Y="31"/>
         <TopLine Value="1"/>
-        <EditorIndex Value="10"/>
-        <UsageCount Value="72"/>
+        <EditorIndex Value="11"/>
+        <UsageCount Value="75"/>
         <Loaded Value="True"/>
       </Unit12>
       <Unit13>
@@ -165,8 +167,8 @@
         <UnitName Value="frm_EportDone_unit"/>
         <CursorPos X="20" Y="12"/>
         <TopLine Value="1"/>
-        <EditorIndex Value="6"/>
-        <UsageCount Value="59"/>
+        <EditorIndex Value="7"/>
+        <UsageCount Value="62"/>
         <Loaded Value="True"/>
       </Unit14>
       <Unit15>
@@ -178,18 +180,18 @@
         <UnitName Value="frm_exp_track_unit"/>
         <CursorPos X="42" Y="43"/>
         <TopLine Value="35"/>
-        <EditorIndex Value="8"/>
-        <UsageCount Value="59"/>
+        <EditorIndex Value="9"/>
+        <UsageCount Value="62"/>
         <Loaded Value="True"/>
       </Unit15>
       <Unit16>
         <Filename Value="include\agfx_helpers.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="agfx_helpers"/>
-        <CursorPos X="18" Y="43"/>
-        <TopLine Value="12"/>
+        <CursorPos X="11" Y="81"/>
+        <TopLine Value="61"/>
         <EditorIndex Value="3"/>
-        <UsageCount Value="28"/>
+        <UsageCount Value="31"/>
         <Loaded Value="True"/>
       </Unit16>
       <Unit17>
@@ -202,7 +204,7 @@
         <CursorPos X="36" Y="50"/>
         <TopLine Value="13"/>
         <EditorIndex Value="1"/>
-        <UsageCount Value="26"/>
+        <UsageCount Value="29"/>
         <Loaded Value="True"/>
       </Unit17>
       <Unit18>
@@ -212,7 +214,44 @@
         <UsageCount Value="10"/>
       </Unit18>
     </Units>
-    <JumpHistory Count="0" HistoryIndex="-1"/>
+    <JumpHistory Count="9" HistoryIndex="8">
+      <Position1>
+        <Filename Value="include\agfx_definition_class.pas"/>
+        <Caret Line="98" Column="39" TopLine="90"/>
+      </Position1>
+      <Position2>
+        <Filename Value="include\agfx_definition_class.pas"/>
+        <Caret Line="111" Column="28" TopLine="92"/>
+      </Position2>
+      <Position3>
+        <Filename Value="include\agfx_definition_class.pas"/>
+        <Caret Line="1" Column="1" TopLine="1"/>
+      </Position3>
+      <Position4>
+        <Filename Value="include\agfx_definition_class.pas"/>
+        <Caret Line="111" Column="38" TopLine="92"/>
+      </Position4>
+      <Position5>
+        <Filename Value="include\agfx_definition_class.pas"/>
+        <Caret Line="1" Column="1" TopLine="1"/>
+      </Position5>
+      <Position6>
+        <Filename Value="include\agfx_definition_class.pas"/>
+        <Caret Line="112" Column="87" TopLine="92"/>
+      </Position6>
+      <Position7>
+        <Filename Value="include\agfx_definition_class.pas"/>
+        <Caret Line="1" Column="1" TopLine="1"/>
+      </Position7>
+      <Position8>
+        <Filename Value="include\agfx_definition_class.pas"/>
+        <Caret Line="112" Column="28" TopLine="92"/>
+      </Position8>
+      <Position9>
+        <Filename Value="include\agfx_definition_class.pas"/>
+        <Caret Line="113" Column="50" TopLine="93"/>
+      </Position9>
+    </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>
     <Version Value="5"/>

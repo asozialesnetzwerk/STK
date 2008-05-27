@@ -85,6 +85,7 @@ type TLevelGrid = class
          procedure SetAllCell(c:TLevelCell);
          procedure PrepareDriveLine(dbg:boolean);
          function Get_item_by_DrvID(id:integer):TDrvData;
+         procedure PrepareDriveLine2(dbg:boolean);
      end;
 
 implementation
@@ -393,7 +394,7 @@ begin
 
 
         if dbg then
-           self.DrvL_List.Add(format('%10s [%d,%d] = %f,%f,%f',[id_name,itemD.cx,itemD.cy,final_POINT.x,final_POINT.y,final_POINT.z]))
+           self.DrvL_List.Add(format('%15s [%d,%d] = %f,%f,%f',[id_name,itemD.cx,itemD.cy,final_POINT.x,final_POINT.y,final_POINT.z]))
         else
             self.DrvL_List.Add(FloatToStr(final_POINT.x)+','+FloatToStr(final_POINT.y)+','+FloatToStr(final_POINT.z));
 
@@ -413,13 +414,103 @@ begin
         end;
 
         if dbg then
-            self.DrvR_List.Add(format('%10s [%d,%d] = %f,%f,%f',[id_name,itemD.cx,itemD.cy,final_POINT.x,final_POINT.y,final_POINT.z]))
+            self.DrvR_List.Add(format('%15s [%d,%d] = %f,%f,%f',[id_name,itemD.cx,itemD.cy,final_POINT.x,final_POINT.y,final_POINT.z]))
         else
             self.DrvR_List.Add(FloatToStr(final_POINT.x)+','+FloatToStr(final_POINT.y)+','+FloatToStr(final_POINT.z));
         
         
      end;
 
+end;
+
+procedure TLevelGrid.PrepareDriveLine2(dbg:boolean);
+var P,O,N:TF3D_Vector2i;
+    ItemP:TDrvData;
+    ItemO:TDrvData;
+    ItemN:TDrvData;
+    i:integer;
+    DRV:TDRVLINE;
+    sx,sy,sz:single;
+    final_LEFT:TF3D_Vector3f;
+    final_RIGHT:TF3D_Vector3f;
+    id_name:String;
+    
+    pid,oid,nid:integer;
+begin
+
+
+
+       for i:=0 to self.drv_id_count-1 do
+     begin
+
+        if i>0 then
+        begin
+             pid:=i-1;
+             oid:=i;
+             nid:=i+1
+        end;
+
+        if i=0 then
+        begin
+             pid:=self.drv_id_count-1;
+             oid:=0;
+             nid:=1
+        end;
+
+        if i=self.drv_id_count-1 then
+        begin
+             pid:=self.drv_id_count-2;
+             oid:=self.drv_id_count-1;
+             nid:=0
+        end;
+
+
+        // Previous way point
+        itemP:=self.Get_item_by_DrvID(pid);
+        P.X:=itemP.cx;
+        P.Y:=itemP.cy;
+        
+        // Origin way point
+        itemO:=self.Get_item_by_DrvID(oid);
+        O.X:=itemO.cx;
+        O.Y:=itemO.cy;
+        
+        // Next way point
+        itemN:=self.Get_item_by_DrvID(nid);
+        N.X:=itemN.cx;
+        N.Y:=itemN.cy;
+        
+        // Get WayPoint
+        DRV:=AnalyzeDirection(P,O,N,self.LevelItemDefinition.item[itemO.id].drv_width);
+
+        // calc World center
+        sx:=(itemO.cx*frm_main.LEVEL.Config.UNIT_SIZE)-(frm_main.LEVEL.Config.UNIT_SIZE/2);
+        sy:=(itemO.cy*frm_main.LEVEL.Config.UNIT_SIZE)-(frm_main.LEVEL.Config.UNIT_SIZE/2);
+        sz:=0;
+        
+        // calc world left drv line
+        final_LEFT.x := sx + DRV.L.x;
+        final_LEFT.y :=-sy + DRV.L.y;
+        final_LEFT.z := sz + self.LevelItemDefinition.item[itemO.id].drv_height;
+        
+        // calc world right drv line
+        final_RIGHT.x := sx + DRV.R.x;
+        final_RIGHT.y :=-sy + DRV.R.y;
+        final_RIGHT.z := sz + self.LevelItemDefinition.item[itemO.id].drv_height;
+
+        id_name:=self.LevelItemDefinition.item[itemO.id].name;
+        
+        if dbg then
+            self.DrvL_List.Add(format('%15s [%d,%d] = %f,%f,0.0',[id_name,itemO.cx,itemO.cy,DRV.L.x,DRV.L.y]))
+        else
+            self.DrvL_List.Add(FloatToStr(final_LEFT.x)+','+FloatToStr(final_LEFT.y)+','+FloatToStr(final_LEFT.z));
+
+        if dbg then
+           self.DrvR_List.Add(format('%15s [%d,%d] = %f,%f,0.0',[id_name,itemO.cx,itemO.cy,DRV.R.x,DRV.R.y]))
+        else
+            self.DrvR_List.Add(FloatToStr(final_RIGHT.x)+','+FloatToStr(final_RIGHT.y)+','+FloatToStr(final_RIGHT.z));
+            
+     end;
 end;
 
 

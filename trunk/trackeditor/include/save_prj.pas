@@ -272,7 +272,7 @@ begin
      if frm_main.LEVEL.COnfig.bLOC then out_level.SaveToFile(frm_main.LEVEL.COnfig.export_path+'/'+name+'.loc');
      
      // prepare Driveline LEFT/RIGHT
-     frm_main.LEVEL.PrepareDriveLine(frm_main.LEVEL.COnfig.bDRVDEB);
+     frm_main.LEVEL.PrepareDriveLine2(frm_main.LEVEL.COnfig.bDRVDEB);
      
      // DRVL FILE
      out_level.Clear();
