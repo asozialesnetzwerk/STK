@@ -615,7 +615,10 @@ var prj_name:String;
     p:integer;
 begin
 
-  frm_export_track.ShowModal();
+   if LEVEL.drv_id_count=0 then
+   ShowMessage('WARNING: Drive Path isn''t defined')
+   else
+   frm_export_track.ShowModal();
 
   
 end;
