@@ -10,9 +10,9 @@
 {
 	type	 :ROAD
 	event	 :START
-	name	 :start_0
+	name	 :start_up
 	imageiso :iso_icon_start.png
-	image  	 :icon_start_0.png
+	image  	 :icon_start_up.png
 	model	 :track-editor/start.ac
 	position :0,0,0
 	rotation :0,0,0
@@ -26,12 +26,44 @@
 {
 	type	 :ROAD
 	event	 :START
-	name	 :start_1
+	name	 :start_right
 	imageiso :iso_icon_start.png
-	image  	 :icon_start_1.png
+	image  	 :icon_start_right.png
 	model	 :track-editor/start.ac
 	position :0,0,0
 	rotation :90,0,0
+	drvl_A   :-5,0,0
+	drvl_B   :0,0,0
+	drvr_A   :5,0,0
+	drvr_B   :0,0,0
+	drv_width :5
+	drv_height :0
+}
+{
+	type	 :ROAD
+	event	 :START
+	name	 :start_down
+	imageiso :iso_icon_start.png
+	image  	 :icon_start_down.png
+	model	 :track-editor/start.ac
+	position :0,0,0
+	rotation :180,0,0
+	drvl_A   :-5,0,0
+	drvl_B   :0,0,0
+	drvr_A   :5,0,0
+	drvr_B   :0,0,0
+	drv_width :5
+	drv_height :0
+}
+{
+	type	 :ROAD
+	event	 :START
+	name	 :start_left
+	imageiso :iso_icon_start.png
+	image  	 :icon_start_left.png
+	model	 :track-editor/start.ac
+	position :0,0,0
+	rotation :270,0,0
 	drvl_A   :-5,0,0
 	drvl_B   :0,0,0
 	drvr_A   :5,0,0
@@ -57,9 +89,9 @@
 }
 {
 	type     : ROAD
-	name     : forward_up
+	name     : forward_v
 	imageiso : iso_icon_forward_1.png
-	image 	 : icon_forward_up.png
+	image 	 : icon_forward_0.png
 	model    : track-editor/street.ac
 	position : 0,0,0
 	rotation : 0,0,0
@@ -72,42 +104,12 @@
 }
 {
 	type     : ROAD
-	name     : forward_down
-	imageiso : iso_icon_forward_1.png
-	image 	 : icon_forward_down.png
-	model    : track-editor/street.ac
-	position : 0,0,0
-	rotation : 180,0,0
-	drvl_A   :-5,0,0
-	drvl_B   :0,0,0
-	drvr_A   :5,0,0
-	drvr_B   :0,0,0
-	drv_width :5
-	drv_height :0
-}
-{
-	type     : ROAD
-	name     : forward_right
+	name     : forward_h
 	imageiso : iso_icon_forward_0.png
-	image 	 : icon_forward_right.png
+	image 	 : icon_forward_1.png
 	model    : track-editor/street.ac
 	position : 0,0,0
 	rotation : 90,0,0
-	drvl_A   :-5,0,0
-	drvl_B   :0,0,0
-	drvr_A   :5,0,0
-	drvr_B   :0,0,0
-	drv_width :5
-	drv_height :0
-}
-{
-	type     : ROAD
-	name     : forward_left
-	imageiso : iso_icon_forward_0.png
-	image 	 : icon_forward_left.png
-	model    : track-editor/street.ac
-	position : 0,0,0
-	rotation : 270,0,0
 	drvl_A   :-5,0,0
 	drvl_B   :0,0,0
 	drvr_A   :5,0,0
@@ -192,9 +194,9 @@
 }
 {
 	type	 :BRIDGE
-	name	 :l1_street_up
+	name	 :l1_street_v
 	imageiso :iso_l1_street.png
-	image    :l1_street_up.png
+	image    :l1_street_0.png
 	model	 :track-editor/street.ac
 	position :0,0,2.5
 	rotation :0,0,0
@@ -207,42 +209,12 @@
 }
 {
 	type	 :BRIDGE
-	name	 :l1_street_down
+	name	 :l1_street_h
 	imageiso :iso_l1_street.png
-	image    :l1_street_down.png
-	model	 :track-editor/street.ac
-	position :0,0,2.5
-	rotation :180,0,0
-	drvl_A   :-5,0,2.5
-	drvl_B   :0,0,0
-	drvr_A   :5,0,2.5
-	drvr_B   :0,0,0
-	drv_width :5
-	drv_height :2.5
-}
-{
-	type	 :BRIDGE
-	name	 :l1_street_right
-	imageiso :iso_l1_street.png
-	image    :l1_street_right.png
+	image    :l1_street_1.png
 	model	 :track-editor/street.ac
 	position :0,0,2.5
 	rotation :90,0,0
-	drvl_A   :-5,0,2.5
-	drvl_B   :0,0,0
-	drvr_A   :5,0,2.5
-	drvr_B   :0,0,0
-	drv_width :5
-	drv_height :2.5
-}
-{
-	type	 :BRIDGE
-	name	 :l1_street_left
-	imageiso :iso_l1_street.png
-	image    :l1_street_left.png
-	model	 :track-editor/street.ac
-	position :0,0,2.5
-	rotation :270,0,0
 	drvl_A   :-5,0,2.5
 	drvl_B   :0,0,0
 	drvr_A   :5,0,2.5
@@ -329,9 +301,9 @@
 {
 	type	 :BRIDGE
 	event	 :START	
-	name	 :l1_start_0
+	name	 :l1_start_up
 	imageiso :iso_l1_start.png
-	image    :l1_start_0.png
+	image    :l1_start_up.png
 	model	 :track-editor/start.ac
 	position :0,0,2.5
 	rotation :0,0,0
@@ -345,12 +317,44 @@
 {
 	type	 :BRIDGE
 	event	 :START
-	name	 :l1_start_1
+	name	 :l1_start_right
 	imageiso :iso_l1_start.png
-	image    :l1_start_1.png
+	image    :l1_start_right.png
 	model	 :track-editor/start.ac
 	position :0,0,2.5
 	rotation :90,0,0
+	drvl_A   :-5,0,2.5
+	drvl_B   :0,0,0
+	drvr_A   :5,0,2.5
+	drvr_B   :0,0,0
+	drv_width :5
+	drv_height :2.5
+}
+{
+	type	 :BRIDGE
+	event	 :START	
+	name	 :l1_start_down
+	imageiso :iso_l1_start.png
+	image    :l1_start_down.png
+	model	 :track-editor/start.ac
+	position :0,0,2.5
+	rotation :180,0,0
+	drvl_A   :-5,0,2.5
+	drvl_B   :0,0,0
+	drvr_A   :5,0,2.5
+	drvr_B   :0,0,0
+	drv_width :5
+	drv_height :2.5
+}
+{
+	type	 :BRIDGE
+	event	 :START	
+	name	 :l1_start_left
+	imageiso :iso_l1_start.png
+	image    :l1_start_left.png
+	model	 :track-editor/start.ac
+	position :0,0,2.5
+	rotation :270,0,0
 	drvl_A   :-5,0,2.5
 	drvl_B   :0,0,0
 	drvr_A   :5,0,2.5
@@ -880,6 +884,16 @@
 	imageiso :iso_parking.png
 	image    :parking.png
 	model	 :track-editor/parking.ac
+	position :0,0,0
+	rotation :0,0,0
+}
+{
+	type	 :DECOR16
+	event	 :AUTOZ
+	name	 :table_menu
+	imageiso :iso_table_menu.png
+	image    :table_menu.png
+	model	 :track-editor/table_menu.ac
 	position :0,0,0
 	rotation :0,0,0
 }
