@@ -86,6 +86,7 @@ type TLevelGrid = class
          procedure PrepareDriveLine(dbg:boolean);
          function Get_item_by_DrvID(id:integer):TDrvData;
          procedure PrepareDriveLine2(dbg:boolean);
+         function GetSTARTID():TDrvData;
      end;
 
 implementation
@@ -508,11 +509,52 @@ begin
         if dbg then
            self.DrvR_List.Add(format('%15s [%d,%d] = %f,%f,0.0',[id_name,itemO.cx,itemO.cy,DRV.R.x,DRV.R.y]))
         else
-            self.DrvR_List.Add(FloatToStr(final_RIGHT.x)+','+FloatToStr(final_RIGHT.y)+','+FloatToStr(final_RIGHT.z));
+           self.DrvR_List.Add(FloatToStr(final_RIGHT.x)+','+FloatToStr(final_RIGHT.y)+','+FloatToStr(final_RIGHT.z));
             
      end;
 end;
 
+function TLevelGrid.GetSTARTID():TDrvData;
+var cx,cy:integer;
+    id:integer;
+    res:TDrvData;
+begin
+     for cx:=0 to self.size.x-1 do
+     for cy:=0 to self.size.x-1 do
+     begin
+           id:=self.cell[cx,cy].item_road_id;
+           if self.LevelItemDefinition.item[id].event='START' then
+           begin
+               res.cx:=cx;
+               res.cy:=cy;
+               res.id:=id;
+           end;
+           
+           id:=self.cell[cx,cy].item_obst_id;
+           if self.LevelItemDefinition.item[id].event='START' then
+           begin
+               res.cx:=cx;
+               res.cy:=cy;
+               res.id:=id;
+           end;
+           
+     end;
+
+     result := res;
+end;
+
+{
+(use-fog      #t)
+ (sky-color    0.45 0.0 0.0 0.0)
+ (fog-color    0.45 0.0 0.0 0.0)
+ (fog-start    0.0)
+ (fog-end      200.0)
+ (fog-density  0.03)
+
+ (sun-ambient  0.8 0.6 0.6 0.0)
+ (sun-diffuse  0.8 0.6 0.6 0.0)
+ (sun-specular 1.0 0.8 0.8 0.0)
+}
 
 end.
 

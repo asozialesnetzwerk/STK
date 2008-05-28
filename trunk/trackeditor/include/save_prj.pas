@@ -159,7 +159,13 @@ var out_level:TStringList;
     POS:TF3D_Vector3f;
     ROT:TF3D_Vector3f;
     itm_TYP,itm_EVENT:String;
-    
+
+    heading:single;
+    start_a:String;
+    start_x:String;
+    start_y:String;
+    start:TDrvData;
+    ssx,ssy:single;
     
     procedure AddToFile(m:String;mx:integer;my:integer;p:TF3D_Vector3f;R:TF3D_Vector3f;typ:string;sx,sy:Integer;ev:String);
     var fx,fy,fz,fax,fay,faz:single;
@@ -304,6 +310,17 @@ begin
      // TRACK FILE
      out_level.Clear();
      
+     start_x:='';
+     
+     start:=frm_main.LEVEL.Get_item_by_DrvID(0);
+     heading:=frm_main.LEVEL.LevelItemDefinition.item[start.id].rotation.x;
+     ssx:=frm_main.LEVEL.Config.FLIP_X*((start.cx*frm_main.LEVEL.Config.UNIT_SIZE)-(frm_main.LEVEL.Config.UNIT_SIZE/2));
+     ssy:=frm_main.LEVEL.Config.FLIP_Y*((start.cy*frm_main.LEVEL.Config.UNIT_SIZE)-(frm_main.LEVEL.Config.UNIT_SIZE/2));
+     
+     start_x:=format('( start-x  %f %f %f %f %f %f %f %f )',[ssx-3.7,ssx-1.25,ssx+1.25,ssx+3.75,ssx-3.75,ssx-1.25,ssx+1.25,ssx+3.7]);
+     start_y:=format('( start-y  %f %f %f %f %f %f %f %f )',[ssy-1.25,ssy-1.25,ssy-1.25,ssy-1.25,ssy-3.75,ssy-3.75,ssy-3.75,ssy-3.75]);
+     start_a:=format('( start-heading  %f %f %f %f %f %f %f %f )',[heading,heading,heading,heading,heading,heading,heading,heading]);
+     
      out_level.Add(';; -*- mode: lisp -*-');
      out_level.Add('');
      out_level.Add('(tuxkart-track');
@@ -313,8 +330,9 @@ begin
      out_level.Add(' (screenshot             "'+frm_main.LEVEL.Config.sshot+'")');
      out_level.Add(' (topview                "'+frm_main.LEVEL.Config.topview+'")');
      
-     out_level.Add(' (start-x 5)');
-     out_level.Add(' (start-y -15)');
+     out_level.Add(start_a);
+     out_level.Add(start_x);
+     out_level.Add(start_y);
      
      out_level.Add(' (AI-curve-speed-adjust  2.0)');
      out_level.Add(' (AI-angle-adjust        2.7)');
