@@ -41,6 +41,7 @@
 }
 {
 	type     : ROAD
+	event    : CROSS
 	name     : cross_x
 	imageiso : iso_icon_cross_x.png
 	image	 : icon_cross_x.png
@@ -251,6 +252,7 @@
 }
 {
 	type	 :BRIDGE
+	event    : CROSS
 	name	 :l1_cross
 	imageiso :iso_l1_cross.png
 	image    :l1_cross.png

@@ -188,7 +188,7 @@ end;
 
 procedure TLevelGrid.SetCellDRV(_x,_y:integer);
 var dx,dy:integer;
-    l0_type,l1_type:string;
+    l0_type,l1_type,L0_Event,L1_Event:string;
     L0_id,L1_id:Integer;
 begin
 
@@ -211,11 +211,13 @@ begin
          (self.cell[_x+self.view_pos.x,_y+self.view_pos.y].drv_id=-1)) then
      begin
           L0_type:=self.LevelItemDefinition.item[L0_ID].ItemType;
+
           if (L0_type='ROAD')  then
           begin
               self.cell[_x+self.view_pos.x,_y+self.view_pos.y].drv_id:=self.drv_id_count;
               inc(self.drv_id_count);
           end;
+
      end;
      
      
@@ -232,11 +234,15 @@ begin
           end;
      end;
 
+     // ROAD+BRIDGE
      if ((L1_ID<>-1) and (L0_ID<>-1))  then
      begin
      
          L0_type:=self.LevelItemDefinition.item[L0_ID].ItemType;
+
          L1_type:=self.LevelItemDefinition.item[L1_ID].ItemType;
+         L1_Event:=self.LevelItemDefinition.item[L1_ID].event;
+         
          if ((L0_type='ROAD') and (L1_type='BRIDGE')) then
          begin
               frm_drv_cont.ShowModal;
