@@ -8,7 +8,7 @@
       <IconPath Value="./"/>
       <TargetFileExt Value=".exe"/>
       <Title Value="STKed"/>
-      <ActiveEditorIndexAtStart Value="3"/>
+      <ActiveEditorIndexAtStart Value="5"/>
     </General>
     <VersionInfo>
       <ProjectVersion Value=""/>
@@ -129,8 +129,8 @@
         <Filename Value="include\save_prj.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="save_prj"/>
-        <CursorPos X="26" Y="203"/>
-        <TopLine Value="195"/>
+        <CursorPos X="67" Y="8"/>
+        <TopLine Value="1"/>
         <EditorIndex Value="5"/>
         <UsageCount Value="96"/>
         <Loaded Value="True"/>
@@ -188,7 +188,7 @@
         <Filename Value="include\agfx_helpers.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="agfx_helpers"/>
-        <CursorPos X="18" Y="41"/>
+        <CursorPos X="23" Y="22"/>
         <TopLine Value="16"/>
         <EditorIndex Value="3"/>
         <UsageCount Value="33"/>
@@ -227,7 +227,20 @@
         <Loaded Value="True"/>
       </Unit19>
     </Units>
-    <JumpHistory Count="0" HistoryIndex="-1"/>
+    <JumpHistory Count="3" HistoryIndex="2">
+      <Position1>
+        <Filename Value="include\save_prj.pas"/>
+        <Caret Line="321" Column="25" TopLine="297"/>
+      </Position1>
+      <Position2>
+        <Filename Value="include\save_prj.pas"/>
+        <Caret Line="341" Column="1" TopLine="303"/>
+      </Position2>
+      <Position3>
+        <Filename Value="include\save_prj.pas"/>
+        <Caret Line="312" Column="32" TopLine="310"/>
+      </Position3>
+    </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>
     <Version Value="5"/>

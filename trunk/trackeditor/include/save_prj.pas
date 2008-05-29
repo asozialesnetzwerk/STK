@@ -5,7 +5,7 @@ unit save_prj;
 interface
 
 uses
-  Classes, SysUtils,agfx_leveldesign_class,agfx_types;
+  Classes, SysUtils,agfx_leveldesign_class,agfx_types,agfx_helpers;
 
 
   procedure SaveData();
@@ -166,6 +166,7 @@ var out_level:TStringList;
     start_y:String;
     start:TDrvData;
     ssx,ssy:single;
+    PL:Array[0..7] of TF3D_Vector3f;
     
     procedure AddToFile(m:String;mx:integer;my:integer;p:TF3D_Vector3f;R:TF3D_Vector3f;typ:string;sx,sy:Integer;ev:String);
     var fx,fy,fz,fax,fay,faz:single;
@@ -316,9 +317,28 @@ begin
      heading:=frm_main.LEVEL.LevelItemDefinition.item[start.id].rotation.x;
      ssx:=frm_main.LEVEL.Config.FLIP_X*((start.cx*frm_main.LEVEL.Config.UNIT_SIZE)-(frm_main.LEVEL.Config.UNIT_SIZE/2));
      ssy:=frm_main.LEVEL.Config.FLIP_Y*((start.cy*frm_main.LEVEL.Config.UNIT_SIZE)-(frm_main.LEVEL.Config.UNIT_SIZE/2));
+
+     PL[0]:=SetVector3f(-3.7,-1.25,0);
+     PL[1]:=SetVector3f(-1.25,-1.25,0);
+     PL[2]:=SetVector3f(1.25,-1.25,0);
+     PL[3]:=SetVector3f(3.75,-1.25,0);
+     PL[4]:=SetVector3f(-3.7,-3.75,0);
+     PL[5]:=SetVector3f(-1.25,-3.75,0);
+     PL[6]:=SetVector3f(1.25,-3.75,0);
+     PL[7]:=SetVector3f(3.75,-3.75,0);
      
-     start_x:=format('( start-x  %f %f %f %f %f %f %f %f )',[ssx-3.7,ssx-1.25,ssx+1.25,ssx+3.75,ssx-3.75,ssx-1.25,ssx+1.25,ssx+3.7]);
-     start_y:=format('( start-y  %f %f %f %f %f %f %f %f )',[ssy-1.25,ssy-1.25,ssy-1.25,ssy-1.25,ssy-3.75,ssy-3.75,ssy-3.75,ssy-3.75]);
+     PL[0]:=GetRotatedDRV(PL[0],heading);
+     PL[1]:=GetRotatedDRV(PL[1],heading);
+     PL[2]:=GetRotatedDRV(PL[2],heading);
+     PL[3]:=GetRotatedDRV(PL[3],heading);
+     PL[4]:=GetRotatedDRV(PL[4],heading);
+     PL[5]:=GetRotatedDRV(PL[5],heading);
+     PL[6]:=GetRotatedDRV(PL[6],heading);
+     PL[7]:=GetRotatedDRV(PL[7],heading);
+
+     
+     start_x:=format('( start-x  %f %f %f %f %f %f %f %f )',[ssx+PL[0].x,ssx+PL[1].x,ssx+PL[2].x,ssx+PL[3].x,ssx+PL[4].x,ssx+PL[5].x,ssx+PL[6].x,ssx++PL[7].x]);
+     start_y:=format('( start-y  %f %f %f %f %f %f %f %f )',[ssy+PL[0].y,ssy+PL[1].y,ssx+PL[2].y,ssy+PL[3].y,ssy+PL[4].y,ssy+PL[5].y,ssy+PL[6].y,ssy++PL[7].y]);
      start_a:=format('( start-heading  %f %f %f %f %f %f %f %f )',[heading,heading,heading,heading,heading,heading,heading,heading]);
      
      out_level.Add(';; -*- mode: lisp -*-');
