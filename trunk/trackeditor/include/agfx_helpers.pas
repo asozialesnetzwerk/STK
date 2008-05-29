@@ -35,14 +35,14 @@ begin
           res.z:=v.z;
      end;
 
-     if angle=180 then
+     if ((angle=180) or  (angle=-180)) then
      begin
           res.x:=-v.x;
           res.y:=-v.y;
           res.z:=v.z;
      end;
 
-     if angle=270 then
+     if ((angle=270) or (angle=-90)) then
      begin
           res.x:=-v.y;
           res.y:=v.x;

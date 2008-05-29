@@ -8,7 +8,7 @@
       <IconPath Value="./"/>
       <TargetFileExt Value=".exe"/>
       <Title Value="STKed"/>
-      <ActiveEditorIndexAtStart Value="6"/>
+      <ActiveEditorIndexAtStart Value="3"/>
     </General>
     <VersionInfo>
       <ProjectVersion Value=""/>
@@ -188,8 +188,8 @@
         <Filename Value="include\agfx_helpers.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="agfx_helpers"/>
-        <CursorPos X="11" Y="81"/>
-        <TopLine Value="61"/>
+        <CursorPos X="21" Y="45"/>
+        <TopLine Value="6"/>
         <EditorIndex Value="3"/>
         <UsageCount Value="33"/>
         <Loaded Value="True"/>
@@ -227,40 +227,7 @@
         <Loaded Value="True"/>
       </Unit19>
     </Units>
-    <JumpHistory Count="8" HistoryIndex="7">
-      <Position1>
-        <Filename Value="main.pas"/>
-        <Caret Line="571" Column="32" TopLine="566"/>
-      </Position1>
-      <Position2>
-        <Filename Value="main.pas"/>
-        <Caret Line="76" Column="27" TopLine="75"/>
-      </Position2>
-      <Position3>
-        <Filename Value="main.pas"/>
-        <Caret Line="77" Column="27" TopLine="75"/>
-      </Position3>
-      <Position4>
-        <Filename Value="main.pas"/>
-        <Caret Line="76" Column="27" TopLine="75"/>
-      </Position4>
-      <Position5>
-        <Filename Value="main.pas"/>
-        <Caret Line="126" Column="48" TopLine="125"/>
-      </Position5>
-      <Position6>
-        <Filename Value="main.pas"/>
-        <Caret Line="556" Column="26" TopLine="554"/>
-      </Position6>
-      <Position7>
-        <Filename Value="main.pas"/>
-        <Caret Line="538" Column="34" TopLine="536"/>
-      </Position7>
-      <Position8>
-        <Filename Value="main.pas"/>
-        <Caret Line="19" Column="24" TopLine="1"/>
-      </Position8>
-    </JumpHistory>
+    <JumpHistory Count="0" HistoryIndex="-1"/>
   </ProjectOptions>
   <CompilerOptions>
     <Version Value="5"/>
