@@ -69,7 +69,7 @@ begin
   
   frm_main.IconScrollBar.Position:=0;
   frm_main.IconScrollBar.Min:=0;
-  frm_main.IconScrollBar.Max:=frm_main.LEVEL.LevelItemDefinition.count-12;
+  frm_main.IconScrollBar.Max:=frm_main.LEVEL.LevelItemDefinition.count-20;
   
   frm_main.UpdateIconsByScrollBar();
   

@@ -39,7 +39,15 @@ type
     item_image_10: TImage;
     item_image_11: TImage;
     item_image_12: TImage;
+    item_image_13: TImage;
+    item_image_14: TImage;
+    item_image_15: TImage;
+    item_image_16: TImage;
+    item_image_17: TImage;
+    item_image_18: TImage;
+    item_image_19: TImage;
     item_image_2: TImage;
+    item_image_20: TImage;
     item_image_3: TImage;
     item_image_4: TImage;
     item_image_5: TImage;
@@ -909,7 +917,7 @@ var i,img_id:integer;
     img_map:String;
     img:TComponent;
 begin
-     for i:=0 to 11 do
+     for i:=0 to 19 do
      begin
           img:=self.FindComponent('item_image_'+IntToStr(i+1));
           img_id:=((img as TImage).Tag)+self.IconScrollBar.Position;

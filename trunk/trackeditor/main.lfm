@@ -736,9 +736,105 @@ object frm_main: Tfrm_main
       Stretch = True
       Transparent = False
     end
+    object item_image_13: TImage
+      Tag = 12
+      Left = 8
+      Height = 32
+      Top = 400
+      Width = 32
+      OnClick = item_image_1Click
+      OnMouseEnter = item_image_1MouseEnter
+      OnMouseLeave = item_image_1MouseLeave
+      Stretch = True
+      Transparent = False
+    end
+    object item_image_14: TImage
+      Tag = 13
+      Left = 8
+      Height = 32
+      Top = 433
+      Width = 32
+      OnClick = item_image_1Click
+      OnMouseEnter = item_image_1MouseEnter
+      OnMouseLeave = item_image_1MouseLeave
+      Stretch = True
+      Transparent = False
+    end
+    object item_image_15: TImage
+      Tag = 14
+      Left = 8
+      Height = 32
+      Top = 466
+      Width = 32
+      OnClick = item_image_1Click
+      OnMouseEnter = item_image_1MouseEnter
+      OnMouseLeave = item_image_1MouseLeave
+      Stretch = True
+      Transparent = False
+    end
+    object item_image_16: TImage
+      Tag = 15
+      Left = 8
+      Height = 32
+      Top = 499
+      Width = 32
+      OnClick = item_image_1Click
+      OnMouseEnter = item_image_1MouseEnter
+      OnMouseLeave = item_image_1MouseLeave
+      Stretch = True
+      Transparent = False
+    end
+    object item_image_17: TImage
+      Tag = 16
+      Left = 8
+      Height = 32
+      Top = 532
+      Width = 32
+      OnClick = item_image_1Click
+      OnMouseEnter = item_image_1MouseEnter
+      OnMouseLeave = item_image_1MouseLeave
+      Stretch = True
+      Transparent = False
+    end
+    object item_image_18: TImage
+      Tag = 17
+      Left = 9
+      Height = 32
+      Top = 565
+      Width = 32
+      OnClick = item_image_1Click
+      OnMouseEnter = item_image_1MouseEnter
+      OnMouseLeave = item_image_1MouseLeave
+      Stretch = True
+      Transparent = False
+    end
+    object item_image_19: TImage
+      Tag = 18
+      Left = 9
+      Height = 32
+      Top = 598
+      Width = 32
+      OnClick = item_image_1Click
+      OnMouseEnter = item_image_1MouseEnter
+      OnMouseLeave = item_image_1MouseLeave
+      Stretch = True
+      Transparent = False
+    end
+    object item_image_20: TImage
+      Tag = 19
+      Left = 8
+      Height = 32
+      Top = 631
+      Width = 32
+      OnClick = item_image_1Click
+      OnMouseEnter = item_image_1MouseEnter
+      OnMouseLeave = item_image_1MouseLeave
+      Stretch = True
+      Transparent = False
+    end
     object IconScrollBar: TScrollBar
       Left = 48
-      Height = 393
+      Height = 656
       Top = 8
       Width = 17
       Kind = sbVertical
