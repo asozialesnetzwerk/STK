@@ -188,8 +188,8 @@
         <Filename Value="include\agfx_helpers.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="agfx_helpers"/>
-        <CursorPos X="21" Y="45"/>
-        <TopLine Value="6"/>
+        <CursorPos X="18" Y="41"/>
+        <TopLine Value="16"/>
         <EditorIndex Value="3"/>
         <UsageCount Value="33"/>
         <Loaded Value="True"/>
