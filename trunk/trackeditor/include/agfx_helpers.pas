@@ -37,7 +37,7 @@ begin
      
      if angle=-90 then
      begin
-          res.x:=v.y;
+          res.x:=-v.y;
           res.y:=v.x;
           res.z:=v.z;
      end;
