@@ -31,7 +31,7 @@
 	image  	 :icon_start_right.png
 	model	 :track-editor/start.ac
 	position :0,0,0
-	rotation :90,0,0
+	rotation :-90,0,0
 	drvl_A   :-5,0,0
 	drvl_B   :0,0,0
 	drvr_A   :5,0,0
@@ -63,7 +63,7 @@
 	image  	 :icon_start_left.png
 	model	 :track-editor/start.ac
 	position :0,0,0
-	rotation :270,0,0
+	rotation :90,0,0
 	drvl_A   :-5,0,0
 	drvl_B   :0,0,0
 	drvr_A   :5,0,0
