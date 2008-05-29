@@ -16,6 +16,7 @@ interface
 uses
   Classes, SysUtils, LResources, Forms, Controls, Graphics,
   agfx_leveldesign_class,frm_new,save_prj,frm_eportdone_unit, frm_exp_track_unit,
+  frm_stked_about_unit,
   Dialogs, StdCtrls, ExtCtrls, Menus, DbCtrls;
 
 type
@@ -73,6 +74,8 @@ type
     MenuItem19: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem20: TMenuItem;
+    MenuItem21: TMenuItem;
+    MenuItem22: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
@@ -121,6 +124,7 @@ type
     procedure MenuItem17Click(Sender: TObject);
     procedure MenuItem18Click(Sender: TObject);
     procedure MenuItem19Click(Sender: TObject);
+    procedure MenuItem22Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
     procedure MenuItem4Click(Sender: TObject);
     procedure MenuItem5Click(Sender: TObject);
@@ -546,6 +550,11 @@ begin
          end;
      LEVEL.drv_id_count:=0;
      DrawMapGridFull();
+end;
+
+procedure Tfrm_main.MenuItem22Click(Sender: TObject);
+begin
+  frm_about.showModal();
 end;
 
 
