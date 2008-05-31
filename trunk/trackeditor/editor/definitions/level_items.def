@@ -897,6 +897,15 @@
 	position :0,0,0
 	rotation :0,0,0
 }
+{
+	type	 :DECOR64
+	name	 :fountain
+	imageiso :iso_fountain.png
+	image    :fountain.png
+	model	 :track-editor/fountain.ac
+	position :0,0,0
+	rotation :0,0,0
+}
 
 
 
