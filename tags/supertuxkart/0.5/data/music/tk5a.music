@@ -1,0 +1,6 @@
+(music-information
+  (title    "Tuxkart 5a")
+  (composer "Matt Thomas")
+  (music    "tk5a.ogg")
+  (loop     10)
+)

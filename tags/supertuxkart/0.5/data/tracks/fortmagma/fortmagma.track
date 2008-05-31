@@ -1,0 +1,14 @@
+;; -*- mode: lisp -*-
+
+(tuxkart-track
+ (name        _("Fort Magma"))
+ (description _("Created by Oliver & Steve Baker\nmodified by Marianne Gagnon"))
+ (music       "Lava_Lagoon_2.music")
+ (screenshot  "sshot-fortmagma.rgb")
+ (topview     "topview-fortmagma.rgb")
+ (AI-curve-speed-adjust  2.0)
+ (AI-angle-adjust        2.0)
+)
+
+;; EOF ;;
+

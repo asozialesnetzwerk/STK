@@ -1,0 +1,8 @@
+(music-information
+  (title    "Penguin Party")
+  (composer "Magne Djupvik")
+  (music    "Penguin_Party.ogg")
+  (fast-music    "Penguin_Party_faster.ogg")
+  (fade-time   2)
+  (loop     10)
+)
