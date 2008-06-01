@@ -906,6 +906,41 @@
 	position :0,0,0
 	rotation :0,0,0
 }
-
+{
+	type	 :DECOR64
+	name	 :corner_0
+	imageiso :iso_corner.png
+	image    :corner_0.png
+	model	 :track-editor/corner.ac
+	position :0,0,0
+	rotation :0,0,0
+}
+{
+	type	 :DECOR64
+	name	 :corner_1
+	imageiso :iso_corner.png
+	image    :corner_1.png
+	model	 :track-editor/corner.ac
+	position :0,0,0
+	rotation :270,0,0
+}
+{
+	type	 :DECOR64
+	name	 :corner_2
+	imageiso :iso_corner.png
+	image    :corner_2.png
+	model	 :track-editor/corner.ac
+	position :0,0,0
+	rotation :180,0,0
+}
+{
+	type	 :DECOR64
+	name	 :corner_3
+	imageiso :iso_corner.png
+	image    :corner_3.png
+	model	 :track-editor/corner.ac
+	position :0,0,0
+	rotation :90,0,0
+}
 
 
