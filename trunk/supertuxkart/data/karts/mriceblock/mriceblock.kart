@@ -5,7 +5,7 @@
  (model-file  "mriceblock.ac")
  (icon-file   "mriceblockicon.rgb")
  (shadow-file "mriceblockshadow.rgb")
- 
+ (groups      "standard")
  (rgb         0.0 0.9 1.0)
        
 )

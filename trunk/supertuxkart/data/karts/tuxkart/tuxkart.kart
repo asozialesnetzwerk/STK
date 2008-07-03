@@ -5,7 +5,7 @@
  (model-file  "tuxkart.ac")
  (icon-file   "tuxicon.rgb")
  (shadow-file "tuxkartshadow.rgb")
- 
+ (groups      "standard") 
  (rgb         0.7 0.0 0.0)
 )
 ;; EOF ;;

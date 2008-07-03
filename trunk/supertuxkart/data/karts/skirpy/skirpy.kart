@@ -5,7 +5,7 @@
  (model-file  "skirpy-high.ac")
  (icon-file   "skirpyicon.rgb")
  (shadow-file "generickartshadow.rgb")
- 
+ (groups      "standard")  
  (rgb         0.1 0.5 0.1)
        
 )

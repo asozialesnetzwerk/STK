@@ -5,7 +5,7 @@
  (model-file  "sushikart.ac")
  (icon-file   "sushiicon.rgb")
  (shadow-file "sushishadow.rgb")
-
+ (groups      "standard") 
  (rgb         0.8 0.0 0.5)
        
 )

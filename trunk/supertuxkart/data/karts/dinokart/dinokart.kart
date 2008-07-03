@@ -5,7 +5,7 @@
  (model-file  "dinokart-high.ac")
  (icon-file   "dinoicon.rgb")
  (shadow-file "dinoshadow.rgb")
-
+ (groups      "standard")
  (rgb         1.0 0.7 0.1)
        
 )

@@ -5,7 +5,7 @@
  (model-file  "hexleykart.ac")
  (icon-file   "hexleyicon.rgb")
  (shadow-file "hexleyshadow.rgb") 
-
+ (groups      "standard")
  (rgb         0.9 0.2 0.2)
        
 )

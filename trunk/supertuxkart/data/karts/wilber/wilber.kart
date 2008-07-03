@@ -5,7 +5,7 @@
  (model-file  "wilber-hi.ac")
  (icon-file   "wilbericon.rgb")
  (shadow-file "wilbershadow.rgb")
-
+ (groups      "standard") 
  (rgb         0.25 0.23 0.18)
        
 )
