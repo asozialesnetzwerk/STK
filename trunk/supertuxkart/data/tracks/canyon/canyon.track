@@ -6,6 +6,7 @@
  (music                  "kart_grand_prix.music")
  (screenshot             "canyon_screenshot.rgb")
  (topview                "canyon_topview.rgb")
+ (groups                 "standard")
  (AI-curve-speed-adjust  2.0)
  (AI-angle-adjust        2.7)
 )

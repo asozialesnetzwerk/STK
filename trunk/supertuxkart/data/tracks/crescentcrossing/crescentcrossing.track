@@ -10,6 +10,7 @@
  (sun-diffuse  0.2 0.1 0.1)
  (sun-specular 0.2 0.1 0.1)
 
+ (groups      "standard")
  (music      "KingArthursCastle.music")
  (screenshot "sshot-crescent.rgb")
  (topview    "topview-crescent.rgb")

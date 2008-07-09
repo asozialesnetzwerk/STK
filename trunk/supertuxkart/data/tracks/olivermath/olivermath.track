@@ -6,6 +6,7 @@
  (music       "Boom_boom_boom.music")
  (screenshot  "sshot-olivermath.rgb")
  (topview     "topview-olivermath.rgb")
+ (groups      "standard")
  (AI-curve-speed-adjust  1.3)
  (AI-angle-adjust        1.7)
 )

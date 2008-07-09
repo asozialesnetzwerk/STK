@@ -13,6 +13,7 @@
  ;;(fog-start    25000.0)
  ;;(fog-end      50000.0)
  
+ (groups      "standard")
  (AI-curve-speed-adjust  2.0)
  (AI-angle-adjust        2.7)
  
