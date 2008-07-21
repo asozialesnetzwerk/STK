@@ -1,6 +1,6 @@
 (music-information
   (title    "SuperTuxKart Main Theme")
-  (composer "Weirwood"               )
-  (music    "main_theme.ogg"         )
+  (composer "Atheal Washington"      )
+  (music    "SwinginBeat.ogg"        )
   (loop    10)
 )
