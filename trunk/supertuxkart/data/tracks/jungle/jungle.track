@@ -3,7 +3,7 @@
 (tuxkart-track
  (name                   _("Amazonian Journey"))
  (designer               "M. Gagnon")
- (music                  "kart_grand_prix.music")
+ (music                  "amazon_jungle.music")
  (screenshot             "sshot-jungle.rgb")
  (topview                "topview-jungle.rgb")
  
