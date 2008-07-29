@@ -1,0 +1,19 @@
+;; -*- mode: lisp -*-
+
+(challenge
+ (id            "citytime")
+ (name          _("Finish the City track in 5:20"))
+ (description   _("Finish 3 laps on the City track\nwith 3 AI karts\nin under 5:20 minutes."))
+ (unlock-track "snowtuxpeak")
+ (depend-on    "junglefollow")
+ (major        "single")
+ (minor        "quickrace")
+ (track        "city")
+ (difficulty   "easy")
+ (laps         3)
+ (karts        4)
+ (time       320)
+)
+
+;; EOF ;;
+

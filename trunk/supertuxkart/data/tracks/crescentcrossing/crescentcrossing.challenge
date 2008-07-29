@@ -1,0 +1,19 @@
+;; -*- mode: lisp -*-
+
+(challenge
+ (id            "energymathclass")
+ (name          _("Collect Coins in Math Class"))
+ (description   _("Collect at least 6 points\nworth of coins\non three laps of\nOliver's Math Class\nin under 1 minute."))
+ (unlock-track "crescentcrossing")
+ (major        "single")
+ (minor        "quickrace")
+ (track        "olivermath")
+ (difficulty   "easy")
+ (laps         3)
+ (karts        1)
+ (energy       6)
+ (time        60)
+)
+
+;; EOF ;;
+

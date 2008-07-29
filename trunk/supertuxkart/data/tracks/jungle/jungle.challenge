@@ -1,0 +1,18 @@
+;; -*- mode: lisp -*-
+
+(challenge
+ (id            "racetracktime")
+ (name          _("Finish Race track in 1:15"))
+ (description   _("Finish 3 laps in the Race track\nwith 3 AI karts\nin under 1:15 minutes."))
+ (unlock-track "jungle")
+ (major        "single")
+ (minor        "quickrace")
+ (track        "race")
+ (difficulty   "easy")
+ (laps         3)
+ (karts        4)
+ (time        75)
+)
+
+;; EOF ;;
+
