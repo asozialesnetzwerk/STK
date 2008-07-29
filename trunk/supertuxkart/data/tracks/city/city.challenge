@@ -11,7 +11,7 @@
  (track        "jungle")
  (difficulty   "easy")
  (karts        4)
- (position     1)
+ (position     2)
 )
 
 ;; EOF ;;

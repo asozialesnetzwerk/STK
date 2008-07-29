@@ -5,6 +5,7 @@
  (name          _("Collect Coins in Math Class"))
  (description   _("Collect at least 6 points\nworth of coins\non three laps of\nOliver's Math Class\nin under 1 minute."))
  (unlock-track "crescentcrossing")
+ (depend-on    "penguinplaygroundgp")
  (major        "single")
  (minor        "quickrace")
  (track        "olivermath")
