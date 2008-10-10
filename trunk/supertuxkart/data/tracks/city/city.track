@@ -11,10 +11,10 @@
  (AI-angle-adjust        2.7)
 ;; For testing purposes: these are good start coordinates
 ;; to test the ramp:
- (start-heading -60.0)
- (start-x        48  )
- (start-y       169  )
- (start-z          2 )
+;; (start-heading -60.0)
+;; (start-x        48  )
+;; (start-y       169  )
+;; (start-z          2 )
 )
 
 ;; EOF ;;
