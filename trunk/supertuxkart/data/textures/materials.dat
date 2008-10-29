@@ -139,6 +139,7 @@
 "zipper_collect.rgb"        N N    N    0.0    N     N    1.0   N   Y   N   N
 "zipper.rgb"                N N    N    0.0    N     N    1.0   N   Y   N   N
 "bowlingicon.rgb"           N N    N    0.0    N     N    1.0   N   Y   N   N
+# TextureName              Clamp Trans Alpha Light SphMp Frict Ign Zip Rst Col
 "banana.rgb"                N N    N    0.5    N     N    1.0   N   N   N   N
 "bananawrap.rgb"            Y Y    Y    0.5    N     N    1.0   N   Y   N   N
 "fuzzy.rgb"                 Y Y    Y    0.2    N     N    0.5   Y   N   N   N
@@ -152,7 +153,6 @@
 "homingmissile.rgb"         Y Y    Y    0.1    N     N    1.0   Y   N   N   N
 "anvil.rgb"                 Y Y    Y    0.1    N     N    1.0   Y   N   N   N
 "parachute.rgb"             Y Y    Y    0.1    N     N    1.0   Y   N   N   N
-"herring.rgb"               Y Y    Y    0.9    N     N    1.0   Y   N   N   N
 "wheel.rgb"                 Y Y    Y    0.0    N     N    1.0   Y   N   N   N
 "speedback.rgb"             Y Y    Y    0.0    N     N    1.0   Y   N   N   N
 "speedfore.rgb"             Y Y    Y    0.0    N     N    1.0   Y   N   N   N
@@ -164,19 +164,19 @@
 "window.rgb"                N N    Y    0.0    Y     N    1.0   N   N   N   N
 "signs.rgb"                 N N    Y    0.5    N     N    0.5   N   N   N   N
 "greenice.rgb"              N N    N    0.0    N     N    0.5   N   N   Y   N
-"snow.rgb"		    N N    N	0.0    Y     N    0.00000018   N   N   N   N
+"snow.rgb"		            N N    N	0.0    Y     N    0.00000018   N   N   N   N
 "ice.rgb"                   N N    N    0.0    Y     N    0.000000095 N   N   N   N
 "snowyrock.rgb"             N N    N    0.0    Y     N    0.0000002   N   N   N   N
-"sand2.rgb"		    N N    N    0.0    Y     N    0.0000001   N   N   N   N
-"road_dirt.rgb"		    N N    N    0.0    Y     N    0.00000025  N   N   N   N
-"grass2.rgb"		    N N    N    0.0    Y     N    0.00000015   N   N   N   N
-"dirt2sand.rgb"		    N N    N    0.0    Y     N    0.0000002   N   N   N   N
-"grass2dirt.rgb"	    N N    N    0.0    Y     N    0.0000002  N   N   N   N
-"logs.rgb"		    N N    N    0.0    Y     N    0.0000002   N   N   N   N
-"stonetex.rgb"		    N N    N    0.0    Y     N    0.0000002   N   N   N   N
-"redwhite.rgb"		    N N    N    0.0    Y     N    0.0000002   N   N   N   N
-"dirt.rgb"		    N N    N    0.0    Y     N    0.00000025  N   N   N   N
+"sand2.rgb"		            N N    N    0.0    Y     N    0.0000001   N   N   N   N
+"road_dirt.rgb"		        N N    N    0.0    Y     N    0.00000025  N   N   N   N
+"grass2.rgb"		        N N    N    0.0    Y     N    0.00000015   N   N   N   N
+"dirt2sand.rgb"		        N N    N    0.0    Y     N    0.0000002   N   N   N   N
+"grass2dirt.rgb"	        N N    N    0.0    Y     N    0.0000002  N   N   N   N
+"logs.rgb"		            N N    N    0.0    Y     N    0.0000002   N   N   N   N
+"stonetex.rgb"		        N N    N    0.0    Y     N    0.0000002   N   N   N   N
+"redwhite.rgb"		        N N    N    0.0    Y     N    0.0000002   N   N   N   N
+"dirt.rgb"		            N N    N    0.0    Y     N    0.00000025  N   N   N   N
 "city_asphalt_1.rgb"	    N N    N    0.0    Y     N    0.0000003   N   N   N   N
-"city_checker.rgb"	    N N    N    0.0    Y     N    0.0000003   N   N   N   N
+"city_checker.rgb"	        N N    N    0.0    Y     N    0.0000003   N   N   N   N
 
 # EOF #
