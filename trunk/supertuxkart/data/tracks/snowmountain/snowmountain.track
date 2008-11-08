@@ -1,8 +1,8 @@
 ;; -*- mode: lisp -*-
 
 (tuxkart-track
- (name        "Snow Mountain")
- (description "Created by Canis Lupus")
+ (name        _("Snow Mountain"))
+ (designer    "Canis Lupus")
  (music       "Alien_Apartments.ogg")
  (screenshot  "sshot-snowmountain.rgb")
  (topview     "topview-snowmountain.rgb")
