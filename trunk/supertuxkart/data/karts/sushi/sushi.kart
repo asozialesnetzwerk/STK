@@ -1,29 +1,28 @@
 ;; -*- mode: lisp -*-
 
 (tuxkart-kart
- (name        "Nolok")
- (model-file  "nolokkart-high.ac")
- (icon-file   "nolokicon.rgb")
- (shadow-file "generickartshadow.rgb")
+ (name        "Sushi")
+ (model-file  "sushi.ac")
+ (icon-file   "sushiicon.rgb")
+ (shadow-file "sushishadow.rgb")
  (groups      "standard") 
- (rgb         0.6 0.6 0.5)
+ (rgb         0.8 0.0 0.5)
   (wheel-front-right
-    (position 0.293682 0.427532 0.103120)
+    (position 0.295805 0.431543 0.134951)
     (model    "wheel-front-right.ac")
   )
   (wheel-front-left
-    (position -0.295589 0.427532 0.103120)
+    (position -0.298656 0.431543 0.134951)
     (model    "wheel-front-left.ac")
   )
   (wheel-rear-right
-    (position 0.381569 -0.372732 0.147538)
+    (position 0.342563 -0.439540 0.164941)
     (model    "wheel-rear-right.ac")
   )
   (wheel-rear-left
-    (position -0.383476 -0.372732 0.147538)
+    (position -0.345413 -0.439540 0.164941)
     (model    "wheel-rear-left.ac")
   )
        
 )
-
 ;; EOF ;;

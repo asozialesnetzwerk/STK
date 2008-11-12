@@ -2,7 +2,7 @@
 
 (tuxkart-kart
  (name        "Tux")
- (model-file  "tuxkart.ac")
+ (model-file  "tux.ac")
  (icon-file   "tuxicon.rgb")
  (shadow-file "tuxkartshadow.rgb")
  (groups      "standard") 

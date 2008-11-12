@@ -1,28 +1,29 @@
 ;; -*- mode: lisp -*-
 
 (tuxkart-kart
- (name        "Penny")
- (model-file  "pennykart-med.ac")
- (icon-file   "pennyicon.rgb")
- (shadow-file "pennyshadow.rgb")
+ (name        "Nolok")
+ (model-file  "nolok-high.ac")
+ (icon-file   "nolokicon.rgb")
+ (shadow-file "generickartshadow.rgb")
  (groups      "standard") 
- (rgb         0.8 0.2 0.6)
+ (rgb         0.6 0.6 0.5)
   (wheel-front-right
-    (position 0.253742 0.432308 0.103671)
+    (position 0.293682 0.427532 0.103120)
     (model    "wheel-front-right.ac")
   )
   (wheel-front-left
-    (position -0.250246 0.432308 0.103671)
+    (position -0.295589 0.427532 0.103120)
     (model    "wheel-front-left.ac")
   )
   (wheel-rear-right
-    (position 0.283033 -0.264789 0.142464)
+    (position 0.381569 -0.372732 0.147538)
     (model    "wheel-rear-right.ac")
   )
   (wheel-rear-left
-    (position -0.279537 -0.264789 0.142464)
+    (position -0.383476 -0.372732 0.147538)
     (model    "wheel-rear-left.ac")
   )
        
 )
+
 ;; EOF ;;
