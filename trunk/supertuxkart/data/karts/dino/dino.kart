@@ -2,7 +2,7 @@
 
 (tuxkart-kart
  (name        "Dino")
- (model-file  "dinokart-high.ac")
+ (model-file  "dino-high.ac")
  (icon-file   "dinoicon.rgb")
  (shadow-file "dinoshadow.rgb")
  (groups      "standard")
