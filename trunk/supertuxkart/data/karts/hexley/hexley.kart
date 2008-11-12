@@ -2,7 +2,7 @@
 
 (tuxkart-kart
  (name        "Hexley")
- (model-file  "hexleykart.ac")
+ (model-file  "hexley.ac")
  (icon-file   "hexleyicon.rgb")
  (shadow-file "hexleyshadow.rgb") 
  (groups      "standard")
