@@ -7,6 +7,22 @@
  (shadow-file "wilbershadow.rgb")
  (groups      "standard") 
  (rgb         0.25 0.23 0.18)
+  (wheel-front-right
+    (position 0.262125 0.405543 0.070692)
+    (model    "wheel-front-right.ac")
+  )
+  (wheel-front-left
+    (position -0.245731 0.401536 0.073604)
+    (model    "wheel-front-left.ac")
+  )
+  (wheel-rear-right
+    (position 0.267081 -0.101261 0.078656)
+    (model    "wheel-rear-right.ac")
+  )
+  (wheel-rear-left
+    (position -0.246048 -0.090293 0.068169)
+    (model    "wheel-rear-left.ac")
+  )
        
 )
 ;; EOF ;;
