@@ -23,11 +23,11 @@ All textures in this directory are licensed under GPL except :
     released under Creative Commons Attribution-Share Alike 3.0 Germany [http://creativecommons.org/licenses/by-sa/3.0/de/deed.en]
  
 * bowling.rgb
-    created by UnNamed aka MiniBjorn (c) 2008
+    created by MiniBjorn (c) 2008
     released under Creative Commons Attribution-Share Alike 3.0 [http://creativecommons.org/licenses/by-sa/3.0/]
 
 * plunger.rgb
-    created by Auria aka Marianne Gagnon based on work by UnNamed aka MiniBjorn (c) 2008
+    created by Auria aka Marianne Gagnon based on work by MiniBjorn (c) 2008
     released under Creative Commons Attribution-Share Alike 3.0 [http://creativecommons.org/licenses/by-sa/3.0/]
 
 * cake.rgb, bowlingicon.rgb, cakeicon.rgb
