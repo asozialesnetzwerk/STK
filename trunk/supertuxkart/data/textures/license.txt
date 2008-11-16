@@ -26,6 +26,10 @@ All textures in this directory are licensed under GPL except :
     created by UnNamed aka MiniBjorn (c) 2008
     released under Creative Commons Attribution-Share Alike 3.0 [http://creativecommons.org/licenses/by-sa/3.0/]
 
+* plunger.rgb
+    created by Auria aka Marianne Gagnon based on work by UnNamed aka MiniBjorn (c) 2008
+    released under Creative Commons Attribution-Share Alike 3.0 [http://creativecommons.org/licenses/by-sa/3.0/]
+
 * cake.rgb, bowlingicon.rgb, cakeicon.rgb
     created by Auria aka Marianne Gagnon (c) 2008
     released under Creative Commons Attribution-Share Alike 3.0 [http://creativecommons.org/licenses/by-sa/3.0/]
