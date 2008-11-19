@@ -7,6 +7,8 @@
  (shadow-file "hexleyshadow.rgb") 
  (groups      "standard")
  (rgb         0.9 0.2 0.2)
+
+ (wheel-radius  0.15)
  (wheel-front-right
    (position 0.202602 0.240117 0.096583)
    (model    "wheel-front-right.ac")
