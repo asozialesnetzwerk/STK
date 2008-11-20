@@ -6,6 +6,7 @@
  (icon-file   "sushiicon.rgb")
  (shadow-file "sushishadow.rgb")
  (groups      "standard") 
+ (engine-sound "large")
  (rgb         0.8 0.0 0.5)
   (wheel-front-right
     (position 0.295805 0.431543 0.134951)

@@ -6,6 +6,7 @@
  (icon-file   "pennyicon.rgb")
  (shadow-file "pennyshadow.rgb")
  (groups      "standard") 
+ (engine-sound "small")
  (rgb         0.8 0.2 0.6)
   (wheel-front-right
     (position 0.253742 0.432308 0.103671)

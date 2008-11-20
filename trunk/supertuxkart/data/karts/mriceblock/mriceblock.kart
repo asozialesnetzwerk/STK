@@ -6,6 +6,7 @@
  (icon-file   "mriceblockicon.rgb")
  (shadow-file "mriceblockshadow.rgb")
  (groups      "standard")
+ (engine-sound "large")
  (rgb         0.0 0.9 1.0)
   (wheel-front-right
     (position 0.192344 0.413680 0.111283)

@@ -6,6 +6,7 @@
  (icon-file   "nolokicon.rgb")
  (shadow-file "generickartshadow.rgb")
  (groups      "standard") 
+ (engine-sound "small")
  (rgb         0.6 0.6 0.5)
   (wheel-front-right
     (position 0.293682 0.427532 0.103120)

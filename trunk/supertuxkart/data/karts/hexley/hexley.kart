@@ -6,6 +6,7 @@
  (icon-file   "hexleyicon.rgb")
  (shadow-file "hexleyshadow.rgb") 
  (groups      "standard")
+ (engine-sound "small")
  (rgb         0.9 0.2 0.2)
 
  (wheel-radius  0.15)

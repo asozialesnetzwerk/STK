@@ -1,4 +1,14 @@
-All sounds are released under GPL, except :
+All sounds are released under GPL, except:
 
-* engine.wav, which comes from the TORCS project and is released under the Free Art License
-* skid which is released under Creative Commons Attribution - Share Alike License 3.0 and is by Atheal Washington and Stephen Dunn (stevo14)
+* engine_large.wav
+    Released under the Free Art License
+    by the TORCS project "http://torcs.sourceforge.net/"
+
+* skid.wav 
+    Released under Creative Commons Attribution - Share Alike License 3.0
+    by Atheal Washington and Stephen Dunn (stevo14)
+
+* engine_small.wav
+    Released under Creative Commons Attribution - Share Alike License 3.0
+    by Stephen Dunn (stevo14)
+    Used samples from "http://www.freesound.org/samplesViewSingle.php?id=60609"

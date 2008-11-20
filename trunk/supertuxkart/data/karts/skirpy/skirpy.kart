@@ -6,6 +6,7 @@
  (icon-file   "skirpyicon.rgb")
  (shadow-file "generickartshadow.rgb")
  (groups      "standard")  
+ (engine-sound "small")
  (rgb         0.1 0.5 0.1)
   (wheel-front-right
     (position 0.260838 0.402148 0.117280)

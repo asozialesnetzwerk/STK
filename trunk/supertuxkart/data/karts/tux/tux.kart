@@ -6,6 +6,7 @@
  (icon-file   "tuxicon.rgb")
  (shadow-file "tuxkartshadow.rgb")
  (groups      "standard") 
+ (engine-sound "small")
  (rgb         0.7 0.0 0.0)
  (wheel-front-right
    (position  0.295  0.412 0.103)

@@ -6,6 +6,7 @@
  (icon-file   "eviltuxicon.rgb")
  (shadow-file "generickartshadow.rgb")
  (groups      "standard") 
+ (engine-sound "small")
  (rgb         0.3 0.1 0.6)
   (wheel-front-right
     (position 0.290000 0.617000 0.123461)

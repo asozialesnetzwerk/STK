@@ -6,6 +6,7 @@
  (icon-file   "wilbericon.rgb")
  (shadow-file "wilbershadow.rgb")
  (groups      "standard") 
+ (engine-sound "small")
  (rgb         0.25 0.23 0.18)
   (wheel-front-right
     (position 0.262125 0.405543 0.070692)
