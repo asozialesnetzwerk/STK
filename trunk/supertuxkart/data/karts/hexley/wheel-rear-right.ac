@@ -1,13 +1,14 @@
 AC3Db
 MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
-MATERIAL "Black" rgb 0.2 0.2 0.2 amb 0.5 0.5 0.5 emis 0 0 0 spec 0.2 0.2 0.2 shi 0 trans 0
+MATERIAL "Black.002" rgb 0.2 0.2 0.2 amb 0.5 0.5 0.5 emis 0 0 0 spec 0.2 0.2 0.2 shi 0 trans 0
 OBJECT world
 kids 1
 OBJECT poly
 name "WheelRear.R"
 data 10
-Circle.002
+Circle.014
 crease 30.000000
+rot 1.333483 0 0 0 0 -1.56 0 1.56 0
 numvert 33
 0.077521 -0.061413 0.06141
 0.077517 -0.086851 0

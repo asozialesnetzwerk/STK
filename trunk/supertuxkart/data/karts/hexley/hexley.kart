@@ -11,21 +11,21 @@
 
  (wheel-radius  0.15)
  (wheel-front-right
-   (position 0.202602 0.240117 0.096583)
-   (model    "wheel-front-right.ac")
- )
- (wheel-front-left
-   (position -0.192731 0.240119 0.096581)
-   (model    "wheel-front-left.ac")
- )
- (wheel-rear-right
-   (position 0.202602 -0.144391 0.096581)
-   (model    "wheel-rear-right.ac")
- )
- (wheel-rear-left
-   (position -0.192731 -0.144389 0.096583)
-   (model    "wheel-rear-left.ac")
- )
+    (position 0.258387 0.408599 0.107701)
+    (model    "wheel-front-right.ac")
+  )
+  (wheel-front-left
+    (position -0.248516 0.408602 0.107698)
+    (model    "wheel-front-left.ac")
+  )
+  (wheel-rear-right
+    (position 0.268520 -0.357958 0.107698)
+    (model    "wheel-rear-right.ac")
+  )
+  (wheel-rear-left
+    (position -0.258649 -0.357955 0.107701)
+    (model    "wheel-rear-left.ac")
+  )
        
 )
 ;; EOF ;;
