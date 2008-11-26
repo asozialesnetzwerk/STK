@@ -9,7 +9,6 @@
  (engine-sound "small")
  (rgb         0.9 0.2 0.2)
 
- (wheel-radius  0.15)
  (wheel-front-right
     (position 0.258387 0.408599 0.107701)
     (model    "wheel-front-right.ac")
