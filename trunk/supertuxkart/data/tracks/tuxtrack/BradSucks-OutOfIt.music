@@ -1,0 +1,7 @@
+(music-information
+  (title    "Out of it"    )
+  (composer "Brad Sucks"            )
+  (music    "BradSucks-OutOfIt.ogg")
+  (loop     10                 )
+)
+
