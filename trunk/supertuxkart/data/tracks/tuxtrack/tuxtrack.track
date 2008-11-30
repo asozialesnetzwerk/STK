@@ -3,7 +3,7 @@
 (tuxkart-track
  (name        _("Tux Tollway"))
  (designer    "Oliver & Steve Baker")
- (music       "BradSucks-OutOfIt.music")
+ (music       "tk2.music" "kart_grand_prix.music")
  (screenshot  "sshot-tuxtrack.rgb")
  (topview     "topview-tuxtrack.rgb")
  (groups      "standard")
