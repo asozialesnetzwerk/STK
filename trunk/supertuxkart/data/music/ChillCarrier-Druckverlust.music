@@ -1,0 +1,7 @@
+(music-information
+  (title    "Druckverlust"    )
+  (composer "ChillCarrier"            )
+  (music    "ChillCarrier-Druckverlust.ogg")
+  (loop     10                 )
+)
+

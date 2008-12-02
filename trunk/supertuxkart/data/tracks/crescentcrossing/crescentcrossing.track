@@ -11,7 +11,7 @@
  (sun-specular 0.2 0.1 0.1)
 
  (groups      "standard")
- (music      "KingArthursCastle.music")
+ (music      "ChillCarrier-Druckverlust.music")
  (screenshot "sshot-crescent.rgb")
  (topview    "topview-crescent.rgb")
  (AI-curve-speed-adjust  3.0)

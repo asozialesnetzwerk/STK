@@ -1,6 +1,6 @@
 (music-information
-  (title    "SuperTuxKart Main Theme")
-  (composer "Weirwood"      )
-  (music    "main_theme.ogg"         )
+  (title    "MayDay Mayhem")
+  (composer "Alessandro Bottura"      )
+  (music    "MayDayMayhem.ogg"         )
   (loop    10)
 )
