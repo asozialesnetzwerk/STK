@@ -1,6 +1,6 @@
 (music-information
   (title    "Amazon Jungle")
-  (composer "Atheal Washington")
+  (composer "Auria")
   (music    "amazon_jungle.ogg")
   (loop     10)
 )
