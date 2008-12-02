@@ -147,6 +147,7 @@
 "smoke.rgb"                 N N    Y    0.0    N     N    1.0   Y   N   N   N
 "explode.rgb"               Y Y    Y    0.2    N     N    1.0   Y   N   N   N
 "flames.rgb"                N N    N    0.9    N     N    1.0   Y   N   N   N
+"fireparticle.rgb"          N N    Y    0.0    N     N    1.0   Y   N   N   N
 "magnet.rgb"                Y Y    Y    0.1    N     N    1.0   Y   N   N   N
 "bzzt.rgb"                  N N    Y    0.1    N     N    1.0   Y   N   N   N
 "anvil.rgb"                 Y Y    Y    0.1    N     N    1.0   Y   N   N   N
