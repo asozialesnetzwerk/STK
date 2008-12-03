@@ -12,3 +12,13 @@ All sounds are released under GPL, except:
     Released under Creative Commons Attribution - Share Alike License 3.0
     by Stephen Dunn (stevo14)
     Used samples from "http://www.freesound.org/samplesViewSingle.php?id=60609"
+
+* bowling_roll.wav
+	Released under the Creative Commons Sampling Plus 1.0 license (http://creativecommons.org/licenses/sampling+/1.0/)
+	By Marianne Gagnon (Auria), based on "PaintCan.wav", "StoneSpinLong.wav" and
+	"PaintCanDropHardAndRoll.wav" by daveincamas, released under the same license
+	
+* stike.wav
+	Released under the Creative Commons Sampling Plus 1.0 license (http://creativecommons.org/licenses/sampling+/1.0/)
+	By Marianne Gagnon (Auria)
+	Based on "plopp.wav" by Paracelsus, released under the same license
