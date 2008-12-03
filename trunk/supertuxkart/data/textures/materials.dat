@@ -130,8 +130,6 @@
 "track.rgb"                 N N    Y    0.0    Y     N    0.0000003   N   N   N   N
 "trackborder.rgb"           N N    N    0.0    N     N    0.0000003   N   N   N   N
 "chess.rgb"		            N N    N    0.0    Y     N    0.0000003   N   N   N   N
-"rainbow.rgb"               N N    Y    0.0    N     N    0.0000003   N   N   N   N
-"rainbow3.rgb"              N N    Y    0.0    Y     N    0.0000003   N   N   N   N
 "tinytux.rgb"               Y Y    Y    0.8    N     N    1.0   Y   N   N   N
 "butterfly.rgb"             Y Y    Y    0.8    N     N    1.0   Y   N   N   N
 "grass.rgb"                 N N    N    0.0    Y     N    0.0000002   N   N   N   N
