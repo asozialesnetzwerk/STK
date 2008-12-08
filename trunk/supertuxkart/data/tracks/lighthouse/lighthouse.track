@@ -8,8 +8,6 @@ modified by M. Gagnon"))
  (screenshot  "sshot-lighthouse.rgb")
  (topview     "topview-lighthouse.rgb")
  (groups      "standard")
- (AI-curve-speed-adjust  1.7)
- (AI-angle-adjust        1.7)
 )
 
 ;; EOF ;;

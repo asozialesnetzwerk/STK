@@ -7,8 +7,6 @@
  (screenshot             "city_screenshot.rgb")
  (topview                "city_topview.rgb")
  (groups                 "standard")
- (AI-curve-speed-adjust  2.0)
- (AI-angle-adjust        2.7)
 ;; For testing purposes: these are good start coordinates
 ;; to test the ramp:
 ;; (start-heading -60.0)

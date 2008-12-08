@@ -6,8 +6,6 @@
  (music       "tk2.music" "kart_grand_prix.music")
  (screenshot  "sshot-snowmountain.rgb")
  (topview     "topview-snowmountain.rgb")
- (AI-curve-speed-adjust  1.7)
- (AI-angle-adjust        2.3)
 )
 
 ;; EOF ;;

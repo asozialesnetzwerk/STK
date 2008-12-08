@@ -7,8 +7,6 @@
  (screenshot  "sshot-fortmagma.rgb")
  (topview     "topview-fortmagma.rgb")
  (groups      "standard")
- (AI-curve-speed-adjust  2.0)
- (AI-angle-adjust        2.0)
 )
 
 ;; EOF ;;

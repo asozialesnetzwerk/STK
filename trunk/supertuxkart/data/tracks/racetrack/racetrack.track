@@ -6,8 +6,6 @@
  (music       "tk2.music")
  (screenshot  "racetrack_screenshot.rgb")
  (topview     "racetrack_topview.rgb")
- (AI-curve-speed-adjust  1.3)
- (AI-angle-adjust        2.0)
 )
 
 ;; EOF ;;
