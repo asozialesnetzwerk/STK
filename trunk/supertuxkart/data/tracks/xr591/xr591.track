@@ -3,7 +3,7 @@
 (tuxkart-track
  (name                   _("XR591"))
  (designer               "Canis Lupus")
- (music                  "Alien_Apartments.ogg")
+ (music                  "SkyVibe-HighFrequency.music")
  (screenshot             "sshot-marstrack.rgb")
  (topview                "topview-marstrack.rgb")
  
