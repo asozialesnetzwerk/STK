@@ -15,7 +15,7 @@
  (sun-diffuse  1.0 0.8 0.8 0.8)
  (sun-specular 1.0 0.9 0.9 0.9)
 
- (music                  "BradSucks-OutOfIt.music")
+ (music                  "Hip-Hop1.music")
 
  (screenshot             "sshot-skyline.rgb")
  (topview                "topview-skyline.rgb")
