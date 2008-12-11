@@ -26,7 +26,8 @@ All sounds are released under GPL, except:
     By Marianne Gagnon (Auria), based on "PaintCan.wav", "StoneSpinLong.wav" and
     "PaintCanDropHardAndRoll.wav" by daveincamas, released under the same license
     
-* strike.wav
+* strike.wav (Based on sound "11913201" by Radio Mall)
+* goo.wav (Based on sound "Slime pour horror juicy" by  BLASTWAVEFX 02344
     Released under the SoundSnap license (http://www.soundsnap.com/licence)
     |    You are Free:
     |        - To remix or transform the sounds in any way
@@ -34,4 +35,3 @@ All sounds are released under GPL, except:
     |        - To use the sounds in any music, film, video game, website etc. whether commercial or not, without paying royalties or other fees
     |    You Cannot:
     |        - Make commercial distribution of these sounds 'as they are'. For example, you cannot download and sell them as part of a CD library
-    Based on by sound "11913201" Radio Mall
