@@ -3,4 +3,5 @@
   (composer "Matt Thomas")
   (music    "tk5a.ogg")
   (loop     10)
+  (gain     1.0)
 )

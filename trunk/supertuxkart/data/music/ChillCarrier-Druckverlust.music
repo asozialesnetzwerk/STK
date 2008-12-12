@@ -3,5 +3,6 @@
   (composer "ChillCarrier"            )
   (music    "ChillCarrier-Druckverlust.ogg")
   (loop     10                 )
+  (gain     0.8)
 )
 
