@@ -1,10 +1,10 @@
 ;; -*- mode: lisp -*-
 
 (tuxkart-kart
- (name        "Dino")
- (model-file  "dino-high.ac")
- (icon-file   "dinoicon.rgb")
- (shadow-file "dinoshadow.rgb")
+ (name        "Mozilla")
+ (model-file  "mozilla-high.ac")
+ (icon-file   "mozillaicon.rgb")
+ (shadow-file "mozillashadow.rgb")
  (groups      "standard")
  (engine-sound "large")
  (rgb         1.0 0.7 0.1)
