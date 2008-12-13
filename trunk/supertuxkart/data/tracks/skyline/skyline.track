@@ -2,7 +2,7 @@
 
 (tuxkart-track
  (name                   _("Skyline"))
- (description            _("Created by Robert Howie"))
+ (designer               "Robert Howie")
  
  (use-fog #t)
  (sky-color 1.0 0.8 0.8 0.8)
