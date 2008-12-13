@@ -8,11 +8,6 @@ All sounds are released under GPL, except:
     Released under Creative Commons Attribution - Share Alike License 3.0
     by Atheal Washington and Stephen Dunn (stevo14)
 
-* engine_small.wav
-    Released under Creative Commons Attribution - Share Alike License 3.0
-    by Stephen Dunn (stevo14)
-    Used samples from "http://www.freesound.org/samplesViewSingle.php?id=60609"
-
 * bowling_roll.wav
     Released under the Creative Commons Sampling Plus 1.0 license (http://creativecommons.org/licenses/sampling+/1.0/)
     |    You are free:
@@ -25,6 +20,10 @@ All sounds are released under GPL, except:
     |        - For any reuse or distribution, you must make clear to others the license terms of this work.
     By Marianne Gagnon (Auria), based on "PaintCan.wav", "StoneSpinLong.wav" and
     "PaintCanDropHardAndRoll.wav" by daveincamas, released under the same license
+* engine_small.wav
+    Released under Creative Commons sampling Plus 1.0 License (see above)
+    by Stephen Dunn (stevo14)
+    Based on lawmower by morgantj.
     
 * strike.wav (Based on sound "11913201" by Radio Mall)
 * goo.wav (Based on sound "Slime pour horror juicy" by  BLASTWAVEFX 02344
