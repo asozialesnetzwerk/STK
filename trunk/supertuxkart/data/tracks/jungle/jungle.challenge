@@ -2,8 +2,8 @@
 
 (challenge
  (id            "racetracktime")
- (name          _("Finish Race track in 2:15"))
- (description   _("Finish 3 laps in Racetrack\nwith 3 AI karts\nin under 2:15 minutes."))
+ (name          _("Finish Race track in 2:40"))
+ (description   _("Finish 3 laps in Racetrack\nwith 3 easy AI karts\nin under 2:40 minutes."))
  (unlock-track "jungle")
  (major        "single")
  (minor        "quickrace")
@@ -11,7 +11,7 @@
  (difficulty   "easy")
  (laps         3)
  (karts        4)
- (time       135)
+ (time       160)
 )
 
 ;; EOF ;;

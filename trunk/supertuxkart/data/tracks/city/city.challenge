@@ -9,7 +9,7 @@
  (major        "single")
  (minor        "followtheleader")
  (track        "jungle")
- (difficulty   "easy")
+ (difficulty   "medium")
  (karts        4)
  (position     2)
 )
