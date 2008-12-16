@@ -1,6 +1,10 @@
+* explosion.rgb
+    from original TuxKart, with modifications by MiniBjorn (fixed blue edge and spread + blur detail)
+
 ============================================================
 All textures in this directory are licensed under GPL except :
 ============================================================
+
 
 * city_asphalt
 * city_concrete
