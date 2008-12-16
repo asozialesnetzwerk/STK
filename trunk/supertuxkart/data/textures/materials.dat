@@ -127,7 +127,7 @@
 "metalgrid.rgb"             N N    Y    0.3    Y     N    0.0000003   N   N   N   N
 "fuzzy_sand.rgb"            N N    Y    0.0    N     N    1.0   Y   N   N   N
 "roadway.rgb"               Y N    Y    0.0    Y     N    0.0000003   N   N   N   N
-"track.rgb"                 N N    Y    0.0    Y     N    0.0000003   N   N   N   N
+"track.rgb"                 N N    N    0.0    Y     N    0.0000003   N   N   N   N
 "trackborder.rgb"           N N    N    0.0    N     N    0.0000003   N   N   N   N
 "chess.rgb"		            N N    N    0.0    Y     N    0.0000003   N   N   N   N
 "tinytux.rgb"               Y Y    Y    0.8    N     N    1.0   Y   N   N   N
@@ -174,5 +174,6 @@
 "dirt.rgb"		            N N    N    0.0    Y     N    0.00000025  N   N   N   N
 "city_asphalt_1.rgb"	    N N    N    0.0    Y     N    0.0000003   N   N   N   N
 "city_checker.rgb"	        N N    N    0.0    Y     N    0.0000003   N   N   N   N
+"nitro-metal.rgb"		        N N    N    0.0    Y     Y    0.5   N   N   N   N
 
 # EOF #
