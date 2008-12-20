@@ -178,5 +178,6 @@
 "tank-green.rgb"	        N N    N    0.0    Y     Y    0.5   N   N   N   N
 "tank-cyan.rgb"		        N N    N    0.0    Y     Y    0.5   N   N   N   N
 "starparticle.rgb"			N N    Y    0.0    Y     N    1.0   N   N   N   N   N
+"gift-loop.rgb"		        N N    N    0.0    Y     Y    0.5   N   N   N   N
 
 # EOF #
