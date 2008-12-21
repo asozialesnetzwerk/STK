@@ -1,11 +1,10 @@
-;; -*- mode: lisp -*-
-
 (tuxkart-kart
- (name        "Wilber")
- (model-file  "wilber2.ac")
- (icon-file   "wilber2icon.rgb")
- (shadow-file "wilber2shadow.rgb")
- (rgb  0.25 0.23 0.18)
+  (name        "wilber2")
+  (model-file  "wilber2.ac")
+  (icon-file   "wilber2icon.rgb")
+  (shadow-file "wilber2shadow.rgb")
+  (groups      "standard")
+  (rgb         0.700000 0.000000 0.000000)
   (wheel-front-right
     (position 0.275697 0.339242 0.112979)
     (model    "wheel-front-right.ac")
@@ -22,6 +21,4 @@
     (position -0.315232 -0.307547 0.110255)
     (model    "wheel-rear-left.ac")
   )
-       
 )
-;; EOF ;;
