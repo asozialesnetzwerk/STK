@@ -1,0 +1,18 @@
+;; -*- mode: lisp -*-
+
+(tuxkart-track
+ (name        _("Around the Lighthouse"))
+ (description _("Created by Ingo Ruhnke,
+modified by M. Gagnon"))
+ (music       "tk2.music")
+ (screenshot  "sshot-lighthouse.rgb")
+ (topview     "topview-lighthouse.rgb")
+ (groups      "standard")
+;; Start position for the jump at the light house. 
+;; Useful for debugging.
+;;(start-x -2.57)
+;;(start-y -81.35)
+;;(start-z 0.0)
+)
+
+;; EOF ;;

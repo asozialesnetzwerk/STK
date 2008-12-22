@@ -1,0 +1,13 @@
+;; -*- mode: lisp -*-
+
+(tuxkart-track
+ (name        _("Oliver's Math Class"))
+ (designer    "Oliver & Steve Baker")
+ (music       "Boom_boom_boom.music")
+ (screenshot  "sshot-olivermath.rgb")
+ (topview     "topview-olivermath.rgb")
+ (groups      "standard")
+)
+
+;; EOF ;;
+

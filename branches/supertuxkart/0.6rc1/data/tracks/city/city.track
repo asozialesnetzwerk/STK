@@ -1,0 +1,19 @@
+;; -*- mode: lisp -*-
+
+(tuxkart-track
+ (name                   _("City"))
+ (designer               "Thomas Oppl")
+ (music                  "Penguin_Party.music")
+ (screenshot             "city_screenshot.rgb")
+ (topview                "city_topview.rgb")
+ (groups                 "standard")
+;; For testing purposes: these are good start coordinates
+;; to test the ramp:
+;; (start-heading -60.0)
+;; (start-x        48  )
+;; (start-y       169  )
+;; (start-z          2 )
+)
+
+;; EOF ;;
+

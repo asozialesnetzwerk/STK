@@ -1,0 +1,12 @@
+;; -*- mode: lisp -*-
+
+(tuxkart-track
+ (name        _("Racetrack"))
+ (designer    "Thomas Oppl")
+ (music       "tk2.music")
+ (screenshot  "racetrack_screenshot.rgb")
+ (topview     "racetrack_topview.rgb")
+)
+
+;; EOF ;;
+

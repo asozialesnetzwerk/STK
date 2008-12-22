@@ -1,0 +1,13 @@
+;; -*- mode: lisp -*-
+
+(tuxkart-track
+ (name        _("Fort Magma"))
+ (description _("Created by Oliver & Steve Baker\nmodified by Marianne Gagnon"))
+ (music       "SymphonyNo5.music")
+ (screenshot  "sshot-fortmagma.rgb")
+ (topview     "topview-fortmagma.rgb")
+ (groups      "standard")
+)
+
+;; EOF ;;
+
