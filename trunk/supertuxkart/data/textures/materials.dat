@@ -136,7 +136,6 @@
 "track2.rgb"                N N    N    0.0    Y     N    0.0000003   N   N   N   N
 "zipper_collect.rgb"        N N    N    0.0    N     N    1.0   N   Y   N   N
 "zipper.rgb"                N N    N    0.0    N     N    1.0   N   Y   N   N
-"bowlingicon.rgb"           N N    N    0.0    N     N    1.0   N   Y   N   N
 # TextureName              Clamp Trans Alpha Light SphMp Frict Ign Zip Rst Col
 "banana.rgb"                N N    N    0.5    N     N    1.0   N   N   N   N
 "bananawrap.rgb"            Y Y    Y    0.5    N     N    1.0   N   Y   N   N
@@ -179,5 +178,9 @@
 "tank-cyan.rgb"		        N N    N    0.0    Y     Y    0.5   N   N   N   N
 "starparticle.rgb"			N N    Y    0.0    Y     N    1.0   N   N   N   N   N
 "gift-loop.rgb"		        N N    N    0.0    Y     Y    0.5   N   N   N   N
+"bowling-icon.rgb"          N N    Y    0.0    N     N    1.0   N   N   N   N
+"bubblegum-icon.rgb"        N N    Y    0.0    N     N    1.0   N   N   N   N
+"cake-icon.rgb"             N N    Y    0.0    N     N    1.0   N   N   N   N
+"plunger-icon.rgb"          N N    Y    0.0    N     N    1.0   N   N   N   N
 
 # EOF #
