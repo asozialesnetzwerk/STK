@@ -1,5 +1,5 @@
 (tuxkart-kart
-  (name        "wilber2")
+  (name        "Wilber")
   (model-file  "wilber2.ac")
   (icon-file   "wilber2icon.rgb")
   (shadow-file "wilber2shadow.rgb")
