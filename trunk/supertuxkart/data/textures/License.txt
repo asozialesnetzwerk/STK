@@ -33,6 +33,10 @@ All textures in this directory are licensed under GPL except :
     created by MiniBjorn (c) 2008
     released under Creative Commons Attribution-Share Alike 3.0 [http://creativecommons.org/licenses/by-sa/3.0/]
 
+* plungerface.rgb
+    based on plunger.rgb by MiniBjorn
+    released under Creative Commons Attribution-Share Alike 3.0 [http://creativecommons.org/licenses/by-sa/3.0/]
+
 * banana.rgb
     created by horace aka thomas oppl (toppl@fh-sbg.ac.at) (c) 2008
     released under Creative Commons Attribution-Share Alike 3.0 [http://creativecommons.org/licenses/by-sa/3.0/]
