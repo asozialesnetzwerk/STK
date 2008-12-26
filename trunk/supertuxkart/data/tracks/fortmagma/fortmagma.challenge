@@ -8,7 +8,7 @@
  (unlock-track "fortmagma")
  (major        "single")
  (minor        "timetrial")
- (track        "tuxtrack")
+ (track        "tuxtollway")
  (difficulty   "hard")
  (laps         1)
  (karts        2)

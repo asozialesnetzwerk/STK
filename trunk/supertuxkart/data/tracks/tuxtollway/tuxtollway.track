@@ -1,0 +1,17 @@
+;; -*- mode: lisp -*-
+
+(tuxkart-track
+ (name        _("Tux Tollway"))
+ (designer    "Ivar ten Cate")
+ (music       "kart_grand_prix.music")
+ (screenshot  "sshot-tuxtrack.rgb")
+ (topview     "topview-tuxtrack.rgb")
+ (groups      "standard")
+ (AI-curve-speed-adjust  1.7)
+ (AI-angle-adjust        2.3)
+
+)
+
+;; EOF ;;
+
+
