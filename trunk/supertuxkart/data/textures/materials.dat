@@ -183,5 +183,7 @@
 "cake-icon.rgb"             N N    Y    0.0    N     N    1.0   N   N   N   N
 "plunger-icon.rgb"          N N    Y    0.0    N     N    1.0   N   N   N   N
 "plungerface.rgb"           N N    Y    0.0    N     N    1.0   N   N   N   N
+"nitro-tank.rgb"               N Y    Y    0.5    Y     N    1.0   N   N   N   N
+
 
 # EOF #
