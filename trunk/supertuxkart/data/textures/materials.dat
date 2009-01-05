@@ -118,8 +118,8 @@
 "stones.rgb"                N N    N    0.0    Y     N    0.0000002   N   N   N   N
 "pebbles.rgb"               N N    N    0.0    Y     N    1.0   N   N   N   N
 "floor.rgb"                 N N    N    0.0    Y     N    0.0000003   N   N   N   N
-"sand.rgb"                  N N    N    0.0    Y     N    0.0000001   N   N   N   N
-"sandgrass.rgb"             N N    N    0.0    Y     N    0.00000015   N   N   N   N
+"sand.rgb"                  N N    N    0.0    Y     N    0.0000001   N   N   N   N 0.4 2
+"sandgrass.rgb"             N N    N    0.0    Y     N    0.00000015   N   N   N   N 0.6 2
 "egypt.rgb"                 N N    N    0.0    Y     N    1.0   N   N   N   Y
 "pyramidwall.rgb"           N N    N    0.0    Y     N    1.0   N   N   N   N
 "lava.rgb"                  N N    N    0.0    N     N    1.0   N   N   Y   Y
@@ -132,7 +132,7 @@
 "chess.rgb"		            N N    N    0.0    Y     N    0.0000003   N   N   N   N
 "tinytux.rgb"               Y Y    Y    0.8    N     N    1.0   Y   N   N   N
 "butterfly.rgb"             Y Y    Y    0.8    N     N    1.0   Y   N   N   N
-"grass.rgb"                 N N    N    0.0    Y     N    0.0000002   N   N   N   N
+"grass.rgb"                 N N    N    0.0    Y     N    0.0000002   N   N   N   N 0.4 2
 "track2.rgb"                N N    N    0.0    Y     N    0.0000003   N   N   N   N
 "zipper_collect.rgb"        N N    N    0.0    N     N    1.0   N   Y   N   N
 "zipper.rgb"                N N    N    0.0    N     N    1.0   N   Y   N   N
