@@ -11,6 +11,6 @@
 "canyon_asphalt_blend_2.rgb"	N N    N    0.0    Y     N    0.0000003 N  N  N  N
 "canyon_boards.rgb"		N N    N    0.0    Y     N    0.0000003 N  N  N  N
 "canyon_dirt_road.rgb"		N N    N    0.0    Y     N    0.0000002 N  N  N  N
-"canyon_ground.rgb"		N N    N    0.0    Y     N    0.00000012 N  N  N  N
+"canyon_ground.rgb"		N N    N    0.0    Y     N    0.00000012 N  N  N  N 0.4 4
 
 # EOF #

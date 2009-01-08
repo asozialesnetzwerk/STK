@@ -116,8 +116,8 @@
 
 # TextureName              Clamp Trans Alpha Light SphMp Frict Ign Zip Rst Col mxSpd SldT
 "sand.rgb"                  N N    N    0.0    Y     N    0.0000001    N   N   N   N 0.4 4
-"sandgrass.rgb"             N N    N    0.0    Y     N    0.00000015   N   N   N   N 0.6 4
-"grass.rgb"                 N N    N    0.0    Y     N    0.0000002    N   N   N   N 0.4 4
+"sandgrass.rgb"             N N    N    0.0    Y     N    0.00000015   N   N   N   N 0.4 4
+"grass.rgb"                 N N    N    0.0    Y     N    0.0000002    N   N   N   N 0.6 4
 "chrome.rgb"                N N    N    0.0    N     Y    0.5   N   N   N   N
 "chrome2.rgb"               N N    N    0.0    N     Y    0.5   N   N   N   N
 "railing.rgb"               N Y    Y    0.5    Y     N    1.0   N   N   N   N
@@ -166,14 +166,14 @@
 "window.rgb"                N N    Y    0.0    Y     N    1.0   N   N   N   N
 "signs.rgb"                 N N    Y    0.5    N     N    0.5   N   N   N   N
 "greenice.rgb"              N N    N    0.0    N     N    0.5   N   N   Y   N
-"snow.rgb"		            N N    N	0.0    Y     N    0.00000018   N   N   N   N
-"ice.rgb"                   N N    N    0.0    Y     N    0.000000095 N   N   N   N
+"snow.rgb"		            N N    N	0.0    Y     N    0.00000018   N   N   N   N 0.4 4
+"ice.rgb"                   N N    N    0.0    Y     N    0.000000095 N   N   N   N 
 "snowyrock.rgb"             N N    N    0.0    Y     N    0.0000002   N   N   N   N
 "sand2.rgb"		            N N    N    0.0    Y     N    0.0000001   N   N   N   N
 "road_dirt.rgb"		        N N    N    0.0    Y     N    0.00000025  N   N   N   N
-"grass2.rgb"		        N N    N    0.0    Y     N    0.00000015   N   N   N   N
+"grass2.rgb"		        N N    N    0.0    Y     N    0.00000015   N   N   N   N 0.6 4
 "dirt2sand.rgb"		        N N    N    0.0    Y     N    0.0000002   N   N   N   N
-"grass2dirt.rgb"	        N N    N    0.0    Y     N    0.0000002  N   N   N   N
+"grass2dirt.rgb"	        N N    N    0.0    Y     N    0.0000002  N   N   N   N 0.4 4
 "logs.rgb"		            N N    N    0.0    Y     N    0.0000002   N   N   N   N
 "stonetex.rgb"		        N N    N    0.0    Y     N    0.0000002   N   N   N   N
 "redwhite.rgb"		        N N    N    0.0    Y     N    0.0000002   N   N   N   N
