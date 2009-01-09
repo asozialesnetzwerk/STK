@@ -31,7 +31,7 @@ All textures in this directory are licensed under GPL except :
  
 * bowling.rgb, plunger.rgb, cake.rgb, bubblegum.rgb, flaring-star.rgb, nitro-tank.rgb, nitro-metal.rgb,
   gift-box, gift-loop, tank-cyan, tank-blue, tank-green, plunger-icon.rgb, bubblegum-icon.rgb, cake-icon.rgb,
-  bowling-icon.rgb, tnt-bomb.rgb, plungerface.rgb, nitro-particle.rgb
+  bowling-icon.rgb, tnt-bomb.rgb, plungerface.rgb, nitro-particle.rgb, smoke.rgb
     created by MiniBjorn (c) 2008
     released under Creative Commons Attribution-Share Alike 3.0 [http://creativecommons.org/licenses/by-sa/3.0/]
 
