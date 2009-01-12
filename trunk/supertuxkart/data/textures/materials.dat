@@ -159,6 +159,7 @@
 "speedback.rgb"             Y Y    Y    0.0    N     N    1.0   Y   N   N   N
 "speedfore.rgb"             Y Y    Y    0.0    N     N    1.0   Y   N   N   N
 "st_title_screen.rgb"       Y Y    N    1.0    N     N    1.0   N   N   N   Y
+"menu_background.rgb"       Y Y    N    1.0    N     N    1.0   N   N   N   Y
 "water_light.rgb"           N N    N    0.1    N     N    1.0   N   N   Y   N
 "sea.rgb"                   N N    N    0.0    N     N    0.5   N   N   Y   Y
 "rock.rgb"                  N N    N    0.0    N     N    0.5   N   N   N   N
