@@ -33,7 +33,7 @@ All sounds are released under GPL, except:
     
 * anvil.wav
     Released under the GPL
-    by the "Battle Foer Wesnoth" project
+    by the "Battle For Wesnoth" project
     
 * strike.wav (Based on sound "11913201" by Radio Mall)
 * goo.wav (Based on sound "Slime pour horror juicy" by  BLASTWAVEFX 02344
