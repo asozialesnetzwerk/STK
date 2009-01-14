@@ -23,6 +23,10 @@ All sounds are released under GPL, except:
     Released under Creative Commons sampling Plus 1.0 License (see above)
     by Stephen Dunn (stevo14), based on "lawnmower" by morgantj.
     
+* anvil.wav
+    Released under the GPL
+    by the "Battle Foer Wesnoth" project
+    
 * strike.wav (Based on sound "11913201" by Radio Mall)
 * goo.wav (Based on sound "Slime pour horror juicy" by  BLASTWAVEFX 02344
     Released under the SoundSnap license (http://www.soundsnap.com/licence)
