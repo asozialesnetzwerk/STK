@@ -3,7 +3,7 @@
 (tuxkart-track
  (name        _("Racetrack"))
  (designer    "Thomas Oppl")
- (music       "tk2.music")
+ (music       "TheDeadRocks-OneMillionDollar.music")
  (screenshot  "racetrack_screenshot.rgb")
  (topview     "racetrack_topview.rgb")
  (camera-final-position  5 20 3)
