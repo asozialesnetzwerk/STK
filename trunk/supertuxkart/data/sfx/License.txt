@@ -18,7 +18,11 @@ All sounds are released under GPL, except:
 * horn.wav
     Released under the Creative Commons Sampling Plus 1.0 license (http://creativecommons.org/licenses/sampling+/1.0/)
     By Marianne Gagnon (Auria), based on "claxon" by han1, released under the same license
-    
+* parachute.wav
+    Released under the Creative Commons Sampling Plus 1.0 license (http://creativecommons.org/licenses/sampling+/1.0/)
+    By Marianne Gagnon (Auria), based on "kiss" by roscoetoon, "kissy_sound" by FreqMan,
+    "rockets" by SmiertSpionem and "Swishes" by Pogotron, all released under the same license
+        
 * engine_small.wav
     Released under Creative Commons sampling Plus 1.0 License (see above)
     by Stephen Dunn (stevo14), based on "lawnmower" by morgantj.
@@ -30,6 +34,8 @@ All sounds are released under GPL, except:
 * strike.wav (Based on sound "11913201" by Radio Mall)
 * goo.wav (Based on sound "Slime pour horror juicy" by  BLASTWAVEFX 02344
     Released under the SoundSnap license (http://www.soundsnap.com/licence)
+    
+SoundSnap license (short version) :
     |    You are Free:
     |        - To remix or transform the sounds in any way
     |        - To copy, distribute and transmit the sounds
