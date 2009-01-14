@@ -20,8 +20,8 @@
  (screenshot             "sshot-skyline.rgb")
  (topview                "topview-skyline.rgb")
 
- (AI-curve-speed-adjust  2.0)
- (AI-angle-adjust        2.7)
+ (camera-final-position  5 20 3)
+ (camera-final-hpr       180 -10 0)
 )
 
 ;; EOF ;;

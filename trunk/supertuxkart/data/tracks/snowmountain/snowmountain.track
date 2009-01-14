@@ -6,6 +6,8 @@
  (music       "tk2.music" "kart_grand_prix.music")
  (screenshot  "sshot-snowmountain.rgb")
  (topview     "topview-snowmountain.rgb")
+ (camera-final-position  5 20 3)
+ (camera-final-hpr       180 -10 0)
 )
 
 ;; EOF ;;

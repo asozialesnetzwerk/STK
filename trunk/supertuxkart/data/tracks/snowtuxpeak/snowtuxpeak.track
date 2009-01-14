@@ -7,6 +7,8 @@
  (screenshot  "sshot-snowtuxpeak.rgb")
  (topview     "topview-snowtuxpeak.rgb")
  (groups      "standard")
+ (camera-final-position  5 20 3)
+ (camera-final-hpr       180 -10 0)
 )
 
 ;; EOF ;;

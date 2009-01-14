@@ -8,6 +8,8 @@ modified by M. Gagnon"))
  (screenshot  "sshot-lighthouse.rgb")
  (topview     "topview-lighthouse.rgb")
  (groups      "standard")
+ (camera-final-position  5 20 3)
+ (camera-final-hpr       180 -10 0)
 ;; Start position for the jump at the light house. 
 ;; Useful for debugging.
 ;;(start-x -2.57)

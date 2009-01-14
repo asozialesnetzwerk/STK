@@ -13,8 +13,8 @@
  ;;(fog-start    25000.0)
  ;;(fog-end      50000.0)
  
- (AI-curve-speed-adjust  1.0)
- (AI-angle-adjust        2.7)
+ (camera-final-position  5 20 3)
+ (camera-final-hpr       180 -10 0)
  
  
 )

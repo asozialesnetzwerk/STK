@@ -7,6 +7,8 @@
  (screenshot             "city_screenshot.rgb")
  (topview                "city_topview.rgb")
  (groups                 "standard")
+ (camera-final-position  5 20 3)
+ (camera-final-hpr       180 -10 0)
 ;; For testing purposes: these are good start coordinates
 ;; to test the ramp:
 ;; (start-heading -60.0)

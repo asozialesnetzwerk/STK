@@ -7,8 +7,8 @@
  (screenshot  "sshot-tuxtrack.rgb")
  (topview     "topview-tuxtrack.rgb")
  (groups      "standard")
- (AI-curve-speed-adjust  1.7)
- (AI-angle-adjust        2.3)
+ (camera-final-position  5 20 3)
+ (camera-final-hpr       180 -10 0)
 
 )
 
