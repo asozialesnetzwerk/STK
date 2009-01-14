@@ -13,13 +13,15 @@ All sounds are released under GPL, except:
     By Marianne Gagnon (Auria), based on "PaintCan.wav", "StoneSpinLong.wav" and
     "PaintCanDropHardAndRoll.wav" by daveincamas, released under the same license
 * gp_end.wav
-     Released under the Creative Commons Sampling Plus 1.0 license (http://creativecommons.org/licenses/sampling+/1.0/)
+    Released under the Creative Commons Sampling Plus 1.0 license (http://creativecommons.org/licenses/sampling+/1.0/)
     By Marianne Gagnon (Auria), based on "Approx_850_Enthusiast_Audience" by lonemonk, released under the same license
+* horn.wav
+    Released under the Creative Commons Sampling Plus 1.0 license (http://creativecommons.org/licenses/sampling+/1.0/)
+    By Marianne Gagnon (Auria), based on "claxon" by han1, released under the same license
     
 * engine_small.wav
     Released under Creative Commons sampling Plus 1.0 License (see above)
-    by Stephen Dunn (stevo14)
-    Based on lawmower by morgantj.
+    by Stephen Dunn (stevo14), based on "lawnmower" by morgantj.
     
 * strike.wav (Based on sound "11913201" by Radio Mall)
 * goo.wav (Based on sound "Slime pour horror juicy" by  BLASTWAVEFX 02344
