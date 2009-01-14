@@ -3,7 +3,7 @@
 (tuxkart-track
  (name        _("Snow Mountain"))
  (designer    "Canis Lupus")
- (music       "tk2.music" "kart_grand_prix.music")
+ (music       "kart_grand_prix.music")
  (screenshot  "sshot-snowmountain.rgb")
  (topview     "topview-snowmountain.rgb")
  (camera-final-position  5 20 3)

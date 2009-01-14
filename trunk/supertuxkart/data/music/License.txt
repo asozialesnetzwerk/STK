@@ -1,3 +1,1 @@
-The songs are released under GNU GPL, except :
-
-(none atm)
+The songs are released under GNU GPL, except those mentionned ../licenses

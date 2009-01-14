@@ -4,7 +4,7 @@
  (name        _("Around the Lighthouse"))
  (description _("Created by Ingo Ruhnke,
 modified by M. Gagnon"))
- (music       "tk2.music")
+ (music       "ChillCarrier-Druckverlust.music")
  (screenshot  "sshot-lighthouse.rgb")
  (topview     "topview-lighthouse.rgb")
  (groups      "standard")
