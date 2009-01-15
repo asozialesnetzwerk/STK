@@ -7,8 +7,8 @@
  (screenshot  "sshot-tuxtrack.rgb")
  (topview     "topview-tuxtrack.rgb")
  (groups      "standard")
- (camera-final-position  5 20 3)
- (camera-final-hpr       180 -10 0)
+ (camera-final-position  -1 15 1)
+ (camera-final-hpr       180 0 0)
 
 )
 

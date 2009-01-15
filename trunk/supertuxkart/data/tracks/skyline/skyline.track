@@ -20,8 +20,8 @@
  (screenshot             "sshot-skyline.rgb")
  (topview                "topview-skyline.rgb")
 
- (camera-final-position  5 20 3)
- (camera-final-hpr       180 -10 0)
+ (camera-final-position  15 10 5)
+ (camera-final-hpr       140 -10 0)
 )
 
 ;; EOF ;;

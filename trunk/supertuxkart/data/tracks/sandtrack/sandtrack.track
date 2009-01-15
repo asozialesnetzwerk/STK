@@ -7,7 +7,7 @@
  (screenshot  "sshot-sandtrack.rgb")
  (topview     "topview-sandtrack.rgb")
  (groups      "standard")
- (camera-final-position  5 20 3)
+ (camera-final-position  5 100 10)
  (camera-final-hpr       180 -10 0)
 ;; Start coordinates just in front of the ramp
 ;; (start-x -104)
