@@ -8,8 +8,8 @@ modified by M. Gagnon"))
  (screenshot             "sshot-beach.rgb")
  (topview                "topview-beach.rgb")
  (groups                 "standard")
- (camera-final-position  5 20 3)
- (camera-final-hpr       180 -10 0)
+ (camera-final-position  -5 12 3)
+ (camera-final-hpr       -150 -10 0)
 )
 
 ;; EOF ;;

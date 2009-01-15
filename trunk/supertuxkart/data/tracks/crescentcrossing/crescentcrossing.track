@@ -14,7 +14,7 @@
  (music      "ChillCarrier-Druckverlust.music")
  (screenshot "sshot-crescent.rgb")
  (topview    "topview-crescent.rgb")
- (camera-final-position  5 20 3)
+ (camera-final-position  0 20 3)
  (camera-final-hpr       180 -10 0)
 ;; Debugging: Start coordinates to test the jump
 ;; (start-x  -62)

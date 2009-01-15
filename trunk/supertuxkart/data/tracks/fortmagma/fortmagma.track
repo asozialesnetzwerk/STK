@@ -7,8 +7,8 @@
  (screenshot  "sshot-fortmagma.rgb")
  (topview     "topview-fortmagma.rgb")
  (groups      "standard")
- (camera-final-position  5 20 3)
- (camera-final-hpr       180 -10 0)
+ (camera-final-position  5 80 10)
+ (camera-final-hpr       180 2 0)
 )
 
 ;; EOF ;;
