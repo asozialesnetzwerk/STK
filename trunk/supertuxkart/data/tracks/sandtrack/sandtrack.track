@@ -9,10 +9,11 @@
  (groups      "standard")
  (camera-final-position  5 20 3)
  (camera-final-hpr       180 -10 0)
- (start-x -104)
- (start-y -16.3)
- (start-z 6.9)
- (start-heading -160)
+;; Start coordinates just in front of the ramp
+;; (start-x -104)
+;; (start-y -16.3)
+;; (start-z 6.9)
+;; (start-heading -160)
 )
 
 ;; EOF ;;
