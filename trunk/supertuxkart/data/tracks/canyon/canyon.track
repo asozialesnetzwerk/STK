@@ -2,6 +2,7 @@
 
 (tuxkart-track
  (name                   _("Canyon"))
+ (version                1)
  (designer               "Thomas Oppl")
  (music                  "TheDeadRocks-EasyJob.music")
  (screenshot             "canyon_screenshot.rgb")

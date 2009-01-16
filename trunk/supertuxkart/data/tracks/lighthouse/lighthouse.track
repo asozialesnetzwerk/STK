@@ -2,6 +2,7 @@
 
 (tuxkart-track
  (name        _("Around the Lighthouse"))
+ (version     1)
  (description _("Created by Ingo Ruhnke,
 modified by M. Gagnon"))
  (music       "ChillCarrier-Druckverlust.music")

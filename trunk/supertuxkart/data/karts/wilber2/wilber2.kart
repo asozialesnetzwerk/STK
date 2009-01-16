@@ -1,5 +1,6 @@
 (tuxkart-kart
   (name        "Wilber")
+  (version     1)
   (model-file  "wilber2.ac")
   (icon-file   "wilber2icon.rgb")
   (shadow-file "wilber2shadow.rgb")

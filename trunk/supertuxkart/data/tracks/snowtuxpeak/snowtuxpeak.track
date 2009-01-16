@@ -2,6 +2,7 @@
 
 (tuxkart-track
  (name        _("SnowTux Peak"))
+ (version     1)
  (description _("Created by Oliver & Steve Baker\nmodified by Marianne Gagnon"))
  (music       "BradSucks-OutOfIt.music")
  (screenshot  "sshot-snowtuxpeak.rgb")

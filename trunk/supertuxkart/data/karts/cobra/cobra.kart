@@ -1,5 +1,6 @@
 (tuxkart-kart
   (name        "Frankie")
+  (version     1)
   (model-file  "cobra.ac")
   (icon-file   "cobraicon.rgb")
   (shadow-file "cobrashadow.rgb")

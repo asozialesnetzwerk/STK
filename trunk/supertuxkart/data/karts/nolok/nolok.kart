@@ -2,6 +2,7 @@
 
 (tuxkart-kart
  (name        "Nolok")
+ (version     1)
  (model-file  "nolok-high.ac")
  (icon-file   "nolokicon.rgb")
  (shadow-file "generickartshadow.rgb")

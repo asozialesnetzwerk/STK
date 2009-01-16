@@ -2,6 +2,7 @@
 
 (tuxkart-track
  (name        _("Shifting Sands"))
+ (version     1)
  (description _("Created by Oliver & Steve Baker\nmodified by Marianne Gagnon"))
  (music       "TheDeadRocks-GreenSecretFromAmazonia.music")
  (screenshot  "sshot-sandtrack.rgb")

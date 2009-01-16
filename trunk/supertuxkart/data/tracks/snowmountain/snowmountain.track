@@ -2,6 +2,7 @@
 
 (tuxkart-track
  (name        _("Snow Mountain"))
+ (version     1)
  (designer    "Canis Lupus")
  (music       "kart_grand_prix.music")
  (screenshot  "sshot-snowmountain.rgb")

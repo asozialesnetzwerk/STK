@@ -2,6 +2,7 @@
 
 (tuxkart-track
  (name                   _("On the Beach"))
+ (version                1)
  (description            _("Created by Ingo Ruhnke,
 modified by M. Gagnon"))
  (music                  "CaribbeanMusic.music")

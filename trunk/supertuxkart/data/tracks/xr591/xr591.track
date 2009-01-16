@@ -1,7 +1,8 @@
 ;; -*- mode: lisp -*-
 
 (tuxkart-track
- (name                   _("XR591"))
+ (name                   _("XR591")) 
+ (version                1)
  (designer               "Canis Lupus")
  (music                  "SkyVibe-HighFrequency.music")
  (screenshot             "sshot-marstrack.rgb")

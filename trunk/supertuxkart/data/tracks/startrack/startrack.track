@@ -2,6 +2,7 @@
 
 (tuxkart-track
  (name       _("Star Track"))
+ (version    1)
  (designer   "Ingo Ruhnke, modified by A. Billing")
  (music      "Ethereal_Spectrum_\(ver_loop\).music")
  (screenshot "sshot-startrack.rgb")

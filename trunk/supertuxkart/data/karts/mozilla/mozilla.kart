@@ -2,6 +2,7 @@
 
 (tuxkart-kart
  (name        "Mozilla")
+ (version     1)
  (model-file  "mozilla-high.ac")
  (icon-file   "mozillaicon.rgb")
  (shadow-file "mozillashadow.rgb")

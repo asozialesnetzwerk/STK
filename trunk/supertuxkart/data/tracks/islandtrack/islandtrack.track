@@ -2,6 +2,7 @@
 
 (tuxkart-track
  (name        _("The Island"))
+ (version     1)
  (designer    "Johannes Sjolund")
  (music       "Boom_boom_boom.music")
  (screenshot  "sshot-islandtrack.rgb")

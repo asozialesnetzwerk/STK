@@ -2,6 +2,7 @@
 
 (tuxkart-kart
  (name        "Eviltux")
+ (version     1)
  (model-file  "eviltux.ac")
  (icon-file   "eviltuxicon.rgb")
  (shadow-file "generickartshadow.rgb")

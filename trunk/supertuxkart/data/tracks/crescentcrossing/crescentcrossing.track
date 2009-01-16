@@ -2,6 +2,7 @@
 
 (tuxkart-track
  (name     _("Crescent Crossing"))
+ (version  1)
  (designer "Ingo Ruhnke & Marianne Gagnon")
  
   (sky-color    0.45 0.0 0.0 0.0)
