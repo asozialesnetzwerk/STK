@@ -154,7 +154,7 @@
 "nitro-particle.rgb"        N N    Y    0.0    N     N    1.0   Y   N   N   N
 "magnet.rgb"                Y Y    Y    0.1    N     N    1.0   Y   N   N   N
 "bzzt.rgb"                  N N    Y    0.1    N     N    1.0   Y   N   N   N
-"anvil.rgb"                 Y Y    Y    0.1    N     N    1.0   Y   N   N   N
+"anchor-icon.rgb"           Y Y    Y    0.1    N     N    1.0   Y   N   N   N
 "parachute.rgb"             Y Y    Y    0.1    N     N    1.0   Y   N   N   N
 "speedback.rgb"             Y Y    Y    0.0    N     N    1.0   Y   N   N   N
 "speedfore.rgb"             Y Y    Y    0.0    N     N    1.0   Y   N   N   N
