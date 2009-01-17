@@ -1,6 +1,0 @@
-(music-information
-  (title "Tuxkart 7")
-  (composer "Matt Thomas")
-  (music    "tk7.ogg")
-  (loop    10)
-)
