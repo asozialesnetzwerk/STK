@@ -1,4 +1,5 @@
-Reused with different colors from supertuxkart/data/textures:
+____________________________________________________________________
+Reused with different colors from supertuxkart/data/textures (see their individual licenses) :
 
 -acid_lake.rgb      (lava.rgb is the original)
 -marstown_cyan.rgb  (lava.rgb is the original)
@@ -9,43 +10,29 @@ Reused with different colors from supertuxkart/data/textures:
 -mars_lava2.rgb     (lava2 is the original)
 -mars_lava3.rgb     (lava2 is the original)
 
-
-
 -stars.rgb is from startrack
 
+__________________________________
+Under CC-Attribution 2.5 generic :
+    metal_ground.rgb  --  from http://blender-archi.tuxfamily.org/Textures#Seamless
 
+__________________________________
+Under CC-attribution-2.0    marstown_yellow*.rgb
+        from http://www.marcchehab.org/frozenmist/metal/TiZeta_gold-foil.jpg
+        from http://www.marcchehab.org/frozenmist/metal/TiZeta_aluminium-darken.jpg
 
-Under CC-BY
-downloaded from http://blender-archi.tuxfamily.org/Textures#Seamless
+__________________________________
+from NASA (public domain) :
+    jupiter.rgb, galaxy1.rgb, galaxy2.rgb, saturn.rgb, erde.rgb, mars.rgb, venus.rgb
+        http://commons.wikimedia.org/wiki/Jupiter
+        http://commons.wikimedia.org/wiki/Category:Galaxies
+        http://commons.wikimedia.org/wiki/Image:Saturn_(planet)_large.jpg
+        http://commons.wikimedia.org/wiki/Image:As08-16-2593.jpg
+        http://commons.wikimedia.org/wiki/Image:Mars_Hubble.jpg
+        http://commons.wikimedia.org/wiki/Image:Venus_globe.jpg
 
--metal_ground.rgb
-
-Under CC
-from http://www.marcchehab.org/frozenmist/metal/TiZeta_gold-foil.jpg
--marstown_yellow*.rgb
-from http://www.marcchehab.org/frozenmist/metal/TiZeta_aluminium-darken.jpg
-
-
-
-from nase per:
-http://commons.wikimedia.org/wiki/Jupiter
-http://commons.wikimedia.org/wiki/Category:Galaxies
-http://commons.wikimedia.org/wiki/Image:Saturn_(planet)_large.jpg
-http://commons.wikimedia.org/wiki/Image:As08-16-2593.jpg
-http://commons.wikimedia.org/wiki/Image:Mars_Hubble.jpg
-http://commons.wikimedia.org/wiki/Image:Venus_globe.jpg
-
-jupiter.rgb
-galaxy1.rgb
-galaxy2.rgb
-saturn.rgb
-erde.rgb
-mars.rgb
-venus.rgb
-
-
-
-Selfmade parts and under GPL and CC-BY-SA)
+____________________________________________________________________
+Selfmade parts are dual-licensed under both GPL and CC-BY-SA
 
 laser_bridge_green.rgb
 laser_bridge_red.rgb
