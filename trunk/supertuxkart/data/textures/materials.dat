@@ -115,32 +115,33 @@
 # These two variables are optional, their default is 1.0 an
 
 # TextureName              Clamp Trans Alpha Light SphMp Frict Ign Zip Rst Col mxSpd SldT
-"sand.rgb"                  N N    N    0.0    Y     N    0.0000001    N   N   N   N 0.4 4
-"sandgrass.rgb"             N N    N    0.0    Y     N    0.00000015   N   N   N   N 0.4 4
-"grass.rgb"                 N N    N    0.0    Y     N    0.0000002    N   N   N   N 0.6 4
+"clouds.rgb"                N N    N    0.0    N     N    0.5   N   N   Y   N
+"sand.rgb"                  N N    N    0.0    Y     N    0.0000001     N   N   N   N 0.4 4
+"sandgrass.rgb"             N N    N    0.0    Y     N    0.00000015    N   N   N   N 0.4 4
+"grass.rgb"                 N N    N    0.0    Y     N    0.0000002     N   N   N   N 0.6 4
 "chrome.rgb"                N N    N    0.0    N     Y    0.5   N   N   N   N
 "chrome2.rgb"               N N    N    0.0    N     Y    0.5   N   N   N   N
 "railing.rgb"               N Y    Y    0.5    Y     N    1.0   N   N   N   N
-"wood.rgb"                  N N    N    0.0    Y     N    0.0000003   N   N   N   N
-"concrete.rgb"              N N    N    0.0    Y     N    0.0000003   N   N   N   Y
+"wood.rgb"                  N N    N    0.0    Y     N    0.0000003 N   N   N   N
+"concrete.rgb"              N N    N    0.0    Y     N    0.0000003 N   N   N   Y
 "brick.rgb"                 N N    N    0.0    Y     N    1.0   N   N   N   Y
 "stonewall.rgb"             N N    N    0.0    Y     N    1.0   N   N   N   N
-"stones.rgb"                N N    N    0.0    Y     N    0.0000002   N   N   N   N
+"stones.rgb"                N N    N    0.0    Y     N    0.0000002 N   N   N   N
 "pebbles.rgb"               N N    N    0.0    Y     N    1.0   N   N   N   N
-"floor.rgb"                 N N    N    0.0    Y     N    0.0000003   N   N   N   N
+"floor.rgb"                 N N    N    0.0    Y     N    0.0000003 N   N   N   N
 "egypt.rgb"                 N N    N    0.0    Y     N    1.0   N   N   N   Y
 "pyramidwall.rgb"           N N    N    0.0    Y     N    1.0   N   N   N   N
 "lava.rgb"                  N N    N    0.0    N     N    1.0   N   N   Y   Y
 "lava2.rgb"                 N N    N    0.0    N     N    1.0   N   N   Y   Y
-"metalgrid.rgb"             N N    Y    0.3    Y     N    0.0000003   N   N   N   N
+"metalgrid.rgb"             N N    Y    0.3    Y     N    0.0000003 N   N   N   N
 "fuzzy_sand.rgb"            N N    Y    0.0    N     N    1.0   Y   N   N   N
-"roadway.rgb"               Y N    N    0.0    Y     N    0.0000003   N   N   N   N
-"track.rgb"                 N N    N    0.0    Y     N    0.0000003   N   N   N   N
-"trackborder.rgb"           N N    N    0.0    N     N    0.0000003   N   N   N   N
-"chess.rgb"		            N N    N    0.0    Y     N    0.0000003   N   N   N   N
+"roadway.rgb"               Y N    N    0.0    Y     N    0.0000003 N   N   N   N
+"track.rgb"                 N N    N    0.0    Y     N    0.0000003 N   N   N   N
+"trackborder.rgb"           N N    N    0.0    N     N    0.0000003 N   N   N   N
+"chess.rgb"		            N N    N    0.0    Y     N    0.0000003 N   N   N   N
 "tinytux.rgb"               Y Y    Y    0.8    N     N    1.0   Y   N   N   N
 "butterfly.rgb"             Y Y    Y    0.8    N     N    1.0   Y   N   N   N
-"track2.rgb"                N N    N    0.0    Y     N    0.0000003   N   N   N   N
+"track2.rgb"                N N    N    0.0    Y     N    0.0000003 N   N   N   N
 "zipper_collect.rgb"        N N    N    0.0    N     N    1.0   N   Y   N   N
 "zipper.rgb"                N N    N    0.0    N     N    1.0   N   Y   N   N
 # TextureName              Clamp Trans Alpha Light SphMp Frict Ign Zip Rst Col
@@ -167,14 +168,14 @@
 "window.rgb"                N N    Y    0.0    Y     N    1.0   N   N   N   N
 "signs.rgb"                 N N    Y    0.5    N     N    0.5   N   N   N   N
 "greenice.rgb"              N N    N    0.0    N     N    0.5   N   N   Y   N
-"snow.rgb"		            N N    N	0.0    Y     N    0.00000018   N   N   N   N 0.4 4
+"snow.rgb"		            N N    N	0.0    Y     N    0.00000018  N   N   N   N 0.4 4
 "ice.rgb"                   N N    N    0.0    Y     N    0.000000095 N   N   N   N 
 "snowyrock.rgb"             N N    N    0.0    Y     N    0.0000002   N   N   N   N
 "sand2.rgb"		            N N    N    0.0    Y     N    0.0000001   N   N   N   N
 "road_dirt.rgb"		        N N    N    0.0    Y     N    0.00000025  N   N   N   N
-"grass2.rgb"		        N N    N    0.0    Y     N    0.00000015   N   N   N   N 0.6 4
+"grass2.rgb"		        N N    N    0.0    Y     N    0.00000015  N   N   N   N 0.6 4
 "dirt2sand.rgb"		        N N    N    0.0    Y     N    0.0000002   N   N   N   N
-"grass2dirt.rgb"	        N N    N    0.0    Y     N    0.0000002  N   N   N   N 0.4 4
+"grass2dirt.rgb"	        N N    N    0.0    Y     N    0.0000002   N   N   N   N 0.4 4
 "logs.rgb"		            N N    N    0.0    Y     N    0.0000002   N   N   N   N
 "stonetex.rgb"		        N N    N    0.0    Y     N    0.0000002   N   N   N   N
 "redwhite.rgb"		        N N    N    0.0    Y     N    0.0000002   N   N   N   N
