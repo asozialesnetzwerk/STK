@@ -4,7 +4,7 @@
  (name        _("The old mine"))
  (version     1)
  (designer    "Ivar ten Cate")
- (music       "West.music")
+ (music       "TheDeadRocks-EasyJob.music")
  (screenshot  "sshot-mines.rgb")
  (topview     "topview-mines.rgb")
  (sky-color  0.0 0.0 0.0 0.0)
