@@ -1,0 +1,6 @@
+(music-information
+  (title    "Penguin Party")
+  (composer "Magne Djupvik")
+  (music    "Penguin_Party.ogg")
+  (loop     10)
+)
