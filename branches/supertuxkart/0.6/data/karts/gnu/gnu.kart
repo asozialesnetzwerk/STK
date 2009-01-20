@@ -2,10 +2,11 @@
 
 (tuxkart-kart
  (name        "Gnu")
- (model-file  "gnukart.ac")
+ (model-file  "gnu.ac")
  (icon-file   "gnuicon.rgb")
  (shadow-file "gnushadow.rgb")
  (version     1)
+ (has-skidmarks #f)
  
  (rgb  0.5 0.8 1.0)
  
