@@ -1,5 +1,6 @@
 (music-information
   (title    "Caribbean Music"   )
+  (enable-fast #t               )
   (composer "Dr.Sternhagel"     )
   (music    "CaribbeanMusic.ogg")
   (loop     10                  )
