@@ -1,5 +1,5 @@
 (tuxkart-kart
-  (name        "elephpant")
+  (name        "Elephpant")
   (version     1)
   (model-file  "elephpant.ac")
   (icon-file   "elephpanticon.rgb")
