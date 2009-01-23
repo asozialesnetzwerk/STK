@@ -1,0 +1,19 @@
+;; -*- mode: lisp -*-
+
+(challenge
+ (id            "snowmountain")
+ (name          _("Win a race on\nSnow Mountain"))
+ (description   _("Win a 4 lap race\non Snow Mountain against 4 'Racer'\nlevel AI kart."))
+ (depend-on    "worldsend")
+ (unlock-kart  "gnu" "Gnu")
+ (major        "single")
+ (minor        "quickrace")
+ (track        "snowmountain")
+ (difficulty   "hard")
+ (laps         4)
+ (karts        4)
+ (position     1)
+)
+
+;; EOF ;;
+
