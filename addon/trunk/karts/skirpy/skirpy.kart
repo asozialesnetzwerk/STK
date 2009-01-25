@@ -2,10 +2,11 @@
 
 (tuxkart-kart
  (name        "Skirpy")
+ (version     1)
  (model-file  "skirpy-high.ac")
  (icon-file   "skirpyicon.rgb")
  (shadow-file "generickartshadow.rgb")
- (groups      "standard")  
+ (groups      "old")  
  (engine-sound "small")
  (rgb         0.1 0.5 0.1)
   (wheel-front-right
