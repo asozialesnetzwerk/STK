@@ -2,6 +2,7 @@
 
 (tuxkart-track
  (name                   _("Ice Track"))
+ (version                1)
  (designer               "Rudy85, also a bit by CanisLupus")
  (music                  "Alien_Apartments.ogg")
  (screenshot             "sshot-icetrack.rgb")
