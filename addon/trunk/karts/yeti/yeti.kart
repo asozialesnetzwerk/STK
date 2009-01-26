@@ -6,7 +6,7 @@
  (model-file  "yeti.ac")
  (icon-file   "yetiicon.rgb")
  (shadow-file "yetishadow.rgb")
- (groups      "old") 
+ (groups      "addon") 
  (engine-sound "large")
  (rgb         0.5 0.8 1.0)
   (wheel-front-right

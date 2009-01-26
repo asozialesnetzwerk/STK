@@ -4,7 +4,7 @@
   (model-file  "cobra.ac")
   (icon-file   "cobraicon.rgb")
   (shadow-file "cobrashadow.rgb")
-  (groups      "high-poly")
+  (groups      "addon")
   (rgb         0.830000 0.420000 0.000000)
   (wheel-front-right
     (position 0.284793 0.422396 0.125997)

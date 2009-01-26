@@ -6,7 +6,7 @@
  (model-file  "penny-med.ac")
  (icon-file   "pennyicon.rgb")
  (shadow-file "pennyshadow.rgb")
- (groups      "old") 
+ (groups      "addon") 
  (engine-sound "small")
  (rgb         0.8 0.2 0.6)
   (wheel-front-right

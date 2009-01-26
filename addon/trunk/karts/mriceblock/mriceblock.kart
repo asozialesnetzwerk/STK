@@ -4,7 +4,7 @@
   (model-file  "mriceblock.ac")
   (icon-file   "mriceblockicon.rgb")
   (shadow-file "mriceblockshadow.rgb")
-  (groups      "high-poly")
+  (groups      "standard")
   (rgb         0.700000 0.000000 0.000000)
   (wheel-front-right
     (position 0.270099 0.447726 0.116442)
