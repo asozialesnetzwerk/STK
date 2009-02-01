@@ -1,14 +1,15 @@
 AC3Db
 MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
 MATERIAL "Material.007" rgb 0 0 0 amb 0.5 0.5 0.5 emis 0 0 0 spec 0 0 0 shi 32 trans 0
-MATERIAL "Tire" rgb 1 1 1 amb 0.5 0.5 0.5 emis 0 0 0 spec 1 1 1 shi 72 trans 0
+MATERIAL "Tire.003" rgb 1 1 1 amb 0.5 0.5 0.5 emis 0 0 0 spec 1 1 1 shi 72 trans 0
 OBJECT world
 kids 1
 OBJECT poly
 name "WheelFront.L"
-data 4
-Mesh
+data 8
+Mesh.026
 crease 30.000000
+rot 0.963221 0 0 0 1.139516 0 0 0 1.139516
 numvert 99
 0.098694 0.060862 0.060862
 0.098694 0.079521 0.032939
