@@ -1,10 +1,9 @@
 (tuxkart-kart
   (name        "rubberduck")
-  (version     1)
   (model-file  "rubberduck.ac")
   (icon-file   "rubberduckicon.rgb")
-  (shadow-file "generickartshadow.rgb")
-  (groups      "addon")
+  (shadow-file "rubberduckshadow.rgb")
+  (groups      "standard")
   (rgb         0.700000 0.000000 0.000000)
   (wheel-front-right
     (position 0.295395 0.393373 0.106712)
@@ -15,11 +14,11 @@
     (model    "wheel-front-left.ac")
   )
   (wheel-rear-right
-    (position 0.361325 -0.385670 0.147746)
+    (position 0.286380 -0.385670 0.147746)
     (model    "wheel-rear-right.ac")
   )
   (wheel-rear-left
-    (position -0.348763 -0.385670 0.147746)
+    (position -0.282034 -0.385670 0.147746)
     (model    "wheel-rear-left.ac")
   )
 )
