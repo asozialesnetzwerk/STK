@@ -4,6 +4,7 @@
  (name                   _("In the house bad weather "))
  (designer               "Rudy85")
  (version                1)
+ (groups                 "addon")
  (music                  "TheDeadRocks-GreenSecretFromAmazonia.music")
  (screenshot             "Capture.rgb")
  (topview                "topviewInthehouse.rgb")

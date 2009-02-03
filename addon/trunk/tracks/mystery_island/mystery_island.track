@@ -3,9 +3,9 @@
 (tuxkart-track
  (name        _("Mystery Island"))
  (version 1)
- (groups "addons")
+ (groups "addon")
  (description _("sj04736"))
- (music       "Lava_Lagoon_2.music")
+ (music       "TheDeadRocks-GreenSecretFromAmazonia.music")
  (screenshot  "sshot-fortmagma.rgb")
  (topview     "topview-fortmagma.rgb")
  (AI-curve-speed-adjust  2.0)
