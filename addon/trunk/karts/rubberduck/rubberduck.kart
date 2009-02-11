@@ -2,8 +2,9 @@
   (name        "rubberduck")
   (model-file  "rubberduck.ac")
   (icon-file   "rubberduckicon.rgb")
-  (shadow-file "rubberduckshadow.rgb")
-  (groups      "standard")
+  (shadow-file "generickartshadow.rgb")
+  (groups      "addon")
+  (version     1)
   (rgb         0.700000 0.000000 0.000000)
   (wheel-front-right
     (position 0.295395 0.393373 0.106712)
