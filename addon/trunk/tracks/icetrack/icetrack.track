@@ -3,7 +3,7 @@
 (tuxkart-track
  (name                   _("Ice Track"))
  (designer               "Rudy85, also a bit by CanisLupus")
- (music                  "Alien_Apartments.ogg")
+ (music                  "main_theme.music")
  (screenshot             "sshot-icetrack.rgb")
  (topview                "topview-icetrack.rgb")
  (sky-color              0.7 0.1 0.2)
