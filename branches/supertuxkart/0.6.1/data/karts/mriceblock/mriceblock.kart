@@ -1,29 +1,25 @@
-;; -*- mode: lisp -*-
-
 (tuxkart-kart
- (name        "Mr. Ice Block")
- (version     1)
- (model-file  "mriceblock.ac")
- (icon-file   "mriceblockicon.rgb")
- (shadow-file "mriceblockshadow.rgb")
- (groups      "standard")
- (engine-sound "large")
- (rgb         0.0 0.9 1.0)
+  (name        "mr. iceblock")
+  (version     1)
+  (model-file  "mriceblock.ac")
+  (icon-file   "mriceblockicon.rgb")
+  (shadow-file "mriceblockshadow.rgb")
+  (groups      "standard")
+  (rgb         0.700000 0.000000 0.000000)
   (wheel-front-right
-    (position 0.192344 0.413680 0.111283)
+    (position 0.270099 0.447726 0.116442)
     (model    "wheel-front-right.ac")
   )
   (wheel-front-left
-    (position -0.219774 0.413680 0.111283)
+    (position -0.284098 0.443071 0.139798)
     (model    "wheel-front-left.ac")
   )
   (wheel-rear-right
-    (position 0.192045 -0.316891 0.122019)
+    (position 0.301257 -0.352108 0.128311)
     (model    "wheel-rear-right.ac")
   )
   (wheel-rear-left
-    (position -0.219977 -0.316891 0.122019)
+    (position -0.312922 -0.350504 0.131780)
     (model    "wheel-rear-left.ac")
-  )       
+  )
 )
-;; EOF ;;
