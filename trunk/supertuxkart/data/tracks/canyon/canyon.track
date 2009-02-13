@@ -10,6 +10,11 @@
  (groups                 "standard")
  (camera-final-position  5 20 3)
  (camera-final-hpr       180 -10 0)
+;; Start position on the bridge, to test the uphill section
+;; (start-x  48.90)
+;; (start-y 135.24)
+;; (start-z -89.6)
+;; (start-heading 180)
 )
 
 ;; EOF ;;
