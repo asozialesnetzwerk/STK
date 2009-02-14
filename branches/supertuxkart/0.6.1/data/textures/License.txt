@@ -16,13 +16,15 @@ All textures in this directory are licensed under GPL except :
 * city_sky*.rgb
     which are licensed along the city track (see license file in /data/tracks/city)
 
-* grass2
+* grass2, grass2dirt
+    created by Christoph Egger <debian@christoph-egger.org> and by Marianne Gagnon (Auria)
+    released under Creative Commons Attribution-Share Alike 3.0 [http://creativecommons.org/licenses/by-sa/3.0/]
+    
 * palmtree3
 * sand2
     which are licensed along island track (see license file in /data/tracks/island)
     
 * dirt2sand 
-* grass2dirt
     which are derivated from island track textures (see license file in /data/tracks/island)
 
 * speedback.rgb
