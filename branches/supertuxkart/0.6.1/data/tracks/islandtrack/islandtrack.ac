@@ -39401,7 +39401,7 @@ OBJECT poly
 name "Plane.002"
 data 5
 Plane
-texture "water2.rgb"
+texture "water_light.rgb"
 texrep 1 1
 crease 30
 numvert 4

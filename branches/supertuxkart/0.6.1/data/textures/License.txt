@@ -5,6 +5,9 @@
 All textures in this directory are licensed under GPL except :
 ============================================================
 
+* roaddirt
+    by Marianne Gagnon (Auria)
+    released under Creative Commons Attribution-Share Alike 3.0 [http://creativecommons.org/licenses/by-sa/3.0/]
 
 * city_asphalt
 * city_concrete
@@ -20,7 +23,6 @@ All textures in this directory are licensed under GPL except :
     
 * dirt2sand 
 * grass2dirt
-* roaddirt
     which are derivated from island track textures (see license file in /data/tracks/island)
 
 * speedback.rgb
