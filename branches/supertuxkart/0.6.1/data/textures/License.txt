@@ -5,9 +5,10 @@
 All textures in this directory are licensed under GPL except :
 ============================================================
 
-Under Creative Commons Attribution Share-Alike (CC-BY-SA) - http://creativecommons.org/licenses/by-sa/3.0/
+Under Creative Commons Attribution Share-Alike (CC-BY-SA) - http://creativecommons.org/licenses/by-sa/3.0/ :
+
 * roaddirt
-    by Marianne Gagnon (Auria)
+    by Marianne Gagnon (Auria) and MiniBjorn
 
 * bowling.rgb, plunger.rgb, cake.rgb, bubblegum.rgb, flaring-star.rgb, nitro-tank.rgb, nitro-metal.rgb,
   gift-box, gift-loop, tank-cyan, tank-blue, tank-green, plunger-icon.rgb, bubblegum-icon.rgb, cake-icon.rgb,
@@ -23,7 +24,7 @@ Under Creative Commons Attribution Share-Alike (CC-BY-SA) - http://creativecommo
     created by horace aka Thomas Oppl (toppl@fh-sbg.ac.at) (c) 2008
 
 * grass2, grass2dirt
-    created by Christoph Egger <debian@christoph-egger.org> and by Marianne Gagnon (Auria)
+    created by Christoph Egger <debian@christoph-egger.org>, Marianne Gagnon (Auria) and MiniBjorn
     
 * speedback.rgb
 * speedfore.rgb
