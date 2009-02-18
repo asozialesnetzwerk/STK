@@ -1,4 +1,8 @@
 ____________________________________________________________________
+Creative-Commons-BY-SA 3.0
+    metal_ground.rgb - by MiniBjorn, based on http://www.burningwell.org/gallery2/v/textures/surfaces/P1170598.JPG.html
+
+____________________________________________________________________
 Reused with different colors from supertuxkart/data/textures (see their individual licenses) :
 
 -acid_lake.rgb      (lava.rgb is the original)
@@ -11,10 +15,6 @@ Reused with different colors from supertuxkart/data/textures (see their individu
 -mars_lava3.rgb     (lava2 is the original)
 
 -stars.rgb is from startrack
-
-__________________________________
-Under CC-Attribution 2.5 generic :
-    metal_ground.rgb  --  from http://blender-archi.tuxfamily.org/Textures#Seamless
 
 __________________________________
 Under CC-attribution-2.0    marscity_yellow*.rgb
