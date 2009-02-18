@@ -126,9 +126,7 @@
 "concrete.rgb"              N N    N    0.0    Y     N    0.0000003 N   N   N   Y
 "brick.rgb"                 N N    N    0.0    Y     N    1.0   N   N   N   Y
 "stonewall.rgb"             N N    N    0.0    Y     N    1.0   N   N   N   N
-"stones.rgb"                N N    N    0.0    Y     N    0.0000002 N   N   N   N
 "pebbles.rgb"               N N    N    0.0    Y     N    1.0   N   N   N   N
-"floor.rgb"                 N N    N    0.0    Y     N    0.0000003 N   N   N   N
 "egypt.rgb"                 N N    N    0.0    Y     N    1.0   N   N   N   Y
 "pyramidwall.rgb"           N N    N    0.0    Y     N    1.0   N   N   N   N
 "lava.rgb"                  N N    N    0.0    N     N    1.0   N   N   Y   Y
