@@ -2,7 +2,7 @@ ____________________________________________________________________
 Reused with different colors from supertuxkart/data/textures (see their individual licenses) :
 
 -acid_lake.rgb      (lava.rgb is the original)
--marstown_cyan.rgb  (lava.rgb is the original)
+-marscity_cyan.rgb  (lava.rgb is the original)
 -rockred.rgb        (rock.rgb is the original)
 -marsrobot2.rgb     (track.rgb is the original)
 -sandred.rgb        (sand2 is the original)
@@ -17,7 +17,7 @@ Under CC-Attribution 2.5 generic :
     metal_ground.rgb  --  from http://blender-archi.tuxfamily.org/Textures#Seamless
 
 __________________________________
-Under CC-attribution-2.0    marstown_yellow*.rgb
+Under CC-attribution-2.0    marscity_yellow*.rgb
         from http://www.marcchehab.org/frozenmist/metal/TiZeta_gold-foil.jpg
         from http://www.marcchehab.org/frozenmist/metal/TiZeta_aluminium-darken.jpg
 
