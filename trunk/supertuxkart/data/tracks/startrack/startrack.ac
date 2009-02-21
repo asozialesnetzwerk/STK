@@ -13,7 +13,7 @@ OBJECT poly
 name "Plane_0"
 data 5
 Plane
-texture "purplenebula_lf.rgb"
+texture "purplenebula_ft.rgb"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -55,7 +55,7 @@ OBJECT poly
 name "Plane_2"
 data 9
 Plane.002
-texture "purplenebula_rt.rgb"
+texture "purplenebula_ft.rgb"
 texrep 1 1
 crease 30.000000
 numvert 4
