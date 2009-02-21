@@ -17,9 +17,12 @@ Reused with different colors from supertuxkart/data/textures (see their individu
 -stars.rgb is from startrack
 
 __________________________________
-Under CC-attribution-2.0    marscity_yellow*.rgb
-        from http://www.marcchehab.org/frozenmist/metal/TiZeta_gold-foil.jpg
-        from http://www.marcchehab.org/frozenmist/metal/TiZeta_aluminium-darken.jpg
+marscity_yellow{,2}.rgb is based on Public Domain Work from burningwell with modifications © 2009 Christoph Egger <debian@christoph-egger.org>
+Released under 3 licenses, at your choice :
+ * ZLib License
+ * GNU GPL Version 2 or later
+ * Creative Commons 3.0 BY
+
 
 __________________________________
 from NASA (public domain) :
