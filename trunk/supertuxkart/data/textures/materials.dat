@@ -130,7 +130,6 @@
 "egypt.rgb"                 N N    N    0.0    Y     N    1.0   N   N   N   Y
 "pyramidwall.rgb"           N N    N    0.0    Y     N    1.0   N   N   N   N
 "lava.rgb"                  N N    N    0.0    N     N    1.0   N   N   Y   Y
-"lava2.rgb"                 N N    N    0.0    N     N    1.0   N   N   Y   Y
 "metalgrid.rgb"             N N    Y    0.3    Y     N    0.0000003 N   N   N   N
 "fuzzy_sand.rgb"            N N    Y    0.0    N     N    1.0   Y   N   N   N
 "roadway.rgb"               Y N    N    0.0    Y     N    0.0000003 N   N   N   N
@@ -142,6 +141,7 @@
 "track2.rgb"                N N    N    0.0    Y     N    0.0000003 N   N   N   N
 "zipper_collect.rgb"        N N    N    0.0    N     N    1.0   N   Y   N   N
 "zipper.rgb"                N N    N    0.0    N     N    1.0   N   Y   N   N
+
 # TextureName              Clamp Trans Alpha Light SphMp Frict Ign Zip Rst Col
 "banana.rgb"                N N    N    0.5    N     N    1.0   N   N   N   N
 "bananawrap.rgb"            Y Y    Y    0.5    N     N    1.0   N   Y   N   N
@@ -157,15 +157,14 @@
 "parachute.rgb"             Y Y    Y    0.1    N     N    1.0   Y   N   N   N
 "speedback.rgb"             Y Y    Y    0.0    N     N    1.0   Y   N   N   N
 "speedfore.rgb"             Y Y    Y    0.0    N     N    1.0   Y   N   N   N
-
-
 "water_light.rgb"           N N    N    0.1    N     N    1.0   N   N   Y   N
 "sea.rgb"                   N N    N    0.0    N     N    0.5   N   N   Y   Y
 "rock.rgb"                  N N    N    0.0    N     N    0.5   N   N   N   N
 "coniferous_tree.rgb"       Y Y    Y    0.5    N     N    0.5   N   N   N   N
-"window.rgb"                N N    Y    0.0    Y     N    1.0   N   N   N   N
 "signs.rgb"                 N N    Y    0.5    N     N    0.5   N   N   N   N
 "greenice.rgb"              N N    N    0.0    N     N    0.5   N   N   Y   N
+
+# TextureName              Clamp Trans Alpha Light SphMp Frict Ign Zip Rst Col mxSpd SldT
 "snow.rgb"		            N N    N	0.0    Y     N    0.00000018  N   N   N   N 0.4 4
 "ice.rgb"                   N N    N    0.0    Y     N    0.000000095 N   N   N   N 
 "snowyrock.rgb"             N N    N    0.0    Y     N    0.0000002   N   N   N   N

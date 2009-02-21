@@ -7,13 +7,19 @@ All textures in this directory are licensed under GPL except :
 
 Under Creative Commons Attribution Share-Alike (CC-BY-SA) - http://creativecommons.org/licenses/by-sa/3.0/ :
 
-* roaddirt
+* road_dirt
     by Marianne Gagnon (Auria) and MiniBjorn
+
+* earth.rgb, logs.rgb, rock.rgb, sand.rgb, sea.rgb, signs.rgb, water_light.rgb
+    by Marianne Gagnon (Auria)
 
 * bowling.rgb, plunger.rgb, cake.rgb, bubblegum.rgb, flaring-star.rgb, nitro-tank.rgb, nitro-metal.rgb,
   gift-box, gift-loop, tank-cyan, tank-blue, tank-green, plunger-icon.rgb, bubblegum-icon.rgb, cake-icon.rgb,
-  bowling-icon.rgb, tnt-bomb.rgb, plungerface.rgb, nitro-particle.rgb, smoke.rgb, anchor.rgb, anchor-icon.rgb
+  bowling-icon.rgb, tnt-bomb.rgb, nitro-particle.rgb, smoke.rgb, anchor.rgb, anchor-icon.rgb
     created by MiniBjorn (c) 2008
+
+* plungerface.rgb
+    created by MiniBjorn (c) 2008 and Conso
 
 * banana.rgb
 * city_asphalt
@@ -41,6 +47,10 @@ Other licenses :
 * sand2
 * dirt2sand
     are licensed along island track (see license file in /data/tracks/island)
+
+* skyscraper*
+    Copyright Robert Howie 2008.
+    licensed under the Creative Commons Attribution-Share Alike 3.0 Unported License.
 
 ============================================================
 Credits for GPL textures :
