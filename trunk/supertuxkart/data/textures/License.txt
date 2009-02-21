@@ -35,9 +35,12 @@ Under Creative Commons Attribution Share-Alike (CC-BY-SA) - http://creativecommo
 Other licenses :
 
 * palmtree3
+    © 2009 Gregory Schick <leadgolem@gmail.com>, Christoph Egger <debian@christoph-egger.org> and Marianne Gagnon (Auria)
+    Released under Creative Commons 3.0 BY-SA
+    
 * sand2
 * dirt2sand
-    which are licensed along island track (see license file in /data/tracks/island)
+    are licensed along island track (see license file in /data/tracks/island)
 
 ============================================================
 Credits for GPL textures :
