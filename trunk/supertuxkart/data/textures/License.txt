@@ -15,7 +15,7 @@ Under Creative Commons Attribution Share-Alike (CC-BY-SA) - http://creativecommo
 
 * bowling.rgb, plunger.rgb, cake.rgb, bubblegum.rgb, flaring-star.rgb, nitro-tank.rgb, nitro-metal.rgb,
   gift-box, gift-loop, tank-cyan, tank-blue, tank-green, plunger-icon.rgb, bubblegum-icon.rgb, cake-icon.rgb,
-  bowling-icon.rgb, tnt-bomb.rgb, nitro-particle.rgb, smoke.rgb, anchor.rgb, anchor-icon.rgb
+  bowling-icon.rgb, tnt-bomb.rgb, nitro-particle.rgb, smoke.rgb, anchor.rgb, anchor-icon.rgb, sand2.rgb
     created by MiniBjorn (c) 2008
 
 * plungerface.rgb
@@ -44,7 +44,6 @@ Other licenses :
     © 2009 Gregory Schick <leadgolem@gmail.com>, Christoph Egger <debian@christoph-egger.org> and Marianne Gagnon (Auria)
     Released under Creative Commons 3.0 BY-SA
     
-* sand2
 * dirt2sand
     are licensed along island track (see license file in /data/tracks/island)
 
