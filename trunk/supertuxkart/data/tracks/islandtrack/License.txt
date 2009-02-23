@@ -25,4 +25,3 @@ WHAT CAN'T YOU DO WITH IMAGE*AFTER IMAGES AND TEXTURES?
 
 NOTE: some textures from here were moved to /data/textures to be used by other tracks but the same license applies to them. these textures include :
 * dirt2sand.rgb
-* grass2dirt.rgb
