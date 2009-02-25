@@ -45,15 +45,15 @@ marscity_cyan.rgb
 marscity_green*.rgb
 marscity_orange*.rgb
 
-marsroad_blue.rgb  
-marsroad_blue2.rgb    
+marsroad_blue.rgb
+marsroad_blue2.rgb
 marsroad_green.rgb
 marsroad_red.rgb
 
 marsrobot1.rgb
-marsrobot3.rgb  
-marsrobot4.rgb  
-marsrobot5.rgb  
+marsrobot3.rgb
+marsrobot4.rgb
+marsrobot5.rgb
 marsrobotsign.rgb
 marssnail.rgb
 welcome_to_XR591.rgb
@@ -63,6 +63,4 @@ marswindow*.rgb
 
 marstrack.ac
 marstrack.blend
-
-
 
