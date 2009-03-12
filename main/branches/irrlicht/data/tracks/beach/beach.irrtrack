@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<track  name        = "On the Beach"
+        version     = "1"
+        groups      = "standard"
+        description = "Created by Ingo Ruhnke,
+modified by M. Gagnon"
+        music       = "CaribbeanMusic.music"
+        screenschot = "sshot-beach.rgb"
+        topview     = "topview-beach.rgb"
+        driveline   = "beach.driveline"
+        mapping     = "beach.mapping"
+        model       = "beachtrack.3ds"
+        camera-final-position  ="-5 12 3"
+        camera-final-hpr       ="-150 -10 0"
+/>
+
