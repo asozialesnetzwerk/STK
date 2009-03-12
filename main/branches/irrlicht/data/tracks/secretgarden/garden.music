@@ -1,0 +1,6 @@
+(music-information
+  (title    "Secret Garden")
+  (composer "DJ Helium")
+  (music    "garden.ogg")
+  (loop     10)
+)
