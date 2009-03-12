@@ -13,7 +13,7 @@ OBJECT poly
 name "Beak_high"
 data 10
 Sphere.005
-texture "tux_body.rgb"
+texture "tux_body.png"
 texrep 1 1
 crease 30.000000
 numvert 87
@@ -2796,7 +2796,7 @@ OBJECT poly
 name "Kart_high"
 data 8
 Mesh.314
-texture "tuxkart.rgb"
+texture "tuxkart.png"
 texrep 1 1
 crease 30.000000
 numvert 102
@@ -3633,7 +3633,7 @@ OBJECT poly
 name "Left_feet_high"
 data 10
 Sphere.008
-texture "tux_body.rgb"
+texture "tux_body.png"
 texrep 1 1
 crease 30.000000
 numvert 50
@@ -4032,7 +4032,7 @@ OBJECT poly
 name "Right_feet_high"
 data 6
 Sphere
-texture "tux_body.rgb"
+texture "tux_body.png"
 texrep 1 1
 crease 30.000000
 numvert 50
@@ -6120,7 +6120,7 @@ OBJECT poly
 name "Tux_body_high"
 data 10
 Sphere.004
-texture "tux_body.rgb"
+texture "tux_body.png"
 texrep 1 1
 crease 30.000000
 numvert 266
@@ -8217,7 +8217,7 @@ OBJECT poly
 name "Wind_cutter_high"
 data 8
 Mesh.317
-texture "tuxkart.rgb"
+texture "tuxkart.png"
 texrep 1 1
 crease 30.000000
 numvert 24
