@@ -1,0 +1,8 @@
+<material name="chess.jpg" alpha="0.0" collide="N"/>
+<material name="grass.jpg" alpha="0.0" collide="N" maxSpeed="0.6" slowdownTime="4"/>
+<material name="sand.jpg" alpha="0.0" collide="N" maxSpeed="0.4" slowdownTime="4"/>
+<material name="sandgrass.jpg" alpha="0.0" collide="N" maxSpeed="0.4" slowdownTime="4"/>
+<material name="stonetex.jpg" alpha="0.0" collide="N"/>
+<material name="track.jpg" alpha="0.0" collide="N"/>
+<material name="trackborder.jpg" alpha="0.0" light="N" collide="N"/>
+<material name="water_light.jpg" light="N" reset="Y" collide="N"/>
