@@ -13,4 +13,15 @@ modified by M. Gagnon"
         camera-final-position  ="-5 12 3"
         camera-final-hpr       ="-150 -10 0"
 />
-
+<!-- Parameters for a sky dome:
+     texture:  the name of the texture to use
+     horizontal: Number of vertices of a horizontal layer of the sphere.
+     vertical: Number of vertices of a vertical layer of the sphere.
+     texture-percent: How much of the height of the texture is used. 
+                      Should be between 0 and 1.
+     sphere-percent: How much of the sphere is drawn. Value should be 
+                     between 0 and 2, where 1 is an exact half-sphere
+                     and 2 is a full sphere.  -->
+<sky-dome texture="lighthouse_sky.png"
+          horizontal="16" vertical="16" 
+          texture-percent="0.5" sphere-percent="1.3"/>
