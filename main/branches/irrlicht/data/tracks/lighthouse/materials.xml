@@ -1,0 +1,4 @@
+<material name="lighthouse.png" alpha="0.0" light="N" collide="N"/>
+<material name="lighthouse_sky.png" alpha="0.0" light="N" reset="Y"/>
+<material name="coniferous_tree.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.5" light="N" collide="N"/>
+
