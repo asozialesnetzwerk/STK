@@ -6,8 +6,8 @@
 modified by M. Gagnon"
         music       = "ChillCarrier-Druckverlust.music"
         screenschot = "shot-lighthouse.png
-        driveline   = "beach.driveline"
-        mapping     = "beach.mapping"
+        driveline   = "lighthouse.driveline"
+        mapping     = "lighthouse.mapping"
         camera-final-position  ="-10 25 3"
         camera-final-hpr       ="-140 -7 0"
 />
