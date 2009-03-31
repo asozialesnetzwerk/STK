@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <scene>
   <track model="lighthousetrack.b3d" x="0" y="0" z="0">
-    <moving-texture name="water.png"/>
+    <animated-texture name="sea.jpg" dy="-0.1"/>
   </track>
   <track model="lighthousetrack.b3d" x="0" y="0" z="0"/>
   <small-nitro x="81.005333" y="-0.073995"/>

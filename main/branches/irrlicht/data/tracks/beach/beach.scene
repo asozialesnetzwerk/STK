@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <scene>
-  <track model="beach.b3d" x="0" y="0" z="0"/>
+  <track model="beach.b3d" x="0" y="0" z="0">
+    <animated-texture name="waterfall.png"   dy="-0.5" />
+    <animated-texture name="water_light.jpg" dy="-0.05"/>
+  </track>
   <banana x="33.95208" y="-26.43557"/>
   <banana x="36.353733" y="-28.788071"/>
   <banana x="38.890526" y="-31.055712"/>
