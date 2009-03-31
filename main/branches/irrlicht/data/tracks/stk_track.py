@@ -65,28 +65,31 @@ def savescene_callback(filename):
         mapping     = "%s.mapping"
         camera-final-position  ="-10 25 3"
         camera-final-hpr       ="-140 -7 0"
-/>
-<!-- Parameters for a sky dome:
-     texture:  the name of the texture to use
-     horizontal: Number of vertices of a horizontal layer of the sphere.
-     vertical: Number of vertices of a vertical layer of the sphere.
-     texture-percent: How much of the height of the texture is used. 
-                      Should be between 0 and 1.
-     sphere-percent: How much of the sphere is drawn. Value should be 
-                     between 0 and 2, where 1 is an exact half-sphere
-                     and 2 is a full sphere.  -->
-<sky-dome texture="lighthouse_sky.jpg"
-          horizontal="16" vertical="16" 
-          texture-percent="0.5" sphere-percent="1.3"/>
+>
+  <!-- Parameters for a sky dome:
+       texture:  the name of the texture to use
+       horizontal: Number of vertices of a horizontal layer of the sphere.
+       vertical: Number of vertices of a vertical layer of the sphere.
+       texture-percent: How much of the height of the texture is used. 
+                        Should be between 0 and 1.
+       sphere-percent: How much of the sphere is drawn. Value should be 
+                       between 0 and 2, where 1 is an exact half-sphere
+                       and 2 is a full sphere.  -->
+  <sky-dome texture="lighthouse_sky.jpg"
+            horizontal="16" vertical="16" 
+            texture-percent="0.5" sphere-percent="1.3"/>
+</track>
 """ % (sBase, sBase))
     f.close()
-    print "sBase=",sBase, filename
     f = open(filename+".scene", 'wb')
-    f.write("""<track model="%s_track.b3d" x="0" y="0" z="0"/>\n"""%sBase)
+    f.write("""<?xml version="1.0"?>\n""")
+    f.write("""<scene>\n""")
+    f.write("""  <track model="%s_track.b3d" x="0" y="0" z="0"/>\n"""%sBase)
     b3d_export.write_b3d_file(filename+"_track.b3d", lTrack)
     if lWater:
-        f.write("""<waster model="%s_water.b3d" x="0" y="0" z="0"/>"""%sBase)
+        f.write("""  <waster model="%s_water.b3d" x="0" y="0" z="0"/>\n"""%sBase)
         b3d_export.write_b3d_file(filename+"_water.b3d", lWater)
+    f.write("</scene>""")
     f.close() 
 
 
