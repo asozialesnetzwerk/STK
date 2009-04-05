@@ -7,6 +7,9 @@ All textures in this directory are licensed under GPL except :
 
 Under Creative Commons Attribution Share-Alike (CC-BY-SA) - http://creativecommons.org/licenses/by-sa/3.0/ :
 
+* palmtree3
+    © 2009 Gregory Schick <leadgolem@gmail.com>, Christoph Egger <debian@christoph-egger.org> and Marianne Gagnon (Auria)
+    
 * road_dirt
     by Marianne Gagnon (Auria) and MiniBjorn
 
@@ -40,9 +43,7 @@ Under Creative Commons Attribution Share-Alike (CC-BY-SA) - http://creativecommo
  
 Other licenses :
 
-* palmtree3
-    © 2009 Gregory Schick <leadgolem@gmail.com>, Christoph Egger <debian@christoph-egger.org> and Marianne Gagnon (Auria)
-    Released under Creative Commons 3.0 BY-SA
+
     
 * dirt2sand
     are licensed along island track (see license file in /data/tracks/island)
@@ -50,6 +51,9 @@ Other licenses :
 * skyscraper*
     Copyright Robert Howie 2008.
     licensed under the Creative Commons Attribution-Share Alike 3.0 Unported License.
+
+* gui_lock.png
+    by the Tango icon project, released under public domain
 
 ============================================================
 Credits for GPL textures :
