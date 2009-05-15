@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<graph>
+  <edge from="0" to="1"/>
+  <edge from="1" to="2"/>
+</graph>
+
