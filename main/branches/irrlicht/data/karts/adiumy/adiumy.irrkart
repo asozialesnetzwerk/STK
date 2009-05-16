@@ -1,0 +1,25 @@
+(tuxkart-kart
+  (version	1)
+  (name        "adiumy")
+  (model-file  "adiumy.b3d")
+  (icon-file   "adiumyicon.png")
+  (shadow-file "adiumyshadow.png")
+  (groups      "standard")
+  (rgb         0.700000 0.000000 0.000000)
+  (wheel-front-right
+    (position 0.411584 0.164844 0.167399)
+    (model    "wheel-front-right.b3d")
+  )
+  (wheel-front-left
+    (position -0.399535 0.164844 0.167399)
+    (model    "wheel-front-left.b3d")
+  )
+  (wheel-rear-right
+    (position 0.028651 -0.405006 0.085414)
+    (model    "wheel-rear-right.b3d")
+  )
+  (wheel-rear-left
+    (position -0.026130 -0.405006 0.085414)
+    (model    "wheel-rear-left.b3d")
+  )
+)
