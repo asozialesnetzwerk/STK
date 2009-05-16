@@ -1,0 +1,25 @@
+(tuxkart-kart
+  (name        "Elephpant")
+  (version     1)
+  (model-file  "elephpant.b3d")
+  (icon-file   "elephpanticon.png")
+  (shadow-file "elephpantshadow.png")
+  (groups      "standard")
+  (rgb         0.600000 0.830000 0.000000)
+  (wheel-front-right
+    (position 0.265767 0.464185 0.127514)
+    (model    "wheel-front-right.b3d")
+  )
+  (wheel-front-left
+    (position -0.334657 0.464185 0.127514)
+    (model    "wheel-front-left.b3d")
+  )
+  (wheel-rear-right
+    (position 0.323586 -0.433597 0.142887)
+    (model    "wheel-rear-right.b3d")
+  )
+  (wheel-rear-left
+    (position -0.386502 -0.433597 0.142887)
+    (model    "wheel-rear-left.b3d")
+  )
+)
