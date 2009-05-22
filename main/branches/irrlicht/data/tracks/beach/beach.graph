@@ -1,6 +1,14 @@
 <?xml version="1.0"?>
 <graph>
-  <edge from="0" to="1"/>
-  <edge from="1" to="2"/>
+  <!-- First define all nodes of the graph, and what quads they represent            -->
+  <node-list from-quad="0" to-quad="35"/>   <!-- Graph nodes 0-35 are quads 0-35     -->
+  <node quad="293"/>                        <!-- Graph node 36 is quad 293           -->
+  <node-list from-quad="10" to-quad="291"/> <!-- Graph nodes 37-318 are quads 10-291 --> 
+  <node quad="292"/>                        <!-- Graph node 319 is quad 292          -->
+
+  <!-- Then add the connection of the graph nodes to form the actual graph           -->
+  <egde-loop from="0" to="303"/>            <!-- The actual main track is a loop     -->
+  <edge from="5" to="304"/>                 <!-- The shortcut from main track        -->
+  <edge from="304" to="281"/>               <!-- From shortcut back to track         -->
 </graph>
 
