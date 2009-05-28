@@ -7,8 +7,8 @@
   <node quad="292"/>                        <!-- Graph node 319 is quad 292          -->
 
   <!-- Then add the connection of the graph nodes to form the actual graph           -->
-  <egde-loop from="0" to="303"/>            <!-- The actual main track is a loop     -->
-  <edge from="5" to="304"/>                 <!-- The shortcut from main track        -->
-  <edge from="304" to="281"/>               <!-- From shortcut back to track         -->
+  <edge-loop from="0" to="318"/>            <!-- The actual main track is a loop     -->
+  <edge from="5" to="319"/>                 <!-- The shortcut from main track        -->
+  <edge from="319" to="299"/>               <!-- From shortcut back to track         -->
 </graph>
 
