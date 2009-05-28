@@ -9,12 +9,11 @@ def do_coordinates(l):
             l[i]=""
     if len(l)>=1 and l[0]:
         s="x=\"%s\""%l[0]
-    # The axis must be swapped for irrlicht
-    if len(l)>=2 and l[1]:
-        s="%s y=\"%s\""%(s, l[1])
-
     if len(l)>=3 and l[2]:
-        s="%s z=\"%s\""%(s,l[2])
+        s="%s y=\"%s\""%(s,l[2])
+    if len(l)>=2 and l[1]:
+        s="%s z=\"%s\""%(s, l[1])
+
     return s
 
 if __name__=="__main__":
