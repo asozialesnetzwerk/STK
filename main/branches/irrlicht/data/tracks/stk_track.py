@@ -62,6 +62,113 @@ def writeTrackFile(sFilename, sBase):
     f.close()
     
 # ------------------------------------------------------------------------------
+# Finds the closest quad to two given vertices which belong to a different id.
+# The parameters vl and vr are the two vertices, id the id of the drivelines to
+# which vl/vr belong. dDrivelines is the dictionary of all drivelines.
+def findClosestQuad(target_left, target_right, target_id, dDrivelines, lAllKeys):
+    for id in lAllKeys:
+        # ignore vertices which are in the same part 
+        if target_id == id: continue
+        objl     = dDrivelines[id]["left"]
+        objr     = dDrivelines[id]["right"]
+        meshl    = objl.getData()
+        meshr    = objr.getData()
+        meshl.transform(objl.getMatrix())
+        meshr.transform(objr.getMatrix())
+        min_d    = 1000000
+        min_indx = -1
+        print "len=",len(meshl.edges), meshl.edges[0].v1,meshl.edges[0].v2
+        print "v=",meshl.verts[0],meshl.verts[1]
+        for i in range(len(meshl.verts)):
+            l        = meshl.verts[i]
+            r        = meshr.verts[i]
+            d = (target_left[0] - l[0])**2 + (target_left[1] - l[1])**2 + (target_left[2] - l[2])**2
+            if d<min_d:
+                min_d    = d
+                min_indx = i
+            d = (target_left[0] - r[0])**2 + (target_left[1] - r[1])**2 + (target_left[2] - r[2])**2
+            if d<min_d:
+                min_d    = d
+                min_indx = i
+            d = (target_right[0] - l[0])**2 + (target_right[1] - l[1])**2 + (target_right[2] - l[2])**2
+            if d<min_d:
+                min_d    = d
+                min_indx = i
+            d = (target_right[0] - r[0])**2 + (target_right[1] - r[1])**2 + (target_right[2] - r[2])**2
+            if d<min_d:
+                min_d    = d
+                min_indx = i
+            #print i,min_d, min_indx
+        return min_indx
+    
+# ------------------------------------------------------------------------------
+# The blender data structures might not be sorted, i.e. mesh.verts[0] might not
+# be at all connected to mesh.verts[1]. So to re-created the right order, the
+# edges have to be taken into account. This subroutine sorts the vertices
+# in the order specified by the meshes. If the mesh is a loop, the point closest
+# to 0,0,0 is used as a starting point. 
+def sortVertices(mesh):
+    # Create a dictorionary with all successors, to speed up the lookup later:
+    dSucc   = {}
+    for edge in mesh.edges:
+        if dSucc.has_key(edge.v1):
+            dSucc[edge.v1].append(edge.v2)
+        else:
+            dSucc[edge.v1]=[edge.v2]
+        if dSucc.has_key(edge.v2):
+            dSucc[edge.v2].append(edge.v1)
+        else:
+            dSucc[edge.v2]=[edge.v1]
+
+    # Collect all points with a single successor only:
+    l_endpoints = []
+    for i in dSucc.keys():
+        if len(dSucc[i])==1:
+            l_endpoints.append(i)
+
+    l_sorted_vertices = []
+    # Find start point and first successor:
+    if len(l_endpoints)==0:
+        # closed loop, find point closest to 0
+        min_dist    = 1000000
+        start_index = -1
+        v_min       = None
+        for i in range(len(mesh.verts)):
+            v = mesh.verts[i]
+            d=v[0]**2 + v[1]**2 + v[2]**2
+            if d<min_dist:
+                min_dist    = d
+                start_index = i
+                v_min       = v
+        if v_min==None: return []
+        # Now find which of the two successors are going forward along the Yaxis:
+        l_succ=dSucc[v_min]
+        if l_succ[0][1] > l_succ[1][1]:
+            l_sorted_vertices = [v_min, l_succ[0]]
+        else:
+            l_sorted_vertices = [v_min, l_succ[1]]
+    elif len(l_endpoints)==2:
+        # How do we pick a start point here??? For now, just use the first one
+        v_start = l_endpoints[0]
+        # Use v_start and its only successor (with index 0):
+        l_sorted_vertices = [v_start, dSucc[v_start][0] ]
+
+    while len(l_sorted_vertices)!=len(mesh.verts):
+        # Stop if we reach a vertices with only a single successor - which is the
+        # the node we are coming from (except for the very first node in case
+        # of a non-loop).
+        if len(dSucc[ l_sorted_vertices[-1] ])==1: break
+        n1 = dSucc[ l_sorted_vertices[-1] ][0]  # first successor
+        n2 = dSucc[ l_sorted_vertices[-1] ][1]  # second successor
+        if l_sorted_vertices[-2] == n1:
+            l_sorted_vertices.append(n2)
+        else:
+            l_sorted_vertices.append(n1)
+        if len(l_sorted_vertices)>200: breal
+
+    return l_sorted_vertices
+        
+# ------------------------------------------------------------------------------
 def writeQuadAndGraph(sFilename, dDrivelines):
     print "stk_track: Writing quad file"
     if not dDrivelines.has_key(""):
@@ -108,19 +215,25 @@ def writeQuadAndGraph(sFilename, dDrivelines):
     lStartQuad         = [0]
     dSuccessor         = {}
     last_main_lap_quad = 0
+    # For each vertex this mapping contains all neighbours
+    dVertex2Neighb     = {}
     for id in lAllKeys:
-        objl = dDrivelines[id]["left"]
-        objr = dDrivelines[id]["right"]
+        objl  = dDrivelines[id]["left"]
+        objr  = dDrivelines[id]["right"]
         meshl = objl.getData()
         meshr = objr.getData()
         meshl.transform(objl.getMatrix())
         meshr.transform(objr.getMatrix())
-        ldl = meshl.verts
-        rdl = meshr.verts
+        ldl = sortVertices(meshl)
+        rdl = sortVertices(meshr)
         l   = ldl[0]
         r   = rdl[0]
         l1  = ldl[1]
         r1  = rdl[1]
+        if id=="":
+            f.write("<!-- Main driveline -->\n")
+        else:
+            f.write("<!-- Driveline: %s -->\n"%id)
         f.write("<quad p0=\"%f,%f,%f\" p1=\"%f,%f,%f\" p2=\"%f,%f,%f\" p3=\"%f,%f,%f\"/>\n" \
             %(l[0],l[1],l[2], r[0],r[1],r[2],  \
                 r1[0],r1[1],r1[2], l1[0],l1[1],l1[2]) )
@@ -134,7 +247,7 @@ def writeQuadAndGraph(sFilename, dDrivelines):
             count = count + 1
         if id=="":   # main loop, which needs to be closed:
             f.write("<quad p0=\"%d:3\" p1=\"%d:2\" p2=\"0:1\" p3=\"0:0\"/>\n" \
-                %(i, i))  # well, lStartQuad[-1] - but this is always 0 for main lap
+                %(i, i))  # +lStartQuad[-1] - but this is always 0 for main lap
             last_main_lap_quad = count
             count = count + 1
         lStartQuad.append(lStartQuad[-1]+count)
@@ -146,14 +259,27 @@ def writeQuadAndGraph(sFilename, dDrivelines):
     f.write("<graph>\n")
     f.write("  <!-- First define all nodes of the graph, and what quads they represent -->\n")
     f.write("  <node-list from-quad=\"%d\" to-quad=\"%d\"/>  <!-- map each quad to a node  -->\n"\
-            %(0, lStartQuad[1]))
-    f.write("  <edge-loop from=\"%d\" to=\"%d\"/>            <!-- main loop of track       -->\n"\
-              %(0, last_main_lap_quad))
-    for i in range(len(lAllKeys)):
-        if lAllKeys[i]=="": continue    # main loop was already done
-        f.write("  <edge-line from=\"%d\" to=\"%d\"/>          <!-- shortcut %d              -->\n"\
-                  %(lStartQuad[i], lStartQuad[i+1]-1, i))
-        # 
+            %(0, lStartQuad[-1]))
+    f.write("  <!-- Define the main loop -->\n");
+    f.write("  <edge-loop from=\"%d\" to=\"%d\"/>\n" % (0, last_main_lap_quad) )
+    for i in range(1, len(lAllKeys)):
+        id     = lAllKeys[i]
+        f.write("<!-- Shortcut %s -->\n"%id)
+        objl   = dDrivelines[id]["left"]
+        objr   = dDrivelines[id]["right"]
+        vl     = objl.getData().verts
+        vr     = objr.getData().verts
+        nBegin = findClosestQuad(vl[0],  vr[0],  id, dDrivelines, lAllKeys)
+        nEnd   = findClosestQuad(vl[-1], vr[-1], id, dDrivelines, lAllKeys)
+
+        f.write("  <edge      from=\"%d\" to=\"%d\"/>          <!-- Enter shortcut %s  -->\n"\
+                %(nBegin, lStartQuad[i], id))
+        f.write("  <edge-line from=\"%d\" to=\"%d\"/>          <!-- Shortcut %s        -->\n"\
+                  %(lStartQuad[i], lStartQuad[i+1]-1, id))
+        f.write("  <edge      from=\"%d\" to=\"%d\"/>          <!-- Leave shortcut %s  -->\n"\
+                %(lStartQuad[i+1]-1, nEnd, id))
+        #
+    f.write("</graph>\n")
     f.close()
       
 # -----------------------------------------------------------------------------------------
