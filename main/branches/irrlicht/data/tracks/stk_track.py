@@ -19,15 +19,24 @@ __bpydoc__ = """\
 #because you don't have Python installed.
 import Blender
 import BPyMesh
-import sys,os,os.path,struct,math,string
+import sys,os,os.path,struct,math,string,re
 import b3d_export
 
 from Blender import Mathutils
 from Blender.Mathutils import *
 from Blender import Draw,BGL
 from Blender.BGL import *
+from Blender import sys as bsys
 
 if not hasattr(sys,"argv"): sys.argv = ["???"]
+
+# ------------------------------------------------------------------------------
+def Round(f):
+    r = round(f,6) # precision set to 10e-06
+    if r == int(r):
+        return str(int(r))
+    else:
+        return str(r)
 
 # ------------------------------------------------------------------------------
 def writeTrackFile(sFilename, sBase):
@@ -65,23 +74,17 @@ def writeTrackFile(sFilename, sBase):
 # Finds the closest quad to two given vertices which belong to a different id.
 # The parameters vl and vr are the two vertices, id the id of the drivelines to
 # which vl/vr belong. dDrivelines is the dictionary of all drivelines.
-def findClosestQuad(target_left, target_right, target_id, dDrivelines, lAllKeys):
+def findClosestQuad(target_left, target_right, target_id, dSortedVertices, lAllKeys):
     for id in lAllKeys:
         # ignore vertices which are in the same part 
         if target_id == id: continue
-        objl     = dDrivelines[id]["left"]
-        objr     = dDrivelines[id]["right"]
-        meshl    = objl.getData()
-        meshr    = objr.getData()
-        meshl.transform(objl.getMatrix())
-        meshr.transform(objr.getMatrix())
-        min_d    = 1000000
-        min_indx = -1
-        print "len=",len(meshl.edges), meshl.edges[0].v1,meshl.edges[0].v2
-        print "v=",meshl.verts[0],meshl.verts[1]
-        for i in range(len(meshl.verts)):
-            l        = meshl.verts[i]
-            r        = meshr.verts[i]
+        left_verts  = dSortedVertices[id][0]
+        right_verts = dSortedVertices[id][1]
+        min_d       = 1000000
+        min_indx    = -1
+        for i in range(len(left_verts)):
+            l = left_verts[i]
+            r = right_verts[i]
             d = (target_left[0] - l[0])**2 + (target_left[1] - l[1])**2 + (target_left[2] - l[2])**2
             if d<min_d:
                 min_d    = d
@@ -98,7 +101,6 @@ def findClosestQuad(target_left, target_right, target_id, dDrivelines, lAllKeys)
             if d<min_d:
                 min_d    = d
                 min_indx = i
-            #print i,min_d, min_indx
         return min_indx
     
 # ------------------------------------------------------------------------------
@@ -148,8 +150,12 @@ def sortVertices(mesh):
         else:
             l_sorted_vertices = [v_min, l_succ[1]]
     elif len(l_endpoints)==2:
-        # How do we pick a start point here??? For now, just use the first one
-        v_start = l_endpoints[0]
+        # How do we pick a start point here??? For now use the one with the
+        # lower index, since the user probably started with the start point
+        if l_endpoints[0].index<l_endpoints[1].index:
+            v_start = l_endpoints[0]
+        else:
+            v_start = l_endpoints[1]
         # Use v_start and its only successor (with index 0):
         l_sorted_vertices = [v_start, dSucc[v_start][0] ]
 
@@ -164,13 +170,16 @@ def sortVertices(mesh):
             l_sorted_vertices.append(n2)
         else:
             l_sorted_vertices.append(n1)
-        if len(l_sorted_vertices)>200: breal
 
     return l_sorted_vertices
         
 # ------------------------------------------------------------------------------
+# Writes the track.quad file with the list of all quads, and the track.graph
+# file defining a graph node for each quad and a basic connection between all
+# graph nodes.
 def writeQuadAndGraph(sFilename, dDrivelines):
-    print "stk_track: Writing quad file"
+    start_time = bsys.time()
+    print "stk_track: Writing quad file --> ",
     if not dDrivelines.has_key(""):
         print "No main driveline defines, no driveline information exported!!!"
         return
@@ -217,6 +226,7 @@ def writeQuadAndGraph(sFilename, dDrivelines):
     last_main_lap_quad = 0
     # For each vertex this mapping contains all neighbours
     dVertex2Neighb     = {}
+    dSortedVertices    = {}
     for id in lAllKeys:
         objl  = dDrivelines[id]["left"]
         objr  = dDrivelines[id]["right"]
@@ -226,6 +236,7 @@ def writeQuadAndGraph(sFilename, dDrivelines):
         meshr.transform(objr.getMatrix())
         ldl = sortVertices(meshl)
         rdl = sortVertices(meshr)
+        dSortedVertices[id]=[ldl, rdl]   # save sorted vertices for later
         l   = ldl[0]
         r   = rdl[0]
         l1  = ldl[1]
@@ -253,7 +264,9 @@ def writeQuadAndGraph(sFilename, dDrivelines):
         lStartQuad.append(lStartQuad[-1]+count)
     f.write("</quads>\n")
     f.close()
-    print "stk_track: Writing graph file",lStartQuad
+    print bsys.time()-start_time,"seconds. "
+    start_time = bsys.time()
+    print "stk_track: Writing graph file -->",
     f=open(sFilename+".graph", "w")
     f.write("<?xml version=\"1.0\"?>\n")
     f.write("<graph>\n")
@@ -267,10 +280,10 @@ def writeQuadAndGraph(sFilename, dDrivelines):
         f.write("<!-- Shortcut %s -->\n"%id)
         objl   = dDrivelines[id]["left"]
         objr   = dDrivelines[id]["right"]
-        vl     = objl.getData().verts
-        vr     = objr.getData().verts
-        nBegin = findClosestQuad(vl[0],  vr[0],  id, dDrivelines, lAllKeys)
-        nEnd   = findClosestQuad(vl[-1], vr[-1], id, dDrivelines, lAllKeys)
+        vl     = dSortedVertices[id][0]    # left side
+        vr     = dSortedVertices[id][1]    # right side
+        nBegin = findClosestQuad(vl[0],  vr[0],  id, dSortedVertices, lAllKeys)
+        nEnd   = findClosestQuad(vl[-1], vr[-1], id, dSortedVertices, lAllKeys)
 
         f.write("  <edge      from=\"%d\" to=\"%d\"/>          <!-- Enter shortcut %s  -->\n"\
                 %(nBegin, lStartQuad[i], id))
@@ -281,7 +294,57 @@ def writeQuadAndGraph(sFilename, dDrivelines):
         #
     f.write("</graph>\n")
     f.close()
+    print bsys.time()-start_time,"seconds. "
       
+# -----------------------------------------------------------------------------------------
+def writeSceneFile(sFilename, sTrackName, sWaterName, lEmpties):
+    start_time = bsys.time()
+    print "Writing scene file -->",
+    f = open(sFilename+".scene", "w")
+    f.write("<?xml version=\"1.0\"?>\n")
+    f.write("<scene>\n")
+    
+    f.write("  <track model=\"%s\" x=\"0\" y=\"0\" z=\"0\"/>\n"%sTrackName)
+    if sWaterName:
+        f.write("  <waster model=\"%s\" x=\"0\" y=\"0\" z=\"0\"/>\n"""%sWaterName)
+        
+    rad2deg = 180.0/3.1415926
+    for obj in lEmpties:
+        rx,ry,rz = map(lambda x: rad2deg*x, obj.rot)
+        h,p,r    = map(str, map(Round, [rz,rx,ry])  )
+        x,y,z    = map(str, map(Round, obj.loc     )  )
+        l        = obj.name.split(".")
+        if len(l)!=1:
+            if l[-1].isdigit():   # Remove number appended by blender
+                l = l[:-1]
+            name = ".".join(l)
+        else:
+            name = obj.name
+        # Portability for old models:
+        g=re.match("(.*) *{(.*)}", name)
+        if g:
+            name  = g.group(1)
+            specs = g.group(2).lower()
+            if specs.find("z")>=0: z=None
+            if specs.find("p")>=0: p=None
+            if specs.find("r")>=0: r=None
+        if name=="GHERRING": name="banana"
+        if name=="RHERRING": name="item"
+        if name=="YHERRING": name="nitro-big"
+        if name=="SHERRING": name="nitro-small"
+        s="%s x=\"%s\" y=\"%s\""%(name, x, y)
+        if z: s="%s z=\"%s\""%(s, z)
+        if p and p!="0": s="%s p=\"%s\""%(s, p)
+        if r and r!="0": s="%s r=\"%s\""%(s, r)
+        # FIXME: do we have other items?
+        # FIXME: what about zipper??
+        if name in ["banana", "item", "nitro-big", "nitro-small", "zipper.ac"]:
+            f.write("  <%s />\n"%s)
+        else:
+            print "Unknown item: '%s' --> '%s'"%(obj.name, name)
+    f.write("</scene>\n")
+    f.close()
+    print bsys.time()-start_time,"seconds"
 # -----------------------------------------------------------------------------------------
 def savescene_callback(sFilename):
 	# FIXME: for testing only
@@ -353,22 +416,24 @@ def savescene_callback(sFilename):
 
     # Quads and mapping files
     # -----------------------
-    print "quads",dDrivelines
     writeQuadAndGraph(sFilename, dDrivelines)
+
+    start_time = bsys.time()
+    print "Exporting track -->",
+    sTrackName = sBase+"_track.b3d"
+    #FIXME for now to save time: b3d_export.write_b3d_file(sFilename+"_track.b3d", lTrack)
+    print bsys.time()-start_time,"seconds."
+    sWaterName = ""
+    if lWater:
+        start_time=bsys.time()
+        sWaterName = sBase+"_water.b3d"
+        print "Exporting water -->",
+        # FIXME for now to save time: b3d_export.write_b3d_file(sFilename+"_water.b3d", lWater)
+        print bsys.time()-start_time,"seconds."
 
     # scene file
     # ----------
-    f = open(sFilename+".scene", 'wb')
-    f.write("""<?xml version="1.0"?>\n""")
-    f.write("""<scene>\n""")
-    f.write("""  <track model="%s_track.b3d" x="0" y="0" z="0"/>\n"""%sBase)
-    b3d_export.write_b3d_file(sFilename+"_track.b3d", lTrack)
-    if lWater:
-        f.write("""  <waster model="%s_water.b3d" x="0" y="0" z="0"/>\n"""%sBase)
-        b3d_export.write_b3d_file(sFilename+"_water.b3d", lWater)
-    f.write("</scene>""")
-    f.close() 
-
+    writeSceneFile(sFilename, sTrackName, sWaterName, lEmpties)
 
 #Main
 def main():
