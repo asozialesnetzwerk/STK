@@ -4,4 +4,8 @@
   <material name="lighthouse_sky.png" alpha="0.0" light="N" reset="Y"/>
   <material name="fence.png" transparency="Y" />
   <material name="coniferous_tree.png" clampU="Y" clampV="Y" transparency="Y" light="N" collide="N"/>
+  <material name="sand.jpg" graphical-effect="smoke"/>
+  <material name="sandgrass.jpg" graphical-effect="smoke"/>
+  <material name="sea.jpg" graphical-effect="water"/>
+  <!-- FIXME: sea.jpg should of course trigger a reset -->
 </materials>
