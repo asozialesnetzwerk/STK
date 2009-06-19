@@ -8,6 +8,7 @@ modified by M. Gagnon"
         screenschot = "shot-lighthouse.png
         driveline   = "lighthouse.driveline"
         mapping     = "lighthouse.mapping"
+        sun-position           = "0 100 0"
         camera-final-position  ="-10 25 3"
         camera-final-hpr       ="-140 -7 0"
 >
