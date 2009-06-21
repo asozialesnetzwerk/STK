@@ -5,7 +5,7 @@
         description = "Created by Ingo Ruhnke,
 modified by M. Gagnon"
         music       = "ChillCarrier-Druckverlust.music"
-        screenschot = "shot-lighthouse.png
+        screenschot = "shot-lighthouse.png"
         driveline   = "lighthouse.driveline"
         mapping     = "lighthouse.mapping"
         sun-position           = "0 100 0"
