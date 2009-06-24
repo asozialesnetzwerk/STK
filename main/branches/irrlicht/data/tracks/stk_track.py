@@ -118,9 +118,6 @@ def writeCurve(f, lCurves):
                             ( v1[0],v1[1],v1[2],
                               v0[0],v0[1],v0[2],
                               v2[0],v2[1],v2[2] ) )
-                    #v=Vector(i[0],i[1],i[2]) * matrix
-                    #print "<p=\"%f %f %f\"/>\n"%(v[0], v[1], v[2])
-                    print v0,":::",i
                 f.write("    </%s>\n"%type)
     f.write("  </curves>\n")
                 
@@ -129,12 +126,10 @@ def writeCurve(f, lCurves):
 # Finds the closest quad to two given vertices which belong to a different id.
 # The parameters vl and vr are the two vertices, id the id of the drivelines to
 # which vl/vr belong. dDrivelines is the dictionary of all drivelines.
-def findClosestQuad(target_left, target_right, target_id, dSortedVertices, lAllKeys):
-    for id in lAllKeys:
+def findClosestQuad(target_left, target_right, target_id, lAllDrivelines):
+    for (id, left_verts, right_verts) in lAllDrivelines:
         # ignore vertices which are in the same part 
         if target_id == id: continue
-        left_verts  = dSortedVertices[id][0]
-        right_verts = dSortedVertices[id][1]
         min_d       = 1000000
         min_indx    = -1
         for i in range(len(left_verts)):
@@ -159,68 +154,60 @@ def findClosestQuad(target_left, target_right, target_id, dSortedVertices, lAllK
         return min_indx
     
 # ------------------------------------------------------------------------------
+# This creates a dictionary for a mesh which contains for each vertex a list
+# with all its neighbours.
+def createNeighbourDict(mesh):
+    dNext = {}
+    for e in mesh.edges:
+        if dNext.has_key(e.v1):
+            dNext[e.v1].append(e.v2)
+        else:
+            dNext[e.v1] = [e.v2]
+        if dNext.has_key(e.v2):
+            dNext[e.v2].append(e.v1)
+        else:
+            dNext[e.v2] = [e.v1]
+    return dNext
+    
+# ------------------------------------------------------------------------------
 # The blender data structures might not be sorted, i.e. mesh.verts[0] might not
 # be at all connected to mesh.verts[1]. So to re-created the right order, the
 # edges have to be taken into account. This subroutine sorts the vertices
 # in the order specified by the meshes. If the mesh is a loop, the point closest
 # to 0,0,0 is used as a starting point. 
-def sortVertices(mesh):
+def sortVerticesOldDrivelines(mesh):
     # Create a dictorionary with all successors, to speed up the lookup later:
-    dSucc   = {}
-    for edge in mesh.edges:
-        if dSucc.has_key(edge.v1):
-            dSucc[edge.v1].append(edge.v2)
-        else:
-            dSucc[edge.v1]=[edge.v2]
-        if dSucc.has_key(edge.v2):
-            dSucc[edge.v2].append(edge.v1)
-        else:
-            dSucc[edge.v2]=[edge.v1]
+    dSucc   = createNeighbourDict(mesh)
 
-    # Collect all points with a single successor only:
-    l_endpoints = []
-    for i in dSucc.keys():
-        if len(dSucc[i])==1:
-            l_endpoints.append(i)
+    # closed loop, find point closest to 0
+    min_dist    = 1000000
+    start_index = -1
+    v_min       = None
+    for i in range(len(mesh.verts)):
+        v = mesh.verts[i]
+        d=v[0]**2 + v[1]**2 + v[2]**2
+        if d<min_dist:
+            min_dist    = d
+            start_index = i
+            v_min       = v
+            
+    if v_min==None: return []
+    
+    # Now find which of the two successors are going forward along the Yaxis:
+    l_succ=dSucc[v_min]
+    if l_succ[0][1] > l_succ[1][1]:
+        l_sorted_vertices = [v_min, l_succ[0]]
+    else:
+        l_sorted_vertices = [v_min, l_succ[1]]
 
-    l_sorted_vertices = []
-    # Find start point and first successor:
-    if len(l_endpoints)==0:
-        # closed loop, find point closest to 0
-        min_dist    = 1000000
-        start_index = -1
-        v_min       = None
-        for i in range(len(mesh.verts)):
-            v = mesh.verts[i]
-            d=v[0]**2 + v[1]**2 + v[2]**2
-            if d<min_dist:
-                min_dist    = d
-                start_index = i
-                v_min       = v
-        if v_min==None: return []
-        # Now find which of the two successors are going forward along the Yaxis:
-        l_succ=dSucc[v_min]
-        if l_succ[0][1] > l_succ[1][1]:
-            l_sorted_vertices = [v_min, l_succ[0]]
-        else:
-            l_sorted_vertices = [v_min, l_succ[1]]
-    elif len(l_endpoints)==2:
-        # How do we pick a start point here??? For now use the one with the
-        # lower index, since the user probably started with the start point
-        if l_endpoints[0].index<l_endpoints[1].index:
-            v_start = l_endpoints[0]
-        else:
-            v_start = l_endpoints[1]
-        # Use v_start and its only successor (with index 0):
-        l_sorted_vertices = [v_start, dSucc[v_start][0] ]
 
     while len(l_sorted_vertices)!=len(mesh.verts):
         # Stop if we reach a vertices with only a single successor - which is the
-        # the node we are coming from (except for the very first node in case
-        # of a non-loop).
+        # the node we are coming from
         if len(dSucc[ l_sorted_vertices[-1] ])==1: break
         n1 = dSucc[ l_sorted_vertices[-1] ][0]  # first successor
         n2 = dSucc[ l_sorted_vertices[-1] ][1]  # second successor
+        # Append the node that's not already in the list:
         if l_sorted_vertices[-2] == n1:
             l_sorted_vertices.append(n2)
         else:
@@ -229,50 +216,119 @@ def sortVertices(mesh):
     return l_sorted_vertices
         
 # ------------------------------------------------------------------------------
+# Converts the old driveline structure:
+def convertOldDrivelines(dOldDrivelines, lAllDrivelines):
+    lAllKeys= dOldDrivelines.keys()
+    lAllKeys.sort()  # Guarantees that the main driveline ("") is first
+    for id in lAllKeys:
+        objl  = dOldDrivelines[id]["left"]
+        objr  = dOldDrivelines[id]["right"]
+        meshl = objl.getData()
+        meshr = objr.getData()
+        meshl.transform(objl.getMatrix())
+        meshr.transform(objr.getMatrix())
+        ldl = sortVerticesOldDrivelines(meshl)
+        rdl = sortVerticesOldDrivelines(meshr)
+        lAllDrivelines.append( (id, ldl, rdl) )
+    
+# ------------------------------------------------------------------------------
+# This helper function determines the start vertex for a driveline.
+# Details are documented in convertNewDrivelines
+def findStartVertex(dNext):
+    # Find all vertices with exactly two neighbours
+    lTwoNeighbours = []
+    for i in dNext.keys():
+        if len(dNext[i])==2:
+            lTwoNeighbours.append(i)
+
+    if len(lTwoNeighbours)!=3:
+        return None
+    # Identify which of the three vertices is the right one: the two
+    # vertices at the end of the driveline have each other as neighbour,
+    # so search for the vertex that has no neighbour in lTwoNeighbours.
+    for v in lTwoNeighbours:
+        if dNext[v][0] in lTwoNeighbours: continue
+        if dNext[v][1] in lTwoNeighbours: continue
+        return v
+
+    # Error - invalid driveline structure.
+    return None
+    
+# ------------------------------------------------------------------------------
+# Converts a new drivelines. New drivelines have the following structure:
+#   +---+-----+--...--+ \
+#   |   |     |       |  +
+#   +---+-----+--...--+ /
+# I.e. The single vertex with 2 neighbours at the right side is the start
+# of the drivelines. The top and bottom (well, left and right actually)
+# meshes must have the same number of vertices, and must have a connection
+# to the corresponding other side.
+def convertNewDrivelines(lNewDrivelines, lAllDrivelines):
+    # Create a dictionary with all neighbours for each vertex:
+
+    # Find the begin of the drivelines:
+    for driveline in lNewDrivelines:
+        mesh = driveline.getData()
+        mesh.transform(driveline.getMatrix())
+        dNext = createNeighbourDict(mesh)
+        start = findStartVertex(dNext)
+        if not start:
+            print "Driveline '%s' is incorrect formed, it does not have"%driveline.name
+            print "three vertices with exactly two neighbours."
+            return
+        # Left and right are actually arbitrary, since it doesn't matter if
+        # the quads created from them are clockwise or counter-clockwise. The
+        # start vector is removed later, it simplifies whe while loop.
+        lLeft  = [start, dNext[start][0]]
+        lRight = [start, dNext[start][1]]
+        count=0
+        while count<100:
+            count = count + 1
+            # Get all neighbours. One is the previous point, one
+            # points to the opposite side - we need the other one.
+            neighb = dNext[lLeft[-1]]
+            for i in neighb:
+                if i==lLeft[-2]: continue   # pointing backwards
+                if i==lRight[-1]: continue  # to opposite side
+                lLeft.append(i)
+                break
+            else:
+                # No new element found --> this must be the end
+                # of the list!!
+                break
+            # Same for other side:
+            neighb = dNext[lRight[-1]]
+            for i in neighb:
+                if i==lRight[-2]: continue   # pointing backwards
+                # Note lLeft has already a new element appended,
+                # so we have to check for the 2nd last element!
+                if i==lLeft[-2]: continue  # to opposite side
+                lRight.append(i)
+                break
+        lAllDrivelines.append( ( driveline.name, lLeft[1:], lRight[1:] ) )
+
+        
+# ------------------------------------------------------------------------------
 # Writes the track.quad file with the list of all quads, and the track.graph
 # file defining a graph node for each quad and a basic connection between all
 # graph nodes.
-def writeQuadAndGraph(sFilename, dDrivelines):
+def writeQuadAndGraph(sFilename, lNewDrivelines, dOldDrivelines):
     start_time = bsys.time()
     print "stk_track: Writing quad file --> ",
-    if not dDrivelines.has_key(""):
+    if not dOldDrivelines.has_key("") and notlNewDrivelines:
         print "No main driveline defined, no driveline information exported!!!"
         return
+
+    # No consistency tests for old drivelines, since they should be removed!
+
+    lAllDrivelines = []
+    convertOldDrivelines(dOldDrivelines, lAllDrivelines)
+    convertNewDrivelines(lNewDrivelines, lAllDrivelines)
     
-    # Some more consistency test: check that we have left/right pairs, and that
-    # the curves have the same size:
-    lAllKeys= dDrivelines.keys()
-    for id in lAllKeys:
-        if len(dDrivelines[id])!=2:
-            # More than two is already checked, so it must be only one driveline here.
-            print "For driveline '%s' only %d mesh is defined, must be 2."%(id, len(dDrivelines[id]))
-            print "Driveline is ignored."
-            del dDrivelines[id]
-            continue
-        if dDrivelines[id].keys()[0]==dDrivelines[id].keys()[1]:
-            print "For driveline '%s' only side '%s' is specifed (twice)"%(id, dDrivelines[id].keys()[0])
-            print "Driveline is ignored."
-            del dDrivelines[id]
-            continue
-        meshLeft  = dDrivelines[id]["left"].getData()
-        meshRight = dDrivelines[id]["right"].getData()
-        if len(meshLeft.verts)!=len(meshRight.verts):
-            print "For driveline '%s' the number of points must be the same for both sides."%\
-                  (id)
-            print "Driveline is ignored."
-            del dDrivelines[id]
-            continue
-        if len(meshLeft.verts)<3:
-            print "Driveliens '%s' have not enough points (%d), ignored."%(id, len(meshLeft.verts))
-            del dDrivelines[id]
-            continue
-        
-    # Now we have only valid drivelines left. Now write them to the quad file
-    lAllKeys= dDrivelines.keys()
-    lAllKeys.sort()  # Guarantees that the main driveline ("") is first
     f = open(sFilename+".quads", "w")
     f.write("<?xml version=\"1.0\"?>\n")
     f.write("<quads>\n")
+    
     # Stores the first quad number (and since quads = graph nodes the node number) of
     # each section of the track. I.e. the main track starts with quad 0, then the
     # first alternative way, ...
@@ -282,36 +338,28 @@ def writeQuadAndGraph(sFilename, dDrivelines):
     # For each vertex this mapping contains all neighbours
     dVertex2Neighb     = {}
     dSortedVertices    = {}
-    for id in lAllKeys:
-        objl  = dDrivelines[id]["left"]
-        objr  = dDrivelines[id]["right"]
-        meshl = objl.getData()
-        meshr = objr.getData()
-        meshl.transform(objl.getMatrix())
-        meshr.transform(objr.getMatrix())
-        ldl = sortVertices(meshl)
-        rdl = sortVertices(meshr)
-        dSortedVertices[id]=[ldl, rdl]   # save sorted vertices for later
-        l   = ldl[0]
-        r   = rdl[0]
-        l1  = ldl[1]
-        r1  = rdl[1]
-        if id=="":
+    count              = 0
+    for (name, lLeft, lRight) in lAllDrivelines:
+        l   = lLeft[0]
+        r   = lRight[0]
+        l1  = lLeft[1]
+        r1  = lRight[1]
+        if count==0:
             f.write("<!-- Main driveline -->\n")
         else:
-            f.write("<!-- Driveline: %s -->\n"%id)
+            f.write("<!-- Driveline: %s -->\n"%name)
+        count = count + 1
         f.write("<quad p0=\"%f,%f,%f\" p1=\"%f,%f,%f\" p2=\"%f,%f,%f\" p3=\"%f,%f,%f\"/>\n" \
-            %(l[0],l[1],l[2], r[0],r[1],r[2],  \
-                r1[0],r1[1],r1[2], l1[0],l1[1],l1[2]) )
+            %(l[0],l[1],l[2], r[0],r[1],r[2], r1[0],r1[1],r1[2], l1[0],l1[1],l1[2]) )
         count = 1   # counts number of quads
-        for i in range(1, len(ldl)-1):
-            l1  = ldl[i+1]
-            r1  = rdl[i+1]
+        for i in range(1, len(lLeft)-1):
+            l1  = lLeft[i+1]
+            r1  = lRight[i+1]
             f.write("<quad p0=\"%d:3\" p1=\"%d:2\" p2=\"%f,%f,%f\" p3=\"%f,%f,%f\"/>\n" \
                 %(lStartQuad[-1]+i-1, lStartQuad[-1]+i-1, \
                   r1[0],r1[1],r1[2], l1[0],l1[1],l1[2]) )
             count = count + 1
-        if id=="":   # main loop, which needs to be closed:
+        if name=="":   # main loop, which needs to be closed:
             f.write("<quad p0=\"%d:3\" p1=\"%d:2\" p2=\"0:1\" p3=\"0:0\"/>\n" \
                 %(i, i))  # +lStartQuad[-1] - but this is always 0 for main lap
             last_main_lap_quad = count
@@ -330,15 +378,13 @@ def writeQuadAndGraph(sFilename, dDrivelines):
             %(0, lStartQuad[-1]))
     f.write("  <!-- Define the main loop -->\n");
     f.write("  <edge-loop from=\"%d\" to=\"%d\"/>\n" % (0, last_main_lap_quad) )
-    for i in range(1, len(lAllKeys)):
-        id     = lAllKeys[i]
+    for i in range(1, len(lAllDrivelines)):
+        id     = lAllDrivelines[i][0]
         f.write("<!-- Shortcut %s -->\n"%id)
-        objl   = dDrivelines[id]["left"]
-        objr   = dDrivelines[id]["right"]
-        vl     = dSortedVertices[id][0]    # left side
-        vr     = dSortedVertices[id][1]    # right side
-        nBegin = findClosestQuad(vl[0],  vr[0],  id, dSortedVertices, lAllKeys)
-        nEnd   = findClosestQuad(vl[-1], vr[-1], id, dSortedVertices, lAllKeys)
+        lLeft   = lAllDrivelines[i][1]
+        lRight  = lAllDrivelines[i][2]
+        nBegin = findClosestQuad(lLeft[0],  lRight[0],  id, lAllDrivelines)
+        nEnd   = findClosestQuad(lLeft[-1], lRight[-1], id, lAllDrivelines)
 
         f.write("  <edge      from=\"%d\" to=\"%d\"/>          <!-- Enter shortcut %s  -->\n"\
                 %(nBegin, lStartQuad[i], id))
@@ -401,6 +447,34 @@ def writeSceneFile(sFilename, sTrackName, sWaterName, lEmpties):
     f.close()
     print bsys.time()-start_time,"seconds"
 # -----------------------------------------------------------------------------------------
+def storeOldDriveline(type, obj, dDrivelines):
+    # Check for old drivelines:
+    if type[:8]=="DRV_LEFT":
+        id   = type[8:]
+        side = "left"
+    elif type[:9]=="DRV_RIGHT":
+        id   = type[9:]
+        side = "right"
+    else:
+        print "Unknown driveline: '%s' - ignored."%type
+        return
+    if dDrivelines.has_key(id):
+        # Do some consistency tests
+        if len(dDrivelines[id].keys())>1:
+            print "Too many drivelines for '%s' specified - ignored."%id
+            del dDrivelines[id]
+            return
+        k = dDrivelines[id].keys()[0]
+        if k==side:
+            print "Side '%s' for driveline '%s' specified twice - ignored." %\
+                  (side, id)
+            del dDrivelines[id]
+            return
+        dDrivelines[id][side] = obj
+    else:
+        dDrivelines[id] = {side:obj}
+    
+# -----------------------------------------------------------------------------------------
 def savescene_callback(sFilename):
     # FIXME: for testing only
     sFilename="c:/cygwin/home/jh235117/local/supertuxkart/supertuxkart/data/tracks/jungle/test"
@@ -416,18 +490,18 @@ def savescene_callback(sFilename):
 
     # Collect the different kind of meshes this exporter handles
     # ----------------------------------------------------------
-    lObj = Blender.Object.Get()
-    lWater      = []
-    lTrack      = []
-    dDrivelines = {}
-    lEmpties    = []
-    lCurves     = []
+    lObj           = Blender.Object.Get()
+    lWater         = []
+    lTrack         = []
+    dOldDrivelines = {}
+    lNewDrivelines = []
+    lEmpties       = []
+    lCurves        = []
     for obj in lObj:
         if obj.type=="Empty":
             lEmpties.append(obj)
             continue
         elif obj.type=="Curve":
-            print "Adding curve",obj.name
             lCurves.append(obj)
         elif obj.type!="Mesh":
             continue
@@ -439,32 +513,12 @@ def savescene_callback(sFilename):
             type = obj.name.upper()
         if type=="WATER":
             lWater.append(obj)
+        # Check for new drivelines
         elif type[:9]=="DRIVELINE":
-            if type[:14]=="DRIVELINE_LEFT":
-                id   = type[14:]
-                side = "left"
-            elif type[:15]=="DRIVELINE_RIGHT":
-                id   = type[15:]
-                side = "right"
-            else:
-                print "Unknown driveline: name '%s' type '%s'"%(name, type)
-                print "Driveline is ignored."
-                continue
-            if dDrivelines.has_key(id):
-                # Do some consistency tests
-                if len(dDrivelines[id].keys())>1:
-                    print "Too many drivelines for '%s' specified - ignored."%id
-                    del dDriveliens[id]
-                    continue
-                k = dDrivelines[id].keys()[0]
-                if k==side:
-                    print "Side '%s' for driveline '%s' specified twice - ignored." %\
-                          (side, id)
-                    del dDrivelines[id]
-                    continue
-                dDrivelines[id][side] = obj
-            else:
-                dDrivelines[id] = {side:obj}
+            lNewDrivelines.append(obj)
+        # Backwards compatibility:
+        elif type[:4]=="DRV_":
+            storeOldDriveline(type, obj, dOldDrivelines)
         elif obj.getType()=="Empty":
             lEmpties.append(obj)
         else:
@@ -477,7 +531,7 @@ def savescene_callback(sFilename):
 
     # Quads and mapping files
     # -----------------------
-    writeQuadAndGraph(sFilename, dDrivelines)
+    writeQuadAndGraph(sFilename, lNewDrivelines, dOldDrivelines)
 
     start_time = bsys.time()
     print "Exporting track -->",
