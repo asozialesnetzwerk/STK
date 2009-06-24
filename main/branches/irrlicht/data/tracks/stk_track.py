@@ -39,7 +39,18 @@ def Round(f):
         return str(r)
 
 # ------------------------------------------------------------------------------
-def writeTrackFile(sFilename, sBase):
+def getProperty(obj, name):
+    try:
+        p = obj.getProperty(name)
+        return p.getData()
+    except:
+        pass
+    # FIXME: check for ID-properties next
+    return ""
+# ------------------------------------------------------------------------------
+def writeTrackFile(sFilename, sBase, lCurves):
+    print "Writing .track file",
+    start_time = bsys.time()
     f = open(sFilename+".irrtrack", 'wb')
     f.write("""<?xml version="1.0"?>
 <track  name        = "Name"
@@ -65,10 +76,54 @@ def writeTrackFile(sFilename, sBase):
   <sky-dome texture="lighthouse_sky.jpg"
             horizontal="16" vertical="16" 
             texture-percent="0.5" sphere-percent="1.3"/>
-            "
-</track>
 """ % (sBase, sBase))
+    # " <-- *sigh* help emacs syntax colouring recovering
+    writeCurve(f, lCurves)
+    f.write("</track>\n")
     f.close()
+    print bsys.time()-start_time, "seconds"
+    
+# -----------------------------------------------------------------------------------------
+def writeCurve(f, lCurves):
+    count = 0
+    for curves in lCurves:
+        type=getProperty(curves, "type").lower()
+        if not type in ["camera", "anim2d", "anim3d"]: continue
+        count = count + 1
+    if count==0: return
+    f.write("  <curves>\n")
+    for curves in lCurves:
+        type=getProperty(curves, "type").lower()
+        if not type in ["camera", "anim2d", "anim3d"]: continue
+        matrix = curves.getMatrix()
+        for nu in curves.data:
+            # 0:"poly", 1:"bezier", 4:"nurbs"
+            if nu.type==4:
+                f.write("    <%s curvetype=\"nurb\" name=\"%s\">\n"%(type, curves.name))
+                for i in nu:
+                    v=Vector(i[0],i[1],i[2]) * matrix
+                    f.write("      <p=\"%f %f %f\"/>\n"%(v[0], v[1], v[2]))
+                f.write("    </%s>\n"%type)
+            elif nu.type==1:
+                f.write("    <%s curvetype=\"bezier\" name=\"%s\">\n"%(type, curves.name))
+                for i in list(nu):
+                    # v0/v2 = hanldes, v1 = control point
+                    v0 = Vector(i.vec[0][0],i.vec[0][1],i.vec[0][2])
+                    v1 = Vector(i.vec[1][0],i.vec[1][1],i.vec[1][2])
+                    v2 = Vector(i.vec[2][0],i.vec[2][1],i.vec[2][2])
+                    v0 = v0*matrix
+                    v1 = v1*matrix
+                    v2 = v2*matrix
+                    f.write("      <point c=\"%f %f %f\" h1=\"%f %f %f\" h2=\"%f %f %f\" />\n"% \
+                            ( v1[0],v1[1],v1[2],
+                              v0[0],v0[1],v0[2],
+                              v2[0],v2[1],v2[2] ) )
+                    #v=Vector(i[0],i[1],i[2]) * matrix
+                    #print "<p=\"%f %f %f\"/>\n"%(v[0], v[1], v[2])
+                    print v0,":::",i
+                f.write("    </%s>\n"%type)
+    f.write("  </curves>\n")
+                
     
 # ------------------------------------------------------------------------------
 # Finds the closest quad to two given vertices which belong to a different id.
@@ -181,7 +236,7 @@ def writeQuadAndGraph(sFilename, dDrivelines):
     start_time = bsys.time()
     print "stk_track: Writing quad file --> ",
     if not dDrivelines.has_key(""):
-        print "No main driveline defines, no driveline information exported!!!"
+        print "No main driveline defined, no driveline information exported!!!"
         return
     
     # Some more consistency test: check that we have left/right pairs, and that
@@ -347,8 +402,8 @@ def writeSceneFile(sFilename, sTrackName, sWaterName, lEmpties):
     print bsys.time()-start_time,"seconds"
 # -----------------------------------------------------------------------------------------
 def savescene_callback(sFilename):
-	# FIXME: for testing only
-    sFilename="c:/cygwin/home/joerg/currentSVN/data/tracks/jungle/test"
+    # FIXME: for testing only
+    sFilename="c:/cygwin/home/jh235117/local/supertuxkart/supertuxkart/data/tracks/jungle/test"
     # Settings for the b3d exporter:
     global flag_stack
     b3d_export.flag_stack = []
@@ -366,11 +421,17 @@ def savescene_callback(sFilename):
     lTrack      = []
     dDrivelines = {}
     lEmpties    = []
+    lCurves     = []
     for obj in lObj:
         if obj.type=="Empty":
             lEmpties.append(obj)
             continue
-        if obj.type!="Mesh": continue
+        elif obj.type=="Curve":
+            print "Adding curve",obj.name
+            lCurves.append(obj)
+        elif obj.type!="Mesh":
+            continue
+        
         try:
             p    = obj.getProperty("type")
             type = p.getData().upper()
@@ -412,7 +473,7 @@ def savescene_callback(sFilename):
     # Now export the different parts: track file
     # ------------------------------------------
     sBase = os.path.basename(sFilename)
-    writeTrackFile(sFilename, sBase)
+    writeTrackFile(sFilename, sBase, lCurves)
 
     # Quads and mapping files
     # -----------------------
