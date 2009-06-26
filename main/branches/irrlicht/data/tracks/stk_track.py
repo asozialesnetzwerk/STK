@@ -39,31 +39,40 @@ def Round(f):
         return str(r)
 
 # ------------------------------------------------------------------------------
-def getProperty(obj, name):
+# Gets an id property of an objects, returning the default if the id property
+# is not set.
+def getIdProperty(obj, name, default=""):
     try:
-        p = obj.getProperty(name)
-        return p.getData()
+        return obj.properties[name]
     except:
         pass
-    # FIXME: check for ID-properties next
-    return ""
+    return default
+
 # ------------------------------------------------------------------------------
-def writeTrackFile(sFilename, sBase, lCurves):
+def writeTrackFile(sFilename, sBase, lCurves, lAnimations):
     print "Writing .track file",
-    start_time = bsys.time()
+    start_time  = bsys.time()
+    scene       = Blender.Scene.getCurrent()
+    name        = getIdProperty(scene, "name", "Name of Track")
+    version     = getIdProperty(scene, "version", "1")
+    groups      = getIdProperty(scene, "groups", "standard")
+    description = getIdProperty(scene, "description", "Description")
+    description = description.replace("\\n", "\n")
+    music       = getIdProperty(scene, "music", "musicfile.music")
+    screenshot  = getIdProperty(scene, "screenshot", "ssot-%s.jpg"%name)
     f = open(sFilename+".irrtrack", 'wb')
-    f.write("""<?xml version="1.0"?>
-<track  name        = "Name"
-        version     = "1"
-        groups      = "standard"
-        description = "By ..."
-        music       = "ChillCarrier-Druckverlust.music"
-        screenschot = "shot-lighthouse.png
-        driveline   = "%s.driveline"
-        mapping     = "%s.mapping"
-        camera-final-position  ="-10 25 3"
-        camera-final-hpr       ="-140 -7 0"
->
+    f.write("<?xml version=\"1.0\"?>\n")
+    f.write("<track  name        = \"%s\"\n"%name)
+    f.write("        version     = \"%s\"\n"%version)
+    f.write("        groups      = \"%s\"\n"%groups)
+    f.write("        description = \"%s\"\n"%description)
+    f.write("        music       = \"%s\"\n"%music)
+    f.write("        screenschot = \"%s\"\n"%screenshot)
+    f.write("        driveline   = \"%s.driveline\"\n"%sBase)
+    f.write("        mapping     = \"%s.mapping\"\n"%sBase)
+    f.write("        camera-final-position  =\"-10 25 3\"\n")
+    f.write("        camera-final-hpr       =\"-140 -7 0\"\n")
+    f.write("""
   <!-- Parameters for a sky dome:
        texture:  the name of the texture to use
        horizontal: Number of vertices of a horizontal layer of the sphere.
@@ -73,11 +82,10 @@ def writeTrackFile(sFilename, sBase, lCurves):
        sphere-percent: How much of the sphere is drawn. Value should be 
                        between 0 and 2, where 1 is an exact half-sphere
                        and 2 is a full sphere.  -->
-  <sky-dome texture="lighthouse_sky.jpg"
-            horizontal="16" vertical="16" 
-            texture-percent="0.5" sphere-percent="1.3"/>
-""" % (sBase, sBase))
-    # " <-- *sigh* help emacs syntax colouring recovering
+  <sky-dome texture=\"lighthouse_sky.jpg\"
+            horizontal=\"16\" vertical=\"16\" 
+            texture-percent=\"0.5\" sphere-percent=\"1.3\"/>
+""" )
     writeCurve(f, lCurves)
     f.write("</track>\n")
     f.close()
@@ -315,7 +323,7 @@ def convertNewDrivelines(lNewDrivelines, lAllDrivelines):
 def writeQuadAndGraph(sFilename, lNewDrivelines, dOldDrivelines):
     start_time = bsys.time()
     print "stk_track: Writing quad file --> ",
-    if not dOldDrivelines.has_key("") and notlNewDrivelines:
+    if not dOldDrivelines.has_key("") and not lNewDrivelines:
         print "No main driveline defined, no driveline information exported!!!"
         return
 
@@ -478,6 +486,7 @@ def storeOldDriveline(type, obj, dDrivelines):
 def savescene_callback(sFilename):
     # FIXME: for testing only
     sFilename="c:/cygwin/home/jh235117/local/supertuxkart/supertuxkart/data/tracks/jungle/test"
+    print "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
     # Settings for the b3d exporter:
     global flag_stack
     b3d_export.flag_stack = []
@@ -496,38 +505,47 @@ def savescene_callback(sFilename):
     dOldDrivelines = {}
     lNewDrivelines = []
     lEmpties       = []
-    lCurves        = []
+    lCameraCurves  = []
+    lAnimations    = []
     for obj in lObj:
+        # Try to get the supertuxkart type field. If it's not defined,
+        # use the name of the objects as type.
+        try:
+            stktype = obj.getProperty("type").getData().upper()
+        except RuntimeError:
+            stktype = obj.name.upper()
+
+        # Make it possible to ignore certain objects, e.g. if you keep a
+        # selection of 'templates' (ready to go models) around to be
+        # copied into the main track.
+        if stktype=="IGNORE": continue
+        
         if obj.type=="Empty":
             lEmpties.append(obj)
             continue
         elif obj.type=="Curve":
-            lCurves.append(obj)
+            # Only append camera, other curves will be handled in animations
+            if stktype=="CAMERA": lCameraCurves.append(obj)
         elif obj.type!="Mesh":
             continue
         
-        try:
-            p    = obj.getProperty("type")
-            type = p.getData().upper()
-        except RuntimeError:
-            type = obj.name.upper()
-        if type=="WATER":
+        if stktype=="WATER":
             lWater.append(obj)
         # Check for new drivelines
-        elif type[:9]=="DRIVELINE":
+        elif stktype[:9]=="DRIVELINE":
             lNewDrivelines.append(obj)
         # Backwards compatibility:
-        elif type[:4]=="DRV_":
-            storeOldDriveline(type, obj, dOldDrivelines)
-        elif obj.getType()=="Empty":
-            lEmpties.append(obj)
+        elif stktype[:4]=="DRV_":
+            storeOldDriveline(stktype, obj, dOldDrivelines)
+        elif stktype[:4]=="ANIM":
+            lAnimations.append(obj)
         else:
-            lTrack.append(obj)
+            if stktype!="IGNORE": lTrack.append(obj)
 
     # Now export the different parts: track file
     # ------------------------------------------
     sBase = os.path.basename(sFilename)
-    writeTrackFile(sFilename, sBase, lCurves)
+    writeTrackFile(sFilename, sBase, lCameraCurves, lAnimations)
 
     # Quads and mapping files
     # -----------------------
