@@ -22,13 +22,13 @@ import BPyMesh
 import sys,os,os.path,struct,math,string,re
 import b3d_export
 
-from Blender import Mathutils
+from Blender import Mathutils, IpoCurve, Constraint
 from Blender.Mathutils import *
 from Blender import Draw,BGL
 from Blender.BGL import *
 from Blender import sys as bsys
 
-if not hasattr(sys,"argv"): sys.argv = ["???"]
+if not hasattr(sys,"argv"): sys.argv =m ["???"]
 
 # ------------------------------------------------------------------------------
 def Round(f):
@@ -49,7 +49,7 @@ def getIdProperty(obj, name, default=""):
     return default
 
 # ------------------------------------------------------------------------------
-def writeTrackFile(sFilename, sBase, lCurves, lAnimations):
+def writeTrackFile(sFilename, sBase, lCurves):
     print "Writing .track file",
     start_time  = bsys.time()
     scene       = Blender.Scene.getCurrent()
@@ -57,6 +57,7 @@ def writeTrackFile(sFilename, sBase, lCurves, lAnimations):
     version     = getIdProperty(scene, "version", "1")
     groups      = getIdProperty(scene, "groups", "standard")
     description = getIdProperty(scene, "description", "Description")
+    # Support for multi-line descriptions:
     description = description.replace("\\n", "\n")
     music       = getIdProperty(scene, "music", "musicfile.music")
     screenshot  = getIdProperty(scene, "screenshot", "ssot-%s.jpg"%name)
@@ -357,18 +358,18 @@ def writeQuadAndGraph(sFilename, lNewDrivelines, dOldDrivelines):
         else:
             f.write("<!-- Driveline: %s -->\n"%name)
         count = count + 1
-        f.write("<quad p0=\"%f,%f,%f\" p1=\"%f,%f,%f\" p2=\"%f,%f,%f\" p3=\"%f,%f,%f\"/>\n" \
+        f.write("  <quad p0=\"%f,%f,%f\" p1=\"%f,%f,%f\" p2=\"%f,%f,%f\" p3=\"%f,%f,%f\"/>\n" \
             %(l[0],l[1],l[2], r[0],r[1],r[2], r1[0],r1[1],r1[2], l1[0],l1[1],l1[2]) )
         count = 1   # counts number of quads
         for i in range(1, len(lLeft)-1):
             l1  = lLeft[i+1]
             r1  = lRight[i+1]
-            f.write("<quad p0=\"%d:3\" p1=\"%d:2\" p2=\"%f,%f,%f\" p3=\"%f,%f,%f\"/>\n" \
+            f.write("  <quad p0=\"%d:3\" p1=\"%d:2\" p2=\"%f,%f,%f\" p3=\"%f,%f,%f\"/>\n" \
                 %(lStartQuad[-1]+i-1, lStartQuad[-1]+i-1, \
                   r1[0],r1[1],r1[2], l1[0],l1[1],l1[2]) )
             count = count + 1
         if name=="":   # main loop, which needs to be closed:
-            f.write("<quad p0=\"%d:3\" p1=\"%d:2\" p2=\"0:1\" p3=\"0:0\"/>\n" \
+            f.write("  <quad p0=\"%d:3\" p1=\"%d:2\" p2=\"0:1\" p3=\"0:0\"/>\n" \
                 %(i, i))  # +lStartQuad[-1] - but this is always 0 for main lap
             last_main_lap_quad = count
             count = count + 1
@@ -388,7 +389,7 @@ def writeQuadAndGraph(sFilename, lNewDrivelines, dOldDrivelines):
     f.write("  <edge-loop from=\"%d\" to=\"%d\"/>\n" % (0, last_main_lap_quad) )
     for i in range(1, len(lAllDrivelines)):
         id     = lAllDrivelines[i][0]
-        f.write("<!-- Shortcut %s -->\n"%id)
+        f.write("  <!-- Shortcut %s -->\n"%id)
         lLeft   = lAllDrivelines[i][1]
         lRight  = lAllDrivelines[i][2]
         nBegin = findClosestQuad(lLeft[0],  lRight[0],  id, lAllDrivelines)
@@ -406,7 +407,57 @@ def writeQuadAndGraph(sFilename, lNewDrivelines, dOldDrivelines):
     print bsys.time()-start_time,"seconds. "
       
 # -----------------------------------------------------------------------------------------
-def writeSceneFile(sFilename, sTrackName, sWaterName, lEmpties):
+# Writes the animation for objects using IPOs:
+def writeAnimationWithIPO(f, sPath, obj, ipo):
+    b3d_name = obj.name+".b3d"
+    b3d_export.write_b3d_file(sPath+"/"+b3d_name, [obj])
+    f.write("    <animations-IPO obj=\"%s\">\n"%b3d_name)
+    dInterp = {IpoCurve.InterpTypes.BEZIER:        "bezier",
+               IpoCurve.InterpTypes.LINEAR:        "linear",
+               IpoCurve.InterpTypes.CONST:         "const"          }
+    dExtend = {IpoCurve.ExtendTypes.CONST:         "const",
+               IpoCurve.ExtendTypes.EXTRAP:        "extrap",
+               IpoCurve.ExtendTypes.CYCLIC_EXTRAP: "cyclic_extrap",
+               IpoCurve.ExtendTypes.CYCLIC:        "cyclic"         }
+    for curve in ipo:
+        f.write("      <curve type=\"%s\" interpolation=\"%s\" extend=\"%s\">\n"% \
+                (curve.name, dInterp[curve.interpolation],
+                 dExtend[curve.extend]))
+        
+        for bez in curve.bezierPoints:
+            if curve.interpolation==IpoCurve.InterpTypes.BEZIER:
+                f.write("        <p c=\"%f %f\" h1=\"%f %f\" h2=\"%f %f\"/>\n"%(bez.vec[1][0],bez.vec[1][1],bez.vec[0][0],bez.vec[0][1],bez.vec[2][0],bez.vec[2][0]))
+            else:
+                f.write("        <p c=\"%f %f\"/>\n"%(bez.vec[1][0],bez.vec[1][1]))
+        f.write("      </curve>\n")
+        
+    f.write("    </animations-IPO>\n")
+        
+    
+# -----------------------------------------------------------------------------------------
+# Writes an animation that uses a path constrained.
+def writeAnimationsWithPaths(f, sPath, obj):
+    #print "b3d export", obj.name
+    print "'%s' is using path '%s'"%(obj.name, \
+                           obj.constraints[0][Constraint.Settings.TARGET].name)
+
+# -----------------------------------------------------------------------------------------
+# Writes out all animations (be it animations with IPO or animations with path
+# constraints).
+def writeAnimations(f, sPath, lAnimations):
+    scene       = Blender.Scene.getCurrent()
+    f.write("  <animations fps=\"%d\">\n"%scene.getRenderingContext().fps)
+    for obj in lAnimations:
+        ipo = obj.getIpo()
+        if ipo:
+            writeAnimationWithIPO(f, sPath, obj, ipo)
+        else:
+            writeAnimationsWithPaths(f, sPath, obj)
+    f.write("  </animations>\n")
+            
+# -----------------------------------------------------------------------------------------
+# Writes the scene files, which includes all models, animations, and items
+def writeSceneFile(sFilename, sPath, sTrackName, sWaterName, lEmpties, lAnimations):
     start_time = bsys.time()
     print "Writing scene file -->",
     f = open(sFilename+".scene", "w")
@@ -451,6 +502,9 @@ def writeSceneFile(sFilename, sTrackName, sWaterName, lEmpties):
             f.write("  <%s />\n"%s)
         else:
             print "Unknown item: '%s' --> '%s'"%(obj.name, name)
+
+    if lAnimations:
+        writeAnimations(f, sPath, lAnimations)
     f.write("</scene>\n")
     f.close()
     print bsys.time()-start_time,"seconds"
@@ -520,7 +574,9 @@ def savescene_callback(sFilename):
         # copied into the main track.
         if stktype=="IGNORE": continue
         
-        if obj.type=="Empty":
+        if obj.type=="Empty" and \
+            stktype in ["GHERRING", "RHERRING", "YHERRING", "SHERRING",  # backw. comp.
+                       "BANANA", "ITEM", "NITRO-SMALL", "NITRO-BIG"]:
             lEmpties.append(obj)
             continue
         elif obj.type=="Curve":
@@ -540,12 +596,13 @@ def savescene_callback(sFilename):
         elif stktype[:4]=="ANIM":
             lAnimations.append(obj)
         else:
-            if stktype!="IGNORE": lTrack.append(obj)
+            lTrack.append(obj)
 
     # Now export the different parts: track file
     # ------------------------------------------
     sBase = os.path.basename(sFilename)
-    writeTrackFile(sFilename, sBase, lCameraCurves, lAnimations)
+    sPath = os.path.dirname(sFilename)
+    writeTrackFile(sFilename, sBase, lCameraCurves)
 
     # Quads and mapping files
     # -----------------------
@@ -566,7 +623,7 @@ def savescene_callback(sFilename):
 
     # scene file
     # ----------
-    writeSceneFile(sFilename, sTrackName, sWaterName, lEmpties)
+    writeSceneFile(sFilename, sPath, sTrackName, sWaterName, lEmpties, lAnimations)
 
 #Main
 def main():
