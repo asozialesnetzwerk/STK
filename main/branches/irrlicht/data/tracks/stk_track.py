@@ -436,7 +436,7 @@ def writeAnimationWithIPO(f, sPath, obj, ipo):
         
         for bez in curve.bezierPoints:
             if curve.interpolation==IpoCurve.InterpTypes.BEZIER:
-                f.write("        <p c=\"%f %f\" h1=\"%f %f\" h2=\"%f %f\"/>\n"%(bez.vec[1][0],bez.vec[1][1],bez.vec[0][0],bez.vec[0][1],bez.vec[2][0],bez.vec[2][0]))
+                f.write("        <p c=\"%f %f\" h1=\"%f %f\" h2=\"%f %f\"/>\n"%(bez.vec[1][0],bez.vec[1][1],bez.vec[0][0],bez.vec[0][1],bez.vec[2][0],bez.vec[2][1]))
             else:
                 f.write("        <p c=\"%f %f\"/>\n"%(bez.vec[1][0],bez.vec[1][1]))
         f.write("      </curve>\n")
