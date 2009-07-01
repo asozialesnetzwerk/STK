@@ -410,8 +410,18 @@ def writeQuadAndGraph(sFilename, lNewDrivelines, dOldDrivelines):
 # Writes the animation for objects using IPOs:
 def writeAnimationWithIPO(f, sPath, obj, ipo):
     b3d_name = obj.name+".b3d"
+    oldLoc = (obj.LocX, obj.LocY, obj.LocZ)
+    obj.LocX=0
+    obj.LocY=0
+    obj.LocZ=0
     b3d_export.write_b3d_file(sPath+"/"+b3d_name, [obj])
-    f.write("    <animations-IPO obj=\"%s\">\n"%b3d_name)
+    obj.LocX=oldLoc[0]
+    obj.LocY=oldLoc[1]
+    obj.LocZ=oldLoc[2]
+
+    # Note: Y and Z are swapped!
+    f.write("    <animations-IPO obj=\"%s\" xyz=\"%f %f %f\">\n"% \
+            (b3d_name, oldLoc[0],oldLoc[2],oldLoc[1]))
     dInterp = {IpoCurve.InterpTypes.BEZIER:        "bezier",
                IpoCurve.InterpTypes.LINEAR:        "linear",
                IpoCurve.InterpTypes.CONST:         "const"          }
@@ -420,7 +430,7 @@ def writeAnimationWithIPO(f, sPath, obj, ipo):
                IpoCurve.ExtendTypes.CYCLIC_EXTRAP: "cyclic_extrap",
                IpoCurve.ExtendTypes.CYCLIC:        "cyclic"         }
     for curve in ipo:
-        f.write("      <curve type=\"%s\" interpolation=\"%s\" extend=\"%s\">\n"% \
+        f.write("      <curve channel=\"%s\" interpolation=\"%s\" extend=\"%s\">\n"% \
                 (curve.name, dInterp[curve.interpolation],
                  dExtend[curve.extend]))
         
