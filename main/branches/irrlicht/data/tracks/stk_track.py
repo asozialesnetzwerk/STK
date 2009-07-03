@@ -56,9 +56,37 @@ def getProperty(obj, name, default=""):
     except:
         return default
 
+# ------------------------------------------------------------------------------
+# Returns a string 'xyz="1 2 3" hpr="4 5 6"' where 1,2,... are the actual
+# location and rotation of the given object. The location has a swapped
+# y and z axis (so that the same coordinate system as in-game is used), and
+# rotations are multiplied by 10 (since bullet stores the values in units
+# if 10 degrees.)
+def getXYZHPRString(obj):
+    loc   = obj.loc
+    hpr   = obj.rot
+    s="xyz=\"%f %f %f\" hpr=\"%f %f %f\"" %\
+       (loc[0], loc[2], loc[1], hpr[0]*10.0, hpr[1]*10.0, hpr[2]*10.0)
+    return s
+    
+# ------------------------------------------------------------------------------
+# Exports the models as b3d object in local coordinate, i.e. with the object
+# center at (0,0,0).
+def exportLocalB3D(obj, name):
+    oldLoc = obj.loc
+    oldRot = obj.rot
+    obj.loc=(0,0,0)
+    obj.rot=(0,0,0)
+    b3d_export.write_b3d_file(name, [obj])
+    obj.loc = oldLoc
+    obj.rot = oldRot
+
 # ==============================================================================
+# The actual exporter. It is using a class mainly to store some information
+# between calls to different functions, e.g. a cache of exported objects.
 class TrackExport:
 
+    
     def writeTrackFile(self, sFilename, sBase, lCurves):
         print "Writing .track file",
         start_time  = bsys.time()
@@ -426,22 +454,15 @@ class TrackExport:
         # objects.
         b3d_name = getProperty(obj, "name", obj.name)+".b3d"
         if not self.dExportedObjects.has_key(b3d_name):
-            oldLoc = obj.loc
-            oldRot = obj.rot
-            obj.loc=(0,0,0)
-            obj.rot=(0,0,0)
-            b3d_export.write_b3d_file(sPath+"/"+b3d_name, [obj])
-            obj.loc = oldLoc
-            obj.rot = oldRot
+            exportLocalB3D(obj, sPath+"/"+b3d_name)
             
         shape = getProperty(obj, "shape", "")
         if shape:
             shape="shape=\"%s\""%shape
     
         # Note: Y and Z are swapped!
-        f.write("    <animations-IPO obj=\"%s\" xyz=\"%f %f %f\" hpr=\"%f %f %f\" %s>\n"% \
-                (b3d_name, oldLoc[0],oldLoc[2],oldLoc[1], oldRot[0],
-                 oldRot[1], oldRot[2], shape),)
+        f.write("    <animations-IPO obj=\"%s\" %s %s>\n"% \
+                (b3d_name, getXYZHPRString(obj), shape),)
         dInterp = {IpoCurve.InterpTypes.BEZIER:        "bezier",
                    IpoCurve.InterpTypes.LINEAR:        "linear",
                    IpoCurve.InterpTypes.CONST:         "const"          }
@@ -495,7 +516,8 @@ class TrackExport:
                 
     # -----------------------------------------------------------------------------------------
     # Writes the scene files, which includes all models, animations, and items
-    def writeSceneFile(self, sFilename, sPath, sTrackName, sWaterName, lEmpties, lAnimations):
+    def writeSceneFile(self, sFilename, sPath, sTrackName, sWaterName, lItems, lAnimations,
+                       lPhysical):
         start_time = bsys.time()
         print "Writing scene file -->",
         f = open(sFilename+".scene", "w")
@@ -507,7 +529,7 @@ class TrackExport:
             f.write("  <waster model=\"%s\" x=\"0\" y=\"0\" z=\"0\"/>\n"""%sWaterName)
             
         rad2deg = 180.0/3.1415926
-        for obj in lEmpties:
+        for obj in lItems:
             rx,ry,rz = map(lambda x: rad2deg*x, obj.rot)
             h,p,r    = map(str, map(Round, [rz,rx,ry])  )
             x,y,z    = map(str, map(Round, obj.loc     )  )
@@ -526,6 +548,7 @@ class TrackExport:
                 if specs.find("z")>=0: z=None
                 if specs.find("p")>=0: p=None
                 if specs.find("r")>=0: r=None
+            # FIXME: what about zipper??
             if name=="GHERRING": name="banana"
             if name=="RHERRING": name="item"
             if name=="YHERRING": name="nitro-big"
@@ -534,13 +557,21 @@ class TrackExport:
             if z: s="%s z=\"%s\""%(s, z)
             if p and p!="0": s="%s p=\"%s\""%(s, p)
             if r and r!="0": s="%s r=\"%s\""%(s, r)
-            # FIXME: do we have other items?
-            # FIXME: what about zipper??
-            if name in ["banana", "item", "nitro-big", "nitro-small", "zipper.ac"]:
-                f.write("  <%s />\n"%s)
-            else:
-                print "Unknown item: '%s' --> '%s'"%(obj.name, name)
-    
+            f.write("  <%s />\n"%s)
+
+        for obj in lPhysical:
+            name=getProperty(obj, "name", obj.name)
+            # If the name ends with ".b3d", don't export this model anymore and
+            # assume it's a standard model included in STK
+            if not re.search("\.b3d$", name):
+                name=name+".b3d"
+                exportLocalB3D(obj, sPath+"/"+name)
+            shape = getProperty(obj, "shape", "box")
+            mass  = getProperty(obj, "mass", 10)
+            f.write("  <physical-object %s\n"%(getXYZHPRString(obj)))
+            f.write("                   model=\"%s\" shape=\"%s\" mass=\"%f\"/>\n"% \
+                    (name, shape, mass))
+            
         if lAnimations:
             self.writeAnimations(f, sPath, lAnimations)
         f.write("</scene>\n")
@@ -586,9 +617,10 @@ class TrackExport:
         lTrack         = []
         dOldDrivelines = {}
         lNewDrivelines = []
-        lEmpties       = []
+        lItems         = []
         lCameraCurves  = []
         lAnimations    = []
+        lPhysical      = []
         for obj in lObj:
             # Try to get the supertuxkart type field. If it's not defined,
             # use the name of the objects as type.
@@ -602,11 +634,13 @@ class TrackExport:
             if obj.type=="Empty" and \
                 stktype in ["GHERRING", "RHERRING", "YHERRING", "SHERRING",  # backw. comp.
                            "BANANA", "ITEM", "NITRO-SMALL", "NITRO-BIG"]:
-                lEmpties.append(obj)
+                lItems.append(obj)
                 continue
             elif obj.type=="Curve":
                 # Only append camera, other curves will be handled in animations
                 if stktype=="CAMERA": lCameraCurves.append(obj)
+            elif stktype[:6]=="PHYSIC":
+                lPhysical.append(obj)
             elif obj.type!="Mesh":
                 continue
             
@@ -648,7 +682,8 @@ class TrackExport:
     
         # scene file
         # ----------
-        self.writeSceneFile(sFilename, sPath, sTrackName, sWaterName, lEmpties, lAnimations)
+        self.writeSceneFile(sFilename, sPath, sTrackName, sWaterName, lItems, lAnimations,
+                            lPhysical)
 
 # =============================================================================================
 def savescene_callback(sFilename):
