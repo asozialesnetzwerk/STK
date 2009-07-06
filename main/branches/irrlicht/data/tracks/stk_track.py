@@ -515,9 +515,26 @@ class TrackExport:
         f.write("  </animations>\n")
                 
     # -----------------------------------------------------------------------------------------
+    # Writes out all checklines.
+    def writeChecks(self, f, lChecklines):
+        f.write("  <checks>\n")
+        for obj in lChecklines:
+            mesh=obj.getData()
+            if len(mesh.verts)!=2:
+                print "Mesh '%s' has '%d', not 2 vertices - ignored."%\
+                      (obj.name, len(mesh.verts))
+                continue
+            min_h = mesh.verts[0][2]
+            if mesh.verts[1][2]<min_h: min_h = mesh.verts[1][2]
+            f.write("    <checkline p1=\"%f %f\" p2=\"%f %f\" min-height=\"%f\"/>\n"% \
+                    (mesh.verts[0][0], mesh.verts[0][1],mesh.verts[1][0], mesh.verts[1][1],
+                     min_h))
+        f.write("  </checks>\n")
+            
+    # -----------------------------------------------------------------------------------------
     # Writes the scene files, which includes all models, animations, and items
     def writeSceneFile(self, sFilename, sPath, sTrackName, sWaterName, lItems, lAnimations,
-                       lPhysical):
+                       lPhysical, lChecklines):
         start_time = bsys.time()
         print "Writing scene file -->",
         f = open(sFilename+".scene", "w")
@@ -574,6 +591,8 @@ class TrackExport:
             
         if lAnimations:
             self.writeAnimations(f, sPath, lAnimations)
+        if lChecklines:
+            self.writeChecks(f, lChecklines)
         f.write("</scene>\n")
         f.close()
         print bsys.time()-start_time,"seconds"
@@ -621,6 +640,7 @@ class TrackExport:
         lCameraCurves  = []
         lAnimations    = []
         lPhysical      = []
+        lChecklines    = []
         for obj in lObj:
             # Try to get the supertuxkart type field. If it's not defined,
             # use the name of the objects as type.
@@ -642,10 +662,14 @@ class TrackExport:
             elif stktype[:6]=="PHYSIC":
                 lPhysical.append(obj)
             elif obj.type!="Mesh":
-                continue
+                print "Non-mesh object '%s' (type: '%s') is ignored!"%(obj.name, stktype)
+                #continue
             
             if stktype=="WATER":
                 lWater.append(obj)
+            elif stktype=="CHECKLINE":
+                print "XXXXXXXXXXXXXX"
+                lChecklines.append(obj)
             # Check for new drivelines
             elif stktype[:9]=="DRIVELINE":
                 lNewDrivelines.append(obj)
@@ -683,7 +707,7 @@ class TrackExport:
         # scene file
         # ----------
         self.writeSceneFile(sFilename, sPath, sTrackName, sWaterName, lItems, lAnimations,
-                            lPhysical)
+                            lPhysical, lChecklines)
 
 # =============================================================================================
 def savescene_callback(sFilename):
