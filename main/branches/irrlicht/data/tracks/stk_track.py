@@ -274,42 +274,39 @@ class TrackExport:
             meshr = objr.getData()
             meshl.transform(objl.getMatrix())
             meshr.transform(objr.getMatrix())
-            ldl = sortVerticesOldDrivelines(meshl)
-            rdl = sortVerticesOldDrivelines(meshr)
+            ldl = self.sortVerticesOldDrivelines(meshl)
+            rdl = self.sortVerticesOldDrivelines(meshr)
             lAllDrivelines.append( (id, ldl, rdl) )
         
     # ------------------------------------------------------------------------------
     # This helper function determines the start vertex for a driveline.
-    # Details are documented in convertNewDrivelines
+    # Details are documented in convertNewDrivelines. It returns as list with
+    # the two starting lines.
     def findStartVertex(self, dNext):
         # Find all vertices with exactly two neighbours
-        lTwoNeighbours = []
+        lOneNeighbour = []
         for i in dNext.keys():
-            if len(dNext[i])==2:
-                lTwoNeighbours.append(i)
-    
-        if len(lTwoNeighbours)!=3:
+            if len(dNext[i])==1:
+                lOneNeighbour.append(i)
+
+        if len(lOneNeighbour)!=2:
             return None
-        # Identify which of the three vertices is the right one: the two
-        # vertices at the end of the driveline have each other as neighbour,
-        # so search for the vertex that has no neighbour in lTwoNeighbours.
-        for v in lTwoNeighbours:
-            if dNext[v][0] in lTwoNeighbours: continue
-            if dNext[v][1] in lTwoNeighbours: continue
-            return v
-    
-        # Error - invalid driveline structure.
-        return None
+
+        l=[]
+        for v in lOneNeighbour:
+            l.append( [v,dNext[v][0]] )
+        return l
+
         
     # ------------------------------------------------------------------------------
     # Converts a new drivelines. New drivelines have the following structure:
-    #   +---+-----+--...--+ \
-    #   |   |     |       |  +
-    #   +---+-----+--...--+ /
-    # I.e. The single vertex with 2 neighbours at the right side is the start
-    # of the drivelines. The top and bottom (well, left and right actually)
-    # meshes must have the same number of vertices, and must have a connection
-    # to the corresponding other side.
+    #   +---+---+--+--...--+--
+    #   |   |      |       |  
+    #   +---+------+--...--+--
+    # The starting quad of the drivelines is marked by two edges ending in a
+    # single otherwise unconnected vertex. These two vertices (and edges) are
+    # not used in the actual driveline, they are only used to indicate where
+    # the drivelines starts.
     def convertNewDrivelines(self, lNewDrivelines, lAllDrivelines):
         # Create a dictionary with all neighbours for each vertex:
     
@@ -321,15 +318,17 @@ class TrackExport:
             start = self.findStartVertex(dNext)
             if not start:
                 print "Driveline '%s' is incorrect formed, it does not have"%driveline.name
-                print "three vertices with exactly two neighbours."
+                print "exactly two vertices with only one neighbour."
                 return
             # Left and right are actually arbitrary, since it doesn't matter if
             # the quads created from them are clockwise or counter-clockwise. The
             # start vector is removed later, it simplifies whe while loop.
-            lLeft  = [start, dNext[start][0]]
-            lRight = [start, dNext[start][1]]
+            lLeft  = start[0]
+            lRight = start[1]
             count=0
-            while count<100:
+            # Just in case that we have an infinite loop due to a malformed graph:
+            # stop after 10000 vertices
+            while count<10000:
                 count = count + 1
                 # Get all neighbours. One is the previous point, one
                 # points to the opposite side - we need the other one.
@@ -352,6 +351,9 @@ class TrackExport:
                     if i==lLeft[-2]: continue  # to opposite side
                     lRight.append(i)
                     break
+            if count>=10000:
+                print "Warning, Only the first 10000 vertices of driveline '%s' are exported" %\
+                      (driveline.name)
             lAllDrivelines.append( ( driveline.name, lLeft[1:], lRight[1:] ) )
     
             
@@ -369,8 +371,8 @@ class TrackExport:
         # No consistency tests for old drivelines, since they should be removed!
     
         lAllDrivelines = []
-        convertOldDrivelines(dOldDrivelines, lAllDrivelines)
-        convertNewDrivelines(lNewDrivelines, lAllDrivelines)
+        self.convertOldDrivelines(dOldDrivelines, lAllDrivelines)
+        self.convertNewDrivelines(lNewDrivelines, lAllDrivelines)
         
         f = open(sFilename+".quads", "w")
         f.write("<?xml version=\"1.0\"?>\n")
@@ -430,8 +432,8 @@ class TrackExport:
             f.write("  <!-- Shortcut %s -->\n"%id)
             lLeft   = lAllDrivelines[i][1]
             lRight  = lAllDrivelines[i][2]
-            nBegin = findClosestQuad(lLeft[0],  lRight[0],  id, lAllDrivelines)
-            nEnd   = findClosestQuad(lLeft[-1], lRight[-1], id, lAllDrivelines)
+            nBegin = self.findClosestQuad(lLeft[0],  lRight[0],  id, lAllDrivelines)
+            nEnd   = self.findClosestQuad(lLeft[-1], lRight[-1], id, lAllDrivelines)
     
             f.write("  <edge      from=\"%d\" to=\"%d\"/>          <!-- Enter shortcut %s  -->\n"\
                     %(nBegin, lStartQuad[i], id))
@@ -520,14 +522,17 @@ class TrackExport:
         f.write("  <checks>\n")
         for obj in lChecklines:
             mesh=obj.getData()
+            # Convert to world space
+            mesh.transform(obj.getMatrix())
+            subtype = getProperty(obj, "kind", "new-lap")
             if len(mesh.verts)!=2:
                 print "Mesh '%s' has '%d', not 2 vertices - ignored."%\
                       (obj.name, len(mesh.verts))
                 continue
             min_h = mesh.verts[0][2]
             if mesh.verts[1][2]<min_h: min_h = mesh.verts[1][2]
-            f.write("    <checkline p1=\"%f %f\" p2=\"%f %f\" min-height=\"%f\"/>\n"% \
-                    (mesh.verts[0][0], mesh.verts[0][1],mesh.verts[1][0], mesh.verts[1][1],
+            f.write("    <checkline type=\"%s\" p1=\"%f %f\" p2=\"%f %f\" min-height=\"%f\"/>\n"% \
+                    (subtype, mesh.verts[0][0], mesh.verts[0][1],mesh.verts[1][0], mesh.verts[1][1],
                      min_h))
         f.write("  </checks>\n")
             
@@ -636,6 +641,7 @@ class TrackExport:
         lTrack         = []
         dOldDrivelines = {}
         lNewDrivelines = []
+        main_driveline = None
         lItems         = []
         lCameraCurves  = []
         lAnimations    = []
@@ -652,8 +658,8 @@ class TrackExport:
             if stktype=="IGNORE": continue
             
             if obj.type=="Empty" and \
-                stktype in ["GHERRING", "RHERRING", "YHERRING", "SHERRING",  # backw. comp.
-                           "BANANA", "ITEM", "NITRO-SMALL", "NITRO-BIG"]:
+               stktype[:8] in ["GHERRING", "RHERRING", "YHERRING", "SHERRING",  # backw. comp.
+                               "BANANA", "ITEM", "NITRO-SM", "NITRO-BI"]:
                 lItems.append(obj)
                 continue
             elif obj.type=="Curve":
@@ -663,24 +669,31 @@ class TrackExport:
                 lPhysical.append(obj)
             elif obj.type!="Mesh":
                 print "Non-mesh object '%s' (type: '%s') is ignored!"%(obj.name, stktype)
-                #continue
+                continue
             
             if stktype=="WATER":
                 lWater.append(obj)
             elif stktype=="CHECKLINE":
-                print "XXXXXXXXXXXXXX"
                 lChecklines.append(obj)
             # Check for new drivelines
+            elif stktype[:14]=="MAIN-DRIVELINE":
+                # The main driveline must be the first driveline in the list
+                main_driveline = obj
             elif stktype[:9]=="DRIVELINE":
                 lNewDrivelines.append(obj)
             # Backwards compatibility:
             elif stktype[:4]=="DRV_":
-                storeOldDriveline(stktype, obj, dOldDrivelines)
+                self.storeOldDriveline(stktype, obj, dOldDrivelines)
             elif stktype[:4]=="ANIM":
                 lAnimations.append(obj)
             else:
                 lTrack.append(obj)
-    
+
+        if not main_driveline:
+            print "Main driveline missing, using first driveline as main!"
+        else:
+            lNewDrivelines.insert(0, main_driveline)
+            
         # Now export the different parts: track file
         # ------------------------------------------
         sBase = os.path.basename(sFilename)
