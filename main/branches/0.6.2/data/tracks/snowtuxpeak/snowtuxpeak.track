@@ -1,0 +1,16 @@
+;; -*- mode: lisp -*-
+
+(tuxkart-track
+ (name        _("SnowTux Peak"))
+ (version     1)
+ (description _("Created by Oliver & Steve Baker\nmodified by Marianne Gagnon"))
+ (music       "BradSucks-OutOfIt.music")
+ (screenshot  "sshot-snowtuxpeak.rgb")
+ (topview     "topview-snowtuxpeak.rgb")
+ (groups      "standard")
+ (camera-final-position  -5 15 5)
+ (camera-final-hpr       200 -10 0)
+)
+
+;; EOF ;;
+
