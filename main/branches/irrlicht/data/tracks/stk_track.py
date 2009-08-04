@@ -476,6 +476,8 @@ class TrackExport:
             # Swap Y and Z axis
             if   curve.name=="LocZ": name="LocY"
             elif curve.name=="LocY": name="LocZ"
+            elif curve.name=="RotY": name="RotZ"
+            elif curve.name=="RotZ": name="RotY"
             else:                    name=curve.name
             # Rotations are stored in units of 10 degrees!
             if name[:3]=="Rot": factor=10
@@ -548,7 +550,7 @@ class TrackExport:
         
         f.write("  <track model=\"%s\" x=\"0\" y=\"0\" z=\"0\"/>\n"%sTrackName)
         if sWaterName:
-            f.write("  <waster model=\"%s\" x=\"0\" y=\"0\" z=\"0\"/>\n"""%sWaterName)
+            f.write("  <water model=\"%s\" x=\"0\" y=\"0\" z=\"0\"/>\n"""%sWaterName)
             
         rad2deg = 180.0/3.1415926
         for obj in lItems:
@@ -651,7 +653,6 @@ class TrackExport:
             # Try to get the supertuxkart type field. If it's not defined,
             # use the name of the objects as type.
             stktype = getProperty(obj, "type", obj.name).upper()
-    
             # Make it possible to ignore certain objects, e.g. if you keep a
             # selection of 'templates' (ready to go models) around to be
             # copied into the main track.
@@ -668,7 +669,7 @@ class TrackExport:
             elif stktype[:6]=="PHYSIC":
                 lPhysical.append(obj)
             elif obj.type!="Mesh":
-                print "Non-mesh object '%s' (type: '%s') is ignored!"%(obj.name, stktype)
+                #print "Non-mesh object '%s' (type: '%s') is ignored!"%(obj.name, stktype)
                 continue
             
             if stktype=="WATER":
@@ -714,7 +715,7 @@ class TrackExport:
             start_time=bsys.time()
             sWaterName = sBase+"_water.b3d"
             print "Exporting water -->",
-            # FIXME for now to save time: b3d_export.write_b3d_file(sFilename+"_water.b3d", lWater)
+            b3d_export.write_b3d_file(sFilename+"_water.b3d", lWater)
             print bsys.time()-start_time,"seconds."
     
         # scene file
