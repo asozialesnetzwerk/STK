@@ -76,4 +76,6 @@
   <material name="menu_background.png" clampU="Y" clampV="Y" alpha="1.0" light="N"/>
   <material name="st_title_screen2.png" clampU="Y" clampV="Y" alpha="1.0" light="N"/>
   <material name="menu_background2.png" clampU="Y" clampV="Y" alpha="1.0" light="N"/>
+  <material name="notes.png" transparency="Y" alpha="0.0" light="N" collide="N"/>
+
 </materials>  
