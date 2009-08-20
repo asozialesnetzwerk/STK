@@ -8,6 +8,7 @@
  (shadow-file "tuxkartshadow.png")
  (groups      "standard") 
  (engine-sound "small")
+ (horn-sound  "horn.ogg")
  (rgb         0.7 0.0 0.0)
  (wheel-front-right
    (position  0.295  0.412 0.103)
