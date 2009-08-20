@@ -8,7 +8,18 @@
  (shadow-file "tuxkartshadow.png")
  (groups      "standard") 
  (engine-sound "small")
- (horn-sound  "horn.ogg")
+
+ (horn-sound        "horn.ogg")
+ (crash-sound       "horn.ogg")
+ (win-sound         "horn.ogg")
+ (explode-sound     "horn.ogg")
+ (goo-sound         "horn.ogg")
+ (pass-sound        "horn.ogg")
+ (zipper-sound      "horn.ogg")
+ (name-sound        "horn.ogg")
+ (bomb-sound        "horn.ogg")
+ (shoot-sound       "horn.ogg")
+
  (rgb         0.7 0.0 0.0)
  (wheel-front-right
    (position  0.295  0.412 0.103)
