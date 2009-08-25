@@ -87,8 +87,8 @@ def exportLocalB3D(obj, name):
 class TrackExport:
 
     
-    def writeTrackFile(self, sFilename, sBase, lCurves):
-        print "Writing .track file",
+    def writeTrackFile(self, sPath, sBase, lCurves):
+        print "Writing track.xml file",
         start_time  = bsys.time()
         scene       = Blender.Scene.getCurrent()
         name        = getIdProperty(scene, "name", "Name of Track")
@@ -99,7 +99,7 @@ class TrackExport:
         description = description.replace("\\n", "\n")
         music       = getIdProperty(scene, "music", "musicfile.music")
         screenshot  = getIdProperty(scene, "screenshot", "ssot-%s.jpg"%name)
-        f = open(sFilename+".irrtrack", 'wb')
+        f = open(sPath+"/track.xml", 'wb')
         f.write("<?xml version=\"1.0\"?>\n")
         f.write("<track  name        = \"%s\"\n"%name)
         f.write("        version     = \"%s\"\n"%version)
@@ -361,7 +361,7 @@ class TrackExport:
     # Writes the track.quad file with the list of all quads, and the track.graph
     # file defining a graph node for each quad and a basic connection between all
     # graph nodes.
-    def writeQuadAndGraph(self, sFilename, lNewDrivelines, dOldDrivelines):
+    def writeQuadAndGraph(self, sPath, lNewDrivelines, dOldDrivelines):
         start_time = bsys.time()
         print "stk_track: Writing quad file --> ",
         if not dOldDrivelines.has_key("") and not lNewDrivelines:
@@ -374,7 +374,7 @@ class TrackExport:
         self.convertOldDrivelines(dOldDrivelines, lAllDrivelines)
         self.convertNewDrivelines(lNewDrivelines, lAllDrivelines)
         
-        f = open(sFilename+".quads", "w")
+        f = open(sPath+"/quads.xml", "w")
         f.write("<?xml version=\"1.0\"?>\n")
         f.write("<quads>\n")
         
@@ -419,7 +419,7 @@ class TrackExport:
         print bsys.time()-start_time,"seconds. "
         start_time = bsys.time()
         print "stk_track: Writing graph file -->",
-        f=open(sFilename+".graph", "w")
+        f=open(sPath+"/graph.xml", "w")
         f.write("<?xml version=\"1.0\"?>\n")
         f.write("<graph>\n")
         f.write("  <!-- First define all nodes of the graph, and what quads they represent -->\n")
@@ -540,11 +540,11 @@ class TrackExport:
             
     # -----------------------------------------------------------------------------------------
     # Writes the scene files, which includes all models, animations, and items
-    def writeSceneFile(self, sFilename, sPath, sTrackName, sWaterName, lItems, lAnimations,
+    def writeSceneFile(self, sPath, sTrackName, sWaterName, lItems, lAnimations,
                        lPhysical, lChecklines):
         start_time = bsys.time()
         print "Writing scene file -->",
-        f = open(sFilename+".scene", "w")
+        f = open(sPath+"/scene.xml", "w")
         f.write("<?xml version=\"1.0\"?>\n")
         f.write("<scene>\n")
         
@@ -699,11 +699,11 @@ class TrackExport:
         # ------------------------------------------
         sBase = os.path.basename(sFilename)
         sPath = os.path.dirname(sFilename)
-        self.writeTrackFile(sFilename, sBase, lCameraCurves)
+        self.writeTrackFile(sPath, sBase, lCameraCurves)
     
         # Quads and mapping files
         # -----------------------
-        self.writeQuadAndGraph(sFilename, lNewDrivelines, dOldDrivelines)
+        self.writeQuadAndGraph(sPath, lNewDrivelines, dOldDrivelines)
     
         start_time = bsys.time()
         print "Exporting track -->",
@@ -720,7 +720,7 @@ class TrackExport:
     
         # scene file
         # ----------
-        self.writeSceneFile(sFilename, sPath, sTrackName, sWaterName, lItems, lAnimations,
+        self.writeSceneFile(sPath, sTrackName, sWaterName, lItems, lAnimations,
                             lPhysical, lChecklines)
 
 # =============================================================================================

@@ -65,6 +65,7 @@
   <material name="tank-blue.png" alpha="0.0" sphere="Y" collide="N"/>
   <material name="tank-green.png" alpha="0.0" sphere="Y" collide="N"/>
   <material name="tank-cyan.png" alpha="0.0" sphere="Y" collide="N"/>
+  <material name="gift-box.png" alpha="0.0" sphere="Y" collide="N"/>
   <material name="gift-loop.png" alpha="0.0" sphere="Y" collide="N"/>
   <material name="bowling-icon.png" transparency="Y" alpha="0.0" light="N" collide="N"/>
   <material name="bubblegum-icon.png" transparency="Y" alpha="0.0" light="N" collide="N"/>
