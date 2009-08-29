@@ -2,8 +2,7 @@
 <track  name        = "On the Beach"
         version     = "1"
         groups      = "standard"
-        description = "Created by Ingo Ruhnke,
-modified by M. Gagnon"
+        designer    = "Ingo Ruhnke & Marianne Gagnon"
         music       = "CaribbeanMusic.music"
         screenshot  = "sshot-beach.png"
         driveline   = "beach.driveline"
