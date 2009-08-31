@@ -1,9 +1,13 @@
 <?xml version="1.0"?>
 <scene>
-  <track model="lighthousetrack.b3d" x="0" y="0" z="0">
+  <track model="XXX.b3d" x="0" y="0" z="0">
     <animated-texture name="sea.jpg" dy="-0.1"/>
   </track>
   <track model="lighthousetrack.b3d" x="0" y="0" z="0"/>
+  <checks>
+    <checkline type="new-lap" p1="-5 0" p2="5 0" min-height="-0.4"/>
+    <checkline type="reset-new-lap" p1="-5 5" p2="5 5" min-height="-0.4"/>
+  </checks>
   <small-nitro x="81.005333" y="-0.073995"/>
   <small-nitro x="77.851761" y="0.934763"/>
   <small-nitro x="74.643669" y="2.166354"/>
