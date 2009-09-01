@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <scene>
-  <track model="XXX.b3d" x="0" y="0" z="0">
+  <track model="lighthousetrack.b3d" x="0" y="0" z="0">
     <animated-texture name="sea.jpg" dy="-0.1"/>
   </track>
   <track model="lighthousetrack.b3d" x="0" y="0" z="0"/>
