@@ -82,10 +82,241 @@ def exportLocalB3D(obj, name):
     obj.rot = oldRot
 
 # ==============================================================================
+# A special class to store a drivelines.
+class Driveline:
+    def __init__(self, driveline, is_main):
+        self.name      = driveline.name
+        self.is_main   = is_main
+        # Transform the mesh to the right coordinates.
+        self.mesh      = driveline.getData()
+        self.mesh.transform(driveline.getMatrix())
+        # Convert the mesh into a dictionary: each vertex is a key to a
+        # list of neighbours.
+        self.createNeighbourDict()
+        self.defineStartVertex()
+        self.convertToLists()
+        self.from_quad=None
+        # Invisible drivelines are not shown in the minimap
+        self.invisible = getProperty(driveline, "invisible", 0)
+        self.disable   = getProperty(driveline, "disable",   0)
+    # ------------------------------------------------------------------------------
+    # Returns the name of the driveline
+    def getName(self):
+        return self.name
+    # ------------------------------------------------------------------------------
+    # Returns if this is a main driveline or not.
+    def isMain(self):
+        return self.is_main
+    # ------------------------------------------------------------------------------
+    # Stores that the start quad of this driveline is connected to quad
+    # quad_index of quad driveline. 
+    def setFromQuad(self, driveline, quad_index):
+        # Convert the relative to driveline quad index to the global index:
+        self.from_quad = driveline.getFirstQuadIndex()+quad_index
+    # ------------------------------------------------------------------------------
+    # Returns the global index of the quad this start point is connected to.
+    def getFromQuad(self):
+        return self.from_quad
+    # ------------------------------------------------------------------------------
+    # Returns the number of quads of this driveline
+    def getNumberOfQuads(self):
+        return len(self.lCenter)
+    # --------------------------------------------------------------------------
+    # Stores the index of the first quad in this driveline in the global
+    # quad index.
+    def setStartQuadIndex(self, n):
+        self.global_quad_index_start = n
+    # --------------------------------------------------------------------------
+    # Returns the start index for this driveline in the global numbering of
+    # all quads
+    def getFirstQuadIndex(self):
+        return self.global_quad_index_start
+    # --------------------------------------------------------------------------
+    # Returns the global index of the last quad in this driveline.
+    def getLastQuadIndex(self):
+        return self.global_quad_index_start+len(self.lCenter)-1
+    # --------------------------------------------------------------------------
+    # This creates a dictionary for a mesh which contains for each vertex a list
+    # of all its neighbours.
+    def createNeighbourDict(self):
+        self.dNext = {}
+        for e in self.mesh.edges:
+            if self.dNext.has_key(e.v1):
+                self.dNext[e.v1].append(e.v2)
+            else:
+                self.dNext[e.v1] = [e.v2]
+            if self.dNext.has_key(e.v2):
+                self.dNext[e.v2].append(e.v1)
+            else:
+                self.dNext[e.v2] = [e.v1]
+
+    # ------------------------------------------------------------------------------
+    # This helper function determines the start vertex for a driveline.
+    # Details are documented in convertDrivelines. It returns as list with
+    # the two starting lines.
+    def defineStartVertex(self):
+        # Find all vertices with exactly two neighbours
+        self.lStart = []
+        for i in self.dNext.keys():
+            if len(self.dNext[i])==1:
+                self.lStart.append(i)
+
+        if len(self.lStart)!=2:
+            print "Driveline '%s' is incorrect formed, it does not have"%self.name
+            print "exactly two vertices with only one neighbour."
+            return
+
+        self.start_point =(  (self.lStart[0][0]+self.lStart[1][0])*0.5,
+                             (self.lStart[0][1]+self.lStart[1][1])*0.5,
+                             (self.lStart[0][2]+self.lStart[1][2])*0.5 )
+
+    # ------------------------------------------------------------------------------
+    # Returns the startline of this driveline
+    def getStartPoint(self):
+        return self.start_point
+    # ------------------------------------------------------------------------------
+    # Returns the distance of the start point from a given point
+    def getStartDistanceTo(self, p):
+        dx=self.start_point[0]-p[0]
+        dy=self.start_point[1]-p[1]
+        dz=self.start_point[2]-p[2]
+        return dx*dx+dy*dy+dz*dz
+    # ------------------------------------------------------------------------------
+    # Convert the dictionary of list of neighbours to two lists - one for the
+    # left side, one for the right side.
+    def convertToLists(self):
+        self.lLeft   = [self.lStart[0], self.dNext[self.lStart[0]][0]]
+        self.lRight  = [self.lStart[1], self.dNext[self.lStart[1]][0]]
+        self.lCenter = []
+        count=0
+        # Just in case that we have an infinite loop due to a malformed graph:
+        # stop after 10000 vertices
+        max_count=10000
+        while count<max_count:
+            count = count + 1
+            # Get all neighbours. One is the previous point, one
+            # points to the opposite side - we need the other one.
+            neighb = self.dNext[self.lLeft[-1]]
+            for i in neighb:
+                if i==self.lLeft[-2]: continue   # pointing backwards
+                if i==self.lRight[-1]: continue  # to opposite side
+                self.lLeft.append(i)
+                break
+            else:
+                # No new element found --> this must be the end
+                # of the list!!
+                break
+            # Same for other side:
+            neighb = self.dNext[self.lRight[-1]]
+            for i in neighb:
+                if i==self.lRight[-2]: continue   # pointing backwards
+                # Note lLeft has already a new element appended,
+                # so we have to check for the 2nd last element!
+                if i==self.lLeft[-2]: continue  # to opposite side
+                self.lRight.append(i)
+                break
+            cp=[]
+            for i in range(3):
+                cp.append((self.lLeft[-2][i]+self.lLeft[-1][i]+
+                           self.lRight[-2][i]+self.lRight[-1][i])*0.25)
+            self.lCenter.append(cp)
+
+        if count>=max_count:
+            print "Warning, Only the first %d vertices of driveline '%s' are exported" %\
+                  (max_count, driveline.name)
+        # Now remove the first two points, which are only used to indicate
+        # the starting point:
+        del self.lLeft[0]
+        del self.lRight[0]
+        self.end_point =(  (self.lLeft[-1][0]+self.lRight[-1][0])*0.5,
+                           (self.lLeft[-1][1]+self.lRight[-1][1])*0.5,
+                           (self.lLeft[-1][2]+self.lRight[-1][2])*0.5 )
+
+    # --------------------------------------------------------------------------
+    # Returns the end point of this driveline
+    def getEndPoint(self):
+        return self.end_point
+    # --------------------------------------------------------------------------
+    def getDistanceToStart(self, lDrivelines):
+        return self.getDistanceTo(self.start_point, lDrivelines)
+    # --------------------------------------------------------------------------
+    # Returns the shortest distance to any of the drivelines in the list
+    # lDrivelines from the given point p (it's actually a static function).
+    # The distance is defined to be the shortest distance from the
+    # start point of this driveline to all quads of all drivelines in
+    # lDrivelines. This function returns the distance, the index of the
+    # driveline in lDrivelines, and the local index of the quad within this
+    # driveline as a tuple.
+    def getDistanceTo(self, p, lDrivelines):
+        if not lDrivelines: return (None, None, None)
+        
+        (min_dist, min_quad_index) = lDrivelines[0].getMinDistanceToPoint(p)
+        min_driveline_index        = 0
+        for i in range(1, len(lDrivelines)):
+            if lDrivelines[i]==self: continue   # ignore itself
+            (dist, quad_index) = lDrivelines[i].getMinDistanceToPoint(p)
+            if dist < min_dist:
+                min_dist            = dist
+                min_quad_index      = quad_index
+                min_driveline_index = i
+        return (min_dist, min_driveline_index, min_quad_index)
+
+    # --------------------------------------------------------------------------
+    # Returns the minimum distance from the center point of each quad to the
+    # point p.
+    def getMinDistanceToPoint(self, p):
+        pCenter   = self.lCenter[0]
+        dx        = pCenter[0]-p[0]
+        dy        = pCenter[1]-p[1]
+        dz        = pCenter[2]-p[2]
+        min_dist  = dx*dx+dy*dy+dz*dz
+        min_index = 0
+        for i in range(1, len(self.lCenter)):
+            pCenter = self.lCenter[i]
+            dx      = pCenter[0]-p[0]
+            dy      = pCenter[1]-p[1]
+            dz      = pCenter[2]-p[2]
+            d       = dx*dx+dy*dy+dz*dz
+            if d<min_dist:
+                min_dist  = d
+                min_index = i
+        return (min_dist, min_index)
+
+    # ------------------------------------------------------------------------------
+    # Determine the driveline from lSorted which is closest to this driveline's
+    # endpoint (closest meaning: having a quad that is closest).
+    def computeSuccessor(self, lSorted):
+        (dist, driveline_index, quad_index)=self.getDistanceTo(self.end_point,
+                                                               lSorted)
+        print "\ncs", self.getName(), dist, driveline_index, \
+              quad_index,lSorted[driveline_index].getName()
+        return quad_index+lSorted[driveline_index].getFirstQuadIndex()
+
+    # ------------------------------------------------------------------------------
+    # Writes the quads into a file.
+    def write(self, f):
+        l   = self.lLeft[0]
+        r   = self.lRight[0]
+        l1  = self.lLeft[1]
+        r1  = self.lRight[1]
+        if self.invisible:
+            sInv = " invisible=\"1\" "
+        else:
+            sInv = " "
+        f.write("  <!-- Driveline: %s -->\n"%self.name)
+        f.write("  <quad%sp0=\"%f,%f,%f\" p1=\"%f,%f,%f\" p2=\"%f,%f,%f\" p3=\"%f,%f,%f\"/>\n" \
+            %(sInv, l[0],l[1],l[2], r[0],r[1],r[2], r1[0],r1[1],r1[2], l1[0],l1[1],l1[2]) )
+        for i in range(1, len(self.lLeft)-1):
+            l1  = self.lLeft[i+1]
+            r1  = self.lRight[i+1]
+            f.write("  <quad%sp0=\"%d:3\" p1=\"%d:2\" p2=\"%f,%f,%f\" p3=\"%f,%f,%f\"/>\n" \
+                    %(sInv,self.global_quad_index_start+i-1, self.global_quad_index_start+i-1, \
+                  r1[0],r1[1],r1[2], l1[0],l1[1],l1[2]) )
+
+# ==============================================================================
 # The actual exporter. It is using a class mainly to store some information
 # between calls to different functions, e.g. a cache of exported objects.
 class TrackExport:
-
     
     def writeTrackFile(self, sPath, sBase, lCurves):
         print "Writing track.xml file",
@@ -107,7 +338,6 @@ class TrackExport:
         f.write("        description = \"%s\"\n"%description)
         f.write("        music       = \"%s\"\n"%music)
         f.write("        screenschot = \"%s\"\n"%screenshot)
-        f.write("        driveline   = \"%s.driveline\"\n"%sBase)
         f.write("        mapping     = \"%s.mapping\"\n"%sBase)
         f.write("        camera-final-position  =\"-10 25 3\"\n")
         f.write("        camera-final-hpr       =\"-140 -7 0\"\n")
@@ -168,255 +398,123 @@ class TrackExport:
                     f.write("    </%s>\n"%type)
         f.write("  </curves>\n")
                     
-        
-    # ------------------------------------------------------------------------------
-    # Finds the closest quad to two given vertices which belong to a different id.
-    # The parameters vl and vr are the two vertices, id the id of the drivelines to
-    # which vl/vr belong. dDrivelines is the dictionary of all drivelines.
-    def findClosestQuad(self, target_left, target_right, target_id, lAllDrivelines):
-        for (id, left_verts, right_verts) in lAllDrivelines:
-            # ignore vertices which are in the same part 
-            if target_id == id: continue
-            min_d       = 1000000
-            min_indx    = -1
-            for i in range(len(left_verts)):
-                l = left_verts[i]
-                r = right_verts[i]
-                d = (target_left[0] - l[0])**2 + (target_left[1] - l[1])**2 + (target_left[2] - l[2])**2
-                if d<min_d:
-                    min_d    = d
-                    min_indx = i
-                d = (target_left[0] - r[0])**2 + (target_left[1] - r[1])**2 + (target_left[2] - r[2])**2
-                if d<min_d:
-                    min_d    = d
-                    min_indx = i
-                d = (target_right[0] - l[0])**2 + (target_right[1] - l[1])**2 + (target_right[2] - l[2])**2
-                if d<min_d:
-                    min_d    = d
-                    min_indx = i
-                d = (target_right[0] - r[0])**2 + (target_right[1] - r[1])**2 + (target_right[2] - r[2])**2
-                if d<min_d:
-                    min_d    = d
-                    min_indx = i
-            return min_indx
-        
-    # ------------------------------------------------------------------------------
-    # This creates a dictionary for a mesh which contains for each vertex a list
-    # with all its neighbours.
-    def createNeighbourDict(self, mesh):
-        dNext = {}
-        for e in mesh.edges:
-            if dNext.has_key(e.v1):
-                dNext[e.v1].append(e.v2)
-            else:
-                dNext[e.v1] = [e.v2]
-            if dNext.has_key(e.v2):
-                dNext[e.v2].append(e.v1)
-            else:
-                dNext[e.v2] = [e.v1]
-        return dNext
-        
-    # ------------------------------------------------------------------------------
-    # The blender data structures might not be sorted, i.e. mesh.verts[0] might not
-    # be at all connected to mesh.verts[1]. So to re-created the right order, the
-    # edges have to be taken into account. This subroutine sorts the vertices
-    # in the order specified by the meshes. If the mesh is a loop, the point closest
-    # to 0,0,0 is used as a starting point. 
-    def sortVerticesOldDrivelines(self, mesh):
-        # Create a dictorionary with all successors, to speed up the lookup later:
-        dSucc   = self.createNeighbourDict(mesh)
-    
-        # closed loop, find point closest to 0
-        min_dist    = 1000000
-        start_index = -1
-        v_min       = None
-        for i in range(len(mesh.verts)):
-            v = mesh.verts[i]
-            d=v[0]**2 + v[1]**2 + v[2]**2
-            if d<min_dist:
-                min_dist    = d
-                start_index = i
-                v_min       = v
-                
-        if v_min==None: return []
-        
-        # Now find which of the two successors are going forward along the Yaxis:
-        l_succ=dSucc[v_min]
-        if l_succ[0][1] > l_succ[1][1]:
-            l_sorted_vertices = [v_min, l_succ[0]]
-        else:
-            l_sorted_vertices = [v_min, l_succ[1]]
-    
-    
-        while len(l_sorted_vertices)!=len(mesh.verts):
-            # Stop if we reach a vertices with only a single successor - which is the
-            # the node we are coming from
-            if len(dSucc[ l_sorted_vertices[-1] ])==1: break
-            n1 = dSucc[ l_sorted_vertices[-1] ][0]  # first successor
-            n2 = dSucc[ l_sorted_vertices[-1] ][1]  # second successor
-            # Append the node that's not already in the list:
-            if l_sorted_vertices[-2] == n1:
-                l_sorted_vertices.append(n2)
-            else:
-                l_sorted_vertices.append(n1)
-    
-        return l_sorted_vertices
-            
-    # ------------------------------------------------------------------------------
-    # Converts the old driveline structure:
-    def convertOldDrivelines(self, dOldDrivelines, lAllDrivelines):
-        lAllKeys= dOldDrivelines.keys()
-        lAllKeys.sort()  # Guarantees that the main driveline ("") is first
-        for id in lAllKeys:
-            objl  = dOldDrivelines[id]["left"]
-            objr  = dOldDrivelines[id]["right"]
-            meshl = objl.getData()
-            meshr = objr.getData()
-            meshl.transform(objl.getMatrix())
-            meshr.transform(objr.getMatrix())
-            ldl = self.sortVerticesOldDrivelines(meshl)
-            rdl = self.sortVerticesOldDrivelines(meshr)
-            lAllDrivelines.append( (id, ldl, rdl) )
-        
-    # ------------------------------------------------------------------------------
-    # This helper function determines the start vertex for a driveline.
-    # Details are documented in convertNewDrivelines. It returns as list with
-    # the two starting lines.
-    def findStartVertex(self, dNext):
-        # Find all vertices with exactly two neighbours
-        lOneNeighbour = []
-        for i in dNext.keys():
-            if len(dNext[i])==1:
-                lOneNeighbour.append(i)
+    # --------------------------------------------------------------------------
+    # Finds the closest driveline from the list lDrivelines to the point p (i.e.
+    # the driveline for which the distance between p and the drivelines start
+    # point is as small as possible. Returns the index of the closest drivelines.
+    def findClosestDrivelineToPoint(self, lDrivelines, p):
+        min_index = 0
+        min_dist  = lDrivelines[0].getStartDistanceTo(p)
+        for i in range(1,len(lDrivelines)):
+            driveline=lDrivelines[i]
+            dist_new = driveline.getStartDistanceTo(p)
+            if dist_new<min_dist:
+                min_dist  = dist_new
+                min_index = i
 
-        if len(lOneNeighbour)!=2:
-            return None
-
-        l=[]
-        for v in lOneNeighbour:
-            l.append( [v,dNext[v][0]] )
-        return l
-
+        return min_index
+    
+    # --------------------------------------------------------------------------
+    # Find the driveline from lRemain that is closest to any of the drivelines
+    # in lSorted.
+    def findClosestDrivelineToDrivelines(self, lRemain, lSorted):
+        remain_index                    = 0
+        (min_dist, sorted_index, min_quad) = lRemain[0].getDistanceToStart(lSorted)
+        for i in range(1, len(lRemain)):
+            (dist, index, quad) = lRemain[i].getDistanceToStart(lSorted)
+            if dist<min_dist:
+                min_dist     = dist
+                sorted_index = index
+                min_quad     = quad
+                remain_index = i
+        return (remain_index, sorted_index, min_quad)
         
-    # ------------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
     # Converts a new drivelines. New drivelines have the following structure:
     #   +---+---+--+--...--+--
     #   |   |      |       |  
-    #   +---+------+--...--+--
+    #   +---+--+---+--...--+--
     # The starting quad of the drivelines is marked by two edges ending in a
     # single otherwise unconnected vertex. These two vertices (and edges) are
     # not used in the actual driveline, they are only used to indicate where
-    # the drivelines starts.
-    def convertNewDrivelines(self, lNewDrivelines, lAllDrivelines):
-        # Create a dictionary with all neighbours for each vertex:
-    
-        # Find the begin of the drivelines:
-        for driveline in lNewDrivelines:
-            mesh = driveline.getData()
-            mesh.transform(driveline.getMatrix())
-            dNext = self.createNeighbourDict(mesh)
-            start = self.findStartVertex(dNext)
-            if not start:
-                print "Driveline '%s' is incorrect formed, it does not have"%driveline.name
-                print "exactly two vertices with only one neighbour."
-                return
-            # Left and right are actually arbitrary, since it doesn't matter if
-            # the quads created from them are clockwise or counter-clockwise. The
-            # start vector is removed later, it simplifies whe while loop.
-            lLeft  = start[0]
-            lRight = start[1]
-            count=0
-            # Just in case that we have an infinite loop due to a malformed graph:
-            # stop after 10000 vertices
-            while count<10000:
-                count = count + 1
-                # Get all neighbours. One is the previous point, one
-                # points to the opposite side - we need the other one.
-                neighb = dNext[lLeft[-1]]
-                for i in neighb:
-                    if i==lLeft[-2]: continue   # pointing backwards
-                    if i==lRight[-1]: continue  # to opposite side
-                    lLeft.append(i)
-                    break
-                else:
-                    # No new element found --> this must be the end
-                    # of the list!!
-                    break
-                # Same for other side:
-                neighb = dNext[lRight[-1]]
-                for i in neighb:
-                    if i==lRight[-2]: continue   # pointing backwards
-                    # Note lLeft has already a new element appended,
-                    # so we have to check for the 2nd last element!
-                    if i==lLeft[-2]: continue  # to opposite side
-                    lRight.append(i)
-                    break
-            if count>=10000:
-                print "Warning, Only the first 10000 vertices of driveline '%s' are exported" %\
-                      (driveline.name)
-            lAllDrivelines.append( ( driveline.name, lLeft[1:], lRight[1:] ) )
-    
+    # the drivelines starts. This data structure is handled in the Driveline
+    # class.
+    def convertDrivelines(self, lDrivelines, lSorted):
+        # First collect all main drivelines, and all remaining drivelines
+        # ---------------------------------------------------------------
+        lMain     = []
+        lRemain   = []
+        for driveline in lDrivelines:
+            if driveline.isMain():
+                lMain.append(driveline)
+            else:
+                lRemain.append(driveline)
+
+        # Now collect all main drivelines in one list starting
+        # with the closest to 0, then the one closest to the
+        # end of the first one, etc
+        p          = (0,0,0)
+        quad_index = 0
+        while lMain:
+            min_index = self.findClosestDrivelineToPoint(lMain, p)
+            # Move the main driveline with minimal distance to the
+            # sorted list.
+            lSorted.append(lMain[min_index])
+            del lMain[min_index]
             
-    # ------------------------------------------------------------------------------
+            # Set the start quad index for all quads.
+            lSorted[-1].setStartQuadIndex(quad_index)
+            quad_index = quad_index + lSorted[-1].getNumberOfQuads()
+
+            p = lSorted[-1].getEndPoint()
+
+        # Now add the remaining drivelines one at a time. From all remaining
+        # drivelines we pick the one closest to the drivelines contained in
+        # lSorted.
+        while lRemain:
+            t = self.findClosestDrivelineToDrivelines(lRemain, lSorted)
+            (remain_index, sorted_index, quad_to_index) = t
+            print lRemain[remain_index].getName(),t
+            lRemain[remain_index].setFromQuad(lSorted[sorted_index], quad_to_index)
+            lSorted.append(lRemain[remain_index])
+            del lRemain[remain_index]
+
+            # Set the start quad index for all quads.
+            lSorted[-1].setStartQuadIndex(quad_index)
+            quad_index = quad_index + lSorted[-1].getNumberOfQuads()
+
+    # --------------------------------------------------------------------------
     # Writes the track.quad file with the list of all quads, and the track.graph
     # file defining a graph node for each quad and a basic connection between all
     # graph nodes.
-    def writeQuadAndGraph(self, sPath, lNewDrivelines, dOldDrivelines):
+    def writeQuadAndGraph(self, sPath, lDrivelines):
         start_time = bsys.time()
         print "stk_track: Writing quad file --> ",
-        if not dOldDrivelines.has_key("") and not lNewDrivelines:
+        if not lDrivelines:
             print "No main driveline defined, no driveline information exported!!!"
             return
     
-        # No consistency tests for old drivelines, since they should be removed!
-    
-        lAllDrivelines = []
-        self.convertOldDrivelines(dOldDrivelines, lAllDrivelines)
-        self.convertNewDrivelines(lNewDrivelines, lAllDrivelines)
-        
-        f = open(sPath+"/quads.xml", "w")
-        f.write("<?xml version=\"1.0\"?>\n")
-        f.write("<quads>\n")
-        
+        lSorted = []
+        self.convertDrivelines(lDrivelines, lSorted)
         # Stores the first quad number (and since quads = graph nodes the node number) of
         # each section of the track. I.e. the main track starts with quad 0, then the
         # first alternative way, ...
         lStartQuad         = [0]
         dSuccessor         = {}
         last_main_lap_quad = 0
-        # For each vertex this mapping contains all neighbours
-        dVertex2Neighb     = {}
-        dSortedVertices    = {}
         count              = 0
-        for (name, lLeft, lRight) in lAllDrivelines:
-            l   = lLeft[0]
-            r   = lRight[0]
-            l1  = lLeft[1]
-            r1  = lRight[1]
-            if count==0:
-                f.write("<!-- Main driveline -->\n")
-            else:
-                f.write("<!-- Driveline: %s -->\n"%name)
-            count = count + 1
-            f.write("  <quad p0=\"%f,%f,%f\" p1=\"%f,%f,%f\" p2=\"%f,%f,%f\" p3=\"%f,%f,%f\"/>\n" \
-                %(l[0],l[1],l[2], r[0],r[1],r[2], r1[0],r1[1],r1[2], l1[0],l1[1],l1[2]) )
-            count = 1   # counts number of quads
-            for i in range(1, len(lLeft)-1):
-                l1  = lLeft[i+1]
-                r1  = lRight[i+1]
-                f.write("  <quad p0=\"%d:3\" p1=\"%d:2\" p2=\"%f,%f,%f\" p3=\"%f,%f,%f\"/>\n" \
-                    %(lStartQuad[-1]+i-1, lStartQuad[-1]+i-1, \
-                      r1[0],r1[1],r1[2], l1[0],l1[1],l1[2]) )
-                count = count + 1
-            if name=="":   # main loop, which needs to be closed:
-                f.write("  <quad p0=\"%d:3\" p1=\"%d:2\" p2=\"0:1\" p3=\"0:0\"/>\n" \
-                    %(i, i))  # +lStartQuad[-1] - but this is always 0 for main lap
-                last_main_lap_quad = count
-                count = count + 1
-            lStartQuad.append(lStartQuad[-1]+count)
+        
+        f = open(sPath+"/quads.xml", "w")
+        f.write("<?xml version=\"1.0\"?>\n")
+        f.write("<quads>\n")
+        
+        for driveline in lSorted:
+            driveline.write(f)
+
         f.write("</quads>\n")
         f.close()
         print bsys.time()-start_time,"seconds. "
+
         start_time = bsys.time()
         print "stk_track: Writing graph file -->",
         f=open(sPath+"/graph.xml", "w")
@@ -424,24 +522,50 @@ class TrackExport:
         f.write("<graph>\n")
         f.write("  <!-- First define all nodes of the graph, and what quads they represent -->\n")
         f.write("  <node-list from-quad=\"%d\" to-quad=\"%d\"/>  <!-- map each quad to a node  -->\n"\
-                %(0, lStartQuad[-1]))
+                %(0, lSorted[-1].getLastQuadIndex()))
+
         f.write("  <!-- Define the main loop -->\n");
-        f.write("  <edge-loop from=\"%d\" to=\"%d\"/>\n" % (0, last_main_lap_quad) )
-        for i in range(1, len(lAllDrivelines)):
-            id     = lAllDrivelines[i][0]
-            f.write("  <!-- Shortcut %s -->\n"%id)
-            lLeft   = lAllDrivelines[i][1]
-            lRight  = lAllDrivelines[i][2]
-            nBegin = self.findClosestQuad(lLeft[0],  lRight[0],  id, lAllDrivelines)
-            nEnd   = self.findClosestQuad(lLeft[-1], lRight[-1], id, lAllDrivelines)
-    
-            f.write("  <edge      from=\"%d\" to=\"%d\"/>          <!-- Enter shortcut %s  -->\n"\
-                    %(nBegin, lStartQuad[i], id))
-            f.write("  <edge-line from=\"%d\" to=\"%d\"/>          <!-- Shortcut %s        -->\n"\
-                      %(lStartQuad[i], lStartQuad[i+1]-1, id))
-            f.write("  <edge      from=\"%d\" to=\"%d\"/>          <!-- Leave shortcut %s  -->\n"\
-                    %(lStartQuad[i+1]-1, nEnd, id))
-            #
+        last_main = None
+        for i in lSorted:
+            if i.isMain():
+                last_main = i
+            else:
+                break
+
+        # The main driveline is written as a simple loop
+        f.write("  <edge-loop from=\"%d\" to=\"%d\"/>\n" %
+                (0, last_main.getLastQuadIndex()) )
+
+        # Each non-main driveline writes potentially three entries in the
+        # graph file: connection to the beginning of this driveline, the
+        # driveline quads themselves, and a connection from the end of the
+        # driveline to another driveline. But this can result in edged being
+        # written more than once: consider two non-main drivelines A and B
+        # which are connected to each other. Then A will write the edge from
+        # A to B as its end connection, and B will write the same connection
+        # as its begin connection. To avoid this, we keep track of all
+        # written from/to edges, and only write one if it hasn't been written.
+        dWrittenEdges={}
+        # Now write the remaining drivelines
+        for driveline in lSorted:
+            # Mainline was already written, so ignore it
+            if driveline.isMain(): continue
+
+            f.write("  <!-- Shortcut %s -->\n"%driveline.getName())
+            # Write the connection from an already written quad to this
+            fr = driveline.getFromQuad()
+            to = driveline.getFirstQuadIndex()
+            if not dWrittenEdges.has_key( (fr,to) ):
+                f.write("  <edge from=\"%d\" to=\"%d\">\n" %(fr, to))
+                dWrittenEdges[ (fr, to) ] = 1
+            if driveline.getFirstQuadIndex()< driveline.getLastQuadIndex():
+                f.write("  <edge-line from=\"%d\" to=\"%d\"/>\n" \
+                        %(driveline.getFirstQuadIndex(), driveline.getLastQuadIndex()))
+            fr = driveline.getLastQuadIndex()
+            to = driveline.computeSuccessor(lSorted)
+            if not dWrittenEdges.has_key( (fr, to) ):
+                f.write("  <edge from=\"%d\" to=\"%d\"/>\n" %(fr, to))
+                dWrittenEdges[ (fr, to) ] = 1
         f.write("</graph>\n")
         f.close()
         print bsys.time()-start_time,"seconds. "
@@ -604,34 +728,6 @@ class TrackExport:
         f.close()
         print bsys.time()-start_time,"seconds"
     # -----------------------------------------------------------------------------------------
-    def storeOldDriveline(self, type, obj, dDrivelines):
-        # Check for old drivelines:
-        if type[:8]=="DRV_LEFT":
-            id   = type[8:]
-            side = "left"
-        elif type[:9]=="DRV_RIGHT":
-            id   = type[9:]
-            side = "right"
-        else:
-            print "Unknown driveline: '%s' - ignored."%type
-            return
-        if dDrivelines.has_key(id):
-            # Do some consistency tests
-            if len(dDrivelines[id].keys())>1:
-                print "Too many drivelines for '%s' specified - ignored."%id
-                del dDrivelines[id]
-                return
-            k = dDrivelines[id].keys()[0]
-            if k==side:
-                print "Side '%s' for driveline '%s' specified twice - ignored." %\
-                      (side, id)
-                del dDrivelines[id]
-                return
-            dDrivelines[id][side] = obj
-        else:
-            dDrivelines[id] = {side:obj}
-        
-    # -----------------------------------------------------------------------------------------
 
     def __init__(self, sFilename):
         self.dExportedObjects = {}
@@ -641,9 +737,8 @@ class TrackExport:
         lObj           = Blender.Object.Get()
         lWater         = []
         lTrack         = []
-        dOldDrivelines = {}
-        lNewDrivelines = []
-        main_driveline = None
+        lDrivelines    = []
+        found_main_driveline = 0
         lItems         = []
         lCameraCurves  = []
         lAnimations    = []
@@ -677,23 +772,19 @@ class TrackExport:
             elif stktype=="CHECKLINE":
                 lChecklines.append(obj)
             # Check for new drivelines
-            elif stktype[:14]=="MAIN-DRIVELINE":
-                # The main driveline must be the first driveline in the list
-                main_driveline = obj
+            elif stktype[:14]=="MAIN-DRIVELINE" or stktype[:13]=="MAINDRIVELINE" or \
+                 stktype[:6]=="MAINDL":
+                lDrivelines.append(Driveline(obj, 1))
+                found_main_driveline = 1
             elif stktype[:9]=="DRIVELINE":
-                lNewDrivelines.append(obj)
-            # Backwards compatibility:
-            elif stktype[:4]=="DRV_":
-                self.storeOldDriveline(stktype, obj, dOldDrivelines)
+                lDrivelines.append(Driveline(obj, 0))
             elif stktype[:4]=="ANIM":
                 lAnimations.append(obj)
             else:
                 lTrack.append(obj)
 
-        if not main_driveline:
+        if not found_main_driveline:
             print "Main driveline missing, using first driveline as main!"
-        else:
-            lNewDrivelines.insert(0, main_driveline)
             
         # Now export the different parts: track file
         # ------------------------------------------
@@ -703,7 +794,7 @@ class TrackExport:
     
         # Quads and mapping files
         # -----------------------
-        self.writeQuadAndGraph(sPath, lNewDrivelines, dOldDrivelines)
+        self.writeQuadAndGraph(sPath, lDrivelines)
     
         start_time = bsys.time()
         print "Exporting track -->",
