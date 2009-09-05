@@ -11,7 +11,8 @@ Under Creative Commons Attribution Share-Alike (CC-BY-SA) - http://creativecommo
     © 2009 Gregory Schick <leadgolem@gmail.com>, Christoph Egger <debian@christoph-egger.org> and Marianne Gagnon (Auria)
 
 * notes
-
+    by Marianne Gagnon (Auria)
+    
 * road_dirt
     by Marianne Gagnon (Auria) and MiniBjorn
 
