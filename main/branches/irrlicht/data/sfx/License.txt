@@ -15,13 +15,16 @@ All sounds are released under GPL, except:
 * gp_end.wav
     Released under the Creative Commons Sampling Plus 1.0 license (http://creativecommons.org/licenses/sampling+/1.0/)
     By Marianne Gagnon (Auria), based on "Approx_850_Enthusiast_Audience" by lonemonk, released under the same license
+    
 * horn.wav
-    Released under the Creative Commons Sampling Plus 1.0 license (http://creativecommons.org/licenses/sampling+/1.0/)
-    By Marianne Gagnon (Auria), based on "claxon" by han1, released under the same license
+    Released under the Creative Commons BY (Attribution) 3.0
+    Recorded by Mike Koenig, with modifications by Marianne Gagnon (Auria)
+        
 * parachute.wav
     Released under the Creative Commons Sampling Plus 1.0 license (http://creativecommons.org/licenses/sampling+/1.0/)
     By Marianne Gagnon (Auria), based on "kiss" by roscoetoon, "kissy_sound" by FreqMan,
     "rockets" by SmiertSpionem and "Swishes" by Pogotron, all released under the same license
+    
 * shoot.wav
     Released under the Creative Commons Sampling Plus 1.0 license (http://creativecommons.org/licenses/sampling+/1.0/)
     By Marianne Gagnon (Auria), based on "rocket_exhaust_1" by smcameron and "rockets" by SmiertSpionem,
