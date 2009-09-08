@@ -1,7 +1,8 @@
 ____________________________________________________________________
 Creative-Commons-BY-SA 3.0
     metal_ground.rgb - by MiniBjorn, based on http://www.burningwell.org/gallery2/v/textures/surfaces/P1170598.JPG.html
-
+    road_dirt_red - with parts by MiniBjorn
+    sandred* - based on work by MiniBjorn
 ____________________________________________________________________
 Reused with different colors from supertuxkart/data/textures (see their individual licenses) :
 
