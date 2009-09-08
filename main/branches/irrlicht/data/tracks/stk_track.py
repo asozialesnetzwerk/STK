@@ -300,7 +300,7 @@ class Driveline:
         l1  = self.lLeft[1]
         r1  = self.lRight[1]
         if self.invisible:
-            sInv = " invisible=\"1\" "
+            sInv = " invisible=\"yes\" "
         else:
             sInv = " "
         f.write("  <!-- Driveline: %s -->\n"%self.name)
