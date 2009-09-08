@@ -98,7 +98,7 @@ class Driveline:
         self.from_quad=None
         # Invisible drivelines are not shown in the minimap
         self.invisible = getProperty(driveline, "invisible", 0)
-        self.disable   = getProperty(driveline, "disable",   0)
+        self.enabled   = not getProperty(driveline, "disable",   0)
     # ------------------------------------------------------------------------------
     # Returns the name of the driveline
     def getName(self):
@@ -107,6 +107,10 @@ class Driveline:
     # Returns if this is a main driveline or not.
     def isMain(self):
         return self.is_main
+    # ------------------------------------------------------------------------------
+    # Returns if this driveline is disabled.
+    def isEnabled(self): 
+        return self.enabled
     # ------------------------------------------------------------------------------
     # Stores that the start quad of this driveline is connected to quad
     # quad_index of quad driveline. 
@@ -556,7 +560,14 @@ class TrackExport:
             fr = driveline.getFromQuad()
             to = driveline.getFirstQuadIndex()
             if not dWrittenEdges.has_key( (fr,to) ):
-                f.write("  <edge from=\"%d\" to=\"%d\">\n" %(fr, to))
+                if to.enabled() and fr.enabled():
+                    f.write("  <edge from=\"%d\" to=\"%d\">\n" %(fr, to))
+                elif to.enabled():
+                    f.write("  <!-- %s disabled <edge from=\"%d\" to=\"%d\"> -->\n" \
+                            %(fr.getName(), fr, to))
+                else:
+                    f.write("  <!-- %s disabled <edge from=\"%d\" to=\"%d\"> -->\n"
+                            %(to.getName(), fr, to))
                 dWrittenEdges[ (fr, to) ] = 1
             if driveline.getFirstQuadIndex()< driveline.getLastQuadIndex():
                 f.write("  <edge-line from=\"%d\" to=\"%d\"/>\n" \
