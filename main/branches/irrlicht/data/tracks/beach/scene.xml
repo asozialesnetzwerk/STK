@@ -4,6 +4,10 @@
     <animated-texture name="waterfall.png"   dy="-0.5" />
     <animated-texture name="water_light.jpg" dy="-0.05"/>
   </track>
+  <sky-dome texture="lighthouse_sky.png"
+          horizontal="16" vertical="16"
+          speed-x="1" speed-y="1"
+          texture-percent="0.5" sphere-percent="1.3"/>
   <banana x="33.95208" y="-26.43557"/>
   <banana x="36.353733" y="-28.788071"/>
   <banana x="38.890526" y="-31.055712"/>
