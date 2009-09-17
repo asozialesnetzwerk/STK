@@ -96,6 +96,8 @@ class Driveline:
         self.defineStartVertex()
         self.convertToLists()
         self.from_quad=None
+        self.from_driveline=None
+        self.to_driveline=None
         # Invisible drivelines are not shown in the minimap
         self.invisible = getProperty(driveline, "invisible", 0)
         self.enabled   = not getProperty(driveline, "disable",   0)
@@ -116,7 +118,11 @@ class Driveline:
     # quad_index of quad driveline. 
     def setFromQuad(self, driveline, quad_index):
         # Convert the relative to driveline quad index to the global index:
-        self.from_quad = driveline.getFirstQuadIndex()+quad_index
+        self.from_quad      = driveline.getFirstQuadIndex()+quad_index
+        self.from_driveline = driveline
+    # ------------------------------------------------------------------------------
+    def setToDriveline(self, driveline):
+        self.to_driveline = driveline
     # ------------------------------------------------------------------------------
     # Returns the global index of the quad this start point is connected to.
     def getFromQuad(self):
@@ -344,21 +350,7 @@ class TrackExport:
         f.write("        screenschot = \"%s\"\n"%screenshot)
         f.write("        mapping     = \"%s.mapping\"\n"%sBase)
         f.write("        camera-final-position  =\"-10 25 3\"\n")
-        f.write("        camera-final-hpr       =\"-140 -7 0\"\n")
-        f.write("""
-      <!-- Parameters for a sky dome:
-           texture:  the name of the texture to use
-           horizontal: Number of vertices of a horizontal layer of the sphere.
-           vertical: Number of vertices of a vertical layer of the sphere.
-           texture-percent: How much of the height of the texture is used. 
-                            Should be between 0 and 1.
-           sphere-percent: How much of the sphere is drawn. Value should be 
-                           between 0 and 2, where 1 is an exact half-sphere
-                           and 2 is a full sphere.  -->
-      <sky-dome texture=\"lighthouse_sky.jpg\"
-                horizontal=\"16\" vertical=\"16\" 
-                texture-percent=\"0.5\" sphere-percent=\"1.3\"/>
-    """ )
+        f.write("        camera-final-hpr       =\"-140 -7 0\"/>\n")
         self.writeCurve(f, lCurves)
         f.write("</track>\n")
         f.close()
@@ -560,14 +552,15 @@ class TrackExport:
             fr = driveline.getFromQuad()
             to = driveline.getFirstQuadIndex()
             if not dWrittenEdges.has_key( (fr,to) ):
-                if to.enabled() and fr.enabled():
-                    f.write("  <edge from=\"%d\" to=\"%d\">\n" %(fr, to))
-                elif to.enabled():
-                    f.write("  <!-- %s disabled <edge from=\"%d\" to=\"%d\"> -->\n" \
-                            %(fr.getName(), fr, to))
-                else:
-                    f.write("  <!-- %s disabled <edge from=\"%d\" to=\"%d\"> -->\n"
-                            %(to.getName(), fr, to))
+                f.write("  <edge from=\"%d\" to=\"%d\">\n" %(fr, to))
+                #if to.isEnabled() and fr.isEnabled():
+                #    f.write("  <edge from=\"%d\" to=\"%d\">\n" %(fr, to))
+                #elif to.isEnabled():
+                #    f.write("  <!-- %s disabled <edge from=\"%d\" to=\"%d\"> -->\n" \
+                #            %(fr.getName(), fr, to))
+                #else:
+                #    f.write("  <!-- %s disabled <edge from=\"%d\" to=\"%d\"> -->\n"
+                #            %(to.getName(), fr, to))
                 dWrittenEdges[ (fr, to) ] = 1
             if driveline.getFirstQuadIndex()< driveline.getLastQuadIndex():
                 f.write("  <edge-line from=\"%d\" to=\"%d\"/>\n" \
@@ -581,7 +574,7 @@ class TrackExport:
         f.close()
         print bsys.time()-start_time,"seconds. "
           
-    # -----------------------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
     # Writes the animation for objects using IPOs:
     def writeAnimationWithIPO(self, f, sPath, obj, ipo):
         # An animated object can set the 'name' property, then this name will
@@ -632,14 +625,14 @@ class TrackExport:
         f.write("    </animations-IPO>\n")
             
         
-    # -----------------------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
     # Writes an animation that uses a path constrained.
     def writeAnimationsWithPaths(self, f, sPath, obj):
         #print "b3d export", obj.name
         print "'%s' is using path '%s'"%(obj.name, \
                                obj.constraints[0][Constraint.Settings.TARGET].name)
     
-    # -----------------------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
     # Writes out all animations (be it animations with IPO or animations with path
     # constraints).
     def writeAnimations(self, f, sPath, lAnimations):
@@ -653,30 +646,68 @@ class TrackExport:
                 self.writeAnimationsWithPaths(f, sPath, obj)
         f.write("  </animations>\n")
                 
-    # -----------------------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
     # Writes out all checklines.
-    def writeChecks(self, f, lChecklines):
+    def writeChecks(self, f, lChecks):
         f.write("  <checks>\n")
-        for obj in lChecklines:
+
+        dName2Index = {}
+        count = 0
+        for obj in lChecks:
+            dName2Index[obj.name] = count
+            count = count + 1
+            
+        for obj in lChecks:
             mesh=obj.getData()
             # Convert to world space
             mesh.transform(obj.getMatrix())
-            subtype = getProperty(obj, "kind", "new-lap")
-            if len(mesh.verts)!=2:
-                print "Mesh '%s' has '%d', not 2 vertices - ignored."%\
-                      (obj.name, len(mesh.verts))
-                continue
-            min_h = mesh.verts[0][2]
-            if mesh.verts[1][2]<min_h: min_h = mesh.verts[1][2]
-            f.write("    <checkline type=\"%s\" p1=\"%f %f\" p2=\"%f %f\" min-height=\"%f\"/>\n"% \
-                    (subtype, mesh.verts[0][0], mesh.verts[0][1],mesh.verts[1][0], mesh.verts[1][1],
-                     min_h))
+            # One of lap, activate, toggle, ambient
+            activate = getProperty(obj, "activate", "").upper()
+            kind=" "
+            if activate:
+                try:
+                    kind = " activate=\"%d\" "%dName2Index[activate]
+                except KeyError:
+                    print "Activate object '%s' not found!"%activate
+            toggle = getProperty(obj, "toggle", "").upper()
+            if toggle:
+                try:
+                    kind = " toggle=\"%d\" "%dName2Index[toggle]
+                except KeyError:
+                    print "Toggle object '%s' not found!"%activate
+            lap = getProperty(obj, "lap", "").upper()
+            if lap:
+                kind = " lap "
+            ambient = getProperty(obj, "ambient", "").upper()
+            if ambient:
+                kind=" ambient=\"%s\" "%ambient
+
+            if len(mesh.verts)==2:   # Check line
+                min_h = mesh.verts[0][2]
+                if mesh.verts[1][2]<min_h: min_h = mesh.verts[1][2]
+                f.write("    <check-line %s p1=\"%f %f\" p2=\"%f %f\" min-height=\"%f\"/>\n"% \
+                        (kind, mesh.verts[0][0], mesh.verts[0][1],
+                         mesh.verts[1][0], mesh.verts[1][1], min_h   )  )
+            else:
+                radius = 0
+                for v in mesh.verts:
+                    r = (obj.loc[0]-v[0])*(obj.loc[0]-v[0]) + \
+                        (obj.loc[1]-v[1])*(obj.loc[1]-v[1]) + \
+                        (obj.loc[2]-v[2])*(obj.loc[2]-v[2])
+                    if r>radius:
+                        radius=r
+                inner_radius = getProperty(obj, "inner-radius", radius)
+                f.write("    <check-sphere %s xyz=\"%f %f %f\" radius=\"%f\" inner-radius=\"%f\"/>\n"% \
+                        (kind, obj.loc[0], obj.loc[1], obj.loc[2],
+                         radius, inner_radius) )
+                        
+
         f.write("  </checks>\n")
             
-    # -----------------------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
     # Writes the scene files, which includes all models, animations, and items
     def writeSceneFile(self, sPath, sTrackName, sWaterName, lItems, lAnimations,
-                       lPhysical, lChecklines):
+                       lPhysical, lChecks):
         start_time = bsys.time()
         print "Writing scene file -->",
         f = open(sPath+"/scene.xml", "w")
@@ -733,12 +764,29 @@ class TrackExport:
             
         if lAnimations:
             self.writeAnimations(f, sPath, lAnimations)
-        if lChecklines:
-            self.writeChecks(f, lChecklines)
+        if lChecks:
+            self.writeChecks(f, lChecks)
+        scene = Blender.Scene.getCurrent()
+        sky = getIdProperty(scene, "sky-type", None)
+        if sky:
+            if sky=="dome":
+                texture        = getIdProperty(scene, "sky-texture"            )
+                hori           = getIdProperty(scene, "sky-horizontal",     16 )
+                verti          = getIdProperty(scene, "sky-vertical",       16 )
+                tex_percent    = getIdProperty(scene, "sky-texture-percent",0.5)
+                sphere_percent = getIdProperty(scene, "sky-sphere-percent", 1.3)
+                f.write("""
+      <sky-dome texture=\"%s\"
+                horizontal=\"%s\" vertical=\"%s\" 
+                texture-percent=\"%s\" sphere-percent=\"%s\"/>
+    """ %(texture, hori, verti, tex_percent, sphere_percent))
+            elif sky=="box":
+                pass
+            
         f.write("</scene>\n")
         f.close()
         print bsys.time()-start_time,"seconds"
-    # -----------------------------------------------------------------------------------------
+        # ----------------------------------------------------------------------
 
     def __init__(self, sFilename):
         self.dExportedObjects = {}
@@ -754,7 +802,7 @@ class TrackExport:
         lCameraCurves  = []
         lAnimations    = []
         lPhysical      = []
-        lChecklines    = []
+        lChecks        = []
         for obj in lObj:
             # Try to get the supertuxkart type field. If it's not defined,
             # use the name of the objects as type.
@@ -780,11 +828,12 @@ class TrackExport:
             
             if stktype=="WATER":
                 lWater.append(obj)
-            elif stktype=="CHECKLINE":
-                lChecklines.append(obj)
+            elif stktype[: 9]=="CHECK":
+                lChecks.append(obj)
             # Check for new drivelines
-            elif stktype[:14]=="MAIN-DRIVELINE" or stktype[:13]=="MAINDRIVELINE" or \
-                 stktype[:6]=="MAINDL":
+            elif stktype[:14]=="MAIN-DRIVELINE" or \
+                 stktype[:13]=="MAINDRIVELINE"  or \
+                 stktype[: 6]=="MAINDL":
                 lDrivelines.append(Driveline(obj, 1))
                 found_main_driveline = 1
             elif stktype[:9]=="DRIVELINE":
@@ -810,7 +859,7 @@ class TrackExport:
         start_time = bsys.time()
         print "Exporting track -->",
         sTrackName = sBase+"_track.b3d"
-        #FIXME for now to save time: b3d_export.write_b3d_file(sFilename+"_track.b3d", lTrack)
+        b3d_export.write_b3d_file(sFilename+"_track.b3d", lTrack)
         print bsys.time()-start_time,"seconds."
         sWaterName = ""
         if lWater:
@@ -823,13 +872,10 @@ class TrackExport:
         # scene file
         # ----------
         self.writeSceneFile(sPath, sTrackName, sWaterName, lItems, lAnimations,
-                            lPhysical, lChecklines)
+                            lPhysical, lChecks)
 
-# =============================================================================================
+# ==============================================================================
 def savescene_callback(sFilename):
-    # FIXME: for testing only
-    sFilename="c:/cygwin/home/jh235117/local/supertuxkart/supertuxkart/data/tracks/jungle/test"
-    print "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
     # Settings for the b3d exporter:
     global flag_stack
     b3d_export.flag_stack = []
@@ -842,7 +888,7 @@ def savescene_callback(sFilename):
 
     exporter = TrackExport(sFilename)
 
-# =============================================================================================
+# ==============================================================================
 def main():
     tmp_filename = Blender.sys.makename(ext = ".track")
     Blender.Window.FileSelector(savescene_callback,"Export STK track",tmp_filename)
