@@ -744,8 +744,8 @@ class TrackExport:
             # FIXME: what about zipper??
             if name=="GHERRING": name="banana"
             if name=="RHERRING": name="item"
-            if name=="YHERRING": name="nitro-big"
-            if name=="SHERRING": name="nitro-small"
+            if name=="YHERRING": name="big-nitro"
+            if name=="SHERRING": name="small-nitro"
             s="%s x=\"%s\" y=\"%s\""%(name, x, y)
             if z: s="%s z=\"%s\""%(s, z)
             if p and p!="0": s="%s p=\"%s\""%(s, p)
