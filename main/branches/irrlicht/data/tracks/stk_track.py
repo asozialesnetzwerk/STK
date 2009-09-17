@@ -314,12 +314,12 @@ class Driveline:
         else:
             sInv = " "
         f.write("  <!-- Driveline: %s -->\n"%self.name)
-        f.write("  <quad%sp0=\"%f,%f,%f\" p1=\"%f,%f,%f\" p2=\"%f,%f,%f\" p3=\"%f,%f,%f\"/>\n" \
+        f.write("  <quad%sp0=\"%f %f %f\" p1=\"%f %f %f\" p2=\"%f %f %f\" p3=\"%f %f %f\"/>\n" \
             %(sInv, l[0],l[1],l[2], r[0],r[1],r[2], r1[0],r1[1],r1[2], l1[0],l1[1],l1[2]) )
         for i in range(1, len(self.lLeft)-1):
             l1  = self.lLeft[i+1]
             r1  = self.lRight[i+1]
-            f.write("  <quad%sp0=\"%d:3\" p1=\"%d:2\" p2=\"%f,%f,%f\" p3=\"%f,%f,%f\"/>\n" \
+            f.write("  <quad%sp0=\"%d:3\" p1=\"%d:2\" p2=\"%f %f %f\" p3=\"%f %f %f\"/>\n" \
                     %(sInv,self.global_quad_index_start+i-1, self.global_quad_index_start+i-1, \
                   r1[0],r1[1],r1[2], l1[0],l1[1],l1[2]) )
 
@@ -662,14 +662,15 @@ class TrackExport:
             # Convert to world space
             mesh.transform(obj.getMatrix())
             # One of lap, activate, toggle, ambient
-            activate = getProperty(obj, "activate", "").upper()
+            activate = getProperty(obj, "activate", "")
             kind=" "
             if activate:
+                print "active",activate,dName2Index
                 try:
                     kind = " activate=\"%d\" "%dName2Index[activate]
                 except KeyError:
                     print "Activate object '%s' not found!"%activate
-            toggle = getProperty(obj, "toggle", "").upper()
+            toggle = getProperty(obj, "toggle", "")
             if toggle:
                 try:
                     kind = " toggle=\"%d\" "%dName2Index[toggle]
@@ -685,7 +686,7 @@ class TrackExport:
             if len(mesh.verts)==2:   # Check line
                 min_h = mesh.verts[0][2]
                 if mesh.verts[1][2]<min_h: min_h = mesh.verts[1][2]
-                f.write("    <check-line %s p1=\"%f %f\" p2=\"%f %f\" min-height=\"%f\"/>\n"% \
+                f.write("    <check-line%sp1=\"%f %f\" p2=\"%f %f\" min-height=\"%f\"/>\n"% \
                         (kind, mesh.verts[0][0], mesh.verts[0][1],
                          mesh.verts[1][0], mesh.verts[1][1], min_h   )  )
             else:
@@ -696,12 +697,14 @@ class TrackExport:
                         (obj.loc[2]-v[2])*(obj.loc[2]-v[2])
                     if r>radius:
                         radius=r
+                radius = math.sqrt(radius)
                 inner_radius = getProperty(obj, "inner-radius", radius)
-                f.write("    <check-sphere %s xyz=\"%f %f %f\" radius=\"%f\" inner-radius=\"%f\"/>\n"% \
-                        (kind, obj.loc[0], obj.loc[1], obj.loc[2],
-                         radius, inner_radius) )
+                color = getProperty(obj, "color", "255 120 120 120")
+                f.write("    <check-sphere%sxyz=\"%f %f %f\" radius=\"%f\"\n" % \
+                        (kind, obj.loc[0], obj.loc[1], obj.loc[2], radius) )
+                f.write("                  inner-radius=\"%f\" color=\"%s\"/>\n"% \
+                        (inner_radius, color) )
                         
-
         f.write("  </checks>\n")
             
     # --------------------------------------------------------------------------
