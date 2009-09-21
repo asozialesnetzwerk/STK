@@ -45,7 +45,8 @@ def getIdProperty(obj, name, default=""):
     try:
         return obj.properties[name]
     except:
-        pass
+        if default!=None:
+            obj.properties[name]=default
     return default
 
 # ------------------------------------------------------------------------------
@@ -101,33 +102,33 @@ class Driveline:
         # Invisible drivelines are not shown in the minimap
         self.invisible = getProperty(driveline, "invisible", 0)
         self.enabled   = not getProperty(driveline, "disable",   0)
-    # ------------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
     # Returns the name of the driveline
     def getName(self):
         return self.name
-    # ------------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
     # Returns if this is a main driveline or not.
     def isMain(self):
         return self.is_main
-    # ------------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
     # Returns if this driveline is disabled.
     def isEnabled(self): 
         return self.enabled
-    # ------------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
     # Stores that the start quad of this driveline is connected to quad
     # quad_index of quad driveline. 
     def setFromQuad(self, driveline, quad_index):
         # Convert the relative to driveline quad index to the global index:
         self.from_quad      = driveline.getFirstQuadIndex()+quad_index
         self.from_driveline = driveline
-    # ------------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
     def setToDriveline(self, driveline):
         self.to_driveline = driveline
-    # ------------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
     # Returns the global index of the quad this start point is connected to.
     def getFromQuad(self):
         return self.from_quad
-    # ------------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
     # Returns the number of quads of this driveline
     def getNumberOfQuads(self):
         return len(self.lCenter)
@@ -160,7 +161,7 @@ class Driveline:
             else:
                 self.dNext[e.v2] = [e.v1]
 
-    # ------------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
     # This helper function determines the start vertex for a driveline.
     # Details are documented in convertDrivelines. It returns as list with
     # the two starting lines.
@@ -172,7 +173,8 @@ class Driveline:
                 self.lStart.append(i)
 
         if len(self.lStart)!=2:
-            print "Driveline '%s' is incorrect formed, it does not have"%self.name
+            print "Driveline '%s' is incorrect formed, it does not have" \
+                  % self.name
             print "exactly two vertices with only one neighbour."
             return
 
@@ -180,18 +182,18 @@ class Driveline:
                              (self.lStart[0][1]+self.lStart[1][1])*0.5,
                              (self.lStart[0][2]+self.lStart[1][2])*0.5 )
 
-    # ------------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
     # Returns the startline of this driveline
     def getStartPoint(self):
         return self.start_point
-    # ------------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
     # Returns the distance of the start point from a given point
     def getStartDistanceTo(self, p):
         dx=self.start_point[0]-p[0]
         dy=self.start_point[1]-p[1]
         dz=self.start_point[2]-p[2]
         return dx*dx+dy*dy+dz*dz
-    # ------------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
     # Convert the dictionary of list of neighbours to two lists - one for the
     # left side, one for the right side.
     def convertToLists(self):
@@ -292,7 +294,7 @@ class Driveline:
                 min_index = i
         return (min_dist, min_index)
 
-    # ------------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
     # Determine the driveline from lSorted which is closest to this driveline's
     # endpoint (closest meaning: having a quad that is closest).
     def computeSuccessor(self, lSorted):
@@ -302,7 +304,7 @@ class Driveline:
               quad_index,lSorted[driveline_index].getName()
         return quad_index+lSorted[driveline_index].getFirstQuadIndex()
 
-    # ------------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
     # Writes the quads into a file.
     def write(self, f):
         l   = self.lLeft[0]
@@ -356,7 +358,7 @@ class TrackExport:
         f.close()
         print bsys.time()-start_time, "seconds"
         
-    # -----------------------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
     def writeCurve(self, f, lCurves):
         count = 0
         for curves in lCurves:
@@ -372,13 +374,15 @@ class TrackExport:
             for nu in curves.data:
                 # 0:"poly", 1:"bezier", 4:"nurbs"
                 if nu.type==4:
-                    f.write("    <%s curvetype=\"nurb\" name=\"%s\">\n"%(type, curves.name))
+                    f.write("    <%s curvetype=\"nurb\" name=\"%s\">\n" \
+                            % (type, curves.name))
                     for i in nu:
                         v=Vector(i[0],i[1],i[2]) * matrix
                         f.write("      <p=\"%f %f %f\"/>\n"%(v[0], v[1], v[2]))
                     f.write("    </%s>\n"%type)
                 elif nu.type==1:
-                    f.write("    <%s curvetype=\"bezier\" name=\"%s\">\n"%(type, curves.name))
+                    f.write("    <%s curvetype=\"bezier\" name=\"%s\">\n" \
+                            % (type, curves.name))
                     for i in list(nu):
                         # v0/v2 = hanldes, v1 = control point
                         v0 = Vector(i.vec[0][0],i.vec[0][1],i.vec[0][2])
@@ -471,7 +475,8 @@ class TrackExport:
             t = self.findClosestDrivelineToDrivelines(lRemain, lSorted)
             (remain_index, sorted_index, quad_to_index) = t
             print lRemain[remain_index].getName(),t
-            lRemain[remain_index].setFromQuad(lSorted[sorted_index], quad_to_index)
+            lRemain[remain_index].setFromQuad(lSorted[sorted_index],
+                                              quad_to_index)
             lSorted.append(lRemain[remain_index])
             del lRemain[remain_index]
 
@@ -481,8 +486,8 @@ class TrackExport:
 
     # --------------------------------------------------------------------------
     # Writes the track.quad file with the list of all quads, and the track.graph
-    # file defining a graph node for each quad and a basic connection between all
-    # graph nodes.
+    # file defining a graph node for each quad and a basic connection between
+    # all graph nodes.
     def writeQuadAndGraph(self, sPath, lDrivelines):
         start_time = bsys.time()
         print "stk_track: Writing quad file --> ",
@@ -492,9 +497,9 @@ class TrackExport:
     
         lSorted = []
         self.convertDrivelines(lDrivelines, lSorted)
-        # Stores the first quad number (and since quads = graph nodes the node number) of
-        # each section of the track. I.e. the main track starts with quad 0, then the
-        # first alternative way, ...
+        # Stores the first quad number (and since quads = graph nodes the node
+        # number) of each section of the track. I.e. the main track starts with
+        # quad 0, then the first alternative way, ...
         lStartQuad         = [0]
         dSuccessor         = {}
         last_main_lap_quad = 0
@@ -564,7 +569,8 @@ class TrackExport:
                 dWrittenEdges[ (fr, to) ] = 1
             if driveline.getFirstQuadIndex()< driveline.getLastQuadIndex():
                 f.write("  <edge-line from=\"%d\" to=\"%d\"/>\n" \
-                        %(driveline.getFirstQuadIndex(), driveline.getLastQuadIndex()))
+                        %(driveline.getFirstQuadIndex(),
+                          driveline.getLastQuadIndex()))
             fr = driveline.getLastQuadIndex()
             to = driveline.computeSuccessor(lSorted)
             if not dWrittenEdges.has_key( (fr, to) ):
@@ -616,10 +622,12 @@ class TrackExport:
             for bez in curve.bezierPoints:
                 if curve.interpolation==IpoCurve.InterpTypes.BEZIER:
                     f.write("        <p c=\"%f %f\" h1=\"%f %f\" h2=\"%f %f\"/>\n"%\
-                            (bez.vec[1][0],factor*bez.vec[1][1], bez.vec[0][0],factor*bez.vec[0][1],
-                             bez.vec[2][0],factor*bez.vec[2][1]))
+                            (bez.vec[1][0],factor*bez.vec[1][1], bez.vec[0][0],
+                             factor*bez.vec[0][1], bez.vec[2][0],
+                             factor*bez.vec[2][1]))
                 else:
-                    f.write("        <p c=\"%f %f\"/>\n"%(bez.vec[1][0],f*bez.vec[1][1]))
+                    f.write("        <p c=\"%f %f\"/>\n"%(bez.vec[1][0],
+                                                          factor*bez.vec[1][1]))
             f.write("      </curve>\n")
             
         f.write("    </animations-IPO>\n")
@@ -633,9 +641,9 @@ class TrackExport:
                                obj.constraints[0][Constraint.Settings.TARGET].name)
     
     # --------------------------------------------------------------------------
-    # Writes out all animations (be it animations with IPO or animations with path
-    # constraints).
-    def writeAnimations(self, f, sPath, lAnimations):
+    # Writes out all animations (be it animations with IPO or animations with
+    # path constraints).
+    def writeAnimations(self, f, sPath, lAnimations, lObjects):
         scene       = Blender.Scene.getCurrent()
         f.write("  <animations fps=\"%d\">\n"%scene.getRenderingContext().fps)
         for obj in lAnimations:
@@ -644,6 +652,10 @@ class TrackExport:
                 self.writeAnimationWithIPO(f, sPath, obj, ipo)
             else:
                 self.writeAnimationsWithPaths(f, sPath, obj)
+        # For now objects are exported as animations (with no IPO attached)
+        for obj in lObjects:
+            self.writeAnimationWithIPO(f, sPath, obj, [])
+
         f.write("  </animations>\n")
                 
     # --------------------------------------------------------------------------
@@ -710,7 +722,7 @@ class TrackExport:
     # --------------------------------------------------------------------------
     # Writes the scene files, which includes all models, animations, and items
     def writeSceneFile(self, sPath, sTrackName, sWaterName, lItems, lAnimations,
-                       lPhysical, lChecks):
+                       lObjects, lPhysical, lChecks):
         start_time = bsys.time()
         print "Writing scene file -->",
         f = open(sPath+"/scene.xml", "w")
@@ -719,7 +731,8 @@ class TrackExport:
         
         f.write("  <track model=\"%s\" x=\"0\" y=\"0\" z=\"0\"/>\n"%sTrackName)
         if sWaterName:
-            f.write("  <water model=\"%s\" x=\"0\" y=\"0\" z=\"0\"/>\n"""%sWaterName)
+            f.write("  <water model=\"%s\" x=\"0\" y=\"0\" z=\"0\"/>\n""" \
+                    % sWaterName)
             
         rad2deg = 180.0/3.1415926
         for obj in lItems:
@@ -762,11 +775,11 @@ class TrackExport:
             shape = getProperty(obj, "shape", "box")
             mass  = getProperty(obj, "mass", 10)
             f.write("  <physical-object %s\n"%(getXYZHPRString(obj)))
-            f.write("                   model=\"%s\" shape=\"%s\" mass=\"%f\"/>\n"% \
-                    (name, shape, mass))
+            f.write("                   model=\"%s\" shape=\"%s\" mass=\"%f\"/>\n"\
+                    % (name, shape, mass))
             
-        if lAnimations:
-            self.writeAnimations(f, sPath, lAnimations)
+        if lAnimations or lObjects:
+            self.writeAnimations(f, sPath, lAnimations, lObjects)
         if lChecks:
             self.writeChecks(f, lChecks)
         scene = Blender.Scene.getCurrent()
@@ -796,42 +809,45 @@ class TrackExport:
         
         # Collect the different kind of meshes this exporter handles
         # ----------------------------------------------------------
-        lObj           = Blender.Object.Get()
-        lWater         = []
-        lTrack         = []
-        lDrivelines    = []
+        lObj           = Blender.Object.Get()  # List of all objects
+        lWater         = []                    # List of all water objects
+        lTrack         = []                    # All main track objects
+        lDrivelines    = []                    # All drivelines
         found_main_driveline = 0
-        lItems         = []
-        lCameraCurves  = []
-        lAnimations    = []
-        lPhysical      = []
-        lChecks        = []
+        lItems         = []                    # All track items
+        lCameraCurves  = []                    # Camera curves (unused atm)
+        lAnimations    = []                    # All animated objects
+        lObjects       = []                    # All non-animated objects
+        lPhysical      = []                    # All physica objects
+        lChecks        = []                    # All check structures
         for obj in lObj:
             # Try to get the supertuxkart type field. If it's not defined,
             # use the name of the objects as type.
             stktype = getProperty(obj, "type", obj.name).upper()
+            
             # Make it possible to ignore certain objects, e.g. if you keep a
             # selection of 'templates' (ready to go models) around to be
             # copied into the main track.
-            if stktype=="IGNORE": continue
+            if stktype[:6]=="IGNORE": continue
             
             if obj.type=="Empty" and \
-               stktype[:8] in ["GHERRING", "RHERRING", "YHERRING", "SHERRING",  # backw. comp.
-                               "BANANA", "ITEM", "NITRO-SM", "NITRO-BI"]:
+               (stktype[:8] in ["GHERRING", "RHERRING", "YHERRING", "SHERRING"] \
+                or stktype[:6]== "BANANA"      or stktype[:4]=="ITEM" \
+                or stktype[:11]=="NITRO-SMALL" or stktype[:9]=="NITRO-BIG" ):
                 lItems.append(obj)
                 continue
             elif obj.type=="Curve":
                 # Only append camera, other curves will be handled in animations
-                if stktype=="CAMERA": lCameraCurves.append(obj)
+                if stktype[:6]=="CAMERA": lCameraCurves.append(obj)
             elif stktype[:6]=="PHYSIC":
                 lPhysical.append(obj)
             elif obj.type!="Mesh":
                 #print "Non-mesh object '%s' (type: '%s') is ignored!"%(obj.name, stktype)
                 continue
             
-            if stktype=="WATER":
+            if stktype[:5]=="WATER":
                 lWater.append(obj)
-            elif stktype[: 9]=="CHECK":
+            elif stktype[:5]=="CHECK":
                 lChecks.append(obj)
             # Check for new drivelines
             elif stktype[:14]=="MAIN-DRIVELINE" or \
@@ -841,8 +857,13 @@ class TrackExport:
                 found_main_driveline = 1
             elif stktype[:9]=="DRIVELINE":
                 lDrivelines.append(Driveline(obj, 0))
-            elif stktype[:4]=="ANIM":
+            elif stktype[:9]=="ANIMATION":
                 lAnimations.append(obj)
+            elif stktype=="OBJECT":
+                # Note that we DO NOT compare with stktype[:6], since blender
+                # names all by default as 'object...", so everything not having
+                # its own name would be exported as a separate object.
+                lObjects.append(obj)
             else:
                 lTrack.append(obj)
 
@@ -875,7 +896,7 @@ class TrackExport:
         # scene file
         # ----------
         self.writeSceneFile(sPath, sTrackName, sWaterName, lItems, lAnimations,
-                            lPhysical, lChecks)
+                            lObjects, lPhysical, lChecks)
 
 # ==============================================================================
 def savescene_callback(sFilename):
