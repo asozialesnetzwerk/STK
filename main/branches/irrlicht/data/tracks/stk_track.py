@@ -677,23 +677,22 @@ class TrackExport:
             activate = getProperty(obj, "activate", "")
             kind=" "
             if activate:
-                print "active",activate,dName2Index
                 try:
-                    kind = " activate=\"%d\" "%dName2Index[activate]
+                    kind = " kind=\"activate\" other-id=\"%d\" "%dName2Index[activate]
                 except KeyError:
                     print "Activate object '%s' not found!"%activate
             toggle = getProperty(obj, "toggle", "")
             if toggle:
                 try:
-                    kind = " toggle=\"%d\" "%dName2Index[toggle]
+                    kind = " kind=\"toggle\" other-id=\"%d\" "%dName2Index[toggle]
                 except KeyError:
                     print "Toggle object '%s' not found!"%activate
-            lap = getProperty(obj, "lap", "").upper()
-            if lap:
-                kind = " lap "
+            lap = getProperty(obj, "type", obj.name).upper()
+            if lap[:3]=="LAP":
+                kind = " kind=\"lap\" "  # xml needs a value for an attribute
             ambient = getProperty(obj, "ambient", "").upper()
             if ambient:
-                kind=" ambient=\"%s\" "%ambient
+                kind=" kind=\"ambient\" "%ambient
 
             if len(mesh.verts)==2:   # Check line
                 min_h = mesh.verts[0][2]
@@ -847,7 +846,7 @@ class TrackExport:
             
             if stktype[:5]=="WATER":
                 lWater.append(obj)
-            elif stktype[:5]=="CHECK":
+            elif stktype[:5]=="CHECK" or stktype[:3]=="LAP":
                 lChecks.append(obj)
             # Check for new drivelines
             elif stktype[:14]=="MAIN-DRIVELINE" or \
