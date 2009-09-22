@@ -557,14 +557,14 @@ class TrackExport:
             fr = driveline.getFromQuad()
             to = driveline.getFirstQuadIndex()
             if not dWrittenEdges.has_key( (fr,to) ):
-                f.write("  <edge from=\"%d\" to=\"%d\">\n" %(fr, to))
+                f.write("  <edge from=\"%d\" to=\"%d\"/>\n" %(fr, to))
                 #if to.isEnabled() and fr.isEnabled():
-                #    f.write("  <edge from=\"%d\" to=\"%d\">\n" %(fr, to))
+                #    f.write("  <edge from=\"%d\" to=\"%d\"/>\n" %(fr, to))
                 #elif to.isEnabled():
-                #    f.write("  <!-- %s disabled <edge from=\"%d\" to=\"%d\"> -->\n" \
+                #    f.write("  <!-- %s disabled <edge from=\"%d\" to=\"%d\"/> -->\n" \
                 #            %(fr.getName(), fr, to))
                 #else:
-                #    f.write("  <!-- %s disabled <edge from=\"%d\" to=\"%d\"> -->\n"
+                #    f.write("  <!-- %s disabled <edge from=\"%d\" to=\"%d\"/> -->\n"
                 #            %(to.getName(), fr, to))
                 dWrittenEdges[ (fr, to) ] = 1
             if driveline.getFirstQuadIndex()< driveline.getLastQuadIndex():
