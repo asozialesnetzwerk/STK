@@ -598,7 +598,7 @@ class TrackExport:
     
         # Note: Y and Z are swapped!
         f.write("    <animations-IPO obj=\"%s\" %s %s>\n"% \
-                (b3d_name, getXYZHPRString(obj), shape),)
+                (b3d_name, getXYZHPRString(obj), shape))
         dInterp = {IpoCurve.InterpTypes.BEZIER:        "bezier",
                    IpoCurve.InterpTypes.LINEAR:        "linear",
                    IpoCurve.InterpTypes.CONST:         "const"          }
@@ -643,7 +643,7 @@ class TrackExport:
     # --------------------------------------------------------------------------
     # Writes out all animations (be it animations with IPO or animations with
     # path constraints).
-    def writeAnimations(self, f, sPath, lAnimations, lObjects):
+    def writeAnimations(self, f, sPath, lAnimations):
         scene       = Blender.Scene.getCurrent()
         f.write("  <animations fps=\"%d\">\n"%scene.getRenderingContext().fps)
         for obj in lAnimations:
@@ -652,12 +652,24 @@ class TrackExport:
                 self.writeAnimationWithIPO(f, sPath, obj, ipo)
             else:
                 self.writeAnimationsWithPaths(f, sPath, obj)
-        # For now objects are exported as animations (with no IPO attached)
-        for obj in lObjects:
-            self.writeAnimationWithIPO(f, sPath, obj, [])
-
         f.write("  </animations>\n")
                 
+    # --------------------------------------------------------------------------
+    # Write the objects that are part of the track (but not animated or
+    # physical).
+    def writeObjects(self, f, sPath, lObjects):
+        for obj in lObjects:
+            # An object can set the 'name' property, then this name will
+            # be used to name the exported object (instead of the python name
+            # which might be a default name with a number). Additionally, names
+            # are cached so it can be avoided to export two or more identical
+            # objects.
+            b3d_name = getProperty(obj, "name", obj.name)+".b3d"
+            if not self.dExportedObjects.has_key(b3d_name):
+                exportLocalB3D(obj, sPath+"/"+b3d_name)
+            f.write("    <object model=\"%s\" %s/>\n"% \
+                (b3d_name, getXYZHPRString(obj)) )
+        
     # --------------------------------------------------------------------------
     # Writes out all checklines.
     def writeChecks(self, f, lChecks):
@@ -728,7 +740,13 @@ class TrackExport:
         f.write("<?xml version=\"1.0\"?>\n")
         f.write("<scene>\n")
         
-        f.write("  <track model=\"%s\" x=\"0\" y=\"0\" z=\"0\"/>\n"%sTrackName)
+        if lObjects:
+            f.write("  <track model=\"%s\" x=\"0\" y=\"0\" z=\"0\">\n"%sTrackName)
+            self.writeObjects(f, sPath, lObjects)
+            f.write("  </track>\n")
+        else:
+            f.write("  <track model=\"%s\" x=\"0\" y=\"0\" z=\"0\"/>\n"%sTrackName)
+            
         if sWaterName:
             f.write("  <water model=\"%s\" x=\"0\" y=\"0\" z=\"0\"/>\n""" \
                     % sWaterName)
@@ -777,8 +795,8 @@ class TrackExport:
             f.write("                   model=\"%s\" shape=\"%s\" mass=\"%f\"/>\n"\
                     % (name, shape, mass))
             
-        if lAnimations or lObjects:
-            self.writeAnimations(f, sPath, lAnimations, lObjects)
+        if lAnimations:
+            self.writeAnimations(f, sPath, lAnimations)
         if lChecks:
             self.writeChecks(f, lChecks)
         scene = Blender.Scene.getCurrent()
