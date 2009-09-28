@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<materials>
+  <material name="bush.png" transparency="y"/>
+  <material name="bush2.png" transparency="y" clamp="y"/>
+  <material name="grass2.png" transparency="y"/>
+  <material name="palmtree3.png" transparency="y"/>
+  <material name="palm.png" transparency="y"/>
+  <material name="palmtree.png" transparency="y"/>
+</materials>  
