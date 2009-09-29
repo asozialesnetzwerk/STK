@@ -300,17 +300,27 @@ class Driveline:
     def computeSuccessor(self, lSorted):
         (dist, driveline_index, quad_index)=self.getDistanceTo(self.end_point,
                                                                lSorted)
-        print "\ncs", self.getName(), dist, driveline_index, \
-              quad_index,lSorted[driveline_index].getName()
         return quad_index+lSorted[driveline_index].getFirstQuadIndex()
 
     # --------------------------------------------------------------------------
     # Writes the quads into a file.
     def write(self, f):
-        l   = self.lLeft[0]
-        r   = self.lRight[0]
-        l1  = self.lLeft[1]
-        r1  = self.lRight[1]
+        # The quads can be either clockwise or counter-clockwise oriented. STK
+        # expectes counter-clockwise, so if the orientation is wrong, swap
+        # left and right side.
+        if (self.lRight[1][0]-self.lLeft[0][0])*(self.lRight[0][1]-self.lLeft[0][1]) \
+         - (self.lRight[1][1]-self.lLeft[0][1])*(self.lRight[0][0]-self.lLeft[0][0]) > 0:
+            
+            r   = self.lLeft[0]
+            l   = self.lRight[0]
+            r1  = self.lLeft[1]
+            l1  = self.lRight[1]
+        else:
+            l   = self.lLeft[0]
+            r   = self.lRight[0]
+            l1  = self.lLeft[1]
+            r1  = self.lRight[1]
+
         if self.invisible:
             sInv = " invisible=\"yes\" "
         else:
@@ -474,7 +484,6 @@ class TrackExport:
         while lRemain:
             t = self.findClosestDrivelineToDrivelines(lRemain, lSorted)
             (remain_index, sorted_index, quad_to_index) = t
-            print lRemain[remain_index].getName(),t
             lRemain[remain_index].setFromQuad(lSorted[sorted_index],
                                               quad_to_index)
             lSorted.append(lRemain[remain_index])
