@@ -5,7 +5,6 @@
         description = "M. Gagnon"
         music       = "amazon_jungle.music"
         screenshot  = "sshot-jungle.png"
-        mapping     = "jungle.track.mapping"
         camera-final-position  ="-10 25 3"
         camera-final-hpr       ="-140 -7 0"/>
 </track>
