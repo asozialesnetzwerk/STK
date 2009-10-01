@@ -99,6 +99,7 @@ class Driveline:
         self.from_quad=None
         self.from_driveline=None
         self.to_driveline=None
+        self.is_last_main = 0
         # Invisible drivelines are not shown in the minimap
         self.invisible = getProperty(driveline, "invisible", 0)
         self.enabled   = not getProperty(driveline, "disable",   0)
@@ -146,6 +147,23 @@ class Driveline:
     # Returns the global index of the last quad in this driveline.
     def getLastQuadIndex(self):
         return self.global_quad_index_start+len(self.lCenter)-1
+    # --------------------------------------------------------------------------
+    # This driveline is the last main driveline. This means that it will get
+    # one additional quad added to connect this to the very first quad. Since
+    # the values are not actually needed (see write function), the arrays have
+    # to be made one element larger to account for this additional quad (e.g.
+    # in calls to getNumberOfQuads etc).
+    def setIsLastMain(self, first_driveline):
+        self.is_last_main = 1
+        cp=[]
+        for i in range(3):
+            cp.append((self.lLeft [-1][i]+first_driveline.lLeft [0][i]+
+                       self.lRight[-1][i]+first_driveline.lRight[0][i])*0.25)
+
+        self.lCenter.append(cp)
+        self.lLeft.append(None)
+        self.lRight.append(None)
+        
     # --------------------------------------------------------------------------
     # This creates a dictionary for a mesh which contains for each vertex a list
     # of all its neighbours.
@@ -200,6 +218,16 @@ class Driveline:
         self.lLeft   = [self.lStart[0], self.dNext[self.lStart[0]][0]]
         self.lRight  = [self.lStart[1], self.dNext[self.lStart[1]][0]]
         self.lCenter = []
+        
+        # The quads can be either clockwise or counter-clockwise oriented. STK
+        # expectes counter-clockwise, so if the orientation is wrong, swap
+        # left and right side.
+        if (self.lRight[1][0]-self.lLeft[0][0])*(self.lRight[0][1]-self.lLeft[0][1]) \
+         - (self.lRight[1][1]-self.lLeft[0][1])*(self.lRight[0][0]-self.lLeft[0][0]) > 0:
+            r   = self.lRight
+            self.lRight = self.lLeft
+            self.lLeft  = r
+        
         count=0
         # Just in case that we have an infinite loop due to a malformed graph:
         # stop after 10000 vertices
@@ -304,36 +332,35 @@ class Driveline:
 
     # --------------------------------------------------------------------------
     # Writes the quads into a file.
-    def write(self, f):
-        # The quads can be either clockwise or counter-clockwise oriented. STK
-        # expectes counter-clockwise, so if the orientation is wrong, swap
-        # left and right side.
-        if (self.lRight[1][0]-self.lLeft[0][0])*(self.lRight[0][1]-self.lLeft[0][1]) \
-         - (self.lRight[1][1]-self.lLeft[0][1])*(self.lRight[0][0]-self.lLeft[0][0]) > 0:
-            
-            r   = self.lLeft[0]
-            l   = self.lRight[0]
-            r1  = self.lLeft[1]
-            l1  = self.lRight[1]
-        else:
-            l   = self.lLeft[0]
-            r   = self.lRight[0]
-            l1  = self.lLeft[1]
-            r1  = self.lRight[1]
+    def writeQuads(self, f):
+        l   = self.lLeft[0]
+        r   = self.lRight[0]
+        l1  = self.lLeft[1]
+        r1  = self.lRight[1]
 
         if self.invisible:
             sInv = " invisible=\"yes\" "
         else:
             sInv = " "
+        max_index = len(self.lLeft)-1
+        # If this is the last main driveline, the last quad is a dummy element
+        # added by setLastMain(). So the number of elements is decreased by
+        # one.
+        if self.is_last_main:
+            max_index = max_index - 1
+            
         f.write("  <!-- Driveline: %s -->\n"%self.name)
         f.write("  <quad%sp0=\"%f %f %f\" p1=\"%f %f %f\" p2=\"%f %f %f\" p3=\"%f %f %f\"/>\n" \
             %(sInv, l[0],l[1],l[2], r[0],r[1],r[2], r1[0],r1[1],r1[2], l1[0],l1[1],l1[2]) )
-        for i in range(1, len(self.lLeft)-1):
+        for i in range(1, max_index):
             l1  = self.lLeft[i+1]
             r1  = self.lRight[i+1]
             f.write("  <quad%sp0=\"%d:3\" p1=\"%d:2\" p2=\"%f %f %f\" p3=\"%f %f %f\"/>\n" \
                     %(sInv,self.global_quad_index_start+i-1, self.global_quad_index_start+i-1, \
                   r1[0],r1[1],r1[2], l1[0],l1[1],l1[2]) )
+        if self.is_last_main:
+            f.write("  <quad%sp0=\"%d:3\" p1=\"%d:2\" p2=\"0:1\" p3=\"0:0\"/>\n"\
+                    % (sInv, max_index-1, max_index-1))
 
 # ==============================================================================
 # The actual exporter. It is using a class mainly to store some information
@@ -341,7 +368,7 @@ class Driveline:
 class TrackExport:
     
     def writeTrackFile(self, sPath, sBase, lCurves):
-        print "Writing track.xml file",
+        print "Writing track file --> \t",
         start_time  = bsys.time()
         scene       = Blender.Scene.getCurrent()
         name        = getIdProperty(scene, "name", "Name of Track")
@@ -352,15 +379,23 @@ class TrackExport:
         description = description.replace("\\n", "\n")
         music       = getIdProperty(scene, "music", "musicfile.music")
         screenshot  = getIdProperty(scene, "screenshot", "ssot-%s.jpg"%name)
+        # Add default settings for sky-dome so that the user is aware of
+        # can be set.
+        getIdProperty(scene, "sky-type", "dome")
+        getIdProperty(scene, "sky-texture", ""            )
+        getIdProperty(scene, "sky-horizontal","")
+        getIdProperty(scene, "sky-vertical", "")
+        getIdProperty(scene, "sky-texture-percent","")
+        getIdProperty(scene, "sky-sphere-percent", "")
+        
         f = open(sPath+"/track.xml", 'wb')
         f.write("<?xml version=\"1.0\"?>\n")
-        f.write("<track  name       = \"%s\"\n"%name)
-        f.write("        version    = \"%s\"\n"%version)
-        f.write("        groups     = \"%s\"\n"%groups)
-        f.write("        description= \"%s\"\n"%description)
-        f.write("        music      = \"%s\"\n"%music)
-        f.write("        screenshot = \"%s\"\n"%screenshot)
-        f.write("        mapping    = \"%s.mapping\"\n"%sBase)
+        f.write("<track  name        = \"%s\"\n"%name)
+        f.write("        version     = \"%s\"\n"%version)
+        f.write("        groups      = \"%s\"\n"%groups)
+        f.write("        description = \"%s\"\n"%description)
+        f.write("        music       = \"%s\"\n"%music)
+        f.write("        screenshot  = \"%s\"\n"%screenshot)
         f.write("        camera-final-position  =\"-10 25 3\"\n")
         f.write("        camera-final-hpr       =\"-140 -7 0\"/>\n")
         self.writeCurve(f, lCurves)
@@ -478,6 +513,10 @@ class TrackExport:
 
             p = lSorted[-1].getEndPoint()
 
+        # The last main driveline needs to be closed to the first quad.
+        # So set a flag in that driveline that it is the last one.
+        lSorted[-1].setIsLastMain(lSorted[0])
+        quad_index = quad_index + 1
         # Now add the remaining drivelines one at a time. From all remaining
         # drivelines we pick the one closest to the drivelines contained in
         # lSorted.
@@ -499,7 +538,7 @@ class TrackExport:
     # all graph nodes.
     def writeQuadAndGraph(self, sPath, lDrivelines):
         start_time = bsys.time()
-        print "stk_track: Writing quad file --> ",
+        print "Writing quad file --> \t",
         if not lDrivelines:
             print "No main driveline defined, no driveline information exported!!!"
             return
@@ -517,16 +556,16 @@ class TrackExport:
         f = open(sPath+"/quads.xml", "w")
         f.write("<?xml version=\"1.0\"?>\n")
         f.write("<quads>\n")
-        
+
         for driveline in lSorted:
-            driveline.write(f)
+            driveline.writeQuads(f)
 
         f.write("</quads>\n")
         f.close()
         print bsys.time()-start_time,"seconds. "
 
         start_time = bsys.time()
-        print "stk_track: Writing graph file -->",
+        print "Writing graph file --> \t",
         f=open(sPath+"/graph.xml", "w")
         f.write("<?xml version=\"1.0\"?>\n")
         f.write("<graph>\n")
@@ -744,7 +783,7 @@ class TrackExport:
     def writeSceneFile(self, sPath, sTrackName, sWaterName, lItems, lAnimations,
                        lObjects, lPhysical, lChecks):
         start_time = bsys.time()
-        print "Writing scene file -->",
+        print "Writing scene file --> \t",
         f = open(sPath+"/scene.xml", "w")
         f.write("<?xml version=\"1.0\"?>\n")
         f.write("<scene>\n")
@@ -808,11 +847,11 @@ class TrackExport:
             self.writeAnimations(f, sPath, lAnimations)
         if lChecks:
             self.writeChecks(f, lChecks)
-        scene = Blender.Scene.getCurrent()
-        sky = getIdProperty(scene, "sky-type", None)
-        if sky:
+        scene   = Blender.Scene.getCurrent()
+        sky     = getIdProperty(scene, "sky-type", None)
+        texture = getIdProperty(scene, "sky-texture", "")
+        if sky and texture:
             if sky=="dome":
-                texture        = getIdProperty(scene, "sky-texture"            )
                 hori           = getIdProperty(scene, "sky-horizontal",     16 )
                 verti          = getIdProperty(scene, "sky-vertical",       16 )
                 tex_percent    = getIdProperty(scene, "sky-texture-percent",0.5)
