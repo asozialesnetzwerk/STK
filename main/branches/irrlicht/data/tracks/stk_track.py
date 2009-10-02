@@ -703,20 +703,37 @@ class TrackExport:
         f.write("  </animations>\n")
                 
     # --------------------------------------------------------------------------
+    def writeAnimatedTextures(self, f, lAnimTextures):
+        for (name, dx, dy) in lAnimTextures:
+            sdx=""
+            if dx: sdx = " dx=\"%s\" "%dx
+            sdy=""
+            if dy: sdy = " dy=\"%s\" "%dy
+            f.write("    <animated-texture name=\"%s\"%s%s/>\n"%(name, sdx, sdy) )
+        
+    # --------------------------------------------------------------------------
     # Write the objects that are part of the track (but not animated or
     # physical).
-    def writeObjects(self, f, sPath, lObjects):
+    def writeObjects(self, f, sPath, lObjects, lAnimTextures):
         for obj in lObjects:
             # An object can set the 'name' property, then this name will
             # be used to name the exported object (instead of the python name
             # which might be a default name with a number). Additionally, names
             # are cached so it can be avoided to export two or more identical
             # objects.
+            lAnim=self.checkForAnimatedTextures([obj])
             b3d_name = getProperty(obj, "name", obj.name)+".b3d"
             if not self.dExportedObjects.has_key(b3d_name):
                 exportLocalB3D(obj, sPath+"/"+b3d_name)
-            f.write("    <object model=\"%s\" %s/>\n"% \
-                (b3d_name, getXYZHPRString(obj)) )
+            if lAnim:
+                f.write("    <object model=\"%s\" %s>\n"% \
+                        (b3d_name, getXYZHPRString(obj)) )
+                self.writeAnimatedTextures(f, lAnim)
+                f.write("    </object>\n")
+            else:
+                f.write("    <object model=\"%s\" %s/>\n"% \
+                        (b3d_name, getXYZHPRString(obj)) )
+        self.writeAnimatedTextures(f, lAnimTextures)
         
     # --------------------------------------------------------------------------
     # Writes out all checklines.
@@ -779,18 +796,31 @@ class TrackExport:
         f.write("  </checks>\n")
             
     # --------------------------------------------------------------------------
+    # Checks if there are any animated textures in any of the objects in the
+    # list l.
+    def checkForAnimatedTextures(self, lObjects):
+        lAnimTextures = []
+        for obj in lObjects:
+            anim_texture = getProperty(obj, "anim-texture", None)
+            if not anim_texture: continue
+            dx = getProperty(obj, "anim-dx", 0)
+            dy = getProperty(obj, "anim-dy", 0)
+            lAnimTextures.append( (anim_texture, dx, dy) )
+        return lAnimTextures
+            
+    # --------------------------------------------------------------------------
     # Writes the scene files, which includes all models, animations, and items
-    def writeSceneFile(self, sPath, sTrackName, sWaterName, lItems, lAnimations,
-                       lObjects, lPhysical, lChecks):
+    def writeSceneFile(self, sPath, sTrackName, sWaterName, lTrack, lItems,
+                       lAnimations, lObjects, lPhysical, lChecks):
         start_time = bsys.time()
         print "Writing scene file --> \t",
         f = open(sPath+"/scene.xml", "w")
         f.write("<?xml version=\"1.0\"?>\n")
         f.write("<scene>\n")
-        
-        if lObjects:
+        lAnimTextures = self.checkForAnimatedTextures(lTrack)
+        if lObjects or lAnimTextures:
             f.write("  <track model=\"%s\" x=\"0\" y=\"0\" z=\"0\">\n"%sTrackName)
-            self.writeObjects(f, sPath, lObjects)
+            self.writeObjects(f, sPath, lObjects, lAnimTextures)
             f.write("  </track>\n")
         else:
             f.write("  <track model=\"%s\" x=\"0\" y=\"0\" z=\"0\"/>\n"%sTrackName)
@@ -960,8 +990,8 @@ class TrackExport:
     
         # scene file
         # ----------
-        self.writeSceneFile(sPath, sTrackName, sWaterName, lItems, lAnimations,
-                            lObjects, lPhysical, lChecks)
+        self.writeSceneFile(sPath, sTrackName, sWaterName, lTrack, lItems,
+                            lAnimations, lObjects, lPhysical, lChecks)
 
 # ==============================================================================
 def savescene_callback(sFilename):
