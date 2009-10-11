@@ -13,7 +13,7 @@
   <banana x="38.890526" y="-31.055712"/>
   <banana x="33.062881" y="-29.678539"/>
   <banana x="35.693455" y="-31.998974"/>
-  <object model="roadcone.b3d" shape="cone" x="0" y="10"/>
+  <physical-object model="roadcone.b3d" shape="cone" x="0" y="10"/>
   <small-nitro x="141.452301" y="-147.236526"/>
   <small-nitro x="138.027374" y="-146.076462"/>
   <small-nitro x="135.044373" y="-145.137375"/>
