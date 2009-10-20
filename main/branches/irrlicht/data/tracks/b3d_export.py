@@ -83,7 +83,6 @@ def write_chunk(name,value):
 
 #Write B3D File
 def write_b3d_file(filename, objects=[]):
-    print "fil",filename
     global flag_stack, sets_stack, texs_stack
     global brus_stack, mesh_stack, bone_stack, keys_stack
 
@@ -112,6 +111,7 @@ def write_b3d_file(filename, objects=[]):
 
 #Write TEXS Chunk
 def write_texs(objects=[]):
+    global flag_stack
     texs_buf = ""
     temp_buf = ""
     layer_max = 0
@@ -161,7 +161,11 @@ def write_texs(objects=[]):
                                 tex_flag = 65536
                             elif set_count > 1:
                                 tex_flag = 1
-                            sets_stack[obj_count][iuvlayer] = tex_flag
+                            if flag_stack[6]:
+                                enable_mipmaps=8
+                            else:
+                                enable_mipmaps=0
+                            sets_stack[obj_count][iuvlayer] = tex_flag|enable_mipmaps
                             set_wrote = 1
 
             for face in data.faces:
@@ -1070,6 +1074,7 @@ def export_b3d():
     flag_stack.append(0) #Vertex Colors
     flag_stack.append(0) #Cameras
     flag_stack.append(0) #Lights
+    flag_Stack.append(8) #Mipmaps: 8=enable mipmap, 8 = no mi
 
     draw_gui()
 

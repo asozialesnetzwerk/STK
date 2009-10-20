@@ -4,6 +4,7 @@
     <animated-texture name="waterfall.png"   dy="-0.5" />
     <animated-texture name="water_light.jpg" dy="-0.05"/>
   </track>
+  <sun xyz="0 100 100"/>
   <sky-dome texture="lighthouse_sky.png"
           horizontal="16" vertical="16"
           speed-x="1" speed-y="1"

@@ -3,6 +3,7 @@
   <track model="jungle_track.b3d" x="0" y="0" z="0">
     <animated-texture name="water_light.png" dy="0.1" />
   </track>
+  <sun  xyz="0 500 500"/>
   <banana x="180.499603" y="-496.571777" />
   <banana x="244.81987" y="-510.653717" />
   <banana x="350.261932" y="-475.256317" />

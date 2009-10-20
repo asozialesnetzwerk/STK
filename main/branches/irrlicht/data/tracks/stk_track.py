@@ -811,7 +811,7 @@ class TrackExport:
     # --------------------------------------------------------------------------
     # Writes the scene files, which includes all models, animations, and items
     def writeSceneFile(self, sPath, sTrackName, sWaterName, lTrack, lItems,
-                       lAnimations, lObjects, lPhysical, lChecks):
+                       lAnimations, lObjects, lPhysical, lChecks, lSun):
         start_time = bsys.time()
         print "Writing scene file --> \t",
         f = open(sPath+"/scene.xml", "w")
@@ -828,6 +828,40 @@ class TrackExport:
         if sWaterName:
             f.write("  <water model=\"%s\" x=\"0\" y=\"0\" z=\"0\"/>\n""" \
                     % sWaterName)
+        # Assemble all sky/fog related parameters
+        # ---------------------------------------
+        if len(lSun)>1:
+            print "Warning: more than one Sun defined, only the first will be used."            
+        sSky=""
+        scene = Blender.Scene.getCurrent()
+        s=getIdProperty(scene, "fog", 0)
+        if s:
+            sSky="%s fog=\"true\""%sSky
+            s=getIdProperty(scene, "fog-color", 0)
+            if s: sSky="%s fog-color=\"%s\""%(sSky, s)
+            s=getIdProperty(scene, "fog-density", 0)
+            if s: sSky="%s fog-density=\"%s\""%(sSky, s)
+            s=getIdProperty(scene, "fog-start", 0)
+            if s: sSky="%s fog-start=\"%s\""%(sSky, s)
+            s=getIdProperty(scene, "fog-end", 0)
+            if s: sSky="%s fog-end=\"%s\""%(sSky, s)
+
+        # If there is a sun:
+        if len(lSun)>0:
+            sun = lSun[0]
+            xyz=sun.loc
+            sSky="%s xyz=\"%s %s %s\""%(sSky, xyz[0],xyz[1],xyz[2])
+            s=getProperty(sun, "color", 0)
+            if s: sSky="%s sun-color=\"%s\""%(sSky, s)
+            s=getProperty(sun, "specular", 0)
+            if s: sSky="%s sun-specular=\"%s\""%(sSky, s)
+            s=getProperty(sun, "diffuse", 0)
+            if s: sSky="%s sun-diffuse=\"%s\""%(sSky, s)
+
+        s=getIdProperty(scene, "ambient-color", 0)
+        if s: sSky="%s ambient-color=\"%s\""%(sSky, s)
+        if sSky:
+            f.write("  <sun %s/>\n"%sSky)
             
         rad2deg = 180.0/3.1415926
         for obj in lItems:
@@ -915,6 +949,7 @@ class TrackExport:
         lObjects       = []                    # All non-animated objects
         lPhysical      = []                    # All physica objects
         lChecks        = []                    # All check structures
+        lSun           = []
         for obj in lObj:
             # Try to get the supertuxkart type field. If it's not defined,
             # use the name of the objects as type.
@@ -934,6 +969,8 @@ class TrackExport:
             elif obj.type=="Curve":
                 # Only append camera, other curves will be handled in animations
                 if stktype[:6]=="CAMERA": lCameraCurves.append(obj)
+            elif obj.type=="Lamp":
+                lSun.append(obj)
             elif stktype[:6]=="PHYSIC":
                 lPhysical.append(obj)
             elif obj.type!="Mesh":
@@ -991,7 +1028,7 @@ class TrackExport:
         # scene file
         # ----------
         self.writeSceneFile(sPath, sTrackName, sWaterName, lTrack, lItems,
-                            lAnimations, lObjects, lPhysical, lChecks)
+                            lAnimations, lObjects, lPhysical, lChecks, lSun)
 
 # ==============================================================================
 def savescene_callback(sFilename):

@@ -8,7 +8,6 @@
         driveline   = "beach.driveline"
         mapping     = "beach.mapping"
         model       = "beachtrack.3ds"
-        sun-position           = "0 100 100"
         camera-final-position  ="-5 12 3"
         camera-final-hpr       ="-150 -10 0"             >
   <mode name="default"  quads="quads.xml" graph="graph.xml" scene="scene.xml"/>
