@@ -10,6 +10,9 @@ Under Creative Commons Attribution Share-Alike (CC-BY-SA) - http://creativecommo
 * palmtree3
     © 2009 Gregory Schick <leadgolem@gmail.com>, Christoph Egger <debian@christoph-egger.org> and Marianne Gagnon (Auria)
 
+* cup_*
+    by yeKcim (Anthony Carré)
+
 * gold, chest
     by Marianne Gagnon (Auria)
     
