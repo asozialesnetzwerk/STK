@@ -66,7 +66,7 @@
   <material name="tank-blue.png" alpha="0.0" sphere="Y" collide="N"/>
   <material name="tank-green.png" alpha="0.0" sphere="Y" collide="N"/>
   <material name="tank-cyan.png" alpha="0.0" sphere="Y" collide="N"/>
-  <material name="gift-box.png" alpha="0.0" sphere="Y" collide="N"/>
+  <material name="gift-box.png" alpha="0.0" sphere="N" collide="N"/>
   <material name="gift-loop.png" alpha="0.0" sphere="Y" collide="N"/>
   <material name="bowling-icon.png" transparency="Y" alpha="0.0" light="N" collide="N"/>
   <material name="bubblegum-icon.png" transparency="Y" alpha="0.0" light="N" collide="N"/>
@@ -78,6 +78,7 @@
   <material name="menu_background.png" clampU="Y" clampV="Y" alpha="1.0" light="N"/>
   <material name="st_title_screen2.png" clampU="Y" clampV="Y" alpha="1.0" light="N"/>
   <material name="menu_background2.png" clampU="Y" clampV="Y" alpha="1.0" light="N"/>
+  <material name="water-splash.png" alpha="Y" light="N" ignore="Y" collide="N"/>
   <material name="notes.png" transparency="Y" alpha="0.0" light="N" collide="N"/>
 
 </materials>  
