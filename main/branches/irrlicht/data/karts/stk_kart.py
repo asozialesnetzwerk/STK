@@ -41,6 +41,7 @@ eventBrowse = 7
 eventBrowseShadow = 8
 eventBrowseIcon = 9
 eventPath = 10
+eventSound = 11
 kartName =Draw.Create("")
 kartVersion =Draw.Create("")
 kartGroup = Draw.Create("standard")
@@ -56,9 +57,19 @@ pathExportTxt = Draw.Create("")
 pathExportShadow =""
 pathExportIcon =""
 kartFileName = Draw.Create("")
+kartSoundHorn = Draw.Create("")
+kartSoundCrash = Draw.Create("")
+kartSoundShoot = Draw.Create("")
+kartSoundWin = Draw.Create("")
+kartSoundExplode = Draw.Create("")
+kartSoundGoo = Draw.Create("")
+kartSoundPass = Draw.Create("")
+kartSoundZiper = Draw.Create("")
+kartSoundName = Draw.Create("")
+kartSoundAttach = Draw.Create("")
 
 def gui():
-	global eventPush, eventQuit, kartName, eventkartName, eventkartVersion, kartVersion, eventkartGroup, kartGroup, scene, eventfileShadow, eventfileIcon, kartShadow, kartIcon, eventBrowseIcon, eventBrowseShadow, eventExport, pathExportTxt, eventPath, kartFileName
+	global eventPush, eventQuit, kartName, eventkartName, eventkartVersion, kartVersion, eventkartGroup, kartGroup, scene, eventfileShadow, eventfileIcon, kartShadow, kartIcon, eventBrowseIcon, eventBrowseShadow, eventExport, pathExportTxt, eventPath, kartFileName,kartSoundHorn, kartSoundCrash, kartSoundShoot, kartSoundWin, kartSoundExplode, kartSoundGoo, kartSoundPass, kartSoundZiper, kartSoundName, kartSoundAttach, eventSound
 	BGL.glClearColor(0.4,0.5,0.8,1)
 	BGL.glClear(BGL.GL_COLOR_BUFFER_BIT)
 	BGL.glColor3f(1,1,1)
@@ -72,6 +83,16 @@ def gui():
 			kartShadow.val = scene.properties['shadow']
 			kartFileName.val = scene.properties['kartFile']
 			pathExportTxt.val = scene.properties['kartPath']
+			kartSoundHorn.val = scene.properties['kartSoundHorn']
+			kartSoundCrash.val = scene.properties['kartSoundCrash']
+			kartSoundShoot.val = scene.properties['kartSoundShoot']
+			kartSoundWin.val = scene.properties['kartSoundWin']
+			kartSoundExplode.val = scene.properties['kartSoundExplode']
+			kartSoundGoo.val = scene.properties['kartSoundGoo']
+			kartSoundPass.val = scene.properties['kartSoundPass']
+			kartSoundZiper.val = scene.properties['kartSoundZiper']
+			kartSoundName.val = scene.properties['kartSoundName']
+			kartSoundAttach.val = scene.properties['kartSoundAttach']
 	except:
 			scene.properties['name'] = kartName.val
 			scene.properties['version'] = kartVersion.val
@@ -80,6 +101,16 @@ def gui():
 			scene.properties['shadow'] = kartShadow.val
 			scene.properties['kartFile'] = kartFileName.val
 			scene.properties['kartPath'] = pathExportTxt.val
+			scene.properties['kartSoundHorn'] = kartSoundHorn.val
+			scene.properties['kartSoundCrash'] = kartSoundCrash.val
+			scene.properties['kartSoundShoot'] = kartSoundShoot.val
+			scene.properties['kartSoundWin'] = kartSoundWin.val
+			scene.properties['kartSoundExplode'] = kartSoundExplode.val
+			scene.properties['kartSoundGoo'] = kartSoundGoo.val
+			scene.properties['kartSoundPass'] = kartSoundPass.val
+			scene.properties['kartSoundZiper'] = kartSoundZiper.val
+			scene.properties['kartSoundName'] = kartSoundName.val
+			scene.properties['kartSoundAttach'] = kartSoundAttach.val
 			pass
 	Draw.Text("Kart Exporter for STK Irrlicht version")
 	button = Draw.Button("Quit", eventQuit, 5, 0, 160, 20, "Quit")
@@ -94,6 +125,16 @@ def gui():
 	kartName = Draw.String("Kart Name : ", eventkartName, 5, 200, 310, 20, kartName.val, 320, "Kart Name")
 	kartVersion = Draw.String("Kart Version : ", eventkartVersion, 5, 180, 310, 20, kartVersion.val, 32, "Kart Version")
 	kartGroup = Draw.String("Kart Group : ", eventkartGroup, 5, 160, 310, 20, kartGroup.val, 320, "Kart Group")
+	kartSoundHorn = Draw.String("Sound Horn : ", eventSound, 500, 0, 310, 20, kartSoundHorn.val, 320, "Kart Sounds")
+	kartSoundCrash = Draw.String("Sound Crash : ", eventSound, 500, 30, 310, 20, kartSoundCrash.val, 320, "Kart Sounds")
+	kartSoundShoot = Draw.String("Sound Shoot : ", eventSound, 500, 60, 310, 20, kartSoundShoot.val, 320, "Kart Sounds")
+	kartSoundWin = Draw.String("Sound Win : ", eventSound, 500, 90, 310, 20, kartSoundWin.val, 320, "Kart Sounds")
+	kartSoundExplode = Draw.String("Sound Explode : ", eventSound, 500, 120, 310, 20, kartSoundExplode.val, 320, "Kart Sounds")
+	kartSoundGoo = Draw.String("Sound Goo : ", eventSound, 500, 150, 310, 20, kartSoundGoo.val, 320, "Kart Sounds")
+	kartSoundPass = Draw.String("Sound Pass : ", eventSound, 500, 180, 310, 20, kartSoundPass.val, 320, "Kart Sounds")
+	kartSoundZiper = Draw.String("Sound Ziper : ", eventSound, 500, 210, 310, 20, kartSoundZiper.val, 320, "Kart Sounds")
+	kartSoundName = Draw.String("Sound Name: ", eventSound, 500, 240, 310, 20, kartSoundName.val, 320, "Kart Sounds")
+	kartSoundAttach = Draw.String("Sound Attach : ", eventSound, 500, 270, 310, 20, kartSoundAttach.val, 320, "Kart Sounds")
 def event(evt, val):
 	if evt == Draw.ESCKEY:
 			 Draw.Exit()
@@ -106,12 +147,11 @@ def butt_evt(evt):	# function that handles keyboard and mouse events
 			saveKart()
 			print "The Export button was pushed"
 	if evt == eventBrowse:
-			Blender.Window.FileSelector(selectPath,"Export STK kart", Blender.sys.makename(ext = ".irrkart"))
+			Blender.Window.FileSelector(selectPath,"Export STK kart", Blender.sys.makename(ext = ".xml"))
 	if evt == eventBrowseShadow:
 			Blender.Window.FileSelector(selectPathShadow,"Select a shadow", Blender.sys.makename(ext = ".png"))
 	if evt == eventBrowseIcon:
-			Blender.Window.FileSelector(selectPathIcon,"Select an icon", Blender.sys.makename(ext = ".png"))
-			 
+			Blender.Window.FileSelector(selectPathIcon,"Select an icon", Blender.sys.makename(ext = ".png"))			 
 
 def selectPath(filename):
 	global pathExport, pathExportTxt, kartFileName
@@ -182,7 +222,7 @@ def saveKart():
 	for obj in lObj:
 			lTrack.append(obj)
 	rgb = (0.7, 0.0, 0.0)
-	f = open(Blender.sys.join(path,name + ".irrkart"), 'wb')
+	f = open(Blender.sys.join(path,name + ".xml"), 'wb')
 	f.write('(tuxkart-kart\n')
 	f.write('	(version %s)\n' % kartVersion.val)
 	f.write('	(name        "%s")\n' % kartName.val)
@@ -195,10 +235,30 @@ def saveKart():
 	for i in range(1, 300):
 			try:
 				if scene.timeline.getName(i) == "straight" or scene.timeline.getName(i) == "right" or scene.timeline.getName(i) == "left":
-					f.write('	(animations-')
+					f.write('	(animation-')
 					f.write('%s %s)\n' %(scene.timeline.getName(i), i))
 			except:
 				pass
+	if kartSoundHorn.val != "" :
+		f.write('	(horn-sound  "%s")\n' %(kartSoundHorn.val))
+	if kartSoundCrash.val != "" :
+		f.write('	(crash-sound  "%s")\n' %(kartSoundCrash.val))
+	if kartSoundShoot.val != "" :
+		f.write('	(shoot-sound  "%s")\n' %(kartSoundShoot.val))
+	if kartSoundWin.val != "" :
+		f.write('	(win-sound  "%s")\n' %(kartSoundWin.val))
+	if kartSoundExplode.val != "" :
+		f.write('	(explode-sound  "%s")\n' %(kartSoundExplode.val))
+	if kartSoundGoo.val != "" :
+		f.write('	(goo-sound  "%s")\n' %(kartSoundGoo.val))
+	if kartSoundPass.val != "" :
+		f.write('	(pass-sound  "%s")\n' %(kartSoundPass.val))
+	if kartSoundZiper.val != "" :
+		f.write('	(zipper-sound  "%s")\n' %(kartSoundZiper.val))
+	if kartSoundName.val != "" :
+		f.write('	(name-sound  "%s")\n' %(kartSoundName.val))
+	if kartSoundAttach.val != "" :
+		f.write('	(attach-sound  "%s")\n' %(kartSoundAttach.val))
 	f.write('	(wheel-front-right\n')
 	f.write('		(position %f %f %f)\n' %(old_locfr.x, old_locfr.y, old_locfr.z))
 	f.write('		(model		"wheel-front-right.b3d")\n')
@@ -233,6 +293,16 @@ def saveKart():
 	scene.properties['shadow'] = kartShadow.val
 	scene.properties['kartFile'] = kartFileName.val
 	scene.properties['kartPath'] = pathExportTxt.val
+	scene.properties['kartSoundHorn'] = kartSoundHorn.val
+	scene.properties['kartSoundCrash'] = kartSoundCrash.val
+	scene.properties['kartSoundShoot'] = kartSoundShoot.val
+	scene.properties['kartSoundWin'] = kartSoundWin.val
+	scene.properties['kartSoundExplode'] = kartSoundExplode.val
+	scene.properties['kartSoundGoo'] = kartSoundGoo.val
+	scene.properties['kartSoundPass'] = kartSoundPass.val
+	scene.properties['kartSoundZiper'] = kartSoundZiper.val
+	scene.properties['kartSoundName'] = kartSoundName.val
+	scene.properties['kartSoundAttach'] = kartSoundAttach.val
 	Draw.PupMenu("Successful")
 
 
