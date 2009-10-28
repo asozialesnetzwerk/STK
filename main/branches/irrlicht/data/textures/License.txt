@@ -1,6 +1,3 @@
-* explosion
-    from original TuxKart, with modifications by MiniBjorn (fixed blue edge and spread + blur detail)
-
 ============================================================
 All textures in this directory are licensed under GPL except :
 ============================================================
@@ -70,3 +67,10 @@ Credits for GPL textures :
 
 * mossy_stone and obelisk
     are from the http://www.titusgames.de GLEST jungle set
+
+* explosion
+    from original TuxKart, with modifications by MiniBjorn (fixed blue edge and spread + blur detail)
+    
+* green_check.png
+    from the Gnome icon set, GPL v 2.0+
+
