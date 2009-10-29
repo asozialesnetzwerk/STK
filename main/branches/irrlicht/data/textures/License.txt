@@ -71,6 +71,6 @@ Credits for GPL textures :
 * explosion
     from original TuxKart, with modifications by MiniBjorn (fixed blue edge and spread + blur detail)
     
-* green_check.png
+* green_check.png, red_mark.png
     from the Gnome icon set, GPL v 2.0+
 
