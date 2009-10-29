@@ -29,7 +29,7 @@
   <material name="track2.png" alpha="0.0" collide="N"/>
   <material name="zipper_collect.png" alpha="0.0" light="N" zipper="Y" collide="N"/>
   <material name="zipper.png" alpha="0.0" light="N" zipper="Y" collide="N"/>
-  <material name="banana.png" alpha="0.5" light="N" collide="N"/>
+  <material name="banana.png" alpha="0.5" collide="N"/>
   <material name="bananawrap.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.5" light="N" zipper="Y" collide="N"/>
   <material name="fuzzy.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.2" light="N" ignore="Y" collide="N"/>
   <material name="generickartshadow.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.0" light="N" ignore="Y" collide="N"/>
@@ -45,10 +45,10 @@
   <material name="speedfore.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.0" light="N" ignore="Y" collide="N"/>
   <material name="water_light.png" light="N" reset="Y" collide="N"/>
   <material name="sea.png" alpha="0.0" light="N" reset="Y"/>
-  <material name="rock.png" alpha="0.0" light="N" collide="N"/>
+  <material name="rock.png" alpha="0.0" collide="N"/>
   <material name="coniferous_tree.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.5" light="N" collide="N"/>
   <material name="signs.png" transparency="Y" alpha="0.5" light="N" collide="N"/>
-  <material name="greenice.png" alpha="0.0" light="N" reset="Y" collide="N"/>
+  <material name="greenice.png" alpha="0.0" reset="Y" collide="N"/>
   <material name="snow.png" alpha="0.0" collide="N" maxSpeed="0.4" slowdownTime="4"/>
   <material name="ice.png" alpha="0.0" collide="N"/>
   <material name="snowyrock.png" alpha="0.0" collide="N"/>
