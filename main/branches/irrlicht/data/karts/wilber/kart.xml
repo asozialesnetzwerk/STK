@@ -1,25 +1,28 @@
 (tuxkart-kart
-  (name        "Wilber")
-  (version     1)
-  (model-file  "wilber.b3d")
-  (icon-file   "wilbericon.png")
-  (shadow-file "wilbershadow.png")
-  (groups      "standard")
-  (rgb         0.700000 0.000000 0.000000)
-  (wheel-front-right
-    (position 0.275697 0.339242 0.112979)
-    (model    "wheel-front-right.b3d")
-  )
-  (wheel-front-left
-    (position -0.294220 0.337597 0.111252)
-    (model    "wheel-front-left.b3d")
-  )
-  (wheel-rear-right
-    (position 0.300863 -0.305902 0.112090)
-    (model    "wheel-rear-right.b3d")
-  )
-  (wheel-rear-left
-    (position -0.315232 -0.307547 0.110255)
-    (model    "wheel-rear-left.b3d")
-  )
+	(version 1)
+	(name        "Wilber")
+	(model-file  "kart.b3d")
+	(icon-file   "wilbericon.png")
+	(shadow-file "wilbershadow.png")
+	(groups      "standard")
+	(rgb         0.700000 0.000000 0.000000)
+	(animation-left 1)
+	(animation-straight 11)
+	(animation-right 21)
+	(wheel-front-right
+		(position 0.313791 0.326004 0.112673)
+		(model		"wheel-front-right.b3d")
+	)
+	(wheel-front-left
+		(position -0.322693 0.326289 0.112673)
+		(model		"wheel-front-left.b3d")
+	)
+	(wheel-rear-right
+		(position 0.400584 -0.318699 0.133159)
+		(model		"wheel-rear-right.b3d")
+	)
+	(wheel-rear-left
+		(position -0.398359 -0.318699 0.133159)
+		(model		"wheel-rear-left.b3d")
+	)
 )
