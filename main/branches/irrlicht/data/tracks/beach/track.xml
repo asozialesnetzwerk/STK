@@ -4,12 +4,9 @@
         groups      = "standard"
         designer    = "Ingo Ruhnke & Marianne Gagnon"
         music       = "CaribbeanMusic.music"
-        screenshot  = "sshot-beach.png"
-        driveline   = "beach.driveline"
-        mapping     = "beach.mapping"
-        model       = "beachtrack.3ds"
-        camera-final-position  ="-5 12 3"
-        camera-final-hpr       ="-150 -10 0"             >
+        screenshot  = "sshot-beach.png" >
   <mode name="default"  quads="quads.xml" graph="graph.xml" scene="scene.xml"/>
+<!-- Note that a track can have more than one scene - though atm this is 
+     not yet supported by stk. But as an example: -->
   <mode name="default2" quads="quads.xml" graph="graph.xml" scene="scene.xml"/>
 </track>

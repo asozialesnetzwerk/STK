@@ -4,10 +4,6 @@
         groups      = "standard"
         designer    = "Ingo Ruhnke & Marianne Gagnon"
         music       = "ChillCarrier-Druckverlust.music"
-        screenshot  = "sshot-lighthouse.png"
-        driveline   = "lighthouse.driveline"
-        mapping     = "lighthouse.mapping"
-        camera-final-position  ="-10 25 3"
-        camera-final-hpr       ="-140 -7 0"
->
+        screenshot  = "sshot-lighthouse.png"               >
+  <mode name="default"  quads="quads.xml" graph="graph.xml" scene="scene.xml"/>
 </track>

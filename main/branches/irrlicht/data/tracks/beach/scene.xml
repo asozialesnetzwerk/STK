@@ -4,7 +4,7 @@
     <animated-texture name="waterfall.png"   dy="-0.5" />
     <animated-texture name="water_light.jpg" dy="-0.05"/>
   </track>
- <camera final-position  ="-5 12 3"
+  <camera final-position  ="-5 12 3"
          final-hpr       ="-150 -10 0"/>
   <sun xyz="0 100 100"/>
   <sky-dome texture="lighthouse_sky.png"
