@@ -3,6 +3,9 @@
   <track model="lighthousetrack.b3d" x="0" y="0" z="0">
     <animated-texture name="sea.jpg" dy="-0.1"/>
   </track>
+  <camera final-position  ="-10 25 3"
+          final-hpr       ="-140 -7 0"/>
+
   <sun xyz="0 100 0"/>
   <track model="lighthousetrack.b3d" x="0" y="0" z="0"/>
   <sky-dome texture="lighthouse_sky.jpg"
