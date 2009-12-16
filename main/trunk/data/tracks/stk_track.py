@@ -263,7 +263,7 @@ class Driveline:
 
         if count>=max_count:
             print "Warning, Only the first %d vertices of driveline '%s' are exported" %\
-                  (max_count, driveline.name)
+                  (max_count, self.name)
         # Now remove the first two points, which are only used to indicate
         # the starting point:
         del self.lLeft[0]
