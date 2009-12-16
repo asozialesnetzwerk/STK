@@ -1041,6 +1041,11 @@ def savescene_callback(sFilename):
     b3d_export.flag_stack.append(0) #Vertex Colors
     b3d_export.flag_stack.append(0) #Cameras
     b3d_export.flag_stack.append(0) #Lights
+    # In case that flag_stack supports mipmaps:
+    # It's not important, since irrlicht 1.6 allows
+    # overwriting of the mipmap setting in b3d files
+    # anyway, so STK forces mipmaps
+    b3d_export.flag_stack.append(1) #
 
     exporter = TrackExport(sFilename)
 
