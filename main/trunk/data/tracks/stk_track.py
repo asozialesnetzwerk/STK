@@ -377,8 +377,8 @@ class TrackExport:
         description = getIdProperty(scene, "description", "Description")
         # Support for multi-line descriptions:
         description = description.replace("\\n", "\n")
-        music       = getIdProperty(scene, "music", "musicfile.music")
-        screenshot  = getIdProperty(scene, "screenshot", "ssot-%s.jpg"%name)
+        music       = getIdProperty(scene, "music", "")
+        screenshot  = getIdProperty(scene, "screenshot", "")
         # Add default settings for sky-dome so that the user is aware of
         # can be set.
         getIdProperty(scene, "sky-type", "dome")
@@ -394,10 +394,14 @@ class TrackExport:
         f.write("        version     = \"%s\"\n"%version)
         f.write("        groups      = \"%s\"\n"%groups)
         f.write("        description = \"%s\"\n"%description)
-        f.write("        music       = \"%s\"\n"%music)
-        f.write("        screenshot  = \"%s\"\n"%screenshot)
-        f.write("        camera-final-position  =\"-10 25 3\"\n")
-        f.write("        camera-final-hpr       =\"-140 -7 0\"/>\n")
+        if music:
+            f.write("        music       = \"%s\"\n"%music)
+        else:
+            print "No music file defined, ignored."
+        if screenshot:
+            f.write("        screenshot  = \"%s\"\n"%screenshot)
+        else:
+            print "No screenshot defined, ignored"
         self.writeCurve(f, lCurves)
         f.write("</track>\n")
         f.close()
