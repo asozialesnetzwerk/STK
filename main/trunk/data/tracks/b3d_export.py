@@ -1074,7 +1074,7 @@ def export_b3d():
     flag_stack.append(0) #Vertex Colors
     flag_stack.append(0) #Cameras
     flag_stack.append(0) #Lights
-    flag_Stack.append(8) #Mipmaps: 8=enable mipmap, 8 = no mi
+    flag_stack.append(8) #Mipmaps: 8=enable mipmap, 8 = no mi
 
     draw_gui()
 
