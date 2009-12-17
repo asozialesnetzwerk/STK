@@ -976,7 +976,7 @@ class TrackExport:
                 if stktype[:6]=="CAMERA": lCameraCurves.append(obj)
             elif obj.type=="Lamp":
                 lSun.append(obj)
-            elif stktype[:6]=="PHYSIC":
+            elif stktype[:7]=="MOVABLE" or stktype[:8]=="MOVEABLE":
                 lPhysical.append(obj)
             elif obj.type!="Mesh":
                 #print "Non-mesh object '%s' (type: '%s') is ignored!"%(obj.name, stktype)
