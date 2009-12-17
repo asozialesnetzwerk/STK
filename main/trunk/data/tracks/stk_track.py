@@ -402,6 +402,7 @@ class TrackExport:
             f.write("        screenshot  = \"%s\"\n"%screenshot)
         else:
             print "No screenshot defined, ignored"
+        f.write(">\n")
         self.writeCurve(f, lCurves)
         f.write("</track>\n")
         f.close()
