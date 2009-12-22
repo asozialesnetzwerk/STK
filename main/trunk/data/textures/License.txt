@@ -10,7 +10,7 @@ Under Creative Commons Attribution Share-Alike (CC-BY-SA) - http://creativecommo
 * cup_*, speedback, speedfore
     by yeKcim (Anthony Carré)
 
-* gold, chest
+* gold, chest, explode
     by Marianne Gagnon (Auria)
     
 * road_dirt
