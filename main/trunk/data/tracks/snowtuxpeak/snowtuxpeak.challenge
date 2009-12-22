@@ -2,8 +2,8 @@
 
 <challenge
     id="citytime"
-    name=_("Finish the City track in 4:20")
-    description=_("Finish 3 laps on the City track\nwith 3 AI karts\nin under 4:20 minutes.")
+    name="Finish the City track in 4:20"
+    description="Finish 3 laps on the City track\nwith 3 AI karts\nin under 4:20 minutes."
     unlock-track="snowtuxpeak"
     depend-on="junglefollow"
     major="single"

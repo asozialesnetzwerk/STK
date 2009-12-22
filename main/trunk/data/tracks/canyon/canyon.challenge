@@ -2,8 +2,8 @@
 
 <challenge
     id="tollwaytime"
-    name=_("Finish Tux Tollway track in 3:35")
-    description=_("Finish 3 laps on the Tux Tollway\ntrack with 3 AI karts\nin under 3:35 minutes.")
+    name="Finish Tux Tollway track in 3:35"
+    description="Finish 3 laps on the Tux Tollway\ntrack with 3 AI karts\nin under 3:35 minutes."
     unlock-track="canyon"
     major="single"
     minor="quickrace"
