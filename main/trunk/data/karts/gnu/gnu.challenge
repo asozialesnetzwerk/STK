@@ -2,8 +2,8 @@
 
 <challenge
     id="snowmountain"
-    name=_("Win a race on\nSnow Mountain")
-    description=_("Win a 4 lap race\non Snow Mountain against 4 'Racer'\nlevel AI kart.")
+    name="_(Win a race on\nSnow Mountain)"
+    description="_(Win a 4 lap race\non Snow Mountain against 4 'Racer'\nlevel AI kart.)"
     depend-on="worldsend"
     unlock-kart="gnu Gnu"
     major="single"

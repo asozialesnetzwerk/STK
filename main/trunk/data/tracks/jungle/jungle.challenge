@@ -2,8 +2,8 @@
 
 <challenge
     id="racetracktime"
-    name=_("Finish Race track in 2:40")
-    description=_("Finish 3 laps in Racetrack\nwith 3 easy AI karts\nin under 2:40 minutes.")
+    name="_(Finish Race track in 2:40)"
+    description="_(Finish 3 laps in Racetrack\nwith 3 easy AI karts\nin under 2:40 minutes.)"
     unlock-track="jungle"
     major="single"
     minor="quickrace"
