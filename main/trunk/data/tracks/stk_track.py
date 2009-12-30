@@ -67,21 +67,9 @@ def getXYZHPRString(obj):
     loc   = obj.loc
     hpr   = obj.rot
     s="xyz=\"%f %f %f\" hpr=\"%f %f %f\"" %\
-       (loc[0], loc[2], loc[1], hpr[0]*10.0, hpr[1]*10.0, hpr[2]*10.0)
+       (loc[0], loc[1], loc[2], hpr[0]*10.0, hpr[1]*10.0, hpr[2]*10.0)
     return s
     
-# ------------------------------------------------------------------------------
-# Exports the models as b3d object in local coordinate, i.e. with the object
-# center at (0,0,0).
-def exportLocalB3D(obj, name):
-    oldLoc = obj.loc
-    oldRot = obj.rot
-    obj.loc=(0,0,0)
-    obj.rot=(0,0,0)
-    b3d_export.write_b3d_file(name, [obj])
-    obj.loc = oldLoc
-    obj.rot = oldRot
-
 # ==============================================================================
 # A special class to store a drivelines.
 class Driveline:
@@ -367,10 +355,32 @@ class Driveline:
 # between calls to different functions, e.g. a cache of exported objects.
 class TrackExport:
     
+    # Exports the models as b3d object in local coordinate, i.e. with the object
+    # center at (0,0,0).
+    def exportLocalB3D(self, obj, sPath, name):
+        # If the name contains a ".b3d" the model is assumed to be part of
+        # the standard objects included in STK, so there is no need to
+        # export the model.
+        if re.search("\.b3d$", name): return name
+        
+        name=name+".b3d"
+        
+        # If the object was already exported, we don't have to do it again.
+        if self.dExportedObjects.has_key(name): return name
+
+        oldLoc = obj.loc
+        oldRot = obj.rot
+        obj.loc=(0,0,0)
+        obj.rot=(0,0,0)
+        b3d_export.write_b3d_file(sPath+"/"+name, [obj])
+        obj.loc = oldLoc
+        obj.rot = oldRot
+        return name
+        # ----------------------------------------------------------------------
     def writeTrackFile(self, sPath, sBase, lCurves):
         print "Writing track file --> \t",
         start_time  = bsys.time()
-        scene       = Blender.Scene.getCurrent()
+        scene       = Blender.Scene.GetCurrent()
         name        = getIdProperty(scene, "name", "Name of Track")
         version     = getIdProperty(scene, "version", "1")
         groups      = getIdProperty(scene, "groups", "standard")
@@ -635,23 +645,19 @@ class TrackExport:
           
     # --------------------------------------------------------------------------
     # Writes the animation for objects using IPOs:
-    def writeAnimationWithIPO(self, f, sPath, obj, ipo):
+    def writeAnimationWithIPO(self, f, name, obj, ipo):
         # An animated object can set the 'name' property, then this name will
         # be used to name the exported object (instead of the python name
         # which might be a default name with a number). Additionally, names
         # are cached so it can be avoided to export two or more identical
         # objects.
-        b3d_name = getProperty(obj, "name", obj.name)+".b3d"
-        if not self.dExportedObjects.has_key(b3d_name):
-            exportLocalB3D(obj, sPath+"/"+b3d_name)
-            
         shape = getProperty(obj, "shape", "")
         if shape:
             shape="shape=\"%s\""%shape
-    
+        if not ipo: ipo=[]
         # Note: Y and Z are swapped!
-        f.write("    <animations-IPO obj=\"%s\" %s %s>\n"% \
-                (b3d_name, getXYZHPRString(obj), shape))
+        f.write("  <object type=\"animation\" model=\"%s\" %s %s>\n"% \
+                (name, getXYZHPRString(obj), shape))
         dInterp = {IpoCurve.InterpTypes.BEZIER:        "bezier",
                    IpoCurve.InterpTypes.LINEAR:        "linear",
                    IpoCurve.InterpTypes.CONST:         "const"          }
@@ -669,21 +675,21 @@ class TrackExport:
             # Rotations are stored in units of 10 degrees!
             if name[:3]=="Rot": factor=10
             else:               factor=1
-            f.write("      <curve channel=\"%s\" interpolation=\"%s\" extend=\"%s\">\n"% \
+            f.write("    <curve channel=\"%s\" interpolation=\"%s\" extend=\"%s\">\n"% \
                     (name, dInterp[curve.interpolation], dExtend[curve.extend]))
             
             for bez in curve.bezierPoints:
                 if curve.interpolation==IpoCurve.InterpTypes.BEZIER:
-                    f.write("        <p c=\"%f %f\" h1=\"%f %f\" h2=\"%f %f\"/>\n"%\
+                    f.write("      <p c=\"%f %f\" h1=\"%f %f\" h2=\"%f %f\"/>\n"%\
                             (bez.vec[1][0],factor*bez.vec[1][1], bez.vec[0][0],
                              factor*bez.vec[0][1], bez.vec[2][0],
                              factor*bez.vec[2][1]))
                 else:
-                    f.write("        <p c=\"%f %f\"/>\n"%(bez.vec[1][0],
-                                                          factor*bez.vec[1][1]))
-            f.write("      </curve>\n")
+                    f.write("      <p c=\"%f %f\"/>\n"%(bez.vec[1][0],
+                                                        factor*bez.vec[1][1]))
+            f.write("    </curve>\n")
             
-        f.write("    </animations-IPO>\n")
+        f.write("  </object>\n")
             
         
     # --------------------------------------------------------------------------
@@ -693,20 +699,6 @@ class TrackExport:
         print "'%s' is using path '%s'"%(obj.name, \
                                obj.constraints[0][Constraint.Settings.TARGET].name)
     
-    # --------------------------------------------------------------------------
-    # Writes out all animations (be it animations with IPO or animations with
-    # path constraints).
-    def writeAnimations(self, f, sPath, lAnimations):
-        scene       = Blender.Scene.getCurrent()
-        f.write("  <animations fps=\"%d\">\n"%scene.getRenderingContext().fps)
-        for obj in lAnimations:
-            ipo = obj.getIpo()
-            if ipo:
-                self.writeAnimationWithIPO(f, sPath, obj, ipo)
-            else:
-                self.writeAnimationsWithPaths(f, sPath, obj)
-        f.write("  </animations>\n")
-                
     # --------------------------------------------------------------------------
     def writeAnimatedTextures(self, f, lAnimTextures):
         for (name, dx, dy) in lAnimTextures:
@@ -719,24 +711,25 @@ class TrackExport:
     # --------------------------------------------------------------------------
     # Write the objects that are part of the track (but not animated or
     # physical).
-    def writeObjects(self, f, sPath, lObjects, lAnimTextures):
-        for obj in lObjects:
+    def writeStaticObjects(self, f, sPath, lStaticObjects, lAnimTextures):
+        for obj in lStaticObjects:
             # An object can set the 'name' property, then this name will
             # be used to name the exported object (instead of the python name
             # which might be a default name with a number). Additionally, names
             # are cached so it can be avoided to export two or more identical
             # objects.
-            lAnim=self.checkForAnimatedTextures([obj])
+            lAnim = self.checkForAnimatedTextures([obj])
             b3d_name = getProperty(obj, "name", obj.name)+".b3d"
-            if not self.dExportedObjects.has_key(b3d_name):
-                exportLocalB3D(obj, sPath+"/"+b3d_name)
+            self.exportLocalB3D(obj, sPath, b3d_name)
+            kind = getProperty(obj, "kind", "")
+                
             if lAnim:
-                f.write("    <object model=\"%s\" %s>\n"% \
+                f.write("    <static-object model=\"%s\" %s>\n"% \
                         (b3d_name, getXYZHPRString(obj)) )
                 self.writeAnimatedTextures(f, lAnim)
-                f.write("    </object>\n")
+                f.write("    </static-object>\n")
             else:
-                f.write("    <object model=\"%s\" %s/>\n"% \
+                f.write("    <static-object model=\"%s\" %s/>\n"% \
                         (b3d_name, getXYZHPRString(obj)) )
         self.writeAnimatedTextures(f, lAnimTextures)
         
@@ -814,18 +807,53 @@ class TrackExport:
         return lAnimTextures
             
     # --------------------------------------------------------------------------
+    # Writes a non-static track object. The objects can be animated or
+    # non-animated meshes, and physical or non-physical.
+    # Type is either 'movable' or 'nophysics'.
+    def writeObject(self, f, sPath, type, obj):
+        name = getProperty(obj, "name", obj.name)
+        b3d_name = self.exportLocalB3D(obj, sPath, name)
+
+        # First kind of object: ipo. There is one or
+        # more IPOs define controlling this object.
+        # Second kind of object: no ipo, and no physics.
+        # So it's a visual-only object. This is exported
+        # as an animation object without an IPO attached.
+        # -----------------------------------------------
+        ipo     = obj.getIpo()
+        print "ipo=",ipo
+        if ipo or type=="nophysics":
+            self.writeAnimationWithIPO(f, b3d_name, obj, ipo)
+
+        # Third object: A movable object is a physical object that
+        # will be affected by (e.g.) the karts pushing it around
+        # --------------------------------------------------------
+        elif type=="movable":
+            shape = getProperty(obj, "shape", "")
+            if not shape:
+                print "Warning: Movable object %s has no shape - ignored!" \
+                      % obj.Name
+                return
+            mass  = getProperty(obj, "mass", 10)
+            f.write("  <object type=\"movable\" %s\n"%(getXYZHPRString(obj)))
+            f.write("          model=\"%s\" shape=\"%s\" mass=\"%f\"/>\n"\
+                    % (b3d_name, shape, mass))
+        
+    # --------------------------------------------------------------------------
     # Writes the scene files, which includes all models, animations, and items
     def writeSceneFile(self, sPath, sTrackName, sWaterName, lTrack, lItems,
-                       lAnimations, lObjects, lPhysical, lChecks, lSun):
+                       lStaticObjects, lObjects, lChecks, lSun):
+
         start_time = bsys.time()
         print "Writing scene file --> \t",
+
         f = open(sPath+"/scene.xml", "w")
         f.write("<?xml version=\"1.0\"?>\n")
         f.write("<scene>\n")
         lAnimTextures = self.checkForAnimatedTextures(lTrack)
-        if lObjects or lAnimTextures:
+        if lStaticObjects or lAnimTextures:
             f.write("  <track model=\"%s\" x=\"0\" y=\"0\" z=\"0\">\n"%sTrackName)
-            self.writeObjects(f, sPath, lObjects, lAnimTextures)
+            self.writeStaticObjects(f, sPath, lStaticObjects, lAnimTextures)
             f.write("  </track>\n")
         else:
             f.write("  <track model=\"%s\" x=\"0\" y=\"0\" z=\"0\"/>\n"%sTrackName)
@@ -833,12 +861,16 @@ class TrackExport:
         if sWaterName:
             f.write("  <water model=\"%s\" x=\"0\" y=\"0\" z=\"0\"/>\n""" \
                     % sWaterName)
+
+        for (type, obj) in lObjects:
+            self.writeObject(f, sPath, type, obj)
+        
         # Assemble all sky/fog related parameters
         # ---------------------------------------
         if len(lSun)>1:
             print "Warning: more than one Sun defined, only the first will be used."            
         sSky=""
-        scene = Blender.Scene.getCurrent()
+        scene = Blender.Scene.GetCurrent()
         s=getIdProperty(scene, "fog", 0)
         if s:
             sSky="%s fog=\"true\""%sSky
@@ -899,24 +931,9 @@ class TrackExport:
             if r and r!="0": s="%s r=\"%s\""%(s, r)
             f.write("  <%s />\n"%s)
 
-        for obj in lPhysical:
-            name=getProperty(obj, "name", obj.name)
-            # If the name ends with ".b3d", don't export this model anymore and
-            # assume it's a standard model included in STK
-            if not re.search("\.b3d$", name):
-                name=name+".b3d"
-                exportLocalB3D(obj, sPath+"/"+name)
-            shape = getProperty(obj, "shape", "box")
-            mass  = getProperty(obj, "mass", 10)
-            f.write("  <physical-object %s\n"%(getXYZHPRString(obj)))
-            f.write("                   model=\"%s\" shape=\"%s\" mass=\"%f\"/>\n"\
-                    % (name, shape, mass))
-            
-        if lAnimations:
-            self.writeAnimations(f, sPath, lAnimations)
         if lChecks:
             self.writeChecks(f, lChecks)
-        scene   = Blender.Scene.getCurrent()
+        scene   = Blender.Scene.GetCurrent()
         sky     = getIdProperty(scene, "sky-type", None)
         texture = getIdProperty(scene, "sky-texture", "")
         if sky and texture:
@@ -943,18 +960,17 @@ class TrackExport:
         
         # Collect the different kind of meshes this exporter handles
         # ----------------------------------------------------------
-        lObj           = Blender.Object.Get()  # List of all objects
-        lWater         = []                    # List of all water objects
-        lTrack         = []                    # All main track objects
-        lDrivelines    = []                    # All drivelines
+        lObj                 = Blender.Object.Get()  # List of all objects
+        lWater               = []                # List of all water objects
+        lTrack               = []                # All main track objects
+        lDrivelines          = []                # All drivelines
         found_main_driveline = 0
-        lItems         = []                    # All track items
-        lCameraCurves  = []                    # Camera curves (unused atm)
-        lAnimations    = []                    # All animated objects
-        lObjects       = []                    # All non-animated objects
-        lPhysical      = []                    # All physica objects
-        lChecks        = []                    # All check structures
-        lSun           = []
+        lItems               = []                # All track items
+        lCameraCurves        = []                # Camera curves (unused atm)
+        lStaticObjects       = []                # All static objects
+        lObjects             = []                # All objects w/out physics
+        lChecks              = []                # All check structures
+        lSun                 = []
         for obj in lObj:
             # Try to get the supertuxkart type field. If it's not defined,
             # use the name of the objects as type.
@@ -977,9 +993,6 @@ class TrackExport:
             elif obj.type=="Lamp":
                 lSun.append(obj)
                 continue
-            elif stktype[:7]=="MOVABLE" or stktype[:8]=="MOVEABLE":
-                lPhysical.append(obj)
-                continue
             elif obj.type!="Mesh":
                 #print "Non-mesh object '%s' (type: '%s') is ignored!"%(obj.name, stktype)
                 continue
@@ -996,13 +1009,12 @@ class TrackExport:
                 found_main_driveline = 1
             elif stktype[:9]=="DRIVELINE":
                 lDrivelines.append(Driveline(obj, 0))
-            elif stktype[:9]=="ANIMATION":
-                lAnimations.append(obj)
-            elif stktype=="OBJECT":
-                # Note that we DO NOT compare with stktype[:6], since blender
-                # names all by default as 'object...", so everything not having
-                # its own name would be exported as a separate object.
-                lObjects.append(obj)
+            elif stktype[:6]=="STATIC":
+                lStaticObjects.append(obj)
+            elif stktype[:9]=="NOPHYSICS" or stktype[:10]=="NONPHYSICS":
+                lObjects.append( ("nophysics", obj) )
+            elif stktype[:7]=="MOVABLE" or stktype[:8]=="MOVEABLE":
+                lObjects.append( ("movable",   obj) )
             else:
                 lTrack.append(obj)
 
@@ -1035,7 +1047,7 @@ class TrackExport:
         # scene file
         # ----------
         self.writeSceneFile(sPath, sTrackName, sWaterName, lTrack, lItems,
-                            lAnimations, lObjects, lPhysical, lChecks, lSun)
+                            lStaticObjects, lObjects, lChecks, lSun)
 
 # ==============================================================================
 def savescene_callback(sFilename):
