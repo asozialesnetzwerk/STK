@@ -810,8 +810,8 @@ class TrackExport:
     # Writes a non-static track object. The objects can be animated or
     # non-animated meshes, and physical or non-physical.
     # Type is either 'movable' or 'nophysics'.
-    def writeObject(self, f, sPath, type, obj):
-        name = getProperty(obj, "name", obj.name)
+    def writeObject(self, f, sPath, obj):
+        name     = getProperty(obj, "name", obj.name)
         b3d_name = self.exportLocalB3D(obj, sPath, name)
 
         # First kind of object: ipo. There is one or
@@ -820,29 +820,40 @@ class TrackExport:
         # So it's a visual-only object. This is exported
         # as an animation object without an IPO attached.
         # -----------------------------------------------
-        ipo     = obj.getIpo()
-        print "ipo=",ipo
-        if ipo or type=="nophysics":
-            self.writeAnimationWithIPO(f, b3d_name, obj, ipo)
-
-        # Third object: A movable object is a physical object that
-        # will be affected by (e.g.) the karts pushing it around
-        # --------------------------------------------------------
-        elif type=="movable":
+        interact = getProperty(obj, "interaction")
+        # An object that can be moved by the player. This object
+        # can not have an IPO, so no need to test this here.
+        if interact=="move":
+            ipo      = obj.getIpo()
+            if ipo:
+                print "Warning: Movable object %s has an ipo - ipo is ignored." \
+                      %obj.name
             shape = getProperty(obj, "shape", "")
             if not shape:
-                print "Warning: Movable object %s has no shape - ignored!" \
+                print "Warning: Movable object %s has no shape - box assumed!" \
                       % obj.Name
-                return
+                shape="box"
             mass  = getProperty(obj, "mass", 10)
             f.write("  <object type=\"movable\" %s\n"%(getXYZHPRString(obj)))
             f.write("          model=\"%s\" shape=\"%s\" mass=\"%f\"/>\n"\
                     % (b3d_name, shape, mass))
-        
+            
+        # Now the object either has an IPO, or is a 'ghost' object.
+        # Either can have an IPO. Even if the objects don't move
+        # they are saved as animations (with 0 IPOs).
+        elif interact=="ghost" or interact=="none":
+            ipo      = obj.getIpo()
+            self.writeAnimationWithIPO(f, b3d_name, obj, ipo)
+        elif interact=="static":
+            ipo      = obj.getIpo()
+            self.writeAnimationWithIPO(f, b3d_name, obj, ipo)
+        else:
+            print "Unknown interaction '%s' - ignored!"%interact
+
     # --------------------------------------------------------------------------
     # Writes the scene files, which includes all models, animations, and items
     def writeSceneFile(self, sPath, sTrackName, sWaterName, lTrack, lItems,
-                       lStaticObjects, lObjects, lChecks, lSun):
+                       lObjects, lChecks, lSun):
 
         start_time = bsys.time()
         print "Writing scene file --> \t",
@@ -850,7 +861,25 @@ class TrackExport:
         f = open(sPath+"/scene.xml", "w")
         f.write("<?xml version=\"1.0\"?>\n")
         f.write("<scene>\n")
-        lAnimTextures = self.checkForAnimatedTextures(lTrack)
+
+        # Extract all static objects (which will be merged into one
+        # bullet objects in stk):
+        lStaticObjects = []
+        lOtherObjects  = []
+        for obj in lObjects:
+            interact = getProperty(obj, "interaction", "static")
+            if interact=="static":
+                ipo      = obj.getIpo()
+                # If an static object has an IPO, it will be moved, and
+                # can't be merged with the physics model of the track
+                if ipo:
+                    lOtherObjects.append(obj)
+                else:
+                    lStaticObjects.append(obj)
+            else:
+                lOtherObjects.append(obj)
+                
+        lAnimTextures  = self.checkForAnimatedTextures(lTrack)
         if lStaticObjects or lAnimTextures:
             f.write("  <track model=\"%s\" x=\"0\" y=\"0\" z=\"0\">\n"%sTrackName)
             self.writeStaticObjects(f, sPath, lStaticObjects, lAnimTextures)
@@ -862,8 +891,8 @@ class TrackExport:
             f.write("  <water model=\"%s\" x=\"0\" y=\"0\" z=\"0\"/>\n""" \
                     % sWaterName)
 
-        for (type, obj) in lObjects:
-            self.writeObject(f, sPath, type, obj)
+        for obj in lOtherObjects:
+            self.writeObject(f, sPath, obj)
         
         # Assemble all sky/fog related parameters
         # ---------------------------------------
@@ -967,8 +996,7 @@ class TrackExport:
         found_main_driveline = 0
         lItems               = []                # All track items
         lCameraCurves        = []                # Camera curves (unused atm)
-        lStaticObjects       = []                # All static objects
-        lObjects             = []                # All objects w/out physics
+        lObjects             = []                # All special objects
         lChecks              = []                # All check structures
         lSun                 = []
         for obj in lObj:
@@ -1009,12 +1037,8 @@ class TrackExport:
                 found_main_driveline = 1
             elif stktype[:9]=="DRIVELINE":
                 lDrivelines.append(Driveline(obj, 0))
-            elif stktype[:6]=="STATIC":
-                lStaticObjects.append(obj)
-            elif stktype[:9]=="NOPHYSICS" or stktype[:10]=="NONPHYSICS":
-                lObjects.append( ("nophysics", obj) )
-            elif stktype[:7]=="MOVABLE" or stktype[:8]=="MOVEABLE":
-                lObjects.append( ("movable",   obj) )
+            elif stktype[:6]=="OBJECT" or stktype[:14]=="SPECIAL_OBJECT":
+                lObjects.append(obj)
             else:
                 lTrack.append(obj)
 
@@ -1047,7 +1071,7 @@ class TrackExport:
         # scene file
         # ----------
         self.writeSceneFile(sPath, sTrackName, sWaterName, lTrack, lItems,
-                            lStaticObjects, lObjects, lChecks, lSun)
+                            lObjects, lChecks, lSun)
 
 # ==============================================================================
 def savescene_callback(sFilename):
