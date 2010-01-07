@@ -3,7 +3,7 @@
 <challenge
     id="junglefollow"
     name="Follow the Leader in the Jungle"
-    description="Win a Follow the Leader race\nwith 3 AI karts\nin the Amazonian Jungle."
+    description="Win a Follow the Leader race with 3 AI karts in the Amazonian Jungle."
     unlock-track="city"
     depend-on="penguinplaygroundgp racetracktime"
     major="single"

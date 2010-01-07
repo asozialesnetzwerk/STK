@@ -3,7 +3,7 @@
 <challenge
     id="citytime"
     name="Finish the City track in 4:20"
-    description="Finish 3 laps on the City track\nwith 3 AI karts\nin under 4:20 minutes."
+    description="Finish 3 laps on the City track with 3 AI karts in under 4:20 minutes."
     unlock-track="snowtuxpeak"
     depend-on="junglefollow"
     major="single"

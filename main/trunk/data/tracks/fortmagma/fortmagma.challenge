@@ -2,8 +2,8 @@
 
 <challenge
     id="tollwayhead"
-    name="Win a Head to Head on\nTux Tollway"
-    description="Win a 1 lap Head to Head\non Tux Tollway against 1 'Racer'\nlevel AI kart."
+    name="Win a Head to Head on Tux Tollway"
+    description="Win a 1 lap Head to Head on Tux Tollway against 1 'Racer' level AI kart."
     depend-on="tollwaytime"
     unlock-track="fortmagma"
     major="single"
