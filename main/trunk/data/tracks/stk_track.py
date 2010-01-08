@@ -934,26 +934,31 @@ class TrackExport:
             rx,ry,rz = map(lambda x: rad2deg*x, obj.rot)
             h,p,r    = map(str, map(Round, [rz,rx,ry])  )
             x,y,z    = map(str, map(Round, obj.loc     )  )
-            l        = obj.name.split(".")
-            if len(l)!=1:
-                if l[-1].isdigit():   # Remove number appended by blender
-                    l = l[:-1]
-                name = ".".join(l)
-            else:
-                name = obj.name
-            # Portability for old models:
-            g=re.match("(.*) *{(.*)}", name)
-            if g:
-                name  = g.group(1)
-                specs = g.group(2).lower()
-                if specs.find("z")>=0: z=None
-                if specs.find("p")>=0: p=None
-                if specs.find("r")>=0: r=None
-            # FIXME: what about zipper??
-            if name=="GHERRING": name="banana"
-            if name=="RHERRING": name="item"
-            if name=="YHERRING": name="big-nitro"
-            if name=="SHERRING": name="small-nitro"
+            name     = getProperty(obj, "type", "").lower()
+            if name=="":
+                # If the type is not specified in the property,
+                # assume it's an old style item, which means the
+                # blender object name is to be used
+                l = obj.name.split(".")
+                if len(l)!=1:
+                    if l[-1].isdigit():   # Remove number appended by blender
+                        l = l[:-1]
+                    name = ".".join(l)
+                else:
+                    name = obj.name
+                # Portability for old models:
+                g=re.match("(.*) *{(.*)}", name)
+                if g:
+                    name  = g.group(1)
+                    specs = g.group(2).lower()
+                    if specs.find("z")>=0: z=None
+                    if specs.find("p")>=0: p=None
+                    if specs.find("r")>=0: r=None
+                # FIXME: what about zipper??
+                if name=="GHERRING": name="banana"
+                if name=="RHERRING": name="item"
+                if name=="YHERRING": name="big-nitro"
+                if name=="SHERRING": name="small-nitro"
             s="%s x=\"%s\" y=\"%s\""%(name, x, y)
             if z: s="%s z=\"%s\""%(s, z)
             if p and p!="0": s="%s p=\"%s\""%(s, p)
@@ -1009,12 +1014,16 @@ class TrackExport:
             # copied into the main track.
             if stktype[:6]=="IGNORE": continue
             
-            if obj.type=="Empty" and \
-               (stktype[:8] in ["GHERRING", "RHERRING", "YHERRING", "SHERRING"] \
-                or stktype[:6]== "BANANA"      or stktype[:4]=="ITEM" \
-                or stktype[:11]=="NITRO-SMALL" or stktype[:9]=="NITRO-BIG" ):
-                lItems.append(obj)
-                continue
+            if obj.type=="Empty":
+                # Check for old and new style names
+                if stktype[:8] in ["GHERRING", "RHERRING", "YHERRING", "SHERRING"] \
+                   or stktype[:6]== "BANANA"      or stktype[:4]=="ITEM" \
+                   or stktype[:11]=="NITRO-SMALL" or stktype[:9]=="NITRO-BIG":
+                    lItems.append(obj)
+                    continue
+                else:
+                    print "Empty '%s' has type '%s' which is not valid - ignored."%\
+                          (obj.name, stktype)
             elif obj.type=="Curve":
                 # Only append camera, other curves will be handled in animations
                 if stktype[:6]=="CAMERA": lCameraCurves.append(obj)
