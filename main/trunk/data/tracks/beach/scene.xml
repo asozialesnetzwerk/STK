@@ -7,7 +7,7 @@
   <camera final-position  ="-5 12 3"
          final-hpr       ="-150 -10 0"/>
   <sun xyz="0 100 100"/>
-  <sky-dome texture="lighthouse_sky.png"
+  <sky-dome texture="/tracks/beach/lighthouse_sky.png"
           horizontal="16" vertical="16"
           speed-x="1" speed-y="1"
           texture-percent="0.5" sphere-percent="1.3"/>
