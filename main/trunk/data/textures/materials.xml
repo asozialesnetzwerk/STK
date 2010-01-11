@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <materials>
   <material name="clouds.png" alpha="0.0" light="N" reset="Y" collide="N"/>
-  <material name="roadcone.png" transparency="Y"/>
   <material name="sand.png" alpha="0.0" collide="N" maxSpeed="0.4" slowdownTime="4"/>
   <material name="sandgrass.png" alpha="0.0" collide="N" maxSpeed="0.4" slowdownTime="4"/>
   <material name="grass.png" alpha="0.0" collide="N" maxSpeed="0.6" slowdownTime="4"/>
@@ -75,9 +74,7 @@
   <material name="plunger-icon.png" transparency="Y" alpha="0.0" light="N" collide="N"/>
   <material name="plungerface.png" transparency="Y" alpha="0.0" light="N" collide="N"/>
   <material name="nitro-tank.png" clampV="Y" transparency="Y" alpha="0.5" collide="N"/>
-  <material name="st_title_screen.png" clampU="Y" clampV="Y" alpha="1.0" light="N"/>
   <material name="menu_background.png" clampU="Y" clampV="Y" alpha="1.0" light="N"/>
-  <material name="st_title_screen2.png" clampU="Y" clampV="Y" alpha="1.0" light="N"/>
   <material name="menu_background2.png" clampU="Y" clampV="Y" alpha="1.0" light="N"/>
   <material name="water-splash.png" alpha="Y" light="N" ignore="Y" collide="N"/>
   <material name="notes.png" transparency="Y" alpha="0.0" light="N" collide="N"/>
