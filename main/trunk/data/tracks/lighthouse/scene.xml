@@ -1,40 +1,36 @@
 <?xml version="1.0"?>
 <scene>
-  <track model="lighthousetrack.b3d" x="0" y="0" z="0">
-    <animated-texture name="sea.jpg" dy="-0.1"/>
-  </track>
-  <camera final-position  ="-10 25 3"
-          final-hpr       ="-140 -7 0"/>
-
-  <sun xyz="0 100 0"/>
   <track model="lighthousetrack.b3d" x="0" y="0" z="0"/>
-  <sky-dome texture="lighthouse_sky.jpg"
-            horizontal="16" vertical="16" 
-            texture-percent="0.5" sphere-percent="1.3"/>
+  <sun  fog="true" fog-color="1 1 1" fog-density="50" fog-start="0" fog-end="100" xyz="105.003646851 -68.6922302246 88.6911010742"/>
+  <item x="-27.765064" y="49.391853" />
+  <item x="-27.21554" y="47.084381" />
+  <item x="-26.720949" y="44.996407"/>
+  <item x="-26.226444" y="43.07349" />
+  <item x="-45.854069" y="-46.743793"/>
+  <item x="-48.68174" y="-46.445847" />
+  <item x="12.371565" y="-57.734921" />
+  <item x="12.38612" y="-59.65921"  />
+  <item x="12.250172" y="-62.217819" />
+  <item x="11.839122" y="-64.608177" />
+  <item x="59.037121" y="-32.639648" />
+  <item x="62.539543" y="-33.612541" />
+  <item x="54.593498" y="37.709343"  />
+  <item x="54.767887" y="35.429962"  />
+  <item x="54.783318" y="33.181438"  />
+  <item x="54.783318" y="30.823359"  />
+  <item x="30.821682" y="-8.613055"  />
+  <item x="29.096848" y="-6.530096"  />
+  <small-nitro x="-23.934258" y="-4.407568"/>
+  <small-nitro x="-17.353445" y="2.173244"/>
+  <small-nitro x="-18.127659" y="-9.827062"/>
+  <small-nitro x="-50.838169" y="-46.21508"/>
+  <small-nitro x="-43.751602" y="-46.911083" />
+  <small-nitro x="66.910866" y="-35.339317"/>
+  <big-nitro x="51.721169" y="-28.531448" />
+  <small-nitro x="27.694473" y="-5.095636" />
+  <small-nitro x="26.239197" y="-3.513813" />
   <checks>
-    <check-line   kind="lap" p1="-5 0" p2="5 0" min-height="-0.4"/>
-    <check-sphere kind="ambient-light" xyz="0 10 0" radius="5" inner-radius="3" color="255 255 0 0"/>
-    <check-line   kind="toggle" other-id="0" p1="-5 5" p2="5 5" min-height="-0.4"/>
+    <check-line kind="lap" p1="8.269903 1.317285" p2="-8.464786 1.317285" min-height="-0.589194"/>
+    <check-line kind="activate" other-id="0" p1="68.019455 -45.556225" p2="44.501854 -31.783911" min-height="-9.717559"/>
   </checks>
-  <small-nitro x="81.005333" y="-0.073995"/>
-  <small-nitro x="77.851761" y="0.934763"/>
-  <small-nitro x="74.643669" y="2.166354"/>
-  <small-nitro x="27.697657" y="-58.154846"/>
-  <small-nitro x="29.748253" y="-60.912331"/>
-  <small-nitro x="31.872066" y="-63.452408"/>
-  <small-nitro x="-17.300978" y="-2.078869"/>
-  <small-nitro x="-20.609509" y="-2.20612"/>
-  <small-nitro x="-24.045292" y="-2.142494"/>
-  <item x="37.160557" y="2.198871"/>
-  <item x="34.915821" y="2.512133"/>
-  <item x="32.074749" y="2.833275"/>
-  <item x="29.390997" y="3.220781"/>
-  <item x="-37.714851" y="-64.545502"/>
-  <item x="-37.046822" y="-61.917503"/>
-  <item x="-36.428207" y="-59.12606"/>
-  <item x="-35.880249" y="-56.926807"/>
-  <item x="-1.019776" y="39.404644"/>
-  <item x="-2.928773" y="38.182888"/>
-  <item x="-5.295928" y="36.57933"/>
-  <item x="-7.586723" y="35.128494"/>
 </scene>
