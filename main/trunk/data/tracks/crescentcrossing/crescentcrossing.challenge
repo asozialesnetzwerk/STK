@@ -3,7 +3,7 @@
 <challenge
     id="energymathclass"
     name="Collect Nitro in Math Class"
-    description="Finish with at least 6 points of intro on three laps of Oliver's Math Class in under 52 seconds."
+    description="Finish with at least 6 points of nitro on three laps of Oliver's Math Class in under 52 seconds."
     unlock-track="crescentcrossing"
     depend-on="penguinplaygroundgp"
     major="single"
