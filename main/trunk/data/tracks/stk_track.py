@@ -718,10 +718,10 @@ class TrackExport:
             # which might be a default name with a number). Additionally, names
             # are cached so it can be avoided to export two or more identical
             # objects.
-            lAnim = self.checkForAnimatedTextures([obj])
-            b3d_name = getProperty(obj, "name", obj.name)+".b3d"
-            self.exportLocalB3D(obj, sPath, b3d_name)
-            kind = getProperty(obj, "kind", "")
+            lAnim    = self.checkForAnimatedTextures([obj])
+            name     = getProperty(obj, "name", obj.name)
+            b3d_name = self.exportLocalB3D(obj, sPath, name)
+            kind     = getProperty(obj, "kind", "")
                 
             if lAnim:
                 f.write("    <static-object model=\"%s\" %s>\n"% \
