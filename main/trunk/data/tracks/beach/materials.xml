@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <materials>
   <material name="chess.jpg" collide="N"/>
-  <material name="grass.jpg" collide="N" maxSpeed="0.6" slowdownTime="4"/>
-  <material name="sand.jpg"  collide="N" maxSpeed="0.4" slowdownTime="4"/>
-  <material name="sandgrass.jpg" collide="N" maxSpeed="0.4" slowdownTime="4"/>
+  <material name="grass.jpg" collide="N" maxSpeed="0.6" slowdown="0.4"/>
+  <material name="sand.jpg"  collide="N" maxSpeed="0.4" slowdown="0.4"/>
+  <material name="sandgrass.jpg" collide="N" maxSpeed="0.4" slowdown="0.4"/>
   <material name="stonetex.jpg"  collide="N"/>
   <material name="track.jpg"  collide="N"/>
   <material name="trackborder.jpg" light="N" collide="N"/>
