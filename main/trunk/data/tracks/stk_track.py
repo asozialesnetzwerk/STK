@@ -959,6 +959,10 @@ class TrackExport:
                 if name=="RHERRING": name="item"
                 if name=="YHERRING": name="big-nitro"
                 if name=="SHERRING": name="small-nitro"
+            else:
+                if name=="nitro-big": name="big-nitro"
+                if name=="nitro-small": name="small-nitro"
+                
             s="%s x=\"%s\" y=\"%s\""%(name, x, y)
             if z: s="%s z=\"%s\""%(s, z)
             if p and p!="0": s="%s p=\"%s\""%(s, p)
@@ -1018,7 +1022,8 @@ class TrackExport:
                 # Check for old and new style names
                 if stktype[:8] in ["GHERRING", "RHERRING", "YHERRING", "SHERRING"] \
                    or stktype[:6]== "BANANA"      or stktype[:4]=="ITEM" \
-                   or stktype[:11]=="NITRO-SMALL" or stktype[:9]=="NITRO-BIG":
+                   or stktype[:11]=="NITRO-SMALL" or stktype[:9]=="NITRO-BIG" \
+                   or stktype[:11]=="SMALL-NITRO" or stktype[:9]=="BIG-NITRO":
                     lItems.append(obj)
                     continue
                 else:
