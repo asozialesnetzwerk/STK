@@ -1023,7 +1023,8 @@ class TrackExport:
                 if stktype[:8] in ["GHERRING", "RHERRING", "YHERRING", "SHERRING"] \
                    or stktype[:6]== "BANANA"      or stktype[:4]=="ITEM" \
                    or stktype[:11]=="NITRO-SMALL" or stktype[:9]=="NITRO-BIG" \
-                   or stktype[:11]=="SMALL-NITRO" or stktype[:9]=="BIG-NITRO":
+                   or stktype[:11]=="SMALL-NITRO" or stktype[:9]=="BIG-NITRO" \
+                   or stktype[:6]=="ZIPPER":
                     lItems.append(obj)
                     continue
                 else:
