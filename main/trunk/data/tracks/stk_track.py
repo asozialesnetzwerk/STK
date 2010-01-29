@@ -136,6 +136,11 @@ class Driveline:
     def getLastQuadIndex(self):
         return self.global_quad_index_start+len(self.lCenter)-1
     # --------------------------------------------------------------------------
+    # Returns the start edge, which is the lap counting line for the main
+    # drivelines. See defineStartVertex() for setting self.start_line.
+    def getStartEdge(self):
+        return self.start_line
+    # --------------------------------------------------------------------------
     # This driveline is the last main driveline. This means that it will get
     # one additional quad added to connect this to the very first quad. Since
     # the values are not actually needed (see write function), the arrays have
@@ -184,6 +189,10 @@ class Driveline:
             print "exactly two vertices with only one neighbour."
             return
 
+        # Save start edge, which will become the main lap counting line
+        # (on the main driveline).
+        self.start_line = (self.dNext[self.lStart[0] ][0],
+                           self.dNext[self.lStart[1] ][0])
         self.start_point =(  (self.lStart[0][0]+self.lStart[1][0])*0.5,
                              (self.lStart[0][1]+self.lStart[1][1])*0.5,
                              (self.lStart[0][2]+self.lStart[1][2])*0.5 )
@@ -735,15 +744,32 @@ class TrackExport:
         
     # --------------------------------------------------------------------------
     # Writes out all checklines.
-    def writeChecks(self, f, lChecks):
+    # \param lChecks All check meshes
+    # \param lMainDriveline The main driveline, from which the lap
+    #        counting check line is determined.
+    def writeChecks(self, f, lChecks, lMainDriveline):
+        lap = lMainDriveline.getStartEdge()
         f.write("  <checks>\n")
+        if lMainDriveline:
+            min_h = lap[0][2]
+            if lap[1][2]<min_h: min_h = lap[1][2]
+            f.write("    <check-line type=\"lap\" p1=\"%f %f\" p2=\"%f %f\" min-height=\"%f\"/>\n"% \
+                        (lap[0][0], lap[0][1],
+                         lap[1][0], lap[1][1], min_h   )  )
 
-        dName2Index = {}
-        count = 0
+        # Create a dictionary to map the names to the index of the
+        # check structure. Insert the 'lap' object as a first entry
+        dName2Index = {'lap' : 0}
+        count = 1
         for obj in lChecks:
+            if dName2Index.has_key(obj.name):
+                print "Check structure name '%s' already defined, ignored."% \
+                      obj.name
+                print "Remember that the 'lap' checkline is automatically defined."
+                continue
             dName2Index[obj.name] = count
             count = count + 1
-            
+
         for obj in lChecks:
             mesh=obj.getData()
             # Convert to world space
@@ -753,13 +779,15 @@ class TrackExport:
             kind=" "
             if activate:
                 try:
-                    kind = " kind=\"activate\" other-id=\"%d\" "%dName2Index[activate]
+                    kind = " kind=\"activate\" other-id=\"%d\" "% \
+                           dName2Index[activate]
                 except KeyError:
                     print "Activate object '%s' not found!"%activate
             toggle = getProperty(obj, "toggle", "")
             if toggle:
                 try:
-                    kind = " kind=\"toggle\" other-id=\"%d\" "%dName2Index[toggle]
+                    kind = " kind=\"toggle\" other-id=\"%d\" " % \
+                           dName2Index[toggle]
                 except KeyError:
                     print "Toggle object '%s' not found!"%activate
             lap = getProperty(obj, "type", obj.name).upper()
@@ -853,7 +881,7 @@ class TrackExport:
     # --------------------------------------------------------------------------
     # Writes the scene files, which includes all models, animations, and items
     def writeSceneFile(self, sPath, sTrackName, sWaterName, lTrack, lItems,
-                       lObjects, lChecks, lSun):
+                       lObjects, lChecks, lSun, lMainDriveline):
 
         start_time = bsys.time()
         print "Writing scene file --> \t",
@@ -970,7 +998,7 @@ class TrackExport:
             f.write("  <%s />\n"%s)
 
         if lChecks:
-            self.writeChecks(f, lChecks)
+            self.writeChecks(f, lChecks, lMainDriveline)
         scene   = Blender.Scene.GetCurrent()
         sky     = getIdProperty(scene, "sky-type", None)
         texture = getIdProperty(scene, "sky-texture", "")
@@ -1069,7 +1097,6 @@ class TrackExport:
         # Quads and mapping files
         # -----------------------
         self.writeQuadAndGraph(sPath, lDrivelines)
-    
         start_time = bsys.time()
         print "Exporting track -->",
         sTrackName = sBase+"_track.b3d"
@@ -1085,8 +1112,10 @@ class TrackExport:
     
         # scene file
         # ----------
+        if len(lDrivelines)==0:
+            lDrivelines=[None]
         self.writeSceneFile(sPath, sTrackName, sWaterName, lTrack, lItems,
-                            lObjects, lChecks, lSun)
+                            lObjects, lChecks, lSun, lDrivelines[0])
 
 # ==============================================================================
 def savescene_callback(sFilename):
