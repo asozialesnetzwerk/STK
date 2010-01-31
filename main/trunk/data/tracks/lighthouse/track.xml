@@ -2,8 +2,8 @@
 <track  name        = "Around the Lighthouse"
         version     = "1"
         groups      = "standard"
-        designer    = "Ingo Ruhnke & Marianne Gagnon & Stephen Dunn"
+        description = "Ingo Ruhnke & Marianne Gagnon & Stephen Dunn"
         music       = "ChillCarrier-Druckverlust.music"
-        screenshot  = "sshot-lighthouse.png"               >
-  <mode name="default"  quads="quads.xml" graph="graph.xml" scene="scene.xml"/>
+        screenshot  = "sshot-lighthouse.png"
+>
 </track>
