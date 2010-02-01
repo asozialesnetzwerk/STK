@@ -748,15 +748,25 @@ class TrackExport:
     # \param lMainDriveline The main driveline, from which the lap
     #        counting check line is determined.
     def writeChecks(self, f, lChecks, lMainDriveline):
-        lap = lMainDriveline.getStartEdge()
         f.write("  <checks>\n")
         if lMainDriveline:
-            min_h = lap[0][2]
-            if lap[1][2]<min_h: min_h = lap[1][2]
-            f.write("    <check-line type=\"lap\" p1=\"%f %f\" p2=\"%f %f\" min-height=\"%f\"/>\n"% \
-                        (lap[0][0], lap[0][1],
-                         lap[1][0], lap[1][1], min_h   )  )
-
+            lap = lMainDriveline.getStartEdge()
+            if lMainDriveline:
+                min_h = lap[0][2]
+                if lap[1][2]<min_h: min_h = lap[1][2]
+                f.write("    <check-line type=\"lap\" p1=\"%f %f\" p2=\"%f %f\" min-height=\"%f\"/>\n"% \
+                            (lap[0][0], lap[0][1],
+                             lap[1][0], lap[1][1], min_h   )  )
+            # Create a dictionary to map the names to the index of the
+            # check structure. Insert the 'lap' object as a first entry
+            dName2Index = {'lap' : 0}
+            count = 1
+        else:
+            # Create a dictionary to map the names to the index of the
+            # check structure. Insert the 'lap' object as a first entry
+            dName2Index = {}
+            count = 0
+            
         # Create a dictionary to map the names to the index of the
         # check structure. Insert the 'lap' object as a first entry
         dName2Index = {'lap' : 0}
@@ -959,9 +969,6 @@ class TrackExport:
             
         rad2deg = 180.0/3.1415926
         for obj in lItems:
-            rx,ry,rz = map(lambda x: rad2deg*x, obj.rot)
-            h,p,r    = map(str, map(Round, [rz,rx,ry])  )
-            x,y,z    = map(str, map(Round, obj.loc     )  )
             name     = getProperty(obj, "type", "").lower()
             if name=="":
                 # If the type is not specified in the property,
@@ -990,11 +997,21 @@ class TrackExport:
             else:
                 if name=="nitro-big": name="big-nitro"
                 if name=="nitro-small": name="small-nitro"
-                
-            s="%s x=\"%s\" y=\"%s\""%(name, x, y)
-            if z: s="%s z=\"%s\""%(s, z)
-            if p and p!="0": s="%s p=\"%s\""%(s, p)
-            if r and r!="0": s="%s r=\"%s\""%(s, r)
+
+            # Get the position of the item - first check if the item should
+            # be dropped on the track, or stay at the position indicated.
+            rx,ry,rz = map(lambda x: rad2deg*x, obj.rot)
+            h,p,r    = map(str, map(Round, [rz,rx,ry])  )
+            x,y,z    = map(str, map(Round, obj.loc     )  )
+            drop     = getProperty(obj, "drop", "y").lower()
+            s        = "%s x=\"%s\" y=\"%s\" z=\"%s\"" % (name, x, y, z)
+            if h and h!="0": s = "%s h=\"%s\""%(s, h)
+            if drop=="n":
+                # Pitch and roll will be set automatically if dropped
+                if p and p!="0": s="%s p=\"%s\""%(s, p)
+                if r and r!="0": s="%s r=\"%s\""%(s, r)
+                s="%s drop=\"n\""%s
+
             f.write("  <%s />\n"%s)
 
         if lChecks:
