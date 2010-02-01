@@ -47,7 +47,7 @@
   <material name="water_light.png" light="N" reset="Y" collide="N"/>
   <material name="sea.png" alpha="0.0" light="N" reset="Y"/>
   <material name="rock.png" alpha="0.0" collide="N"/>
-  <material name="coniferous_tree.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.5" light="N" collide="N"/>
+  <material name="coniferous_tree.png" transparency="Y" light="N" collide="N"/>
   <material name="signs.png" transparency="Y" alpha="0.5" light="N" collide="N"/>
   <material name="greenice.png" alpha="0.0" reset="Y" collide="N"/>
   <material name="snow.png" alpha="0.0" collide="N" maxSpeed="0.4" slowdownTime="4"/>
