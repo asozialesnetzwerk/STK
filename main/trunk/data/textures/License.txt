@@ -10,7 +10,7 @@ Under Creative Commons Attribution Share-Alike (CC-BY-SA) - http://creativecommo
 * cup_*, speedback, speedfore
     by yeKcim (Anthony Carré)
 
-* gold, chest, explode
+* gold, explode, purplenebula*
     by Marianne Gagnon (Auria)
     
 * road_dirt
@@ -19,7 +19,7 @@ Under Creative Commons Attribution Share-Alike (CC-BY-SA) - http://creativecommo
 * earth, logs, rock, sand, sea, signs, water_light, notes
     by Marianne Gagnon (Auria)
 
-* bowling, plunger, cake, bubblegum, flaring-star, nitro-tank, nitro-metal,
+* bowling, plunger, cake, bubblegum, flaring-star, nitro-tank, nitro-metal, chest,
   gift-box, gift-loop, tank-cyan, tank-blue, tank-green, plunger-icon, bubblegum-icon, cake-icon,
   bowling-icon, tnt-bomb, nitro-particle, smoke, anchor, anchor-icon, sand2
     created by MiniBjorn (c) 2008
