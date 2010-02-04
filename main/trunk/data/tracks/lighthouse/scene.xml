@@ -50,7 +50,6 @@
   <small-nitro x="26.239197" y="-3.513813" z="0.7631" />
   <checks>
     <check-line type="lap" p1="-4.706323 2.414262" p2="4.415620 2.438872" min-height="-0.598438"/>
-    <check-line kind="lap" p1="8.269903 1.317285" p2="-8.464786 1.317285" min-height="-0.589194"/>
     <check-line kind="activate" other-id="1" p1="68.019455 -45.556225" p2="44.501854 -31.783911" min-height="-9.717559"/>
   </checks>
 </scene>
