@@ -4,6 +4,8 @@
   <track model="canyon.track_track.b3d" x="0" y="0" z="0"/>
   <water model="canyon.track_water.b3d" x="0" y="0" z="0"/>
   <sun  xyz="100.0 100.0 100.0"/>
+<!-- Start position to test the uphill section only
+  <start x="61.815" y="70.136" z="-89.58" h="270" />  -->
   <banana x="329" y="19" />
   <banana x="274" y="307" />
   <banana x="274" y="311" />
