@@ -64,6 +64,7 @@
   <material name="dirt.png" alpha="0.0" collide="N"/>
   <material name="city_asphalt_1.png" alpha="0.0" collide="N"/>
   <material name="city_checker.png" alpha="0.0" collide="N"/>
+  <material name="nitro-tank.png" clampV="Y" transparency="Y" alpha="0.5" collide="N"/>
   <material name="tank-blue.png" alpha="0.0" sphere="Y" collide="N"/>
   <material name="tank-green.png" alpha="0.0" sphere="Y" collide="N"/>
   <material name="tank-cyan.png" alpha="0.0" sphere="Y" collide="N"/>
@@ -74,7 +75,6 @@
   <material name="cake-icon.png" transparency="Y" alpha="0.0" light="N" collide="N"/>
   <material name="plunger-icon.png" transparency="Y" alpha="0.0" light="N" collide="N"/>
   <material name="plungerface.png" transparency="Y" alpha="0.0" light="N" collide="N"/>
-  <material name="nitro-tank.png" clampV="Y" transparency="Y" alpha="0.5" collide="N"/>
   <material name="menu_background.png" clampU="Y" clampV="Y" alpha="1.0" light="N"/>
   <material name="menu_background2.png" clampU="Y" clampV="Y" alpha="1.0" light="N"/>
   <material name="water-splash.png" alpha="Y" light="N" ignore="Y" collide="N"/>
