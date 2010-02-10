@@ -8,7 +8,7 @@
  (shadow-file "gooeyshadow.png")
  (groups      "standard") 
  (engine-sound "large")
- (rgb         0.8 0.0 0.5)
+ (rgb         0.811764 0.015686 0.537254)
   (wheel-front-right
     (position 0.295805 0.431543 0.134951)
     (model    "wheel-front-right.b3d")

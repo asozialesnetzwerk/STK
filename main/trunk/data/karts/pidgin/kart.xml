@@ -5,7 +5,7 @@
   (icon-file   "pidginicon.png")
   (shadow-file "pidginshadow.png")
   (groups      "standard")
-  (rgb         0.459000 0.286000 0.490000)
+  (rgb         0.364705 0.219607 0.396078)
   (wheel-front-right
     (position 0.257000 0.303252 0.124375)
     (model    "wheel-front-right.b3d")

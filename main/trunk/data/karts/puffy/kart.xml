@@ -5,7 +5,7 @@
   (icon-file   "puffy-icon.png")
   (shadow-file "puffy-shadow.png")
   (groups      "standard")
-  (rgb         0.125000 0.500000 0.125000)
+  (rgb         0.12549 0.50196 0.12549)
   (wheel-front-right
 ;    (position 0.400000 0.550000 0.100000)
     (position 0.400000 0.550000 0.090000)

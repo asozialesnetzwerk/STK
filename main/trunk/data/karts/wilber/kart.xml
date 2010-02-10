@@ -5,7 +5,7 @@
 	(icon-file   "wilbericon.png")
 	(shadow-file "wilbershadow.png")
 	(groups      "standard")
-	(rgb         0.700000 0.000000 0.000000)
+	(rgb         0.811764 0.439215 0.058823)
 	(animation-left 1)
 	(animation-straight 11)
 	(animation-right 21)

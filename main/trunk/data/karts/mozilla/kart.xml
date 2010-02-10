@@ -8,7 +8,7 @@
  (shadow-file "mozillashadow.png")
  (groups      "standard")
  (engine-sound "large")
- (rgb         1.0 0.7 0.1)
+ (rgb         1.0 0.77647 0.447058)
   (wheel-front-right
     (position 0.237866 0.380136 0.114071)
     (model    "wheel-front-right.b3d")

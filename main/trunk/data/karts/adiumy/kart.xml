@@ -5,7 +5,7 @@
   (icon-file   "adiumyicon.png")
   (shadow-file "adiumyshadow.png")
   (groups      "standard")
-  (rgb         0.700000 0.000000 0.000000)
+  (rgb         0.462745 0.713725 0.023529)
   (animation-left 1)
   (animation-straight 6)
   (animation-right 11)

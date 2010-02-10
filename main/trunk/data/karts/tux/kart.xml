@@ -20,7 +20,7 @@
  (name-sound        "horn.ogg")
  (attach-sound      "uh-oh.ogg")
 
- (rgb         0.7 0.0 0.0)
+ (rgb         0.690196 0.0 0.0)
  (wheel-front-right
    (position  0.295  0.412 0.103)
    (model     "wheel-front-right.b3d")

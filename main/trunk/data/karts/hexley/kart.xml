@@ -6,7 +6,7 @@
  (model-file  "hexley.b3d")
  (icon-file   "hexleyicon.png")
  (shadow-file "hexley2shadow.png")
- (rgb  0.25 0.23 0.18)
+ (rgb  0.780392 0.231372 0.231372)
   (wheel-front-right
     (position 0.275697 0.339242 0.112979)
     (model    "wheel-front-right.b3d")

@@ -7,7 +7,7 @@
   (icon-file   "nolokicon.png")
   (shadow-file "nolokshadow.png")
   (groups      "standard")
-  (rgb         0.161000 0.227000 0.071000)
+  (rgb         0.121568 0.172549 0.054901)
   (wheel-front-right
     (position 0.192059 0.443191 0.113489)
     (model    "wheel-front-right.b3d")
