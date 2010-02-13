@@ -1,11 +1,8 @@
 <?xml version="1.0"?>
 <scene>
-  <track model="jungle_track.b3d" x="0" y="0" z="0">
+  <track model="jungle.track_track.b3d" x="0" y="0" z="0">
     <animated-texture name="water_light.png" dy="0.1" />
   </track>
-  <camera final-position  ="0 20 3"
-         final-hpr       ="180 -7 0"/>
-  <sun  xyz="0 500 500"/>
   <banana x="180.499603" y="-496.571777" />
   <banana x="244.81987" y="-510.653717" />
   <banana x="350.261932" y="-475.256317" />
@@ -55,8 +52,7 @@
     <check-line kind="activate" other-id="0" p1="392.678406 -129.515015" p2="375.688049 -145.059036" min-height="15.896591"/>
   </checks>
 
-  <sky-dome texture="lighthouse_sky.png"
-            horizontal="16" vertical="16" 
-            texture-percent="0.5" sphere-percent="1.3"/>
-</scene>
-
+      <sky-dome texture="lighthouse_sky.png"
+                horizontal="16" vertical="16" 
+                texture-percent="0.5" sphere-percent="1.3"/>
+    </scene>
