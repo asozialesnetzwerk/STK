@@ -1,4 +1,3 @@
-All sounds are released under GPL, except:
 
 * anvil
     Released under the GPL
@@ -59,7 +58,7 @@ All sounds are released under GPL, except:
     By Marianne Gagnon (Auria), based on "kiss" by roscoetoon, "kissy_sound" by FreqMan,
     "rockets" by SmiertSpionem and "Swishes" by Pogotron, all released under the same license
 
-* pre_start_rac
+* pre_start_race
     obtained from : http://www.freesoundfiles.tintagel.net/Audio/
     (see license text below)
     
