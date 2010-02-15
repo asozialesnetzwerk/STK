@@ -16,7 +16,7 @@ All sounds are released under GPL, except:
     Released under the Creative Commons Sampling Plus 1.0 license (http://creativecommons.org/licenses/sampling+/1.0/)
     By Marianne Gagnon (Auria), based on "Approx_850_Enthusiast_Audience" by lonemonk, released under the same license
     
-* locked
+* locked and swap
     By "Stephan" from pdsounds.org (license is public domain)
     
 * horn
