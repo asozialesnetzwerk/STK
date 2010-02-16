@@ -1,7 +1,6 @@
-(music-information
-  (title    "Boom boom boom"    )
-  (enable-fast #t               )
-  (composer "Matt Thomas"       )
-  (music    "Boom_boom_boom.ogg")
-  (loop     10                  )
-)
+<music>
+  <title    value="Boom boom boom"    />
+  <!-- <enable-fast #t               /> -->
+  <composer value="Matt Thomas"       />
+  <file     value="Boom_boom_boom.ogg"/>
+</music>

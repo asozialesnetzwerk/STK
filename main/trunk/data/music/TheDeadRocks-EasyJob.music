@@ -1,7 +1,6 @@
-(music-information
-  (title    "EasyJob"    )
-  (composer "The Dead Rocks"            )
-  (music    "TheDeadRocks-EasyJob.ogg")
-  (loop     10                 )
-)
+<music>
+  <title    value="EasyJob"                  />
+  <composer value="The Dead Rocks"           />
+  <file     value="TheDeadRocks-EasyJob.ogg" />
+</music>
 

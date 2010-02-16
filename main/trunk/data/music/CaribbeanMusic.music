@@ -1,8 +1,7 @@
-(music-information
-  (title    "Caribbean Music"   )
-  (enable-fast #t               )
-  (composer "Dr.Sternhagel"     )
-  (music    "CaribbeanMusic.ogg")
-  (loop     10                  )
-)
+<music>
+  <title    value="Caribbean Music"    />
+  <!-- <enable-fast #t                 /> -->
+  <composer value="Dr.Sternhagel"      />
+  <file     value="CaribbeanMusic.ogg" />
+</music>
 

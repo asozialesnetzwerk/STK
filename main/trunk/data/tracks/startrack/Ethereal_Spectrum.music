@@ -1,6 +1,5 @@
-(music-information
-  (title    "Ethereal Spectrum"               )
-  (composer "Asha B."                         )
-  (music    "Ethereal_Spectrum_(ver_loop).ogg")
-  (loop     10                                )
-)
+<music>
+  <title    value="Ethereal Spectrum"                />
+  <composer value="Asha B."                          />
+  <file     value="Ethereal_Spectrum_(ver_loop).ogg" />
+</music>

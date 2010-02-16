@@ -1,7 +1,6 @@
-(music-information
-  (title    "West"    )
-  (composer "Chris Leutwyler (Krobonil)")
-  (music    "West.ogg")
-  (loop     10        )
-)
+<music>
+  <title    value="West"                        />
+  <composer value="Chris Leutwyler (Krobonil)"  />
+  <file     value="West.ogg"                    />
+</music>
 

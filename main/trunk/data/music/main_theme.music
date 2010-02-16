@@ -1,6 +1,5 @@
-(music-information
-  (title    "MayDay Mayhem")
-  (composer "Alessandro Bottura"      )
-  (music    "MayDayMayhem.ogg"         )
-  (loop    10)
-)
+<music>
+  <title    value="MayDay Mayhem"       />
+  <composer value="Alessandro Bottura"  />
+  <file     value="MayDayMayhem.ogg"    />
+</music>

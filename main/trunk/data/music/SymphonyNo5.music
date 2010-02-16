@@ -1,7 +1,6 @@
-(music-information
-  (title    "Symphony No. 5"    )
-  (composer "Daniel Bautista"            )
-  (music    "SymphonyNo5.ogg")
-  (loop     10                 )
-)
+<music>
+  <title    value="Symphony No. 5"  />
+  <composer value="Daniel Bautista" />
+  <file     value="SymphonyNo5.ogg" />
+</music>
 

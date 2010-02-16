@@ -1,7 +1,6 @@
-(music-information
-  (title    "Snowy"    )
-  (composer "Chris Leutwyler (Krobonil)")
-  (music    "Snowy.ogg")
-  (loop     10        )
-)
+<music>
+  <title    value="Snowy"                      />
+  <composer value="Chris Leutwyler (Krobonil)" />
+  <file     value="Snowy.ogg"                  />
+</music>
 

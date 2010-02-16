@@ -1,7 +1,6 @@
-(music-information
-  (title    "One Million Dollar"    )
-  (composer "The Dead Rocks"            )
-  (music    "TheDeadRocks-OneMillionDollar.ogg")
-  (loop     10                 )
-)
+<music>
+  <title    value="One Million Dollar"                />
+  <composer value="The Dead Rocks"                    />
+  <file     value="TheDeadRocks-OneMillionDollar.ogg" />
+</music>
 
