@@ -2,7 +2,7 @@
 <track  name        = "Snow Mountain"
         version     = "1"
         groups      = "standard"
-        description = "Canis Lupus"
+        designer    = "Canis Lupus"
         music       = "Snowy.music"
         screenshot  = "sshot-snowmountain.png"
 >

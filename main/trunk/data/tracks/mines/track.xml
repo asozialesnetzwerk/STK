@@ -2,7 +2,7 @@
 <track  name        = "Old Mine"
         version     = "1"
         groups      = "standard"
-        description = "Description"
+        designer    = "Ivar ten Cate"
         music       = "West.ogg"
         screenshot  = "sshot-mines.png"
 >

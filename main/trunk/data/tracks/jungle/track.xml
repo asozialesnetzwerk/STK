@@ -2,7 +2,7 @@
 <track  name        = "Amazonian Journey"
         version     = "1"
         groups      = "standard"
-        description = "M. Gagnon"
+        designer    = "Marianne Gagnon"
         music       = "amazon_jungle.music"
         screenshot  = "sshot-jungle.png"     >
 </track>

@@ -2,7 +2,7 @@
 <track  name        = "Around the Lighthouse"
         version     = "1"
         groups      = "standard"
-        description = "Ingo Ruhnke & Marianne Gagnon & Stephen Dunn"
+        designer    = "Ingo Ruhnke & Marianne Gagnon & Stephen Dunn"
         music       = "ChillCarrier-Druckverlust.music"
         screenshot  = "sshot-lighthouse.png"
 >

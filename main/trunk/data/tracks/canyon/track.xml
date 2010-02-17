@@ -2,7 +2,7 @@
 <track  name        = "Canyon"
         version     = "1"
         groups      = "standard"
-        description = "Thomas Oppl"
+        designer    = "Thomas Oppl"
         music       = "TheDeadRocks-EasyJob.music"
         screenshot  = "canyon_screenshot.png"
 >
