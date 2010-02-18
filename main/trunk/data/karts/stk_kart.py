@@ -233,12 +233,13 @@ def saveKart():
 	f.write('	(rgb         %f %f %f)\n' % rgb)
 	# search for animation
 	for i in range(1, 300):
-			try:
-				if scene.timeline.getName(i) == "straight" or scene.timeline.getName(i) == "right" or scene.timeline.getName(i) == "left":
-					f.write('	(animation-')
-					f.write('%s %s)\n' %(scene.timeline.getName(i), i))
-			except:
-				pass
+		try:
+			if scene.timeline.getName(i) in \
+			   ["straight", "right", "left", "start-winning", "end-winning"]:
+				f.write('	(animation-')
+			       	f.write('%s %s)\n' %(scene.timeline.getName(i), i))
+		except:
+			pass
 	if kartSoundHorn.val != "" :
 		f.write('	(horn-sound  "%s")\n' %(kartSoundHorn.val))
 	if kartSoundCrash.val != "" :
@@ -307,3 +308,4 @@ def saveKart():
 
 
 Draw.Register(gui,event, butt_evt)
+

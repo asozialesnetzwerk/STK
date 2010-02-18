@@ -9,6 +9,8 @@
 	(animation-left 1)
 	(animation-straight 11)
 	(animation-right 21)
+	(animation-start-winning 1)
+	(animation-end-winning  21)
 	(wheel-front-right
 		(position 0.313791 0.326004 0.112673)
 		(model		"wheel-front-right.b3d")
