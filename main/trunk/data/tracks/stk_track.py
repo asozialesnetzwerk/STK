@@ -403,11 +403,12 @@ class TrackExport:
         print "Writing track file --> \t",
         start_time  = bsys.time()
         scene       = Blender.Scene.GetCurrent()
-        name        = getIdProperty(scene, "name",     "Name of Track")
-        version     = getIdProperty(scene, "version",  "1"            )
-        groups      = getIdProperty(scene, "groups",   "standard"     )
-        is_arena    = getIdProperty(scene, "arena",    ""             )
-        designer    = getIdProperty(scene, "designer", ""             )
+        name        = getIdProperty(scene, "name",       "Name of Track")
+        version     = getIdProperty(scene, "version",    "1"            )
+        groups      = getIdProperty(scene, "groups",     "standard"     )
+        is_arena    = getIdProperty(scene, "arena",      ""             )
+        camera_far  = getIdProperty(scene, "camera-far", ""             )
+        designer    = getIdProperty(scene, "designer",   ""             )
         # Support for multi-line descriptions:
         designer    = designer.replace("\\n", "\n")
         if not designer:
@@ -441,7 +442,8 @@ class TrackExport:
             print "No music file defined, ignored."
         if is_arena:
             f.write("        arena       = \"%s\"\n"%is_arena)
-            
+        if camera_far:            
+            f.write("        camera-far  = \"%s\"\n"%camera_far)
         if screenshot:
             f.write("        screenshot  = \"%s\"\n"%screenshot)
         else:
