@@ -58,11 +58,24 @@ def getProperty(obj, name, default=""):
         return default
 
 # ------------------------------------------------------------------------------
+# Returns a string 'x="1" y="2" z="3" h="4"', where 1, 2, ...are the actual
+# location and rotation of the given object. The location has a swapped
+# y and z axis (so that the same coordinate system as in-game is used), and
+# rotations are multiplied by 10 (since bullet stores the values in units
+# of 10 degrees.)
+def getXYZHString(obj):
+    loc   = obj.loc
+    hpr   = obj.rot
+    s="x=\"%f\" y=\"%f\" z=\"%f\" h=\"%f\"" %\
+       (loc[0], loc[1], loc[2], hpr[2]*10.0)
+    return s
+
+# ------------------------------------------------------------------------------
 # Returns a string 'xyz="1 2 3" hpr="4 5 6"' where 1,2,... are the actual
 # location and rotation of the given object. The location has a swapped
 # y and z axis (so that the same coordinate system as in-game is used), and
 # rotations are multiplied by 10 (since bullet stores the values in units
-# if 10 degrees.)
+# of 10 degrees.)
 def getXYZHPRString(obj):
     loc   = obj.loc
     hpr   = obj.rot
@@ -390,12 +403,21 @@ class TrackExport:
         print "Writing track file --> \t",
         start_time  = bsys.time()
         scene       = Blender.Scene.GetCurrent()
-        name        = getIdProperty(scene, "name", "Name of Track")
-        version     = getIdProperty(scene, "version", "1")
-        groups      = getIdProperty(scene, "groups", "standard")
-        description = getIdProperty(scene, "description", "Description")
+        name        = getIdProperty(scene, "name",     "Name of Track")
+        version     = getIdProperty(scene, "version",  "1"            )
+        groups      = getIdProperty(scene, "groups",   "standard"     )
+        is_arena    = getIdProperty(scene, "arena",    ""             )
+        designer    = getIdProperty(scene, "designer", ""             )
         # Support for multi-line descriptions:
-        description = description.replace("\\n", "\n")
+        designer    = designer.replace("\\n", "\n")
+        if not designer:
+            designer    = getIdProperty(scene, "description", "")
+            if designer:
+                print "Warning: using 'description' instead of designer."
+                print "Please use designer only"
+            else:
+                designer="Designer"
+                
         music       = getIdProperty(scene, "music", "")
         screenshot  = getIdProperty(scene, "screenshot", "")
         # Add default settings for sky-dome so that the user is aware of
@@ -412,11 +434,14 @@ class TrackExport:
         f.write("<track  name        = \"%s\"\n"%name)
         f.write("        version     = \"%s\"\n"%version)
         f.write("        groups      = \"%s\"\n"%groups)
-        f.write("        description = \"%s\"\n"%description)
+        f.write("        designer    = \"%s\"\n"%designer)
         if music:
             f.write("        music       = \"%s\"\n"%music)
         else:
             print "No music file defined, ignored."
+        if is_arena:
+            f.write("        arena       = \"%s\"\n"%is_arena)
+            
         if screenshot:
             f.write("        screenshot  = \"%s\"\n"%screenshot)
         else:
@@ -889,9 +914,33 @@ class TrackExport:
             print "Unknown interaction '%s' - ignored!"%interact
 
     # --------------------------------------------------------------------------
+    # Writes all start positions
+    def writeStartPositions(self, f, lStart):
+        dId2Obj     = {}
+        count = 1
+        for obj in lStart:
+            stktype = getProperty(obj, "type", obj.name).upper()
+            try:
+                id = int(getProperty(obj, "position", ""))
+            except:
+                id=None
+            if not id:
+                try:
+                    id = int(stktype[5:])
+                except ValueError:
+                    print "No valid id in '%s' - using %d\n"%(stktype, count)
+                    id    = count
+                    count = count + 1
+            dId2Obj[id] = obj
+        l = dId2Obj.keys()
+        l.sort()
+        for i in l:
+            f.write("  <start %s/>\n"%getXYZHString(dId2Obj[i]))
+                
+    # --------------------------------------------------------------------------
     # Writes the scene files, which includes all models, animations, and items
     def writeSceneFile(self, sPath, sTrackName, sWaterName, lTrack, lItems,
-                       lObjects, lChecks, lSun, lMainDriveline):
+                       lObjects, lChecks, lSun, lMainDriveline, lStart):
 
         start_time = bsys.time()
         print "Writing scene file --> \t",
@@ -1026,13 +1075,14 @@ class TrackExport:
                 tex_percent    = getIdProperty(scene, "sky-texture-percent",0.5)
                 sphere_percent = getIdProperty(scene, "sky-sphere-percent", 1.3)
                 f.write("""
-      <sky-dome texture=\"%s\"
-                horizontal=\"%s\" vertical=\"%s\" 
-                texture-percent=\"%s\" sphere-percent=\"%s\"/>
-    """ %(texture, hori, verti, tex_percent, sphere_percent))
+  <sky-dome texture=\"%s\"
+            horizontal=\"%s\" vertical=\"%s\" 
+            texture-percent=\"%s\" sphere-percent=\"%s\"/>
+""" %(texture, hori, verti, tex_percent, sphere_percent))
             elif sky=="box":
                 pass
-            
+        self.writeStartPositions(f, lStart)
+        
         f.write("</scene>\n")
         f.close()
         print bsys.time()-start_time,"seconds"
@@ -1053,6 +1103,7 @@ class TrackExport:
         lObjects             = []                # All special objects
         lChecks              = []                # All check structures
         lSun                 = []
+        lStart               = []                # All start positions
         for obj in lObj:
             # Try to get the supertuxkart type field. If it's not defined,
             # use the name of the objects as type.
@@ -1072,6 +1123,9 @@ class TrackExport:
                    or stktype[:6]=="ZIPPER":
                     lItems.append(obj)
                     continue
+                elif stktype[:5]=="START":
+                    # Start empties are called start1, start2, ...
+                    lStart.append(obj)
                 else:
                     print "Empty '%s' has type '%s' which is not valid - ignored."%\
                           (obj.name, stktype)
@@ -1113,7 +1167,11 @@ class TrackExport:
     
         # Quads and mapping files
         # -----------------------
-        self.writeQuadAndGraph(sPath, lDrivelines)
+        scene    = Blender.Scene.GetCurrent()
+        is_arena = getIdProperty(scene, "arena", "n")
+        if is_arena[0]=="n" or is_arena[0]=="N" or \
+               is_arena[0]=="f" or is_arena[0]=="F":
+            self.writeQuadAndGraph(sPath, lDrivelines)
         start_time = bsys.time()
         print "Exporting track -->",
         sTrackName = sBase+"_track.b3d"
@@ -1132,7 +1190,8 @@ class TrackExport:
         if len(lDrivelines)==0:
             lDrivelines=[None]
         self.writeSceneFile(sPath, sTrackName, sWaterName, lTrack, lItems,
-                            lObjects, lChecks, lSun, lDrivelines[0])
+                            lObjects, lChecks, lSun, lDrivelines[0],
+                            lStart)
 
 # ==============================================================================
 def savescene_callback(sFilename):
