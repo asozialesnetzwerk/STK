@@ -407,7 +407,6 @@ class TrackExport:
         version     = getIdProperty(scene, "version",    "1"            )
         groups      = getIdProperty(scene, "groups",     "standard"     )
         is_arena    = getIdProperty(scene, "arena",      ""             )
-        camera_far  = getIdProperty(scene, "camera-far", ""             )
         designer    = getIdProperty(scene, "designer",   ""             )
         # Support for multi-line descriptions:
         designer    = designer.replace("\\n", "\n")
@@ -442,8 +441,6 @@ class TrackExport:
             print "No music file defined, ignored."
         if is_arena:
             f.write("        arena       = \"%s\"\n"%is_arena)
-        if camera_far:            
-            f.write("        camera-far  = \"%s\"\n"%camera_far)
         if screenshot:
             f.write("        screenshot  = \"%s\"\n"%screenshot)
         else:
@@ -1083,6 +1080,9 @@ class TrackExport:
 """ %(texture, hori, verti, tex_percent, sphere_percent))
             elif sky=="box":
                 pass
+        camera_far  = getIdProperty(scene, "camera-far", ""             )
+        if camera_far:            
+            f.write("  <camera far=\"%s\"/>\n"%camera_far)
         self.writeStartPositions(f, lStart)
         
         f.write("</scene>\n")
