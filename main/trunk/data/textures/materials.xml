@@ -14,6 +14,7 @@
   <material name="stonewall.png" alpha="0.0" collide="N"/>
   <material name="pebbles.png" alpha="0.0" collide="N"/>
   <material name="egypt.png" alpha="0.0"/>
+  <material name="oakleaf_fall.tga" alpha="Y" collide="N" ignore="Y" />
   <material name="starparticle.png" clampU="Y" clampV="Y" alpha="Y" collide="N" ignore="Y" light="N"/>
   <material name="pyramidwall.png" alpha="0.0" collide="N"/>
   <material name="lava.png" alpha="0.0" light="N" reset="Y"/>
