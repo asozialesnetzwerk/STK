@@ -778,7 +778,7 @@ class TrackExport:
             if lMainDriveline:
                 min_h = lap[0][2]
                 if lap[1][2]<min_h: min_h = lap[1][2]
-                f.write("    <check-line type=\"lap\" p1=\"%f %f\" p2=\"%f %f\" min-height=\"%f\"/>\n"% \
+                f.write("    <check-line kind=\"lap\" p1=\"%f %f\" p2=\"%f %f\" min-height=\"%f\"/>\n"% \
                             (lap[0][0], lap[0][1],
                              lap[1][0], lap[1][1], min_h   )  )
             # Create a dictionary to map the names to the index of the
@@ -1171,6 +1171,7 @@ class TrackExport:
         # -----------------------
         scene    = Blender.Scene.GetCurrent()
         is_arena = getIdProperty(scene, "arena", "n")
+        if not is_arena: is_arena="n:
         if is_arena[0]=="n" or is_arena[0]=="N" or \
                is_arena[0]=="f" or is_arena[0]=="F":
             self.writeQuadAndGraph(sPath, lDrivelines)
