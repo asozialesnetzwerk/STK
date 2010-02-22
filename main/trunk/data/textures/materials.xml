@@ -14,7 +14,7 @@
   <material name="stonewall.png" alpha="0.0" collide="N"/>
   <material name="pebbles.png" alpha="0.0" collide="N"/>
   <material name="egypt.png" alpha="0.0"/>
-  <material name="oakleaf_fall.png" alpha="Y" collide="N" ignore="Y" light="N" />
+  <material name="oakleaf_fall.png" transparency="Y" collide="N" ignore="Y" light="N" />
   <material name="pino.png" alpha="Y" collide="N" ignore="Y" />
   <material name="pino2.png" alpha="Y" collide="N" ignore="Y" />
 
