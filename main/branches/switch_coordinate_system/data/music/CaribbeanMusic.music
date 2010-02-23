@@ -1,0 +1,7 @@
+<music>
+  <title    value="Caribbean Music"    />
+  <!-- <enable-fast #t                 /> -->
+  <composer value="Dr.Sternhagel"      />
+  <file     value="CaribbeanMusic.ogg" />
+</music>
+

@@ -1,0 +1,27 @@
+Reused with different colors from supertuxkart/data/textures:
+
+-snow2           (snow is the original)
+-roadway2        (roadway is the original)
+-roadwayborder   (roadway is the original)
+-stonesgray      (stones is the original)
+
+
+Selfmade parts and under GPL and CC-BY-SA)
+
+-rockmountain
+-window2
+-windowshutters
+
+-snowmountain.ac
+-snowmountain.blend
+
+
+
+Music made by Chris Leutwyler (Krobonil)
+    The licence is cc-sa. (Creative Commons - Share Alike)
+
+winter sky textures (c) 2010 thomas oppl (toppl@fh-sbg.ac.at)
+licensed under CC BY-SA 3.0
+http://creativecommons.org/licenses/by-sa/3.0/
+
+Converted by sj04736

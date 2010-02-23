@@ -1,0 +1,5 @@
+* elePHPant, puffy, pidgin, adiumy and nolok, which are released under CC by-sa (3.0)
+* others are released under GNU GPL
+
+MrIceBlock and Mozilla originally by (??) from original (Super)TuxKart teams, with modifications by Rudy85
+Animations by Rudy85

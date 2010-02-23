@@ -1,0 +1,27 @@
+;; -*- mode: lisp -*-
+
+(tuxkart-kart
+  (version    1)
+  (name        "Nolok")
+  (model-file  "nolok.b3d")
+  (icon-file   "nolokicon.png")
+  (shadow-file "nolokshadow.png")
+  (groups      "standard")
+  (rgb         0.121568 0.172549 0.054901)
+  (wheel-front-right
+    (position 0.192059 0.443191 0.113489)
+    (model    "wheel-front-right.b3d")
+  )
+  (wheel-front-left
+    (position -0.192059 0.443191 0.113489)
+    (model    "wheel-front-left.b3d")
+  )
+  (wheel-rear-right
+    (position 0.195518 -0.415114 0.145934)
+    (model    "wheel-rear-right.b3d")
+  )
+  (wheel-rear-left
+    (position -0.195518 -0.415114 0.145934)
+    (model    "wheel-rear-left.b3d")
+  )
+)

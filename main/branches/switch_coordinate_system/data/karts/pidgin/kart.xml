@@ -1,0 +1,25 @@
+(tuxkart-kart
+  (version    1)
+  (name        "Pidgin")
+  (model-file  "pidgin.b3d")
+  (icon-file   "pidginicon.png")
+  (shadow-file "pidginshadow.png")
+  (groups      "standard")
+  (rgb         0.364705 0.219607 0.396078)
+  (wheel-front-right
+    (position 0.257000 0.303252 0.124375)
+    (model    "wheel-front-right.b3d")
+  )
+  (wheel-front-left
+    (position -0.256601 0.303252 0.124375)
+    (model    "wheel-front-left.b3d")
+  )
+  (wheel-rear-right
+    (position 0.237290 -0.437579 0.170517)
+    (model    "wheel-rear-right.b3d")
+  )
+  (wheel-rear-left
+    (position -0.237000 -0.437579 0.170517)
+    (model    "wheel-rear-left.b3d")
+  )
+)

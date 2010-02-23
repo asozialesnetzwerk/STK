@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<materials>
+  <material name="concrete.png" reset="Y" />
+  <material name="water_light.png" reset="Y" />
+</materials>

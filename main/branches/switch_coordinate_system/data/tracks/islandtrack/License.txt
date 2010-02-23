@@ -1,0 +1,5 @@
+rock*.rgb, road_sand*.rgb, road_sand_side, sky2.rgb by MiniBjorn, released under CC-BY-SA 3.0
+
+islandtrack_signs.ac, turn_sharp_24med.rgb by Pixel (Wayne Dennis), released under Creative Commons Attribution - Share Alike 3.0
+
+the track model itself is releasd under GPL.

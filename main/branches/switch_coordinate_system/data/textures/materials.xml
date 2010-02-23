@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<materials>
+  <material name="clouds.png" alpha="0.0" light="N" reset="Y" collide="N"/>
+  <material name="sand.png" alpha="0.0" collide="N" maxSpeed="0.4" slowdownTime="4"/>
+  <material name="sandgrass.png" alpha="0.0" collide="N" maxSpeed="0.4" slowdownTime="4"/>
+  <material name="grass.png" alpha="0.0" collide="N" maxSpeed="0.6" slowdownTime="4"/>
+  <material name="chrome.png" alpha="0.0" light="N" sphere="Y" collide="N"/>
+  <material name="chrome2.png" alpha="0.0" light="N" sphere="Y" collide="N"/>
+  <material name="gold.png" alpha="0.0" light="Y" sphere="Y" collide="N"/>
+  <material name="railing.png" clampV="Y" transparency="Y" alpha="0.5" collide="N"/>
+  <material name="wood.png" alpha="0.0" collide="N"/>
+  <material name="concrete.png" alpha="0.0"/>
+  <material name="brick.png" alpha="0.0"/>
+  <material name="stonewall.png" alpha="0.0" collide="N"/>
+  <material name="pebbles.png" alpha="0.0" collide="N"/>
+  <material name="egypt.png" alpha="0.0"/>
+  <material name="oakleaf_fall.png" transparency="Y" collide="N" ignore="Y" light="N" />
+  <material name="pino.png" alpha="Y" collide="N" ignore="Y" />
+  <material name="pino2.png" alpha="Y" collide="N" ignore="Y" />
+
+  <material name="starparticle.png" clampU="Y" clampV="Y" alpha="Y" collide="N" ignore="Y" light="N"/>
+  <material name="pyramidwall.png" alpha="0.0" collide="N"/>
+  <material name="lava.png" alpha="0.0" light="N" reset="Y"/>
+  <material name="metalgrid.png" transparency="Y" alpha="0.3" collide="N"/>
+  <material name="fuzzy_sand.png" transparency="Y" alpha="0.0" light="N" ignore="Y" collide="N"/>
+  <material name="roadway.png" clampU="Y" alpha="0.0" collide="N"/>
+  <material name="track.png" alpha="0.0" collide="N"/>
+  <material name="track.png" alpha="0.0" collide="N"/>
+  <material name="trackborder.png" alpha="0.0" light="N" collide="N"/>
+  <material name="chess.png" alpha="0.0" collide="N"/>
+  <material name="tinytux.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.8" light="N" ignore="Y" collide="N"/>
+  <material name="butterfly.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.8" light="N" ignore="Y" collide="N"/>
+  <material name="track2.png" alpha="0.0" collide="N"/>
+  <material name="zipper_collect.png" alpha="0.0" light="N" zipper="Y" collide="N"/>
+  <material name="zipper.png" alpha="0.0" light="N" zipper="Y" collide="N"/>
+  <material name="banana.png" alpha="0.5" collide="N"/>
+  <material name="bananawrap.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.5" light="N" zipper="Y" collide="N"/>
+  <material name="fuzzy.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.2" light="N" ignore="Y" collide="N"/>
+  <material name="generickartshadow.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.0" light="N" ignore="Y" collide="N"/>
+  <material name="smoke.png" alpha="Y"  light="N" ignore="Y" collide="N"/>
+  <material name="explode.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y" collide="N"/>
+  <material name="slipstream.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y" collide="N"/>
+  <material name="flames.png" alpha="0.9" light="N" ignore="Y" collide="N"/>
+  <material name="nitro-particle.png" alpha="Y" light="N" ignore="Y" collide="N"/>
+  <material name="magnet.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y" collide="N"/>
+  <material name="bzzt.png" transparency="Y" light="N" ignore="Y" collide="N"/>
+  <material name="anchor-icon.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y" collide="N"/>
+  <material name="parachute.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y" collide="N"/>
+  <material name="speedback.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.0" light="N" ignore="Y" collide="N"/>
+  <material name="speedfore.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.0" light="N" ignore="Y" collide="N"/>
+  <material name="water_light.png" light="N" reset="Y" collide="N"/>
+  <material name="sea.png" alpha="0.0" light="N" reset="Y"/>
+  <material name="rock.png" alpha="0.0" collide="N"/>
+  <material name="coniferous_tree.png" transparency="Y" light="N" collide="N"/>
+  <material name="signs.png" transparency="Y" alpha="0.5" light="N" collide="N"/>
+  <material name="greenice.png" alpha="0.0" reset="Y" collide="N"/>
+  <material name="snow.png" alpha="0.0" collide="N" maxSpeed="0.4" slowdownTime="4"/>
+  <material name="ice.png" alpha="0.0" collide="N"/>
+  <material name="snowyrock.png" alpha="0.0" collide="N"/>
+  <material name="sand2.png" alpha="0.0" collide="N"/>
+  <material name="road_dirt.png" alpha="0.0" collide="N"/>
+  <material name="grass2.png" alpha="0.0" collide="N" maxSpeed="0.6" slowdownTime="4"/>
+  <material name="dirt2sand.png" alpha="0.0" collide="N"/>
+  <material name="grass2dirt.png" alpha="0.0" collide="N" maxSpeed="0.4" slowdownTime="4" clampU="Y" clampV="N"/>
+  <material name="logs.png" alpha="0.0" collide="N"/>
+  <material name="stonetex.png" alpha="0.0" collide="N"/>
+  <material name="redwhite.png" alpha="0.0" collide="N"/>
+  <material name="dirt.png" alpha="0.0" collide="N"/>
+  <material name="city_asphalt_1.png" alpha="0.0" collide="N"/>
+  <material name="city_checker.png" alpha="0.0" collide="N"/>
+  <material name="nitro-tank.png" clampV="Y" transparency="Y" alpha="0.5" collide="N"/>
+  <material name="tank-blue.png" alpha="0.0" sphere="Y" collide="N"/>
+  <material name="tank-green.png" alpha="0.0" sphere="Y" collide="N"/>
+  <material name="tank-cyan.png" alpha="0.0" sphere="Y" collide="N"/>
+  <material name="gift-box.png" alpha="0.0" sphere="N" collide="N"/>
+  <material name="gift-loop.png" alpha="0.0" sphere="Y" collide="N"/>
+  <material name="bowling-icon.png" transparency="Y" alpha="0.0" light="N" collide="N"/>
+  <material name="bubblegum-icon.png" transparency="Y" alpha="0.0" light="N" collide="N"/>
+  <material name="cake-icon.png" transparency="Y" alpha="0.0" light="N" collide="N"/>
+  <material name="plunger-icon.png" transparency="Y" alpha="0.0" light="N" collide="N"/>
+  <material name="plungerface.png" transparency="Y" alpha="0.0" light="N" collide="N"/>
+  <material name="menu_background.png" clampU="Y" clampV="Y" alpha="1.0" light="N"/>
+  <material name="menu_background2.png" clampU="Y" clampV="Y" alpha="1.0" light="N"/>
+  <material name="water-splash.png" alpha="Y" light="N" ignore="Y" collide="N"/>
+  <material name="notes.png" transparency="Y" alpha="0.0" light="N" collide="N"/>
+
+</materials>  
