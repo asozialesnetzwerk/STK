@@ -22,19 +22,19 @@
 
  (rgb         0.690196 0.0 0.0)
  (wheel-front-right
-   (position  0.295  0.412 0.103)
+   (position  0.295  0.103 0.412)
    (model     "wheel-front-right.b3d")
  )
  (wheel-front-left
-   (position  -0.285  0.412 0.103)
+   (position  -0.285 0.103 0.412)
    (model     "wheel-front-left.b3d")
  )
  (wheel-rear-right
-   (position  0.361 -0.344 0.143)
+   (position  0.361 0.143 -0.344)
    (model     "wheel-rear-right.b3d")
  )
  (wheel-rear-left
-   (position  -0.349 -0.344 0.143)
+   (position  -0.349 0.143 -0.344)
    (model     "wheel-rear-left.b3d")
  )
 )
