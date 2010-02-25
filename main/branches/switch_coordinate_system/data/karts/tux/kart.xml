@@ -2,7 +2,7 @@
 
 (tuxkart-kart
  (name        "Tux")
- (version     1)
+ (version     2)
  (model-file  "tux.b3d")
  (icon-file   "tuxicon.png")
  (shadow-file "tuxkartshadow.png")
