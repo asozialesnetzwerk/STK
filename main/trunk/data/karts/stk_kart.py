@@ -186,11 +186,11 @@ def saveKart():
 	b3d_export.flag_stack = []
 	b3d_export.flag_stack.append(0) #All Objects
 	b3d_export.flag_stack.append(1) #Selected Only
-	b3d_export.flag_stack.append(0) #Vertex Normals
-	b3d_export.flag_stack.append(0) #Vertex Colors
+	b3d_export.flag_stack.append(1) #Vertex Normals
+	b3d_export.flag_stack.append(1) #Vertex Colors
 	b3d_export.flag_stack.append(0) #Cameras
 	b3d_export.flag_stack.append(0) #Lights
-	
+	b3d_export.flag_stack.append(1) #Mipmap
 
 	
 	o_fr = Blender.Object.Get("WheelFront.R")
@@ -308,4 +308,3 @@ def saveKart():
 
 
 Draw.Register(gui,event, butt_evt)
-
