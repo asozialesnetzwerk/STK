@@ -60,14 +60,13 @@ def getProperty(obj, name, default=""):
 # ------------------------------------------------------------------------------
 # Returns a string 'x="1" y="2" z="3" h="4"', where 1, 2, ...are the actual
 # location and rotation of the given object. The location has a swapped
-# y and z axis (so that the same coordinate system as in-game is used), and
-# rotations are multiplied by 10 (since bullet stores the values in units
-# of 10 degrees.)
+# y and z axis (so that the same coordinate system as in-game is used).
 def getXYZHString(obj):
-    loc   = obj.loc
-    hpr   = obj.rot
+    loc     = obj.loc
+    hpr     = obj.rot
+    rad2deg = 180.0/3.1415926535;
     s="x=\"%f\" y=\"%f\" z=\"%f\" h=\"%f\"" %\
-       (loc[0], loc[1], loc[2], hpr[2]*180/3.1415926)
+       (loc[0], loc[2], loc[1], hpr[2]*rad2deg)
     return s
 
 # ------------------------------------------------------------------------------
@@ -77,10 +76,12 @@ def getXYZHString(obj):
 # rotations are multiplied by 10 (since bullet stores the values in units
 # of 10 degrees.)
 def getXYZHPRString(obj):
-    loc   = obj.loc
-    hpr   = obj.rot
+    loc     = obj.loc
+    hpr     = obj.rot
+    rad2deg = 180.0/3.1415926535;
     s="xyz=\"%f %f %f\" hpr=\"%f %f %f\"" %\
-       (loc[0], loc[1], loc[2], hpr[0]*10.0, hpr[1]*10.0, hpr[2]*10.0)
+       (loc[0], loc[2], loc[1], hpr[0]*rad2deg, hpr[1]*rad2deg,
+        hpr[2]*rad2deg)
     return s
     
 # ==============================================================================
@@ -361,13 +362,13 @@ class Driveline:
             
         f.write("  <!-- Driveline: %s -->\n"%self.name)
         f.write("  <quad%sp0=\"%f %f %f\" p1=\"%f %f %f\" p2=\"%f %f %f\" p3=\"%f %f %f\"/>\n" \
-            %(sInv, l[0],l[1],l[2], r[0],r[1],r[2], r1[0],r1[1],r1[2], l1[0],l1[1],l1[2]) )
+            %(sInv, l[0],l[2],l[1], r[0],r[2],r[1], r1[0],r1[2],r1[1], l1[0],l1[2],l1[1]) )
         for i in range(1, max_index):
             l1  = self.lLeft[i+1]
             r1  = self.lRight[i+1]
             f.write("  <quad%sp0=\"%d:3\" p1=\"%d:2\" p2=\"%f %f %f\" p3=\"%f %f %f\"/>\n" \
                     %(sInv,self.global_quad_index_start+i-1, self.global_quad_index_start+i-1, \
-                  r1[0],r1[1],r1[2], l1[0],l1[1],l1[2]) )
+                  r1[0],r1[2],r1[1], l1[0],l1[2],l1[1]) )
         if self.is_last_main:
             f.write("  <quad%sp0=\"%d:3\" p1=\"%d:2\" p2=\"0:1\" p3=\"0:0\"/>\n"\
                     % (sInv, max_index-1, max_index-1))
@@ -783,27 +784,20 @@ class TrackExport:
                              lap[1][0], lap[1][1], min_h   )  )
             # Create a dictionary to map the names to the index of the
             # check structure. Insert the 'lap' object as a first entry
-            dName2Index = {'lap' : 0}
-            count = 1
+            dName2Index = {"lap" : 0}
         else:
             # Create a dictionary to map the names to the index of the
             # check structure. Insert the 'lap' object as a first entry
             dName2Index = {}
-            count = 0
             
-        # Create a dictionary to map the names to the index of the
-        # check structure. Insert the 'lap' object as a first entry
-        dName2Index = {'lap' : 0}
-        count = 1
         for obj in lChecks:
             if dName2Index.has_key(obj.name):
                 print "Check structure name '%s' already defined, ignored."% \
                       obj.name
                 print "Remember that the 'lap' checkline is automatically defined."
                 continue
-            dName2Index[obj.name] = count
-            count = count + 1
-
+            dName2Index[obj.name] = len(dName2Index)
+            
         for obj in lChecks:
             mesh=obj.getData()
             # Convert to world space
@@ -834,9 +828,11 @@ class TrackExport:
             if len(mesh.verts)==2:   # Check line
                 min_h = mesh.verts[0][2]
                 if mesh.verts[1][2]<min_h: min_h = mesh.verts[1][2]
-                f.write("    <check-line%sp1=\"%f %f\" p2=\"%f %f\" min-height=\"%f\"/>\n"% \
+                f.write("    <check-line%sp1=\"%f %f\" p2=\"%f %f\"\n" %
                         (kind, mesh.verts[0][0], mesh.verts[0][1],
-                         mesh.verts[1][0], mesh.verts[1][1], min_h   )  )
+                         mesh.verts[1][0], mesh.verts[1][1]   )  )
+
+                f.write("                min-height=\"%f\"/>\n"% min_h  )
             else:
                 radius = 0
                 for v in mesh.verts:
@@ -849,7 +845,7 @@ class TrackExport:
                 inner_radius = getProperty(obj, "inner-radius", radius)
                 color = getProperty(obj, "color", "255 120 120 120")
                 f.write("    <check-sphere%sxyz=\"%f %f %f\" radius=\"%f\"\n" % \
-                        (kind, obj.loc[0], obj.loc[1], obj.loc[2], radius) )
+                        (kind, obj.loc[0], obj.loc[2], obj.loc[1], radius) )
                 f.write("                  inner-radius=\"%f\" color=\"%s\"/>\n"% \
                         (inner_radius, color) )
                         
@@ -1002,7 +998,7 @@ class TrackExport:
         if len(lSun)>0:
             sun = lSun[0]
             xyz=sun.loc
-            sSky="%s xyz=\"%s %s %s\""%(sSky, xyz[0],xyz[1],xyz[2])
+            sSky="%s xyz=\"%s %s %s\""%(sSky, xyz[0],xyz[2],xyz[1])
             s=getProperty(sun, "color", 0)
             if s: sSky="%s sun-color=\"%s\""%(sSky, s)
             s=getProperty(sun, "specular", 0)
@@ -1052,7 +1048,8 @@ class TrackExport:
             h,p,r    = map(str, map(Round, [rz,rx,ry])  )
             x,y,z    = map(str, map(Round, obj.loc     )  )
             drop     = getProperty(obj, "drop", "y").lower()
-            s        = "%s x=\"%s\" y=\"%s\" z=\"%s\"" % (name, x, y, z)
+            # Swap y and z axis to have the same coordinate system used in game.
+            s        = "%s x=\"%s\" y=\"%s\" z=\"%s\"" % (name, x, z, y)
             if h and h!="0": s = "%s h=\"%s\""%(s, h)
             if drop=="n":
                 # Pitch and roll will be set automatically if dropped
@@ -1171,7 +1168,7 @@ class TrackExport:
         # -----------------------
         scene    = Blender.Scene.GetCurrent()
         is_arena = getIdProperty(scene, "arena", "n")
-        if not is_arena: is_arena="n:
+        if not is_arena: is_arena="n"
         if is_arena[0]=="n" or is_arena[0]=="N" or \
                is_arena[0]=="f" or is_arena[0]=="F":
             self.writeQuadAndGraph(sPath, lDrivelines)
