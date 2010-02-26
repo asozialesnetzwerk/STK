@@ -1171,7 +1171,7 @@ class TrackExport:
         # -----------------------
         scene    = Blender.Scene.GetCurrent()
         is_arena = getIdProperty(scene, "arena", "n")
-        if not is_arena: is_arena="n:
+        if not is_arena: is_arena="n"
         if is_arena[0]=="n" or is_arena[0]=="N" or \
                is_arena[0]=="f" or is_arena[0]=="F":
             self.writeQuadAndGraph(sPath, lDrivelines)
