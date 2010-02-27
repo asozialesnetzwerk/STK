@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <scene>
+  <track model="snowmountain.track_track.b3d" x="0" y="0" z="0"/>
   <sky-box texture="winter_sky_6.jpg winter_sky_5.jpg winter_sky_2.jpg winter_sky_4.jpg winter_sky_3.jpg winter_sky_1.jpg"/>
-  <track model="snowmountain_track.b3d" x="0" y="0" z="0"/>
-  <object type="animation" model="Balloon.b3d" xyz="-39.316742 -180.018692 39.719826" hpr="0.000000 0.000000 0.000000" >
+  <object type="animation" model="Balloon.b3d" xyz="-39.316746 -180.018707 39.719826" hpr="0.000000 0.000000 0.000000" >
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
       <p c="0.172394 -40.000000" h1="-51.067390 -82.012352" h2="51.412178 2.012353"/>
       <p c="169.893951 99.157532" h1="103.757736 99.157532" h2="310.133057 99.157532"/>
@@ -74,8 +74,8 @@
   <small-nitro x="62.16251" y="-34.83329" z="-0.347618" />
   <small-nitro x="-0.516657" y="-22.702869" z="-3.764242" />
   <checks>
-    <check-line kind="activate" other-id="1" p1="-38.917896 66.436386" p2="-36.257420 87.415909" min-height="2.804375"/>
-    <check-line kind="activate" other-id="2" p1="-24.747654 -59.180248" p2="-23.794647 -37.289577" min-height="11.353293"/>
-    <check-line kind="lap" p1="-12.321440 0.318925" p2="12.811142 -0.077720" min-height="-3.307681"/>
+    <check-line kind="lap" p1="-5.454477 0.399945" p2="5.944180 0.220050" min-height="-2.559724"/>
+    <check-line kind="activate" other-id="2" p1="-38.917896 66.436386" p2="-36.257420 87.415909" min-height="2.804375"/>
+    <check-line kind="activate" other-id="0" p1="-24.747654 -59.180252" p2="-23.794647 -37.289574" min-height="11.353293"/>
   </checks>
 </scene>
