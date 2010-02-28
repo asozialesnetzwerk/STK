@@ -12,6 +12,8 @@ __version__ = "0.01"
 __bpydoc__ = """\
 """
 
+# From Supertuxkart SVN revision $Revision$
+
 # Copyright (C) 2009 Joerg Henrichs
 # INSERT (C) here!
 
