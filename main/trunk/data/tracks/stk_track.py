@@ -8,7 +8,7 @@ Tooltip: 'Export a SuperTuxKart track scene'
 """
 __author__ = ["Joerg Henrichs (hiker)"]
 __url__ = ["supertuxkart.sourceforge.net"]
-__version__ = "0.01"
+__version__ = "$Revision$"
 __bpydoc__ = """\
 """
 
@@ -406,7 +406,6 @@ class TrackExport:
         start_time  = bsys.time()
         scene       = Blender.Scene.GetCurrent()
         name        = getIdProperty(scene, "name",       "Name of Track")
-        version     = getIdProperty(scene, "version",    "1"            )
         groups      = getIdProperty(scene, "groups",     "standard"     )
         is_arena    = getIdProperty(scene, "arena",      ""             )
         designer    = getIdProperty(scene, "designer",   ""             )
@@ -434,7 +433,7 @@ class TrackExport:
         f = open(sPath+"/track.xml", 'wb')
         f.write("<?xml version=\"1.0\"?>\n")
         f.write("<track  name        = \"%s\"\n"%name)
-        f.write("        version     = \"%s\"\n"%version)
+        f.write("        version     = \"1\"\n")
         f.write("        groups      = \"%s\"\n"%groups)
         f.write("        designer    = \"%s\"\n"%designer)
         if music:
