@@ -425,10 +425,12 @@ class TrackExport:
         # can be set.
         getIdProperty(scene, "sky-type", "dome")
         getIdProperty(scene, "sky-texture", ""            )
-        getIdProperty(scene, "sky-horizontal","")
-        getIdProperty(scene, "sky-vertical", "")
-        getIdProperty(scene, "sky-texture-percent","")
-        getIdProperty(scene, "sky-sphere-percent", "")
+        # Not sure if these should be added - if the user wants a sky
+        # box they are quiet annoying.
+        #getIdProperty(scene, "sky-horizontal","")
+        #getIdProperty(scene, "sky-vertical", "")
+        #getIdProperty(scene, "sky-texture-percent","")
+        #getIdProperty(scene, "sky-sphere-percent", "")
         
         f = open(sPath+"/track.xml", 'wb')
         f.write("<?xml version=\"1.0\"?>\n")
@@ -1080,7 +1082,17 @@ class TrackExport:
             texture-percent=\"%s\" sphere-percent=\"%s\"/>
 """ %(texture, hori, verti, tex_percent, sphere_percent))
             elif sky=="box":
-                pass
+                lTextures = string.split(texture)
+                if len(lTextures)==5:
+                    # Append a dummy 6th element
+                    lTextures.append(lTextures[4])
+                if len(lTextures)==6:
+                    f.write("  <sky-box texture=\"%s\"/>\n" % \
+                            " ".join(lTextures))
+                else:
+                    print "Found %d textures for sky box, must be 5 or 6 space separated texture names.\n" \
+                          %len(lTextures)
+                
         camera_far  = getIdProperty(scene, "camera-far", ""             )
         if camera_far:            
             f.write("  <camera far=\"%s\"/>\n"%camera_far)
