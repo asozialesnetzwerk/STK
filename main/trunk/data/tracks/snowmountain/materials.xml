@@ -2,4 +2,8 @@
 <materials>
   <material name="concrete.png" reset="Y" />
   <material name="water_light.png" reset="Y" />
+  
+  <material name="roadway2.png"       anisotropic="Y" />
+  <material name="roadwayborder.png"  anisotropic="Y" />
+
 </materials>
