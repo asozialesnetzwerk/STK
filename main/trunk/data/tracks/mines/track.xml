@@ -3,7 +3,7 @@
         version     = "1"
         groups      = "standard"
         designer    = "Ivar ten Cate"
-        music       = "West.ogg"
+        music       = "West.music"
         screenshot  = "sshot-mines.png"
 >
 </track>
