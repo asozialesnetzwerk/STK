@@ -2,7 +2,7 @@
 
 (tuxkart-kart
  (name        "Mozilla")
- (version     1)
+ (version     2)
  (model-file  "mozilla.b3d")
  (icon-file   "mozillaicon.png")
  (shadow-file "mozillashadow.png")
@@ -10,19 +10,19 @@
  (engine-sound "large")
  (rgb         1.0 0.77647 0.447058)
   (wheel-front-right
-    (position 0.237866 0.380136 0.114071)
+    (position 0.237866 0.114071 0.380136)
     (model    "wheel-front-right.b3d")
   )
   (wheel-front-left
-    (position -0.238088 0.380136 0.114071)
+    (position -0.238088 0.114071 0.380136)
     (model    "wheel-front-left.b3d")
   )
   (wheel-rear-right
-    (position 0.364589 -0.454568 0.188269)
+    (position 0.364589 0.188269 -0.454568)
     (model    "wheel-rear-right.b3d")
   )
   (wheel-rear-left
-    (position -0.364812 -0.454568 0.188269)
+    (position -0.364812 0.188269 -0.454568)
     (model    "wheel-rear-left.b3d")
   )
        

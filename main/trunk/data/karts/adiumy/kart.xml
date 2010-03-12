@@ -1,5 +1,5 @@
 (tuxkart-kart
-  (version 1)
+  (version 2)
   (name        "Adiumy")
   (model-file  "adiumy.b3d")
   (icon-file   "adiumyicon.png")
@@ -10,19 +10,19 @@
   (animation-straight 6)
   (animation-right 11)
   (wheel-front-right
-    (position 0.402310 0.161740 0.161885)
+    (position 0.402310 0.161885 0.161740)
     (model    "wheel-front-right.b3d")
   )
   (wheel-front-left
-    (position -0.399104 0.161703 0.161885)
+    (position -0.399104 0.161885 0.161703)
     (model    "wheel-front-left.b3d")
   )
   (wheel-rear-right
-    (position 0.027891 -0.378886 0.076657)
+    (position 0.027891 0.076657 -0.378886)
     (model    "wheel-rear-right.b3d")
   )
   (wheel-rear-left
-    (position -0.028688 -0.378886 0.076657)
+    (position -0.028688 0.076657 -0.378886)
     (model    "wheel-rear-left.b3d")
   )
 )

@@ -1,25 +1,25 @@
 (tuxkart-kart
   (name        "mr. iceblock")
-  (version     1)
+  (version     2)
   (model-file  "mriceblock.b3d")
   (icon-file   "mriceblockicon.png")
   (shadow-file "mriceblockshadow.png")
   (groups      "standard")
   (rgb         0.000000 0.870588 1.000000)
   (wheel-front-right
-    (position 0.270099 0.447726 0.116442)
+    (position 0.270099 0.116442 0.447726)
     (model    "wheel-front-right.b3d")
   )
   (wheel-front-left
-    (position -0.284098 0.443071 0.139798)
+    (position -0.284098 0.139798 0.443071)
     (model    "wheel-front-left.b3d")
   )
   (wheel-rear-right
-    (position 0.301257 -0.352108 0.128311)
+    (position 0.301257 0.128311 -0.352108)
     (model    "wheel-rear-right.b3d")
   )
   (wheel-rear-left
-    (position -0.312922 -0.350504 0.131780)
+    (position -0.312922 0.131780 -0.350504)
     (model    "wheel-rear-left.b3d")
   )
 )

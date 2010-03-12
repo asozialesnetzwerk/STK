@@ -2,7 +2,7 @@
 
 (tuxkart-kart
  (name        "Eviltux")
- (version     1)
+ (version     2)
  (model-file  "eviltux.b3d")
  (icon-file   "eviltuxicon.png")
  (shadow-file "generickartshadow.png")
@@ -10,19 +10,19 @@
  (engine-sound "small")
  (rgb         0.3 0.1 0.6)
   (wheel-front-right
-    (position 0.290000 0.617000 0.123461)
+    (position 0.290000 0.123461 0.617000)
     (model    "wheel-front-right.b3d")
   )
   (wheel-front-left
-    (position -0.289815 0.616744 0.123513)
+    (position -0.289815 0.123513 0.616744)
     (model    "wheel-front-left.b3d")
   )
   (wheel-rear-right
-    (position 0.296641 -0.318647 0.143240)
+    (position 0.296641 0.143240 -0.318647)
     (model    "wheel-rear-right.b3d")
   )
   (wheel-rear-left
-    (position -0.297522 -0.318647 0.143240)
+    (position -0.297522 0.143240 -0.318647)
     (model    "wheel-rear-left.b3d")
   )
 
