@@ -434,6 +434,7 @@ class TrackExport:
         #getIdProperty(scene, "sky-sphere-percent", "")
         
         f = open(sPath+"/track.xml", 'wb')
+        f.write("<!-- Saved with script %s -->\n"%__version__)
         f.write("<?xml version=\"1.0\"?>\n")
         f.write("<track  name        = \"%s\"\n"%name)
         f.write("        version     = \"2\"\n")
@@ -607,6 +608,7 @@ class TrackExport:
         
         f = open(sPath+"/quads.xml", "w")
         f.write("<?xml version=\"1.0\"?>\n")
+        f.write("<!-- Saved with script %s -->\n"%__version__)
         f.write("<quads>\n")
 
         for driveline in lSorted:
@@ -620,6 +622,7 @@ class TrackExport:
         print "Writing graph file --> \t",
         f=open(sPath+"/graph.xml", "w")
         f.write("<?xml version=\"1.0\"?>\n")
+        f.write("<!-- Saved with script %s -->\n"%__version__)
         f.write("<graph>\n")
         f.write("  <!-- First define all nodes of the graph, and what quads they represent -->\n")
         f.write("  <node-list from-quad=\"%d\" to-quad=\"%d\"/>  <!-- map each quad to a node  -->\n"\
@@ -945,6 +948,7 @@ class TrackExport:
 
         f = open(sPath+"/scene.xml", "w")
         f.write("<?xml version=\"1.0\"?>\n")
+        f.write("<!-- Saved with script %s -->\n"%__version__)
         f.write("<scene>\n")
 
         # Extract all static objects (which will be merged into one
