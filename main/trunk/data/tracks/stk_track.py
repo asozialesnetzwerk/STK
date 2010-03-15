@@ -1119,14 +1119,19 @@ class TrackExport:
         for obj in lObj:
             # Try to get the supertuxkart type field. If it's not defined,
             # use the name of the objects as type.
-            stktype = getProperty(obj, "type", obj.name).upper()
+            stktype = getProperty(obj, "type", "").strip().upper()
             
             # Make it possible to ignore certain objects, e.g. if you keep a
             # selection of 'templates' (ready to go models) around to be
             # copied into the main track.
-            if stktype[:6]=="IGNORE": continue
+            if stktype=="IGNORE": continue
             
             if obj.type=="Empty":
+                # For backward compatibility test for the blender name
+                # in case that there is no type property defined. This makes
+                # it easier to port old style tracks without having to
+                # add the property for all items.
+                stktype = getProperty(obj, "type", obj.name).upper()
                 # Check for old and new style names
                 if stktype[:8] in ["GHERRING", "RHERRING", "YHERRING", "SHERRING"] \
                    or stktype[:6]== "BANANA"      or stktype[:4]=="ITEM" \
@@ -1135,7 +1140,7 @@ class TrackExport:
                    or stktype[:6]=="ZIPPER":
                     lItems.append(obj)
                     continue
-                elif stktype[:5]=="START":
+                elif stktype=="START":
                     # Start empties are called start1, start2, ...
                     lStart.append(obj)
                 else:
@@ -1151,19 +1156,19 @@ class TrackExport:
                 #print "Non-mesh object '%s' (type: '%s') is ignored!"%(obj.name, stktype)
                 continue
             
-            if stktype[:5]=="WATER":
+            if stktype=="WATER":
                 lWater.append(obj)
-            elif stktype[:5]=="CHECK" or stktype[:3]=="LAP":
+            elif stktype=="CHECK" or stktype=="LAP":
                 lChecks.append(obj)
             # Check for new drivelines
-            elif stktype[:14]=="MAIN-DRIVELINE" or \
-                 stktype[:13]=="MAINDRIVELINE"  or \
-                 stktype[: 6]=="MAINDL":
+            elif stktype=="MAIN-DRIVELINE" or \
+                 stktype=="MAINDRIVELINE"  or \
+                 stktype=="MAINDL":
                 lDrivelines.append(Driveline(obj, 1))
                 found_main_driveline = 1
-            elif stktype[:9]=="DRIVELINE":
+            elif stktype=="DRIVELINE":
                 lDrivelines.append(Driveline(obj, 0))
-            elif stktype[:6]=="OBJECT" or stktype[:14]=="SPECIAL_OBJECT":
+            elif stktype=="OBJECT" or stktype=="SPECIAL_OBJECT":
                 lObjects.append(obj)
             else:
                 lTrack.append(obj)
