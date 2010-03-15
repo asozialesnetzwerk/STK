@@ -1168,7 +1168,8 @@ class TrackExport:
             elif stktype=="MAIN-DRIVELINE" or \
                  stktype=="MAINDRIVELINE"  or \
                  stktype=="MAINDL":
-                lDrivelines.append(Driveline(obj, 1))
+                # Main driveline must be the first entry in the list
+                lDrivelines.insert(0, Driveline(obj, 1))
                 found_main_driveline = 1
             elif stktype=="DRIVELINE":
                 lDrivelines.append(Driveline(obj, 0))
