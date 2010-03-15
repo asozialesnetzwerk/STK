@@ -436,7 +436,7 @@ class TrackExport:
         f = open(sPath+"/track.xml", 'wb')
         f.write("<?xml version=\"1.0\"?>\n")
         f.write("<track  name        = \"%s\"\n"%name)
-        f.write("        version     = \"1\"\n")
+        f.write("        version     = \"2\"\n")
         f.write("        groups      = \"%s\"\n"%groups)
         f.write("        designer    = \"%s\"\n"%designer)
         if music:
