@@ -1,49 +1,50 @@
 <?xml version="1.0"?>
+<!-- Generated with script from SVN rev 4997 -->
 <scene>
   <track model="canyon.track_track.b3d" x="0" y="0" z="0"/>
-  <water model="canyon.track_water.b3d" x="0" y="0" z="0"/>
-  <sun  xyz="-4.1298789978 21.6851501465 119.877723694"/>
-  <sky-box texture="canyon_sky_5.png canyon_sky_5.png canyon_sky_1.png canyon_sky_3.png canyon_sky_2.png canyon_sky_4.png"/>
-  <banana x="329" y="19" z="10" />
-  <banana x="274" y="307" z="10" />
-  <banana x="274" y="311" z="10" />
-  <banana x="202" y="30" z="10" />
-  <banana x="274" y="315" z="10" />
-  <item x="65" y="180" z="10" />
-  <item x="274" y="186" z="10" />
-  <item x="110" y="140" z="10" />
-  <item x="105" y="5" z="10" />
-  <item x="114" y="205" z="10" />
-  <item x="105" y="11" z="10" />
-  <item x="105" y="-1" z="10" />
-  <item x="277" y="183" z="10" />
-  <item x="116" y="205" z="10" />
-  <small-nitro x="47" y="130" z="10" />
-  <small-nitro x="53" y="130" z="10" />
-  <small-nitro x="53" y="90" z="10" />
-  <small-nitro x="47" y="90" z="10" />
-  <small-nitro x="290" y="274" z="10" />
-  <small-nitro x="284" y="274" z="10" />
-  <small-nitro x="287" y="274" z="10" />
-  <small-nitro x="287" y="272" z="10" />
-  <small-nitro x="284" y="272" z="10" />
-  <small-nitro x="290" y="272" z="10" />
-  <big-nitro x="277" y="186" z="10" />
-  <big-nitro x="274" y="183" z="10" />
-  <big-nitro x="107" y="135" z="10" />
-  <big-nitro x="113" y="135" z="10" />
-  <big-nitro x="110" y="132" z="10" />
-  <zipper x="84" y="69" z="12" h="-100.000002" />
-  <zipper x="226" y="48" z="10" h="-105.000001" />
-  <zipper x="0" y="20" z="10" />
-  <zipper x="20" y="247" z="10" h="-89.999997" />
-  <zipper x="144" y="237" z="10" h="-89.999997" />
-  <zipper x="144" y="243" z="10" h="-89.999997" />
-  <zipper x="20" y="253" z="10" h="-89.999997" />
-  <zipper x="105" y="8" z="10" h="89.999997" />
-  <zipper x="105" y="2" z="10" h="89.999997" />
+  <sun  xyz="-4.1298789978 119.877723694 21.6851501465"/>
+  <banana x="329" y="10" z="19" />
+  <banana x="274" y="10" z="307" />
+  <banana x="274" y="10" z="311" />
+  <banana x="202" y="10" z="30" />
+  <banana x="274" y="10" z="315" />
+  <item x="65" y="10" z="180" />
+  <item x="274" y="10" z="186" />
+  <item x="110" y="10" z="140" />
+  <item x="105" y="10" z="5" />
+  <item x="114" y="10" z="205" />
+  <item x="105" y="10" z="11" />
+  <item x="105" y="10" z="-1" />
+  <item x="277" y="10" z="183" />
+  <item x="116" y="10" z="205" />
+  <small-nitro x="47" y="10" z="130" />
+  <small-nitro x="53" y="10" z="130" />
+  <small-nitro x="53" y="10" z="90" />
+  <small-nitro x="47" y="10" z="90" />
+  <small-nitro x="290" y="10" z="274" />
+  <small-nitro x="284" y="10" z="274" />
+  <small-nitro x="287" y="10" z="274" />
+  <small-nitro x="287" y="10" z="272" />
+  <small-nitro x="284" y="10" z="272" />
+  <small-nitro x="290" y="10" z="272" />
+  <big-nitro x="277" y="10" z="186" />
+  <big-nitro x="274" y="10" z="183" />
+  <big-nitro x="107" y="10" z="135" />
+  <big-nitro x="113" y="10" z="135" />
+  <big-nitro x="110" y="10" z="132" />
+  <zipper x="84" y="12" z="69" h="-100.000002" />
+  <zipper x="226" y="10" z="48" h="-105.000001" />
+  <zipper x="0" y="10" z="20" />
+  <zipper x="20" y="10" z="247" h="-89.999997" />
+  <zipper x="144" y="10" z="237" h="-89.999997" />
+  <zipper x="144" y="10" z="243" h="-89.999997" />
+  <zipper x="20" y="10" z="253" h="-89.999997" />
+  <zipper x="105" y="10" z="8" h="89.999997" />
+  <zipper x="105" y="10" z="2" h="89.999997" />
   <checks>
-    <check-line kind="lap" p1="-4.000000 0.000000" p2="3.999997 0.000000" min-height="0.200000"/>
-    <check-line p1="40.518822 113.975853" p2="62.395409 113.947746" min-height="-93.067085"/>
+    <check-line kind="lap" p1="-4.000000 -0.000000" p2="3.999997 0.000000" min-height="0.200000"/>
+    <check-line kind="activate" other-id="0" p1="40.518818 113.975853" p2="62.395412 113.947746"
+                min-height="-93.067085"/>
   </checks>
+  <sky-box texture="canyon_sky_5.png canyon_sky_5.png canyon_sky_1.png canyon_sky_3.png canyon_sky_2.png canyon_sky_4.png"/>
 </scene>
