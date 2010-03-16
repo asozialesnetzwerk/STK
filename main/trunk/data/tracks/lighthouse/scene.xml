@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
+<!-- Generated with script from SVN rev 4997 -->
 <scene>
   <track model="lighthouse.track_track.b3d" x="0" y="0" z="0"/>
   <object type="animation" model="Light.b3d" xyz="-48.248627 29.666990 -94.301178" hpr="0.000000 0.000000 0.000000" >
