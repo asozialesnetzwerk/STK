@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<materials>
+  <material name="plants.png" transparency="Y" collide="N"/>
+  <material name="bison.png" transparency="Y" collide="N"/>
+</materials>
