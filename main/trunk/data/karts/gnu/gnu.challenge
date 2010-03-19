@@ -4,23 +4,14 @@
     id="snowmountain"
     name="Win a race on Snow Mountain"
     description="Win a 4 lap race on Snow Mountain against 4 'Racer' level AI kart."
-    
-    gp="dummy"
-   
-    depend-on=""
-   
-    unlock-mode="FOLLOW_LEADER"
-    major="grandprix"
+    depend-on="worldsend"
+    unlock-kart="gnu"
+    major="single"
     minor="quickrace"
     track="snowmountain"
     difficulty="hard"
-
+    laps="4"
     karts="4"
     position="1"
 />
 
-<!--
-    track="snowmountain"
-    major="single"
-        laps="1"
--->
