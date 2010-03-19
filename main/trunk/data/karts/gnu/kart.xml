@@ -6,7 +6,7 @@
       version       = "2"
       groups        ="special"
       has-skidmarks = "false"
-      rgb           = "1.0 0.964705 0.0"  />
+      rgb           = "1.0 0.964705 0.0">
   <wheels>
     <front-right position = "0.275697 0.112979 0.339242"
                  model    = "wheel-front-right.b3d"        />
