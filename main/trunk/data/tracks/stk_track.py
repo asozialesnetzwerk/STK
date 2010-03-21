@@ -1142,13 +1142,13 @@ class TrackExport:
                 stktype = getProperty(obj, "type", obj.name).upper()
                 # Check for old and new style names
                 if stktype[:8] in ["GHERRING", "RHERRING", "YHERRING", "SHERRING"] \
-                   or stktype[:6]== "BANANA"      or stktype[:4]=="ITEM" \
-                   or stktype[:11]=="NITRO-SMALL" or stktype[:9]=="NITRO-BIG" \
-                   or stktype[:11]=="SMALL-NITRO" or stktype[:9]=="BIG-NITRO" \
-                   or stktype[:6]=="ZIPPER":
+                   or stktype[: 6]== "BANANA"     or stktype[:4]=="ITEM"           \
+                   or stktype[:11]=="NITRO-SMALL" or stktype[:9]=="NITRO-BIG"      \
+                   or stktype[:11]=="SMALL-NITRO" or stktype[:9]=="BIG-NITRO"      \
+                   or stktype[: 6]=="ZIPPER":
                     lItems.append(obj)
                     continue
-                elif stktype=="START":
+                elif stktype[:5]=="START":
                     # Start empties are called start1, start2, ...
                     lStart.append(obj)
                 else:
