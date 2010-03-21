@@ -8,7 +8,7 @@ Tooltip: 'Export a SuperTuxKart kart'
 """
 __author__ = ["Joerg Henrichs (hiker)/xapantu"]
 __url__ = ["supertuxkart.sourceforge.net"]
-__version__ = "0.01"
+__version__ = "$Revision$"
 __bpydoc__ = """\
 """
 
@@ -19,7 +19,7 @@ __bpydoc__ = """\
 #because you don't have Python installed.
 import Blender
 import BPyMesh
-import sys,os,os.path,struct,math,string
+import sys,os,os.path,struct,math,string,re
 import b3d_export
 
 from Blender import Mathutils
@@ -33,7 +33,6 @@ ARG = __script__['arg']
 eventQuit = 0
 eventExport = 1
 eventkartName = 2
-eventkartVersion = 3
 eventkartGroup = 4
 eventkartShadow = 5
 eventkartIcon = 6
@@ -43,7 +42,6 @@ eventBrowseIcon = 9
 eventPath = 10
 eventSound = 11
 kartName =Draw.Create("")
-kartVersion =Draw.Create("")
 kartGroup = Draw.Create("standard")
 scene =""
 targetShadow =""
@@ -56,7 +54,6 @@ pathExport =""
 pathExportTxt = Draw.Create("")
 pathExportShadow =""
 pathExportIcon =""
-kartFileName = Draw.Create("")
 kartSoundHorn = Draw.Create("")
 kartSoundCrash = Draw.Create("")
 kartSoundShoot = Draw.Create("")
@@ -68,8 +65,15 @@ kartSoundZiper = Draw.Create("")
 kartSoundName = Draw.Create("")
 kartSoundAttach = Draw.Create("")
 
+
+def getScriptVersion():
+	m = re.search('(\d+)', __version__)
+	if m:
+			return str(m.group(0))
+	return "0.1"
+
 def gui():
-	global eventPush, eventQuit, kartName, eventkartName, eventkartVersion, kartVersion, eventkartGroup, kartGroup, scene, eventfileShadow, eventfileIcon, kartShadow, kartIcon, eventBrowseIcon, eventBrowseShadow, eventExport, pathExportTxt, eventPath, kartFileName,kartSoundHorn, kartSoundCrash, kartSoundShoot, kartSoundWin, kartSoundExplode, kartSoundGoo, kartSoundPass, kartSoundZiper, kartSoundName, kartSoundAttach, eventSound
+	global eventPush, eventQuit, kartName, eventkartName, eventkartGroup, kartGroup, scene, eventfileShadow, eventfileIcon, kartShadow, kartIcon, eventBrowseIcon, eventBrowseShadow, eventExport, pathExportTxt, eventPath,kartSoundHorn, kartSoundCrash, kartSoundShoot, kartSoundWin, kartSoundExplode, kartSoundGoo, kartSoundPass, kartSoundZiper, kartSoundName, kartSoundAttach, eventSound
 	BGL.glClearColor(0.4,0.5,0.8,1)
 	BGL.glClear(BGL.GL_COLOR_BUFFER_BIT)
 	BGL.glColor3f(1,1,1)
@@ -77,11 +81,10 @@ def gui():
 	BGL.glRasterPos2i(10, 250)
 	try:
 			kartName.val = scene.properties['name']
-			kartVersion.val = scene.properties['version']
+			print "getting kartName",kartName.val
 			kartGroup.val = scene.properties['group']
 			kartIcon.val = scene.properties['icon']
 			kartShadow.val = scene.properties['shadow']
-			kartFileName.val = scene.properties['kartFile']
 			pathExportTxt.val = scene.properties['kartPath']
 			kartSoundHorn.val = scene.properties['kartSoundHorn']
 			kartSoundCrash.val = scene.properties['kartSoundCrash']
@@ -95,11 +98,10 @@ def gui():
 			kartSoundAttach.val = scene.properties['kartSoundAttach']
 	except:
 			scene.properties['name'] = kartName.val
-			scene.properties['version'] = kartVersion.val
+			print "setting except kartName",kartName.val
 			scene.properties['group'] = kartGroup.val
 			scene.properties['icon'] = kartIcon.val
 			scene.properties['shadow'] = kartShadow.val
-			scene.properties['kartFile'] = kartFileName.val
 			scene.properties['kartPath'] = pathExportTxt.val
 			scene.properties['kartSoundHorn'] = kartSoundHorn.val
 			scene.properties['kartSoundCrash'] = kartSoundCrash.val
@@ -111,19 +113,17 @@ def gui():
 			scene.properties['kartSoundZiper'] = kartSoundZiper.val
 			scene.properties['kartSoundName'] = kartSoundName.val
 			scene.properties['kartSoundAttach'] = kartSoundAttach.val
-			pass
+
 	Draw.Text("Kart Exporter for STK Irrlicht version")
 	button = Draw.Button("Quit", eventQuit, 5, 0, 160, 20, "Quit")
 	buttonexport = Draw.Button("Export", eventExport, 5, 30, 160, 20, "export")
 	buttonPath = Draw.Button("Select Path", eventBrowse, 315, 90, 160, 20, "path")
 	pathExportTxt = Draw.String("Path : ", eventPath, 5, 80, 310, 20, pathExportTxt.val, 320, "Path")
-	kartFileName = Draw.String("Kart File : ", eventPath, 5, 100, 310, 20, kartFileName.val, 320, "kart file")
 	kartShadow = Draw.String("Kart Shadow : ", eventkartShadow, 5, 140, 310, 20, kartShadow.val, 320, "Kart Shadow")
 	kartIcon = Draw.String("Kart Icon : ", eventkartIcon, 5, 120, 310, 20, kartIcon.val, 320, "Kart Icon")
 	buttonicon = Draw.Button("Select an icon", eventBrowseIcon, 315, 120, 160, 20, "icon")
 	buttonShadow = Draw.Button("Select a shadow", eventBrowseShadow, 315, 140, 160, 20, "shadow")
 	kartName = Draw.String("Kart Name : ", eventkartName, 5, 200, 310, 20, kartName.val, 320, "Kart Name")
-	kartVersion = Draw.String("Kart Version : ", eventkartVersion, 5, 180, 310, 20, kartVersion.val, 32, "Kart Version")
 	kartGroup = Draw.String("Kart Group : ", eventkartGroup, 5, 160, 310, 20, kartGroup.val, 320, "Kart Group")
 	kartSoundHorn = Draw.String("Sound Horn : ", eventSound, 500, 0, 310, 20, kartSoundHorn.val, 320, "Kart Sounds")
 	kartSoundCrash = Draw.String("Sound Crash : ", eventSound, 500, 30, 310, 20, kartSoundCrash.val, 320, "Kart Sounds")
@@ -154,9 +154,8 @@ def butt_evt(evt):	# function that handles keyboard and mouse events
 			Blender.Window.FileSelector(selectPathIcon,"Select an icon", Blender.sys.makename(ext = ".png"))			 
 
 def selectPath(filename):
-	global pathExport, pathExportTxt, kartFileName
+	global pathExport, pathExportTxt
 	scene.properties['kartPath'] = Blender.sys.dirname(filename)
-	scene.properties['kartFile'] = Blender.sys.basename(filename)
 	print filename
 
 def selectPathShadow(filename):
@@ -168,9 +167,10 @@ def selectPathIcon(filename):
 	print filename
 
 def saveKart():
-	global kartName, kartVersion, kartGroup, scene, kartIcon, kartShadow, kartFileName, pathExportTxt
+	global kartName, kartGroup, scene, kartIcon, kartShadow, pathExportTxt
 	path = pathExportTxt.val
-	name = Blender.sys.splitext(kartFileName.val)[0]
+	name = kartName.val.lower()
+	print "saving",kartName.val
 	ac_filename_kart = ".b3d"
 	ac_filename_fr = "wheel-front-right.b3d"
 	ac_filename_fl = "wheel-front-left.b3d"
@@ -218,67 +218,70 @@ def saveKart():
 	o_rlobj.append(o_rl)
 	
 	lObj = Blender.Object.GetSelected()
-	lTrack = []
+	lKart = []
 	for obj in lObj:
-			lTrack.append(obj)
+			lKart.append(obj)
 	rgb = (0.7, 0.0, 0.0)
-	f = open(Blender.sys.join(path,name + ".xml"), 'wb')
-	f.write('(tuxkart-kart\n')
-	f.write('	(version %s)\n' % kartVersion.val)
-	f.write('	(name        "%s")\n' % kartName.val)
-	f.write('	(model-file  "%s.b3d")\n' % name)
-	f.write('	(icon-file   "%s")\n' % kartIcon.val)
-	f.write('	(shadow-file "%s")\n' % kartShadow.val)
-	f.write('	(groups      "%s")\n' % kartGroup.val)
-	f.write('	(rgb         %f %f %f)\n' % rgb)
+	f = open(Blender.sys.join(path,"kart.xml"), 'wb')
+	
+	f.write('<!-- Generated with script from SVN rev %s -->\n'%getScriptVersion())
+	f.write('<?xml version="1.0"?>\n')
+	f.write('  <kart name        = "%s"\n' % kartName.val)
+	f.write('        version     = "2"\n' )
+	f.write('        model-file  = "%s.b3d"\n' % name)
+	f.write('        icon-file   = "%s"\n' % kartIcon.val)
+	f.write('        shadow-file = "%s"\n' % kartShadow.val)
+	f.write('        groups      = "%s"\n' % kartGroup.val)
+	f.write('        rgb         = "%f %f %f" >\n' % rgb)
+	
 	# search for animation
+	lAnims = []
 	for i in range(1, 300):
 		try:
-			if scene.timeline.getName(i) in \
-			   ["straight", "right", "left", "start-winning", "end-winning"]:
-				f.write('	(animation-')
-			       	f.write('%s %s)\n' %(scene.timeline.getName(i), i))
+			marker = scene.timeline.getName(i)
+			if	marker in \
+			   ["straight", "right", "left", "start-winning", "end-winning",
+				"start-losing", "end-losing", "start-explosion",
+				"end-explosion"]:
+				lAnims.append( (marker, i) )
 		except:
 			pass
-	if kartSoundHorn.val != "" :
-		f.write('	(horn-sound  "%s")\n' %(kartSoundHorn.val))
-	if kartSoundCrash.val != "" :
-		f.write('	(crash-sound  "%s")\n' %(kartSoundCrash.val))
-	if kartSoundShoot.val != "" :
-		f.write('	(shoot-sound  "%s")\n' %(kartSoundShoot.val))
-	if kartSoundWin.val != "" :
-		f.write('	(win-sound  "%s")\n' %(kartSoundWin.val))
-	if kartSoundExplode.val != "" :
-		f.write('	(explode-sound  "%s")\n' %(kartSoundExplode.val))
-	if kartSoundGoo.val != "" :
-		f.write('	(goo-sound  "%s")\n' %(kartSoundGoo.val))
-	if kartSoundPass.val != "" :
-		f.write('	(pass-sound  "%s")\n' %(kartSoundPass.val))
-	if kartSoundZiper.val != "" :
-		f.write('	(zipper-sound  "%s")\n' %(kartSoundZiper.val))
-	if kartSoundName.val != "" :
-		f.write('	(name-sound  "%s")\n' %(kartSoundName.val))
-	if kartSoundAttach.val != "" :
-		f.write('	(attach-sound  "%s")\n' %(kartSoundAttach.val))
-	f.write('	(wheel-front-right\n')
-	f.write('		(position %f %f %f)\n' %(old_locfr.x, old_locfr.z, old_locfr.y))
-	f.write('		(model		"wheel-front-right.b3d")\n')
-	f.write('	)\n')
-	f.write('	(wheel-front-left\n')
-	f.write('		(position %f %f %f)\n' %(old_locfl.x, old_locfl.z, old_locfl.y))
-	f.write('		(model		"wheel-front-left.b3d")\n')
-	f.write('	)\n')
-	f.write('	(wheel-rear-right\n')
-	f.write('		(position %f %f %f)\n' %(old_locrr.x, old_locrr.z, old_locrr.y))
-	f.write('		(model		"wheel-rear-right.b3d")\n')
-	f.write('	)\n')
-	f.write('	(wheel-rear-left\n')
-	f.write('		(position %f %f %f)\n' %(old_locrl.x, old_locrl.z, old_locrl.y))
-	f.write('		(model		"wheel-rear-left.b3d")\n')
-	f.write('	)\n')
-	f.write(')\n')
+	if lAnims:
+		f.write('  <animations %s = "%s"' % (lAnims[0][0], lAnims[0][1]))
+		for (marker, frame) in lAnims[1:]:
+				f.write('\n              %s = "%s"'%(marker, frame))
+		f.write('/>\n')
+
+	lSounds = []
+	if kartSoundHorn.val  != "": lSounds.append( ("horn-sound", kartSoundHorn.val ))
+	if kartSoundCrash.val != "": lSounds.append( ("crash-sound",kartSoundCrash.val))
+	if kartSoundShoot.val != "" :lSounds.append( ("shoot-sound",kartSoundShoot.val))
+	if kartSoundWin.val   != "" :lSounds.append( ("win-sound",  kartSoundWin.val  ))
+	if kartSoundExplode.val!="" :lSounds.append( ("explode-sound",kartSoundExplode.val))
+	if kartSoundGoo.val   != "" :lSounds.append( ("goo-sound",  kartSoundGoo.val))
+	if kartSoundPass.val  != "" :lSounds.append( ("pass-sound", kartSoundPass.val))
+	if kartSoundZiper.val != "" :lSounds.append( ("zipper-sound",kartSoundZiper.val))
+	if kartSoundName.val  != "" :lSounds.append( ("name-sound", kartSoundName.val))
+	if kartSoundAttach.val!= "" :lSounds.append( ("attach-sound",kartSoundAttach.val))
+
+	if lSounds:
+		f.write('  <sounds %s = "%s"'%(lSounds[0][0], lSounds[0][1]))
+		for (name, sound) in lSounds[1:]:
+		    f.write('\n          %s = "%s"'%(name, sound))
+		f.write('/>\n')
+	f.write('  <wheels>\n')
+	f.write('    <front-right position = "%f %f %f"\n' % (old_locfr.x, old_locfr.z, old_locfr.y))
+	f.write('                 model    = "wheel-front-right.b3d"       />\n')
+	f.write('    <front-left  position = "%f %f %f"\n' % (old_locfl.x, old_locfl.z, old_locfl.y))
+	f.write('                 model    = "wheel-front-left.b3d"        />\n')
+	f.write('    <rear-right  position = "%f %f %f"\n' % (old_locrr.x, old_locrr.z, old_locrr.y))
+	f.write('                 model    = "wheel-rear-right.b3d"        />\n')
+	f.write('    <rear-left   position = "%f %f %f"\n' % (old_locrl.x, old_locrl.z, old_locrl.y))
+	f.write('                 model    = "wheel-rear-left.b3d"         />\n')
+	f.write('  </wheels>\n')
+	f.write('</kart>\n')
 	f.close()
-	b3d_export.write_b3d_file(Blender.sys.join(path,name + ac_filename_kart), lTrack)
+	b3d_export.write_b3d_file(Blender.sys.join(path,name + ac_filename_kart), lKart)
 	b3d_export.write_b3d_file(Blender.sys.join(path, ac_filename_fl), o_flobj)
 	b3d_export.write_b3d_file(Blender.sys.join(path, ac_filename_fr), o_frobj)
 	b3d_export.write_b3d_file(Blender.sys.join(path, ac_filename_rl), o_rlobj)
@@ -287,12 +290,11 @@ def saveKart():
 	o_fl.setLocation(old_locfl)
 	o_rr.setLocation(old_locrr)
 	o_rl.setLocation(old_locrl)
+	print "writing back",kartName.val
 	scene.properties['name'] = kartName.val
-	scene.properties['version'] = kartVersion.val
 	scene.properties['group'] = kartGroup.val
 	scene.properties['icon'] = kartIcon.val
 	scene.properties['shadow'] = kartShadow.val
-	scene.properties['kartFile'] = kartFileName.val
 	scene.properties['kartPath'] = pathExportTxt.val
 	scene.properties['kartSoundHorn'] = kartSoundHorn.val
 	scene.properties['kartSoundCrash'] = kartSoundCrash.val
