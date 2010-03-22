@@ -1,0 +1,16 @@
+To properly export this track:
+
+1. Export STK track normally, so xml files are generated
+
+2. Select BorderCovers
+3. Apply the modifier
+
+4. Select Cave
+5. Delete the extra UV Texture and Vertex Colors
+   Keep the ones named Image and Manual
+
+6. Select HangingPlants
+7. Repeat step 5 in plants object
+
+8. Select all three objects
+8. Export the .b3d, picking Selected Only, Normals & Vertex Colors
