@@ -2,7 +2,7 @@
 <materials>
   <material name="lighthouse.jpg" alpha="0.0" light="N" collide="N"/>
   <material name="lighthouse_sky.jpg" alpha="0.0" light="N" reset="Y"/>
-  <material name="fence.png" transparency="Y" />
+  <material name="fence.png" transparency="Y" backface-culling="n" />
   <material name="coniferous_tree.png" transparency="Y" light="N" collide="N"/>
   <material name="sand.jpg" graphical-effect="smoke"/>
   <material name="sandgrass.jpg" graphical-effect="smoke"/>
