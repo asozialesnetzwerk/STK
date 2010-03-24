@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<kart name         = "mr. iceblock"
-      version     2)
+<kart name        = "mr. iceblock"
+      version     = "2"
       model-file  ="mriceblock.b3d"
       icon-file   ="mriceblockicon.png"
       shadow-file ="mriceblockshadow.png"

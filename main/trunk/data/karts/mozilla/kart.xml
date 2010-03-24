@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<kart name         = "Mozilla")
+<kart name         = "Mozilla"
       version      = "2"
       model-file   = "mozilla.b3d"
       icon-file    = "mozillaicon.png"
