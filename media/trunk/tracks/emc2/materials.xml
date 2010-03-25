@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<materials>
+  <material name="cement.png" anisotropic="Y"/>
+  <material name="grass-square-dark.png" anisotropic="Y"/>
+  <material name="grass-square-light.png" anisotropic="Y"/>
+  <material name="tarmac.png" anisotropic="Y"/>
+</materials>

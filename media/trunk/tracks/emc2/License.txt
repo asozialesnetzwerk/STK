@@ -1,0 +1,4 @@
+Released under CC-BY-SA 3.0
+By MiniBjorn
+
+Except sky.png which is a copy of data/textures/clouds.png.
