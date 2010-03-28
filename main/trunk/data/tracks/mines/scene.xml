@@ -255,6 +255,5 @@
                 min-height="-6.716766"/>
   </checks>
   <camera far="100.0"/>
-  
-  <sky-color rgb="0 0 0 " />
+  <sky-color rgb="12 6 0"/>
 </scene>
