@@ -4,7 +4,7 @@
   <track model="emc2.track_track.b3d" x="0" y="0" z="0"/>
   <sun  xyz="8.0 7.0 -8.0"/>
   <checks>
-    <check-line kind="lap" p1="4.000000 0.000000" p2="-4.000000 0.000000" min-height="1.000000"/>
+    <check-line kind="lap" p1="-4.000000 0.000000" p2="4.000000 0.000000" min-height="1.000000"/>
     <check-line kind="lap" p1="7.000000 50.000000" p2="-6.999998 50.000000"
                 min-height="1.000000"/>
     <check-line kind="lap" p1="7.000000 100.000000" p2="-6.999998 100.000000"
