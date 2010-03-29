@@ -44,7 +44,8 @@
   <material name="magnet.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y" collide="N"/>
   <material name="bzzt.png" transparency="Y" light="N" ignore="Y" collide="N"/>
   <material name="anchor-icon.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y" collide="N"/>
-  <material name="parachute.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y" collide="N"/>
+  <material name="parachute.png" backface-culling="n" ignore="Y" collide="N"/>
+  <material name="parachute-icon.png" clampU="Y" clampV="Y" transparency="N" alpha="0.0" light="Y" ignore="Y" collide="N"/>
   <material name="speedback.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.0" light="N" ignore="Y" collide="N"/>
   <material name="speedfore.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.0" light="N" ignore="Y" collide="N"/>
   <material name="water_light.png" light="N" reset="Y" collide="N"/>
