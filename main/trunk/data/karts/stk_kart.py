@@ -321,10 +321,11 @@ def exportKart():
     f.write('<!-- Generated with script from SVN rev %s -->\n'\
             % getScriptVersion())
     rgb = (0.7, 0.0, 0.0)
+    model_file = kartName.val+".b3d"
     f.write('<?xml version="1.0"?>\n')
     f.write('<kart name        = "%s"\n' % kartName.val)
     f.write('      version     = "2"\n' )
-    f.write('      model-file  = "%s.b3d"\n' % name)
+    f.write('      model-file  = "%s.b3d"\n' % model_file)
     f.write('      icon-file   = "%s"\n' % kartIcon.val)
     f.write('      shadow-file = "%s"\n' % kartShadow.val)
     f.write('      groups      = "%s"\n' % kartGroup.val)
@@ -337,7 +338,7 @@ def exportKart():
     f.close()
 
     # Export the actual kart (the wheels are already exported in saveWheels)
-    b3d_export.write_b3d_file(Blender.sys.join(path, kartName.val + ".b3d"), lKart)
+    b3d_export.write_b3d_file(Blender.sys.join(path, model_file), lKart)
     
     writeIDProperties()
     Draw.PupMenu("Successful")
