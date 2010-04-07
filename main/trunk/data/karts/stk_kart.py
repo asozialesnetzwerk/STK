@@ -33,6 +33,7 @@ from Blender import Draw,BGL
 eventQuit         =  0
 eventExport       =  1
 eventkartName     =  2
+eventColor        =  3
 eventkartGroup    =  4
 eventkartShadow   =  5
 eventkartIcon     =  6
@@ -49,6 +50,7 @@ pathExport        = ""
 pathExportShadow  = ""
 pathExportIcon    = ""
 kartName          = Draw.Create("")
+kartColor         = Draw.Create("")
 kartGroup         = Draw.Create("")
 kartShadow        = Draw.Create("")
 kartIcon          = Draw.Create("")
@@ -72,6 +74,17 @@ def getProperty(obj, name, default=""):
     except:
         return default
 # ------------------------------------------------------------------------------
+# Gets an id property of an objects, returning the default if the id property
+# is not set.
+def getIdProperty(obj, name, default=""):
+    try:
+        return obj.properties[name]
+    except:
+        if default!=None:
+            obj.properties[name]=default
+    return default
+
+# ------------------------------------------------------------------------------
 # Returns the version of this script
 def getScriptVersion():
     m = re.search('(\d+)', __version__)
@@ -81,12 +94,13 @@ def getScriptVersion():
 
 # ------------------------------------------------------------------------------
 def gui():
-    global eventPush, eventQuit, kartName, eventkartName, eventkartGroup,  \
-           kartGroup, eventfileShadow, eventfileIcon, kartShadow, kartIcon,\
-           eventBrowseIcon, eventBrowseShadow, eventExport, pathExportTxt, \
-           eventPath,kartSoundHorn, kartSoundCrash, kartSoundShoot,        \
-           kartSoundWin, kartSoundExplode, kartSoundGoo, kartSoundPass,    \
-           kartSoundZiper, kartSoundName, kartSoundAttach, eventSound
+    global eventPush, eventQuit, kartName, eventkartName, eventColor,          \
+           eventkartGroup, kartGroup, eventfileShadow, eventfileIcon,          \
+           kartShadow, kartIcon, kartColor, eventBrowseIcon, eventBrowseShadow,\
+           eventExport, pathExportTxt, eventPath,kartSoundHorn, kartSoundCrash,\
+           kartSoundShoot, kartSoundWin, kartSoundExplode, kartSoundGoo,       \
+           kartSoundPass, kartSoundZiper, kartSoundName, kartSoundAttach,      \
+           eventSound
     
     BGL.glClearColor(0.4,0.5,0.8,1)
     BGL.glClear(BGL.GL_COLOR_BUFFER_BIT)
@@ -95,45 +109,47 @@ def gui():
     BGL.glRasterPos2i(10, 250)
 
     Draw.Text("Kart Exporter for STK Irrlicht version")
-    button           = Draw.Button("Quit",             eventQuit, 5, 0,
+    button           = Draw.Button("Quit",             eventQuit,          5, 0,
                                    160, 20, "Quit")
-    buttonexport     = Draw.Button("Export",           eventExport, 5, 30,
+    buttonexport     = Draw.Button("Export",           eventExport,        5, 30,
                                    160, 20, "export")
-    buttonPath       = Draw.Button("Select Path",      eventBrowse, 315, 90,
-                                   160, 20, "path")
-    pathExportTxt    = Draw.String("Path : ",          eventPath, 5, 80,
+    pathExportTxt    = Draw.String("Path : ",          eventPath,          5, 90,
                                    310, 20, pathExportTxt.val, 320, "Path")
-    kartShadow       = Draw.String("Kart Shadow : ",   eventkartShadow, 5, 140,
-                                   310, 20, kartShadow.val, 320, "Kart Shadow")
-    kartIcon         = Draw.String("Kart Icon : ",     eventkartIcon, 5, 120,
+    buttonPath       = Draw.Button("Select Path",      eventBrowse,      315, 90,
+                                   160, 20, "path")
+    kartIcon         = Draw.String("Kart Icon : ",     eventkartIcon,      5,110,
                                    310, 20, kartIcon.val, 320, "Kart Icon")
-    buttonicon       = Draw.Button("Select an icon",   eventBrowseIcon, 315, 120,
+    buttonicon       = Draw.Button("Select an icon",   eventBrowseIcon,  315,110,
                                    160, 20, "icon")
-    buttonShadow     = Draw.Button("Select a shadow",  eventBrowseShadow, 315, 140,
+    kartShadow       = Draw.String("Kart Shadow : ",   eventkartShadow,    5,130,
+                                   310, 20, kartShadow.val, 320, "Kart Shadow")
+    buttonShadow     = Draw.Button("Select a shadow",  eventBrowseShadow,315,130,
                                    160, 20, "shadow")
-    kartName         = Draw.String("Kart Name : ",     eventkartName, 5, 200,
-                                   310, 20, kartName.val, 320, "Kart Name")
-    kartGroup        = Draw.String("Kart Group : ",    eventkartGroup, 5, 160,
+    kartGroup        = Draw.String("Kart Group : ",    eventkartGroup,     5,150,
                                    310, 20, kartGroup.val, 320, "Kart Group")
-    kartSoundHorn    = Draw.String("Sound Horn : ",    eventSound, 500, 0,
+    kartColor        = Draw.String("Color : ",         eventColor,         5,170,
+                                   310, 20, kartColor.val, 320, "Kart Color")
+    kartName         = Draw.String("Kart Name : ",     eventkartName,      5,190,
+                                   310, 20, kartName.val, 320, "Kart Name")
+    kartSoundHorn    = Draw.String("Sound Horn : ",    eventSound,        500, 0,
                                    310, 20, kartSoundHorn.val, 320, "Kart Sounds")
-    kartSoundCrash   = Draw.String("Sound Crash : ",   eventSound, 500, 30,
+    kartSoundCrash   = Draw.String("Sound Crash : ",   eventSound,       500, 30,
                                    310, 20, kartSoundCrash.val, 320, "Kart Sounds")
-    kartSoundShoot   = Draw.String("Sound Shoot : ",   eventSound, 500, 60,
+    kartSoundShoot   = Draw.String("Sound Shoot : ",   eventSound,       500, 60,
                                    310, 20, kartSoundShoot.val, 320, "Kart Sounds")
-    kartSoundWin     = Draw.String("Sound Win : ",     eventSound, 500, 90,
+    kartSoundWin     = Draw.String("Sound Win : ",     eventSound,       500, 90,
                                    310, 20, kartSoundWin.val, 320, "Kart Sounds")
-    kartSoundExplode = Draw.String("Sound Explode : ", eventSound, 500, 120,
+    kartSoundExplode = Draw.String("Sound Explode : ", eventSound,       500, 120,
                                    310, 20, kartSoundExplode.val, 320, "Kart Sounds")
-    kartSoundGoo     = Draw.String("Sound Goo : ",     eventSound, 500, 150,
+    kartSoundGoo     = Draw.String("Sound Goo : ",     eventSound,       500, 150,
                                    310, 20, kartSoundGoo.val, 320, "Kart Sounds")
-    kartSoundPass    = Draw.String("Sound Pass : ",    eventSound, 500, 180,
+    kartSoundPass    = Draw.String("Sound Pass : ",    eventSound,       500, 180,
                                    310, 20, kartSoundPass.val, 320, "Kart Sounds")
-    kartSoundZiper   = Draw.String("Sound Ziper : ",   eventSound, 500, 210,
+    kartSoundZiper   = Draw.String("Sound Ziper : ",   eventSound,       500, 210,
                                    310, 20, kartSoundZiper.val, 320, "Kart Sounds")
-    kartSoundName    = Draw.String("Sound Name: ",     eventSound, 500, 240,
+    kartSoundName    = Draw.String("Sound Name: ",     eventSound,       500, 240,
                                    310, 20, kartSoundName.val, 320, "Kart Sounds")
-    kartSoundAttach  = Draw.String("Sound Attach : ",  eventSound, 500, 270,
+    kartSoundAttach  = Draw.String("Sound Attach : ",  eventSound,       500, 270,
                                    310, 20, kartSoundAttach.val, 320, "Kart Sounds")
     
 # ------------------------------------------------------------------------------
@@ -161,18 +177,17 @@ def butt_evt(evt):  # function that handles keyboard and mouse events
 
 # ------------------------------------------------------------------------------
 def selectPath(filename):
-    scene = Blender.Scene.getCurrent()
-    scene.properties['kartPath'] = Blender.sys.dirname(filename)
+    global pathExportTxt
+    pathExportTxt.val = Blender.sys.dirname(filename)
 
 # ------------------------------------------------------------------------------
 def selectPathShadow(filename):
-    scene = Blender.Scene.getCurrent()
-    scene.properties['shadow']  =   Blender.sys.basename(filename)
-
+    global kartShadow
+    kartShadow.val = Blender.sys.basename(filename)
 # ------------------------------------------------------------------------------
 def selectPathIcon(filename):
-    scene = Blender.Scene.getCurrent()
-    scene.properties['icon'] = Blender.sys.basename(filename)
+    global kartIcon
+    kartIcon.val = Blender.sys.basename(filename)
 
 # ------------------------------------------------------------------------------
 def saveWheels(f, lWheels, path):
@@ -216,7 +231,6 @@ def saveWheels(f, lWheels, path):
         wheel.setLocation(lOldPos)
                                   
     f.write('  </wheels>\n')
-    f.write('</kart>\n')
 
 # ------------------------------------------------------------------------------
 # Saves any defined animations to the kart.xml file.
@@ -271,11 +285,16 @@ def saveSounds(f):
 # ------------------------------------------------------------------------------
 # Exports the actual kart.
 def exportKart():
-    global kartName, kartGroup, kartIcon, kartShadow, pathExportTxt
+    global kartName, kartGroup, kartIcon, kartShadow, pathExportTxt, kartColor
     path = pathExportTxt.val
     kart_name = kartName.val
     if not kart_name:
         Blender.Draw.PupBlock("No kart name specified",["No kart name specified!"])
+        return
+    lColor = kartColor.val.split()
+    if len(lColor)!=3:
+        Blender.Draw.PupBlock("Incorrect kart color", ["Incorrect kart color",
+                                                       "must be an RGB value!"])
         return
 
     global flag_stack
@@ -310,12 +329,9 @@ def exportKart():
 
     # Write the xml file
     # ------------------
-    if kartShadow.val == "":
-        kartShadow.val = kart_name.lower() + "_shadow.png"
-    if kartIcon.val == "":
-        kartIcon.val = kart_name.lower() + "_icon.png"
-    if kartGroup.val == "":
-        kartGroup.var = "default"
+    if not kartShadow.val: kartShadow.val = kart_name.lower() + "_shadow.png"
+    if not kartIcon.val:   kartIcon.val   = kart_name.lower() + "_icon.png"
+    if not kartGroup.val:  kartGroup.var  = "default"
         
     f = open(Blender.sys.join(path,"kart.xml"), 'wb')    
     f.write('<!-- Generated with script from SVN rev %s -->\n'\
@@ -325,11 +341,11 @@ def exportKart():
     f.write('<?xml version="1.0"?>\n')
     f.write('<kart name        = "%s"\n' % kartName.val)
     f.write('      version     = "2"\n' )
-    f.write('      model-file  = "%s.b3d"\n' % model_file)
+    f.write('      model-file  = "%s"\n' % model_file)
     f.write('      icon-file   = "%s"\n' % kartIcon.val)
     f.write('      shadow-file = "%s"\n' % kartShadow.val)
     f.write('      groups      = "%s"\n' % kartGroup.val)
-    f.write('      rgb         = "%f %f %f" >\n' % rgb)
+    f.write('      rgb         = "%s %s %s" >\n' % tuple(lColor))
     
     saveSounds(f)
     saveAnimations(f)
@@ -354,6 +370,7 @@ def writeIDProperties():
     
     scene = Blender.Scene.getCurrent()
     scene.properties['name'            ] = kartName.val
+    scene.properties['color'           ] = kartColor.val
     scene.properties['group'           ] = kartGroup.val
     scene.properties['icon'            ] = kartIcon.val
     scene.properties['shadow'          ] = kartShadow.val
@@ -373,38 +390,23 @@ def writeIDProperties():
 def main():
     scene = Blender.Scene.getCurrent()
 
-    try:
-        kartName.val         = scene.properties['name'            ]
-        kartGroup.val        = scene.properties['group'           ]
-        kartIcon.val         = scene.properties['icon'            ]
-        kartShadow.val       = scene.properties['shadow'          ]
-        pathExportTxt.val    = scene.properties['kartPath'        ]
-        kartSoundHorn.val    = scene.properties['kartSoundHorn'   ]
-        kartSoundCrash.val   = scene.properties['kartSoundCrash'  ]
-        kartSoundShoot.val   = scene.properties['kartSoundShoot'  ]
-        kartSoundWin.val     = scene.properties['kartSoundWin'    ]
-        kartSoundExplode.val = scene.properties['kartSoundExplode']
-        kartSoundGoo.val     = scene.properties['kartSoundGoo'    ]
-        kartSoundPass.val    = scene.properties['kartSoundPass'   ]
-        kartSoundZiper.val   = scene.properties['kartSoundZiper'  ]
-        kartSoundName.val    = scene.properties['kartSoundName'   ]
-        kartSoundAttach.val  = scene.properties['kartSoundAttach' ]
-    except:
-        scene.properties['name'            ] = ""
-        scene.properties['group'           ] = "standard"
-        scene.properties['icon'            ] = ""
-        scene.properties['shadow'          ] = ""
-        scene.properties['kartPath'        ] = ""
-        scene.properties['kartSoundHorn'   ] = ""
-        scene.properties['kartSoundCrash'  ] = ""
-        scene.properties['kartSoundShoot'  ] = ""
-        scene.properties['kartSoundWin'    ] = ""
-        scene.properties['kartSoundExplode'] = ""
-        scene.properties['kartSoundGoo'    ] = ""
-        scene.properties['kartSoundPass'   ] = ""
-        scene.properties['kartSoundZiper'  ] = ""
-        scene.properties['kartSoundName'   ] = ""
-        scene.properties['kartSoundAttach' ] = ""
+    kartName.val         = getIdProperty(scene, 'name'            , "")
+    kartColor.val        = getIdProperty(scene, 'color'           , "0.7 0 0")
+    kartGroup.val        = getIdProperty(scene, 'group'           , "standard")
+    kartIcon.val         = getIdProperty(scene, 'icon'            , "")
+    kartShadow.val       = getIdProperty(scene, 'shadow'          , "")
+    pathExportTxt.val    = getIdProperty(scene, 'kartPath'        , "")
+    kartSoundHorn.val    = getIdProperty(scene, 'kartSoundHorn'   , "")
+    kartSoundCrash.val   = getIdProperty(scene, 'kartSoundCrash'  , "")
+    kartSoundShoot.val   = getIdProperty(scene, 'kartSoundShoot'  , "")
+    kartSoundWin.val     = getIdProperty(scene, 'kartSoundWin'    , "")
+    kartSoundExplode.val = getIdProperty(scene, 'kartSoundExplode', "")
+    kartSoundGoo.val     = getIdProperty(scene, 'kartSoundGoo'    , "")
+    kartSoundPass.val    = getIdProperty(scene, 'kartSoundPass'   , "")
+    kartSoundZiper.val   = getIdProperty(scene, 'kartSoundZiper'  , "")
+    kartSoundName.val    = getIdProperty(scene, 'kartSoundName'   , "")
+    kartSoundAttach.val  = getIdProperty(scene, 'kartSoundAttach' , "")
+
     Draw.Register(gui, event, butt_evt)
 
 # ==============================================================================
