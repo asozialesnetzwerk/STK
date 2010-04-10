@@ -1,6 +1,7 @@
+<!-- Generated with script from SVN rev 5037 -->
 <?xml version="1.0"?>
 <track  name        = "Star Track"
-        version     = "1"
+        version     = "2"
         groups      = "standard"
         designer    = "Ingo Ruhnke, modified by A. Billing"
         music       = "Ethereal_spectrum.music"
