@@ -1,56 +1,12 @@
 <?xml version="1.0"?>
+<!-- Generated with script from SVN rev 5037 -->
 <scene>
-  <track model="beach.b3d" x="0" y="0" z="0">
-    <animated-texture name="waterfall.png"   dy="-0.5" />
-    <animated-texture name="water_light.jpg" dy="-0.05"/>
+  <track model="beach.track_track.b3d" x="0" y="0" z="0">
+    <animated-texture name="water_light.jpg" dy="-0.05" />
+    <animated-texture name="waterfall.png" dy="-0.5" />
   </track>
-  <camera final-position  ="-5 12 3"
-         final-hpr       ="-150 -10 0"/>
-  <sun xyz="0 100 100"/>
+
   <sky-dome texture="lighthouse_sky.png"
-          horizontal="16" vertical="16"
-          speed-x="1" speed-y="1"
-          texture-percent="0.5" sphere-percent="1.3"/>
-  <banana x="33.95208" y="-26.43557"/>
-  <banana x="36.353733" y="-28.788071"/>
-  <banana x="38.890526" y="-31.055712"/>
-  <banana x="33.062881" y="-29.678539"/>
-  <banana x="35.693455" y="-31.998974"/>
-  <physical-object model="roadcone.b3d" shape="cone" x="0" y="10"/>
-  <small-nitro x="141.452301" y="-147.236526"/>
-  <small-nitro x="138.027374" y="-146.076462"/>
-  <small-nitro x="135.044373" y="-145.137375"/>
-  <small-nitro x="73.048233" y="115.19902"/>
-  <small-nitro x="72.93367" y="118.062706"/>
-  <small-nitro x="72.895775" y="120.736458"/>
-  <big-nitro x="101.574867" y="35.232807"/>
-  <small-nitro x="87.413612" y="-208.907532"/>
-  <small-nitro x="72.58783" y="-205.031555"/>
-  <small-nitro x="53.43425" y="-199.557495"/>
-  <small-nitro x="59.491722" y="-183.255829"/>
-  <small-nitro x="77.611778" y="-188.269485"/>
-  <small-nitro x="93.005547" y="-193.058533"/>
-  <item x="61.011955" y="-74.05072"/>
-  <item x="61.623039" y="-72.141083"/>
-  <item x="62.004967" y="-70.002289"/>
-  <item x="62.46328" y="-67.939865"/>
-  <item x="99.905396" y="-200.629471"/>
-  <item x="99.447083" y="-202.691895"/>
-  <item x="99.065155" y="-204.830688"/>
-  <item x="98.454071" y="-206.740326"/>
-  <item x="100.669258" y="-206.969482"/>
-  <item x="101.280342" y="-205.059845"/>
-  <item x="101.66227" y="-202.921051"/>
-  <item x="102.120583" y="-200.858627"/>
-  <item x="132.868637" y="-0.681217"/>
-  <item x="52.191956" y="81.662224"/>
-  <item x="53.06303" y="84.297081"/>
-  <item x="55.271503" y="82.678505"/>
-  <item x="56.273766" y="85.387238"/>
-  <item x="58.406429" y="83.763924"/>
-  <item x="7.727362" y="52.271473"/>
-  <item x="6.185844" y="54.519192"/>
-  <item x="4.410963" y="52.240696"/>
-  <item x="2.795755" y="54.45163"/>
-  <item x="1.168262" y="52.20385"/>
-</scene>  
+            horizontal="16" vertical="16" 
+            texture-percent="0.5" sphere-percent="1.3"/>
+</scene>
