@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<materials>
+
+    <material name="flower1.png" alpha="Y" ignore="Y" collide="N"/>
+    <material name="flower2.png" alpha="Y" ignore="Y" collide="N"/>
+    <material name="flower3.png" alpha="Y" ignore="Y" collide="N"/>
+    <material name="flower5.png" alpha="Y" ignore="Y" collide="N"/>
+    <material name="flower6.png" alpha="Y" ignore="Y" collide="N"/>
+    <material name="flower7.png" alpha="Y" ignore="Y" collide="N"/>
+    <material name="leave2.png" alpha="Y" ignore="Y" collide="N"/>
+    <material name="leave3.png" alpha="Y" ignore="Y" collide="N"/>
+    <material name="leave4.png" alpha="Y" ignore="Y" collide="N"/>
+    <material name="TiZeta_stalkM.png" alpha="Y" ignore="Y" collide="N"/>
+    <material name="Trifolium_repens_07_ies.png" alpha="Y" ignore="Y" collide="N"/>
+    <material name="Cucurbita_pepo_04.png" alpha="Y" ignore="Y" collide="N"/>
+    <material name="invisible.png" transparency="Y" />
+
+    <material name="Greenhouse-Palm-jubaea01.png" alpha="Y" />
+    <material name="Toptree-palm03.png" alpha="Y" />
+    <material name="Bleech.png" alpha="Y" />
+    <material name="Sophora.png" alpha="Y" />
+    <material name="Palm-arecaceae.png" alpha="Y" />
+    <material name="Rose.png" alpha="Y" />
+
+    <material name="leave1.png" ignore="Y"/>
+
+
+    <material name="water_light2.png" alpha="Y" reset="Y"/>
+    <material name="water_light3.png" alpha="Y" reset="Y"/>
+
+</materials>
