@@ -28,4 +28,6 @@
     <material name="water_light2.png" alpha="Y" reset="Y"/>
     <material name="water_light3.png" alpha="Y" reset="Y"/>
 
+    <material name="Sky_horiz_17.png" ignore="Y" collide="N" light="N"/>
+
 </materials>
