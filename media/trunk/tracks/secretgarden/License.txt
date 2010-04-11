@@ -1,55 +1,62 @@
 Reused with different colors from supertuxkart/data/textures:
 
--water_light2.rgb    (water_light.rgb is the original)
--water_light3.rgb    
--bow.rgb             (from stk0.5)
--rock_grey.rgb       (rock.rgb is the original)
--rock_lightgrey.rgb
--rock_white.rgb
+-water_light2    (water_light is the original)
+-water_light3    
+-bow             (from stk0.5)
+-rock_grey       (rock is the original)
+-rock_lightgrey
+-rock_white
 
 
 Selfmade parts and under GPL and CC-BY-SA)
 
 -secretgarden.ac
 -secretgarden.blend
--flower4.rgb
--invisible.rgb
--Cactus1.rgb
--leave1.rgb
--leave4.rgb
--pot.rgb
--pumkin.rgb
+-flower4
+-invisible
+-Cactus1
+-leave1
+-leave4
+-pot
+-pumkin
 
 
-from wikipedia under CC:
+from wikipedia :
 
--flower1.rgb
--flower2.rgb
--flower3.rgb
--flower5.rgb
--flower6.rgb
--Cucurbita_pepo_04.rgb
+-flower1    (http://commons.wikimedia.org/wiki/File:Flower_jtca001.jpg,
+             CC-BY-SA 2.5, by Sam Oth)
+-flower2    (http://commons.wikimedia.org/wiki/File:Cosmos_bipinnatus_06_ies.jpg,
+             CC-BY-SA 3.0, by Frank Vincentz)
+-flower3    (http://commons.wikimedia.org/wiki/File:Aster_Tataricus.JPG,
+             CC-BY-SA 3.0 unported, by Pascalou petit)
+-flower5    (http://commons.wikimedia.org/wiki/File:Avutil%C3%B3n_GDFL16.JPG,
+             CC-BY-SA 3.0, by Luis Miguel Bugallo Sánchez)
+-flower6    (http://commons.wikimedia.org/wiki/File:Zephyranthes_candida2.jpg,
+             CC-BY-SA 3.0, by KENPEI's photo)
+-flower7    (http://commons.wikimedia.org/wiki/File:Flor_GDFL_03.JPG,
+             CC-BY-SA 3.0, by Luis Miguel Bugallo Sánchez)
+-Cucurbita_pepo_04
 
 
 from http://www.marcchehab.org under CC 2.0
 
--TiZeta_barkM.rgb
--Tizeta_grey1.rgb
--TiZeta_ivy.rgb
--TiZeta_stalkM.rgb
--leave2.rgb
--leave3.rgb
+-TiZeta_barkM
+-Tizeta_grey1
+-TiZeta_ivy
+-TiZeta_stalkM
+-leave2
+-leave3
 
 
 from http://blender-archi.tuxfamily.org/Textures 
 
--Rose.rgb                      CC-BY
--Greenhouse-Palm-jubaea01.rgb  CC-BY
--Mossy_wall.rgb                CC-BY
--Palm-arecaceae.rgb            CC-BY 
--Sky_horiz_17.rgb              CC-BY-NC-SA
--Sophora.rgb                   GPL
--Toptree-palm03.rgb            CC-BY
+-Rose                      CC-BY
+-Greenhouse-Palm-jubaea01  CC-BY
+-Mossy_wall                CC-BY
+-Palm-arecaceae            CC-BY 
+-Sky_horiz_17              CC-BY-NC-SA
+-Sophora                   GPL
+-Toptree-palm03            CC-BY
 
 
 from DJHelium:
