@@ -9,7 +9,6 @@
     <material name="flower7.png" transparency="Y" ignore="Y" collide="N"/>
     <material name="leave2.png" transparency="Y" ignore="Y" collide="N"/>
     <material name="leave3.png" transparency="Y" ignore="Y" collide="N"/>
-    <material name="leave4.png" alpha="Y" ignore="Y" collide="N"/>
     <material name="TiZeta_stalkM.png" alpha="Y" ignore="Y" collide="N"/>
     <material name="Trifolium_repens_07_ies.png" transparency="Y" ignore="Y" collide="N"/>
     <material name="Cucurbita_pepo_04.png" transparency="Y" ignore="Y" collide="N"/>
@@ -23,6 +22,7 @@
     <material name="Rose.png" alpha="Y" />
 
     <material name="leave1.png"/>
+    <material name="leave4.png" ignore="Y" collide="N"/>
 
 
     <material name="water_light2.png" alpha="Y" ignore="Y" collide="N" />
