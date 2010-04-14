@@ -3,7 +3,7 @@
   <material name="clouds.png"  light="N" reset="Y" collide="N"/>
   <material name="sand.png"  collide="N" maxSpeed="0.4" slowdownTime="4"/>
   <material name="sandgrass.png"  collide="N" maxSpeed="0.4" slowdownTime="4" anisotropic="Y"/>
-  <material name="grass.png"  collide="N" maxSpeed="0.6" slowdownTime="4" anisotropic="Y"/>
+  <material name="grass.jpg"  collide="N" maxSpeed="0.6" slowdownTime="4" anisotropic="Y"/>
   <material name="chrome.png"  light="N" sphere="Y" collide="N"/>
   <material name="chrome2.png"  light="N" sphere="Y" collide="N"/>
   <material name="gold.png"  light="Y" sphere="Y" collide="N"/>
@@ -48,8 +48,8 @@
   <material name="speedback.png" clampU="Y" clampV="Y" transparency="Y"  light="N" ignore="Y" collide="N"/>
   <material name="speedfore.png" clampU="Y" clampV="Y" transparency="Y"  light="N" ignore="Y" collide="N"/>
   <material name="water_light.png" light="N" reset="Y" collide="N"/>
-  <material name="sea.png"  light="N" reset="Y"/>
-  <material name="rock.png"  collide="N"/>
+  <material name="sea.jpg"  light="N" reset="Y"/>
+  <material name="rock.jpg"  collide="N"/>
   <material name="coniferous_tree.png" transparency="Y" light="N" collide="N"/>
   <material name="signs.png" transparency="Y" alpha="0.5" light="N" collide="N"/>
   <material name="greenice.png"  reset="Y" collide="N"/>
