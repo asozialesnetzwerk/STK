@@ -33,8 +33,11 @@ from Blender import sys as bsys
 if not hasattr(sys,"argv"): sys.argv =m ["???"]
 
 def getScriptVersion():
-    m = re.search('(\d+)', __version__)
-    return str(m.group(0))
+    try:
+        m = re.search('(\d+)', __version__)
+        return str(m.group(0))
+    except:
+        return "Unknown"    
 
 # ------------------------------------------------------------------------------
 def Round(f):
