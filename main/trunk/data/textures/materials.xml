@@ -6,7 +6,6 @@
   <material name="grass.jpg"  collide="N" maxSpeed="0.6" slowdownTime="4" anisotropic="Y"/>
   <material name="chrome.png"  light="N" sphere="Y" collide="N"/>
   <material name="chrome2.png"  light="N" sphere="Y" collide="N"/>
-  <material name="gold.png"  light="Y" sphere="Y" collide="N"/>
   <material name="railing.png" clampV="Y" transparency="Y" alpha="0.5" collide="N"/>
   <material name="wood.jpg" collide="N" anisotropic="Y"/>
   <material name="concrete.png" />
@@ -30,8 +29,6 @@
   <material name="tinytux.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.8" light="N" ignore="Y" collide="N"/>
   <material name="butterfly.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.8" light="N" ignore="Y" collide="N"/>
   <material name="zipper_collect.png"  light="N" zipper="Y" collide="N"/>
-  <material name="zipper.png"  light="N" zipper="Y" collide="N"/>
-  <material name="banana.png" alpha="0.5" collide="N"/>
   <material name="bananawrap.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.5" light="N" zipper="Y" collide="N"/>
   <material name="fuzzy.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.2" light="N" ignore="Y" collide="N"/>
   <material name="generickartshadow.png" clampU="Y" clampV="Y" transparency="Y"  light="N" ignore="Y" collide="N"/>
@@ -43,7 +40,6 @@
   <material name="magnet.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y" collide="N"/>
   <material name="bzzt.png" transparency="Y" light="N" ignore="Y" collide="N"/>
   <material name="anchor-icon.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y" collide="N"/>
-  <material name="parachute.png" backface-culling="n" ignore="Y" collide="N"/>
   <material name="parachute-icon.png" clampU="Y" clampV="Y" transparency="N"  light="Y" ignore="Y" collide="N"/>
   <material name="speedback.png" clampU="Y" clampV="Y" transparency="Y"  light="N" ignore="Y" collide="N"/>
   <material name="speedfore.png" clampU="Y" clampV="Y" transparency="Y"  light="N" ignore="Y" collide="N"/>
@@ -67,17 +63,10 @@
   <material name="dirt.png"  collide="N"/>
   <material name="city_asphalt_1.png"  collide="N" anisotropic="Y"/>
   <material name="city_checker.png"  collide="N"/>
-  <material name="nitro-tank.png" clampV="Y" transparency="Y" alpha="0.5" collide="N"/>
-  <material name="tank-blue.png"  sphere="Y" collide="N"/>
-  <material name="tank-green.png"  sphere="Y" collide="N"/>
-  <material name="tank-cyan.png"  sphere="Y" collide="N"/>
-  <material name="gift-box.png"  sphere="N" collide="N"/>
-  <material name="gift-loop.png"  sphere="Y" collide="N"/>
   <material name="bowling-icon.png" transparency="Y"  light="N" collide="N"/>
   <material name="bubblegum-icon.png" transparency="Y"  light="N" collide="N"/>
   <material name="cake-icon.png" transparency="Y"  light="N" collide="N"/>
   <material name="plunger-icon.png" transparency="Y"  light="N" collide="N"/>
-  <material name="plungerface.png" transparency="Y"  light="N" collide="N"/>
   <material name="menu_background.png" clampU="Y" clampV="Y" alpha="1.0" light="N"/>
   <material name="menu_background2.png" clampU="Y" clampV="Y" alpha="1.0" light="N"/>
   <material name="water-splash.png" alpha="Y" light="N" ignore="Y" collide="N"/>
