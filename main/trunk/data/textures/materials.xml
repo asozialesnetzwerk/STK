@@ -28,7 +28,6 @@
   <material name="chess.png"  collide="N"/>
   <material name="tinytux.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.8" light="N" ignore="Y" collide="N"/>
   <material name="butterfly.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.8" light="N" ignore="Y" collide="N"/>
-  <material name="zipper_collect.png"  light="N" zipper="Y" collide="N"/>
   <material name="bananawrap.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.5" light="N" zipper="Y" collide="N"/>
   <material name="fuzzy.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.2" light="N" ignore="Y" collide="N"/>
   <material name="generickartshadow.png" clampU="Y" clampV="Y" transparency="Y"  light="N" ignore="Y" collide="N"/>
@@ -39,8 +38,6 @@
   <material name="nitro-particle.png" alpha="Y" light="N" ignore="Y" collide="N"/>
   <material name="magnet.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y" collide="N"/>
   <material name="bzzt.png" transparency="Y" light="N" ignore="Y" collide="N"/>
-  <material name="anchor-icon.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y" collide="N"/>
-  <material name="parachute-icon.png" clampU="Y" clampV="Y" transparency="N"  light="Y" ignore="Y" collide="N"/>
   <material name="speedback.png" clampU="Y" clampV="Y" transparency="Y"  light="N" ignore="Y" collide="N"/>
   <material name="speedfore.png" clampU="Y" clampV="Y" transparency="Y"  light="N" ignore="Y" collide="N"/>
   <material name="water_light.png" light="N" reset="Y" collide="N"/>
@@ -63,10 +60,6 @@
   <material name="dirt.png"  collide="N"/>
   <material name="city_asphalt_1.png"  collide="N" anisotropic="Y"/>
   <material name="city_checker.png"  collide="N"/>
-  <material name="bowling-icon.png" transparency="Y"  light="N" collide="N"/>
-  <material name="bubblegum-icon.png" transparency="Y"  light="N" collide="N"/>
-  <material name="cake-icon.png" transparency="Y"  light="N" collide="N"/>
-  <material name="plunger-icon.png" transparency="Y"  light="N" collide="N"/>
   <material name="menu_background.png" clampU="Y" clampV="Y" alpha="1.0" light="N"/>
   <material name="menu_background2.png" clampU="Y" clampV="Y" alpha="1.0" light="N"/>
   <material name="water-splash.png" alpha="Y" light="N" ignore="Y" collide="N"/>
