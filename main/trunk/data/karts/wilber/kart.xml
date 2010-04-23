@@ -3,6 +3,7 @@
       version     = "2"
       model-file  = "kart.b3d"
       icon-file   = "wilbericon.png"
+      minimap-icon-file   = "wilbericon.png"
       shadow-file = "wilbershadow.png"
       groups      = "standard"
       rgb         = "0.811764 0.439215 0.058823">
