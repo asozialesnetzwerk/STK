@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <materials>
-  <material name="chess.jpg" collide="N"/>
   <material name="canyon_sky_1.png" alpha="N" light="N" />
   <material name="canyon_sky_2.png" alpha="N" light="N" />
   <material name="canyon_sky_3.png" alpha="N" light="N" />
