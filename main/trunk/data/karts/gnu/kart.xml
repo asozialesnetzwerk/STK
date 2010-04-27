@@ -2,6 +2,7 @@
 <kart name = "Gnu"
       model-file    ="gnu.b3d"
       icon-file     ="gnuicon.png"
+      minimap-icon-file   = "gnuicon.png"
       shadow-file   ="gnushadow.png"
       version       = "2"
       groups        ="special"

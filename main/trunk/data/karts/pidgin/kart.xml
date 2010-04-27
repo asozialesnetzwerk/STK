@@ -3,6 +3,7 @@
       version     = "2"
       model-file  = "pidgin.b3d"
       icon-file   = "pidginicon.png"
+      minimap-icon-file   = "pidginicon.png"
       shadow-file = "pidginshadow.png"
       groups      = "standard"
       rgb         = "0.364705 0.219607 0.396078">

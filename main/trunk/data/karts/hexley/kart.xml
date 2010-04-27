@@ -3,6 +3,8 @@
       version     =    "2"
       model-file  ="hexley.b3d"
       icon-file   ="hexleyicon.png"
+      minimap-icon-file   = "hexleyicon.png"
+
       shadow-file ="hexley2shadow.png"
       rgb         = "0.780392 0.231372 0.231372">
   <wheels>

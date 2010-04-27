@@ -3,6 +3,7 @@
               version       = "2"
               model-file    = "kart.b3d"
               icon-file     = "elephpanticon.png"
+              minimap-icon-file   = "elephpanticon.png"
               shadow-file   = "elephpantshadow.png"
               groups        = "standard"
               rgb           = "0.462745 0.713725 0.023529">
