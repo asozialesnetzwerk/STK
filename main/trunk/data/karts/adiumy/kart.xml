@@ -4,6 +4,7 @@
   name        ="Adiumy"
   model-file  = "adiumy.b3d"
   icon-file   = "adiumyicon.png"
+   minimap-icon-file   = "adiumyicon.png"
   shadow-file = "adiumyshadow.png"
   groups      = "standard"
   rgb         = "0.462745 0.713725 0.023529">
