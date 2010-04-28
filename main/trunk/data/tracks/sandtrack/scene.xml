@@ -30,6 +30,6 @@
   <checks>
     <check-line kind="lap" p1="17.333778 8.683620" p2="-15.133682 8.853209" min-height="-2.533798"/>
     <check-line kind="activate" other-id="0" p1="-88.309296 -29.102606" p2="-118.331764 -38.765526"
-                min-height="21.926376"/>
+                min-height="7.687703"/>
   </checks>
 </scene>
