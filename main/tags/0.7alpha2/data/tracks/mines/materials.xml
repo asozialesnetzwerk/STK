@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<materials>
+  <material name="clip.png" transparency="y"/> <material name="mine_water_alpha.png" alpha="y"/>
+ <material name="mine_water_reset.png" alpha="y" reset="y"/> <material name="fence_chain.png" transparency="y"/>
+ <material name="candle.png" alpha="y"/>
+ 

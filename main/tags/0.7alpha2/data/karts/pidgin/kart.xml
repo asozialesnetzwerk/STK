@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<kart name        = "Pidgin"
+      version     = "2"
+      model-file  = "pidgin.b3d"
+      icon-file   = "pidginicon.png"
+      minimap-icon-file   = "pidginicon.png"
+      shadow-file = "pidginshadow.png"
+      groups      = "standard"
+      rgb         = "0.364705 0.219607 0.396078">
+  <wheels>
+    <front-right position = "0.257000 0.124375 0.303252"
+                 model    = "wheel-front-right.b3d"        />
+    <front-left  position = "-0.256601 0.124375 0.303252"
+                 model    = "wheel-front-left.b3d"         />
+    <rear-right  position = "0.237290 0.170517 -0.437579"
+                 model    = "wheel-rear-right.b3d"         />
+    <rear-left  position  = "-0.237000 0.170517 -0.4375797"
+                model     = "wheel-rear-left.b3d"          />
+  </wheels
+</kart>

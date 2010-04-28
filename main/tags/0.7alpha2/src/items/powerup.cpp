@@ -1,0 +1,399 @@
+//  $Id$
+//
+//  SuperTuxKart - a fun racing game with go-kart
+//  Copyright (C) 2006 Joerg Henrichs
+//
+//  This program is free software; you can redistribute it and/or
+//  modify it under the terms of the GNU General Public License
+//  as published by the Free Software Foundation; either version 3
+//  of the License, or (at your option) any later version.
+//
+//  This program is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with this program; if not, write to the Free Software
+//  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+#include "items/powerup.hpp"
+
+#include "audio/sfx_base.hpp"
+#include "audio/sfx_manager.hpp"
+#include "config/user_config.hpp"
+#include "config/stk_config.hpp"
+#include "items/item_manager.hpp"
+#include "items/projectile_manager.hpp"
+#include "karts/kart.hpp"
+#include "modes/world.hpp"
+#include "network/network_manager.hpp"
+#include "network/race_state.hpp"
+#include "tracks/track.hpp"
+#include "utils/string_utils.hpp"
+
+
+//-----------------------------------------------------------------------------
+/** Constructor, stores the kart to which this powerup belongs. 
+ *  \param kart The kart to which this powerup belongs. 
+ */
+Powerup::Powerup(Kart* kart)
+{
+    m_owner               = kart;
+    m_sound_use           = NULL;
+    reset();
+}   // Powerup
+
+//-----------------------------------------------------------------------------
+/** Frees the memory for the sound effects.
+ */
+Powerup::~Powerup()
+{
+    if(m_sound_use) sfx_manager->deleteSFX(m_sound_use);
+}   // ~Powerup
+
+//-----------------------------------------------------------------------------
+/** Resets the powerup, called at begin of a race.
+ */
+void Powerup::reset()
+{
+    m_type = PowerupManager::POWERUP_NOTHING;
+    m_number = 0;
+    
+    int type, number;
+    World::getWorld()->getDefaultCollectibles( type, number );
+    set( (PowerupManager::PowerupType)type, number );
+}   // reset
+
+//-----------------------------------------------------------------------------
+/** Sets the collected items. The number of items is increased if the same
+ *  item is currently collected, otherwise replaces the existing item. It also
+ *  sets item specific sounds.
+ *  \param type Thew new type.
+ *  \param n Number of items of the given type.
+ */
+void Powerup::set(PowerupManager::PowerupType type, int n)
+{
+    if (m_type==type)
+    {
+        m_number+=n;
+        return;
+    }
+    m_type=type;
+    m_number=n;
+    
+    if(m_sound_use != NULL)
+    {
+        sfx_manager->deleteSFX(m_sound_use);
+        m_sound_use = NULL;
+    }
+    
+    switch (m_type)
+    {
+        case PowerupManager::POWERUP_ZIPPER:
+            break ;
+            
+        case PowerupManager::POWERUP_BOWLING:
+            m_sound_use          = sfx_manager->createSoundSource("bowling_roll");
+            break ;
+            
+        case PowerupManager::POWERUP_ANVIL:
+            m_sound_use          = sfx_manager->createSoundSource("use_anvil");
+            break;
+            
+        case PowerupManager::POWERUP_PARACHUTE:
+            m_sound_use          = sfx_manager->createSoundSource("use_parachute");
+            break;
+            
+        case PowerupManager::POWERUP_BUBBLEGUM:
+            m_sound_use          = sfx_manager->createSoundSource("goo");
+            break ;
+            
+        case PowerupManager::POWERUP_SWITCH:
+            m_sound_use          = sfx_manager->createSoundSource("swap");
+            break;
+            
+        case PowerupManager::POWERUP_NOTHING:
+        case PowerupManager::POWERUP_CAKE:
+        case PowerupManager::POWERUP_PLUNGER:
+        default :
+            m_sound_use          = sfx_manager->createSoundSource("shot");
+            break ;
+    }
+    
+}  // set
+
+//-----------------------------------------------------------------------------
+/** Returns the icon for the currently collected powerup. Used in the
+ *  race_gui to display the collected item.
+ */
+Material *Powerup::getIcon() const
+{
+    // Check if it's one of the types which have a separate
+    // data file which includes the icon:
+    return powerup_manager->getIcon(m_type);
+}
+
+//-----------------------------------------------------------------------------
+/** Use (fire) this powerup.
+ */
+void Powerup::use()
+{
+    // Play custom kart sound when collectible is used
+    if (m_type != PowerupManager::POWERUP_NOTHING && 
+        m_type != PowerupManager::POWERUP_ZIPPER) 
+        m_owner->playCustomSFX(SFXManager::CUSTOM_SHOOT);
+
+    // FIXME - for some collectibles, set() is never called
+    if(m_sound_use == NULL)
+    {
+        //if (m_type == POWERUP_SWITCH) m_sound_use = sfx_manager->newSFX(SFXManager::SOUND_SWAP);
+        //else                          
+        m_sound_use = sfx_manager->createSoundSource("shot");
+    }
+    
+    m_number--;
+    World *world = World::getWorld();
+    RaceGUI* gui = world->getRaceGUI();
+    switch (m_type)
+    {
+    case PowerupManager::POWERUP_ZIPPER:   m_owner->handleZipper();
+        break ;
+    case PowerupManager::POWERUP_SWITCH:
+        item_manager->switchItems();
+        m_sound_use->position(m_owner->getXYZ());
+        m_sound_use->play();
+        // Apocalypse Now style
+        gui->addMessage(_("Magic, son. Nothing else in the world smells like that."), NULL, 3.0f, 40,
+                        video::SColor(255, 255, 255, 255), false);
+        break;
+    case PowerupManager::POWERUP_CAKE:
+    case PowerupManager::POWERUP_BOWLING:
+    case PowerupManager::POWERUP_PLUNGER:
+        
+        m_sound_use->position(m_owner->getXYZ());
+        m_sound_use->play();
+        projectile_manager->newProjectile(m_owner, m_type);
+        break ;
+        
+    case PowerupManager::POWERUP_BUBBLEGUM:
+        {
+        m_sound_use->position(m_owner->getXYZ());
+        m_sound_use->play();
+        btVector3 pos = m_owner->getXYZ();
+        float up_coord = Track::NOHIT;
+        Vec3 normal;
+        const Material* unused2;        
+        world->getTrack()->getTerrainInfo(pos, &up_coord, &normal, &unused2);
+        normal.normalize();
+        assert(up_coord != Track::NOHIT);
+        
+        pos.setY(up_coord-0.05f);
+        
+        item_manager->newItem(Item::ITEM_BUBBLEGUM, pos, normal, m_owner);
+        }
+        break;
+        
+    case PowerupManager::POWERUP_ANVIL:
+        
+        //Attach an anvil(twice as good as the one given
+        //by the bananas) to the kart in the 1st position.
+        for(unsigned int i = 0 ; i < world->getNumKarts(); ++i)
+        {
+            Kart *kart=world->getKart(i);
+            if(kart->isEliminated()) continue;
+            if(kart == m_owner) continue;
+            if(kart->getPosition() == 1)
+            {
+                kart->attach(ATTACH_ANVIL, stk_config->m_anvil_time);
+                kart->updatedWeight();
+                kart->adjustSpeed(stk_config->m_anvil_speed_factor*0.5f);
+                
+                // should we position the sound at the kart that is hit,
+                // or the kart "throwing" the anvil? Ideally it should be both.
+                // Meanwhile, don't play it near AI karts since they obviously
+                // don't hear anything
+                if(kart->getController()->isPlayerController())
+                    m_sound_use->position(kart->getXYZ());
+                else
+                    m_sound_use->position(m_owner->getXYZ());
+                
+                m_sound_use->play();
+
+                irr::core::stringw anchor_message;
+                anchor_message += StringUtils::insertValues(_("Arrr, the %s dropped anchor, Captain!"), kart->getName().c_str()).c_str();
+                gui->addMessage(anchor_message, NULL, 3.0f, 40, video::SColor(255, 255, 255, 255), false);
+                break;
+            }
+        }
+
+        break;
+
+    case PowerupManager::POWERUP_PARACHUTE:
+        {
+            Kart* player_kart = NULL;
+            //Attach a parachutte(that last twice as long as the
+            //one from the bananas) to all the karts that
+            //are in front of this one.
+            for(unsigned int i = 0 ; i < world->getNumKarts(); ++i)
+            {
+                Kart *kart=world->getKart(i);
+                if(kart->isEliminated() || kart== m_owner) continue;
+                if(m_owner->getPosition() > kart->getPosition())
+                {
+                    kart->attach(ATTACH_PARACHUTE, stk_config->m_parachute_time_other);
+
+                    if(kart->getController()->isPlayerController())
+                        player_kart = kart;
+                }
+            }
+
+            // should we position the sound at the kart that is hit,
+            // or the kart "throwing" the anvil? Ideally it should be both.
+            // Meanwhile, don't play it near AI karts since they obviously
+            // don't hear anything
+            if(m_owner->getController()->isPlayerController())
+                m_sound_use->position(m_owner->getXYZ());
+            else if(player_kart)
+                m_sound_use->position(player_kart->getXYZ());
+            m_sound_use->play();
+
+            // Parachutist shout
+            gui->addMessage(_("Geronimo!!!"), NULL, 3.0f, 40, video::SColor(255, 255, 255, 255), false);
+        }
+        break;
+
+    case PowerupManager::POWERUP_NOTHING:
+    default :              break ;
+    }
+
+    if ( m_number <= 0 )
+    {
+        m_number = 0;
+        m_type   = PowerupManager::POWERUP_NOTHING;
+    }
+}   // use
+
+//-----------------------------------------------------------------------------
+/** This function is called when a bnous box is it. This function can be
+ *  called on a server (in which case item and add_info are not used),
+ *  or on a client, in which case the item and additional info is used
+ *  to make sure server and clients are synched correctly.
+ *  \param n
+ *  \param item The item (bonux box) that was hit. This is necessary
+ *         for servers so that the clients can be informed which item
+ *         was collected.
+ *  \param add_info Additional information. This is used for network games
+ *         so that the server can overwrite which item is collectted 
+ *         (otherwise a random choice is done).
+ */
+void Powerup::hitBonusBox(int n, const Item &item, int add_info)
+{
+    World *world = World::getWorld();
+    //The probabilities of getting the anvil or the parachute increase
+    //depending on how bad the owner's position is. For the first
+    //driver the posibility is none, for the last player is 15 %.
+    if(m_owner->getPosition() != 1 && 
+       m_type == PowerupManager::POWERUP_NOTHING &&
+       world->acceptPowerup(PowerupManager::POWERUP_PARACHUTE) &&
+       world->acceptPowerup(PowerupManager::POWERUP_ANVIL))
+    {
+        // On client: just set the value
+        if(network_manager->getMode()==NetworkManager::NW_CLIENT)
+        {
+            m_random.get(100);    // keep random numbers in sync
+            set( (PowerupManager::PowerupType)add_info, 1);
+            return;
+        }
+        const int SPECIAL_PROB = (int)(15.0 / ((float)world->getCurrentNumKarts() /
+                                         (float)m_owner->getPosition()));
+        const int RAND_NUM = m_random.get(100);
+        if(RAND_NUM <= SPECIAL_PROB)
+        {
+            //If the driver in the first position has finished, give the driver
+            //the parachute.
+            for(unsigned int i=0; i < world->getNumKarts(); ++i)
+            {
+                Kart *kart = world->getKart(i);
+                if(kart->isEliminated() || kart == m_owner) continue;
+                if(kart->getPosition() == 1 && kart->hasFinishedRace())
+                {
+                    set(PowerupManager::POWERUP_PARACHUTE, 1);
+                    if(network_manager->getMode()==NetworkManager::NW_SERVER)
+                    {
+                        race_state->itemCollected(m_owner->getWorldKartId(), 
+                                                  item.getItemId(), 
+                                                  m_type);
+                    }
+                    return;
+                }
+            }
+
+            set( (m_random.get(2) == 0 ? PowerupManager::POWERUP_ANVIL 
+                                       : PowerupManager::POWERUP_PARACHUTE),1);
+
+            if(network_manager->getMode()==NetworkManager::NW_SERVER)
+            {
+                race_state->itemCollected(m_owner->getWorldKartId(), 
+                                          item.getItemId(), 
+                                          (char)m_type);
+            }
+            return;
+        }
+    }
+
+
+    // If no special case is done: on the client just adjust the number
+    // dependent on the server informaion:
+    if(network_manager->getMode()==NetworkManager::NW_CLIENT)
+    {
+        if(m_type==PowerupManager::POWERUP_NOTHING)
+        {
+            set( (PowerupManager::PowerupType)add_info, n  );
+        }
+        else if((PowerupManager::PowerupType)add_info==m_type)
+        {
+            m_number+=n;
+            if(m_number > MAX_POWERUPS) m_number = MAX_POWERUPS;
+        }
+        // Ignore new powerup if it is different from the current one
+        m_random.get(100);    // keep random numbers in synch
+
+        return;
+    }   // if network client
+
+    // Otherwise (server or no network): determine powerup randomly
+
+    //(POWERUP_MAX - 1) is the last valid id. We substract 2 because because we have to
+    //exclude the anvil and the parachute which are handled above, but later we
+    //have to add 1 to prevent having a value of 0 since that isn't a valid powerup.
+    PowerupManager::PowerupType newC;
+    while(true)
+    {
+        newC = (PowerupManager::PowerupType)
+                  (m_random.get(PowerupManager::POWERUP_MAX - 1 - 2) + 1);
+        // allow the game mode to allow or disallow this type of powerup
+        if(world->acceptPowerup(newC)) break;
+    }
+    
+    // Save the information about the powerup in the race state
+    // so that the clients can be updated.
+    if(network_manager->getMode()==NetworkManager::NW_SERVER)
+    {
+        race_state->itemCollected(m_owner->getWorldKartId(), 
+                                  item.getItemId(), 
+                                  newC);
+    }
+
+    if(m_type==PowerupManager::POWERUP_NOTHING)
+    {
+        set( newC, n );
+    }
+    else if(newC==m_type)
+    {
+        m_number+=n;
+        if(m_number > MAX_POWERUPS) 
+            m_number = MAX_POWERUPS;
+    }
+    // Ignore new powerup if it is different from the current one
+}   // hitBonusBox

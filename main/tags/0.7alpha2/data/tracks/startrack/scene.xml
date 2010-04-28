@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 5037 -->
+<scene>
+  <track model="startrack.track_track.b3d" x="0" y="0" z="0"/>
+  <object type="animation" model="earth.b3d" xyz="-209.179321 56.037697 -81.508003" hpr="0.000000 0.000000 0.000000" >
+  </object>
+  <object type="animation" model="jupiter.b3d" xyz="-309.000641 51.166660 299.268799" hpr="0.000000 0.000000 0.000000" >
+  </object>
+  <object type="animation" model="mars.b3d" xyz="-263.803162 52.853378 76.073677" hpr="0.000000 0.000000 0.000000" >
+  </object>
+  <object type="animation" model="mercury.b3d" xyz="72.960579 24.066813 -217.588989" hpr="0.000000 0.000000 0.000000" >
+  </object>
+  <object type="animation" model="moon.b3d" xyz="-167.875702 64.410324 -74.554886" hpr="0.000000 0.000000 0.000000" >
+  </object>
+  <object type="animation" model="neptune.b3d" xyz="147.635162 52.488739 355.462952" hpr="0.000000 0.000000 0.000000" >
+  </object>
+  <object type="animation" model="pluto.b3d" xyz="178.753586 53.103935 243.272598" hpr="0.000000 0.000000 0.000000" >
+  </object>
+  <object type="animation" model="saturn.b3d" xyz="-130.988831 51.315945 505.674744" hpr="0.000000 0.000000 0.000000" >
+  </object>
+  <object type="animation" model="saturn-rings.b3d" xyz="-134.522278 50.496094 508.859741" hpr="0.000000 0.000000 0.000000" >
+  </object>
+  <object type="animation" model="sun.b3d" xyz="321.547241 210.001358 -432.779846" hpr="0.000000 0.000000 0.000000" >
+  </object>
+  <object type="animation" model="uranus.b3d" xyz="42.709274 49.987076 481.086456" hpr="0.000000 0.000000 0.000000" >
+  </object>
+  <object type="animation" model="venus.b3d" xyz="-131.835190 24.230515 -196.770508" hpr="0.000000 0.000000 0.000000" >
+  </object>
+  <banana x="33.693405" y="20.046213" z="95.007614" />
+  <banana x="27.955046" y="20.046213" z="-101.37178" />
+  <item x="37.550316" y="20.046213" z="99.828751" />
+  <item x="30.80072" y="20.046213" z="89.704361" />
+  <item x="-41.034264" y="20.046213" z="117.18486" />
+  <item x="-51.158657" y="20.046213" z="108.506805" />
+  <item x="-40.49192" y="20.046213" z="225.840912" />
+  <item x="-34.673702" y="20.046213" z="230.689423" />
+  <item x="-28.855484" y="20.046213" z="234.568237" />
+  <big-nitro x="137.970062" y="20.951611" z="-93.850449" />
+  <big-nitro x="82.044846" y="20.951611" z="7.875586" />
+  <big-nitro x="-46.92569" y="20.951611" z="112.598076" />
+  <big-nitro x="-110.082611" y="20.951611" z="332.924438" />
+  <big-nitro x="-112.01107" y="20.951611" z="344.977295" />
+  <small-nitro x="31.155325" y="20.951611" z="-97.337784" />
+  <small-nitro x="25.110823" y="20.951611" z="-105.258171" />
+  <small-nitro x="135.096039" y="20.951611" z="-89.860237" />
+  <small-nitro x="81.569901" y="20.951611" z="12.059402" />
+  <small-nitro x="80.103432" y="20.951611" z="2.527349" />
+  <small-nitro x="-111.620171" y="20.951611" z="338.781006" />
+  <checks>
+    <check-line kind="lap" p1="-12.298817 35.090462" p2="9.300918 35.817509" min-height="-1.456422"/>
+    <check-line kind="activate" other-id="0" p1="41.465298 108.328346" p2="24.237980 81.109566"
+                min-height="3.545640"/>
+  </checks>
+  <sky-box texture="purplenebula_bk.jpg purplenebula_ft.jpg purplenebula_bk.jpg purplenebula_ft.jpg purplenebula_bk.jpg purplenebula_bk.jpg"/>
+</scene>

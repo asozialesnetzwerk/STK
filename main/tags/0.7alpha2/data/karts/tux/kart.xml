@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<kart name         = "Tux"
+     version       = "2"
+     model-file    = "tux.b3d"
+     icon-file     = "tuxicon.png"
+     minimap-icon-file   = "tuxicon.png"
+     shadow-file   = "tuxkartshadow.png"
+     groups        = "standard"
+     rgb           = "0.690196 0.0 0.0"  >
+  <sounds engine  = "small"
+          horn    = "yeah.ogg"
+          crash   = "crash.ogg"
+          shoot   = "pass.ogg"
+          win     = "horn.ogg"
+          explode = "explode.ogg"
+          goo     = "goo.ogg"
+          pass    = "pass.ogg"
+          zipper  = "zipper.ogg"
+          name    = "horn.ogg"
+          attach  = "uh-oh.ogg"  />
+  <wheels>
+    <front-right position  = "0.295 0.103 0.412"
+                 model     = "wheel-front-right.b3d"/>
+    <front-left  position  = "-0.285 0.103 0.412"
+                 model     = "wheel-front-left.b3d" />
+    <rear-right  position  = "0.361 0.143 -0.344"
+                 model     = "wheel-rear-right.b3d" />
+    <rear-left   position  = "-0.349 0.143 -0.344"
+                 model     = "wheel-rear-left.b3d"  />
+  </wheels>
+</kart>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<kart         name          = "Elephpant"
+  version ="2"
+  name        ="Adiumy"
+  model-file  = "adiumy.b3d"
+  icon-file   = "adiumyicon.png"
+   minimap-icon-file   = "adiumyicon.png"
+  shadow-file = "adiumyshadow.png"
+  groups      = "standard"
+  rgb         = "0.462745 0.713725 0.023529">
+  <animations left     = "1"
+              straight = "6"
+              right    = "11"/>
+  <wheels>
+    <front-right position = "0.402310 0.161885 0.161740"
+                 model    = "wheel-front-right.b3d"       />
+    <front-left  position = "-0.399104 0.161885 0.161703"
+                 model    = "wheel-front-left.b3d"        />
+    <rear-right  position = "0.027891 0.076657 -0.378886"
+                 model    = "wheel-rear-right.b3d"        />
+    <rear-left   position = "-0.028688 0.076657 -0.378886"
+                 model    = "wheel-rear-left.b3d"         />
+  </wheels>
+</kart>

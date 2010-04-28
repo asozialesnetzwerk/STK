@@ -1,0 +1,64 @@
+Reused with different colors from supertuxkart/data/textures:
+
+-water_light2    (water_light is the original)
+-water_light3    
+-bow             (from stk0.5)
+-rock_grey       (rock is the original)
+-rock_lightgrey
+-rock_white
+
+
+Selfmade parts and under GPL and CC-BY-SA, by Canis Lupus :
+
+- flower4
+- invisible
+- Cactus1
+- leave1
+- leave4
+- pot
+- pumkin
+
+
+from wikipedia :
+
+-flower1    (http://commons.wikimedia.org/wiki/File:Flower_jtca001.jpg,
+             CC-BY-SA 2.5, by Sam Oth)
+-flower2    (http://commons.wikimedia.org/wiki/File:Cosmos_bipinnatus_06_ies.jpg,
+             CC-BY-SA 3.0, by Frank Vincentz)
+-flower3    (http://commons.wikimedia.org/wiki/File:Aster_Tataricus.JPG,
+             CC-BY-SA 3.0 unported, by Pascalou petit)
+-flower5    (http://commons.wikimedia.org/wiki/File:Avutil%C3%B3n_GDFL16.JPG,
+             CC-BY-SA 3.0, by Luis Miguel Bugallo Sánchez)
+-flower6    (http://commons.wikimedia.org/wiki/File:Zephyranthes_candida2.jpg,
+             CC-BY-SA 3.0, by KENPEI's photo)
+-flower7    (http://commons.wikimedia.org/wiki/File:Flor_GDFL_03.JPG,
+             CC-BY-SA 3.0, by Luis Miguel Bugallo Sánchez)
+-Cucurbita_pepo_04 (http://commons.wikimedia.org/wiki/File:Cucurbita_pepo_04.jpg,
+             CC-BY-SA 2.5, by Nino Barbieri)
+
+
+from http://www.marcchehab.org/frozenmist/index.php under CC Attribution 2.0
+some with modifications by Canis Lupus
+
+-TiZeta_barkM
+-Tizeta_grey1
+-TiZeta_ivy
+-TiZeta_stalkM
+-leave2
+-leave3
+
+
+from http://blender-archi.tuxfamily.org/Textures 
+
+-Rose                      CC-BY 2.5
+-Greenhouse-Palm-jubaea01  CC-BY 2.5
+-Mossy_wall                CC-BY 2.5
+-Palm-arecaceae            CC-BY 2.5
+-Sky_horiz_17              CC-BY-NC-SA 2.5
+-Sophora                   GPL
+-Toptree-palm03            CC-BY 2.5
+
+
+from DJHelium:
+
+-secretgarden.ogg

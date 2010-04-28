@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 5037 -->
+<scene>
+  <track model="beach.track_track.b3d" x="0" y="0" z="0">
+    <animated-texture name="water_light.jpg" dy="-0.05" />
+    <animated-texture name="waterfall.png" dy="-0.5" />
+  </track>
+  <checks>
+    <check-line kind="lap" p1="-4.034726 2.271121" p2="4.084964 2.105770" min-height="-0.623054"/>
+    <check-line kind="activate" other-id="0" p1="137.095169 -5.243936" p2="128.141190 -5.243935"
+                min-height="12.331310"/>
+  </checks>
+
+  <sky-dome texture="lighthouse_sky.png"
+            horizontal="16" vertical="16" 
+            texture-percent="0.5" sphere-percent="1.3"/>
+</scene>

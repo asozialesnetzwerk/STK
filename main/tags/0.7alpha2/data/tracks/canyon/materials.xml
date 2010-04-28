@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<materials>
+  <material name="canyon_sky_1.png" alpha="N" light="N" />
+  <material name="canyon_sky_2.png" alpha="N" light="N" />
+  <material name="canyon_sky_3.png" alpha="N" light="N" />
+  <material name="canyon_sky_4.png" alpha="N" light="N" />
+  <material name="canyon_sky_5.png" alpha="N" light="N" />
+  <material name="canyon_water.png" alpha="N" light="N" reset="Y" />
+  <material name="canyon_asphalt_blend_1.png" anisotropic="Y"/>
+  <material name="canyon_asphalt_blend_2.png" anisotropic="Y" />
+  <material name="canyon_boards.png" alpha="N" light="Y" />
+  <material name="canyon_dirt_road.png" anisotropic="Y" />
+  <material name="canyon_ground.png" anisotropic="Y" />
+</materials>

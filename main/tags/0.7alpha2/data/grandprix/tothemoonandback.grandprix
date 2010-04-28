@@ -1,0 +1,10 @@
+
+<supertuxkart_grand_prix name="To the Moon and Back">
+
+    <track id="lighthouse" laps="4" />
+    <track id="skyline"    laps="3" />
+    <track id="startrack"  laps="3" />
+    <track id="xr591"      laps="3" />
+    <track id="beach"      laps="2" />
+ 
+</supertuxkart_grand_prix>
