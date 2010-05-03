@@ -1,7 +1,9 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev 5037 -->
 <scene>
-  <track model="desert.track_track.b3d" x="0" y="0" z="0"/>
+  <track model="desert.track_track.b3d" x="0" y="0" z="0">
+    <animated-texture name="water_light.png" dy="0.1" />
+  </track>
   <object type="animation" model="ShiftingSand.b3d" xyz="-71.752289 28.640049 -22.034258" hpr="0.000000 0.000000 0.000000" >
   </object>
   <banana x="-81.07547" y="1.818746" z="162.129395" />
