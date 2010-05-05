@@ -3,6 +3,7 @@
       version     = "2"
       model-file  = "puffy.b3d"
       icon-file   = "puffy-icon.png"
+      minimap-icon-file   = "puffy-icon.png"
       shadow-file = "puffy-shadow.png"
       groups      = "standard"
       rgb         = "0.12549 0.50196 0.12549">
