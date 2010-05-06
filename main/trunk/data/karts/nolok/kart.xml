@@ -3,6 +3,7 @@
       version     = "2"
       model-file  = "nolok.b3d"
       icon-file   = "nolokicon.png"
+      minimap-icon-file   = "nolokicon.png"
       shadow-file = "nolokshadow.png"
       groups      = "standard"
       rgb         = "0.121568 0.172549 0.054901" >

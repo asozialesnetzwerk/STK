@@ -3,6 +3,7 @@
       version      = "2"
       model-file   = "mozilla.b3d"
       icon-file    = "mozillaicon.png"
+      minimap-icon-file   = "mozillaicon.png"
       shadow-file  = "mozillashadow.png"
       groups       = "standard"
       engine-sound ="large"

@@ -3,6 +3,7 @@
       version      = "2"
       model-file   = "gooey.b3d"
       icon-file    = "gooeyicon.png"
+      minimap-icon-file   = "gooeyicon.png"
       shadow-file  = "gooeyshadow.png"
       groups       = "standard" 
       engine-sound = "large"
