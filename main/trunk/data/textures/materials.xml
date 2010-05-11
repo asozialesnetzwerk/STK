@@ -16,16 +16,15 @@
   <material name="oakleaf_fall.png" transparency="Y" collide="N" ignore="Y" light="N" />
   <material name="pino.png" alpha="Y" collide="N" ignore="Y" />
   <material name="pino2.png" alpha="Y" collide="N" ignore="Y" />
-
   <material name="starparticle.png" clampU="Y" clampV="Y" alpha="Y" collide="N" ignore="Y" light="N"/>
   <material name="pyramidwall.png"  collide="N"/>
   <material name="lava.png"  light="N" reset="Y"/>
   <material name="metalgrid.png" transparency="Y" alpha="0.3" collide="N"/>
-  <material name="roadway.png" clampU="Y"  collide="N" anisotropic="Y"/>
-  <material name="track.png"  anisotropic="Y"/>
-  <material name="track2.jpg" anisotropic="Y"/>
-  <material name="trackborder.png"  light="N" collide="N"/>
-  <material name="chess.png"  collide="N"/>
+  <material name="roadway.png" clampU="Y"  collide="N" anisotropic="Y" graphical-effect="smoke"/>
+  <material name="track.png"  anisotropic="Y" graphical-effect="smoke"/>
+  <material name="track2.jpg" anisotropic="Y" graphical-effect="smoke"/>
+  <material name="trackborder.png"  light="N" collide="N" graphical-effect="smoke"/>
+  <material name="chess.png"  collide="N" graphical-effect="smoke"/>
   <material name="tinytux.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.8" light="N" ignore="Y" collide="N"/>
   <material name="butterfly.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.8" light="N" ignore="Y" collide="N"/>
   <material name="bananawrap.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.5" light="N" zipper="Y" collide="N"/>
@@ -58,11 +57,10 @@
   <material name="stonetex.png"  collide="N"/>
   <material name="redwhite.png"  collide="N"/>
   <material name="dirt.png"  collide="N"/>
-  <material name="city_asphalt_1.png"  collide="N" anisotropic="Y"/>
-  <material name="city_checker.png"  collide="N"/>
+  <material name="city_asphalt_1.png"  collide="N" anisotropic="Y" graphical-effect="smoke"/>
+  <material name="city_checker.png"  collide="N" graphical-effect="smoke"/>
   <material name="menu_background.png" clampU="Y" clampV="Y" alpha="1.0" light="N"/>
   <material name="menu_background2.png" clampU="Y" clampV="Y" alpha="1.0" light="N"/>
   <material name="water-splash.png" alpha="Y" light="N" ignore="Y" collide="N"/>
   <material name="notes.png" transparency="Y"  light="N" collide="N"/>
-
-</materials>  
+</materials>

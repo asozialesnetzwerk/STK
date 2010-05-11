@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <materials>
-  <material name="chess.jpg" collide="N"/>
+  <material name="chess.jpg" collide="N" graphical-effect="smoke"/>
   <material name="grass.jpg" collide="N" max-speed="0.6" slowdown="0.4"/>
   <material name="sand.jpg"  collide="N" max-speed="0.4" slowdown="0.4"/>
   <material name="sandgrass.jpg" collide="N" max-speed="0.4" slowdown="0.4"/>
   <material name="stonetex.jpg"  collide="N"/>
-  <material name="track.jpg"  anisotropic="Y" collide="N"/>
-  <material name="trackborder.jpg" light="N" collide="N"/>
+  <material name="track.jpg"  anisotropic="Y" collide="N" graphical-effect="smoke"/>
+  <material name="trackborder.jpg" light="N" collide="N" graphical-effect="smoke"/>
   <material name="water_light.jpg" light="N" reset="Y" collide="N"/>
   <material name="waterfall.png" alpha="Y"/>
 </materials>
