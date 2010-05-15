@@ -34,6 +34,7 @@ Boom_boom_boom.ogg
   Matt Thomas, license: GNU GPL v3 (or later)
 
 kart_grand_prix.ogg
+Win Theme
 --------------------
   Weirwood, license: CC
 
