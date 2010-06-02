@@ -1,0 +1,17 @@
+* oakbark and oaklef textures
+    by Julius Krischan Makowka, released under CC-BY-SA 3.0
+
+* pino and pino2 textures
+    by Moser Juan José, released under CC-BY-SA 3.0
+    
+* shroom_color* textures by Julius Krischan Makowka, released un CC-BY-SA 3.0
+
+* door.png by Marianne Gagnon, released under CC-BY-SA 3.0, based on a public domain image
+  from BurningWell.
+  
+* village scene
+    released under CC-BY-SA 3.0 [http://creativecommons.org/licenses/by-sa/3.0/]
+    oak by Julius Krischan Makowka, released un CC-BY-SA 3.0
+    mushrooms by pfunked, with modifications by Marianne Gagnon, released under CC-BY-SA 3.0
+    pinos by Moser Juan José, with minor modifications by Marianne Gagnon, released under CC-BY-SA 3.0
+    scene and finishing touches by Marianne Gagnon
