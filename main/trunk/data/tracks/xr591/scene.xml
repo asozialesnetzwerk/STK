@@ -120,10 +120,9 @@
   <small-nitro x="-33.532902" y="21.494276" z="67.044037" />
   <checks>
     <check-line kind="lap" p1="-7.923478 -1.346230" p2="7.616478 -1.346233" min-height="0.122815"/>
-    <check-line kind="activate" other-id="0" p1="-7.951516 -2.705769" p2="7.588440 -2.705772"
-                min-height="0.122815"/>
+    <check-line kind="activate" other-id="0" p1="-38.700382 55.962074" p2="-38.700375 72.786308"
+                min-height="21.524666"/>
   </checks>
-
   <sky-dome texture="stars.jpg"
             horizontal="12" vertical="12" 
             texture-percent="1" sphere-percent="1.5"/>
