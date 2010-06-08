@@ -30,7 +30,7 @@
   <small-nitro x="-54.841682" y="16.906013" z="-145.019363" />
   <small-nitro x="6.185916" y="6.892061" z="-131.377899" />
   <checks>
-    <check-line kind="lap" p1="17.333778 8.683620" p2="-15.133682 8.853209" min-height="-2.533798"/>
+    <check-line kind="lap" p1="-15.133682 8.853209" p2="17.333778 8.683620" min-height="-2.533798"/>
     <check-line kind="activate" other-id="0" p1="-88.309296 -29.102606" p2="-118.331764 -38.765526"
                 min-height="7.687703"/>
   </checks>

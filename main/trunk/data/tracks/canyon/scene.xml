@@ -68,7 +68,7 @@
   <zipper x="105" y="10" z="8" h="89.999997" />
   <zipper x="105" y="10" z="2" h="89.999997" />
   <checks>
-    <check-line kind="lap" p1="3.999997 0.000000" p2="-4.000000 0.000000" min-height="0.200000"/>
+    <check-line kind="lap" p1="-4.000000 0.000000" p2="3.999997 0.000000" min-height="0.200000"/>
     <check-line kind="activate" other-id="0" p1="40.518822 113.975853" p2="62.395409 113.947746"
                 min-height="-93.067085"/>
   </checks>
