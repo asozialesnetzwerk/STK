@@ -212,10 +212,8 @@ class Driveline:
             print "exactly two vertices with only one neighbour."
             return
 
-        # Save start edge, which will become the main lap counting line
-        # (on the main driveline).
-        self.start_line = (self.dNext[self.lStart[0] ][0],
-                           self.dNext[self.lStart[1] ][0])
+        # Save the middle of the first quad, which is used later for neareast
+        # quads computations.
         self.start_point =(  (self.lStart[0][0]+self.lStart[1][0])*0.5,
                              (self.lStart[0][1]+self.lStart[1][1])*0.5,
                              (self.lStart[0][2]+self.lStart[1][2])*0.5 )
@@ -247,6 +245,14 @@ class Driveline:
             r   = self.lRight
             self.lRight = self.lLeft
             self.lLeft  = r
+        
+        # Save start edge, which will become the main lap counting line
+        # (on the main driveline). This must be done here after potentially 
+        # switching since STK assumes that the first point of a check line (to 
+        # which the first line of the main driveline is converted) is on the 
+        # left side (this only applies for the lap counting line, see
+        # Track::setStartCoordinates/getStartTransform).
+        self.start_line = (self.lLeft[1], self.lRight[1])
         
         count=0
         # Just in case that we have an infinite loop due to a malformed graph:
@@ -1077,7 +1083,14 @@ class TrackExport:
             self.writeChecks(f, lChecks, lMainDriveline)
         scene   = Blender.Scene.GetCurrent()
         sky     = getIdProperty(scene, "sky-type", None)
+        # Note that there is a limit to the length of id properties,
+        # which can easily be exceeded by 6 sky textures for a full sky box.
+        # Therefore also check for sky-texture1 and sky-texture2.
         texture = getIdProperty(scene, "sky-texture", "")
+        s       = getIdProperty(scene, "sky-texture1", "")
+        if s: texture = "%s %s"%(texture, s)
+        s       = getIdProperty(scene, "sky-texture2", "")
+        if s: texture = "%s %s"%(texture, s)
         if sky and texture:
             if sky=="dome":
                 hori           = getIdProperty(scene, "sky-horizontal",     16 )
@@ -1222,6 +1235,7 @@ class TrackExport:
         self.writeSceneFile(sPath, sTrackName, sWaterName, lTrack, lItems,
                             lObjects, lChecks, lSun, lDrivelines[0],
                             lStart)
+        print "Finished."
 
 # ==============================================================================
 def savescene_callback(sFilename):
