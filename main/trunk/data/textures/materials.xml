@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 <materials>
+  <material name="wood_planks1_alpha.png" alpha="y"/>
+  <material name="fence.png" alpha="y" light="n"/>
   <material name="clouds.png"  light="N" reset="Y" collide="N"/>
   <material name="sand.png"  collide="N" maxSpeed="0.4" slowdownTime="4"/>
   <material name="sandgrass.png"  collide="N" maxSpeed="0.4" slowdownTime="4" anisotropic="Y"/>
