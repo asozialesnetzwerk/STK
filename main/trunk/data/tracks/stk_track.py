@@ -1079,7 +1079,9 @@ class TrackExport:
 
             f.write("  <%s />\n"%s)
 
-        if lChecks:
+        if lChecks or lMainDriveline:
+            if not lChecks:
+                print "No check defined, lap counting will not work properly!"
             self.writeChecks(f, lChecks, lMainDriveline)
         scene   = Blender.Scene.GetCurrent()
         sky     = getIdProperty(scene, "sky-type", None)
