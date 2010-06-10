@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<materials>
+  
+    <material name="invisible.png" alpha="y" light="n"/>
+    <material name="ice.png" reset="Y" />
+
+</materials>
