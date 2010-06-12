@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev 5207 -->
 <scene>
-  <track model="xr591_track.b3d" x="0" y="0" z="0"/>
+  <track model="xr591.track_track.b3d" x="0" y="0" z="0"/>
+  <water model="xr591.track_water.b3d" x="0" y="0" z="0" height="0.3" />
   <object type="animation" model="monster2.b3d" xyz="-57.473751 -10.844030 -31.384989" hpr="0.000000 0.000000 0.000000" >
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
       <p c="1.000000 -57.473751" h1="-18.130163 -57.473751" h2="20.130163 -57.473751"/>
@@ -123,6 +124,7 @@
     <check-line kind="activate" other-id="0" p1="-38.700382 55.962074" p2="-38.700375 72.786308"
                 min-height="21.524666"/>
   </checks>
+
   <sky-dome texture="stars.jpg"
             horizontal="12" vertical="12" 
             texture-percent="1" sphere-percent="1.5"
