@@ -125,5 +125,6 @@
   </checks>
   <sky-dome texture="stars.jpg"
             horizontal="12" vertical="12" 
-            texture-percent="1" sphere-percent="1.5"/>
+            texture-percent="1" sphere-percent="1.5"
+            speed-x="0.001" speed-y="0" />
 </scene>
