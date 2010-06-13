@@ -438,7 +438,9 @@ class TrackExport:
         # Add default settings for sky-dome so that the user is aware of
         # can be set.
         getIdProperty(scene, "sky-type", "dome")
-        getIdProperty(scene, "sky-texture", ""            )
+        getIdProperty(scene, "sky-texture", "" )
+        getIdProperty(scene, "sky-speed-x", "0")
+        getIdProperty(scene, "sky-speed-y", "0")
         # Not sure if these should be added - if the user wants a sky
         # box they are quiet annoying.
         #getIdProperty(scene, "sky-horizontal","")
@@ -1095,15 +1097,18 @@ class TrackExport:
         if s: texture = "%s %s"%(texture, s)
         if sky and texture:
             if sky=="dome":
-                hori           = getIdProperty(scene, "sky-horizontal",     16 )
-                verti          = getIdProperty(scene, "sky-vertical",       16 )
-                tex_percent    = getIdProperty(scene, "sky-texture-percent",0.5)
-                sphere_percent = getIdProperty(scene, "sky-sphere-percent", 1.3)
+                hori           = getIdProperty(scene, "sky-horizontal",     16  )
+                verti          = getIdProperty(scene, "sky-vertical",       16  )
+                tex_percent    = getIdProperty(scene, "sky-texture-percent", 0.5)
+                sphere_percent = getIdProperty(scene, "sky-sphere-percent",  1.3)
+                speed_x        = getIdProperty(scene, "sky-speed-x",         0.0)
+                speed_y        = getIdProperty(scene, "sky-speed-y",         0.0)
                 f.write("""
   <sky-dome texture=\"%s\"
             horizontal=\"%s\" vertical=\"%s\" 
-            texture-percent=\"%s\" sphere-percent=\"%s\"/>
-""" %(texture, hori, verti, tex_percent, sphere_percent))
+            texture-percent=\"%s\" sphere-percent=\"%s\"
+            speed-x=\"%s\" speed-y=\"%s\" />
+""" %(texture, hori, verti, tex_percent, sphere_percent, speed_x, speed_y))
             elif sky=="box":
                 lTextures = string.split(texture)
                 if len(lTextures)==5:
