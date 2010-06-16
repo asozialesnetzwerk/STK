@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 5207 -->
+<!-- Generated with script from SVN rev 5511 -->
 <scene>
   <track model="snowtuxpeak_track.b3d" x="0" y="0" z="0">
     <animated-texture name="smoke.png" dy="0.5" />
@@ -36,12 +36,13 @@
   <banana x="-83.289841" y="21.185463" z="-123.399406" h="-8.210756" />
   <banana x="-81.51918" y="3.448152" z="32.256142" h="-8.210756" />
   <checks>
-    <check-line kind="lap" p1="6.829568 3.694277" p2="-6.754978 3.694115" min-height="-1.190331"/>
+    <check-line kind="lap" p1="-6.754978 3.694115" p2="6.829568 3.694277" min-height="-1.190331"/>
     <check-line kind="activate" other-id="0" p1="-48.496944 -75.644157" p2="-51.889187 -98.006584"
                 min-height="28.795845"/>
   </checks>
 
   <sky-dome texture="lighthouse_sky.png"
             horizontal="12" vertical="12" 
-            texture-percent="0.5" sphere-percent="1.3"/>
+            texture-percent="0.5" sphere-percent="1.3"
+            speed-x="0" speed-y="0" />
 </scene>
