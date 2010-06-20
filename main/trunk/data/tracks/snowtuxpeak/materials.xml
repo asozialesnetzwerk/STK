@@ -5,13 +5,13 @@
     <material name="ice.png" reset="Y" />
     <material name="wood_planks1.jpg">
       <sfx filename="wooden_bridge.ogg" name="wood" rolloff="0.2"
-           volume="0.6" min-speed="2" max-speed="22"
+           volume="0.6" min-speed="2" max-speed="22" positional="y"
            min-pitch="0.5" max-pitch="2.0" />
     </material>
     <material name="wood_planks1_alpha.png">
-      <sfx  name="wood"
+      <sfx  name="wood" rolloff="0.2"
             volume="0.6" min-speed="2" max-speed="22"
-            min-pitch="0.5" max-pitch="2.0" />
+            min-pitch="0.5" max-pitch="2.0" positional="y"/>
    </material>
 </materials>
 
