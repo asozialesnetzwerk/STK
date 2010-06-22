@@ -844,7 +844,7 @@ class TrackExport:
                 kind = " kind=\"lap\" "  # xml needs a value for an attribute
             ambient = getProperty(obj, "ambient", "").upper()
             if ambient:
-                kind=" kind=\"ambient\" "%ambient
+                kind=" kind=\"ambient\" "
 
             if len(mesh.verts)==2:   # Check line
                 min_h = mesh.verts[0][2]
