@@ -1,0 +1,36 @@
+<?php
+    $title = "Addons";
+    if(!isset($_GET['type']) or $_GET['type'] == "karts")
+    {
+        $type = "karts";
+    }
+    else
+    {
+        $type = "tracks";
+    }
+
+    $addons = new Addons();
+
+    require ROOT."include/header.php";
+
+
+    echo "\t<div id=\"listAddons\">\n";
+    echo "\t\t<ul>\n";
+    while($addons->Next())
+    {
+        if($addons->GetType() == $type)
+        {
+            echo "\t\t\t<li>\n";
+            echo "\t\t\t\t".$addons->GetName()."\n";
+            echo "\t\t\t</li>\n";
+        }
+    }
+    echo "\t\t</ul>\n";
+    echo "\t</div>\n";
+
+    echo "\t<div id=\"viewAddons\">\n";
+    echo "\t\t<p>"._("To start, click on an addon.")."</p>\n";
+    echo "\t</div>\n";
+
+    require ROOT."include/footer.php";
+?>
