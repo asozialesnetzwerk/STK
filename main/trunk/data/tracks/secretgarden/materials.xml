@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <materials>
 
-    <material name="flower1.png" transparency="Y" ignore="Y" collide="N"/>
-    <material name="flower2.png" transparency="Y" ignore="Y" collide="N"/>
-    <material name="flower3.png" transparency="Y" ignore="Y" collide="N"/>
-    <material name="flower5.png" transparency="Y" ignore="Y" collide="N"/>
-    <material name="flower6.png" transparency="Y" ignore="Y" collide="N"/>
-    <material name="flower7.png" transparency="Y" ignore="Y" collide="N"/>
+    <material name="flower1.png" transparency="Y" ignore="Y" light="N" collide="N"/>
+    <material name="flower2.png" transparency="Y" ignore="Y" light="N" collide="N"/>
+    <material name="flower3.png" transparency="Y" ignore="Y" light="N" collide="N"/>
+    <material name="flower5.png" transparency="Y" ignore="Y" light="N" collide="N"/>
+    <material name="flower6.png" transparency="Y" ignore="Y" light="N" collide="N"/>
+    <material name="flower7.png" transparency="Y" ignore="Y" light="N" collide="N"/>
     <material name="leave2.png" transparency="Y" ignore="Y" collide="N"/>
     <material name="leave3.png" transparency="Y" ignore="Y" collide="N"/>
     <material name="TiZeta_stalkM.png" ignore="Y" collide="N"/>

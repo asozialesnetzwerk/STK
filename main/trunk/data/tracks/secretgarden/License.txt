@@ -18,11 +18,11 @@ Selfmade parts and under GPL and CC-BY-SA, by Canis Lupus :
 - pot
 - pumkin
 
+from burningwell (released under public domain) :
+- flower1
 
 from wikipedia :
 
--flower1    (http://commons.wikimedia.org/wiki/File:Flower_jtca001.jpg,
-             CC-BY-SA 2.5, by Sam Oth)
 -flower2    (http://commons.wikimedia.org/wiki/File:Cosmos_bipinnatus_06_ies.jpg,
              CC-BY-SA 3.0, by Frank Vincentz)
 -flower3    (http://commons.wikimedia.org/wiki/File:Aster_Tataricus.JPG,
@@ -36,6 +36,14 @@ from wikipedia :
 -Cucurbita_pepo_04 (http://commons.wikimedia.org/wiki/File:Cucurbita_pepo_04.jpg,
              CC-BY-SA 2.5, by Nino Barbieri)
 
+- Trifolium_repens_07_ies (http://commons.wikimedia.org/wiki/File:Trifolium_repens_07_ies.jpg
+            CC-BY-SA 3.0, by Frank Vincentz)
+
+- leave3 (http://commons.wikimedia.org/wiki/File:Lisc_lipy.jpg,
+          CC-BY-SA 3.0, by Krzysztof P. Jasiutowicz)
+
+-TiZeta_stalkM (http://commons.wikimedia.org/wiki/File:Dwarf_cavendish_leaf.JPG,
+                CC-BY-SA 3.0, by Ben Clough)
 
 from http://www.marcchehab.org/frozenmist/index.php under CC Attribution 2.0
 some with modifications by Canis Lupus
@@ -43,9 +51,7 @@ some with modifications by Canis Lupus
 -TiZeta_barkM
 -Tizeta_grey1
 -TiZeta_ivy
--TiZeta_stalkM
 -leave2
--leave3
 
 
 from http://blender-archi.tuxfamily.org/Textures 
