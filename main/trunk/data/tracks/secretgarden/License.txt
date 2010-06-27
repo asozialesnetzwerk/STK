@@ -47,10 +47,12 @@ from wikipedia :
 - TiZeta_ivy (http://commons.wikimedia.org/wiki/File:Conlon_Ivy.JPG,
               CC-BY-SA 3.0, by Found5dollar)
 
+- TiZeta_barkM (http://commons.wikimedia.org/wiki/File:Apple_box_bark.jpg,
+                CC-BY-SA 3.0, by Benjamint444)
+
 from http://www.marcchehab.org/frozenmist/index.php under CC Attribution 2.0
 some with modifications by Canis Lupus
 
--TiZeta_barkM
 -Tizeta_grey1
 -leave2
 
