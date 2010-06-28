@@ -54,4 +54,10 @@
     <check-line kind="activate" other-id="0" p1="68.019447 -45.556225" p2="44.501854 -31.783911"
                 min-height="-9.717559"/>
   </checks>
+  <end-cameras>
+    <camera type="static_follow_kart" xyz="-7.998312 2.084357 21.581444" distance="19"/>
+    <camera type="static_follow_kart" xyz="-19.221664 2.500000 53.347168" distance="19"/>
+    <camera type="static_follow_kart" xyz="-30.750189 1.000000 -3.408314" distance="27.0"/>
+    <camera type="ahead_of_kart" xyz="-35.541679 3.035554 -25.518936" distance="9.0"/>
+  </end-cameras>
 </scene>
