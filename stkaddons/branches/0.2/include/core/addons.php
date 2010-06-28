@@ -14,6 +14,10 @@ class Addons
     {
         return $this->addon['name'];
     }
+    function GetId()
+    {
+        return $this->addon['id'];
+    }
     function GetType()
     {
         return $this->addon['type'];

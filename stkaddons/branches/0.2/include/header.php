@@ -12,6 +12,7 @@
         echo SITE_NAME;
         ?></title>
         <script src="js/jquery.js"></script>
+        <script src="js/addons-view.js"></script>
     </head>
     <body>
     <?php

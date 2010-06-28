@@ -21,7 +21,7 @@
         if($addons->GetType() == $type)
         {
             echo "\t\t\t<li>\n";
-            echo "\t\t\t\t".$addons->GetName()."\n";
+            echo "\t\t\t\t<a href=\"javascript:loadAddonsInformations(".$addons->GetId().")\">".$addons->GetName()."</a>\n";
             echo "\t\t\t</li>\n";
         }
     }
