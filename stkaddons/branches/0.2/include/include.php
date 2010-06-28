@@ -2,7 +2,7 @@
 require ROOT."config.php";
 require ROOT."include/sql.php";
 require ROOT."include/core/addons.php";
-setlocale(LC_ALL, $_COOKIE['lang'].'.UTF-8');
+setlocale(LC_ALL, "en_EN".'.UTF-8');
 
 bindtextdomain('translations', 'locale');
 textdomain('translations');
