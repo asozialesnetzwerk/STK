@@ -1,0 +1,60 @@
+*
+{
+    padding: 0;
+    margin: 0;
+}
+body
+{
+    background:white;
+    font-family: "Trebuchet MS",Verdana,Helvetica,Arial,sans-serif;
+    font-size:1em;
+    color:white;
+}
+.clearer
+{
+    clear:both;
+}
+#global
+{
+    background: transparent url(../image/background.jpg) no-repeat;
+    width:950px;
+    margin:auto;
+    min-height:500px;
+    padding:10px 25px 25px 25px;
+}
+a
+{
+    color:white;
+    text-decoration:underline;
+}
+a:hover
+{
+    text-decoration:none;
+    color: grey;
+}
+.main_link
+{
+    display:block;
+    float:left;
+    margin-left:50px;
+    padding:10px;
+}
+.main_link:hover
+{
+    background-color:white;
+    border-radius:7px;
+    -moz-border-radius:7px;
+    color:black;
+}
+#menu
+{
+    background-color:black;
+    border-radius:7px;
+    -moz-border-radius:7px;
+    width: 100%;
+    padding:5px;
+}
+#content
+{
+    clear:both;
+}

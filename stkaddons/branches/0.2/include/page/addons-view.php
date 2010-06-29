@@ -9,7 +9,7 @@
         $type = "tracks";
     }
 
-    $addons = new Addons();
+    $addons = new Addons($type);
 
     require ROOT."include/header.php";
 
@@ -18,12 +18,9 @@
     echo "\t\t<ul>\n";
     while($addons->Next())
     {
-        if($addons->GetType() == $type)
-        {
-            echo "\t\t\t<li>\n";
-            echo "\t\t\t\t<a href=\"javascript:loadAddonsInformations(".$addons->GetId().")\">".$addons->GetName()."</a>\n";
-            echo "\t\t\t</li>\n";
-        }
+        echo "\t\t\t<li>\n";
+        echo "\t\t\t\t<a href=\"javascript:loadAddonsInformations(".$addons->GetId().")\">".$addons->GetName()."</a>\n";
+        echo "\t\t\t</li>\n";
     }
     echo "\t\t</ul>\n";
     echo "\t</div>\n";

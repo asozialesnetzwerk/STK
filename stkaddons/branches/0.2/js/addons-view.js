@@ -6,7 +6,7 @@ function loadAddonsInformations(id)
       /*FIXME : when the dev is finishd, we will be able to use the cache.*/
       cache: false,
       success: function(html){
-        $("#viewAddons").text(html);
+        $("#viewAddons").html(html);
       }
 });
 }

@@ -26,6 +26,7 @@ if(!isset($_GET['go']) or $_GET['go'] == "index")
 }
 elseif($_GET['go'] == "addons-view")
 {
+    $css = "addons-view.css";
     require ROOT."include/page/addons-view.php";
 }
 else

@@ -24,11 +24,11 @@ namespace SQL
     mysql_select_db(DB_NAME);
     function getAllFromTable($table)
     {
-        return mysql_query("SELECT * FROM" .$table);
+        return mysql_query("SELECT * FROM ".DB_PREFIX.$table);
     }
     function getAllFromTableWhere($table, $property, $value)
     {
-        return mysql_query("SELECT * FROM $table WHERE `$property` = '$value'");
+        return mysql_query("SELECT * FROM ".DB_PREFIX.$table." WHERE `$property` = '$value'");
     }
     function nextItem($sql_query)
     {

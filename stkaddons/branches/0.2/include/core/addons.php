@@ -19,18 +19,34 @@ along with stkaddons.  If not, see <http://www.gnu.org/licenses/>.
 */
 class Addons
 {
-    function Addons()
+    function Addons($type="")
     {
         $this->all = array();
-        $this->sql_query = \SQL\getAllFromTableWhere("addons", "type", "karts");
+        if($type != "")
+            $this->sql_query = \SQL\getAllFromTableWhere("addons", "type", $type);
+        else
+            $this->sql_query = \SQL\getAllFromTable("addons");
     }
     function Next()
     {
         return $this->addon = \SQL\nextItem($this->sql_query);
     }
+    function SelectById($id)
+    {
+        $this->sql_query = \SQL\getAllFromTableWhere("addons", "id", $id);
+        return $this->addon = \SQL\nextItem($this->sql_query);
+    }
     function GetName()
     {
         return $this->addon['name'];
+    }
+    function GetDescription()
+    {
+        return $this->addon['description'];
+    }
+    function GetAuthor()
+    {
+        return $this->addon['author'];
     }
     function GetId()
     {
@@ -39,6 +55,14 @@ class Addons
     function GetType()
     {
         return $this->addon['type'];
+    }
+    function GetInformations()
+    {
+        $test_addons = "";
+        $test_addons .= _("Name:")." ".$this->GetName()."<br />";
+        $test_addons .= _("Description:")." ".$this->GetDescription()."<br />";
+        $test_addons .= _("Author:")." ".$this->GetAuthor()."<br />";
+        return $test_addons;
     }
 }
 ?>
