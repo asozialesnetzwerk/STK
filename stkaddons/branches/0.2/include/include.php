@@ -20,7 +20,9 @@ along with stkaddons.  If not, see <http://www.gnu.org/licenses/>.
 require ROOT."config.php";
 require ROOT."include/sql.php";
 require ROOT."include/core/addons.php";
-require ROOT."include/core/get.php";
+require ROOT."include/core/user.php";
+require ROOT."include/core/var.php";
+require ROOT."include/session.php";
 setlocale(LC_ALL, "en_EN".'.UTF-8');
 
 bindtextdomain('translations', 'locale');

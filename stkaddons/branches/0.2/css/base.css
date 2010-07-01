@@ -8,7 +8,6 @@ body
     background:white;
     font-family: "Trebuchet MS",Verdana,Helvetica,Arial,sans-serif;
     font-size:1em;
-    color:white;
 }
 .clearer
 {
@@ -21,6 +20,7 @@ body
     margin:auto;
     min-height:500px;
     padding:10px 25px 25px 25px;
+    color:white;
 }
 a
 {

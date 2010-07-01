@@ -19,6 +19,13 @@ along with stkaddons.  If not, see <http://www.gnu.org/licenses/>.
 */
 function get($arg)
 {
-    return mysql_real_escape_string($_GET[$arg]);
+    if(isset($_GET[$arg]))
+        return mysql_real_escape_string($_GET[$arg]);
+    else
+        return false;
+}
+function post($arg)
+{
+    return mysql_real_escape_string($_POST[$arg]);
 }
 ?>

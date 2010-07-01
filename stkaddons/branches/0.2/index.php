@@ -17,6 +17,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with stkaddons.  If not, see <http://www.gnu.org/licenses/>.
 */
+session_start();
 
 define("ROOT", "./");
 require ROOT."include/include.php";
@@ -28,6 +29,11 @@ elseif($_GET['go'] == "addons-view")
 {
     $css = "addons-view.css";
     require ROOT."include/page/addons-view.php";
+}
+elseif(get("go") == "login")
+{
+    $css = "login.css";
+    require ROOT."include/page/login.php";
 }
 else
 {
