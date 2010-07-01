@@ -14,7 +14,7 @@
         <script src="js/jquery.js"></script>
         <script src="js/addons-view.js"></script>
     	<link rel="stylesheet" href="css/base.css" type="text/css" />
-    	<link rel="stylesheet" href="css/<?php echo $css; ?>.css" type="text/css" />
+    	<link rel="stylesheet" href="css/<?php echo $css; ?>" type="text/css" />
     </head>
     <body>
     <div id="global">

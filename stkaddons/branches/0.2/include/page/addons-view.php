@@ -1,6 +1,6 @@
 <?php
     $title = "Addons";
-    if(!isset($_GET['type']) or $_GET['type'] == "karts")
+    if(get("type") == "karts")
     {
         $type = "karts";
     }

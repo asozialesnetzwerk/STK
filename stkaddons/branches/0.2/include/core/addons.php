@@ -59,9 +59,10 @@ class Addons
     function GetInformations()
     {
         $test_addons = "";
-        $test_addons .= _("Name:")." ".$this->GetName()."<br />";
-        $test_addons .= _("Description:")." ".$this->GetDescription()."<br />";
-        $test_addons .= _("Author:")." ".$this->GetAuthor()."<br />";
+        $test_addons .= "<img class=\"addonsview_image\" src=\"".DOWNLOAD."/image/".$this->addon['image']."\" />";
+        $test_addons .= "<span class=\"addonsview_info\">"._("Name:")."</span> ".$this->GetName();
+        $test_addons .= "<span class=\"addonsview_info\">"._("Description:")."</span> ".$this->GetDescription();
+        $test_addons .= "<span class=\"addonsview_info\">"._("Author:")."</span> ".$this->GetAuthor();
         return $test_addons;
     }
 }

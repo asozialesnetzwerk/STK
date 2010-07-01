@@ -17,12 +17,8 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with stkaddons.  If not, see <http://www.gnu.org/licenses/>.
 */
-define("DB_USER", "root");
-define("DB_PASSWORD", "root");
-define("DB_HOST", "localhost");
-define("DB_NAME", "stkbase");
-define("DB_PREFIX", "");
-define("SITE_NAME", "SuperTuxKart Addons Manager");
-define("SITE_ACCESS", "http://127.0.0.1/stkaddons/");
-define("DOWNLOAD", "./");
+function get($arg)
+{
+    return mysql_real_escape_string($_GET[$arg]);
+}
 ?>

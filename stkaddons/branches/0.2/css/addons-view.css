@@ -5,6 +5,11 @@
 }
 #viewAddons
 {
-    width: 750px;
+    width: 700px;
     float:left;
+}
+.addonsview_info
+{
+    clear:both;
+    display:block;
 }
