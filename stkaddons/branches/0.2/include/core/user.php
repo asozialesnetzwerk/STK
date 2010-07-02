@@ -39,11 +39,15 @@ class User
     }
     function GetName()
     {
-        return $this->user['name'];
+        return $this->user['login'];
     }
     function GetPass()
     {
         return $this->user['pass'];
+    }
+    function GetRange()
+    {
+        return $this->user['range'];
     }
     function GetDescription()
     {
@@ -64,10 +68,9 @@ class User
     function GetInformations()
     {
         $test_users = "";
-        $test_users .= "<img class=\"usersview_image\" src=\"".DOWNLOAD."/image/".$this->user['image']."\" />";
         $test_users .= "<span class=\"usersview_info\">"._("Name:")."</span> ".$this->GetName();
-        $test_users .= "<span class=\"usersview_info\">"._("Description:")."</span> ".$this->GetDescription();
-        $test_users .= "<span class=\"usersview_info\">"._("Author:")."</span> ".$this->GetAuthor();
+        $test_users .= "<a href=\"javascript:editOption('input', '', 'Name')\" >x</a>";
+        $test_users .= "<span class=\"usersview_info\">"._("Range:")."</span> ".$this->GetRange();
         return $test_users;
     }
 }

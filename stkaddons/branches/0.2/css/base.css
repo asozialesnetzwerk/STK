@@ -18,7 +18,7 @@ body
     background: transparent url(../image/background.jpg) no-repeat;
     width:950px;
     margin:auto;
-    min-height:500px;
+    height:500px;
     padding:10px 25px 25px 25px;
     color:white;
 }
@@ -57,4 +57,11 @@ a:hover
 #content
 {
     clear:both;
+}
+#option_edit
+{
+    display: none;
+    margin: auto;
+    margin-top: -500px;
+    background-color: grey;
 }

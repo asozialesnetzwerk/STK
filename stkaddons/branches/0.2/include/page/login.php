@@ -1,6 +1,5 @@
 <?php
 $title = "Login";
-require ROOT."include/header.php";
 //light anti bruteforcing
 sleep(1);
 if(get("action") == "submit")
@@ -23,28 +22,31 @@ if(get("action") == "submit")
     }
     if($login)
     {
-        echo "Logged in";
+        $text =  "Logged in";
         $_SESSION['logged'] = true;
     }
     else
     {
-        echo "Not logged in.";
+        $text = "Not logged in.";
     }
 }
 else if(get("action") == "logout")
 {
     session_destroy();
-    echo "Successfully loged out";
+    session_start();
+    $text = "Successfully loged out";
 }
 else
 {
-    ?>
-    <form action="<?php echo SITE_ACCESS."index.php?go=login&amp;action=submit"; ?>" method="POST">
-    <input type="text" name="login" />
-    <input type="password" name="pass" />
-    <input type="submit" />
-    </form>
-    <?php
+    $text = "<form action=\"".SITE_ACCESS."index.php?go=login&amp;action=submit\" method=\"POST\">
+    <input type=\"text\" name=\"login\" />
+    <input type=\"password\" name=\"pass\" />
+    <input type=\"submit\" />
+    </form>";
 }
+
+require ROOT."include/session.php";
+require ROOT."include/header.php";
+echo $text;
 require ROOT."include/footer.php";
 ?>
