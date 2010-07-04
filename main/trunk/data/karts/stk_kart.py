@@ -253,11 +253,17 @@ def saveAnimations(f):
     lAnims = []
     for i in range(first_frame, last_frame+1):
         try:
-            marker = scene.timeline.getName(i)
+            marker = scene.timeline.getName(i).lower()
             if  marker in \
-               ["straight", "right", "left", "start-winning", "end-winning",
-                "start-losing", "end-losing", "start-explosion",
-                "end-explosion"]:
+               ["straight", "right", "left", "start-winning", "start-winning-loop",
+                "end-winning", "start-losing", "start-losing-loop", "end-losing",
+                "start-explosion", "end-explosion",
+                "turning-l", "center", "turning-r", "repeat-losing", "repeat-winning"]:
+                if marker=="turning-l": marker="left"
+                if marker=="turning-r": marker="right"
+                if marker=="center": marker="straight"
+                if marker=="repeat-losing": marker="start-losing-loop"
+                if marker=="repeat-winning": marker="start-winning-loop"
                 lAnims.append( (marker, i) )
         except:
             pass
