@@ -415,7 +415,7 @@ class TrackExport:
         obj.rot = oldRot
         return name
         # ----------------------------------------------------------------------
-    def writeTrackFile(self, sPath, sBase, lCurves):
+    def writeTrackFile(self, sPath, sBase):
         print "Writing track file --> \t",
         start_time  = bsys.time()
         scene       = Blender.Scene.GetCurrent()
@@ -466,7 +466,6 @@ class TrackExport:
         else:
             print "No screenshot defined, ignored"
         f.write(">\n")
-        self.writeCurve(f, lCurves)
         f.write("</track>\n")
         f.close()
         print bsys.time()-start_time, "seconds"
@@ -552,7 +551,11 @@ class TrackExport:
     # not used in the actual driveline, they are only used to indicate where
     # the drivelines starts. This data structure is handled in the Driveline
     # class.
-    def convertDrivelines(self, lDrivelines, lSorted):
+    # Additionally, this function sorts the end cameras according to distance
+    # to the main driveline - so the first end camera will be the camera
+    # closest to the start line etc.
+    def convertDrivelinesAndSortEndCameras(self, lDrivelines, lSorted,
+                                           lEndCameras):
         # First collect all main drivelines, and all remaining drivelines
         # ---------------------------------------------------------------
         lMain     = []
@@ -581,6 +584,25 @@ class TrackExport:
 
             p = lSorted[-1].getEndPoint()
 
+        # Create a new list for all cameras, which also stores the
+        # quad index to which the camera is closest to, the distance
+        # to the quad, and the camera object. The order is important
+        # since this list is later sorted by quad index, so that the
+        # first camera is the first in the list.
+        lCamerasDistance = []
+        for i in range(len(lEndCameras)):
+            cam = lEndCameras[i]
+            (distance, driveline_index, quad_index) = \
+                       lSorted[0].getDistanceTo(cam.loc, lSorted)
+            # Each list contains the index of the closest quad, the
+            # distance, and then the camera
+            lEndCameras[i] = (driveline_index, quad_index, cam)
+            
+        lEndCameras.sort()
+        # After sorting remove the unnecessary distance and quad index
+        for i in range(len(lEndCameras)):
+            lEndCameras[i] = lEndCameras[i][2]
+
         # The last main driveline needs to be closed to the first quad.
         # So set a flag in that driveline that it is the last one.
         lSorted[-1].setIsLastMain(lSorted[0])
@@ -604,7 +626,7 @@ class TrackExport:
     # Writes the track.quad file with the list of all quads, and the track.graph
     # file defining a graph node for each quad and a basic connection between
     # all graph nodes.
-    def writeQuadAndGraph(self, sPath, lDrivelines):
+    def writeQuadAndGraph(self, sPath, lDrivelines, lEndCameras):
         start_time = bsys.time()
         print "Writing quad file --> \t",
         if not lDrivelines:
@@ -612,7 +634,9 @@ class TrackExport:
             return
     
         lSorted = []
-        self.convertDrivelines(lDrivelines, lSorted)
+        self.convertDrivelinesAndSortEndCameras(lDrivelines, lSorted,
+                                                lEndCameras)
+
         # Stores the first quad number (and since quads = graph nodes the node
         # number) of each section of the track. I.e. the main track starts with
         # quad 0, then the first alternative way, ...
@@ -956,7 +980,8 @@ class TrackExport:
     # --------------------------------------------------------------------------
     # Writes the scene files, which includes all models, animations, and items
     def writeSceneFile(self, sPath, sTrackName, sWaterName, lTrack, lItems,
-                       lObjects, lChecks, lSun, lMainDriveline, lStart):
+                       lObjects, lChecks, lSun, lMainDriveline, lStart,
+                       lEndCameras, lCameraCurves):
 
         start_time = bsys.time()
         print "Writing scene file --> \t",
@@ -1125,7 +1150,25 @@ class TrackExport:
         if camera_far:            
             f.write("  <camera far=\"%s\"/>\n"%camera_far)
         self.writeStartPositions(f, lStart)
-        
+        if lEndCameras:
+            f.write("  <end-cameras>\n")
+            for i in lEndCameras:
+                type = getProperty(i, "type", "ahead").lower()
+                if type=="ahead":
+                    type="ahead_of_kart"
+                elif type=="fixed":
+                    type="static_follow_kart"
+                else:
+                    print "Unknown camera type %s - ignored." % type
+                    continue
+                xyz = "%f %f %f" % (i.loc[0], i.loc[2], i.loc[1])
+                start = getProperty(i, "start", 5)
+                f.write("    <camera type=\"%s\" xyz=\"%s\" distance=\"%s\"/>\n"%
+                        (type, xyz, start) )
+            f.write("  </end-cameras>\n")
+
+        # Write camera curves (unused atm)
+        self.writeCurve(f, lCameraCurves)
         f.write("</scene>\n")
         f.close()
         print bsys.time()-start_time,"seconds"
@@ -1142,6 +1185,7 @@ class TrackExport:
         lDrivelines          = []                # All drivelines
         found_main_driveline = 0
         lItems               = []                # All track items
+        lEndCameras          = []                # List of all end cameras
         lCameraCurves        = []                # Camera curves (unused atm)
         lObjects             = []                # All special objects
         lChecks              = []                # All check structures
@@ -1183,6 +1227,8 @@ class TrackExport:
             elif obj.type=="Lamp":
                 lSun.append(obj)
                 continue
+            elif obj.type=="Camera":
+                lEndCameras.append(obj)
             elif obj.type!="Mesh":
                 #print "Non-mesh object '%s' (type: '%s') is ignored!"%(obj.name, stktype)
                 continue
@@ -1212,7 +1258,7 @@ class TrackExport:
         # ------------------------------------------
         sBase = os.path.basename(sFilename)
         sPath = os.path.dirname(sFilename)
-        self.writeTrackFile(sPath, sBase, lCameraCurves)
+        self.writeTrackFile(sPath, sBase)
     
         # Quads and mapping files
         # -----------------------
@@ -1221,7 +1267,7 @@ class TrackExport:
         if not is_arena: is_arena="n"
         if is_arena[0]=="n" or is_arena[0]=="N" or \
                is_arena[0]=="f" or is_arena[0]=="F":
-            self.writeQuadAndGraph(sPath, lDrivelines)
+            self.writeQuadAndGraph(sPath, lDrivelines, lEndCameras)
         start_time = bsys.time()
         print "Exporting track -->",
         sTrackName = sBase+"_track.b3d"
@@ -1241,7 +1287,7 @@ class TrackExport:
             lDrivelines=[None]
         self.writeSceneFile(sPath, sTrackName, sWaterName, lTrack, lItems,
                             lObjects, lChecks, lSun, lDrivelines[0],
-                            lStart)
+                            lStart, lEndCameras, lCameraCurves)
         print "Finished."
 
 # ==============================================================================
