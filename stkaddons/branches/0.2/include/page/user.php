@@ -28,7 +28,8 @@ if(isset($_GET['id']))
 }
 else
 {
-    echo "error";
+    $user->SelectById($_SESSION["id"]);
+    echo $user->GetInformations();
 }
 ?>
 <?php

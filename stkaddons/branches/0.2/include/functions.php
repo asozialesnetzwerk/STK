@@ -1,6 +1,6 @@
 <?php
-function get($get)
+function addEdit($type, $name, $option="")
 {
-    return $_GET[$get];
+    return "<a href=\"javascript:editOption('$type', '$name', '$option')\" ><img class=\"edit_option\" src=\"image/edit.png\" /></a>";
 }
 ?>

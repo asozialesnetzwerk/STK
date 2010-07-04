@@ -67,10 +67,17 @@ class User
     }
     function GetInformations()
     {
+        global $status;
         $test_users = "";
         $test_users .= "<span class=\"usersview_info\">"._("Name:")."</span> ".$this->GetName();
-        $test_users .= "<a href=\"javascript:editOption('input', '', 'Name')\" >x</a>";
-        $test_users .= "<span class=\"usersview_info\">"._("Range:")."</span> ".$this->GetRange();
+        $test_users .= addEdit("input", "Name");
+        $test_users .= "<span class=\"usersview_info\">"._("Status:")."</span> ".$this->GetRange();
+        $option_status = "";
+        foreach($status as $statu)
+        {
+            $option_status .= "<option value=\'".$statu[0]."\'>".$statu[0]."</option>";
+        }
+        $test_users .= addEdit("select", "Status", $option_status);
         return $test_users;
     }
 }

@@ -19,6 +19,8 @@ along with stkaddons.  If not, see <http://www.gnu.org/licenses/>.
 */
 require ROOT."config.php";
 require ROOT."include/sql.php";
+require ROOT."include/functions.php";
+require ROOT."include/status.php";
 require ROOT."include/core/addons.php";
 require ROOT."include/core/user.php";
 require ROOT."include/core/var.php";
