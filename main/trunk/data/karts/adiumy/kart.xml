@@ -2,27 +2,28 @@
 <?xml version="1.0"?>
 <kart name              = "Adiumy"
       version           = "2"
-      model-file        = "adiumy.b3d"
+      model-file        = "Adiumy.b3d"
       icon-file         = "adiumyicon.png"
       minimap-icon-file = "adiumyicon.png"
       shadow-file       = "adiumyshadow.png"
       groups            = "standard"
       rgb               = "0.7 0 0" >
   <animations left = "1"
-              straight = "11"
-              right = "21"
-              start-winning = "40"
-              end-winning = "101"
-              start-losing = "121"
-              end-losing = "153"/>
+              straight = "21"
+              right = "41"
+              start-winning = "79"
+              end-winning = "200"
+              start-losing = "245"
+              start-losing-loop = "309"
+              end-losing = "315"/>
   <wheels>
-    <front-left position = "-0.400965 0.161885 0.161703"
+    <front-left position = "-0.397559 0.161885 0.255742"
                  model    = "wheel-front-left.b3d"       />
-    <front-right position = "0.400448 0.161885 0.161740"
+    <front-right position = "0.403855 0.161885 0.255778"
                  model    = "wheel-front-right.b3d"       />
-    <rear-left position = "-0.030549 0.076657 -0.378886"
+    <rear-left position = "-0.027143 0.076657 -0.284847"
                  model    = "wheel-rear-left.b3d"       />
-    <rear-right position = "0.026030 0.076657 -0.378886"
+    <rear-right position = "0.029436 0.076657 -0.284847"
                  model    = "wheel-rear-right.b3d"       />
   </wheels>
 </kart>
