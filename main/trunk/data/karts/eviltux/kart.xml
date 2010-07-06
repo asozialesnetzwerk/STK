@@ -1,20 +1,31 @@
+<!-- Generated with script from SVN rev 0.1 -->
 <?xml version="1.0"?>
-<kart name         = "Eviltux"
-      version      = "2"
-      model-file   = "eviltux.b3d"
-      icon-file    = "eviltuxicon.png"
-      shadow-file  = "generickartshadow.png"
-      groups       = "standard"
-      engine-sound = "small"
-      rgb          = "0.3 0.1 0.6"  >
+<kart name              = "Eviltux"
+      version           = "2"
+      model-file        = "Eviltux.b3d"
+      icon-file         = "eviltuxicon.png"
+      minimap-icon-file = "eviltuxicon.png"
+      shadow-file       = "generickartshadow.png"
+      groups            = "standard"
+      engine-sound      = "small"
+      rgb               = "0.3 0.1 0.6" >
+  <animations left = "1"
+              straight = "21"
+              right = "41"
+              start-winning = "66"
+              start-winning-loop = "174"
+              end-winning = "284"
+              start-losing = "311"
+              start-losing-loop = "467"
+              end-losing = "472"/>
   <wheels>
-    <front-right position = "0.290000 0.123461 0.617000"
-                 model    = "wheel-front-right.b3d"        />
-    <front-left  position  = "-0.289815 0.123513 0.616744"
-                 model     = "wheel-front-left.b3d"        />
-    <rear-right  position  = "0.296641 0.143240 -0.318647"
-                 model     = "wheel-rear-right.b3d"        />
-    <rear-left   position  = "-0.297522 0.143240 -0.318647"
-                 model     = "wheel-rear-left.b3d"         />
+    <front-left position = "-0.277361 0.124227 0.619765"
+                 model    = "wheel-front-left.b3d"       />
+    <front-right position = "0.284949 0.124227 0.619455"
+                 model    = "wheel-front-right.b3d"       />
+    <rear-left position = "-0.350713 0.143160 -0.318777"
+                 model    = "wheel-rear-left.b3d"       />
+    <rear-right position = "0.350881 0.143160 -0.318582"
+                 model    = "wheel-rear-right.b3d"       />
   </wheels>
 </kart>
