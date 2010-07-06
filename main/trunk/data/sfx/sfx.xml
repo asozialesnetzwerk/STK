@@ -35,6 +35,6 @@
    <sfx name="use_parachute"  filename="parachute.ogg"        volume="1.0" rolloff="0.5"  positional="true"  />
    <sfx name="wee"            filename="wee.ogg"              volume="1.0" rolloff="0.1"  positional="false" />
    <sfx name="winner"         filename="gp_end.ogg"           volume="1.0" rolloff="0.1"  positional="false" />
-
+   <sfx name="lastlap"        filename="last_lap_fanfare.ogg" volume="1.0" rolloff="0.1"  positional="false" />
 </sfx-config>
 
