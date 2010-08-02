@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 5037 -->
+<!-- Generated with script from SVN rev 5633 -->
 <scene>
-  <track model="startrack.track_track.b3d" x="0" y="0" z="0"/>
+  <track model="startrack_track.b3d" x="0" y="0" z="0"/>
   <object type="animation" model="earth.b3d" xyz="-209.179321 56.037697 -81.508003" hpr="0.000000 0.000000 0.000000" >
   </object>
   <object type="animation" model="jupiter.b3d" xyz="-309.000641 51.166660 299.268799" hpr="0.000000 0.000000 0.000000" >
@@ -49,7 +49,7 @@
   <checks>
     <check-line kind="lap" p1="-12.298817 35.090462" p2="9.300918 35.817509" min-height="-1.456422"/>
     <check-line kind="activate" other-id="0" p1="41.465298 108.328346" p2="24.237980 81.109566"
-                min-height="3.545640"/>
+                min-height="6.637436"/>
   </checks>
   <sky-box texture="purplenebula_bk.jpg purplenebula_ft.jpg purplenebula_bk.jpg purplenebula_ft.jpg purplenebula_bk.jpg purplenebula_bk.jpg"/>
 </scene>
