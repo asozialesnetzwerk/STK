@@ -6,5 +6,6 @@
         designer    = "Ingo Ruhnke & Marianne Gagnon"
         music       = "CaribbeanMusic.music"
         screenshot  = "sshot-beach.png"
+        maxKartCount = "10"
 >
 </track>

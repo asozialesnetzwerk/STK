@@ -7,5 +7,6 @@
         music       = "kart_grand_prix.music"
         arena       = "no"
         screenshot  = "sshot-tuxtrack.png"
+        maxKartCount = "10"
 >
 </track>

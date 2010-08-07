@@ -6,5 +6,6 @@
         designer    = "Ivar ten Cate"
         music       = "West.music"
         screenshot  = "sshot-mines.png"
+        maxKartCount = "8"
 >
 </track>

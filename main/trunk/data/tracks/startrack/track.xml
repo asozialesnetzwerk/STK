@@ -6,5 +6,6 @@
         designer    = "Ingo Ruhnke, modified by A. Billing"
         music       = "Ethereal_spectrum.music"
         screenshot  = "screenshot-startrack.png"
+        maxKartCount = "8"
 >
 </track>

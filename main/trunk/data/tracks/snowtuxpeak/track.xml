@@ -7,5 +7,6 @@
         music       = "boom_boom_boom.music"
         arena       = "no"
         screenshot  = "sshot-snowtuxpeak.jpg"
+        maxKartCount = "10"
 >
 </track>

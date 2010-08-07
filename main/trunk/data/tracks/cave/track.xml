@@ -7,5 +7,6 @@
         music       = "Penguin_Party.music"
         arena       = "yes"
         screenshot  = "sshot-cave.png"
+        maxKartCount = "6"
 >
 </track>

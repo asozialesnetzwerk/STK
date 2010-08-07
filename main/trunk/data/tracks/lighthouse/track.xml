@@ -6,5 +6,6 @@
         designer    = "Ingo Ruhnke & Marianne Gagnon & Stephen Dunn"
         music       = "ChillCarrier-Druckverlust.music"
         screenshot  = "sshot-lighthouse.png"
+        maxKartCount = "10"
 >
 </track>
