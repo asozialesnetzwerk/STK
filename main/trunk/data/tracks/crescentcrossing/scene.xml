@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 5511 -->
+<scene>
+  <track model="crescentcrossing.track_track.b3d" x="0" y="0" z="0"/>
+  <checks>
+    <check-line kind="lap" p1="-3.837889 2.005203" p2="5.149530 2.050278" min-height="-1.385036"/>
+  </checks>
+  
+  <!--
+  <sun  fog="true" fog-color="12 6 0" fog-start="0" fog-end="125"/>
+  <camera far="125.0"/>
+  -->
+  <sky-color rgb="12 6 0"/>
+</scene>

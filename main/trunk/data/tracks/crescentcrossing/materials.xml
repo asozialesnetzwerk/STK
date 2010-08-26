@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<materials>
+  <material name="plants.png" alpha="y" clamp="y"/>
+  <material name="metalfence.png" transparency="y" clamp="y"/>
+  <material name="nightsky1.png" light="N"/>
+  <material name="nightsky2.png" light="N"/>
+</materials>  
