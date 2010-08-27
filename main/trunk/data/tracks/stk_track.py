@@ -1298,7 +1298,7 @@ def savescene_callback(sFilename):
     b3d_export.flag_stack.append(0) #All Objects
     b3d_export.flag_stack.append(0) #Selected Only
     b3d_export.flag_stack.append(1) #Vertex Normals
-    b3d_export.flag_stack.append(0) #Vertex Colors
+    b3d_export.flag_stack.append(1) #Vertex Colors
     b3d_export.flag_stack.append(0) #Cameras
     b3d_export.flag_stack.append(0) #Lights
     # In case that flag_stack supports mipmaps:
