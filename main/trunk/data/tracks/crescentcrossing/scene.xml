@@ -5,9 +5,9 @@
   <water model="crescentcrossing.track_water.b3d" x="0" y="0" z="0"/>
   <checks>
     <check-line kind="lap" p1="-3.837889 2.005203" p2="5.149530 2.050278" min-height="-1.385036"/>
-    <check-line kind="toggle" other-id="2" p1="-87.792168 41.457432" p2="-102.111977 41.457432"
+    <check-line kind="activate" other-id="2" p1="-87.792168 41.457432" p2="-102.111977 41.457432"
                 min-height="5.395564"/>
-    <check-line kind="toggle" other-id="0" p1="19.733191 -73.665176" p2="19.551653 -115.109787"
+    <check-line kind="activate" other-id="0" p1="19.733191 -73.665176" p2="19.551653 -115.109787"
                 min-height="-1.185460"/>
   </checks>
   
