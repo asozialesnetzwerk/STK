@@ -57,3 +57,7 @@ TheDeadRocks-GreenSecretFromAmazonia.ogg
 TheDeadRocks-OneMillionDollar.ogg
 ----------------
   The Dead Rocks, license: CC-BY-SA v3.0
+
+dance_cleopatra.ogg
+----------------
+    ZamalSka, license: CC-BY-SA v3.0
