@@ -65,4 +65,9 @@
   <material name="menu_background2.png" clampU="Y" clampV="Y" alpha="1.0" light="N"/>
   <material name="water-splash.png" alpha="Y" light="N" ignore="Y" collide="N"/>
   <material name="notes.png" transparency="Y"  light="N" collide="N"/>
+  
+  <material name="skyscraper1.png" anisotropic="Y"/>
+  <material name="skyscraper2.png" anisotropic="Y"/>
+  <material name="skyscraper3.png" anisotropic="Y"/>
+  <material name="skyscraper3a.png" anisotropic="Y"/>
 </materials>
