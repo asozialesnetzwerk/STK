@@ -4,7 +4,7 @@
         version     = "2"
         groups      = "standard"
         designer    = "Ingo Ruhnke, modified by A. Billing"
-        music       = "Ethereal_spectrum.music"
+        music       = "Ethereal_Spectrum.music"
         screenshot  = "screenshot-startrack.png"
         maxKartCount = "8"
 >
