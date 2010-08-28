@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 5633 -->
+<scene>
+  <track model="skyline.track_track.b3d" x="0" y="0" z="0"/>
+  <checks>
+    <check-line kind="lap" p1="-6.367659 -0.455103" p2="6.297761 -0.480142" min-height="-2.138986"/>
+  </checks>
+  <sky-box texture="pink_sky.jpg pink_sky.jpg pink_sky.jpg pink_sky.jpg pink_sky.jpg pink_sky.jpg"/>
+</scene>
