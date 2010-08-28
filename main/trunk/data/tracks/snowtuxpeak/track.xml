@@ -4,7 +4,7 @@
         version     = "2"
         groups      = "standard"
         designer    = "Oliver & Steve Baker, Marianne Gagnon,  Varivar"
-        music       = "boom_boom_boom.music"
+        music       = "Boom_boom_boom.music"
         arena       = "no"
         screenshot  = "sshot-snowtuxpeak.jpg"
         maxKartCount = "10"
