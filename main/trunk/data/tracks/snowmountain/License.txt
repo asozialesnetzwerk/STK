@@ -1,3 +1,6 @@
+Track by Canis Lupus
+Converted by sj04736
+
 Reused with different colors from supertuxkart/data/textures:
 
 -snow2           (snow is the original)
@@ -23,5 +26,3 @@ Music made by Chris Leutwyler (Krobonil)
 winter sky textures (c) 2010 thomas oppl (toppl@fh-sbg.ac.at)
 licensed under CC BY-SA 3.0
 http://creativecommons.org/licenses/by-sa/3.0/
-
-Converted by sj04736

@@ -1,7 +1,5 @@
 The songs are released under GNU GPL, except :
 
-
-
 SkyVibe-HighFrequency.ogg
 --------------------
   Speedsound: CC-BY-SA v3.0
@@ -20,8 +18,7 @@ BradSucks-OutOfIt.ogg
 --------------------
   Brad Sucks: CC-SA v3.0
 
-CaribbeanMusic.ogg,
-another_caribbean_beat.ogg
+CaribbeanMusic.ogg
 ---------------------------
   Lukas Siewert, license: CC-SA v3.0
 
@@ -35,22 +32,14 @@ Boom_boom_boom.ogg
 
 kart_grand_prix.ogg
 Win Theme
+Lose Theme
 --------------------
   Weirwood, license: CC
-
-Lava_Lagoon_2.ogg, 
-Ethereal_Spectrum_(ver_loop).ogg
---------------------------------
-  Asha B., license: CC
 
 KingArthursCastle.ogg
 ---------------------
   Magne Djupvik, license: CC
 
-amazon_jungle.ogg,
-SwinginBeat.ogg
------------------
-  Atheal Washington, license: CC-SA v3.0
 
 TheDeadRocks-EasyJob.ogg
 TheDeadRocks-GreenSecretFromAmazonia.ogg
@@ -61,3 +50,8 @@ TheDeadRocks-OneMillionDollar.ogg
 dance_cleopatra.ogg
 ----------------
     ZamalSka, license: CC-BY-SA v3.0
+
+Symphony #5
+-----------
+    Daniel Bautista
+    license unknown (FIXME!!)

@@ -26,7 +26,7 @@ from wikipedia :
 -flower2    (http://commons.wikimedia.org/wiki/File:Cosmos_bipinnatus_06_ies.jpg,
              CC-BY-SA 3.0, by Frank Vincentz)
 -flower3    (http://commons.wikimedia.org/wiki/File:Aster_Tataricus.JPG,
-             CC-BY-SA 3.0 unported, by Pascalou petit)
+             CC-BY-SA 3.0 unported, by Pascalou Petit)
 -flower5    (http://commons.wikimedia.org/wiki/File:Avutil%C3%B3n_GDFL16.JPG,
              CC-BY-SA 3.0, by Luis Miguel Bugallo Sánchez)
 -flower6    (http://commons.wikimedia.org/wiki/File:Zephyranthes_candida2.jpg,
