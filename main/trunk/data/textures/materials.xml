@@ -27,6 +27,7 @@
   <material name="track2.jpg" anisotropic="Y" graphical-effect="smoke"/>
   <material name="trackborder.png"  light="N" collide="N" graphical-effect="smoke"/>
   <material name="chess.png"  collide="N" graphical-effect="smoke"/>
+  <material name="palmtree3.png"  transparency="Y"/>
   <material name="tinytux.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.8" light="N" ignore="Y" collide="N"/>
   <material name="butterfly.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.8" light="N" ignore="Y" collide="N"/>
   <material name="bananawrap.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.5" light="N" zipper="Y" collide="N"/>

@@ -2,7 +2,7 @@
 <!-- Generated with script from SVN rev 5794 -->
 <scene>
   <track model="islandtrack_track.b3d" x="0" y="0" z="0"/>
-  <water model="islandtrack_water.b3d" x="0" y="0" z="0"/>
+  <water model="islandtrack_water.b3d" x="0" y="0" z="0" height="0.6" speed="300"/>
   <sun  xyz="4.07624530792 5.90386199951 1.00545394421"/>
   <banana x="-63.806" y="25" z="-15.1555" />
   <banana x="-65.04808" y="25" z="-16.8498" />
