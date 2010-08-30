@@ -1,6 +1,4 @@
-<music>
-  <title    value="Penguin Party"    />
-  <!-- <enable-fast #t               /> -->
-  <composer value="Magne Djupvik"    />
-  <file     value="Penguin_Party.ogg"/>
-</music>
+<?xml version="1.0"?>
+<music title    = "Penguin Party" 
+       composer = "Magne Djupvik" 
+       file     = "Penguin_Party.ogg"/>

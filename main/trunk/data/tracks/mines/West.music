@@ -1,6 +1,5 @@
-<music>
-  <title    value="West"                        />
-  <composer value="Chris Leutwyler (Krobonil)"  />
-  <file     value="West.ogg"                    />
-</music>
+<?xml version="1.0"?>
+<music title    = "West"
+       composer = "Chris Leutwyler (Krobonil)"
+       file     = "West.ogg"                  />
 

@@ -1,5 +1,4 @@
-<music>
-  <title    value="MayDay Mayhem"       />
-  <composer value="Alessandro Bottura"  />
-  <file     value="MayDayMayhem.ogg"    />
-</music>
+<?xml version="1.0"?>
+<music title    = "MayDay Mayhem"
+       composer = "Alessandro Bottura"
+       file     = "MayDayMayhem.ogg"    />

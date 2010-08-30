@@ -1,6 +1,4 @@
-<music>
-  <title    value="Boom boom boom"    />
-  <!-- <enable-fast #t               /> -->
-  <composer value="Matt Thomas"       />
-  <file     value="Boom_boom_boom.ogg"/>
-</music>
+<?xml version="1.0"?>
+<music title    = "Boom boom boom"
+       composer = "Matt Thomas"
+       file     = "Boom_boom_boom.ogg"/>

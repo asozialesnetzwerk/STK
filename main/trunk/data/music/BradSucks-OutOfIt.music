@@ -1,7 +1,6 @@
-<music>
-  <title    value="Out of it"             />
-  <composer value="Brad Sucks"            />
-  <file     value="BradSucks-OutOfIt.ogg" />
-  <gain     value="0.8"                   />
-</music>
+<?xml version="1.0"?>
+<music title    = "Out of it"
+       composer = "Brad Sucks"
+       gain     = "0.8"
+       file     = "BradSucks-OutOfIt.ogg" />
 

@@ -1,5 +1,4 @@
-<music>
-  <title    value="Ethereal Spectrum"                />
-  <composer value="Asha B."                          />
-  <file     value="Ethereal_Spectrum.ogg" />
-</music>
+<?xml version="1.0"?>
+<music title    = "Ethereal Spectrum"
+       composer = "Asha B."
+       file     = "Ethereal_Spectrum.ogg" />

@@ -1,6 +1,5 @@
-<music>
-  <title    value="Win Theme"     />
-  <composer value="Weirwood"      />
-  <file     value="win_theme.ogg" />
-</music>
+<?xml version="1.0"?>
+<music title    = "Win Theme"
+       composer = "Weirwood"
+       file     = "win_theme.ogg" />
 

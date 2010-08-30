@@ -1,6 +1,5 @@
-<music>
-  <title    value="Snowy"                      />
-  <composer value="Chris Leutwyler (Krobonil)" />
-  <file     value="Snowy.ogg"                  />
-</music>
+<?xml version="1.0"?>
+<music title    = "Snowy"
+       composer = "Chris Leutwyler (Krobonil)"
+       file     = "Snowy.ogg"                  />
 

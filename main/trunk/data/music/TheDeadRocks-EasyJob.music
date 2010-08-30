@@ -1,6 +1,5 @@
-<music>
-  <title    value="EasyJob"                  />
-  <composer value="The Dead Rocks"           />
-  <file     value="TheDeadRocks-EasyJob.ogg" />
-</music>
+<?xml version="1.0"?>
+<music title    = "EasyJob"
+       composer = "The Dead Rocks"
+       file     = "TheDeadRocks-EasyJob.ogg" />
 

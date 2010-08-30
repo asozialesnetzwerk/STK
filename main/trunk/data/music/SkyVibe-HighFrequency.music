@@ -1,7 +1,6 @@
-<music>
-  <title    value="Sky Vibe - High Frequency" />
-  <composer value="Speedsound"                />
-  <file     value="SkyVibe-HighFrequency.ogg" />
-  <gain     value="0.5"                       />
-</music>
+<?xml version="1.0"?>
+<music title    = "Sky Vibe - High Frequency"
+       composer = "Speedsound"
+       gain     = "0.5"
+       file     = "SkyVibe-HighFrequency.ogg" />
 
