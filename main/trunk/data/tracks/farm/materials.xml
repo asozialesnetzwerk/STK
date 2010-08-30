@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<materials>
+    <material name="leave3.png" transparency="Y" ignore="Y" collide="N" light="N"/>
+    <material name="corn.png" light="N"/>
+    <material name="leaf.png" light="N"/>
+    <material name="tower.png" transparency="Y" anisotropic="Y" light="N"/>
+</materials>
