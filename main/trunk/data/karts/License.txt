@@ -5,4 +5,4 @@ MrIceBlock and Mozilla originally by (??) from original (Super)TuxKart teams, wi
 Animations by Rudy85
 
 Cartoonish character icons by Anthony Carré (yekcim), released under GPL 2
-except Mr Ice Block icon by Rudy85
+except Mr Ice Block icon by Rudy85, released under CC-BY-SA 3.0+

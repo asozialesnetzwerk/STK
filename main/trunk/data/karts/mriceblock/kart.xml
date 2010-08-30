@@ -3,6 +3,7 @@
       version     = "2"
       model-file  ="mriceblock.b3d"
       icon-file   ="mriceblockicon.png"
+      minimap-icon-file = "mriceblockicon.png"
       shadow-file ="mriceblockshadow.png"
       groups      ="standard"
       rgb         = "0.000000 0.870588 1.000000">
