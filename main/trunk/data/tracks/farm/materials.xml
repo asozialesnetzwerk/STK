@@ -4,4 +4,7 @@
     <material name="corn.png" light="N"/>
     <material name="leaf.png" light="N"/>
     <material name="tower.png" transparency="Y" anisotropic="Y" light="N"/>
+    <material name="trail2dust.jpg"  anisotropic="Y" clampU="Y"/>
+    <material name="trail2grass.jpg"  anisotropic="Y" clampU="Y"/>
+    <material name="trail2earth.jpg"  anisotropic="Y" clampU="Y"/>
 </materials>
