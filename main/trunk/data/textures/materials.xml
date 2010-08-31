@@ -62,8 +62,6 @@
   <material name="dirt.png"  collide="N"/>
   <material name="city_asphalt_1.png"  collide="N" anisotropic="Y" graphical-effect="smoke"/>
   <material name="city_checker.png"  collide="N" graphical-effect="smoke"/>
-  <material name="menu_background.png" clampU="Y" clampV="Y" alpha="1.0" light="N"/>
-  <material name="menu_background2.png" clampU="Y" clampV="Y" alpha="1.0" light="N"/>
   <material name="water-splash.png" alpha="Y" light="N" ignore="Y" collide="N"/>
   <material name="notes.png" transparency="Y"  light="N" collide="N"/>
   
