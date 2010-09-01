@@ -2,20 +2,10 @@
 <!-- Generated with script from SVN rev 5794 -->
 <scene>
   <track model="farm.track_track.b3d" x="0" y="0" z="0"/>
-  <object type="animation" model="mill.b3d" xyz="-83.088814 30.779150 -148.873718" hpr="0.000000 0.000000 0.000000" >
-    <curve channel="RotX" interpolation="bezier" extend="const">
-      <p c="1.000000 0.000000" h1="-8.369876 0.000000" h2="10.369876 0.000000"/>
-      <p c="25.000000 -0.000015" h1="15.630124 -0.000015" h2="34.760288 -0.000015"/>
-      <p c="50.000000 -0.000000" h1="40.239712 -0.000000" h2="59.760288 -0.000000"/>
-    </curve>
+  <object type="animation" model="mill.b3d" xyz="-83.088814 30.779150 -148.873718" hpr="0.000000 0.000000 -45.000001" >
     <curve channel="RotZ" interpolation="linear" extend="const">
       <p c="1.000000 -0.000000"/>
       <p c="50.000000 -360.000000"/>
-    </curve>
-    <curve channel="RotY" interpolation="bezier" extend="const">
-      <p c="1.000000 -45.000000" h1="-8.369876 -45.000000" h2="10.369876 -45.000000"/>
-      <p c="25.000000 -44.999967" h1="15.630124 -44.999967" h2="34.760288 -44.999967"/>
-      <p c="50.000000 -45.000000" h1="40.239712 -45.000000" h2="59.760288 -45.000000"/>
     </curve>
   </object>
   <object type="animation" model="wheat1.b3d" xyz="-85.610794 13.965518 -82.561195" hpr="0.000000 0.000000 0.000000" >
