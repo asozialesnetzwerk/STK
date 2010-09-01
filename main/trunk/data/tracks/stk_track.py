@@ -406,7 +406,17 @@ class TrackExport:
         # If the object was already exported, we don't have to do it again.
         if self.dExportedObjects.has_key(name): return name
 
-        oldLoc = obj.loc.copy()
+        # It looks like not all blender versions have loc.copy, e.g. 2.49b
+        # uses a simple tuple. So to accomodate all blender versions, try
+        # both statements.
+        try:
+            oldLoc = obj.loc.copy()
+        except AttributeErrpr:
+            oldLoc = obj.lco
+
+        # obj.rot is apparently a pointer only, so to actually save the
+        # value we have to create a copy (otherwise obj.rot=(0,0,0) will
+        # overwrite the value saved in oldRot).
         oldRot = obj.rot.copy()
         obj.loc=(0,0,0)
         obj.rot=(0,0,0)
