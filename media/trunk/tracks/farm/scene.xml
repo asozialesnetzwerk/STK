@@ -18,6 +18,14 @@
       <p c="50.000000 -45.000000" h1="40.239712 -45.000000" h2="59.760288 -45.000000"/>
     </curve>
   </object>
+  <object type="animation" model="wheat1.b3d" xyz="-85.610794 13.965518 -82.561195" hpr="0.000000 0.000000 0.000000" >
+  </object>
+  <object type="animation" model="wheat2.b3d" xyz="-83.426178 14.351531 -68.808975" hpr="0.000000 0.000000 0.000000" >
+  </object>
+  <object type="animation" model="wheat3.b3d" xyz="-91.940201 15.399735 -76.945023" hpr="0.000000 0.000000 0.000000" >
+  </object>
+  <object type="animation" model="wheat4.b3d" xyz="-86.629890 15.147909 -67.020302" hpr="0.000000 0.000000 0.000000" >
+  </object>
   <checks>
     <check-line kind="lap" p1="-4.182743 0.996490" p2="4.864685 0.996490" min-height="-0.484758"/>
   </checks>
