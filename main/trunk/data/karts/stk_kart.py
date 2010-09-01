@@ -351,11 +351,11 @@ def exportKart():
     if not kart_group.val:    kart_group.var    = "default"
         
     f = open(Blender.sys.join(path,"kart.xml"), 'wb')    
+    f.write('<?xml version="1.0"?>\n')
     f.write('<!-- Generated with script from SVN rev %s -->\n'\
             % getScriptVersion())
     rgb = (0.7, 0.0, 0.0)
     model_file = kart_name_string+".b3d"
-    f.write('<?xml version="1.0"?>\n')
     f.write('<kart name              = "%s"\n' % kart_name_string)
     f.write('      version           = "2"\n' )
     f.write('      model-file        = "%s"\n' % model_file)
