@@ -406,8 +406,8 @@ class TrackExport:
         # If the object was already exported, we don't have to do it again.
         if self.dExportedObjects.has_key(name): return name
 
-        oldLoc = obj.loc
-        oldRot = obj.rot
+        oldLoc = obj.loc.copy()
+        oldRot = obj.rot.copy()
         obj.loc=(0,0,0)
         obj.rot=(0,0,0)
         b3d_export.write_b3d_file(sPath+"/"+name, [obj])
