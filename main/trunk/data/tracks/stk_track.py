@@ -411,8 +411,8 @@ class TrackExport:
         # both statements.
         try:
             oldLoc = obj.loc.copy()
-        except AttributeErrpr:
-            oldLoc = obj.lco
+        except AttributeError:
+            oldLoc = obj.loc
 
         # obj.rot is apparently a pointer only, so to actually save the
         # value we have to create a copy (otherwise obj.rot=(0,0,0) will
