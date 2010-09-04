@@ -61,7 +61,9 @@ Under Creative Commons Attribution Share-Alike (CC-BY-SA) - http://creativecommo
     created by Andreas Bilng (c) 2008, with Tuxicon by Enrico Billing (c) 2008
     released under Creative Commons Attribution-Share Alike 3.0 Germany [http://creativecommons.org/licenses/by-sa/3.0/de/deed.en]
  
- 
+* icon_frame
+    by jmimu
+    released under CC-BY-SA 3.0
  
 Other licenses :
 
@@ -74,7 +76,6 @@ Other licenses :
 
 * cottage_wall1.jpg, cottage_wall2.jpg, cottage_wall3.jpg and wood_planks1.png
     are textures from burningwell.org (public domain) modified by Varivar
-
 
 ============================================================
 Credits for GPL textures :
