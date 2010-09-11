@@ -1,0 +1,10 @@
+Konqi character, colormap.jpg, hanky.tga
+by basse <basse@kimppu.org | www.kimppu.org/basse>
+With modifications by Marianne Gagnon
+Released under Gnu LGPL
+
+Kart by Christian Framing
+released under Gnu GPL
+
+KDE logo copyright the KDE project
+released under the Gnu GPL
