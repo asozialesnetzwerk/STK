@@ -8,15 +8,12 @@
       <p c="50.000000 -360.000000"/>
     </curve>
   </object>
-  <object type="animation" model="wheat1.b3d" xyz="-85.610794 13.965518 -82.561195" hpr="0.000000 0.000000 0.000000" >
-  </object>
-  <object type="animation" model="wheat2.b3d" xyz="-83.426178 14.351531 -68.808975" hpr="0.000000 0.000000 0.000000" >
-  </object>
-  <object type="animation" model="wheat3.b3d" xyz="-91.940201 15.399735 -76.945023" hpr="0.000000 0.000000 0.000000" >
-  </object>
-  <object type="animation" model="wheat4.b3d" xyz="-86.629890 15.147909 -67.020302" hpr="0.000000 0.000000 0.000000" >
-  </object>
   <checks>
     <check-line kind="lap" p1="-4.182743 0.996490" p2="4.864685 0.996490" min-height="-0.484758"/>
+    <check-line kind="activate" other-id="2" p1="123.170853 48.423241" p2="167.902145 93.771233"
+                min-height="1.519206"/>
+    <check-line kind="activate" other-id="0" p1="65.868614 -162.537109" p2="49.311569 -122.742737"
+                min-height="6.842358"/>
   </checks>
+  <sky-box texture="farm_cube5.png farm_cube5.png farm_cube3.png farm_cube1.png farm_cube2.png farm_cube4.png"/>
 </scene>
