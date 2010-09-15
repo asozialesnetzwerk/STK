@@ -34,5 +34,11 @@ namespace SQL
     {
         return mysql_fetch_array($sql_query);
     }
+    function update($table, $property_select, $value_select, $property_change, $new_value)
+    {
+        return mysql_query("UPDATE `".DB_NAME."`.`".DB_PREFIX.$table."`
+                            SET `$property_change` =  '$new_value'
+                            WHERE `".DB_PREFIX.$table."`.`$property_select` = $value_select;") or die(mysql_error());
+    }
 }
 ?>

@@ -30,12 +30,25 @@ class User
     function SelectById($id)
     {
         $this->sql_query = \SQL\getAllFromTableWhere("users", "id", $id);
-        return $this->user = \SQL\nextItem($this->sql_query);
+        $succes = true;
+        if(!$this->user = \SQL\nextItem($this->sql_query))
+            $succes = false;
+        if($succes)
+            $this->UpdateStatus();
+        return $succes;
     }
     function SelectByName($id)
     {
         $this->sql_query = \SQL\getAllFromTableWhere("users", "login", $id);
-        return $this->user = \SQL\nextItem($this->sql_query);
+        $succes = $this->user = \SQL\nextItem($this->sql_query);
+        if($succes)
+            $this->UpdateStatus();
+        return $succes;
+    }
+    function UpdateStatus()
+    {
+        global $status, $status_index;
+        $this->status = $status[$status_index[$this->GetRange()]];
     }
     function GetName()
     {
@@ -47,6 +60,15 @@ class User
     }
     function GetRange()
     {
+        return $this->user['range'];
+    }
+    function SetRange($range)
+    {
+        global $status, $status_index, $USER;
+        if($USER->status[$status_index[$this->GetRange()] + 1] && $USER->status[$status_index[$range] + 1])
+            \SQL\update("users", "id", $this->GetId(), "range", $range);
+        else
+            echo "Security fail...";
         return $this->user['range'];
     }
     function GetDescription()

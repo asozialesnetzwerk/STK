@@ -5,7 +5,7 @@
     <?php if($logged)
     { ?>
         <a class="main_link" href="index.php?go=login&amp;action=logout"><?php echo _("Log out"); ?></a>
-        <span class="main_link"><?php if($logged) echo $user->GetLogin(); ?></span>
+        <span class="main_link"><?php if($logged) echo $USER->GetLogin(); ?></span>
     <?php
     }
     else
