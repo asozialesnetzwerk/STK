@@ -1,6 +1,10 @@
-Model by to Ville Seppanen and Marianne Gagnon
+Race track model by Ville Seppanen, scenery by Marianne Gagnon
     released under Creative Commons BY-SA 3.0
     (http://creativecommons.org/licenses/by/3.0/)
+
+Goat skull model and aoMapGoatv3.jpg based on work by brenner,
+    released under CC-BY 3.0
+    with modifications to the model by Marianne Gagnon
 
 Well model and well texture by Sean Greene (Iconoclast)
     released under public domain
