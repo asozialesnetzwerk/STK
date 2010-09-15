@@ -1,0 +1,6 @@
+form {
+text-align:left;
+}
+input[type="text"],textarea {
+width:50%;
+}

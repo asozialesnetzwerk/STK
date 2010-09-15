@@ -35,6 +35,11 @@ elseif(get("go") == "login")
     $css = "login.css";
     require ROOT."include/page/login.php";
 }
+elseif(get("go") == "upload")
+{
+    $css = "upload.css";
+    require ROOT."include/page/upload.php";
+}
 elseif(get("go") == "user")
 {
     $css = "user.css";
