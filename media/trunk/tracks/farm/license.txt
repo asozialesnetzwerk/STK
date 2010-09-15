@@ -9,6 +9,10 @@ Goat skull model and aoMapGoatv3.jpg based on work by brenner,
 Well model and well texture by Sean Greene (Iconoclast)
     released under public domain
 
+Horse model based on work by Alex (waylow)
+    with modifications by Marianne Gagnon
+    released under CC-BY 3.0 (http://opengameart.org/content/blender-horse-rig-alex)
+
 corn.png
     based on image by Jonathunder with modifications by Marianne Gagnon
     CC-BY-SA 3 unported
@@ -32,3 +36,14 @@ gnarly tools and gnarly tool texture by Clint Bellanger
 
 Wheat picture by Tarquin
     Released under CC-BY-SA 3.0 Unported
+
+tail.png by Marianne Gagnon
+based on picture by "Girls hair"
+released under CC-BY-SA 3.0
+
+horse.png by Marianne Gagnon
+released under CC-BY-SA 3.0
+incorporting elements from pictures
+    WelshPonySectionD.jpg and WelshPonySectonB.jpg
+    by Hü
+    both released under CC-BY-SA 3.0
