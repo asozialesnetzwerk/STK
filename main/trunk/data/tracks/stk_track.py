@@ -988,8 +988,28 @@ class TrackExport:
             f.write("  <start %s/>\n"%getXYZHString(dId2Obj[i]))
                 
     # --------------------------------------------------------------------------
+    # Writes all special water nodes.
+    def writeWaterNodes(self, f, sPath, lWater):
+        start_time = bsys.time()
+        print "Exporting water -->",
+        for obj in lWater:
+            name     = getProperty(obj, "name",   obj.name )
+            height   = getProperty(obj, "height", None     )
+            speed    = getProperty(obj, "speed",  None     )
+            length   = getProperty(obj, "length", None     )
+            b3d_name = self.exportLocalB3D(obj, sPath, name)
+            s="  <water model=\"%s\" %s" % \
+                (b3d_name, getXYZHPRString(obj))
+            if height: s="%s height=\"%s\""%(s, height)
+            if speed:  s="%s speed=\"%s\"" %(s, speed )
+            if length: s="%s length=\"%s\""%(s, length)
+            f.write("%s/>\n" % s);
+
+        print bsys.time()-start_time,"seconds."
+        
+    # --------------------------------------------------------------------------
     # Writes the scene files, which includes all models, animations, and items
-    def writeSceneFile(self, sPath, sTrackName, sWaterName, lTrack, lItems,
+    def writeSceneFile(self, sPath, sTrackName, lWater, lTrack, lItems,
                        lObjects, lChecks, lSun, lMainDriveline, lStart,
                        lEndCameras, lCameraCurves):
 
@@ -1026,10 +1046,8 @@ class TrackExport:
         else:
             f.write("  <track model=\"%s\" x=\"0\" y=\"0\" z=\"0\"/>\n"%sTrackName)
             
-        if sWaterName:
-            f.write("  <water model=\"%s\" x=\"0\" y=\"0\" z=\"0\"/>\n""" \
-                    % sWaterName)
-
+        self.writeWaterNodes(f, sPath, lWater)
+        
         for obj in lOtherObjects:
             self.writeObject(f, sPath, obj)
         
@@ -1283,19 +1301,12 @@ class TrackExport:
         sTrackName = sBase+"_track.b3d"
         b3d_export.write_b3d_file(sFilename+"_track.b3d", lTrack)
         print bsys.time()-start_time,"seconds."
-        sWaterName = ""
-        if lWater:
-            start_time=bsys.time()
-            sWaterName = sBase+"_water.b3d"
-            print "Exporting water -->",
-            b3d_export.write_b3d_file(sFilename+"_water.b3d", lWater)
-            print bsys.time()-start_time,"seconds."
     
         # scene file
         # ----------
         if len(lDrivelines)==0:
             lDrivelines=[None]
-        self.writeSceneFile(sPath, sTrackName, sWaterName, lTrack, lItems,
+        self.writeSceneFile(sPath, sTrackName, lWater, lTrack, lItems,
                             lObjects, lChecks, lSun, lDrivelines[0],
                             lStart, lEndCameras, lCameraCurves)
         print "Finished."
@@ -1321,7 +1332,7 @@ def savescene_callback(sFilename):
 
 # ==============================================================================
 def main():
-    tmp_filename = Blender.sys.makename(ext = ".track")
+    tmp_filename = Blender.sys.makename(ext = "")
     Blender.Window.FileSelector(savescene_callback,"Export STK track",tmp_filename)
 
 if __name__ == "__main__":
