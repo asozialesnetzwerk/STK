@@ -602,11 +602,11 @@ class TrackExport:
         lCamerasDistance = []
         for i in range(len(lEndCameras)):
             cam = lEndCameras[i]
-            (distance, driveline_index, quad_index) = \
+            (distance, driveline_index, quad_index_camera) = \
                        lSorted[0].getDistanceTo(cam.loc, lSorted)
             # Each list contains the index of the closest quad, the
             # distance, and then the camera
-            lEndCameras[i] = (driveline_index, quad_index, cam)
+            lEndCameras[i] = (driveline_index, quad_index_camera, cam)
             
         lEndCameras.sort()
         # After sorting remove the unnecessary distance and quad index
