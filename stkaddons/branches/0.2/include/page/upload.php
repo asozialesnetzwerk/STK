@@ -53,7 +53,8 @@ along with stkaddons.  If not, see <http://www.gnu.org/licenses/>.
         }
         else
         {
-        
+            SQL\insert("addons", array('user', 'name', 'description',
+                       'type'), array($USER->GetId(), post("name"), post("description"), $type));
         }
     }
     else

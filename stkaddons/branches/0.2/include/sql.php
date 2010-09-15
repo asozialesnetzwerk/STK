@@ -40,5 +40,34 @@ namespace SQL
                             SET `$property_change` =  '$new_value'
                             WHERE `".DB_PREFIX.$table."`.`$property_select` = $value_select;") or die(mysql_error());
     }
+    function insert($table, $properties, $values)
+    {
+        $field = "";
+        $first= true;
+        foreach($properties as $propertie)
+        {
+            if(!$first)
+            {
+                $field .= ", ";
+            }
+            $field .= "`$propertie`";
+            $first = false;
+        }
+        $first= true;
+        $field_ = "";
+        foreach($values as $value)
+        {
+            if(!$first)
+            {
+                $field_ .= ", ";
+            }
+            $field_ .= "'$value'";
+            $first = false;
+        }
+        $req = "INSERT INTO `".DB_NAME."`.`".DB_PREFIX.$table."` (
+                            $field) VALUES($field_)";
+        echo $req;
+        return mysql_query($req) or die(mysql_error());
+    }
 }
 ?>
