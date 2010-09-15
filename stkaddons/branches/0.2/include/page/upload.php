@@ -39,13 +39,13 @@ along with stkaddons.  If not, see <http://www.gnu.org/licenses/>.
         if(get("action") != "valid")
         {
             ?>
-            <form action="index.php?go=upload&amp;type=<?=$type?>&amp;action=valid" method="POST">
+            <form action="index.php?go=upload&amp;type=<?=$type?>&amp;action=valid" method="POST"  enctype="multipart/form-data">
                 <input type="text" name="name" value="<?=_("Name of the addons, it must be in english.")?>"/>
                 <br />
                 <textarea name="description"><?=_("Description of the addons, it must be in english.")?></textarea>
                 <br />
                 <label>File: </label>
-                <input type="file" name="file"/>
+                <input type="file" name="file" id="file"/>
                 <br/>
                 <input type="submit"/>
             </form>
@@ -55,6 +55,21 @@ along with stkaddons.  If not, see <http://www.gnu.org/licenses/>.
         {
             SQL\insert("addons", array('user', 'name', 'description',
                        'type'), array($USER->GetId(), post("name"), post("description"), $type));
+            if(isset($_FILES['file']))
+                echo "a";
+            if (isset($_FILES['file']) &&
+                $_FILES['file']['type'] == "application/zip") {
+                move_uploaded_file($_FILES['file']['tmp_name'],
+                                   DOWNLOAD_PATH."/".post("name").".zip");
+            }
+            else
+            {
+                ?>
+                <span class="error upload_error">
+                <?=_("Please re-upload your file. It must be a .zip.")?>
+                </span>
+                <?php
+            }
         }
     }
     else

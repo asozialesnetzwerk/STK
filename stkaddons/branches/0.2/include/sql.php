@@ -66,7 +66,6 @@ namespace SQL
         }
         $req = "INSERT INTO `".DB_NAME."`.`".DB_PREFIX.$table."` (
                             $field) VALUES($field_)";
-        echo $req;
         return mysql_query($req) or die(mysql_error());
     }
 }
