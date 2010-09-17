@@ -8,5 +8,5 @@
   <material name="sandgrass.jpg" graphical-effect="smoke"/>
   <material name="sea.jpg" graphical-effect="water"/>
   <material name="light.png" clampU="Y" clampV="Y" alpha="Y" light="N" collide="N"/>
-  <!-- FIXME: sea.jpg should of course trigger a reset -->
+  <material name="sea.jpg" reset="y"/>
 </materials>
