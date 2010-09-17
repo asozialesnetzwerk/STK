@@ -11,4 +11,5 @@
   <material name="canyon_boards.png" alpha="N" light="Y" />
   <material name="canyon_dirt_road.png" anisotropic="Y" graphical-effect="smoke"/>
   <material name="canyon_ground.png" anisotropic="Y" />
+  <material name="transparence.png" alpha="Y" transparency="N" light="N" reset="Y" />
 </materials>
