@@ -20,8 +20,9 @@ Selfmade parts and under GPL and CC-BY-SA, by Canis Lupus :
 
 from burningwell (released under public domain) :
 - flower1
+- Bleech
 
-from wikipedia :
+from wikimedia :
 
 -flower2    (http://commons.wikimedia.org/wiki/File:Cosmos_bipinnatus_06_ies.jpg,
              CC-BY-SA 3.0, by Frank Vincentz)
@@ -49,6 +50,14 @@ from wikipedia :
 
 - TiZeta_barkM (http://commons.wikimedia.org/wiki/File:Apple_box_bark.jpg,
                 CC-BY-SA 3.0, by Benjamint444)
+                
+- Greenhouse-Palm-jubaea01
+    based on image by Forest & Kim Starr, with modifications by Marianne Gagnon
+    Released under CC-BY 3.0
+
+- Palm-arecaceae 
+    based on image by José Reynaldo da Fonseca, with modifications by Marianne Gagnon
+    Released under CC-BY-SA 3
 
 from http://www.marcchehab.org/frozenmist/index.php under CC Attribution 2.0
 some with modifications by Canis Lupus
@@ -60,10 +69,7 @@ some with modifications by Canis Lupus
 from http://blender-archi.tuxfamily.org/Textures 
 
 -Rose                      CC-BY 2.5
--Greenhouse-Palm-jubaea01  CC-BY 2.5
 -Mossy_wall                CC-BY 2.5
--Palm-arecaceae            CC-BY 2.5
--Sky_horiz_17              CC-BY-NC-SA 2.5
 -Sophora                   GPL
 -Toptree-palm03            CC-BY 2.5
 

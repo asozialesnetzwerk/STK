@@ -37,7 +37,7 @@ Under Creative Commons Attribution Share-Alike (CC-BY-SA) - http://creativecommo
 
 * bowling, plunger, cake, bubblegum, flaring-star, nitro-tank, nitro-metal, chest,
   gift-box, gift-loop, tank-cyan, tank-blue, tank-green, plunger-icon, bubblegum-icon, cake-icon,
-  bowling-icon, tnt-bomb, nitro-particle, smoke, anchor, anchor-icon, sand2, explode
+  bowling-icon, tnt-bomb, nitro-particle, smoke, anchor, anchor-icon, sand2, explode, sky2
     created by MiniBjorn (c) 2008
 
 * plungerface
