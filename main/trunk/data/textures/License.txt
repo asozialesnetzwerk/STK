@@ -87,7 +87,8 @@ Credits for GPL textures :
 * snowyrock
     are taken from Extreme Tux Racer game (http://extremetuxracer.com/)
 
-* mossy_stone and obelisk
+* mossy_stone and obelisk, bush2
+
     are from the http://www.titusgames.de GLEST jungle set
 
 * explosion

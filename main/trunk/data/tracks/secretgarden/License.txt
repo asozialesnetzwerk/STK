@@ -18,10 +18,12 @@ Selfmade parts and under GPL and CC-BY-SA, by Canis Lupus :
 - pot
 - pumkin
 
-from burningwell (released under public domain) :
+Based on pictrues from from burningwell (released under public domain) :
 - flower1
 - Bleech
 - leave2
+- Tizeta_grey1.png
+- Mossy_wall
 
 from wikimedia :
 
@@ -60,18 +62,10 @@ from wikimedia :
     based on image by José Reynaldo da Fonseca, with modifications by Marianne Gagnon
     Released under CC-BY-SA 3
 
-from http://www.marcchehab.org/frozenmist/index.php under CC Attribution 2.0
-some with modifications by Canis Lupus
-
--Tizeta_grey1
-
-
 from http://blender-archi.tuxfamily.org/Textures 
 
 -Rose                      CC-BY 2.5
--Mossy_wall                CC-BY 2.5
 -Sophora                   GPL
--Toptree-palm03            CC-BY 2.5
 
 
 from DJHelium:
