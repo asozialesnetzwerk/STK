@@ -21,6 +21,7 @@ Selfmade parts and under GPL and CC-BY-SA, by Canis Lupus :
 from burningwell (released under public domain) :
 - flower1
 - Bleech
+- leave2
 
 from wikimedia :
 
@@ -63,7 +64,6 @@ from http://www.marcchehab.org/frozenmist/index.php under CC Attribution 2.0
 some with modifications by Canis Lupus
 
 -Tizeta_grey1
--leave2
 
 
 from http://blender-archi.tuxfamily.org/Textures 
