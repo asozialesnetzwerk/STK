@@ -61,10 +61,13 @@ from wikimedia :
 - Palm-arecaceae 
     based on image by José Reynaldo da Fonseca, with modifications by Marianne Gagnon
     Released under CC-BY-SA 3
+    
+    
+from http://yorik.uncreated.net/greenhouse.html
+-Rose                      CC-BY 3.0
+
 
 from http://blender-archi.tuxfamily.org/Textures 
-
--Rose                      CC-BY 2.5
 -Sophora                   GPL
 
 
