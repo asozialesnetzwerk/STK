@@ -86,7 +86,7 @@ along with stkaddons.  If not, see <http://www.gnu.org/licenses/>.
     {
         ?>
         <a href="index.php?go=upload&amp;type=tracks">Upload a track.</a><br />
-        <a href="index.php?go=upload&amp;type=kart">Upload a kart.</a>
+        <a href="index.php?go=upload&amp;type=karts">Upload a kart.</a>
         <?php
     }
     require ROOT."include/footer.php";
