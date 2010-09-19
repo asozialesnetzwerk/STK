@@ -1,20 +1,28 @@
 <?xml version="1.0"?>
-<kart name        = "Nolok"
-      version     = "2"
-      model-file  = "nolok.b3d"
-      icon-file   = "nolokicon.png"
-      minimap-icon-file   = "nolokicon.png"
-      shadow-file = "nolokshadow.png"
-      groups      = "standard"
-      rgb         = "0.121568 0.172549 0.054901" >
+<!-- Generated with script from SVN rev 0.1 -->
+<kart name              = "Nolok"
+      version           = "2"
+      model-file        = "Nolok.b3d"
+      icon-file         = "nolokicon.png"
+      minimap-icon-file = "nolokicon.png"
+      shadow-file       = "nolokshadow.png"
+      groups            = "standard"
+      rgb               = "0.12 0.17 0.05" >
+  <animations left = "1"
+              straight = "21"
+              right = "41"
+              start-winning = "81"
+              end-winning = "309"
+              start-losing = "387"
+              end-losing = "567"/>
   <wheels>
-    <front-right position = "0.192059 0.113489 0.443191"
+    <front-left position = "-0.191663 0.113000 0.431415"
+                 model    = "wheel-front-left.b3d"       />
+    <front-right position = "0.192337 0.113000 0.433317"
                  model    = "wheel-front-right.b3d"       />
-    <front-left  position = "-0.192059 0.113489 0.443191"
-                 model    = "wheel-front-left.b3d"        />
-    <rear-right  position = "0.195518 0.145934 -0.415114"
-                 model    = "wheel-rear-right.b3d"        />
-    <rear-left   position = "-0.195518 0.145934 -0.415114"
-                 model    = "wheel-rear-left.b3d"         />
+    <rear-left position = "-0.195663 0.146000 -0.421683"
+                 model    = "wheel-rear-left.b3d"       />
+    <rear-right position = "0.195337 0.146000 -0.424683"
+                 model    = "wheel-rear-right.b3d"       />
   </wheels>
 </kart>
