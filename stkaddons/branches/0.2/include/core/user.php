@@ -66,10 +66,29 @@ class User
     {
         global $status, $status_index, $USER;
         if($USER->status[$status_index[$this->GetRange()] + 1] && $USER->status[$status_index[$range] + 1])
+        {
             \SQL\update("users", "id", $this->GetId(), "range", $range);
+            return true;
+        }
         else
+        {
             echo "Security fail...";
-        return $this->user['range'];
+            return false;
+        }
+    }
+    function SetName($name)
+    {
+        global $status, $status_index, $USER;
+        if($USER->status[$status_index[$this->GetRange()] + 1])
+        {
+            \SQL\update("users", "id", $this->GetId(), "login", $name);
+            return true;
+        }
+        else
+        {
+            echo "Security fail...";
+            return false;
+        }
     }
     function GetDescription()
     {
@@ -92,14 +111,14 @@ class User
         global $status;
         $test_users = "";
         $test_users .= "<span class=\"usersview_info\">"._("Name:")."</span> ".$this->GetName();
-        $test_users .= addEdit("input", "Name");
+        $test_users .= addEdit("input", "&amp;action=username&amp;id=".$this->GetId());
         $test_users .= "<span class=\"usersview_info\">"._("Status:")."</span> ".$this->GetRange();
         $option_status = "";
         foreach($status as $statu)
         {
             $option_status .= "<option value=\'".$statu[0]."\'>".$statu[0]."</option>";
         }
-        $test_users .= addEdit("select", "Status", $option_status);
+        $test_users .= addEdit("select", "&amp;action=status&amp;id=".$this->GetId(), $option_status);
         return $test_users;
     }
 }

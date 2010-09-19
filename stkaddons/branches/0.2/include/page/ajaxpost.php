@@ -17,43 +17,20 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with stkaddons.  If not, see <http://www.gnu.org/licenses/>.
 */
-session_start();
-
-define("ROOT", "./");
-require ROOT."include/include.php";
-if(!isset($_GET['go']) or $_GET['go'] == "index")
+$title = "Redirecting...";
+require ROOT."include/header.php";
+if(get("action") == "status")
 {
-    require ROOT."include/page/index.php";
+    $user = new User();
+    $user->SelectById(get("id"));
+    $user->SetRange(post("option_input"));
 }
-elseif($_GET['go'] == "addons-view")
+elseif(get("action") == "username")
 {
-    $css = "addons-view.css";
-    require ROOT."include/page/addons-view.php";
+    $user = new User();
+    $user->SelectById(get("id"));
+    $user->SetName(post("option_input"));
 }
-elseif(get("go") == "login")
-{
-    $css = "login.css";
-    require ROOT."include/page/login.php";
-}
-elseif(get("go") == "upload")
-{
-    $css = "upload.css";
-    require ROOT."include/page/upload.php";
-}
-elseif(get("go") == "user")
-{
-    $css = "user.css";
-    require ROOT."include/page/user.php";
-}
-elseif(get("go") == "ajaxpost")
-{
-    $css = "ajax.css";
-    require ROOT."include/page/ajaxpost.php";
-}
-else
-{
-    ?>
-    No page named <?php echo $_GET['go'];?>.
-    <?php
-}
+echo _("Redirecting...");
+require ROOT."include/footer.php";
 ?>
