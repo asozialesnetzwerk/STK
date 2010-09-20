@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 5842 -->
+<scene>
+  <track model="olivermath.track_track.b3d" x="0" y="0" z="0"/>
+  <checks>
+    <check-line kind="lap" p1="-18.216984 0.184668" p2="-6.676145 -0.173945" min-height="0.770338"/>
+  </checks>
+</scene>
