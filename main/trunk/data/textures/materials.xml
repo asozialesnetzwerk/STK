@@ -21,7 +21,7 @@
   <material name="starparticle.png" clampU="Y" clampV="Y" alpha="Y" collide="N" ignore="Y" light="N"/>
   <material name="pyramidwall.png"  collide="N"/>
   <material name="lava.png"  light="N" reset="Y"/>
-  <material name="metalgrid.png" transparency="Y" alpha="0.3" collide="N"/>
+  <material name="metalgrid.png" transparency="Y" anisotropic="N" />
   <material name="roadway.png" clampU="Y"  collide="N" anisotropic="Y" graphical-effect="smoke"/>
   <material name="track.png"  anisotropic="Y" graphical-effect="smoke"/>
   <material name="track2.jpg" anisotropic="Y" graphical-effect="smoke"/>

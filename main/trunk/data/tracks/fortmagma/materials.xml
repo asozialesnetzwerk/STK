@@ -2,5 +2,5 @@
 <materials>
   <material name="metalgrid.png" transparency="Y"/>
   <material name="tinytux.png" transparency="Y" />
-  <material name="railing.png" transparency="Y"/>
+  <material name="lava_sky.png" light="N"/>
 </materials>
