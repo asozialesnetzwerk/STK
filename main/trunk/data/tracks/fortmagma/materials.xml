@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<materials>
+  <material name="metalgrid.png" transparency="Y"/>
+  <material name="tinytux.png" transparency="Y" />
+  <material name="railing.png" transparency="Y"/>
+</materials>
