@@ -36,11 +36,6 @@ Lose Theme
 --------------------
   Weirwood, license: CC
 
-KingArthursCastle.ogg
----------------------
-  Magne Djupvik, license: CC
-
-
 TheDeadRocks-EasyJob.ogg
 TheDeadRocks-GreenSecretFromAmazonia.ogg
 TheDeadRocks-OneMillionDollar.ogg
@@ -54,4 +49,4 @@ dance_cleopatra.ogg
 Symphony #5
 -----------
     Daniel Bautista
-    license unknown (FIXME!!)
+    license : CC-BY-SA 3.0
