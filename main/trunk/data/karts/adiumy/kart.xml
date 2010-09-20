@@ -4,12 +4,11 @@
       version           = "2"
       model-file        = "Adiumy.b3d"
       icon-file         = "adiumyicon.png"
-      minimap-icon-file = "adiumyicon.png"
+      minimap-icon-file = "adiumy_map_icon.png"
       shadow-file       = "adiumyshadow.png"
       groups            = "standard"
       rgb               = "0.7 0 0" >
   <animations left = "1"
-              straight = "21"
               right = "41"
               start-winning = "79"
               end-winning = "200"
