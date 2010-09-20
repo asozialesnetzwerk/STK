@@ -1,7 +1,10 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 6016 -->
+<!-- Generated with script from SVN rev 5842 -->
 <scene>
-  <track model="fortmagma_track.b3d" x="0" y="0" z="0"/>
+  <track model="fortmagma.track_track.b3d" x="0" y="0" z="0">
+    <animated-texture name="lava.png" dy="-0.1" />
+  </track>
+  <water model="fortmagma.track_water.b3d" x="0" y="0" z="0" height="0.4"/>
   <item x="-5.570633" y="33.117607" z="-65.356911" />
   <item x="-5.570633" y="33.117607" z="-61.829285" />
   <item x="-38.388222" y="33.117607" z="-32.218632" />
@@ -33,7 +36,7 @@
   <zipper.ac x="-52.397594" y="-6.445836" z="-120.537079" h="-151.515032" />
   <checks>
     <check-line kind="lap" p1="-6.113352 0.049641" p2="8.723804 -0.323090" min-height="-1.445602"/>
-    <check-line kind="activate" other-id="0" p1="-34.399113 -148.110489" p2="-31.002945 -144.351990"
-                min-height="-3.029227"/>
+    <check-line kind="activate" other-id="0" p1="-35.812012 -149.674133" p2="-29.590048 -142.788361"
+                min-height="-3.498075"/>
   </checks>
 </scene>
