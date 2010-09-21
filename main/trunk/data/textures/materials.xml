@@ -8,7 +8,7 @@
   <material name="grass.jpg"  collide="N" maxSpeed="0.6" slowdownTime="4" anisotropic="Y"/>
   <material name="chrome.png"  light="N" sphere="Y" collide="N"/>
   <material name="chrome2.png"  light="N" sphere="Y" collide="N"/>
-  <material name="railing.png" clampV="Y" transparency="Y" alpha="0.5" collide="N"/>
+  <material name="railing.png" transparency="Y"/>
   <material name="wood.jpg" collide="N" anisotropic="Y"/>
   <material name="concrete.png" />
   <material name="brick.png" />
