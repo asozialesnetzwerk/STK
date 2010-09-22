@@ -1,20 +1,29 @@
-<?xml version="1.0"?>
 <!-- Generated with script from SVN rev 0.1 -->
-<kart name              = "Gnu"
+<?xml version="1.0"?>
+<kart name              = "gnu"
       version           = "2"
       model-file        = "gnu.b3d"
       icon-file         = "gnuicon.png"
       minimap-icon-file = "gnuicon.png"
       shadow-file       = "gnushadow.png"
       groups            = "special"
-      rgb               = "1.0 0.964 0" >
-  <center gravity-shift="0 0.7 0"/>
+      rgb               = "1.0 0.75 0" >
   <animations left = "1"
               straight = "21"
               right = "41"
               start-winning = "80"
-              end-winning = "260"
-              start-losing = "299"
-              start-losing-loop = "437"
-              end-losing = "443"/>
+              end-winning = "297"
+              start-losing = "336"
+              start-losing-loop = "474"
+              end-losing = "480"/>
+  <wheels>
+    <front-left position = "-0.341409 0.091740 0.497397"
+                 model    = "wheel-front-left.b3d"       />
+    <front-right position = "0.350238 0.091740 0.497397"
+                 model    = "wheel-front-right.b3d"       />
+    <rear-left position = "-0.395384 0.133876 -0.370841"
+                 model    = "wheel-rear-left.b3d"       />
+    <rear-right position = "0.398184 0.133876 -0.370841"
+                 model    = "wheel-rear-right.b3d"       />
+  </wheels>
 </kart>
