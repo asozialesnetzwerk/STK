@@ -2,9 +2,9 @@
 <!-- Generated with script from SVN rev 5842 -->
 <scene>
   <track model="fortmagma.track_track.b3d" x="0" y="0" z="0">
-    <animated-texture name="lava.png" dy="-0.1" />
+    <animated-texture name="lava.png" dy="-0.1"/>
   </track>
-  <water model="fortmagma.track_water.b3d" x="0" y="0" z="0" height="0.4"/>
+  <water model="fortmagma.track_water.b3d" x="0" y="0" z="0" height="0.5"/>
   <item x="-5.570633" y="33.117607" z="-65.356911" />
   <item x="-5.570633" y="33.117607" z="-61.829285" />
   <item x="-38.388222" y="33.117607" z="-32.218632" />
@@ -39,4 +39,9 @@
     <check-line kind="activate" other-id="0" p1="-35.812012 -149.674133" p2="-29.590048 -142.788361"
                 min-height="-3.498075"/>
   </checks>
+
+  <sky-dome texture="lava_sky.png"
+            horizontal="16" vertical="16" 
+            texture-percent="1.0" sphere-percent="1.5"
+            speed-x="0" speed-y="0" />
 </scene>
