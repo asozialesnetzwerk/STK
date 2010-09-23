@@ -12,9 +12,10 @@
               straight = "21"
               right = "41"
               start-winning = "72"
-              end-winning = "205"
-              start-losing = "233"
-              end-losing = "274"/>
+              end-winning = "300"
+              start-losing = "339"
+              start-losing-loop = "418"
+              end-losing = "495"/>
   <wheels>
     <front-left position = "-0.254099 0.112440 0.543757"
                  model    = "wheel-front-left.b3d"       />
