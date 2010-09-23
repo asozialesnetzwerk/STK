@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<materials>
+    <material name="metal.png" anisotropic="Y"/>
+    <material name="darkmetal.png" anisotropic="Y"/>
+    <material name="r-road.png" anisotropic="Y"/>
+    <material name="rail.png" anisotropic="Y"/>
+    <material name="siderail.png" anisotropic="Y"/>
+    <material name="toprail.png" anisotropic="Y"/>
+</materials>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<materials>
+  <material name="concrete.png" reset="Y" />
+  <material name="water_light.png" reset="Y" />
+  
+  <material name="roadway2.png"       anisotropic="Y" graphical-effect="smoke"/>
+  <material name="roadwayborder.png"  anisotropic="Y" graphical-effect="smoke"/>
+
+</materials>

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<materials>
+  <material name="rock1.jpg" slowdown="0.5" />
+  <material name="rock4.jpg" slowdown="0.5" />
+  <material name="road_sand.jpg" anisotropic="Y" />
+  <material name="road_sand_side.jpg" anisotropic="Y" />
+  <material name="sky2.jpg" light="N" />
+</materials>

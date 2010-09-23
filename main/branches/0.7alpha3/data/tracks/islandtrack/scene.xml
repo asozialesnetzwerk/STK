@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 5794 -->
+<scene>
+  <track model="islandtrack_track.b3d" x="0" y="0" z="0"/>
+  <water model="islandtrack_water.b3d" x="0" y="0" z="0" height="0.6" speed="300"/>
+  <sun  xyz="4.07624530792 5.90386199951 1.00545394421"/>
+  <banana x="-63.806" y="25" z="-15.1555" />
+  <banana x="-65.04808" y="25" z="-16.8498" />
+  <banana x="-67.818001" y="25" z="-15.971111" />
+  <banana x="-66.328003" y="25" z="-16.429001" />
+  <item x="-18.4305" y="25" z="-37.393681" />
+  <item x="-17.373928" y="25" z="-36.105" />
+  <item x="-35.789001" y="25" z="18.148701" />
+  <item x="-36.846001" y="25" z="16.860001" />
+  <item x="-91.012497" y="25" z="-17.4" />
+  <item x="-89.955803" y="25" z="-16.1122" />
+  <item x="-111.677696" y="25" z="47.207676" />
+  <item x="-112.734001" y="25" z="45.919888" />
+  <item x="-144.394333" y="25" z="21.6425" />
+  <item x="-143.337677" y="25" z="22.930315" />
+  <item x="-13.141773" y="25" z="39.938999" />
+  <item x="-14.19842" y="25" z="38.651199" />
+  <small-nitro x="-98.916252" y="25" z="56.097565" />
+  <small-nitro x="-29.208981" y="25" z="26.271172" />
+  <small-nitro x="21.25028" y="25" z="-40.063084" />
+  <small-nitro x="22.824371" y="25" z="-39.994644" />
+  <small-nitro x="-63.695328" y="25" z="-51.294998" />
+  <small-nitro x="-63.342186" y="25" z="-7.152473" />
+  <small-nitro x="-28.3811" y="25" z="27.8085" />
+  <small-nitro x="-41.800499" y="25" z="-26.222" />
+  <small-nitro x="-110.663162" y="25" z="-3.267914" />
+  <small-nitro x="-97.913605" y="25" z="57.3255" />
+  <small-nitro x="-40.034" y="25" z="44.053001" />
+  <small-nitro x="-0.1298" y="25" z="24.277" />
+  <checks>
+    <check-line kind="lap" p1="-3.587999 0.001544" p2="3.929540 0.001544" min-height="-0.744331"/>
+    <check-line kind="activate" other-id="2" p1="-120.752480 54.634842" p2="-121.627495 46.381432"
+                min-height="3.668816"/>
+    <check-line kind="activate" other-id="3" p1="-61.307270 -28.172245" p2="-59.252346 -20.708099"
+                min-height="-1.345937"/>
+    <check-line kind="activate" other-id="0" p1="-71.855690 -24.932438" p2="-65.538803 -27.035759"
+                min-height="7.531566"/>
+  </checks>
+
+  <sky-dome texture="sky2.jpg"
+            horizontal="16" vertical="16" 
+            texture-percent="1.0" sphere-percent="2.0"
+            speed-x="0" speed-y="0" />
+  <end-cameras>
+    <camera type="ahead_of_kart" xyz="7.481132 5.343665 -6.507640" distance="5"/>
+  </end-cameras>
+</scene>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<kart name        = "Puffy"
+      version     = "2"
+      model-file  = "puffy.b3d"
+      icon-file   = "puffy-icon.png"
+      minimap-icon-file   = "puffy-icon.png"
+      shadow-file = "puffy-shadow.png"
+      groups      = "standard"
+      rgb         = "0.12549 0.50196 0.12549">
+  <wheels>
+    <front-right position = "0.400000 0.090000 0.550000"
+                 model    = "wheel-front-right.b3d"       />
+    <front-left  position = "-0.400000 0.090000 0.550000"
+                 model    = "wheel-front-left.b3d"        />
+    <rear-right  position = "0.400000 0.140000 -0.500000"
+                 model    = "wheel-rear-right.b3d"        />
+    <rear-left   position = "-0.400000 0.140000 -0.500000"
+                 model    = "wheel-rear-left.b3d"         />
+  </wheels>
+</kart>

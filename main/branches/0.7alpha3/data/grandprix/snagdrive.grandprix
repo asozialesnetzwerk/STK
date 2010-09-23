@@ -1,0 +1,10 @@
+
+<supertuxkart_grand_prix name="Snag Drive">
+
+    <track id="islandtrack"      laps="2" />
+    <track id="tuxtollway"       laps="2" />
+    <track id="mines"            laps="3" />
+    <track id="crescentcrossing" laps="2" />
+ 
+</supertuxkart_grand_prix>
+

@@ -1,0 +1,10 @@
+<!-- Generated with script from SVN rev 5633 -->
+<?xml version="1.0"?>
+<track  name        = "Skyline"
+        version     = "2"
+        groups      = "standard"
+        designer    = "Robert Howie"
+        music       = "kart_grand_prix.music"
+        screenshot  = "sshot-skyline.jpg"
+>
+</track>

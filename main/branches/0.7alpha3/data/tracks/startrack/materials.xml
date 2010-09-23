@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<materials>
+  <material name="startrack3.png" clamp="Y" alpha="Y" transparency="N" light="N" />
+  <material name="startrack2.png" clamp="N" alpha="Y" transparency="N" light="Y" />
+  <material name="planet_saturn_rings.png" clamp="N" alpha="Y" transparency="N" light="N" />
+  <material name="transparence.png" alpha="Y" transparency="N" light="N" reset="Y" />
+</materials>
