@@ -1,8 +1,8 @@
-<?xml version="1.0"?>
 <!-- Generated with script from SVN rev 0.1 -->
+<?xml version="1.0"?>
 <kart name              = "Hexley"
       version           = "2"
-      model-file        = "hexley.b3d"
+      model-file        = "Hexley.b3d"
       icon-file         = "hexleyicon.png"
       minimap-icon-file = "hexleyicon.png"
       shadow-file       = "hexley2shadow.png"
@@ -16,13 +16,13 @@
               start-losing = "299"
               end-losing = "431"/>
   <wheels>
-    <front-left position = "-0.414288 0.150436 0.473663"
+    <front-left position = "-0.319932 0.116173 0.365784"
                  model    = "wheel-front-left.b3d"       />
-    <front-right position = "0.414445 0.150721 0.472702"
+    <front-right position = "0.320053 0.116394 0.365041"
                  model    = "wheel-front-right.b3d"       />
-    <rear-left position = "-0.432000 0.151589 -0.419908"
+    <rear-left position = "-0.333610 0.117064 -0.324272"
                  model    = "wheel-rear-left.b3d"       />
-    <rear-right position = "0.441004 0.150877 -0.419290"
+    <rear-right position = "0.340563 0.116514 -0.323795"
                  model    = "wheel-rear-right.b3d"       />
   </wheels>
 </kart>
