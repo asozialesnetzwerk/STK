@@ -1,21 +1,30 @@
+<!-- Generated with script from SVN rev 0.1 -->
 <?xml version="1.0"?>
-<kart name         = "Gooey"
-      version      = "2"
-      model-file   = "gooey.b3d"
-      icon-file    = "gooeyicon.png"
-      minimap-icon-file   = "gooeyicon.png"
-      shadow-file  = "gooeyshadow.png"
-      groups       = "standard" 
-      engine-sound = "large"
-      rgb          = "0.811764 0.015686 0.537254">
+<kart name              = "Gooey"
+      version           = "2"
+      model-file        = "Gooey.b3d"
+      icon-file         = "gooeyicon.png"
+      minimap-icon-file = "gooeyicon.png"
+      shadow-file       = "gooeyshadow.png"
+      groups            = "standard"
+      engine-sound      = "large"
+      rgb               = "0.811764 0.015686 0.537254" >
+  <animations left = "1"
+              straight = "21"
+              right = "41"
+              start-winning = "81"
+              end-winning = "220"
+              start-losing = "251"
+              start-losing-loop = "340"
+              end-losing = "350"/>
   <wheels>
-    <front-right position = "0.295805 0.134951 0.431543"
-                 model    = "wheel-front-right.b3d"        />
-    <front-left  position = "-0.298656 0.134951 0.431543"
-                 model    = "wheel-front-left.b3d"         />
-    <rear-right  position = "0.342563 0.164941 -0.439540"
-                 model    = "wheel-rear-right.b3d"         />
-    <rear-left   position = "-0.345413 0.164941 -0.439540"
-                 model    = "wheel-rear-left.b3d"          />
+    <front-left position = "-0.198135 0.115726 0.260375"
+                 model    = "wheel-front-left.b3d"       />
+    <front-right position = "0.207049 0.115726 0.254944"
+                 model    = "wheel-front-right.b3d"       />
+    <rear-left position = "-0.246830 0.139012 -0.372739"
+                 model    = "wheel-rear-left.b3d"       />
+    <rear-right position = "0.254700 0.139012 -0.373089"
+                 model    = "wheel-rear-right.b3d"       />
   </wheels>
 </kart>
