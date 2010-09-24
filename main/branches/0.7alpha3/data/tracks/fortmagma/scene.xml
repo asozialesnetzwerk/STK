@@ -37,7 +37,7 @@
   <checks>
     <check-line kind="lap" p1="-6.113352 0.049641" p2="8.723804 -0.323090" min-height="-1.445602"/>
     <check-line kind="activate" other-id="0" p1="-35.812012 -149.674133" p2="-29.590048 -142.788361"
-                min-height="-3.498075"/>
+                min-height="-6.232969"/>
   </checks>
 
   <sky-dome texture="lava_sky.png"
