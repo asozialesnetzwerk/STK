@@ -1,5 +1,5 @@
-SuperTuxKart SVN
-~~~~~~~~~~~~~~~~
+SuperTuxKart 0.7alpha3
+~~~~~~~~~~~~~~~~~~~~~~
 * Irrlicht:
   - Renamed global scene object to stk_scene (to avoid a name clash with
     irrlicht's namespace 'scene').
