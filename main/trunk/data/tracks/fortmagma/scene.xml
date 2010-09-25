@@ -42,6 +42,6 @@
 
   <sky-dome texture="lava_sky.png"
             horizontal="16" vertical="16" 
-            texture-percent="1.0" sphere-percent="1.5"
+            texture-percent="1.0" sphere-percent="1.25"
             speed-x="0" speed-y="0" />
 </scene>
