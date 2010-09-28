@@ -829,30 +829,48 @@ class TrackExport:
     #        counting check line is determined.
     def writeChecks(self, f, lChecks, lMainDriveline):
         f.write("  <checks>\n")
+
+        # A dictionary containing a list of indices of check structures
+        # that belong to this group.
+        dGroup2Indices = {"lap":[0]}
+        # Collect the indices of all check structures for all groups
+        ind = 1
+        for obj in lChecks:
+            name = getProperty(obj, "type", obj.name.lower())
+            if name!="lap":
+                name = getProperty(obj, "name", obj.name.lower())
+            if dGroup2Indices.has_key(name):
+                dGroup2Indices[name].append(ind)
+            else:
+                dGroup2Indices[name] = [ ind ]
+            ind = ind + 1
+
         if lMainDriveline:
             lap = lMainDriveline.getStartEdge()
-            if lMainDriveline:
-                min_h = lap[0][2]
-                if lap[1][2]<min_h: min_h = lap[1][2]
-                f.write("    <check-line kind=\"lap\" p1=\"%f %f\" p2=\"%f %f\" min-height=\"%f\"/>\n"% \
-                            (lap[0][0], lap[0][1],
-                             lap[1][0], lap[1][1], min_h   )  )
-            # Create a dictionary to map the names to the index of the
-            # check structure. Insert the 'lap' object as a first entry
-            dName2Index = {"lap" : 0}
+            min_h = lap[0][2]
+            if lap[1][2]<min_h: min_h = lap[1][2]
+
+            # The main driveline is always the first entry, so remove
+            # only the first entry to get the list of all other lap lines
+            l = dGroup2Indices["lap"][1:]
+            sSameGroup = reduce(lambda x,y: str(x)+" "+str(y), l, "")
+
         else:
-            # Create a dictionary to map the names to the index of the
-            # check structure. Insert the 'lap' object as a first entry
-            dName2Index = {}
-            
-        for obj in lChecks:
-            if dName2Index.has_key(obj.name):
-                print "Check structure name '%s' already defined, ignored."% \
-                      obj.name
-                print "Remember that the 'lap' checkline is automatically defined."
-                continue
-            dName2Index[obj.name] = len(dName2Index)
-            
+            # No main drive defined, print a warning and add some dummy
+            # driveline (makes the rest of this code easier)
+            print "Warning - no main driveline defined, adding dummy driveline"
+            lap        = [ [-1, 0], [1, 0] ]
+            min_h      = 0
+            sSameGroup = ""
+        if sSameGroup:
+            sSameGroup="same-group=\"%s\""%sSameGroup.strip()
+
+        f.write("    <check-line kind=\"lap\" p1=\"%f %f\" p2=\"%f %f\"\n"% \
+                (lap[0][0], lap[0][1],
+                 lap[1][0], lap[1][1] )  )
+        f.write("                min-height=\"%f\"%s/>\n"% (min_h, sSameGroup) )
+
+        ind = 1
         for obj in lChecks:
             mesh=obj.getData()
             # Convert to world space
@@ -861,24 +879,49 @@ class TrackExport:
             activate = getProperty(obj, "activate", "")
             kind=" "
             if activate:
-                try:
-                    kind = " kind=\"activate\" other-id=\"%d\" "% \
-                           dName2Index[activate]
-                except KeyError:
-                    print "Activate object '%s' not found!"%activate
+                group = activate.lower()
+                if not dGroup2Indices.has_key(group):
+                    print "Activate group '%s' not found!"%group
+                    print "Ignored - but lap counting might not work correctly."
+                    print "Make sure there is an object of typ 'check' with"
+                    print "the name '%s' defined."%name
+                    continue
+                s = reduce(lambda x,y: str(x)+" "+str(y), dGroup2Indices[group])
+                kind = " kind=\"activate\" other-ids=\"%s\" "% s
+
             toggle = getProperty(obj, "toggle", "")
             if toggle:
-                try:
-                    kind = " kind=\"toggle\" other-id=\"%d\" " % \
-                           dName2Index[toggle]
-                except KeyError:
-                    print "Toggle object '%s' not found!"%activate
+                if not dGroup2Indices.has_key(group):
+                    print "Toggle group '%s' not found!"%group
+                    print "Ignored - but lap counting might not work correctly."
+                    print "Make sure there is an object of typ 'check' with"
+                    print "the name '%s' defined."%name
+                    continue
+                s = reduce(lambda x,y: str(x)+" "+str(y), dGroup2Indices[group])
+                kind = " kind=\"activate\" other-ids=\"%s\" "% s
+
             lap = getProperty(obj, "type", obj.name).upper()
             if lap[:3]=="LAP":
                 kind = " kind=\"lap\" "  # xml needs a value for an attribute
+            
             ambient = getProperty(obj, "ambient", "").upper()
             if ambient:
                 kind=" kind=\"ambient-light\" "
+
+            # Get the group name this object belongs to. If the objects
+            # is of type lap then 'lap' is the group name, otherwise
+            # it's taken from the name property (or the object name).
+            name = getProperty(obj, "type", obj.name.lower())
+            if name!="lap":
+                name = getProperty(obj, "name", obj.name.lower())
+                
+            # Get the list of indices of this group, excluding
+            # the index of the current object. So create a copy
+            # of the list and remove the current index
+            l = dGroup2Indices[name][:]
+            del l[l.index(ind)]
+            sSameGroup = reduce(lambda x,y: str(x)+" "+str(y), l, "")
+            ind = ind + 1
 
             if len(mesh.verts)==2:   # Check line
                 min_h = mesh.verts[0][2]
@@ -887,7 +930,8 @@ class TrackExport:
                         (kind, mesh.verts[0][0], mesh.verts[0][1],
                          mesh.verts[1][0], mesh.verts[1][1]   )  )
 
-                f.write("                min-height=\"%f\"/>\n"% min_h  )
+                f.write("                min-height=\"%f\" same-group=\"%s\"/>\n" \
+                        % (min_h, sSameGroup.strip())  )
             else:
                 radius = 0
                 for v in mesh.verts:
@@ -901,6 +945,7 @@ class TrackExport:
                 color = getProperty(obj, "color", "255 120 120 120")
                 f.write("    <check-sphere%sxyz=\"%f %f %f\" radius=\"%f\"\n" % \
                         (kind, obj.loc[0], obj.loc[2], obj.loc[1], radius) )
+                f.write("                  same-group=\"%s\"\n"%sSameGroup.strip())
                 f.write("                  inner-radius=\"%f\" color=\"%s\"/>\n"% \
                         (inner_radius, color) )
                         
