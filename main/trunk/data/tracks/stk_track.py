@@ -286,6 +286,7 @@ class Driveline:
                 print "The drivelines will most certainly not be useable."
                 print "Further warnings are likely and will be suppressed."
                 warning_printed = 1
+                Blender.Draw.PupMenu("Problems with driveline detected, check console for details!")
                 
             self.lLeft.append(next_left[0])
 
@@ -318,6 +319,7 @@ class Driveline:
                 print "The drivelines will most certainly not be useable."
                 print "Further warnings are likely and will be suppressed."
                 warning_printed = 1
+                Blender.Draw.PupMenu("Problems with driveline detected, check console for details!")
                 
             self.lRight.append(next_right[0])
 
