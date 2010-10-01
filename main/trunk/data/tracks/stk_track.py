@@ -258,29 +258,69 @@ class Driveline:
         # Just in case that we have an infinite loop due to a malformed graph:
         # stop after 10000 vertices
         max_count=10000
+        warning_printed = 0
         while count<max_count:
             count = count + 1
             # Get all neighbours. One is the previous point, one
             # points to the opposite side - we need the other one.
             neighb = self.dNext[self.lLeft[-1]]
+            next_left = []
             for i in neighb:
                 if i==self.lLeft[-2]: continue   # pointing backwards
                 if i==self.lRight[-1]: continue  # to opposite side
-                self.lLeft.append(i)
-                break
-            else:
+                next_left.append(i)
+            if len(next_left)==0:
                 # No new element found --> this must be the end
                 # of the list!!
                 break
+            
+            if len(next_left)!=1 and not warning_printed:
+                print "Warning: More than one potential succesor found for left driveline point"
+                print self.lLeft[-1][0],self.lLeft[-1][1],self.lLeft[-1][2],":"
+                for i in range(len(next_left)):
+                    print "Successor %d: %f %f %f" % \
+                          (i,next_left[i][0],next_left[i][1],next_left[i][2])
+                print "It might also possible that the corresponding right driveline point"
+                print self.lRight[-1][0],self.lRight[-1][1],self.lRight[-1][2]
+                print "has some inconsistencies."
+                print "The drivelines will most certainly not be useable."
+                print "Further warnings are likely and will be suppressed."
+                warning_printed = 1
+                
+            self.lLeft.append(next_left[0])
+
+            
             # Same for other side:
             neighb = self.dNext[self.lRight[-1]]
+            next_right = []
             for i in neighb:
                 if i==self.lRight[-2]: continue   # pointing backwards
                 # Note lLeft has already a new element appended,
                 # so we have to check for the 2nd last element!
                 if i==self.lLeft[-2]: continue  # to opposite side
-                self.lRight.append(i)
+                next_right.append(i)
+            if len(next_right)==0:
+                print "No more vertices on right side of quad line, but there are"
+                print "still points on the left side. Check the points:"
+                print "left: ", self.lLeft[-1][0],self.lLeft[-1][1],self.lLeft[-1][2]
+                print "right: ", self.lRight[-1][0],self.lRight[-1][1],self.Right[-1][2]
+                print "Last left point is ignored."
                 break
+            if len(next_right)!=1 and not warning_printed:
+                print "Warning: More than one potential succesor found for right driveline point"
+                print self.lRight[-1][0],self.lRight[-1][1],self.lRight[-1][2],":"
+                for i in range(len(next_right)):
+                    print "Successor %d: %f %f %f" % \
+                          (i,next_right[i][0],next_right[i][1],next_right[i][2])
+                print "It might also possible that the corresponding left driveline point"
+                print self.lLeft[-1][0],self.lLeft[-1][1],self.lLeft[-1][2]
+                print "has some inconsistencies."
+                print "The drivelines will most certainly not be useable."
+                print "Further warnings are likely and will be suppressed."
+                warning_printed = 1
+                
+            self.lRight.append(next_right[0])
+
             cp=[]
             for i in range(3):
                 cp.append((self.lLeft[-2][i]+self.lLeft[-1][i]+
