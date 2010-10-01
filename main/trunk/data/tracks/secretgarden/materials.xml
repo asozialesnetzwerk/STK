@@ -26,7 +26,7 @@
     <material name="leave4.png" ignore="Y" collide="N"/>
 
 
-    <material name="water_light2.png" alpha="Y" ignore="Y" collide="N" graphical-effect="water"/>
+    <material name="water_light2.png" alpha="Y" ignore="Y" collide="N"/>
     <material name="water_light3.png" alpha="Y" reset="Y" graphical-effect="water"/>
 
     <material name="Sky_horiz_17.png" ignore="Y" collide="N" light="N"/>

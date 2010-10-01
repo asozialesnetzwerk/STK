@@ -2,7 +2,7 @@
 <!-- Generated with script from SVN rev 5207 -->
 <scene>
   <track model="secretgarden.track_track.b3d" x="0" y="0" z="0">
-    <animated-texture name="water_light2.png" dx="0.1"  dy="0.1" />
+    <animated-texture name="water_light2.png" dx="0.05"  dy="0.05" />
   </track>
   <banana x="-145.292831" y="42.518929" z="40.993797" h="60.991425" />
   <banana x="-37.279602" y="49.966625" z="-52.634956" h="60.991425" />
@@ -36,8 +36,10 @@
   <big-nitro x="-120.208755" y="49.966629" z="4.845036" h="60.991425" />
   <checks>
     <check-line kind="lap" p1="-3.919449 8.968756" p2="8.027908 14.726446" min-height="-3.201597"/>
-    <check-line kind="activate" other-id="0" p1="-175.719803 -66.073715" p2="-195.542404 -78.774956"
-                min-height="-1.280505"/>
+    <check-line kind="activate" other-id="2" p1="-138.452316 -49.980949" p2="-115.964264 -56.948338"
+                min-height="-3.742500"/>
+    <check-line kind="activate" other-id="0" p1="-86.599655 -41.358829" p2="-89.641235 -64.704185"
+                min-height="0.377395"/>
   </checks>
 
   <sky-dome texture="sky2.jpg"
