@@ -2,6 +2,7 @@
 <materials>
 
     <material name="flower1.png" transparency="Y" ignore="Y" light="N" collide="N"/>
+<material name="bush2.png" transparency="Y" ignore="Y" light="N" collide="N"/>
     <material name="flower2.png" transparency="Y" ignore="Y" light="N" collide="N"/>
     <material name="flower3.png" transparency="Y" ignore="Y" light="N" collide="N"/>
     <material name="flower5.png" transparency="Y" ignore="Y" light="N" collide="N"/>
@@ -25,8 +26,8 @@
     <material name="leave4.png" ignore="Y" collide="N"/>
 
 
-    <material name="water_light2.png" alpha="Y" ignore="Y" collide="N" />
-    <material name="water_light3.png" alpha="Y" reset="Y"/>
+    <material name="water_light2.png" alpha="Y" ignore="Y" collide="N" graphical-effect="water"/>
+    <material name="water_light3.png" alpha="Y" reset="Y" graphical-effect="water"/>
 
     <material name="Sky_horiz_17.png" ignore="Y" collide="N" light="N"/>
 
