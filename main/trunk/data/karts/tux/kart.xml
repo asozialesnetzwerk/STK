@@ -1,12 +1,21 @@
+<!-- Generated with script from SVN rev 0.1 -->
 <?xml version="1.0"?>
-<kart name         = "Tux"
-     version       = "2"
-     model-file    = "tux.b3d"
-     icon-file     = "tuxicon.png"
-     minimap-icon-file   = "tuxicon.png"
-     shadow-file   = "tuxkartshadow.png"
-     groups        = "standard"
-     rgb           = "0.690196 0.0 0.0"  >
+<kart name              = "Tux"
+      version           = "2"
+      model-file        = "tux.b3d"
+      icon-file         = "tuxicon.png"
+      minimap-icon-file = "tuxicon.png"
+      shadow-file       = "tuxkartshadow.png"
+      groups            = "standard"
+      rgb               = "0.7 0 0" >
+  <animations left = "1"
+              straight = "21"
+              right = "41"
+              start-winning = "81"
+              end-winning = "381"
+              start-losing = "487"
+              start-losing-loop = "833"
+              end-losing = "853"/>
   <sounds engine  = "small"
           horn    = "yeah.ogg"
           crash   = "crash.ogg"
@@ -19,13 +28,13 @@
           name    = "horn.ogg"
           attach  = "uh-oh.ogg"  />
   <wheels>
-    <front-right position  = "0.295 0.103 0.412"
-                 model     = "wheel-front-right.b3d"/>
-    <front-left  position  = "-0.285 0.103 0.412"
-                 model     = "wheel-front-left.b3d" />
-    <rear-right  position  = "0.361 0.143 -0.344"
-                 model     = "wheel-rear-right.b3d" />
-    <rear-left   position  = "-0.349 0.143 -0.344"
-                 model     = "wheel-rear-left.b3d"  />
+    <front-left position = "-0.283304 0.101876 0.407714"
+                 model    = "wheel-front-left.b3d"       />
+    <front-right position = "0.294537 0.101876 0.407615"
+                 model    = "wheel-front-right.b3d"       />
+    <rear-left position = "-0.345336 0.140526 -0.348104"
+                 model    = "wheel-rear-left.b3d"       />
+    <rear-right position = "0.356126 0.140526 -0.348040"
+                 model    = "wheel-rear-right.b3d"       />
   </wheels>
 </kart>
