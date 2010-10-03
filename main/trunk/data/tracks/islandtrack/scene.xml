@@ -3,41 +3,41 @@
 <scene>
   <track model="islandtrack_track.b3d" x="0" y="0" z="0"/>
   <water model="Water.b3d" xyz="0.000000 0.000000 0.000000" hpr="0.000000 0.000000 0.000000" height="0.6" speed="300"/>
-  <sun  xyz="4.07624530792 5.90386199951 1.00545394421"/>
-  <banana x="-52.224865" y="25" z="-57.619247" />
-  <item x="-18.4305" y="25" z="-37.393681" />
-  <item x="-35.789001" y="25" z="18.148701" />
-  <item x="-36.846001" y="25" z="16.860001" />
-  <item x="-91.012497" y="25" z="-17.4" />
-  <item x="-89.955803" y="25" z="-16.1122" />
-  <item x="-111.677696" y="25" z="47.207676" />
-  <item x="-112.734001" y="25" z="45.919888" />
-  <item x="-144.394333" y="25" z="21.6425" />
-  <item x="-143.337677" y="25" z="22.930315" />
-  <item x="-13.141773" y="25" z="39.938999" />
-  <item x="-14.19842" y="25" z="38.651199" />
-  <item x="-65.874138" y="25" z="-16.542467" />
-  <item x="-52.198097" y="25" z="-55.18232" />
-  <small-nitro x="-29.208981" y="25" z="26.271172" />
-  <small-nitro x="21.25028" y="25" z="-40.063084" />
-  <small-nitro x="22.824371" y="25" z="-39.994644" />
-  <small-nitro x="-63.695328" y="25" z="-51.294998" />
-  <small-nitro x="-28.3811" y="25" z="27.8085" />
-  <small-nitro x="-41.800499" y="25" z="-26.222" />
-  <small-nitro x="-110.663162" y="25" z="-3.267914" />
-  <small-nitro x="-151.960815" y="25" z="57.495457" />
-  <small-nitro x="-40.034" y="25" z="44.053001" />
-  <small-nitro x="-0.1298" y="25" z="24.277" />
-  <small-nitro x="-67.818001" y="25" z="-15.971111" />
-  <small-nitro x="-63.989059" y="25" z="-16.963266" />
+  <sun  xyz="14.9597110748 5.90386199951 0.779863536358"/>
+  <banana x="-69.491959" y="25" z="-87.157188" />
+  <item x="-18.800407" y="25" z="-56.81884" />
+  <item x="-44.838158" y="25" z="26.494734" />
+  <item x="-46.42366" y="25" z="24.561684" />
+  <item x="-127.673401" y="25" z="-26.828316" />
+  <item x="-126.088364" y="25" z="-24.896618" />
+  <item x="-158.671204" y="25" z="70.083199" />
+  <item x="-160.255661" y="25" z="68.151512" />
+  <item x="-207.746155" y="25" z="31.735432" />
+  <item x="-206.161179" y="25" z="33.667156" />
+  <item x="-10.867316" y="25" z="59.180183" />
+  <item x="-12.452286" y="25" z="57.248482" />
+  <item x="-89.965866" y="25" z="-25.542019" />
+  <item x="-69.451797" y="25" z="-83.501801" />
+  <small-nitro x="-34.968124" y="25" z="38.67844" />
+  <small-nitro x="40.720764" y="25" z="-60.822945" />
+  <small-nitro x="43.081902" y="25" z="-60.720284" />
+  <small-nitro x="-86.697647" y="25" z="-77.670815" />
+  <small-nitro x="-33.726303" y="25" z="40.984432" />
+  <small-nitro x="-53.855408" y="25" z="-40.061317" />
+  <small-nitro x="-157.149399" y="25" z="-5.630189" />
+  <small-nitro x="-219.095871" y="25" z="85.51487" />
+  <small-nitro x="-51.205658" y="25" z="65.351189" />
+  <small-nitro x="8.650642" y="25" z="35.687183" />
+  <small-nitro x="-92.881653" y="25" z="-24.684984" />
+  <small-nitro x="-87.138245" y="25" z="-26.173218" />
   <checks>
-    <check-line kind="lap" p1="-108.921936 58.941498" p2="-104.763550 65.825470"
-                min-height="-1.089299"/>
-    <check-line kind="activate" other-ids="2" p1="-120.752480 54.634842" p2="-121.627495 46.381432"
-                min-height="3.668816" same-group=""/>
-    <check-line kind="activate" other-ids="3" p1="-61.307270 -28.172245" p2="-59.252346 -20.708099"
-                min-height="-1.345937" same-group=""/>
-    <check-line kind="activate" other-ids="0" p1="-71.855690 -24.932438" p2="-65.538803 -27.035759"
+    <check-line kind="lap" p1="-154.537567 87.683929" p2="-148.299988 98.009888"
+                min-height="-1.089298"/>
+    <check-line kind="activate" other-ids="2" p1="-172.283386 81.223946" p2="-173.595901 68.843826"
+                min-height="3.668817" same-group=""/>
+    <check-line kind="activate" other-ids="3" p1="-83.115562 -42.986687" p2="-80.033173 -31.790466"
+                min-height="-1.345938" same-group=""/>
+    <check-line kind="activate" other-ids="0" p1="-98.938194 -38.126976" p2="-89.462860 -41.281956"
                 min-height="7.531566" same-group=""/>
   </checks>
 
@@ -46,10 +46,10 @@
             texture-percent="1.0" sphere-percent="2.0"
             speed-x="0" speed-y="0" />
   <end-cameras>
-    <camera type="static_follow_kart" xyz="-120.349464 -0.656335 69.547440" distance="5"/>
-    <camera type="static_follow_kart" xyz="-165.882782 11.263998 59.244007" distance="20"/>
-    <camera type="static_follow_kart" xyz="-120.959061 30.054396 34.662952" distance="25"/>
-    <camera type="static_follow_kart" xyz="-137.101471 -1.104542 20.772911" distance="6"/>
-    <camera type="ahead_of_kart" xyz="-79.765404 -1.797881 -21.142805" distance="5"/>
+    <camera type="static_follow_kart" xyz="-171.678848 -0.656335 103.592842" distance="7.5"/>
+    <camera type="static_follow_kart" xyz="-239.978836 11.263998 88.137695" distance="30"/>
+    <camera type="static_follow_kart" xyz="-172.593246 30.054396 51.266113" distance="37.5"/>
+    <camera type="static_follow_kart" xyz="-196.806870 -1.104542 30.431049" distance="9"/>
+    <camera type="ahead_of_kart" xyz="-110.802765 -1.797882 -32.442524" distance="7.5"/>
   </end-cameras>
 </scene>
