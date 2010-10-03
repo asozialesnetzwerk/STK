@@ -1,20 +1,29 @@
+<!-- Generated with script from SVN rev 0.1 -->
 <?xml version="1.0"?>
-<kart name        = "Puffy"
-      version     = "2"
-      model-file  = "puffy.b3d"
-      icon-file   = "puffy-icon.png"
-      minimap-icon-file   = "puffy-icon.png"
-      shadow-file = "puffy-shadow.png"
-      groups      = "standard"
-      rgb         = "0.12549 0.50196 0.12549">
+<kart name              = "Puffy"
+      version           = "2"
+      model-file        = "puffy.b3d"
+      icon-file         = "puffy-icon.png"
+      minimap-icon-file = "puffy-icon.png"
+      shadow-file       = "puffy-shadow.png"
+      groups            = "standard"
+      rgb               = "0.7 0 0" >
+  <animations left = "1"
+              straight = "21"
+              right = "41"
+              start-winning = "81"
+              end-winning = "321"
+              start-losing = "362"
+              start-losing-loop = "588"
+              end-losing = "592"/>
   <wheels>
-    <front-right position = "0.400000 0.090000 0.550000"
+    <front-left position = "-0.400033 0.102715 0.523572"
+                 model    = "wheel-front-left.b3d"       />
+    <front-right position = "0.388267 0.102715 0.521643"
                  model    = "wheel-front-right.b3d"       />
-    <front-left  position = "-0.400000 0.090000 0.550000"
-                 model    = "wheel-front-left.b3d"        />
-    <rear-right  position = "0.400000 0.140000 -0.500000"
-                 model    = "wheel-rear-right.b3d"        />
-    <rear-left   position = "-0.400000 0.140000 -0.500000"
-                 model    = "wheel-rear-left.b3d"         />
+    <rear-left position = "-0.382384 0.150649 -0.467203"
+                 model    = "wheel-rear-left.b3d"       />
+    <rear-right position = "0.394150 0.150649 -0.473086"
+                 model    = "wheel-rear-right.b3d"       />
   </wheels>
 </kart>
