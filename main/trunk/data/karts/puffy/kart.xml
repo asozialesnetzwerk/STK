@@ -7,7 +7,7 @@
       minimap-icon-file = "puffy-icon.png"
       shadow-file       = "puffy-shadow.png"
       groups            = "standard"
-      rgb               = "0.7 0 0" >
+      rgb               = "0.0 0.7 0" >
   <animations left = "1"
               straight = "21"
               right = "41"

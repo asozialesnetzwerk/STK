@@ -7,7 +7,7 @@
       minimap-icon-file = "adiumyicon.png"
       shadow-file       = "adiumyshadow.png"
       groups            = "standard"
-      rgb               = "0.7 0 0" >
+      rgb               = "0.0 0.7 0" >
   <animations left = "1"
               right = "41"
               start-winning = "79"
