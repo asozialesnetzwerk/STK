@@ -1053,6 +1053,16 @@ class TrackExport:
     # --------------------------------------------------------------------------
     # Writes all start positions
     def writeStartPositions(self, f, lStart):
+        scene = Blender.Scene.GetCurrent()
+        karts_per_row      = getIdProperty(scene, "start-karts-per-row",      "2"  )
+        distance_forwards  = getIdProperty(scene, "start-forwards-distance",  "1.5")
+        distance_sidewards = getIdProperty(scene, "start-sidewards-distance", "3"  )
+        distance_upwards   = getIdProperty(scene, "start-upwards-distance",   "0.1")
+        f.write("  <default-start karts-per-row     =\"%s\"\n"%karts_per_row     )
+        f.write("                 forwards-distance =\"%s\"\n"%distance_forwards )
+        f.write("                 sidewards-distance=\"%s\"\n"%distance_sidewards)
+        f.write("                 upwards-distance  =\"%s\"/>\n"%distance_upwards)
+        
         dId2Obj     = {}
         count = 1
         for obj in lStart:
