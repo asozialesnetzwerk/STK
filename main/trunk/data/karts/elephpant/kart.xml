@@ -11,7 +11,7 @@
   <animations left = "1"
               straight = "21"
               right = "41"
-              start-winning = "117"
+              start-winning = "62"
               end-winning = "217"
               start-losing = "245"
               start-losing-loop = "421"
