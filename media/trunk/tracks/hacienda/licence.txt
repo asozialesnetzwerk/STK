@@ -1,0 +1,55 @@
+--------------------------------------------------------------------------------
+-- world:   hacienda
+-- author:  jean-manuel clemençon aka samuncle
+-- version: 0.5b re
+-- (c) 2010 supertuxkart
+--------------------------------------------------------------------------------
+
+
+-- Based on texture/object form other supertuxkart worlds ----------------------
+bigFork.png             farm (object)
+earth.png               secret garden (texture)
+yellow_dirt.png         farm (texture)
+traildust.png           farm (texture)
+trailrock2dust.png      farm (texture)
+trailrock.png           farm (texture)
+well.O.jpg              farm (object/texture)
+
+-- Based on pictrues from burningwell (released under public domain) -----------
+canyon.png
+ceramic.png
+electroPost.png
+hacienda_ground.png
+lantern.png
+mill.png
+millstructure.png
+sky.png
+wall.png
+wind_mill.png
+wood_i.png <- easteregg :P
+wood_l.png
+woodBridge.png
+woodPost.png
+
+-- Based on pictrues from http://blender-archi.tuxfamily.org/Greenhouse --------
+sageBrush.png           http://blender-archi.tuxfamily.org/images/Sagebrush-alpha.png
+drysageBrush.png        
+palmacacia.png          http://blender-archi.tuxfamily.org/images/Greenhouse-Palm-acai01.png
+
+-- Based on pictrues from http://www.tutorialsforblender3d.com/ ----------------
+palmBark.png            http://www.tutorialsforblender3d.com/Models/Trees/PalmTree_1.html
+palm_b.png              
+
+-- personnal work (jean-manuel clemençon ---------------------------------------
+lanternDetail.png
+light.png
+pix.png
+trackconcept.png
+wire.png
+grass.png
+
+-- software used ---------------------------------------------------------------
+Blender (3d art)
+inkscape (vectoriel)
+gimp (picture and painting)
+MyPaint (concept art)
