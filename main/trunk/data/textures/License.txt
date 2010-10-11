@@ -77,6 +77,15 @@ Other licenses :
 * cottage_wall1.jpg, cottage_wall2.jpg, cottage_wall3.jpg and wood_planks1.png
     are textures from burningwell.org (public domain) modified by Varivar
 
+* ceramic, hacienda_ground, lantern, woodBridge, sky, woodPost
+    based on pictures from BurningWell,
+    modified by jean-manuel clemençon (SamUncle),
+    released under public domain
+
+* palmbark and palm_b
+    by Clark Thames (http://www.tutorialsforblender3d.com/Models/Trees/PalmTree_1.html)
+    released under Creative Commons Attribution 3.0 Unported License
+
 ============================================================
 Credits for GPL textures :
 ============================================================

@@ -28,3 +28,7 @@ gnarly tools and gnarly tool texture by Clint Bellanger
 
 Wheat picture by Tarquin
     Released under CC-BY-SA 3.0 Unported
+
+Trail texture by Marianne Gagnon
+    based on public domain image from Burningwell
+    released under CC-BY-SA 3.0

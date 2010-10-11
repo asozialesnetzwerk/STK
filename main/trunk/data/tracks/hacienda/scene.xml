@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev Unknown -->
+<scene>
+  <track model="hacienda_track.b3d" x="0" y="0" z="0"/>
+  <object type="movable" xyz="79.532364 0.067819 97.131233" hpr="0.000000 0.000000 0.000000"
+          model="pot.b3d" shape="cone" mass="15.000000"/>
+  <object type="movable" xyz="103.951904 0.067819 100.646759" hpr="0.000000 0.000000 0.000000"
+          model="pot.b3d" shape="cone" mass="15.000000"/>
+  <item x="-2.079498" y="-0.03716" z="47" />
+  <item x="2" y="-0.03716" z="47" />
+  <item x="74" y="-0.131533" z="97" />
+  <small-nitro x="91" y="1.3" z="105" />
+  <big-nitro x="105" y="2.411794" z="105" />
+  <big-nitro x="109.415482" y="2.411794" z="105" />
+  <item x="228" y="-0.5" z="98" />
+  <item x="228" y="-0.5" z="102" />
+  <item x="227.5" y="9.644772" z="98" />
+  <item x="237.5" y="0.1" z="22" />
+  <small-nitro x="261.5" y="-1.9" z="-14" />
+  <small-nitro x="217.5" y="-10.9" z="-64" />
+  <item x="135.5" y="-20.9" z="-80" />
+  <item x="130.5" y="-20.9" z="-80" />
+  <big-nitro x="51.447353" y="-9.265882" z="-84.557457" />
+  <checks>
+    <check-line kind="lap" p1="-3.999785 0.030310" p2="3.999785 -0.030310"
+                min-height="-0.990000"/>
+    <check-line kind="activate" other-ids="2" p1="227.982346 109.128746" p2="229.342407 90.069756"
+                min-height="-0.008819" same-group=""/>
+    <check-line kind="activate" other-ids="0" p1="92.126266 -117.803696" p2="79.177559 -140.231522"
+                min-height="-13.228691" same-group=""/>
+  </checks>
+</scene>
