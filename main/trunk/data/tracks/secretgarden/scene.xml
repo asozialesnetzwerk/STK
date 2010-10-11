@@ -42,6 +42,10 @@
     <check-line kind="activate" other-ids="0" p1="-86.599655 -41.358829" p2="-89.641235 -64.704185"
                 min-height="0.377395" same-group=""/>
   </checks>
+  <default-start karts-per-row     ="3"
+                 forwards-distance ="1.0"
+                 sidewards-distance="3"
+                 upwards-distance  ="1.0"/>
 
   <sky-dome texture="sky2.jpg"
             horizontal="16" vertical="16" 
