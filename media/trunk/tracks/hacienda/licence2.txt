@@ -21,8 +21,9 @@ Textures based on pictures from burningwell
     released under public domain
 
 sageBrush.png, drysageBrush.png
-    from http://blender-archi.tuxfamily.org/images/Sagebrush-alpha.png
-    released under CC-BY 2.5 <---------------
+    based on photograph by Ragesoss
+    http://commons.wikimedia.org/wiki/File:Small_twisted_sagebrush.jpg
+    Released CC-BY-SA 3
      
 palmacacia.png
     by Yorik
