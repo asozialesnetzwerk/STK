@@ -1043,9 +1043,21 @@ class TrackExport:
         # they are saved as animations (with 0 IPOs).
         elif interact=="ghost" or interact=="none":
             ipo      = obj.getIpo()
+            # In objects with skeletal animations the actual armature (which
+            # is a parent) contains the IPO. So check for this:
+            if not ipo:
+                parent = obj.getParent()
+                if parent:
+                    ipo = parent.getIpo()
             self.writeAnimationWithIPO(f, b3d_name, obj, ipo)
         elif interact=="static":
             ipo      = obj.getIpo()
+            # In objects with skeletal animations the actual armature (which
+            # is a parent) contains the IPO. So check for this:
+            if not ipo:
+                parent = obj.getParent()
+                if parent:
+                    ipo = parent.getIpo()
             self.writeAnimationWithIPO(f, b3d_name, obj, ipo)
         else:
             print "Unknown interaction '%s' - ignored!"%interact
