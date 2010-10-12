@@ -92,7 +92,15 @@ def getXYZHPRString(obj):
        (loc[0], loc[2], loc[1], hpr[0]*rad2deg, hpr[1]*rad2deg,
         hpr[2]*rad2deg)
     return s
-    
+# --------------------------------------------------------------------------
+# Write several ways of writing true/false as Y/N
+def convertTextToYN(sText):
+    sTemp = sText.strip().upper()
+    if sTemp=="0" or sTemp[1]=="N" or sTemp=="FALSE":
+        return "N"
+    else:
+        return "Y"
+
 # ==============================================================================
 # A special class to store a drivelines.
 class Driveline:
@@ -1309,6 +1317,49 @@ class TrackExport:
         f.write("</scene>\n")
         f.close()
         print bsys.time()-start_time,"seconds"
+
+    # --------------------------------------------------------------------------
+    # Writes the materials files, which includes all texture definitions 
+    # (remember: Blenders "image" objects are STK's "material" objects)
+    # I'm using the IDProperty browser!!!
+    def writeMaterialsFile(self, sPath):
+
+        start_time = bsys.time()
+        print "Writing material file --> \t",
+
+        f = open(sPath+"/materials.xml", "w")
+        f.write("<?xml version=\"1.0\"?>\n")
+        f.write("<!-- Generated with script from SVN rev %s -->\n"%getScriptVersion())
+        f.write("<materials>\n")
+
+        lBooleanAttributes = ["CLAMP","TRANSPARENCY","ALPHA","LIGHT","SPHERE",\
+                              "ANISOTROPIC","IGNORE","ZIPPER","RESET"]
+
+        # Read & Write the materials to the file
+        limage = Blender.Image.Get()
+        for i in limage:
+            #iterate through material definitions 
+            sImage = ""
+
+            for sAttrib,sValue in i.properties.iteritems():
+                if sAttrib.strip().upper() in lBooleanAttributes:
+                    sImage = "%s %s=\"%s\""%(sImage,sAttrib,convertTextToYN(sValue))
+                else:
+                    sImage = "%s %s=\"%s\""%(sImage,sAttrib,sValue)
+
+            if sImage:
+                #Get the filename of the image.
+                s = i.getFilename()
+                sImage="  <material name=\"%s\"%s/>\n" % \
+                        (Blender.sys.basename(s),sImage)
+
+                f.write(sImage)
+            
+        f.write("</materials>\n")
+
+
+        f.close()
+        print bsys.time()-start_time,"seconds"
         # ----------------------------------------------------------------------
 
     def __init__(self, sFilename):
@@ -1418,6 +1469,10 @@ class TrackExport:
         self.writeSceneFile(sPath, sTrackName, lWater, lTrack, lItems,
                             lObjects, lChecks, lSun, lDrivelines[0],
                             lStart, lEndCameras, lCameraCurves)
+        # materials file
+        # ----------
+        self.writeMaterialsFile(sPath)
+
         print "Finished."
 
 # ==============================================================================
