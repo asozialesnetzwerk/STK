@@ -1,7 +1,4 @@
 <?xml version="1.0"?>
+<!-- Generated with script from SVN rev 6273 -->
 <materials>
-    <material name="fuzzy_sand.png" alpha="Y" light="N" ignore="Y" collide="N"/>
-    <material name="egyptsky1.png" alpha="Y" light="N" ignore="Y" collide="N"/>
-    <material name="egyptsky2.png" alpha="Y" light="N" ignore="Y" collide="N"/>
-    <material name="clouds.png" light="N" reset="Y" collide="N"/>
 </materials>
