@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <materials>
-  <material name="grass4.png" slowdown="0.4" maxspeed="0.7"/>
+  <material name="grass4.png" slowdown="0.8" max-speed="0.5"/>
   <material name="bush3.png" transparency="y" light="N" ignore="Y"/>
   <material name="bush4.png" transparency="y" light="N" ignore="Y"/>
   <material name="bush5.png" transparency="y" light="N" ignore="Y"/>

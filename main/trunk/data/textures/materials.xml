@@ -3,9 +3,9 @@
   <material name="wood_planks1_alpha.png" alpha="y"/>
   <material name="fence.png" alpha="y" light="n"/>
   <material name="clouds.png"  light="N" reset="Y" collide="N"/>
-  <material name="sand.png"  collide="N" maxSpeed="0.4" slowdownTime="4"/>
-  <material name="sandgrass.png"  collide="N" maxSpeed="0.4" slowdownTime="4" anisotropic="Y"/>
-  <material name="grass.jpg"  collide="N" maxSpeed="0.6" slowdownTime="4" anisotropic="Y"/>
+  <material name="sand.png"  collide="N" max-speed="0.4" slowdown="0.8"/>
+  <material name="sandgrass.png"  collide="N" max-speed="0.4" slowdown="0.8" anisotropic="Y"/>
+  <material name="grass.jpg"  collide="N" max-speed="0.6" slowdown="0.8" anisotropic="Y"/>
   <material name="chrome.png"  light="N" sphere="Y" collide="N"/>
   <material name="chrome2.png"  light="N" sphere="Y" collide="N"/>
   <material name="railing.png" transparency="Y"/>
@@ -48,14 +48,14 @@
   <material name="coniferous_tree.png" transparency="Y" light="N" collide="N"/>
   <material name="signs.png" transparency="Y" alpha="0.5" light="N" collide="N"/>
   <material name="greenice.png"  reset="Y" collide="N"/>
-  <material name="snow.png"  collide="N" maxSpeed="0.4" slowdownTime="4"/>
+  <material name="snow.png"  collide="N" max-speed="0.4" slowdown="0.8"/>
   <material name="ice.png"  collide="N"/>
   <material name="snowyrock.png"  collide="N"/>
-  <material name="sand2.png"  collide="N"/>
+  <material name="sand2.png"  collide="N" max-speed="0.5" slowdown="3.0"/>
   <material name="road_dirt.png"  collide="N" anisotropic="Y" />
-  <material name="grass2.png"  collide="N" maxSpeed="0.6" slowdownTime="4" anisotropic="Y"/>
+  <material name="grass2.png"  collide="N" max-speed="0.6" slowdown="0.8" anisotropic="Y"/>
   <material name="dirt2sand.png"  collide="N" anisotropic="Y"/>
-  <material name="grass2dirt.png"  collide="N" maxSpeed="0.4" slowdownTime="4" clampU="Y" clampV="N" anisotropic="Y" />
+  <material name="grass2dirt.png"  collide="N" max-speed="0.4" slowdown="0.8" clampU="Y" clampV="N" anisotropic="Y" />
   <material name="logs.png"  collide="N"/>
   <material name="stonetex.png"  collide="N"/>
   <material name="redwhite.png"  collide="N"/>
