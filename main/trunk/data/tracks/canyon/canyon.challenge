@@ -2,8 +2,8 @@
 
 <challenge
     id="tollwaytime"
-    name="Finish Tux Tollway track in 3:35"
-    description="Finish 3 laps on the Tux Tollway track with 3 AI karts in under 3:35 minutes."
+    name="Finish Tux Tollway track in 4:35"
+    description="Finish 3 laps on the Tux Tollway track with 3 AI karts in under 4:35 minutes."
     unlock-track="canyon"
     major="single"
     minor="quickrace"
@@ -11,6 +11,6 @@
     difficulty="medium"
     laps="3"
     karts="4"
-    time="215"
+    time="275"
 />
 
