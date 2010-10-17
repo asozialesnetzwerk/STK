@@ -1437,6 +1437,10 @@ class TrackExport:
             elif stktype=="OBJECT" or stktype=="SPECIAL_OBJECT":
                 lObjects.append(obj)
             else:
+                s = getProperty(obj, "type", None)
+                if s:
+                    print "Warning: object", obj.name,  \
+                          " has type property '%s', which is not supported.\n"%s
                 lTrack.append(obj)
 
         if not found_main_driveline:
