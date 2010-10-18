@@ -10,6 +10,6 @@
   <material name="canyon_asphalt_blend_2.png" anisotropic="Y" graphical-effect="smoke"/>
   <material name="canyon_boards.png" alpha="N" light="Y" />
   <material name="canyon_dirt_road.png" anisotropic="Y" graphical-effect="smoke"/>
-  <material name="canyon_ground.png" anisotropic="Y" />
+  <material name="canyon_ground.png" anisotropic="Y" slowdown-time="5" max-speed="0.5" />
   <material name="transparence.png" alpha="Y" transparency="N" light="N" reset="Y" />
 </materials>

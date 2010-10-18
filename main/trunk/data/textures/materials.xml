@@ -12,6 +12,7 @@
   <material name="wood.jpg" collide="N" anisotropic="Y"/>
   <material name="concrete.png" />
   <material name="brick.png" />
+  <material name="earth.png" slowdown-time="4" max-speed="0.5" />
   <material name="stonewall.png"  collide="N"/>
   <material name="pebbles.png"  collide="N"/>
   <material name="egypt.png" />
