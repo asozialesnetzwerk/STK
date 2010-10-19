@@ -1039,7 +1039,7 @@ class TrackExport:
             shape = getProperty(obj, "shape", "")
             if not shape:
                 print "Warning: Movable object %s has no shape - box assumed!" \
-                      % obj.Name
+                      % obj.name
                 shape="box"
             mass  = getProperty(obj, "mass", 10)
             f.write("  <object type=\"movable\" %s\n"%(getXYZHPRString(obj)))
