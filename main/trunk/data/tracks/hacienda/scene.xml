@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev Unknown -->
+<!-- Generated with script from SVN rev 6179 -->
 <scene>
   <track model="hacienda_track.b3d" x="0" y="0" z="0"/>
   <object type="movable" xyz="79.532364 0.067819 97.131233" hpr="0.000000 0.000000 0.000000"
@@ -24,7 +24,7 @@
   <checks>
     <check-line kind="lap" p1="-3.999785 0.030310" p2="3.999785 -0.030310"
                 min-height="-0.990000"/>
-    <check-line kind="activate" other-ids="2" p1="227.982346 109.128746" p2="229.342407 90.069756"
+    <check-line kind="activate" other-ids="2" p1="227.982346 109.128738" p2="229.342407 90.069756"
                 min-height="-0.008819" same-group=""/>
     <check-line kind="activate" other-ids="0" p1="92.126266 -117.803696" p2="79.177559 -140.231522"
                 min-height="-13.228691" same-group=""/>
