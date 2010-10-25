@@ -2,69 +2,69 @@
 <materials>
   <material name="wood_planks1_alpha.png" alpha="y"/>
   <material name="fence.png" alpha="y" light="n"/>
-  <material name="clouds.png"  light="N" reset="Y" collide="N"/>
-  <material name="sand.png"  collide="N" max-speed="0.4" slowdown-time="0.8"/>
-  <material name="sandgrass.png"  collide="N" max-speed="0.4" slowdown-time="0.8" anisotropic="Y"/>
-  <material name="grass.jpg"  collide="N" max-speed="0.6" slowdown-time="0.8" anisotropic="Y"/>
-  <material name="chrome.png"  light="N" sphere="Y" collide="N"/>
-  <material name="chrome2.png"  light="N" sphere="Y" collide="N"/>
+  <material name="clouds.png"  light="N" reset="Y" ignore="Y"/>
+  <material name="sand.png"  ignore="Y" max-speed="0.4" slowdown-time="0.8"/>
+  <material name="sandgrass.png"  ignore="Y" max-speed="0.4" slowdown-time="0.8" anisotropic="Y"/>
+  <material name="grass.jpg"  ignore="Y" max-speed="0.6" slowdown-time="0.8" anisotropic="Y"/>
+  <material name="chrome.png"  light="N" sphere="Y" ignore="Y"/>
+  <material name="chrome2.png"  light="N" sphere="Y" ignore="Y"/>
   <material name="railing.png" transparency="Y"/>
-  <material name="wood.jpg" collide="N" anisotropic="Y"/>
+  <material name="wood.jpg" ignore="Y" anisotropic="Y"/>
   <material name="concrete.png" />
   <material name="brick.png" />
   <material name="earth.png" slowdown-time="4" max-speed="0.5" />
-  <material name="stonewall.png"  collide="N"/>
-  <material name="pebbles.png"  collide="N"/>
+  <material name="stonewall.png"  ignore="Y"/>
+  <material name="pebbles.png"  ignore="Y"/>
   <material name="egypt.png" />
-  <material name="oakleaf_fall.png" transparency="Y" collide="N" ignore="Y" light="N" />
-  <material name="pino.png" alpha="Y" collide="N" ignore="Y" />
-  <material name="pino2.png" alpha="Y" collide="N" ignore="Y" />
-  <material name="starparticle.png" clampU="Y" clampV="Y" alpha="Y" collide="N" ignore="Y" light="N"/>
-  <material name="pyramidwall.png"  collide="N"/>
+  <material name="oakleaf_fall.png" transparency="Y" ignore="Y" light="N" />
+  <material name="pino.png" alpha="Y" ignore="Y" />
+  <material name="pino2.png" alpha="Y" ignore="Y" />
+  <material name="starparticle.png" clampU="Y" clampV="Y" alpha="Y" ignore="Y" light="N"/>
+  <material name="pyramidwall.png"  ignore="Y"/>
   <material name="lava.png"  light="N" reset="Y"/>
   <material name="metalgrid.png" transparency="Y" anisotropic="N" />
-  <material name="roadway.png" clampU="Y"  collide="N" anisotropic="Y" graphical-effect="smoke"/>
+  <material name="roadway.png" clampU="Y"  ignore="Y" anisotropic="Y" graphical-effect="smoke"/>
   <material name="track.png"  anisotropic="Y" graphical-effect="smoke"/>
   <material name="track2.jpg" anisotropic="Y" graphical-effect="smoke"/>
-  <material name="trackborder.png"  light="N" collide="N" graphical-effect="smoke"/>
-  <material name="chess.png"  collide="N" graphical-effect="smoke"/>
+  <material name="trackborder.png"  light="N" ignore="Y" graphical-effect="smoke"/>
+  <material name="chess.png"  ignore="Y" graphical-effect="smoke"/>
   <material name="palmtree3.png"  transparency="Y"/>
-  <material name="tinytux.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.8" light="N" ignore="Y" collide="N"/>
-  <material name="butterfly.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.8" light="N" ignore="Y" collide="N"/>
-  <material name="bananawrap.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.5" light="N" zipper="Y" collide="N"/>
-  <material name="fuzzy.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.2" light="N" ignore="Y" collide="N"/>
-  <material name="generickartshadow.png" clampU="Y" clampV="Y" transparency="Y"  light="N" ignore="Y" collide="N"/>
-  <material name="smoke.png" alpha="Y"  light="N" ignore="Y" collide="N"/>
-  <material name="explode.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y" collide="N"/>
-  <material name="slipstream.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y" collide="N"/>
-  <material name="flames.png" alpha="0.9" light="N" ignore="Y" collide="N"/>
-  <material name="nitro-particle.png" alpha="Y" light="N" ignore="Y" collide="N"/>
-  <material name="magnet.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y" collide="N"/>
-  <material name="bzzt.png" transparency="Y" light="N" ignore="Y" collide="N"/>
-  <material name="speedback.png" clampU="Y" clampV="Y" transparency="Y"  light="N" ignore="Y" collide="N"/>
-  <material name="speedfore.png" clampU="Y" clampV="Y" transparency="Y"  light="N" ignore="Y" collide="N"/>
-  <material name="water_light.png" light="N" reset="Y" collide="N"/>
+  <material name="tinytux.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.8" light="N" ignore="Y"/>
+  <material name="butterfly.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.8" light="N" ignore="Y"/>
+  <material name="bananawrap.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.5" light="N" zipper="Y" ignore="Y"/>
+  <material name="fuzzy.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.2" light="N" ignore="Y"/>
+  <material name="generickartshadow.png" clampU="Y" clampV="Y" transparency="Y"  light="N" ignore="Y"/>
+  <material name="smoke.png" alpha="Y"  light="N" ignore="Y"/>
+  <material name="explode.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y"/>
+  <material name="slipstream.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y"/>
+  <material name="flames.png" alpha="0.9" light="N" ignore="Y"/>
+  <material name="nitro-particle.png" alpha="Y" light="N" ignore="Y"/>
+  <material name="magnet.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y"/>
+  <material name="bzzt.png" transparency="Y" light="N" ignore="Y"/>
+  <material name="speedback.png" clampU="Y" clampV="Y" transparency="Y"  light="N" ignore="Y"/>
+  <material name="speedfore.png" clampU="Y" clampV="Y" transparency="Y"  light="N" ignore="Y"/>
+  <material name="water_light.png" light="N" reset="Y" ignore="Y"/>
   <material name="sea.jpg"  light="N" reset="Y"/>
-  <material name="rock.jpg"  collide="N"/>
-  <material name="coniferous_tree.png" transparency="Y" light="N" collide="N"/>
-  <material name="signs.png" transparency="Y" alpha="0.5" light="N" collide="N"/>
-  <material name="greenice.png"  reset="Y" collide="N"/>
-  <material name="snow.png"  collide="N" max-speed="0.4" slowdown-time="0.8"/>
-  <material name="ice.png"  collide="N"/>
-  <material name="snowyrock.png"  collide="N"/>
-  <material name="sand2.png"  collide="N" max-speed="0.5" slowdown-time="3.0"/>
-  <material name="road_dirt.png"  collide="N" anisotropic="Y" />
-  <material name="grass2.png"  collide="N" max-speed="0.6" slowdown-time="0.8" anisotropic="Y"/>
-  <material name="dirt2sand.png"  collide="N" anisotropic="Y"/>
-  <material name="grass2dirt.png"  collide="N" max-speed="0.4" slowdown-time="0.8" clampU="Y" clampV="N" anisotropic="Y" />
-  <material name="logs.png"  collide="N"/>
-  <material name="stonetex.png"  collide="N"/>
-  <material name="redwhite.png"  collide="N"/>
-  <material name="dirt.png"  collide="N"/>
-  <material name="city_asphalt_1.png"  collide="N" anisotropic="Y" graphical-effect="smoke"/>
-  <material name="city_checker.png"  collide="N" graphical-effect="smoke"/>
-  <material name="water-splash.png" alpha="Y" light="N" ignore="Y" collide="N"/>
-  <material name="notes.png" transparency="Y"  light="N" collide="N"/>
+  <material name="rock.jpg"  ignore="Y"/>
+  <material name="coniferous_tree.png" transparency="Y" light="N" ignore="Y"/>
+  <material name="signs.png" transparency="Y" alpha="0.5" light="N" ignore="Y"/>
+  <material name="greenice.png"  reset="Y" ignore="Y"/>
+  <material name="snow.png"  ignore="Y" max-speed="0.4" slowdown-time="0.8"/>
+  <material name="ice.png"  ignore="Y"/>
+  <material name="snowyrock.png"  ignore="Y"/>
+  <material name="sand2.png"  ignore="Y" max-speed="0.5" slowdown-time="3.0"/>
+  <material name="road_dirt.png"  ignore="Y" anisotropic="Y" />
+  <material name="grass2.png"  ignore="Y" max-speed="0.6" slowdown-time="0.8" anisotropic="Y"/>
+  <material name="dirt2sand.png"  ignore="Y" anisotropic="Y"/>
+  <material name="grass2dirt.png"  ignore="Y" max-speed="0.4" slowdown-time="0.8" clampU="Y" clampV="N" anisotropic="Y" />
+  <material name="logs.png"  ignore="Y"/>
+  <material name="stonetex.png"  ignore="Y"/>
+  <material name="redwhite.png"  ignore="Y"/>
+  <material name="dirt.png"  ignore="Y"/>
+  <material name="city_asphalt_1.png"  ignore="Y" anisotropic="Y" graphical-effect="smoke"/>
+  <material name="city_checker.png"  ignore="Y" graphical-effect="smoke"/>
+  <material name="water-splash.png" alpha="Y" light="N" ignore="Y"/>
+  <material name="notes.png" transparency="Y"  light="N" ignore="Y"/>
   
   <material name="skyscraper1.png" anisotropic="Y"/>
   <material name="skyscraper2.png" anisotropic="Y"/>

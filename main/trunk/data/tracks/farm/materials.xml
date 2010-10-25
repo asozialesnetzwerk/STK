@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <materials>
-    <material name="leave3.png" transparency="Y" ignore="Y" collide="N" light="N"/>
+    <material name="leave3.png" transparency="Y" ignore="Y" light="N"/>
     <material name="corn.png" light="N"/>
     <material name="leaf.png" light="N"/>
     <material name="horse.png" light="N"/>
