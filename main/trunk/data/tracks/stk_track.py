@@ -1028,7 +1028,7 @@ class TrackExport:
         # So it's a visual-only object. This is exported
         # as an animation object without an IPO attached.
         # -----------------------------------------------
-        interact = getProperty(obj, "interaction")
+        interact = getProperty(obj, "interaction", "none")
         # An object that can be moved by the player. This object
         # can not have an IPO, so no need to test this here.
         if interact=="move":
