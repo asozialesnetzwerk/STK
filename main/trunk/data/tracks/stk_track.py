@@ -1324,6 +1324,15 @@ class TrackExport:
     # I'm using the IDProperty browser!!!
     def writeMaterialsFile(self, sPath):
 
+        # Read & Write the materials to the file
+        limage = Blender.Image.Get()
+        for i in limage:
+            for sAttrib,sValue in i.properties.iteritems():
+                break
+        else:
+            print "No Materials defined."
+            return
+            
         start_time = bsys.time()
         print "Writing material file --> \t",
 
@@ -1335,8 +1344,6 @@ class TrackExport:
         lBooleanAttributes = ["CLAMP","TRANSPARENCY","ALPHA","LIGHT","SPHERE",\
                               "ANISOTROPIC","IGNORE","ZIPPER","RESET"]
 
-        # Read & Write the materials to the file
-        limage = Blender.Image.Get()
         for i in limage:
             #iterate through material definitions 
             sImage = ""
