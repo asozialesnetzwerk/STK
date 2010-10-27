@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev 6273 -->
 <materials>
-  <!-- Overwrite default settings for sand.png, which includes
+  <!-- Overwrite default settings for yellow_dirt.png, which includes
        a slowdown on this terrain, which is unwanted in this track. -->
-  <material name="sand.png"/>
+  <material name="yellow_dirt.png" anisotropic="Y"/> 
 </materials>
