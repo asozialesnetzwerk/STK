@@ -1,7 +1,23 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 6179 -->
+<!-- Generated with script from SVN rev 6315 -->
 <scene>
   <track model="hacienda_track.b3d" x="0" y="0" z="0"/>
+  <object type="animation" model="mill.b3d" xyz="246.505005 39.382900 -153.967865" hpr="0.000000 0.000000 213.891008" >
+    <curve channel="LocX" interpolation="bezier" extend="const">
+      <p c="1.000000 246.505005" h1="-18.130163 246.505005" h2="20.130163 246.505005"/>
+      <p c="50.000000 246.505005" h1="30.869837 246.505005" h2="69.520576 246.505005"/>
+      <p c="100.000000 246.505005" h1="80.479424 246.505005" h2="119.520576 246.505005"/>
+    </curve>
+    <curve channel="LocZ" interpolation="bezier" extend="const">
+      <p c="1.000000 -153.967865" h1="-18.130163 -153.967865" h2="20.130163 -153.967865"/>
+      <p c="50.000000 -153.967865" h1="30.869837 -153.967865" h2="69.520576 -153.967865"/>
+      <p c="100.000000 -153.967865" h1="80.479424 -153.967865" h2="119.520576 -153.967865"/>
+    </curve>
+    <curve channel="RotZ" interpolation="linear" extend="cyclic">
+      <p c="1.000000 0.000000"/>
+      <p c="100.000000 360.000000"/>
+    </curve>
+  </object>
   <object type="movable" xyz="79.532364 0.067819 97.131233" hpr="0.000000 0.000000 0.000000"
           model="pot.b3d" shape="cone" mass="15.000000"/>
   <object type="movable" xyz="103.951904 0.067819 100.646759" hpr="0.000000 0.000000 0.000000"
@@ -29,4 +45,8 @@
     <check-line kind="activate" other-ids="0" p1="92.126266 -117.803696" p2="79.177559 -140.231522"
                 min-height="-13.228691" same-group=""/>
   </checks>
+  <default-start karts-per-row     ="2"
+                 forwards-distance ="1.5"
+                 sidewards-distance="3"
+                 upwards-distance  ="0.1"/>
 </scene>
