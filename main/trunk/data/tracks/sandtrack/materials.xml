@@ -4,4 +4,8 @@
   <!-- Overwrite default settings for yellow_dirt.png, which includes
        a slowdown on this terrain, which is unwanted in this track. -->
   <material name="yellow_dirt.png" anisotropic="Y"/> 
+  
+  <material name="egyptsky1.png" transparency="Y" light="N"/>
+  <material name="egyptsky2.png" transparency="Y" light="N"/>
+  <material name="clouses.png" light="N"/>
 </materials>
