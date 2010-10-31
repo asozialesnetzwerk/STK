@@ -1326,12 +1326,24 @@ class TrackExport:
 
         # Read & Write the materials to the file
         limage = Blender.Image.Get()
+
+        ### This for-else statement doesn't work somehow... I'm changing it
+        #for i in limage:
+        #    for sAttrib,sValue in i.properties.iteritems():
+        #        break
+        #else:
+        #    print "No Materials defined."
+        #    return
+
+        materfound = False
         for i in limage:
             for sAttrib,sValue in i.properties.iteritems():
+                materfound = True
                 break
-        else:
+        if not materfound:
             print "No Materials defined."
             return
+
             
         start_time = bsys.time()
         print "Writing material file --> \t",
@@ -1342,23 +1354,39 @@ class TrackExport:
         f.write("<materials>\n")
 
         lBooleanAttributes = ["CLAMP","TRANSPARENCY","ALPHA","LIGHT","SPHERE",\
-                              "ANISOTROPIC","IGNORE","ZIPPER","RESET"]
+                              "ANISOTROPIC","IGNORE","ZIPPER","RESET","SFX:POSITIONAL"]
 
         for i in limage:
-            #iterate through material definitions 
+            #iterate through material definitions and collect data
             sImage = ""
+            sSFX = ""
 
             for sAttrib,sValue in i.properties.iteritems():
-                if sAttrib.strip().upper() in lBooleanAttributes:
-                    sImage = "%s %s=\"%s\""%(sImage,sAttrib,convertTextToYN(sValue))
+                if sAttrib.strip().upper().startswith("SFX:"):
+                    #These items pertain to the soundeffects (starting with sfx:)
+                    strippedName = sAttrib.strip().split(":")[1]
+                    
+                    if strippedName.upper() in lBooleanAttributes:
+                        sSFX = "%s %s=\"%s\""%(sSFX,strippedName,convertTextToYN(sValue))
+                    else:
+                        sSFX = "%s %s=\"%s\""%(sSFX,strippedName,sValue)                   
                 else:
-                    sImage = "%s %s=\"%s\""%(sImage,sAttrib,sValue)
+                    #These items are standard items
+                    if sAttrib.strip().upper() in lBooleanAttributes:
+                        sImage = "%s %s=\"%s\""%(sImage,sAttrib,convertTextToYN(sValue))
+                    else:
+                        sImage = "%s %s=\"%s\""%(sImage,sAttrib,sValue)
 
-            if sImage:
+            # Now write the main content of the materials.xml file
+            if sImage or sSFX:
                 #Get the filename of the image.
                 s = i.getFilename()
-                sImage="  <material name=\"%s\"%s/>\n" % \
-                        (Blender.sys.basename(s),sImage)
+                if sSFX:
+                    sImage="  <material name=\"%s\"%s>\n" % (Blender.sys.basename(s),sImage)
+                    sImage="%s    <sfx%s>\n" % (sImage,sSFX)
+                    sImage="%s  </materials>\n" % (sImage)
+                else:
+                    sImage="  <material name=\"%s\"%s/>\n" % (Blender.sys.basename(s),sImage)
 
                 f.write(sImage)
             
