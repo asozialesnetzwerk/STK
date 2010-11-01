@@ -3,4 +3,5 @@
   <material name="metalgrid.png" transparency="Y"/>
   <material name="tinytux.png" transparency="Y" />
   <material name="lava_sky.png" light="N"/>
+  <material name="transparence.png" transparency="Y" reset="Y"/>
 </materials>
