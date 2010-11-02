@@ -503,6 +503,7 @@ class TrackExport:
         getIdProperty(scene, "sky-speed-y", "0")
         # Not sure if these should be added - if the user wants a sky
         # box they are quiet annoying.
+        #getIdProperty(scene, "sky-color","")
         #getIdProperty(scene, "sky-horizontal","")
         #getIdProperty(scene, "sky-vertical", "")
         #getIdProperty(scene, "sky-texture-percent","")
@@ -1203,6 +1204,10 @@ class TrackExport:
         if sSky:
             f.write("  <sun %s/>\n"%sSky)
             
+        sky_color=getIdProperty(scene, "sky-color", None)
+        if sky_color:
+            f.write("  <sky-color rgb=\"%s\"/>\n"%sky_color)
+        
         rad2deg = 180.0/3.1415926
         for obj in lItems:
             name     = getProperty(obj, "type", "").lower()
