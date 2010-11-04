@@ -1517,15 +1517,27 @@ def savescene_callback(sFilename):
 
 # ==============================================================================
 if __name__ == "__main__":
-    # Make sure to leave edit mode, since otherwise the mesh before
-    # entering edit mode is exported.
-    if Blender.Window.EditMode():
-        Blender.Window.EditMode(0)
+    ok = 1
+    try:
+        b3d_version = b3d_export.__version__
+        # Will be e.g. 2.06 or 3.0
+        if int(b3d_version.split(".")[0])<3:
+            ok = 0
+    except:
+        ok = 0
+        
+    if not ok:
+        Blender.Draw.PupMenu("B3d exporter too old! Please install a new version from STK SVN.")
+    else:
+        # Make sure to leave edit mode, since otherwise the mesh before
+        # entering edit mode is exported.
+        if Blender.Window.EditMode():
+            Blender.Window.EditMode(0)
 
-    tmp_filename = Blender.sys.makename(ext = "")
-    Blender.Window.FileSelector(savescene_callback,"Export STK track",tmp_filename)
+        tmp_filename = Blender.sys.makename(ext = "")
+        Blender.Window.FileSelector(savescene_callback,"Export STK track",tmp_filename)
 
-    # Note that we can't go back to edit mode (if it was selected before)
-    # since this line is executed by blender before any callback is done,
-    # i.e. when the script actually runs, it is still in edit mode.
-    # if was_edit_mode:  Blender.Window.EditMode(1)
+        # Note that we can't go back to edit mode (if it was selected before)
+        # since this line is executed by blender before any callback is done,
+        # i.e. when the script actually runs, it is still in edit mode.
+        # if was_edit_mode:  Blender.Window.EditMode(1)
