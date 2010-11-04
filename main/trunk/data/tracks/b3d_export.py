@@ -56,13 +56,13 @@ EVENT_EXP = 7
 EVENT_QUI = 8
 
 #Global Stacks
-flag_stack = []
-sets_stack = []
-texs_stack = []
-brus_stack = []
-mesh_stack = []
-bone_stack = []
-keys_stack = []
+b3d_parameters = {}
+sets_stack     = []
+texs_stack     = []
+brus_stack     = []
+mesh_stack     = []
+bone_stack     = []
+keys_stack     = []
 
 #Transformation Matrix
 TRANS_MATRIX = Mathutils.Matrix([-1,0,0,0],[0,0,1,0],[0,1,0,0],[0,0,0,1])
@@ -83,7 +83,7 @@ def write_chunk(name,value):
 
 #Write B3D File
 def write_b3d_file(filename, objects=[]):
-    global flag_stack, sets_stack, texs_stack
+    global sets_stack, texs_stack
     global brus_stack, mesh_stack, bone_stack, keys_stack
 
     #Global Stacks
@@ -111,7 +111,7 @@ def write_b3d_file(filename, objects=[]):
 
 #Write TEXS Chunk
 def write_texs(objects=[]):
-    global flag_stack
+    global b3d_parameters
     texs_buf = ""
     temp_buf = ""
     layer_max = 0
@@ -121,7 +121,7 @@ def write_texs(objects=[]):
     if objects:
         exp_obj = objects
     else:
-        if flag_stack[1]:
+        if b3d_parameters.get("export-selected"):
             exp_obj = Blender.Object.GetSelected()
         else:
             exp_obj = Blender.Object.Get()
@@ -161,7 +161,7 @@ def write_texs(objects=[]):
                                 tex_flag = 65536
                             elif set_count > 1:
                                 tex_flag = 1
-                            if flag_stack[6]:
+                            if b3d_parameters.get("mipmap"):
                                 enable_mipmaps=8
                             else:
                                 enable_mipmaps=0
@@ -199,6 +199,7 @@ def write_texs(objects=[]):
 
 #Write BRUS Chunk
 def write_brus(objects=[]):
+    global b3d_parameters
     brus_buf = ""
     temp_buf = ""
     mat_count = 0
@@ -207,7 +208,7 @@ def write_brus(objects=[]):
     if objects:
         exp_obj = objects
     else:
-        if flag_stack[1]:
+        if  b3d_parameters.get("export-selected"):
             exp_obj = Blender.Object.GetSelected()
         else:
             exp_obj = Blender.Object.Get()
@@ -256,7 +257,8 @@ def write_brus(objects=[]):
                                 temp_buf += write_float(mat_alpha) #Alpha
                                 temp_buf += write_float(0)         #Shininess
                                 temp_buf += write_int(1)           #Blend
-                                if flag_stack[3] and data.getColorLayerNames():
+                                if b3d_parameters.get("vertex-colors") and \
+                                       data.getColorLayerNames():
                                     temp_buf += write_int(2) #Fx
                                 else:
                                     temp_buf += write_int(0) #Fx
@@ -264,7 +266,8 @@ def write_brus(objects=[]):
                                 for i in face_stack:
                                     temp_buf += write_int(i) #Texture ID
                     else:
-                        if flag_stack[3] and data.getColorLayerNames():
+                        if b3d_parameters.get("vertex-colors") and \
+                               data.getColorLayerNames():
                             if not face_stack in brus_stack:
                                 brus_stack.append(face_stack)
                                 mat_count += 1
@@ -290,7 +293,8 @@ def write_brus(objects=[]):
                         temp_buf += write_float(1) #Alpha
                         temp_buf += write_float(0) #Shininess
                         temp_buf += write_int(1)   #Blend
-                        if flag_stack[3] and data.getColorLayerNames():
+                        if b3d_parameters.get("vertex-colors") and \
+                               data.getColorLayerNames():
                             temp_buf += write_int(2) #Fx
                         else:
                             temp_buf += write_int(0) #Fx
@@ -313,6 +317,7 @@ def write_brus(objects=[]):
 def write_node(objects=[]):
     global bone_stack
     global keys_stack
+    global b3d_parameters
     root_buf = ""
     node_buf = ""
     main_buf = ""
@@ -334,7 +339,7 @@ def write_node(objects=[]):
     if objects:
         exp_obj = objects
     else:
-        if flag_stack[1]:
+        if b3d_parameters.get("export-selected"):
             exp_obj = Blender.Object.GetSelected()
         else:
             exp_obj = Blender.Object.Get()
@@ -347,10 +352,10 @@ def write_node(objects=[]):
         if obj.type == "Lamp":
             num_ligs += 1
 
-    if flag_stack[4] == 1:
+    if b3d_parameters.get("cameras"):
         num_lorc += num_cams
 
-    if flag_stack[5] == 1:
+    if b3d_parameters.get("lights"):
         num_lorc += 1
         num_lorc += num_ligs
 
@@ -394,6 +399,7 @@ def write_node(objects=[]):
                 temp_buf += write_string(obj.name) #Node Name
 
                 position = matrix.translationPart()
+                print "Position",position,obj.loc
                 temp_buf += write_float(-position[0]) #Position X
                 temp_buf += write_float(position[1])  #Position Y
                 temp_buf += write_float(position[2])  #Position Z
@@ -411,12 +417,16 @@ def write_node(objects=[]):
                 temp_buf += write_float(quat.z) #Rotation Y
                 temp_buf += write_float(quat.y) #Rotation Z
             else:
-                matrix = obj.getMatrix("worldspace")
-                matrix *= TRANS_MATRIX
+                if b3d_parameters.get("local-space"):
+                    matrix = TRANS_MATRIX
+                else:
+                    matrix = obj.getMatrix("worldspace")
+                    matrix *= TRANS_MATRIX
 
                 temp_buf += write_string(obj.name) #Node Name
 
                 position = matrix.translationPart()
+
                 temp_buf += write_float(-position[0]) #Position X
                 temp_buf += write_float(position[1])  #Position Y
                 temp_buf += write_float(position[2])  #Position Z
@@ -511,7 +521,7 @@ def write_node(objects=[]):
                 node_buf += write_chunk("NODE",temp_buf)
                 temp_buf = ""
 
-        if flag_stack[4]:
+        if b3d_parameters.get("cameras"):
             if obj.type == "Camera":
                 data = obj.getData()
                 matrix = obj.getMatrix("worldspace")
@@ -554,7 +564,7 @@ def write_node(objects=[]):
                     node_buf += write_chunk("NODE",temp_buf)
                     temp_buf = ""
 
-        if flag_stack[5]:
+        if b3d_parameters.get("lights"):
             if amb_light == 0:
                 data = Blender.World.GetCurrent()
 
@@ -662,10 +672,10 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
     data = obj.getData(mesh = True)
     orig_uvlayer = data.activeUVLayer
 
-    if flag_stack[2]:
+    if b3d_parameters.get("vertex-normals"):
         obj_flags += 1
 
-    if flag_stack[3] and data.getColorLayerNames():
+    if b3d_parameters.get("vertex-colors") and data.getColorLayerNames():
         obj_flags += 2
 
     temp_buf += write_int(obj_flags) #Flags
@@ -691,7 +701,7 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
                 mesh_stack[vert.index][0] = vert.index
                 mesh_stack[vert.index][1] = vert_matrix
 
-                if flag_stack[2]:
+                if b3d_parameters.get("vertex-normals"):
                     link_matrix = obj.getMatrix("worldspace")
                     mesh_matrix = Matrix(link_matrix[0],link_matrix[1],link_matrix[2],link_matrix[3])
                     norm_matrix = TranslationMatrix(vert.no)
@@ -704,7 +714,8 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
 
                     mesh_stack[vert.index][2] = norm_matrix
 
-                if flag_stack[3] and data.getColorLayerNames():
+                if b3d_parameters.get("vertex-colors") and \
+                       data.getColorLayerNames():
                     mesh_stack[vert.index][3] = face.col[ivert]
 
                 if data.vertexUV and not data.faceUV:
@@ -744,12 +755,12 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
             temp_buf += write_float(mesh_stack[ivert][1].y)  #Y
             temp_buf += write_float(mesh_stack[ivert][1].z)  #Z
 
-            if flag_stack[2]:
+            if b3d_parameters.get("vertex-normals"):
                 temp_buf += write_float(-mesh_stack[ivert][2].x) #NX
                 temp_buf += write_float(mesh_stack[ivert][2].y)  #NY
                 temp_buf += write_float(mesh_stack[ivert][2].z)  #NZ
 
-            if flag_stack[3] and data.getColorLayerNames():
+            if b3d_parameters.get("vertex-colors") and data.getColorLayerNames():
                 temp_buf += write_float(mesh_stack[ivert][3].r/255.0) #R
                 temp_buf += write_float(mesh_stack[ivert][3].g/255.0) #G
                 temp_buf += write_float(mesh_stack[ivert][3].b/255.0) #B
@@ -965,29 +976,27 @@ def handle_button(event):
     global EVENT_EXP,EVENT_QUI
 
     if event == EVENT_ALL:
-        flag_stack[0] = 1-flag_stack[0] #All Objects
-        flag_stack[1] = 1-flag_stack[1] #Selected Only
+        b3d_parameters["export-selected"] = not b3d_parameters.get("export-selected")
         Blender.Draw.Redraw(1)
 
     if event == EVENT_SEL:
-        flag_stack[1] = 1-flag_stack[1] #Selected Only
-        flag_stack[0] = 1-flag_stack[0] #All Objects
+        b3d_parameters["export-selected"] = not b3d_parameters.get("export-selected")
         Blender.Draw.Redraw(1)
 
     if event == EVENT_NOR:
-        flag_stack[2] = 1-flag_stack[2] #Vertex Normals
+        b3d_parameters["vertex-normals"] = not b3d_parameters.get("vertex-normals")
         Blender.Draw.Redraw(1)
 
     if event == EVENT_COL:
-        flag_stack[3] = 1-flag_stack[3] #Vertex Colors
+        b3d_parameters["vertex-colors"] = not b3d_parameters.get("vertex-colors")
         Blender.Draw.Redraw(1)
 
     if event == EVENT_CAM:
-        flag_stack[4] = 1-flag_stack[4] #Cameras
+        b3d_parameters["cameras"] = not b3d_parameters.get("cameras")
         Blender.Draw.Redraw(1)
 
     if event == EVENT_LIG:
-        flag_stack[5] = 1-flag_stack[5] #Lights
+        b3d_parameters["lights"] = not b3d_parameters.get("lights")
         Blender.Draw.Redraw(1)
 
     if event == EVENT_EXP:
@@ -1030,16 +1039,34 @@ def draw_gui():
     glRasterPos2i(70,300)
     Draw.Text("Blitz3D Exporter 2.06",'large')
 
-    Blender.Draw.Toggle("All Objects",EVENT_ALL,40,13*button_height,button_width,button_height,flag_stack[0],"Export All Scene Objects")
-    Blender.Draw.Toggle("Selected Only",EVENT_SEL,40,12*button_height,button_width,button_height,flag_stack[1],"Export Only Selected Objects")
+    Blender.Draw.Toggle("All Objects",EVENT_ALL,40,13*button_height,
+                        button_width,button_height,
+                        not b3d_parameters.get("export-selected"),
+                        "Export All Scene Objects")
+    Blender.Draw.Toggle("Selected Only",EVENT_SEL,40,12*button_height,
+                        button_width,button_height,
+                        b3d_parameters.get("export-selected"),
+                        "Export Only Selected Objects")
 
-    Blender.Draw.Toggle("Normals",EVENT_NOR,40,10*button_height,button_width,button_height,flag_stack[2],"Export Vertex Normals")
-    Blender.Draw.Toggle("Vertex Colors",EVENT_COL,40,9*button_height,button_width,button_height,flag_stack[3],"Export Vertex Colors")
-    Blender.Draw.Toggle("Cameras",EVENT_CAM,40,8*button_height,button_width,button_height,flag_stack[4],"Export Cameras")
-    Blender.Draw.Toggle("Lights",EVENT_LIG,40,7*button_height,button_width,button_height,flag_stack[5],"Export Lights")
+    Blender.Draw.Toggle("Normals",EVENT_NOR,40,10*button_height,
+                        button_width,button_height,
+                        b3d_parameters.get("vertex-normals"),
+                        "Export Vertex Normals")
+    Blender.Draw.Toggle("Vertex Colors",EVENT_COL,40,9*button_height,
+                        button_width,button_height,
+                        b3d_parameters.get("vertex-colors"),
+                        "Export Vertex Colors")
+    Blender.Draw.Toggle("Cameras",EVENT_CAM,40,8*button_height,
+                        button_width,button_height,
+                        b3d_parameters.get("cameras"),"Export Cameras")
+    Blender.Draw.Toggle("Lights",EVENT_LIG,40,7*button_height,
+                        button_width,button_height,
+                        b3d_parameters.get("lights"), "Export Lights")
 
-    Blender.Draw.Button("Export",EVENT_EXP,40,5*button_height,button_width,button_height,"Export to B3D")
-    Blender.Draw.Button("Quit",EVENT_QUI,40,4*button_height,button_width,button_height,"Quit this script")
+    Blender.Draw.Button("Export",EVENT_EXP,40,5*button_height,
+                        button_width,button_height,"Export to B3D")
+    Blender.Draw.Button("Quit",EVENT_QUI,40,4*button_height,
+                        button_width,button_height,"Quit this script")
 
     glRasterPos2i(36,55)
     Draw.Text("Copyright (C) 2009 by Diego 'GaNDaLDF' Parisi",'small')
@@ -1068,14 +1095,14 @@ def savefile_callback(filename):
 
 #Export B3D
 def export_b3d():
-    flag_stack.append(1) #All Objects
-    flag_stack.append(0) #Selected Only
-    flag_stack.append(0) #Vertex Normals
-    flag_stack.append(0) #Vertex Colors
-    flag_stack.append(0) #Cameras
-    flag_stack.append(0) #Lights
-    flag_stack.append(8) #Mipmaps: 8=enable mipmap, 8 = no mi
-
+    b3d_parameters["export-selected"] = 0  # Default: export all objects
+    b3d_parameters["vertex-normals" ] = 0  # Vertex normals.
+    b3d_parameters["vertex-colors"  ] = 0  # Vertex colors
+    b3d_parameters["cameras"        ] = 0  # Cameras
+    b3d_parameters["lights"         ] = 0  # Lights
+    b3d_parameters["mipmap"         ] = 0  # Enable mipmap
+    b3d_parameters["local-space"    ] = 1  # Export in local space, i.e. don't
+                                           # apply transform of node to mesh
     draw_gui()
 
 #Main
