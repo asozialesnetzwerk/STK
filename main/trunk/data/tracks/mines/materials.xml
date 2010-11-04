@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
+<!-- Generated with script from SVN rev 6400 -->
 <materials>
-  <material name="clip.png" transparency="y"/> <material name="mine_water_alpha.png" alpha="y"/>
- <material name="mine_water_reset.png" alpha="y" reset="y"/> <material name="fence_chain.png" transparency="y"/>
- <material name="candle.png" alpha="y"/>
- 
+  <material name="candle.png" alpha="Y"/>
+  <material name="clip.png" transparency="Y"/>
+  <material name="fence_chain.png" transparency="Y"/>
+  <material name="mine_water_alpha.png" alpha="Y"/>
+  <material name="mine_water_reset.png" alpha="Y" reset="Y"/>
+</materials>
