@@ -100,6 +100,7 @@ lSTK_Properties = [["name","","Track"],\
                 ["sky-vertical",float(16),"Track"],\
                 ["sky-texture-percent",float(0.5),"Track"],\
                 ["sky-sphere-percent",float(1.3),"Track"],\
+                ["sky-color","","Track"],\
                 ["ambient-color","","Track"],\
                 ["camera-far",float(200.00000),"Track"],\
                 ["fog","no","Track"],\
@@ -111,7 +112,8 @@ lSTK_Properties = [["name","","Track"],\
                 ["start-forwards-distance",int(1.1),"Track"],\
                 ["start-sidewards-distance",int(1.1),"Track"],\
                 ["start-upwards-distance",int(1.1),"Track"],\
-                ["clamp","no","Textures"],\
+                ["clampU","no","Textures"],\
+                ["clampV","no","Textures"],\
                 ["transparency","no","Textures"],\
                 ["alpha","no","Textures"],\
                 ["light","yes","Textures"],\
@@ -136,7 +138,8 @@ lSTK_Properties = [["name","","Track"],\
 lSTK_Picklist = {"arena": "yes|no",\
                 "sky-type": "dome|box",\
                 "fog": "yes|no",\
-                "clamp": "yes|no" ,\
+                "clampU": "yes|no" ,\
+                "clampV": "yes|no" ,\
                 "transparency": "yes|no",\
                 "alpha": "yes|no",\
                 "light": "yes|no",\

@@ -1342,7 +1342,7 @@ class TrackExport:
         f.write("<!-- Generated with script from SVN rev %s -->\n"%getScriptVersion())
         f.write("<materials>\n")
 
-        lBooleanAttributes = ["CLAMP","TRANSPARENCY","ALPHA","LIGHT","SPHERE",\
+        lBooleanAttributes = ["CLAMPU", "CLAMPV","TRANSPARENCY","ALPHA","LIGHT","SPHERE",\
                               "ANISOTROPIC","IGNORE","ZIPPER","RESET","SFX:POSITIONAL"]
 
         for i in limage:
