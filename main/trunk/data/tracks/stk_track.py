@@ -87,10 +87,11 @@ def getXYZHString(obj):
 def getXYZHPRString(obj):
     loc     = obj.loc
     hpr     = obj.rot
+    si      = obj.size
     rad2deg = 180.0/3.1415926535;
-    s="xyz=\"%f %f %f\" hpr=\"%f %f %f\"" %\
-       (loc[0], loc[2], loc[1], hpr[0]*rad2deg, hpr[1]*rad2deg,
-        hpr[2]*rad2deg)
+    s="xyz=\"%f %f %f\" hpr=\"%f %f %f\" scale=\"%f %f %f\"" %\
+       (loc[0], loc[2], loc[1], -hpr[0]*rad2deg, -hpr[2]*rad2deg,
+        -hpr[1]*rad2deg, si[0], si[2], si[1])
     return s
 # --------------------------------------------------------------------------
 # Write several ways of writing true/false as Y/N
@@ -452,29 +453,17 @@ class TrackExport:
         if re.search("\.b3d$", name): return name
         
         name=name+".b3d"
-        
+        old_space =         b3d_export.b3d_parameters["local-space"    ]
+        b3d_export.b3d_parameters["local-space"    ] = 1  # Export in local space
+
         # If the object was already exported, we don't have to do it again.
         if self.dExportedObjects.has_key(name): return name
 
-        # It looks like not all blender versions have loc.copy, e.g. 2.49b
-        # uses a simple tuple. So to accomodate all blender versions, try
-        # both statements.
-        try:
-            oldLoc = obj.loc.copy()
-        except AttributeError:
-            oldLoc = obj.loc
-
-        # obj.rot is apparently a pointer only, so to actually save the
-        # value we have to create a copy (otherwise obj.rot=(0,0,0) will
-        # overwrite the value saved in oldRot).
-        oldRot = obj.rot.copy()
-        obj.loc=(0,0,0)
-        obj.rot=(0,0,0)
         b3d_export.write_b3d_file(sPath+"/"+name, [obj])
-        obj.loc = oldLoc
-        obj.rot = oldRot
+        self.dExportedObjects[name]=old_space
         return name
-        # ----------------------------------------------------------------------
+
+    # ----------------------------------------------------------------------
     def writeTrackFile(self, sPath, sBase):
         print "Writing track file --> \t",
         start_time  = bsys.time()
@@ -812,9 +801,12 @@ class TrackExport:
             elif curve.name=="RotY": name="RotZ"
             elif curve.name=="RotZ": name="RotY"
             else:                    name=curve.name
-            # Rotations are stored in units of 10 degrees!
-            if name[:3]=="Rot": factor=10
-            else:               factor=1
+            # Rotations are stored in units of 10 degrees, and we
+            # have to reverse the sign
+            if name[:3]=="Rot":
+                factor=-10
+            else:
+                factor=1
             f.write("    <curve channel=\"%s\" interpolation=\"%s\" extend=\"%s\">\n"% \
                     (name, dInterp[curve.interpolation], dExtend[curve.extend]))
             
@@ -1332,14 +1324,6 @@ class TrackExport:
         # Read & Write the materials to the file
         limage = Blender.Image.Get()
 
-        ### This for-else statement doesn't work somehow... I'm changing it
-        #for i in limage:
-        #    for sAttrib,sValue in i.properties.iteritems():
-        #        break
-        #else:
-        #    print "No Materials defined."
-        #    return
-
         materfound = False
         for i in limage:
             for sAttrib,sValue in i.properties.iteritems():
@@ -1522,19 +1506,12 @@ class TrackExport:
 # ==============================================================================
 def savescene_callback(sFilename):
     # Settings for the b3d exporter:
-    global flag_stack
-    b3d_export.flag_stack = []
-    b3d_export.flag_stack.append(0) #All Objects
-    b3d_export.flag_stack.append(0) #Selected Only
-    b3d_export.flag_stack.append(1) #Vertex Normals
-    b3d_export.flag_stack.append(1) #Vertex Colors
-    b3d_export.flag_stack.append(0) #Cameras
-    b3d_export.flag_stack.append(0) #Lights
-    # In case that flag_stack supports mipmaps:
-    # It's not important, since irrlicht 1.6 allows
-    # overwriting of the mipmap setting in b3d files
-    # anyway, so STK forces mipmaps
-    b3d_export.flag_stack.append(1) #
+    b3d_export.b3d_parameters["vertex-normals" ] = 1  # Vertex normals.
+    b3d_export.b3d_parameters["vertex-colors"  ] = 1  # Vertex colors
+    b3d_export.b3d_parameters["cameras"        ] = 0  # Cameras
+    b3d_export.b3d_parameters["lights"         ] = 0  # Lights
+    b3d_export.b3d_parameters["mipmap"         ] = 1  # Enable mipmap
+    b3d_export.b3d_parameters["local-space"    ] = 0  # Export in world space
 
     exporter = TrackExport(sFilename)
 
