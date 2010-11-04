@@ -97,7 +97,7 @@ def getXYZHPRString(obj):
 # Write several ways of writing true/false as Y/N
 def convertTextToYN(sText):
     sTemp = sText.strip().upper()
-    if sTemp=="0" or sTemp[1]=="N" or sTemp=="FALSE":
+    if sTemp=="0" or sTemp[0]=="N" or sTemp=="FALSE":
         return "N"
     else:
         return "Y"
