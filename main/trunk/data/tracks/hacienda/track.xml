@@ -1,10 +1,10 @@
-<!-- Generated with script from SVN rev 6315 -->
+<!-- Generated with script from SVN rev 6400 -->
 <?xml version="1.0"?>
 <track  name        = "Hacienda"
         version     = "2"
         groups      = "standard"
         designer    = "Jean-Manuel Clemencon"
-        screenshot  = "sshot-hacienda.png"
         music       = "dance_cleopatra.music"
+        screenshot  = "sshot-hacienda.png"
 >
 </track>

@@ -1,16 +1,15 @@
 <?xml version="1.0"?>
+<!-- Generated with script from SVN rev 6400 -->
 <materials>
-    <material name="sageBrush.png" transparency="Y" ignore="Y" light="N"/>
-    <material name="drysageBrush.png" transparency="Y" ignore="Y" light="N"/>
-    <material name="millstructure.png" transparency="Y" ignore="Y" />
-    <material name="mill.png" transparency="Y" ignore="Y" />
-    <material name="grass.png" transparency="Y" ignore="Y" />
-    <material name="palmacacia.png" transparency="Y" ignore="Y" light="N"/>
-    <material name="lanternDetail.png" transparency="Y" ignore="Y" light="N"/>
-    <material name="sky.png" light="N"/>
-    <material name="light.png" light="N" alpha="Y"/>
-    <material name="arrow.png" light="N" alpha="Y"/>
-    <material name="palm_b.png" light="N" transparency="Y"/>
-    <material name="pix.png" transparency="Y" reset="Y"/>
-    <material name="bigFork.png" transparency="Y" ignore="Y"/>
+  <material name="bigFork.png" transparency="Y" ignore="Y"/>
+  <material name="drysageBrush.png" transparency="Y" light="N" ignore="Y"/>
+  <material name="grass.png" transparency="Y" ignore="Y"/>
+  <material name="lanternDetail.png" transparency="Y" light="N" ignore="Y"/>
+  <material name="light.png" alpha="Y" light="N"/>
+  <material name="mill.png" transparency="Y" ignore="Y"/>
+  <material name="millstructure.png" transparency="Y" ignore="Y"/>
+  <material name="palmacacia.png" transparency="Y" light="N" ignore="Y"/>
+  <material name="pix.png" transparency="Y" reset="Y"/>
+  <material name="sageBrush.png" transparency="Y" light="N" ignore="Y"/>
+  <material name="sky.png" light="N"/>
 </materials>
