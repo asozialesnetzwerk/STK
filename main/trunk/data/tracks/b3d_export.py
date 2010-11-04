@@ -8,7 +8,7 @@ Tooltip: 'Export to Blitz3D file format (.b3d)'
 """
 __author__ = ["Diego 'GaNDaLDF' Parisi"]
 __url__ = ["www.gandaldf.com"]
-__version__ = "2.06"
+__version__ = "3.0"
 __bpydoc__ = """\
 """
 
