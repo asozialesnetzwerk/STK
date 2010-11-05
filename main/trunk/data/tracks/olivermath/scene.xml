@@ -1,26 +1,31 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 6379 -->
+<!-- Generated with script from SVN rev 6406 -->
 <scene>
   <track model="olivermath_track.b3d" x="0" y="0" z="0"/>
-  <banana x="30" y="1" z="18" />
   <banana x="30" y="1" z="60" />
   <banana x="-32" y="1" z="-10" />
-  <item x="30" y="1" z="20" />
-  <item x="30" y="1" z="16" />
-  <item x="50" y="1" z="40" />
-  <item x="10" y="1" z="80" />
+  <item x="40.639221" y="1" z="34.077877" />
+  <item x="2.791108" y="1" z="68.640533" />
+  <item x="45.606167" y="1" z="34.650986" />
+  <item x="8.470841" y="1" z="77.815491" />
   <item x="-5" y="1" z="-10" />
   <item x="-5" y="1" z="30" />
   <item x="-30" y="1" z="-12" />
   <item x="35" y="1" z="62" />
-  <big-nitro x="60" y="3.5" z="30" />
-  <big-nitro x="-20" y="2.5" z="22" />
+  <item x="5.412523" y="1" z="73.337234" />
+  <item x="-43.426315" y="1" z="53.569115" />
+  <item x="-49.406582" y="1" z="53.569115" />
+  <item x="43.145672" y="1" z="-20.272217" />
+  <big-nitro x="-17.583391" y="2.5" z="19.363697" />
   <big-nitro x="-32" y="1" z="-12" />
-  <small-nitro x="-19" y="1" z="79" />
-  <small-nitro x="-19" y="1" z="81" />
-  <small-nitro x="-21" y="1" z="79" />
-  <small-nitro x="-21" y="1" z="81" />
+  <big-nitro x="-39.645794" y="2.700242" z="5.913004" />
+  <small-nitro x="-19.546127" y="1" z="76.487808" />
+  <small-nitro x="-19.655354" y="1" z="78.924713" />
+  <small-nitro x="-19.546127" y="1" z="81.76458" />
   <small-nitro x="-30" y="1" z="-10" />
+  <small-nitro x="31.796089" y="2.883538" z="16.745083" />
+  <small-nitro x="31.796089" y="2.883538" z="19.619421" />
+  <small-nitro x="31.796089" y="2.883538" z="14.650923" />
   <checks>
     <check-line kind="lap" p1="-18.216984 0.184668" p2="-6.676145 -0.173945"
                 min-height="0.770338"/>
