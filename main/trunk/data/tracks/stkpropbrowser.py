@@ -96,6 +96,8 @@ lSTK_Properties = [["name","","Track"],\
                 ["arena","no","Track"],\
                 ["sky-type","dome","Track"],\
                 ["sky-texture","","Track"],\
+                ["sky-texture1","","Track"],\
+                ["sky-texture2","","Track"],\
                 ["sky-horizontal",float(16),"Track"],\
                 ["sky-vertical",float(16),"Track"],\
                 ["sky-texture-percent",float(0.5),"Track"],\
