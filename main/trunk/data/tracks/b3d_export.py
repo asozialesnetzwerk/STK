@@ -399,7 +399,6 @@ def write_node(objects=[]):
                 temp_buf += write_string(obj.name) #Node Name
 
                 position = matrix.translationPart()
-                print "Position",position,obj.loc
                 temp_buf += write_float(-position[0]) #Position X
                 temp_buf += write_float(position[1])  #Position Y
                 temp_buf += write_float(position[2])  #Position Z
