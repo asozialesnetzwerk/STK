@@ -27,9 +27,13 @@
   <small-nitro x="31.796089" y="2.883538" z="19.619421" />
   <small-nitro x="31.796089" y="2.883538" z="14.650923" />
   <checks>
-    <check-line kind="lap" p1="-18.216984 0.184668" p2="-6.676145 -0.173945"
-                min-height="0.770338"/>
-    <check-line kind="activate" other-ids="0" p1="-9.194168 30.863869" p2="-9.305617 90.356178"
+    <check-line kind="lap" p1="-18.216984 0.184668" p2="-6.676145 0.180415"
+                min-height="-0.047442"same-group="1 2"/>
+    <check-line kind="lap" p1="-18.216864 0.184818" p2="-21.126020 0.345565"
+                min-height="-0.060456" same-group="0 2"/>
+    <check-line kind="lap" p1="-4.887419 0.488598" p2="-6.676180 0.180269"
+                min-height="-0.060456" same-group="0 1"/>
+    <check-line kind="activate" other-ids="0 1 2" p1="-9.194168 30.863869" p2="-9.305617 90.356178"
                 min-height="0.597910" same-group=""/>
   </checks>
   <default-start karts-per-row     ="2"
