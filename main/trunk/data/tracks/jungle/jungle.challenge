@@ -2,8 +2,8 @@
 
 <challenge
     id="farmtracktime"
-    name="Finish Farm track in 3:30"
-    description="Finish 3 laps in Farmtrack with 3 easy AI karts in under 3:30 minutes."
+    name="Finish Farm in 2:40"
+    description="Finish 3 laps in Farm with 3 easy AI karts in under 2:40 minutes."
     unlock-track="jungle"
     major="single"
     minor="quickrace"
