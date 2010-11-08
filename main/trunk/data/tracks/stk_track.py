@@ -780,13 +780,19 @@ class TrackExport:
         # which might be a default name with a number). Additionally, names
         # are cached so it can be avoided to export two or more identical
         # objects.
+        parent = obj.getParent()
+        # For now: armature animations are assumed to be looped
+        if parent and parent.type=="Armature":
+            looped =" looped=\"y\" "
+        else:
+            looped = ""
         shape = getProperty(obj, "shape", "")
         if shape:
             shape="shape=\"%s\""%shape
         if not ipo: ipo=[]
         # Note: Y and Z are swapped!
-        f.write("  <object type=\"animation\" model=\"%s\" %s %s>\n"% \
-                (name, getXYZHPRString(obj), shape))
+        f.write("  <object type=\"animation\" model=\"%s\" %s %s%s>\n"% \
+                (name, getXYZHPRString(obj), shape, looped))
         dInterp = {IpoCurve.InterpTypes.BEZIER:        "bezier",
                    IpoCurve.InterpTypes.LINEAR:        "linear",
                    IpoCurve.InterpTypes.CONST:         "const"          }
@@ -796,11 +802,13 @@ class TrackExport:
                    IpoCurve.ExtendTypes.CYCLIC:        "cyclic"         }
         for curve in ipo:
             # Swap Y and Z axis
-            if   curve.name=="LocZ": name="LocY"
-            elif curve.name=="LocY": name="LocZ"
-            elif curve.name=="RotY": name="RotZ"
-            elif curve.name=="RotZ": name="RotY"
-            else:                    name=curve.name
+            if   curve.name=="LocZ":   name="LocY"
+            elif curve.name=="LocY":   name="LocZ"
+            elif curve.name=="RotY":   name="RotZ"
+            elif curve.name=="RotZ":   name="RotY"
+            elif curve.name=="ScaleY": name="ScaleZ"
+            elif curve.name=="ScaleZ": name="ScaleY"
+            else:                      name=curve.name
             # Rotations are stored in units of 10 degrees, and we
             # have to reverse the sign
             if name[:3]=="Rot":
