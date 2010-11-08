@@ -1,4 +1,4 @@
-<!-- Generated with script from SVN rev 5511 -->
+<!-- Generated with script from SVN rev 6436 -->
 <?xml version="1.0"?>
 <track  name        = "Crescent Crossing"
         version     = "2"
@@ -6,6 +6,5 @@
         designer    = "Marianne Gagnon & Ingo Ruhnke"
         music       = "ChillCarrier-Druckverlust.music"
         screenshot  = "sshot-crescent.png"
-        ambient     = "75 75 75 255"
 >
 </track>
