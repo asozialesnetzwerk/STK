@@ -3,9 +3,9 @@
   <material name="wood_planks1_alpha.png" alpha="y"/>
   <material name="fence.png" alpha="y" light="n"/>
   <material name="clouds.png"  light="N" reset="Y" ignore="Y"/>
-  <material name="sand.png" max-speed="0.4" slowdown-time="0.8"/>
-  <material name="sandgrass.png" max-speed="0.4" slowdown-time="0.8" anisotropic="Y"/>
-  <material name="grass.jpg" max-speed="0.6" slowdown-time="0.8" anisotropic="Y"/>
+  <material name="sand.png" max-speed="0.4" slowdown-time="1.8"/>
+  <material name="sandgrass.png" anisotropic="Y"/>
+  <material name="grass.jpg" max-speed="0.6" slowdown-time="1.8" anisotropic="Y"/>
   <material name="chrome.png"  light="N" sphere="Y"/>
   <material name="chrome2.png"  light="N" sphere="Y"/>
   <material name="railing.png" transparency="Y"/>
@@ -54,9 +54,9 @@
   <material name="snowyrock.png"/>
   <material name="sand2.png" max-speed="0.5" slowdown-time="3.0"/>
   <material name="road_dirt.png" anisotropic="Y" />
-  <material name="grass2.png" max-speed="0.4" slowdown-time="1.0" anisotropic="Y"/>
+  <material name="grass2.png" max-speed="0.4" slowdown-time="2.0" anisotropic="Y"/>
   <material name="dirt2sand.png" anisotropic="Y"/>
-  <material name="grass2dirt.png" max-speed="0.6" slowdown-time="0.8" clampU="Y" clampV="N" anisotropic="Y" />
+  <material name="grass2dirt.png" clampU="Y" clampV="N" anisotropic="Y" />
   <material name="logs.png" />
   <material name="stonetex.png" />
   <material name="redwhite.png" />
@@ -71,5 +71,5 @@
   <material name="skyscraper3.png" anisotropic="Y"/>
   <material name="skyscraper3a.png" anisotropic="Y"/>
   
-  <material name="yellow_dirt.png" max-speed="0.4" slowdown-time="1.0" anisotropic="Y"/> 
+  <material name="yellow_dirt.png" max-speed="0.4" slowdown-time="2.0" anisotropic="Y"/> 
 </materials>
