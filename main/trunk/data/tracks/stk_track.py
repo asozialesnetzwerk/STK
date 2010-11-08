@@ -453,14 +453,17 @@ class TrackExport:
         if re.search("\.b3d$", name): return name
         
         name=name+".b3d"
-        old_space =         b3d_export.b3d_parameters["local-space"    ]
-        b3d_export.b3d_parameters["local-space"    ] = 1  # Export in local space
-
         # If the object was already exported, we don't have to do it again.
         if self.dExportedObjects.has_key(name): return name
-
+        
+        old_space = b3d_export.b3d_parameters.get("local-space")
+        
+        b3d_export.b3d_parameters["local-space"] = 1  # Export in local space
         b3d_export.write_b3d_file(sPath+"/"+name, [obj])
-        self.dExportedObjects[name]=old_space
+        b3d_export.b3d_parameters["local-space"] = old_space
+        
+        self.dExportedObjects[name]=1
+        
         return name
 
     # ----------------------------------------------------------------------
