@@ -492,7 +492,10 @@ def write_node(objects=[]):
                                     par_matrix = Blender.Mathutils.Matrix(arm_pose.bones[bone_stack[ibone][1].name].poseMatrix)
                                     bone_matrix *= par_matrix.invert()
                                 else:
-                                    bone_matrix *= arm_matrix
+                                    if b3d_parameters.get("local-space"):
+                                        bone_matrix *= TRANS_MATRIX
+                                    else:
+                                        bone_matrix *= arm_matrix
 
                                 bone_loc = bone_matrix.translationPart()
                                 bone_rot = bone_matrix.rotationPart().toQuat()
