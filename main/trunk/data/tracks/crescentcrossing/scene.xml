@@ -107,6 +107,7 @@
     <check-line kind="activate" other-ids="0" p1="19.733191 -73.665176" p2="19.551653 -115.109787"
                 min-height="-1.185460" same-group=""/>
   </checks>
+  <sky-color rgb="12 6 0"/>
   <default-start karts-per-row     ="2"
                  forwards-distance ="1.5"
                  sidewards-distance="3"

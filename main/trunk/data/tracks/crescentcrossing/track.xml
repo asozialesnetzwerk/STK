@@ -6,5 +6,6 @@
         designer    = "Marianne Gagnon & Ingo Ruhnke"
         music       = "ChillCarrier-Druckverlust.music"
         screenshot  = "sshot-crescent.png"
+        ambient     = "75 75 75 255"
 >
 </track>
