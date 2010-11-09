@@ -106,3 +106,5 @@ Credits for GPL textures :
 * green_check.png, red_mark.png
     from the Gnome icon set, GPL v 2.0+
 
+* tinytux
+    by Larry Ewing (lewing@isc.tamu.edu)
