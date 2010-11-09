@@ -1201,9 +1201,9 @@ class TrackExport:
             if s: sSky="%s sun-specular=\"%s\""%(sSky, s)
             s=getProperty(sun, "diffuse", 0)
             if s: sSky="%s sun-diffuse=\"%s\""%(sSky, s)
+            s=getProperty(sun, "ambient", 0)
+            if s: sSky="%s ambient=\"%s\""%(sSky, s)
 
-        s=getIdProperty(scene, "ambient-color", 0)
-        if s: sSky="%s ambient-color=\"%s\""%(sSky, s)
         if sSky:
             f.write("  <sun %s/>\n"%sSky)
             
