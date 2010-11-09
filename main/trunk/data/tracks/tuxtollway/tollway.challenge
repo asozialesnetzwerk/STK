@@ -2,8 +2,8 @@
 
 <challenge
     id="lighthousetime"
-    name="Finish Lighthouse in 2:40"
-    description="Finish 3 laps in Lighthouse with 3 Expert AI karts in under 2:40 minutes."
+    name="Finish Lighthouse in 1:30"
+    description="Finish 3 laps in Lighthouse with 3 Expert AI karts in under 1:30 minutes."
     unlock-track="tuxtollway"
     depend-on="starfollow"
     major="single"
@@ -12,6 +12,6 @@
     difficulty="hard"
     laps="3"
     karts="4"
-    time="210"
+    time="150"
 />
 

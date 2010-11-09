@@ -3,6 +3,6 @@
 <materials>
   <material name="planet_saturn_rings.png" alpha="Y" light="N"/>
   <material name="startrack2.png" alpha="Y"/>
-  <material name="startrack3.png" clampU="Y" clampV="Y" alpha="Y" light="N"/>
+  <material name="startrack3.png" alpha="Y" light="N"/>
   <material name="transparence.png" alpha="Y" light="N" reset="Y"/>
 </materials>
