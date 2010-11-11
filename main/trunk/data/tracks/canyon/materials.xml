@@ -12,5 +12,7 @@
   <material name="canyon_dirt_road.png" anisotropic="Y" graphical-effect="smoke"/>
   <material name="canyon_ground.png" anisotropic="Y" slowdown-time="2" max-speed="0.5" />
   <material name="transparence.png" alpha="Y" transparency="N" light="N" reset="Y" />
-  <material name="moving_boards.png" zipper="Y" />
+  <material name="moving_boards.png" zipper="Y" zipper-duration="0.1"
+            zipper-max-speed-increase="2" zipper-fade-out-time="0.1"
+            zipper-speed-gain="1"/>
 </materials>
