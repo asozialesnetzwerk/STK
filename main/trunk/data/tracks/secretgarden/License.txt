@@ -18,11 +18,10 @@ Selfmade parts and under GPL and CC-BY-SA, by Canis Lupus :
 - pot
 - pumkin
 
-Based on pictrues from from burningwell (released under public domain) :
+Based on pictures from from burningwell (released under public domain) :
 - flower1
 - Bleech
 - leave2
-- Tizeta_grey1.png
 - Mossy_wall
 
 from wikimedia :
@@ -48,11 +47,6 @@ from wikimedia :
 
 - TiZeta_stalkM (http://commons.wikimedia.org/wiki/File:Dwarf_cavendish_leaf.JPG,
                 CC-BY-SA 3.0, by Ben Clough)
-- TiZeta_ivy (http://commons.wikimedia.org/wiki/File:Conlon_Ivy.JPG,
-              CC-BY-SA 3.0, by Found5dollar)
-
-- TiZeta_barkM (http://commons.wikimedia.org/wiki/File:Apple_box_bark.jpg,
-                CC-BY-SA 3.0, by Benjamint444)
                 
 - Greenhouse-Palm-jubaea01
     based on image by Forest & Kim Starr, with modifications by Marianne Gagnon

@@ -20,7 +20,7 @@ Under Creative Commons Attribution Share-Alike (CC-BY-SA) - http://creativecommo
 * roof, concrete2, garagedoor
     by Marianne Gagnon (Auria), based on public domain photos from BurningWell
 
-* racetrack_tire.png
+* racetrack_tire.png, city_buildings_3.png, city_brick_1.png
     by Thomas Oppl
 
 * road_dirt
@@ -38,7 +38,7 @@ Under Creative Commons Attribution Share-Alike (CC-BY-SA) - http://creativecommo
 * bowling, plunger, cake, bubblegum, flaring-star, nitro-tank, nitro-metal, chest,
   gift-box, gift-loop, tank-cyan, tank-blue, tank-green, plunger-icon, bubblegum-icon, cake-icon,
   bowling-icon, tnt-bomb, nitro-particle, smoke, anchor, anchor-icon, sand2, explode, sky2
-    created by MiniBjorn (c) 2008
+    created by MiniBjorn (c) 2008-2010
 
 * plungerface
     created by MiniBjorn (c) 2008 and Conso
@@ -64,8 +64,25 @@ Under Creative Commons Attribution Share-Alike (CC-BY-SA) - http://creativecommo
 * icon_frame
     by jmimu
     released under CC-BY-SA 3.0
- 
+
+* TiZeta_ivy
+    http://commons.wikimedia.org/wiki/File:Conlon_Ivy.JPG, by Found5dollar
+* TiZeta_barkM
+    http://commons.wikimedia.org/wiki/File:Apple_box_bark.jpg, by Benjamint444
+
+* Tiles.png, concrete_plain.png, grass4.png, toll_roof.png, wall_rock.png
+    by Ivar ten Cate (Varivar), released under CC-BY-SA (varivar@gmail.com)
+
+* HortonRockWall.png
+* HortonRockWall2.png
+* HortonStone6.png
+* Paving_stones_2.png
+    by Marianne Gagnon, made from public domain images from BurningWell
+    and released under CC-BY-SA 3
+
+================
 Other licenses :
+================
 
 * skyscraper*
     Copyright Robert Howie 2008.
@@ -73,6 +90,9 @@ Other licenses :
 
 * gui_lock.png
     by the Tango icon project, released under public domain
+
+* Tizeta_grey1.png
+    Based on pictures from from burningwell (released under public domain)
 
 * cottage_wall1.jpg, cottage_wall2.jpg, cottage_wall3.jpg and wood_planks1.png
     are textures from burningwell.org (public domain) modified by Varivar

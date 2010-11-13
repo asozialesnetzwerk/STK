@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<materials>
+  <material name="leaves2.png" transparency="Y" light="N" collide="N" /> 
+  <material name="zipper_collect.png" transparency="Y" light="N" collide="N" zipper="Y" /> 
+  <material name="bush3.png" transparency="Y" light="N" collide="N" /> 
+   <material name="water_dark.png" light="N" reset="Y" collide="N"/>
+   <material name="Sky_horiz_17.png" light="N" reset="Y" collide="N"/>
+</materials>

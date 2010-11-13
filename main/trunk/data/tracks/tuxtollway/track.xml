@@ -1,4 +1,4 @@
-<!-- Generated with script from SVN rev 5207 -->
+<!-- Generated with script from SVN rev 6466 -->
 <?xml version="1.0"?>
 <track  name        = "Tux Tollway"
         version     = "2"
@@ -7,6 +7,5 @@
         music       = "kart_grand_prix.music"
         arena       = "no"
         screenshot  = "sshot-tuxtrack.png"
-        maxKartCount = "10"
 >
 </track>
