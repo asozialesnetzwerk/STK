@@ -1405,7 +1405,7 @@ class TrackExport:
                 if sSFX:
                     sImage="  <material name=\"%s\"%s>\n" % (Blender.sys.basename(s),sImage)
                     sImage="%s    <sfx%s>\n" % (sImage,sSFX)
-                    sImage="%s  </materials>\n" % (sImage)
+                    sImage="%s  </material>\n" % (sImage)
                 else:
                     sImage="  <material name=\"%s\"%s/>\n" % (Blender.sys.basename(s),sImage)
 
