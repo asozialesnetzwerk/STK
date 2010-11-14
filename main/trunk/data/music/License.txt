@@ -50,3 +50,9 @@ Symphony #5
 -----------
     Daniel Bautista
     license : CC-BY-SA 3.0
+
+OnTheRiver.ogg
+--------------
+    by Bluepiano (http://www.jamendo.com/en/album/50394)
+    with modifications by Magne Djupvik
+    license : CC-BY-SA 3.0
