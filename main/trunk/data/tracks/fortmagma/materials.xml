@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
+<!-- Generated with script from SVN rev 6538 -->
 <materials>
-  <material name="metalgrid.png" transparency="Y"/>
-  <material name="tinytux.png" transparency="Y" />
-  <material name="lava_sky.png" light="N"/>
+  <material name="tinytux.png" transparency="Y"/>
   <material name="transparence.png" transparency="Y" reset="Y"/>
 </materials>
