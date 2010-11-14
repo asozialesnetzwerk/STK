@@ -16,6 +16,10 @@
   <material name="stonewall.png"/>
   <material name="pebbles.png"/>
   <material name="egypt.png" />
+  <material name="Paving_stones_2.png" anisotropic="Y" />
+  <material name="HortonRockWall.png" anisotropic="Y" />
+  <material name="HortonRockWall2.png" anisotropic="Y" />
+  <material name="HortonStone6.png" anisotropic="Y" />
   <material name="oakleaf_fall.png" transparency="Y" ignore="Y" light="N" />
   <material name="pino.png" alpha="Y" />
   <material name="pino2.png" alpha="Y" />
