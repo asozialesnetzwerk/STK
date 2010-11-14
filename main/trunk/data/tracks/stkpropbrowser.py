@@ -134,6 +134,7 @@ lSTK_Properties = [["name","","Track"],\
                 ["sfx:min-pitch",float(1.0),"Textures"],\
                 ["sfx:max-pitch",float(1.0),"Textures"],\
                 ["sfx:positional","no","Textures"],\
+                ["sfx:volume",float(1.0),"Textures"],\
                 ["zipper","no","Textures"],\
 		["zipper-duration",float(3.5),"Textures"],\
 		["zipper-max-speed-increase",float(15),"Textures"],\
