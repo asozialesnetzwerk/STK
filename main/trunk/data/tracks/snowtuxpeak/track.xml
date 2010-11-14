@@ -4,7 +4,7 @@
         version     = "2"
         groups      = "standard"
         designer    = "Oliver & Steve Baker, Marianne Gagnon,  Varivar"
-        music       = "OnTheRiver.ogg"
+        music       = "OnTheRiver.music"
         arena       = "no"
         screenshot  = "sshot-snowtuxpeak.jpg"
         maxKartCount = "10"
