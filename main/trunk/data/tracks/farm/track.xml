@@ -1,10 +1,10 @@
-<!-- Generated with script from SVN rev 6403 -->
+<!-- Generated with script from SVN rev 6538 -->
 <?xml version="1.0"?>
 <track  name        = "Farm"
-        version     = "2"
+        version     = "3"
         groups      = "standard"
         designer    = "Marianne Gagnon & Ville Seppanen"
-        screenshot  = "farm.jpg"
         music       = "TheDeadRocks-EasyJob.music"
+        screenshot  = "farm.jpg"
 >
 </track>
