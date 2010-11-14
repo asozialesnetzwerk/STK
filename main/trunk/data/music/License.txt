@@ -14,14 +14,6 @@ ChillCarrier-Druckverlust.ogg
 --------------------
   Chill Carrier: CC-SA v3.0
 
-BradSucks-OutOfIt.ogg
---------------------
-  Brad Sucks: CC-SA v3.0
-
-CaribbeanMusic.ogg
----------------------------
-  Lukas Siewert, license: CC-SA v3.0
-
 g4m-fan-track.ogg
 -----------------
   Paul Esra Martin, license: CC-SA v3.0
