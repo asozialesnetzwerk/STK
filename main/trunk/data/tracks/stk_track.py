@@ -123,6 +123,7 @@ class Driveline:
         # Invisible drivelines are not shown in the minimap
         self.invisible = getProperty(driveline, "invisible", 0)
         self.enabled   = not getProperty(driveline, "disable",   0)
+        self.activate  = getProperty(driveline, "activate", None)
     # --------------------------------------------------------------------------
     # Returns the name of the driveline
     def getName(self):
@@ -135,6 +136,10 @@ class Driveline:
     # Returns if this driveline is disabled.
     def isEnabled(self): 
         return self.enabled
+    # --------------------------------------------------------------------------
+    # Returns the 'activate' property of the driveline object.
+    def getActivate(self):
+        return self.activate
     # --------------------------------------------------------------------------
     # Stores that the start quad of this driveline is connected to quad
     # quad_index of quad driveline. 
@@ -505,7 +510,7 @@ class TrackExport:
         f.write("<!-- Generated with script from SVN rev %s -->\n"%getScriptVersion())
         f.write("<?xml version=\"1.0\"?>\n")
         f.write("<track  name        = \"%s\"\n"%name)
-        f.write("        version     = \"2\"\n")
+        f.write("        version     = \"3\"\n")
         f.write("        groups      = \"%s\"\n"%groups)
         f.write("        designer    = \"%s\"\n"%designer)
         if music:
@@ -879,9 +884,9 @@ class TrackExport:
     # --------------------------------------------------------------------------
     # Writes out all checklines.
     # \param lChecks All check meshes
-    # \param lMainDriveline The main driveline, from which the lap
+    # \param mainDriveline The main driveline, from which the lap
     #        counting check line is determined.
-    def writeChecks(self, f, lChecks, lMainDriveline):
+    def writeChecks(self, f, lChecks, mainDriveline):
         f.write("  <checks>\n")
 
         # A dictionary containing a list of indices of check structures
@@ -899,16 +904,28 @@ class TrackExport:
                 dGroup2Indices[name] = [ ind ]
             ind = ind + 1
 
-        if lMainDriveline:
-            lap = lMainDriveline.getStartEdge()
+        if mainDriveline:
+            lap = mainDriveline.getStartEdge()
             min_h = lap[0][2]
             if lap[1][2]<min_h: min_h = lap[1][2]
 
             # The main driveline is always the first entry, so remove
             # only the first entry to get the list of all other lap lines
-            l = dGroup2Indices["lap"][1:]
+            l = dGroup2Indices["lap"]
             sSameGroup = reduce(lambda x,y: str(x)+" "+str(y), l, "")
-
+            activate = mainDriveline.getActivate()
+            if activate:
+                group = activate.lower()
+            else:
+                group = ""
+            if not group or not dGroup2Indices.has_key(group):
+                print "Activate group '%s' not found!"%group
+                print "Ignored - but lap counting might not work correctly."
+                print "Make sure there is an object of typ 'check' with"
+                print "the name '%s' defined."%name
+                activate = ""
+            else:
+                activate = reduce(lambda x,y: str(x)+" "+str(y), dGroup2Indices[group])
         else:
             # No main drive defined, print a warning and add some dummy
             # driveline (makes the rest of this code easier)
@@ -916,13 +933,17 @@ class TrackExport:
             lap        = [ [-1, 0], [1, 0] ]
             min_h      = 0
             sSameGroup = ""
+            activate = ""
+
         if sSameGroup:
             sSameGroup="same-group=\"%s\""%sSameGroup.strip()
 
+        if activate:
+            activate = "other-ids=\"%s\""%activate
         f.write("    <check-line kind=\"lap\" p1=\"%f %f\" p2=\"%f %f\"\n"% \
                 (lap[0][0], lap[0][1],
                  lap[1][0], lap[1][1] )  )
-        f.write("                min-height=\"%f\"%s/>\n"% (min_h, sSameGroup) )
+        f.write("                min-height=\"%f\"%s %s/>\n"% (min_h, sSameGroup, activate) )
 
         ind = 1
         for obj in lChecks:
@@ -945,6 +966,7 @@ class TrackExport:
 
             toggle = getProperty(obj, "toggle", "")
             if toggle:
+                group = toggle.lower()
                 if not dGroup2Indices.has_key(group):
                     print "Toggle group '%s' not found!"%group
                     print "Ignored - but lap counting might not work correctly."
@@ -952,7 +974,7 @@ class TrackExport:
                     print "the name '%s' defined."%name
                     continue
                 s = reduce(lambda x,y: str(x)+" "+str(y), dGroup2Indices[group])
-                kind = " kind=\"activate\" other-ids=\"%s\" "% s
+                kind = " kind=\"toggle\" other-ids=\"%s\" "% s
 
             lap = getProperty(obj, "type", obj.name).upper()
             if lap[:3]=="LAP":
@@ -973,7 +995,6 @@ class TrackExport:
             # the index of the current object. So create a copy
             # of the list and remove the current index
             l = dGroup2Indices[name][:]
-            del l[l.index(ind)]
             sSameGroup = reduce(lambda x,y: str(x)+" "+str(y), l, "")
             ind = ind + 1
 
@@ -1131,7 +1152,7 @@ class TrackExport:
     # --------------------------------------------------------------------------
     # Writes the scene files, which includes all models, animations, and items
     def writeSceneFile(self, sPath, sTrackName, lWater, lTrack, lItems,
-                       lObjects, lChecks, lSun, lMainDriveline, lStart,
+                       lObjects, lChecks, lSun, mainDriveline, lStart,
                        lEndCameras, lCameraCurves):
 
         start_time = bsys.time()
@@ -1259,10 +1280,10 @@ class TrackExport:
 
             f.write("  <%s />\n"%s)
 
-        if lChecks or lMainDriveline:
+        if lChecks or mainDriveline:
             if not lChecks:
                 print "No check defined, lap counting will not work properly!"
-            self.writeChecks(f, lChecks, lMainDriveline)
+            self.writeChecks(f, lChecks, mainDriveline)
         scene   = Blender.Scene.GetCurrent()
         sky     = getIdProperty(scene, "sky-type", None)
         # Note that there is a limit to the length of id properties,
