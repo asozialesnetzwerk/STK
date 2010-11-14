@@ -12,4 +12,10 @@
   <material name="pix.png" transparency="Y" reset="Y"/>
   <material name="sageBrush.png" transparency="Y" light="N" ignore="Y"/>
   <material name="sky.png" light="N"/>
+  
+  <material name="woodBridge.png">
+      <sfx filename="wooden_bridge.ogg" name="wood" rolloff="0.6"
+               volume="1.0" min-speed="9" max-speed="22" positional="y"
+               min-pitch="1.0" max-pitch="1.7" />    
+  </material>
 </materials>

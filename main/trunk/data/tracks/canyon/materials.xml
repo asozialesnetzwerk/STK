@@ -8,7 +8,11 @@
   <material name="canyon_water.png" alpha="N" light="N" reset="Y" />
   <material name="canyon_asphalt_blend_1.png" anisotropic="Y" graphical-effect="smoke"/>
   <material name="canyon_asphalt_blend_2.png" anisotropic="Y" graphical-effect="smoke"/>
-  <material name="canyon_boards.png" alpha="N" light="Y" />
+  <material name="canyon_boards.png">
+      <sfx filename="wooden_bridge.ogg" name="wood" rolloff="0.6"
+               volume="1.0" min-speed="9" max-speed="22" positional="y"
+               min-pitch="1.0" max-pitch="1.7" />
+  </material>
   <material name="canyon_dirt_road.png" anisotropic="Y" graphical-effect="smoke"/>
   <material name="canyon_ground.png" anisotropic="Y" slowdown-time="2" max-speed="0.5" />
   <material name="transparence.png" alpha="Y" transparency="N" light="N" reset="Y" />

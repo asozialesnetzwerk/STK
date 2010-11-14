@@ -94,6 +94,10 @@
 * ugh
     Released under the GNU GPL, coming from original (Super)TuxKart
 
+* Wooden bridge
+    from pdsounds.org, edited by Marianne Gagnon
+    released under public domain.
+
 * wee
     Released under the GNU GPL, coming from original (Super)TuxKart
 
