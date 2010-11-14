@@ -943,7 +943,7 @@ class TrackExport:
         f.write("    <check-line kind=\"lap\" p1=\"%f %f\" p2=\"%f %f\"\n"% \
                 (lap[0][0], lap[0][1],
                  lap[1][0], lap[1][1] )  )
-        f.write("                min-height=\"%f\"%s %s/>\n"% (min_h, sSameGroup, activate) )
+        f.write("                min-height=\"%f\" %s %s/>\n"% (min_h, sSameGroup, activate) )
 
         ind = 1
         for obj in lChecks:
