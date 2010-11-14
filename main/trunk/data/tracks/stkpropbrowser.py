@@ -120,11 +120,10 @@ lSTK_Properties = [["name","","Track"],\
                 ["alpha","no","Textures"],\
                 ["light","yes","Textures"],\
                 ["sphere","no","Textures"],\
-                ["slowdown",1,"Textures"],\
-                ["anisotropic","yes","Textures"],\
+                ["slowdown-time",float(0.1),"Textures"],\
                 ["max-speed",float(1.0),"Textures"],\
+                ["anisotropic","yes","Textures"],\
                 ["ignore","no","Textures"],\
-                ["zipper","no","Textures"],\
                 ["reset","no","Textures"],\
                 ["graphical-effect","none","Textures"],\
                 ["sfx:filename","","Textures"],\
@@ -134,7 +133,12 @@ lSTK_Properties = [["name","","Track"],\
                 ["sfx:max-speed",float(30.0),"Textures"],\
                 ["sfx:min-pitch",float(1.0),"Textures"],\
                 ["sfx:max-pitch",float(1.0),"Textures"],\
-                ["sfx:positional","no","Textures"]
+                ["sfx:positional","no","Textures"],\
+                ["zipper","no","Textures"],\
+		["zipper-duration",float(3.5),"Textures"],\
+		["zipper-max-speed-increase",float(15),"Textures"],\
+		["zipper-fade-out-time",float(3),"Textures"],\
+		["zipper-speed-gain",float(4.5),"Textures"]
 ]
 
 lSTK_Picklist = {"arena": "yes|no",\
