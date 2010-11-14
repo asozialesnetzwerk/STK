@@ -8,6 +8,7 @@ Released under CC-BY-SA 3 :
 -wood_planks2-7          based on image by Varivar, modified by Canis Lupus
 -DoorOld.png             based on image by Varivar, modified by Canis Lupus
 -Tileroof.png            by Marianne Gagnon (Auria), based on public domain photos from BurningWell
+-brick1.png              by Marianne Gagnon (Auria), based on public domain image from BurningWell
 -Sky_horiz_17.png        by MiniBjorn
 -Window4.png             by Canis Lupus, incorporating brick texture by Thomas Oppl
 -leaves2.png             from "King Weird's Castle" in STK 0.6, author unknown
@@ -22,7 +23,6 @@ and released under CC-BY-SA 3
 
 ????
 -Factory4b               by Ivar ten Cate, license unclear :'(
--brick1.png              by Ivar ten Cate, license unclear :'(
 -Phoque_Plane.png        by Rudy Phelippeau, license unclear :'(
 
 
