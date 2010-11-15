@@ -532,7 +532,6 @@ class IDPropertyBrowser:
                         Draw.Draw()
 
                 if bval >= RadioButStart: #It's a radiobutton!
-                        print "%s XXXXX" % bval
                         plist = list(self.group.iteritems())
                         #xxx = plist[int(bval)//10 - ButStart]
                         #Distill some coded values from bval. Remember that bval = (ButStart+main_index)*10+radio_index
@@ -554,7 +553,6 @@ class IDPropertyBrowser:
                         plist = list(self.group.iteritems())
 
                         prop = plist[bval - ButStart]
-                        print prop
         
                         #Remember: "button" in Blender is a generic name for a non-menu contol
                         if self.type(prop[1]) == str:
