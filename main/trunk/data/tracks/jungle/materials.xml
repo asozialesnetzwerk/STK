@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
+<!-- Generated with script from SVN rev 6539 -->
 <materials>
-  <material name="bush.png" transparency="y"/>
-  <material name="bush2.png" transparency="y" clamp="y"/>
-  <material name="palmtree3.png" transparency="y"/>
-  <material name="palmtree.png" transparency="y"/>
-</materials>  
+  <material name="bush.png" transparency="Y"/>
+  <material name="bush2.png" clampU="Y" clampV="Y" transparency="Y"/>
+  <material name="palmtree.png" transparency="Y"/>
+  <material name="palmtree3.png" transparency="Y"/>
+</materials>
