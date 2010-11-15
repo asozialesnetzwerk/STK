@@ -123,6 +123,7 @@ lSTK_Properties = [["name","","Track"],\
                 ["slowdown-time",float(0.1),"Textures"],\
                 ["max-speed",float(1.0),"Textures"],\
                 ["anisotropic","yes","Textures"],\
+                ["backface-culling","yes","Textures"],\
                 ["ignore","no","Textures"],\
                 ["reset","no","Textures"],\
                 ["graphical-effect","none","Textures"],\
@@ -148,6 +149,7 @@ lSTK_Picklist = {"arena": "yes|no",\
                 "clampU": "yes|no" ,\
                 "clampV": "yes|no" ,\
                 "transparency": "yes|no",\
+                "backface-culling":"yes|no",\
                 "alpha": "yes|no",\
                 "light": "yes|no",\
                 "anisotropic": "yes|no",\

@@ -1375,7 +1375,8 @@ class TrackExport:
         f.write("<materials>\n")
 
         lBooleanAttributes = ["CLAMPU", "CLAMPV","TRANSPARENCY","ALPHA","LIGHT","SPHERE",\
-                              "ANISOTROPIC","IGNORE","ZIPPER","RESET","SFX:POSITIONAL"]
+                              "ANISOTROPIC","BACKFACE-CULLING", "IGNORE","ZIPPER","RESET",\
+                              "SFX:POSITIONAL"]
 
         for i in limage:
             #iterate through material definitions and collect data
@@ -1404,7 +1405,7 @@ class TrackExport:
                 s = i.getFilename()
                 if sSFX:
                     sImage="  <material name=\"%s\"%s>\n" % (Blender.sys.basename(s),sImage)
-                    sImage="%s    <sfx%s>\n" % (sImage,sSFX)
+                    sImage="%s    <sfx%s/>\n" % (sImage,sSFX)
                     sImage="%s  </material>\n" % (sImage)
                 else:
                     sImage="  <material name=\"%s\"%s/>\n" % (Blender.sys.basename(s),sImage)
