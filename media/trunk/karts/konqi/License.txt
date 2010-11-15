@@ -8,3 +8,5 @@ released under Gnu GPL
 
 KDE logo copyright the KDE project
 released under the Gnu GPL
+
+Icon by Anthony Carré (yekcim), released under GPL 2
