@@ -13,6 +13,6 @@
   <material name="sageBrush.png" transparency="Y" light="N" ignore="Y"/>
   <material name="sky.png" light="N"/>
   <material name="woodBridge.png">
-    <sfx filename="wooden_bridge.ogg" name="wood" rolloff="0.6" min-speed="9.0" max-speed="22.0" min-pitch="1.0" max-pitch="1.7" positional="yes" volume="1.0">
+    <sfx filename="wooden_bridge.ogg" name="wood" rolloff="0.6" min-speed="9.0" max-speed="22.0" min-pitch="1.0" max-pitch="1.7" positional="yes" volume="1.0"/>
   </material>
 </materials>
