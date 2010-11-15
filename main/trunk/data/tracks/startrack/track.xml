@@ -4,7 +4,7 @@
         version     = "3"
         groups      = "standard"
         designer    = "Ingo Ruhnke, modified by A. Billing"
-        music       = "Ethereal_spectrum.music"
+        music       = "Ethereal_Spectrum.music"
         arena       = "no"
         screenshot  = "screenshot-startrack.png"
 >
