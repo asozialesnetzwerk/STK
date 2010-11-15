@@ -1,11 +1,12 @@
-<!-- Generated with script from SVN rev 0.1 -->
 <?xml version="1.0"?>
+<!-- Generated with script from SVN rev 0.1 -->
 <kart name              = "gnu"
       version           = "2"
       model-file        = "gnu.b3d"
       icon-file         = "gnuicon.png"
       minimap-icon-file = "gnuicon.png"
       shadow-file       = "gnushadow.png"
+      center-shift     = "0 0.7 0"
       groups            = "special"
       rgb               = "1.0 0.75 0" >
   <animations left = "1"
