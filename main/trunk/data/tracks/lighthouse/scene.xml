@@ -1,22 +1,22 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 6162 -->
+<!-- Generated with script from SVN rev 6539 -->
 <scene>
   <track model="lighthouse_track.b3d" x="0" y="0" z="0"/>
-  <object type="animation" model="Light.b3d" xyz="-48.248627 29.666990 -94.301178" hpr="0.000000 0.000000 0.000000" >
+  <object type="animation" model="Light.b3d" xyz="-48.248627 29.666990 -94.301178" hpr="-0.000000 -0.000000 -0.000000" scale="2.884974 2.884974 2.884974" >
     <curve channel="RotX" interpolation="linear" extend="const">
-      <p c="1.288065 0.000000"/>
-      <p c="90.639534 0.000000"/>
-      <p c="184.693726 0.000000"/>
+      <p c="1.288065 -0.000000"/>
+      <p c="90.639534 -0.000000"/>
+      <p c="184.693726 -0.000000"/>
     </curve>
     <curve channel="RotZ" interpolation="bezier" extend="const">
-      <p c="1.288065 0.000000" h1="-33.595772 0.000000" h2="36.171909 0.000000"/>
-      <p c="90.639534 0.000000" h1="55.755692 0.000000" h2="127.359375 0.000000"/>
-      <p c="184.693726 0.000000" h1="147.973892 0.000000" h2="221.413574 0.000000"/>
+      <p c="1.288065 -0.000000" h1="-33.595772 -0.000000" h2="36.171909 -0.000000"/>
+      <p c="90.639534 -0.000000" h1="55.755692 -0.000000" h2="127.359375 -0.000000"/>
+      <p c="184.693726 -0.000000" h1="147.973892 -0.000000" h2="221.413574 -0.000000"/>
     </curve>
     <curve channel="RotY" interpolation="linear" extend="const">
-      <p c="1.288065 0.000000"/>
-      <p c="90.639534 180.000000"/>
-      <p c="184.693726 360.000000"/>
+      <p c="1.288065 -0.000000"/>
+      <p c="90.639534 -180.000000"/>
+      <p c="184.693726 -360.000000"/>
     </curve>
   </object>
   <sun  fog="true" fog-color="110 125 140" fog-density="50" fog-start="50" fog-end="150" xyz="1.45523071289 88.6911010742 109.559005737"/>
@@ -50,19 +50,16 @@
   <small-nitro x="27.694473" y="0.7631" z="-5.095636" />
   <small-nitro x="26.239197" y="0.7631" z="-3.513813" />
   <checks>
-    <check-line kind="lap" p1="-5.007112 2.374873" p2="4.374054 2.415547"
-                min-height="-0.617409"same-group="2 3"/>
-    <check-line kind="activate" other-ids="0 2 3" p1="68.019455 -45.556225" p2="44.501854 -31.783911"
-                min-height="-9.717559" same-group=""/>
-    <check-line kind="lap" p1="11.004581 2.413085" p2="4.348719 2.413085"
-                min-height="-0.617000" same-group="0 3"/>
-    <check-line kind="lap" p1="-5.011557 2.371575" p2="-10.257746 2.371575"
-                min-height="-0.617000" same-group="0 2"/>
+    <check-line kind="lap" p1="-7.635581 2.374873" p2="7.440601 2.415547"
+                min-height="-0.617409" same-group="0" other-ids="1"/>
+    <check-line kind="activate" other-ids="0" p1="68.019455 -45.556225" p2="44.501854 -31.783911"
+                min-height="-9.717559" same-group="1"/>
   </checks>
+  <default-start karts-per-row     ="2"
+                 forwards-distance ="1.5"
+                 sidewards-distance="3"
+                 upwards-distance  ="0.1"/>
   <end-cameras>
-    <camera type="static_follow_kart" xyz="-7.998312 2.084357 21.581444" distance="19.0"/>
-    <camera type="static_follow_kart" xyz="-19.221664 2.500000 53.347168" distance="19.0"/>
-    <camera type="static_follow_kart" xyz="-30.750189 1.000000 -3.408314" distance="27.0"/>
-    <camera type="ahead_of_kart" xyz="-35.541679 3.035554 -25.518936" distance="9.0"/>
+    <camera type="ahead_of_kart" xyz="28.696526 17.515945 55.195633" distance="5"/>
   </end-cameras>
 </scene>
