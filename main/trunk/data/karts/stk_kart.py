@@ -44,6 +44,7 @@ event_path          = 10
 event_sound         = 11
 event_kart_map_icon = 12
 event_browse_map_icon=13
+event_center_shift  = 14
 target_shadow       = ""
 target_map_icon     = ""
 path_export         = ""
@@ -64,6 +65,7 @@ kart_sound_pass     = Draw.Create("")
 kart_sound_zipper   = Draw.Create("")
 kart_sound_name     = Draw.Create("")
 kart_sound_attach   = Draw.Create("")
+center_shift        = Draw.Create("")
 
 # ------------------------------------------------------------------------------
 # Returns a game logic property
@@ -99,7 +101,7 @@ def gui():
            event_export, path_export_text, event_path,kart_sound_horn, kart_sound_crash,\
            kart_sound_shoot, kart_sound_win, kart_sound_explode, kart_sound_goo,        \
            kart_sound_pass, kart_sound_zipper, kart_sound_name, kart_sound_attach,      \
-           event_sound, kart_map_icon
+           event_sound, kart_map_icon, center_shift
     
     BGL.glClearColor(0.4,0.5,0.8,1)
     BGL.glClear(BGL.GL_COLOR_BUFFER_BIT)
@@ -107,33 +109,49 @@ def gui():
     scene = Blender.Scene.GetCurrent()
     BGL.glRasterPos2i(10, 250)
 
+    
     Draw.Text("Kart Exporter for STK Irrlicht version")
     button             = Draw.Button("Quit",             event_quit,          5, 0,
                                      160, 20, "Quit")
     button_export      = Draw.Button("Export",           event_export,        5, 30,
                                      160, 20, "export")
-    path_export_text   = Draw.String("Path : ",          event_path,          5, 90,
-                                     310, 20, path_export_text.val, 320, "Path")
-    buttonPath         = Draw.Button("Select Path",      event_browse,      315, 90,
-                                     160, 20, "path")
-    kart_map_icon      = Draw.String("Minimap Icon : ",     event_kart_map_icon,5,110,
-                                     310, 20, kart_map_icon.val, 320, "Minimap Icon")
-    button_map_icon    = Draw.Button("Select a map icon",event_browse_map_icon,315,110,
-                                     160, 20, "icon")
-    kart_icon          = Draw.String("Kart Icon : ",     event_kart_icon,     5,130,
+
+
+    line = 230
+    kart_name          = Draw.String("Kart Name : ",     event_kart_name,     5,line,
+                                     310, 20, kart_name.val, 320, "Kart Name")
+    line = line - 20
+    kart_color         = Draw.String("Color : ",         event_color,         5,line,
+                                     310, 20, kart_color.val, 320, "Kart Color")
+    
+    line = line - 20
+    kart_group         = Draw.String("Kart Group : ",    event_kart_group,    5,line,
+                                     310, 20, kart_group.val, 320, "Kart Group")
+    line = line - 20
+    center_shift       = Draw.String("Center-shift : ",  event_center_shift,  5,line,
+                                     310, 20, center_shift.val, 320, "Center Shift")
+    line = line - 20
+    button_shadow      = Draw.Button("Select a shadow",  event_browse_shadow,315,line,
+                                     160, 20, "shadow")
+    line = line - 20
+    kart_icon          = Draw.String("Kart Icon : ",     event_kart_icon,     5,line,
                                      310, 20, kart_icon.val, 320, "Kart Icon")
-    button_icon        = Draw.Button("Select an icon",   event_browse_icon, 315,130,
+    button_icon        = Draw.Button("Select an icon",   event_browse_icon, 315,line,
                                      160, 20, "icon")
+    line = line - 20
+    kart_map_icon      = Draw.String("Minimap Icon : ",     event_kart_map_icon,5,line,
+                                     310, 20, kart_map_icon.val, 320, "Minimap Icon")
+    button_map_icon    = Draw.Button("Select a map icon",event_browse_map_icon,315,line,
+                                     160, 20, "icon")
+    line = line - 20
+    path_export_text   = Draw.String("Path : ",          event_path,          5, line,
+                                     310, 20, path_export_text.val, 320, "Path")
+    buttonPath         = Draw.Button("Select Path",      event_browse,      315, line,
+                                     160, 20, "path")
+    line = line - 20
+    
     kart_shadow        = Draw.String("Kart Shadow : ",   event_kart_shadow,   5,150,
                                      310, 20, kart_shadow.val, 320, "Kart Shadow")
-    button_shadow      = Draw.Button("Select a shadow",  event_browse_shadow,315,150,
-                                     160, 20, "shadow")
-    kart_group         = Draw.String("Kart Group : ",    event_kart_group,    5,170,
-                                     310, 20, kart_group.val, 320, "Kart Group")
-    kart_color         = Draw.String("Color : ",         event_color,         5,190,
-                                     310, 20, kart_color.val, 320, "Kart Color")
-    kart_name          = Draw.String("Kart Name : ",     event_kart_name,     5,210,
-                                     310, 20, kart_name.val, 320, "Kart Name")
     kart_sound_horn    = Draw.String("Sound Horn : ",    event_sound,       500, 0,
                                      310, 20, kart_sound_horn.val, 320, "Kart Sounds")
     kart_sound_crash   = Draw.String("Sound Crash : ",   event_sound,       500, 30,
@@ -288,7 +306,7 @@ def saveSounds(f):
     if kart_sound_explode.val!="" :lSounds.append( ("explode-sound",kart_sound_explode.val))
     if kart_sound_goo.val   != "" :lSounds.append( ("goo-sound",  kart_sound_goo.val))
     if kart_sound_pass.val  != "" :lSounds.append( ("pass-sound", kart_sound_pass.val))
-    if kart_sound_zipper.val != "" :lSounds.append( ("zipper-sound",kart_sound_zipper.val))
+    if kart_sound_zipper.val!= "" :lSounds.append( ("zipper-sound",kart_sound_zipper.val))
     if kart_sound_name.val  != "" :lSounds.append( ("name-sound", kart_sound_name.val))
     if kart_sound_attach.val!= "" :lSounds.append( ("attach-sound",kart_sound_attach.val))
 
@@ -312,16 +330,13 @@ def exportKart():
         Blender.Draw.PupBlock("Incorrect kart color", ["Incorrect kart color",
                                                        "must be an RGB value!"])
         return
-
-    global flag_stack
-    b3d_export.flag_stack = []
-    b3d_export.flag_stack.append(0) #All Objects
-    b3d_export.flag_stack.append(1) #Selected Only
-    b3d_export.flag_stack.append(1) #Vertex Normals
-    b3d_export.flag_stack.append(1) #Vertex Colors
-    b3d_export.flag_stack.append(0) #Cameras
-    b3d_export.flag_stack.append(0) #Lights
-    b3d_export.flag_stack.append(1) #Mipmap
+    
+    b3d_export.b3d_parameters["vertex-normals" ] = 1  # Vertex normals.
+    b3d_export.b3d_parameters["vertex-colors"  ] = 1  # Vertex colors
+    b3d_export.b3d_parameters["cameras"        ] = 0  # Cameras
+    b3d_export.b3d_parameters["lights"         ] = 0  # Lights
+    b3d_export.b3d_parameters["mipmap"         ] = 1  # Enable mipmap
+    b3d_export.b3d_parameters["local-space"    ] = 0  # Export in world space
 
     # Get the kart and all wheels
     # ---------------------------
@@ -348,7 +363,7 @@ def exportKart():
     if not kart_shadow.val:   kart_shadow.val   = kart_name_string.lower() + "_shadow.png"
     if not kart_icon.val:     kart_icon.val     = kart_name_string.lower() + "_icon.png"
     if not kart_map_icon.val: kart_map_icon.val = kart_name_string.lower() + "_map_icon.png"
-    if not kart_group.val:    kart_group.var    = "default"
+    if not kart_group.val:    kart_group.val    = "default"
         
     f = open(Blender.sys.join(path,"kart.xml"), 'wb')    
     f.write('<?xml version="1.0"?>\n')
@@ -362,6 +377,9 @@ def exportKart():
     f.write('      icon-file         = "%s"\n' % kart_icon.val)
     f.write('      minimap-icon-file = "%s"\n' % kart_map_icon.val)
     f.write('      shadow-file       = "%s"\n' % kart_shadow.val)
+    if center_shift.val:
+        f.write('      center-shift      = "%s"\n' % center_shift.val)
+        
     f.write('      groups            = "%s"\n' % kart_group.val)
     f.write('      rgb               = "%s %s %s" >\n' % tuple(lColor))
     
@@ -381,10 +399,11 @@ def exportKart():
 # ------------------------------------------------------------------------------
 # This saves all entered values in the ID properties of this model
 def writeIDProperties():
-    global kart_name, kart_group, kart_icon, kart_shadow, path_export_text,      \
-           kart_sound_horn, kart_sound_crash, kart_sound_shoot, kart_sound_win,   \
+    global kart_name, kart_group, kart_icon, kart_shadow, path_export_text,        \
+           kart_sound_horn, kart_sound_crash, kart_sound_shoot, kart_sound_win,    \
            kart_sound_explode, kart_sound_goo, kart_sound_pass, kart_sound_zipper, \
-           kart_sound_name, kart_sound_attach, event_sound, kart_minimap_icon
+           kart_sound_name, kart_sound_attach, event_sound, kart_minimap_icon,     \
+           center_shift
     
     scene = Blender.Scene.GetCurrent()
     scene.properties['name'            ] = kart_name.val
@@ -392,6 +411,7 @@ def writeIDProperties():
     scene.properties['group'           ] = kart_group.val
     scene.properties['icon'            ] = kart_icon.val
     scene.properties['minimap-icon'    ] = kart_map_icon.val
+    scene.properties['center-shift'    ] = center_shift.val
     scene.properties['shadow'          ] = kart_shadow.val
     scene.properties['kartPath'        ] = path_export_text.val
     scene.properties['kartSoundHorn'   ] = kart_sound_horn.val
@@ -414,7 +434,7 @@ def main():
     kart_group.val         = getIdProperty(scene, 'group'           , "standard")
     kart_icon.val          = getIdProperty(scene, 'icon'            , "")
     kart_map_icon.val      = getIdProperty(scene, 'minimap-icon'    , "")
-    print "minimap", kart_map_icon.val
+    center_shift.val       = getIdProperty(scene, 'center-shift'    , "")
     kart_shadow.val        = getIdProperty(scene, 'shadow'          , "")
     path_export_text.val   = getIdProperty(scene, 'kartPath'        , "")
     kart_sound_horn.val    = getIdProperty(scene, 'kartSoundHorn'   , "")
