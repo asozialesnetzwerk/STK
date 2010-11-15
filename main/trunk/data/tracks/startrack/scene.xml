@@ -26,6 +26,12 @@
       <p c="150.000000 360.000000"/>
     </curve>
   </object>
+  <object type="animation" model="moon.b3d" xyz="-209.256607 72.570587 -81.483040" hpr="-0.000000 -258.181806 -0.000000" scale="41.538010 41.538010 41.538010" >
+    <curve channel="RotY" interpolation="linear" extend="cyclic">
+      <p c="1.000000 -0.000000"/>
+      <p c="100.000000 -360.000000"/>
+    </curve>
+  </object>
   <object type="animation" model="neptune.b3d" xyz="147.635162 52.488739 355.462952" hpr="-0.000000 234.619539 -0.000000" scale="1.000000 1.000000 1.000000" >
     <curve channel="RotX" interpolation="bezier" extend="const">
       <p c="1.000000 -0.000000" h1="-45.458969 -0.000000" h2="47.458969 -0.000000"/>
