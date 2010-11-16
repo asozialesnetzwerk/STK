@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 6539 -->
+<!-- Generated with script from SVN rev 6538 -->
 <scene>
   <track model="skyline_track.b3d" x="0" y="0" z="0"/>
-  <object type="animation" model="shuttle.b3d" xyz="34.916107 16.578852 -6.939660" hpr="-90.000003 -6.836301 -0.000000" scale="6.141522 6.141522 6.141522" >
+  <object type="animation" model="shuttle.b3d" xyz="34.916107 16.578852 -6.939660" hpr="-90.000003 -6.836299 -0.000000" scale="6.141522 6.141522 6.141522" >
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="1.000000 96.161987" h1="-3.715090 103.124229" h2="5.715090 89.199745"/>
       <p c="50.000000 -3.969925" h1="40.982925 12.901814" h2="59.201096 -21.185984"/>
