@@ -122,6 +122,7 @@ lSTK_Properties = [["name","","Track"],\
                 ["sphere","no","Textures"],\
                 ["slowdown-time",float(0.1),"Textures"],\
                 ["max-speed",float(1.0),"Textures"],\
+                ["friction", float(1.0),"Textures"],\
                 ["anisotropic","yes","Textures"],\
                 ["backface-culling","yes","Textures"],\
                 ["ignore","no","Textures"],\
