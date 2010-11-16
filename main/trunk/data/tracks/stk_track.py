@@ -922,7 +922,7 @@ class TrackExport:
                 print "Activate group '%s' not found!"%group
                 print "Ignored - but lap counting might not work correctly."
                 print "Make sure there is an object of typ 'check' with"
-                print "the name '%s' defined."%name
+                print "the name '%s' defined."%group
                 activate = ""
             else:
                 activate = reduce(lambda x,y: str(x)+" "+str(y), dGroup2Indices[group])
@@ -959,7 +959,7 @@ class TrackExport:
                     print "Activate group '%s' not found!"%group
                     print "Ignored - but lap counting might not work correctly."
                     print "Make sure there is an object of typ 'check' with"
-                    print "the name '%s' defined."%name
+                    print "the name '%s' defined."%group
                     continue
                 s = reduce(lambda x,y: str(x)+" "+str(y), dGroup2Indices[group])
                 kind = " kind=\"activate\" other-ids=\"%s\" "% s
@@ -971,7 +971,7 @@ class TrackExport:
                     print "Toggle group '%s' not found!"%group
                     print "Ignored - but lap counting might not work correctly."
                     print "Make sure there is an object of typ 'check' with"
-                    print "the name '%s' defined."%name
+                    print "the name '%s' defined."%group
                     continue
                 s = reduce(lambda x,y: str(x)+" "+str(y), dGroup2Indices[group])
                 kind = " kind=\"toggle\" other-ids=\"%s\" "% s
@@ -979,6 +979,17 @@ class TrackExport:
             lap = getProperty(obj, "type", obj.name).upper()
             if lap[:3]=="LAP":
                 kind = " kind=\"lap\" "  # xml needs a value for an attribute
+                activate = getProperty(obj, "activate", "")
+                if activate:
+                    group = activate.lower()
+                    if not dGroup2Indices.has_key(group):
+                        print "Activate group '%s' not found for lap line!"%group
+                        print "Ignored - but lap counting might not work correctly."
+                        print "Make sure there is an object of typ 'check' with"
+                        print "the name '%s' defined."%group
+                        continue
+                    s = reduce(lambda x,y: str(x)+" "+str(y), dGroup2Indices[group])
+                    kind = "%sother-ids=\"%s\" "% (kind, s)
             
             ambient = getProperty(obj, "ambient", "").upper()
             if ambient:
