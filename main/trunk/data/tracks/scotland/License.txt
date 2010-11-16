@@ -12,6 +12,7 @@ Released under CC-BY-SA 3 :
 -Sky_horiz_17.png        by MiniBjorn
 -Window4.png             by Canis Lupus, incorporating brick texture by Thomas Oppl
 -leaves2.png             from "King Weird's Castle" in STK 0.6, author unknown
+-Phoque_Plane.png        by Rudy Phelippeau
 
 Textures by Marianne Gagnon, made from public domain images from BurningWell
 and released under CC-BY-SA 3
@@ -23,7 +24,6 @@ and released under CC-BY-SA 3
 
 ????
 -Factory4b               by Ivar ten Cate, license unclear :'(
--Phoque_Plane.png        by Rudy Phelippeau, license unclear :'(
 
 
 =========================
