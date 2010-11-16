@@ -1,10 +1,10 @@
-<!-- Generated with script from SVN rev 5633 -->
+<!-- Generated with script from SVN rev 6539 -->
 <?xml version="1.0"?>
 <track  name        = "Skyline"
-        version     = "2"
+        version     = "3"
         groups      = "standard"
         designer    = "Robert Howie"
-        music       = "TheDeadRocks-OneMillionDollar.music"
+        music       = "kart_grand_prix.music"
         screenshot  = "sshot-skyline.jpg"
 >
 </track>
