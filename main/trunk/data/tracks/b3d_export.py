@@ -501,7 +501,7 @@ def write_node(objects=[]):
                                 bone_rot = bone_matrix.rotationPart().toQuat()
                                 bone_rot.normalize()
                                 bone_sca = bone_matrix.scalePart()
-                                keys_stack.append([frame_count - first_frame.val,bone_name,bone_loc,bone_sca,bone_rot])
+                                keys_stack.append([frame_count - first_frame.val+1,bone_name,bone_loc,bone_sca,bone_rot])
 
                     frame_count += 1
 
