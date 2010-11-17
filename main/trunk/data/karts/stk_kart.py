@@ -355,7 +355,12 @@ def exportKart():
                       "WHEELREAR.R", "WHEELREAR.L"     ]:
             lWheels.append(obj)
         else:
-            lKart.append(obj)
+            # Due to limitations with the b3d exporter animated
+            # objects must be first in the list of objects to export:
+            if obj.getParent() and obj.getParent().type=="Armature":
+                lKart.insert(0, obj)
+            else:
+                lKart.append(obj)
 
 
     # Write the xml file
