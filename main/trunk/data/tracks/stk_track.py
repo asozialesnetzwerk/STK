@@ -478,7 +478,11 @@ class TrackExport:
         scene       = Blender.Scene.GetCurrent()
         name        = getIdProperty(scene, "name",       "Name of Track")
         groups      = getIdProperty(scene, "groups",     "standard"     )
-        is_arena    = getIdProperty(scene, "arena",      ""             )
+        is_arena    = getIdProperty(scene, "arena",      "n"            )
+        if not is_arena:
+            is_arena="n"
+        is_arena = not (is_arena[0]=="n" or is_arena[0]=="N" or \
+                        is_arena[0]=="f" or is_arena[0]=="F"      )
         designer    = getIdProperty(scene, "designer",   ""             )
         # Support for multi-line descriptions:
         designer    = designer.replace("\\n", "\n")
@@ -518,7 +522,7 @@ class TrackExport:
         else:
             print "No music file defined, ignored."
         if is_arena:
-            f.write("        arena       = \"%s\"\n"%is_arena)
+            f.write("        arena       = \"Y\"\n")
         if screenshot:
             f.write("        screenshot  = \"%s\"\n"%screenshot)
         else:
@@ -1525,8 +1529,9 @@ class TrackExport:
         scene    = Blender.Scene.GetCurrent()
         is_arena = getIdProperty(scene, "arena", "n")
         if not is_arena: is_arena="n"
-        if is_arena[0]=="n" or is_arena[0]=="N" or \
-               is_arena[0]=="f" or is_arena[0]=="F":
+        is_arena = not (is_arena[0]=="n" or is_arena[0]=="N" or \
+                        is_arena[0]=="f" or is_arena[0]=="F"     )
+        if not is_arena:
             self.writeQuadAndGraph(sPath, lDrivelines, lEndCameras)
         start_time = bsys.time()
         print "Exporting track -->",
