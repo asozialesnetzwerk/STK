@@ -282,7 +282,7 @@ def saveAnimations(f):
                 if marker=="center": marker="straight"
                 if marker=="repeat-losing": marker="start-losing-loop"
                 if marker=="repeat-winning": marker="start-winning-loop"
-                lAnims.append( (marker, i) )
+                lAnims.append( (marker, i-1) )
         except:
             pass
 
