@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 6539 -->
+<!-- Generated with script from SVN rev 6611 -->
 <materials>
   <material name="Bleech.png" alpha="Y"/>
   <material name="bush2.png" transparency="Y" light="N" ignore="Y"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 6539 -->
+<!-- Generated with script from SVN rev 6611 -->
 <scene>
   <track model="secretgarden_track.b3d" x="0" y="0" z="0">
     <animated-texture name="water_light2.png" dx="0.05"  dy="0.05" />
@@ -47,8 +47,8 @@
             horizontal="16" vertical="16" 
             texture-percent="0.5" sphere-percent="1.3"
             speed-x="0" speed-y="0" />
-  <default-start karts-per-row     ="2"
-                 forwards-distance ="1.5"
+  <default-start karts-per-row     ="3"
+                 forwards-distance ="1.0"
                  sidewards-distance="3"
-                 upwards-distance  ="0.1"/>
+                 upwards-distance  ="1"/>
 </scene>
