@@ -7,15 +7,15 @@
       minimap-icon-file = "elephpanticon.png"
       shadow-file       = "elephpantshadow.png"
       groups            = "standard"
-      rgb               = "0.462745 0.713 0.0235" >
-  <animations left = "1"
-              straight = "21"
-              right = "41"
-              start-winning = "62"
-              end-winning = "217"
-              start-losing = "245"
-              start-losing-loop = "421"
-              end-losing = "423"/>
+      rgb               = "0.463 0.713 0.0235" >
+  <animations left = "0"
+              straight = "20"
+              right = "40"
+              start-winning = "61"
+              end-winning = "216"
+              start-losing = "244"
+              start-losing-loop = "420"
+              end-losing = "422"/>
   <wheels>
     <front-left position = "-0.245315 0.102874 0.469806"
                  model    = "wheel-front-left.b3d"       />
