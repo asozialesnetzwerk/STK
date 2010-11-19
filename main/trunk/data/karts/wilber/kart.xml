@@ -1,22 +1,22 @@
-<!-- Generated with script from SVN rev 0.1 -->
 <?xml version="1.0"?>
-<kart name              = "wilber"
+<!-- Generated with script from SVN rev 0.1 -->
+<kart name              = "Wilber"
       version           = "2"
-      model-file        = "wilber.b3d"
+      model-file        = "Wilber.b3d"
       icon-file         = "wilbericon.png"
       minimap-icon-file = "wilbericon.png"
       shadow-file       = "wilbershadow.png"
       groups            = "standard"
       rgb               = "1.0 0.65 0" >
-  <animations left = "1"
-              straight = "21"
-              right = "41"
-              start-winning = "81"
-              start-winning-loop = "222"
-              end-winning = "260"
-              start-losing = "299"
-              start-losing-loop = "497"
-              end-losing = "502"/>
+  <animations left = "0"
+              straight = "20"
+              right = "40"
+              start-winning = "80"
+              start-winning-loop = "221"
+              end-winning = "259"
+              start-losing = "298"
+              start-losing-loop = "516"
+              end-losing = "521"/>
   <wheels>
     <front-left position = "-0.322693 0.112673 0.326289"
                  model    = "wheel-front-left.b3d"       />

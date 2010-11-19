@@ -1,20 +1,20 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev 0.1 -->
-<kart name              = "gnu"
+<kart name              = "Gnu"
       version           = "2"
       model-file        = "gnu.b3d"
       icon-file         = "gnuicon.png"
       minimap-icon-file = "gnuicon.png"
       shadow-file       = "gnushadow.png"
-      center-shift     = "0 0.7 0"
-      groups            = "special"
+      center-shift      = "0 0.7 0"
+      groups            = "standard"
       rgb               = "1.0 0.75 0" >
-  <animations left = "1"
-              straight = "21"
-              right = "41"
-              start-winning = "80"
-              end-winning = "297"
-              start-losing = "336"
-              start-losing-loop = "474"
-              end-losing = "480"/>
+  <animations left = "0"
+              straight = "20"
+              right = "40"
+              start-winning = "79"
+              end-winning = "296"
+              start-losing = "335"
+              start-losing-loop = "473"
+              end-losing = "479"/>
 </kart>

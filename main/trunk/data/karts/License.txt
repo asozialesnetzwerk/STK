@@ -1,8 +1,51 @@
-* elePHPant, puffy, pidgin, adiumy and nolok, which are released under CC by-sa (3.0)
-* others are released under GNU GPL
+Gnu :
+    by Benjamin Arnaudet
+    released under GNU GPL license
 
-MrIceBlock and Mozilla originally by (??) from original (Super)TuxKart teams, with modifications by Rudy85
-Animations by Rudy85
+Konqi:
+    Konqi character, colormap.jpg, hanky.tga
+    by basse <basse@kimppu.org | www.kimppu.org/basse>
+    With modifications by Marianne Gagnon
+    Released under Gnu LGPL
 
-Cartoonish character icons by Anthony Carré (yekcim), released under GPL 2
-except Mr Ice Block icon by Rudy85, released under CC-BY-SA 3.0+
+    Kart by Christian Framing
+    released under Gnu GPL
+
+    KDE logo copyright the KDE project
+    released under the Gnu GPL
+
+Adiumy :
+    by abejones
+    released under CC-BY-SA 3.0
+
+Pidgin & Nolok :
+    by Cheleb
+    released under CC-BY-SA 3.0
+
+Wilber and Elephpant :
+    Wilber character, Elephpant character and Elephpant kart by Tobias Beyrer
+    Released under CC-BY-SA 3.0
+    
+    Wilber kart by Frederico de Oliveira, released under GPL
+
+Hexley :
+    by Frederico de Oliveira
+    released under GPL
+
+Puffy :
+    By MiniBjorn
+    released under CC-BY-SA 3.0
+
+Gooey & Mozilla:
+    originally by (??) from original (Super)TuxKart teams, with modifications by Rudy85 and Conso
+    released under GNU GPL
+
+Tux :
+    originally by (??) from original (Super)TuxKart teams
+    released under GNU GPL
+    
+Animations :
+    by Rudy85
+
+Cartoonish character icons :
+    by Anthony Carré (yekcim), released under GPL 2
