@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 6538 -->
+<!-- Generated with script from SVN rev 6611 -->
 <scene>
   <track model="canyon_track.b3d" x="0" y="0" z="0">
     <animated-texture name="moving_boards.png" dx="-0.15" />
+    <animated-texture name="canyon_water.png" dy="0.3" />
   </track>
   <banana x="44.052376" y="10" z="-6.786774" h="-7.452092" />
   <banana x="43.094604" y="10" z="-13.889619" h="-7.452092" />
@@ -70,9 +71,9 @@
   <zipper x="105" y="10" z="8" h="89.999997" />
   <zipper x="105" y="10" z="2" h="89.999997" />
   <checks>
-    <check-line kind="lap" p1="-4.000000 -0.000000" p2="3.999997 0.000000"
+    <check-line kind="lap" p1="-4.000000 0.000000" p2="3.999997 0.000000"
                 min-height="0.200000" same-group="0" other-ids="1"/>
-    <check-line kind="activate" other-ids="0" p1="40.518818 113.975853" p2="62.395412 113.947746"
+    <check-line kind="activate" other-ids="0" p1="40.518822 113.975853" p2="62.395409 113.947746"
                 min-height="-93.067085" same-group="1"/>
   </checks>
   <sky-box texture="canyon_sky_5.png canyon_sky_5.png canyon_sky_1.png canyon_sky_3.png canyon_sky_2.png canyon_sky_4.png"/>
