@@ -89,11 +89,11 @@ lSTK_Properties = [["stk-browser-version","Track",type_STATIC,__version__],\
                 ["sky-vertical","Track",type_FLOAT,float(16)],\
                 ["sky-texture-percent","Track",type_FLOAT,float(0.5)],\
                 ["sky-sphere-percent","Track",type_FLOAT,float(1.3)],\
-                ["sky-color","Track",type_COLOUR,(0.0,0.0,0.0)],\
-                ["ambient-color","Track",type_COLOUR,(0.0,0.0,0.0)],\
+                ["sky-color","Track",type_COLOUR,"0.0 0.0 0.0"],\
+                ["ambient-color","Track",type_COLOUR,"0.0 0.0 0.0"],\
                 ["camera-far","Track",type_INTEGER,float(200.00000)],\
                 ["fog","Track",type_PICKLIST,"no"],\
-                ["fog-color","Track",type_COLOUR,(0.0,0.0,0.0)],\
+                ["fog-color","Track",type_COLOUR,"0.0 0.0 0.0"],\
                 ["fog-density","Track",type_FLOAT,16],\
                 ["fog-start","Track",type_STRING,""],\
                 ["fog-end","Track",type_STRING,""],\
@@ -155,7 +155,7 @@ lSTK_Properties = [["stk-browser-version","Track",type_STATIC,__version__],\
                 ]
 
 # For picklist, add <name>:<valuelist> to lSTK_Picklist. The valuelist items are |-separated...
-lSTK_Picklist = {"type": "None|Driveline|Maindriveline|Lap|Check|Ignore|Object|Banana|Item|Nitro-small|Nitro-big|Water",\
+lSTK_Picklist = {"type": "None|Driveline|Main Driveline|Lap|Check|Ignore|Object|Banana|Item|Nitro-small|Nitro-big|Water",\
                 "arena": "yes|no",\
                 "sky-type": "dome|box",\
                 "fog": "yes|no",\
@@ -186,9 +186,9 @@ btn_UP          = 105
 btn_DOWN        = 106
 #Events 500 and upwards are reserved for all temporary buttons
 #The list below enumerates them, items are formatted as [ObjectName,ButtonName,ButtonType] 
-lButtonList = []
 
 textheight = 20
+pad = 5
 lObjects = []
 lScenes = []
 lImages = []
@@ -238,7 +238,10 @@ class STKData:
         return selected_type
 
     def GetCurrentObject(self):
-        return self.GetSTKObjects(self.GetCurrentType()).split("|")[self.currentobject-1]
+        if self.GetSTKTypes().split("|")[self.currenttype-1] == "All":
+            return self.GetSTKObjects("All").split("|")[self.currentobject-1]
+        else:    
+            return self.GetSTKObjects(self.GetCurrentType()).split("|")[self.currentobject-1]
         
     def GetProperties(self,ObjectName):
         #Get the Properties of the current object
@@ -390,7 +393,14 @@ class STKData:
                 else: 
                     #"Normal" object
                     lObjects = Blender.Object.Get()
-                    lObjects[obj_index].properties[property_name] = new_value
+                    myprop = []
+                    try:
+                        myprop = lObjects[obj_index].getProperty(property_name)
+                    except:
+                        lObjects[obj_index].addProperty(property_name,new_value,"STRING")
+                        myprop = lObjects[obj_index].getProperty(property_name)
+                         
+                    myprop.setData(new_value)
                      
                 break
             
@@ -400,6 +410,8 @@ class STKBrowser:
     property_cursor = 1 #use this one to move through properties
     lButtonIndex = 500
     lButtons = []
+    lButtonList = []
+
     temp_property_name = ""
     
     def __init__(self):
@@ -439,9 +451,9 @@ class STKBrowser:
             for (new_prop2,default2,thebutton) in lPropertiesList:
                 if thebutton.val:
                     data.SetProperty(new_prop2,default2)
-        elif button_id > 500:
+        elif button_id >= 500:
             #Handle button that has been used in property list
-            (cur_button,prop_name,but_name,but_type) = lButtonList[button_id-500]
+            (cur_button,prop_name,but_name,but_type) = self.lButtonList[button_id-500]
             if but_type == type_STRING:
                 data.SetProperty(prop_name, self.lButtons[button_id-500].val)
             if but_type == type_INTEGER:
@@ -457,7 +469,10 @@ class STKBrowser:
             elif but_type == type_TYPELIST:
                 #The object type changed
                 self.dirty = True #Force a reload of all objects
-                data.SetProperty(prop_name, but_name)
+                newval = lSTK_Picklist[prop_name].split("|")[self.lButtons[button_id-500].val-1]
+                data.SetProperty(prop_name, newval)
+                data.currenttype = 1
+                data.currentobject = 1
             elif but_type == type_URL:
                 # Unfortunately this works like a two stage rocket
                 # 1. Run the file selection window   
@@ -485,9 +500,8 @@ class STKBrowser:
         height = size[1]
         x = 0
         y = height-textheight  #N.B. (0,0) bottomleft, whereas (width,height) = topright
-        pad = 5
         self.lButtonIndex = 500
-        lButtonList = []
+        self.lButtonList = []
         self.lButtons = []
         
         #Reload Necessary? 
@@ -535,10 +549,12 @@ class STKBrowser:
         for (prop_name,prop_type,current_value) in data.GetProperties(cur_objname):
             #Skip some properties if you are looking down the list...
             cur_prop_nr += 1
-            if  cur_prop_nr < self.property_cursor:
+            if cur_prop_nr < self.property_cursor:
                 continue
             
-            self.DrawBox(x+1,y+1,width-1,textheight-1)
+            if (cur_prop_nr % 2) > 0: 
+                self.DrawBox(x,y-1,width,textheight+1)
+            
             #Delete button
             if prop_type not in [type_STATIC,type_TYPELIST]:
                 printtext = "Del "
@@ -563,31 +579,42 @@ class STKBrowser:
                 self.lButtons.append(tmp_but)
                 self.RegisterButton(tmp_but, prop_name, "", type_STRING)
             elif prop_type == type_INTEGER:
-                tmp_but = Draw.Number("", self.NextButton(), x, y, 100, textheight, int(current_value), 0, 100000000)  
-                self.lButtons.append(tmp_but)
-                self.RegisterButton(tmp_but, prop_name, "", type_INTEGER)
-            elif prop_type == type_FLOAT:
-                tmp_but = Draw.Number("", self.NextButton(), x, y, 150, textheight, float(current_value), 0.0, 100000000.0,"",self.Dummy,0.1) 
-                self.lButtons.append(tmp_but)
-                self.RegisterButton(tmp_but, prop_name, "", type_FLOAT)
-            elif prop_type == type_COLOUR:
-                tmp_but = []
                 try:
+                    tmp_but = Draw.Number("", self.NextButton(), x, y, 100, textheight, int(current_value), 0, 100000000)  
+                    self.lButtons.append(tmp_but)
+                    self.RegisterButton(tmp_but, prop_name, "", type_INTEGER)
+                except:
+                    printtext = "Value Read Error (press Reset) "
+                    printwidth = Draw.GetStringWidth(printtext)
+                    Draw.Label(printtext, x, y, printwidth, textheight) 
+            elif prop_type == type_FLOAT:
+                try:
+                    tmp_but = Draw.Number("", self.NextButton(), x, y, 150, textheight, float(current_value), 0.0, 100000000.0,"",self.Dummy,0.1) 
+                    self.lButtons.append(tmp_but)
+                    self.RegisterButton(tmp_but, prop_name, "", type_FLOAT)
+                except:
+                    printtext = "Value Read Error (press Reset) "
+                    printwidth = Draw.GetStringWidth(printtext)
+                    Draw.Label(printtext, x, y, printwidth, textheight) 
+            elif prop_type == type_COLOUR:
+                try:
+                    tmp_but = []
                     r_colour = float(current_value.split()[0])
                     g_colour = float(current_value.split()[1])
                     b_colour = float(current_value.split()[2])
                     tmp_colour = (r_colour,g_colour,b_colour)
                     tmp_but = Draw.ColorPicker(self.NextButton(), x, y, 100, textheight, tmp_colour)
-                except:
-                    tmp_but = Draw.ColorPicker(self.NextButton(), x, y, 100, textheight, (0.1,0.1,0.1))
-
-                self.lButtons.append(tmp_but)
-                self.RegisterButton(tmp_but, prop_name, "", type_COLOUR)
+                    self.lButtons.append(tmp_but)
+                    self.RegisterButton(tmp_but, prop_name, "", type_COLOUR)
  
-                x += 100 + pad  
-                printtext = "<- Click here to change colour "
-                printwidth = Draw.GetStringWidth(printtext)
-                Draw.Label(printtext, x, y, printwidth, textheight)
+                    x += 100 + pad  
+                    printtext = "<- Click here to change colour "
+                    printwidth = Draw.GetStringWidth(printtext)
+                    Draw.Label(printtext, x, y, printwidth, textheight)                
+                except:
+                    printtext = "Value Read Error (press Reset) "
+                    printwidth = Draw.GetStringWidth(printtext)
+                    Draw.Label(printtext, x, y, printwidth, textheight)  
             elif prop_type == type_PICKLIST:
                 tmp = 0
                 thelist = lSTK_Picklist[prop_name]
@@ -633,7 +660,7 @@ class STKBrowser:
                 x += printwidth + pad
             #Newline
             x = 0
-            y -= textheight
+            y -= textheight + 2
             
         printtext = "*LIST END* "
         printwidth = Draw.GetStringWidth(printtext)
@@ -646,7 +673,8 @@ class STKBrowser:
                                 
    #                     glColor3f(0, 0, 0)      
     #                    self.DrawBox(GL_LINE_LOOP, x+pad, y, self.width-pad*2, itemhgt)
-                glColor3f(0.5, 0.5, 0.5)
+                #glColor3f(0.5, 0.5, 0.5)
+                glColor3f(0.65, 0.65, 0.65)
                 glBegin(GL_POLYGON)# GL_LINE_LOOP)# 
                 #glPolygonMode(GL_FRONT, GL_LINE);
                 glVertex2f(x, y)
@@ -680,7 +708,7 @@ class STKBrowser:
     
     def RegisterButton(self,the_button,property_name,button_name,button_type):
         #Assign an event to a button
-        lButtonList.append([the_button,property_name,button_name,button_type])
+        self.lButtonList.append([the_button,property_name,button_name,button_type])
         self.lButtonIndex += 1
         #Ouch! I had to do a workaround here...
         #Button objects are mangled as they are passed as 
