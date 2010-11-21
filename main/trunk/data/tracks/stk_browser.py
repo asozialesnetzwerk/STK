@@ -36,6 +36,7 @@ type_STRING = 0
 type_INTEGER = 1
 type_FLOAT = 2
 type_COLOUR = 3
+type_BOOLEAN = 4
 type_PICKLIST = 10
 type_STATIC = 11
 type_TYPELIST = 12 
@@ -76,15 +77,15 @@ lSTK_Properties = [["stk-browser-version","Track",type_STATIC,__version__],\
                 ["designer","Track",type_STRING,""],\
                 ["music","Track",type_URL,""],\
                 ["screenshot","Track",type_IMAGEURL,""],\
-                ["arena","Track",type_PICKLIST,"no"],\
+                ["arena","Track",type_BOOLEAN,"no"],\
                 ["sky-type","Track",type_PICKLIST,"dome"],\
                 ["sky-texture","Track",type_IMAGEURL,""],\
-                ["sky-texture1","","Track",type_IMAGEURL],\
-                ["sky-texture2","","Track",type_IMAGEURL],\
-                ["sky-texture3","","Track",type_IMAGEURL],\
-                ["sky-texture4","","Track",type_IMAGEURL],\
-                ["sky-texture5","","Track",type_IMAGEURL],\
-                ["sky-texture6","","Track",type_IMAGEURL],\
+                ["sky-texture1","Track",type_IMAGEURL,""],\
+                ["sky-texture2","Track",type_IMAGEURL,""],\
+                ["sky-texture3","Track",type_IMAGEURL,""],\
+                ["sky-texture4","Track",type_IMAGEURL,""],\
+                ["sky-texture5","Track",type_IMAGEURL,""],\
+                ["sky-texture6","Track",type_IMAGEURL,""],\
                 ["sky-horizontal","Track",type_FLOAT,float(16)],\
                 ["sky-vertical","Track",type_FLOAT,float(16)],\
                 ["sky-texture-percent","Track",type_FLOAT,float(0.5)],\
@@ -92,15 +93,15 @@ lSTK_Properties = [["stk-browser-version","Track",type_STATIC,__version__],\
                 ["sky-color","Track",type_COLOUR,"0.0 0.0 0.0"],\
                 ["ambient-color","Track",type_COLOUR,"0.0 0.0 0.0"],\
                 ["camera-far","Track",type_INTEGER,float(200.00000)],\
-                ["fog","Track",type_PICKLIST,"no"],\
+                ["fog","Track",type_BOOLEAN,"no"],\
                 ["fog-color","Track",type_COLOUR,"0.0 0.0 0.0"],\
                 ["fog-density","Track",type_FLOAT,16],\
                 ["fog-start","Track",type_STRING,""],\
                 ["fog-end","Track",type_STRING,""],\
                 ["start-karts-per-row","Track",type_INTEGER,int(2)],\
-                ["start-forwards-distance","Track",type_INTEGER,int(1.1)],\
-                ["start-sidewards-distance","Track",type_INTEGER,int(1.1)],\
-                ["start-upwards-distance","Track",type_INTEGER,int(1.1)],\
+                ["start-forwards-distance","Track",type_FLOAT,1.1],\
+                ["start-sidewards-distance","Track",type_FLOAT,1.1],\
+                ["start-upwards-distance","Track",type_FLOAT,1.1],\
 #For Textures                
                 ["clampU","Texture",type_PICKLIST,"no"],\
                 ["clampV","Texture",type_PICKLIST,"no"],\
@@ -615,6 +616,33 @@ class STKBrowser:
                     printtext = "Value Read Error (press Reset) "
                     printwidth = Draw.GetStringWidth(printtext)
                     Draw.Label(printtext, x, y, printwidth, textheight)  
+            elif prop_type == type_BOOLEAN:
+                try:
+                    tmp = "%s" % current_value
+                    tmp2 = tmp.title()
+                    if tmp2[0] == "F" or tmp2[0] == "N" or tmp2[0] == "0":
+                        tmp3 = False
+                    else:
+                        tmp3 = True
+                    
+                    printtext = "yes "
+                    printwidth = Draw.GetStringWidth(printtext)
+                    tmp_but = Draw.Toggle(printtext, self.NextButton(),\
+                         x, y, printwidth, textheight, tmp3)
+                    self.lButtons.append(tmp_but)
+                    self.RegisterButton(tmp_but, prop_name, printtext, type_PICKLIST)
+                    x += printwidth 
+                    
+                    printtext = "no "
+                    printwidth = Draw.GetStringWidth(printtext)
+                    tmp_but = Draw.Toggle(printtext, self.NextButton(),\
+                         x, y, printwidth, textheight, tmp3==False)
+                    self.lButtons.append(tmp_but)
+                    self.RegisterButton(tmp_but, prop_name, printtext, type_PICKLIST)
+                except:
+                    printtext = "Value Read Error (press Reset) "
+                    printwidth = Draw.GetStringWidth(printtext)
+                    Draw.Label(printtext, x, y, printwidth, textheight) 
             elif prop_type == type_PICKLIST:
                 tmp = 0
                 thelist = lSTK_Picklist[prop_name]
