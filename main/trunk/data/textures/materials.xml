@@ -9,6 +9,7 @@
   <material name="chrome.png"  light="N" sphere="Y"/>
   <material name="chrome2.png"  light="N" sphere="Y"/>
   <material name="railing.png" transparency="Y"/>
+  <material name="palm_b.png" transparency="Y"/>
   <material name="wood.jpg" anisotropic="Y"/>
   <material name="concrete.png" />
   <material name="brick.png" />
