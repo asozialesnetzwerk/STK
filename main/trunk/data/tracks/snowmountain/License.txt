@@ -19,10 +19,6 @@ Selfmade parts and under GPL and CC-BY-SA)
 -snowmountain.blend
 
 
-
-Music made by Chris Leutwyler (Krobonil)
-    The licence is cc-sa. (Creative Commons - Share Alike)
-
 winter sky textures (c) 2010 thomas oppl (toppl@fh-sbg.ac.at)
 licensed under CC BY-SA 3.0
 http://creativecommons.org/licenses/by-sa/3.0/
