@@ -2,7 +2,7 @@
 <!-- Generated with script from SVN rev 0.1 -->
 <kart name              = "Gooey"
       version           = "2"
-      model-file        = "Gooey.b3d"
+      model-file        = "gooey.b3d"
       icon-file         = "gooeyicon.png"
       minimap-icon-file = "gooeyicon.png"
       shadow-file       = "gooeyshadow.png"
