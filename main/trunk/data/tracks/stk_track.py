@@ -874,7 +874,6 @@ class TrackExport:
             name     = getProperty(obj, "name", obj.name)
             b3d_name = self.exportLocalB3D(obj, sPath, name)
             kind     = getProperty(obj, "kind", "")
-                
             if lAnim:
                 f.write("    <static-object model=\"%s\" %s>\n"% \
                         (b3d_name, getXYZHPRString(obj)) )
@@ -884,7 +883,67 @@ class TrackExport:
                 f.write("    <static-object model=\"%s\" %s/>\n"% \
                         (b3d_name, getXYZHPRString(obj)) )
         self.writeAnimatedTextures(f, lAnimTextures)
-        
+
+    # --------------------------------------------------------------------------
+    # billboard section (check if the billboard is correct and write in the file)
+    def writeBillboard(self,f, lBillboards):
+        for obj in lBillboards:
+            data = obj.getData(mesh = True)
+            # check the face
+            if len(data.faces) > 1:
+                print "\nerror: the billboard <" + getProperty(obj, "name", obj.name) + "> has more than ONE texture"
+            else:
+                # check the points
+                if len(data.verts) > 4:
+                    print "\nerror: the billboard <" + getProperty(obj, "name", obj.name) + "> has more than 4 points"
+                else:
+                    try:
+                        # write in the XML
+                        f.write('  <billboard texture="' + Blender.sys.basename(data.faces[0].image.getFilename()) + '" ')
+                        # calcul the size and the position
+                        pointSTR0 = str(data.verts[0]).split('Vert (')[1].split(') (')[0]
+                        pointSTR1 = str(data.verts[1]).split('Vert (')[1].split(') (')[0]
+                        pointSTR2 = str(data.verts[2]).split('Vert (')[1].split(') (')[0]
+                        pointSTR3 = str(data.verts[3]).split('Vert (')[1].split(') (')[0]
+                        # order
+                        billboard_x = abs(float(pointSTR0.split(' ')[0]) - float (pointSTR3.split(' ')[0]))
+                        billboard_x = billboard_x + abs(float(pointSTR0.split(' ')[0]) - float (pointSTR1.split(' ')[0]))
+                        billboard_y =  abs(float(pointSTR2.split(' ')[2]) - float (pointSTR3.split(' ')[2]))
+                        billboard_y = billboard_y + abs(float(pointSTR2.split(' ')[2]) - float (pointSTR1.split(' ')[2]))
+                        # origin
+                        originXYZ = str(obj.loc).split('(')[1].split(')')[0]
+                        originXYZ = originXYZ.split(', ')
+                        
+                        origin_x = float(pointSTR0.split(' ')[0]) + float(pointSTR1.split(' ')[0]) + float(pointSTR2.split(' ')[0]) + float(pointSTR3.split(' ')[0])
+                        origin_x = origin_x / 4
+                        origin_x = origin_x + float (originXYZ[0])
+                        
+                        origin_y = float(pointSTR0.split(' ')[1]) + float(pointSTR1.split(' ')[1]) + float(pointSTR2.split(' ')[1]) + float(pointSTR3.split(' ')[1])
+                        origin_y = origin_y / 4
+                        origin_y = origin_y + float (originXYZ[1])
+                        
+                        origin_z = float(pointSTR0.split(' ')[2]) + float(pointSTR1.split(' ')[2]) + float(pointSTR2.split(' ')[2]) + float(pointSTR3.split(' ')[2])
+                        origin_z = origin_z / 4
+                        origin_z = origin_z + float (originXYZ[2])
+                        
+                        f.write(' size="' + str(billboard_x) + ' ' + str(billboard_y) + '" origin="' + str(origin_x) + ' ' + str(origin_y) + ' ' + str(origin_z) + '"/>\n')
+                    except:
+                        print "\nerror unknow: check the billboard <" + getProperty(obj, "name", obj.name) + "> " , sys.exc_info()[0]
+
+    # --------------------------------------------------------------------------
+    # Particle emitter 
+    def writeParticleEmitters(self,f, lParticleEmitters):
+        for obj in lParticleEmitters:
+            try:
+                # origin
+                originXYZ = str(obj.loc).split('(')[1].split(')')[0]
+                loriginXYZ = originXYZ.split(',')
+                originXYZ = ""
+                for i in loriginXYZ:
+                    originXYZ = originXYZ + i
+                f.write('  <particle-emitter texture="' + getProperty(obj, "texture", 0) + '" origin="' + originXYZ + '"/>\n')
+            except:
+                print "\nerror unknow: check the particle-emitter <" + getProperty(obj, "name", obj.name) + "> " , sys.exc_info()[0]
     # --------------------------------------------------------------------------
     # Writes out all checklines.
     # \param lChecks All check meshes
@@ -1167,7 +1226,7 @@ class TrackExport:
     # --------------------------------------------------------------------------
     # Writes the scene files, which includes all models, animations, and items
     def writeSceneFile(self, sPath, sTrackName, lWater, lTrack, lItems,
-                       lObjects, lChecks, lSun, mainDriveline, lStart,
+                       lObjects, lBillboards, lParticleEmitters,  lChecks, lSun, mainDriveline, lStart,
                        lEndCameras, lCameraCurves):
 
         start_time = bsys.time()
@@ -1202,9 +1261,11 @@ class TrackExport:
             f.write("  </track>\n")
         else:
             f.write("  <track model=\"%s\" x=\"0\" y=\"0\" z=\"0\"/>\n"%sTrackName)
-            
+        if lBillboards:
+            self.writeBillboard(f, lBillboards)
         self.writeWaterNodes(f, sPath, lWater)
-        
+        if lParticleEmitters:
+            self.writeParticleEmitters(f, lParticleEmitters)
         for obj in lOtherObjects:
             self.writeObject(f, sPath, obj)
         
@@ -1440,17 +1501,19 @@ class TrackExport:
         # Collect the different kind of meshes this exporter handles
         # ----------------------------------------------------------
         lObj                 = Blender.Object.Get()  # List of all objects
-        lWater               = []                # List of all water objects
-        lTrack               = []                # All main track objects
-        lDrivelines          = []                # All drivelines
+        lWater               = []                    # List of all water objects
+        lTrack               = []                    # All main track objects
+        lDrivelines          = []                    # All drivelines
         found_main_driveline = 0
-        lItems               = []                # All track items
-        lEndCameras          = []                # List of all end cameras
-        lCameraCurves        = []                # Camera curves (unused atm)
-        lObjects             = []                # All special objects
-        lChecks              = []                # All check structures
+        lItems               = []                    # All track items
+        lEndCameras          = []                    # List of all end cameras
+        lCameraCurves        = []                    # Camera curves (unused atm)
+        lObjects             = []                    # All special objects
+        lBillboards          = []                    # All billboards
+        lParticleEmitters    = []                    # All particle emitters
+        lChecks              = []                    # All check structures
         lSun                 = []
-        lStart               = []                # All start positions
+        lStart               = []                    # All start positions
         for obj in lObj:
             # Try to get the supertuxkart type field. If it's not defined,
             # use the name of the objects as type.
@@ -1478,6 +1541,9 @@ class TrackExport:
                 elif stktype[:5]=="START":
                     # Start empties are called start1, start2, ...
                     lStart.append(obj)
+                elif stktype=="PARTICLE-EMITTER":
+                    print "plouf"
+                    lParticleEmitters.append(obj)
                 else:
                     print "Empty '%s' has type '%s' which is not valid - ignored."%\
                           (obj.name, stktype)
@@ -1508,6 +1574,9 @@ class TrackExport:
                 lDrivelines.append(Driveline(obj, 0))
             elif stktype=="OBJECT" or stktype=="SPECIAL_OBJECT":
                 lObjects.append(obj)
+            # for billboard
+            elif stktype=="BILLBOARD":
+                lBillboards.append(obj)
             else:
                 s = getProperty(obj, "type", None)
                 if s:
@@ -1544,7 +1613,7 @@ class TrackExport:
         if len(lDrivelines)==0:
             lDrivelines=[None]
         self.writeSceneFile(sPath, sTrackName, lWater, lTrack, lItems,
-                            lObjects, lChecks, lSun, lDrivelines[0],
+                            lObjects, lBillboards, lParticleEmitters, lChecks, lSun, lDrivelines[0],
                             lStart, lEndCameras, lCameraCurves)
         # materials file
         # ----------
@@ -1566,6 +1635,7 @@ def savescene_callback(sFilename):
 
 # ==============================================================================
 if __name__ == "__main__":
+    print "\n\n-- supertuxkart exporter | SVN version:" + getScriptVersion() + " | (c) Joerg Henrichs (hiker)--"
     ok = 1
     try:
         b3d_version = b3d_export.__version__
