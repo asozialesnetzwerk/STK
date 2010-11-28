@@ -780,14 +780,14 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
 
 #Write NODE MESH TRIS Chunk
 def write_node_mesh_tris(obj,obj_count,arm_action,exp_root):
-    tris_buf = ""
-    temp_buf = ""
-    last_brus = None
-    brus_written = 0
-
     data = obj.getData(mesh = True)
     orig_uvlayer = data.activeUVLayer
 
+    # An dictoriary that maps all brush-ids to a list of faces
+    # using this brush. This helps to sort the triangles by
+    # brush, creating less mesh buffer in irrlicht.
+    dBrushId2Face = {}
+    
     for face in data.faces:
         img_found = 0
         face_stack = []
@@ -826,43 +826,39 @@ def write_node_mesh_tris(obj,obj_count,arm_action,exp_root):
                 if brus_stack[i] == face_stack:
                     brus_id = i
 
-        if last_brus <> brus_id:
-            if brus_written == 0:
-                brus_written = 1
-            else:
-                if len(temp_buf) > 0:
-                    tris_buf += write_chunk("TRIS",temp_buf)
-                    temp_buf = ""
-
-            temp_buf += write_int(brus_id) #Brush ID
-            last_brus = brus_id
-
-        face_id = [0,0,0,0]
-
-        if data.faceUV:
-            for i in xrange(len(face.verts)):
-                for iuv in xrange(len(mesh_stack[face.v[i].index][4][0])):
-                    if mesh_stack[face.v[i].index][4][0][iuv][0] == face.index:
-                        face_id[i] = mesh_stack[face.v[i].index][0] + iuv
+        if dBrushId2Face.has_key(brus_id):
+            dBrushId2Face[brus_id].append(face)
         else:
-            for i in xrange(len(face.verts)):
-                face_id[i] = mesh_stack[face.v[i].index][0]
+            dBrushId2Face[brus_id] = [face]
+            
+    tris_buf = ""
+    
+    for brus_id in dBrushId2Face.keys():
+        temp_buf = write_int(brus_id) #Brush ID
+        for face in dBrushId2Face[brus_id]:
+            face_id = [0,0,0,0]
+            if data.faceUV:
+                for i in xrange(len(face.verts)):
+                    for iuv in xrange(len(mesh_stack[face.v[i].index][4][0])):
+                        if mesh_stack[face.v[i].index][4][0][iuv][0] == face.index:
+                            face_id[i] = mesh_stack[face.v[i].index][0] + iuv
+            else:
+                for i in xrange(len(face.verts)):
+                    face_id[i] = mesh_stack[face.v[i].index][0]
 
-        temp_buf += write_int(face_id[2]) #A
-        temp_buf += write_int(face_id[1]) #B
-        temp_buf += write_int(face_id[0]) #C
-
-        if len(face.v) == 4:
-            temp_buf += write_int(face_id[3]) #A
-            temp_buf += write_int(face_id[2]) #B
+            temp_buf += write_int(face_id[2]) #A
+            temp_buf += write_int(face_id[1]) #B
             temp_buf += write_int(face_id[0]) #C
 
+            if len(face.v) == 4:
+                temp_buf += write_int(face_id[3]) #A
+                temp_buf += write_int(face_id[2]) #B
+                temp_buf += write_int(face_id[0]) #C
+
+        tris_buf += write_chunk("TRIS",temp_buf)
+        
     if orig_uvlayer:
         data.activeUVLayer = orig_uvlayer
-
-    if len(temp_buf) > 0:
-        tris_buf += write_chunk("TRIS",temp_buf)
-        temp_buf = ""
 
     return tris_buf
 
