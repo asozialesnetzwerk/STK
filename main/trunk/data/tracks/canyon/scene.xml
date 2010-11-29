@@ -73,7 +73,7 @@
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
     <check-line kind="activate" other-ids="0" p1="40.518822 113.975853" p2="62.395409 113.947746"
-                min-height="-93.067085" same-group="1"/>
+                min-height="-89.499809" same-group="1"/>
   </checks>
   <sky-box texture="canyon_sky_5.png canyon_sky_5.png canyon_sky_1.png canyon_sky_3.png canyon_sky_2.png canyon_sky_4.png"/>
   <default-start karts-per-row     ="2"
