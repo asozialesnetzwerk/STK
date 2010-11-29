@@ -28,8 +28,7 @@
   <item x="130.5" y="-20.9" z="-80" />
   <big-nitro x="51.447353" y="-9.265882" z="-84.557457" />
   <checks>
-    <check-line kind="lap" p1="-3.999785 0.030310" p2="3.999785 -0.030310"
-                min-height="-0.990000" same-group="0" other-ids="1"/>
+   <check-lap kind="lap" same-group="0" other-ids="1" />
     <check-line kind="activate" other-ids="2" p1="227.982346 109.128746" p2="229.342407 90.069756"
                 min-height="-0.008819" same-group="1"/>
     <check-line kind="activate" other-ids="0" p1="92.126266 -117.803696" p2="79.177559 -140.231522"
