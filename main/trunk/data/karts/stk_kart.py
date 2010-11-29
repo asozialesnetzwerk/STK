@@ -375,7 +375,7 @@ def exportKart():
     f.write('<!-- Generated with script from SVN rev %s -->\n'\
             % getScriptVersion())
     rgb = (0.7, 0.0, 0.0)
-    model_file = kart_name_string+".b3d"
+    model_file = kart_name_string.lower()+".b3d"
     f.write('<kart name              = "%s"\n' % kart_name_string)
     f.write('      version           = "2"\n' )
     f.write('      model-file        = "%s"\n' % model_file)
