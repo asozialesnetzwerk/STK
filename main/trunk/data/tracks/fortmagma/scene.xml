@@ -36,8 +36,7 @@
   <zipper.ac x="74.033066" y="25.842834" z="-168.196808" h="-47.100726" />
   <zipper.ac x="-52.397594" y="-6.445836" z="-120.537079" h="-151.515032" />
   <checks>
-    <check-line kind="lap" p1="-6.113352 0.049641" p2="8.723804 -0.323090"
-                min-height="-1.445602" same-group="0" other-ids="1"/>
+    <check-lap kind="lap" same-group="0" other-ids="1" />
     <check-line kind="activate" other-ids="2" p1="-35.812012 -149.674133" p2="-26.134605 -140.093109"
                 min-height="-6.283379" same-group="1"/>
     <check-line kind="activate" other-ids="0" p1="33.615200 -34.321575" p2="22.339743 -19.955437"
