@@ -124,6 +124,10 @@ class Driveline:
         self.invisible = getProperty(driveline, "invisible", 0)
         self.enabled   = not getProperty(driveline, "disable",   0)
         self.activate  = getProperty(driveline, "activate", None)
+        self.strict_lap = convertTextToYN(getProperty(driveline,
+                                                      "strict-lapline", "N") ) \
+                           == "Y"
+        
     # --------------------------------------------------------------------------
     # Returns the name of the driveline
     def getName(self):
@@ -140,6 +144,11 @@ class Driveline:
     # Returns the 'activate' property of the driveline object.
     def getActivate(self):
         return self.activate
+    # --------------------------------------------------------------------------
+    # Returns if this driveline requests strict lap counting (i.e. exactly
+    # crossing the line between the start vertices)
+    def isStrictLapline(self):
+        return self.strict_lap
     # --------------------------------------------------------------------------
     # Stores that the start quad of this driveline is connected to quad
     # quad_index of quad driveline. 
@@ -1003,10 +1012,14 @@ class TrackExport:
 
         if activate:
             activate = "other-ids=\"%s\""%activate
-        f.write("    <check-line kind=\"lap\" p1=\"%f %f\" p2=\"%f %f\"\n"% \
-                (lap[0][0], lap[0][1],
-                 lap[1][0], lap[1][1] )  )
-        f.write("                min-height=\"%f\" %s %s/>\n"% (min_h, sSameGroup, activate) )
+        strict_lapline = mainDriveline.isStrictLapline()
+        if not strict_lapline:
+            f.write("    <check-lap kind=\"lap\" %s %s />\n"%(sSameGroup, activate))
+        else:
+            f.write("    <check-line kind=\"lap\" p1=\"%f %f\" p2=\"%f %f\"\n"% \
+                    (lap[0][0], lap[0][1],
+                     lap[1][0], lap[1][1] )  )
+            f.write("                min-height=\"%f\" %s %s/>\n"% (min_h, sSameGroup, activate) )
 
         ind = 1
         for obj in lChecks:
