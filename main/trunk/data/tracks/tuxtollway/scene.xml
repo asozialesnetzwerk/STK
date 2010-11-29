@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 6563 -->
+<!-- Generated with script from SVN rev 6785 -->
 <scene>
   <track model="tuxtrack_track.b3d" x="0" y="0" z="0"/>
   <object type="movable" xyz="-88.409042 1.167559 -207.690475" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"
@@ -71,8 +71,7 @@
   <big-nitro x="-92.359543" y="0.744751" z="-198.150726" h="-2.779588" />
   <banana x="-76.849091" y="0.744751" z="-207.428864" h="-2.779588" />
   <checks>
-    <check-line kind="lap" p1="-5.996599 2.452831" p2="3.566254 2.910313"
-                min-height="-1.556926" same-group="0" other-ids="1"/>
+    <check-lap kind="lap" same-group="0" other-ids="1" />
     <check-line kind="activate" other-ids="0" p1="67.303505 238.328110" p2="71.059776 228.471436"
                 min-height="0.883028" same-group="1"/>
   </checks>
