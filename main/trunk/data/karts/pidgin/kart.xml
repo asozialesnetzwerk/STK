@@ -2,21 +2,21 @@
 <!-- Generated with script from SVN rev 0.1 -->
 <kart name              = "Pidgin"
       version           = "2"
-      model-file        = "Pidgin.b3d"
+      model-file        = "pidgin.b3d"
       icon-file         = "pidginicon.png"
       minimap-icon-file = "pidginicon.png"
       shadow-file       = "pidginshadow.png"
       groups            = "standard"
       rgb               = "0.365 0.22 0.4" >
-  <animations left = "1"
-              straight = "21"
-              right = "41"
-              start-winning = "71"
-              start-winning-loop = "159"
-              end-winning = "204"
-              start-losing = "245"
-              start-losing-loop = "292"
-              end-losing = "302"/>
+  <animations left = "0"
+              straight = "20"
+              right = "40"
+              start-winning = "70"
+              start-winning-loop = "158"
+              end-winning = "203"
+              start-losing = "244"
+              start-losing-loop = "291"
+              end-losing = "301"/>
   <wheels>
     <front-left position = "-0.256000 0.124326 0.303000"
                  model    = "wheel-front-left.b3d"       />
