@@ -8,13 +8,13 @@
       shadow-file       = "hexley2shadow.png"
       groups            = "standard"
       rgb               = "0.78 0.23 0.23" >
-  <animations left = "1"
-              straight = "21"
-              right = "41"
-              start-winning = "82"
-              end-winning = "252"
-              start-losing = "299"
-              end-losing = "431"/>
+  <animations left = "0"
+              straight = "20"
+              right = "40"
+              start-winning = "81"
+              end-winning = "251"
+              start-losing = "298"
+              end-losing = "430"/>
   <wheels>
     <front-left position = "-0.319932 0.116173 0.365784"
                  model    = "wheel-front-left.b3d"       />
