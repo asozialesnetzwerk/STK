@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 6538 -->
+<materials>
+  <material name="bigFork.png" transparency="Y" ignore="Y"/>
+  <material name="drysageBrush.png" transparency="Y" light="N" ignore="Y"/>
+  <material name="grass.png" transparency="Y" ignore="Y"/>
+  <material name="lanternDetail.png" transparency="Y" light="N" ignore="Y"/>
+  <material name="light.png" alpha="Y" light="N"/>
+  <material name="mill.png" transparency="Y" ignore="Y"/>
+  <material name="millstructure.png" transparency="Y" ignore="Y"/>
+  <material name="palmacacia.png" transparency="Y" light="N" ignore="Y"/>
+  <material name="pix.png" transparency="Y" reset="Y"/>
+  <material name="sageBrush.png" transparency="Y" light="N" ignore="Y"/>
+  <material name="sky.png" light="N"/>
+  <material name="woodBridge.png">
+    <sfx filename="wooden_bridge.ogg" name="wood" rolloff="0.6" min-speed="9.0" max-speed="22.0" min-pitch="1.0" max-pitch="1.7" positional="yes" volume="1.0"/>
+  </material>
+</materials>

@@ -1,0 +1,7 @@
+Released under GPL.
+
+mossy_stone.png, mossy_stone2.png, obelisk.png, bush.png and some models :
+    from the http://www.titusgames.de GLEST jungle set
+    released under GPL
+
+Amazon Jungle music by Auria released under CC-BY-SA 3.0
