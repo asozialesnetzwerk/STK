@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 6538 -->
+<!-- Generated with script from SVN rev 6785 -->
 <scene>
   <track model="sandtrack_track.b3d" x="0" y="0" z="0"/>
   <water model="mesh.b3d" xyz="-23.550959 -6.657578 128.668610" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000" height="0.5" speed="1000" length="0.5"/>
@@ -27,8 +27,7 @@
   <small-nitro x="-54.841682" y="16.906013" z="-145.019363" />
   <small-nitro x="6.185916" y="6.892061" z="-131.377899" />
   <checks>
-    <check-line kind="lap" p1="-15.133682 8.853209" p2="17.333778 8.683620"
-                min-height="-2.533798" same-group="0" other-ids="1"/>
+    <check-lap kind="lap" same-group="0" other-ids="1" />
     <check-line kind="activate" other-ids="0" p1="-88.309296 -29.102606" p2="-118.331764 -38.765526"
                 min-height="7.687703" same-group="1"/>
   </checks>
