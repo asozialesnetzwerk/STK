@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 6539 -->
+<!-- Generated with script from SVN rev 6785 -->
 <scene>
   <track model="lighthouse_track.b3d" x="0" y="0" z="0"/>
   <object type="animation" model="Light.b3d" xyz="-48.248627 29.666990 -94.301178" hpr="-0.000000 -0.000000 -0.000000" scale="2.884974 2.884974 2.884974" >
@@ -50,8 +50,7 @@
   <small-nitro x="27.694473" y="0.7631" z="-5.095636" />
   <small-nitro x="26.239197" y="0.7631" z="-3.513813" />
   <checks>
-    <check-line kind="lap" p1="-7.635581 2.374873" p2="7.440601 2.415547"
-                min-height="-0.617409" same-group="0" other-ids="1"/>
+    <check-lap kind="lap" same-group="0" other-ids="1" />
     <check-line kind="activate" other-ids="0" p1="68.019455 -45.556225" p2="44.501854 -31.783911"
                 min-height="-9.717559" same-group="1"/>
   </checks>
