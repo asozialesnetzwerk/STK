@@ -42,7 +42,7 @@
 
   <sky-dome texture="sky2.jpg"
             horizontal="16" vertical="16" 
-            texture-percent="0.5" sphere-percent="1.0"
+            texture-percent="0.5" sphere-percent="1.1"
             speed-x="0.005" speed-y="0" />
   <camera far="1000"/>
   <default-start karts-per-row     ="2"
