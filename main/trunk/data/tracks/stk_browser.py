@@ -64,7 +64,9 @@ lObjectType = {"None":"None",\
                "Item":"Item",\
                "Nitro-Small":"Nitro-small",\
                "Nitro-Big":"Nitro-big",\
-               "Water":"Water"}
+               "Water":"Water",\
+               "Particle-Emitter":"Particle-Emitter",\
+               "Billboard":"Billboard"}
 
 # Definition of the STK context-sensitive menu. Please define arrays here with items 
 # of form [parameter_name,object_type,property_type,initial value]
@@ -266,7 +268,10 @@ class STKData:
                             my_props.append(self.ProcessProperty(obj_type,item_name,0,item_val))
                 else: 
                     #"Normal" object
-                    my_props.append(["type",type_TYPELIST,obj_type])
+                    if obj_type in [lObjectType["Lamp"],lObjectType["Camera"]]:
+                        my_props.append(["type",type_STATIC,obj_type])
+                    else:
+                        my_props.append(["type",type_TYPELIST,obj_type])
                     lObjects = Blender.Object.Get()
                     for property_obj in lObjects[obj_index].getAllProperties():
                         if property_obj.getName().title() != "Type": # I've already added the type
@@ -349,7 +354,6 @@ class STKData:
         lObjects = Blender.Object.Get()
         lScenes = Blender.Scene.Get()
         lImages = Blender.Image.Get()
-        lLamps = Blender.Lamp.Get()
         self.lObjectList = []
 
         #Now to sort them
@@ -363,22 +367,31 @@ class STKData:
             self.lObjectList.append([lObjectType["Image"],Image.getName(),x])
             x += 1
             
-        x = 0
-        for Lamp in lLamps:
- #           self.lObjectList.append([lObjectType["Lamp"],Lamp.getName(),x])
-            x += 1
-            
-        x = 0        
+        x = -1        
         for Object in lObjects:
-            try:
-                objtype = Object.getProperty("type").getData().title()
-                if objtype in lObjectType:
-                    self.lObjectList.append([lObjectType[objtype],Object.getName(),x])
-                else:
-                    self.lObjectList.append([lObjectType["None"],Object.getName(),x])
-            except:
-                self.lObjectList.append([lObjectType["None"],Object.getName(),x])
+            objtype = Object.getType().title()
             x += 1
+            if objtype == "Lamp": #,"Camera"]:
+                #Standard Blender object
+                self.lObjectList.append([lObjectType[Object.getType()],Object.getName(),x])
+            elif objtype == "Camera":
+                try:                
+                    if Object.getProperty("type").getData().title() == "Ignore":
+                        self.lObjectList.append([lObjectType["Ignore"],Object.getName(),x])
+                    else:
+                        self.lObjectList.append([lObjectType[Object.getType()],Object.getName(),x])
+                except:
+                    self.lObjectList.append([lObjectType["Camera"],Object.getName(),x])
+            else:                
+                #An STK type object
+                try:
+                    objtype = Object.getProperty("type").getData().title()
+                    if objtype in lObjectType:
+                        self.lObjectList.append([lObjectType[objtype],Object.getName(),x])
+                    else:
+                        self.lObjectList.append([lObjectType["None"],Object.getName(),x])
+                except:
+                    self.lObjectList.append([lObjectType["None"],Object.getName(),x])
             
     def SetProperty(self,property_name,new_value):
         #Set the properties of the current object
