@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 6563 -->
+<materials>
+  <material name="acid_lake.jpg" reset="Y"/>
+  <material name="laser_bridge_green.png" alpha="Y" anisotropic="Y"/>
+  <material name="laser_bridge_red.png" alpha="Y" anisotropic="Y"/>
+  <material name="metal_ground.jpg" anisotropic="Y"/>
+  <material name="road_dirt_red.jpg" anisotropic="Y"/>
+  <material name="sandred.jpg" anisotropic="Y"/>
+</materials>
