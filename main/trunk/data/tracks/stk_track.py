@@ -794,26 +794,7 @@ class TrackExport:
         print bsys.time()-start_time,"seconds. "
           
     # --------------------------------------------------------------------------
-    # Writes the animation for objects using IPOs:
-    def writeAnimationWithIPO(self, f, name, obj, ipo):
-        # An animated object can set the 'name' property, then this name will
-        # be used to name the exported object (instead of the python name
-        # which might be a default name with a number). Additionally, names
-        # are cached so it can be avoided to export two or more identical
-        # objects.
-        parent = obj.getParent()
-        # For now: armature animations are assumed to be looped
-        if parent and parent.type=="Armature":
-            looped =" looped=\"y\" "
-        else:
-            looped = ""
-        shape = getProperty(obj, "shape", "")
-        if shape:
-            shape="shape=\"%s\""%shape
-        if not ipo: ipo=[]
-        # Note: Y and Z are swapped!
-        f.write("  <object type=\"animation\" model=\"%s\" %s %s%s>\n"% \
-                (name, getXYZHPRString(obj), shape, looped))
+    def writeIPO(self, f, ipo ):
         dInterp = {IpoCurve.InterpTypes.BEZIER:        "bezier",
                    IpoCurve.InterpTypes.LINEAR:        "linear",
                    IpoCurve.InterpTypes.CONST:         "const"          }
@@ -849,7 +830,29 @@ class TrackExport:
                     f.write("      <p c=\"%f %f\"/>\n"%(bez.vec[1][0],
                                                         factor*bez.vec[1][1]))
             f.write("    </curve>\n")
-            
+        
+    # --------------------------------------------------------------------------
+    # Writes the animation for objects using IPOs:
+    def writeAnimationWithIPO(self, f, name, obj, ipo):
+        # An animated object can set the 'name' property, then this name will
+        # be used to name the exported object (instead of the python name
+        # which might be a default name with a number). Additionally, names
+        # are cached so it can be avoided to export two or more identical
+        # objects.
+        parent = obj.getParent()
+        # For now: armature animations are assumed to be looped
+        if parent and parent.type=="Armature":
+            looped =" looped=\"y\" "
+        else:
+            looped = ""
+        shape = getProperty(obj, "shape", "")
+        if shape:
+            shape="shape=\"%s\""%shape
+        if not ipo: ipo=[]
+        # Note: Y and Z are swapped!
+        f.write("  <object type=\"animation\" model=\"%s\" %s %s%s>\n"% \
+                (name, getXYZHPRString(obj), shape, looped))
+        self.writeIPO(f, ipo)
         f.write("  </object>\n")
             
         
@@ -895,49 +898,44 @@ class TrackExport:
 
     # --------------------------------------------------------------------------
     # billboard section (check if the billboard is correct and write in the file)
-    def writeBillboard(self,f, lBillboards):
-        for obj in lBillboards:
-            data = obj.getData(mesh = True)
-            # check the face
-            if len(data.faces) > 1:
-                print "\nerror: the billboard <" + getProperty(obj, "name", obj.name) + "> has more than ONE texture"
-            else:
-                # check the points
-                if len(data.verts) > 4:
-                    print "\nerror: the billboard <" + getProperty(obj, "name", obj.name) + "> has more than 4 points"
-                else:
-                    try:
-                        # write in the XML
-                        f.write('  <billboard texture="' + Blender.sys.basename(data.faces[0].image.getFilename()) + '" ')
-                        # calcul the size and the position
-                        pointSTR0 = str(data.verts[0]).split('Vert (')[1].split(') (')[0]
-                        pointSTR1 = str(data.verts[1]).split('Vert (')[1].split(') (')[0]
-                        pointSTR2 = str(data.verts[2]).split('Vert (')[1].split(') (')[0]
-                        pointSTR3 = str(data.verts[3]).split('Vert (')[1].split(') (')[0]
-                        # order
-                        billboard_x = abs(float(pointSTR0.split(' ')[0]) - float (pointSTR3.split(' ')[0]))
-                        billboard_x = billboard_x + abs(float(pointSTR0.split(' ')[0]) - float (pointSTR1.split(' ')[0]))
-                        billboard_y =  abs(float(pointSTR2.split(' ')[2]) - float (pointSTR3.split(' ')[2]))
-                        billboard_y = billboard_y + abs(float(pointSTR2.split(' ')[2]) - float (pointSTR1.split(' ')[2]))
-                        # origin
-                        originXYZ = str(obj.loc).split('(')[1].split(')')[0]
-                        originXYZ = originXYZ.split(', ')
-                        
-                        origin_x = float(pointSTR0.split(' ')[0]) + float(pointSTR1.split(' ')[0]) + float(pointSTR2.split(' ')[0]) + float(pointSTR3.split(' ')[0])
-                        origin_x = origin_x / 4
-                        origin_x = origin_x + float (originXYZ[0])
-                        
-                        origin_y = float(pointSTR0.split(' ')[1]) + float(pointSTR1.split(' ')[1]) + float(pointSTR2.split(' ')[1]) + float(pointSTR3.split(' ')[1])
-                        origin_y = origin_y / 4
-                        origin_y = origin_y + float (originXYZ[1])
-                        
-                        origin_z = float(pointSTR0.split(' ')[2]) + float(pointSTR1.split(' ')[2]) + float(pointSTR2.split(' ')[2]) + float(pointSTR3.split(' ')[2])
-                        origin_z = origin_z / 4
-                        origin_z = origin_z + float (originXYZ[2])
-                        
-                        f.write(' size="' + str(billboard_x) + ' ' + str(billboard_y) + '" origin="' + str(origin_x) + ' ' + str(origin_y) + ' ' + str(origin_z) + '"/>\n')
-                    except:
-                        print "\nerror unknow: check the billboard <" + getProperty(obj, "name", obj.name) + "> " , sys.exc_info()[0]
+    def writeBillboard(self,f, obj):
+        data = obj.getData(mesh=True)
+        # check the face
+        if len(data.faces) > 1:
+            print "\nerror: the billboard <" + getProperty(obj, "name", obj.name) \
+                  + "> has more than ONE texture"
+            return
+        
+        # check the points
+        if len(data.verts) > 4:
+            print "\nerror: the billboard <" + getProperty(obj, "name", obj.name)\
+                  + "> has more than 4 points"
+            return
+        
+        try:
+            # write in the XML
+            # calcul the size and the position
+            x_min = data.verts[0].co[0]
+            x_max = x_min
+            y_min = data.verts[0].co[2]
+            y_max = y_min
+            for i in range(1, 4):
+                x_min = min(x_min, data.verts[i].co[0])
+                x_max = max(x_max, data.verts[i].co[0])
+                y_min = min(y_min, data.verts[i].co[2])
+                y_max = max(y_max, data.verts[i].co[2])
+                
+
+            f.write('  <object type="billboard" texture="%s" x="%f" y="%f" z="%f" \n'%
+                    (Blender.sys.basename(data.faces[0].image.getFilename()),
+                     obj.loc[0], obj.loc[2], obj.loc[1]) )
+            f.write('             width="%f" height="%f">\n' %(x_max-x_min, y_max-y_min) )
+            if obj.getIpo:
+                self.writeIPO(f, obj.getIpo())
+            f.write('  </billboard>\n')
+
+        except ValueError:
+            print "\nerror unknow: check the billboard <" + getProperty(obj, "name", obj.name) + "> " , sys.exc_info()[0]
 
     # --------------------------------------------------------------------------
     # Particle emitter 
@@ -1274,13 +1272,13 @@ class TrackExport:
             f.write("  </track>\n")
         else:
             f.write("  <track model=\"%s\" x=\"0\" y=\"0\" z=\"0\"/>\n"%sTrackName)
-        if lBillboards:
-            self.writeBillboard(f, lBillboards)
         self.writeWaterNodes(f, sPath, lWater)
         if lParticleEmitters:
             self.writeParticleEmitters(f, lParticleEmitters)
         for obj in lOtherObjects:
             self.writeObject(f, sPath, obj)
+        for obj in lBillboards:
+            self.writeBillboard(f, obj)
         
         # Assemble all sky/fog related parameters
         # ---------------------------------------
