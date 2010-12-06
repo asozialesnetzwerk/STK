@@ -484,7 +484,9 @@ class STKBrowser:
                 #The object type changed
                 self.dirty = True #Force a reload of all objects
                 newval = lSTK_Picklist[prop_name].split("|")[self.lButtons[button_id-500].val-1]
-                data.SetProperty(prop_name, newval)
+                for (tkey,tval) in lObjectType.iteritems():
+                    if tval == newval: 
+                        data.SetProperty(prop_name, tkey)
                 data.currenttype = 1
                 data.currentobject = 1
             elif but_type == type_URL:
