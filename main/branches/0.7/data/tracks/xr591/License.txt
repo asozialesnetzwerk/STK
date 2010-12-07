@@ -3,6 +3,10 @@ Creative-Commons-BY-SA 3.0
     metal_ground.jpg - by MiniBjorn, based on http://www.burningwell.org/gallery2/v/textures/surfaces/P1170598.JPG.html
     road_dirt_red - with parts by MiniBjorn
     sandred* - based on work by MiniBjorn
+    
+    arc1.png - based on picture by Mike Switzerland, found on Wikimedia Commons, with modifications by Marianne Gagnon
+    arc2.png - based on picture by Axel Rouvin (Attribution license), found on Wikimedia Commons, with modifications by Marianne Gagnon
+    
 ____________________________________________________________________
 Reused with different colors from supertuxkart/data/textures (see their individual licenses) :
 
