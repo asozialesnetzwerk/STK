@@ -1,17 +1,20 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev 6785 -->
 <scene>
-  <track model="xr591_track.b3d" x="0" y="0" z="0"/>
+  <track model="xr591_track.b3d" x="0" y="0" z="0">
+    <animated-texture name="arc1.png" dx="2.0" />
+    <animated-texture name="arc2.png" dx="-1.7" />
+  </track>
   <water model="water2.b3d" xyz="0.000000 0.000000 0.000000" hpr="-90.000003 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
   <water model="water1.b3d" xyz="-52.727467 -10.052333 -53.104767" hpr="-90.000003 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-  <object type="animation" model="monster2.b3d" xyz="-57.473751 -10.844030 -31.384989" hpr="-90.000003 -0.000000 6.066612" scale="1.175792 1.175792 1.175792" >
+  <object type="animation" model="monster2.b3d" xyz="-57.473751 -10.844030 -31.384989" hpr="-90.000003 -0.000000 19.999999" scale="1.175792 1.175792 1.175792" >
     <curve channel="RotZ" interpolation="bezier" extend="cyclic">
       <p c="1.000000 20.000000" h1="-18.066740 35.564685" h2="20.066740 4.435315"/>
       <p c="50.000000 -20.000000" h1="30.869843 -20.000000" h2="69.520569 -20.000000"/>
       <p c="100.000000 20.000000" h1="80.541595 4.433275" h2="119.458405 35.566726"/>
     </curve>
   </object>
-  <object type="animation" model="monster1.b3d" xyz="37.428085 -16.925741 137.833679" hpr="-90.932453 -1.563150 -7.916039" scale="1.000000 1.000000 1.000000" >
+  <object type="animation" model="monster1.b3d" xyz="37.428085 -16.925741 137.833679" hpr="-95.079443 -0.078442 -18.712126" scale="1.000000 1.000000 1.000000" >
     <curve channel="RotX" interpolation="bezier" extend="cyclic_extrap">
       <p c="1.000000 -95.079441" h1="-18.124512 -99.728632" h2="20.124512 -90.430250"/>
       <p c="50.000000 -83.167496" h1="30.869867 -83.167496" h2="69.520546 -83.167496"/>
