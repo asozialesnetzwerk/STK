@@ -54,6 +54,7 @@ lObjectType = {"None":"None",\
                "Image":"Texture",\
                "Lamp":"Sun",\
                "Camera":"EndCamera",\
+               "Check":"Checkline",\
                "Driveline":"Driveline",\
                "Maindriveline":"Main Driveline",\
                "Lap":"Lap",\
@@ -105,24 +106,24 @@ lSTK_Properties = [["stk-browser-version","Track",type_STATIC,__version__],\
                 ["start-sidewards-distance","Track",type_FLOAT,1.1],\
                 ["start-upwards-distance","Track",type_FLOAT,1.1],\
 #For Textures                
-                ["clampU","Texture",type_PICKLIST,"no"],\
-                ["clampV","Texture",type_PICKLIST,"no"],\
-                ["transparency","Texture",type_PICKLIST,"no"],\
-                ["alpha","Texture",type_PICKLIST,"no"],\
-                ["light","Texture",type_PICKLIST,"yes"],\
+                ["clampU","Texture",type_BOOLEAN,"no"],\
+                ["clampV","Texture",type_BOOLEAN,"no"],\
+                ["transparency","Texture",type_BOOLEAN,"no"],\
+                ["alpha","Texture",type_BOOLEAN,"no"],\
+                ["light","Texture",type_BOOLEAN,"yes"],\
                 ["sphere","Texture",type_PICKLIST,"no"],\
                 ["slowdown","Texture",type_FLOAT,1],\
-                ["anisotropic","Texture",type_PICKLIST,"yes"],\
-                ["max-speed","Texture",type_STRING,float(1.0)],\
+                ["anisotropic","Texture",type_BOOLEAN,"yes"],\
+                ["max-speed","Texture",type_FLOAT,float(1.0)],\
                 ["friction","Texture",type_FLOAT,float(1.0)],\
-                ["backface-culling","Texture",type_PICKLIST,"yes"],\
-                ["ignore","Texture",type_PICKLIST,"no"],\
-                ["zipper","Texture",type_PICKLIST,"no"],\
+                ["backface-culling","Texture",type_BOOLEAN,"yes"],\
+                ["ignore","Texture",type_BOOLEAN,"no"],\
+                ["zipper","Texture",type_BOOLEAN,"no"],\
                 ["zipper-duration","Texture",type_FLOAT,float(3.5)],\
                 ["zipper-max-speed-increase","Texture",type_FLOAT,float(15)],\
                 ["zipper-fade-out-time","Texture",type_FLOAT,float(3)],\
                 ["zipper-speed-gain","Texture",type_FLOAT,float(4.5)],\
-                ["reset","Texture",type_PICKLIST,"no"],\
+                ["reset","Texture",type_BOOLEAN,"no"],\
                 ["graphical-effect","Texture",type_PICKLIST,"none"],\
                 ["sfx:filename","Texture",type_STRING,""],\
                 ["sfx:name","Texture",type_STRING,""],\
@@ -131,7 +132,7 @@ lSTK_Properties = [["stk-browser-version","Track",type_STATIC,__version__],\
                 ["sfx:max-speed","Texture",type_FLOAT,float(30.0)],\
                 ["sfx:min-pitch","Texture",type_FLOAT,float(1.0)],\
                 ["sfx:max-pitch","Texture",type_FLOAT,float(1.0)],\
-                ["sfx:positional","Texture",type_PICKLIST,"no"],\
+                ["sfx:positional","Texture",type_BOOLEAN,"no"],\
                 ["sfx:volume","Texture",type_FLOAT,float(1.0)],\
 #For Lights (doesn't work yet)                
                 ["ambient","Sun",type_COLOUR,"0.0 0.0 0.0"],\
@@ -150,6 +151,11 @@ lSTK_Properties = [["stk-browser-version","Track",type_STATIC,__version__],\
 #For Anims (anim-texture)               
 #                [anim-dx,"Anim",type_FLOAT,0],\
 #                [anim-dy,"Anim",type_FLOAT,0],\
+#For laps
+                ["activate","Lap",type_STRING,""],\
+                ["toggle","Lap",type_STRING,""],\
+                ["inner-radius","Lap",type_FLOAT,1],\
+                ["color","Lap",type_COLOUR,"0.0 0.0 0.0"],\
 #For checklines
                 ["activate","Check",type_STRING,""],\
                 ["toggle","Check",type_STRING,""],\
@@ -159,21 +165,8 @@ lSTK_Properties = [["stk-browser-version","Track",type_STATIC,__version__],\
 
 # For picklist, add <name>:<valuelist> to lSTK_Picklist. The valuelist items are |-separated...
 lSTK_Picklist = {"type": "None|Driveline|Main Driveline|Lap|Check|Ignore|Object|Banana|Item|Nitro-small|Nitro-big|Water",\
-                "arena": "yes|no",\
                 "sky-type": "dome|box",\
-                "fog": "yes|no",\
-                "clampU": "yes|no" ,\
-                "clampV": "yes|no" ,\
-                "transparency": "yes|no",\
-                "backface-culling":"yes|no",\
-                "alpha": "yes|no",\
-                "light": "yes|no",\
-                "anisotropic": "yes|no",\
-                "ignore": "yes|no",\
-                "zipper": "yes|no",\
-                "reset": "yes|no",\
                 "graphical-effect": "none|water|smoke",\
-                "sfx:positional": "yes|no",\
                 "interaction": "none|ghost|static|move",\
                 "shape": "cone|coneX|coneZ|box|sphere"
 }
