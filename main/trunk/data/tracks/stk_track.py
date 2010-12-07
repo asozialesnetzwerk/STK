@@ -663,17 +663,30 @@ class TrackExport:
         lCamerasDistance = []
         for i in range(len(lEndCameras)):
             cam = lEndCameras[i]
-            (distance, driveline_index, quad_index_camera) = \
-                       lSorted[0].getDistanceTo(cam.loc, lSorted)
-            # Each list contains the index of the closest quad, the
-            # distance, and then the camera
-            lEndCameras[i] = (driveline_index, quad_index_camera, cam)
-            
+            try:
+                (distance, driveline_index, quad_index_camera) = \
+                           lSorted[0].getDistanceTo(cam.loc, lSorted)
+                # Each list contains the index of the closest quad, the
+                # distance, and then the camera
+                lEndCameras[i] = (driveline_index, quad_index_camera, cam)
+            except:
+                print "Problem with the end camera - likely the cameras will not"
+                print "be exported correctly. Check if the main driveline is"
+                print "properly defined (check warning messages), and the"
+                print "settings of the camera '%s'."%cam.name
+                
         lEndCameras.sort()
         # After sorting remove the unnecessary distance and quad index
         for i in range(len(lEndCameras)):
-            lEndCameras[i] = lEndCameras[i][2]
+            # Avoid crash in case that some problem with the camera happened,
+            # and lEndCameras is just the blender camera, not the tuple
+            if type(lEndCameras[i])==type(()):
+                lEndCameras[i] = lEndCameras[i][2]
 
+        # There were already two warning messages printed at this stage, so just
+        # ignore this to avoid further crashes
+        if len(lSorted)<1:
+            return
         # The last main driveline needs to be closed to the first quad.
         # So set a flag in that driveline that it is the last one.
         lSorted[-1].setIsLastMain(lSorted[0])
@@ -708,6 +721,10 @@ class TrackExport:
         self.convertDrivelinesAndSortEndCameras(lDrivelines, lSorted,
                                                 lEndCameras)
 
+        # That means that there were some problems with the drivelines, and
+        # it doesn't make any sense to continue anyway
+        if not lSorted:
+            return
         # Stores the first quad number (and since quads = graph nodes the node
         # number) of each section of the track. I.e. the main track starts with
         # quad 0, then the first alternative way, ...
@@ -1566,6 +1583,7 @@ class TrackExport:
                 continue
             elif obj.type=="Camera":
                 lEndCameras.append(obj)
+                continue
             elif obj.type!="Mesh":
                 #print "Non-mesh object '%s' (type: '%s') is ignored!"%(obj.name, stktype)
                 continue
