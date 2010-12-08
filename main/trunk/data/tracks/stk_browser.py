@@ -180,6 +180,7 @@ btn_STK         = 103
 btn_CHANGETYPE  = 104
 btn_UP          = 105
 btn_DOWN        = 106
+btn_USECURRENT  = 107
 #Events 500 and upwards are reserved for all temporary buttons
 #The list below enumerates them, items are formatted as [ObjectName,ButtonName,ButtonType] 
 
@@ -458,6 +459,21 @@ class STKBrowser:
             for (new_prop2,default2,thebutton) in lPropertiesList:
                 if thebutton.val:
                     data.SetProperty(new_prop2,default2)
+        elif button_id == btn_USECURRENT:
+            try:
+                current_object = Blender.Object.GetSelected()[0].getName()
+                data.currenttype = 1
+                data.currentobject = 1
+                i = 0
+                for o in data.GetSTKObjects("All").split("|"):
+                    i += 1
+                    if o == current_object:
+                        data.currentobject = i
+                        break
+                if data.currentobject == 1:
+                    Draw.PupMenu("Error%t|Object not Found")
+            except:
+                Draw.PupMenu("Error%t|Cannot determine object!")
         elif button_id >= 500:
             #Handle button that has been used in property list
             (cur_button,prop_name,but_name,but_type) = self.lButtonList[button_id-500]
@@ -546,6 +562,14 @@ class STKBrowser:
         printwidth = Draw.GetStringWidth(printtext)
         Draw.PushButton("Up", btn_UP, width-(printwidth+pad), y, printwidth, textheight) 
         Draw.PushButton("Down", btn_DOWN, width-2*(printwidth+pad), y, printwidth, textheight) 
+        
+        #Newline
+        x = 0
+        y -= textheight+pad
+
+        printtext = "Use Current "
+        printwidth = Draw.GetStringWidth(printtext)
+        Draw.PushButton("Use Current", btn_USECURRENT, x, y, printwidth, textheight)        
                 
         #Newline
         x = 0
