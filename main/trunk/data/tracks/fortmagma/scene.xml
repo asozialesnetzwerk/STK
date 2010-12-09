@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 6624 -->
+<!-- Generated with script from SVN rev 6875 -->
 <scene>
   <track model="fortmagma_track.b3d" x="0" y="0" z="0">
     <animated-texture name="lava.png" dy="-0.1" />
@@ -37,7 +37,7 @@
   <zipper.ac x="-52.397594" y="-6.445836" z="-120.537079" h="-151.515032" />
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
-    <check-line kind="activate" other-ids="2" p1="-35.812012 -149.674133" p2="-26.134605 -140.093109"
+    <check-line kind="activate" other-ids="2" p1="-39.606674 -153.873642" p2="-18.125120 -132.606049"
                 min-height="-6.283379" same-group="1"/>
     <check-line kind="activate" other-ids="0" p1="33.615200 -34.321575" p2="22.339743 -19.955437"
                 min-height="32.052273" same-group="2"/>
