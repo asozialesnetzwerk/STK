@@ -10,7 +10,7 @@ from symbol import except_clause
 from string import uppercase
 
 __author__ = "Asciimonster"
-__version__ = "0.1"
+__version__ = "0.1.5"
 __email__ = "asciimonster@myrealbox.com"
 __bpydoc__ = """\
 
@@ -42,136 +42,10 @@ type_STATIC = 11
 type_TYPELIST = 12 
 type_URL = 14
 type_IMAGEURL = 15
-type_DELETE = 20
+#type_DELETE = 20
 type_RESET  = 21
 
-
-# Definition of all available object types. Also translates the Blender names to
-# names that make sense to humans ;)
-# ATTENTION: If you change something here, don't forget to update  "type" item in lSTK_Picklist, below. 
-lObjectType = {"None":"None",\
-               "Scene":"Track",\
-               "Image":"Texture",\
-               "Lamp":"Sun",\
-               "Camera":"EndCamera",\
-               "Check":"Checkline",\
-               "Driveline":"Driveline",\
-               "Maindriveline":"Main Driveline",\
-               "Lap":"Lap",\
-               "Check":"Check",\
-               "Ignore":"Ignore",\
-               "Object":"Object",\
-               "Banana":"Banana",\
-               "Item":"Item",\
-               "Nitro-Small":"Nitro-small",\
-               "Nitro-Big":"Nitro-big",\
-               "Water":"Water",\
-               "Particle-Emitter":"Particle-Emitter",\
-               "Billboard":"Billboard"}
-
-# Definition of the STK context-sensitive menu. Please define arrays here with items 
-# of form [parameter_name,object_type,property_type,initial value]
-# Important: If you mark something as type_PICKLIST, make sure a corresponding line
-# is in lSTK_Picklist 
-lSTK_Properties = [["stk-browser-version","Track",type_STATIC,__version__],\
-                ["name","Track",type_STRING,""],\
-                ["version","Track",type_FLOAT,1],\
-                ["groups","Track",type_STRING,""],\
-                ["designer","Track",type_STRING,""],\
-                ["music","Track",type_URL,""],\
-                ["screenshot","Track",type_IMAGEURL,""],\
-                ["arena","Track",type_BOOLEAN,"no"],\
-                ["sky-type","Track",type_PICKLIST,"dome"],\
-                ["sky-texture","Track",type_IMAGEURL,""],\
-                ["sky-texture1","Track",type_IMAGEURL,""],\
-                ["sky-texture2","Track",type_IMAGEURL,""],\
-                ["sky-texture3","Track",type_IMAGEURL,""],\
-                ["sky-texture4","Track",type_IMAGEURL,""],\
-                ["sky-texture5","Track",type_IMAGEURL,""],\
-                ["sky-texture6","Track",type_IMAGEURL,""],\
-                ["sky-horizontal","Track",type_FLOAT,float(16)],\
-                ["sky-vertical","Track",type_FLOAT,float(16)],\
-                ["sky-texture-percent","Track",type_FLOAT,float(0.5)],\
-                ["sky-sphere-percent","Track",type_FLOAT,float(1.3)],\
-                ["sky-color","Track",type_COLOUR,"0.0 0.0 0.0"],\
-                ["ambient-color","Track",type_COLOUR,"0.0 0.0 0.0"],\
-                ["camera-far","Track",type_INTEGER,float(200.00000)],\
-                ["fog","Track",type_BOOLEAN,"no"],\
-                ["fog-color","Track",type_COLOUR,"0.0 0.0 0.0"],\
-                ["fog-density","Track",type_FLOAT,16],\
-                ["fog-start","Track",type_STRING,""],\
-                ["fog-end","Track",type_STRING,""],\
-                ["start-karts-per-row","Track",type_INTEGER,int(2)],\
-                ["start-forwards-distance","Track",type_FLOAT,1.1],\
-                ["start-sidewards-distance","Track",type_FLOAT,1.1],\
-                ["start-upwards-distance","Track",type_FLOAT,1.1],\
-#For Textures                
-                ["clampU","Texture",type_BOOLEAN,"no"],\
-                ["clampV","Texture",type_BOOLEAN,"no"],\
-                ["transparency","Texture",type_BOOLEAN,"no"],\
-                ["alpha","Texture",type_BOOLEAN,"no"],\
-                ["light","Texture",type_BOOLEAN,"yes"],\
-                ["sphere","Texture",type_PICKLIST,"no"],\
-                ["slowdown","Texture",type_FLOAT,1],\
-                ["anisotropic","Texture",type_BOOLEAN,"yes"],\
-                ["max-speed","Texture",type_FLOAT,float(1.0)],\
-                ["friction","Texture",type_FLOAT,float(1.0)],\
-                ["backface-culling","Texture",type_BOOLEAN,"yes"],\
-                ["ignore","Texture",type_BOOLEAN,"no"],\
-                ["zipper","Texture",type_BOOLEAN,"no"],\
-                ["zipper-duration","Texture",type_FLOAT,float(3.5)],\
-                ["zipper-max-speed-increase","Texture",type_FLOAT,float(15)],\
-                ["zipper-fade-out-time","Texture",type_FLOAT,float(3)],\
-                ["zipper-speed-gain","Texture",type_FLOAT,float(4.5)],\
-                ["reset","Texture",type_BOOLEAN,"no"],\
-                ["graphical-effect","Texture",type_PICKLIST,"none"],\
-                ["sfx:filename","Texture",type_STRING,""],\
-                ["sfx:name","Texture",type_STRING,""],\
-                ["sfx:rolloff","Texture",type_FLOAT,float(0.1)],\
-                ["sfx:min-speed","Texture",type_FLOAT,float(0.0)],\
-                ["sfx:max-speed","Texture",type_FLOAT,float(30.0)],\
-                ["sfx:min-pitch","Texture",type_FLOAT,float(1.0)],\
-                ["sfx:max-pitch","Texture",type_FLOAT,float(1.0)],\
-                ["sfx:positional","Texture",type_BOOLEAN,"no"],\
-                ["sfx:volume","Texture",type_FLOAT,float(1.0)],\
-#For Lights (doesn't work yet)                
-                ["ambient","Sun",type_COLOUR,"0.0 0.0 0.0"],\
-                ["diffuse","Sun",type_COLOUR,"0.0 0.0 0.0"],\
-                ["specular","Sun",type_COLOUR,"0.0 0.0 0.0"],\
-#For Waters
-                ["name","Water",type_STRING,""],\
-                ["height","Water",type_FLOAT,1],\
-                ["length","Water",type_FLOAT,1],\
-                ["speed","Water",type_FLOAT,1],\
-#For Objects
-                ["name","Object",type_STRING,""],\
-                ["interaction","Object",type_PICKLIST,"none"],\
-                ["shape","Object",type_PICKLIST,"cone"],\
-                ["mass","Object",type_FLOAT,225],\
-#For Anims (anim-texture)               
-#                [anim-dx,"Anim",type_FLOAT,0],\
-#                [anim-dy,"Anim",type_FLOAT,0],\
-#For laps
-                ["activate","Lap",type_STRING,""],\
-                ["toggle","Lap",type_STRING,""],\
-                ["inner-radius","Lap",type_FLOAT,1],\
-                ["color","Lap",type_COLOUR,"0.0 0.0 0.0"],\
-#For checklines
-                ["activate","Check",type_STRING,""],\
-                ["toggle","Check",type_STRING,""],\
-                ["inner-radius","Check",type_FLOAT,1],\
-                ["color","Check",type_COLOUR,"0.0 0.0 0.0"],\
-                ]
-
-# For picklist, add <name>:<valuelist> to lSTK_Picklist. The valuelist items are |-separated...
-lSTK_Picklist = {"type": "None|Driveline|Main Driveline|Lap|Check|Ignore|Object|Banana|Item|Nitro-small|Nitro-big|Water",\
-                "sky-type": "dome|box",\
-                "graphical-effect": "none|water|smoke",\
-                "interaction": "none|ghost|static|move",\
-                "shape": "cone|coneX|coneZ|box|sphere"
-}
-
-# Define Buttons
+# Define Button Events
 # (Remember: In Blender-speak any active control is called a button)
 btn_SCROLLBAR   = 100
 btn_TYPEFILTER  = 101 
@@ -181,8 +55,7 @@ btn_CHANGETYPE  = 104
 btn_UP          = 105
 btn_DOWN        = 106
 btn_USECURRENT  = 107
-#Events 500 and upwards are reserved for all temporary buttons
-#The list below enumerates them, items are formatted as [ObjectName,ButtonName,ButtonType] 
+# N.B. Events 500 and upwards are reserved for all temporary buttons
 
 textheight = 20
 pad = 5
@@ -190,6 +63,208 @@ lObjects = []
 lScenes = []
 lImages = []
 lLamps = []
+
+# *** INSTRUCTIONS ***
+#
+# This tool is programmed in 4 layers:
+# 1. Define which STK Types belong to what Blender Types
+# 2. Define which properties belong to the STK Type
+# 3. Define the properties themselves
+# 4. Is a property is a Picklist, what are the values in the picklist?
+
+# Define which STK types correspond to which Blender types 
+# *** Mental note: ***
+# All Blender Object types: 'Armature', 'Camera', 'Curve', 'Lamp', 'Lattice', 'Mball',
+#             'Mesh', 'Surf', 'Empty', 'Wave' (deprecated) or 'unknown'
+# Additional Blender types: "Scene" and "Image" 
+lBlender2STKTypes = {
+    "Camera":["Ignore","Ahead","Fixed"],\
+    "Empty":["Ignore","Banana","Item","Nitro-Big","Nitro-Small"],\
+    "Image":["Texture"],\
+    "Lamp":["Ignore","Sun"],\
+    "Mesh":["Ignore","Billboard","Check","Driveline","Lap",\
+            "Maindriveline","Particle-Emitter","Object","Water"],\
+    "Scene":["Track"],\
+    "Other":["Ignore"] # All Blender types that cannot be used in STK
+}
+
+# Define what properties are coupled with what STK types
+# Also determines property order
+# The notation "aaa|bbb=ccc" means: show aaa only when bbb equals ccc 
+lSTKTypes2Properties = {
+    "Ahead":["start"],\
+    "Banana":[],\
+    "Billboard":[],\
+    "Check":["name","activate","toggle","inner-radius","color"],\
+    "Driveline":[],\
+    "Fixed":["start"],\
+    "Ignore":[],\
+    "Item":[],\
+    "Lap":["activate","toggle","inner-radius","color"],\
+    "Maindriveline":["activate"],\
+    "Nitro-Big":[],\
+    "Nitro-Small":[],\
+    "Object":["animated",\
+                "anim-texture|animated=yes",\
+                "anim-dx|animated=yes",\
+                "anim-dy|animated=yes",\
+               "name",\
+               "interaction",\
+                "shape|interaction=static",
+                "shape|interaction=move",
+                "mass|interaction=move"],\
+    "Particle-Emitter":[],\
+    "Sun":["ambient","diffuse","specular"],\
+    "Texture":["clampU","clampV","transparency","alpha","light","sphere","slowdown-time","anisotropic",\
+               "max-speed","backface-culling","ignore",\
+               "zipper",\
+                "zipper-duration|zipper=yes",\
+                "zipper-max-speed-increase|zipper=yes",\
+                "zipper-fade-out-time|zipper=yes",\
+                "zipper-speed-gain|zipper=yes",\
+               "reset","graphical-effect",\
+               "sound-effect",\
+                "sfx:filename|sound-effect=yes",\
+                "sfx:name|sound-effect=yes",\
+                "sfx:rolloff|sound-effect=yes",\
+                "sfx:min-speed|sound-effect=yes",\
+                "sfx:max-speed|sound-effect=yes",\
+                "sfx:min-pitch|sound-effect=yes",\
+                "sfx:max-pitch|sound-effect=yes",\
+                "sfx:positional|sound-effect=yes"],\
+    "Track":["stk-browser-version","name","groups","designer","music","screenshot","arena",\
+             "sky-type",\
+              "sky-texture|sky-type=dome",\
+              "sky-texture1|sky-type=box",\
+              "sky-texture2|sky-type=box",\
+              "sky-texture3|sky-type=box",\
+              "sky-texture4|sky-type=box",\
+              "sky-texture5|sky-type=box",\
+              "sky-texture6|sky-type=box",\
+              "sky-horizontal|sky-type=dome",\
+              "sky-vertical|sky-type=dome",\
+              "sky-texture-percent|sky-type=dome",\
+              "sky-sphere-percent|sky-type=dome",\
+              "sky-color|sky-type=simple",\
+             "ambient-color","camera-far",\
+             "fog",\
+              "fog-color|fog=yes",\
+#             "fog-density|fog=yes",\
+              "fog-start|fog=yes",\
+              "fog-end|fog=yes",\
+             "start-karts-per-row","start-forwards-distance","start-sidewards-distance",\
+              "start-upwards-distance"],\
+    "Water":["name",\
+             "height",\
+             "length",\
+             "speed"],\
+}
+
+# Finally define the properties of each property
+# ATTENTION: If you change something here, don't forget to update  "type" item in lSTK_Picklist, below. 
+#
+# Formatting is:
+# BOOLEAN  - default
+# COLOUR   - default(r,g,b)
+# FLOAT    - default, min, max, step
+# IMAGEURL - default, max_length
+# INTEGER  - default, min, max
+# PICKLIST - default
+# STATIC   - value 
+# STRING   - default, max_length
+# URL      - default, max_length
+lPropertyDef = {
+# General use                
+    "activate":[type_STRING,"", 50],\
+    "color":[type_COLOUR,0.0,0.0,0.0],\
+    "inner-radius":[type_FLOAT,1, 0, 10000, 0.1],\
+    "name":[type_STRING,"",50],\
+    "toggle":[type_STRING,"", 50],\
+# Scene only
+    "ambient-color":[type_COLOUR,0.0,0.0,0.0],\
+    "arena":[type_BOOLEAN,"no"],\
+    "camera-far":[type_INTEGER,200,10,100000],\
+    "designer":[type_STRING,"",200],\
+    "fog":[type_BOOLEAN,"no"],\
+    "fog-color":[type_COLOUR,0.0,0.0,0.0],\
+#    "fog-density":[type_FLOAT,16,0,1000,0.1],\
+    "fog-start":[type_FLOAT,1000,0,1000000,0.1],\
+    "fog-end":[type_FLOAT,1000,0,1000000,0.1],\
+    "groups":[type_STRING,"",200],\
+    "music":[type_URL,"",200],\
+    "screenshot":[type_IMAGEURL,"",200],\
+    "sky-type":[type_PICKLIST,"dome"],\
+    "sky-color":[type_COLOUR,0.0,0.0,0.0],\
+    "sky-texture":[type_IMAGEURL,"",200],\
+    "sky-texture1":[type_IMAGEURL,"",200],\
+    "sky-texture2":[type_IMAGEURL,"",200],\
+    "sky-texture3":[type_IMAGEURL,"",200],\
+    "sky-texture4":[type_IMAGEURL,"",200],\
+    "sky-texture5":[type_IMAGEURL,"",200],\
+    "sky-texture6":[type_IMAGEURL,"",200],\
+    "sky-texture-percent":[type_FLOAT,0.5,0,1,0.1],\
+    "sky-sphere-percent":[type_FLOAT,1.3,0,2,0.1],\
+    "sky-horizontal":[type_INTEGER,16,0,1000],\
+    "sky-vertical":[type_INTEGER,16,0,1000],\
+    "start-karts-per-row":[type_INTEGER,2,1,10],\
+    "start-forwards-distance":[type_FLOAT,1.1,0,1000,0.1],\
+    "start-sidewards-distance":[type_FLOAT,1.1,0,1000,0.1],\
+    "start-upwards-distance":[type_FLOAT,1.1,0,1000,0.1],\
+    "stk-browser-version":[type_STATIC,__version__,""],\
+#For Textures  
+    "clampU":[type_BOOLEAN,"no"],\
+    "clampV":[type_BOOLEAN,"no"],\
+    "transparency":[type_BOOLEAN,"no"],\
+    "alpha":[type_BOOLEAN,"no"],\
+    "light":[type_BOOLEAN,"yes"],\
+    "sphere":[type_BOOLEAN,"no"],\
+    "slowdown-time":[type_FLOAT,1.0, 0, 100, 0.1],\
+    "anisotropic":[type_BOOLEAN,"yes"],\
+    "max-speed":[type_FLOAT,1.0, 0, 1.0, 0.1],\
+#    "friction":[type_FLOAT,float(1.0), min, max, step],\
+    "backface-culling":[type_BOOLEAN,"yes"],\
+    "ignore":[type_BOOLEAN,"no"],\
+    "zipper":[type_BOOLEAN,"no"],\
+    "zipper-duration":[type_FLOAT,3.5, 0, 10, 0.1],\
+    "zipper-max-speed-increase":[type_FLOAT,15, 0, 100, 0.1],\
+    "zipper-fade-out-time":[type_FLOAT,3, 0, 100, 0.1],\
+    "zipper-speed-gain":[type_FLOAT,4.5, 0, 100, 0.1],\
+    "reset":[type_BOOLEAN,"no"],\
+    "graphical-effect":[type_PICKLIST,"none"],\
+    "sound-effect":[type_BOOLEAN,"no"],\
+    "sfx:filename":[type_STRING,"", 200],\
+    "sfx:name":[type_STRING,"", 50],\
+    "sfx:rolloff":[type_FLOAT,0.1, 0, 100, 0.1],\
+    "sfx:min-speed":[type_FLOAT,0.0, 0, 500, 0.1],\
+    "sfx:max-speed":[type_FLOAT,30.0, 0, 500, 0.1],\
+    "sfx:min-pitch":[type_FLOAT,1.0, 0.5, 2, 0.1],\
+    "sfx:max-pitch":[type_FLOAT,1.0, 0.5, 2, 0.1],\
+    "sfx:positional":[type_BOOLEAN,"no"],\
+#    "sfx:volume":[type_FLOAT,float(1.0), min, max, step],\
+#For Lights
+    "ambient":[type_COLOUR,0.0,0.0,0.0],\
+    "diffuse":[type_COLOUR,0.0,0.0,0.0],\
+    "specular":[type_COLOUR,0.0,0.0,0.0],\
+#For Waters
+    "height":[type_FLOAT,2, 0, 100, 0.1],\
+    "length":[type_FLOAT,10, 0, 100, 0.1],\
+    "speed":[type_FLOAT,300, 0, 1000, 0.1],\
+#For Objects
+    "animated":[type_BOOLEAN,"no"],\
+    "anim-texture":[type_IMAGEURL,"",200],\
+    "anim-dx":[type_FLOAT,0, 0, 1000, 10],\
+    "anim-dy":[type_FLOAT,0, 0, 1000, 10],\
+    "interaction":[type_PICKLIST,"none"],\
+    "shape":[type_PICKLIST,"box"],\
+    "mass":[type_FLOAT,225, 0, 10000, 0.1],\
+}
+             
+# For picklist, add <name>:<valuelist> to lSTK_Picklist. The valuelist items are |-separated...
+lSTK_Picklist = {"sky-type": "dome|box|simple",\
+                "graphical-effect": "none|water|smoke",\
+                "interaction": "none|ghost|static|move",\
+                "shape": "box|sphere|coneX|coneY|coneZ"
+}
 
 class STKData:
     #Data wrapper class to conceal Blender's complexity
@@ -207,12 +282,12 @@ class STKData:
     def DeleteProperty(self,property_name):
         #Delete the requested property of the current object
         current_object = self.GetCurrentObject()
-        for (obj_type,obj_name,obj_index) in self.lObjectList:
+        for (bl_type,stk_type,obj_name,obj_index) in self.lObjectList:
             if obj_name == current_object:
-                if obj_type == lObjectType["Scene"]:
+                if bl_type == "Scene":
                     lScenes = Blender.Scene.Get() # I don't understand why I need to reread this...
                     del lScenes[obj_index].properties[property_name]
-                elif obj_type == lObjectType["Image"]:
+                elif bl_type == "Image":
                     lImages = Blender.Image.Get()
                     del lImages[obj_index].properties[property_name]
                 else: 
@@ -221,15 +296,21 @@ class STKData:
                     lObjects[obj_index].removeProperty(property_name)
                      
                 break    
+    
+    def GetBlenderType(self,object_name):
+        for (bl_type,stk_type,obj_name,obj_index) in self.lObjectList:
+            if obj_name == object_name:
+                return bl_type
+        return "Other"
         
     def GetCurrentType(self):
         selected_type = self.GetSTKTypes().split("|")[self.currenttype-1]
         if selected_type == "All":
             #All can be any type => look at the object
             selected_object = self.GetSTKObjects(selected_type).split("|")[self.currentobject-1]
-            for (obj_type,obj_name,obj_index) in self.lObjectList:
+            for (bl_type,stk_type,obj_name,obj_index) in self.lObjectList:
                 if obj_name == selected_object:
-                    selected_type = obj_type
+                    selected_type = stk_type
                     break 
 
         return selected_type
@@ -244,45 +325,98 @@ class STKData:
         #Get the Properties of the current object
          
         my_props = [] # Fill with [prop_name,prop_type,current_value] 
-        for (obj_type,obj_name,obj_index) in self.lObjectList:
-            if ObjectName == obj_name:
-                if obj_type == lObjectType["Scene"]:
-                    lScenes = Blender.Scene.Get() # I don't understand why I need to reread this...
-#                    my_props.append(["stk-browser-version",type_STATIC,__version__])
-                    lScenes[obj_index].properties["stk-browser-version"] = __version__                   
-                    my_props.append(["type",type_STATIC,obj_type])
-                    for (item_name,item_val) in lScenes[obj_index].properties.iteritems():
-                        if item_name.title() != "Type": # I've already added the type
-                            my_props.append(self.ProcessProperty(obj_type,item_name,0,item_val))
-                elif obj_type == lObjectType["Image"]:
+        
+        cur_obj_index = -1
+        for (bl_type,stk_type,obj_name,obj_index) in self.lObjectList:
+            if ObjectName.title() == obj_name.title():
+                cur_obj_index = obj_index
+                cur_blendertype = bl_type
+                cur_stktype = stk_type 
+                if bl_type == "Scene":
+                    # Showing a Scene? Write version number
+                    lScenes = Blender.Scene.Get() 
+                    lScenes[obj_index].properties["stk-browser-version"] = __version__
+                elif bl_type == "Image":
                     lImages = Blender.Image.Get()
-                    my_props.append(["type",type_STATIC,obj_type])
-                    for (item_name,item_val) in lImages[obj_index].properties.iteritems():
-                        if item_name.title() != "Type": # I've already added the type
-                            my_props.append(self.ProcessProperty(obj_type,item_name,0,item_val))
-                else: 
-                    #"Normal" object
-                    if obj_type in [lObjectType["Lamp"],lObjectType["Camera"]]:
-                        my_props.append(["type",type_STATIC,obj_type])
-                    else:
-                        my_props.append(["type",type_TYPELIST,obj_type])
+                else:
                     lObjects = Blender.Object.Get()
-                    for property_obj in lObjects[obj_index].getAllProperties():
-                        if property_obj.getName().title() != "Type": # I've already added the type
-                            my_props.append(self.ProcessProperty(obj_type,\
-                                property_obj.getName(),property_obj.getType(),property_obj.getData()))
-                     
+                    # Draw option to change STK type  
+                    my_props.append(["type",type_TYPELIST,stk_type])
                 break
 
+        if cur_obj_index < 0:
+            Draw.PupMenu("Error%t|Object " + ObjectName + " not listed!")
+            return []
+
+        for prop in lSTKTypes2Properties[cur_stktype]:
+            cur_prop = prop.split("|")[0]
+            
+            #Get default value of property 
+            cur_default = lPropertyDef[cur_prop][1]
+            if lPropertyDef[cur_prop][0] == type_COLOUR:
+                cur_default = "%s %s %s" % (lPropertyDef[cur_prop][1],\
+                                            lPropertyDef[cur_prop][2],\
+                                            lPropertyDef[cur_prop][3])
+            
+            #Get current value of property
+            try:
+                if cur_blendertype == "Scene":
+                    cur_value = lScenes[cur_obj_index].properties[cur_prop]
+                elif cur_blendertype == "Image":
+                    cur_value = lImages[cur_obj_index].properties[cur_prop]
+                else:
+                    cur_value = lObjects[cur_obj_index].getProperty(cur_prop).getData()
+            except:
+                #If no current value... Insert default  
+                cur_value = cur_default
+            
+            #Check if this property should be shown
+            try:
+                temp = prop.split("|")[1]
+                test_name = temp.split("=")[0]
+                test_value = temp.split("=")[1]
+                try: 
+                    if cur_blendertype == "Scene":
+                        if lScenes[cur_obj_index].properties[test_name] != test_value:
+                            continue
+                    elif cur_blendertype == "Image":
+                        if lImages[cur_obj_index].properties[test_name] != test_value:
+                            continue
+                    else:
+                        if lObjects[cur_obj_index].getProperty(test_name).getData() != test_value:
+                            continue
+                except:
+                    # Property is not yet there... Use default for comparison
+                    if lPropertyDef[test_name] != test_value:
+                        continue
+            except:
+                temp = "Do nothing"
+            
+            if cur_blendertype in ["Scene","Image"]:
+                my_props.append(self.ProcessProperty(cur_prop,0,cur_value))
+            else:
+                try: 
+                    my_props.append(self.ProcessProperty(cur_prop,\
+                          lObjects[cur_obj_index].getProperty(cur_prop).getType(),cur_value))
+                except:
+                    my_props.append(self.ProcessProperty(cur_prop,0,cur_value))
+        
         return my_props
 
     def GetSTKTypes(self):
         #Give back all object types currently present in Blender
-        tmp_type = []
-        for (obj_type,obj_name,obj_index) in self.lObjectList:
-            if obj_type not in tmp_type:
-                tmp_type.append(obj_type)
 
+        tmp_type = []
+        for (bl_type,stk_type,obj_name,obj_index) in self.lObjectList:
+            #Add Blender type
+            if bl_type not in tmp_type:
+                if bl_type not in ["Image","Scene"]: #No sense in showing Blender types with only one STK Type
+                    tmp_type.append(bl_type)
+            #Add STK type
+            if stk_type not in tmp_type:
+                tmp_type.append(stk_type)
+
+        tmp_type.sort()
         output = "All" # All is a standard option
         for objtype2 in tmp_type:
             output = "%s|%s" % (output,objtype2)
@@ -291,42 +425,20 @@ class STKData:
     
     def GetSTKObjects(self,filter):
         #Give back all object names currently present in Blender, matching current filter
-        lObjects = Blender.Object.Get()
-        lScenes = Blender.Scene.Get() # I don't understand why I need to reread this...
-        lImages = Blender.Image.Get()
         
-        tmp_name = []
-        for (obj_type,obj_name,obj_index) in self.lObjectList:
-            if obj_type == lObjectType["Scene"]:
-                if filter == lObjectType["Scene"] or filter == "All":
-                    tmp_name.append(lScenes[obj_index].getName())
-            elif obj_type == lObjectType["Image"]:
-                if filter == lObjectType["Image"] or filter == "All":
-                    tmp_name.append(lImages[obj_index].getName())
-            elif obj_type == filter or filter == "All":
-                tmp_name.append(lObjects[obj_index].getName())
-                
         output = "" # Here there is no standard option since a valid object name must be returned
-        for obj_name in tmp_name:
-            if output == "":
-                output = obj_name
-            else:
-                output = "%s|%s" % (output,obj_name)
+        for (bl_type,stk_type,obj_name,obj_index) in self.lObjectList:
+            if filter == bl_type or filter == stk_type or filter == "All":
+                if output == "":
+                    output = obj_name
+                else:
+                    output = "%s|%s" % (output,obj_name)
         
         return output 
 
-    def IsChangableType(self,ObjType):
-        #Is this object type a Blender or STK Type?
-        #CURENTLY UNUSED!!!
-        if ObjType == lObjectType["Scene"] or \
-            ObjType == lObjectType["Image"]:
-            return False
-        else:
-            return True 
-        
-    def ProcessProperty(self,obj_type,prop_name,prop_type,prop_val):
+    def ProcessProperty(self,prop_name,prop_type,prop_val):
         #Take the raw blender property and return a [name,type,value pair]
-        tmp_prop = [prop_name,type_STRING,prop_val] #Assume string 
+        tmp_prop = [prop_name,type_STATIC,prop_val] #Default is static 
         
         #First, determine defaults
         if prop_type == 0:
@@ -336,15 +448,19 @@ class STKData:
         elif prop_type.title() == "Float":    
             tmp_prop = [prop_name,type_FLOAT,prop_val]
                 
-        #Second, look through lSTK_Propertiesthe for the correct type 
-        for (p_name,o_type,p_type,init_val) in lSTK_Properties:
-                if obj_type.title() == o_type.title() and prop_name.title() == p_name.title():
-                        tmp_prop = [prop_name,p_type,prop_val]
+        #Second, look through lPropertyDef for the correct type
+        try:
+            tmp_type = lPropertyDef[prop_name][0]
+            tmp_prop = [prop_name,tmp_type,prop_val]
+        except:
+            #Do nothing
+            print "Unknown property %s" % prop_name                      
 
         return tmp_prop      
     
     def ReloadObjects(self):
         #Read Objects from Blender
+        #Fill lObjectList with [Blender-Type,STK-Type,Object-Name,Object-Index] items.
         lObjects = Blender.Object.Get()
         lScenes = Blender.Scene.Get()
         lImages = Blender.Image.Get()
@@ -353,49 +469,45 @@ class STKData:
         #Now to sort them
         x = 0
         for Scene in lScenes:
-            self.lObjectList.append([lObjectType["Scene"],Scene.getName(),x])
+            #Scene only has Track as an STK type
+            self.lObjectList.append(["Scene","Track",Scene.getName(),x])
             x += 1
         
         x = 0
         for Image in lImages:
-            self.lObjectList.append([lObjectType["Image"],Image.getName(),x])
+            #Image only has Texture as an STK type
+            self.lObjectList.append(["Image","Texture",Image.getName(),x])
             x += 1
             
         x = -1        
         for Object in lObjects:
-            objtype = Object.getType().title()
             x += 1
-            if objtype == "Lamp": #,"Camera"]:
-                #Standard Blender object
-                self.lObjectList.append([lObjectType[Object.getType()],Object.getName(),x])
-            elif objtype == "Camera":
-                try:                
-                    if Object.getProperty("type").getData().title() == "Ignore":
-                        self.lObjectList.append([lObjectType["Ignore"],Object.getName(),x])
-                    else:
-                        self.lObjectList.append([lObjectType[Object.getType()],Object.getName(),x])
-                except:
-                    self.lObjectList.append([lObjectType["Camera"],Object.getName(),x])
-            else:                
-                #An STK type object
-                try:
-                    objtype = Object.getProperty("type").getData().title()
-                    if objtype in lObjectType:
-                        self.lObjectList.append([lObjectType[objtype],Object.getName(),x])
-                    else:
-                        self.lObjectList.append([lObjectType["None"],Object.getName(),x])
-                except:
-                    self.lObjectList.append([lObjectType["None"],Object.getName(),x])
+
+            #Get Blender Type
+            blend_type = Object.getType().title()
+            #Get STK type 
+            tux_type = ""
+            try:
+                tux_type = Object.getProperty("type").getData().title()
+            except:
+                # No STK type given, hence ignore
+                tux_type = "Ignore"
+            
+            if blend_type in lBlender2STKTypes.keys():
+                self.lObjectList.append([blend_type,tux_type,Object.getName(),x])
+            else:
+                #Unhandled Blender type
+                self.lObjectList.append(["Other","Ignore",Object.getName(),x])
             
     def SetProperty(self,property_name,new_value):
         #Set the properties of the current object
         current_object = self.GetCurrentObject()
-        for (obj_type,obj_name,obj_index) in self.lObjectList:
+        for (bl_type,stk_type,obj_name,obj_index) in self.lObjectList:
             if obj_name == current_object:
-                if obj_type == lObjectType["Scene"]:
+                if bl_type == "Scene":
                     lScenes = Blender.Scene.Get() # I don't understand why I need to reread this...
                     lScenes[obj_index].properties[property_name] = new_value
-                elif obj_type == lObjectType["Image"]:
+                elif bl_type == "Image":
                     lImages = Blender.Image.Get()
                     lImages[obj_index].properties[property_name] = new_value
                 else: 
@@ -439,26 +551,27 @@ class STKBrowser:
                 self.property_cursor -= 1        
         elif button_id == btn_DOWN:
             self.property_cursor += 1   
-        elif button_id == btn_STK:
-            current_object_type = data.GetCurrentType() 
-            block = []
-            lPropertiesList = []
-            for (new_prop,obj_group,obj_type,default) in lSTK_Properties:
-                if obj_group==current_object_type:
-                    t = (new_prop,default,Draw.Create(0))
-                    lPropertiesList.append(t)
-                    block.append((t[0],t[2]))
-
-            if len(lPropertiesList)==0:
-                    Draw.PupMenu("Error%t|No action defined for " + current_object_type + "!")
-                    return
-
-            retval = Blender.Draw.PupBlock("Add STK Properties", block)
-            if retval == 0: return
-
-            for (new_prop2,default2,thebutton) in lPropertiesList:
-                if thebutton.val:
-                    data.SetProperty(new_prop2,default2)
+#        elif button_id == btn_STK:
+#            #STK Button is depricated
+#            current_object_type = data.GetCurrentType() 
+#            block = []
+#            lPropertiesList = []
+#            for (new_prop,obj_group,obj_type,default) in lSTK_Properties:
+#                if obj_group==current_object_type:
+#                    t = (new_prop,default,Draw.Create(0))
+#                    lPropertiesList.append(t)
+#                    block.append((t[0],t[2]))
+#
+#            if len(lPropertiesList)==0:
+#                    Draw.PupMenu("Error%t|No action defined for " + current_object_type + "!")
+#                    return
+#
+#            retval = Blender.Draw.PupBlock("Add STK Properties", block)
+#            if retval == 0: return
+#
+#            for (new_prop2,default2,thebutton) in lPropertiesList:
+#                if thebutton.val:
+#                    data.SetProperty(new_prop2,default2)
         elif button_id == btn_USECURRENT:
             try:
                 current_object = Blender.Object.GetSelected()[0].getName()
@@ -476,7 +589,7 @@ class STKBrowser:
                 Draw.PupMenu("Error%t|Cannot determine object!")
         elif button_id >= 500:
             #Handle button that has been used in property list
-            (cur_button,prop_name,but_name,but_type) = self.lButtonList[button_id-500]
+            (prop_name,but_name,but_type) = self.lButtonList[button_id-500]
             if but_type == type_STRING:
                 data.SetProperty(prop_name, self.lButtons[button_id-500].val)
             if but_type == type_INTEGER:
@@ -492,10 +605,9 @@ class STKBrowser:
             elif but_type == type_TYPELIST:
                 #The object type changed
                 self.dirty = True #Force a reload of all objects
-                newval = lSTK_Picklist[prop_name].split("|")[self.lButtons[button_id-500].val-1]
-                for (tkey,tval) in lObjectType.iteritems():
-                    if tval == newval: 
-                        data.SetProperty(prop_name, tkey)
+                
+                available_types = lBlender2STKTypes[data.GetBlenderType(data.GetCurrentObject())]
+                data.SetProperty(prop_name, available_types[self.lButtons[button_id-500].val-1])
                 data.currenttype = 1
                 data.currentobject = 1
             elif but_type == type_URL:
@@ -508,14 +620,19 @@ class STKBrowser:
                 # Equal to type_URL, but now as an imagebrowser 
                 Window.ImageSelector(self.SetURL, "Select %s" % prop_name)
                 self.temp_property_name = prop_name
-            elif but_type == type_DELETE:
+#            elif but_type == type_DELETE:
                 #Delete the property
-                data.DeleteProperty(prop_name)
+#                data.DeleteProperty(prop_name)
             elif but_type == type_RESET:
-                #Read the default value and set the property with it. 
-                for (p_name,o_type,p_type,default_val) in lSTK_Properties:
-                    if prop_name == p_name:
-                        data.SetProperty(prop_name, default_val)
+                #Read the default value and set the property with it.
+                if lPropertyDef[prop_name][0] == type_COLOUR:
+                    colour_default = "%s %s %s" % (lPropertyDef[prop_name][1],\
+                                                lPropertyDef[prop_name][2],\
+                                                lPropertyDef[prop_name][3])
+                    data.SetProperty(prop_name, colour_default)
+                else:  
+                    data.SetProperty(prop_name, lPropertyDef[prop_name][1])
+                
             
         Draw.Redraw(1)
 
@@ -535,9 +652,9 @@ class STKBrowser:
             self.dirty = False
 
         #Draw the top bar
-        printtext = "STK Menu "
+        printtext = "Use Current "
         printwidth = Draw.GetStringWidth(printtext)
-        Draw.PushButton(printtext,btn_STK,x,y,printwidth,textheight)
+        Draw.PushButton("Use Current", btn_USECURRENT, x, y, printwidth, textheight)   
         x += printwidth + pad
 
         printtext = "Type= "
@@ -562,15 +679,7 @@ class STKBrowser:
         printwidth = Draw.GetStringWidth(printtext)
         Draw.PushButton("Up", btn_UP, width-(printwidth+pad), y, printwidth, textheight) 
         Draw.PushButton("Down", btn_DOWN, width-2*(printwidth+pad), y, printwidth, textheight) 
-        
-        #Newline
-        x = 0
-        y -= textheight+pad
 
-        printtext = "Use Current "
-        printwidth = Draw.GetStringWidth(printtext)
-        Draw.PushButton("Use Current", btn_USECURRENT, x, y, printwidth, textheight)        
-                
         #Newline
         x = 0
         y -= textheight+pad
@@ -590,41 +699,48 @@ class STKBrowser:
             
             #Delete button
             if prop_type not in [type_STATIC,type_TYPELIST]:
-                printtext = "Del "
-                printwidth = Draw.GetStringWidth(printtext)
-                tmp_but = Draw.PushButton("Del", self.NextButton(),\
-                         width-(printwidth+pad), y, printwidth, textheight) 
-                self.lButtons.append(tmp_but)
-                self.RegisterButton(tmp_but, prop_name, "Del", type_DELETE)
+                # Delete button no longer necessary
+                #printtext = "Del "
+                #printwidth = Draw.GetStringWidth(printtext)
+                #tmp_but = Draw.PushButton("Del", self.NextButton(),\
+                #         width-(printwidth+pad), y, printwidth, textheight) 
+                #self.lButtons.append(tmp_but)
+                #self.RegisterButton(tmp_but, prop_name, "Del", type_DELETE)
                 printtext = "Reset "
-                printwidth2 = Draw.GetStringWidth(printtext)
+                printwidth = Draw.GetStringWidth(printtext)
                 tmp_but = Draw.PushButton("Reset", self.NextButton(),\
-                         width-(printwidth+pad)-(printwidth2+pad), y, printwidth2, textheight)
+                         width-(printwidth+pad), y, printwidth, textheight)
                 self.lButtons.append(tmp_but)
-                self.RegisterButton(tmp_but, prop_name, "Reset", type_RESET) 
+                self.RegisterButton(prop_name, "Reset", type_RESET) 
             
+            if prop_type != type_TYPELIST:
+                prop_def = lPropertyDef[prop_name]
             printtext = "%s: " % prop_name
             printwidth = Draw.GetStringWidth(printtext)
             Draw.Label(printtext, x, y, printwidth, textheight) 
             x += printwidth + pad
             if prop_type == type_STRING:
-                tmp_but = Draw.String("", self.NextButton(), x, y, 200, textheight, str(current_value), 200)
+                tmp_but = Draw.String("", self.NextButton(), x, y, 200, textheight,\
+                                      str(current_value), int(prop_def[2]))
                 self.lButtons.append(tmp_but)
-                self.RegisterButton(tmp_but, prop_name, "", type_STRING)
+                self.RegisterButton(prop_name, "", type_STRING)
             elif prop_type == type_INTEGER:
                 try:
-                    tmp_but = Draw.Number("", self.NextButton(), x, y, 100, textheight, int(current_value), 0, 100000000)  
+                    tmp_but = Draw.Number("", self.NextButton(), x, y, 100, textheight,\
+                                          int(current_value), int(prop_def[2]), int(prop_def[3]))  
                     self.lButtons.append(tmp_but)
-                    self.RegisterButton(tmp_but, prop_name, "", type_INTEGER)
+                    self.RegisterButton(prop_name, "", type_INTEGER)
                 except:
                     printtext = "Value Read Error (press Reset) "
                     printwidth = Draw.GetStringWidth(printtext)
                     Draw.Label(printtext, x, y, printwidth, textheight) 
             elif prop_type == type_FLOAT:
                 try:
-                    tmp_but = Draw.Number("", self.NextButton(), x, y, 150, textheight, float(current_value), 0.0, 100000000.0,"",self.Dummy,0.1) 
+                    tmp_but = Draw.Number("", self.NextButton(), x, y, 150, textheight,\
+                                          float(current_value), float(prop_def[2]), float(prop_def[3]),\
+                                          "",self.Dummy, float(prop_def[4])) 
                     self.lButtons.append(tmp_but)
-                    self.RegisterButton(tmp_but, prop_name, "", type_FLOAT)
+                    self.RegisterButton(prop_name, "", type_FLOAT)
                 except:
                     printtext = "Value Read Error (press Reset) "
                     printwidth = Draw.GetStringWidth(printtext)
@@ -638,7 +754,7 @@ class STKBrowser:
                     tmp_colour = (r_colour,g_colour,b_colour)
                     tmp_but = Draw.ColorPicker(self.NextButton(), x, y, 100, textheight, tmp_colour)
                     self.lButtons.append(tmp_but)
-                    self.RegisterButton(tmp_but, prop_name, "", type_COLOUR)
+                    self.RegisterButton(prop_name, "", type_COLOUR)
  
                     x += 100 + pad  
                     printtext = "<- Click here to change colour "
@@ -657,20 +773,20 @@ class STKBrowser:
                     else:
                         tmp3 = True
                     
-                    printtext = "yes "
-                    printwidth = Draw.GetStringWidth(printtext)
+                    printtext = "yes"
+                    printwidth = Draw.GetStringWidth(printtext+" ")
                     tmp_but = Draw.Toggle(printtext, self.NextButton(),\
                          x, y, printwidth, textheight, tmp3)
                     self.lButtons.append(tmp_but)
-                    self.RegisterButton(tmp_but, prop_name, printtext, type_PICKLIST)
+                    self.RegisterButton(prop_name, printtext, type_PICKLIST)
                     x += printwidth 
                     
-                    printtext = "no "
-                    printwidth = Draw.GetStringWidth(printtext)
+                    printtext = "no"
+                    printwidth = Draw.GetStringWidth(printtext+" ")
                     tmp_but = Draw.Toggle(printtext, self.NextButton(),\
                          x, y, printwidth, textheight, tmp3==False)
                     self.lButtons.append(tmp_but)
-                    self.RegisterButton(tmp_but, prop_name, printtext, type_PICKLIST)
+                    self.RegisterButton(prop_name, printtext, type_PICKLIST)
                 except:
                     printtext = "Value Read Error (press Reset) "
                     printwidth = Draw.GetStringWidth(printtext)
@@ -686,33 +802,35 @@ class STKBrowser:
                     tmp_but = Draw.Toggle(tmp2, self.NextButton(),\
                          x, y, printwidth, textheight, tmp2 == current_value)
                     self.lButtons.append(tmp_but)
-                    self.RegisterButton(tmp_but, prop_name, tmp2, type_PICKLIST)
+                    self.RegisterButton(prop_name, tmp2, type_PICKLIST)
                     x += printwidth 
             elif prop_type == type_TYPELIST:
                 tmp = 0
                 tmp3 = 0
-                thelist = lSTK_Picklist[prop_name]
-                for tmp2 in thelist.split("|"):
+                thelist = lBlender2STKTypes[data.GetBlenderType(cur_objname)]
+                tmp4 = ""
+                for tmp2 in thelist:
                     tmp += 1
+                    tmp4 = "%s|%s" % (tmp4,tmp2)
                     if tmp2 == current_value:
                         tmp3 = tmp 
                     
-                tmp_but = Draw.Menu(thelist, self.NextButton(),\
-                         x, y, 100, textheight, tmp3)
+                tmp_but = Draw.Menu(tmp4, self.NextButton(), x, y, 100, textheight, tmp3)
                 self.lButtons.append(tmp_but)
-                self.RegisterButton(tmp_but, prop_name, tmp2, type_TYPELIST)
+                self.RegisterButton(prop_name, tmp2, type_TYPELIST)     
             elif prop_type in [type_URL, type_IMAGEURL]:
                 #An URL is handled as a type_STRING + Pushbutton
-                tmp_but = Draw.String("", self.NextButton(), x, y, 200, textheight, str(current_value), 200)
+                tmp_but = Draw.String("", self.NextButton(), x, y, 200, textheight,\
+                                      str(current_value), int(prop_def[2]))
                 self.lButtons.append(tmp_but)
-                self.RegisterButton(tmp_but, prop_name, "", type_STRING) 
+                self.RegisterButton(prop_name, "", type_STRING) 
                 x += 200 
                 
                 printtext = "Select File "
                 printwidth = Draw.GetStringWidth(printtext)
                 tmp_but = Draw.PushButton(printtext, self.NextButton(), x, y, printwidth, textheight)
                 self.lButtons.append(tmp_but)
-                self.RegisterButton(tmp_but, prop_name, printtext, type_URL)
+                self.RegisterButton(prop_name, printtext, type_URL)
             else: #type_STATIC
                 printtext = "%s " % current_value
                 printwidth = Draw.GetStringWidth(printtext)
@@ -766,13 +884,10 @@ class STKBrowser:
     def NextButton(self):
         return self.lButtonIndex
     
-    def RegisterButton(self,the_button,property_name,button_name,button_type):
-        #Assign an event to a button
-        self.lButtonList.append([the_button,property_name,button_name,button_type])
+    def RegisterButton(self,property_name,button_name,button_type):
+        #IMPORTANT: Also add the button object to self.lButtons
+        self.lButtonList.append([property_name,button_name,button_type])
         self.lButtonIndex += 1
-        #Ouch! I had to do a workaround here...
-        #Button objects are mangled as they are passed as 
-        #I fixed it by making a new list self.lButtons, but need a better solution
         
     def SetURL(self,file_name):
         data.SetProperty(self.temp_property_name, Blender.sys.basename(file_name))
