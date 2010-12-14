@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 0.1 -->
+<kart name              = "Gooey"
+      version           = "2"
+      model-file        = "gooey.b3d"
+      icon-file         = "gooeyicon.png"
+      minimap-icon-file = "gooeyicon.png"
+      shadow-file       = "gooeyshadow.png"
+      groups            = "standard"
+      rgb               = "0.812 0.016 0.537" >
+  <animations left = "0"
+              straight = "20"
+              right = "40"
+              start-winning = "80"
+              end-winning = "219"
+              start-losing = "250"
+              start-losing-loop = "339"
+              end-losing = "349"/>
+  <wheels>
+    <front-left position = "-0.198135 0.115726 0.260375"
+                 model    = "wheel-front-left.b3d"       />
+    <front-right position = "0.207049 0.115726 0.254944"
+                 model    = "wheel-front-right.b3d"       />
+    <rear-left position = "-0.246830 0.139012 -0.372739"
+                 model    = "wheel-rear-left.b3d"       />
+    <rear-right position = "0.254700 0.139012 -0.373089"
+                 model    = "wheel-rear-right.b3d"       />
+  </wheels>
+</kart>
