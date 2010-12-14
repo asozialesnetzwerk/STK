@@ -947,7 +947,7 @@ class TrackExport:
                     (Blender.sys.basename(data.faces[0].image.getFilename()),
                      obj.loc[0], obj.loc[2], obj.loc[1]) )
             f.write('             width="%f" height="%f">\n' %(x_max-x_min, y_max-y_min) )
-            if obj.getIpo:
+            if obj.getIpo():
                 self.writeIPO(f, obj.getIpo())
             f.write('  </billboard>\n')
 
