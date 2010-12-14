@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 6785 -->
+<!-- Generated with script from SVN rev 6875 -->
 <scene>
   <track model="snowmountain_track.b3d" x="0" y="0" z="0"/>
-  <object type="animation" model="Balloon.b3d" xyz="-39.316746 39.719826 -180.018707" hpr="-66.375348 89.561293 0.022721" scale="7.327495 7.327496 7.327496" >
+  <object type="animation" model="Balloon.b3d" xyz="-39.316742 39.719826 -180.018692" hpr="-66.375348 89.561293 0.022721" scale="7.327495 7.327496 7.327496" >
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
       <p c="0.172394 -40.000000" h1="-51.067390 -82.012352" h2="51.412178 2.012353"/>
       <p c="169.893951 99.157532" h1="103.757736 99.157532" h2="310.133057 99.157532"/>
@@ -33,7 +33,7 @@
   </object>
   <sun  xyz="4.07624530792 5.90386199951 1.00545394421"/>
   <banana x="-2.883005" y="-0.301474" z="39.38063" />
-  <banana x="-51.491741" y="3.421907" z="77.638718" />
+  <banana x="-51.491741" y="3.660036" z="77.638718" />
   <banana x="-64.635597" y="2.494776" z="33.101471" />
   <banana x="-50.577358" y="-3.781858" z="-35.672104" />
   <banana x="-64.020752" y="10.791862" z="-49.573856" />
@@ -77,7 +77,7 @@
     <check-lap kind="lap" same-group="0" other-ids="1" />
     <check-line kind="activate" other-ids="2" p1="-38.917896 66.436386" p2="-36.257420 87.415909"
                 min-height="2.804375" same-group="1"/>
-    <check-line kind="activate" other-ids="0" p1="-24.747654 -59.180252" p2="-23.794647 -37.289574"
+    <check-line kind="activate" other-ids="0" p1="-24.747654 -59.180248" p2="-23.794647 -37.289577"
                 min-height="11.353293" same-group="2"/>
   </checks>
   <sky-box texture="winter_sky_6.jpg winter_sky_5.jpg winter_sky_2.jpg winter_sky_4.jpg winter_sky_3.jpg winter_sky_1.jpg"/>
