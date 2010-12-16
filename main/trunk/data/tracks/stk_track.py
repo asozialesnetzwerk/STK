@@ -943,7 +943,7 @@ class TrackExport:
                 y_max = max(y_max, data.verts[i].co[2])
                 
 
-            f.write('  <object type="billboard" texture="%s" x="%f" y="%f" z="%f" \n'%
+            f.write('  <object type="billboard" texture="%s" xyz="%f %f %f" \n'%
                     (Blender.sys.basename(data.faces[0].image.getFilename()),
                      obj.loc[0], obj.loc[2], obj.loc[1]) )
             f.write('             width="%f" height="%f">\n' %(x_max-x_min, y_max-y_min) )
