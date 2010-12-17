@@ -1,0 +1,10 @@
+* bowling.ac, plunger.ac, cake.ac, bomb.ac, anchor.ac, banana.ac
+* bubblegum.ac, nitrotank-big.ac, nitrotank-small.ac, giftbox.ac
+    created by horace aka thomas oppl (toppl@fh-sbg.ac.at) (c) 2008
+    released under Creative Commons Attribution-Share Alike 3.0
+    [http://creativecommons.org/licenses/by-sa/3.0/]
+
+* chest*
+    by MiniBjorn (c) 2010
+    released under Creative Commons Attribution-Share Alike 3.0
+    [http://creativecommons.org/licenses/by-sa/3.0/]
