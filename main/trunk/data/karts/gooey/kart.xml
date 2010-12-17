@@ -17,13 +17,13 @@
               start-losing-loop = "339"
               end-losing = "349"/>
   <wheels>
-    <front-left position = "-0.198135 0.115726 0.260375"
+    <front-left position = "-0.198135 0.115726 0.305779"
                  model    = "wheel-front-left.b3d"       />
-    <front-right position = "0.207049 0.115726 0.254944"
+    <front-right position = "0.207049 0.115726 0.300348"
                  model    = "wheel-front-right.b3d"       />
-    <rear-left position = "-0.246830 0.139012 -0.372739"
+    <rear-left position = "-0.246830 0.139012 -0.327334"
                  model    = "wheel-rear-left.b3d"       />
-    <rear-right position = "0.254700 0.139012 -0.373089"
+    <rear-right position = "0.254700 0.139012 -0.327685"
                  model    = "wheel-rear-right.b3d"       />
   </wheels>
 </kart>
