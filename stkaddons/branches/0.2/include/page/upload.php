@@ -55,7 +55,7 @@ along with stkaddons.  If not, see <http://www.gnu.org/licenses/>.
         {
             if (isset($_FILES['file']) &&
                 $_FILES['file']['type'] == "application/zip") {
-                SQL\insert("addons", array('user', 'name', 'description',
+                insert("addons", array('user', 'name', 'description',
                            'type'), array($USER->GetId(), post("name"), post("description"), $type));
                 move_uploaded_file($_FILES['file']['tmp_name'],
                                    DOWNLOAD_PATH."/".post("name").".zip");

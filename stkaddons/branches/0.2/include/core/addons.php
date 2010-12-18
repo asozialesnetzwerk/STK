@@ -22,19 +22,19 @@ class Addons
     function Addons($type="")
     {
         $this->all = array();
-        if($type != "")
-            $this->sql_query = \SQL\getAllFromTableWhere("addons", "type", $type);
+       if($type != "")
+            $this->sql_query = getAllFromTableWhere("addons", "type", $type);
         else
-            $this->sql_query = \SQL\getAllFromTable("addons");
+            $this->sql_query = getAllFromTable("addons");
     }
     function Next()
     {
-        return $this->addon = \SQL\nextItem($this->sql_query);
+        return $this->addon = nextItem($this->sql_query);
     }
     function SelectById($id)
     {
-        $this->sql_query = \SQL\getAllFromTableWhere("addons", "id", $id);
-        return $this->addon = \SQL\nextItem($this->sql_query);
+        $this->sql_query = getAllFromTableWhere("addons", "id", $id);
+        return $this->addon = nextItem($this->sql_query);
     }
     function GetName()
     {

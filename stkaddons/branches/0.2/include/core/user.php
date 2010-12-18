@@ -21,17 +21,17 @@ class User
 {
     function User()
     {
-        $this->sql_query = \SQL\getAllFromTable("users");
+        $this->sql_query = getAllFromTable("users");
     }
     function Next()
     {
-        return $this->user = \SQL\nextItem($this->sql_query);
+        return $this->user = nextItem($this->sql_query);
     }
     function SelectById($id)
     {
-        $this->sql_query = \SQL\getAllFromTableWhere("users", "id", $id);
+        $this->sql_query = getAllFromTableWhere("users", "id", $id);
         $succes = true;
-        if(!$this->user = \SQL\nextItem($this->sql_query))
+        if(!$this->user = nextItem($this->sql_query))
             $succes = false;
         if($succes)
             $this->UpdateStatus();
@@ -39,8 +39,8 @@ class User
     }
     function SelectByName($id)
     {
-        $this->sql_query = \SQL\getAllFromTableWhere("users", "login", $id);
-        $succes = $this->user = \SQL\nextItem($this->sql_query);
+        $this->sql_query = getAllFromTableWhere("users", "login", $id);
+        $succes = $this->user = nextItem($this->sql_query);
         if($succes)
             $this->UpdateStatus();
         return $succes;
@@ -67,7 +67,7 @@ class User
         global $status, $status_index, $USER;
         if($USER->status[$status_index[$this->GetRange()] + 1] && $USER->status[$status_index[$range] + 1])
         {
-            \SQL\update("users", "id", $this->GetId(), "range", $range);
+            update("users", "id", $this->GetId(), "range", $range);
             return true;
         }
         else
@@ -81,7 +81,7 @@ class User
         global $status, $status_index, $USER;
         if($USER->status[$status_index[$this->GetRange()] + 1])
         {
-            \SQL\update("users", "id", $this->GetId(), "login", $name);
+            update("users", "id", $this->GetId(), "login", $name);
             return true;
         }
         else
