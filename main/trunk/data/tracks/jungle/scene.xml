@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 6539 -->
+<!-- Generated with script from SVN rev 7037 -->
 <scene>
   <track model="jungle_track.b3d" x="0" y="0" z="0">
     <animated-texture name="water_light.png" dy="0.1" />
@@ -48,10 +48,6 @@
   <small-nitro x="25.386883" y="17.767706" z="-349.81308" />
   <small-nitro x="57.074856" y="17.767706" z="-341.891083" />
   <small-nitro x="78.098602" y="17.767706" z="-341.281708" />
-  <zipper.ac x="-26.074879" y="8.447258" z="-273.440552" />
-  <zipper.ac x="-28.796696" y="8.447258" z="-273.440552" />
-  <zipper.ac x="-31.773624" y="8.447258" z="-273.355469" />
-  <zipper.ac x="-23.183002" y="8.447258" z="-273.440552" />
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
     <check-line kind="activate" other-ids="0" p1="313.383087 -103.716087" p2="299.768646 -116.171570"
