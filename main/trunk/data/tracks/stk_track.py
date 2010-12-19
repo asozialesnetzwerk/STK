@@ -1304,7 +1304,7 @@ class TrackExport:
         sSky=""
         scene = Blender.Scene.GetCurrent()
         s=getIdProperty(scene, "fog", 0)
-        if s:
+        if s=="yes":
             sSky="%s fog=\"true\""%sSky
             s=getIdProperty(scene, "fog-color", 0)
             if s: sSky="%s fog-color=\"%s\""%(sSky, s)
