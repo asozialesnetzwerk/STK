@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 6539 -->
+<!-- Generated with script from SVN rev 7092 -->
 <materials>
   <material name="brick1.png" anisotropic="Y"/>
   <material name="bush3.png" transparency="Y" light="N" ignore="Y"/>
@@ -9,7 +9,6 @@
   <material name="Mossy_wall.png" anisotropic="Y"/>
   <material name="rock_darkgrey.png" anisotropic="Y"/>
   <material name="rock_grey.png" anisotropic="Y"/>
-  <material name="Sky_horiz_17.png" light="N" ignore="Y"/>
   <material name="water_dark.png" light="N" reset="Y"/>
   <material name="Window4.png" anisotropic="Y"/>
   <material name="Window5.png" anisotropic="Y"/>
