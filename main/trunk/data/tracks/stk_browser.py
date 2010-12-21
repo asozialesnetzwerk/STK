@@ -179,6 +179,7 @@ lPropertyDef = {
     "color":[type_COLOUR,0.0,0.0,0.0],\
     "inner-radius":[type_FLOAT,1, 0, 10000, 0.1],\
     "name":[type_STRING,"",50],\
+    "start":[type_FLOAT,25,1,2000,1],\
     "toggle":[type_STRING,"", 50],\
 # Scene only
     "ambient-color":[type_COLOUR,0.0,0.0,0.0],\
@@ -387,7 +388,7 @@ class STKData:
                             continue
                 except:
                     # Property is not yet there... Use default for comparison
-                    if lPropertyDef[test_name] != test_value:
+                    if lPropertyDef[test_name][1] != test_value:
                         continue
             except:
                 temp = "Do nothing"
@@ -528,6 +529,7 @@ class STKBrowser:
     menu_type = []
     menu_object = []
     property_cursor = 1 #use this one to move through properties
+    property_items = 0 #total number of property items
     lButtonIndex = 500
     lButtons = []
     lButtonList = []
@@ -535,7 +537,6 @@ class STKBrowser:
     temp_property_name = ""
     
     def __init__(self):
-        self.dirty = False 
         self.lButtonIndex = 500
         
     def ButtonIn(self,button_id):  # the function to handle Draw Button events
@@ -547,31 +548,11 @@ class STKBrowser:
             data.currentobject = self.menu_object.val
             self.property_cursor = 1
         elif button_id == btn_UP:
-            if self.property_cursor > 0: 
+            if self.property_cursor > 1: 
                 self.property_cursor -= 1        
         elif button_id == btn_DOWN:
-            self.property_cursor += 1   
-#        elif button_id == btn_STK:
-#            #STK Button is depricated
-#            current_object_type = data.GetCurrentType() 
-#            block = []
-#            lPropertiesList = []
-#            for (new_prop,obj_group,obj_type,default) in lSTK_Properties:
-#                if obj_group==current_object_type:
-#                    t = (new_prop,default,Draw.Create(0))
-#                    lPropertiesList.append(t)
-#                    block.append((t[0],t[2]))
-#
-#            if len(lPropertiesList)==0:
-#                    Draw.PupMenu("Error%t|No action defined for " + current_object_type + "!")
-#                    return
-#
-#            retval = Blender.Draw.PupBlock("Add STK Properties", block)
-#            if retval == 0: return
-#
-#            for (new_prop2,default2,thebutton) in lPropertiesList:
-#                if thebutton.val:
-#                    data.SetProperty(new_prop2,default2)
+            if self.property_cursor < self.property_items:
+                self.property_cursor += 1   
         elif button_id == btn_USECURRENT:
             try:
                 current_object = Blender.Object.GetSelected()[0].getName()
@@ -604,7 +585,6 @@ class STKBrowser:
             #type_STATIC => Do nothing    
             elif but_type == type_TYPELIST:
                 #The object type changed
-                self.dirty = True #Force a reload of all objects
                 
                 available_types = lBlender2STKTypes[data.GetBlenderType(data.GetCurrentObject())]
                 data.SetProperty(prop_name, available_types[self.lButtons[button_id-500].val-1])
@@ -646,15 +626,12 @@ class STKBrowser:
         self.lButtonList = []
         self.lButtons = []
         
-        #Reload Necessary? 
-        if self.dirty:
-            data.ReloadObjects()
-            self.dirty = False
+        data.ReloadObjects()
 
         #Draw the top bar
         printtext = "Use Current "
         printwidth = Draw.GetStringWidth(printtext)
-        Draw.PushButton("Use Current", btn_USECURRENT, x, y, printwidth, textheight)   
+        Draw.PushButton("Use Current", btn_USECURRENT, x, y, printwidth, textheight, "Opens currently selected object in the 3D view") 
         x += printwidth + pad
 
         printtext = "Type= "
@@ -678,13 +655,14 @@ class STKBrowser:
         printtext = "Down "
         printwidth = Draw.GetStringWidth(printtext)
         Draw.PushButton("Up", btn_UP, width-(printwidth+pad), y, printwidth, textheight) 
-        Draw.PushButton("Down", btn_DOWN, width-2*(printwidth+pad), y, printwidth, textheight) 
+        Draw.PushButton("Down", btn_DOWN, width-(printwidth+pad), 0, printwidth, textheight) 
 
         #Newline
         x = 0
         y -= textheight+pad
-
+        
         cur_prop_nr = 0
+        self.property_items = 0
         
         #Print the properties
         cur_objname = stk_objects.split("|")[data.currentobject-1]
@@ -845,6 +823,8 @@ class STKBrowser:
         Draw.Label(printtext, x, y, printwidth, textheight) 
         x += printwidth + pad
         
+        self.property_items = cur_prop_nr
+        
     def DrawBox(self, x, y, width, height):
    #                                     glColor3f(0.5, 0.4, 0.3)
    #                             self.DrawBox(GL_POLYGON, x+pad, y, self.width-pad*2, itemhgt)
@@ -871,12 +851,9 @@ class STKBrowser:
         elif evt == btn_SCROLLBAR:
             print "%s" % val
         elif evt == Draw.WHEELUPMOUSE:
-            if self.property_cursor > 0: 
-                self.property_cursor -= 1        
-                Draw.Redraw(1)     
+            self.ButtonIn(btn_UP)    
         elif evt == Draw.WHEELDOWNMOUSE:
-            self.property_cursor += 1   
-            Draw.Redraw(1)     
+            self.ButtonIn(btn_DOWN)    
 
     def Go(self):
         Draw.Register(self.Draw, self.EventIn, self.ButtonIn)
