@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 0.1 -->
+<kart name              = "Puffy"
+      version           = "2"
+      model-file        = "puffy.b3d"
+      icon-file         = "puffy-icon.png"
+      minimap-icon-file = "puffy-icon.png"
+      shadow-file       = "puffy-shadow.png"
+      groups            = "standard"
+      rgb               = "0 0.7 0" >
+  <animations left = "0"
+              straight = "20"
+              right = "40"
+              start-winning = "80"
+              end-winning = "320"
+              start-losing = "361"
+              start-losing-loop = "587"
+              end-losing = "591"/>
+  <wheels>
+    <front-left position = "-0.400033 0.100805 0.523572"
+                 model    = "wheel-front-left.b3d"       />
+    <front-right position = "0.388267 0.100805 0.535338"
+                 model    = "wheel-front-right.b3d"       />
+    <rear-left position = "-0.382384 0.149268 -0.470627"
+                 model    = "wheel-rear-left.b3d"       />
+    <rear-right position = "0.394150 0.149268 -0.476510"
+                 model    = "wheel-rear-right.b3d"       />
+  </wheels>
+</kart>

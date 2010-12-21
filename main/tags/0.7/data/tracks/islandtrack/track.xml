@@ -1,0 +1,10 @@
+<!-- Generated with script from SVN rev 6539 -->
+<?xml version="1.0"?>
+<track  name        = "The Island"
+        version     = "3"
+        groups      = "standard"
+        designer    = "Johannes Sjolund"
+        music       = "dance_cleopatra.music"
+        screenshot  = "sshot-islandtrack.png"
+>
+</track>

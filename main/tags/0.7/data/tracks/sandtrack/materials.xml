@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 7092 -->
+<materials>
+  <material name="clouds.png" light="N"/>
+  <material name="egyptsky1.png" transparency="Y" light="N"/>
+  <material name="egyptsky2.png" transparency="Y" light="N"/>
+  <material name="yellow_dirt.png" anisotropic="Y"/>
+</materials>
