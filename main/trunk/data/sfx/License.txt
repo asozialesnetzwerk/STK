@@ -57,10 +57,12 @@
     By "Stephan" from pdsounds.org (license is public domain)
     
 * parachute
-    Released under the Creative Commons Sampling Plus 1.0 license
-    (http://creativecommons.org/licenses/sampling+/1.0/, see license text below)
-    By Marianne Gagnon (Auria), based on "kiss" by roscoetoon, "kissy_sound" by FreqMan,
-    "rockets" by SmiertSpionem and "Swishes" by Pogotron, all released under the same license
+    based on Public Domain Sounds from either pdsounds or ghb_pd
+    Modifications (c) 2009 Christoph Egger <debian@christoph-egger.org>.
+    You may choose one of the following Licenses:
+     * ZLib License
+     * GNU GPL Version 2 or Later
+     * CreativeCommons BY 3.0
 
 * pre_start_race
     obtained from : http://www.freesoundfiles.tintagel.net/Audio/
