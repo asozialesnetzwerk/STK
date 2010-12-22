@@ -22,8 +22,9 @@ and released under CC-BY-SA 3
 -NessyGreen.png
 -NessyDarkGreen.png
 
-????
--Factory4b               by Ivar ten Cate, license unclear :'(
+-Factory4b               by Ivar ten Cate, based on texture(s) from http://trak.mercenariesguild.net/node/3,
+                         which are dual-licensed under CC-BY-SA 3.0, or GPL v2 or later.
+
 
 
 =========================
