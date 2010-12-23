@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <materials>
-  <!-- If proper transparency is supported, enable this line so Allen bolts are
-       correctly rendered, and if desired, use the kart with full armour (== glass too).-->
-  <!-- <material name="puffy.png" transparency="Y" /> -->
+<material name="water-P.png" alpha="Y" />
+<material name="fog.png" transparency="Y" />
+<material name="window.png" transparency="Y" />
 </materials>
