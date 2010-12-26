@@ -9,7 +9,7 @@
   <material name="Mossy_wall.png" anisotropic="Y"/>
   <material name="rock_darkgrey.png" anisotropic="Y"/>
   <material name="rock_grey.png" anisotropic="Y"/>
-  <material name="tree_1.png" transparency="N" alpha="Y"/>
+  <material name="tree_1.png" transparency="N" alpha="Y" backface-culling="N"/>
   <material name="water_dark.png" light="N" reset="Y"/>
   <material name="Window4.png" anisotropic="Y"/>
   <material name="Window5.png" anisotropic="Y"/>
