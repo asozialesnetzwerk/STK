@@ -13,6 +13,8 @@ Released under CC-BY-SA 3 :
 -Window4.png             by Canis Lupus, incorporating brick texture by Thomas Oppl
 -leaves2.png             from "King Weird's Castle" in STK 0.6, author unknown
 -Phoque_Plane.png        by Rudy Phelippeau
+- wooden*                by Samuncle, from BurningWell
+- tree1                  by Samuncle, from BurningWell
 
 Textures by Marianne Gagnon, made from public domain images from BurningWell
 and released under CC-BY-SA 3
