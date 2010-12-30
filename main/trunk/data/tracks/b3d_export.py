@@ -67,6 +67,8 @@ keys_stack     = []
 #Transformation Matrix
 TRANS_MATRIX = Mathutils.Matrix([-1,0,0,0],[0,0,1,0],[0,1,0,0],[0,0,0,1])
 
+DEBUG = True
+
 #Support Functions
 def write_int(value):
     return struct.pack("<i",value)
@@ -336,6 +338,8 @@ def write_node(objects=[]):
     last_frame = Blender.Draw.Create(exp_con.endFrame())
     num_frames = last_frame.val - first_frame.val
 
+    if DEBUG: print "<node first_frame=", first_frame.val, " last_frame=", last_frame.val, ">"
+
     if objects:
         exp_obj = objects
     else:
@@ -382,6 +386,9 @@ def write_node(objects=[]):
 
     for obj in exp_obj:
         if obj.type == "Mesh":
+            
+            if DEBUG: print "    <mesh name=",obj.name,">"
+            
             bone_stack = []
             keys_stack = []
             data = obj.getData(mesh = True)
@@ -397,7 +404,7 @@ def write_node(objects=[]):
                 matrix = Matrix()
 
                 temp_buf += write_string(obj.name) #Node Name
-
+                
                 position = matrix.translationPart()
                 temp_buf += write_float(-position[0]) #Position X
                 temp_buf += write_float(position[1])  #Position Y
@@ -408,6 +415,8 @@ def write_node(objects=[]):
                 temp_buf += write_float(scale[2]) #Scale Y
                 temp_buf += write_float(scale[1]) #Scale Z
 
+                if DEBUG: print "        <arm name=", obj.name, " loc=", -position[0], position[1], position[2], " scale=", scale[0], scale[1], scale[2], "/>"
+                
                 quat = matrix.toQuat()
                 quat.normalize()
 
@@ -478,6 +487,7 @@ def write_node(objects=[]):
 
                 while frame_count <= last_frame.val:
                     Blender.Set("curframe",int(frame_count))
+                    if DEBUG: print "        <frame>", int(frame_count), "</frame>"
                     Blender.Window.Redraw()
                     arm_pose = arm.getPose()
                     arm_matrix = arm.getMatrix("worldspace")
@@ -522,6 +532,8 @@ def write_node(objects=[]):
             if len(temp_buf) > 0:
                 node_buf += write_chunk("NODE",temp_buf)
                 temp_buf = ""
+            
+            if DEBUG: print "    </mesh>"
 
         if b3d_parameters.get("cameras"):
             if obj.type == "Camera":
@@ -645,6 +657,8 @@ def write_node(objects=[]):
         node_buf = ""
         root_buf = ""
 
+    if DEBUG: print "</node>"
+
     return main_buf
 
 #Write NODE MESH Chunk
@@ -664,8 +678,11 @@ def write_node_mesh(obj,obj_count,arm_action,exp_root):
 
     return mesh_buf
 
+#ids_count = 0
+
 #Write NODE MESH VRTS Chunk
 def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
+    #global ids_count
     vrts_buf = ""
     temp_buf = ""
     obj_flags = 0
@@ -702,6 +719,8 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
 
                 mesh_stack[vert.index][0] = vert.index
                 mesh_stack[vert.index][1] = vert_matrix
+                
+                #if DEBUG: print "        <vertex id=",vert.index,"/>"
 
                 if b3d_parameters.get("vertex-normals"):
                     link_matrix = obj.getMatrix("worldspace")
@@ -716,14 +735,13 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
 
                     mesh_stack[vert.index][2] = norm_matrix
 
-                if b3d_parameters.get("vertex-colors") and \
-                       data.getColorLayerNames():
+                if b3d_parameters.get("vertex-colors") and data.getColorLayerNames():
                     mesh_stack[vert.index][3] = face.col[ivert]
 
                 if data.vertexUV and not data.faceUV:
-		    mesh_stack[vert.index][4][0].append([face.index,vert.uvco[0]])
+                    mesh_stack[vert.index][4][0].append([face.index,vert.uvco[0]])
                 if not data.vertexUV and not data.faceUV:
-		    mesh_stack[vert.index][4][0].append([face.index,[0.0,0.0]])
+                    mesh_stack[vert.index][4][0].append([face.index,[0.0,0.0]])
 
                 for vert_influ in data.getVertexInfluences(vert.index):
                     mesh_stack[vert.index][5].append(vert_influ)
@@ -741,21 +759,26 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
                     for ivert,vert in enumerate(face.verts):
                         if vert_opti:
                             if not face.uv[ivert] in mesh_stack[vert.index][4][iuvlayer]:
-				mesh_stack[vert.index][4][iuvlayer].append([face.index,face.uv[ivert]])
+                                mesh_stack[vert.index][4][iuvlayer].append([face.index,face.uv[ivert]])
                         else:
-			    mesh_stack[vert.index][4][iuvlayer].append([face.index,face.uv[ivert]])
+                            mesh_stack[vert.index][4][iuvlayer].append([face.index,face.uv[ivert]])
 
     if orig_uvlayer:
         data.activeUVLayer = orig_uvlayer
 
     for ivert in xrange(len(mesh_stack)):
-	mesh_stack[ivert][0] = ids_count
-	for iuv in xrange(len(mesh_stack[ivert][4][0])):
-	    ids_count += 1
+        mesh_stack[ivert][0] = ids_count
+        
+        if DEBUG: print "        <ivert id=",ivert,">"
+        
+        for iuv in xrange(len(mesh_stack[ivert][4][0])):
+            ids_count += 1
 
             temp_buf += write_float(-mesh_stack[ivert][1].x) #X
             temp_buf += write_float(mesh_stack[ivert][1].y)  #Y
             temp_buf += write_float(mesh_stack[ivert][1].z)  #Z
+            
+            if DEBUG: print "            <vertex id=",ids_count," loc=",-mesh_stack[ivert][1].x,mesh_stack[ivert][1].y,mesh_stack[ivert][1].z,"/>"
 
             if b3d_parameters.get("vertex-normals"):
                 temp_buf += write_float(-mesh_stack[ivert][2].x) #NX
@@ -771,6 +794,8 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
             for iuvlayer in xrange(len(data.getUVLayerNames())):
                 temp_buf += write_float(mesh_stack[ivert][4][iuvlayer][iuv][1][0])  #U
                 temp_buf += write_float(-mesh_stack[ivert][4][iuvlayer][iuv][1][1]) #V
+
+        if DEBUG: print "        </ivert>"
 
     if len(temp_buf) > 0:
         vrts_buf += write_chunk("VRTS",temp_buf)
@@ -833,6 +858,8 @@ def write_node_mesh_tris(obj,obj_count,arm_action,exp_root):
             
     tris_buf = ""
     
+    if DEBUG: print ""
+    
     for brus_id in dBrushId2Face.keys():
         temp_buf = write_int(brus_id) #Brush ID
         for face in dBrushId2Face[brus_id]:
@@ -850,10 +877,13 @@ def write_node_mesh_tris(obj,obj_count,arm_action,exp_root):
             temp_buf += write_int(face_id[1]) #B
             temp_buf += write_int(face_id[0]) #C
 
+            if DEBUG: print "        <face id=",face_id[2],face_id[1],face_id[0],"/>"
+
             if len(face.v) == 4:
                 temp_buf += write_int(face_id[3]) #A
                 temp_buf += write_int(face_id[2]) #B
                 temp_buf += write_int(face_id[0]) #C
+                if DEBUG: print "        <face id=",face_id[3],face_id[2],face_id[0],"/>"
 
         tris_buf += write_chunk("TRIS",temp_buf)
         
@@ -925,6 +955,7 @@ def write_node_bone(ibone):
         for iuv in xrange(len(mesh_stack[ivert][4][0])):
             for vert_influ in mesh_stack[ivert][5]:
                 if bone_stack[ibone][2].name == vert_influ[0]:
+                    if DEBUG: print "        <bone name=",bone_stack[ibone][2].name,"face_vertex_id=", mesh_stack[ivert][0] + iuv, " weigth=", vert_influ[1] , "/>"
                     temp_buf += write_int(mesh_stack[ivert][0] + iuv) # Face Vertex ID
                     temp_buf += write_float(vert_influ[1]) #Weight
 
