@@ -778,22 +778,27 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
             temp_buf += write_float(mesh_stack[ivert][1].y)  #Y
             temp_buf += write_float(mesh_stack[ivert][1].z)  #Z
             
-            if DEBUG: print "            <vertex id=",ids_count," loc=",-mesh_stack[ivert][1].x,mesh_stack[ivert][1].y,mesh_stack[ivert][1].z,"/>"
+            if DEBUG: print "            <vertex id=",ids_count," loc=",-mesh_stack[ivert][1].x,mesh_stack[ivert][1].y,mesh_stack[ivert][1].z,">"
 
             if b3d_parameters.get("vertex-normals"):
                 temp_buf += write_float(-mesh_stack[ivert][2].x) #NX
                 temp_buf += write_float(mesh_stack[ivert][2].y)  #NY
                 temp_buf += write_float(mesh_stack[ivert][2].z)  #NZ
+                if DEBUG: print "                <normal>",-mesh_stack[ivert][2].x,mesh_stack[ivert][2].y,mesh_stack[ivert][2].z,"</normal>"
 
             if b3d_parameters.get("vertex-colors") and data.getColorLayerNames():
                 temp_buf += write_float(mesh_stack[ivert][3].r/255.0) #R
                 temp_buf += write_float(mesh_stack[ivert][3].g/255.0) #G
                 temp_buf += write_float(mesh_stack[ivert][3].b/255.0) #B
                 temp_buf += write_float(mesh_stack[ivert][3].a/255.0) #A
+                if DEBUG: print "                <color>",mesh_stack[ivert][3].r,mesh_stack[ivert][3].g,mesh_stack[ivert][3].b,mesh_stack[ivert][3].a,"</color>"
 
             for iuvlayer in xrange(len(data.getUVLayerNames())):
-                temp_buf += write_float(mesh_stack[ivert][4][iuvlayer][iuv][1][0])  #U
-                temp_buf += write_float(-mesh_stack[ivert][4][iuvlayer][iuv][1][1]) #V
+                temp_buf += write_float(mesh_stack[ivert][4][iuvlayer][iuv][1][0])   #U
+                temp_buf += write_float(1-mesh_stack[ivert][4][iuvlayer][iuv][1][1]) #V
+                if DEBUG: print "                <uv>",mesh_stack[ivert][4][iuvlayer][iuv][1][0],1-mesh_stack[ivert][4][iuvlayer][iuv][1][1],"</uv>"
+
+            if DEBUG: print "            </vertex>"
 
         if DEBUG: print "        </ivert>"
 
