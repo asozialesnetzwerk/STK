@@ -76,5 +76,5 @@
   <material name="skyscraper3.png" anisotropic="Y"/>
   <material name="skyscraper3a.png" anisotropic="Y"/>
   
-  <material name="yellow_dirt.png" max-speed="0.4" slowdown-time="2.0" anisotropic="Y"/> 
+  <material name="yellow_dirt.png" max-speed="0.4" slowdown-time="2.0" anisotropic="Y" graphical-effect="smoke"/> 
 </materials>
