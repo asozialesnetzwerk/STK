@@ -115,7 +115,7 @@ lSTKTypes2Properties = {
                 "mass|interaction=move"],\
     "Particle-Emitter":[],\
     "Sun":["ambient","diffuse","specular"],\
-    "Texture":["clampU","clampV","transparency","alpha","light","sphere","slowdown-time","anisotropic",\
+    "Texture":["additive","clampU","clampV","transparency","alpha","light","sphere","slowdown-time","anisotropic",\
                "max-speed","backface-culling","ignore",\
                "zipper",\
                 "zipper-duration|zipper=yes",\
@@ -213,6 +213,7 @@ lPropertyDef = {
     "start-upwards-distance":[type_FLOAT,1.1,0,1000,0.1],\
     "stk-browser-version":[type_STATIC,__version__,""],\
 #For Textures  
+    "additive":[type_BOOLEAN,"no"],\
     "clampU":[type_BOOLEAN,"no"],\
     "clampV":[type_BOOLEAN,"no"],\
     "transparency":[type_BOOLEAN,"no"],\
