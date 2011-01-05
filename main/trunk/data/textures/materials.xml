@@ -43,7 +43,7 @@
   <material name="explode.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y"/>
   <material name="slipstream.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y"/>
   <material name="flames.png" alpha="0.9" light="N" ignore="Y"/>
-  <material name="nitro-particle.png" alpha="Y" additive="Y" light="N" ignore="Y"/>
+  <material name="nitro-particle.png" additive="Y" light="N" ignore="Y"/>
   <material name="magnet.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y"/>
   <material name="bzzt.png" transparency="Y" light="N" ignore="Y"/>
   <material name="speedback.png" clampU="Y" clampV="Y" transparency="Y"  light="N" ignore="Y"/>
