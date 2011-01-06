@@ -73,10 +73,10 @@
     (see license text below)
     
 * shoot
-    Released under the Creative Commons Sampling Plus 1.0 license
-    (http://creativecommons.org/licenses/sampling+/1.0/, see license text below)
-    By Marianne Gagnon (Auria), based on "rocket_exhaust_1" by smcameron and "rockets" by SmiertSpionem,
-    both released under the same license
+    Released under the GNU GPL v2 license
+    Based on sound effects from the Warmux and Battle for Wesnoth projects,
+    both released under the same license,
+    with modifications by Marianne Gagnon
           
 * skid 
     Released under Creative Commons Attribution - Share Alike License 3.0
