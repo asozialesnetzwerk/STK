@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <materials>
+    
+  <material name="smoke.png" alpha="Y" light="N" ignore="Y"/>
+  
   <material name="wood_planks1_alpha.png" alpha="y"/>
   <material name="fence.png" alpha="y" light="n"/>
   <material name="clouds.png"  light="N" reset="Y" ignore="Y"/>
@@ -55,7 +58,6 @@
   <material name="bananawrap.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.5" light="N" zipper="Y"/>
   <material name="fuzzy.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.2" light="N" ignore="Y"/>
   <material name="generickartshadow.png" clampU="Y" clampV="Y" transparency="Y"  light="N" ignore="Y"/>
-  <material name="smoke.png" alpha="Y" light="N" ignore="Y"/>
   <material name="explode.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y"/>
   <material name="slipstream.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y"/>
   <material name="flames.png" alpha="0.9" light="N" ignore="Y"/>
