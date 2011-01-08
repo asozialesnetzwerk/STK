@@ -2,25 +2,52 @@
 <materials>
     
   <material name="smoke.png" alpha="Y" light="N" ignore="Y"/>
+  <material name="smoke_yellow.png" alpha="Y" light="N" ignore="Y"/>
+  <material name="smoke_brown.png" alpha="Y" light="N" ignore="Y"/>
+  <material name="smoke_red.png" alpha="Y" light="N" ignore="Y"/>
   
   <material name="wood_planks1_alpha.png" alpha="y"/>
   <material name="fence.png" alpha="y" light="n"/>
   <material name="clouds.png"  light="N" reset="Y" ignore="Y"/>
-  <material name="sand.png" max-speed="0.4" slowdown-time="1.8"/>
-  <material name="sandgrass.png" anisotropic="Y"/>
+  
+  <material name="sand.png" max-speed="0.4" slowdown-time="1.8">
+    <particles base="smoke_yellow.xml" condition="skid drive" />
+  </material>
+  
+  <material name="sandgrass.png" anisotropic="Y">
+    <particles base="smoke_yellow.xml" condition="skid drive" />
+  </material>
+  
   <material name="grass.jpg" max-speed="0.6" slowdown-time="1.8" anisotropic="Y"/>
   <material name="chrome.png"  light="N" sphere="Y"/>
   <material name="chrome2.png"  light="N" sphere="Y"/>
   <material name="railing.png" transparency="Y"/>
   <material name="palm_b.png" transparency="Y"/>
   <material name="wood.jpg" anisotropic="Y"/>
-  <material name="concrete.png" />
-  <material name="brick.png" />
-  <material name="earth.png" slowdown-time="4" max-speed="0.5" />
+  
+  <material name="concrete.png">
+    <particles base="smoke.xml" condition="skid" />
+  </material>
+  
+  <material name="brick.png">
+    <particles base="smoke_yellow.xml" condition="skid drive" />
+  </material>
+  
+  <material name="hacienda_ground.png">
+    <particles base="smoke.xml" condition="skid" />
+  </material>
+  
+  <material name="earth.png" slowdown-time="4" max-speed="0.5">
+    <particles base="smoke_brown.xml" condition="skid drive" />
+  </material>
+  
   <material name="stonewall.png"/>
   <material name="pebbles.png"/>
   <material name="egypt.png" />
-  <material name="Paving_stones_2.png" anisotropic="Y" />
+  <material name="Paving_stones_2.png" anisotropic="Y">
+    <particles base="smoke_brown.xml" condition="skid" />
+  </material>
+  
   <material name="HortonRockWall.png" anisotropic="Y" />
   <material name="HortonRockWall2.png" anisotropic="Y" />
   <material name="HortonStone6.png" anisotropic="Y" />
@@ -72,11 +99,29 @@
   <material name="coniferous_tree.png" alpha="Y" light="N" ignore="Y"/>
   <material name="signs.png" transparency="Y" alpha="0.5" light="N"/>
   <material name="greenice.png"  reset="Y"/>
-  <material name="snow.png" max-speed="0.4" slowdown-time="0.8"/>
-  <material name="ice.png"/>
+  
+  <material name="snow.png" max-speed="0.4" slowdown-time="0.8">
+    <particles base="smoke.xml" condition="skid drive" />
+  </material>
+  
+  <material name="snowyroad.png" max-speed="0.4" slowdown-time="0.8">
+    <particles base="smoke.xml" condition="skid drive" />
+  </material>
+  
+  <material name="ice.png">
+    <particles base="smoke_brown.xml" condition="skid" />
+  </material>
+  
   <material name="snowyrock.png"/>
-  <material name="sand2.png" max-speed="0.5" slowdown-time="3.0"/>
-  <material name="road_dirt.png" anisotropic="Y" />
+  
+  <material name="sand2.png" max-speed="0.5" slowdown-time="3.0">
+    <particles base="smoke_yellow.xml" condition="skid" />
+  </material>
+  
+  <material name="road_dirt.png" anisotropic="Y">
+    <particles base="smoke_brown.xml" condition="skid" />
+  </material>
+  
   <material name="grass2.png" max-speed="0.4" slowdown-time="2.0" anisotropic="Y"/>
   <material name="dirt2sand.png" anisotropic="Y"/>
   <material name="grass2dirt.png" clampU="Y" clampV="N" anisotropic="Y" />
@@ -102,7 +147,7 @@
   <material name="skyscraper3a.png" anisotropic="Y"/>
   
   <material name="yellow_dirt.png" max-speed="0.4" slowdown-time="2.0" anisotropic="Y">
-    <particles base="smoke.xml" condition="skid" />
+    <particles base="smoke_yellow.xml" condition="skid drive" />
   </material>
   
 </materials>
