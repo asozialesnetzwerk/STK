@@ -7,6 +7,32 @@
   <material name="laser_bridge_green.png" alpha="Y" anisotropic="Y" backface-culling="N"/>
   <material name="laser_bridge_red.png" alpha="Y" anisotropic="Y" backface-culling="N"/>
   <material name="metal_ground.jpg" anisotropic="Y"/>
-  <material name="road_dirt_red.jpg" anisotropic="Y"/>
-  <material name="sandred.jpg" anisotropic="Y"/>
+  <material name="road_dirt_red.jpg" anisotropic="Y">
+    <particles base="smoke_red.xml" condition="skid" />
+  </material>
+  
+  <material name="sandred.jpg" anisotropic="Y">
+    <particles base="smoke_red.xml" condition="skid drive" />
+  </material>
+  
+  <material name="sandred2.jpg" anisotropic="Y">
+    <particles base="smoke_red.xml" condition="skid drive" />
+  </material>
+  
+  <material name="marsroad_red.jpg" anisotropic="Y">
+    <particles base="smoke_red.xml" condition="skid" />
+  </material>
+  
+  <material name="marsroad_green.jpg" anisotropic="Y">
+    <particles base="smoke.xml" condition="skid" />
+  </material>
+  
+  <material name="marsroad_blue.jpg" anisotropic="Y">
+    <particles base="smoke.xml" condition="skid" />
+  </material>
+  
+  <material name="marsroad_blue2.jpg" anisotropic="Y">
+    <particles base="smoke.xml" condition="skid" />
+  </material>
+  
 </materials>

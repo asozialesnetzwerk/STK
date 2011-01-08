@@ -9,4 +9,12 @@
   <material name="trail2earth.jpg" anisotropic="Y" clampU="Y"/>
   <material name="trail2grass.jpg" anisotropic="Y" clampU="Y"/>
   <material name="wheat.png" transparency="Y" light="N"/>
+  
+  <material name="trail.jpg">
+    <particles base="smoke_brown.xml" condition="skid" />
+  </material>
+  <material name="earth.jpg" >
+    <particles base="smoke_brown.xml" condition="skid drive" />
+  </material>
+  
 </materials>

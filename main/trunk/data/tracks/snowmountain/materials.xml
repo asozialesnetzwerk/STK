@@ -2,7 +2,14 @@
 <!-- Generated with script from SVN rev 6875 -->
 <materials>
   <material name="concrete.png" reset="Y"/>
-  <material name="roadway2.png" anisotropic="Y" graphical-effect="smoke"/>
-  <material name="roadwayborder.png" anisotropic="Y" graphical-effect="smoke"/>
+  
+  <material name="roadway2.png" anisotropic="Y">
+    <particles base="smoke.xml" condition="skid" />
+  </material>
+  
+  <material name="roadwayborder.png" anisotropic="Y">
+    <particles base="smoke.xml" condition="skid" />
+  </material>
+  
   <material name="water_light.png" reset="Y"/>
 </materials>
