@@ -4,5 +4,8 @@
   <material name="clouds.png" light="N"/>
   <material name="egyptsky1.png" transparency="Y" light="N"/>
   <material name="egyptsky2.png" transparency="Y" light="N"/>
-  <material name="yellow_dirt.png" anisotropic="Y"/>
+  
+  <material name="yellow_dirt.png" anisotropic="Y">
+    <particles base="smoke_yellow.xml" condition="skid" />
+  </material>
 </materials>

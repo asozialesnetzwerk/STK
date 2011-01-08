@@ -25,6 +25,10 @@
   <material name="palm_b.png" transparency="Y"/>
   <material name="wood.jpg" anisotropic="Y"/>
   
+  <material name="bumpy_surface.png">
+    <particles base="smoke.xml" condition="skid" />
+  </material>
+  
   <material name="concrete.png">
     <particles base="smoke.xml" condition="skid" />
   </material>
@@ -98,18 +102,21 @@
   <material name="rock.jpg"/>
   <material name="coniferous_tree.png" alpha="Y" light="N" ignore="Y"/>
   <material name="signs.png" transparency="Y" alpha="0.5" light="N"/>
-  <material name="greenice.png"  reset="Y"/>
+  
+  <material name="greenice.png"  reset="Y">
+    <particles base="smoke.xml" condition="skid" />
+  </material>
   
   <material name="snow.png" max-speed="0.4" slowdown-time="0.8">
     <particles base="smoke.xml" condition="skid drive" />
   </material>
   
-  <material name="snowyroad.png" max-speed="0.4" slowdown-time="0.8">
+  <material name="snowyroad.png">
     <particles base="smoke.xml" condition="skid drive" />
   </material>
   
   <material name="ice.png">
-    <particles base="smoke_brown.xml" condition="skid" />
+    <particles base="smoke.xml" condition="skid" />
   </material>
   
   <material name="snowyrock.png"/>

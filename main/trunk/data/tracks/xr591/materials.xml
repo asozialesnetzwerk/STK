@@ -4,8 +4,8 @@
   <material name="acid_lake.jpg" reset="Y"/>
   <material name="arc1.png" alpha="Y" backface-culling="N" reset="Y"/>
   <material name="arc2.png" alpha="Y" backface-culling="N" reset="Y"/>
-  <material name="laser_bridge_green.png" alpha="Y" anisotropic="Y" backface-culling="N"/>
-  <material name="laser_bridge_red.png" alpha="Y" anisotropic="Y" backface-culling="N"/>
+  <material name="laser_bridge_green.png" alpha="Y" light="N" anisotropic="Y" backface-culling="N"/>
+  <material name="laser_bridge_red.png" alpha="Y" light="N" anisotropic="Y" backface-culling="N"/>
   
   <material name="metal_ground.jpg" anisotropic="Y">
     <particles base="smoke.xml" condition="skid" />
