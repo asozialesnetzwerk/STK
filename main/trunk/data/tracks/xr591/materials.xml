@@ -6,7 +6,11 @@
   <material name="arc2.png" alpha="Y" backface-culling="N" reset="Y"/>
   <material name="laser_bridge_green.png" alpha="Y" anisotropic="Y" backface-culling="N"/>
   <material name="laser_bridge_red.png" alpha="Y" anisotropic="Y" backface-culling="N"/>
-  <material name="metal_ground.jpg" anisotropic="Y"/>
+  
+  <material name="metal_ground.jpg" anisotropic="Y">
+    <particles base="smoke.xml" condition="skid" />
+  </material>
+  
   <material name="road_dirt_red.jpg" anisotropic="Y">
     <particles base="smoke_red.xml" condition="skid" />
   </material>
