@@ -8,6 +8,7 @@
       shadow-file       = "mozillashadow.png"
       groups            = "standard"
       rgb               = "0.7 0 0" >
+  <sounds engine = "large"/>
   <animations left = "0"
               straight = "20"
               right = "40"

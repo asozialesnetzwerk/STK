@@ -8,6 +8,7 @@
       shadow-file       = "gooeyshadow.png"
       groups            = "standard"
       rgb               = "0.812 0.016 0.537" >
+  <sounds engine = "large"/>
   <animations left = "0"
               straight = "20"
               right = "40"
