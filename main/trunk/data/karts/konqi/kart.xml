@@ -8,6 +8,7 @@
       shadow-file       = "konqi_shadow.png"
       groups            = "standard"
       rgb               = "0 150 0" >
+  <sounds engine = "large"/>
   <animations left = "0"
               straight = "9"
               right = "19"
