@@ -115,7 +115,7 @@ lSTKTypes2Properties = {
                 "mass|interaction=move"],\
     "Particle-Emitter":[],\
     "Sun":["ambient","diffuse","specular"],\
-    "Texture":["additive","clampU","clampV","transparency","alpha","light","sphere","slowdown-time","anisotropic",\
+    "Texture":["clampU","clampV","compositing","light","sphere","slowdown-time","anisotropic",\
                "max-speed","backface-culling","ignore",\
                "zipper",\
                 "zipper-duration|zipper=yes",\
@@ -161,7 +161,6 @@ lSTKTypes2Properties = {
 }
 
 # Finally define the properties of each property
-# ATTENTION: If you change something here, don't forget to update  "type" item in lSTK_Picklist, below. 
 #
 # Formatting is:
 # BOOLEAN  - default
@@ -169,7 +168,7 @@ lSTKTypes2Properties = {
 # FLOAT    - default, min, max, step
 # IMAGEURL - default, max_length
 # INTEGER  - default, min, max
-# PICKLIST - default
+# PICKLIST - default ==> Please don't forget to update lSTK_Picklist, below.
 # STATIC   - value 
 # STRING   - default, max_length
 # URL      - default, max_length
@@ -213,11 +212,9 @@ lPropertyDef = {
     "start-upwards-distance":[type_FLOAT,1.1,0,1000,0.1],\
     "stk-browser-version":[type_STATIC,__version__,""],\
 #For Textures  
-    "additive":[type_BOOLEAN,"no"],\
     "clampU":[type_BOOLEAN,"no"],\
     "clampV":[type_BOOLEAN,"no"],\
-    "transparency":[type_BOOLEAN,"no"],\
-    "alpha":[type_BOOLEAN,"no"],\
+    "compositing":[type_PICKLIST,"none"],\
     "light":[type_BOOLEAN,"yes"],\
     "sphere":[type_BOOLEAN,"no"],\
     "slowdown-time":[type_FLOAT,1.0, 0, 100, 0.1],\
@@ -264,6 +261,7 @@ lPropertyDef = {
 # For picklist, add <name>:<valuelist> to lSTK_Picklist. The valuelist items are |-separated...
 lSTK_Picklist = {"sky-type": "dome|box|simple",\
                 "graphical-effect": "none|water|smoke",\
+                "compositing": "none|blend|test|additive",\
                 "interaction": "none|ghost|static|move",\
                 "shape": "box|sphere|coneX|coneY|coneZ"
 }
