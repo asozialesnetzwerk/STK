@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 6785 -->
+<!-- Generated with script from SVN rev 7092 -->
 <scene>
   <track model="lighthouse_track.b3d" x="0" y="0" z="0"/>
   <object type="animation" model="Light.b3d" xyz="-48.248627 29.666990 -94.301178" hpr="-0.000000 -0.000000 -0.000000" scale="2.884974 2.884974 2.884974" >
@@ -19,7 +19,7 @@
       <p c="184.693726 -360.000000"/>
     </curve>
   </object>
-  <sun  fog="true" fog-color="110 125 140" fog-density="50" fog-start="50" fog-end="150" xyz="1.45523071289 88.6911010742 109.559005737"/>
+  <sun  xyz="1.45523071289 88.6911010742 109.559005737"/>
   <item x="-27.765064" y="1.957284" z="49.391853" />
   <item x="-27.21554" y="1.957286" z="47.084381" />
   <item x="-26.720949" y="1.957287" z="44.996407" />
