@@ -84,14 +84,14 @@
   </material>
   
   <material name="palmtree3.png"  transparency="Y"/>
-  <material name="tinytux.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.8" light="N" ignore="Y"/>
-  <material name="butterfly.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.8" light="N" ignore="Y"/>
-  <material name="bananawrap.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.5" light="N" zipper="Y"/>
-  <material name="fuzzy.png" clampU="Y" clampV="Y" transparency="Y" alpha="0.2" light="N" ignore="Y"/>
+  <material name="tinytux.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y"/>
+  <material name="butterfly.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y"/>
+  <material name="bananawrap.png" clampU="Y" clampV="Y" transparency="Y" light="N" zipper="Y"/>
+  <material name="fuzzy.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y"/>
   <material name="generickartshadow.png" clampU="Y" clampV="Y" transparency="Y"  light="N" ignore="Y"/>
   <material name="explode.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y"/>
   <material name="slipstream.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y"/>
-  <material name="flames.png" alpha="0.9" light="N" ignore="Y"/>
+  <material name="flames.png" light="N" ignore="Y"/>
   <material name="nitro-particle.png" additive="Y" light="N" ignore="Y"/>
   <material name="magnet.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y"/>
   <material name="bzzt.png" transparency="Y" light="N" ignore="Y"/>
@@ -101,7 +101,7 @@
   <material name="sea.jpg"  light="N" reset="Y"/>
   <material name="rock.jpg"/>
   <material name="coniferous_tree.png" alpha="Y" light="N" ignore="Y"/>
-  <material name="signs.png" transparency="Y" alpha="0.5" light="N"/>
+  <material name="signs.png" transparency="Y" light="N"/>
   
   <material name="greenice.png"  reset="Y">
     <particles base="smoke.xml" condition="skid" />
