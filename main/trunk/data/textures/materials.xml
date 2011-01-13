@@ -1,15 +1,109 @@
 <?xml version="1.0"?>
 <materials>
-    
-  <material name="smoke.png" alpha="Y" light="N" ignore="Y"/>
-  <material name="smoke_yellow.png" alpha="Y" light="N" ignore="Y"/>
-  <material name="smoke_brown.png" alpha="Y" light="N" ignore="Y"/>
-  <material name="smoke_red.png" alpha="Y" light="N" ignore="Y"/>
+
+  <!-- Particles -->
+  <material name="smoke.png"             compositing="blend" light="N" ignore="Y"/>
+  <material name="smoke_yellow.png"      compositing="blend" light="N" ignore="Y"/>
+  <material name="smoke_brown.png"       compositing="blend" light="N" ignore="Y"/>
+  <material name="smoke_red.png"         compositing="blend" light="N" ignore="Y"/>
+  <material name="nitro-particle.png"    additive="Y" light="N" ignore="Y"/>
   
-  <material name="wood_planks1_alpha.png" alpha="y"/>
-  <material name="fence.png" alpha="y" light="n"/>
-  <material name="clouds.png"  light="N" reset="Y" ignore="Y"/>
+  <!-- Textures -->
+  <material name="bananawrap.png"        compositing="test" clampU="Y" clampV="Y" light="N" zipper="Y"/>
+  <material name="bumpy_surface.png">
+    <particles base="smoke.xml" condition="skid" />
+  </material>
   
+  <material name="brick.png">
+    <particles base="smoke_yellow.xml" condition="skid drive" />
+  </material>
+  
+  <material name="butterfly.png"         compositing="test" light="N" clampU="Y" clampV="Y" ignore="Y"/>
+  <material name="bzzt.png"              compositing="test" light="N" ignore="Y"/>
+  
+  <material name="chess.png">
+    <particles base="smoke.xml" condition="skid" />
+  </material>
+  
+  <material name="city_asphalt_1.png" anisotropic="Y">
+    <particles base="smoke.xml" condition="skid" />
+  </material>
+  
+  <material name="city_checker.png">
+    <particles base="smoke.xml" condition="skid" />
+  </material>
+  
+  <material name="concrete.png">
+    <particles base="smoke.xml" condition="skid" />
+  </material>
+  
+  <material name="chrome.png"            light="N" sphere="Y"/>
+  <material name="chrome2.png"           light="N" sphere="Y"/>
+  <material name="clouds.png"            light="N" reset="Y" ignore="Y"/>
+  <material name="coniferous_tree.png"   compositing="blend" light="N" ignore="Y"/>
+  <material name="dirt.png" />
+  <material name="dirt2sand.png"         anisotropic="Y"/>
+  
+  <material name="earth.png" slowdown-time="4" max-speed="0.5">
+    <particles base="smoke_brown.xml" condition="skid drive" />
+  </material>
+  
+  <material name="egypt.png" />
+  <material name="explode.png"           compositing="test" clampU="Y" clampV="Y" light="N" ignore="Y"/>
+  <material name="fence.png"             compositing="blend" light="n"/>
+  <material name="flames.png"            light="N" ignore="Y"/>
+  <material name="fuzzy.png"             compositing="test" clampU="Y" clampV="Y" light="N" ignore="Y"/>
+  <material name="generickartshadow.png" compositing="test" clampU="Y" clampV="Y" light="N" ignore="Y"/>
+  <material name="grass.jpg"             anisotropic="Y" max-speed="0.6" slowdown-time="1.8"/>
+  <material name="grass2.png"            max-speed="0.4" slowdown-time="2.0" anisotropic="Y"/>
+  <material name="grass2dirt.png"        clampU="Y" clampV="N" anisotropic="Y" />
+  <material name="greenice.png"          reset="Y">
+    <particles base="smoke.xml"          condition="skid" />
+  </material>
+  
+  <material name="hacienda_ground.png">
+    <particles base="smoke.xml" condition="skid" />
+  </material>
+
+  <material name="HortonRockWall.png"    anisotropic="Y" />
+  <material name="HortonRockWall2.png"   anisotropic="Y" />
+  <material name="HortonStone6.png"      anisotropic="Y" />
+  
+  <material name="ice.png">
+    <particles base="smoke.xml" condition="skid" />
+  </material>
+  
+  <material name="lava.png"              light="N" reset="Y"/>
+  <material name="logs.png" />
+  <material name="magnet.png"            compositing="test" clampU="Y" clampV="Y" light="N" ignore="Y"/>
+  <material name="metalgrid.png"         compositing="test" anisotropic="N" />
+  <material name="notes.png"             compositing="test" light="N" ignore="Y"/>
+  <material name="oakleaf_fall.png"      compositing="test" ignore="Y" light="N" />
+  <material name="palmtree3.png"         compositing="test"/>
+  <material name="palm_b.png"            compositing="test"/>
+  
+  <material name="Paving_stones_2.png"   anisotropic="Y">
+    <particles base="smoke_brown.xml"    condition="skid" />
+  </material>
+  
+  <material name="pebbles.png"/>
+  <material name="pino.png"              compositing="blend" />
+  <material name="pino2.png"             compositing="blend" />
+  <material name="pyramidwall.png" />
+
+  <material name="roadway.png" clampU="Y" anisotropic="Y">
+    <particles base="smoke.xml" condition="skid" />
+  </material>
+  
+  <material name="road_dirt.png" anisotropic="Y">
+    <particles base="smoke_brown.xml" condition="skid" />
+  </material>
+  
+  <material name="rock.jpg"/>
+   <material name="redwhite.png" />
+
+  <material name="railing.png" compositing="test"/>
+
   <material name="sand.png" max-speed="0.4" slowdown-time="1.8">
     <particles base="smoke_yellow.xml" condition="skid drive" />
   </material>
@@ -18,56 +112,35 @@
     <particles base="smoke_yellow.xml" condition="skid drive" />
   </material>
   
-  <material name="grass.jpg" max-speed="0.6" slowdown-time="1.8" anisotropic="Y"/>
-  <material name="chrome.png"  light="N" sphere="Y"/>
-  <material name="chrome2.png"  light="N" sphere="Y"/>
-  <material name="railing.png" transparency="Y"/>
-  <material name="palm_b.png" transparency="Y"/>
-  <material name="wood.jpg" anisotropic="Y"/>
-  
-  <material name="bumpy_surface.png">
-    <particles base="smoke.xml" condition="skid" />
-  </material>
-  
-  <material name="concrete.png">
-    <particles base="smoke.xml" condition="skid" />
-  </material>
-  
-  <material name="brick.png">
+  <material name="sand2.png" max-speed="0.5" slowdown-time="3.0">
     <particles base="smoke_yellow.xml" condition="skid drive" />
   </material>
   
-  <material name="hacienda_ground.png">
-    <particles base="smoke.xml" condition="skid" />
+  <material name="sea.jpg"          light="N" reset="Y"/>
+  <material name="signs.png"        compositing="test" light="N"/>
+  <material name="skyscraper1.png"  anisotropic="Y"/>
+  <material name="skyscraper2.png"  anisotropic="Y"/>
+  <material name="skyscraper3.png"  anisotropic="Y"/>
+  <material name="skyscraper3a.png" anisotropic="Y"/>
+  <material name="slipstream.png"   compositing="test" clampU="Y" clampV="Y" light="N" ignore="Y"/>
+  
+  <material name="snow.png" max-speed="0.4" slowdown-time="0.8">
+    <particles base="smoke.xml" condition="skid drive" />
   </material>
   
-  <material name="earth.png" slowdown-time="4" max-speed="0.5">
-    <particles base="smoke_brown.xml" condition="skid drive" />
+  <material name="snowyroad.png">
+    <particles base="smoke.xml" condition="skid drive" />
   </material>
-  
+
+  <material name="snowyrock.png"/>
+  <material name="speedback.png"    compositing="test" clampU="Y" clampV="Y" light="N" ignore="Y"/>
+  <material name="speedfore.png"    compositing="test" clampU="Y" clampV="Y" light="N" ignore="Y"/>
+  <material name="starparticle.png" compositing="blend" clampU="Y" clampV="Y" ignore="Y" light="N"/>
+  <material name="stonetex.png" />
   <material name="stonewall.png"/>
-  <material name="pebbles.png"/>
-  <material name="egypt.png" />
-  <material name="Paving_stones_2.png" anisotropic="Y">
-    <particles base="smoke_brown.xml" condition="skid" />
-  </material>
+  <material name="tinytux.png" clampU="Y" clampV="Y" compositing="test" light="N" ignore="Y"/>
   
-  <material name="HortonRockWall.png" anisotropic="Y" />
-  <material name="HortonRockWall2.png" anisotropic="Y" />
-  <material name="HortonStone6.png" anisotropic="Y" />
-  <material name="oakleaf_fall.png" transparency="Y" ignore="Y" light="N" />
-  <material name="pino.png" alpha="Y" />
-  <material name="pino2.png" alpha="Y" />
-  <material name="starparticle.png" clampU="Y" clampV="Y" alpha="Y" ignore="Y" light="N"/>
-  <material name="pyramidwall.png" />
-  <material name="lava.png"  light="N" reset="Y"/>
-  <material name="metalgrid.png" transparency="Y" anisotropic="N" />
-  
-  <material name="roadway.png" clampU="Y" anisotropic="Y">
-    <particles base="smoke.xml" condition="skid" />
-  </material>
-  
-  <material name="track.png"  anisotropic="Y">
+  <material name="track.png" anisotropic="Y">
     <particles base="smoke.xml" condition="skid" />
   </material>
   
@@ -78,83 +151,15 @@
   <material name="trackborder.png" light="N">
     <particles base="smoke.xml" condition="skid" />
   </material>
-  
-  <material name="chess.png">
-    <particles base="smoke.xml" condition="skid" />
-  </material>
-  
-  <material name="palmtree3.png"  transparency="Y"/>
-  <material name="tinytux.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y"/>
-  <material name="butterfly.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y"/>
-  <material name="bananawrap.png" clampU="Y" clampV="Y" transparency="Y" light="N" zipper="Y"/>
-  <material name="fuzzy.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y"/>
-  <material name="generickartshadow.png" clampU="Y" clampV="Y" transparency="Y"  light="N" ignore="Y"/>
-  <material name="explode.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y"/>
-  <material name="slipstream.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y"/>
-  <material name="flames.png" light="N" ignore="Y"/>
-  <material name="nitro-particle.png" additive="Y" light="N" ignore="Y"/>
-  <material name="magnet.png" clampU="Y" clampV="Y" transparency="Y" light="N" ignore="Y"/>
-  <material name="bzzt.png" transparency="Y" light="N" ignore="Y"/>
-  <material name="speedback.png" clampU="Y" clampV="Y" transparency="Y"  light="N" ignore="Y"/>
-  <material name="speedfore.png" clampU="Y" clampV="Y" transparency="Y"  light="N" ignore="Y"/>
+
   <material name="water_light.png" light="N" reset="Y"/>
-  <material name="sea.jpg"  light="N" reset="Y"/>
-  <material name="rock.jpg"/>
-  <material name="coniferous_tree.png" alpha="Y" light="N" ignore="Y"/>
-  <material name="signs.png" transparency="Y" light="N"/>
-  
-  <material name="greenice.png"  reset="Y">
-    <particles base="smoke.xml" condition="skid" />
-  </material>
-  
-  <material name="snow.png" max-speed="0.4" slowdown-time="0.8">
-    <particles base="smoke.xml" condition="skid drive" />
-  </material>
-  
-  <material name="snowyroad.png">
-    <particles base="smoke.xml" condition="skid drive" />
-  </material>
-  
-  <material name="ice.png">
-    <particles base="smoke.xml" condition="skid" />
-  </material>
-  
-  <material name="snowyrock.png"/>
-  
-  <material name="sand2.png" max-speed="0.5" slowdown-time="3.0">
-    <particles base="smoke_yellow.xml" condition="skid drive" />
-  </material>
-  
-  <material name="road_dirt.png" anisotropic="Y">
-    <particles base="smoke_brown.xml" condition="skid" />
-  </material>
-  
-  <material name="grass2.png" max-speed="0.4" slowdown-time="2.0" anisotropic="Y"/>
-  <material name="dirt2sand.png" anisotropic="Y"/>
-  <material name="grass2dirt.png" clampU="Y" clampV="N" anisotropic="Y" />
-  <material name="logs.png" />
-  <material name="stonetex.png" />
-  <material name="redwhite.png" />
-  <material name="dirt.png" />
-  
-  <material name="city_asphalt_1.png" anisotropic="Y">
-    <particles base="smoke.xml" condition="skid" />
-  </material>
-  
-  <material name="city_checker.png">
-    <particles base="smoke.xml" condition="skid" />
-  </material>
-  
-  <material name="water-splash.png" alpha="Y" light="N" ignore="Y"/>
-  <material name="notes.png" transparency="Y"  light="N" ignore="Y"/>
-  
-  <material name="skyscraper1.png" anisotropic="Y"/>
-  <material name="skyscraper2.png" anisotropic="Y"/>
-  <material name="skyscraper3.png" anisotropic="Y"/>
-  <material name="skyscraper3a.png" anisotropic="Y"/>
+  <material name="water-splash.png" compositing="blend" light="N" ignore="Y"/>
+
+  <material name="wood.jpg" anisotropic="Y"/>
+  <material name="wood_planks1_alpha.png" compositing="blend"/>
   
   <material name="yellow_dirt.png" max-speed="0.4" slowdown-time="2.0" anisotropic="Y">
     <particles base="smoke_yellow.xml" condition="skid drive" />
   </material>
-  
+
 </materials>
