@@ -61,4 +61,6 @@
   <end-cameras>
     <camera type="ahead_of_kart" xyz="28.696526 17.515945 55.195633" distance="5"/>
   </end-cameras>
+  
+  <sky-color rgb="110 125 140" particles="rain.xml"/>
 </scene>

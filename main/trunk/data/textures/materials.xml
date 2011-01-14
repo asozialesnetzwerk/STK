@@ -92,6 +92,8 @@
   <material name="pino2.png"             compositing="blend" />
   <material name="pyramidwall.png" />
 
+  <material name="rain.png"              compositing="blend" light="N" />
+  
   <material name="roadway.png" clampU="Y" anisotropic="Y">
     <particles base="smoke.xml" condition="skid" />
   </material>
