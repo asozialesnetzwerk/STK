@@ -44,7 +44,7 @@
   <sky-dome texture="lighthouse_sky.png"
             horizontal="12" vertical="12" 
             texture-percent="0.5" sphere-percent="1.3"
-            speed-x="0" speed-y="0" />
+            speed-x="0" speed-y="0" particles="snow.xml" />
   <default-start karts-per-row     ="2"
                  forwards-distance ="1.5"
                  sidewards-distance="3"
