@@ -97,6 +97,9 @@ Other licenses :
     by Clark Thames (http://www.tutorialsforblender3d.com/Models/Trees/PalmTree_1.html)
     released under Creative Commons Attribution 3.0 Unported License
 
+* snowflake
+    based on public domain image by NetAlloy (http://www.openclipart.org/detail/100231)
+
 ============================================================
 Credits for GPL textures :
 ============================================================
