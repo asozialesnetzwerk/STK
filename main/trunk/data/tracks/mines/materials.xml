@@ -18,8 +18,8 @@
     <particles base="smoke.xml" condition="skid" />
   </material>
   
-  <material name="mine_rock.jpg" anisotropic="Y" max-speed="0.4" slowdown-time="1.5" />
-  <material name="mine_rock2.jpg" anisotropic="Y" max-speed="0.4" slowdown-time="1.5" />
+  <material name="mine_rock.jpg" anisotropic="Y" />
+  <material name="mine_rock2.jpg" anisotropic="Y" />
   <material name="metal_rusted.jpg" anisotropic="Y" />
   <material name="mine_rail.jpg" anisotropic="Y" />
 </materials>
