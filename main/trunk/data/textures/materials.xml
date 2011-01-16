@@ -77,7 +77,8 @@
   <material name="lava.png"              light="N" reset="Y"/>
   <material name="logs.png" />
   <material name="magnet.png"            compositing="test" clampU="Y" clampV="Y" light="N" ignore="Y"/>
-  <material name="metalgrid.png"         compositing="test" anisotropic="N" />
+  <material name="metalgrid.png"         compositing="test" />
+  <material name="metal_plates.png"      anisotropic="Y" />
   <material name="notes.png"             compositing="test" light="N" ignore="Y"/>
   <material name="oakleaf_fall.png"      compositing="test" ignore="Y" light="N" />
   <material name="palmtree3.png"         compositing="test"/>
