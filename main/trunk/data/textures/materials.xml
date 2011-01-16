@@ -155,6 +155,8 @@
   <material name="trackborder.png" light="N">
     <particles base="smoke.xml" condition="skid" />
   </material>
+  
+  <material name="transparence.png" compositing="test" />
 
   <material name="water_light.png" light="N" reset="Y"/>
   <material name="water-splash.png" compositing="blend" light="N" ignore="Y"/>
