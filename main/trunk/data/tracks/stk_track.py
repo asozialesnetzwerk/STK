@@ -1454,7 +1454,7 @@ class TrackExport:
     # --------------------------------------------------------------------------
     # Writes the materials files, which includes all texture definitions 
     # (remember: Blenders "image" objects are STK's "material" objects)
-    # I'm using the IDProperty browser!!!
+    # Please use the STKProperty browser!!!
     def writeMaterialsFile(self, sPath):
 
         # Read & Write the materials to the file
@@ -1478,46 +1478,51 @@ class TrackExport:
         f.write("<!-- Generated with script from SVN rev %s -->\n"%getScriptVersion())
         f.write("<materials>\n")
 
-        lBooleanAttributes = ["CLAMPU", "CLAMPV","TRANSPARENCY","ALPHA","LIGHT","SPHERE",\
-                              "ANISOTROPIC","BACKFACE-CULLING", "IGNORE","ZIPPER","RESET",\
-                              "SFX:POSITIONAL"]
+        lBooleanAttributes = ["CLAMPU","CLAMPV","TRANSPARENCY","LIGHT","SPHERE",\
+                              "ANISOTROPIC","BACKFACE-CULLING","IGNORE","ZIPPER","RESET",\
+                              "SFX:POSITIONAL","PARTICLE"]
 
         for i in limage:
             #iterate through material definitions and collect data
             sImage = ""
             sSFX = ""
-
+            sParticle = ""
+            hasSoundeffect = (convertTextToYN(getIdProperty(i, "sound-effect", "no")) == "Y")
+            hasParticle = (convertTextToYN(getIdProperty(i, "particle", "no")) == "Y")
+                        
             for sAttrib,sValue in i.properties.iteritems():
+                currentValue = sValue
+                #Correct for all the ways booleans can be represented (true/false;yes/no;zero/not_zero) 
+                if sAttrib.strip().upper() in lBooleanAttributes:
+                    currentValue = convertTextToYN(sValue)
+                
                 if sAttrib.strip().upper().startswith("SFX:"):
                     #These items pertain to the soundeffects (starting with sfx:)
                     strippedName = sAttrib.strip().split(":")[1]
-                    
-                    if strippedName.upper() in lBooleanAttributes:
-                        sSFX = "%s %s=\"%s\""%(sSFX,strippedName,convertTextToYN(sValue))
-                    else:
-                        sSFX = "%s %s=\"%s\""%(sSFX,strippedName,sValue)                   
+                    sSFX = "%s %s=\"%s\""%(sSFX,strippedName,currentValue)
+                elif sAttrib.strip().upper().startswith("PARTICLE:"):
+                    #These items pertain to the particles (starting with sfx:)
+                    strippedName = sAttrib.strip().split(":")[1]
+                    sParticle = "%s %s=\"%s\""%(sParticle,strippedName,currentValue)                       
                 else:
                     #These items are standard items
-                    if sAttrib.strip().upper() in lBooleanAttributes:
-                        sImage = "%s %s=\"%s\""%(sImage,sAttrib,convertTextToYN(sValue))
-                    else:
-                        sImage = "%s %s=\"%s\""%(sImage,sAttrib,sValue)
+                    if sAttrib.strip().upper() not in ["PARTICLE","SOUND-EFFECT"]:
+                        sImage = "%s %s=\"%s\""%(sImage,sAttrib,currentValue)
 
             # Now write the main content of the materials.xml file
-            if sImage or sSFX:
+            if sImage or hasSoundeffect or hasParticle:
                 #Get the filename of the image.
                 s = i.getFilename()
-                if sSFX:
-                    sImage="  <material name=\"%s\"%s>\n" % (Blender.sys.basename(s),sImage)
-                    sImage="%s    <sfx%s/>\n" % (sImage,sSFX)
-                    sImage="%s  </material>\n" % (sImage)
-                else:
-                    sImage="  <material name=\"%s\"%s/>\n" % (Blender.sys.basename(s),sImage)
-
+                sImage="  <material name=\"%s\"%s" % (Blender.sys.basename(s),sImage)                
+                if hasSoundeffect:
+                    sImage="%s>\n    <sfx%s/" % (sImage,sSFX)
+                if hasParticle:
+                    sImage="%s>\n    <particles%s/" % (sImage,sParticle)
+                sImage="%s>\n  </material>\n" % (sImage)
+          
                 f.write(sImage)
             
         f.write("</materials>\n")
-
 
         f.close()
         print bsys.time()-start_time,"seconds"

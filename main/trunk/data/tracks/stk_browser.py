@@ -115,14 +115,8 @@ lSTKTypes2Properties = {
                 "mass|interaction=move"],\
     "Particle-Emitter":[],\
     "Sun":["ambient","diffuse","specular"],\
-    "Texture":["clampU","clampV","compositing","light","sphere","slowdown-time","anisotropic",\
-               "max-speed","backface-culling","ignore",\
-               "zipper",\
-                "zipper-duration|zipper=yes",\
-                "zipper-max-speed-increase|zipper=yes",\
-                "zipper-fade-out-time|zipper=yes",\
-                "zipper-speed-gain|zipper=yes",\
-               "reset","graphical-effect",\
+    "Texture":["anisotropic","backface-culling","clampU","clampV","compositing","disable-z-write",\
+               "ignore","light","max-speed","reset","slowdown-time","sphere",\
                "sound-effect",\
                 "sfx:filename|sound-effect=yes",\
                 "sfx:name|sound-effect=yes",\
@@ -131,7 +125,15 @@ lSTKTypes2Properties = {
                 "sfx:max-speed|sound-effect=yes",\
                 "sfx:min-pitch|sound-effect=yes",\
                 "sfx:max-pitch|sound-effect=yes",\
-                "sfx:positional|sound-effect=yes"],\
+                "sfx:positional|sound-effect=yes",\
+               "zipper",\
+                "zipper-duration|zipper=yes",\
+                "zipper-max-speed-increase|zipper=yes",\
+                "zipper-fade-out-time|zipper=yes",\
+                "zipper-speed-gain|zipper=yes",\
+               "particle",\
+                "particle:base|particle=yes",\
+                "particle:condition|particle=yes"],\
     "Track":["stk-browser-version","name","groups","designer","music","screenshot","arena",\
              "sky-type",\
               "sky-texture|sky-type=dome",\
@@ -220,9 +222,12 @@ lPropertyDef = {
     "slowdown-time":[type_FLOAT,1.0, 0, 100, 0.1],\
     "anisotropic":[type_BOOLEAN,"yes"],\
     "max-speed":[type_FLOAT,1.0, 0, 1.0, 0.1],\
-#    "friction":[type_FLOAT,float(1.0), min, max, step],\
+    "particle":[type_BOOLEAN,"no"],\
+    "particle:base":[type_URL,"",200],\
+    "particle:condition":[type_PICKLIST,"skid"],\
     "backface-culling":[type_BOOLEAN,"yes"],\
     "ignore":[type_BOOLEAN,"no"],\
+    "disable-z-write":[type_BOOLEAN,"no"],\
     "zipper":[type_BOOLEAN,"no"],\
     "zipper-duration":[type_FLOAT,3.5, 0, 10, 0.1],\
     "zipper-max-speed-increase":[type_FLOAT,15, 0, 100, 0.1],\
@@ -239,7 +244,6 @@ lPropertyDef = {
     "sfx:min-pitch":[type_FLOAT,1.0, 0.5, 2, 0.1],\
     "sfx:max-pitch":[type_FLOAT,1.0, 0.5, 2, 0.1],\
     "sfx:positional":[type_BOOLEAN,"no"],\
-#    "sfx:volume":[type_FLOAT,float(1.0), min, max, step],\
 #For Lights
     "ambient":[type_COLOUR,0.0,0.0,0.0],\
     "diffuse":[type_COLOUR,0.0,0.0,0.0],\
@@ -262,6 +266,7 @@ lPropertyDef = {
 lSTK_Picklist = {"sky-type": "dome|box|simple",\
                 "graphical-effect": "none|water|smoke",\
                 "compositing": "none|blend|test|additive",\
+                "particle:condition": "skid|drive|skid drive",\
                 "interaction": "none|ghost|static|move",\
                 "shape": "box|sphere|coneX|coneY|coneZ"
 }
