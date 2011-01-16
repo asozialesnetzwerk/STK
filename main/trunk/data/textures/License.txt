@@ -71,6 +71,10 @@ Under Creative Commons Attribution Share-Alike (CC-BY-SA) - http://creativecommo
     by Marianne Gagnon, made from public domain images from BurningWell
     and released under CC-BY-SA 3
 
+* marble.png
+    released under CC-BY-SA 3.0, by Marianne Gagnon
+    based on public domain image from wikimedia
+    
 ================
 Other licenses :
 ================
@@ -99,6 +103,9 @@ Other licenses :
 
 * snowflake
     based on public domain image by NetAlloy (http://www.openclipart.org/detail/100231)
+
+* dirtbrick.png, metal_plates.png
+    by Dakal
 
 ============================================================
 Credits for GPL textures :
