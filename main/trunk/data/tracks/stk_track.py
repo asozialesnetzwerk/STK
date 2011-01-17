@@ -1478,17 +1478,19 @@ class TrackExport:
         f.write("<!-- Generated with script from SVN rev %s -->\n"%getScriptVersion())
         f.write("<materials>\n")
 
-        lBooleanAttributes = ["CLAMPU","CLAMPV","TRANSPARENCY","LIGHT","SPHERE",\
-                              "ANISOTROPIC","BACKFACE-CULLING","IGNORE","ZIPPER","RESET",\
-                              "SFX:POSITIONAL","PARTICLE"]
+        lBooleanAttributes = ["CLAMPU","CLAMPV","LIGHT","SPHERE",\
+                              "ANISOTROPIC","BACKFACE-CULLING","IGNORE","DISABLE-Z-WRITE","RESET",\
+                              "SFX:POSITIONAL"]
 
         for i in limage:
             #iterate through material definitions and collect data
             sImage = ""
             sSFX = ""
             sParticle = ""
+            sZipper = ""
             hasSoundeffect = (convertTextToYN(getIdProperty(i, "sound-effect", "no")) == "Y")
             hasParticle = (convertTextToYN(getIdProperty(i, "particle", "no")) == "Y")
+            hasZipper = (convertTextToYN(getIdProperty(i, "zipper", "no")) == "Y")
                         
             for sAttrib,sValue in i.properties.iteritems():
                 currentValue = sValue
@@ -1503,14 +1505,18 @@ class TrackExport:
                 elif sAttrib.strip().upper().startswith("PARTICLE:"):
                     #These items pertain to the particles (starting with sfx:)
                     strippedName = sAttrib.strip().split(":")[1]
-                    sParticle = "%s %s=\"%s\""%(sParticle,strippedName,currentValue)                       
+                    sParticle = "%s %s=\"%s\""%(sParticle,strippedName,currentValue)   
+                elif sAttrib.strip().upper().startswith("ZIPPER:"):
+                    #These items pertain to the particles (starting with sfx:)
+                    strippedName = sAttrib.strip().split(":")[1]
+                    sZipper = "%s %s=\"%s\""%(sParticle,strippedName,currentValue)   
                 else:
                     #These items are standard items
-                    if sAttrib.strip().upper() not in ["PARTICLE","SOUND-EFFECT"]:
+                    if sAttrib.strip().upper() not in ["PARTICLE","SOUND-EFFECT","ZIPPER"]:
                         sImage = "%s %s=\"%s\""%(sImage,sAttrib,currentValue)
 
             # Now write the main content of the materials.xml file
-            if sImage or hasSoundeffect or hasParticle:
+            if sImage or hasSoundeffect or hasParticle or hasZipper:
                 #Get the filename of the image.
                 s = i.getFilename()
                 sImage="  <material name=\"%s\"%s" % (Blender.sys.basename(s),sImage)                
@@ -1518,6 +1524,8 @@ class TrackExport:
                     sImage="%s>\n    <sfx%s/" % (sImage,sSFX)
                 if hasParticle:
                     sImage="%s>\n    <particles%s/" % (sImage,sParticle)
+                if hasZipper:
+                    sImage="%s>\n    <zipper%s/" % (sImage,sZipper)
                 sImage="%s>\n  </material>\n" % (sImage)
           
                 f.write(sImage)

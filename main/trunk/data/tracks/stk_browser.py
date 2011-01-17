@@ -127,10 +127,10 @@ lSTKTypes2Properties = {
                 "sfx:max-pitch|sound-effect=yes",\
                 "sfx:positional|sound-effect=yes",\
                "zipper",\
-                "zipper-duration|zipper=yes",\
-                "zipper-max-speed-increase|zipper=yes",\
-                "zipper-fade-out-time|zipper=yes",\
-                "zipper-speed-gain|zipper=yes",\
+                "zipper:duration|zipper=yes",\
+                "zipper:max-speed-increase|zipper=yes",\
+                "zipper:fade-out-time|zipper=yes",\
+                "zipper:speed-gain|zipper=yes",\
                "particle",\
                 "particle:base|particle=yes",\
                 "particle:condition|particle=yes"],\
@@ -229,10 +229,10 @@ lPropertyDef = {
     "ignore":[type_BOOLEAN,"no"],\
     "disable-z-write":[type_BOOLEAN,"no"],\
     "zipper":[type_BOOLEAN,"no"],\
-    "zipper-duration":[type_FLOAT,3.5, 0, 10, 0.1],\
-    "zipper-max-speed-increase":[type_FLOAT,15, 0, 100, 0.1],\
-    "zipper-fade-out-time":[type_FLOAT,3, 0, 100, 0.1],\
-    "zipper-speed-gain":[type_FLOAT,4.5, 0, 100, 0.1],\
+    "zipper:duration":[type_FLOAT,3.5, 0, 10, 0.1],\
+    "zipper:max-speed-increase":[type_FLOAT,15, 0, 100, 0.1],\
+    "zipper:fade-out-time":[type_FLOAT,3, 0, 100, 0.1],\
+    "zipper:speed-gain":[type_FLOAT,4.5, 0, 100, 0.1],\
     "reset":[type_BOOLEAN,"no"],\
     "graphical-effect":[type_PICKLIST,"none"],\
     "sound-effect":[type_BOOLEAN,"no"],\
