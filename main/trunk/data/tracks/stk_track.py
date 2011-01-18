@@ -520,8 +520,8 @@ class TrackExport:
         #getIdProperty(scene, "sky-sphere-percent", "")
         
         f = open(sPath+"/track.xml", 'wb')
-        f.write("<!-- Generated with script from SVN rev %s -->\n"%getScriptVersion())
         f.write("<?xml version=\"1.0\"?>\n")
+        f.write("<!-- Generated with script from SVN rev %s -->\n"%getScriptVersion())
         f.write("<track  name        = \"%s\"\n"%name)
         f.write("        version     = \"3\"\n")
         f.write("        groups      = \"%s\"\n"%groups)
