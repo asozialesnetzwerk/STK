@@ -62,7 +62,7 @@
     <particles base="smoke.xml"          condition="skid" />
   </material>
   
-  <material name="hacienda_ground.png">
+  <material name="hacienda_ground.jpg">
     <particles base="smoke.xml" condition="skid" />
   </material>
 
