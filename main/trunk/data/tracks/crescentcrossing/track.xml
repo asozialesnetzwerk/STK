@@ -3,7 +3,7 @@
 <track  name        = "Crescent Crossing"
         version     = "3"
         groups      = "standard"
-        designer    = "Marianne Gagnon & Ingo Ruhnke"
+        designer    = "Marianne Gagnon &amp; Ingo Ruhnke"
         music       = "ChillCarrier-Druckverlust.music"
         screenshot  = "sshot-crescent.png"
 >

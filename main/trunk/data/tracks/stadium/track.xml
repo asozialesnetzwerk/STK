@@ -3,7 +3,7 @@
 <track  name        = "The Stadium"
         version     = "3"
         groups      = "standard"
-        designer    = "Thomas Oppl - stadium model & Pixel_2ACF3 (Wayne Dennis) - Arena Mods"
+        designer    = "Thomas Oppl - stadium model &amp; Pixel_2ACF3 (Wayne Dennis) - Arena Mods"
         music       = "Penguin_Party.music"
         arena       = "true"
         screenshot  = "racetrack_screenshot.png"
