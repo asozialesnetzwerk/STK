@@ -6,7 +6,6 @@
       icon-file         = "gnuicon.png"
       minimap-icon-file = "gnuicon.png"
       shadow-file       = "gnushadow.png"
-      center-shift      = "0 0.7 0"
       groups            = "standard"
       rgb               = "1.0 0.75 0" >
   <animations left = "0"
