@@ -1,0 +1,6 @@
+Released under GNU GPL.
+
+except :
+    
+    railing.png
+    by Dakal, released under CC-BY-SA 3.0

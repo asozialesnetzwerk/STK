@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 7092 -->
+<materials>
+  <material name="fence.png" transparency="Y" backface-culling="N"/>
+  <material name="grass.jpg" slowdown-time="0.8" max-speed="0.5"/>
+  <material name="light.png" clampU="Y" clampV="Y" alpha="Y" light="N" ignore="Y" disable-z-write="Y"/>
+  <material name="lighthouse.jpg" light="N"/>
+  <material name="lighthouse_sky.jpg" light="N" reset="Y"/>
+  
+  <material name="sand.jpg" slowdown-time="0.8" max-speed="0.5">
+    <particles base="smoke_yellow.xml" condition="skid drive" />
+  </material>
+  
+  <material name="sandgrass.jpg" slowdown-time="0.8" max-speed="0.5" >
+    <particles base="smoke_yellow.xml" condition="skid drive" />
+  </material>
+
+  <material name="sea.jpg" ignore="Y"/>
+  <material name="seabed.jpg" graphical-effect="water" reset="Y"/>
+  
+  <material name="lighthouse_path.png" >
+    <particles base="smoke_brown.xml" condition="skid drive" />
+  </material>
+</materials>

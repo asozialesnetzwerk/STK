@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 6611 -->
+<track  name        = "Secret Garden"
+        version     = "3"
+        groups      = "standard"
+        designer    = "CanisLupus"
+        music       = "garden.music"
+        screenshot  = "sshot-secretgarden.png"
+>
+</track>
