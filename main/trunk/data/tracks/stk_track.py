@@ -523,7 +523,7 @@ class TrackExport:
         f.write("<?xml version=\"1.0\"?>\n")
         f.write("<!-- Generated with script from SVN rev %s -->\n"%getScriptVersion())
         f.write("<track  name        = \"%s\"\n"%name)
-        f.write("        version     = \"3\"\n")
+        f.write("        version     = \"4\"\n")
         f.write("        groups      = \"%s\"\n"%groups)
         f.write("        designer    = \"%s\"\n"%designer)
         if music:
@@ -1526,7 +1526,10 @@ class TrackExport:
                     sImage="%s>\n    <particles%s/" % (sImage,sParticle)
                 if hasZipper:
                     sImage="%s>\n    <zipper%s/" % (sImage,sZipper)
-                sImage="%s>\n  </material>\n" % (sImage)
+                if not hasSoundeffect and not hasParticle and not hasZipper:
+                    sImage="%s/>\n" % (sImage)
+                else:
+                    sImage="%s>\n  </material>\n" % (sImage)
           
                 f.write(sImage)
             
