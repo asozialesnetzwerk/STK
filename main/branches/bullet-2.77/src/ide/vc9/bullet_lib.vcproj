@@ -43,7 +43,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="..\..\bullet\src"
-				PreprocessorDefinitions="WIN32;BT_NO_PROFILE;HAVE_GLUT"
+				PreprocessorDefinitions="WIN32;BT_NO_PROFILE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -109,7 +109,7 @@
 				Name="VCCLCompilerTool"
 				WholeProgramOptimization="false"
 				AdditionalIncludeDirectories="..\..\bullet\src"
-				PreprocessorDefinitions="WIN32;NDEBUG;BT_NO_PROFILE;HAVE_GLUT"
+				PreprocessorDefinitions="WIN32;NDEBUG;BT_NO_PROFILE;ENABLE_SSE"
 				MinimalRebuild="true"
 				RuntimeLibrary="0"
 				UsePrecompiledHeader="0"
@@ -172,7 +172,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="..\..\bullet\src"
-				PreprocessorDefinitions="WIN32;BT_NO_PROFILE;HAVE_GLUT"
+				PreprocessorDefinitions="WIN32;BT_NO_PROFILE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -534,10 +534,6 @@
 					</File>
 					<File
 						RelativePath="..\..\bullet\src\BulletCollision\NarrowPhaseCollision\btGjkConvexCast.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\..\bullet\src\BulletCollision\NarrowPhaseCollision\btGjkEpa.cpp"
 						>
 					</File>
 					<File
@@ -1204,10 +1200,6 @@
 					</File>
 					<File
 						RelativePath="..\..\bullet\src\BulletCollision\NarrowPhaseCollision\btGjkConvexCast.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\bullet\src\BulletCollision\NarrowPhaseCollision\btGjkEpa.h"
 						>
 					</File>
 					<File

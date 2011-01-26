@@ -46,7 +46,9 @@
 #include "network/race_state.hpp"
 #include "network/network_manager.hpp"
 #include "physics/btKart.hpp"
+#ifdef CONSTRAINT
 #include "physics/btUprightConstraint.hpp"
+#endif
 #include "physics/physics.hpp"
 #include "race/history.hpp"
 #include "tracks/track.hpp"
@@ -265,6 +267,7 @@ void Kart::createPhysics()
     // Obviously these allocs have to be properly managed/freed
     btTransform t;
     t.setIdentity();
+#ifdef CONSTRAINT
     m_uprightConstraint=new btUprightConstraint(this, t);
     m_uprightConstraint->setLimit(m_kart_properties->getUprightTolerance());
     m_uprightConstraint->setBounce(0.0f);
@@ -272,6 +275,7 @@ void Kart::createPhysics()
     m_uprightConstraint->setErp(1.0f);
     m_uprightConstraint->setLimitSoftness(1.0f);
     m_uprightConstraint->setDamping(0.0f);
+#endif
     World::getWorld()->getPhysics()->addKart(this);
 
 }   // createPhysics
@@ -345,7 +349,9 @@ Kart::~Kart()
     delete m_vehicle;
     delete m_tuning;
     delete m_vehicle_raycaster;
+#ifdef CONSTRAINT
     delete m_uprightConstraint;
+#endif
     for(int i=0; i<m_kart_chassis.getNumChildShapes(); i++)
     {
         delete m_kart_chassis.getChildShape(i);
@@ -709,11 +715,13 @@ void Kart::update(float dt)
     {
         // When really on air, free fly, when near ground, try to glide / adjust for landing
         // If zipped, be stable, so ramp+zipper can allow nice jumps without scripting the fly
+#ifdef CONSTRAINT
         if(!isNearGround() && 
             MaxSpeed::getSpeedIncreaseTimeLeft(MS_INCREASE_ZIPPER)<=0.0f )
             m_uprightConstraint->setLimit(M_PI);
         else
             m_uprightConstraint->setLimit(m_kart_properties->getUprightTolerance());
+#endif
     }
 
     

@@ -500,9 +500,13 @@ bool UserConfig::loadConfig()
     }
     
     // sort players by frequency of use
+#if !defined(DEBUG) && defined(WIN32)
+    // FIXME We need sorting without iterators here for the case that 
+    //       AlignedArray is used.
+#else
     std::sort (UserConfigParams::m_all_players.contentsVector.begin(),
                UserConfigParams::m_all_players.contentsVector.end(), comparePlayers);
-    
+#endif
     
     delete root;
 

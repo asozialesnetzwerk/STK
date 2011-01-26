@@ -56,11 +56,18 @@ inline int	btGetVersion()
 //			#pragma warning(disable:4530) // Disable the exception disable but used in MSCV Stl warning.
 //			#pragma warning(disable:4996) //Turn off warnings about deprecated C routines
 //			#pragma warning(disable:4786) // Disable the "debug name too long" warning
-
+#ifdef ENABLE_SSE
 			#define SIMD_FORCE_INLINE __forceinline
 			#define ATTRIBUTE_ALIGNED16(a) __declspec(align(16)) a
 			#define ATTRIBUTE_ALIGNED64(a) __declspec(align(64)) a
 			#define ATTRIBUTE_ALIGNED128(a) __declspec (align(128)) a
+#else
+            #define SIMD_FORCE_INLINE inline
+            #define ATTRIBUTE_ALIGNED16(a) a
+            #define ATTRIBUTE_ALIGNED64(a) a
+            #define ATTRIBUTE_ALIGNED128(a) a
+#endif
+
 		#ifdef _XBOX
 			#define BT_USE_VMX128
 
@@ -69,7 +76,7 @@ inline int	btGetVersion()
  			#define btFsel(a,b,c) __fsel((a),(b),(c))
 		#else
 
-#if (defined (_WIN32) && (_MSC_VER) && _MSC_VER >= 1400) && (!defined (BT_USE_DOUBLE_PRECISION))
+#if (defined (_WIN32) && (_MSC_VER) && _MSC_VER >= 1400) && (!defined (BT_USE_DOUBLE_PRECISION)) && defined (ENABLE_SSE)
 			#define BT_USE_SSE
 			#include <emmintrin.h>
 #endif

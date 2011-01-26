@@ -120,7 +120,9 @@ private:
     btCompoundShape          m_kart_chassis;
     btVehicleRaycaster      *m_vehicle_raycaster;
     btKart                  *m_vehicle;
+#ifdef CONSTRAINT
     btUprightConstraint     *m_uprightConstraint;
+#endif
 
      /** The amount of energy collected by hitting coins. Note that it
       *  must be float, since dt is subtraced in each timestep. */
@@ -355,8 +357,10 @@ public:
     btKart        *getVehicle      () const {return m_vehicle;                }
     // ------------------------------------------------------------------------
     /** Returns the upright constraint for this kart. */
+#ifdef CONSTRAINT
     btUprightConstraint *getUprightConstraint() const 
                                                   {return m_uprightConstraint;}
+#endif
     // ------------------------------------------------------------------------
     /** Returns the speed of the kart. */
     float          getSpeed         () const {return m_speed;                 }
