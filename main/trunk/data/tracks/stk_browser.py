@@ -10,7 +10,7 @@ from symbol import except_clause
 from string import uppercase
 
 __author__ = "Asciimonster"
-__version__ = "0.1.5"
+__version__ = "0.1.6"
 __email__ = "asciimonster@myrealbox.com"
 __bpydoc__ = """\
 
@@ -23,6 +23,8 @@ etc.
 """
 
 import Blender
+import os
+import stk_track
 
 from Blender import *
 from Blender.BGL import *
@@ -55,6 +57,7 @@ btn_CHANGETYPE  = 104
 btn_UP          = 105
 btn_DOWN        = 106
 btn_USECURRENT  = 107
+btn_STARTEXPORT = 108
 # N.B. Events 500 and upwards are reserved for all temporary buttons
 
 textheight = 20
@@ -155,7 +158,8 @@ lSTKTypes2Properties = {
               "fog-start|fog=yes",\
               "fog-end|fog=yes",\
              "start-karts-per-row","start-forwards-distance","start-sidewards-distance",\
-              "start-upwards-distance"],\
+              "start-upwards-distance",\
+             "weather"],\
     "Water":["name",\
              "height",\
              "length",\
@@ -213,6 +217,7 @@ lPropertyDef = {
     "start-sidewards-distance":[type_FLOAT,1.1,0,1000,0.1],\
     "start-upwards-distance":[type_FLOAT,1.1,0,1000,0.1],\
     "stk-browser-version":[type_STATIC,__version__,""],\
+    "weather":[type_PICKLIST,"none"],\
 #For Textures  
     "clampU":[type_BOOLEAN,"no"],\
     "clampV":[type_BOOLEAN,"no"],\
@@ -268,7 +273,8 @@ lSTK_Picklist = {"sky-type": "dome|box|simple",\
                 "compositing": "none|blend|test|additive",\
                 "particle:condition": "skid|drive|skid drive",\
                 "interaction": "none|ghost|static|move",\
-                "shape": "box|sphere|coneX|coneY|coneZ"
+                "shape": "box|sphere|coneX|coneY|coneZ",\
+                "weather": "none|rain|snow"
 }
 
 class STKData:
@@ -359,7 +365,7 @@ class STKData:
             #Get default value of property 
             cur_default = lPropertyDef[cur_prop][1]
             if lPropertyDef[cur_prop][0] == type_COLOUR:
-                cur_default = "%s %s %s" % (lPropertyDef[cur_prop][1],\
+                cur_default = "%i %i %i" % (lPropertyDef[cur_prop][1],\
                                             lPropertyDef[cur_prop][2],\
                                             lPropertyDef[cur_prop][3])
             
@@ -572,6 +578,12 @@ class STKBrowser:
                     Draw.PupMenu("Error%t|Object not Found")
             except:
                 Draw.PupMenu("Error%t|Cannot determine object!")
+        elif button_id == btn_STARTEXPORT:
+            try:
+                stk_track.main()
+            except:
+                Draw.PupMenu("Error%t|Could not start exporter!")
+            
         elif button_id >= 500:
             #Handle button that has been used in property list
             (prop_name,but_name,but_type) = self.lButtonList[button_id-500]
@@ -582,7 +594,11 @@ class STKBrowser:
             if but_type == type_FLOAT:
                 data.SetProperty(prop_name, self.lButtons[button_id-500].val)
             if but_type == type_COLOUR:
-                data.SetProperty(prop_name, "%s %s %s" % self.lButtons[button_id-500].val)
+                r,b,g = self.lButtons[button_id-500].val
+                r = int(round(r*256))
+                b = int(round(b*256))
+                g = int(round(g*256))
+                data.SetProperty(prop_name, "%i %i %i" % (r,b,g))
             if but_type == type_PICKLIST:
                 #It's a picklist
                 data.SetProperty(prop_name, but_name)
@@ -610,7 +626,7 @@ class STKBrowser:
             elif but_type == type_RESET:
                 #Read the default value and set the property with it.
                 if lPropertyDef[prop_name][0] == type_COLOUR:
-                    colour_default = "%s %s %s" % (lPropertyDef[prop_name][1],\
+                    colour_default = "%i %i %i" % (lPropertyDef[prop_name][1],\
                                                 lPropertyDef[prop_name][2],\
                                                 lPropertyDef[prop_name][3])
                     data.SetProperty(prop_name, colour_default)
@@ -637,6 +653,15 @@ class STKBrowser:
         printwidth = Draw.GetStringWidth(printtext)
         Draw.PushButton("Use Current", btn_USECURRENT, x, y, printwidth, textheight, "Opens currently selected object in the 3D view") 
         x += printwidth + pad
+        
+        printtext = "Create Track "
+        printwidth = Draw.GetStringWidth(printtext)
+        Draw.PushButton("Create Track", btn_STARTEXPORT, x, y, printwidth, textheight, "Starts the track exporter which create the track") 
+        x += printwidth + pad
+        
+        #Newline
+        x = 0
+        y -= textheight+pad
 
         printtext = "Type= "
         printwidth = Draw.GetStringWidth(printtext)
@@ -730,9 +755,9 @@ class STKBrowser:
             elif prop_type == type_COLOUR:
                 try:
                     tmp_but = []
-                    r_colour = float(current_value.split()[0])
-                    g_colour = float(current_value.split()[1])
-                    b_colour = float(current_value.split()[2])
+                    r_colour = float(current_value.split()[0]) / 256
+                    g_colour = float(current_value.split()[1]) / 256
+                    b_colour = float(current_value.split()[2]) / 256
                     tmp_colour = (r_colour,g_colour,b_colour)
                     tmp_but = Draw.ColorPicker(self.NextButton(), x, y, 100, textheight, tmp_colour)
                     self.lButtons.append(tmp_but)

@@ -1679,7 +1679,7 @@ def savescene_callback(sFilename):
     exporter = TrackExport(sFilename)
 
 # ==============================================================================
-if __name__ == "__main__":
+def main():
     print "\n\n-- supertuxkart exporter | SVN version:" + getScriptVersion() + " | (c) Joerg Henrichs (hiker)--"
     ok = 1
     try:
@@ -1705,3 +1705,6 @@ if __name__ == "__main__":
         # since this line is executed by blender before any callback is done,
         # i.e. when the script actually runs, it is still in edit mode.
         # if was_edit_mode:  Blender.Window.EditMode(1)
+        
+if __name__ == "__main__":
+    main()
