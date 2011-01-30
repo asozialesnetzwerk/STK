@@ -109,6 +109,7 @@ void erase(const int ID)
     {
         contentsVector[i]=contentsVector[i+1];
     }
+    contentsVector.pop_back();
 #else
     contentsVector.erase(contentsVector.begin()+ID);
 #endif
@@ -126,6 +127,7 @@ TYPE* remove(const int ID)
     {
         contentsVector[i]=contentsVector[i+1];
     }
+    contentsVector.pop_back();
 #else
     contentsVector.erase(contentsVector.begin()+ID);
 #endif
@@ -189,11 +191,12 @@ void remove(TYPE* obj)
         if(pointer == obj)
         {
 #ifdef USE_ALIGNED
-        const unsigned int amount = (unsigned int)contentsVector.size();
-        for(unsigned int i=n; i<amount-1; i++)
-        {
-            contentsVector[i]=contentsVector[i+1];
-        }
+            const unsigned int amount = (unsigned int)contentsVector.size();
+            for(unsigned int i=n; i<amount-1; i++)
+            {
+                contentsVector[i]=contentsVector[i+1];
+            }
+            contentsVector.pop_back();
 #else
             contentsVector.erase(contentsVector.begin()+n);
 #endif
@@ -215,11 +218,12 @@ bool erase(void* obj)
         if((void*)pointer == obj)
         {
 #ifdef USE_ALIGNED
-        const unsigned int amount = (unsigned int)contentsVector.size();
-        for(unsigned int i=n; i<amount-1; i++)
-        {
-            contentsVector[i]=contentsVector[i+1];
-        }
+             const unsigned int amount = (unsigned int)contentsVector.size();
+             for(unsigned int i=n; i<amount-1; i++)
+             {
+                 contentsVector[i]=contentsVector[i+1];
+             }
+             contentsVector.pop_back();
 #else
             contentsVector.erase(contentsVector.begin()+n);
 #endif
@@ -232,7 +236,7 @@ bool erase(void* obj)
 
     void insertionSort(unsigned int start=0)
     {
-        for(unsigned int j=start; j<contentsVector.size()-1; j++)
+        for(unsigned int j=start; j<(unsigned)contentsVector.size()-1; j++)
         {
             if(*(contentsVector[j])<*(contentsVector[j+1])) continue;
             // Now search the proper place for contentsVector[j+1] 
