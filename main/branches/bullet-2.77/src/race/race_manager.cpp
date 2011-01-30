@@ -40,7 +40,6 @@
 #include "states_screens/main_menu_screen.hpp"
 #include "states_screens/state_manager.hpp"
 #include "tracks/track_manager.hpp"
-#include "utils/sort.hpp"
 
 RaceManager* race_manager= NULL;
 
