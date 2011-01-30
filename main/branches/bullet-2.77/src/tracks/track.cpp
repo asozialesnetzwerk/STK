@@ -1134,7 +1134,7 @@ void  Track::getTerrainInfo(const Vec3 &pos, float *hot, Vec3 *normal,
         const Material* m_material;
         MaterialCollision(const btVector3 &p1, const btVector3 &p2) : 
             btCollisionWorld::ClosestRayResultCallback(p1,p2) {m_material=NULL;}
-        virtual btScalar AddSingleResult(btCollisionWorld::LocalRayResult& rayResult,
+        virtual btScalar addSingleResult(btCollisionWorld::LocalRayResult& rayResult,
                                          bool normalInWorldSpace) {
              if(rayResult.m_localShapeInfo && rayResult.m_localShapeInfo->m_shapePart>=0 )
              {
