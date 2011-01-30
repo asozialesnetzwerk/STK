@@ -504,12 +504,7 @@ bool UserConfig::loadConfig()
     }
     
     // sort players by frequency of use
-#if !defined(DEBUG) && defined(WIN32)
-    // FIXME We need sorting without iterators here for the case that 
-    //       AlignedArray is used.
-#else
     UserConfigParams::m_all_players.insertionSort();
-#endif
     
     delete root;
 
