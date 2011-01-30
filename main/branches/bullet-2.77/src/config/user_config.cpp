@@ -435,11 +435,15 @@ void UserConfig::addDefaultPlayer()
 
 // -----------------------------------------------------------------------------
 
-/** comparison function used to sort players */
-bool comparePlayers(PlayerProfile* a, PlayerProfile* b)
+/** Comparison used to sort players. Most frequent players should be
+ *  listed first, so a<b actually means that 
+ *  a.m_use_frequency > b.m_use_frequency
+ *  This way we get a reversed sorted list.
+ */
+bool operator<(const PlayerProfile &a, const PlayerProfile &b)
 {
-    return a->m_use_frequency > b->m_use_frequency;
-}
+    return a.m_use_frequency > b.m_use_frequency;
+}   // operator<
 
 // -----------------------------------------------------------------------------
 /** Load configuration values from file. */
@@ -504,8 +508,7 @@ bool UserConfig::loadConfig()
     // FIXME We need sorting without iterators here for the case that 
     //       AlignedArray is used.
 #else
-    std::sort (UserConfigParams::m_all_players.contentsVector.begin(),
-               UserConfigParams::m_all_players.contentsVector.end(), comparePlayers);
+    UserConfigParams::m_all_players.insertionSort();
 #endif
     
     delete root;

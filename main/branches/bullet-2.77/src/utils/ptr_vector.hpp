@@ -230,6 +230,25 @@ bool erase(void* obj)
     return false;
 }
 
+    void insertionSort(unsigned int start=0)
+    {
+        for(unsigned int j=start; j<contentsVector.size()-1; j++)
+        {
+            if(*(contentsVector[j])<*(contentsVector[j+1])) continue;
+            // Now search the proper place for contentsVector[j+1] 
+            // in the sorted section contentsVectot[start:j]
+            TYPE* t=contentsVector[j+1];
+            unsigned int i = j+1;
+            do
+            {
+                contentsVector[i] = contentsVector[i-1];
+                i--;
+            } while (i>0 && *t<*(contentsVector[i-1]));
+            contentsVector[i]=t;
+        }
+    }   // insertionSort
+
+
 };
 
 
