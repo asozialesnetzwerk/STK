@@ -76,9 +76,7 @@ void Physics::addKart(const Kart *kart)
 {
     m_dynamics_world->addRigidBody(kart->getBody());
     m_dynamics_world->addVehicle(kart->getVehicle());
-#ifdef CONSTRAINT
     m_dynamics_world->addConstraint(kart->getUprightConstraint());
-#endif
 }   // addKart
 
 //-----------------------------------------------------------------------------
@@ -90,9 +88,7 @@ void Physics::removeKart(const Kart *kart)
 {
     m_dynamics_world->removeRigidBody(kart->getBody());
     m_dynamics_world->removeVehicle(kart->getVehicle());
-#ifdef CONSTRAINT
     m_dynamics_world->removeConstraint(kart->getUprightConstraint());
-#endif
 }   // removeKart
 
 //-----------------------------------------------------------------------------

@@ -579,6 +579,10 @@
 					>
 				</File>
 				<File
+					RelativePath="..\..\physics\btUprightConstraint.cpp"
+					>
+				</File>
+				<File
 					RelativePath="..\..\physics\irr_debug_drawer.cpp"
 					>
 				</File>
@@ -1514,6 +1518,10 @@
 				>
 				<File
 					RelativePath="..\..\physics\btKart.hpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\physics\btUprightConstraint.hpp"
 					>
 				</File>
 				<File
