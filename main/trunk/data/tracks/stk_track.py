@@ -961,12 +961,9 @@ class TrackExport:
         for obj in lParticleEmitters:
             try:
                 # origin
-                originXYZ = str(obj.loc).split('(')[1].split(')')[0]
-                loriginXYZ = originXYZ.split(',')
-                originXYZ = ""
-                for i in loriginXYZ:
-                    originXYZ = originXYZ + i
-                f.write('  <particle-emitter kind="' + getProperty(obj, "kind", 0) + '" origin="' + originXYZ + '"/>\n')
+                originXYZ = getXYZHString(obj)
+                f.write('  <particle-emitter kind="%s" %s/>\n' %\
+                        (getProperty(obj, "kind", 0) ,originXYZ))
             except:
                 print "\nerror unknow: check the particle-emitter <" + getProperty(obj, "name", obj.name) + "> " , sys.exc_info()[0]
     # --------------------------------------------------------------------------
