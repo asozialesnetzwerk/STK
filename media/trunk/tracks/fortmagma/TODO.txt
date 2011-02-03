@@ -1,0 +1,13 @@
+--------------------------------------------------------------------------------
+-- world:   codename krakatoa
+-- author:  jean-manuel clemençon aka samuncle
+-- version: 0.2a
+-- (c) 2011 supertuxkart
+--------------------------------------------------------------------------------
+
+-> a better driveline
+-> optimisation (low poly background)
+-> the castel
+-> the lava tunnel
+-> more bigger pillars
+-> add some objects (like lava fountain)
