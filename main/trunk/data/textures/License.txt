@@ -56,6 +56,9 @@ Under Creative Commons Attribution Share-Alike (CC-BY-SA) - http://creativecommo
     by jmimu
     released under CC-BY-SA 3.0
 
+* starparticle.png
+    by Samuncle (Jean-Manuel Clamençon)
+
 * TiZeta_ivy
     http://commons.wikimedia.org/wiki/File:Conlon_Ivy.JPG, by Found5dollar
 * TiZeta_barkM
