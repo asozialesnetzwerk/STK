@@ -1288,6 +1288,7 @@ class TrackExport:
         else:
             f.write("  <track model=\"%s\" x=\"0\" y=\"0\" z=\"0\"/>\n"%sTrackName)
         self.writeWaterNodes(f, sPath, lWater)
+        
         if lParticleEmitters:
             self.writeParticleEmitters(f, lParticleEmitters)
         for obj in lOtherObjects:
@@ -1584,7 +1585,6 @@ class TrackExport:
                     # Start empties are called start1, start2, ...
                     lStart.append(obj)
                 elif stktype=="PARTICLE-EMITTER":
-                    print "plouf"
                     lParticleEmitters.append(obj)
                 else:
                     print "Empty '%s' has type '%s' which is not valid - ignored."%\

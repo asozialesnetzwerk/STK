@@ -50,7 +50,7 @@
   </material>
   
   <material name="egypt.png" />
-  <material name="explode.png"           compositing="test" clampU="Y" clampV="Y" light="N" ignore="Y"/>
+  <material name="explode.png"           compositing="additive" clampU="Y" clampV="Y" ignore="Y"/>
   <material name="fence.png"             compositing="blend" light="n"/>
   <material name="flames.png"            light="N" ignore="Y"/>
   <material name="fuzzy.png"             compositing="test" clampU="Y" clampV="Y" light="N" ignore="Y"/>
