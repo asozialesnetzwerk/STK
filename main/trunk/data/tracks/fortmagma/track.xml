@@ -1,10 +1,9 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 7092 -->
+<!-- Generated with script from SVN rev 7560 -->
 <track  name        = "Fort Magma"
-        version     = "3"
+        version     = "4"
         groups      = "standard"
-        designer    = "Oliver &amp; Steve Baker, Marianne Gagnon"
-        music       = "SymphonyNo5.music"
-        screenshot  = "sshot-fortmagma.png"
+        designer    = "Jean-Manuel Clemencon"
+        screenshot  = "sshot.jpg"
 >
 </track>

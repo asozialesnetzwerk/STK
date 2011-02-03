@@ -1,6 +1,13 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 6875 -->
+<!-- Generated with script from SVN rev 7560 -->
 <materials>
-  <material name="tinytux.png" transparency="Y"/>
-  <material name="transparence.png" transparency="Y" reset="Y"/>
+  <material name="blackrock_lava.jpg" light="N"/>
+  <material name="chain.png" compositing="test" backface-culling="N"/>
+  <material name="dynamiclight.png" compositing="blend" light="N" disable-z-write="Y" ignore="Y"/>
+  <material name="lava_1.jpg" light="N"/>
+  <material name="lava_sky.png" light="N"/>
+  <material name="lightHaloY.png" compositing="blend" light="N" disable-z-write="Y" ignore="Y"/>
+  <material name="pix.png" compositing="test" reset="Y"/>
+  <material name="zipper.png" compositing="blend" light="N"/>
+  <material name="zipper_effect.png" compositing="blend" light="N"/>
 </materials>
