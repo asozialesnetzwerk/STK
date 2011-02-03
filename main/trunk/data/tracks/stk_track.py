@@ -21,23 +21,24 @@ __bpydoc__ = """\
 #because you don't have Python installed.
 import Blender
 import BPyMesh
-import sys,os,os.path,struct,math,string,re
+import sys, os, os.path, struct, math, string, re
 import b3d_export
 
 from Blender import Mathutils, IpoCurve, Constraint
 from Blender.Mathutils import *
-from Blender import Draw,BGL
+from Blender import Draw, BGL
 from Blender.BGL import *
 from Blender import sys as bsys
 
-if not hasattr(sys,"argv"): sys.argv =m ["???"]
+if not hasattr(sys, "argv"):
+    sys.argv = m["???"]
 
 def getScriptVersion():
     try:
         m = re.search('(\d+)', __version__)
         return str(m.group(0))
     except:
-        return "Unknown"    
+        return "Unknown"
 
 # ------------------------------------------------------------------------------
 def Round(f):
@@ -202,7 +203,7 @@ class Driveline:
         self.lCenter.append(cp)
         self.lLeft.append(None)
         self.lRight.append(None)
-        
+
     # --------------------------------------------------------------------------
     # This creates a dictionary for a mesh which contains for each vertex a list
     # of all its neighbours.
@@ -1008,7 +1009,7 @@ class TrackExport:
             if not group or not dGroup2Indices.has_key(group):
                 print "Activate group '%s' not found!"%group
                 print "Ignored - but lap counting might not work correctly."
-                print "Make sure there is an object of typ 'check' with"
+                print "Make sure there is an object of type 'check' with"
                 print "the name '%s' defined."%group
                 activate = ""
             else:
@@ -1049,7 +1050,7 @@ class TrackExport:
                 if not dGroup2Indices.has_key(group):
                     print "Activate group '%s' not found!"%group
                     print "Ignored - but lap counting might not work correctly."
-                    print "Make sure there is an object of typ 'check' with"
+                    print "Make sure there is an object of type 'check' with"
                     print "the name '%s' defined."%group
                     continue
                 s = reduce(lambda x,y: str(x)+" "+str(y), dGroup2Indices[group])
@@ -1061,7 +1062,7 @@ class TrackExport:
                 if not dGroup2Indices.has_key(group):
                     print "Toggle group '%s' not found!"%group
                     print "Ignored - but lap counting might not work correctly."
-                    print "Make sure there is an object of typ 'check' with"
+                    print "Make sure there is an object of type 'check' with"
                     print "the name '%s' defined."%group
                     continue
                 s = reduce(lambda x,y: str(x)+" "+str(y), dGroup2Indices[group])
@@ -1076,7 +1077,7 @@ class TrackExport:
                     if not dGroup2Indices.has_key(group):
                         print "Activate group '%s' not found for lap line!"%group
                         print "Ignored - but lap counting might not work correctly."
-                        print "Make sure there is an object of typ 'check' with"
+                        print "Make sure there is an object of type 'check' with"
                         print "the name '%s' defined."%group
                         continue
                     s = reduce(lambda x,y: str(x)+" "+str(y), dGroup2Indices[group])
