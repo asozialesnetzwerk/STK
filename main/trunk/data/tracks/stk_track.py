@@ -524,7 +524,7 @@ class TrackExport:
         f.write("<?xml version=\"1.0\"?>\n")
         f.write("<!-- Generated with script from SVN rev %s -->\n"%getScriptVersion())
         f.write("<track  name        = \"%s\"\n"%name)
-        f.write("        version     = \"4\"\n")
+        f.write("        version     = \"5\"\n")
         f.write("        groups      = \"%s\"\n"%groups)
         f.write("        designer    = \"%s\"\n"%designer)
         if music:
@@ -1239,13 +1239,19 @@ class TrackExport:
             height   = getProperty(obj, "height", None     )
             speed    = getProperty(obj, "speed",  None     )
             length   = getProperty(obj, "length", None     )
+            lAnim    = self.checkForAnimatedTextures([obj])
             b3d_name = self.exportLocalB3D(obj, sPath, name)
             s="  <water model=\"%s\" %s" % \
                 (b3d_name, getXYZHPRString(obj))
             if height: s="%s height=\"%s\""%(s, height)
             if speed:  s="%s speed=\"%s\"" %(s, speed )
             if length: s="%s length=\"%s\""%(s, length)
-            f.write("%s/>\n" % s);
+            if lAnim:
+                f.write(">\n")
+                self.writeAnimatedTextures(f, lAnim)
+                # f.write("  </water>\n")
+            else:
+                f.write("%s/>\n" % s);
 
         print bsys.time()-start_time,"seconds."
         
@@ -1334,7 +1340,13 @@ class TrackExport:
         sky_color=getIdProperty(scene, "sky-color", None)
         if sky_color:
             f.write("  <sky-color rgb=\"%s\"/>\n"%sky_color)
-        
+
+        weather = getIdProperty(scene, "weather", None)
+        if weather:
+            if weather[:4]!=".xml":
+                weather=weather+".xml"
+            f.write("  <weather particles=\"%s\" />\n"%weather)
+
         rad2deg = 180.0/3.1415926
         for obj in lItems:
             name     = getProperty(obj, "type", "").lower()
