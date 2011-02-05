@@ -1,10 +1,11 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 6785 -->
+<!-- Generated with script from SVN rev 7618 -->
 <scene>
   <track model="snowtuxpeak_track.b3d" x="0" y="0" z="0">
     <animated-texture name="smoke.png" dy="0.5" />
     <animated-texture name="smoke.png" dy="0.5" />
   </track>
+  <weather particles="snow.xml" />
   <item x="-31.819147" y="-0.683665" z="23.935211" />
   <item x="-31.410152" y="-0.683665" z="27.060705" />
   <item x="-30.659191" y="-0.683665" z="30.483387" />
@@ -44,7 +45,7 @@
   <sky-dome texture="lighthouse_sky.png"
             horizontal="12" vertical="12" 
             texture-percent="0.5" sphere-percent="1.3"
-            speed-x="0" speed-y="0" particles="snow.xml" />
+            speed-x="0" speed-y="0" />
   <default-start karts-per-row     ="2"
                  forwards-distance ="1.5"
                  sidewards-distance="3"
