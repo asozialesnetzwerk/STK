@@ -1250,9 +1250,9 @@ class TrackExport:
             if speed:  s="%s speed=\"%s\"" %(s, speed )
             if length: s="%s length=\"%s\""%(s, length)
             if lAnim:
-                f.write(">\n")
+                f.write("%s>\n" % s)
                 self.writeAnimatedTextures(f, lAnim)
-                # f.write("  </water>\n")
+                f.write("  </water>\n")
             else:
                 f.write("%s/>\n" % s);
 
