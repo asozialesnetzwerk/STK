@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 7480 -->
+<!-- Generated with script from SVN rev 7618 -->
 <track  name        = "Around the Lighthouse"
-        version     = "4"
+        version     = "5"
         groups      = "standard"
-        designer    = "Ingo Ruhnke &amp; Marianne Gagnon &amp; Stephen Dunn"
+        designer    = "Ingo Ruhnke & Marianne Gagnon & Stephen Dunn"
         music       = "OnTheRiver.music"
         screenshot  = "sshot-lighthouse.png"
 >
