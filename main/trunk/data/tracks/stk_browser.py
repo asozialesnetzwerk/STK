@@ -163,7 +163,11 @@ lSTKTypes2Properties = {
     "Water":["name",\
              "height",\
              "length",\
-             "speed"],\
+             "speed",\
+             "animated",\
+              "anim-texture|animated=yes",\
+              "anim-dx|animated=yes",\
+              "anim-dy|animated=yes"],\
 }
 
 # Finally define the properties of each property
