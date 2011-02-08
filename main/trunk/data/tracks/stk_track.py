@@ -1171,7 +1171,7 @@ class TrackExport:
                 shape="box"
             mass  = getProperty(obj, "mass", 10)
             f.write("  <object type=\"movable\" %s\n"%(getXYZHPRString(obj)))
-            f.write("          model=\"%s\" shape=\"%s\" mass=\"%f\"/>\n"\
+            f.write("          model=\"%s\" shape=\"%s\" mass=\"%s\"/>\n"\
                     % (b3d_name, shape, mass))
             
         # Now the object either has an IPO, or is a 'ghost' object.
