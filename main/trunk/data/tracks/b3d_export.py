@@ -67,7 +67,7 @@ keys_stack     = []
 #Transformation Matrix
 TRANS_MATRIX = Mathutils.Matrix([-1,0,0,0],[0,0,1,0],[0,1,0,0],[0,0,0,1])
 
-DEBUG = True
+DEBUG = 0
 
 #Support Functions
 def write_int(value):
