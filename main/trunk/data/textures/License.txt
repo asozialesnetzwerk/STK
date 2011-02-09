@@ -6,7 +6,7 @@ Under Creative Commons Attribution Share-Alike (CC-BY-SA) - http://creativecommo
 
 * palmtree3
     © 2009 Gregory Schick <leadgolem@gmail.com>, Christoph Egger <debian@christoph-egger.org> and Marianne Gagnon (Auria)
-    
+
 * beige_bricks.jpg, bumpy_surface.png, yellow_dirt.png
     by Dakal (http://dakal-fr.deviantart.com/, http://opengameart.org/user/300)
     licensed under the Creative Commons Attribution-Share Alike 3.0 Unported License
@@ -20,9 +20,9 @@ Under Creative Commons Attribution Share-Alike (CC-BY-SA) - http://creativecommo
 * roof, concrete2, garagedoor
     by Marianne Gagnon (Auria), based on public domain photos from BurningWell
 
-* racetrack_tire.png, city_buildings_3.png, city_brick_1.png, canyon_boards.png
+* racetrack_tire, city_buildings_3, city_brick_1, canyon_boards
 * banana, city_asphalt, city_concrete, city_checker, city_metal, city_sky*
-* track, track2
+* track, track2, canyon_dirt_road, city_ground, city_rock, city_tree
     by Thomas Oppl (horace) toppl@fh-sbg.ac.at (c) 2008
 
 * road_dirt
@@ -110,6 +110,9 @@ Other licenses :
 * dirtbrick.png, metal_plates.png
     by Dakal
 
+* city_fern, city_grass, city_tree_leaves, city_tree
+    (c) http://www.yofrankie.org
+
 ============================================================
 Credits for GPL textures :
 ============================================================
@@ -130,5 +133,3 @@ Credits for GPL textures :
 * green_check.png, red_mark.png
     from the Gnome icon set, GPL v 2.0+
 
-* tinytux
-    by Larry Ewing (lewing@isc.tamu.edu)
