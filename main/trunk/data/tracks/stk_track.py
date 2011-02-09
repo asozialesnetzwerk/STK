@@ -1494,7 +1494,7 @@ class TrackExport:
 
         lBooleanAttributes = ["CLAMPU","CLAMPV","LIGHT","SPHERE",\
                               "ANISOTROPIC","BACKFACE-CULLING","IGNORE","DISABLE-Z-WRITE","RESET",\
-                              "SFX:POSITIONAL"]
+                              "SFX:POSITIONAL", "SURFACE", "BELOW_SURFACE"]
 
         for i in limage:
             #iterate through material definitions and collect data
