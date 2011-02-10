@@ -141,7 +141,6 @@
   <material name="starparticle.png" compositing="blend" clampU="Y" clampV="Y" ignore="Y" light="N"/>
   <material name="stonetex.png" />
   <material name="stonewall.png"/>
-  <material name="tinytux.png" clampU="Y" clampV="Y" compositing="test" light="N" ignore="Y"/>
   
   <material name="track.png" anisotropic="Y">
     <particles base="smoke.xml" condition="skid" />
