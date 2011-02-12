@@ -1,12 +1,21 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 7597 -->
+<!-- Generated with script from SVN rev 7595 -->
 <materials>
   <material name="acid_lake.jpg" reset="Y"/>
-  <material name="arc1.png" alpha="yes" backface-culling="N" reset="Y"/>
-  <material name="arc2.png" alpha="yes" backface-culling="N" reset="Y"/>
-  <material name="laser_bridge_green.png" alpha="yes" anisotropic="Y" backface-culling="N"/>
-  <material name="laser_bridge_red.png" alpha="yes" anisotropic="Y" backface-culling="N"/>
-  <material name="metal_ground.jpg" anisotropic="Y"/>
-  <material name="road_dirt_red.jpg" anisotropic="Y"/>
-  <material name="sandred.jpg" anisotropic="Y"/>
+  <material name="arc1.png" alpha="yes" backface-culling="N" reset="Y" compositing="blend"/>
+  <material name="arc2.png" alpha="yes" backface-culling="N" reset="Y" compositing="blend"/>
+  <material name="laser_bridge_green.png" alpha="yes" anisotropic="Y" backface-culling="N" compositing="blend"/>
+  <material name="laser_bridge_red.png" alpha="yes" anisotropic="Y" backface-culling="N" compositing="blend"/>
+  <material name="metal_ground.jpg" anisotropic="Y">
+    <particles base="smoke.xml" condition="skid"/>
+  </material>
+  <material name="road_dirt_red.jpg" anisotropic="Y">
+    <particles base="smoke_red.xml" condition="skid"/>
+  </material>
+  <material name="sandred.jpg" anisotropic="Y">
+    <particles condition="skid drive" base="smoke_red.xml"/>
+  </material>
+  <material name="sandred2.jpg">
+    <particles base="smoke_red.xml" condition="skid drive"/>
+  </material>
 </materials>

@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 7597 -->
+<!-- Generated with script from SVN rev 7595 -->
 <scene>
   <track model="xr591_track.b3d" x="0" y="0" z="0">
     <animated-texture name="arc1.png" dx="2.0" />
     <animated-texture name="arc2.png" dx="-1.7" />
   </track>
-  <water model="water2.b3d" xyz="0.000000 0.000000 0.000000" hpr="-90.000003 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
+  <water model="water2.b3d" xyz="0.000000 0.000000 0.000000" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000" height="0.2"/>
   <water model="water1.b3d" xyz="-52.727467 -10.052333 -53.104767" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000" height="0.2"/>
   <object type="animation" model="monster2.b3d" xyz="-57.473751 -10.844030 -31.384989" hpr="-90.000003 -0.000000 17.423406" scale="1.175792 1.175792 1.175792" >
     <curve channel="RotZ" interpolation="bezier" extend="cyclic">
@@ -81,7 +81,7 @@
   <small-nitro x="-86.842316" y="-2.031783" z="-30.783516" />
   <banana x="-97.010811" y="-3.142712" z="-47.288689" />
   <small-nitro x="12.694408" y="-9.55594" z="104.460823" />
-  <small-nitro x="66.425095" y="17.346296" z="22.053024" />
+  <small-nitro x="65.250786" y="18.134247" z="22.053024" />
   <small-nitro x="-33.532902" y="21.494276" z="67.044037" />
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
