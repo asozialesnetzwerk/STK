@@ -75,7 +75,7 @@
     <check-line kind="activate" other-ids="0" p1="67.303505 238.328110" p2="71.059776 228.471436"
                 min-height="0.883028" same-group="1"/>
   </checks>
-  <sky-box texture="city_sky_5.png city_sky_5.png city_sky_1.png city_sky_3.png city_sky_2.png city_sky_4.png"/>
+  <sky-box texture="summersky_t.jpg summersky_b.jpg summersky_e.jpg summersky_w.jpg summersky_s.jpg summersky_n.jpg"/>
   <camera far="1500"/>
   <default-start karts-per-row     ="2"
                  forwards-distance ="1.5"
