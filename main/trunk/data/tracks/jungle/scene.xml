@@ -56,7 +56,7 @@
 
   <sky-dome texture="lighthouse_sky.png"
             horizontal="16" vertical="16" 
-            texture-percent="0.5" sphere-percent="1.3"
+            texture-percent="1.0" sphere-percent="1.3"
             speed-x="0" speed-y="0" />
   <default-start karts-per-row     ="2"
                  forwards-distance ="1.5"
