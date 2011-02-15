@@ -1503,6 +1503,7 @@ class TrackExport:
             ["sphere","no"],\
             ["surface","no"],\
             ["below-surface","no"],\
+            ["falling-effect","no"],\
 #
             ["sfx:filename",""],\
             ["sfx:name",""],\
@@ -1523,6 +1524,7 @@ class TrackExport:
         ]
 
         lBooleanAttributes = ["clampU","clampV","light","sphere","surface","below-surface",\
+                              "falling-effect", \
                               "anisotropic","backface-culling","ignore","disable-z-write","reset",\
                               "sfx:positional"]
         

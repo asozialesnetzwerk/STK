@@ -121,6 +121,7 @@ lSTKTypes2Properties = {
     "Texture":["anisotropic","backface-culling","clampU","clampV","compositing","disable-z-write",\
                "friction","ignore","light","max-speed","reset","slowdown-time","sphere",\
                "graphical-effect","sound-effect","surface", "below-surface",\
+               "falling-effect", \
                 "sfx:filename|sound-effect=yes",\
                 "sfx:name|sound-effect=yes",\
                 "sfx:rolloff|sound-effect=yes",\
@@ -245,6 +246,7 @@ lPropertyDef = {
     "zipper:speed-gain":[type_FLOAT,4.5, 0, 100, 0.1],\
     "reset":[type_BOOLEAN,"no"],\
     "surface":[type_BOOLEAN,"no"],\
+    "falling-effect":[type_BOOLEAN,"no"], \
     "below-surface":[type_BOOLEAN,"no"],\
     "graphical-effect":[type_PICKLIST,"none"],\
     "sound-effect":[type_BOOLEAN,"no"],\
