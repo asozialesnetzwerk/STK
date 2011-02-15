@@ -1470,10 +1470,9 @@ class TrackExport:
     # (remember: Blenders "image" objects are STK's "material" objects)
     # Please use the STKProperty browser!!!
     def writeMaterialsFile(self, sPath):
-
         # Read & Write the materials to the file
         limage = Blender.Image.Get()
-
+        
         materfound = False
         for i in limage:
             for sAttrib,sValue in i.properties.iteritems():
@@ -1483,7 +1482,50 @@ class TrackExport:
             print "No Materials defined."
             return
 
-            
+        ### Below a rewrite due to the problems with default values detected by Auria ###
+
+        #Shape and form of things to write
+        #-> this is basically an extract of the stk_browser datamodel... Perhaps go for intergation? 
+        lTextureDefaults = [
+            ["anisotropic","yes"],\
+            ["backface-culling","yes"],\
+            ["clampU","no"],\
+            ["clampV","no"],\
+            ["compositing","none"],\
+            ["disable-z-write","no"],\
+            ["friction",1.0],\
+            ["graphical-effect","none"],\
+            ["ignore","no"],\
+            ["light","yes"],\
+            ["max-speed",1.0],\
+            ["reset","no"],\
+            ["slowdown-time",1.0],\
+            ["sphere","no"],\
+            ["surface","no"],\
+            ["below-surface","no"],\
+#
+            ["sfx:filename",""],\
+            ["sfx:name",""],\
+            ["sfx:rolloff",0.1],\
+            ["sfx:min-speed",0.0],\
+            ["sfx:max-speed",30.0],\
+            ["sfx:min-pitch",1.0],\
+            ["sfx:max-pitch",1.0],\
+            ["sfx:positional","no"],\
+#
+            ["zipper:duration",3.5],\
+            ["zipper:max-speed-increase",15],\
+            ["zipper:fade-out-time",3],\
+            ["zipper:speed-gain",4.5],\
+#
+            ["particle:base",""],\
+            ["particle:condition","skid"]
+        ]
+
+        lBooleanAttributes = ["clampU","clampV","light","sphere","surface","below-surface",\
+                              "anisotropic","backface-culling","ignore","disable-z-write","reset",\
+                              "sfx:positional"]
+        
         start_time = bsys.time()
         print "Writing material file --> \t",
 
@@ -1491,10 +1533,6 @@ class TrackExport:
         f.write("<?xml version=\"1.0\"?>\n")
         f.write("<!-- Generated with script from SVN rev %s -->\n"%getScriptVersion())
         f.write("<materials>\n")
-
-        lBooleanAttributes = ["CLAMPU","CLAMPV","LIGHT","SPHERE",\
-                              "ANISOTROPIC","BACKFACE-CULLING","IGNORE","DISABLE-Z-WRITE","RESET",\
-                              "SFX:POSITIONAL", "SURFACE", "BELOW_SURFACE"]
 
         for i in limage:
             #iterate through material definitions and collect data
@@ -1505,29 +1543,29 @@ class TrackExport:
             hasSoundeffect = (convertTextToYN(getIdProperty(i, "sound-effect", "no")) == "Y")
             hasParticle = (convertTextToYN(getIdProperty(i, "particle", "no")) == "Y")
             hasZipper = (convertTextToYN(getIdProperty(i, "zipper", "no")) == "Y")
-                        
-            for sAttrib,sValue in i.properties.iteritems():
-                currentValue = sValue
+             
+            for AProperty,ADefault in lTextureDefaults:
+                currentValue = getIdProperty(i, AProperty, ADefault)
                 #Correct for all the ways booleans can be represented (true/false;yes/no;zero/not_zero) 
-                if sAttrib.strip().upper() in lBooleanAttributes:
-                    currentValue = convertTextToYN(sValue)
+                if AProperty in lBooleanAttributes:
+                    currentValue = convertTextToYN(currentValue)
                 
-                if sAttrib.strip().upper().startswith("SFX:"):
-                    #These items pertain to the soundeffects (starting with sfx:)
-                    strippedName = sAttrib.strip().split(":")[1]
+                #These items pertain to the soundeffects (starting with sfx:)
+                if AProperty.strip().upper().startswith("SFX:"):
+                    strippedName = AProperty.strip().split(":")[1]
                     sSFX = "%s %s=\"%s\""%(sSFX,strippedName,currentValue)
-                elif sAttrib.strip().upper().startswith("PARTICLE:"):
+                elif AProperty.strip().upper().startswith("PARTICLE:"):
                     #These items pertain to the particles (starting with sfx:)
-                    strippedName = sAttrib.strip().split(":")[1]
+                    strippedName = AProperty.strip().split(":")[1]
                     sParticle = "%s %s=\"%s\""%(sParticle,strippedName,currentValue)   
-                elif sAttrib.strip().upper().startswith("ZIPPER:"):
+                elif AProperty.strip().upper().startswith("ZIPPER:"):
                     #These items pertain to the particles (starting with sfx:)
-                    strippedName = sAttrib.strip().split(":")[1]
+                    strippedName = AProperty.strip().split(":")[1]
                     sZipper = "%s %s=\"%s\""%(sParticle,strippedName,currentValue)   
                 else:
                     #These items are standard items
-                    if sAttrib.strip().upper() not in ["PARTICLE","SOUND-EFFECT","ZIPPER"]:
-                        sImage = "%s %s=\"%s\""%(sImage,sAttrib,currentValue)
+                    if AProperty.strip().upper() not in ["PARTICLE","SOUND-EFFECT","ZIPPER"]:
+                        sImage = "%s %s=\"%s\""%(sImage,AProperty,currentValue)
 
             # Now write the main content of the materials.xml file
             if sImage or hasSoundeffect or hasParticle or hasZipper:

@@ -119,8 +119,8 @@ lSTKTypes2Properties = {
     "Particle-Emitter":[],\
     "Sun":["ambient","diffuse","specular"],\
     "Texture":["anisotropic","backface-culling","clampU","clampV","compositing","disable-z-write",\
-               "ignore","light","max-speed","reset","slowdown-time","sphere",\
-               "sound-effect","surface", "below-surface",\
+               "friction","ignore","light","max-speed","reset","slowdown-time","sphere",\
+               "graphical-effect","sound-effect","surface", "below-surface",\
                 "sfx:filename|sound-effect=yes",\
                 "sfx:name|sound-effect=yes",\
                 "sfx:rolloff|sound-effect=yes",\
@@ -231,6 +231,7 @@ lPropertyDef = {
     "slowdown-time":[type_FLOAT,1.0, 0, 100, 0.1],\
     "anisotropic":[type_BOOLEAN,"yes"],\
     "max-speed":[type_FLOAT,1.0, 0, 1.0, 0.1],\
+    "friction":[type_FLOAT,1.0,0.0,50000,0.1],\
     "particle":[type_BOOLEAN,"no"],\
     "particle:base":[type_URL,"",200],\
     "particle:condition":[type_PICKLIST,"skid"],\
@@ -365,7 +366,15 @@ class STKData:
             Draw.PupMenu("Error%t|Object " + ObjectName + " not listed!")
             return []
 
-        for prop in lSTKTypes2Properties[cur_stktype]:
+        AllProperties = []        
+        try:
+            AllProperties = lSTKTypes2Properties[cur_stktype]
+        except:
+            # If try fails: An object type was defined that is not defined above
+            # -> Do a soft fail: print an error to the log then change it to an Ignore type
+            print "Error for object %s: Type %s not defined. Implicit coversion to 'Ignore'" % (ObjectName,cur_stktype)
+
+        for prop in AllProperties:
             cur_prop = prop.split("|")[0]
             
             #Get default value of property 
