@@ -2,7 +2,6 @@
 <!-- Generated with script from SVN rev 6538 -->
 <scene>
   <track model="farm_track.b3d" x="0" y="0" z="0"/>
-  <particle-emitter kind="smoke.xml" origin="0 0 0"/>
   <object type="animation" model="mill.b3d" xyz="-83.088814 30.779150 -148.873718" hpr="-0.000000 45.000001 -0.000000" scale="1.000000 1.000000 1.000000" >
     <curve channel="RotZ" interpolation="linear" extend="const">
       <p c="1.000000 0.000000"/>
