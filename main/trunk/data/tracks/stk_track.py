@@ -127,6 +127,7 @@ class Driveline:
         self.is_last_main = 0
         # Invisible drivelines are not shown in the minimap
         self.invisible = getProperty(driveline, "invisible", 0)
+        self.ai_ignore = getProperty(driveline, "ai-ignore", "no")
         self.enabled   = not getProperty(driveline, "disable",   0)
         self.activate  = getProperty(driveline, "activate", None)
         self.strict_lap = convertTextToYN(getProperty(driveline,
@@ -438,6 +439,10 @@ class Driveline:
             sInv = " invisible=\"yes\" "
         else:
             sInv = " "
+        if self.ai_ignore and self.ai_ignore!="no":
+            sAIIgnore = "ai-ignore=\"yes\" "
+        else:
+            sAIIgnore = " "
         max_index = len(self.lLeft)-1
         # If this is the last main driveline, the last quad is a dummy element
         # added by setLastMain(). So the number of elements is decreased by
@@ -446,8 +451,12 @@ class Driveline:
             max_index = max_index - 1
             
         f.write("  <!-- Driveline: %s -->\n"%self.name)
-        f.write("  <quad%sp0=\"%f %f %f\" p1=\"%f %f %f\" p2=\"%f %f %f\" p3=\"%f %f %f\"/>\n" \
-            %(sInv, l[0],l[2],l[1], r[0],r[2],r[1], r1[0],r1[2],r1[1], l1[0],l1[2],l1[1]) )
+        # Note that only the first quad must be marked with ai-ignore
+        # (this results that the AI will not go to the first quad, but
+        # if it should end up somewhere on the shortcut, it will
+        # continue to drive on the shortcut.
+        f.write("  <quad%s%sp0=\"%f %f %f\" p1=\"%f %f %f\" p2=\"%f %f %f\" p3=\"%f %f %f\"/>\n" \
+            %(sInv, sAIIgnore, l[0],l[2],l[1], r[0],r[2],r[1], r1[0],r1[2],r1[1], l1[0],l1[2],l1[1]) )
         for i in range(1, max_index):
             l1  = self.lLeft[i+1]
             r1  = self.lRight[i+1]

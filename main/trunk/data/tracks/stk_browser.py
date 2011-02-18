@@ -99,7 +99,7 @@ lSTKTypes2Properties = {
     "Banana":[],\
     "Billboard":[],\
     "Check":["name","activate","toggle","inner-radius","color"],\
-    "Driveline":[],\
+    "Driveline":["invisible", "ai-ignore"],\
     "Fixed":["start"],\
     "Ignore":[],\
     "Item":[],\
@@ -191,6 +191,9 @@ lPropertyDef = {
     "name":[type_STRING,"",50],\
     "start":[type_FLOAT,25,1,2000,1],\
     "toggle":[type_STRING,"", 50],\
+# Driveline
+    "invisible":[type_BOOLEAN,"n"],
+    "ai-ignore":[type_BOOLEAN,"n"],
 # Scene only
     "ambient-color":[type_COLOUR,0.0,0.0,0.0],\
     "arena":[type_BOOLEAN,"no"],\
