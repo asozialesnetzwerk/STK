@@ -50,12 +50,13 @@ def Round(f):
 
 # ------------------------------------------------------------------------------
 # Gets an id property of an objects, returning the default if the id property
-# is not set.
-def getIdProperty(obj, name, default=""):
+# is not set. If set_value_if_undefined is set and the property is not
+# defined, this function will also set the property to this default value.
+def getIdProperty(obj, name, default="", set_value_if_undefined=1):
     try:
         return obj.properties[name]
     except:
-        if default!=None:
+        if default!=None and set_value_if_undefined:
             obj.properties[name]=default
     return default
 
@@ -1485,42 +1486,46 @@ class TrackExport:
         ### Below a rewrite due to the problems with default values detected by Auria ###
 
         #Shape and form of things to write
-        #-> this is basically an extract of the stk_browser datamodel... Perhaps go for intergation? 
+        #-> this is basically an extract of the stk_browser datamodel... Perhaps go for intergation?
+        
+        # The list of all attributes that should always be written, even if
+        # they are set to the default. For now this list is empty, but I left
+        # the code in place in case that it might be needed later.
         lTextureDefaults = [
-            ["anisotropic","yes"],\
-            ["backface-culling","yes"],\
-            ["clampU","no"],\
-            ["clampV","no"],\
-            ["compositing","none"],\
-            ["disable-z-write","no"],\
-            ["friction",1.0],\
-            ["graphical-effect","none"],\
-            ["ignore","no"],\
-            ["light","yes"],\
-            ["max-speed",1.0],\
-            ["reset","no"],\
-            ["slowdown-time",1.0],\
-            ["sphere","no"],\
-            ["surface","no"],\
-            ["below-surface","no"],\
-            ["falling-effect","no"],\
-#
-            ["sfx:filename",""],\
-            ["sfx:name",""],\
-            ["sfx:rolloff",0.1],\
-            ["sfx:min-speed",0.0],\
-            ["sfx:max-speed",30.0],\
-            ["sfx:min-pitch",1.0],\
-            ["sfx:max-pitch",1.0],\
-            ["sfx:positional","no"],\
-#
-            ["zipper:duration",3.5],\
-            ["zipper:max-speed-increase",15],\
-            ["zipper:fade-out-time",3],\
-            ["zipper:speed-gain",4.5],\
-#
-            ["particle:base",""],\
-            ["particle:condition","skid"]
+            #["anisotropic","yes"],\
+            #["backface-culling","yes"],\
+            #["clampU","no"],\
+            #["clampV","no"],\
+            #["compositing","none"],\
+            #["disable-z-write","no"],\
+            #["friction",1.0],\
+            #["graphical-effect","none"],\
+            #["ignore","no"],\
+            #["light","yes"],\
+            #["max-speed",1.0],\
+            #["reset","no"],\
+            #["slowdown-time",1.0],\
+            #["sphere","no"],\
+            #["surface","no"],\
+            #["below-surface","no"],\
+            #["falling-effect","no"],\
+            #
+            #["sfx:filename",""],\
+            #["sfx:name",""],\
+            #["sfx:rolloff",0.1],\
+            #["sfx:min-speed",0.0],\
+            #["sfx:max-speed",30.0],\
+            #["sfx:min-pitch",1.0],\
+            #["sfx:max-pitch",1.0],\
+            #["sfx:positional","no"],\
+            #
+            #["zipper:duration",3.5],\
+            #["zipper:max-speed-increase",15],\
+            #["zipper:fade-out-time",3],\
+            #["zipper:speed-gain",4.5],\
+            #
+            #["particle:base",""],\
+            #["particle:condition","skid"]
         ]
 
         lBooleanAttributes = ["clampU","clampV","light","sphere","surface","below-surface",\
@@ -1545,9 +1550,18 @@ class TrackExport:
             hasSoundeffect = (convertTextToYN(getIdProperty(i, "sound-effect", "no")) == "Y")
             hasParticle = (convertTextToYN(getIdProperty(i, "particle", "no")) == "Y")
             hasZipper = (convertTextToYN(getIdProperty(i, "zipper", "no")) == "Y")
-             
-            for AProperty,ADefault in lTextureDefaults:
-                currentValue = getIdProperty(i, AProperty, ADefault)
+
+            # Create a copy of the list of defaults so that it can be modified. Then add
+            # all properties of the current image
+            l = lTextureDefaults[:]
+            for sAttrib, sValue in i.properties.iteritems():
+                if sAttrib not in l:
+                    l.append( (sAttrib, sValue) )
+            print "l=",l
+            for AProperty,ADefault in l:
+                # Don't add the (default) values to the property list
+                currentValue = getIdProperty(i, AProperty, ADefault,
+                                             set_value_if_undefined=0)
                 #Correct for all the ways booleans can be represented (true/false;yes/no;zero/not_zero) 
                 if AProperty in lBooleanAttributes:
                     currentValue = convertTextToYN(currentValue)
