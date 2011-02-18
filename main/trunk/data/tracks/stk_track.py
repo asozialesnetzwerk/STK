@@ -1577,7 +1577,7 @@ class TrackExport:
                 elif AProperty.strip().upper().startswith("ZIPPER:"):
                     #These items pertain to the particles (starting with sfx:)
                     strippedName = AProperty.strip().split(":")[1]
-                    sZipper = "%s %s=\"%s\""%(sParticle,strippedName,currentValue)   
+                    sZipper = "%s %s=\"%s\""%(sZipper,strippedName,currentValue)   
                 else:
                     #These items are standard items
                     if AProperty.strip().upper() not in ["PARTICLE","SOUND-EFFECT","ZIPPER"]:
