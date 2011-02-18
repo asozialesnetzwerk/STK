@@ -235,7 +235,7 @@ lPropertyDef = {
     "friction":[type_FLOAT,1.0,0.0,50000,0.1],\
     "particle":[type_BOOLEAN,"no"],\
     "particle:base":[type_URL,"",200],\
-    "particle:condition":[type_PICKLIST,"skid"],\
+    "particle:condition":[type_PICKLIST,"none"],\
     "backface-culling":[type_BOOLEAN,"yes"],\
     "ignore":[type_BOOLEAN,"no"],\
     "disable-z-write":[type_BOOLEAN,"no"],\
@@ -280,7 +280,7 @@ lPropertyDef = {
 lSTK_Picklist = {"sky-type": "dome|box|simple",\
                 "graphical-effect": "none|water|smoke",\
                 "compositing": "none|blend|test|additive",\
-                "particle:condition": "skid|drive|skid drive",\
+                "particle:condition": "none|skid|drive|skid drive",\
                 "interaction": "none|ghost|static|move",\
                 "shape": "box|sphere|coneX|coneY|coneZ",\
                 "weather": "none|rain|snow"
