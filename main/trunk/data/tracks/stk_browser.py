@@ -230,7 +230,7 @@ lPropertyDef = {
     "light":[type_BOOLEAN,"yes"],\
     "sphere":[type_BOOLEAN,"no"],\
     "slowdown-time":[type_FLOAT,1.0, 0, 100, 0.1],\
-    "anisotropic":[type_BOOLEAN,"yes"],\
+    "anisotropic":[type_BOOLEAN,"no"],\
     "max-speed":[type_FLOAT,1.0, 0, 1.0, 0.1],\
     "friction":[type_FLOAT,1.0,0.0,50000,0.1],\
     "particle":[type_BOOLEAN,"no"],\
