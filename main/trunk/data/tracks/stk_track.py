@@ -1347,9 +1347,12 @@ class TrackExport:
 
         weather = getIdProperty(scene, "weather", None)
         if weather:
-            if weather[:4]!=".xml":
-                weather=weather+".xml"
-            f.write("  <weather particles=\"%s\" />\n"%weather)
+            if weather=="rain":
+                f.write("  <weather type=\"rain\" />\n")
+            else:
+                if weather[:4]!=".xml":
+                    weather=weather+".xml"
+                f.write("  <weather particles=\"%s\" />\n"%weather)
 
         rad2deg = 180.0/3.1415926
         for obj in lItems:
