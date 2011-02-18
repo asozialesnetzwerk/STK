@@ -1560,7 +1560,6 @@ class TrackExport:
             for sAttrib, sValue in i.properties.iteritems():
                 if sAttrib not in l:
                     l.append( (sAttrib, sValue) )
-            print "l=",l
             for AProperty,ADefault in l:
                 # Don't add the (default) values to the property list
                 currentValue = getIdProperty(i, AProperty, ADefault,
