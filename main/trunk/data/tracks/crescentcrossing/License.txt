@@ -14,9 +14,6 @@ This track is released under the GNU GPL except :
     licensed under CC BY-SA 3.0
     http://creativecommons.org/licenses/by-sa/3.0/
 
-* plants
-    By MiniBjorn, under Creative Commons CC-BY-SA 3.0+
-
 * grave
     By qubodup, West and KroArtem
     Released under Creative Commons CC-BY-SA 3.0+
