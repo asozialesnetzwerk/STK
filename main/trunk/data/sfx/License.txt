@@ -21,8 +21,11 @@
     (see license text below)
     
 * engine_large
-    Released under the Free Art License
-    by the TORCS project "http://torcs.sourceforge.net/"
+    released under CC-BY-SA 3.0
+    based on "Compressed Motor" by Stephan from pdsounds.org,
+    "Transfer Truck idle and drive sound" by Mike koenig from soundbible.com, released under Attribution 3.0,
+    "Car accelerating sound" by speedjunkiefrom soundbible.com released under Attribution 3.0,
+    mixing and mash-up by Marianne Gagnon
     
 * engine_small
     Released under GPL
