@@ -30,7 +30,7 @@ from Blender import *
 from Blender.BGL import *
 
 ###
-# Needed: Licence block here
+# Needed: License block here
 ###
 
 # Define Property Types
@@ -44,6 +44,7 @@ type_STATIC = 11
 type_TYPELIST = 12 
 type_URL = 14
 type_IMAGEURL = 15
+type_CHOICELIST = 17
 #type_DELETE = 20
 type_RESET  = 21
 
@@ -192,8 +193,8 @@ lPropertyDef = {
     "start":[type_FLOAT,25,1,2000,1],\
     "toggle":[type_STRING,"", 50],\
 # Driveline
-    "invisible":[type_BOOLEAN,"n"],
-    "ai-ignore":[type_BOOLEAN,"n"],
+    "invisible":[type_BOOLEAN,"no"],
+    "ai-ignore":[type_BOOLEAN,"no"],
 # Scene only
     "ambient-color":[type_COLOUR,0.0,0.0,0.0],\
     "arena":[type_BOOLEAN,"no"],\
@@ -238,7 +239,7 @@ lPropertyDef = {
     "friction":[type_FLOAT,1.0,0.0,50000,0.1],\
     "particle":[type_BOOLEAN,"no"],\
     "particle:base":[type_URL,"",200],\
-    "particle:condition":[type_PICKLIST,"none"],\
+    "particle:condition":[type_CHOICELIST,"none"],\
     "backface-culling":[type_BOOLEAN,"yes"],\
     "ignore":[type_BOOLEAN,"no"],\
     "disable-z-write":[type_BOOLEAN,"no"],\
@@ -283,7 +284,7 @@ lPropertyDef = {
 lSTK_Picklist = {"sky-type": "dome|box|simple",\
                 "graphical-effect": "none|water|smoke",\
                 "compositing": "none|blend|test|additive",\
-                "particle:condition": "none|skid|drive|skid drive",\
+                "particle:condition": "skid|drive",\
                 "interaction": "none|ghost|static|move",\
                 "shape": "box|sphere|coneX|coneY|coneZ",\
                 "weather": "none|rain|snow"
@@ -529,7 +530,35 @@ class STKData:
             else:
                 #Unhandled Blender type
                 self.lObjectList.append(["Other","Ignore",Object.getName(),x])
-            
+   
+    def SetChoiceListProperty(self,prop_name, but_name):
+        # Set one of the choicelist options
+        # 1. Get current list
+        tmp = ""
+        tmp2 = ""
+        for (prop_name2,prop_type,current_value) in self.GetProperties(self.GetCurrentObject()):
+            if prop_name == prop_name2:
+                tmp = current_value
+
+        #2. Add the value to list
+        for listitem in lSTK_Picklist[prop_name].split("|"):
+            if listitem in tmp.split():
+                if but_name != listitem:
+                    if tmp2 == "":
+                        tmp2 = listitem
+                    else:
+                        tmp2 = "%s %s" % (tmp2,listitem)
+#                    print listitem,"*",tmp,"*",tmp2 
+            else:
+                if but_name == listitem:
+                    if tmp2 == "":
+                        tmp2 = listitem
+                    else:
+                        tmp2 = "%s %s" % (tmp2,listitem)
+        
+        #3. Store List
+        self.SetProperty(prop_name, tmp2)
+         
     def SetProperty(self,property_name,new_value):
         #Set the properties of the current object
         current_object = self.GetCurrentObject()
@@ -640,9 +669,9 @@ class STKBrowser:
                 # Equal to type_URL, but now as an imagebrowser 
                 Window.ImageSelector(self.SetURL, "Select %s" % prop_name)
                 self.temp_property_name = prop_name
-#            elif but_type == type_DELETE:
-                #Delete the property
-#                data.DeleteProperty(prop_name)
+            elif but_type == type_CHOICELIST:
+                #One of the options of a choicelist is activated
+                data.SetChoiceListProperty(prop_name, but_name)
             elif but_type == type_RESET:
                 #Read the default value and set the property with it.
                 if lPropertyDef[prop_name][0] == type_COLOUR:
@@ -858,6 +887,20 @@ class STKBrowser:
                 tmp_but = Draw.PushButton(printtext, self.NextButton(), x, y, printwidth, textheight)
                 self.lButtons.append(tmp_but)
                 self.RegisterButton(prop_name, printtext, type_URL)
+            elif prop_type == type_CHOICELIST:
+                tmp = 0
+                thelist = lSTK_Picklist[prop_name]
+                tmp3 = current_value.split()
+                for tmp2 in thelist.split("|"):
+                    tmp += 1
+                    
+                    printtext = "%s " % tmp2
+                    printwidth = Draw.GetStringWidth(printtext)
+                    tmp_but = Draw.Toggle(tmp2, self.NextButton(),\
+                         x, y, printwidth, textheight, tmp2 in tmp3)
+                    self.lButtons.append(tmp_but)
+                    self.RegisterButton(prop_name, tmp2, type_CHOICELIST)
+                    x += printwidth                 
             else: #type_STATIC
                 printtext = "%s " % current_value
                 printwidth = Draw.GetStringWidth(printtext)
