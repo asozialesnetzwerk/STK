@@ -34,4 +34,8 @@
   <material name="trailrock2dust.jpg" anisotropic="Y">
     <particles base="smoke_brown.xml" condition="skid"/>
   </material>
+  <material name="windmill_palm_detail.png" compositing="test"/>
+  <material name="woodBridge.jpg">
+    <sfx filename="wooden_bridge.ogg" name="wood" rolloff="0.6" min-speed="9.0" max-speed="22.0" min-pitch="1.0" max-pitch="1.7" positional="Y" volume="1.0"/>
+  </material>
 </materials>
