@@ -25,8 +25,8 @@
     by the TORCS project "http://torcs.sourceforge.net/"
     
 * engine_small
-    Released under Creative Commons sampling Plus 1.0 License (see license text below)
-    by Stephen Dunn (stevo14), based on "lawnmower" by morgantj.
+    Released under GPL
+    by Richard Langridge, from the Trigger-Rally project
     
 * explosion
     Released under the GNU GPL, coming from original (Super)TuxKart
