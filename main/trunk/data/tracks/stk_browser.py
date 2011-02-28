@@ -533,6 +533,14 @@ class STKData:
    
     def SetChoiceListProperty(self,prop_name, but_name):
         # Set one of the choicelist options
+        # First, check if some of the helper buttons are pressed
+        if but_name == "None":
+            self.SetProperty(prop_name, "")
+            return
+        if but_name == "All":
+            self.SetProperty(prop_name, lSTK_Picklist[prop_name].replace("|"," "))
+            return
+        
         # 1. Get current list
         tmp = ""
         tmp2 = ""
@@ -897,10 +905,28 @@ class STKBrowser:
                     printtext = "%s " % tmp2
                     printwidth = Draw.GetStringWidth(printtext)
                     tmp_but = Draw.Toggle(tmp2, self.NextButton(),\
-                         x, y, printwidth, textheight, tmp2 in tmp3)
+                                          x, y, printwidth, textheight, tmp2 in tmp3)
                     self.lButtons.append(tmp_but)
                     self.RegisterButton(prop_name, tmp2, type_CHOICELIST)
-                    x += printwidth                 
+                    x += printwidth
+                    
+                printtext = "Reset "
+                printwidth = Draw.GetStringWidth(printtext)
+                tmp_x = width-pad-printwidth
+                printtext = "All "
+                printwidth = Draw.GetStringWidth(printtext)
+                tmp_x -= pad+printwidth
+                tmp_but = Draw.PushButton(printtext, self.NextButton(),\
+                                          tmp_x, y, printwidth, textheight)
+                self.lButtons.append(tmp_but)
+                self.RegisterButton(prop_name, "All", type_CHOICELIST)
+                printtext = "None "
+                printwidth = Draw.GetStringWidth(printtext)
+                tmp_x -= printwidth
+                tmp_but = Draw.PushButton(printtext, self.NextButton(),\
+                                          tmp_x, y, printwidth, textheight)
+                self.lButtons.append(tmp_but)
+                self.RegisterButton(prop_name, "None", type_CHOICELIST)                
             else: #type_STATIC
                 printtext = "%s " % current_value
                 printwidth = Draw.GetStringWidth(printtext)
