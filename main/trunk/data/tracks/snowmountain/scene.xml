@@ -80,7 +80,8 @@
     <check-line kind="activate" other-ids="0" p1="-24.747654 -59.180248" p2="-23.794647 -37.289577"
                 min-height="11.353293" same-group="2"/>
   </checks>
-  <sky-box texture="winter_sky_6.jpg winter_sky_5.jpg winter_sky_2.jpg winter_sky_4.jpg winter_sky_3.jpg winter_sky_1.jpg" particles="snow.xml"/>
+  <sky-box texture="winter_sky_6.jpg winter_sky_5.jpg winter_sky_2.jpg winter_sky_4.jpg winter_sky_3.jpg winter_sky_1.jpg"/>
+  <weather particles="snow.xml" />
   <default-start karts-per-row     ="2"
                  forwards-distance ="1.5"
                  sidewards-distance="3"
