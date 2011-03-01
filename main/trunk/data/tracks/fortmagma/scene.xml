@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 7560 -->
+<!-- Generated with script from SVN rev 7732 -->
 <scene>
   <track model="Aotakark-1_track.b3d" x="0" y="0" z="0">
     <static-object model="Plane.011.b3d" xyz="-34.069637 3.000000 -76.923439" hpr="-0.000000 89.999996 0.000000" scale="1.000000 1.000000 1.000000">
@@ -35,6 +35,15 @@
     <animated-texture name="lava_1.jpg" dy="0.1" />
     <animated-texture name="lava_1.jpg" dy="-0.1" />
   </track>
+  <particle-emitter kind="fire.xml" x="-61.165413" y="36.769642" z="75.962341" h="0.000000"/>
+  <particle-emitter kind="fire.xml" x="-78.494926" y="39.797676" z="75.946907" h="0.000000"/>
+  <particle-emitter kind="fire.xml" x="-68.049744" y="36.769642" z="66.054413" h="179.999991"/>
+  <particle-emitter kind="fire.xml" x="-48.058258" y="34.681686" z="53.399078" h="-89.999996"/>
+  <particle-emitter kind="fire.xml" x="-48.058258" y="31.009373" z="36.239090" h="-89.999996"/>
+  <particle-emitter kind="fire.xml" x="-56.905846" y="33.370071" z="46.475731" h="90.012584"/>
+  <particle-emitter kind="fire.xml" x="-114.043999" y="14.064242" z="30.810862" h="-89.999996"/>
+  <particle-emitter kind="fire.xml" x="-123.914497" y="13.790092" z="39.115692" h="89.999996"/>
+  <particle-emitter kind="fire.xml" x="-114.043999" y="10.628948" z="50.589691" h="-89.999996"/>
   <sun  xyz="0.0 237.0 0.0"/>
   <item x="-0.353742" y="1.3" z="0" />
   <item x="2.606756" y="1.3" z="0" />
@@ -62,8 +71,15 @@
   <small-nitro x="-81.422897" y="1.3" z="-37.9104" />
   <small-nitro x="-76.84288" y="1.3" z="-17.828798" />
   <checks>
-    <check-lap kind="lap" same-group="0"  />
+    <check-lap kind="lap" same-group="0" other-ids="1" />
+    <check-line kind="activate" other-ids="0" p1="-212.991318 111.998856" p2="-237.939178 112.140343"
+                min-height="42.121422" same-group="1"/>
   </checks>
+
+  <sky-dome texture="lava_sky.png"
+            horizontal="16" vertical="16" 
+            texture-percent="1.0" sphere-percent="1.3"
+            speed-x="0" speed-y="0" />
   <camera far="2000"/>
   <default-start karts-per-row     ="2"
                  forwards-distance ="1.1"

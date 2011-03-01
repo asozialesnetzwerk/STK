@@ -1,9 +1,10 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 7560 -->
+<!-- Generated with script from SVN rev 7732 -->
 <track  name        = "Fort Magma"
-        version     = "4"
-        groups      = "standard"
-        designer    = "Jean-Manuel Clemencon"
+        version     = "5"
+        groups      = ""
+        designer    = "Jean-Manuel Clemençon"
+        music       = "SymphonyNo5.music"
         screenshot  = "sshot.jpg"
 >
 </track>
