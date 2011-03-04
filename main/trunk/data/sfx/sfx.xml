@@ -38,5 +38,6 @@
    <sfx name="wee"            filename="wee.ogg"              volume="1.0" rolloff="0.1"  positional="false" />
    <sfx name="winner"         filename="gp_end.ogg"           volume="1.0" rolloff="0.1"  positional="false" />
    <sfx name="lastlap"        filename="last_lap_fanfare.ogg" volume="1.0" rolloff="0.1"  positional="false" />
+   <sfx name="wooden_bridge"  filename="wooden_bridge.ogg"    volume="1.0" rolloff="0.1"  positional="true" />
 </sfx-config>
 
