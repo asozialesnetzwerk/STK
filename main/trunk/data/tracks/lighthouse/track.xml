@@ -3,7 +3,7 @@
 <track  name        = "Around the Lighthouse"
         version     = "5"
         groups      = "standard"
-        designer    = "Ingo Ruhnke & Marianne Gagnon & Stephen Dunn"
+        designer    = "Ingo Ruhnke &amp; Marianne Gagnon &amp; Stephen Dunn"
         music       = "OnTheRiver.music"
         screenshot  = "sshot-lighthouse.jpg"
 >

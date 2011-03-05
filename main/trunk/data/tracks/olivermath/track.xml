@@ -3,7 +3,7 @@
 <track  name        = "Oliver's Math Class"
         version     = "4"
         groups      = "standard"
-        designer    = "Oliver & Steve Baker"
+        designer    = "Oliver &amp; Steve Baker"
         music       = "Boom_boom_boom.music"
         screenshot  = "mathclass.jpg"
 >
