@@ -25,7 +25,7 @@
     <particles base="smoke.xml" condition="skid" />
   </material>
   
-  <material name="city_asphalt_1.png" anisotropic="Y">
+  <material name="city_asphalt_1.jpg" anisotropic="Y">
     <particles base="smoke.xml" condition="skid" />
   </material>
   
@@ -55,7 +55,7 @@
   <material name="fuzzy.png"             compositing="test" clampU="Y" clampV="Y" light="N" ignore="Y"/>
   <material name="generickartshadow.png" compositing="test" clampU="Y" clampV="Y" light="N" ignore="Y"/>
   <material name="grass.jpg"             anisotropic="Y" max-speed="0.6" slowdown-time="1.8"/>
-  <material name="grass2.png"            max-speed="0.4" slowdown-time="2.0" anisotropic="Y"/>
+  <material name="grass2.jpg"            max-speed="0.4" slowdown-time="2.0" anisotropic="Y"/>
   <material name="grass2dirt.png"        clampU="Y" clampV="N" anisotropic="Y" />
   <material name="greenice.png"          reset="Y">
     <particles base="smoke.xml"          condition="skid" />
@@ -65,9 +65,9 @@
     <particles base="smoke.xml" condition="skid" />
   </material>
 
-  <material name="HortonRockWall.png"    anisotropic="Y" />
-  <material name="HortonRockWall2.png"   anisotropic="Y" />
-  <material name="HortonStone6.png"      anisotropic="Y" />
+  <material name="HortonRockWall.jpg"    anisotropic="Y" />
+  <material name="HortonRockWall2.jpg"   anisotropic="Y" />
+  <material name="HortonStone6.jpg"      anisotropic="Y" />
   
   <material name="ice.png">
     <particles base="smoke.xml" condition="skid" />
@@ -82,7 +82,7 @@
   <material name="palmtree3.png"         compositing="test"/>
   <material name="palm_b.png"            compositing="test"/>
   
-  <material name="Paving_stones_2.png"   anisotropic="Y">
+  <material name="Paving_stones_2.jpg"   anisotropic="Y">
     <particles base="smoke_brown.xml"    condition="skid" />
   </material>
   
@@ -97,7 +97,7 @@
     <particles base="smoke.xml" condition="skid" />
   </material>
   
-  <material name="road_dirt.png" anisotropic="Y">
+  <material name="road_dirt.jpg" anisotropic="Y">
     <particles base="smoke_brown.xml" condition="skid" />
   </material>
   
@@ -114,7 +114,7 @@
     <particles base="smoke_yellow.xml" condition="skid drive" />
   </material>
   
-  <material name="sand2.png" max-speed="0.5" slowdown-time="3.0">
+  <material name="sand2.jpg" max-speed="0.5" slowdown-time="3.0">
     <particles base="smoke_yellow.xml" condition="skid drive" />
   </material>
   
@@ -138,7 +138,7 @@
   <material name="speedback.png"    compositing="test" clampU="Y" clampV="Y" light="N" ignore="Y"/>
   <material name="speedfore.png"    compositing="test" clampU="Y" clampV="Y" light="N" ignore="Y"/>
   <material name="starparticle.png" compositing="blend" clampU="Y" clampV="Y" ignore="Y" light="N"/>
-  <material name="stonetex.png" />
+  <material name="stonetex.jpg" />
   <material name="stonewall.png"/>
   
   <material name="track.png" anisotropic="Y">
@@ -161,7 +161,7 @@
   <material name="wood.jpg" anisotropic="Y"/>
   <material name="wood_planks1_alpha.png" compositing="blend"/>
   
-  <material name="yellow_dirt.png" max-speed="0.4" slowdown-time="2.0" anisotropic="Y">
+  <material name="yellow_dirt.jpg" max-speed="0.4" slowdown-time="2.0" anisotropic="Y">
     <particles base="smoke_yellow.xml" condition="skid drive" />
   </material>
 
