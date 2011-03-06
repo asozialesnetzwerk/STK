@@ -20,7 +20,6 @@
   </material>
   
   <material name="butterfly.png"         compositing="test" light="N" clampU="Y" clampV="Y" ignore="Y"/>
-  <material name="bzzt.png"              compositing="test" light="N" ignore="Y"/>
   
   <material name="chess.png">
     <particles base="smoke.xml" condition="skid" />
