@@ -38,4 +38,7 @@
   <material name="woodBridge.jpg">
     <sfx filename="wooden_bridge.ogg" name="wood" rolloff="0.6" min-speed="9.0" max-speed="22.0" min-pitch="1.0" max-pitch="1.7" positional="Y" volume="1.0"/>
   </material>
+  <material name="yellow_dirt.jpg">
+    <particles base="smoke_yellow.xml" condition="skid drive"/>
+  </material>
 </materials>

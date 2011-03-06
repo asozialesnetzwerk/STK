@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 7624 -->
+<!-- Generated with script from SVN rev 7732 -->
 <materials>
   <material name="road_sand.jpg" anisotropic="Y">
     <particles base="smoke_yellow.xml" condition="skid"/>
@@ -9,4 +9,7 @@
   </material>
   <material name="rock1.jpg" slowdown-time="0.5"/>
   <material name="rock4.jpg" slowdown-time="0.5"/>
+  <material name="sand2.jpg">
+    <particles base="smoke_yellow.xml" condition="skid drive"/>
+  </material>
 </materials>

@@ -1,27 +1,19 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 6744 -->
+<!-- Generated with script from SVN rev 7732 -->
 <materials>
-  <material name="summersky_t.png" alpha="N" light="N" />
-  <material name="summersky_b.png" alpha="N" light="N" />
-  <material name="summersky_e.png" alpha="N" light="N" />
-  <material name="summersky_w.png" alpha="N" light="N" />
-  <material name="summersky_s.png" alpha="N" light="N" />
-  <material name="summersky_n.png" alpha="N" light="N" />
-  <material name="city_asphalt_1.png" anisotropic="Y" />
-  <material name="city_asphalt_2.png" anisotropic="Y" />
-  <material name="canyon_dirt_road.png" anisotropic="Y" />
-  <material name="city_asphalt_blend.png" anisotropic="Y" graphical-effect="smoke" />
-  <material name="city_ground.png" anisotropic="Y" slowdown-time="2.0" max-speed="0.5" />
-  <material name="canyon_conveyor_belt.png" zipper="Y" zipper-duration="4" zipper-fade-out-time="1" zipper-max-speed-increase="6" zipper-speed-gain="6" />
-  <material name="city_conveyor.png" sphere="Y" />
-  <material name="transparence.png" alpha="Y" light="N" reset="Y" />
-  <material name="city_reflection.png" sphere="Y" alpha="0.25" />
-  <material name="canyon_water.png" light="N" reset="Y" />
-  <material name="city_tree.jpg" light="Y" />
-  <material name="city_tree_leaves.png" transparency="Y" ignore="Y" backface-culling="N" light="Y" />
-  <material name="city_fern.png" transparency="Y" ignore="Y" backface-culling="N" light="N" />
-  <material name="city_grass.png" transparency="Y" ignore="Y" backface-culling="N" light="Y" />
-  <material name="canyon_boards.png">
-    <sfx filename="wooden_bridge.ogg" name="wood" rolloff="0.6" min-speed="0.0" max-speed="22.0" min-pitch="1.0" max-pitch="1.7" positional="yes" volume="1.0" />
+  <material name="city_asphalt_1.jpg" anisotropic="Y">
+    <particles base="smoke.xml" condition="skid"/>
+  </material>
+  <material name="city_asphalt_2.jpg" anisotropic="Y">
+    <particles base="smoke.xml" condition="skid"/>
+  </material>
+  <material name="city_asphalt_blend.jpg" anisotropic="Y"/>
+  <material name="city_bricks.png" anisotropic="Y"/>
+  <material name="city_building_2.png" backface-culling="Y"/>
+  <material name="city_checker.png">
+    <particles base="smoke.xml" condition="skid"/>
+  </material>
+  <material name="canyon_dirt_road.jpg">
+    <particles base="smoke_brown.xml" condition="skid"/>
   </material>
 </materials>

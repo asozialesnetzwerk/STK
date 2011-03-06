@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 6785 -->
+<!-- Generated with script from SVN rev 7732 -->
 <scene>
   <track model="canyon_track.b3d" x="0" y="0" z="0">
     <static-object model="cactus.b3d" xyz="257.000000 0.000000 331.000000" hpr="-0.000000 95.946898 0.000000" scale="1.300000 1.300000 1.300000"/>
@@ -67,7 +67,7 @@
     <animated-texture name="canyon_conveyor_belt.png" dy="2.0" />
     <animated-texture name="canyon_water.png" dy="0.1" />
   </track>
-  <sun  fog="true" fog-color="200 200 250" fog-start="100" fog-end="2500" xyz="200.0 400.0 800.0"/>
+  <sun  xyz="200.0 400.0 800.0"/>
   <banana x="274" y="10" z="316" />
   <banana x="202" y="10" z="29" />
   <banana x="274" y="10" z="312" />
@@ -128,23 +128,6 @@
   <small-nitro x="52" y="-80" z="79" />
   <small-nitro x="188" y="10" z="-18" />
   <small-nitro x="192" y="10" z="-22" />
-  <zipper x="105" y="10" z="2" h="89.999997" />
-  <zipper x="105" y="10" z="8" h="89.999997" />
-  <zipper x="20" y="10" z="253" h="-89.999997" />
-  <zipper x="144" y="10" z="243" h="-89.999997" />
-  <zipper x="144" y="10" z="237" h="-89.999997" />
-  <zipper x="20" y="10" z="247" h="-89.999997" />
-  <zipper x="0" y="10" z="20" />
-  <zipper x="226" y="10" z="48" h="-105.000001" />
-  <zipper x="84" y="-50" z="69" h="-100.000002" />
-  <zipper x="0" y="10" z="110" />
-  <zipper x="85" y="-50" z="72" h="-100.000002" />
-  <zipper x="83" y="-50" z="66" h="-100.000002" />
-  <zipper x="227" y="10" z="51" h="-105.000001" />
-  <zipper x="225" y="10" z="45" h="-105.000001" />
-  <zipper x="141" y="-50" z="55" h="-100.000002" />
-  <zipper x="143" y="-50" z="61" h="-100.000002" />
-  <zipper x="142" y="-50" z="58" h="-100.000002" />
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
     <check-line kind="activate" other-ids="0" p1="42.800171 110.000000" p2="57.200001 110.000000"

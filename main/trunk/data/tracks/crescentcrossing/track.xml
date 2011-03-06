@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 7560 -->
+<!-- Generated with script from SVN rev 7732 -->
 <track  name        = "Crescent Crossing"
-        version     = "4"
+        version     = "5"
         groups      = "standard"
-        designer    = "Marianne Gagnon &amp; Ingo Ruhnke"
+        designer    = "Marianne Gagnon & Ingo Ruhnke"
         music       = "ChillCarrier-Druckverlust.music"
         screenshot  = "sshot-crescent.jpg"
 >

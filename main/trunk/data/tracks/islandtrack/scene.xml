@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 7624 -->
+<!-- Generated with script from SVN rev 7732 -->
 <scene>
   <track model="islandtrack_track.b3d" x="0" y="0" z="0"/>
   <water model="Water.b3d" xyz="8.845343 0.000000 -0.728317" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000" height="0.6" speed="300">
@@ -34,7 +34,7 @@
   <small-nitro x="-87.138245" y="25" z="-26.173218" />
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
-    <check-line kind="activate" other-ids="2" p1="-172.283371 81.223946" p2="-173.595901 68.843826"
+    <check-line kind="activate" other-ids="2" p1="-172.283386 81.223946" p2="-173.595901 68.843826"
                 min-height="3.668817" same-group="1"/>
     <check-line kind="activate" other-ids="3" p1="-83.115562 -42.986687" p2="-80.033173 -31.790466"
                 min-height="-1.345938" same-group="2"/>
