@@ -17,6 +17,9 @@
   <material name="leave3.png" transparency="yes" ignore="Y" compositing="test"/>
   <material name="leave4.png" ignore="Y" compositing="test"/>
   <material name="Palm-arecaceae.png" alpha="yes" compositing="blend"/>
+  <material name="road_dirt.jpg" anisotropic="Y">
+    <particles condition="skid" base="smoke_brown.xml"/>
+  </material>
   <material name="Rose.png" alpha="yes" compositing="blend"/>
   <material name="Sophora.png" alpha="yes" compositing="blend"/>
   <material name="TiZeta_stalkM.png" ignore="Y"/>
