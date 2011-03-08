@@ -54,6 +54,8 @@ EVENT_CAM = 5
 EVENT_LIG = 6
 EVENT_EXP = 7
 EVENT_QUI = 8
+EVENT_LOCAL = 9
+EVENT_GLOBAL = 10
 
 #Global Stacks
 b3d_parameters = {}
@@ -1040,6 +1042,10 @@ def handle_button(event):
     if event == EVENT_QUI:
         Blender.Draw.Exit()
 
+    if event == EVENT_LOCAL or event == EVENT_GLOBAL:
+        b3d_parameters["local-space"    ] = not b3d_parameters["local-space"]
+        Blender.Draw.Redraw(1)
+
 #Handle GUI
 def handle_event(event,value):
     if event == Blender.Draw.ESCKEY:
@@ -1051,6 +1057,7 @@ def draw_gui():
     global EVENT_ALL,EVENT_SEL
     global EVENT_NOR,EVENT_COL,EVENT_CAM,EVENT_LIG
     global EVENT_EXP,EVENT_QUI
+    global EVENT_LOCAL, EVENT_GLOBAL
     button_width = 222
     button_height = 20
 
@@ -1066,12 +1073,21 @@ def draw_gui():
     Blender.BGL.glClear(Blender.BGL.GL_COLOR_BUFFER_BIT)
 
     glColor3f(170.0/255.0,255.0/255.0,255.0/255.0)
-    draw_rect(20,330,262,310)
-    draw_rect(22,328,258,306)
+    draw_rect(20,370,262,350)
+    draw_rect(22,368,258,346)
 
     glColor3f(255.0/255.0,238.0/255.0,0.0/255.0)
-    glRasterPos2i(70,300)
+    glRasterPos2i(70,350)
     Draw.Text("Blitz3D Exporter 2.06",'large')
+
+    Blender.Draw.Toggle("Local Globals",EVENT_LOCAL,40,16*button_height,
+                        button_width,button_height,
+                        b3d_parameters.get("local-space"),
+                        "Export Objects in Local Coords")
+    Blender.Draw.Toggle("Global Coords",EVENT_GLOBAL,40,15*button_height,
+                        button_width,button_height,
+                        not b3d_parameters.get("local-space"),
+                        "Export Objects in Global Coords")
 
     Blender.Draw.Toggle("All Objects",EVENT_ALL,40,13*button_height,
                         button_width,button_height,
@@ -1113,12 +1129,12 @@ def savefile_callback(filename):
         return
 
     if not filename.endswith(".b3d"):
-	filename += ".b3d"
+        filename += ".b3d"
 
     if Blender.sys.exists(filename):
-	result = Draw.PupMenu("File Already Exists, Overwrite?%t|Yes%x1|No%x0")
-	if result != 1:
-	    return
+        result = Draw.PupMenu("File Already Exists, Overwrite?%t|Yes%x1|No%x0")
+    if result != 1:
+        return
 
     start = Blender.sys.time()
     write_b3d_file(filename)
