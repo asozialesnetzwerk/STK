@@ -121,11 +121,11 @@
   <small-nitro x="70" y="100" z="-50" />
   <small-nitro x="65" y="100" z="-50" />
   <small-nitro x="60" y="100" z="-50" />
-  <small-nitro x="25" y="100" z="131" />
-  <small-nitro x="20" y="100" z="130" />
-  <small-nitro x="15" y="100" z="129" />
-  <small-nitro x="10" y="100" z="128" />
-  <small-nitro x="5" y="100" z="127" />
+  <small-nitro x="-5.057373" y="100" z="119.923492" />
+  <small-nitro x="-7.561262" y="100" z="125.111778" />
+  <small-nitro x="-7.933046" y="99.999969" z="116.831444" />
+  <small-nitro x="-12.205015" y="99.999969" z="125.867905" />
+  <small-nitro x="-10.184693" y="99.999977" z="120.70771" />
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
     <check-line kind="activate" other-ids="0" p1="182.127701 77.710556" p2="175.742722 69.501297"
