@@ -121,8 +121,8 @@ lSTKTypes2Properties = {
     "Sun":["ambient","diffuse","specular"],\
     "Texture":["anisotropic","backface-culling","clampU","clampV","compositing","disable-z-write",\
                "friction","ignore","light","max-speed","reset","slowdown-time","sphere",\
-               "graphical-effect","sound-effect","surface", "below-surface",\
-               "falling-effect", \
+               "graphical-effect","surface","below-surface",\
+               "falling-effect","sound-effect", \
                 "sfx:filename|sound-effect=yes",\
                 "sfx:name|sound-effect=yes",\
                 "sfx:rolloff|sound-effect=yes",\
@@ -282,7 +282,7 @@ lPropertyDef = {
              
 # For picklist, add <name>:<valuelist> to lSTK_Picklist. The valuelist items are |-separated...
 lSTK_Picklist = {"sky-type": "dome|box|simple",\
-                "graphical-effect": "none|water|smoke",\
+                "graphical-effect": "none|water",\
                 "compositing": "none|blend|test|additive",\
                 "particle:condition": "skid|drive",\
                 "interaction": "none|ghost|static|move",\
@@ -758,8 +758,13 @@ class STKBrowser:
             if cur_prop_nr < self.property_cursor:
                 continue
             
+            #Apply background striation 
             if (cur_prop_nr % 2) > 0: 
                 self.DrawBox(x,y-1,width,textheight+1)
+            
+            #Apply indentation to conditional properties
+            if prop_name not in lSTKTypes2Properties[data.GetCurrentType()]:
+                x += pad
             
             #Delete button
             if prop_type not in [type_STATIC,type_TYPELIST]:
