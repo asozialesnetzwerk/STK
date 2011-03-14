@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 7092 -->
+<!-- Generated with script from SVN rev 7732 -->
 <scene>
   <track model="mines_track.b3d" x="0" y="0" z="0">
     <static-object model="lamp1.b3d" xyz="73.528641 13.074365 48.170361" hpr="-0.000000 -0.000000 -0.000000" scale="0.812535 0.205050 0.812535"/>
@@ -44,6 +44,7 @@
     <animated-texture name="mine_water_alpha.png" dy="0.5" />
     <animated-texture name="mine_water_alpha.png" dy="0.5" />
   </track>
+  <water model="water.b3d" xyz="99.244125 -14.704125 -150.551712" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000" height="0.5"/>
   <object type="animation" model="cart.b3d" xyz="34.090733 1.353933 60.885803" hpr="-0.000000 33.594439 -0.000000" scale="1.000000 1.000000 1.000000" >
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
       <p c="1.000000 34.090733" h1="-1.311990 30.471663" h2="3.311990 37.709801"/>
@@ -140,6 +141,7 @@
       <p c="50.000000 -360.000000" h1="42.079193 -302.970181" h2="57.920807 -417.029839"/>
     </curve>
   </object>
+  <sun  fog="true" fog-color="3060 1530 0" fog-start="0" fog-end="50"/>
   <sky-color rgb="12 6 0"/>
   <banana x="100.780777" y="-0.404809" z="25.302782" />
   <small-nitro x="86.887367" y="-8.432766" z="-119.353081" h="-106.29825" />

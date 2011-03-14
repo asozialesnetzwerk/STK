@@ -1,7 +1,7 @@
-<!-- Generated with script from SVN rev 7092 -->
 <?xml version="1.0"?>
+<!-- Generated with script from SVN rev 7732 -->
 <track  name        = "Old Mine"
-        version     = "3"
+        version     = "5"
         groups      = "standard"
         designer    = "Ivar ten Cate"
         music       = "West.music"
