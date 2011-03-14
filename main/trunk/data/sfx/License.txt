@@ -85,6 +85,11 @@
     Released under Creative Commons Attribution - Share Alike License 3.0
     by Atheal Washington and Stephen Dunn (stevo14)
 
+* splash
+    Based on 'Fish Splashing-SoundBible.com-250179430' sound bible, by blastwavefx.com, released under CC-BY-SA 3.0
+    and on 'Water vaporizing on hot Stones' by Natalie from pdsounds.org, released under public domain
+    Mix by Marianne Gagnon, released under CC-BY-SA 3.0
+
 * start_race
     obtained from : http://www.freesoundfiles.tintagel.net/Audio/
     (see license text below)

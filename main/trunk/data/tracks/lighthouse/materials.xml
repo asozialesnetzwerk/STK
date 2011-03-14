@@ -16,6 +16,7 @@
     <particles base="smoke_yellow.xml" condition="skid drive"/>
   </material>
   <material name="sea.jpg" ignore="Y" surface="Y">
+    <sfx filename="splash.ogg" name="splash"/>
     <particles base="splash.xml" condition="skid drive"/>
   </material>
   <material name="seabed.jpg" graphical-effect="water" reset="Y" falling-effect="Y"/>

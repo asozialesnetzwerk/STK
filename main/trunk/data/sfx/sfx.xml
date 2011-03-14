@@ -31,6 +31,7 @@
    <sfx name="prestart"       filename="pre_start_race.ogg"   volume="1.0" rolloff="0.1"  positional="false" />
    <sfx name="start"          filename="start_race.ogg"       volume="1.0" rolloff="0.1"  positional="false" />
    <sfx name="track_intro"    filename="track_intro.ogg"      volume="1.0" rolloff="0.1"  positional="false" />
+   <sfx name="splash"         filename="splash.ogg"           volume="1.0" rolloff="0.05" positional="true"  />
    <sfx name="swap"           filename="swap.ogg"             volume="1.0" rolloff="0.05" positional="true"  />
    <sfx name="ugh"            filename="ugh.ogg"              volume="1.0" rolloff="0.1"  positional="false" />
    <sfx name="use_anvil"      filename="anvil.ogg"            volume="1.0" rolloff="0.5"  positional="true"  />
