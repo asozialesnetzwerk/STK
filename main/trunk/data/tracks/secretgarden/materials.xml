@@ -24,6 +24,9 @@
   <material name="Sophora.png" alpha="yes" compositing="blend"/>
   <material name="TiZeta_stalkM.png" ignore="Y"/>
   <material name="Trifolium_repens_07_ies.png" transparency="yes" ignore="Y" compositing="test"/>
-  <material name="water_light2.png" alpha="yes" ignore="Y" compositing="blend"/>
-  <material name="water_light3.png" alpha="yes" reset="Y" graphical-effect="water" compositing="blend"/>
+  <material name="water_light2.png" alpha="yes" ignore="Y" compositing="blend" surface="Y">
+    <sfx filename="splash.ogg" name="splash"/>
+    <particles condition="skid drive" base="splash.xml"/>
+  </material>
+  <material name="water_light3.png" reset="Y" graphical-effect="water" compositing="none" falling-effect="Y"/>
 </materials>
