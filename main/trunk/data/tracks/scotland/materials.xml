@@ -10,8 +10,12 @@
   <material name="Mossy_wall.png" anisotropic="Y"/>
   <material name="rock_darkgrey.png" anisotropic="Y"/>
   <material name="rock_grey.png" anisotropic="Y"/>
+  <material name="seabed.png" graphical-effect="water" falling-effect="Y"/>
   <material name="tree_1.png" backface-culling="N" light="N" compositing="blend"/>
-  <material name="water_dark.png" light="N" reset="Y"/>
+  <material name="water_dark.png" light="N" reset="Y" surface="Y">
+    <sfx filename="splash.ogg" name="splash"/>
+    <particles base="splash.xml" condition="skid drive"/>
+  </material>
   <material name="Window4.png" anisotropic="Y"/>
   <material name="Window5.png" anisotropic="Y"/>
   <material name="Window6.png" anisotropic="Y"/>
