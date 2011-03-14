@@ -29,8 +29,12 @@
     <particles base="smoke_brown.xml" condition="skid"/>
   </material>
   <material name="sand2.jpg" anisotropic="Y" backface-culling="Y" clampU="N" clampV="N" compositing="none" disable-z-write="N" friction="1.0" graphical-effect="none" ignore="N" light="Y" max-speed="1.0" reset="N" slowdown-time="1.0" sphere="N" surface="N" below-surface="N" falling-effect="N"/>
+  <material name="seabed.jpg" graphical-effect="water" falling-effect="Y" reset="Y"/>
   <material name="statue.JPG" anisotropic="Y" backface-culling="Y" clampU="N" clampV="N" compositing="none" disable-z-write="N" friction="1.0" graphical-effect="none" ignore="N" light="Y" max-speed="1.0" reset="N" slowdown-time="1.0" sphere="N" surface="N" below-surface="N" falling-effect="N"/>
   <material name="transparence.png" compositing="test" disable-z-write="Y" reset="Y"/>
-  <material name="water_light.png" anisotropic="Y" backface-culling="Y" clampU="N" clampV="N" compositing="none" disable-z-write="N" friction="1.0" graphical-effect="none" ignore="N" light="Y" max-speed="1.0" reset="N" slowdown-time="1.0" sphere="N" surface="N" below-surface="N" falling-effect="N"/>
+  <material name="water_light.png" anisotropic="Y" backface-culling="Y" clampU="N" clampV="N" compositing="none" disable-z-write="N" friction="1.0" graphical-effect="none" ignore="Y" light="Y" max-speed="1.0" reset="N" slowdown-time="1.0" sphere="N" surface="Y" below-surface="N" falling-effect="N">
+    <sfx filename="splash.ogg" name="splash" rolloff="0.10000000149" min-speed="0.0" max-speed="30.0" min-pitch="1.0" max-pitch="1.0" positional="N"/>
+    <particles base="splash.xml" condition="skid drive"/>
+  </material>
   <material name="wood.png" anisotropic="Y" backface-culling="Y" clampU="N" clampV="N" compositing="none" disable-z-write="N" friction="1.0" graphical-effect="none" ignore="N" light="Y" max-speed="1.0" reset="N" slowdown-time="1.0" sphere="N" surface="N" below-surface="N" falling-effect="N"/>
 </materials>
