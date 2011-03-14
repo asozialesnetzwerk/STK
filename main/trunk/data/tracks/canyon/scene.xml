@@ -65,8 +65,10 @@
     <static-object model="stone.b3d" xyz="8.500000 0.000000 -20.599998" hpr="-0.000000 35.000003 -0.000000" scale="1.400000 1.000000 1.000000"/>
     <static-object model="stone.b3d" xyz="12.000000 0.000000 -39.000000" hpr="-0.000000 -0.000000 -0.000000" scale="1.400000 1.000000 1.000000"/>
     <animated-texture name="canyon_conveyor_belt.png" dy="2.0" />
-    <animated-texture name="canyon_water.png" dy="0.1" />
   </track>
+  <water model="water.b3d" xyz="200.000000 0.000000 100.000000" hpr="-0.000000 -0.000000 0.000000" scale="1.000000 1.000000 1.000000" height="0.9">
+    <animated-texture name="canyon_water.png" dy="0.1" />
+  </water>
   <sun  xyz="200.0 400.0 800.0"/>
   <banana x="274" y="10" z="316" />
   <banana x="202" y="10" z="29" />
