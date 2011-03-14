@@ -25,5 +25,9 @@
     <particles condition="skid drive" base="smoke_brown.xml"/>
   </material>
   <material name="transparence.png" reset="Y" compositing="test"/>
-  <material name="canyon_water.png" reset="Y"/>
+  <material name="seabed.jpg" graphical-effect="water" falling-effect="Y"/>
+  <material name="canyon_water.png" reset="Y" surface="Y">
+    <sfx filename="splash.ogg" name="splash"/>
+    <particles base="splash.xml" condition="skid drive"/>
+  </material>
 </materials>
