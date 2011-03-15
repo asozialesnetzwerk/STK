@@ -1,11 +1,15 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 7595 -->
+<!-- Generated with script from SVN rev 7732 -->
 <materials>
-  <material name="acid_lake.jpg" reset="Y"/>
-  <material name="arc1.png" alpha="yes" backface-culling="N" reset="Y" compositing="blend"/>
-  <material name="arc2.png" alpha="yes" backface-culling="N" reset="Y" compositing="blend"/>
-  <material name="laser_bridge_green.png" alpha="yes" anisotropic="Y" backface-culling="N" compositing="blend"/>
-  <material name="laser_bridge_red.png" alpha="yes" anisotropic="Y" backface-culling="N" compositing="blend"/>
+  <material name="acid_lake.jpg" reset="N" ignore="Y" surface="Y">
+    <sfx filename="hot.ogg" name="hot"/>
+    <particles condition="skid drive" base="acid_splash.xml"/>
+  </material>
+  <material name="acid_lake_bottom.jpg" graphical-effect="water" reset="Y" falling-effect="Y"/>
+  <material name="arc1.png" backface-culling="N" reset="Y" compositing="blend"/>
+  <material name="arc2.png" backface-culling="N" reset="Y" compositing="blend"/>
+  <material name="laser_bridge_green.png" anisotropic="Y" backface-culling="N" compositing="blend"/>
+  <material name="laser_bridge_red.png" anisotropic="Y" backface-culling="N" compositing="blend"/>
   <material name="metal_ground.jpg" anisotropic="Y">
     <particles base="smoke.xml" condition="skid"/>
   </material>
