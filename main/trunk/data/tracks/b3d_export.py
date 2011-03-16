@@ -1133,8 +1133,8 @@ def savefile_callback(filename):
 
     if Blender.sys.exists(filename):
         result = Draw.PupMenu("File Already Exists, Overwrite?%t|Yes%x1|No%x0")
-    if result != 1:
-        return
+        if result != 1:
+            return
 
     start = Blender.sys.time()
     write_b3d_file(filename)
