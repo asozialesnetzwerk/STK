@@ -1,12 +1,11 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 4997 -->
+<!-- Generated with script from SVN rev 7732 -->
 <track  name        = "Cave X"
-        version     = "3"
+        version     = "5"
         groups      = "standard"
         designer    = "MacIO (shape) MiniBjorn (new textures and plants)"
         music       = "Penguin_Party.music"
-        arena       = "yes"
+        arena       = "Y"
         screenshot  = "sshot-cave.png"
-        maxKartCount = "6"
 >
 </track>
