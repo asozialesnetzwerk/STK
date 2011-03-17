@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 7597 -->
+<!-- Generated with script from SVN rev 7732 -->
 <scene>
   <track model="olivermath_track.b3d" x="0" y="0" z="0"/>
   <banana x="30" y="1" z="60" />
@@ -8,7 +8,7 @@
   <item x="45.606167" y="1" z="34.650986" />
   <item x="8.470841" y="1" z="77.815491" />
   <item x="-5" y="1" z="-10" />
-  <item x="-5" y="1" z="30" />
+  <item x="15.455128" y="1" z="4.252284" />
   <item x="35" y="1" z="62" />
   <item x="5.412523" y="1" z="73.337234" />
   <item x="-43.426315" y="1" z="53.569115" />
