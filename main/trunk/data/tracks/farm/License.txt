@@ -5,6 +5,9 @@ Model by to Ville Seppanen and Marianne Gagnon
 Well model and well texture by Sean Greene (Iconoclast)
     released under public domain
 
+Mill model by Samuncle
+    released under CC-BY-SA 3.0
+
 corn.png
     based on image by Jonathunder with modifications by Marianne Gagnon
     CC-BY-SA 3 unported
@@ -20,6 +23,10 @@ barn_wall, barn_window, leaf.png, earth.png
 leave3.png : by Krzysztof P. Jasiutowicz 
 retrieved from http://commons.wikimedia.org/wiki/File:Lisc_lipy.jpg,
     released under CC-BY-SA 3.0
+
+mill.png, millstructure.png, wind_mill.png
+    by Samuncle, based on pictures from Burningwell
+    released under public domain
 
 clouds in skycube by nicubunu, released in public domain
 
