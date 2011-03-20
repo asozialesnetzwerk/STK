@@ -5,7 +5,6 @@
   <material name="chain.png" compositing="test" backface-culling="N"/>
   <material name="dynamiclight.png" compositing="blend" light="N" disable-z-write="Y" ignore="Y"/>
   <material name="lava_1.jpg" light="N"/>
-  <material name="lava_sky.png" light="N"/>
   <material name="lightHaloY.png" compositing="blend" light="N" disable-z-write="Y" ignore="Y"/>
   <material name="pix.png" compositing="test" reset="Y"/>
   <material name="torch.png" compositing="test" disable-z-write="Y"/>
