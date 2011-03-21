@@ -103,10 +103,6 @@ def convertTextToYN(sText):
         return "N"
     else:
         return "Y"
-# --------------------------------------------------------------------------
-# Converts a blender caller (floating point) into a 0...255 based color.
-def convertColor(sColor):
-    return " ".join(map(lambda x: `int(float(x)*255)`, sColor.split()))
 # ==============================================================================
 # A special class to store a drivelines.
 class Driveline:
@@ -1325,7 +1321,7 @@ class TrackExport:
         if s=="yes":
             sSky="%s fog=\"true\""%sSky
             s=getIdProperty(scene, "fog-color", 0)
-            if s: sSky="%s fog-color=\"%s\""%(sSky, convertColor(s))
+            if s: sSky="%s fog-color=\"%s\""%(sSky, s)
             s=getIdProperty(scene, "fog-density", 0)
             if s: sSky="%s fog-density=\"%s\""%(sSky, s)
             s=getIdProperty(scene, "fog-start", 0)
