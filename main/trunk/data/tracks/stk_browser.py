@@ -101,6 +101,7 @@ lSTKTypes2Properties = {
     "Billboard":[],\
     "Check":["name","activate","toggle","inner-radius","color"],\
     "Driveline":["invisible", "ai-ignore"],\
+    "Empty":[],\
     "Fixed":["start"],\
     "Ignore":[],\
     "Item":[],\
