@@ -1203,9 +1203,10 @@ class OBJECT_PT_hello(bpy.types.Panel):
         row.operator("screen.B3D_Export", "Export", icon='BLENDER')
 
 
-#FIXME: doesn't work when invoked from menu
 # Add to a menu
 def menu_func_export(self, context):
+    global the_scene
+    the_scene = context.scene
     self.layout.operator(B3D_Export_Operator.bl_idname, text="B3D (.b3d)")
 
 def register():
