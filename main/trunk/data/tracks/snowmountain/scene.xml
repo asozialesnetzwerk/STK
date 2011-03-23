@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 6875 -->
+<!-- Generated with script from SVN rev 7732 -->
 <scene>
   <track model="snowmountain_track.b3d" x="0" y="0" z="0"/>
-  <object type="animation" model="Balloon.b3d" xyz="-39.316742 39.719826 -180.018692" hpr="-66.375348 89.561293 0.022721" scale="7.327495 7.327496 7.327496" >
+  <object type="animation" model="Balloon.b3d" xyz="-39.316746 39.719826 -180.018707" hpr="-66.375348 89.561293 0.022721" scale="7.327495 7.327496 7.327496" >
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
       <p c="0.172394 -40.000000" h1="-51.067390 -82.012352" h2="51.412178 2.012353"/>
       <p c="169.893951 99.157532" h1="103.757736 99.157532" h2="310.133057 99.157532"/>
@@ -43,8 +43,8 @@
   <banana x="58.583244" y="0.885199" z="-12.704335" />
   <banana x="60.704655" y="-1.525584" z="-57.860165" />
   <banana x="21.502977" y="-3.279079" z="-102.923767" />
-  <banana x="-4.473162" y="-3.764242" z="-23.126781" />
-  <banana x="3.169204" y="-3.764242" z="-23.126781" />
+  <banana x="-5.369586" y="-3.764242" z="-38.465591" />
+  <banana x="2.27278" y="-3.764242" z="-38.465591" />
   <item x="-8.647099" y="1.590184" z="67.004463" />
   <item x="-76.409302" y="4.838969" z="76.429443" />
   <item x="-104.86425" y="5.457215" z="66.15136" />
@@ -72,12 +72,12 @@
   <small-nitro x="-64.195549" y="10.825488" z="-45.880325" />
   <small-nitro x="27.643864" y="9.619767" z="-2.84893" />
   <small-nitro x="62.16251" y="-0.347618" z="-34.83329" />
-  <small-nitro x="-0.516657" y="-3.764242" z="-22.702869" />
+  <small-nitro x="-1.413081" y="-3.764242" z="-38.041679" />
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
     <check-line kind="activate" other-ids="2" p1="-38.917896 66.436386" p2="-36.257420 87.415909"
                 min-height="2.804375" same-group="1"/>
-    <check-line kind="activate" other-ids="0" p1="-24.747654 -59.180248" p2="-23.794647 -37.289577"
+    <check-line kind="activate" other-ids="0" p1="-24.747654 -59.180252" p2="-23.794647 -37.289574"
                 min-height="11.353293" same-group="2"/>
   </checks>
   <sky-box texture="winter_sky_6.jpg winter_sky_5.jpg winter_sky_2.jpg winter_sky_4.jpg winter_sky_3.jpg winter_sky_1.jpg"/>
