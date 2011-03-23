@@ -794,7 +794,14 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
 
                 if b3d_parameters.get("vertex-colors") and len(data.vertex_colors) > 0:
 	                # FIXME: I'm not sure this is right
-                    mesh_stack[ivert][3] = data.vertex_colors[0].data[face.index].color1
+                    if vertex_id == 0:
+                        mesh_stack[ivert][3] = data.vertex_colors[0].data[face.index].color1
+                    elif vertex_id == 1:
+                        mesh_stack[ivert][3] = data.vertex_colors[0].data[face.index].color2
+                    elif vertex_id == 2:
+                        mesh_stack[ivert][3] = data.vertex_colors[0].data[face.index].color3
+                    elif vertex_id == 3:
+                        mesh_stack[ivert][3] = data.vertex_colors[0].data[face.index].color4
 
                 # FIXME: I'm not sure this is right
                 if (len(data.uv_textures) > 0):
@@ -875,9 +882,9 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
                                                             mesh_stack[ivert][2].z,"</normal>")
 
             if b3d_parameters.get("vertex-colors") and len(data.vertex_colors) > 0:
-                temp_buf += write_float(mesh_stack[ivert][3].r/255.0) #R
-                temp_buf += write_float(mesh_stack[ivert][3].g/255.0) #G
-                temp_buf += write_float(mesh_stack[ivert][3].b/255.0) #B
+                temp_buf += write_float(mesh_stack[ivert][3].r) #R
+                temp_buf += write_float(mesh_stack[ivert][3].g) #G
+                temp_buf += write_float(mesh_stack[ivert][3].b) #B
                 temp_buf += write_float(1.0) #A (FIXME?)
                 #temp_buf += write_float(mesh_stack[ivert][3].a/255.0) #A
                 if DEBUG: print("                <color>",mesh_stack[ivert][3].r,
@@ -1143,7 +1150,7 @@ class B3D_Export_Operator(bpy.types.Operator):
     cameras  = bpy.props.BoolProperty(name="Export Cameras", default=False)
     lights   = bpy.props.BoolProperty(name="Export Lights", default=False)
     mipmap   = bpy.props.BoolProperty(name="Mipmap", default=False)
-    localsp  = bpy.props.BoolProperty(name="Use Local Space Coords", default=True)
+    localsp  = bpy.props.BoolProperty(name="Use Local Space Coords", default=False)
     
     def invoke(self, context, event):
         context.window_manager.fileselect_add(self)
