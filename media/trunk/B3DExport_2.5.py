@@ -44,17 +44,6 @@ import math
 
 if not hasattr(sys,"argv"): sys.argv = ["???"]
 
-#Events
-EVENT_ALL = 1
-EVENT_SEL = 2
-EVENT_NOR = 3
-EVENT_COL = 4
-EVENT_CAM = 5
-EVENT_LIG = 6
-EVENT_EXP = 7
-EVENT_QUI = 8
-EVENT_LOCAL = 9
-EVENT_GLOBAL = 10
 
 #Global Stacks
 b3d_parameters = {}
@@ -87,7 +76,8 @@ def write_chunk(name,value):
     dummy = bytearray()
     return dummy + name + write_int(len(value)) + value
 
-#Write B3D File
+# ==== Write B3D File ====
+# (main exporter function)
 def write_b3d_file(filename, objects=[]):
     global sets_stack, texs_stack
     global brus_stack, mesh_stack, bone_stack, keys_stack
@@ -115,7 +105,7 @@ def write_b3d_file(filename, objects=[]):
     file.write(file_buf)
     file.close()
 
-#Write TEXS Chunk
+# ==== Write TEXS Chunk ====
 def write_texs(objects=[]):
     global b3d_parameters
     texs_buf = bytearray()
@@ -152,15 +142,15 @@ def write_texs(objects=[]):
             else:
                 layer_max = 8
 
-            #FIXME!!
-            #for face in data.faces:
-            #    for iuvlayer,uvlayer in enumerate(data.uv_textures):
-            #        if iuvlayer < 8:
-            #            
-            #            # FIXME?
-            #            #data.activeUVLayer = uvlayer
-            #            
-            #            layer_set[iuvlayer].append(face.uv)
+            for face in data.faces:
+                for iuvlayer,uvlayer in enumerate(data.uv_textures):
+                    if iuvlayer < 8:
+                        
+                        # FIXME?
+                        #data.activeUVLayer = uvlayer
+                        
+                        #layer_set[iuvlayer].append(face.uv)
+                        layer_set[iuvlayer].append( uvlayer.data[face.index].uv )
 
             for i in range(len(data.uv_textures)):
                 if set_wrote:
@@ -226,7 +216,7 @@ def write_texs(objects=[]):
 
     return texs_buf
 
-#Write BRUS Chunk
+# ==== Write BRUS Chunk ====
 def write_brus(objects=[]):
     global b3d_parameters
     brus_buf = bytearray()
@@ -357,7 +347,7 @@ def write_brus(objects=[]):
 
     return brus_buf
 
-#Write NODE Chunk
+# ==== Write NODE Chunk ====
 def write_node(objects=[]):
     global bone_stack
     global keys_stack
@@ -721,7 +711,7 @@ def write_node(objects=[]):
 
     return main_buf
 
-#Write NODE MESH Chunk
+# ==== Write NODE MESH Chunk ====
 def write_node_mesh(obj,obj_count,arm_action,exp_root):
     global mesh_stack
     mesh_stack = []
@@ -740,7 +730,7 @@ def write_node_mesh(obj,obj_count,arm_action,exp_root):
 
 #ids_count = 0
 
-#Write NODE MESH VRTS Chunk
+# ==== Write NODE MESH VRTS Chunk ====
 def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
     #global ids_count
     vrts_buf = bytearray()
@@ -911,7 +901,7 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
 
     return vrts_buf
 
-#Write NODE MESH TRIS Chunk
+# ==== Write NODE MESH TRIS Chunk ====
 def write_node_mesh_tris(obj,obj_count,arm_action,exp_root):
     #data = obj.getData(mesh = True)
     data = obj.data
@@ -1020,7 +1010,7 @@ def write_node_mesh_tris(obj,obj_count,arm_action,exp_root):
 
     return tris_buf
 
-#Write NODE ANIM Chunk
+# ==== Write NODE ANIM Chunk ====
 def write_node_anim(num_frames):
     anim_buf = bytearray()
     temp_buf = bytearray()
@@ -1035,7 +1025,7 @@ def write_node_anim(num_frames):
 
     return anim_buf
 
-#Write NODE NODE Chunk
+# ==== Write NODE NODE Chunk ====
 def write_node_node(ibone):
     node_buf = ""
     temp_buf = ""
@@ -1074,7 +1064,7 @@ def write_node_node(ibone):
 
     return node_buf
 
-#Write NODE BONE Chunk
+# ==== Write NODE BONE Chunk ====
 def write_node_bone(ibone):
     bone_buf = ""
     temp_buf = ""
@@ -1093,7 +1083,7 @@ def write_node_bone(ibone):
 
     return bone_buf
 
-#Write NODE KEYS Chunk
+# ==== Write NODE KEYS Chunk ====
 def write_node_keys(ibone):
     keys_buf = ""
     temp_buf = ""
@@ -1128,42 +1118,10 @@ def write_node_keys(ibone):
     return keys_buf
 
 
-# ==== OPTIONS OPERATOR ====
-class B3D_Config_Operator(bpy.types.Operator):
-    bl_idname = ("screen.B3D_Config")
-    bl_label = ("B3D Configuration")
-    
-    #overwrite = bpy.props.BoolProperty(name="Overwrite")
-    selected = bpy.props.BoolProperty(name="Export Selected Only", default=False)
-    vnormals = bpy.props.BoolProperty(name="Export Vertex Normals", default=True)
-    vcolors  = bpy.props.BoolProperty(name="Export Vertex Colors", default=True)
-    cameras  = bpy.props.BoolProperty(name="Export Cameras", default=False)
-    lights   = bpy.props.BoolProperty(name="Export Lights", default=False)
-    mipmap   = bpy.props.BoolProperty(name="Mipmap", default=False)
-    localsp  = bpy.props.BoolProperty(name="Use Local Space Coords", default=True)
-    
-    def invoke(self, context, event):
-        wm = context.window_manager
-        return wm.invoke_props_dialog(self)
-    
-    def execute(self, context):
-        global b3d_parameters
-        b3d_parameters["export-selected"] = self.selected
-        b3d_parameters["vertex-normals" ] = self.vnormals
-        b3d_parameters["vertex-colors"  ] = self.vcolors
-        b3d_parameters["cameras"        ] = self.cameras
-        b3d_parameters["lights"         ] = self.lights
-        b3d_parameters["mipmap"         ] = self.mipmap
-        b3d_parameters["local-space"    ] = self.localsp
-        bpy.ops.screen.B3D_Export('INVOKE_DEFAULT')
-        return {'FINISHED'}
-
 # ==== CONFIRM OPERATOR ====
 class B3D_Confirm_Operator(bpy.types.Operator):
     bl_idname = ("screen.B3D_Confirm")
     bl_label = ("File Exists, Overwrite?")
-    
-    #overwrite  = bpy.props.BoolProperty(name="Overwrite Existing File", default=True)
     
     def invoke(self, context, event):
         wm = context.window_manager
@@ -1179,11 +1137,28 @@ class B3D_Export_Operator(bpy.types.Operator):
     bl_label = ("B3D Export")
     filepath = bpy.props.StringProperty(subtype="FILE_PATH")
 
+    selected = bpy.props.BoolProperty(name="Export Selected Only", default=False)
+    vnormals = bpy.props.BoolProperty(name="Export Vertex Normals", default=True)
+    vcolors  = bpy.props.BoolProperty(name="Export Vertex Colors", default=True)
+    cameras  = bpy.props.BoolProperty(name="Export Cameras", default=False)
+    lights   = bpy.props.BoolProperty(name="Export Lights", default=False)
+    mipmap   = bpy.props.BoolProperty(name="Mipmap", default=False)
+    localsp  = bpy.props.BoolProperty(name="Use Local Space Coords", default=True)
+    
     def invoke(self, context, event):
         context.window_manager.fileselect_add(self)
         return {'RUNNING_MODAL'}
     
     def execute(self, context):
+        
+        global b3d_parameters
+        b3d_parameters["export-selected"] = self.selected
+        b3d_parameters["vertex-normals" ] = self.vnormals
+        b3d_parameters["vertex-colors"  ] = self.vcolors
+        b3d_parameters["cameras"        ] = self.cameras
+        b3d_parameters["lights"         ] = self.lights
+        b3d_parameters["mipmap"         ] = self.mipmap
+        b3d_parameters["local-space"    ] = self.localsp
         
         if self.filepath == "":
             return {'FINISHED'}
@@ -1212,18 +1187,12 @@ class OBJECT_PT_hello(bpy.types.Panel):
         the_scene = context.scene
         
         layout = self.layout
- 
-        #obj = context.object
         
         # ==== Types group ====
         row = layout.row()
         
-        row.operator("screen.B3D_Config", "Export", icon='BLENDER')
+        row.operator("screen.B3D_Export", "Export", icon='BLENDER')
 
-        #box = layout.box()
-        
-        #row = box.row()
-        #row.label(text=currprop)
 
 #FIXME: doesn't work when invoked from menu
 # Add to a menu
