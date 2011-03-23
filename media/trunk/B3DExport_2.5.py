@@ -180,14 +180,14 @@ def write_texs(objects=[]):
                         # FIXME?
                         #data.activeUVLayer = uvlayer
                         
-                        if DEBUG: print("<uv face=", face.index, ">")
+                        #if DEBUG: print("<uv face=", face.index, ">")
                         if data.uv_textures[0].data[face.index].image:
                             
                             img_name = os.path.basename(data.uv_textures[0].data[face.index].image.filepath)
                             #img_name = data.uv_textures[0].data[face.index].image.name
                             
                             if not [img_name, sets_stack[obj_count][iuvlayer]] in texs_stack:
-                                if DEBUG: print("    <image id=",len(texs_stack),"name=","'"+img_name+"'","/>")
+                                if DEBUG: print("<image id=",len(texs_stack),"name=","'"+img_name+"'","/>")
                                 texs_stack.append([img_name, sets_stack[obj_count][iuvlayer]])
                                 temp_buf += write_string(img_name) #Texture File Name
                                 temp_buf += write_int(sets_stack[obj_count][iuvlayer]) #Flags
@@ -197,10 +197,10 @@ def write_texs(objects=[]):
                                 temp_buf += write_float(1) #X_Scale
                                 temp_buf += write_float(1) #Y_Scale
                                 temp_buf += write_float(0) #Rotation
-                            else:
-                                if DEBUG: print("    <image id=(previous)","name=","'"+img_name+"'","/>")
+                            #else:
+                            #    if DEBUG: print("    <image id=(previous)","name=","'"+img_name+"'","/>")
                             
-                        if DEBUG: print("</uv>")
+                        #if DEBUG: print("</uv>")
 
             obj_count += 1
 
@@ -240,6 +240,8 @@ def write_brus(objects=[]):
             # FIXME?
             #orig_uvlayer = data.activeUVLayer
 
+            if DEBUG: print("<obj name=",obj.name,">")
+
             for face in data.faces:
                 img_found = 0
                 face_stack = []
@@ -267,7 +269,7 @@ def write_brus(objects=[]):
                                         img_id = i
                         
                         face_stack.insert(iuvlayer,img_id)
-                        print("<uv face=",face.index,"layer=", iuvlayer, " imgid=", img_id, "/>")
+                        print("    <uv face=",face.index,"layer=", iuvlayer, " imgid=", img_id, "/>")
 
                 for i in range(len(face_stack),texs_stack[-1]):
                     face_stack.append(-1)
@@ -335,6 +337,7 @@ def write_brus(objects=[]):
                         for i in face_stack:
                             temp_buf += write_int(i) #Texture ID
 
+            if DEBUG: print("</obj>")
             obj_count += 1
 
             #FIXME?
@@ -793,7 +796,6 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
                     mesh_stack[ivert][2] = norm_matrix
 
                 if b3d_parameters.get("vertex-colors") and len(data.vertex_colors) > 0:
-	                # FIXME: I'm not sure this is right
                     if vertex_id == 0:
                         mesh_stack[ivert][3] = data.vertex_colors[0].data[face.index].color1
                     elif vertex_id == 1:
