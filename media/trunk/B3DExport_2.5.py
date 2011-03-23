@@ -1158,6 +1158,21 @@ class B3D_Config_Operator(bpy.types.Operator):
         bpy.ops.screen.B3D_Export('INVOKE_DEFAULT')
         return {'FINISHED'}
 
+# ==== CONFIRM OPERATOR ====
+class B3D_Confirm_Operator(bpy.types.Operator):
+    bl_idname = ("screen.B3D_Confirm")
+    bl_label = ("File Exists, Overwrite?")
+    
+    #overwrite  = bpy.props.BoolProperty(name="Overwrite Existing File", default=True)
+    
+    def invoke(self, context, event):
+        wm = context.window_manager
+        return wm.invoke_props_dialog(self)
+    
+    def execute(self, context):
+        write_b3d_file(B3D_Confirm_Operator.filepath)
+        return {'FINISHED'}
+    
 # ==== EXPORT OPERATOR ====
 class B3D_Export_Operator(bpy.types.Operator):
     bl_idname = ("screen.B3D_Export")
@@ -1177,7 +1192,9 @@ class B3D_Export_Operator(bpy.types.Operator):
             self.filepath += ".b3d"
     
         if os.path.exists(self.filepath):
-            self.report({'ERROR'}, "File Exists")
+            #self.report({'ERROR'}, "File Exists")
+            B3D_Confirm_Operator.filepath = self.filepath
+            bpy.ops.screen.B3D_Confirm('INVOKE_DEFAULT')
             return {'FINISHED'}
 
         write_b3d_file(self.filepath)
