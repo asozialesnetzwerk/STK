@@ -477,11 +477,12 @@ def write_node(objects=[]):
                 if b3d_parameters.get("local-space"):
                     matrix = TRANS_MATRIX
                 else:
-                    matrix = obj.getMatrix("worldspace")
+                    matrix = obj.matrix_world
                     matrix *= TRANS_MATRIX
 
                 temp_buf += write_string(obj.name) #Node Name
 
+                #print("Matrix : ", matrix)
                 position = matrix.translation_part()
 
                 temp_buf += write_float(-position[0]) #Position X
@@ -1082,7 +1083,8 @@ def write_node_bone(ibone):
         for iuv in xrange(len(mesh_stack[ivert][4][0])):
             for vert_influ in mesh_stack[ivert][5]:
                 if bone_stack[ibone][2].name == vert_influ[0]:
-                    if DEBUG: print("        <bone name=",bone_stack[ibone][2].name,"face_vertex_id=", mesh_stack[ivert][0] + iuv, " weigth=", vert_influ[1] , "/>")
+                    if DEBUG: print("        <bone name=",bone_stack[ibone][2].name,"face_vertex_id=", mesh_stack[ivert][0] + iuv,
+                                    " weigth=", vert_influ[1] , "/>")
                     temp_buf += write_int(mesh_stack[ivert][0] + iuv) # Face Vertex ID
                     temp_buf += write_float(vert_influ[1]) #Weight
 
