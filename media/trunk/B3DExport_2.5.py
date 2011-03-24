@@ -478,26 +478,26 @@ def write_node(objects=[]):
                 #print("Matrix : ", matrix)
                 position = matrix.translation_part()
 
-                temp_buf += write_float(-position[0]) #Position X
-                temp_buf += write_float(position[1])  #Position Y
-                temp_buf += write_float(position[2])  #Position Z
+                temp_buf += write_float(position[0]) #Position X
+                temp_buf += write_float(position[2])  #Position Y
+                temp_buf += write_float(position[1])  #Position Z
 
                 scale = matrix.scale_part()
                 temp_buf += write_float(scale[0]) #Scale X
                 temp_buf += write_float(scale[2]) #Scale Y
                 temp_buf += write_float(scale[1]) #Scale Z
 
-                matrix *= mathutils.Matrix.Rotation(180, 4, 'Y')
-                matrix *= mathutils.Matrix.Rotation(90, 4, 'X')
+                matrix *= mathutils.Matrix.Rotation(math.pi, 4, 'Z')
+                matrix *= mathutils.Matrix.Rotation(math.pi/2, 4, 'X')
                 quat = matrix.to_quat()
                 quat.normalize()
 
                 temp_buf += write_float(quat.w) #Rotation W
                 temp_buf += write_float(quat.x) #Rotation X
-                temp_buf += write_float(quat.z) #Rotation Y
-                temp_buf += write_float(quat.y) #Rotation Z
+                temp_buf += write_float(quat.y) #Rotation Y
+                temp_buf += write_float(quat.z) #Rotation Z
 
-                if DEBUG: print("        <position>",-position[0],position[1],position[2],"</position>")
+                if DEBUG: print("        <position>",position[0],position[2],position[1],"</position>")
                 if DEBUG: print("        <scale>",scale[0],scale[1],scale[2],"</scale>")
                 if DEBUG: print("        <rotation>", quat.w, quat.x, quat.y, quat.z, "</rotation>")
                 
