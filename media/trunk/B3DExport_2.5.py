@@ -54,6 +54,8 @@ mesh_stack     = []
 bone_stack     = []
 keys_stack     = []
 
+per_face_vertices = {}
+
 the_scene = None
 
 #Transformation Matrix
@@ -224,6 +226,8 @@ def write_brus(objects=[]):
     mat_count = 0
     obj_count = 0
 
+    if DEBUG: print("<!-- BRUS chunk -->")
+
     if objects:
         exp_obj = objects
     else:
@@ -245,6 +249,9 @@ def write_brus(objects=[]):
             for face in data.faces:
                 img_found = 0
                 face_stack = []
+                
+                if DEBUG: print("    <!-- Building FACE 'stack' -->")
+                
                 #for iuvlayer,uvlayer in enumerate(data.getUVLayerNames()):
                 for iuvlayer,uvlayer in enumerate(data.uv_textures):
                     if iuvlayer < 8:
@@ -274,6 +281,9 @@ def write_brus(objects=[]):
                 for i in range(len(face_stack),texs_stack[-1]):
                     face_stack.append(-1)
 
+
+                if DEBUG: print("    <!-- Writing chunk -->")
+                    
                 if not img_found:
                     if data.materials:
                         if data.materials[face.mat]:
@@ -302,8 +312,7 @@ def write_brus(objects=[]):
                                 for i in face_stack:
                                     temp_buf += write_int(i) #Texture ID
                     else:
-                        if b3d_parameters.get("vertex-colors") and \
-                               data.getColorLayerNames():
+                        if b3d_parameters.get("vertex-colors") and data.getColorLayerNames():
                             if not face_stack in brus_stack:
                                 brus_stack.append(face_stack)
                                 mat_count += 1
@@ -318,7 +327,7 @@ def write_brus(objects=[]):
 
                                 for i in face_stack:
                                     temp_buf += write_int(i) #Texture ID
-                else:
+                else: # img_found
                     if not face_stack in brus_stack:
                         brus_stack.append(face_stack)
                         mat_count += 1
@@ -329,6 +338,9 @@ def write_brus(objects=[]):
                         temp_buf += write_float(1) #Alpha
                         temp_buf += write_float(0) #Shininess
                         temp_buf += write_int(1)   #Blend
+                        
+                        if DEBUG: print("    <brush id=",len(brus_stack),">")
+                        
                         if b3d_parameters.get("vertex-colors") and len(data.vertex_colors) > 0:
                             temp_buf += write_int(2) #Fx
                         else:
@@ -336,6 +348,11 @@ def write_brus(objects=[]):
 
                         for i in face_stack:
                             temp_buf += write_int(i) #Texture ID
+                            if DEBUG: print("        <texture id=",i,">")
+                        
+                        if DEBUG: print("    </brush>")
+                
+                if DEBUG: print("")
 
             if DEBUG: print("</obj>")
             obj_count += 1
@@ -759,12 +776,41 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
     temp_buf += write_int(len(data.uv_textures)) #UV Set
     temp_buf += write_int(2) #UV Set Size
 
-    for i in data.vertices:
-        mesh_stack.append([-1,-1,-1,[],[[],[],[],[],[],[],[],[]],[]])
+    # ---- Prepare the mesh "stack"
+
+    #for i in data.vertices:
+    #    mesh_stack.append([-1,-1,-1,[],[[],[],[],[],[],[],[],[]],[]])
+
+    for f in data.faces:
+        for v in f.vertices:
+            mesh_stack.append([-1,-1,-1,[],[[],[],[],[],[],[],[],[]],[]])
+
+    # ---- Fill the mesh "stack"
+    if DEBUG: print("")
+    if DEBUG: print("        <!-- Building mesh_stack -->")
+
+    ivert = -1
 
     for face in data.faces:
+        
+        if DEBUG: print("        <!-- Face",face.index,"-->")
+        
+        per_face_vertices[face.index] = []
+        
         for vertex_id,vert in enumerate(face.vertices):
-            if mesh_stack[vert][0] == -1:
+            
+            ivert += 1
+            
+            #ivert = data.vertices[vert].index
+            
+            if DEBUG: print("            <!-- B3D Vertex",ivert,"is blender vertex",data.vertices[vert].index,"for face",face.index,"-->")
+           
+            per_face_vertices[face.index].append(ivert)
+            
+            if mesh_stack[ivert][0] != -1:
+                if DEBUG: print("            <!-- Vertex",ivert,"already handled -->")
+            
+            if mesh_stack[ivert][0] == -1:
                 link_matrix = obj.matrix_world
                 mesh_matrix = mathutils.Matrix(link_matrix[0],link_matrix[1],link_matrix[2],link_matrix[3])
                 vert_matrix = mathutils.Matrix.Translation(data.vertices[vert].co)
@@ -775,10 +821,9 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
                 vert_matrix *= TRANS_MATRIX
                 vert_matrix = vert_matrix.translation_part()
 
-                ivert = data.vertices[vert].index
 
-                mesh_stack[vert][0] = ivert
-                mesh_stack[vert][1] = vert_matrix
+                mesh_stack[ivert][0] = ivert
+                mesh_stack[ivert][1] = vert_matrix
                 
                 #if DEBUG: print "        <vertex id=",vert.index,"/>"
 
@@ -809,20 +854,20 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
                 if (len(data.uv_textures) > 0):
                     if vertex_id == 0:
                         mesh_stack[ivert][4][0].append([face.index,data.uv_textures[0].data[face.index].uv1])
-                        print("        <uv face=",face.index,"vertex=",vertex_id,"(",ivert,") >",
-                                                  data.uv_textures[0].data[face.index].uv1,"</uv>")
+                        print("            <uv face=",face.index,"vertex=",vertex_id,">",
+                                                      data.uv_textures[0].data[face.index].uv1,"</uv>")
                     elif vertex_id == 1:
                         mesh_stack[ivert][4][0].append([face.index,data.uv_textures[0].data[face.index].uv2])
-                        print("        <uv face=",face.index,"vertex=",vertex_id,"(",ivert,") >",
-                                                  data.uv_textures[0].data[face.index].uv2,"</uv>")
+                        print("            <uv face=",face.index,"vertex=",vertex_id,">",
+                                                      data.uv_textures[0].data[face.index].uv2,"</uv>")
                     elif vertex_id == 2:
                         mesh_stack[ivert][4][0].append([face.index,data.uv_textures[0].data[face.index].uv3])
-                        print("        <uv face=",face.index,"vertex=",vertex_id,"(",ivert,") >",
-                                                  data.uv_textures[0].data[face.index].uv3,"</uv>")
+                        print("            <uv face=",face.index,"vertex=",vertex_id,">",
+                                                      data.uv_textures[0].data[face.index].uv3,"</uv>")
                     elif vertex_id == 3:
                         mesh_stack[ivert][4][0].append([face.index,data.uv_textures[0].data[face.index].uv4])
-                        print("        <uv face=",face.index,"vertex=",vertex_id,"(",ivert,") >",
-                                                  data.uv_textures[0].data[face.index].uv4,"</uv>")
+                        print("            <uv face=",face.index,"vertex=",vertex_id,">",
+                                                      data.uv_textures[0].data[face.index].uv4,"</uv>")
                     else:
                         self.report({'ERROR'}, "Only triangles and quads are supported")
                 else:
@@ -837,6 +882,8 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
                 for vert in data.vertices:
                     #mesh_stack[vert.index][5].append(vert_influ)
                     mesh_stack[vert.index][5].append(vert.bevel_weight)
+
+    if DEBUG: print("")
 
     #if data.faceUV:
     #    if not 65536 in sets_stack[obj_count]:
@@ -867,18 +914,18 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
         for iuv in range(len(mesh_stack[ivert][4][0])):
             ids_count += 1
 
-            temp_buf += write_float(-mesh_stack[ivert][1].x) #X
-            temp_buf += write_float(mesh_stack[ivert][1].y)  #Y
-            temp_buf += write_float(mesh_stack[ivert][1].z)  #Z
+            temp_buf += write_float(mesh_stack[ivert][1].x)  #X
+            temp_buf += write_float(mesh_stack[ivert][1].z)  #Y
+            temp_buf += write_float(mesh_stack[ivert][1].y)  #Z
             
             if DEBUG: print("            <vertex id=",ids_count," loc=",-mesh_stack[ivert][1].x,
                                                                          mesh_stack[ivert][1].y,
                                                                          mesh_stack[ivert][1].z,">")
 
             if b3d_parameters.get("vertex-normals"):
-                temp_buf += write_float(-mesh_stack[ivert][2].x) #NX
-                temp_buf += write_float(mesh_stack[ivert][2].y)  #NY
-                temp_buf += write_float(mesh_stack[ivert][2].z)  #NZ
+                temp_buf += write_float(mesh_stack[ivert][2].x)  #NX
+                temp_buf += write_float(mesh_stack[ivert][2].z)  #NY
+                temp_buf += write_float(mesh_stack[ivert][2].y)  #NZ
                 if DEBUG: print("                <normal>",-mesh_stack[ivert][2].x,
                                                             mesh_stack[ivert][2].y,
                                                             mesh_stack[ivert][2].z,"</normal>")
@@ -895,7 +942,7 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
 
             #for iuvlayer in xrange(len(data.getUVLayerNames())):
             for iuvlayer in range(len(data.uv_textures)):
-                temp_buf += write_float(mesh_stack[ivert][4][iuvlayer][iuv][1][0])   #U
+                temp_buf += write_float(-mesh_stack[ivert][4][iuvlayer][iuv][1][0])  #U
                 temp_buf += write_float(1-mesh_stack[ivert][4][iuvlayer][iuv][1][1]) #V
                 if DEBUG: print("                <uv layer=",iuvlayer,">",mesh_stack[ivert][4][iuvlayer][iuv][1][0],
                                                   1-mesh_stack[ivert][4][iuvlayer][iuv][1][1],"</uv>")
@@ -926,6 +973,7 @@ def write_node_mesh_tris(obj,obj_count,arm_action,exp_root):
     for face in data.faces:
         img_found = 0
         face_stack = []
+        
         #for iuvlayer,uvlayer in enumerate(data.getUVLayerNames()):
         for iuvlayer,uvlayer in enumerate(data.uv_textures):
             if iuvlayer < 8:
@@ -943,7 +991,7 @@ def write_node_mesh_tris(obj,obj_count,arm_action,exp_root):
                 if data.uv_textures[0].data[face.index].image:
                     img_found = 1
                     for i in range(len(texs_stack)-1):
-                        if texs_stack[i][0] == data.uv_textures[0].data[face.index].image:
+                        if texs_stack[i][0] == os.path.basename(data.uv_textures[0].data[face.index].image.filepath):
                             if texs_stack[i][1] == sets_stack[obj_count][iuvlayer]:
                                 img_id = i
 
@@ -974,10 +1022,13 @@ def write_node_mesh_tris(obj,obj_count,arm_action,exp_root):
             dBrushId2Face[brus_id].append(face)
         else:
             dBrushId2Face[brus_id] = [face]
+        
+        if DEBUG: print("            <!-- Face",face.index,"in brush",brus_id,"-->")
             
     tris_buf = bytearray()
     
     if DEBUG: print("")
+    if DEBUG: print("        <!-- TRIS chunk -->")
     
     #FIXME?
     for brus_id in dBrushId2Face.keys():
@@ -998,17 +1049,19 @@ def write_node_mesh_tris(obj,obj_count,arm_action,exp_root):
             #    for i in range(len(face.verts)):
             #        face_id[i] = mesh_stack[face.v[i].index][0]
 
-            temp_buf += write_int(face.vertices[2]) #A
-            temp_buf += write_int(face.vertices[1]) #B
-            temp_buf += write_int(face.vertices[0]) #C
+            vertices = per_face_vertices[face.index]
 
-            if DEBUG: print("            <face id=", face.vertices[2], face.vertices[1], face.vertices[0],"/>")
+            temp_buf += write_int(vertices[2]) #A
+            temp_buf += write_int(vertices[1]) #B
+            temp_buf += write_int(vertices[0]) #C
+
+            if DEBUG: print("            <face id=", vertices[2], vertices[1], vertices[0],"/> <!-- face",face.index,"-->")
 
             if len(face.vertices) == 4:
-                temp_buf += write_int(face.vertices[3]) #A
-                temp_buf += write_int(face.vertices[2]) #B
-                temp_buf += write_int(face.vertices[0]) #C
-                if DEBUG: print("            <face id=", face.vertices[3], face.vertices[2], face.vertices[0],"/>")
+                temp_buf += write_int(vertices[3]) #A
+                temp_buf += write_int(vertices[2]) #B
+                temp_buf += write_int(vertices[0]) #C
+                if DEBUG: print("            <face id=", vertices[3], vertices[2], vertices[0],"/> <!-- face",face.index,"-->")
 
         print("        </brush>")
         tris_buf += write_chunk(b"TRIS",temp_buf)
