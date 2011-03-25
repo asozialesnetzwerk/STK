@@ -76,23 +76,43 @@ for param in COMBOS:
         m_param = param
         
         def execute(self, context):
+            # Set the property
             object = context.object
             object[self.m_param] = self.value
-            
-            for p,q,s in COMBOS[self.m_param]:
+
+            # If sub-properties are needed, create them
+            if self.value in STK_OBJECT_TYPES:
+                for p in STK_OBJECT_TYPES[self.value]:
                     
-                    numeric = False
-                    if p in PROP_SETTNGS:
-                        numeric = PROP_SETTNGS[p][0]
+                    if not p in object:
                     
-                    if numeric:
-                        object[p] = PROP_SETTNGS[p][1]
-                    else:
-                        object[p] = "" # create properties
-                
+                        numeric = False
+                        if p in PROP_SETTNGS:
+                            numeric = PROP_SETTNGS[p][0]
+                        
+                        if p in COMBOS:
+                            object[p] = COMBOS[p][0][0]
+                        elif numeric:
+                            object[p] = PROP_SETTNGS[p][1]
+                        else:
+                            object[p] = "" # create properties
+                    
             
             return {'FINISHED'}
 
+
+# ==== OTHER OPERATORS ====
+
+class STK_TypeSetAnimTex(bpy.types.Operator):
+    bl_idname = ("screen.stk_set_animtex")
+    bl_label = ("STK Object :: set animtex")
+    
+    def execute(self, context):
+        obj = context.object
+        obj["anim_texture"] = ""
+        return {'FINISHED'}
+
+    
 # ==== PANEL ====
 class OBJECT_PT_hello(bpy.types.Panel):
     bl_label = "SuperTuxKart Properties"
@@ -128,13 +148,27 @@ class OBJECT_PT_hello(bpy.types.Panel):
             box = layout.box()
             
             for currprop in props:
-                row = box.row()
                 
-                if currprop in COMBOS:
-                    row.label(currprop[0].capitalize() + currprop[1:])
-                    row.operator_menu_enum("screen.stk_set_"+currprop, property="value", text=obj[currprop])
-                else:
-                    row.prop(obj, '["' + currprop + '"]', text=currprop[0].capitalize() + currprop[1:])
+                if currprop in obj:
+                
+                    row = box.row()
+                    
+                    if currprop in COMBOS:
+                        row.label(currprop[0].capitalize() + currprop[1:])
+                        row.operator_menu_enum("screen.stk_set_"+currprop, property="value", text=obj[currprop])
+                    else:
+                        row.prop(obj, '["' + currprop + '"]', text=currprop[0].capitalize() + currprop[1:])
+        
+        # ----
+        row = layout.row()
+        row.operator("screen.stk_set_animtex", text="Enable Animated Texture")
+ 
+        if "anim_texture" in obj:
+            try:
+                row = layout.row()
+                row.prop(obj, '["anim_texture"]', text="Animated Texture")
+            except:
+                pass
         
 
 def register():
