@@ -96,7 +96,7 @@ class STK_SetType(bpy.types.Operator):
                     numeric = PROP_SETTNGS[p][0]
                 
                 if numeric:
-                    object[p] = 0
+                    object[p] = PROP_SETTNGS[p][1]
                 else:
                     object[p] = "" # create properties
             
