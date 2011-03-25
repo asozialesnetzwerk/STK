@@ -50,7 +50,11 @@ COMBOS = {'type' :
               ('coneZ', 'coneZ', 'coneZ'),
               ('cylinderX', 'cylinderX', 'cylinderX'),
               ('cylinderY', 'cylinderY', 'cylinderY'),
-              ('cylinderZ', 'cylinderZ', 'cylinderZ')]
+              ('cylinderZ', 'cylinderZ', 'cylinderZ')],
+          'interaction' :
+             [('static', 'Static (won''t move)', 'Static (won''t move)'),
+              ('none', 'None (ghost)', 'None (ghost)'),
+              ('move', 'Movable by player', 'Movable by player')]
           }
 
                                    # Numeric | Default
