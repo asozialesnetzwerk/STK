@@ -19,7 +19,7 @@
   <material name="mill.png" ignore="Y" compositing="blend" disable-z-write="Y"/>
   <material name="millstructure.png" transparency="yes" ignore="Y"/>
   <material name="palm_b.png" backface-culling="N" compositing="blend" disable-z-write="Y"/>
-  <material name="palmacacia.png" light="N" ignore="Y" compositing="blend" disable-z-write="Y"/>
+  <material name="palmacacia.jpg" light="N" ignore="Y" compositing="blend" disable-z-write="Y" mask="palmacacia_alpha.jpg"/>
   <material name="pix.png" transparency="yes" reset="Y"/>
   <material name="pix_2.png" compositing="test"/>
   <material name="sageBrush.png" transparency="yes" light="N" ignore="Y"/>
