@@ -27,20 +27,31 @@ STK_OBJECT_TYPES = {'banana'           : [],
                     'water'            : ['name', 'height', 'length', 'speed']
                     }
 
-TYPES = [('', '(None)', '(None)'),
-         ('banana', 'Banana', 'Banana'),
-         ('billboard', 'Billboard', 'Billboard'),
-         ('check', 'Check', 'Check'),
-         ('driveline', 'Driveline', 'Driveline'),
-         ('ignore', 'Ignore', 'Ignore'),
-         ('item', 'Item', 'Item'),
-         ('lap', 'Lap', 'Lap'),
-         ('maindriveline', 'Main Driveline', 'Main Driveline'),
-         ('nitro_big', 'Nitro (Big)', 'Nitro (Big)'),
-         ('nitro_small', 'Nitro (Small)', 'Nitro (Small)'),
-         ('object', 'Object', 'Object'),
-         ('particle_emitter', 'Particle Emitter', 'Particle Emitter'),
-         ('water', 'Water', 'Water')]
+COMBOS = {'type' :
+             [('', '(None)', '(None)'),
+              ('banana', 'Banana', 'Banana'),
+              ('billboard', 'Billboard', 'Billboard'),
+              ('check', 'Check', 'Check'),
+              ('driveline', 'Driveline', 'Driveline'),
+              ('ignore', 'Ignore', 'Ignore'),
+              ('item', 'Item', 'Item'),
+              ('lap', 'Lap', 'Lap'),
+              ('maindriveline', 'Main Driveline', 'Main Driveline'),
+              ('nitro_big', 'Nitro (Big)', 'Nitro (Big)'),
+              ('nitro_small', 'Nitro (Small)', 'Nitro (Small)'),
+              ('object', 'Object', 'Object'),
+              ('particle_emitter', 'Particle Emitter', 'Particle Emitter'),
+              ('water', 'Water', 'Water')],
+          'shape' :
+             [('box', 'box', 'box'),
+              ('sphere', 'sphere', 'sphere'),
+              ('coneX', 'coneX', 'coneX'),
+              ('coneY', 'coneY', 'coneY'),
+              ('coneZ', 'coneZ', 'coneZ'),
+              ('cylinderX', 'cylinderX', 'cylinderX'),
+              ('cylinderY', 'cylinderY', 'cylinderY'),
+              ('cylinderZ', 'cylinderZ', 'cylinderZ')]
+          }
 
                                    # Numeric | Default
 PROP_SETTNGS = { 'inner_radius' :  (True,      -1),
@@ -50,58 +61,37 @@ PROP_SETTNGS = { 'inner_radius' :  (True,      -1),
                  'speed'        :  (True,      300)
                }
 
-#for curr, props in STK_OBJECT_TYPES:
-#    class STK_SetItem(bpy.types.Operator):
-#        bl_idname = ("screen.stk_set_" + curr)
-#        bl_label = ("STK Object :: set " + curr)
-#        
-#        stk_type = curr
-#        stk_props = props
-#     
-#        def execute(self, context):
-#            obj = context.object
-#            obj["type"] = self.stk_type
-#            
-#            print("self.stk_props =",self.stk_props)
-#            
-#            for p in self.stk_props:
-#                
-#                numeric = False
-#                if currprop in PROP_SETTNGS:
-#                    numeric = PROP_SETTNGS[currprop][0]
-#                
-#                if numeric:
-#                    obj[p] = 0
-#                else:
-#                    obj[p] = "" # create properties
-#            
-#            return {'FINISHED'}
+for param in COMBOS:
+    default_val = COMBOS[param][0][0]
+    items_val = COMBOS[param]
     
-class STK_SetType(bpy.types.Operator):
-   
-    value = bpy.props.EnumProperty(attr="values", name="values", default='',
-                                   items=TYPES)
-   
-    bl_idname = ("screen.stk_set_type")
-    bl_label  = ("STK Object :: set type")
-    
-    def execute(self, context):
-        object = context.object
-        object["type"] = self.value
+    class STK_SetType(bpy.types.Operator):
         
-        for p in STK_OBJECT_TYPES[self.value]:
-                
-                numeric = False
-                if p in PROP_SETTNGS:
-                    numeric = PROP_SETTNGS[p][0]
-                
-                if numeric:
-                    object[p] = PROP_SETTNGS[p][1]
-                else:
-                    object[p] = "" # create properties
+        value = bpy.props.EnumProperty(attr="values", name="values", default=default_val,
+                                       items=items_val)
+        
+        bl_idname = ("screen.stk_set_"+param)
+        bl_label  = ("STK Object :: set "+param)
+        
+        m_param = param
+        
+        def execute(self, context):
+            object = context.object
+            object[self.m_param] = self.value
             
-        
-        return {'FINISHED'}
+            for p,q,s in COMBOS[self.m_param]:
+                    
+                    numeric = False
+                    if p in PROP_SETTNGS:
+                        numeric = PROP_SETTNGS[p][0]
+                    
+                    if numeric:
+                        object[p] = PROP_SETTNGS[p][1]
+                    else:
+                        object[p] = "" # create properties
+                
+            
+            return {'FINISHED'}
 
 # ==== PANEL ====
 class OBJECT_PT_hello(bpy.types.Panel):
@@ -139,7 +129,12 @@ class OBJECT_PT_hello(bpy.types.Panel):
             
             for currprop in props:
                 row = box.row()
-                row.prop(obj, '["' + currprop + '"]', text=currprop[0].capitalize() + currprop[1:])
+                
+                if currprop in COMBOS:
+                    row.label(currprop[0].capitalize() + currprop[1:])
+                    row.operator_menu_enum("screen.stk_set_"+currprop, property="value", text=obj[currprop])
+                else:
+                    row.prop(obj, '["' + currprop + '"]', text=currprop[0].capitalize() + currprop[1:])
         
 
 def register():
