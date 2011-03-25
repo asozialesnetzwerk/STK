@@ -12,20 +12,20 @@ class STK_TypeUnset(bpy.types.Operator):
         return {'FINISHED'}
 
 
-STK_OBJECT_TYPES = [('banana',[]),
-                    ('billboard', []),
-                    ('check',['activate', 'toggle', 'inner_radius']),
-                    ('driveline',[]),
-                    ('ignore',[]),
-                    ('item',[]),
-                    ('lap',['activate', 'toggle']),
-                    ('maindriveline',['activate', 'toggle']),
-                    ('nitro_big',[]),
-                    ('nitro_small',[]),
-                    ('object',['name', 'interaction', 'shape', 'mass']),
-                    ('particle_emitter',['kind']),
-                    ('water',['name', 'height', 'length', 'speed'])
-                    ]
+STK_OBJECT_TYPES = {'banana'           : [],
+                    'billboard'        : [],
+                    'check'            : ['activate', 'toggle', 'inner_radius'],
+                    'driveline'        : [],
+                    'ignore'           : [],
+                    'item'             : [],
+                    'lap'              : ['activate', 'toggle'],
+                    'maindriveline'    : ['activate', 'toggle'],
+                    'nitro_big'        : [],
+                    'nitro_small'      : [],
+                    'object'           : ['name', 'interaction', 'shape', 'mass'],
+                    'particle_emitter' : ['kind'],
+                    'water'            : ['name', 'height', 'length', 'speed']
+                    }
 
 TYPES = [('', '(None)', '(None)'),
          ('banana', 'Banana', 'Banana'),
@@ -42,21 +42,40 @@ TYPES = [('', '(None)', '(None)'),
          ('particle_emitter', 'Particle Emitter', 'Particle Emitter'),
          ('water', 'Water', 'Water')]
 
-for curr, props in STK_OBJECT_TYPES:
-    class STK_SetItem(bpy.types.Operator):
-        bl_idname = ("screen.stk_set_" + curr)
-        bl_label = ("STK Object :: set " + curr)
-        bl_stk_type = curr
-        bl_stk_props = props
-     
-        def execute(self, context):
-            obj = context.object
-            obj["type"] = self.bl_stk_type
-            
-            for p in self.bl_stk_props:
-                obj[p] = "" # create properties
-            
-            return {'FINISHED'}
+                                   # Numeric | Default
+PROP_SETTNGS = { 'inner_radius' :  (True,      -1),
+                 'mass'         :  (True,      15),
+                 'height'       :  (True,      1.0),
+                 'length'       :  (True,      10),
+                 'speed'        :  (True,      300)
+               }
+
+#for curr, props in STK_OBJECT_TYPES:
+#    class STK_SetItem(bpy.types.Operator):
+#        bl_idname = ("screen.stk_set_" + curr)
+#        bl_label = ("STK Object :: set " + curr)
+#        
+#        stk_type = curr
+#        stk_props = props
+#     
+#        def execute(self, context):
+#            obj = context.object
+#            obj["type"] = self.stk_type
+#            
+#            print("self.stk_props =",self.stk_props)
+#            
+#            for p in self.stk_props:
+#                
+#                numeric = False
+#                if currprop in PROP_SETTNGS:
+#                    numeric = PROP_SETTNGS[currprop][0]
+#                
+#                if numeric:
+#                    obj[p] = 0
+#                else:
+#                    obj[p] = "" # create properties
+#            
+#            return {'FINISHED'}
     
 class STK_SetType(bpy.types.Operator):
    
@@ -69,6 +88,18 @@ class STK_SetType(bpy.types.Operator):
     def execute(self, context):
         object = context.object
         object["type"] = self.value
+        
+        for p in STK_OBJECT_TYPES[self.value]:
+                
+                numeric = False
+                if p in PROP_SETTNGS:
+                    numeric = PROP_SETTNGS[p][0]
+                
+                if numeric:
+                    object[p] = 0
+                else:
+                    object[p] = "" # create properties
+            
         
         return {'FINISHED'}
 
@@ -98,8 +129,10 @@ class OBJECT_PT_hello(bpy.types.Panel):
         else:
             row.operator_menu_enum("screen.stk_set_type", property="value", text=objtype)
         
-        lprops = [t for t in STK_OBJECT_TYPES if t[0] == objtype]
-        props = lprops[0][1]
+        if objtype in STK_OBJECT_TYPES:
+            props = STK_OBJECT_TYPES[objtype]
+        else:
+            props = []
         
         if len(props) > 0:
             box = layout.box()
