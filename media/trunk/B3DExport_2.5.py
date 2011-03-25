@@ -59,7 +59,7 @@ per_face_vertices = {}
 the_scene = None
 
 #Transformation Matrix
-TRANS_MATRIX = mathutils.Matrix([-1,0,0,0],[0,0,1,0],[0,1,0,0],[0,0,0,1])
+TRANS_MATRIX = mathutils.Matrix([[-1,0,0,0],[0,0,1,0],[0,1,0,0],[0,0,0,1]])
 
 DEBUG = 1
 
@@ -72,7 +72,7 @@ def write_float(value):
 
 def write_string(value):
     binary_format = "<%ds"%(len(value)+1)
-    return struct.pack(binary_format,value)
+    return struct.pack(binary_format, str.encode(value))
 
 def write_chunk(name,value):
     dummy = bytearray()
@@ -493,20 +493,20 @@ def write_node(objects=[]):
                 temp_buf += write_string(obj.name) #Node Name
 
                 #print("Matrix : ", matrix)
-                position = matrix.translation_part()
+                position = matrix.to_translation()
 
                 temp_buf += write_float(position[0]) #Position X
                 temp_buf += write_float(position[2])  #Position Y
                 temp_buf += write_float(position[1])  #Position Z
 
-                scale = matrix.scale_part()
+                scale = matrix.to_scale()
                 temp_buf += write_float(scale[0]) #Scale X
                 temp_buf += write_float(scale[2]) #Scale Y
                 temp_buf += write_float(scale[1]) #Scale Z
 
                 matrix *= mathutils.Matrix.Rotation(math.pi, 4, 'Z')
                 matrix *= mathutils.Matrix.Rotation(math.pi/2, 4, 'X')
-                quat = matrix.to_quat()
+                quat = matrix.to_quaternion()
                 quat.normalize()
 
                 temp_buf += write_float(quat.w) #Rotation W
@@ -812,14 +812,14 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
             
             if mesh_stack[ivert][0] == -1:
                 link_matrix = obj.matrix_world
-                mesh_matrix = mathutils.Matrix(link_matrix[0],link_matrix[1],link_matrix[2],link_matrix[3])
+                mesh_matrix = mathutils.Matrix([link_matrix[0],link_matrix[1],link_matrix[2],link_matrix[3]])
                 vert_matrix = mathutils.Matrix.Translation(data.vertices[vert].co)
 
                 if arm_action:
                     vert_matrix *= mesh_matrix
 
                 vert_matrix *= TRANS_MATRIX
-                vert_matrix = vert_matrix.translation_part()
+                vert_matrix = vert_matrix.to_translation()
 
 
                 mesh_stack[ivert][0] = ivert
@@ -829,14 +829,14 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
 
                 if b3d_parameters.get("vertex-normals"):
                     link_matrix = obj.matrix_world
-                    mesh_matrix = mathutils.Matrix(link_matrix[0],link_matrix[1],link_matrix[2],link_matrix[3])
+                    mesh_matrix = mathutils.Matrix([link_matrix[0],link_matrix[1],link_matrix[2],link_matrix[3]])
                     norm_matrix = mathutils.Matrix.Translation(data.vertices[vert].normal)
 
                     if arm_action:
                         norm_matrix *= mesh_matrix
 
                     norm_matrix *= TRANS_MATRIX
-                    norm_matrix = norm_matrix.translation_part()
+                    norm_matrix = norm_matrix.to_translation()
 
                     mesh_stack[ivert][2] = norm_matrix
 
@@ -1182,7 +1182,7 @@ def write_node_keys(ibone):
 
 # ==== CONFIRM OPERATOR ====
 class B3D_Confirm_Operator(bpy.types.Operator):
-    bl_idname = ("screen.B3D_Confirm")
+    bl_idname = ("screen.b3d_confirm")
     bl_label = ("File Exists, Overwrite?")
     
     def invoke(self, context, event):
@@ -1195,7 +1195,7 @@ class B3D_Confirm_Operator(bpy.types.Operator):
     
 # ==== EXPORT OPERATOR ====
 class B3D_Export_Operator(bpy.types.Operator):
-    bl_idname = ("screen.B3D_Export")
+    bl_idname = ("screen.b3d_export")
     bl_label = ("B3D Export")
     filepath = bpy.props.StringProperty(subtype="FILE_PATH")
 
@@ -1231,7 +1231,7 @@ class B3D_Export_Operator(bpy.types.Operator):
         if os.path.exists(self.filepath):
             #self.report({'ERROR'}, "File Exists")
             B3D_Confirm_Operator.filepath = self.filepath
-            bpy.ops.screen.B3D_Confirm('INVOKE_DEFAULT')
+            bpy.ops.screen.b3d_confirm('INVOKE_DEFAULT')
             return {'FINISHED'}
 
         write_b3d_file(self.filepath)
@@ -1253,7 +1253,7 @@ class OBJECT_PT_hello(bpy.types.Panel):
         # ==== Types group ====
         row = layout.row()
         
-        row.operator("screen.B3D_Export", "Export", icon='BLENDER')
+        row.operator("screen.b3d_export", "Export", icon='BLENDER')
 
 
 # Add to a menu
@@ -1264,6 +1264,7 @@ def menu_func_export(self, context):
 
 def register():
     bpy.types.INFO_MT_file_export.append(menu_func_export)
+    bpy.utils.register_module(__name__)
 
 def unregister():
     bpy.types.INFO_MT_file_export.remove(menu_func_export)
