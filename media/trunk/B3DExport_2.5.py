@@ -63,6 +63,7 @@ TRANS_MATRIX = mathutils.Matrix([[-1,0,0,0],[0,0,1,0],[0,1,0,0],[0,0,0,1]])
 
 DEBUG = False
 PROGRESS = True
+PROGRESS_VERBOSE = False
 
 #Support Functions
 def write_int(value):
@@ -125,11 +126,13 @@ def write_texs(objects=[]):
         else:
             exp_obj = bpy.data.objects
 
-    if PROGRESS: progress = 0
+    if PROGRESS: print(len(exp_obj),"TEXS")
+
+    if PROGRESS_VERBOSE: progress = 0
 
     for obj in exp_obj:
         
-        if PROGRESS:
+        if PROGRESS_VERBOSE:
             progress = progress + 1
             if (progress % 10 == 0): print("TEXS",progress,"/",len(exp_obj))
         
@@ -244,11 +247,12 @@ def write_brus(objects=[]):
         else:
             exp_obj = bpy.data.objects
 
-    if PROGRESS: progress = 0
+    if PROGRESS: print(len(exp_obj),"BRUS")
+    if PROGRESS_VERBOSE: progress = 0
 
     for obj in exp_obj:
         
-        if PROGRESS:
+        if PROGRESS_VERBOSE:
             progress += 1
             if (progress % 10 == 0): print("BRUS",progress,"/",len(exp_obj))
             
@@ -538,8 +542,7 @@ def write_node(objects=[]):
                 if DEBUG: print("        <position>",position[0],position[2],position[1],"</position>")
                 if DEBUG: print("        <scale>",scale[0],scale[1],scale[2],"</scale>")
                 if DEBUG: print("        <rotation>", quat.w, quat.x, quat.y, quat.z, "</rotation>")
-                
-                
+            
             if arm_action:
                 Blender.Set("curframe",0)
                 Blender.Window.Redraw()
@@ -571,7 +574,16 @@ def write_node(objects=[]):
                 arm_action.setActive(arm)
                 frame_count = first_frame.val
 
+                if PROGRESS_VERBOSE:
+                    print("    FRAME:",frame_count,"in",frame_count.val,"..",last_frame.val)
+                    anim_progress = 0
+                        
                 while frame_count <= last_frame.val:
+                    
+                    if PROGRESS_VERBOSE:
+                        anim_progress += 1
+                        if (anim_progress % 50 == 0): print("    FRAME:",frame_count,"in",frame_count.val,"..",last_frame.val)
+                    
                     Blender.Set("curframe",int(frame_count))
                     if DEBUG: print("        <frame>", int(frame_count), "</frame>")
                     #Blender.Window.Redraw()
@@ -605,7 +617,7 @@ def write_node(objects=[]):
                 Blender.Window.Redraw()
 
             temp_buf += write_node_mesh(obj,obj_count,arm_action,exp_root) #NODE MESH
-
+            
             if arm_action:
                 temp_buf += write_node_anim(num_frames) #NODE ANIM
 
@@ -739,6 +751,7 @@ def write_node(objects=[]):
                     node_buf += write_chunk(b"NODE",temp_buf)
                     temp_buf = ""
 
+    print("NODE 3")
     if len(node_buf) > 0:
         if exp_root:
             main_buf += write_chunk(b"NODE",root_buf + node_buf)
@@ -802,10 +815,13 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
     #for i in data.vertices:
     #    mesh_stack.append([-1,-1,-1,[],[[],[],[],[],[],[],[],[]],[]])
 
+    # FIXME: major bottleneck
+    if PROGRESS: print("Preparing mesh_stack")
+    amount = 0
     for f in data.faces:
         for v in f.vertices:
             mesh_stack.append([-1,-1,-1,[],[[],[],[],[],[],[],[],[]],[]])
-
+    
     # ---- Fill the mesh "stack"
     if DEBUG: print("")
     if DEBUG: print("        <!-- Building mesh_stack -->")
@@ -813,7 +829,7 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
     ivert = -1
 
 
-    if PROGRESS:
+    if PROGRESS_VERBOSE:
         progress = 0
         print("    mesh_stack, face:",0,"/",len(data.faces))
     
@@ -821,7 +837,7 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
         
         if DEBUG: print("        <!-- Face",face.index,"-->")
         
-        if PROGRESS:
+        if PROGRESS_VERBOSE:
             progress += 1
             if (progress % 50 == 0): print("    mesh_stack, face:",progress,"/",len(data.faces))
         
@@ -934,11 +950,11 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
     #if orig_uvlayer:
     #    data.activeUVLayer = orig_uvlayer
 
-    if PROGRESS: progress = 0
+    if PROGRESS_VERBOSE: progress = 0
 
     for ivert in range(len(mesh_stack)):
         
-        if PROGRESS:
+        if PROGRESS_VERBOSE:
             progress += 1
             if (progress % 50 == 0): print("    VRTS:",progress,"/",len(mesh_stack))
 
@@ -1066,11 +1082,11 @@ def write_node_mesh_tris(obj,obj_count,arm_action,exp_root):
     if DEBUG: print("")
     if DEBUG: print("        <!-- TRIS chunk -->")
     
-    if PROGRESS: progress = 0
+    if PROGRESS_VERBOSE: progress = 0
                 
     for brus_id in dBrushId2Face.keys():
         
-        if PROGRESS:
+        if PROGRESS_VERBOSE:
             progress += 1
             print("BRUS:",progress,"/",len(dBrushId2Face.keys()))
         
@@ -1078,11 +1094,11 @@ def write_node_mesh_tris(obj,obj_count,arm_action,exp_root):
         
         if DEBUG: print("        <brush id=", brus_id, "/>")
         
-        if PROGRESS: progress2 = 0
+        if PROGRESS_VERBOSE: progress2 = 0
                 
         for face in dBrushId2Face[brus_id]:
             
-            if PROGRESS:
+            if PROGRESS_VERBOSE:
                 progress2 += 1
                 if (progress2 % 50 == 0): print("    TRIS:",progress2,"/",len(dBrushId2Face[brus_id]))
             
