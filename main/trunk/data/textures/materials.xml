@@ -80,7 +80,7 @@
   <material name="metal_plates.png"      anisotropic="Y" />
   <material name="notes.png"             compositing="test" light="N" ignore="Y"/>
   <material name="oakleaf_fall.png"      compositing="test" ignore="Y" light="N" />
-  <material name="palmtree3.png"         compositing="test"/>
+  <material name="palmtree3.jpg"         compositing="test" mask="palmtree3_alpha.jpg" />
   <material name="palm_b.png"            compositing="test"/>
   
   <material name="Paving_stones_2.jpg"   anisotropic="Y">
