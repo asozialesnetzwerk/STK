@@ -994,7 +994,7 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
 
             #for iuvlayer in xrange(len(data.getUVLayerNames())):
             for iuvlayer in range(len(data.uv_textures)):
-                temp_buf += write_float(-mesh_stack[ivert][4][iuvlayer][iuv][1][0])  #U
+                temp_buf += write_float(mesh_stack[ivert][4][iuvlayer][iuv][1][0])  #U
                 temp_buf += write_float(1-mesh_stack[ivert][4][iuvlayer][iuv][1][1]) #V
                 if DEBUG: print("                <uv layer=",iuvlayer,">",mesh_stack[ivert][4][iuvlayer][iuv][1][0],
                                                   1-mesh_stack[ivert][4][iuvlayer][iuv][1][1],"</uv>")
@@ -1235,7 +1235,7 @@ def write_node_keys(ibone):
             quat.normalize()
 
             temp_buf += write_float(quat.w)  #Rotation W
-            temp_buf += write_float(-quat.x) #Rotation X
+            temp_buf += write_float(quat.x) #Rotation X
             temp_buf += write_float(quat.y)  #Rotation Y
             temp_buf += write_float(quat.z)  #Rotation Z
 
