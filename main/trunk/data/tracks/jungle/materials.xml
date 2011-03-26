@@ -23,7 +23,7 @@
   <material name="Paving_stones_2.jpg" anisotropic="Y" friction="1.0" max-speed="1.0" slowdown-time="1.0" >
     <particles base="smoke.xml" condition="skid"/>
   </material>
-  <material name="plants.png" anisotropic="Y" backface-culling="N" compositing="blend" friction="1.0" max-speed="1.0" slowdown-time="1.0" />
+  <material name="plants.jpg" mask="plants_alpha.jpg" anisotropic="Y" backface-culling="N" compositing="blend" friction="1.0" max-speed="1.0" slowdown-time="1.0" />
   <material name="pot.jpg" anisotropic="Y" backface-culling="N" friction="1.0" max-speed="1.0" slowdown-time="1.0" />
   <material name="road_dirt.jpg" anisotropic="Y" friction="1.0" max-speed="1.0" slowdown-time="1.0" >
     <particles base="smoke_brown.xml" condition="skid"/>

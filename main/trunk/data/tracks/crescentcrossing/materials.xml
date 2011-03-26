@@ -5,5 +5,5 @@
   <material name="nightsky1.png" light="N"/>
   <material name="nightsky2.png" light="N"/>
   <material name="owl.png" light="N"/>
-  <material name="plants.png" alpha="yes" compositing="blend"/>
+  <material name="plants.jpg" mask="plants_alpha.jpg" alpha="yes" compositing="blend" clampV="true"/>
 </materials>
