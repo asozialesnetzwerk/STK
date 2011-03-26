@@ -61,7 +61,8 @@ the_scene = None
 #Transformation Matrix
 TRANS_MATRIX = mathutils.Matrix([[-1,0,0,0],[0,0,1,0],[0,1,0,0],[0,0,0,1]])
 
-DEBUG = 1
+DEBUG = False
+PROGRESS = True
 
 #Support Functions
 def write_int(value):
@@ -124,7 +125,14 @@ def write_texs(objects=[]):
         else:
             exp_obj = bpy.data.objects
 
+    if PROGRESS: progress = 0
+
     for obj in exp_obj:
+        
+        if PROGRESS:
+            progress = progress + 1
+            if (progress % 10 == 0): print("TEXS",progress,"/",len(exp_obj))
+        
         if obj.type == "MESH":
             set_count = 0
             set_wrote = 0
@@ -236,7 +244,14 @@ def write_brus(objects=[]):
         else:
             exp_obj = bpy.data.objects
 
+    if PROGRESS: progress = 0
+
     for obj in exp_obj:
+        
+        if PROGRESS:
+            progress += 1
+            if (progress % 10 == 0): print("BRUS",progress,"/",len(exp_obj))
+            
         if obj.type == "MESH":
             #data = obj.getData(mesh = True)
             data = obj.data
@@ -276,22 +291,22 @@ def write_brus(objects=[]):
                                         img_id = i
                         
                         face_stack.insert(iuvlayer,img_id)
-                        print("    <uv face=",face.index,"layer=", iuvlayer, " imgid=", img_id, "/>")
+                        if DEBUG: print("    <uv face=",face.index,"layer=", iuvlayer, " imgid=", img_id, "/>")
 
                 for i in range(len(face_stack),texs_stack[-1]):
                     face_stack.append(-1)
 
 
                 if DEBUG: print("    <!-- Writing chunk -->")
-                    
+                
                 if not img_found:
                     if data.materials:
-                        if data.materials[face.mat]:
-                            mat_data = data.materials[face.mat]
-                            mat_colr = mat_data.rgbCol[0]
-                            mat_colg = mat_data.rgbCol[1]
-                            mat_colb = mat_data.rgbCol[2]
-                            mat_alpha = mat_data.getAlpha()
+                        if data.materials[face.material_index]:
+                            mat_data = data.materials[face.material_index]
+                            mat_colr = mat_data.diffuse_color[0]
+                            mat_colg = mat_data.diffuse_color[1]
+                            mat_colb = mat_data.diffuse_color[2]
+                            mat_alpha = mat_data.alpha
                             mat_name = mat_data.name
 
                             if not mat_name in brus_stack:
@@ -303,8 +318,7 @@ def write_brus(objects=[]):
                                 temp_buf += write_float(mat_alpha) #Alpha
                                 temp_buf += write_float(0)         #Shininess
                                 temp_buf += write_int(1)           #Blend
-                                if b3d_parameters.get("vertex-colors") and \
-                                       data.getColorLayerNames():
+                                if b3d_parameters.get("vertex-colors") and len(data.vertex_colors):
                                     temp_buf += write_int(2) #Fx
                                 else:
                                     temp_buf += write_int(0) #Fx
@@ -443,7 +457,14 @@ def write_node(objects=[]):
         root_buf += write_float(0) #Rotation Y
         root_buf += write_float(0) #Rotation Z
 
+    if PROGRESS: progress = 0
+
     for obj in exp_obj:
+        
+        if PROGRESS:
+            progress += 1
+            print("NODE:",progress,"/",len(exp_obj))
+        
         if obj.type == "MESH":
             
             if DEBUG: print("    <mesh name=",obj.name,">")
@@ -791,10 +812,20 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
 
     ivert = -1
 
+
+    if PROGRESS:
+        progress = 0
+        print("    mesh_stack, face:",0,"/",len(data.faces))
+    
     for face in data.faces:
         
         if DEBUG: print("        <!-- Face",face.index,"-->")
         
+        if PROGRESS:
+            progress += 1
+            if (progress % 50 == 0): print("    mesh_stack, face:",progress,"/",len(data.faces))
+        
+                
         per_face_vertices[face.index] = []
         
         for vertex_id,vert in enumerate(face.vertices):
@@ -850,39 +881,36 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
                     elif vertex_id == 3:
                         mesh_stack[ivert][3] = data.vertex_colors[0].data[face.index].color4
 
-                # FIXME: I'm not sure this is right
                 if (len(data.uv_textures) > 0):
                     if vertex_id == 0:
                         mesh_stack[ivert][4][0].append([face.index,data.uv_textures[0].data[face.index].uv1])
-                        print("            <uv face=",face.index,"vertex=",vertex_id,">",
+                        if DEBUG: print("            <uv face=",face.index,"vertex=",vertex_id,">",
                                                       data.uv_textures[0].data[face.index].uv1,"</uv>")
                     elif vertex_id == 1:
                         mesh_stack[ivert][4][0].append([face.index,data.uv_textures[0].data[face.index].uv2])
-                        print("            <uv face=",face.index,"vertex=",vertex_id,">",
+                        if DEBUG: print("            <uv face=",face.index,"vertex=",vertex_id,">",
                                                       data.uv_textures[0].data[face.index].uv2,"</uv>")
                     elif vertex_id == 2:
                         mesh_stack[ivert][4][0].append([face.index,data.uv_textures[0].data[face.index].uv3])
-                        print("            <uv face=",face.index,"vertex=",vertex_id,">",
+                        if DEBUG: print("            <uv face=",face.index,"vertex=",vertex_id,">",
                                                       data.uv_textures[0].data[face.index].uv3,"</uv>")
                     elif vertex_id == 3:
                         mesh_stack[ivert][4][0].append([face.index,data.uv_textures[0].data[face.index].uv4])
-                        print("            <uv face=",face.index,"vertex=",vertex_id,">",
+                        if DEBUG: print("            <uv face=",face.index,"vertex=",vertex_id,">",
                                                       data.uv_textures[0].data[face.index].uv4,"</uv>")
                     else:
                         self.report({'ERROR'}, "Only triangles and quads are supported")
                 else:
                     mesh_stack[ivert][4][0].append([face.index,[0.0,0.0]])
 	            
+                #mesh_stack[vert.index][5].append(vert_influ)
+                mesh_stack[ivert][5].append(data.vertices[vert].bevel_weight)
+                
                 #if data.vertexUV and not data.faceUV:
                 #    mesh_stack[vert.index][4][0].append([face.index,vert.uvco[0]])
                 #if not data.vertexUV and not data.faceUV:
                 #    mesh_stack[vert.index][4][0].append([face.index,[0.0,0.0]])
-
-                #for vert_influ in data.getVertexInfluences(vert.index):
-                for vert in data.vertices:
-                    #mesh_stack[vert.index][5].append(vert_influ)
-                    mesh_stack[vert.index][5].append(vert.bevel_weight)
-
+    
     if DEBUG: print("")
 
     #if data.faceUV:
@@ -906,7 +934,15 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
     #if orig_uvlayer:
     #    data.activeUVLayer = orig_uvlayer
 
+    if PROGRESS: progress = 0
+
     for ivert in range(len(mesh_stack)):
+        
+        if PROGRESS:
+            progress += 1
+            if (progress % 50 == 0): print("    VRTS:",progress,"/",len(mesh_stack))
+
+        
         mesh_stack[ivert][0] = ids_count
         
         if DEBUG: print("        <ivert id=",ivert,">")
@@ -1003,8 +1039,8 @@ def write_node_mesh_tris(obj,obj_count,arm_action,exp_root):
         if img_found == 0:
             brus_id = -1
             if data.materials:
-                if data.materials[face.mat]:
-                    mat_name = data.materials[face.mat].name
+                if data.materials[face.material_index]:
+                    mat_name = data.materials[face.material_index].name
                     for i in range(len(brus_stack)):
                         if brus_stack[i] == mat_name:
                             brus_id = i
@@ -1030,13 +1066,26 @@ def write_node_mesh_tris(obj,obj_count,arm_action,exp_root):
     if DEBUG: print("")
     if DEBUG: print("        <!-- TRIS chunk -->")
     
-    #FIXME?
+    if PROGRESS: progress = 0
+                
     for brus_id in dBrushId2Face.keys():
+        
+        if PROGRESS:
+            progress += 1
+            print("BRUS:",progress,"/",len(dBrushId2Face.keys()))
+        
         temp_buf = write_int(brus_id) #Brush ID
         
-        print("        <brush id=", brus_id, "/>")
+        if DEBUG: print("        <brush id=", brus_id, "/>")
         
+        if PROGRESS: progress2 = 0
+                
         for face in dBrushId2Face[brus_id]:
+            
+            if PROGRESS:
+                progress2 += 1
+                if (progress2 % 50 == 0): print("    TRIS:",progress2,"/",len(dBrushId2Face[brus_id]))
+            
             #face_id = [0,0,0,0]
             #if data.faceUV:
             #if len(data.uv_textures) > 0:
@@ -1063,7 +1112,7 @@ def write_node_mesh_tris(obj,obj_count,arm_action,exp_root):
                 temp_buf += write_int(vertices[0]) #C
                 if DEBUG: print("            <face id=", vertices[3], vertices[2], vertices[0],"/> <!-- face",face.index,"-->")
 
-        print("        </brush>")
+        if DEBUG: print("        </brush>")
         tris_buf += write_chunk(b"TRIS",temp_buf)
      
     #FIXME?   
