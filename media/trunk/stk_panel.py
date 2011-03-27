@@ -18,11 +18,11 @@ STK_OBJECT_TYPES = {'banana'           : [],
                     'driveline'        : [],
                     'ignore'           : [],
                     'item'             : [],
-                    'lap'              : ['activate', 'toggle'],
-                    'maindriveline'    : ['activate', 'toggle'],
+                    'lap'              : ['activate'],
+                    'maindriveline'    : ['activate'],
                     'nitro_big'        : [],
                     'nitro_small'      : [],
-                    'object'           : ['name', 'interaction', 'shape', 'mass'],
+                    'object'           : ['name', 'shape', 'interaction', 'mass'],
                     'particle_emitter' : ['kind'],
                     'water'            : ['name', 'height', 'length', 'speed']
                     }
@@ -43,14 +43,14 @@ COMBOS = {'type' :
               ('particle_emitter', 'Particle Emitter', 'Particle Emitter'),
               ('water', 'Water', 'Water')],
           'shape' :
-             [('box', 'box', 'box'),
-              ('sphere', 'sphere', 'sphere'),
-              ('coneX', 'coneX', 'coneX'),
-              ('coneY', 'coneY', 'coneY'),
-              ('coneZ', 'coneZ', 'coneZ'),
-              ('cylinderX', 'cylinderX', 'cylinderX'),
-              ('cylinderY', 'cylinderY', 'cylinderY'),
-              ('cylinderZ', 'cylinderZ', 'cylinderZ')],
+             [('box',       'Box',       'Box'),
+              ('sphere',    'Sphere',    'Sphere'),
+              ('coneX',     'ConeX',     'ConeX'),
+              ('coneY',     'ConeY',     'ConeY'),
+              ('coneZ',     'ConeZ',     'ConeZ'),
+              ('cylinderX', 'CylinderX', 'CylinderX'),
+              ('cylinderY', 'CylinderY', 'CylinderY'),
+              ('cylinderZ', 'CylinderZ', 'CylinderZ')],
           'interaction' :
              [('static', 'Static (won''t move)', 'Static (won''t move)'),
               ('none', 'None (ghost)', 'None (ghost)'),
@@ -65,7 +65,7 @@ PROP_SETTNGS = { 'inner_radius' :  (True,      -1),
                  'speed'        :  (True,      300)
                }
 
-for param in COMBOS:
+for param in COMBOS.keys():
     default_val = COMBOS[param][0][0]
     items_val = COMBOS[param]
     
@@ -78,8 +78,10 @@ for param in COMBOS:
         bl_label  = ("STK Object :: set "+param)
         
         m_param = param
+        m_items_val = items_val
         
         def execute(self, context):
+            
             # Set the property
             object = context.object
             object[self.m_param] = self.value
@@ -94,12 +96,13 @@ for param in COMBOS:
                         if p in PROP_SETTNGS:
                             numeric = PROP_SETTNGS[p][0]
                         
+                        # create proeprty by setting default  value
                         if p in COMBOS:
                             object[p] = COMBOS[p][0][0]
                         elif numeric:
                             object[p] = PROP_SETTNGS[p][1]
                         else:
-                            object[p] = "" # create properties
+                            object[p] = ""
                     
             
             return {'FINISHED'}
@@ -113,10 +116,19 @@ class STK_TypeSetAnimTex(bpy.types.Operator):
     
     def execute(self, context):
         obj = context.object
-        obj["anim_texture"] = ""
+        
+        if "anim_texture" not in obj:
+            obj["anim_texture"] = ""
+        
+        if "anim_dx" not in obj:
+            obj["anim_dx"] = 0.0
+        
+        if "anim_dy" not in obj:
+            obj["anim_dy"] = 0.0
+        
         return {'FINISHED'}
 
-    
+
 # ==== PANEL ====
 class OBJECT_PT_hello(bpy.types.Panel):
     bl_label = "SuperTuxKart Properties"
@@ -128,7 +140,7 @@ class OBJECT_PT_hello(bpy.types.Panel):
         layout = self.layout
  
         obj = context.object
-        
+
         # ==== Types group ====
         row = layout.row()
         row.label(text="Type")
@@ -151,29 +163,64 @@ class OBJECT_PT_hello(bpy.types.Panel):
         if len(props) > 0:
             box = layout.box()
             
+
             for currprop in props:
-                
                 if currprop in obj:
+                
+                    if currprop == 'mass':
+                        if 'interaction' not in obj or obj['interaction'] != 'move':
+                            continue
                 
                     row = box.row()
                     
-                    if currprop in COMBOS:
+                    if currprop in COMBOS.keys():
+                        # Create a combo if this property is a combo type property
+                        caption = obj[currprop][0].capitalize() + obj[currprop][1:]
+                        for x in COMBOS[currprop]:
+                            if x[0] == obj[currprop]:
+                                caption = x[1]
+                                break
+                        
                         row.label(currprop[0].capitalize() + currprop[1:])
-                        row.operator_menu_enum("screen.stk_set_"+currprop, property="value", text=obj[currprop])
+                        
+                        op = "screen.stk_set_"+currprop
+                        
+                        # FIXME: for some reason, without that print the dropdown doesn't work??????
+                        print(op)
+                        row.operator_menu_enum(op, property="value", text=caption)
+                        
                     else:
+                        # Otherwise just create a plain text field or numeric field (guessed from type)
                         row.prop(obj, '["' + currprop + '"]', text=currprop[0].capitalize() + currprop[1:])
         
-        # ----
-        row = layout.row()
+        # ==== Anim Texture group ====
+        box = layout.box()
+        
+        row = box.row()
+        row.label("Animated Texture")
+        
+        row = box.row()
         row.operator("screen.stk_set_animtex", text="Enable Animated Texture")
  
         if "anim_texture" in obj:
             try:
-                row = layout.row()
+                row = box.row()
                 row.prop(obj, '["anim_texture"]', text="Animated Texture")
             except:
                 pass
-        
+        if "anim_dx" in obj:
+            try:
+                row = box.row()
+                row.prop(obj, '["anim_dx"]', text="X Speed")
+            except:
+                pass
+        if "anim_dy" in obj:
+            try:
+                row = box.row()
+                row.prop(obj, '["anim_dy"]', text="Y Speed")
+            except:
+                pass
+
 
 def register():
     bpy.utils.register_module(__name__)
