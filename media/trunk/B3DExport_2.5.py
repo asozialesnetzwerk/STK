@@ -59,7 +59,7 @@ per_face_vertices = {}
 the_scene = None
 
 #Transformation Matrix
-TRANS_MATRIX = mathutils.Matrix([[-1,0,0,0],[0,0,1,0],[0,1,0,0],[0,0,0,1]])
+TRANS_MATRIX = mathutils.Matrix([[1,0,0,0],[0,0,1,0],[0,1,0,0],[0,0,0,1]])
 
 DEBUG = False
 PROGRESS = True
@@ -512,8 +512,28 @@ def write_node(objects=[]):
                 if b3d_parameters.get("local-space"):
                     matrix = TRANS_MATRIX
                 else:
-                    matrix = obj.matrix_world
-                    matrix *= TRANS_MATRIX
+                    
+                    e = obj.matrix_world.to_euler()
+                    t = obj.matrix_world.to_translation()
+                    
+                    #e.rotate_axis('X', -math.pi/2)
+                    #e.rotate_axis('Z',- math.pi/2)
+                    
+                    tmp = e[2]
+                    e[2] = e[1]
+                    e[1] = tmp
+                    
+                    #print(obj.name, e[0], e[1], e[2])
+                    
+                    matrix = e.to_matrix().to_4x4()
+                    matrix = mathutils.Matrix.Translation(t)*matrix
+                    
+                    #matrix = mathutils.Matrix.Rotation(math.pi/2,4,'X')
+                    #matrix *= obj.matrix_world
+                    #matrix *= TRANS_MATRIX
+                    
+                    #matrix = obj.matrix_world
+                    #matrix *= TRANS_MATRIX
 
                 temp_buf += write_string(obj.name) #Node Name
 
@@ -529,8 +549,8 @@ def write_node(objects=[]):
                 temp_buf += write_float(scale[2]) #Scale Y
                 temp_buf += write_float(scale[1]) #Scale Z
 
-                matrix *= mathutils.Matrix.Rotation(math.pi, 4, 'Z')
-                matrix *= mathutils.Matrix.Rotation(math.pi/2, 4, 'X')
+                #matrix *= mathutils.Matrix.Rotation(math.pi, 4, 'Y')
+                #matrix *= mathutils.Matrix.Rotation(math.pi/2, 4, 'X')
                 quat = matrix.to_quaternion()
                 quat.normalize()
 
