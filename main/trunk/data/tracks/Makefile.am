@@ -2,6 +2,7 @@
 
 pkgdatadir= $(datadir)/games/$(PACKAGE)/data/tracks
 nobase_dist_pkgdata_DATA = $(shell find $(srcdir) -name "*.jpg")           \
+                           $(shell find $(srcdir) -name "*.JPG")           \
                            $(shell find $(srcdir) -name "*.png")           \
                            $(shell find $(srcdir) -name "*.b3d")           \
                            $(shell find $(srcdir) -name "License.txt")     \
