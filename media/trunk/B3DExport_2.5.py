@@ -594,6 +594,7 @@ def write_node(objects=[]):
                         par_matrix = matrix.to_4x4() * arm_matrix
 
                     bone_stack.append([par_matrix,parent,bone])
+                    print("Bone Stack : adding",[par_matrix,parent,bone])
 
                     if bone.children:
                         for child in bone.children: read_armature(arm_matrix,child,bone)
@@ -959,7 +960,16 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
                     mesh_stack[ivert][4][0].append([face.index,[0.0,0.0]])
 	            
                 #mesh_stack[vert.index][5].append(vert_influ)
-                mesh_stack[ivert][5].append(data.vertices[vert].bevel_weight)
+                
+                for vg in obj.vertex_groups:
+                    w = 0.0
+                    print("Getting weigth for",ivert,"in",vg.name)
+                    try:
+                        w = vg.weight(ivert)
+                    except:
+                        pass
+                    mesh_stack[ivert][5].append((vg.name, w))
+                    #print("mesh_stack[ivert][5] =",mesh_stack[ivert][5])
                 
                 #if data.vertexUV and not data.faceUV:
                 #    mesh_stack[vert.index][4][0].append([face.index,vert.uvco[0]])
@@ -1238,6 +1248,8 @@ def write_node_bone(ibone):
     for ivert in range(len(mesh_stack)):
         for iuv in range(len(mesh_stack[ivert][4][0])):
             for vert_influ in mesh_stack[ivert][5]:
+                #print("bone_stack[ibone] =", bone_stack[ibone])
+                #print("vert_influ =",vert_influ)
                 if bone_stack[ibone][2].name == vert_influ[0]:
                     if DEBUG: print("        <bone name=",bone_stack[ibone][2].name,"face_vertex_id=", mesh_stack[ivert][0] + iuv,
                                     " weigth=", vert_influ[1] , "/>")
