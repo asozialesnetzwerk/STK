@@ -577,61 +577,78 @@ def write_node(objects=[]):
                     if (parent and not bone.parent.name == parent.name):
                         return
 
-                    matrix = mathutils.Matrix(bone.matrix["ARMATURESPACE"])
+                    #FIXME?
+                    #matrix = mathutils.Matrix(bone.matrix["ARMATURESPACE"])
+                    matrix = mathutils.Matrix(bone.matrix)
 
                     if parent:
-                        par_matrix = matrix * mathutils.Matrix(parent.matrix["ARMATURESPACE"]).invert()
+                        #par_matrix = matrix * mathutils.Matrix(parent.matrix["ARMATURESPACE"]).invert()
+                        
+                        # FIXME: seems like translation is missing
+                        par_matrix = (matrix * mathutils.Matrix(parent.matrix).inverted()).to_4x4()
                     else:
-                        par_matrix = matrix * arm_matrix
+                        #print("matrix",matrix)
+                        #print("arm_matrix", arm_matrix)
+                        
+                        # FIXME: seems like translation is missing
+                        par_matrix = matrix.to_4x4() * arm_matrix
 
                     bone_stack.append([par_matrix,parent,bone])
 
                     if bone.children:
                         for child in bone.children: read_armature(arm_matrix,child,bone)
 
-                for bone in data.bones.values():
+                for bone in arm.data.bones.values():
                     if not bone.parent:
                         read_armature(arm_matrix,bone)
 
-                arm_action.setActive(arm)
-                frame_count = first_frame.val
+                # FIXME?
+                #arm_action.setActive(arm)
+                
+                frame_count = first_frame
 
                 if PROGRESS_VERBOSE:
-                    print("    FRAME:",frame_count,"in",frame_count.val,"..",last_frame.val)
+                    print("    FRAME:",frame_count,"in",frame_count,"..",last_frame)
                     anim_progress = 0
                         
-                while frame_count <= last_frame.val:
+                while frame_count <= last_frame:
                     
                     if PROGRESS_VERBOSE:
                         anim_progress += 1
-                        if (anim_progress % 50 == 0): print("    FRAME:",frame_count,"in",frame_count.val,"..",last_frame.val)
+                        if (anim_progress % 50 == 0): print("    FRAME:",frame_count,"in",frame_count,"..",last_frame)
                     
-                    Blender.Set("curframe",int(frame_count))
+                    #FIXME?
+                    #Blender.Set("curframe",int(frame_count))
+                    the_scene.frame_current = int(frame_count)
+                    
                     if DEBUG: print("        <frame>", int(frame_count), "</frame>")
                     #Blender.Window.Redraw()
-                    arm_pose = arm.getPose()
-                    arm_matrix = arm.getMatrix("worldspace")
+                    arm_pose = arm.pose
+                    #arm_matrix = arm.getMatrix("worldspace")
+                    arm_matrix = arm.matrix_world
                     arm_matrix *= TRANS_MATRIX
 
-                    for bone_name in data.bones.keys():
-                        bone_matrix = mathutils.Matrix(arm_pose.bones[bone_name].poseMatrix)
+                    for bone_name in arm.data.bones.keys():
+                        #bone_matrix = mathutils.Matrix(arm_pose.bones[bone_name].poseMatrix)
+                        bone_matrix = mathutils.Matrix(arm_pose.bones[bone_name].matrix)
 
                         for ibone in range(len(bone_stack)):
                             if bone_stack[ibone][2].name == bone_name:
                                 if bone_stack[ibone][1]:
-                                    par_matrix = mathutils.Matrix(arm_pose.bones[bone_stack[ibone][1].name].poseMatrix)
-                                    bone_matrix *= par_matrix.invert()
+                                    #par_matrix = mathutils.Matrix(arm_pose.bones[bone_stack[ibone][1].name].poseMatrix)
+                                    par_matrix = mathutils.Matrix(arm_pose.bones[bone_stack[ibone][1].name].matrix)
+                                    bone_matrix *= par_matrix.inverted()
                                 else:
                                     if b3d_parameters.get("local-space"):
                                         bone_matrix *= TRANS_MATRIX
                                     else:
                                         bone_matrix *= arm_matrix
 
-                                bone_loc = bone_matrix.translation_part()
-                                bone_rot = bone_matrix.rotation_part().toQuat()
+                                bone_loc = bone_matrix.to_translation()
+                                bone_rot = bone_matrix.to_quaternion()
                                 bone_rot.normalize()
-                                bone_sca = bone_matrix.scale_part()
-                                keys_stack.append([frame_count - first_frame.val+1,bone_name,bone_loc,bone_sca,bone_rot])
+                                bone_sca = bone_matrix.to_scale()
+                                keys_stack.append([frame_count - first_frame+1, bone_name, bone_loc, bone_sca, bone_rot])
 
                     frame_count += 1
 
@@ -1176,23 +1193,23 @@ def write_node_anim(num_frames):
 
 # ==== Write NODE NODE Chunk ====
 def write_node_node(ibone):
-    node_buf = ""
-    temp_buf = ""
+    node_buf = bytearray()
+    temp_buf = bytearray()
 
     matrix = bone_stack[ibone][0]
     temp_buf += write_string(bone_stack[ibone][2].name) #Node Name
 
-    position = matrix.translationPart()
+    position = matrix.to_translation()
     temp_buf += write_float(-position[0]) #Position X
     temp_buf += write_float(position[1])  #Position Y
     temp_buf += write_float(position[2])  #Position Z
 
-    scale = matrix.scalePart()
+    scale = matrix.to_scale()
     temp_buf += write_float(scale[0]) #Scale X
     temp_buf += write_float(scale[1]) #Scale Y
     temp_buf += write_float(scale[2]) #Scale Z
 
-    quat = matrix.toQuat()
+    quat = matrix.to_quaternion()
     quat.normalize()
 
     temp_buf += write_float(quat.w)  #Rotation W
@@ -1209,7 +1226,7 @@ def write_node_node(ibone):
 
     if len(temp_buf) > 0:
         node_buf += write_chunk(b"NODE",temp_buf)
-        temp_buf = ""
+        temp_buf = bytearray()
 
     return node_buf
 
@@ -1218,8 +1235,8 @@ def write_node_bone(ibone):
     bone_buf = ""
     temp_buf = ""
 
-    for ivert in xrange(len(mesh_stack)):
-        for iuv in xrange(len(mesh_stack[ivert][4][0])):
+    for ivert in range(len(mesh_stack)):
+        for iuv in range(len(mesh_stack[ivert][4][0])):
             for vert_influ in mesh_stack[ivert][5]:
                 if bone_stack[ibone][2].name == vert_influ[0]:
                     if DEBUG: print("        <bone name=",bone_stack[ibone][2].name,"face_vertex_id=", mesh_stack[ivert][0] + iuv,
@@ -1228,7 +1245,7 @@ def write_node_bone(ibone):
                     temp_buf += write_float(vert_influ[1]) #Weight
 
     bone_buf += write_chunk("bBONE",temp_buf)
-    temp_buf = ""
+    temp_buf = btyearray()
 
     return bone_buf
 
