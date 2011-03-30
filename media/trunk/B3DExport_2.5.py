@@ -477,31 +477,32 @@ def write_node(objects=[]):
             keys_stack = []
             #data = obj.getData(mesh = True)
 
-            arm_action = None
+            anim_data = None
             if obj.parent:
                 if obj.parent.type == "ARMATURE":
                     arm = obj.parent
-                    if arm.getAction():
-                        arm_action = arm.getAction()
+                    if arm.animation_data:
+                        anim_data = arm.animation_data
 
-            if arm_action:
-                matrix = Matrix()
+
+            if anim_data:
+                matrix = mathutils.Matrix()
 
                 temp_buf += write_string(obj.name) #Node Name
                 
-                position = matrix.translationPart()
+                position = matrix.to_translation()
                 temp_buf += write_float(-position[0]) #Position X
                 temp_buf += write_float(position[1])  #Position Y
                 temp_buf += write_float(position[2])  #Position Z
 
-                scale = matrix.scalePart()
+                scale = matrix.to_scale()
                 temp_buf += write_float(scale[0]) #Scale X
                 temp_buf += write_float(scale[2]) #Scale Y
                 temp_buf += write_float(scale[1]) #Scale Z
 
                 if DEBUG: print("        <arm name=", obj.name, " loc=", -position[0], position[1], position[2], " scale=", scale[0], scale[1], scale[2], "/>")
                 
-                quat = matrix.toQuat()
+                quat = matrix.to_quaternion()
                 quat.normalize()
 
                 temp_buf += write_float(quat.w) #Rotation W
@@ -563,22 +564,23 @@ def write_node(objects=[]):
                 if DEBUG: print("        <scale>",scale[0],scale[1],scale[2],"</scale>")
                 if DEBUG: print("        <rotation>", quat.w, quat.x, quat.y, quat.z, "</rotation>")
             
-            if arm_action:
-                Blender.Set("curframe",0)
-                Blender.Window.Redraw()
+            
+            if anim_data:
+                #Blender.Set("curframe",0)
+                #Blender.Window.Redraw()
 
-                data = arm.getData()
-                arm_matrix = arm.getMatrix("worldspace")
-                arm_matrix *= TRANS_MATRIX.invert()
+                #data = arm.getData()
+                arm_matrix = arm.matrix_world
+                arm_matrix *= TRANS_MATRIX.inverted()
 
                 def read_armature(arm_matrix,bone,parent = None):
                     if (parent and not bone.parent.name == parent.name):
                         return
 
-                    matrix = Blender.Mathutils.Matrix(bone.matrix["ARMATURESPACE"])
+                    matrix = mathutils.Matrix(bone.matrix["ARMATURESPACE"])
 
                     if parent:
-                        par_matrix = matrix * Blender.Mathutils.Matrix(parent.matrix["ARMATURESPACE"]).invert()
+                        par_matrix = matrix * mathutils.Matrix(parent.matrix["ARMATURESPACE"]).invert()
                     else:
                         par_matrix = matrix * arm_matrix
 
@@ -633,12 +635,12 @@ def write_node(objects=[]):
 
                     frame_count += 1
 
-                Blender.Set("curframe",0)
-                Blender.Window.Redraw()
+                #Blender.Set("curframe",0)
+                #Blender.Window.Redraw()
 
-            temp_buf += write_node_mesh(obj,obj_count,arm_action,exp_root) #NODE MESH
+            temp_buf += write_node_mesh(obj,obj_count,anim_data,exp_root) #NODE MESH
             
-            if arm_action:
+            if anim_data:
                 temp_buf += write_node_anim(num_frames) #NODE ANIM
 
                 for ibone in range(len(bone_stack)):
