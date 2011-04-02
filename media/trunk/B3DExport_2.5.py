@@ -1230,7 +1230,7 @@ def write_node_node(ibone):
     temp_buf += write_node_bone(ibone)
     temp_buf += write_node_keys(ibone)
 
-    for iibone in xrange(len(bone_stack)):
+    for iibone in range(len(bone_stack)):
         if bone_stack[iibone][1] == bone_stack[ibone][2]:
             temp_buf += write_node_node(iibone)
 
@@ -1242,8 +1242,8 @@ def write_node_node(ibone):
 
 # ==== Write NODE BONE Chunk ====
 def write_node_bone(ibone):
-    bone_buf = ""
-    temp_buf = ""
+    bone_buf = bytearray()
+    temp_buf = bytearray()
 
     for ivert in range(len(mesh_stack)):
         for iuv in range(len(mesh_stack[ivert][4][0])):
@@ -1256,19 +1256,19 @@ def write_node_bone(ibone):
                     temp_buf += write_int(mesh_stack[ivert][0] + iuv) # Face Vertex ID
                     temp_buf += write_float(vert_influ[1]) #Weight
 
-    bone_buf += write_chunk("bBONE",temp_buf)
-    temp_buf = btyearray()
+    bone_buf += write_chunk(b"BONE",temp_buf)
+    temp_buf = bytearray()
 
     return bone_buf
 
 # ==== Write NODE KEYS Chunk ====
 def write_node_keys(ibone):
-    keys_buf = ""
-    temp_buf = ""
+    keys_buf = bytearray()
+    temp_buf = bytearray()
 
     temp_buf += write_int(7) #Flags
 
-    for ikeys in xrange(len(keys_stack)):
+    for ikeys in range(len(keys_stack)):
         if keys_stack[ikeys][1] == bone_stack[ibone][2].name:
             temp_buf += write_int(keys_stack[ikeys][0]) #Frame
 
@@ -1291,7 +1291,7 @@ def write_node_keys(ibone):
             temp_buf += write_float(quat.z)  #Rotation Z
 
     keys_buf += write_chunk(b"KEYS",temp_buf)
-    temp_buf = ""
+    temp_buf = bytearray()
 
     return keys_buf
 
