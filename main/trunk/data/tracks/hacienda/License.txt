@@ -1,8 +1,8 @@
 --------------------------------------------------------------------------------
 -- world:   hacienda
 -- author:  jean-manuel clemençon aka samuncle
--- version: 0.5b re
--- (c) 2010 supertuxkart
+            (with modifications by Vertt)
+-- (c) 2011 supertuxkart
 --------------------------------------------------------------------------------
 
 Well model and well texture by Sean Greene (Iconoclast)
