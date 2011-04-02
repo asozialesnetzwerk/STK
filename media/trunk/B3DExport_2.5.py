@@ -620,9 +620,10 @@ def write_node(objects=[]):
                     
                     #FIXME?
                     #Blender.Set("curframe",int(frame_count))
-                    the_scene.frame_current = int(frame_count)
+                    #the_scene.frame_current = int(frame_count)
+                    bpy.ops.anim.change_frame(frame=int(frame_count))
                     
-                    if DEBUG: print("        <frame>", int(frame_count), "</frame>")
+                    if DEBUG: print("        <frame id=", int(frame_count), ">")
                     #Blender.Window.Redraw()
                     arm_pose = arm.pose
                     #arm_matrix = arm.getMatrix("worldspace")
@@ -632,9 +633,15 @@ def write_node(objects=[]):
                     for bone_name in arm.data.bones.keys():
                         #bone_matrix = mathutils.Matrix(arm_pose.bones[bone_name].poseMatrix)
                         bone_matrix = mathutils.Matrix(arm_pose.bones[bone_name].matrix)
-
+                        
+                        #bone_matrix = bpy.data.scenes[0].objects[0].pose.bones['Bone'].matrix
+                        
                         for ibone in range(len(bone_stack)):
+                            
                             if bone_stack[ibone][2].name == bone_name:
+                                
+                                if DEBUG: print("            <bone id=",ibone,"name=",bone_name,">")
+                                    
                                 if bone_stack[ibone][1]:
                                     #par_matrix = mathutils.Matrix(arm_pose.bones[bone_stack[ibone][1].name].poseMatrix)
                                     par_matrix = mathutils.Matrix(arm_pose.bones[bone_stack[ibone][1].name].matrix)
@@ -650,8 +657,14 @@ def write_node(objects=[]):
                                 bone_rot.normalize()
                                 bone_sca = bone_matrix.to_scale()
                                 keys_stack.append([frame_count - first_frame+1, bone_name, bone_loc, bone_sca, bone_rot])
+                                if DEBUG: print("                <loc>", bone_loc, "</loc>")
+                                if DEBUG: print("                <rot>", bone_rot, "</rot>")
+                                if DEBUG: print("                <scale>", bone_sca, "</scale>")
+                                if DEBUG: print("            </bone>")
 
                     frame_count += 1
+
+                    if DEBUG: print("        </frame>")
 
                 #Blender.Set("curframe",0)
                 #Blender.Window.Redraw()
@@ -864,7 +877,7 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
     
     # ---- Fill the mesh "stack"
     if DEBUG: print("")
-    if DEBUG: print("        <!-- Building mesh_stack -->")
+    if DEBUG: print("        <!-- Building mesh_stack -->\n")
 
     ivert = -1
 
@@ -963,12 +976,14 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
                 
                 for vg in obj.vertex_groups:
                     w = 0.0
-                    print("Getting weigth for",ivert,"in",vg.name)
                     try:
                         w = vg.weight(ivert)
                     except:
                         pass
                     mesh_stack[ivert][5].append((vg.name, w))
+                    
+                    if DEBUG: print("            <weigth vertex=", ivert,"bone=",vg.name,">",w,"</weight>")
+                    
                     #print("mesh_stack[ivert][5] =",mesh_stack[ivert][5])
                 
                 #if data.vertexUV and not data.faceUV:
@@ -1071,6 +1086,8 @@ def write_node_mesh_tris(obj,obj_count,arm_action,exp_root):
     # brush, creating less mesh buffer in irrlicht.
     dBrushId2Face = {}
     
+    if DEBUG: print("")
+    
     for face in data.faces:
         img_found = 0
         face_stack = []
@@ -1124,8 +1141,8 @@ def write_node_mesh_tris(obj,obj_count,arm_action,exp_root):
         else:
             dBrushId2Face[brus_id] = [face]
         
-        if DEBUG: print("            <!-- Face",face.index,"in brush",brus_id,"-->")
-            
+        if DEBUG: print("        <!-- Face",face.index,"in brush",brus_id,"-->")
+    
     tris_buf = bytearray()
     
     if DEBUG: print("")
