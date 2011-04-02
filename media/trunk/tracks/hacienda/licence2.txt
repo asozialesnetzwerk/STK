@@ -5,6 +5,11 @@
 -- (c) 2010 supertuxkart
 --------------------------------------------------------------------------------
 
+Crate*
+    by Luke.RUSTLTD
+    released under public domain
+    http://opengameart.org/content/3-crate-textures-w-bump-normal
+
 Well model and well texture by Sean Greene (Iconoclast)
     released under public domain
 
