@@ -568,6 +568,9 @@ def write_node(objects=[]):
             if anim_data:
                 #Blender.Set("curframe",0)
                 #Blender.Window.Redraw()
+                #bpy.ops.anim.change_frame(frame=0)
+
+                the_scene.frame_set(0,subframe=0.0)
 
                 #data = arm.getData()
                 arm_matrix = arm.matrix_world
@@ -621,7 +624,8 @@ def write_node(objects=[]):
                     #FIXME?
                     #Blender.Set("curframe",int(frame_count))
                     #the_scene.frame_current = int(frame_count)
-                    bpy.ops.anim.change_frame(frame=int(frame_count))
+                    #bpy.ops.anim.change_frame(frame=int(frame_count))
+                    the_scene.frame_set(int(frame_count), subframe=0.0)
                     
                     if DEBUG: print("        <frame id=", int(frame_count), ">")
                     #Blender.Window.Redraw()
@@ -634,6 +638,8 @@ def write_node(objects=[]):
                         #bone_matrix = mathutils.Matrix(arm_pose.bones[bone_name].poseMatrix)
                         bone_matrix = mathutils.Matrix(arm_pose.bones[bone_name].matrix)
                         
+                        #print(bone_name,":",bone_matrix)
+                        
                         #bone_matrix = bpy.data.scenes[0].objects[0].pose.bones['Bone'].matrix
                         
                         for ibone in range(len(bone_stack)):
@@ -641,14 +647,16 @@ def write_node(objects=[]):
                             if bone_stack[ibone][2].name == bone_name:
                                 
                                 if DEBUG: print("            <bone id=",ibone,"name=",bone_name,">")
-                                    
+                                
                                 if bone_stack[ibone][1]:
                                     #par_matrix = mathutils.Matrix(arm_pose.bones[bone_stack[ibone][1].name].poseMatrix)
-                                    par_matrix = mathutils.Matrix(arm_pose.bones[bone_stack[ibone][1].name].matrix)
-                                    bone_matrix *= par_matrix.inverted()
+                                    #par_matrix = mathutils.Matrix(arm_pose.bones[bone_stack[ibone][1].name].matrix)
+                                    #bone_matrix *= par_matrix.inverted()
+                                    pass
                                 else:
                                     if b3d_parameters.get("local-space"):
-                                        bone_matrix *= TRANS_MATRIX
+                                        #bone_matrix *= TRANS_MATRIX
+                                        pass
                                     else:
                                         bone_matrix *= arm_matrix
 
@@ -1158,7 +1166,7 @@ def write_node_mesh_tris(obj,obj_count,arm_action,exp_root):
         
         temp_buf = write_int(brus_id) #Brush ID
         
-        if DEBUG: print("        <brush id=", brus_id, "/>")
+        if DEBUG: print("        <brush id=", brus_id, ">")
         
         if PROGRESS_VERBOSE: progress2 = 0
                 
