@@ -3,7 +3,6 @@
 <materials>
   <material name="bigFork.png" transparency="yes" ignore="Y"/>
   <material name="cactus.png" compositing="blend" backface-culling="N" light="N" disable-z-write="Y"/>
-  <material name="drysageBrush.png" light="N" ignore="Y" compositing="blend" backface-culling="N" disable-z-write="Y"/>
   <material name="grass.png" ignore="Y" backface-culling="N" disable-z-write="Y" compositing="blend"/>
   <material name="hacienda_ground.jpg">
     <particles base="smoke.xml" condition="skid"/>
@@ -22,7 +21,7 @@
   <material name="palmacacia.jpg" light="N" ignore="Y" compositing="blend" disable-z-write="Y" mask="palmacacia_alpha.jpg"/>
   <material name="pix.png" transparency="yes" reset="Y"/>
   <material name="pix_2.png" compositing="test"/>
-  <material name="sageBrush.png" transparency="yes" light="N" ignore="Y"/>
+  <material name="sageBrush.jpg" mask="sageBrush_alpha.jpg" transparency="yes" light="N" ignore="Y"/>
   <material name="sky.jpg" light="N"/>
   <material name="tail.png" ignore="Y" disable-z-write="Y" backface-culling="N" compositing="blend"/>
   <material name="traildust.jpg" anisotropic="Y">
