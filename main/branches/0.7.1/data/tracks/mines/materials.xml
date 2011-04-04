@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 7732 -->
+<materials>
+  <material name="candle.png" alpha="yes" compositing="blend"/>
+  <material name="clip.png" transparency="yes" compositing="test"/>
+  <material name="fence_chain.png" transparency="yes" anisotropic="Y" compositing="test"/>
+  <material name="metal_rusted.jpg" anisotropic="Y"/>
+  <material name="mine_road.jpg" anisotropic="Y">
+    <particles base="smoke.xml"/>
+  </material>
+  <material name="mine_road.jpg">
+    <particles condition="skid" base="smoke.xml"/>
+  </material>
+  <material name="mine_rail.jpg" anisotropic="Y"/>
+  <material name="mine_rock2.jpg" slowdown-time="1.0" max-speed="1.0" backface-culling="Y" anisotropic="Y"/>
+  <material name="mine_rock.jpg" slowdown-time="1.0" max-speed="1.0" anisotropic="Y"/>
+  <material name="mine_water_alpha.png" compositing="blend" surface="Y" clampV="N" anisotropic="Y">
+    <sfx filename="splash.ogg" name="splash"/>
+    <particles base="splash.xml" condition="skid drive"/>
+  </material>
+  <material name="mine_water_reset.png" reset="Y" compositing="none" graphical-effect="water" falling-effect="Y"/>
+  <material name="wall_wood1.jpg" anisotropic="Y"/>
+</materials>
