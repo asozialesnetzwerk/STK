@@ -507,6 +507,12 @@ class Driveline:
             f.write("  <quad%sp0=\"%d:3\" p1=\"%d:2\" p2=\"0:1\" p3=\"0:0\"/>\n"\
                     % (sInv, max_index-1, max_index-1))
 
+def indexOf(obj):
+    for i,o in enumerate(bpy.data.objects):
+        if o == obj:
+            return i
+    return -1
+
 # ==============================================================================
 # The actual exporter. It is using a class mainly to store some information
 # between calls to different functions, e.g. a cache of exported objects.
@@ -524,17 +530,16 @@ class TrackExport:
         # If the object was already exported, we don't have to do it again.
         if name in self.dExportedObjects: return name
         
-        #old_space = b3d_export.b3d_parameters.get("local-space")
-        
-        #b3d_export.b3d_parameters["local-space"] = 1  # Export in local space
-        
-        #b3d_export.write_b3d_file(sPath+"/"+name, [obj])
-        bpy.ops.screen.b3d_export.skip_dialog = True
-        bpy.ops.screen.b3d_export.obj_list = [obj]
+        # FIXME: silly and ugly hack, the list of objects to export is passed through
+        #        a custom scene property
+        global the_scene
+        the_scene.obj_list = [obj]
         bpy.ops.screen.b3d_export(localsp=True, mipmap=True, lights=False, vcolors=True,
-                                  vnormals=True, cameras=False, filepath="sTrackName")
-        bpy.ops.screen.b3d_export.skip_dialog = False
-        bpy.ops.screen.b3d_export.obj_list = []
+                                  vnormals=True, cameras=False, filepath=sPath+"/"+name,
+                                  overwrite_without_asking=True)
+        the_scene.obj_list = []
+        #bpy.ops.screen.b3d_export.skip_dialog = False
+        #setObjList([])
         
         #b3d_export.b3d_parameters["local-space"] = old_space
         
@@ -1878,12 +1883,14 @@ class TrackExport:
         print("Exporting track -->",)
         sTrackName = sBase+"_track.b3d"
 
-        bpy.ops.screen.b3d_export.skip_dialog = True
-        bpy.ops.screen.b3d_export.obj_list = lTrack
+        # FIXME: silly and ugly hack, the list of objects to export is passed through
+        #        a custom scene property
+        scene.obj_list = lTrack
+        
         bpy.ops.screen.b3d_export(localsp=False, mipmap=True, lights=False, vcolors=True,
-                                  vnormals=True, cameras=False, filepath="sTrackName")
-        bpy.ops.screen.b3d_export.skip_dialog = False
-        bpy.ops.screen.b3d_export.obj_list = []
+                                  vnormals=True, cameras=False, filepath=sTrackName,
+                                  overwrite_without_asking=True)
+        scene.obj_list = []
         
         #write_b3d_file(sFilename+"_track.b3d")
         
@@ -1917,6 +1924,15 @@ def savescene_callback(sFilename):
     #bpy.ops.screen.b3d_export(localsp=False, mipmap=True, lights=False, vcolors=True,
     #                          vnormals=True, cameras=False)
 
+thelist = []
+def getlist(self):
+    global thelist
+    return thelist
+def setlist(self, value):
+    global thelist
+    thelist = value
+     
+
 # ==== EXPORT OPERATOR ====
 class STK_Track_Export_Operator(bpy.types.Operator):
     bl_idname = ("screen.stk_track_export")
@@ -1934,32 +1950,15 @@ class STK_Track_Export_Operator(bpy.types.Operator):
         global operator
         operator = self
         
+        # FIXME: silly and ugly hack, the list of objects to export is passed through
+        #        a custom scene property
+        bpy.types.Scene.obj_list = property(getlist, setlist)
+        
         savescene_callback(self.filepath)
         return {'FINISHED'}
-
-# ==============================================================================
-def main():
-    print("\n\n-- SuperTuxKart track exporter | SVN version:" + getScriptVersion() +
-          " | (c) Joerg Henrichs (hiker), Marianne Gagnon (Auria)--")
-    ok = 1
-    try:
-        b3d_version = b3d_export.__version__
-        # Will be e.g. 2.06 or 3.0
-        if int(b3d_version.split(".")[0])<3:
-            ok = 0
-    except:
-        ok = 0
-
-    # Make sure to leave edit mode, since otherwise the mesh before
-    # entering edit mode is exported.
-    if Blender.Window.EditMode():
-        Blender.Window.EditMode(0)
-
-    tmp_filename = Blender.sys.makename(ext = "")
-    Blender.Window.FileSelector(savescene_callback,"Export STK track",tmp_filename)
     
 # ==== PANEL ====
-class OBJECT_PT_hello(bpy.types.Panel):
+class STK_Track_Exporter_Panel(bpy.types.Panel):
     bl_label = "Track Exporter"
     bl_space_type = "PROPERTIES"
     bl_region_type = "WINDOW"

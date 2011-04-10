@@ -1333,8 +1333,15 @@ class B3D_Confirm_Operator(bpy.types.Operator):
     def execute(self, context):
         write_b3d_file(B3D_Confirm_Operator.filepath)
         return {'FINISHED'}
+
+
+#class ObjectListItem(bpy.types.PropertyGroup):
+#    id = bpy.props.IntProperty(name="ID")
+#
+#bpy.utils.register_class(ObjectListItem)
     
 # ==== EXPORT OPERATOR ====
+
 class B3D_Export_Operator(bpy.types.Operator):
     bl_idname = ("screen.b3d_export")
     bl_label = ("B3D Export")
@@ -1347,16 +1354,19 @@ class B3D_Export_Operator(bpy.types.Operator):
     lights   = bpy.props.BoolProperty(name="Export Lights", default=False)
     mipmap   = bpy.props.BoolProperty(name="Mipmap", default=False)
     localsp  = bpy.props.BoolProperty(name="Use Local Space Coords", default=False)
+
+    overwrite_without_asking  = bpy.props.BoolProperty(name="Overwrite without asking", default=False)
     
-    skip_dialog = False
-    obj_list = []
+    #skip_dialog = False
+    
+    #objects = bpy.props.CollectionProperty(type=ObjectListItem, options={'HIDDEN'})
     
     def invoke(self, context, event):
-        if not self.skip_dialog:
-            context.window_manager.fileselect_add(self)
-            return {'RUNNING_MODAL'}
-        else:
-            return {'FINISHED'}
+        #if not self.skip_dialog:
+        context.window_manager.fileselect_add(self)
+        return {'RUNNING_MODAL'}
+        #else:
+        #    return {'FINISHED'}
     
     def execute(self, context):
         
@@ -1375,10 +1385,25 @@ class B3D_Export_Operator(bpy.types.Operator):
         if not self.filepath.endswith(".b3d"):
             self.filepath += ".b3d"
 
-        if len(self.obj_list) > 0:
-            write_b3d_file(self.filepath, self.obj_list)
+        obj_list = []
+        try:
+            # FIXME: silly and ugly hack, the list of objects to export is passed through
+            #        a custom scene property
+            obj_list = context.scene.obj_list
+        except:
+             pass
+        
+        if len(obj_list) > 0:
+          
+            #objlist = []
+            #for a in self.objects:
+            #    objlist.append(bpy.data.objects[a.id])
+            #
+            #write_b3d_file(self.filepath, obj_list)
+            
+            write_b3d_file(self.filepath, obj_list)
         else:
-            if os.path.exists(self.filepath) and not self.skip_dialog:
+            if os.path.exists(self.filepath) and not self.overwrite_without_asking:
                 #self.report({'ERROR'}, "File Exists")
                 B3D_Confirm_Operator.filepath = self.filepath
                 bpy.ops.screen.b3d_confirm('INVOKE_DEFAULT')
