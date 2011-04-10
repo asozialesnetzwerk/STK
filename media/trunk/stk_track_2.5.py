@@ -117,7 +117,7 @@ class Driveline:
         self.name      = driveline.name
         self.is_main   = is_main
         # Transform the mesh to the right coordinates.
-        self.mesh      = driveline.data
+        self.mesh      = driveline.data.copy()
         self.mesh.transform(driveline.matrix_world)
         # Convert the mesh into a dictionary: each vertex is a key to a
         # list of neighbours.
@@ -376,8 +376,8 @@ class Driveline:
                 print ("The drivelines will most certainly not be useable.")
                 print ("Further warnings are likely and will be suppressed.")
                 warning_printed = 1
-                Blender.Draw.PupMenu("Problems with driveline detected, check console for details!")
-                
+                operator.report({'ERROR'}, "Problems with driveline detected, check console for details!")
+                break                
             self.lRight.append(next_right[0])
 
             cp=[]
@@ -506,12 +506,6 @@ class Driveline:
         if self.is_last_main:
             f.write("  <quad%sp0=\"%d:3\" p1=\"%d:2\" p2=\"0:1\" p3=\"0:0\"/>\n"\
                     % (sInv, max_index-1, max_index-1))
-
-def indexOf(obj):
-    for i,o in enumerate(bpy.data.objects):
-        if o == obj:
-            return i
-    return -1
 
 # ==============================================================================
 # The actual exporter. It is using a class mainly to store some information
@@ -1175,7 +1169,7 @@ class TrackExport:
 
         ind = 1
         for obj in lChecks:
-            mesh = obj.data
+            mesh = obj.data.copy()
             # Convert to world space
             mesh.transform(obj.matrix_world)
             # One of lap, activate, toggle, ambient
