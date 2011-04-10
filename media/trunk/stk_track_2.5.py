@@ -1264,7 +1264,7 @@ class TrackExport:
     # --------------------------------------------------------------------------
     # Writes all start positions
     def writeStartPositions(self, f, lStart):
-	      global the_scene
+        global the_scene
         scene = the_scene
         karts_per_row      = getIdProperty(scene, "start-karts-per-row",      "2"  )
         distance_forwards  = getIdProperty(scene, "start-forwards-distance",  "1.5")
@@ -1293,7 +1293,7 @@ class TrackExport:
                     count = count + 1
             dId2Obj[id] = obj
         l = dId2Obj.keys()
-        l.sort()
+        #l.sort() # sorting not needed AFAICT, the dictionary keeps the keys sorted
         for i in l:
             f.write("  <start %s/>\n"%getXYZHString(dId2Obj[i]))
                 
@@ -1544,11 +1544,11 @@ class TrackExport:
     # Please use the STKProperty browser!!!
     def writeMaterialsFile(self, sPath):
         # Read & Write the materials to the file
-        limage = Blender.Image.Get()
+        limage = bpy.data.images
         
         materfound = False
         for i in limage:
-            for sAttrib,sValue in i.properties.iteritems():
+            for sAttrib in i.keys():
                 materfound = True
                 break
         if not materfound:
@@ -1608,7 +1608,7 @@ class TrackExport:
         #start_time = bsys.time()
         print("Writing material file --> \t")
 
-        f = open(sPath+"/materials.xml", "w")
+        f = open(sPath+"/materials.xml", mode="w", encoding="utf-8")
         f.write("<?xml version=\"1.0\"?>\n")
         f.write("<!-- Generated with script from SVN rev %s -->\n"%getScriptVersion())
         f.write("<materials>\n")
@@ -1626,9 +1626,10 @@ class TrackExport:
             # Create a copy of the list of defaults so that it can be modified. Then add
             # all properties of the current image
             l = lTextureDefaults[:]
-            for sAttrib, sValue in i.properties.iteritems():
+            for sAttrib in i.keys():
                 if sAttrib not in l:
-                    l.append( (sAttrib, sValue) )
+                    l.append( (sAttrib, i[sAttrib]) )
+            
             for AProperty,ADefault in l:
                 # Don't add the (default) values to the property list
                 currentValue = getIdProperty(i, AProperty, ADefault,
@@ -1657,8 +1658,8 @@ class TrackExport:
             # Now write the main content of the materials.xml file
             if sImage or hasSoundeffect or hasParticle or hasZipper:
                 #Get the filename of the image.
-                s = i.getFilename()
-                sImage="  <material name=\"%s\"%s" % (Blender.sys.basename(s),sImage)                
+                s = i.filepath
+                sImage="  <material name=\"%s\"%s" % (os.path.basename(s),sImage)                
                 if hasSoundeffect:
                     sImage="%s>\n    <sfx%s/" % (sImage,sSFX)
                 if hasParticle:
@@ -1846,6 +1847,7 @@ class STK_Track_Export_Operator(bpy.types.Operator):
         operator = self
         
         savescene_callback(self.filepath)
+        return {'FINISHED'}
 
 # ==============================================================================
 def main():
