@@ -890,23 +890,66 @@ class TrackExport:
         #print bsys.time()-start_time,"seconds. "
           
     # --------------------------------------------------------------------------
-    def writeIPO(self, f, ipo ):
-        dInterp = {IpoCurve.InterpTypes.BEZIER:        "bezier",
-                   IpoCurve.InterpTypes.LINEAR:        "linear",
-                   IpoCurve.InterpTypes.CONST:         "const"          }
-        dExtend = {IpoCurve.ExtendTypes.CONST:         "const",
-                   IpoCurve.ExtendTypes.EXTRAP:        "extrap",
-                   IpoCurve.ExtendTypes.CYCLIC_EXTRAP: "cyclic_extrap",
-                   IpoCurve.ExtendTypes.CYCLIC:        "cyclic"         }
+    def writeIPO(self, f, anim_data ):
+        # FIXME - bring back those
+        #dInterp = {IpoCurve.InterpTypes.BEZIER:        "bezier",
+        #           IpoCurve.InterpTypes.LINEAR:        "linear",
+        #           IpoCurve.InterpTypes.CONST:         "const"          }
+        #dExtend = {IpoCurve.ExtendTypes.CONST:         "const",
+        #           IpoCurve.ExtendTypes.EXTRAP:        "extrap",
+        #           IpoCurve.ExtendTypes.CYCLIC_EXTRAP: "cyclic_extrap",
+        #           IpoCurve.ExtendTypes.CYCLIC:        "cyclic"         }
+        
+        if anim_data and anim_data.action:
+            ipo = anim_data.action.fcurves
+        else:
+            return
+        
+        # ==== Interesting parameters ====
+        # anim_data.action.frame_range
+        # fcurves[0].data_path
+        #    location, rotation_euler, scale
+        # fcurves[0].extrapolation
+        #    CONSTANT, LINEART
+        # fcurves[0].keyframe_points
+        # fcurves[0].keyframe_points[0].interpolation
+        #    CONSTANT, LINEAR, BEZIER
+        # fcurves[0].keyframe_points[0].co[0]
+        # fcurves[0].keyframe_points[0].co[1]
+        # fcurves[0].keyframe_points[0].left_handle[0]
+        # fcurves[0].keyframe_points[0].left_handle[1]
+        # fcurves[0].keyframe_points[0].right_handle[0]
+        # fcurves[0].keyframe_points[0].right_handle[1]
+        
+        # TODO:
+        #   * 'cyclic' extrapolation is no more available so instead use :
+        #          fcurves[0].modifiers[i].type == 'CYCLES'
+        
         for curve in ipo:
+          
+            if curve.data_path == 'location':
+                # FIXME: how to find to what what axis is each curve assigned to?
+                name = "LocX"
+            elif curve.data_path == 'rotation_euler':
+                # FIXME: how to find to what what axis is each curve assigned to?
+                name = "RotX"
+            elif curve.data_path == 'scale':
+                # FIXME: how to find to what what axis is each curve assigned to?
+                name = "ScaleX"
+            else:
+                # TODO: show in GUI
+                print("Unknown curve type", curve.data_path)
+                continue
+              
             # Swap Y and Z axis
-            if   curve.name=="LocZ":   name="LocY"
-            elif curve.name=="LocY":   name="LocZ"
-            elif curve.name=="RotY":   name="RotZ"
-            elif curve.name=="RotZ":   name="RotY"
-            elif curve.name=="ScaleY": name="ScaleZ"
-            elif curve.name=="ScaleZ": name="ScaleY"
-            else:                      name=curve.name
+            #if   curve.name=="LocZ":   name="LocY"
+            #elif curve.name=="LocY":   name="LocZ"
+            #elif curve.name=="RotY":   name="RotZ"
+            #elif curve.name=="RotZ":   name="RotY"
+            #elif curve.name=="ScaleY": name="ScaleZ"
+            #elif curve.name=="ScaleZ": name="ScaleY"
+            #else:                      name=curve.name
+            
             # Rotations are stored in units of 10 degrees, and we
             # have to reverse the sign
             if name[:3]=="Rot":
@@ -914,17 +957,18 @@ class TrackExport:
             else:
                 factor=1
             f.write("    <curve channel=\"%s\" interpolation=\"%s\" extend=\"%s\">\n"% \
-                    (name, dInterp[curve.interpolation], dExtend[curve.extend]))
+                    (name, "bezier", "cyclic"))
+                    #(name, dInterp[curve.interpolation], dExtend[curve.extend]))
             
-            for bez in curve.bezierPoints:
-                if curve.interpolation==IpoCurve.InterpTypes.BEZIER:
+            for bez in curve.keyframe_points:
+                if bez.interpolation=='BEZIER':
                     f.write("      <p c=\"%f %f\" h1=\"%f %f\" h2=\"%f %f\"/>\n"%\
-                            (bez.vec[1][0],factor*bez.vec[1][1], bez.vec[0][0],
-                             factor*bez.vec[0][1], bez.vec[2][0],
-                             factor*bez.vec[2][1]))
+                            (bez.co[0],factor*bez.co[1][1],
+                             bez.left_handle[0], factor*bez.left_handle[1],
+                             bez.right_handle[0], factor*bez.right_handle[1]))
                 else:
-                    f.write("      <p c=\"%f %f\"/>\n"%(bez.vec[1][0],
-                                                        factor*bez.vec[1][1]))
+                    f.write("      <p c=\"%f %f\"/>\n"%(bez.co[0],
+                                                        factor*bez.co[1]))
             f.write("    </curve>\n")
         
     # --------------------------------------------------------------------------
@@ -1068,7 +1112,7 @@ class TrackExport:
             name = getProperty(obj, "type", obj.name.lower())
             if name!="lap":
                 name = getProperty(obj, "name", obj.name.lower())
-            if dGroup2Indices.has_key(name):
+            if name in dGroup2Indices:
                 dGroup2Indices[name].append(ind)
             else:
                 dGroup2Indices[name] = [ ind ]
@@ -1076,19 +1120,23 @@ class TrackExport:
 
         if mainDriveline:
             lap = mainDriveline.getStartEdge()
-            min_h = lap[0][2]
-            if lap[1][2]<min_h: min_h = lap[1][2]
+            coord = mainDriveline.mesh.vertices[lap[0]].co
+            min_h = coord[2]
+            if coord[2] < min_h: min_h = coord[2]
 
             # The main driveline is always the first entry, so remove
             # only the first entry to get the list of all other lap lines
             l = dGroup2Indices["lap"]
+            
+            from functools import reduce
             sSameGroup = reduce(lambda x,y: str(x)+" "+str(y), l, "")
+            
             activate = mainDriveline.getActivate()
             if activate:
                 group = activate.lower()
             else:
                 group = ""
-            if not group or not dGroup2Indices.has_key(group):
+            if not group or group not in dGroup2Indices:
                 # TODO: show in GUI
                 print("Activate group '%s' not found!"%group)
                 print("Ignored - but lap counting might not work correctly.")
@@ -1123,15 +1171,15 @@ class TrackExport:
 
         ind = 1
         for obj in lChecks:
-            mesh=obj.getData()
+            mesh = obj.data
             # Convert to world space
-            mesh.transform(obj.getMatrix())
+            mesh.transform(obj.matrix_world)
             # One of lap, activate, toggle, ambient
             activate = getProperty(obj, "activate", "")
             kind=" "
             if activate:
                 group = activate.lower()
-                if not dGroup2Indices.has_key(group):
+                if group not in dGroup2Indices:
                     # TODO: show this in the GUI, not only on console
                     print("Activate group '%s' not found!"%group)
                     print("Ignored - but lap counting might not work correctly.")
@@ -1144,7 +1192,7 @@ class TrackExport:
             toggle = getProperty(obj, "toggle", "")
             if toggle:
                 group = toggle.lower()
-                if not dGroup2Indices.has_key(group):
+                if group not in dGroup2Indices:
                     # TODO: show this in the GUI, not only on console
                     print("Toggle group '%s' not found!"%group)
                     print("Ignored - but lap counting might not work correctly.")
@@ -1188,29 +1236,29 @@ class TrackExport:
             sSameGroup = reduce(lambda x,y: str(x)+" "+str(y), l, "")
             ind = ind + 1
 
-            if len(mesh.verts)==2:   # Check line
-                min_h = mesh.verts[0][2]
-                if mesh.verts[1][2]<min_h: min_h = mesh.verts[1][2]
+            if len(mesh.vertices)==2:   # Check line
+                min_h = mesh.vertices[0].co[2]
+                if mesh.vertices[1].co[2] < min_h: min_h = mesh.vertices[1].co[2]
                 f.write("    <check-line%sp1=\"%f %f\" p2=\"%f %f\"\n" %
-                        (kind, mesh.verts[0][0], mesh.verts[0][1],
-                         mesh.verts[1][0], mesh.verts[1][1]   )  )
+                        (kind, mesh.vertices[0].co[0], mesh.vertices[0].co[1],
+                         mesh.vertices[1].co[0], mesh.vertices[1].co[1]   )  )
 
                 f.write("                min-height=\"%f\" same-group=\"%s\"/>\n" \
                         % (min_h, sSameGroup.strip())  )
             else:
                 radius = 0
-                for v in mesh.verts:
-                    r = (obj.loc[0]-v[0])*(obj.loc[0]-v[0]) + \
-                        (obj.loc[1]-v[1])*(obj.loc[1]-v[1]) + \
-                        (obj.loc[2]-v[2])*(obj.loc[2]-v[2])
+                for v in mesh.vertices:
+                    r = (obj.location[0]-v[0])*(obj.location[0]-v[0]) + \
+                        (obj.location[1]-v[1])*(obj.location[1]-v[1]) + \
+                        (obj.location[2]-v[2])*(obj.loc[2]-v[2])
                     if r > radius:
-                        radius=r
+                        radius = r
                 
                 radius = math.sqrt(radius)
                 inner_radius = getProperty(obj, "inner-radius", radius)
                 color = getProperty(obj, "color", "255 120 120 120")
                 f.write("    <check-sphere%sxyz=\"%f %f %f\" radius=\"%f\"\n" % \
-                        (kind, obj.loc[0], obj.loc[2], obj.loc[1], radius) )
+                        (kind, obj.location[0], obj.location[2], obj.location[1], radius) )
                 f.write("                  same-group=\"%s\"\n"%sSameGroup.strip())
                 f.write("                  inner-radius=\"%f\" color=\"%s\"/>\n"% \
                         (inner_radius, color) )
@@ -1248,8 +1296,8 @@ class TrackExport:
         # An object that can be moved by the player. This object
         # can not have an IPO, so no need to test this here.
         if interact=="move":
-            ipo      = obj.getIpo()
-            if ipo:
+            ipo      = obj.animation_data
+            if ipo and ipo.action:
                 # TODO: show this in the GUI, not only on console
                 print("Warning: Movable object %s has an ipo - ipo is ignored." \
                       %obj.name)
@@ -1269,27 +1317,24 @@ class TrackExport:
         # they are saved as animations (with 0 IPOs).
         elif interact=="ghost" or interact=="none":
             
-            # FIXME: I'm not sure moption_path is the correct Blender 2.5 equivalent for getIpo()
-            ipo      = obj.motion_path
+            ipo      = obj.animation_data
             
             # In objects with skeletal animations the actual armature (which
             # is a parent) contains the IPO. So check for this:
-            if not ipo:
+            if not ipo or not ipo.action:
                 parent = obj.parent
                 if parent:
-                    # FIXME: I'm not sure moption_path is the correct Blender 2.5 equivalent for getIpo()
-                    ipo = parent.motion_path
+                    ipo = parent.animation_data
             self.writeAnimationWithIPO(f, b3d_name, obj, ipo)
         elif interact=="static":
-            # FIXME: I'm not sure moption_path is the correct Blender 2.5 equivalent for getIpo()
-            ipo      = obj.motion_path
+            ipo      = obj.animation_data
             # In objects with skeletal animations the actual armature (which
             # is a parent) contains the IPO. So check for this:
-            if not ipo:
+            if not ipo or not ipo.action:
                 parent = obj.parent
                 if parent:
-                    # FIXME: I'm not sure moption_path is the correct Blender 2.5 equivalent for getIpo()
-                    ipo = parent.motion_path
+                    # FIXME: I'm not sure what is the correct Blender 2.5 equivalent for getIpo()
+                    ipo = parent.animation_data
             self.writeAnimationWithIPO(f, b3d_name, obj, ipo)
         else:
             # TODO: show this in the GUI, not only on console
@@ -1379,9 +1424,8 @@ class TrackExport:
             interact = getProperty(obj, "interaction", "static")
             if interact=="static":
               
-                # FIXME: this used to be getIpo(), I'm not sure motion_path is the
-                #        correct Blender 2.5 equivalent
-                ipo      = obj.motion_path
+                # FIXME: I'm not sure what is the 2.5 equivalent of getIpo()
+                ipo      = obj.animation_data
                 
                 # If an static object has an IPO, it will be moved, and
                 # can't be merged with the physics model of the track
@@ -1490,9 +1534,9 @@ class TrackExport:
 
             # Get the position of the item - first check if the item should
             # be dropped on the track, or stay at the position indicated.
-            rx,ry,rz = map(lambda x: rad2deg*x, obj.rot)
+            rx,ry,rz = map(lambda x: rad2deg*x, obj.rotation_euler)
             h,p,r    = map(str, map(Round, [rz,rx,ry])  )
-            x,y,z    = map(str, map(Round, obj.loc     )  )
+            x,y,z    = map(str, map(Round, obj.location )  )
             drop     = getProperty(obj, "drop", "y").lower()
             # Swap y and z axis to have the same coordinate system used in game.
             s        = "%s x=\"%s\" y=\"%s\" z=\"%s\"" % (name, x, z, y)
