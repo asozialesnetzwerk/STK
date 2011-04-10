@@ -1352,7 +1352,7 @@ class B3D_Export_Operator(bpy.types.Operator):
     obj_list = []
     
     def invoke(self, context, event):
-        if self.skip_dialog:
+        if not self.skip_dialog:
             context.window_manager.fileselect_add(self)
             return {'RUNNING_MODAL'}
         else:
@@ -1378,7 +1378,7 @@ class B3D_Export_Operator(bpy.types.Operator):
         if len(self.obj_list) > 0:
             write_b3d_file(self.filepath, self.obj_list)
         else:
-            if os.path.exists(self.filepath):
+            if os.path.exists(self.filepath) and not self.skip_dialog:
                 #self.report({'ERROR'}, "File Exists")
                 B3D_Confirm_Operator.filepath = self.filepath
                 bpy.ops.screen.b3d_confirm('INVOKE_DEFAULT')
