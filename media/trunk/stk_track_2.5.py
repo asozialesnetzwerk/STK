@@ -117,8 +117,8 @@ class Driveline:
         self.name      = driveline.name
         self.is_main   = is_main
         # Transform the mesh to the right coordinates.
-        self.mesh      = driveline.getData()
-        self.mesh.transform(driveline.getMatrix())
+        self.mesh      = driveline.data
+        self.mesh.transform(driveline.matrix_world)
         # Convert the mesh into a dictionary: each vertex is a key to a
         # list of neighbours.
         self.createNeighbourDict()
@@ -205,8 +205,10 @@ class Driveline:
         self.is_last_main = 1
         cp=[]
         for i in range(3):
-            cp.append((self.lLeft [-1][i]+first_driveline.lLeft [0][i]+
-                       self.lRight[-1][i]+first_driveline.lRight[0][i])*0.25)
+            cp.append((self.mesh.vertices[self.lLeft[-1]].co[i] + 
+                       first_driveline.mesh.vertices[first_driveline.lLeft[0]].co[i]+
+                       self.mesh.vertices[self.lRight[-1]].co[i] +
+                       first_driveline.mesh.vertices[first_driveline.lRight[0]].co[i])*0.25)
 
         self.lCenter.append(cp)
         self.lLeft.append(None)
@@ -218,14 +220,15 @@ class Driveline:
     def createNeighbourDict(self):
         self.dNext = {}
         for e in self.mesh.edges:
-            if self.dNext.has_key(e.v1):
-                self.dNext[e.v1].append(e.v2)
+            if e.vertices[0] in self.dNext:
+                self.dNext[e.vertices[0]].append(e.vertices[1])
             else:
-                self.dNext[e.v1] = [e.v2]
-            if self.dNext.has_key(e.v2):
-                self.dNext[e.v2].append(e.v1)
+                self.dNext[e.vertices[0]] = [e.vertices[1]]
+            
+            if e.vertices[1] in self.dNext:
+                self.dNext[e.vertices[1]].append(e.vertices[0])
             else:
-                self.dNext[e.v2] = [e.v1]
+                self.dNext[e.vertices[1]] = [e.vertices[0]]
 
     # --------------------------------------------------------------------------
     # This helper function determines the start vertex for a driveline.
@@ -236,19 +239,25 @@ class Driveline:
         self.lStart = []
         for i in self.dNext.keys():
             if len(self.dNext[i])==1:
-                self.lStart.append(i)
+                self.lStart.append( i )
 
         # TODO: show this in the GUI, not only on console
         if len(self.lStart)!=2:
-            print("Driveline '%s' is incorrect formed, it does not have" % self.name)
+            print("Driveline '%s' is incorrectly formed, it does not have" % self.name)
             print("exactly two vertices with only one neighbour.")
             return
 
+        print("self.lStart[0] =", self.lStart[0])
+        print("self.lStart[1] =", self.lStart[1])
+
+        start_coord_1 = self.mesh.vertices[self.lStart[0]].co
+        start_coord_2 = self.mesh.vertices[self.lStart[1]].co
+
         # Save the middle of the first quad, which is used later for neareast
         # quads computations.
-        self.start_point =(  (self.lStart[0][0]+self.lStart[1][0])*0.5,
-                             (self.lStart[0][1]+self.lStart[1][1])*0.5,
-                             (self.lStart[0][2]+self.lStart[1][2])*0.5 )
+        self.start_point = ((start_coord_1[0] + start_coord_2[0])*0.5,
+                            (start_coord_1[1] + start_coord_2[1])*0.5,
+                            (start_coord_1[2] + start_coord_2[2])*0.5 )
 
     # --------------------------------------------------------------------------
     # Returns the startline of this driveline
@@ -272,8 +281,14 @@ class Driveline:
         # The quads can be either clockwise or counter-clockwise oriented. STK
         # expectes counter-clockwise, so if the orientation is wrong, swap
         # left and right side.
-        if (self.lRight[1][0]-self.lLeft[0][0])*(self.lRight[0][1]-self.lLeft[0][1]) \
-         - (self.lRight[1][1]-self.lLeft[0][1])*(self.lRight[0][0]-self.lLeft[0][0]) > 0:
+        
+        left_0_coord = self.mesh.vertices[self.lLeft[0]].co
+        #left_1_coord = self.mesh.vertices[self.lLeft[1]].co
+        right_0_coord = self.mesh.vertices[self.lRight[0]].co
+        right_1_coord = self.mesh.vertices[self.lRight[1]].co
+        
+        if (right_1_coord[0] - left_0_coord[0])*(right_0_coord[1] - left_0_coord[1]) \
+         - (right_1_coord[1] - left_0_coord[1])*(right_0_coord[0] - left_0_coord[0]) > 0:
             r   = self.lRight
             self.lRight = self.lLeft
             self.lLeft  = r
@@ -367,8 +382,10 @@ class Driveline:
 
             cp=[]
             for i in range(3):
-                cp.append((self.lLeft[-2][i]+self.lLeft[-1][i]+
-                           self.lRight[-2][i]+self.lRight[-1][i])*0.25)
+                cp.append((self.mesh.vertices[self.lLeft[-2]].co[i] + 
+                           self.mesh.vertices[self.lLeft[-1]].co[i] +
+                           self.mesh.vertices[self.lRight[-2]].co[i] +
+                           self.mesh.vertices[self.lRight[-1]].co[i])*0.25)
             self.lCenter.append(cp)
 
         # TODO: show this in the GUI, not only on console
@@ -380,9 +397,12 @@ class Driveline:
         # the starting point:
         del self.lLeft[0]
         del self.lRight[0]
-        self.end_point =(  (self.lLeft[-1][0]+self.lRight[-1][0])*0.5,
-                           (self.lLeft[-1][1]+self.lRight[-1][1])*0.5,
-                           (self.lLeft[-1][2]+self.lRight[-1][2])*0.5 )
+        self.end_point =((self.mesh.vertices[self.lLeft[-1]].co[0] +
+                          self.mesh.vertices[self.lRight[-1]].co[0])*0.5,
+                         (self.mesh.vertices[self.lLeft[-1]].co[1] +
+                          self.mesh.vertices[self.lRight[-1]].co[1])*0.5,
+                         (self.mesh.vertices[self.lLeft[-1]].co[2] +
+                          self.mesh.vertices[self.lRight[-1]].co[2])*0.5 )
 
     # --------------------------------------------------------------------------
     # Returns the end point of this driveline
@@ -447,10 +467,10 @@ class Driveline:
     # --------------------------------------------------------------------------
     # Writes the quads into a file.
     def writeQuads(self, f):
-        l   = self.lLeft[0]
-        r   = self.lRight[0]
-        l1  = self.lLeft[1]
-        r1  = self.lRight[1]
+        l   = self.mesh.vertices[self.lLeft[0]].co
+        r   = self.mesh.vertices[self.lRight[0]].co
+        l1  = self.mesh.vertices[self.lLeft[1]].co
+        r1  = self.mesh.vertices[self.lRight[1]].co
 
         if self.invisible:
             sInv = " invisible=\"yes\" "
@@ -478,8 +498,8 @@ class Driveline:
         f.write("  <quad%s%sp0=\"%f %f %f\" p1=\"%f %f %f\" p2=\"%f %f %f\" p3=\"%f %f %f\"/>\n" \
             %(sInv, sAIIgnore, l[0],l[2],l[1], r[0],r[2],r[1], r1[0],r1[2],r1[1], l1[0],l1[2],l1[1]) )
         for i in range(1, max_index):
-            l1  = self.lLeft[i+1]
-            r1  = self.lRight[i+1]
+            l1  = self.mesh.vertices[self.lLeft[i+1]].co
+            r1  = self.mesh.vertices[self.lRight[i+1]].co
             f.write("  <quad%sp0=\"%d:3\" p1=\"%d:2\" p2=\"%f %f %f\" p3=\"%f %f %f\"/>\n" \
                     %(sInv,self.global_quad_index_start+i-1, self.global_quad_index_start+i-1, \
                   r1[0],r1[2],r1[1], l1[0],l1[2],l1[1]) )
@@ -502,13 +522,21 @@ class TrackExport:
         
         name = name + ".b3d"
         # If the object was already exported, we don't have to do it again.
-        if self.dExportedObjects.has_key(name): return name
+        if name in self.dExportedObjects: return name
         
-        old_space = b3d_export.b3d_parameters.get("local-space")
+        #old_space = b3d_export.b3d_parameters.get("local-space")
         
-        b3d_export.b3d_parameters["local-space"] = 1  # Export in local space
-        b3d_export.write_b3d_file(sPath+"/"+name, [obj])
-        b3d_export.b3d_parameters["local-space"] = old_space
+        #b3d_export.b3d_parameters["local-space"] = 1  # Export in local space
+        
+        #b3d_export.write_b3d_file(sPath+"/"+name, [obj])
+        bpy.ops.screen.b3d_export.skip_dialog = True
+        bpy.ops.screen.b3d_export.obj_list = [obj]
+        bpy.ops.screen.b3d_export(localsp=True, mipmap=True, lights=False, vcolors=True,
+                                  vnormals=True, cameras=False, filepath="sTrackName")
+        bpy.ops.screen.b3d_export.skip_dialog = False
+        bpy.ops.screen.b3d_export.obj_list = []
+        
+        #b3d_export.b3d_parameters["local-space"] = old_space
         
         self.dExportedObjects[name]=1
         
@@ -796,7 +824,7 @@ class TrackExport:
         f.close()
         #print bsys.time() - start_time,"seconds. "
 
-        start_time = bsys.time()
+        #start_time = bsys.time()
         print("Writing graph file --> \t")
         f=open(sPath+"/graph.xml", "w")
         f.write("<?xml version=\"1.0\"?>\n")
@@ -907,7 +935,7 @@ class TrackExport:
         # which might be a default name with a number). Additionally, names
         # are cached so it can be avoided to export two or more identical
         # objects.
-        parent = obj.getParent()
+        parent = obj.parent
         # For now: armature animations are assumed to be looped
         if parent and parent.type=="Armature":
             looped =" looped=\"y\" "
@@ -1240,22 +1268,28 @@ class TrackExport:
         # Either can have an IPO. Even if the objects don't move
         # they are saved as animations (with 0 IPOs).
         elif interact=="ghost" or interact=="none":
-            ipo      = obj.getIpo()
+            
+            # FIXME: I'm not sure moption_path is the correct Blender 2.5 equivalent for getIpo()
+            ipo      = obj.motion_path
+            
             # In objects with skeletal animations the actual armature (which
             # is a parent) contains the IPO. So check for this:
             if not ipo:
-                parent = obj.getParent()
+                parent = obj.parent
                 if parent:
-                    ipo = parent.getIpo()
+                    # FIXME: I'm not sure moption_path is the correct Blender 2.5 equivalent for getIpo()
+                    ipo = parent.motion_path
             self.writeAnimationWithIPO(f, b3d_name, obj, ipo)
         elif interact=="static":
-            ipo      = obj.getIpo()
+            # FIXME: I'm not sure moption_path is the correct Blender 2.5 equivalent for getIpo()
+            ipo      = obj.motion_path
             # In objects with skeletal animations the actual armature (which
             # is a parent) contains the IPO. So check for this:
             if not ipo:
-                parent = obj.getParent()
+                parent = obj.parent
                 if parent:
-                    ipo = parent.getIpo()
+                    # FIXME: I'm not sure moption_path is the correct Blender 2.5 equivalent for getIpo()
+                    ipo = parent.motion_path
             self.writeAnimationWithIPO(f, b3d_name, obj, ipo)
         else:
             # TODO: show this in the GUI, not only on console
@@ -1344,7 +1378,11 @@ class TrackExport:
         for obj in lObjects:
             interact = getProperty(obj, "interaction", "static")
             if interact=="static":
-                ipo      = obj.getIpo()
+              
+                # FIXME: this used to be getIpo(), I'm not sure motion_path is the
+                #        correct Blender 2.5 equivalent
+                ipo      = obj.motion_path
+                
                 # If an static object has an IPO, it will be moved, and
                 # can't be merged with the physics model of the track
                 if ipo:
@@ -1688,7 +1726,7 @@ class TrackExport:
         lWater               = []                    # List of all water objects
         lTrack               = []                    # All main track objects
         lDrivelines          = []                    # All drivelines
-        found_main_driveline = 0
+        found_main_driveline = False
         lItems               = []                    # All track items
         lEndCameras          = []                    # List of all end cameras
         lCameraCurves        = []                    # Camera curves (unused atm)
@@ -1703,12 +1741,14 @@ class TrackExport:
             # use the name of the objects as type.
             stktype = getProperty(obj, "type", "").strip().upper()
             
+            #print("Checking object",obj.name,"which has type",stktype)
+
             # Make it possible to ignore certain objects, e.g. if you keep a
             # selection of 'templates' (ready to go models) around to be
             # copied into the main track.
             if stktype=="IGNORE": continue
             
-            if obj.type=="Empty":
+            if obj.type=="EMPTY":
                 # For backward compatibility test for the blender name
                 # in case that there is no type property defined. This makes
                 # it easier to port old style tracks without having to
@@ -1730,16 +1770,16 @@ class TrackExport:
                 else:
                     print("Empty '%s' has type '%s' which is not valid - ignored."%\
                           (obj.name, stktype))
-            elif obj.type=="Curve":
+            elif obj.type=="CURVE":
                 # Only append camera, other curves will be handled in animations
                 if stktype[:6]=="CAMERA": lCameraCurves.append(obj)
-            elif obj.type=="Lamp":
+            elif obj.type=="LAMP":
                 lSun.append(obj)
                 continue
-            elif obj.type=="Camera":
+            elif obj.type=="CAMERA":
                 lEndCameras.append(obj)
                 continue
-            elif obj.type!="Mesh":
+            elif obj.type!="MESH":
                 #print "Non-mesh object '%s' (type: '%s') is ignored!"%(obj.name, stktype)
                 continue
             
@@ -1753,7 +1793,7 @@ class TrackExport:
                  stktype=="MAINDL":
                 # Main driveline must be the first entry in the list
                 lDrivelines.insert(0, Driveline(obj, 1))
-                found_main_driveline = 1
+                found_main_driveline = True
             elif stktype=="DRIVELINE":
                 lDrivelines.append(Driveline(obj, 0))
             elif stktype=="OBJECT" or stktype=="SPECIAL_OBJECT":
@@ -1794,9 +1834,13 @@ class TrackExport:
         print("Exporting track -->",)
         sTrackName = sBase+"_track.b3d"
 
+        bpy.ops.screen.b3d_export.skip_dialog = True
+        bpy.ops.screen.b3d_export.obj_list = lTrack
         bpy.ops.screen.b3d_export(localsp=False, mipmap=True, lights=False, vcolors=True,
-                                  vnormals=True, cameras=False)
-
+                                  vnormals=True, cameras=False, filepath="sTrackName")
+        bpy.ops.screen.b3d_export.skip_dialog = False
+        bpy.ops.screen.b3d_export.obj_list = []
+        
         #write_b3d_file(sFilename+"_track.b3d")
         
         #b3d_export.write_b3d_file(sFilename+"_track.b3d", lTrack)
