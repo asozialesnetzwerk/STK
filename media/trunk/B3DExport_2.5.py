@@ -330,7 +330,7 @@ def write_brus(objects=[]):
                                 for i in face_stack:
                                     temp_buf += write_int(i) #Texture ID
                     else:
-                        if b3d_parameters.get("vertex-colors") and data.getColorLayerNames():
+                        if b3d_parameters.get("vertex-colors") and len(data.vertex_colors) > 0:
                             if not face_stack in brus_stack:
                                 brus_stack.append(face_stack)
                                 mat_count += 1
@@ -1348,9 +1348,15 @@ class B3D_Export_Operator(bpy.types.Operator):
     mipmap   = bpy.props.BoolProperty(name="Mipmap", default=False)
     localsp  = bpy.props.BoolProperty(name="Use Local Space Coords", default=False)
     
+    skip_dialog = False
+    obj_list = []
+    
     def invoke(self, context, event):
-        context.window_manager.fileselect_add(self)
-        return {'RUNNING_MODAL'}
+        if self.skip_dialog:
+            context.window_manager.fileselect_add(self)
+            return {'RUNNING_MODAL'}
+        else:
+            return {'FINISHED'}
     
     def execute(self, context):
         
@@ -1368,14 +1374,17 @@ class B3D_Export_Operator(bpy.types.Operator):
 
         if not self.filepath.endswith(".b3d"):
             self.filepath += ".b3d"
-    
-        if os.path.exists(self.filepath):
-            #self.report({'ERROR'}, "File Exists")
-            B3D_Confirm_Operator.filepath = self.filepath
-            bpy.ops.screen.b3d_confirm('INVOKE_DEFAULT')
-            return {'FINISHED'}
 
-        write_b3d_file(self.filepath)
+        if len(self.obj_list) > 0:
+            write_b3d_file(self.filepath, self.obj_list)
+        else:
+            if os.path.exists(self.filepath):
+                #self.report({'ERROR'}, "File Exists")
+                B3D_Confirm_Operator.filepath = self.filepath
+                bpy.ops.screen.b3d_confirm('INVOKE_DEFAULT')
+                return {'FINISHED'}
+            else:
+                write_b3d_file(self.filepath)
         return {'FINISHED'}
 
 # ==== PANEL ====
