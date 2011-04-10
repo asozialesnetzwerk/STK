@@ -33,6 +33,7 @@ import sys, os, os.path, struct, math, string, re
 from mathutils import *
 
 operator = None
+the_scene = None
 
 if not hasattr(sys, "argv"):
     sys.argv = m["???"]
@@ -517,8 +518,10 @@ class TrackExport:
     def writeTrackFile(self, sPath, nsBase):
         print("Writing track file --> \t")
 
+        global the_scene
+
         #start_time  = bsys.time()
-        scene       = Blender.Scene.GetCurrent()
+        scene       = the_scene
         name        = getIdProperty(scene, "name",       "Name of Track")
         groups      = getIdProperty(scene, "groups",     "standard"     )
         is_arena    = getIdProperty(scene, "arena",      "n"            )
@@ -557,7 +560,7 @@ class TrackExport:
         #getIdProperty(scene, "sky-texture-percent","")
         #getIdProperty(scene, "sky-sphere-percent", "")
         
-        f = open(sPath+"/track.xml", 'wb')
+        f = open(sPath+"/track.xml", mode='w', encoding='utf-8')
         f.write("<?xml version=\"1.0\"?>\n")
         f.write("<!-- Generated with script from SVN rev %s -->\n"%getScriptVersion())
         f.write("<track  name        = \"%s\"\n"%name)
@@ -1261,7 +1264,8 @@ class TrackExport:
     # --------------------------------------------------------------------------
     # Writes all start positions
     def writeStartPositions(self, f, lStart):
-        scene = Blender.Scene.GetCurrent()
+	      global the_scene
+        scene = the_scene
         karts_per_row      = getIdProperty(scene, "start-karts-per-row",      "2"  )
         distance_forwards  = getIdProperty(scene, "start-forwards-distance",  "1.5")
         distance_sidewards = getIdProperty(scene, "start-sidewards-distance", "3"  )
@@ -1372,7 +1376,8 @@ class TrackExport:
             # TODO: show this in the GUI, not only on console
             print("Warning: more than one Sun defined, only the first will be used."   )         
         sSky=""
-        scene = Blender.Scene.GetCurrent()
+        global the_scene
+        scene = the_scene
         s = getIdProperty(scene, "fog", 0)
         if s== "yes":
             sSky="%s fog=\"true\""%sSky
@@ -1468,7 +1473,7 @@ class TrackExport:
                 print("No check defined, lap counting will not work properly!")
             self.writeChecks(f, lChecks, mainDriveline)
         
-        scene   = Blender.Scene.GetCurrent()
+        scene   = the_scene
         sky     = getIdProperty(scene, "sky-type", None)
         # Note that there is a limit to the length of id properties,
         # which can easily be exceeded by 6 sky textures for a full sky box.
@@ -1678,7 +1683,7 @@ class TrackExport:
         
         # Collect the different kind of meshes this exporter handles
         # ----------------------------------------------------------
-        lObj                 = Blender.Object.Get()  # List of all objects
+        lObj                 = bpy.data.objects      # List of all objects
         lWater               = []                    # List of all water objects
         lTrack               = []                    # All main track objects
         lDrivelines          = []                    # All drivelines
@@ -1775,22 +1780,23 @@ class TrackExport:
     
         # Quads and mapping files
         # -----------------------
-        scene    = Blender.Scene.GetCurrent()
+        global the_scene
+        scene    = the_scene
         is_arena = getIdProperty(scene, "arena", "n")
         if not is_arena: is_arena="n"
         is_arena = not (is_arena[0]=="n" or is_arena[0]=="N" or \
                         is_arena[0]=="f" or is_arena[0]=="F"     )
         if not is_arena:
             self.writeQuadAndGraph(sPath, lDrivelines, lEndCameras)
-        start_time = bsys.time()
+        #start_time = bsys.time()
 
         print("Exporting track -->",)
         sTrackName = sBase+"_track.b3d"
 
-        #bpy.ops.screen.b3d_export(localsp=False, mipmap=True, lights=False, vcolors=True,
-        #                          vnormals=True, cameras=False)
+        bpy.ops.screen.b3d_export(localsp=False, mipmap=True, lights=False, vcolors=True,
+                                  vnormals=True, cameras=False)
 
-        write_b3d_file(sFilename+"_track.b3d")
+        #write_b3d_file(sFilename+"_track.b3d")
         
         #b3d_export.write_b3d_file(sFilename+"_track.b3d", lTrack)
         #print bsys.time()-start_time,"seconds."
@@ -1811,12 +1817,12 @@ class TrackExport:
 # ==============================================================================
 def savescene_callback(sFilename):
     # Settings for the b3d exporter:
-    b3d_export.b3d_parameters["vertex-normals" ] = 1  # Vertex normals.
-    b3d_export.b3d_parameters["vertex-colors"  ] = 1  # Vertex colors
-    b3d_export.b3d_parameters["cameras"        ] = 0  # Cameras
-    b3d_export.b3d_parameters["lights"         ] = 0  # Lights
-    b3d_export.b3d_parameters["mipmap"         ] = 1  # Enable mipmap
-    b3d_export.b3d_parameters["local-space"    ] = 0  # Export in world space
+    #b3d_export.b3d_parameters["vertex-normals" ] = 1  # Vertex normals.
+    #b3d_export.b3d_parameters["vertex-colors"  ] = 1  # Vertex colors
+    #b3d_export.b3d_parameters["cameras"        ] = 0  # Cameras
+    #b3d_export.b3d_parameters["lights"         ] = 0  # Lights
+    #b3d_export.b3d_parameters["mipmap"         ] = 1  # Enable mipmap
+    #b3d_export.b3d_parameters["local-space"    ] = 0  # Export in world space
 
     exporter = TrackExport(sFilename)
     #bpy.ops.screen.b3d_export(localsp=False, mipmap=True, lights=False, vcolors=True,
