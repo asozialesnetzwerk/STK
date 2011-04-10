@@ -955,10 +955,9 @@ class TrackExport:
             #elif curve.name=="ScaleZ": name="ScaleY"
             #else:                      name=curve.name
             
-            # Rotations are stored in units of 10 degrees, and we
-            # have to reverse the sign
+            # Rotations are stored in randians
             if name[:3]=="Rot":
-                factor=-10
+                factor=-57.29577951 # 180/PI
             else:
                 factor=1
             f.write("    <curve channel=\"%s\" interpolation=\"%s\" extend=\"%s\">\n"% \
