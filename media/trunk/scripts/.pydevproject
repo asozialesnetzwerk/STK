@@ -4,4 +4,9 @@
 <pydev_project>
 <pydev_property name="org.python.pydev.PYTHON_PROJECT_INTERPRETER">python</pydev_property>
 <pydev_property name="org.python.pydev.PYTHON_PROJECT_VERSION">python 2.7</pydev_property>
+<pydev_pathproperty name="org.python.pydev.PROJECT_EXTERNAL_SOURCE_PATH">
+<path>D:\Program Files\Blender Foundation\Blender\2.56\python\lib</path>
+<path>D:\Program Files\Blender Foundation\Blender\2.56\scripts</path>
+<path>D:\Program Files\Blender Foundation\Blender\2.56\scripts\startup\bl_ui</path>
+</pydev_pathproperty>
 </pydev_project>
