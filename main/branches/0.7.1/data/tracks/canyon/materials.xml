@@ -8,7 +8,7 @@
     <particles base="smoke.xml"/>
   </material>
   <material name="canyon_boards.png">
-    <sfx filename="wooden_bridge.ogg" name="wood" rolloff="0.600000023842" max-speed="22.0" max-pitch="1.70000004768"/>
+    <sfx filename="wooden_bridge.ogg" name="wooden_bridge" rolloff="0.600000023842" max-speed="22.0" max-pitch="1.70000004768"/>
   </material>
   <material name="city_checker.png" anisotropic="Y"/>
   <material name="city_asphalt_1.jpg" anisotropic="Y">
