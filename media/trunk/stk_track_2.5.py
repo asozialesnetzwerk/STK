@@ -35,6 +35,18 @@ from mathutils import *
 operator = None
 the_scene = None
 
+log = []
+
+def log_info(msg):
+    print("INFO:", msg)
+    log.append( ('INFO', msg) )
+def log_warning(msg):
+    print("WARNING:", msg)
+    log.append( ('WARNING', msg) )
+def log_error(msg):
+    print("ERROR:", msg)
+    log.append( ('ERROR', msg) )
+    
 if not hasattr(sys, "argv"):
     sys.argv = m["???"]
 
@@ -241,10 +253,9 @@ class Driveline:
             if len(self.dNext[i])==1:
                 self.lStart.append( i )
 
-        # TODO: show this in the GUI, not only on console
         if len(self.lStart)!=2:
-            print("Driveline '%s' is incorrectly formed, it does not have" % self.name)
-            print("exactly two vertices with only one neighbour.")
+            log_error("Driveline '%s' is incorrectly formed, it does not have exactly two vertices with only one neighbour." % self.name)
+            self.start_point = (0,0,0)
             return
 
         print("self.lStart[0] =", self.lStart[0])
@@ -324,15 +335,18 @@ class Driveline:
                 # of the list!!
                 break
             
-            # TODO: show this in the GUI, not only on console
             if len(next_left)!=1 and not warning_printed:
-                print("Warning: More than one potential succesor found for left driveline point")
-                print(self.lLeft[-1][0],self.lLeft[-1][1],self.lLeft[-1][2],":")
+                lcoord = self.mesh.vertices[self.lLeft[-1]].co
+                rcoord = self.mesh.vertices[self.lRight[-1]].co
+                low_warning("Broken driveline at or around point ({0}, {1}, {2})".format\
+                            (lcoord[0], lcoord[1], lcoord[2]))
+                print("Potential successors :")
                 for i in range(len(next_left)):
+                    nextco = self.mesh.vertices[next_left[i]].co
                     print ("Successor %d: %f %f %f" % \
-                          (i,next_left[i][0],next_left[i][1],next_left[i][2]))
+                          (i, nextco[0], nextco[1], nextco[2]))
                 print ("It might also possible that the corresponding right driveline point")
-                print (self.lRight[-1][0],self.lRight[-1][1],self.lRight[-1][2])
+                print (rcoord[0],rcoord[1],rcoord[2])
                 print ("has some inconsistencies.")
                 print ("The drivelines will most certainly not be useable.")
                 print ("Further warnings are likely and will be suppressed.")
@@ -354,29 +368,37 @@ class Driveline:
                 if i==self.lLeft[-2]: continue  # to opposite side
                 next_right.append(i)
             
-            # TODO: show this in the GUI, not only on console
             if len(next_right)==0:
+                lcoord = self.mesh.vertices[self.lLeft[-1]].co
+                rcoord = self.mesh.vertices[self.lRight[-1]].co
+                log_warning("Malformed driveline at or around points ({0}, {1}, {2}) and ({3}, {4}, {5})".format\
+                             (lcoord[0],lcoord[1],lcoord[2],
+                              rcoord[0],rcoord[1],rcoord[2]))
                 print ("No more vertices on right side of quad line, but there are")
                 print ("still points on the left side. Check the points:")
-                print ("left: ", self.lLeft[-1][0],self.lLeft[-1][1],self.lLeft[-1][2])
-                print ("right: ", self.lRight[-1][0],self.lRight[-1][1],self.Right[-1][2])
+                print ("left: ", lcoord[0],lcoord[1],lcoord[2])
+                print ("right: ", rcoord[0],rcoord[1],rcoord[2])
                 print ("Last left point is ignored.")
                 break
-
-            # TODO: show this in the GUI, not only on console
+            
             if len(next_right)!=1 and not warning_printed:
+                lcoord = self.mesh.vertices[self.lLeft[-1]].co
+                rcoord = self.mesh.vertices[self.lRight[-1]].co
+                
+                log_error("Invalid driveline at or around point ({0}, {1}, {2})".format\
+                          (rcoord[0],rcoord[1],rcoord[2]))
                 print ("Warning: More than one potential succesor found for right driveline point")
-                print (self.lRight[-1][0],self.lRight[-1][1],self.lRight[-1][2],":")
-                for i in range(len(next_right)):
-                    print ("Successor %d: %f %f %f" % \
-                          (i,next_right[i][0],next_right[i][1],next_right[i][2]))
+                print (rcoord[0],rcoord[1],rcoord[2],":")
+                #for i in range(len(next_right)):
+                #    print ("Successor %d: %f %f %f" % \
+                #          (i,next_right[i][0],next_right[i][1],next_right[i][2]))
                 print ("It might also possible that the corresponding left driveline point")
-                print (self.lLeft[-1][0],self.lLeft[-1][1],self.lLeft[-1][2])
+                print (lcoord[0],lcoord[1],lcoord[2])
                 print ("has some inconsistencies.")
                 print ("The drivelines will most certainly not be useable.")
                 print ("Further warnings are likely and will be suppressed.")
                 warning_printed = 1
-                operator.report({'ERROR'}, "Problems with driveline detected, check console for details!")
+                operator.report({'ERROR'}, "Problems with driveline detected!")
                 break                
             self.lRight.append(next_right[0])
 
@@ -388,10 +410,9 @@ class Driveline:
                            self.mesh.vertices[self.lRight[-1]].co[i])*0.25)
             self.lCenter.append(cp)
 
-        # TODO: show this in the GUI, not only on console
         if count>=max_count:
-            print ("Warning, Only the first %d vertices of driveline '%s' are exported" %\
-                  (max_count, self.name))
+            log_warning("Warning, Only the first %d vertices of driveline '%s' are exported" %\
+                        (max_count, self.name))
         
         # Now remove the first two points, which are only used to indicate
         # the starting point:
@@ -498,6 +519,8 @@ class Driveline:
         f.write("  <quad%s%sp0=\"%f %f %f\" p1=\"%f %f %f\" p2=\"%f %f %f\" p3=\"%f %f %f\"/>\n" \
             %(sInv, sAIIgnore, l[0],l[2],l[1], r[0],r[2],r[1], r1[0],r1[2],r1[1], l1[0],l1[2],l1[1]) )
         for i in range(1, max_index):
+            if self.lRight[i+1] is None: return # broken driveline (messages will already have been printed)
+          
             l1  = self.mesh.vertices[self.lLeft[i+1]].co
             r1  = self.mesh.vertices[self.lRight[i+1]].co
             f.write("  <quad%sp0=\"%d:3\" p1=\"%d:2\" p2=\"%f %f %f\" p3=\"%f %f %f\"/>\n" \
@@ -565,12 +588,10 @@ class TrackExport:
         if not designer:
             designer    = getIdProperty(scene, "description", "")
             if designer:
-                # TODO: show in GUI
-                print("Warning: using 'description' instead of designer.")
-                print("Please use designer only")
+                low_warning("The 'Description' field is deprecated, please use 'Designer'")
             else:
-                designer="Designer"
-                
+                designer="?"
+        
         music       = getIdProperty(scene, "music", "")
         screenshot  = getIdProperty(scene, "screenshot", "")
         # Add default settings for sky-dome so that the user is aware of
@@ -597,8 +618,7 @@ class TrackExport:
         if music:
             f.write("        music       = \"%s\"\n"%music)
         else:
-            # TODO: show in GUI
-            print("No music file defined, ignored.")
+            log_warning("No music file defined.")
         
         if is_arena:
             f.write("        arena       = \"Y\"\n")
@@ -606,8 +626,7 @@ class TrackExport:
         if screenshot:
             f.write("        screenshot  = \"%s\"\n"%screenshot)
         else:
-            # TODO: show in GUI
-            print("No screenshot defined, ignored")
+            low_warning("No screenshot defined")
         
         f.write(">\n")
         f.write("</track>\n")
@@ -743,11 +762,9 @@ class TrackExport:
                 # distance, and then the camera
                 lEndCameras[i] = (driveline_index, quad_index_camera, cam)
             except:
-                # TODO: show this in the GUI, not only on console
-                print("Problem with the end camera - likely the cameras will not")
-                print("be exported correctly. Check if the main driveline is")
-                print("properly defined (check warning messages), and the")
-                print("settings of the camera '%s'."%cam.name)
+                log_warning("Problem with the end camera '%s'. Check if the main driveline is " +\
+                            "properly defined (check warning messages), and the " +\
+                            "settings of the camera."%cam.name)
                 
         lEndCameras.sort()
         
@@ -923,8 +940,7 @@ class TrackExport:
             elif curve.data_path == 'scale':
                 name = "Scale" + axes[curve.array_index]
             else:
-                # TODO: show in GUI
-                print("Unknown curve type", curve.data_path)
+                log_warning("Unknown curve type", curve.data_path)
                 continue
             
             extrapolation = "const"
@@ -1030,16 +1046,14 @@ class TrackExport:
         data = obj.getData(mesh=True)
         # check the face
         if len(data.faces) > 1:
-            # TODO: show in GUI
-            print ("\nerror: the billboard <" + getProperty(obj, "name", obj.name) \
+            log_error("Billboard <" + getProperty(obj, "name", obj.name) \
                   + "> has more than ONE texture")
             return
         
         # check the points
         if len(data.verts) > 4:
-            # TODO: show in GUI
-            print("\nerror: the billboard <" + getProperty(obj, "name", obj.name)\
-                  + "> has more than 4 points")
+            log_error("Billboard <" + getProperty(obj, "name", obj.name)\
+                       + "> has more than 4 points")
             return
         
         try:
@@ -1065,8 +1079,7 @@ class TrackExport:
             f.write('  </billboard>\n')
 
         except ValueError:
-            # TODO: show this in the GUI, not only on console
-            print ("\nerror unknow: check the billboard <" + getProperty(obj, "name", obj.name) + "> ",
+            log_error("Invalid value for billboard <" + getProperty(obj, "name", obj.name) + "> ",
                     sys.exc_info()[0])
 
     # --------------------------------------------------------------------------
@@ -1079,8 +1092,7 @@ class TrackExport:
                 f.write('  <particle-emitter kind="%s" %s/>\n' %\
                         (getProperty(obj, "kind", 0) ,originXYZ))
             except:
-                # TODO: show this in the GUI, not only on console
-                print("\nerror unknow: check the particle-emitter <" + getProperty(obj, "name", obj.name) + "> ",
+                log_error("Invalid particle emitter <" + getProperty(obj, "name", obj.name) + "> ",
                     sys.exc_info()[0])
     
     # --------------------------------------------------------------------------
@@ -1125,8 +1137,7 @@ class TrackExport:
             else:
                 group = ""
             if not group or group not in dGroup2Indices:
-                # TODO: show in GUI
-                print("Activate group '%s' not found!"%group)
+                log_warning("Activate group '%s' not found!"%group)
                 print("Ignored - but lap counting might not work correctly.")
                 print("Make sure there is an object of type 'check' with")
                 print("the name '%s' defined."%group)
@@ -1134,10 +1145,9 @@ class TrackExport:
             else:
                 activate = reduce(lambda x,y: str(x)+" "+str(y), dGroup2Indices[group])
         else:
-            # TODO: show this in the GUI, not only on console
             # No main drive defined, print a warning and add some dummy
             # driveline (makes the rest of this code easier)
-            print("Warning - no main driveline defined, adding dummy driveline")
+            log_warning("no main driveline defined, adding dummy driveline")
             lap        = [ [-1, 0], [1, 0] ]
             min_h      = 0
             sSameGroup = ""
@@ -1168,8 +1178,7 @@ class TrackExport:
             if activate:
                 group = activate.lower()
                 if group not in dGroup2Indices:
-                    # TODO: show this in the GUI, not only on console
-                    print("Activate group '%s' not found!"%group)
+                    log_warning("Activate group '%s' not found!"%group)
                     print("Ignored - but lap counting might not work correctly.")
                     print("Make sure there is an object of type 'check' with")
                     print("the name '%s' defined."%group)
@@ -1181,8 +1190,7 @@ class TrackExport:
             if toggle:
                 group = toggle.lower()
                 if group not in dGroup2Indices:
-                    # TODO: show this in the GUI, not only on console
-                    print("Toggle group '%s' not found!"%group)
+                    log_warning("Toggle group '%s' not found!"%group)
                     print("Ignored - but lap counting might not work correctly.")
                     print("Make sure there is an object of type 'check' with")
                     print("the name '%s' defined."%group)
@@ -1197,8 +1205,7 @@ class TrackExport:
                 if activate:
                     group = activate.lower()
                     if not dGroup2Indices.has_key(group):
-                        # TODO: show this in the GUI, not only on console
-                        print("Activate group '%s' not found for lap line!"%group)
+                        log_warning("Activate group '%s' not found for lap line!"%group)
                         print("Ignored - but lap counting might not work correctly.")
                         print("Make sure there is an object of type 'check' with")
                         print("the name '%s' defined."%group)
@@ -1286,14 +1293,12 @@ class TrackExport:
         if interact=="move":
             ipo      = obj.animation_data
             if ipo and ipo.action:
-                # TODO: show this in the GUI, not only on console
-                print("Warning: Movable object %s has an ipo - ipo is ignored." \
-                      %obj.name)
+                log_warning("Movable object %s has an ipo - ipo is ignored." \
+                            %obj.name)
             shape = getProperty(obj, "shape", "")
             if not shape:
-                # TODO: show this in the GUI, not only on console
-                print("Warning: Movable object %s has no shape - box assumed!" \
-                      % obj.name)
+                log_warning("Movable object %s has no shape - box assumed!" \
+                            % obj.name)
                 shape="box"
             mass  = getProperty(obj, "mass", 10)
             f.write("  <object type=\"movable\" %s\n"%(getXYZHPRString(obj)))
@@ -1321,12 +1326,10 @@ class TrackExport:
             if not ipo or not ipo.action:
                 parent = obj.parent
                 if parent:
-                    # FIXME: I'm not sure what is the correct Blender 2.5 equivalent for getIpo()
                     ipo = parent.animation_data
             self.writeAnimationWithIPO(f, b3d_name, obj, ipo)
         else:
-            # TODO: show this in the GUI, not only on console
-            print("Unknown interaction '%s' - ignored!"%interact)
+            log_warning("Unknown interaction '%s' - ignored!"%interact)
 
     # --------------------------------------------------------------------------
     # Writes all start positions
@@ -1354,8 +1357,7 @@ class TrackExport:
                 try:
                     id = int(stktype[5:])
                 except ValueError:
-                    # TODO: show in GUI
-                    print ("No valid id in '%s' - using %d\n"%(stktype, count))
+                    log_warning ("No valid id in '%s' - using %d\n"%(stktype, count))
                     id    = count
                     count = count + 1
             dId2Obj[id] = obj
@@ -1411,8 +1413,7 @@ class TrackExport:
         for obj in lObjects:
             interact = getProperty(obj, "interaction", "static")
             if interact=="static":
-              
-                # FIXME: I'm not sure what is the 2.5 equivalent of getIpo()
+                
                 ipo      = obj.animation_data
                 
                 # If an static object has an IPO, it will be moved, and
@@ -1443,8 +1444,7 @@ class TrackExport:
         # Assemble all sky/fog related parameters
         # ---------------------------------------
         if len(lSun) > 1:
-            # TODO: show this in the GUI, not only on console
-            print("Warning: more than one Sun defined, only the first will be used."   )         
+            log_warning("Warning: more than one Sun defined, only the first will be used."   )         
         sSky=""
         global the_scene
         scene = the_scene
@@ -1539,8 +1539,7 @@ class TrackExport:
 
         if lChecks or mainDriveline:
             if not lChecks:
-                # TODO: show this in the GUI, not only on console
-                print("No check defined, lap counting will not work properly!")
+                log_warning("No check defined, lap counting will not work properly!")
             self.writeChecks(f, lChecks, mainDriveline)
         
         scene   = the_scene
@@ -1576,9 +1575,8 @@ class TrackExport:
                     f.write("  <sky-box texture=\"%s\"/>\n" % \
                             " ".join(lTextures))
                 else:
-                    # TODO: show this in the GUI, not only on console
-                    print("Found %d textures for sky box, must be 5 or 6 space separated texture names.\n" \
-                          %len(lTextures))
+                    log_warning("Found %d textures for sky box, must be 5 or 6 space separated texture names.\n" \
+                                %len(lTextures))
                 
         camera_far  = getIdProperty(scene, "camera-far", ""             )
         if camera_far:            
@@ -1593,8 +1591,7 @@ class TrackExport:
                 elif type=="fixed":
                     type="static_follow_kart"
                 else:
-                    # TODO: show this in the GUI, not only on console
-                    print ("Unknown camera type %s - ignored." % type)
+                    log_warning ("Unknown camera type %s - ignored." % type)
                     continue
                 xyz = "%f %f %f" % (i.loc[0], i.loc[2], i.loc[1])
                 start = getProperty(i, "start", 5)
@@ -1836,14 +1833,12 @@ class TrackExport:
             else:
                 s = getProperty(obj, "type", None)
                 if s:
-                    # TODO: show this in the GUI, not only on console
-                    print("Warning: object", obj.name,  \
+                    log_warning("object", obj.name,  \
                           " has type property '%s', which is not supported.\n"%s)
                 lTrack.append(obj)
 
         if not found_main_driveline:
-            # TODO: show this in the GUI, not only on console
-            print("Main driveline missing, using first driveline as main!")
+            log_warning("Main driveline missing, using first driveline as main!")
             
         # Now export the different parts: track file
         # ------------------------------------------
@@ -1891,6 +1886,9 @@ class TrackExport:
         # ----------
         self.writeMaterialsFile(sPath)
 
+        import datetime
+        now = datetime.datetime.now()
+        log_info("Export completed on " + now.strftime("%Y-%m-%d %H:%M"))
         print("Finished.")
 
 # ==============================================================================
@@ -1903,6 +1901,9 @@ def savescene_callback(sFilename):
     #b3d_export.b3d_parameters["mipmap"         ] = 1  # Enable mipmap
     #b3d_export.b3d_parameters["local-space"    ] = 0  # Export in world space
 
+    global log
+    log = []
+    
     exporter = TrackExport(sFilename)
     #bpy.ops.screen.b3d_export(localsp=False, mipmap=True, lights=False, vcolors=True,
     #                          vnormals=True, cameras=False)
@@ -1957,7 +1958,45 @@ class STK_Track_Exporter_Panel(bpy.types.Panel):
         row = layout.row()
         
         row.operator("screen.stk_track_export", "Export", icon='BLENDER')
+        
+        # ==== Output Log ====
+        global log
+        for type,msg in log:
+            if type == 'INFO':
+              row = layout.row()
+              row.label(msg, icon='INFO')
+            elif type == 'WARNING':
+              row = layout.row()
+              row.label(msg, icon='GREASEPENCIL')
+            elif type == 'ERROR':
+              row = layout.row()
+              row.label(msg, icon='ERROR')
+              
+        #row = layout.row()
+        #row.label("Warning, your drivelines don't look legit11", icon='ERROR')   
+        
+        #row = layout.row()
+        #row.label("Warning, your drivelines don't look legit12", icon='GREASEPENCIL') 
+        
+        #row = layout.row()
+        #row.label("A very bad error occurred while exporting the SuperTuxKart track", icon='X')
+        
+        #row = layout.row()
+        #row.label("Warning, your drivelines don't look legit5", icon='INFO')
+        
+        #row = layout.row()
+        #row.label("Warning, your drivelines don't look legit8", icon='GHOST_ENABLED')
 
+        #row = layout.row()
+        #row.label("Warning, your drivelines don't look legit10", icon='QUESTION')     
+        
+        #row = layout.row()
+        #row.label("Warning, your drivelines don't look legit11", icon='ERROR')   
+        
+        #row = layout.row()
+        #row.label("Warning, your drivelines don't look legit12", icon='GREASEPENCIL') 
+
+             
 # Add to a menu
 def menu_func_export(self, context):
     global the_scene
