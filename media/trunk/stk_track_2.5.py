@@ -890,7 +890,6 @@ class TrackExport:
           
     # --------------------------------------------------------------------------
     def writeIPO(self, f, anim_data ):
-        # FIXME - bring back those
         #dInterp = {IpoCurve.InterpTypes.BEZIER:        "bezier",
         #           IpoCurve.InterpTypes.LINEAR:        "linear",
         #           IpoCurve.InterpTypes.CONST:         "const"          }
@@ -904,50 +903,41 @@ class TrackExport:
         else:
             return
         
-        # ==== Interesting parameters ====
-        # anim_data.action.frame_range
+        # ==== Possible values returned by blender ====
         # fcurves[0].data_path
         #    location, rotation_euler, scale
         # fcurves[0].extrapolation
         #    CONSTANT, LINEART
-        # fcurves[0].keyframe_points
         # fcurves[0].keyframe_points[0].interpolation
         #    CONSTANT, LINEAR, BEZIER
-        # fcurves[0].keyframe_points[0].co[0]
-        # fcurves[0].keyframe_points[0].co[1]
-        # fcurves[0].keyframe_points[0].left_handle[0]
-        # fcurves[0].keyframe_points[0].left_handle[1]
-        # fcurves[0].keyframe_points[0].right_handle[0]
-        # fcurves[0].keyframe_points[0].right_handle[1]
         
-        # TODO:
-        #   * 'cyclic' extrapolation is no more available so instead use :
-        #          fcurves[0].modifiers[i].type == 'CYCLES'
+        # Swap Y and Z axis
+        axes = ['X', 'Z', 'Y']
         
         for curve in ipo:
           
             if curve.data_path == 'location':
-                # FIXME: how to find to what what axis is each curve assigned to?
-                name = "LocX"
+                name = "Loc" + axes[curve.array_index]
             elif curve.data_path == 'rotation_euler':
-                # FIXME: how to find to what what axis is each curve assigned to?
-                name = "RotX"
+                name = "Rot" + axes[curve.array_index]
             elif curve.data_path == 'scale':
-                # FIXME: how to find to what what axis is each curve assigned to?
-                name = "ScaleX"
+                name = "Scale" + axes[curve.array_index]
             else:
                 # TODO: show in GUI
                 print("Unknown curve type", curve.data_path)
                 continue
-              
-            # Swap Y and Z axis
-            #if   curve.name=="LocZ":   name="LocY"
-            #elif curve.name=="LocY":   name="LocZ"
-            #elif curve.name=="RotY":   name="RotZ"
-            #elif curve.name=="RotZ":   name="RotY"
-            #elif curve.name=="ScaleY": name="ScaleZ"
-            #elif curve.name=="ScaleZ": name="ScaleY"
-            #else:                      name=curve.name
+            
+            extrapolation = "const"
+            
+            for modifier in curve.modifiers:
+                if modifier.type == 'CYCLES':
+                    extrapolation = "cyclic"
+                    break
+            
+            # FIXME: in blender 2.5, interpolation is per-point and no more per curve!
+            interpolation = "bezier"
+            if len(curve.keyframe_points) > 0:
+                interpolation = curve.keyframe_points[0].interpolation.lower()
             
             # Rotations are stored in randians
             if name[:3]=="Rot":
@@ -955,7 +945,7 @@ class TrackExport:
             else:
                 factor=1
             f.write("    <curve channel=\"%s\" interpolation=\"%s\" extend=\"%s\">\n"% \
-                    (name, "bezier", "cyclic"))
+                    (name, interpolation, extrapolation))
                     #(name, dInterp[curve.interpolation], dExtend[curve.extend]))
             
             for bez in curve.keyframe_points:
