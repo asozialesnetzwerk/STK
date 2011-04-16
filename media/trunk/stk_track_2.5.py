@@ -216,7 +216,12 @@ class Driveline:
     def setIsLastMain(self, first_driveline):
         self.is_last_main = 1
         cp=[]
+        
         for i in range(3):
+          
+            if self.lRight[-1] is None or self.lLeft[-1] is None:
+                return # Invalid driveline (an error message will have been printed)
+            
             cp.append((self.mesh.vertices[self.lLeft[-1]].co[i] + 
                        first_driveline.mesh.vertices[first_driveline.lLeft[0]].co[i]+
                        self.mesh.vertices[self.lRight[-1]].co[i] +
@@ -254,7 +259,7 @@ class Driveline:
                 self.lStart.append( i )
 
         if len(self.lStart)!=2:
-            log_error("Driveline '%s' is incorrectly formed, it does not have exactly two vertices with only one neighbour." % self.name)
+            log_error("Driveline '%s' is incorrectly formed, cannot find the two 'antennas' that indicate where the driveline starts." % self.name)
             self.start_point = (0,0,0)
             return
 
@@ -285,6 +290,15 @@ class Driveline:
     # Convert the dictionary of list of neighbours to two lists - one for the
     # left side, one for the right side.
     def convertToLists(self):
+      
+        if len(self.lStart) < 2:
+            self.lLeft = [None, None]
+            self.lRight = [None, None]
+            self.start_line = (None, None)
+            self.end_point = (0,0,0)
+            self.lCenter = []
+            return
+      
         self.lLeft   = [self.lStart[0], self.dNext[self.lStart[0]][0]]
         self.lRight  = [self.lStart[1], self.dNext[self.lStart[1]][0]]
         self.lCenter = []
@@ -488,6 +502,12 @@ class Driveline:
     # --------------------------------------------------------------------------
     # Writes the quads into a file.
     def writeQuads(self, f):
+      
+        if self.lLeft[0] is None or self.lRight[0] is None:
+            return # Invalid driveline (a message will have been printed)
+        if self.lLeft[1] is None or self.lRight[1] is None:
+            return # Invalid driveline (a message will have been printed)
+      
         l   = self.mesh.vertices[self.lLeft[0]].co
         r   = self.mesh.vertices[self.lRight[0]].co
         l1  = self.mesh.vertices[self.lLeft[1]].co
@@ -1120,6 +1140,10 @@ class TrackExport:
 
         if mainDriveline:
             lap = mainDriveline.getStartEdge()
+            
+            if lap[0] is None:
+                return # Invalid driveline (a message will have been printed)
+            
             coord = mainDriveline.mesh.vertices[lap[0]].co
             min_h = coord[2]
             if coord[2] < min_h: min_h = coord[2]
@@ -1940,7 +1964,17 @@ class STK_Track_Export_Operator(bpy.types.Operator):
         
         savescene_callback(self.filepath)
         return {'FINISHED'}
-    
+
+class STK_Clean_Log_Operator(bpy.types.Operator):
+    bl_idname = ("screen.stk_track_clean_log")
+    bl_label = ("Clean Log")
+
+    def execute(self, context):
+        global log
+        log = []
+        print("Log cleaned")
+        return {'FINISHED'}
+
 # ==== PANEL ====
 class STK_Track_Exporter_Panel(bpy.types.Panel):
     bl_label = "Track Exporter"
@@ -1960,17 +1994,27 @@ class STK_Track_Exporter_Panel(bpy.types.Panel):
         row.operator("screen.stk_track_export", "Export", icon='BLENDER')
         
         # ==== Output Log ====
+        
         global log
-        for type,msg in log:
-            if type == 'INFO':
-              row = layout.row()
-              row.label(msg, icon='INFO')
-            elif type == 'WARNING':
-              row = layout.row()
-              row.label(msg, icon='GREASEPENCIL')
-            elif type == 'ERROR':
-              row = layout.row()
-              row.label(msg, icon='ERROR')
+        
+        if len(log) > 0:
+            box = layout.box()
+            row = box.row()
+            row.label("Log")
+            
+            for type,msg in log:
+                if type == 'INFO':
+                  row = box.row()
+                  row.label(msg, icon='INFO')
+                elif type == 'WARNING':
+                  row = box.row()
+                  row.label("WARNING: " + msg, icon='GREASEPENCIL')
+                elif type == 'ERROR':
+                  row = box.row()
+                  row.label("ERROR: " + msg, icon='ERROR')
+            
+            row = box.row()
+            row.operator("screen.stk_track_clean_log", text="Clear Log", icon='X')
               
         #row = layout.row()
         #row.label("Warning, your drivelines don't look legit11", icon='ERROR')   
