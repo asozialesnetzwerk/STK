@@ -6,8 +6,8 @@
     <particles condition="skid drive" base="acid_splash.xml"/>
   </material>
   <material name="acid_lake_bottom.jpg" graphical-effect="water" reset="Y" falling-effect="Y"/>
-  <material name="arc1.png" backface-culling="N" reset="Y" compositing="blend"/>
-  <material name="arc2.png" backface-culling="N" reset="Y" compositing="blend"/>
+  <material name="arc1.png" backface-culling="N" reset="Y" crash-reset="Y" compositing="blend"/>
+  <material name="arc2.png" backface-culling="N" reset="Y" crash-reset="Y" compositing="blend"/>
   <material name="laser_bridge_green.png" anisotropic="Y" backface-culling="N" compositing="blend"/>
   <material name="laser_bridge_red.png" anisotropic="Y" backface-culling="N" compositing="blend"/>
   <material name="metal_ground.jpg" anisotropic="Y">
