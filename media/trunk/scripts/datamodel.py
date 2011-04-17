@@ -130,7 +130,7 @@ lSTKTypes2Properties = {
 # STATIC   - value 
 # STRING   - default, max_length
 # URL      - default, max_length
-lPropertyDef = {
+PROP_SETTINGS = {
 # General use                
     "activate":[type_STRING, "", 50], \
     "color":[type_COLOUR, 0.0, 0.0, 0.0], \

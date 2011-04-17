@@ -1,4 +1,5 @@
 import bpy
+#import datamodel
  
 STK_OBJECT_TYPES = {'banana'           : [],
                     'billboard'        : [],
@@ -27,34 +28,32 @@ STK_OBJECT_TYPES = {'banana'           : [],
                   }
 
 
-COMBOS = {'type' :
-             [('', '(None)', '(None)'),
-              ('banana', 'Banana', 'Banana'),
-              ('billboard', 'Billboard', 'Billboard'),
-              ('check', 'Check', 'Check'),
-              ('driveline', 'Driveline', 'Driveline'),
-              ('ignore', 'Ignore', 'Ignore'),
-              ('item', 'Item', 'Item'),
-              ('lap', 'Lap', 'Lap'),
-              ('maindriveline', 'Main Driveline', 'Main Driveline'),
-              ('nitro_big', 'Nitro (Big)', 'Nitro (Big)'),
-              ('nitro_small', 'Nitro (Small)', 'Nitro (Small)'),
-              ('object', 'Object', 'Object'),
-              ('particle_emitter', 'Particle Emitter', 'Particle Emitter'),
-              ('water', 'Water', 'Water')],
-          'shape' :
-             [('box',       'Box',       'Box'),
-              ('sphere',    'Sphere',    'Sphere'),
-              ('coneX',     'ConeX',     'ConeX'),
-              ('coneY',     'ConeY',     'ConeY'),
-              ('coneZ',     'ConeZ',     'ConeZ'),
-              ('cylinderX', 'CylinderX', 'CylinderX'),
-              ('cylinderY', 'CylinderY', 'CylinderY'),
-              ('cylinderZ', 'CylinderZ', 'CylinderZ')],
+COMBOS = {'type' :  [('',               '(None)'),
+                     ('banana',         'Banana'),
+                     ('billboard',      'Billboard'),
+                     ('check',          'Check'),
+                     ('driveline',      'Driveline'),
+                     ('ignore',         'Ignore'),
+                     ('item',           'Item'),
+                     ('lap',            'Lap'),
+                     ('maindriveline',  'Main Driveline'),
+                     ('nitro_big',      'Nitro (Big)'),
+                     ('nitro_small',    'Nitro (Small)'),
+                     ('object',         'Object'),
+                     ('particle_emitter', 'Particle Emitter'),
+                     ('water',          'Water')],
+          'shape' : [('box',            'Box'),
+                     ('sphere',         'Sphere'),
+                     ('coneX',          'ConeX'),
+                     ('coneY',          'ConeY'),
+                     ('coneZ',          'ConeZ'),
+                     ('cylinderX',      'CylinderX'),
+                     ('cylinderY',      'CylinderY'),
+                     ('cylinderZ',      'CylinderZ')],
           'interaction' :
-             [('static', 'Static (won''t move)', 'Static (won''t move)'),
-              ('none', 'None (ghost)', 'None (ghost)'),
-              ('move', 'Movable by player', 'Movable by player')]
+                    [('static',         'Static (won''t move)'),
+                     ('none',           'None (ghost)'),
+                     ('move',           'Movable by player')]
           }
 
 # Define Property Types
@@ -72,60 +71,118 @@ type_CHOICELIST = 17
 type_DELETE = 20
 type_RESET = 21
 
-                                   # Numeric | Default
-PROP_SETTINGS = { 'inner_radius' :  (True,      -1),
-                 'mass'         :  (True,      15),
-                 'height'       :  (True,      1.0),
-                 'length'       :  (True,      10),
-                 'speed'        :  (True,      300),
+                                # Type      | Default | Length/Min | Max  | Step
+PROP_SETTINGS = {
+# General use                
+                 'type':        [type_PICKLIST, 'ignore'], \
+                 "activate":    [type_STRING,   "",     50], \
+                 "color":       [type_COLOUR,   0.0,    0.0,        0.0], \
+                 'inner_radius':[type_FLOAT,    -1,     0,          10000,  0.1], \
+                 "name":        [type_STRING,   "",     50], \
+                 "start":       [type_FLOAT,    25,     1,          2000,   1], \
+                "toggle":       [type_STRING,   "",     50], \
+# Driveline
+    "invisible":[type_BOOLEAN, "no"],
+    "ai-ignore":[type_BOOLEAN, "no"],
+# Scene only
+    "ambient-color":[type_COLOUR, 0.0, 0.0, 0.0], \
+    "arena":[type_BOOLEAN, "no"], \
+    "camera-far":[type_INTEGER, 200, 10, 100000], \
+    "designer":[type_STRING, "", 200], \
+    "fog":[type_BOOLEAN, "no"], \
+    "fog-color":[type_COLOUR, 0.0, 0.0, 0.0], \
+#    "fog-density":[type_FLOAT,16,0,1000,0.1],\
+    "fog-start":[type_FLOAT, 1000, 0, 1000000, 0.1], \
+    "fog-end":[type_FLOAT, 1000, 0, 1000000, 0.1], \
+    "groups":[type_STRING, "", 200], \
+    "music":[type_URL, "", 200], \
+    "screenshot":[type_IMAGEURL, "", 200], \
+    "sky-type":[type_PICKLIST, "dome"], \
+    "sky-color":[type_COLOUR, 0.0, 0.0, 0.0], \
+    "sky-texture":[type_IMAGEURL, "", 200], \
+    "sky-texture1":[type_IMAGEURL, "", 200], \
+    "sky-texture2":[type_IMAGEURL, "", 200], \
+    "sky-texture3":[type_IMAGEURL, "", 200], \
+    "sky-texture4":[type_IMAGEURL, "", 200], \
+    "sky-texture5":[type_IMAGEURL, "", 200], \
+    "sky-texture6":[type_IMAGEURL, "", 200], \
+    "sky-texture-percent":[type_FLOAT, 0.5, 0, 1, 0.1], \
+    "sky-sphere-percent":[type_FLOAT, 1.3, 0, 2, 0.1], \
+    "sky-horizontal":[type_INTEGER, 16, 0, 1000], \
+    "sky-vertical":[type_INTEGER, 16, 0, 1000], \
+    "start-karts-per-row":[type_INTEGER, 2, 1, 10], \
+    "start-forwards-distance":[type_FLOAT, 1.1, 0, 1000, 0.1], \
+    "start-sidewards-distance":[type_FLOAT, 1.1, 0, 1000, 0.1], \
+    "start-upwards-distance":[type_FLOAT, 1.1, 0, 1000, 0.1], \
+    "weather":[type_PICKLIST, "none"], \
+#For Textures  
+    "clampU":[type_BOOLEAN, "no"], \
+    "clampV":[type_BOOLEAN, "no"], \
+    "compositing":[type_PICKLIST, "none"], \
+    "light":[type_BOOLEAN, "yes"], \
+    "sphere":[type_BOOLEAN, "no"], \
+    "slowdown-time":[type_FLOAT, 1.0, 0, 100, 0.1], \
+    "anisotropic":[type_BOOLEAN, "no"], \
+    "max-speed":[type_FLOAT, 1.0, 0, 1.0, 0.1], \
+    "friction":[type_FLOAT, 1.0, 0.0, 50000, 0.1], \
+    "particle":[type_BOOLEAN, "no"], \
+    "particle:base":[type_URL, "", 200], \
+    "particle:condition":[type_CHOICELIST, "none"], \
+    "backface-culling":[type_BOOLEAN, "yes"], \
+    "ignore":[type_BOOLEAN, "no"], \
+    "disable-z-write":[type_BOOLEAN, "no"], \
+    "zipper":[type_BOOLEAN, "no"], \
+    "zipper:duration":[type_FLOAT, 3.5, 0, 10, 0.1], \
+    "zipper:max-speed-increase":[type_FLOAT, 15, 0, 100, 0.1], \
+    "zipper:fade-out-time":[type_FLOAT, 3, 0, 100, 0.1], \
+    "zipper:speed-gain":[type_FLOAT, 4.5, 0, 100, 0.1], \
+    "reset":[type_BOOLEAN, "no"], \
+    "surface":[type_BOOLEAN, "no"], \
+    "falling-effect":[type_BOOLEAN, "no"], \
+    "below-surface":[type_BOOLEAN, "no"], \
+    "graphical-effect":[type_PICKLIST, "none"], \
+    "sound-effect":[type_BOOLEAN, "no"], \
+    "sfx:filename":[type_STRING, "", 200], \
+    "sfx:name":[type_STRING, "", 50], \
+    "sfx:rolloff":[type_FLOAT, 0.1, 0, 100, 0.1], \
+    "sfx:min-speed":[type_FLOAT, 0.0, 0, 500, 0.1], \
+    "sfx:max-speed":[type_FLOAT, 30.0, 0, 500, 0.1], \
+    "sfx:min-pitch":[type_FLOAT, 1.0, 0.5, 2, 0.1], \
+    "sfx:max-pitch":[type_FLOAT, 1.0, 0.5, 2, 0.1], \
+    "sfx:positional":[type_BOOLEAN, "no"], \
+#For Lights
+    "ambient":[type_COLOUR, 0.0, 0.0, 0.0], \
+    "diffuse":[type_COLOUR, 0.0, 0.0, 0.0], \
+    "specular":[type_COLOUR, 0.0, 0.0, 0.0], \
+#For Waters
+    "height":[type_FLOAT, 1.0, 0, 100, 0.1], \
+    "length":[type_FLOAT, 10, 0, 100, 0.1], \
+    "speed":[type_FLOAT, 300, 0, 1000, 0.1], \
+#For Objects
+    "animated":[type_BOOLEAN, "no"], \
+    "anim-texture":[type_IMAGEURL, "", 200], \
+    "anim-dx":[type_FLOAT, 0, 0, 1000, 10], \
+    "anim-dy":[type_FLOAT, 0, 0, 1000, 10], \
+    "interaction":[type_PICKLIST, "none"], \
+    "shape":[type_PICKLIST, "box"], \
+    "mass":[type_FLOAT, 15, 0, 10000, 0.1], \
 
-                                   # Type | Default | length
-                                   # Type | Default | min | max
-                 'name'          : [type_STRING,  "", 50], \
-                 'ambient-color' : [type_COLOUR,  (0.0, 0.0, 0.0)], \
-                 'arena'         : [type_BOOLEAN, "no"], \
-                 'camera-far'    : [type_INTEGER, 200, 10, 100000], \
-                 'designer':[type_STRING, "", 200], \
-    'fog':[type_BOOLEAN, "no"], \
-    'fog-color':[type_COLOUR, 0.0, 0.0, 0.0], \
-    'fog-start':[type_FLOAT, 1000, 0, 1000000, 0.1], \
-    'fog-end':[type_FLOAT, 1000, 0, 1000000, 0.1], \
-                 'groups':[type_STRING, "", 200], \
-    'music':[type_URL, "", 200], \
-    'screenshot':[type_IMAGEURL, "", 200], \
-    'sky-type':[type_PICKLIST, "dome"], \
-    'sky-color':[type_COLOUR, 0.0, 0.0, 0.0], \
-    'sky-texture':[type_IMAGEURL, "", 200], \
-    'sky-texture1':[type_IMAGEURL, "", 200], \
-    'sky-texture2':[type_IMAGEURL, "", 200], \
-    'sky-texture3':[type_IMAGEURL, "", 200], \
-    'sky-texture4':[type_IMAGEURL, "", 200], \
-    'sky-texture5':[type_IMAGEURL, "", 200], \
-    'sky-texture6':[type_IMAGEURL, "", 200], \
-    'sky-texture-percent':[type_FLOAT, 0.5, 0, 1, 0.1], \
-    'sky-sphere-percent':[type_FLOAT, 1.3, 0, 2, 0.1], \
-    'sky-horizontal':[type_INTEGER, 16, 0, 1000], \
-    'sky-vertical':[type_INTEGER, 16, 0, 1000], \
-    'start-karts-per-row':[type_INTEGER, 2, 1, 10], \
-    'start-forwards-distance':[type_FLOAT, 1.1, 0, 1000, 0.1], \
-    'start-sidewards-distance':[type_FLOAT, 1.1, 0, 1000, 0.1], \
-    'start-upwards-distance':[type_FLOAT, 1.1, 0, 1000, 0.1], \
-    'weather':[type_PICKLIST, "none"] \
     }
 
-
+# ==== OPERATORS ====
 
 for param in COMBOS.keys():
-    default_val = COMBOS[param][0][0]
-    items_val = COMBOS[param]
+    default_val = PROP_SETTINGS[param][1]
+    items_val = []
+    for i in COMBOS[param]:
+        items_val.append((i[0],i[1],i[1]))
     
     class STK_SetType(bpy.types.Operator):
+        bl_idname = ("combo.stk_set_"+param)
+        bl_label  = ("STK Object :: set "+param)
         
         value = bpy.props.EnumProperty(attr="values", name="values", default=default_val,
                                        items=items_val)
-        
-        bl_idname = ("screen.stk_set_"+param)
-        bl_label  = ("STK Object :: set "+param)
         
         m_param = param
         m_items_val = items_val
@@ -137,23 +194,12 @@ for param in COMBOS.keys():
             object[self.m_param] = self.value
 
             # If sub-properties are needed, create them
-            if self.value in STK_OBJECT_TYPES:
-                for p in STK_OBJECT_TYPES[self.value]:
-                    
-                    if not p in object:
-                    
-                        numeric = False
-                        if p in PROP_SETTNGS:
-                            numeric = PROP_SETTNGS[p][0]
-                        
-                        # create proeprty by setting default  value
-                        if p in COMBOS:
-                            object[p] = COMBOS[p][0][0]
-                        elif numeric:
-                            object[p] = PROP_SETTNGS[p][1]
-                        else:
-                            object[p] = ""
-                    
+            for iter_type in STK_OBJECT_TYPES:
+                current_type = iter_type.split('=')[0] 
+                if current_type == self.value:
+                    for curr_prop in STK_OBJECT_TYPES[iter_type]:  
+                        if not curr_prop in object:
+                            object[curr_prop] = PROP_SETTINGS[curr_prop][1]
             
             return {'FINISHED'}
 
@@ -178,27 +224,7 @@ class STK_TypeSetAnimTex(bpy.types.Operator):
         
         return {'FINISHED'}
 
-
-# ==== PANELS ====
-
-#for curr in datamodel.lSTK_Picklist:
-#    class STK_SetItem(bpy.types.Operator):
-#           
-#            bl_idname = ("screen.stk_set_" + curr)
-#            bl_label = ("STK Object :: set " + curr)
-#           
-#  #          value = bpy.props.EnumProperty("values", "values", datamodel.lSTK_Picklist[curr][0],
-#  #                                         datamodel.lSTK_Picklist[curr])
-#            
-#            def execute(self, context):
-#                scene = context.scene
-#                scene[curr] = value
-#               
-#                return {'FINISHED'}
-
-# ==== OPERATORS ====
-
-# == type operatorsS ====
+# == type operators ====
 class STK_TypeUnset(bpy.types.Operator):
     bl_idname = ("screen.stk_unset_type")
     bl_label = ("STK Object :: unset type")
@@ -214,7 +240,7 @@ class STK_CreateProperties(bpy.types.Operator):
        
         def execute(self, context):
             scene = context.scene
-            
+
             for current_property in STK_OBJECT_TYPES['track']:
                 if not current_property in scene:
                     scene[current_property] = PROP_SETTINGS[current_property][1]
@@ -222,6 +248,10 @@ class STK_CreateProperties(bpy.types.Operator):
                     if PROP_SETTINGS[current_property][0] in [type_INTEGER,type_FLOAT]:
                         scene["_RNA_UI"] = {current_property: {'min':PROP_SETTINGS[current_property][2],
                                                                'max':PROP_SETTINGS[current_property][3]}} 
+                    elif PROP_SETTINGS[current_property][0] == type_COLOUR:
+                        scene["_RNA_UI"] = {current_property: {'subtype':'COLOR'}}
+                        
+            scene["_RNA_UI"] = {'ambient-color': {'subtype':'COLOR'}} 
            
             return {'FINISHED'}
         
@@ -255,6 +285,8 @@ class STK_PANEL_Render(bpy.types.Panel):
         row = layout.row()
         row.operator("render.stk_make_track", "Start the track exporter")
         
+# == Scene Panel ==
+        
 class STK_PANEL_Scene(bpy.types.Panel):
     bl_label = "SuperTuxKart Track Properties"
     bl_space_type = "PROPERTIES"
@@ -268,7 +300,7 @@ class STK_PANEL_Scene(bpy.types.Panel):
         # ==== Create properties button ====
         row = layout.row()
         row.operator("screen.stk_create_props", "Create SuperTuxKart Attributes")
-            
+        
         # ==== Track attributes ====
         for current_property in STK_OBJECT_TYPES['track']:
             try:
@@ -278,7 +310,9 @@ class STK_PANEL_Scene(bpy.types.Panel):
             except:
                 pass
 
-class OBJECT_PT_hello(bpy.types.Panel):
+# == Object Panel
+
+class STK_PANEL_Object(bpy.types.Panel):
     bl_label = "SuperTuxKart Properties"
     bl_space_type = "PROPERTIES"
     bl_region_type = "WINDOW"
@@ -295,80 +329,94 @@ class OBJECT_PT_hello(bpy.types.Panel):
         
         if "type" in obj:
             objtype = obj["type"]
+            row.operator_menu_enum("combo.stk_set_type", property="value", text=objtype)
         else:
             objtype = ""
+            row.operator_menu_enum("combo.stk_set_type", property="value", text="(None)")
         
-        if objtype == '':
-            row.operator_menu_enum("screen.stk_set_type", property="value", text="(None)")
-        else:
-            row.operator_menu_enum("screen.stk_set_type", property="value", text=objtype)
         
         if objtype in STK_OBJECT_TYPES:
-            props = STK_OBJECT_TYPES[objtype]
-        else:
-            props = []
-        
-        if len(props) > 0:
-            box = layout.box()
-            
+#            box = layout.box()
 
-            for currprop in props:
-                if currprop in obj:
+            for current_property in STK_OBJECT_TYPES[objtype]:
+                try:
+                    if current_property in obj:
+                        row = layout.row()
+                        row.prop(obj, '["%s"]' % current_property, current_property)
+                except:
+                    pass
                 
-                    if currprop == 'mass':
-                        if 'interaction' not in obj or obj['interaction'] != 'move':
-                            continue
+#                    if currprop == 'mass':
+#                        if 'interaction' not in obj or obj['interaction'] != 'move':
+#                            continue
                 
-                    row = box.row()
+#                    row = box.row()
                     
-                    if currprop in COMBOS.keys():
+#                    if currprop in COMBOS.keys():
                         # Create a combo if this property is a combo type property
-                        caption = obj[currprop][0].capitalize() + obj[currprop][1:]
-                        for x in COMBOS[currprop]:
-                            if x[0] == obj[currprop]:
-                                caption = x[1]
-                                break
+ #                       caption = obj[currprop][0].capitalize() + obj[currprop][1:]
+ #                       for x in COMBOS[currprop]:
+ #                           if x[0] == obj[currprop]:
+ #                               caption = x[1]
+ #                               break
                         
-                        row.label(currprop[0].capitalize() + currprop[1:])
+ #                       row.label(currprop[0].capitalize() + currprop[1:])
                         
-                        op = "screen.stk_set_"+currprop
+ #                       op = "screen.stk_set_"+currprop
                         
                         # FIXME: for some reason, without that print the dropdown doesn't work??????
-                        print(op)
-                        row.operator_menu_enum(op, property="value", text=caption)
+    #                    print(op)
+    #                    row.operator_menu_enum(op, property="value", text=caption)
                         
-                    else:
+   #                 else:
                         # Otherwise just create a plain text field or numeric field (guessed from type)
-                        row.prop(obj, '["' + currprop + '"]', text=currprop[0].capitalize() + currprop[1:])
+  #                      row.prop(obj, '["' + currprop + '"]', text=currprop[0].capitalize() + currprop[1:])
         
         # ==== Anim Texture group ====
-        box = layout.box()
+#        box = layout.box()
         
-        row = box.row()
-        row.label("Animated Texture")
+#        row = box.row()
+#        row.label("Animated Texture")
         
-        row = box.row()
-        row.operator("screen.stk_set_animtex", text="Enable Animated Texture")
+#        row = box.row()
+#        row.operator("screen.stk_set_animtex", text="Enable Animated Texture")
  
-        if "anim_texture" in obj:
-            try:
-                row = box.row()
-                row.prop(obj, '["anim_texture"]', text="Animated Texture")
-            except:
-                pass
-        if "anim_dx" in obj:
-            try:
-                row = box.row()
-                row.prop(obj, '["anim_dx"]', text="X Speed")
-            except:
-                pass
-        if "anim_dy" in obj:
-            try:
-                row = box.row()
-                row.prop(obj, '["anim_dy"]', text="Y Speed")
-            except:
-                pass
+#        if "anim_texture" in obj:
+#            try:
+#                row = box.row()
+#                row.prop(obj, '["anim_texture"]', text="Animated Texture")
+#            except:
+#                pass
+#        if "anim_dx" in obj:
+ #           try:
+ #               row = box.row()
+ #               row.prop(obj, '["anim_dx"]', text="X Speed")
+ #           except:
+ #               pass
+ #       if "anim_dy" in obj:
+  #          try:
+   #             row = box.row()
+    #            row.prop(obj, '["anim_dy"]', text="Y Speed")
+    #        except:
+       #         pass
 
+
+# ==== PANELS ====
+
+#for curr in datamodel.lSTK_Picklist:
+#    class STK_SetItem(bpy.types.Operator):
+#           
+#            bl_idname = ("screen.stk_set_" + curr)
+#            bl_label = ("STK Object :: set " + curr)
+#           
+#  #          value = bpy.props.EnumProperty("values", "values", datamodel.lSTK_Picklist[curr][0],
+#  #                                         datamodel.lSTK_Picklist[curr])
+#            
+#            def execute(self, context):
+#                scene = context.scene
+#                scene[curr] = value
+#               
+#                return {'FINISHED'}
 
 def register():
     bpy.utils.register_module(OBJECT_PT_hello)
