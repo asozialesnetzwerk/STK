@@ -21,7 +21,7 @@
   <material name="canyon_dirt_road.jpg" anisotropic="Y">
     <particles base="smoke_brown.xml" condition="skid"/>
   </material>
-  <material name="canyon_ground.jpg">
+  <material name="canyon_ground.jpg" anisotropic="Y" max-speed="0.40000000596" slowdown-time="0.600000023842">
     <particles condition="skid drive" base="smoke_brown.xml"/>
   </material>
   <material name="transparence.png" reset="Y" compositing="test"/>
