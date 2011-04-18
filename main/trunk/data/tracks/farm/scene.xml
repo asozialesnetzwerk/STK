@@ -2,13 +2,17 @@
 <!-- Generated with script from SVN rev 7732 -->
 <scene>
   <track model="farm_track.b3d" x="0" y="0" z="0">
-    <static-object model="skull_LOD120.b3d" xyz="0.860054 9.549008 -2.359519" hpr="-52.619624 -0.000000 -0.000000" scale="0.492627 0.492627 0.492627"/>
-    <static-object model="horse_LOD100.b3d" xyz="68.932388 4.592322 85.815872" hpr="-0.125845 -19.381174 -0.571914" scale="0.751783 0.751783 0.751783"/>
-    <static-object model="horse_LOD100.b3d" xyz="73.803322 4.433860 85.897995" hpr="0.129935 5.848840 -0.570999" scale="0.751783 0.751783 0.751783"/>
-    <static-object model="horse_LOD100.b3d" xyz="78.264954 3.956064 85.966835" hpr="0.181714 11.106782 -0.556690" scale="0.552347 0.552347 0.552347"/>
-    <static-object model="horse_LOD100.b3d" xyz="83.344910 4.293392 84.753159" hpr="0.359108 30.853081 -0.462565" scale="0.751783 0.751783 0.751783"/>
-    <static-object model="cow_LOD120.b3d" xyz="-59.264969 8.473049 -125.683823" hpr="-0.000000 -89.999996 0.000000" scale="0.523777 0.359483 0.523777"/>
-    <static-object model="well_LOD75.b3d" xyz="-50.311211 6.001420 -89.628998" hpr="-0.000000 64.731001 0.000000" scale="1.912163 1.912163 1.912163"/>
+    <static-object model="skull_LOD120.b3d"/>
+    <static-object model="skull_LODx.b3d" xyz="0.860054 9.549008 -2.359519" hpr="-52.619624 -0.000000 -0.000000" scale="0.492627 0.492627 0.492627"/>
+    <static-object model="horse_LOD100.b3d"/>
+    <static-object model="horse_LODx.b3d" xyz="68.932388 4.592322 85.815872" hpr="-0.125845 -19.381174 -0.571914" scale="0.751783 0.751783 0.751783"/>
+    <static-object model="horse_LODx.b3d" xyz="73.803322 4.433860 85.897995" hpr="0.129935 5.848840 -0.570999" scale="0.751783 0.751783 0.751783"/>
+    <static-object model="horse_LODx.b3d" xyz="78.264954 3.956064 85.966835" hpr="0.181714 11.106782 -0.556690" scale="0.552347 0.552347 0.552347"/>
+    <static-object model="horse_LODx.b3d" xyz="83.344910 4.293392 84.753159" hpr="0.359108 30.853081 -0.462565" scale="0.751783 0.751783 0.751783"/>
+    <static-object model="cow_LOD120.b3d"/>
+    <static-object model="cow_LODx.b3d" xyz="-59.264969 8.473049 -125.683823" hpr="-0.000000 -89.999996 0.000000" scale="0.523777 0.359483 0.523777"/>
+    <static-object model="well_LOD75.b3d"/>
+    <static-object model="well_LODx.b3d" xyz="-50.311211 6.001420 -89.628998" hpr="-0.000000 64.731001 0.000000" scale="1.912163 1.912163 1.912163"/>
   </track>
   <object type="animation" model="mill.001.b3d" xyz="-82.571732 39.382900 -132.051697" hpr="-0.000000 -113.891014 -0.000000" scale="1.000000 1.000000 1.000000" >
     <curve channel="RotZ" interpolation="linear" extend="cyclic">
