@@ -15,6 +15,7 @@
   </material>
   <material name="city_fern.png" compositing="blend"/>
   <material name="city_grass.png" compositing="blend"/>
+  <material name="city_metal.png" backface-culling="N"/>
   <material name="city_reflection.png" sphere="Y"/>
   <material name="city_tree.jpg" compositing="none"/>
   <material name="city_tree_leaves.jpg" mask="city_tree_leaves_alpha.jpg" compositing="test" backface-culling="N" anisotropic="Y" ignore="Y"/>
