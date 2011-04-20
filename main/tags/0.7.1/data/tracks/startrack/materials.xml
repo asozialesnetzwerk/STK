@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 6539 -->
+<materials>
+  <material name="flaring-star.png" alpha="Y"/>
+  <material name="planet_saturn_rings.png" alpha="Y" light="N"/>
+  
+  <material name="startrack2.png" alpha="Y">
+    <particles base="smoke.xml" condition="skid" />
+  </material>
+  
+  <material name="startrack3.png" clampU="N" clampV="N" alpha="Y" light="N">
+    <particles base="smoke.xml" condition="skid" />
+  </material>
+  
+  <material name="transparence.png" alpha="Y" reset="Y"/>
+</materials>

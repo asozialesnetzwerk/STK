@@ -1,0 +1,5 @@
+Emule kart v1.0 by Kinsu for SuperTuxKart
+
+Release license : CC-BY 3.0 (see http://creativecommons.org/licenses/by/3.0/)
+
+Contact : Kinsu @ http://forum.freegamedev.net/
