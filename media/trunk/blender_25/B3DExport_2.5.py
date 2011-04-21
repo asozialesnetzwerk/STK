@@ -924,7 +924,7 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
                 vert_matrix = mathutils.Matrix.Translation(data.vertices[vert].co)
 
                 if arm_action:
-                    vert_matrix *= mesh_matrix
+                    vert_matrix = mesh_matrix*vert_matrix
 
                 vert_matrix *= TRANS_MATRIX
                 vert_matrix = vert_matrix.to_translation()
