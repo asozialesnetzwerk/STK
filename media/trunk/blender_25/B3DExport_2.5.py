@@ -596,6 +596,8 @@ def write_node(objects=[]):
                         # FIXME: seems like translation is missing
                         par_matrix = matrix.to_4x4() * arm_matrix
 
+                    par_matrix = par_matrix * mathutils.Matrix.Translation(arm.matrix_world.to_translation())
+                    
                     bone_stack.append([par_matrix,parent,bone])
                     print("Bone Stack : adding",[par_matrix,parent,bone])
 
