@@ -60,6 +60,7 @@ the_scene = None
 
 #Transformation Matrix
 TRANS_MATRIX = mathutils.Matrix([[1,0,0,0],[0,0,1,0],[0,1,0,0],[0,0,0,1]])
+BONE_TRANS_MATRIX = mathutils.Matrix([[-1,0,0,0],[0,0,-1,0],[0,-1,0,0],[0,0,0,1]])
 
 DEBUG = True
 PROGRESS = True
@@ -633,11 +634,23 @@ def write_node(objects=[]):
                     arm_pose = arm.pose
                     #arm_matrix = arm.getMatrix("worldspace")
                     arm_matrix = arm.matrix_world
-                    arm_matrix *= TRANS_MATRIX
+                    arm_matrix *= BONE_TRANS_MATRIX
+                    
+                    # FIXME: ugly manual changes to matrix to make it more similar to Blender 2.4 exporter matrix
+                    arm_matrix[1][2] = -arm_matrix[1][2]
+                    arm_matrix[2][1] = -arm_matrix[2][1]
+                    arm_matrix[3][0] = -arm_matrix[3][0]
+                    tmp = arm_matrix[3][1]
+                    arm_matrix[3][1] = arm_matrix[3][2]
+                    arm_matrix[3][2] = tmp
+                    
+                    print("arm_matrix =", arm_matrix)
 
                     for bone_name in arm.data.bones.keys():
                         #bone_matrix = mathutils.Matrix(arm_pose.bones[bone_name].poseMatrix)
                         bone_matrix = mathutils.Matrix(arm_pose.bones[bone_name].matrix)
+                        
+                        print("(outer loop) bone_matrix for",bone_name,"=", bone_matrix)
                         
                         #print(bone_name,":",bone_matrix)
                         
@@ -660,8 +673,15 @@ def write_node(objects=[]):
                                         pass
                                     else:
                                         bone_matrix *= arm_matrix
+                                
+                                # FIXME: silly tweaks to resemble the Blender 2.4 exporter matrix
+                                bone_matrix[1][2] = -bone_matrix[1][2]
+                                bone_matrix[2][1] = -bone_matrix[2][1]
+                                bone_matrix[3][0] = -bone_matrix[3][0]
+                                
+                                print("bone_matrix =", bone_matrix)
 
-                                bone_loc = bone_matrix.to_translation()
+                                bone_loc = arm_pose.bones[bone_name].head #bone_matrix.to_translation()
                                 bone_rot = bone_matrix.to_quaternion()
                                 bone_rot.normalize()
                                 bone_sca = bone_matrix.to_scale()
