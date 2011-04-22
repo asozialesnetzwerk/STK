@@ -663,10 +663,8 @@ def write_node(objects=[]):
                                 if DEBUG: print("            <bone id=",ibone,"name=",bone_name,">")
                                 
                                 if bone_stack[ibone][1]:
-                                    #FIXME: not sure how to translate this
-                                    #par_matrix = mathutils.Matrix(arm_pose.bones[bone_stack[ibone][1].name].poseMatrix)
-                                    #par_matrix = mathutils.Matrix(arm_pose.bones[bone_stack[ibone][1].name].matrix)
-                                    #bone_matrix *= par_matrix.inverted()
+                                    par_matrix = mathutils.Matrix(arm_pose.bones[bone_stack[ibone][1].name].matrix)
+                                    bone_matrix = par_matrix.inverted()*bone_matrix
                                     pass
                                 else:
                                     if b3d_parameters.get("local-space"):
