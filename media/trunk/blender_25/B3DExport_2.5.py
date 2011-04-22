@@ -663,6 +663,7 @@ def write_node(objects=[]):
                                 if DEBUG: print("            <bone id=",ibone,"name=",bone_name,">")
                                 
                                 if bone_stack[ibone][1]:
+                                    #FIXME: not sure how to translate this
                                     #par_matrix = mathutils.Matrix(arm_pose.bones[bone_stack[ibone][1].name].poseMatrix)
                                     #par_matrix = mathutils.Matrix(arm_pose.bones[bone_stack[ibone][1].name].matrix)
                                     #bone_matrix *= par_matrix.inverted()
@@ -672,16 +673,16 @@ def write_node(objects=[]):
                                         #bone_matrix *= TRANS_MATRIX
                                         pass
                                     else:
-                                        bone_matrix *= arm_matrix
+                                        bone_matrix = arm_matrix*bone_matrix
                                 
                                 # FIXME: silly tweaks to resemble the Blender 2.4 exporter matrix
-                                bone_matrix[1][2] = -bone_matrix[1][2]
-                                bone_matrix[2][1] = -bone_matrix[2][1]
-                                bone_matrix[3][0] = -bone_matrix[3][0]
+                                #bone_matrix[1][2] = -bone_matrix[1][2]
+                                #bone_matrix[2][1] = -bone_matrix[2][1]
+                                #bone_matrix[3][0] = -bone_matrix[3][0]
                                 
                                 print("bone_matrix =", bone_matrix)
 
-                                bone_loc = arm_pose.bones[bone_name].head #bone_matrix.to_translation()
+                                bone_loc = bone_matrix.to_translation()
                                 bone_rot = bone_matrix.to_quaternion()
                                 bone_rot.normalize()
                                 bone_sca = bone_matrix.to_scale()
