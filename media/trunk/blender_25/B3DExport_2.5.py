@@ -61,7 +61,7 @@ the_scene = None
 #Transformation Matrix
 TRANS_MATRIX = mathutils.Matrix([[1,0,0,0],[0,0,1,0],[0,1,0,0],[0,0,0,1]])
 
-DEBUG = False
+DEBUG = True
 PROGRESS = True
 PROGRESS_VERBOSE = False
 
@@ -599,7 +599,6 @@ def write_node(objects=[]):
                     par_matrix = par_matrix * mathutils.Matrix.Translation(arm.matrix_world.to_translation())
                     
                     bone_stack.append([par_matrix,parent,bone])
-                    print("Bone Stack : adding",[par_matrix,parent,bone])
 
                     if bone.children:
                         for child in bone.children: read_armature(arm_matrix,child,bone)
@@ -987,7 +986,7 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
                 for vg in obj.vertex_groups:
                     w = 0.0
                     try:
-                        w = vg.weight(ivert)
+                        w = vg.weight(vert)
                     except:
                         pass
                     mesh_stack[ivert][5].append((vg.name, w))
