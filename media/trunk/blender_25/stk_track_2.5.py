@@ -1948,6 +1948,14 @@ class STK_Track_Export_Operator(bpy.types.Operator):
     filepath = bpy.props.StringProperty(subtype="FILE_PATH")
 
     def invoke(self, context, event):
+        blend_filepath = context.blend_data.filepath
+        if not blend_filepath:
+            blend_filepath = "Untitled"
+        else:
+            import os
+            blend_filepath = os.path.splitext(blend_filepath)[0]
+        self.filepath = blend_filepath
+        
         context.window_manager.fileselect_add(self)
         return {'RUNNING_MODAL'}
 
