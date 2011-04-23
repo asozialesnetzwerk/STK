@@ -1,6 +1,10 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev 7732 -->
 <materials>
+  <material name="canyon_water.png" surface="Y">
+    <sfx filename="splash.ogg" name="splash"/>
+    <particles base="splash.xml" condition="skid drive"/>
+  </material>
   <material name="city_asphalt_1.jpg" anisotropic="Y">
     <particles base="smoke.xml" condition="skid"/>
   </material>
@@ -25,4 +29,5 @@
   <material name="canyon_dirt_road.jpg">
     <particles base="smoke_brown.xml" condition="skid"/>
   </material>
+  <material name="seabed.jpg" graphical-effect="water" falling-effect="Y"/>
 </materials>
