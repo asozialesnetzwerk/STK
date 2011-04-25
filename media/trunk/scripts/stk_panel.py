@@ -1,32 +1,83 @@
 import bpy
 #import datamodel
- 
-STK_OBJECT_TYPES = {'banana'           : [],
+
+### Things 2 do:
+# - Enable list objects (now handled by input fields
+# - make operations for switchable objects
+# - Determine where texture objects should go (World?)
+# - lots more 
+
+# First, define the relation between Blender types and STK types.
+# this determines 
+BLENDER_OBJECT_TYPES = {'camera'    : ['ignore','ahead', 'fixed'],
+                        'empty'     : ['ignore', 'banana', 'item', 'nitro_big', 'nitro_small'],
+#    "Image":["Texture"], \
+                        'lamp'      : ['ignore', 'sun'],
+                        'mesh'      : ['ignore', 'billboard', 'check', 'driveline', 'lap',
+                                       'maindriveline', 'particle_emitter', 'object', 'water'],
+#    "Scene":["Track"], \
+                        'other'     : ['ignore'] # All Blender types that cannot be used in STK
+}
+
+STK_TYPE_NAMES = {''                : '(None)',
+                  'ahead'           : 'Look Ahead Camera',
+                  'banana'          : 'Banana',
+                  'billboard'       : 'Billboard',
+                  'check'           : 'Check',
+                  'driveline'       : 'Driveline',
+                  'fixed'           : 'Fixed Camera',
+                  'ignore'          : 'Ignore',
+                  'item'            : 'Item',
+                  'lap'             : 'Lap',
+                  'maindriveline'   : 'Main Driveline',
+                  'nitro_big'       : 'Nitro (Big)',
+                  'nitro_small'     : 'Nitro (Small)',
+                  'object'          : 'Object',
+                  'particle_emitter': 'Particle Emitter',
+                  'sun'             : 'Sun',
+                  'water'           : 'Water'}
+
+# Second, define all STK object types
+STK_OBJECT_TYPES = {'ahead'            : ['start'],
+                    'banana'           : [],
                     'billboard'        : [],
-                    'check'            : ['activate', 'toggle', 'inner_radius'],
-                    'driveline'        : [],
+                    'check'            : ['name','activate', 'toggle', 'inner_radius', 'color'],
+                    'driveline'        : ['invisible', 'ai-ignore'],
+                    'fixed'            : ['start'],
                     'ignore'           : [],
                     'item'             : [],
-                    'lap'              : ['activate'],
+                    'lap'              : ['activate', 'toggle', 'inner_radius', 'color'],
                     'maindriveline'    : ['activate'],
                     'nitro_big'        : [],
                     'nitro_small'      : [],
-                    'object'           : ['name', 'shape', 'interaction', 'mass'],
+                    'object'           : ['name', 'animated', 'interaction'],
                     'particle_emitter' : ['kind'],
-                    'water'            : ['name', 'height', 'length', 'speed'],
-# MY OBJECTS 
+                    'sun'              : ['ambient', 'diffuse', 'specular'],
+                    'water'            : ['name', 'height', 'length', 'speed', 'animated'],
+# Track 'object' (officially not a blender object, but still important)
                     'track'            : ['name', 'groups', 'designer', 'music', 'screenshot',
-                                          'arena', 'sky-type', 'ambient-color', 'camera-far', 'fog',
+                                          'arena', 'sky_type', 'ambient-color', 'camera-far', 'fog',
                                           'start-karts-per-row', 'start-forwards-distance',
                                           'start-sidewards-distance', 'start-upwards-distance', 'weather'],
-# Conditional types                                          
-                   'sky-type=dome'     : ['texture', 'horizontal', 'vertical', 'texture-percent', 'sphere-percent'],
-                   'sky-type=box'      : ['texture1', 'texture2', 'texture3', 'texture4', 'texture5',
+# Texture 'object' (not really an object, but still important) 
+                    'texture'           : ['anisotropic', 'backface-culling', 'clampU', 'clampV', 'compositing',
+                                           'disable-z-write', 'friction', 'ignore', 'light', 'max-speed', 
+                                           'reset', 'slowdown-time', 'sphere', 'graphical_effect', 'surface', 
+                                           'below-surface', 'falling-effect', 'sound-effect', 'zipper', 'particle'],                                         
+# Conditional types
+                    'animated=yes'      : ['anim-texture', 'anim-dx', 'anim-dy'],                                   
+                    'fog=yes'           : ['fog-color', 'fog-start', 'fog-end'],
+                    'interaction=move'  : ['shape','mass'],
+                    'interaction=static': ['shape'],
+                    'particle=yes'      : ['base', 'condition'],
+                    'sky-type=box'      : ['texture1', 'texture2', 'texture3', 'texture4', 'texture5',
                                           'texture6'],
-                   'sky-type=simple'   : ['sky-color'],
-                   'fog=yes'           : ['fog-color', 'fog-start', 'fog-end']
+                    'sky-type=dome'     : ['texture', 'horizontal', 'vertical', 'texture-percent', 'sphere-percent'],
+                    'sky-type=simple'   : ['sky-color'],
+                    'sound-effect=yes'  : ['filename', 'name', 'rolloff', 'min-speed', 'max-speed', 
+                                           'min-pitch', 'max-pitch', 'positional'],
+                    'zipper=yes'        : ['duration', 'max-speed-increase', 'fade-out-time', 'speed-gain']
                   }
-
 
 COMBOS = {'type' :  [('',               '(None)'),
                      ('banana',         'Banana'),
@@ -42,19 +93,34 @@ COMBOS = {'type' :  [('',               '(None)'),
                      ('object',         'Object'),
                      ('particle_emitter', 'Particle Emitter'),
                      ('water',          'Water')],
-          'shape' : [('box',            'Box'),
-                     ('sphere',         'Sphere'),
-                     ('coneX',          'ConeX'),
-                     ('coneY',          'ConeY'),
-                     ('coneZ',          'ConeZ'),
-                     ('cylinderX',      'CylinderX'),
-                     ('cylinderY',      'CylinderY'),
-                     ('cylinderZ',      'CylinderZ')],
-          'interaction' :
-                    [('static',         'Static (won''t move)'),
-                     ('none',           'None (ghost)'),
-                     ('move',           'Movable by player')]
-          }
+#          }
+#COMBOS = {
+          'compositing' : [('none',         'None'),
+                           ('blend',        'Blended'),
+                           ('test',         'Threshold'),
+                           ('additive',     'Additive')],
+          'interaction' : [('static',       'Static (won''t move)'),
+                           ('none',         'None (ghost)'),
+                           ('move',         'Movable by player')],
+          'shape'       : [('box',          'Box'),
+                           ('sphere',       'Sphere'),
+                           ('coneX',        'ConeX'),
+                           ('coneY',        'ConeY'),
+                           ('coneZ',        'ConeZ'),
+                           ('cylinderX',    'CylinderX'),
+                           ('cylinderY',    'CylinderY'),
+                           ('cylinderZ',    'CylinderZ')],
+          'sky_type'    : [('dome',         'Dome'),
+                           ('box',          'Box'),
+                           ('simple',       'Simple')],
+          'graphical_effect':[('none',      'No Effect'),
+                              ('water',     'Water')], 
+          'condition'   : [('skid',         'When Skidding'),
+                           ('drive',        'When Driving')],
+          'weather'     : [('none', 'Normal (Sunny)'),
+                           ('rain', 'Rainy'),
+                           ('snow', 'Snowy')]
+         }
 
 # Define Property Types
 type_STRING = 0
@@ -97,7 +163,7 @@ PROP_SETTINGS = {
     "groups":[type_STRING, "", 200], \
     "music":[type_URL, "", 200], \
     "screenshot":[type_IMAGEURL, "", 200], \
-    "sky-type":[type_PICKLIST, "dome"], \
+    "sky_type":[type_PICKLIST, "dome"], \
     "sky-color":[type_COLOUR, 0.0, 0.0, 0.0], \
     "sky-texture":[type_IMAGEURL, "", 200], \
     "sky-texture1":[type_IMAGEURL, "", 200], \
@@ -119,6 +185,7 @@ PROP_SETTINGS = {
     "clampU":[type_BOOLEAN, "no"], \
     "clampV":[type_BOOLEAN, "no"], \
     "compositing":[type_PICKLIST, "none"], \
+                 'condition'    : [type_PICKLIST, 'skid'], \
     "light":[type_BOOLEAN, "yes"], \
     "sphere":[type_BOOLEAN, "no"], \
     "slowdown-time":[type_FLOAT, 1.0, 0, 100, 0.1], \
@@ -140,7 +207,7 @@ PROP_SETTINGS = {
     "surface":[type_BOOLEAN, "no"], \
     "falling-effect":[type_BOOLEAN, "no"], \
     "below-surface":[type_BOOLEAN, "no"], \
-    "graphical-effect":[type_PICKLIST, "none"], \
+    "graphical_effect":[type_PICKLIST, "none"], \
     "sound-effect":[type_BOOLEAN, "no"], \
     "sfx:filename":[type_STRING, "", 200], \
     "sfx:name":[type_STRING, "", 50], \
@@ -171,37 +238,82 @@ PROP_SETTINGS = {
 
 # ==== OPERATORS ====
 
-for param in COMBOS.keys():
-    default_val = PROP_SETTINGS[param][1]
-    items_val = []
-    for i in COMBOS[param]:
-        items_val.append((i[0],i[1],i[1]))
-    
-    class STK_SetType(bpy.types.Operator):
-        bl_idname = ("combo.stk_set_"+param)
-        bl_label  = ("STK Object :: set "+param)
+# == TYPE CHOOSERS ==
+
+#for param in BLENDER_OBJECT_TYPES.keys():
+#    default_val = STK_TYPE_NAMES[''][1]
+#    items_val = [(STK_TYPE_NAMES[''][0],STK_TYPE_NAMES[''][1],STK_TYPE_NAMES[''][1])]
+#    for i in BLENDER_OBJECT_TYPES[param]:
+#        items_val.append((STK_TYPE_NAMES[i][0],STK_TYPE_NAMES[i][1],STK_TYPE_NAMES[i][1]))
         
-        value = bpy.props.EnumProperty(attr="values", name="values", default=default_val,
-                                       items=items_val)
-        
-        m_param = param
-        m_items_val = items_val
-        
-        def execute(self, context):
+#    default_val = PROP_SETTINGS['shape'][1]
+#    items_val = []
+#    for i in COMBOS['shape']:
+#        items_val.append((i[0],i[1],i[1]))
             
+#    class STK_SetType(bpy.types.Operator):
+#        bl_idname = ("type.stk_set_"+param)
+#        bl_label  = ("STK Object :: set "+param)
+        
+#        value = bpy.props.EnumProperty(attr="values", name="values", default=default_val,
+#                                       items=items_val)
+        
+#        m_param = param
+#        m_items_val = items_val
+        
+#        def execute(self, context):
+#            
             # Set the property
-            object = context.object
-            object[self.m_param] = self.value
+#            object = context.object
+#            object[self.m_param] = self.value
 
             # If sub-properties are needed, create them
-            for iter_type in STK_OBJECT_TYPES:
-                current_type = iter_type.split('=')[0] 
-                if current_type == self.value:
-                    for curr_prop in STK_OBJECT_TYPES[iter_type]:  
-                        if not curr_prop in object:
-                            object[curr_prop] = PROP_SETTINGS[curr_prop][1]
+#            for iter_type in STK_OBJECT_TYPES:
+#                current_type = iter_type.split('=')[0] 
+#                if current_type == self.value:
+#                    for curr_prop in STK_OBJECT_TYPES[iter_type]:  
+#                        if not curr_prop in object:
+#                            object[curr_prop] = PROP_SETTINGS[curr_prop][1]
             
-            return {'FINISHED'}
+#            return {'FINISHED'}
+
+# == COMBOS ==
+
+#for param in COMBOS.keys():
+#    default_val = PROP_SETTINGS[param][1]
+#    items_val = []
+ #   for i in COMBOS[param]:
+#        items_val.append((i[0],i[1],i[1]))
+    
+#    class STK_SetType(bpy.types.Operator):
+#        bl_idname = ("combo.stk_set_"+param)
+#        bl_label  = ("STK Object :: set "+param)
+        
+#        value = bpy.props.EnumProperty(attr="values", name="values", default=default_val,
+#                                       items=items_val)
+        
+#        m_param = param
+#        m_items_val = items_val
+        
+#        def execute(self, context):
+            
+            # Set the property
+#            object = context.object
+#            object[self.m_param] = self.value
+
+            # If sub-properties are needed, create them
+#            for iter_type in STK_OBJECT_TYPES:
+#                current_type = iter_type.split('=')[0] 
+#                if current_type == self.value:
+#                    for curr_prop in STK_OBJECT_TYPES[iter_type]:  
+#                        if not curr_prop in object:
+#                            object[curr_prop] = PROP_SETTINGS[curr_prop][1]
+            
+#            return {'FINISHED'}
+
+
+    
+        
 
 
 # ==== OTHER OPERATORS ====
@@ -251,7 +363,7 @@ class STK_CreateProperties(bpy.types.Operator):
                     elif PROP_SETTINGS[current_property][0] == type_COLOUR:
                         scene["_RNA_UI"] = {current_property: {'subtype':'COLOR'}}
                         
-            scene["_RNA_UI"] = {'ambient-color': {'subtype':'COLOR'}} 
+            #scene["_RNA_UI"] = {'ambient-color': {'subtype':'COLOR'}} 
            
             return {'FINISHED'}
         
@@ -318,23 +430,63 @@ class STK_PANEL_Object(bpy.types.Panel):
     bl_region_type = "WINDOW"
     bl_context = "object"
     
+    def __init__(self):
+        
+        # It's really weird to do this outside a class, but hey... it works
+        for param in BLENDER_OBJECT_TYPES.keys():
+            default_val = STK_TYPE_NAMES['']
+#            items_val = [('',STK_TYPE_NAMES[''],STK_TYPE_NAMES[''])]
+            items_val = []
+            for i in BLENDER_OBJECT_TYPES[param]:
+                items_val.append((i,STK_TYPE_NAMES[i],STK_TYPE_NAMES[i]))
+    
+            #Is there a better way to do this?
+            if param == 'camera': 
+                bpy.types.Scene.cameraEnum = bpy.props.EnumProperty(name="Type",items=items_val)
+            elif param == 'empty': 
+                bpy.types.Scene.emptyEnum = bpy.props.EnumProperty(name="Type",items=items_val) 
+            elif param == 'lamp': 
+                bpy.types.Scene.lampEnum = bpy.props.EnumProperty(name="Type",items=items_val)
+            elif param == 'mesh': 
+                bpy.types.Scene.meshEnum = bpy.props.EnumProperty(name="Type",items=items_val)
+            else: 
+                bpy.types.Scene.otherEnum = bpy.props.EnumProperty(name="Type",items=items_val)                
+            
     def draw(self, context):
         layout = self.layout
  
         obj = context.object
+        #Determining object type
+        try:
+            objtype = obj.type.lower()
+            if not objtype in BLENDER_OBJECT_TYPES:
+                raise # raise another error
+        except:
+            objtype = 'other'
+
+        row = layout.row()
+        #row.label(text="Type")
+
+        #currentEnum = self.typeEnum[objtype]
+        row.prop(context.scene, objtype+"Enum")
+#        row.operator_menu_enum("combo.stk_set_shape", property="value", text="(None)")
+#        row.operator_menu_enum("combo.stk_set_type", property="value", text="(None)")
 
         # ==== Types group ====
         row = layout.row()
         row.label(text="Type")
         
-        if "type" in obj:
-            objtype = obj["type"]
-            row.operator_menu_enum("combo.stk_set_type", property="value", text=objtype)
-        else:
-            objtype = ""
-            row.operator_menu_enum("combo.stk_set_type", property="value", text="(None)")
+#        if "type" in obj:
+#            objtype = obj["type"]
+#            row.operator_menu_enum("combo.stk_set_type", property="value", text=objtype)
+            
+#        else:
+#            objtype = ""
+            #row.operator_menu_enum("combo.stk_set_type", property="values", text="(None)")  
+
         
-        
+       # row.enum("combo.stk_set_type", property="value")  
+            
         if objtype in STK_OBJECT_TYPES:
 #            box = layout.box()
 
@@ -401,26 +553,16 @@ class STK_PANEL_Object(bpy.types.Panel):
        #         pass
 
 
-# ==== PANELS ====
 
-#for curr in datamodel.lSTK_Picklist:
-#    class STK_SetItem(bpy.types.Operator):
-#           
-#            bl_idname = ("screen.stk_set_" + curr)
-#            bl_label = ("STK Object :: set " + curr)
-#           
-#  #          value = bpy.props.EnumProperty("values", "values", datamodel.lSTK_Picklist[curr][0],
-#  #                                         datamodel.lSTK_Picklist[curr])
-#            
-#            def execute(self, context):
-#                scene = context.scene
-#                scene[curr] = value
-#               
-#                return {'FINISHED'}
 
 def register():
-    bpy.utils.register_module(OBJECT_PT_hello)
-    bpy.utils.register_module(STK_PANEL_Render)
+    bpy.utils.register_module(__name__)
+ 
+def unregister():
+    bpy.utils.unregister_module(__name__)
 
 if __name__ == "__main__":
     register()
+    
+    
+    
