@@ -101,7 +101,8 @@ Other licenses :
 * cottage_wall1.jpg, cottage_wall2.jpg, cottage_wall3.jpg and wood_planks1.png
     are textures from burningwell.org (public domain) modified by Varivar
 
-* ceramic, hacienda_ground, lantern, woodBridge, sky, woodPost
+* ceramic, hacienda_ground, lantern, woodBridge, sky, woodPost, tree_1,
+  rockwall.png, snowrock, rock_mountain, oldWood
     based on pictures from BurningWell,
     modified by jean-manuel clemençon (SamUncle),
     released under public domain

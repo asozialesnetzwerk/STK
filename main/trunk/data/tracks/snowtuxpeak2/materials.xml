@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 7732 -->
+<materials>
+  <material name="blueZipper.png" compositing="blend" light="N"/>
+  <material name="blueZipper_effect.png" compositing="blend" light="N"/>
+  <material name="greenice.png" reset="N"/>
+  <material name="ice.png" reset="Y"/>
+  <material name="icepic.png" compositing="test" backface-culling="N"/>
+  <material name="sky.jpg" light="N"/>
+  <material name="tree_1.png" disable-z-write="Y" backface-culling="N" compositing="blend"/>
+  <material name="tree_1Low.png" compositing="blend" backface-culling="N" disable-z-write="Y"/>
+  <material name="wood_planks1.jpg">
+    <sfx filename="wooden_bridge.ogg" name="wood" rolloff="0.6" min-speed="9.0" max-speed="22.0" min-pitch="1.0" max-pitch="1.7" positional="Y" volume="1.0"/>
+  </material>
+</materials>
