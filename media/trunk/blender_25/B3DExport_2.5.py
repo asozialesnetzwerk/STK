@@ -575,8 +575,8 @@ def write_node(objects=[]):
 
                 #data = arm.getData()
                 arm_matrix = arm.matrix_world
-                arm_matrix *= TRANS_MATRIX.inverted()
-
+                #arm_matrix *= TRANS_MATRIX.inverted()
+                
                 def read_armature(arm_matrix,bone,parent = None):
                     if (parent and not bone.parent.name == parent.name):
                         return
@@ -585,20 +585,33 @@ def write_node(objects=[]):
                     #matrix = mathutils.Matrix(bone.matrix["ARMATURESPACE"])
                     matrix = mathutils.Matrix(bone.matrix)
 
+
                     if parent:
                         #par_matrix = matrix * mathutils.Matrix(parent.matrix["ARMATURESPACE"]).invert()
                         
-                        # FIXME: seems like translation is missing
-                        par_matrix = (matrix * mathutils.Matrix(parent.matrix).inverted()).to_4x4()
+                        par_matrix = matrix.to_4x4()
+                        if bone.parent and bone.parent.head_local:
+                            translation = (bone.head_local - bone.parent.head_local)
+                        else:
+                            translation = bone.head_local
+                        
+                        tmp = translation[1]
+                        translation[1] = translation[2]
+                        translation[2] = tmp
+                        
+                        par_matrix = mathutils.Matrix.Translation(translation) * par_matrix
                     else:
                         #print("matrix",matrix)
                         #print("arm_matrix", arm_matrix)
                         
-                        # FIXME: seems like translation is missing
-                        par_matrix = matrix.to_4x4() * arm_matrix
+                        par_matrix = arm_matrix * matrix.to_4x4()
+                        
+                        # FIXME: ugly manual changes to resemble the output of the 2.4 exporter
+                        tmp = par_matrix[3][1]
+                        par_matrix[3][1] = par_matrix[3][2]
+                        par_matrix[3][2] = tmp
+                        par_matrix[3][0] = -par_matrix[3][0]
 
-                    par_matrix = par_matrix * mathutils.Matrix.Translation(arm.matrix_world.to_translation())
-                    
                     bone_stack.append([par_matrix,parent,bone])
 
                     if bone.children:
