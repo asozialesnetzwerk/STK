@@ -1398,11 +1398,16 @@ class B3D_Export_Operator(bpy.types.Operator):
     #objects = bpy.props.CollectionProperty(type=ObjectListItem, options={'HIDDEN'})
     
     def invoke(self, context, event):
-        #if not self.skip_dialog:
+        blend_filepath = context.blend_data.filepath
+        if not blend_filepath:
+            blend_filepath = "Untitled.b3d"
+        else:
+            import os
+            blend_filepath = os.path.splitext(blend_filepath)[0] + ".b3d"
+        self.filepath = blend_filepath
+        
         context.window_manager.fileselect_add(self)
         return {'RUNNING_MODAL'}
-        #else:
-        #    return {'FINISHED'}
     
     def execute(self, context):
         
