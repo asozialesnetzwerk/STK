@@ -614,6 +614,8 @@ def write_node(objects=[]):
                         
                         par_matrix = mathutils.Matrix(arm_matrix)
                         
+                        par_matrix = mathutils.Matrix.Translation(bone.head) * par_matrix
+                        
                         rotate90 = mathutils.Matrix.Rotation(-3.14159, 4, 'Y')
                         par_matrix = par_matrix * rotate90
                         
