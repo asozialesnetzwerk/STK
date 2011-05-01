@@ -584,8 +584,7 @@ def write_node(objects=[]):
                     #FIXME?
                     #matrix = mathutils.Matrix(bone.matrix["ARMATURESPACE"])
                     matrix = mathutils.Matrix(bone.matrix)
-
-
+                    
                     if parent:
                         #par_matrix = matrix * mathutils.Matrix(parent.matrix["ARMATURESPACE"]).invert()
                         
@@ -609,27 +608,18 @@ def write_node(objects=[]):
                         
                         par_matrix = mathutils.Matrix.Translation(translation) * par_matrix
                     else:
-                        #par_matrix = bone.matrix.to_quaternion().to_matrix().to_4x4() * mathutils.Matrix(arm_matrix)
-                        par_matrix = mathutils.Matrix(arm_matrix)
+                        arm_matrix_2 = arm_matrix*TRANS_MATRIX
+                        arm_matrix_2[0][0] = -arm_matrix_2[0][0]
+                        arm_matrix_2[3][0] = -arm_matrix_2[3][0]
                         
-                        par_matrix = mathutils.Matrix.Translation(bone.head) * par_matrix
-
-                        direction = -(bone.tail - bone.head)
-                        import math
-                        yaw = math.atan2(direction[0], direction[1])
-                        pitch = math.atan2(direction[2], direction.length)
-                        boneAngle = mathutils.Euler([yaw, pitch, 0])
-                        par_matrix = par_matrix * boneAngle.to_matrix().to_4x4()
+                        tmp = arm_matrix_2[3][1]
+                        arm_matrix_2[3][1] = arm_matrix_2[3][2]
+                        arm_matrix_2[3][2] = tmp
                         
+                        matrix_with_t = mathutils.Matrix.Translation(bone.head) * matrix.to_4x4()
                         
-                        rotate90 = mathutils.Matrix.Rotation(-3.14159, 4, 'Y')
-                        par_matrix = par_matrix * rotate90
+                        par_matrix = arm_matrix_2 * matrix_with_t
                         
-                        # FIXME: ugly manual changes to resemble the output of the 2.4 exporter
-                        tmp = par_matrix[3][1]
-                        par_matrix[3][1] = par_matrix[3][2]
-                        par_matrix[3][2] = tmp
-                        par_matrix[3][0] = -par_matrix[3][0]
 
                     bone_stack.append([par_matrix,parent,bone])
 
