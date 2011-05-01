@@ -604,7 +604,10 @@ def write_node(objects=[]):
                         #print("matrix",matrix)
                         #print("arm_matrix", arm_matrix)
                         
-                        par_matrix = arm_matrix * matrix.to_4x4()
+                        par_matrix = mathutils.Matrix(arm_matrix)
+                        
+                        rotate90 = mathutils.Matrix.Rotation(-3.14159, 4, 'Y')
+                        par_matrix = par_matrix * rotate90
                         
                         # FIXME: ugly manual changes to resemble the output of the 2.4 exporter
                         tmp = par_matrix[3][1]
