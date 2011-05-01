@@ -609,12 +609,18 @@ def write_node(objects=[]):
                         
                         par_matrix = mathutils.Matrix.Translation(translation) * par_matrix
                     else:
-                        #print("matrix",matrix)
-                        #print("arm_matrix", arm_matrix)
-                        
+                        #par_matrix = bone.matrix.to_quaternion().to_matrix().to_4x4() * mathutils.Matrix(arm_matrix)
                         par_matrix = mathutils.Matrix(arm_matrix)
                         
                         par_matrix = mathutils.Matrix.Translation(bone.head) * par_matrix
+
+                        direction = -(bone.tail - bone.head)
+                        import math
+                        yaw = math.atan2(direction[0], direction[1])
+                        pitch = math.atan2(direction[2], direction.length)
+                        boneAngle = mathutils.Euler([yaw, pitch, 0])
+                        par_matrix = par_matrix * boneAngle.to_matrix().to_4x4()
+                        
                         
                         rotate90 = mathutils.Matrix.Rotation(-3.14159, 4, 'Y')
                         par_matrix = par_matrix * rotate90
