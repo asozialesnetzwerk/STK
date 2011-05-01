@@ -589,7 +589,12 @@ def write_node(objects=[]):
                     if parent:
                         #par_matrix = matrix * mathutils.Matrix(parent.matrix["ARMATURESPACE"]).invert()
                         
-                        par_matrix = matrix.to_4x4()
+                        par_matrix = arm_matrix * matrix.to_4x4()
+                        
+                        # remove translation
+                        par_matrix[3][0] = 0
+                        par_matrix[3][1] = 0
+                        par_matrix[3][2] = 0
                         
                         #translation = mathutils.Vector(bone.head_local)
                         
