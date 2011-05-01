@@ -1331,7 +1331,7 @@ def write_node_keys(ibone):
             quat.normalize()
 
             temp_buf += write_float(quat.w)  #Rotation W
-            temp_buf += write_float(quat.x) #Rotation X
+            temp_buf += write_float(-quat.x) #Rotation X
             temp_buf += write_float(quat.y)  #Rotation Y
             temp_buf += write_float(quat.z)  #Rotation Z
 
