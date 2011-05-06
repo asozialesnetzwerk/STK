@@ -4,6 +4,8 @@
   <material name="brick1.png" anisotropic="Y" backface-culling="N"/>
   <material name="bush3.png" light="N" ignore="Y" compositing="test"/>
   <material name="Factory4b.png" anisotropic="Y"/>
+  <material name="grass.jpg" max-speed="0.40000000596" slowdown-time="1.0"/>
+  <material name="grass2.jpg" max-speed="0.40000000596" slowdown-time="1.0"/>
   <material name="HortonStone6.jpg" anisotropic="Y"/>
   <material name="HortonStone7.jpg" anisotropic="Y"/>
   <material name="leaves2.png" ignore="Y" compositing="test"/>
