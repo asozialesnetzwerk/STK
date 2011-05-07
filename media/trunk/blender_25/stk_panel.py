@@ -11,102 +11,182 @@ class STK_TypeUnset(bpy.types.Operator):
         obj["type"] = ""
         return {'FINISHED'}
 
-
-STK_OBJECT_TYPES = {'banana'           : [],
-                    'billboard'        : [],
-                    'check'            : ['activate', 'toggle', 'inner_radius'],
-                    'driveline'        : [],
-                    'ignore'           : [],
-                    'item'             : [],
-                    'lap'              : ['activate'],
-                    'maindriveline'    : ['activate'],
-                    'nitro_big'        : [],
-                    'nitro_small'      : [],
-                    'object'           : ['name', 'shape', 'interaction', 'mass'],
-                    'particle_emitter' : ['kind'],
-                    'water'            : ['name', 'height', 'length', 'speed']
-                    }
-
-COMBOS = {'type' :
-             [('', '(None)', '(None)'),
-              ('banana', 'Banana', 'Banana'),
-              ('billboard', 'Billboard', 'Billboard'),
-              ('check', 'Check', 'Check'),
-              ('driveline', 'Driveline', 'Driveline'),
-              ('ignore', 'Ignore', 'Ignore'),
-              ('item', 'Item', 'Item'),
-              ('lap', 'Lap', 'Lap'),
-              ('maindriveline', 'Main Driveline', 'Main Driveline'),
-              ('nitro_big', 'Nitro (Big)', 'Nitro (Big)'),
-              ('nitro_small', 'Nitro (Small)', 'Nitro (Small)'),
-              ('object', 'Object', 'Object'),
-              ('particle_emitter', 'Particle Emitter', 'Particle Emitter'),
-              ('water', 'Water', 'Water')],
-          'shape' :
-             [('box',       'Box',       'Box'),
-              ('sphere',    'Sphere',    'Sphere'),
-              ('coneX',     'ConeX',     'ConeX'),
-              ('coneY',     'ConeY',     'ConeY'),
-              ('coneZ',     'ConeZ',     'ConeZ'),
-              ('cylinderX', 'CylinderX', 'CylinderX'),
-              ('cylinderY', 'CylinderY', 'CylinderY'),
-              ('cylinderZ', 'CylinderZ', 'CylinderZ')],
-          'interaction' :
-             [('static', 'Static (won''t move)', 'Static (won''t move)'),
-              ('none', 'None (ghost)', 'None (ghost)'),
-              ('move', 'Movable by player', 'Movable by player')]
-          }
-
-                                   # Numeric | Default
-PROP_SETTNGS = { 'inner_radius' :  (True,      -1),
-                 'mass'         :  (True,      15),
-                 'height'       :  (True,      1.0),
-                 'length'       :  (True,      10),
-                 'speed'        :  (True,      300)
-               }
-
-for param in COMBOS.keys():
-    default_val = COMBOS[param][0][0]
-    items_val = COMBOS[param]
+#! @see StkEnumProperty
+class StkEnumChoice:
     
-    class STK_SetType(bpy.types.Operator):
-        
-        value = bpy.props.EnumProperty(attr="values", name="values", default=default_val,
-                                       items=items_val)
-        
-        bl_idname = ("screen.stk_set_"+param)
-        bl_label  = ("STK Object :: set "+param)
-        
-        m_param = param
-        m_items_val = items_val
-        
-        def execute(self, context):
-            
-            # Set the property
-            object = context.object
-            object[self.m_param] = self.value
+    #! @param name          User-visible name for this property
+    #! @param subproperties A dictionary of type { 'name' : StkProperty(...) }. Contains the
+    #                       properties that are to be shown when this enum item is selected
+    def __init__(self, name, subproperties):
+        self.name = name
+        self.subproperties = subproperties
 
-            # If sub-properties are needed, create them
-            if self.value in STK_OBJECT_TYPES:
-                for p in STK_OBJECT_TYPES[self.value]:
+#! The base class for all properties
+class StkProperty:
+    def __init__(self, id, name, default):
+        self.name = name
+        self.id = id
+        self.default = default
+
+
+#! An enum property
+class StkEnumProperty(StkProperty):
+    
+    #! @param name   User-visible name for this property
+    #! @param values A dictionnary of type { 'value' : StkEnumChoice(...) }
+    #! @note         The first value will be used by default
+    def __init__(self, id, name, values, default):
+        super(StkEnumProperty, self).__init__(id, name, default)
+        self.values = values
+        
+        default_value = default
+        
+        values_for_blender = []
+        for curr_val in values.keys():
+            curr_obj = values[curr_val]
+            values_for_blender.append( (curr_val, curr_obj.name, curr_obj.name) )
+        
+        # Create operator for this combo
+        class STK_SetComboValue(bpy.types.Operator):
+        
+            value = bpy.props.EnumProperty(attr="values", name="values", default=default_value,
+                                           items=values_for_blender)
+            
+            bl_idname = ("screen.stk_set_"+id)
+            bl_label  = ("SuperTuxKart set "+id)
+            
+            m_property_id = id
+            m_items_val = values_for_blender
+            m_values = values
+            
+            def createProperties(self, object, props):
+                for p in props.keys():
                     
                     if not p in object:
-                    
-                        numeric = False
-                        if p in PROP_SETTNGS:
-                            numeric = PROP_SETTNGS[p][0]
+                        # create property by setting default  value
+                        v = props[p].default
+                        object[p] = v
                         
-                        # create proeprty by setting default  value
-                        if p in COMBOS:
-                            object[p] = COMBOS[p][0][0]
-                        elif numeric:
-                            object[p] = PROP_SETTNGS[p][1]
-                        else:
-                            object[p] = ""
-                    
-            
-            return {'FINISHED'}
+                        if isinstance(props[p], StkEnumProperty):
+                            if v in props[p].values:
+                                self.createProperties(object, props[p].values[v].subproperties)
+                            
+            def execute(self, context):
+                
+                # Set the property
+                object = context.object
+                object[self.m_property_id] = self.value
+                
+                # If sub-properties are needed, create them
+                if self.value in self.m_values:
+                    self.createProperties(object, self.m_values[self.value].subproperties)
+                
+                return {'FINISHED'}
 
+#! A floating-point property
+class StkFloatProperty(StkProperty):
+    
+    #! @param name   User-visible name for this property
+    def __init__(self, id, name, default=0.0):
+        super(StkFloatProperty, self).__init__(id, name, default)
+        self.default
+
+#! An integer property
+class StkIntProperty(StkProperty):
+    
+    #! @param name   User-visible name for this property
+    def __init__(self, id, name, default=0):
+        super(StkIntProperty, self).__init__(id, name, default)
+
+#! A boolean property
+class StkBoolProperty(StkProperty):
+    
+    #! A floating-point property
+    def __init__(self, id, name, default=False):
+        super(StkBoolProperty, self).__init__(id, name, default)
+
+#! A color property
+class StkColorProperty(StkProperty):
+    
+    #! A floating-point property
+    def __init__(self, id, name, default=[255,255,255]):
+        super(StkColorProperty, self).__init__(id, name, default)
+
+
+# Properties when the "type" property is an end-camera
+camera_properties = {'start' : StkFloatProperty(id='start', name="Start Sphere Radius", default=10.0)
+                    }
+
+# Property when type="object"
+object_properties = {'name'        : StkProperty('name', "Name", ""),
+                     'interaction' : StkEnumProperty('interaction', "Interaction",
+                                         {'ghost'  : StkEnumChoice("Ghost", {}),
+                                          'static' : StkEnumChoice("Static (wont move)", {}),
+                                          'move'   : StkEnumChoice("Movable by player",
+                                              {'mass'  : StkFloatProperty(id='mass', name="Mass (kg)", default=100.0),
+                                               'shape' : StkEnumProperty(id='shape', name="Shape",
+                                                  values={'coneX'     : StkEnumChoice("Cone (X)", {}),
+                                                          'coneY'     : StkEnumChoice("Cone (Y)", {}),
+                                                          'coneZ'     : StkEnumChoice("Cone (Z)", {}),
+                                                          'cylinderX' : StkEnumChoice("Cylinder (X)", {}),
+                                                          'cylinderY' : StkEnumChoice("Cylinder (Y)", {}),
+                                                          'cylinderZ' : StkEnumChoice("Cylinder (Z)", {}),
+                                                          'box'       : StkEnumChoice("Box", {}),
+                                                          'sphere'    : StkEnumChoice("Sphere", {})
+                                                         }, default='box')
+                                              })
+                                         }, 'static')
+                    }
+
+# The 'type' property
+type = StkEnumProperty('type', "Type",
+                       {''                 : StkEnumChoice('None', {}),
+                        'banana'           : StkEnumChoice('Banana', {}),
+                        'billboard'        : StkEnumChoice('Billboard', {}),
+                        'check'            : StkEnumChoice('Checkline',
+                                                 {'name'     : StkProperty(id='name', name="Name", default=""),
+                                                  'activate' : StkProperty(id='activate', name="Activate", default="")
+                                                  #'toggle'  : Stkproperty("Toggle"),
+                                                  #'inner_radius' : StkFloatProperty("Color radius"),
+                                                  #'color'        : 
+                                                 }),
+                        'driveline'        : StkEnumChoice('Driveline (additional)',
+                                                 {'invisible' : StkBoolProperty(id='invisible', name="Invisible", default=False),
+                                                  'ai_ignore' : StkBoolProperty(id='ai_ignore', name="Ignored by AIs", default=False)
+                                                 }),
+                        'maindriveline'    : StkEnumChoice('Driveline (main)',
+                                                 {'activate' : StkProperty(id='activate', name="Activate", default="")
+                                                 }),
+                        'fixed'            : StkEnumChoice('End Camera (Fixed)', camera_properties),
+                        'ahead'            : StkEnumChoice('End Camera (Look Ahead)', camera_properties),
+                        'ignore'           : StkEnumChoice('Ignore',
+                                                 {'activate' : StkProperty(id='activate', name="Activate", default="")
+                                                  #'toggle'  : Stkproperty("Toggle"),
+                                                  #'inner_radius' : StkFloatProperty("Color radius"),
+                                                  #'color'        : 
+                                                 }),
+                        'item'             : StkEnumChoice('Item (Gift Box)', {}),
+                        'lap'              : StkEnumChoice('Lap line', {}),
+                        'nitro_big'        : StkEnumChoice('Nitro (big)', {}),
+                        'nitro_small'      : StkEnumChoice('Nitro (small)', {}),
+                        'object'           : StkEnumChoice('Object', object_properties),
+                        'particle_emitter' : StkEnumChoice('Particle Emitter',
+                                                 {'kind' : StkProperty(id='kind', name="Particle File", default="smoke.xml")
+                                                 }),
+                        'sun'              : StkEnumChoice('Sun',
+                                                 {'ambient'  : StkColorProperty('ambient', "Ambient Color"),
+                                                  'diffuse'  : StkColorProperty('diffuse', "Diffuse Color"),
+                                                  'specular' : StkColorProperty('specular', "Specular Color")
+                                                 }),
+                        'water'            : StkEnumChoice('Water',
+                                                 {'name'     : StkProperty(id='name', name="Name", default=""),
+                                                  'height'   : StkFloatProperty('height', "Waves Height", 1.0),
+                                                  'speed'    : StkFloatProperty('speed', "Waves Speed", 200.0),
+                                                  'length'   : StkFloatProperty('length', "Waves Length", 10.0)
+                                                 })
+                       }, '')
+
+STK_PER_OBJECT_PROPERTIES = {'type' : type}
 
 # ==== OTHER OPERATORS ====
 
@@ -136,62 +216,43 @@ class OBJECT_PT_hello(bpy.types.Panel):
     bl_region_type = "WINDOW"
     bl_context = "object"
     
+    def recursivelyAddProperties(self, properties, layout, obj):
+        
+        for id in properties.keys():
+            curr = properties[id]
+            
+            row = layout.row()
+            row.label(text=curr.name)
+            
+            if isinstance(curr, StkEnumProperty):
+                if id in obj:
+                    curr_value = obj[id]
+                else:
+                    curr_value = ""
+                
+                label = curr_value
+                if curr_value in curr.values:
+                    label = curr.values[curr_value].name
+                
+                row.operator_menu_enum("screen.stk_set_"+id, property="value", text=label)
+                
+                if curr_value in curr.values and len(curr.values[curr_value].subproperties) > 0:
+                    box = layout.box()
+                    self.recursivelyAddProperties(curr.values[curr_value].subproperties, box, obj)
+                    
+            else:
+                # String or int or float property (Blender chooses the correct widget from the type of the ID-property)
+                if curr.id in obj:
+                    row.prop(obj, '["' + curr.id + '"]', text="")
+                
     def draw(self, context):
         layout = self.layout
  
         obj = context.object
 
-        # ==== Types group ====
-        row = layout.row()
-        row.label(text="Type")
-        
-        if "type" in obj:
-            objtype = obj["type"]
-        else:
-            objtype = ""
-        
-        if objtype == '':
-            row.operator_menu_enum("screen.stk_set_type", property="value", text="(None)")
-        else:
-            row.operator_menu_enum("screen.stk_set_type", property="value", text=objtype)
-        
-        if objtype in STK_OBJECT_TYPES:
-            props = STK_OBJECT_TYPES[objtype]
-        else:
-            props = []
-        
-        if len(props) > 0:
-            box = layout.box()
-            
 
-            for currprop in props:
-                if currprop in obj:
-                
-                    if currprop == 'mass':
-                        if 'interaction' not in obj or obj['interaction'] != 'move':
-                            continue
-                
-                    row = box.row()
-                    
-                    if currprop in COMBOS.keys():
-                        # Create a combo if this property is a combo type property
-                        caption = obj[currprop][0].capitalize() + obj[currprop][1:]
-                        for x in COMBOS[currprop]:
-                            if x[0] == obj[currprop]:
-                                caption = x[1]
-                                break
-                        
-                        row.label(currprop[0].capitalize() + currprop[1:])
-                        
-                        op = "screen.stk_set_"+currprop
-                        
-                        # FIXME: for some reason, without that print the dropdown doesn't work??????
-                        print(op)
-                        row.operator_menu_enum(op, property="value", text=caption)
-                        
-                    else:
-                        # Otherwise just create a plain text field or numeric field (guessed from type)
-                        row.prop(obj, '["' + currprop + '"]', text=currprop[0].capitalize() + currprop[1:])
+        self.recursivelyAddProperties(STK_PER_OBJECT_PROPERTIES, layout, obj)
+            
         
         # ==== Anim Texture group ====
         box = layout.box()
