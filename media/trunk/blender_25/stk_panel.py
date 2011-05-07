@@ -41,10 +41,12 @@ class StkEnumProperty(StkProperty):
         
         default_value = default
         
-        values_for_blender = []
+        values_for_blender_unsorted = []
         for curr_val in values.keys():
             curr_obj = values[curr_val]
-            values_for_blender.append( (curr_val, curr_obj.name, curr_obj.name) )
+            values_for_blender_unsorted.append( (curr_val, curr_obj.name, curr_obj.name) )
+        
+        values_for_blender = sorted(values_for_blender_unsorted, key=lambda k: k[1])
         
         # Create operator for this combo
         class STK_SetComboValue(bpy.types.Operator):
@@ -159,14 +161,14 @@ type = StkEnumProperty('type', "Type",
                                                  }),
                         'fixed'            : StkEnumChoice('End Camera (Fixed)', camera_properties),
                         'ahead'            : StkEnumChoice('End Camera (Look Ahead)', camera_properties),
-                        'ignore'           : StkEnumChoice('Ignore',
+                        'ignore'           : StkEnumChoice('Ignore', {}),
+                        'item'             : StkEnumChoice('Item (Gift Box)', {}),
+                        'lap'              : StkEnumChoice('Lap line',
                                                  {'activate' : StkProperty(id='activate', name="Activate", default="")
                                                   #'toggle'  : Stkproperty("Toggle"),
                                                   #'inner_radius' : StkFloatProperty("Color radius"),
                                                   #'color'        : 
                                                  }),
-                        'item'             : StkEnumChoice('Item (Gift Box)', {}),
-                        'lap'              : StkEnumChoice('Lap line', {}),
                         'nitro_big'        : StkEnumChoice('Nitro (big)', {}),
                         'nitro_small'      : StkEnumChoice('Nitro (small)', {}),
                         'object'           : StkEnumChoice('Object', object_properties),
