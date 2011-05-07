@@ -188,7 +188,7 @@ class StkColorProperty(StkProperty):
                 box = layout.box()
                 row = box.row()
                 try:
-                    row.template_color_wheel(self, "temp_color", value_slider=True)
+                    row.template_color_wheel(self, "temp_color", value_slider=True, cubic=False)
                 except Exception as ex:
                     import sys
                     print("Except :(", type(ex), ex, "{",ex.args,"}")
