@@ -306,27 +306,6 @@ STK_PER_OBJECT_PROPERTIES = OrderedDict([
                                                 }))
                             ])
 
-# ==== OTHER OPERATORS ====
-
-class STK_TypeSetAnimTex(bpy.types.Operator):
-    bl_idname = ("screen.stk_set_animtex")
-    bl_label = ("STK Object :: set animtex")
-    
-    def execute(self, context):
-        obj = context.object
-        
-        if "anim_texture" not in obj:
-            obj["anim_texture"] = ""
-        
-        if "anim_dx" not in obj:
-            obj["anim_dx"] = 0.0
-        
-        if "anim_dy" not in obj:
-            obj["anim_dy"] = 0.0
-        
-        return {'FINISHED'}
-
-
 # ==== PANEL BASE ====
 class PanelBase:
     
