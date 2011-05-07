@@ -93,6 +93,7 @@ class StkFloatProperty(StkProperty):
         super(StkFloatProperty, self).__init__(id, name, default)
         self.default
 
+
 #! An integer property
 class StkIntProperty(StkProperty):
     
@@ -103,16 +104,102 @@ class StkIntProperty(StkProperty):
 #! A boolean property
 class StkBoolProperty(StkProperty):
     
+    # (self, id, name, values, default):
+    
     #! A floating-point property
-    def __init__(self, id, name, default=False):
+    def __init__(self, id, name, default="false"):
         super(StkBoolProperty, self).__init__(id, name, default)
+        #super(StkBoolProperty, self).__init__(id, name, {'true'  : StkEnumChoice("True", {}),
+        #                                                 'false' : StkEnumChoice("False", {})}, default)
+        
+        # Create operator for this bool
+        class STK_SetComboValue(bpy.types.Operator):
+        
+            
+            bl_idname = ("screen.stk_toggle_bool_"+id)
+            bl_label  = ("SuperTuxKart toggle "+id)
+            
+            m_property_id = id
+                            
+            def execute(self, context):
+                
+                # Set the property
+                object = context.object
+                
+                curr_val = False
+                if self.m_property_id in object:
+                    curr_val = (object[self.m_property_id] == "true")
+                    
+                new_val = not curr_val
+                
+                if curr_val :
+                    object[self.m_property_id] = "false"
+                else:
+                    object[self.m_property_id] = "true"
+                
+                return {'FINISHED'}
 
 #! A color property
 class StkColorProperty(StkProperty):
     
     #! A floating-point property
-    def __init__(self, id, name, default=[255,255,255]):
+    def __init__(self, id, name, default="255 255 255"):
         super(StkColorProperty, self).__init__(id, name, default)
+
+        #! Color picker operator (TODO: this operator is mostly for backwards compatibility with our
+        #                               blend files that come from 2.4; blender 2.5 has a color property
+        #                               type we could use)
+        class Apply_Color_Operator(bpy.types.Operator):
+            bl_idname = ("screen.apply_color_"+id)
+            bl_label = ("Apply Color")
+           
+            property_id = id
+           
+            temp_color = bpy.props.FloatVectorProperty(
+               name= "temp_color",
+               description= "Temp Color.",
+               subtype= 'COLOR',
+               min= 0.0,
+               max= 1.0,
+               soft_min= 0.0,
+               soft_max= 1.0,
+               default= (1.0,1.0,1.0)
+            )
+           
+            def invoke(self, context, event):
+                currcol = [1.0, 1.0, 1.0]
+                try:
+                    currcol = list(map(eval, context.object[self.property_id].split()))
+                    currcol[0] = currcol[0]/255.0
+                    currcol[1] = currcol[1]/255.0
+                    currcol[2] = currcol[2]/255.0
+                except:
+                    pass
+                self.temp_color = currcol
+                context.window_manager.invoke_props_dialog(self)
+                return {'RUNNING_MODAL'}
+           
+               
+            def draw(self, context):
+        
+                layout = self.layout
+               
+                # ==== Types group ====
+                box = layout.box()
+                row = box.row()
+                try:
+                    row.template_color_wheel(self, "temp_color", value_slider=True)
+                except Exception as ex:
+                    import sys
+                    print("Except :(", type(ex), ex, "{",ex.args,"}")
+                    pass
+               
+                row = layout.row()
+                row.prop(self, "temp_color", text="Selected Color")
+               
+            def execute(self, context):
+                context.object[self.property_id] = "%i %i %i" % (self.temp_color[0]*255, self.temp_color[1]*255, self.temp_color[2]*255)
+                return {'FINISHED'}
 
 
 # Properties when the "type" property is an end-camera
@@ -153,8 +240,8 @@ type = StkEnumProperty('type', "Type",
                                                   #'color'        : 
                                                  }),
                         'driveline'        : StkEnumChoice('Driveline (additional)',
-                                                 {'invisible' : StkBoolProperty(id='invisible', name="Invisible", default=False),
-                                                  'ai_ignore' : StkBoolProperty(id='ai_ignore', name="Ignored by AIs", default=False)
+                                                 {'invisible' : StkBoolProperty(id='invisible', name="Invisible", default="false"),
+                                                  'ai_ignore' : StkBoolProperty(id='ai_ignore', name="Ignored by AIs", default="false")
                                                  }),
                         'maindriveline'    : StkEnumChoice('Driveline (main)',
                                                  {'activate' : StkProperty(id='activate', name="Activate", default="")
@@ -226,7 +313,21 @@ class OBJECT_PT_hello(bpy.types.Panel):
             row = layout.row()
             row.label(text=curr.name)
             
-            if isinstance(curr, StkEnumProperty):
+            if isinstance(curr, StkBoolProperty):
+                 state = "false"
+                 icon = 'CHECKBOX_DEHLT'
+                 if id in obj:
+                     state = obj[id]
+                     if state == "true":
+                         icon = 'CHECKBOX_HLT'
+                 row.operator("screen.stk_toggle_bool_"+id, text="                ", icon=icon, emboss=False)
+            
+            elif isinstance(curr, StkColorProperty):
+                if curr.id in obj:
+                    row.prop(obj, '["' + curr.id + '"]', text="")
+                    row.operator("screen.apply_color_"+curr.id, text="", icon='COLOR')
+            
+            elif isinstance(curr, StkEnumProperty):
                 if id in obj:
                     curr_value = obj[id]
                 else:
@@ -241,7 +342,7 @@ class OBJECT_PT_hello(bpy.types.Panel):
                 if curr_value in curr.values and len(curr.values[curr_value].subproperties) > 0:
                     box = layout.box()
                     self.recursivelyAddProperties(curr.values[curr_value].subproperties, box, obj)
-                    
+                
             else:
                 # String or int or float property (Blender chooses the correct widget from the type of the ID-property)
                 if curr.id in obj:
