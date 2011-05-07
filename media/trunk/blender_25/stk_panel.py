@@ -1,5 +1,5 @@
 import bpy
- 
+from collections import OrderedDict
 
 # ==== TYPE OPERATORS ====
 class STK_TypeUnset(bpy.types.Operator):
@@ -107,20 +107,35 @@ class StkBoolProperty(StkProperty):
     # (self, id, name, values, default):
     
     #! A floating-point property
-    def __init__(self, id, name, default="false"):
+    def __init__(self, id, name, default="false", subproperties={}):
         super(StkBoolProperty, self).__init__(id, name, default)
-        #super(StkBoolProperty, self).__init__(id, name, {'true'  : StkEnumChoice("True", {}),
-        #                                                 'false' : StkEnumChoice("False", {})}, default)
+        
+        self.subproperties = subproperties
+        
+        super_self = self
         
         # Create operator for this bool
-        class STK_SetComboValue(bpy.types.Operator):
+        class STK_ToggleBoolValue(bpy.types.Operator):
         
             
             bl_idname = ("screen.stk_toggle_bool_"+id)
             bl_label  = ("SuperTuxKart toggle "+id)
             
             m_property_id = id
-                            
+            m_super_self = super_self
+            
+            def createProperties(self, object, props):
+                for p in props.keys():
+                    
+                    if not p in object:
+                        # create property by setting default  value
+                        v = props[p].default
+                        object[p] = v
+                        
+                        if isinstance(props[p], StkEnumProperty):
+                            if v in props[p].values:
+                                self.createProperties(object, props[p].values[v].subproperties)
+            
             def execute(self, context):
                 
                 # Set the property
@@ -136,6 +151,11 @@ class StkBoolProperty(StkProperty):
                     object[self.m_property_id] = "false"
                 else:
                     object[self.m_property_id] = "true"
+                
+                
+                # If sub-properties are needed, create them
+                if object[self.m_property_id] == "true":
+                    self.createProperties(object, self.m_super_self.subproperties)
                 
                 return {'FINISHED'}
 
@@ -207,8 +227,9 @@ camera_properties = {'start' : StkFloatProperty(id='start', name="Start Sphere R
                     }
 
 # Property when type="object"
-object_properties = {'name'        : StkProperty('name', "Name", ""),
-                     'interaction' : StkEnumProperty('interaction', "Interaction",
+object_properties = OrderedDict([
+                     ('name'       , StkProperty('name', "Name", "")),
+                     ('interaction', StkEnumProperty('interaction', "Interaction",
                                          {'ghost'  : StkEnumChoice("Ghost", {}),
                                           'static' : StkEnumChoice("Static (wont move)", {}),
                                           'move'   : StkEnumChoice("Movable by player",
@@ -224,8 +245,8 @@ object_properties = {'name'        : StkProperty('name', "Name", ""),
                                                           'sphere'    : StkEnumChoice("Sphere", {})
                                                          }, default='box')
                                               })
-                                         }, 'static')
-                    }
+                                         }, 'static'))
+                    ])
 
 # The 'type' property
 type = StkEnumProperty('type', "Type",
@@ -267,15 +288,23 @@ type = StkEnumProperty('type', "Type",
                                                   'diffuse'  : StkColorProperty('diffuse', "Diffuse Color"),
                                                   'specular' : StkColorProperty('specular', "Specular Color")
                                                  }),
-                        'water'            : StkEnumChoice('Water',
-                                                 {'name'     : StkProperty(id='name', name="Name", default=""),
-                                                  'height'   : StkFloatProperty('height', "Waves Height", 1.0),
-                                                  'speed'    : StkFloatProperty('speed', "Waves Speed", 200.0),
-                                                  'length'   : StkFloatProperty('length', "Waves Length", 10.0)
-                                                 })
+                        'water'            : StkEnumChoice('Water', OrderedDict([
+                                                 ('name'  , StkProperty(id='name', name="Name", default="")),
+                                                 ('height', StkFloatProperty('height', "Waves Height", 1.0)),
+                                                 ('speed' , StkFloatProperty('speed', "Waves Speed", 200.0)),
+                                                 ('length', StkFloatProperty('length', "Waves Length", 10.0))
+                                                 ]))
                        }, '')
 
-STK_PER_OBJECT_PROPERTIES = {'type' : type}
+
+STK_PER_OBJECT_PROPERTIES = OrderedDict([
+                            ('type'               , type),
+                            ('enable_anim_texture', StkBoolProperty(id='enable_anim_texture', name='Use animated Texture', default="false",
+                                 subproperties={'anim_texture' : StkProperty(id='anim_texture', name='Texture to animate', default=""),
+                                                'anim_dx'      : StkFloatProperty(id='anim_dx', name='Animation X Speed', default=0.0),
+                                                'anim_dy'      : StkFloatProperty(id='anim_dy', name='Animation Y Speed', default=0.0)
+                                                }))
+                            ])
 
 # ==== OTHER OPERATORS ====
 
@@ -317,7 +346,12 @@ class PanelBase:
                      if state == "true":
                          icon = 'CHECKBOX_HLT'
                  row.operator("screen.stk_toggle_bool_"+id, text="                ", icon=icon, emboss=False)
-            
+                 
+                 if state == "true":
+                     if len(curr.subproperties) > 0:
+                         box = layout.box()
+                         self.recursivelyAddProperties(curr.subproperties, box, obj)
+                 
             elif isinstance(curr, StkColorProperty):
                 if curr.id in obj:
                     row.prop(obj, '["' + curr.id + '"]', text="")
@@ -358,36 +392,7 @@ class SuperTuxKartObjectPanel(bpy.types.Panel, PanelBase):
 
 
         self.recursivelyAddProperties(STK_PER_OBJECT_PROPERTIES, layout, obj)
-            
         
-        # ==== Anim Texture group ====
-        box = layout.box()
-        
-        row = box.row()
-        row.label("Animated Texture")
-        
-        row = box.row()
-        row.operator("screen.stk_set_animtex", text="Enable Animated Texture")
- 
-        if "anim_texture" in obj:
-            try:
-                row = box.row()
-                row.prop(obj, '["anim_texture"]', text="Animated Texture")
-            except:
-                pass
-        if "anim_dx" in obj:
-            try:
-                row = box.row()
-                row.prop(obj, '["anim_dx"]', text="X Speed")
-            except:
-                pass
-        if "anim_dy" in obj:
-            try:
-                row = box.row()
-                row.prop(obj, '["anim_dy"]', text="Y Speed")
-            except:
-                pass
-
 
 def register():
     bpy.utils.register_module(__name__)
