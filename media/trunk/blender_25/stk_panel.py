@@ -298,12 +298,8 @@ class STK_TypeSetAnimTex(bpy.types.Operator):
         return {'FINISHED'}
 
 
-# ==== PANEL ====
-class OBJECT_PT_hello(bpy.types.Panel):
-    bl_label = "SuperTuxKart Properties"
-    bl_space_type = "PROPERTIES"
-    bl_region_type = "WINDOW"
-    bl_context = "object"
+# ==== PANEL BASE ====
+class PanelBase:
     
     def recursivelyAddProperties(self, properties, layout, obj):
         
@@ -347,7 +343,14 @@ class OBJECT_PT_hello(bpy.types.Panel):
                 # String or int or float property (Blender chooses the correct widget from the type of the ID-property)
                 if curr.id in obj:
                     row.prop(obj, '["' + curr.id + '"]', text="")
-                
+
+# ==== OBJECT PANEL ====
+class SuperTuxKartObjectPanel(bpy.types.Panel, PanelBase):
+    bl_label = "SuperTuxKart Properties"
+    bl_space_type = "PROPERTIES"
+    bl_region_type = "WINDOW"
+    bl_context = "object"
+            
     def draw(self, context):
         layout = self.layout
  
