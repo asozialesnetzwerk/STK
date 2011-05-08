@@ -51,6 +51,7 @@ def createProperties(object, props):
     for p in props.keys():
         
         if not p in object:
+            
             # create property by setting default  value
             v = props[p].default
             object[p] = v
@@ -95,7 +96,6 @@ class StkEnumProperty(StkProperty):
             def execute(self, context):
                 
                 # Set the property
-                
                 object = getObject(context, self.m_context_type)
                 if object is None:
                     return
@@ -105,8 +105,10 @@ class StkEnumProperty(StkProperty):
                 # If sub-properties are needed, create them
                 if self.value in self.m_values:
                     createProperties(object, self.m_values[self.value].subproperties)
-                
+                    
                 return {'FINISHED'}
+            
+        bpy.utils.register_class(STK_SetComboValue)
 
 #! A floating-point property
 class StkFloatProperty(StkProperty):
@@ -185,6 +187,8 @@ class StkBoolProperty(StkProperty):
                     self.createProperties(object, self.m_super_self.subproperties)
                 
                 return {'FINISHED'}
+        
+        bpy.utils.register_class(STK_ToggleBoolValue)
 
 #! A color property
 class StkColorProperty(StkProperty):
@@ -260,6 +264,8 @@ class StkColorProperty(StkProperty):
                 
                 object[self.property_id] = "%i %i %i" % (self.temp_color[0]*255, self.temp_color[1]*255, self.temp_color[2]*255)
                 return {'FINISHED'}
+            
+        bpy.utils.register_class(Apply_Color_Operator)
 
 
 # Properties when the "type" property is an end-camera
