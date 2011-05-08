@@ -92,7 +92,7 @@ class StkEnumProperty(StkProperty):
             m_items_val = values_for_blender
             m_values = values
             m_context_type = contextLevel
-                            
+            
             def execute(self, context):
                 
                 # Set the property
@@ -110,6 +110,59 @@ class StkEnumProperty(StkProperty):
             
         bpy.utils.register_class(STK_SetComboValue)
 
+#! A combinable enum property
+class StkCombinableEnumProperty(StkProperty):
+    
+    #! @param name   User-visible name for this property
+    #! @param values A dictionnary of type { 'value' : StkEnumChoice(...) }
+    #! @note         The first value will be used by default
+    def __init__(self, id, name, values, contextLevel, default):
+        super(StkCombinableEnumProperty, self).__init__(id, name, default)
+        self.values = values
+        
+        default_value = default
+        
+        values_for_blender = []
+        for curr_val in values.keys():
+            curr_obj = values[curr_val]
+            values_for_blender.append( curr_val )
+        
+        for curr in values_for_blender:
+            # Create operator for this combo
+            class STK_SetEnumComboValue(bpy.types.Operator):
+            
+                bl_idname = ("screen.stk_set_"+id+"_"+curr)
+                bl_label  = ("SuperTuxKart set "+id+" = " + curr)
+                
+                m_property_id = id
+                m_items_val = values_for_blender
+                m_values = values
+                m_context_type = contextLevel
+                m_curr = curr
+                
+                def execute(self, context):
+                    
+                    # Set the property
+                    object = getObject(context, self.m_context_type)
+                    if object is None:
+                        return
+                    
+                    if self.m_property_id not in object:
+                        object[self.m_property_id] = ""
+                    
+                    if self.m_curr in object[self.m_property_id]:
+                        # Remove selected value
+                        l = object[self.m_property_id].split()
+                        l.remove( self.m_curr )
+                        object[self.m_property_id] = " ".join(l)
+                    else:
+                        # Add selected value
+                        object[self.m_property_id] = object[self.m_property_id] + " " + self.m_curr
+                    
+                    return {'FINISHED'}
+                
+            bpy.utils.register_class(STK_SetEnumComboValue)
+    
 #! A floating-point property
 class StkFloatProperty(StkProperty):
     
@@ -421,11 +474,10 @@ SLOWDOWN_PROPERTIES = {
         }
 
 PARTICLE_PROPERTIES = {
-        'particle_base'      : StkProperty( id='particle_base',      name="Particles file",        default="smoke.xml"),
-        'particle_condition' : StkProperty( id='particle_condition', name="Use particles when...", default="skid")
+        'particle_base'      :               StkProperty( id='particle_base',      name="Particles file",        default="smoke.xml"),
+        'particle_condition' : StkCombinableEnumProperty( id='particle_condition', name="Use particles when...", default="skid",
+                    contextLevel=CONTEXT_MATERIAL, values={'skid' : StkEnumChoice('Skid',{}), 'drive' : StkEnumChoice('Drive',{})})
         }
-
-# TODO: condition = skid / drive / skid drive
 
 long_names = ['zipper_max_speed_increase', "Zipper max speed increase", 'zipper_fade_out_time', "Zipper fade out time"]
 
@@ -502,6 +554,17 @@ class PanelBase:
                     row.prop(obj, '["' + curr.id + '"]', text="")
                     row.operator("screen.apply_color_"+curr.id, text="", icon='COLOR')
             
+            elif isinstance(curr, StkCombinableEnumProperty):
+                
+                if curr.id in obj:
+                    curr_val = obj[curr.id]
+                    
+                    for value_id in curr.values:
+                        icon = 'CHECKBOX_DEHLT'
+                        if value_id in curr_val:
+                            icon = 'CHECKBOX_HLT'
+                        row.operator("screen.stk_set_"+id+"_"+value_id, text=curr.values[value_id].name, icon=icon)
+                
             elif isinstance(curr, StkEnumProperty):
                 if id in obj:
                     curr_value = obj[id]
