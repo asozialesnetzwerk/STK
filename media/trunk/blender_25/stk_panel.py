@@ -4,7 +4,20 @@ import getpass
 
 CONTEXT_OBJECT = 0
 CONTEXT_SCENE  = 1
-CONTEXT_IMAGE  = 2
+CONTEXT_MATERIAL  = 2
+
+def getObject(context, contextLevel):
+    if contextLevel == CONTEXT_OBJECT:
+        return context.object
+    if contextLevel == CONTEXT_SCENE:
+        return context.scene
+    if contextLevel == CONTEXT_MATERIAL:
+        if 'selected_image' in context.scene:
+            selected_image = context.scene['selected_image']
+            if selected_image in bpy.data.images:
+                return bpy.data.images[selected_image]
+    
+    return None
 
 # ==== TYPE OPERATORS ====
 class STK_TypeUnset(bpy.types.Operator):
@@ -33,6 +46,18 @@ class StkProperty:
         self.id = id
         self.default = default
 
+
+def createProperties(object, props):
+    for p in props.keys():
+        
+        if not p in object:
+            # create property by setting default  value
+            v = props[p].default
+            object[p] = v
+            
+            if isinstance(props[p], StkEnumProperty):
+                if v in props[p].values:
+                    createProperties(object, props[p].values[v].subproperties)
 
 #! An enum property
 class StkEnumProperty(StkProperty):
@@ -66,35 +91,20 @@ class StkEnumProperty(StkProperty):
             m_items_val = values_for_blender
             m_values = values
             m_context_type = contextLevel
-            
-            def createProperties(self, object, props):
-                for p in props.keys():
-                    
-                    if not p in object:
-                        # create property by setting default  value
-                        v = props[p].default
-                        object[p] = v
-                        
-                        if isinstance(props[p], StkEnumProperty):
-                            if v in props[p].values:
-                                self.createProperties(object, props[p].values[v].subproperties)
                             
             def execute(self, context):
                 
                 # Set the property
                 
-                if self.m_context_type == CONTEXT_OBJECT:
-                    object = context.object
-                elif self.m_context_type == CONTEXT_SCENE:
-                    object = context.scene
-                else:
+                object = getObject(context, self.m_context_type)
+                if object is None:
                     return
                 
                 object[self.m_property_id] = self.value
                 
                 # If sub-properties are needed, create them
                 if self.value in self.m_values:
-                    self.createProperties(object, self.m_values[self.value].subproperties)
+                    createProperties(object, self.m_values[self.value].subproperties)
                 
                 return {'FINISHED'}
 
@@ -154,11 +164,8 @@ class StkBoolProperty(StkProperty):
                 
                 # Set the property
                 
-                if self.m_context_level == CONTEXT_OBJECT:
-                    object = context.object
-                elif self.m_context_level == CONTEXT_SCENE:
-                    object = context.scene
-                else:
+                object = getObject(context, self.m_context_level)
+                if object is None:
                     return
                 
                 curr_val = False
@@ -212,11 +219,9 @@ class StkColorProperty(StkProperty):
                 
                 currcol = [1.0, 1.0, 1.0]
                 try:
-                    if self.m_context_level == CONTEXT_OBJECT:
-                        object = context.object
-                    elif self.m_context_level == CONTEXT_SCENE:
-                        object = context.scene
-                    else:
+                    
+                    object = getObject(context, self.m_context_level)
+                    if object is None:
                         return
                     
                     currcol = list(map(eval, object[self.property_id].split()))
@@ -249,11 +254,8 @@ class StkColorProperty(StkProperty):
                
             def execute(self, context):
                 
-                if self.m_context_level == CONTEXT_OBJECT:
-                    object = context.object
-                elif self.m_context_level == CONTEXT_SCENE:
-                    object = context.scene
-                else:
+                object = getObject(context, self.m_context_level)
+                if object is None:
                     return
                 
                 object[self.property_id] = "%i %i %i" % (self.temp_color[0]*255, self.temp_color[1]*255, self.temp_color[2]*255)
@@ -399,7 +401,66 @@ STK_TRACK_WIDE_PROPERTIES = OrderedDict([
 TRACK = {'is_stk_track' : StkBoolProperty(id='is_stk_track', name='Is a SuperTuxKart track', default='false', contextLevel=CONTEXT_SCENE,
                                          subproperties=STK_TRACK_WIDE_PROPERTIES)}
 
+COMPOSITING_VALUES = {'none'     : StkEnumChoice("None", {}),
+                      'blend'    : StkEnumChoice("Alpha Blend", {}),
+                      'test'     : StkEnumChoice("Alpha Test", {}),
+                      'additive' : StkEnumChoice("Additive Blending", {})
+                     }
 
+SLOWDOWN_PROPERTIES = {
+        'slowdown_time' : StkFloatProperty( id="slowdown_time", name="Slowdown Time (seconds)",  default=1.0 ),
+        'max_speed'     : StkFloatProperty( id="max_speed",     name="Maximum Speed (fraction)", default=1.0 )
+        }
+
+PARTICLE_PROPERTIES = {
+        'particle_base'      : StkProperty( id='particle_base',      name="Particles file",        default="smoke.xml"),
+        'particle_condition' : StkProperty( id='particle_condition', name="Use particles when...", default="skid")
+        }
+
+# TODO: condition = skid / drive / skid drive
+
+long_names = ['zipper_max_speed_increase', "Zipper max speed increase", 'zipper_fade_out_time', "Zipper fade out time"]
+
+ZIPPER_PROPERTIES = {
+       'zipper_duration'   : StkFloatProperty( id='zipper_duration',   name="Zipper duration",   default=3.5),
+       long_names[0]       : StkFloatProperty( id=long_names[0],       name=long_names[1],       default=15.0),
+       long_names[2]       : StkFloatProperty( id=long_names[2],       name=long_names[3],       default=3.0),
+       'zipper_speed_gain' : StkFloatProperty( id='zipper_speed_gain', name="Zipper speed gain", default=4.5)
+       }
+
+# TODO: only enable rolloff of positional is checked
+
+SFX_PROPERTIES = OrderedDict([
+       ('sfx_filename'  ,      StkProperty( id='sfx_filename',   name="Sound File",               default="some_file.ogg")),
+       ('sfx_min_speed' , StkFloatProperty( id='sfx_min_speed',  name="Minimum kart speed",       default=0.0)),
+       ('sfx_max_speed' , StkFloatProperty( id='sfx_max_speed',  name="Maximum kart speed",       default=0.0)),
+       ('sfx_min_pitch' , StkFloatProperty( id='sfx_min_pitch',  name="Sound pitch at min speed", default=0.8)),
+       ('sfx_max_pitch' , StkFloatProperty( id='sfx_max_pitch',  name="Sound pitch at max speed", default=1.2)),
+       ('sfx_positional',  StkBoolProperty( id='sfx_positional', name="Positional sound effect",  default="true", contextLevel=CONTEXT_MATERIAL)),
+       ('sfx_rolloff'   , StkFloatProperty( id='sfx_rolloff',    name="Rolloff rate",             default=0.1))
+       ])
+
+STK_MATERIAL_PROPERTIES = OrderedDict([
+       ('backface_culling', StkBoolProperty( id='backface_culling', name="Backface Culling",           default="true",  contextLevel=CONTEXT_MATERIAL)),
+       ('compositing',      StkEnumProperty( id='compositing',      name="Compsiting Type",            default='none',  contextLevel=CONTEXT_MATERIAL, values=COMPOSITING_VALUES)),
+       ('clampu',           StkBoolProperty( id='clampu',           name="Clamp texture horizontally", default="false", contextLevel=CONTEXT_MATERIAL)),
+       ('clampv',           StkBoolProperty( id='clampv',           name="Clamp texture vertically",   default="false", contextLevel=CONTEXT_MATERIAL)),
+       ('disable_z_write',  StkBoolProperty( id='disable_z_write',  name="Disable writing to Z-buffer",default="false", contextLevel=CONTEXT_MATERIAL)),
+       ('use_slowdown',     StkBoolProperty( id='use_slowdown',     name="Enable Slowdown",            default="false", contextLevel=CONTEXT_MATERIAL, subproperties=SLOWDOWN_PROPERTIES)),
+       ('friction',        StkFloatProperty( id='friction',         name="Tires adhesion",             default=50000)),
+       ('ignore',           StkBoolProperty( id='ignore',           name="Ignore (ghost material)",    default="false", contextLevel=CONTEXT_MATERIAL)),
+       ('light',            StkBoolProperty( id='light',            name="Affected by lights",         default="true",  contextLevel=CONTEXT_MATERIAL)),
+       ('particle',         StkBoolProperty( id='particle',         name="Particle effect",            default="false", contextLevel=CONTEXT_MATERIAL, subproperties=PARTICLE_PROPERTIES)),
+       ('reset',            StkBoolProperty( id='reset',            name="Reset kart",                 default="false", contextLevel=CONTEXT_MATERIAL)),
+       ('use_sfx',          StkBoolProperty( id='use_sfx',          name="Play sound effect",          default="false", contextLevel=CONTEXT_MATERIAL, subproperties=SFX_PROPERTIES)),
+       ('sphere',           StkBoolProperty( id='sphere',           name="Sphere mapping",             default="false", contextLevel=CONTEXT_MATERIAL)),
+       ('zipper',           StkBoolProperty( id='zipper',           name="Enable Zipper (speed boost)",default="false", contextLevel=CONTEXT_MATERIAL, subproperties=ZIPPER_PROPERTIES))
+       ])
+
+#     "falling-effect":[type_BOOLEAN, "no"], \
+#    "below-surface":[type_BOOLEAN, "no"], \
+#    "graphical_effect":[type_PICKLIST, "none"], \
+    
 # ==== PANEL BASE ====
 class PanelBase:
     
@@ -492,9 +553,8 @@ import os
 values_for_blender = [ ("None", "None", "None") ]
 for curr in bpy.data.images:
     filename = os.path.basename(curr.filepath)
-    values_for_blender.append( (filename, filename, filename) )
+    values_for_blender.append( (curr.name, filename, filename) )
 
-selected_image = ""
 
 class STK_SelectImage(bpy.types.Operator):
     bl_idname = ("screen.stk_select_image")
@@ -507,7 +567,11 @@ class STK_SelectImage(bpy.types.Operator):
         #obj = context.object
         #obj["type"] = ""
         global selected_image
-        selected_image = self.value
+        context.scene['selected_image'] = self.value
+        
+        if self.value in bpy.data.images:
+            createProperties(bpy.data.images[self.value], STK_MATERIAL_PROPERTIES)
+        
         return {'FINISHED'}
             
 class SuperTuxKartImagePanel(bpy.types.Panel, PanelBase):
@@ -520,20 +584,17 @@ class SuperTuxKartImagePanel(bpy.types.Panel, PanelBase):
     
     def draw(self, context):
         layout = self.layout
-        
-        #obj = context.image
-        
         row = layout.row()
         
         label = "Select Image"
-        if len(selected_image) > 0:
-            label = selected_image
+        if 'selected_image' in context.scene:
+            label = context.scene['selected_image']
         
         row.operator_menu_enum("screen.stk_select_image", property="value", text=label)
         
-        
-        #if obj is not None:
-        #    self.recursivelyAddProperties(TRACK, layout, obj)   
+        obj = getObject(context, CONTEXT_MATERIAL)
+        if obj is not None:
+            self.recursivelyAddProperties(STK_MATERIAL_PROPERTIES, layout, obj)   
             
 def register():
     bpy.utils.register_module(__name__)
