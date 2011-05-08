@@ -253,121 +253,142 @@ camera_properties = {'start' : StkFloatProperty(id='start', name="Start Sphere R
 
 # Property when type="object"
 object_properties = OrderedDict([
-                     ('name'       , StkProperty('name', "Name", "")),
-                     ('interaction', StkEnumProperty('interaction', "Interaction",
-                                         {'ghost'  : StkEnumChoice("Ghost", {}),
-                                          'static' : StkEnumChoice("Static (wont move)", {}),
-                                          'move'   : StkEnumChoice("Movable by player",
-                                              {'mass'  : StkFloatProperty(id='mass', name="Mass (kg)", default=100.0),
-                                               'shape' : StkEnumProperty(id='shape', name="Shape", objectLevel=True,
-                                                  values={'coneX'     : StkEnumChoice("Cone (X)", {}),
-                                                          'coneY'     : StkEnumChoice("Cone (Y)", {}),
-                                                          'coneZ'     : StkEnumChoice("Cone (Z)", {}),
-                                                          'cylinderX' : StkEnumChoice("Cylinder (X)", {}),
-                                                          'cylinderY' : StkEnumChoice("Cylinder (Y)", {}),
-                                                          'cylinderZ' : StkEnumChoice("Cylinder (Z)", {}),
-                                                          'box'       : StkEnumChoice("Box", {}),
-                                                          'sphere'    : StkEnumChoice("Sphere", {})
-                                                         }, default='box')
-                                              })
-                                         }, objectLevel=True, default='static'))
-                    ])
+         ('name'       , StkProperty('name', "Name", "")),
+         ('interaction', StkEnumProperty('interaction', "Interaction",
+                             {'ghost'  : StkEnumChoice("Ghost", {}),
+                              'static' : StkEnumChoice("Static (wont move)", {}),
+                              'move'   : StkEnumChoice("Movable by player",
+                                  {'mass'  : StkFloatProperty(id='mass', name="Mass (kg)", default=100.0),
+                                   'shape' : StkEnumProperty(id='shape', name="Shape", objectLevel=True,
+                                      values={'coneX'     : StkEnumChoice("Cone (X)", {}),
+                                              'coneY'     : StkEnumChoice("Cone (Y)", {}),
+                                              'coneZ'     : StkEnumChoice("Cone (Z)", {}),
+                                              'cylinderX' : StkEnumChoice("Cylinder (X)", {}),
+                                              'cylinderY' : StkEnumChoice("Cylinder (Y)", {}),
+                                              'cylinderZ' : StkEnumChoice("Cylinder (Z)", {}),
+                                              'box'       : StkEnumChoice("Box", {}),
+                                              'sphere'    : StkEnumChoice("Sphere", {})
+                                             }, default='box')
+                                  })
+                             }, objectLevel=True, default='static'))
+        ])
 
 # The 'type' property
 type = StkEnumProperty('type', "Type",
-                       {''                 : StkEnumChoice('None', {}),
-                        'banana'           : StkEnumChoice('Banana', {}),
-                        'billboard'        : StkEnumChoice('Billboard', {}),
-                        'check'            : StkEnumChoice('Checkline',
-                                                 {'name'     : StkProperty(id='name', name="Name", default=""),
-                                                  'activate' : StkProperty(id='activate', name="Activate", default="")
-                                                  #'toggle'  : Stkproperty("Toggle"),
-                                                  #'inner_radius' : StkFloatProperty("Color radius"),
-                                                  #'color'        : 
-                                                 }),
-                        'driveline'        : StkEnumChoice('Driveline (additional)',
-                                                 {'invisible' : StkBoolProperty(id='invisible', name="Invisible",      default="false",
-                                                                                objectLevel=True),
-                                                  'ai_ignore' : StkBoolProperty(id='ai_ignore', name="Ignored by AIs", default="false",
-                                                                                objectLevel=True)
-                                                 }),
-                        'maindriveline'    : StkEnumChoice('Driveline (main)',
-                                                 {'activate' : StkProperty(id='activate', name="Activate", default="")
-                                                 }),
-                        'fixed'            : StkEnumChoice('End Camera (Fixed)', camera_properties),
-                        'ahead'            : StkEnumChoice('End Camera (Look Ahead)', camera_properties),
-                        'ignore'           : StkEnumChoice('Ignore', {}),
-                        'item'             : StkEnumChoice('Item (Gift Box)', {}),
-                        'lap'              : StkEnumChoice('Lap line',
-                                                 {'activate' : StkProperty(id='activate', name="Activate", default="")
-                                                  #'toggle'  : Stkproperty("Toggle"),
-                                                  #'inner_radius' : StkFloatProperty("Color radius"),
-                                                  #'color'        : 
-                                                 }),
-                        'nitro_big'        : StkEnumChoice('Nitro (big)', {}),
-                        'nitro_small'      : StkEnumChoice('Nitro (small)', {}),
-                        'object'           : StkEnumChoice('Object', object_properties),
-                        'particle_emitter' : StkEnumChoice('Particle Emitter',
-                                                 {'kind' : StkProperty(id='kind', name="Particle File", default="smoke.xml")
-                                                 }),
-                        'sun'              : StkEnumChoice('Sun',
-                                                 {'ambient'  : StkColorProperty('ambient',  "Ambient Color",  objectLevel=False),
-                                                  'diffuse'  : StkColorProperty('diffuse',  "Diffuse Color",  objectLevel=False),
-                                                  'specular' : StkColorProperty('specular', "Specular Color", objectLevel=False)
-                                                 }),
-                        'water'            : StkEnumChoice('Water', OrderedDict([
-                                                 ('name'  , StkProperty(id='name', name="Name", default="")),
-                                                 ('height', StkFloatProperty('height', "Waves Height", 1.0)),
-                                                 ('speed' , StkFloatProperty('speed', "Waves Speed", 200.0)),
-                                                 ('length', StkFloatProperty('length', "Waves Length", 10.0))
-                                                 ]))
-                       }, objectLevel=True, default='')
+       {''                 : StkEnumChoice('None', {}),
+        'banana'           : StkEnumChoice('Banana', {}),
+        'billboard'        : StkEnumChoice('Billboard', {}),
+        'check'            : StkEnumChoice('Checkline',
+                                 {'name'     : StkProperty(id='name', name="Name", default=""),
+                                  'activate' : StkProperty(id='activate', name="Activate", default="")
+                                  #'toggle'  : Stkproperty("Toggle"),
+                                  #'inner_radius' : StkFloatProperty("Color radius"),
+                                  #'color'        : 
+                                 }),
+        'driveline'        : StkEnumChoice('Driveline (additional)',
+                                 {'invisible' : StkBoolProperty(id='invisible', name="Invisible",      default="false",
+                                                                objectLevel=True),
+                                  'ai_ignore' : StkBoolProperty(id='ai_ignore', name="Ignored by AIs", default="false",
+                                                                objectLevel=True)
+                                 }),
+        'maindriveline'    : StkEnumChoice('Driveline (main)',
+                                 {'activate' : StkProperty(id='activate', name="Activate", default="")
+                                 }),
+        'fixed'            : StkEnumChoice('End Camera (Fixed)', camera_properties),
+        'ahead'            : StkEnumChoice('End Camera (Look Ahead)', camera_properties),
+        'ignore'           : StkEnumChoice('Ignore', {}),
+        'item'             : StkEnumChoice('Item (Gift Box)', {}),
+        'lap'              : StkEnumChoice('Lap line',
+                                 {'activate' : StkProperty(id='activate', name="Activate", default="")
+                                  #'toggle'  : Stkproperty("Toggle"),
+                                  #'inner_radius' : StkFloatProperty("Color radius"),
+                                  #'color'        : 
+                                 }),
+        'nitro_big'        : StkEnumChoice('Nitro (big)', {}),
+        'nitro_small'      : StkEnumChoice('Nitro (small)', {}),
+        'object'           : StkEnumChoice('Object', object_properties),
+        'particle_emitter' : StkEnumChoice('Particle Emitter',
+                                 {'kind' : StkProperty(id='kind', name="Particle File", default="smoke.xml")
+                                 }),
+        'sun'              : StkEnumChoice('Sun',
+                                 {'ambient'  : StkColorProperty('ambient',  "Ambient Color",  objectLevel=False),
+                                  'diffuse'  : StkColorProperty('diffuse',  "Diffuse Color",  objectLevel=False),
+                                  'specular' : StkColorProperty('specular', "Specular Color", objectLevel=False)
+                                 }),
+        'water'            : StkEnumChoice('Water', OrderedDict([
+                                 ('name'  , StkProperty(id='name', name="Name", default="")),
+                                 ('height', StkFloatProperty('height', "Waves Height", 1.0)),
+                                 ('speed' , StkFloatProperty('speed', "Waves Speed", 200.0)),
+                                 ('length', StkFloatProperty('length', "Waves Length", 10.0))
+                                 ]))
+       }, objectLevel=True, default='')
 
 
 STK_PER_OBJECT_PROPERTIES = OrderedDict([
-        ('type'               , type),
-        ('enable_anim_texture', StkBoolProperty(id='enable_anim_texture', name='Use animated Texture', default="false", objectLevel=True,
+       ('type'               , type),
+       ('enable_anim_texture', StkBoolProperty(id='enable_anim_texture', name='Use animated Texture', default="false", objectLevel=True,
              subproperties={'anim_texture' : StkProperty(id='anim_texture', name='Texture to animate', default=""),
                             'anim_dx'      : StkFloatProperty(id='anim_dx', name='Animation X Speed', default=0.0),
                             'anim_dy'      : StkFloatProperty(id='anim_dy', name='Animation Y Speed', default=0.0)
                             }))
         ])
 
-sky_types = { 'box'    : StkEnumChoice('Box', {}),
-              'dome'   : StkEnumChoice('Dome', {}),
-              'simple' : StkEnumChoice('Plain color', {}) }
+SKY_TYPES = {
+        'box'    : StkEnumChoice('Box', OrderedDict([
+                     ('sky_texture1'       ,      StkProperty(id='sky_texture1',        name='Sky Texture 1',         default="")),
+                     ('sky_texture2'       ,      StkProperty(id='sky_texture2',        name='Sky Texture 2',         default="")),
+                     ('sky_texture3'       ,      StkProperty(id='sky_texture3',        name='Sky Texture 3',         default="")),
+                     ('sky_texture4'       ,      StkProperty(id='sky_texture4',        name='Sky Texture 4',         default="")),
+                     ('sky_texture5'       ,      StkProperty(id='sky_texture5',        name='Sky Texture 5',         default="")),
+                     ('sky_texture6'       ,      StkProperty(id='sky_texture6',        name='Sky Texture 6',         default=""))])),
+        'dome'   : StkEnumChoice('Dome', OrderedDict([
+                     ('sky_texture'        ,      StkProperty(id='sky_texture',         name='Sky Texture',           default="")),
+                     ('sky_horizontal'     ,   StkIntProperty(id='sky_horizontal',      name='Horizontal Definition', default=20)),
+                     ('sky_vertical'       ,   StkIntProperty(id='sky_vertical',        name='Vertical Definition',   default=20)),
+                     ('sky_texture_percent', StkFloatProperty(id='sky_texture_percent', name='Sky Texture Percent',   default=1.0))])),
+        'simple' : StkEnumChoice('Plain color',
+                     {'sky_color' : StkColorProperty(id="sky_color", name="Sky Color", default="77 104 255", objectLevel=False)})
+        }
 
+
+FOG_PROPERTIES = {'fog_color' : StkColorProperty(id='fog_color', name='Fog Color', default="0 0 0", objectLevel=False),
+                  'fog_start' : StkFloatProperty(id='fog_start', name='Fog Start', default=50.0),
+                  'fog_end'   : StkFloatProperty(id='fog_end',   name='Fog End',   default=300.0)
+                 }
+
+WEATHER = {'none' : StkEnumChoice("None",{}),
+           'rain' : StkEnumChoice("Rain",{}),
+           'snow' : StkEnumChoice("Snow",{})
+          }
+
+# these names are just waaaay too long to fit in the table below
+k  = ['start-karts-per-row', 'start-forwards-distance', 'start-sidewards-distance', 'start-upwards-distance']
+kk = ['Karts per row on start', 'Start Forwards Distance', 'Start Sidewards Distance', 'Start upwards distance']
 
 STK_TRACK_WIDE_PROPERTIES = OrderedDict([
-        ('name',                     StkProperty(id='name',       name='Name',       default='My New Track')),
-        ('groups',                   StkProperty(id='groups',     name='Groups',     default='standard')),
-        ('designer',                 StkProperty(id='designer',   name='Designer',   default=getpass.getuser())),
-        ('music',                    StkProperty(id='music',      name='Music',      default='kart_grand_prix.music')),
-        ('screenshot',               StkProperty(id='screenshot', name='Screenshot', default='screenshot.jpg')),
-        ('sky_type',                 StkEnumProperty(id='sky_type', name='Sky Type', values=sky_types, default='dome', objectLevel=False)),
-        ('arena',                    StkBoolProperty(id='arena', name='Arena', default="false", objectLevel=False)),
-        ('fog',                      StkBoolProperty(id='fog',    name='Fog', default='false', objectLevel=False,
-                                         subproperties={'fog_color' : StkColorProperty(id='fog_color', name='Fog Color', default="0 0 0",
-                                                                                       objectLevel=False)
-                                                        })),
-        ('ambient_color',            StkColorProperty(id='ambient_color',            name="Ambient Color",            default="255 255 255",
-                                                      objectLevel=False)),
-        ('camera_far',               StkFloatProperty(id='camera_far',               name='Camera Far Clip',          default=1000.0)),
-        ('start-karts-per-row',      StkIntProperty(id='start-karts-per-row',        name="Karts per row on start",   default=2)),
-        ('start-forwards-distance',  StkFloatProperty(id='start-forwards-distance',  name='Start Forwards Distance',  default=1.1)),
-        ('start-sidewards-distance', StkFloatProperty(id='start-sidewards-distance', name='Start Sidewards Distance', default=1.1)),
-        ('start-upwards-distance',   StkFloatProperty(id='start-upwards-distance',   name='Start upwards distance',   default=1.1)),
-        ('weather',                  StkProperty(id='weather', name='Weather', default=''))
+        ('name',               StkProperty( id='name',          name='Name',            default='My New Track')),
+        ('groups',             StkProperty( id='groups',        name='Groups',          default='standard')),
+        ('designer',           StkProperty( id='designer',      name='Designer',        default=getpass.getuser())),
+        ('music',              StkProperty( id='music',         name='Music',           default='kart_grand_prix.music')),
+        ('screenshot',         StkProperty( id='screenshot',    name='Screenshot',      default='screenshot.jpg')),
+        ('sky_type',       StkEnumProperty( id='sky_type',      name='Sky Type',        default='dome',        objectLevel=False,  values=SKY_TYPES)),
+        ('arena',          StkBoolProperty( id='arena',         name='Battle Arena',    default="false",       objectLevel=False)),
+        ('fog',            StkBoolProperty( id='fog',           name='Fog',             default='false',       objectLevel=False,  subproperties=FOG_PROPERTIES)),
+        ('ambient_color', StkColorProperty( id='ambient_color', name="Ambient Color",   default="255 255 255", objectLevel=False)),
+        ('camera_far',    StkFloatProperty( id='camera_far',    name='Camera Far Clip', default=1000.0)),
+        (k[0],              StkIntProperty( id=k[0],            name=kk[0],             default=2)),
+        (k[1],            StkFloatProperty( id=k[1],            name=kk[1],             default=1.1)),
+        (k[2],            StkFloatProperty( id=k[2],            name=kk[2],             default=1.1)),
+        (k[3],            StkFloatProperty( id=k[3],            name=kk[3],             default=1.1)),
+        ('weather',        StkEnumProperty( id='weather',       name='Weather',         default='none',        objectLevel=False, values=WEATHER))
         ])
 
 TRACK = {'is_stk_track' : StkBoolProperty(id='is_stk_track', name='Is a SuperTuxKart track', default='false', objectLevel=False,
                                          subproperties=STK_TRACK_WIDE_PROPERTIES)}
 
+# TODO
 # weather : rain, snow
-# sky color
-# sky texture
-# sky-horizontal, sky-vertical, sky-texture-percent, sky-sphere-percent
-# fog-color, fog-start, fog-end
+
 
 # ==== PANEL BASE ====
 class PanelBase:
