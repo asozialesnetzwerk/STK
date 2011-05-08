@@ -129,7 +129,6 @@ class StkBoolProperty(StkProperty):
             bl_label  = ("SuperTuxKart toggle "+id)
             
             m_object_level = objectLevel
-            
             m_property_id = id
             m_super_self = super_self
             
@@ -176,7 +175,7 @@ class StkBoolProperty(StkProperty):
 class StkColorProperty(StkProperty):
     
     #! A floating-point property
-    def __init__(self, id, name, default="255 255 255"):
+    def __init__(self, id, name, objectLevel, default="255 255 255"):
         super(StkColorProperty, self).__init__(id, name, default)
 
         #! Color picker operator (TODO: this operator is mostly for backwards compatibility with our
@@ -187,6 +186,8 @@ class StkColorProperty(StkProperty):
             bl_label = ("Apply Color")
            
             property_id = id
+            
+            m_object_level = objectLevel
            
             temp_color = bpy.props.FloatVectorProperty(
                name= "temp_color",
@@ -202,7 +203,12 @@ class StkColorProperty(StkProperty):
             def invoke(self, context, event):
                 currcol = [1.0, 1.0, 1.0]
                 try:
-                    currcol = list(map(eval, context.object[self.property_id].split()))
+                    if self.m_object_level:
+                        object = context.object
+                    else:
+                        object = context.scene
+                    
+                    currcol = list(map(eval, object[self.property_id].split()))
                     currcol[0] = currcol[0]/255.0
                     currcol[1] = currcol[1]/255.0
                     currcol[2] = currcol[2]/255.0
@@ -231,7 +237,13 @@ class StkColorProperty(StkProperty):
                 row.prop(self, "temp_color", text="Selected Color")
                
             def execute(self, context):
-                context.object[self.property_id] = "%i %i %i" % (self.temp_color[0]*255, self.temp_color[1]*255, self.temp_color[2]*255)
+                
+                if self.m_object_level:
+                    object = context.object
+                else:
+                    object = context.scene
+                
+                object[self.property_id] = "%i %i %i" % (self.temp_color[0]*255, self.temp_color[1]*255, self.temp_color[2]*255)
                 return {'FINISHED'}
 
 
@@ -299,9 +311,9 @@ type = StkEnumProperty('type', "Type",
                                                  {'kind' : StkProperty(id='kind', name="Particle File", default="smoke.xml")
                                                  }),
                         'sun'              : StkEnumChoice('Sun',
-                                                 {'ambient'  : StkColorProperty('ambient', "Ambient Color"),
-                                                  'diffuse'  : StkColorProperty('diffuse', "Diffuse Color"),
-                                                  'specular' : StkColorProperty('specular', "Specular Color")
+                                                 {'ambient'  : StkColorProperty('ambient',  "Ambient Color",  objectLevel=False),
+                                                  'diffuse'  : StkColorProperty('diffuse',  "Diffuse Color",  objectLevel=False),
+                                                  'specular' : StkColorProperty('specular', "Specular Color", objectLevel=False)
                                                  }),
                         'water'            : StkEnumChoice('Water', OrderedDict([
                                                  ('name'  , StkProperty(id='name', name="Name", default="")),
@@ -335,9 +347,11 @@ STK_TRACK_WIDE_PROPERTIES = OrderedDict([
         ('sky_type',                 StkEnumProperty(id='sky_type', name='Sky Type', values=sky_types, default='dome', objectLevel=False)),
         ('arena',                    StkBoolProperty(id='arena', name='Arena', default="false", objectLevel=False)),
         ('fog',                      StkBoolProperty(id='fog',    name='Fog', default='false', objectLevel=False,
-                                         subproperties={'fog_color' : StkColorProperty(id='fog_color', name='Fog Color', default="0 0 0")
+                                         subproperties={'fog_color' : StkColorProperty(id='fog_color', name='Fog Color', default="0 0 0",
+                                                                                       objectLevel=False)
                                                         })),
-        ('ambient_color',            StkColorProperty(id='ambient_color',            name="Ambient Color",            default="255 255 255")),
+        ('ambient_color',            StkColorProperty(id='ambient_color',            name="Ambient Color",            default="255 255 255",
+                                                      objectLevel=False)),
         ('camera_far',               StkFloatProperty(id='camera_far',               name='Camera Far Clip',          default=1000.0)),
         ('start-karts-per-row',      StkIntProperty(id='start-karts-per-row',        name="Karts per row on start",   default=2)),
         ('start-forwards-distance',  StkFloatProperty(id='start-forwards-distance',  name='Start Forwards Distance',  default=1.1)),
