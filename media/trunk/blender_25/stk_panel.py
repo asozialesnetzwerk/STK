@@ -2,6 +2,10 @@ import bpy
 from collections import OrderedDict
 import getpass
 
+CONTEXT_OBJECT = 0
+CONTEXT_SCENE  = 1
+CONTEXT_IMAGE  = 2
+
 # ==== TYPE OPERATORS ====
 class STK_TypeUnset(bpy.types.Operator):
     bl_idname = ("screen.stk_unset_type")
@@ -36,7 +40,7 @@ class StkEnumProperty(StkProperty):
     #! @param name   User-visible name for this property
     #! @param values A dictionnary of type { 'value' : StkEnumChoice(...) }
     #! @note         The first value will be used by default
-    def __init__(self, id, name, values, objectLevel, default):
+    def __init__(self, id, name, values, contextLevel, default):
         super(StkEnumProperty, self).__init__(id, name, default)
         self.values = values
         
@@ -61,7 +65,7 @@ class StkEnumProperty(StkProperty):
             m_property_id = id
             m_items_val = values_for_blender
             m_values = values
-            m_object_level = objectLevel
+            m_context_type = contextLevel
             
             def createProperties(self, object, props):
                 for p in props.keys():
@@ -79,10 +83,12 @@ class StkEnumProperty(StkProperty):
                 
                 # Set the property
                 
-                if self.m_object_level:
+                if self.m_context_type == CONTEXT_OBJECT:
                     object = context.object
-                else:
+                elif self.m_context_type == CONTEXT_SCENE:
                     object = context.scene
+                else:
+                    return
                 
                 object[self.m_property_id] = self.value
                 
@@ -114,7 +120,7 @@ class StkBoolProperty(StkProperty):
     # (self, id, name, values, default):
     
     #! A floating-point property
-    def __init__(self, id, name, objectLevel, default="false", subproperties={}):
+    def __init__(self, id, name, contextLevel, default="false", subproperties={}):
         super(StkBoolProperty, self).__init__(id, name, default)
         
         self.subproperties = subproperties
@@ -128,7 +134,7 @@ class StkBoolProperty(StkProperty):
             bl_idname = ("screen.stk_toggle_bool_"+id)
             bl_label  = ("SuperTuxKart toggle "+id)
             
-            m_object_level = objectLevel
+            m_context_level = contextLevel
             m_property_id = id
             m_super_self = super_self
             
@@ -148,10 +154,12 @@ class StkBoolProperty(StkProperty):
                 
                 # Set the property
                 
-                if self.m_object_level:
+                if self.m_context_level == CONTEXT_OBJECT:
                     object = context.object
-                else:
+                elif self.m_context_level == CONTEXT_SCENE:
                     object = context.scene
+                else:
+                    return
                 
                 curr_val = False
                 if self.m_property_id in object:
@@ -175,7 +183,7 @@ class StkBoolProperty(StkProperty):
 class StkColorProperty(StkProperty):
     
     #! A floating-point property
-    def __init__(self, id, name, objectLevel, default="255 255 255"):
+    def __init__(self, id, name, contextLevel, default="255 255 255"):
         super(StkColorProperty, self).__init__(id, name, default)
 
         #! Color picker operator (TODO: this operator is mostly for backwards compatibility with our
@@ -187,7 +195,7 @@ class StkColorProperty(StkProperty):
            
             property_id = id
             
-            m_object_level = objectLevel
+            m_context_level = contextLevel
            
             temp_color = bpy.props.FloatVectorProperty(
                name= "temp_color",
@@ -201,12 +209,15 @@ class StkColorProperty(StkProperty):
             )
            
             def invoke(self, context, event):
+                
                 currcol = [1.0, 1.0, 1.0]
                 try:
-                    if self.m_object_level:
+                    if self.m_context_level == CONTEXT_OBJECT:
                         object = context.object
-                    else:
+                    elif self.m_context_level == CONTEXT_SCENE:
                         object = context.scene
+                    else:
+                        return
                     
                     currcol = list(map(eval, object[self.property_id].split()))
                     currcol[0] = currcol[0]/255.0
@@ -238,10 +249,12 @@ class StkColorProperty(StkProperty):
                
             def execute(self, context):
                 
-                if self.m_object_level:
+                if self.m_context_level == CONTEXT_OBJECT:
                     object = context.object
-                else:
+                elif self.m_context_level == CONTEXT_SCENE:
                     object = context.scene
+                else:
+                    return
                 
                 object[self.property_id] = "%i %i %i" % (self.temp_color[0]*255, self.temp_color[1]*255, self.temp_color[2]*255)
                 return {'FINISHED'}
@@ -259,7 +272,7 @@ object_properties = OrderedDict([
                               'static' : StkEnumChoice("Static (wont move)", {}),
                               'move'   : StkEnumChoice("Movable by player",
                                   {'mass'  : StkFloatProperty(id='mass', name="Mass (kg)", default=100.0),
-                                   'shape' : StkEnumProperty(id='shape', name="Shape", objectLevel=True,
+                                   'shape' : StkEnumProperty(id='shape', name="Shape", contextLevel=CONTEXT_OBJECT,
                                       values={'coneX'     : StkEnumChoice("Cone (X)", {}),
                                               'coneY'     : StkEnumChoice("Cone (Y)", {}),
                                               'coneZ'     : StkEnumChoice("Cone (Z)", {}),
@@ -270,7 +283,7 @@ object_properties = OrderedDict([
                                               'sphere'    : StkEnumChoice("Sphere", {})
                                              }, default='box')
                                   })
-                             }, objectLevel=True, default='static'))
+                             }, contextLevel=CONTEXT_OBJECT, default='static'))
         ])
 
 # The 'type' property
@@ -287,9 +300,9 @@ type = StkEnumProperty('type', "Type",
                                  }),
         'driveline'        : StkEnumChoice('Driveline (additional)',
                                  {'invisible' : StkBoolProperty(id='invisible', name="Invisible",      default="false",
-                                                                objectLevel=True),
+                                                                contextLevel=CONTEXT_OBJECT),
                                   'ai_ignore' : StkBoolProperty(id='ai_ignore', name="Ignored by AIs", default="false",
-                                                                objectLevel=True)
+                                                                contextLevel=CONTEXT_OBJECT)
                                  }),
         'maindriveline'    : StkEnumChoice('Driveline (main)',
                                  {'activate' : StkProperty(id='activate', name="Activate", default="")
@@ -311,25 +324,25 @@ type = StkEnumProperty('type', "Type",
                                  {'kind' : StkProperty(id='kind', name="Particle File", default="smoke.xml")
                                  }),
         'sun'              : StkEnumChoice('Sun',
-                                 {'ambient'  : StkColorProperty('ambient',  "Ambient Color",  objectLevel=False),
-                                  'diffuse'  : StkColorProperty('diffuse',  "Diffuse Color",  objectLevel=False),
-                                  'specular' : StkColorProperty('specular', "Specular Color", objectLevel=False)
+                                 {'ambient'  : StkColorProperty('ambient',  "Ambient Color",  contextLevel=CONTEXT_OBJECT),
+                                  'diffuse'  : StkColorProperty('diffuse',  "Diffuse Color",  contextLevel=CONTEXT_OBJECT),
+                                  'specular' : StkColorProperty('specular', "Specular Color", contextLevel=CONTEXT_OBJECT)
                                  }),
         'water'            : StkEnumChoice('Water', OrderedDict([
                                  ('name'  , StkProperty(id='name', name="Name", default="")),
                                  ('height', StkFloatProperty('height', "Waves Height", 1.0)),
-                                 ('speed' , StkFloatProperty('speed', "Waves Speed", 200.0)),
+                                 ('speed' , StkFloatProperty('speed',  "Waves Speed",  200.0)),
                                  ('length', StkFloatProperty('length', "Waves Length", 10.0))
                                  ]))
-       }, objectLevel=True, default='')
+       }, contextLevel=CONTEXT_OBJECT, default='')
 
 
 STK_PER_OBJECT_PROPERTIES = OrderedDict([
        ('type'               , type),
-       ('enable_anim_texture', StkBoolProperty(id='enable_anim_texture', name='Use animated Texture', default="false", objectLevel=True,
+       ('enable_anim_texture', StkBoolProperty(id='enable_anim_texture', name='Use animated Texture',  default="false", contextLevel=CONTEXT_OBJECT,
              subproperties={'anim_texture' : StkProperty(id='anim_texture', name='Texture to animate', default=""),
-                            'anim_dx'      : StkFloatProperty(id='anim_dx', name='Animation X Speed', default=0.0),
-                            'anim_dy'      : StkFloatProperty(id='anim_dy', name='Animation Y Speed', default=0.0)
+                            'anim_dx'      : StkFloatProperty(id='anim_dx', name='Animation X Speed',  default=0.0),
+                            'anim_dy'      : StkFloatProperty(id='anim_dy', name='Animation Y Speed',  default=0.0)
                             }))
         ])
 
@@ -347,11 +360,11 @@ SKY_TYPES = {
                      ('sky_vertical'       ,   StkIntProperty(id='sky_vertical',        name='Vertical Definition',   default=20)),
                      ('sky_texture_percent', StkFloatProperty(id='sky_texture_percent', name='Sky Texture Percent',   default=1.0))])),
         'simple' : StkEnumChoice('Plain color',
-                     {'sky_color' : StkColorProperty(id="sky_color", name="Sky Color", default="77 104 255", objectLevel=False)})
+                     {'sky_color' : StkColorProperty(id="sky_color", name="Sky Color", default="77 104 255", contextLevel=CONTEXT_SCENE)})
         }
 
 
-FOG_PROPERTIES = {'fog_color' : StkColorProperty(id='fog_color', name='Fog Color', default="0 0 0", objectLevel=False),
+FOG_PROPERTIES = {'fog_color' : StkColorProperty(id='fog_color', name='Fog Color', default="0 0 0", contextLevel=CONTEXT_SCENE),
                   'fog_start' : StkFloatProperty(id='fog_start', name='Fog Start', default=50.0),
                   'fog_end'   : StkFloatProperty(id='fog_end',   name='Fog End',   default=300.0)
                  }
@@ -371,23 +384,20 @@ STK_TRACK_WIDE_PROPERTIES = OrderedDict([
         ('designer',           StkProperty( id='designer',      name='Designer',        default=getpass.getuser())),
         ('music',              StkProperty( id='music',         name='Music',           default='kart_grand_prix.music')),
         ('screenshot',         StkProperty( id='screenshot',    name='Screenshot',      default='screenshot.jpg')),
-        ('sky_type',       StkEnumProperty( id='sky_type',      name='Sky Type',        default='dome',        objectLevel=False,  values=SKY_TYPES)),
-        ('arena',          StkBoolProperty( id='arena',         name='Battle Arena',    default="false",       objectLevel=False)),
-        ('fog',            StkBoolProperty( id='fog',           name='Fog',             default='false',       objectLevel=False,  subproperties=FOG_PROPERTIES)),
-        ('ambient_color', StkColorProperty( id='ambient_color', name="Ambient Color",   default="255 255 255", objectLevel=False)),
+        ('sky_type',       StkEnumProperty( id='sky_type',      name='Sky Type',        default='dome',        contextLevel=CONTEXT_SCENE,  values=SKY_TYPES)),
+        ('arena',          StkBoolProperty( id='arena',         name='Battle Arena',    default="false",       contextLevel=CONTEXT_SCENE)),
+        ('fog',            StkBoolProperty( id='fog',           name='Fog',             default='false',       contextLevel=CONTEXT_SCENE,  subproperties=FOG_PROPERTIES)),
+        ('ambient_color', StkColorProperty( id='ambient_color', name="Ambient Color",   default="255 255 255", contextLevel=CONTEXT_SCENE)),
         ('camera_far',    StkFloatProperty( id='camera_far',    name='Camera Far Clip', default=1000.0)),
         (k[0],              StkIntProperty( id=k[0],            name=kk[0],             default=2)),
         (k[1],            StkFloatProperty( id=k[1],            name=kk[1],             default=1.1)),
         (k[2],            StkFloatProperty( id=k[2],            name=kk[2],             default=1.1)),
         (k[3],            StkFloatProperty( id=k[3],            name=kk[3],             default=1.1)),
-        ('weather',        StkEnumProperty( id='weather',       name='Weather',         default='none',        objectLevel=False, values=WEATHER))
+        ('weather',        StkEnumProperty( id='weather',       name='Weather',         default='none', contextLevel=CONTEXT_SCENE, values=WEATHER))
         ])
 
-TRACK = {'is_stk_track' : StkBoolProperty(id='is_stk_track', name='Is a SuperTuxKart track', default='false', objectLevel=False,
+TRACK = {'is_stk_track' : StkBoolProperty(id='is_stk_track', name='Is a SuperTuxKart track', default='false', contextLevel=CONTEXT_SCENE,
                                          subproperties=STK_TRACK_WIDE_PROPERTIES)}
-
-# TODO
-# weather : rain, snow
 
 
 # ==== PANEL BASE ====
@@ -463,7 +473,7 @@ class SuperTuxKartScenePanel(bpy.types.Panel, PanelBase):
     bl_space_type = "PROPERTIES"
     bl_region_type = "WINDOW"
     bl_context = "scene"
-    
+                                        
     def draw(self, context):
         layout = self.layout
         
@@ -473,6 +483,58 @@ class SuperTuxKartScenePanel(bpy.types.Panel, PanelBase):
             self.recursivelyAddProperties(TRACK, layout, obj)   
 
 
+# ==== IMAGE PANEL ====
+
+
+import os
+
+# FIXME: this list needs to be refreshed frequently, not only built on startup like now
+values_for_blender = [ ("None", "None", "None") ]
+for curr in bpy.data.images:
+    filename = os.path.basename(curr.filepath)
+    values_for_blender.append( (filename, filename, filename) )
+
+selected_image = ""
+
+class STK_SelectImage(bpy.types.Operator):
+    bl_idname = ("screen.stk_select_image")
+    bl_label = ("STK Object :: select image")
+    
+    value = bpy.props.EnumProperty(attr="values", name="values", default="None",
+                                   items=values_for_blender)
+                                           
+    def execute(self, context):
+        #obj = context.object
+        #obj["type"] = ""
+        global selected_image
+        selected_image = self.value
+        return {'FINISHED'}
+            
+class SuperTuxKartImagePanel(bpy.types.Panel, PanelBase):
+    bl_label = "SuperTuxKart Image Properties"
+    bl_space_type = "PROPERTIES"
+    bl_region_type = "WINDOW"
+    bl_context = "material"
+    
+    m_current_image = ''
+    
+    def draw(self, context):
+        layout = self.layout
+        
+        #obj = context.image
+        
+        row = layout.row()
+        
+        label = "Select Image"
+        if len(selected_image) > 0:
+            label = selected_image
+        
+        row.operator_menu_enum("screen.stk_select_image", property="value", text=label)
+        
+        
+        #if obj is not None:
+        #    self.recursivelyAddProperties(TRACK, layout, obj)   
+            
 def register():
     bpy.utils.register_module(__name__)
 
