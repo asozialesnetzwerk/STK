@@ -130,11 +130,13 @@ class StkIntProperty(StkProperty):
 class StkBoolProperty(StkProperty):
     
     # (self, id, name, values, default):
+    box = True
     
     #! A floating-point property
-    def __init__(self, id, name, contextLevel, default="false", subproperties={}):
+    def __init__(self, id, name, contextLevel, default="false", subproperties={}, box = True):
         super(StkBoolProperty, self).__init__(id, name, default)
         
+        self.box = box
         self.subproperties = subproperties
         
         super_self = self
@@ -405,7 +407,7 @@ STK_TRACK_WIDE_PROPERTIES = OrderedDict([
         ])
 
 TRACK = {'is_stk_track' : StkBoolProperty(id='is_stk_track', name='Is a SuperTuxKart track', default='false', contextLevel=CONTEXT_SCENE,
-                                         subproperties=STK_TRACK_WIDE_PROPERTIES)}
+                                         subproperties=STK_TRACK_WIDE_PROPERTIES, box=False)}
 
 COMPOSITING_VALUES = {'none'     : StkEnumChoice("None", {}),
                       'blend'    : StkEnumChoice("Alpha Blend", {}),
@@ -489,8 +491,11 @@ class PanelBase:
                  
                  if state == "true":
                      if len(curr.subproperties) > 0:
-                         box = layout.box()
-                         self.recursivelyAddProperties(curr.subproperties, box, obj)
+                         if curr.box:
+                             box = layout.box()
+                             self.recursivelyAddProperties(curr.subproperties, box, obj)
+                         else:
+                             self.recursivelyAddProperties(curr.subproperties, layout, obj)
                  
             elif isinstance(curr, StkColorProperty):
                 if curr.id in obj:
