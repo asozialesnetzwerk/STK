@@ -468,6 +468,10 @@ COMPOSITING_VALUES = {'none'     : StkEnumChoice("None", {}),
                       'additive' : StkEnumChoice("Additive Blending", {})
                      }
 
+GFX_VALUES = {'none'     : StkEnumChoice("None", {}),
+              'water'    : StkEnumChoice("Water Splash", {})
+             }
+                     
 SLOWDOWN_PROPERTIES = {
         'slowdown_time' : StkFloatProperty( id="slowdown_time", name="Slowdown Time (seconds)",  default=1.0 ),
         'max_speed'     : StkFloatProperty( id="max_speed",     name="Maximum Speed (fraction)", default=1.0 )
@@ -501,26 +505,26 @@ SFX_PROPERTIES = OrderedDict([
        ])
 
 STK_MATERIAL_PROPERTIES = OrderedDict([
+       ('light',            StkBoolProperty( id='light',            name="Affected by lights",         default="true",  contextLevel=CONTEXT_MATERIAL)),
        ('backface_culling', StkBoolProperty( id='backface_culling', name="Backface Culling",           default="true",  contextLevel=CONTEXT_MATERIAL)),
+       ('below_surface',    StkBoolProperty( id='below_surface',    name="Below Surface",              default="false", contextLevel=CONTEXT_MATERIAL)),
        ('compositing',      StkEnumProperty( id='compositing',      name="Compsiting Type",            default='none',  contextLevel=CONTEXT_MATERIAL, values=COMPOSITING_VALUES)),
        ('clampu',           StkBoolProperty( id='clampu',           name="Clamp texture horizontally", default="false", contextLevel=CONTEXT_MATERIAL)),
        ('clampv',           StkBoolProperty( id='clampv',           name="Clamp texture vertically",   default="false", contextLevel=CONTEXT_MATERIAL)),
        ('disable_z_write',  StkBoolProperty( id='disable_z_write',  name="Disable writing to Z-buffer",default="false", contextLevel=CONTEXT_MATERIAL)),
        ('use_slowdown',     StkBoolProperty( id='use_slowdown',     name="Enable Slowdown",            default="false", contextLevel=CONTEXT_MATERIAL, subproperties=SLOWDOWN_PROPERTIES)),
-       ('friction',        StkFloatProperty( id='friction',         name="Tires adhesion",             default=50000)),
+       ('falling_effect',   StkBoolProperty( id='falling_effect',   name="Falling Effect",             default="false", contextLevel=CONTEXT_MATERIAL)),
+       ('graphical_effect', StkEnumProperty( id='graphical_effect', name="Graphical Effect",           default='none',  contextLevel=CONTEXT_MATERIAL, values=GFX_VALUES)),
        ('ignore',           StkBoolProperty( id='ignore',           name="Ignore (ghost material)",    default="false", contextLevel=CONTEXT_MATERIAL)),
-       ('light',            StkBoolProperty( id='light',            name="Affected by lights",         default="true",  contextLevel=CONTEXT_MATERIAL)),
        ('particle',         StkBoolProperty( id='particle',         name="Particle effect",            default="false", contextLevel=CONTEXT_MATERIAL, subproperties=PARTICLE_PROPERTIES)),
-       ('reset',            StkBoolProperty( id='reset',            name="Reset kart",                 default="false", contextLevel=CONTEXT_MATERIAL)),
        ('use_sfx',          StkBoolProperty( id='use_sfx',          name="Play sound effect",          default="false", contextLevel=CONTEXT_MATERIAL, subproperties=SFX_PROPERTIES)),
+       ('reset',            StkBoolProperty( id='reset',            name="Reset kart",                 default="false", contextLevel=CONTEXT_MATERIAL)),
        ('sphere',           StkBoolProperty( id='sphere',           name="Sphere mapping",             default="false", contextLevel=CONTEXT_MATERIAL)),
-       ('zipper',           StkBoolProperty( id='zipper',           name="Enable Zipper (speed boost)",default="false", contextLevel=CONTEXT_MATERIAL, subproperties=ZIPPER_PROPERTIES))
+       ('friction',        StkFloatProperty( id='friction',         name="Tires adhesion",             default=50000)),
+       ('zipper',           StkBoolProperty( id='zipper',           name="Zipper (speed boost)",       default="false", contextLevel=CONTEXT_MATERIAL, subproperties=ZIPPER_PROPERTIES))
        ])
 
-#     "falling-effect":[type_BOOLEAN, "no"], \
-#    "below-surface":[type_BOOLEAN, "no"], \
-#    "graphical_effect":[type_PICKLIST, "none"], \
-    
+
 # ==== PANEL BASE ====
 class PanelBase:
     
