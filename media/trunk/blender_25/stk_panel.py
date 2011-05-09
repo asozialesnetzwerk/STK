@@ -525,6 +525,7 @@ STK_MATERIAL_PROPERTIES = OrderedDict([
        ])
 
 
+
 # ==== PANEL BASE ====
 class PanelBase:
     
@@ -627,31 +628,8 @@ class SuperTuxKartScenePanel(bpy.types.Panel, PanelBase):
 
 import os
 
-# FIXME: this list needs to be refreshed frequently, not only built on startup like now
-values_for_blender = [ ("None", "None", "None") ]
-for curr in bpy.data.images:
-    filename = os.path.basename(curr.filepath)
-    values_for_blender.append( (curr.name, filename, filename) )
 
-
-class STK_SelectImage(bpy.types.Operator):
-    bl_idname = ("screen.stk_select_image")
-    bl_label = ("STK Object :: select image")
-    
-    value = bpy.props.EnumProperty(attr="values", name="values", default="None",
-                                   items=values_for_blender)
-                                           
-    def execute(self, context):
-        #obj = context.object
-        #obj["type"] = ""
-        global selected_image
-        context.scene['selected_image'] = self.value
         
-        if self.value in bpy.data.images:
-            createProperties(bpy.data.images[self.value], STK_MATERIAL_PROPERTIES)
-        
-        return {'FINISHED'}
-            
 class SuperTuxKartImagePanel(bpy.types.Panel, PanelBase):
     bl_label = "SuperTuxKart Image Properties"
     bl_space_type = "PROPERTIES"
@@ -664,15 +642,43 @@ class SuperTuxKartImagePanel(bpy.types.Panel, PanelBase):
         layout = self.layout
         row = layout.row()
         
+        list = [ ("None", "None", "None") ]
+        for curr in bpy.data.images:
+            filename = os.path.basename(curr.filepath)
+            list.append( (curr.name, filename, filename) )
+        
+        class STK_SelectImage(bpy.types.Operator):
+            bl_idname = ("screen.stk_select_image")
+            bl_label = ("STK Object :: select image")
+            
+            # FIXME: this value needs to be updatable, not static
+            value = bpy.props.EnumProperty(attr="values", name="values", default="None",
+                                           items=list)
+            
+            def execute(self, context):
+                
+                #obj = context.object
+                #obj["type"] = ""
+                global selected_image
+                context.scene['selected_image'] = self.value
+                
+                if self.value in bpy.data.images:
+                    createProperties(bpy.data.images[self.value], STK_MATERIAL_PROPERTIES)
+                
+                return {'FINISHED'}
+        bpy.utils.register_class(STK_SelectImage)
+        
+        
         label = "Select Image"
         if 'selected_image' in context.scene:
             label = context.scene['selected_image']
         
         row.operator_menu_enum("screen.stk_select_image", property="value", text=label)
+        #row.operator("screen.stk_rebuild_texture_list", text="", icon="FILE_REFRESH")
         
         obj = getObject(context, CONTEXT_MATERIAL)
         if obj is not None:
-            self.recursivelyAddProperties(STK_MATERIAL_PROPERTIES, layout, obj)   
+            self.recursivelyAddProperties(STK_MATERIAL_PROPERTIES, layout, obj)
             
 def register():
     bpy.utils.register_module(__name__)
