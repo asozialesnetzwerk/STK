@@ -628,8 +628,6 @@ class SuperTuxKartScenePanel(bpy.types.Panel, PanelBase):
 
 import os
 
-
-        
 class SuperTuxKartImagePanel(bpy.types.Panel, PanelBase):
     bl_label = "SuperTuxKart Image Properties"
     bl_space_type = "PROPERTIES"
@@ -637,44 +635,63 @@ class SuperTuxKartImagePanel(bpy.types.Panel, PanelBase):
     bl_context = "material"
     
     m_current_image = ''
+    m_previous_texture_list = []
     
+    m_list = [ ("None", "None", "None") ]
+    
+    def __init__(self):
+        
+        the_list = self.m_list
+        
+        class STK_RefreshImageList(bpy.types.Operator):
+            
+            bl_idname = ("screen.stk_refresh_image_list")
+            bl_label = ("STK refresh image list")
+            
+            def execute(self, context):
+                the_list = [ ("None", "None", "None") ]
+                for curr in bpy.data.images:
+                    filename = os.path.basename(curr.filepath)
+                    the_list.append( (curr.name, filename, filename) )
+                print("Refreshed list :",the_list)
+                
+                class STK_SelectImage(bpy.types.Operator):
+                    bl_idname = ("screen.stk_select_image")
+                    bl_label = ("STK Object :: select image")
+                    
+                    # FIXME: this value needs to be updatable, not static
+                    value = bpy.props.EnumProperty(attr="values", name="values", default="None",
+                                                   items=the_list)
+                    
+                    def execute(self, context):
+                        
+                        #obj = context.object
+                        #obj["type"] = ""
+                        global selected_image
+                        context.scene['selected_image'] = self.value
+                        
+                        if self.value in bpy.data.images:
+                            createProperties(bpy.data.images[self.value], STK_MATERIAL_PROPERTIES)
+                        
+                        return {'FINISHED'}
+                
+                bpy.utils.register_class(STK_SelectImage)
+                return {'FINISHED'}
+                    
+        bpy.utils.register_class(STK_RefreshImageList)
+        
+        
     def draw(self, context):
         layout = self.layout
         row = layout.row()
-        
-        list = [ ("None", "None", "None") ]
-        for curr in bpy.data.images:
-            filename = os.path.basename(curr.filepath)
-            list.append( (curr.name, filename, filename) )
-        
-        class STK_SelectImage(bpy.types.Operator):
-            bl_idname = ("screen.stk_select_image")
-            bl_label = ("STK Object :: select image")
-            
-            # FIXME: this value needs to be updatable, not static
-            value = bpy.props.EnumProperty(attr="values", name="values", default="None",
-                                           items=list)
-            
-            def execute(self, context):
-                
-                #obj = context.object
-                #obj["type"] = ""
-                global selected_image
-                context.scene['selected_image'] = self.value
-                
-                if self.value in bpy.data.images:
-                    createProperties(bpy.data.images[self.value], STK_MATERIAL_PROPERTIES)
-                
-                return {'FINISHED'}
-        bpy.utils.register_class(STK_SelectImage)
-        
         
         label = "Select Image"
         if 'selected_image' in context.scene:
             label = context.scene['selected_image']
         
-        row.operator_menu_enum("screen.stk_select_image", property="value", text=label)
-        #row.operator("screen.stk_rebuild_texture_list", text="", icon="FILE_REFRESH")
+        self.m_op_name = "screen.stk_select_image"
+        row.operator_menu_enum(self.m_op_name, property="value", text=label)
+        row.operator("screen.stk_refresh_image_list", text="", icon="FILE_REFRESH")
         
         obj = getObject(context, CONTEXT_MATERIAL)
         if obj is not None:
