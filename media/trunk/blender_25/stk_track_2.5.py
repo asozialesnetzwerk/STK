@@ -1882,8 +1882,8 @@ class TrackExport:
             self.writeQuadAndGraph(sPath, lDrivelines, lEndCameras)
         #start_time = bsys.time()
 
-        print("Exporting track -->",)
-        sTrackName = sBase+"_track.b3d"
+        print("Exporting track -->",sPath+"/"+sBase+"_track.b3d")
+        sTrackName = sPath+"/"+sBase+"_track.b3d"
 
         # FIXME: silly and ugly hack, the list of objects to export is passed through
         #        a custom scene property
