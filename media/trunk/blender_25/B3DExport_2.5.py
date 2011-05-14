@@ -966,25 +966,18 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
 
                 #if arm_action:
                 if b3d_parameters.get("local-space"):
-                    pass
+                    vert_matrix *= TRANS_MATRIX
                 else:
                     
                     e = obj.matrix_world.to_euler()
                     t = obj.matrix_world.to_translation()
                     s = obj.matrix_world.to_scale()
-                    
-                    #e.rotate_axis('X', -math.pi/2)
-                    #e.rotate_axis('Z',- math.pi/2)
-                    
+
                     tmp = e[2]
                     e[2] = e[1]
                     e[1] = tmp
                     
-                    #print(obj.name, e[0], e[1], e[2])
-                    
-                    matrix = e.to_matrix().to_4x4()
-                    matrix = mathutils.Matrix.Translation(t)*matrix
-                    #matrix = mathutils.Matrix.Scale(s)*matrix
+                    rotation_matrix = e.to_matrix().to_4x4()
                     
                     scale_matrix = mathutils.Matrix()
                     scale_matrix[0][0] = s[0]
@@ -993,9 +986,9 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
                     
                     vert_matrix = scale_matrix*vert_matrix
                     
-                    #vert_matrix = mesh_matrix*vert_matrix
+                    vert_matrix *= TRANS_MATRIX
+                    vert_matrix = vert_matrix*rotation_matrix
 
-                vert_matrix *= TRANS_MATRIX
                 vert_matrix = vert_matrix.to_translation()
 
 
