@@ -1882,15 +1882,14 @@ class TrackExport:
             self.writeQuadAndGraph(sPath, lDrivelines, lEndCameras)
         #start_time = bsys.time()
 
-        print("Exporting track -->",sPath+"/"+sBase+"_track.b3d")
-        sTrackName = sPath+"/"+sBase+"_track.b3d"
+        sTrackName = sBase+"_track.b3d"
 
         # FIXME: silly and ugly hack, the list of objects to export is passed through
         #        a custom scene property
         scene.obj_list = lTrack
         
         bpy.ops.screen.b3d_export(localsp=False, mipmap=True, lights=False, vcolors=True,
-                                  vnormals=True, cameras=False, filepath=sTrackName,
+                                  vnormals=True, cameras=False, filepath=sPath+"/"+sTrackName,
                                   overwrite_without_asking=True)
         scene.obj_list = []
         
