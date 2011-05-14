@@ -62,7 +62,7 @@ the_scene = None
 TRANS_MATRIX = mathutils.Matrix([[1,0,0,0],[0,0,1,0],[0,1,0,0],[0,0,0,1]])
 BONE_TRANS_MATRIX = mathutils.Matrix([[-1,0,0,0],[0,0,-1,0],[0,-1,0,0],[0,0,0,1]])
 
-DEBUG = True
+DEBUG = False
 PROGRESS = True
 PROGRESS_VERBOSE = False
 
@@ -853,8 +853,7 @@ def write_node(objects=[]):
                 if len(temp_buf) > 0:
                     node_buf += write_chunk(b"NODE",temp_buf)
                     temp_buf = ""
-
-    print("NODE 3")
+    
     if len(node_buf) > 0:
         if exp_root:
             main_buf += write_chunk(b"NODE",root_buf + node_buf)
@@ -965,8 +964,36 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
                 mesh_matrix = mathutils.Matrix([link_matrix[0],link_matrix[1],link_matrix[2],link_matrix[3]])
                 vert_matrix = mathutils.Matrix.Translation(data.vertices[vert].co)
 
-                if arm_action:
-                    vert_matrix = mesh_matrix*vert_matrix
+                #if arm_action:
+                if b3d_parameters.get("local-space"):
+                    pass
+                else:
+                    
+                    e = obj.matrix_world.to_euler()
+                    t = obj.matrix_world.to_translation()
+                    s = obj.matrix_world.to_scale()
+                    
+                    #e.rotate_axis('X', -math.pi/2)
+                    #e.rotate_axis('Z',- math.pi/2)
+                    
+                    tmp = e[2]
+                    e[2] = e[1]
+                    e[1] = tmp
+                    
+                    #print(obj.name, e[0], e[1], e[2])
+                    
+                    matrix = e.to_matrix().to_4x4()
+                    matrix = mathutils.Matrix.Translation(t)*matrix
+                    #matrix = mathutils.Matrix.Scale(s)*matrix
+                    
+                    scale_matrix = mathutils.Matrix()
+                    scale_matrix[0][0] = s[0]
+                    scale_matrix[1][1] = s[1]
+                    scale_matrix[2][2] = s[2]
+                    
+                    vert_matrix = scale_matrix*vert_matrix
+                    
+                    #vert_matrix = mesh_matrix*vert_matrix
 
                 vert_matrix *= TRANS_MATRIX
                 vert_matrix = vert_matrix.to_translation()
