@@ -106,7 +106,7 @@
     with modifications by Marianne Gagnon
     released under CC-BY 3.0
 
-* track start
+* track intro, race finish
     by Dundersylt
     released under CC-BY-SA 3.0+
 

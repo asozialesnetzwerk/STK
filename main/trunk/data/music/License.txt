@@ -28,6 +28,11 @@ Lose Theme
 --------------------
   Weirwood, license: CC
 
+race summary
+-------------
+    by Dundersylt
+    released under CC-BY-SA 3.0+
+
 TheDeadRocks-EasyJob.ogg
 TheDeadRocks-GreenSecretFromAmazonia.ogg
 TheDeadRocks-OneMillionDollar.ogg
