@@ -513,6 +513,9 @@ def write_node(objects=[]):
             else:
                 if b3d_parameters.get("local-space"):
                     matrix = TRANS_MATRIX
+                    
+                    scale = [1.0,1.0,1.0]
+                    
                 else:
                     
                     e = obj.matrix_world.to_euler()
@@ -530,6 +533,8 @@ def write_node(objects=[]):
                     matrix = e.to_matrix().to_4x4()
                     matrix = mathutils.Matrix.Translation(t)*matrix
                     
+                    scale = obj.matrix_world.to_scale()
+                    
                     #matrix = mathutils.Matrix.Rotation(math.pi/2,4,'X')
                     #matrix *= obj.matrix_world
                     #matrix *= TRANS_MATRIX
@@ -546,7 +551,6 @@ def write_node(objects=[]):
                 temp_buf += write_float(position[2])  #Position Y
                 temp_buf += write_float(position[1])  #Position Z
 
-                scale = obj.matrix_world.to_scale()
                 temp_buf += write_float(scale[0]) #Scale X
                 temp_buf += write_float(scale[2]) #Scale Y
                 temp_buf += write_float(scale[1]) #Scale Z
