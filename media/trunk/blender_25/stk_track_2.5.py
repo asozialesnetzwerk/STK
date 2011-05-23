@@ -352,7 +352,7 @@ class Driveline:
             if len(next_left)!=1 and not warning_printed:
                 lcoord = self.mesh.vertices[self.lLeft[-1]].co
                 rcoord = self.mesh.vertices[self.lRight[-1]].co
-                low_warning("Broken driveline at or around point ({0}, {1}, {2})".format\
+                log_warning("Broken driveline at or around point ({0}, {1}, {2})".format\
                             (lcoord[0], lcoord[1], lcoord[2]))
                 print("Potential successors :")
                 for i in range(len(next_left)):
@@ -608,7 +608,7 @@ class TrackExport:
         if not designer:
             designer    = getIdProperty(scene, "description", "")
             if designer:
-                low_warning("The 'Description' field is deprecated, please use 'Designer'")
+                log_warning("The 'Description' field is deprecated, please use 'Designer'")
             else:
                 designer="?"
         
@@ -646,7 +646,7 @@ class TrackExport:
         if screenshot:
             f.write("        screenshot  = \"%s\"\n"%screenshot)
         else:
-            low_warning("No screenshot defined")
+            log_warning("No screenshot defined")
         
         f.write(">\n")
         f.write("</track>\n")
