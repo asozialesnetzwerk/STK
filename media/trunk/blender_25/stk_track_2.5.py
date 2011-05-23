@@ -1487,7 +1487,7 @@ class TrackExport:
         # If there is a sun:
         if len(lSun) > 0:
             sun = lSun[0]
-            xyz=sun.loc
+            xyz=sun.location
             sSky="%s xyz=\"%s %s %s\""%(sSky, xyz[0],xyz[2],xyz[1])
             s=getProperty(sun, "color", 0)
             if s: sSky="%s sun-color=\"%s\""%(sSky, s)
@@ -1617,7 +1617,7 @@ class TrackExport:
                 else:
                     log_warning ("Unknown camera type %s - ignored." % type)
                     continue
-                xyz = "%f %f %f" % (i.loc[0], i.loc[2], i.loc[1])
+                xyz = "%f %f %f" % (i.location[0], i.location[2], i.location[1])
                 start = getProperty(i, "start", 5)
                 f.write("    <camera type=\"%s\" xyz=\"%s\" distance=\"%s\"/>\n"%
                         (type, xyz, start) )
