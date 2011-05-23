@@ -562,8 +562,8 @@ def write_node(objects=[]):
 
                 temp_buf += write_float(quat.w) #Rotation W
                 temp_buf += write_float(quat.x) #Rotation X
-                temp_buf += write_float(quat.z) #Rotation Y
-                temp_buf += write_float(quat.y) #Rotation Z
+                temp_buf += write_float(quat.y) #Rotation Y
+                temp_buf += write_float(quat.z) #Rotation Z
 
                 if DEBUG: print("        <position>",position[0],position[2],position[1],"</position>")
                 if DEBUG: print("        <scale>",scale[0],scale[1],scale[2],"</scale>")
