@@ -546,7 +546,7 @@ def write_node(objects=[]):
                 temp_buf += write_float(position[2])  #Position Y
                 temp_buf += write_float(position[1])  #Position Z
 
-                scale = matrix.to_scale()
+                scale = obj.matrix_world.to_scale()
                 temp_buf += write_float(scale[0]) #Scale X
                 temp_buf += write_float(scale[2]) #Scale Y
                 temp_buf += write_float(scale[1]) #Scale Z
@@ -558,8 +558,8 @@ def write_node(objects=[]):
 
                 temp_buf += write_float(quat.w) #Rotation W
                 temp_buf += write_float(quat.x) #Rotation X
-                temp_buf += write_float(quat.y) #Rotation Y
-                temp_buf += write_float(quat.z) #Rotation Z
+                temp_buf += write_float(quat.z) #Rotation Y
+                temp_buf += write_float(quat.y) #Rotation Z
 
                 if DEBUG: print("        <position>",position[0],position[2],position[1],"</position>")
                 if DEBUG: print("        <scale>",scale[0],scale[1],scale[2],"</scale>")
@@ -968,26 +968,27 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
                 if b3d_parameters.get("local-space"):
                     vert_matrix *= TRANS_MATRIX
                 else:
-                    
-                    e = obj.matrix_world.to_euler()
-                    t = obj.matrix_world.to_translation()
-                    s = obj.matrix_world.to_scale()
-
-                    tmp = e[2]
-                    e[2] = e[1]
-                    e[1] = tmp
-                    
-                    rotation_matrix = e.to_matrix().to_4x4()
-                    
-                    scale_matrix = mathutils.Matrix()
-                    scale_matrix[0][0] = s[0]
-                    scale_matrix[1][1] = s[1]
-                    scale_matrix[2][2] = s[2]
-                    
-                    vert_matrix = scale_matrix*vert_matrix
-                    
                     vert_matrix *= TRANS_MATRIX
-                    vert_matrix = vert_matrix*rotation_matrix
+                    
+                    #e = obj.matrix_world.to_euler()
+                    #t = obj.matrix_world.to_translation()
+                    #s = obj.matrix_world.to_scale()
+
+                    #tmp = e[2]
+                    #e[2] = e[1]
+                    #e[1] = tmp
+                    
+                    #rotation_matrix = e.to_matrix().to_4x4()
+                    
+                    #scale_matrix = mathutils.Matrix()
+                    #scale_matrix[0][0] = s[0]
+                    #scale_matrix[1][1] = s[1]
+                    #scale_matrix[2][2] = s[2]
+                    
+                    #vert_matrix = scale_matrix*vert_matrix
+                    
+                    #vert_matrix *= TRANS_MATRIX
+                    #vert_matrix = vert_matrix*rotation_matrix
 
                 vert_matrix = vert_matrix.to_translation()
 
