@@ -612,6 +612,9 @@ def write_node(objects=[]):
                             print("A : ", a)
                             
                             b = (parent.matrix.inverted().to_4x4())
+                            b[3][0] = -bone.parent.tail[0]
+                            b[3][1] = -bone.parent.tail[1]
+                            b[3][2] = -bone.parent.tail[2]
                             
                             print("B : ", b)
                             
@@ -712,7 +715,7 @@ def write_node(objects=[]):
                                 #bone_matrix[2][1] = -bone_matrix[2][1]
                                 #bone_matrix[3][0] = -bone_matrix[3][0]
                                 
-                                print("bone_matrix =", bone_matrix)
+                                #print("bone_matrix =", bone_matrix)
 
                                 bone_loc = bone_matrix.to_translation()
                                 bone_rot = bone_matrix.to_quaternion()
