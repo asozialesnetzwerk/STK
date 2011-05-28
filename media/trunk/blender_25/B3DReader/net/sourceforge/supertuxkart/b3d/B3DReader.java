@@ -23,17 +23,19 @@ public class B3DReader
     static ArrayList<Chunk> m_all_texs = new ArrayList<Chunk>();
     static ArrayList<Chunk> m_all_brus = new ArrayList<Chunk>();
 
+    static boolean showVrts = true;
     
     public static int readInt(InputStream i) throws Exception
     {
-        byte[] b_len = new byte[4];
-        if (i.read(b_len) != 4)
+        byte[] bytes = new byte[4];
+        if (i.read(bytes) != 4)
         {
             throw new RuntimeException("Can't read int");
         }
         
-        int len = ((b_len[0] & 0xFF) | ((b_len[1] & 0xFF) << 8) | ((b_len[2] & 0xFF) << 16) | ((b_len[3] & 0xFF) << 24));
-        return len;
+        int as_int = ((bytes[0] & 0xFF) | ((bytes[1] & 0xFF) << 8) | ((bytes[2] & 0xFF) << 16) | ((bytes[3] & 0xFF) << 24));
+        if (as_int == -0) as_int = 0;
+        return as_int;
     }
     
     public static String readString(InputStream i) throws Exception
@@ -52,8 +54,17 @@ public class B3DReader
     
     public static float readFloat(InputStream i) throws Exception
     {
-        int packed_bytes = readInt(i);
-        return Float.intBitsToFloat(packed_bytes);
+        byte[] bytes = new byte[4];
+        if (i.read(bytes) != 4)
+        {
+            throw new RuntimeException("Can't read int");
+        }
+        
+        int packed_bytes = ((bytes[0] & 0xFF) | ((bytes[1] & 0xFF) << 8) | ((bytes[2] & 0xFF) << 16) | ((bytes[3] & 0xFF) << 24));
+        
+        float f = Float.intBitsToFloat(packed_bytes);
+        if (f == -0) f = 0;
+        return f;
     }
     
     public static void readBB3DChunk(InputStream i, final int length) throws Exception
@@ -64,6 +75,16 @@ public class B3DReader
         while (i.available() > 0) {
             readChunk(i, 1);
         }
+    }
+    
+    public static String format3(float f)
+    {
+        return String.format("%.3f", f);
+    }
+    
+    public static String format2(float f)
+    {
+        return String.format("%.2f", f);
     }
     
     public static void readTEXSChunk(InputStream i, final int length) throws Exception
@@ -86,8 +107,8 @@ public class B3DReader
             System.out.println("        Filename: " + filename);
             System.out.println("        Flags: " + flags);
             System.out.println("        Blend: " + blend);
-            System.out.println("        Position: (" + x + ", " + y + ")");
-            System.out.println("        Scale: (" + x_scale + ", " + y_scale + ")");
+            System.out.println("        Position: (" + format2(x) + ", " + format2(y)  + ")");
+            System.out.println("        Scale: (" + format2(x_scale) + ", " + format2(y_scale) + ")");
             System.out.println("        Rotation: " + rot);
         }
     }
@@ -146,7 +167,8 @@ public class B3DReader
             float z = readFloat(i);
             read += 12;
             
-            System.out.println("            Vertex: (" + x + ", " + y + ", " + z + ")");
+            if (showVrts)
+                System.out.println("            Vertex: (" + format2(x) + ", " + format2(y) + ", " + format2(z) + ")");
             
             if ((flags & 0x1) != 0)
             {
@@ -155,7 +177,8 @@ public class B3DReader
                 float nz = readFloat(i);
                 read += 12;
                 
-                System.out.println("            Normal: (" + nx + ", " + ny + ", " + nz + ")");
+                if (showVrts)
+                    System.out.println("            Normal: (" + format2(nx) + ", " + format2(ny) + ", " + format2(nz) + ")");
             }
             
             if ((flags & 0x2) != 0)
@@ -166,7 +189,8 @@ public class B3DReader
                 float a = readFloat(i);
                 read += 16;
                 
-                System.out.println("            RGBA: (" + r + ", " + g + ", " + b + ", " + a + ")");
+                if (showVrts)
+                    System.out.println("            RGBA: (" + r + ", " + g + ", " + b + ", " + a + ")");
             }
             
             for (int n=0; n<tex_coord_sets; n++)
@@ -178,7 +202,9 @@ public class B3DReader
                     coords += coord + " ";
                     read += 4;
                 }
-                System.out.println("            TexCoord: ( " + coords + ")");
+                
+                if (showVrts)
+                    System.out.println("            TexCoord: ( " + coords + ")");
             }
         }
     }
@@ -196,7 +222,8 @@ public class B3DReader
             int vertex_2 = readInt(i);
             int vertex_3 = readInt(i);
             read += 12;
-            System.out.println("        Triangle: (" + vertex_1 + ", " + vertex_2 + ", " + vertex_3 + ")");
+            if (showVrts)
+                System.out.println("        Triangle: (" + vertex_1 + ", " + vertex_2 + ", " + vertex_3 + ")");
         }
     }
     
@@ -244,7 +271,7 @@ public class B3DReader
                 float y = readFloat(i);
                 float z = readFloat(i);
                 read += 12;
-                System.out.println("            Position: (" + x + ", " + y + ", " + z + ")");
+                System.out.println("            Position: (" + format2(x) + ", " + format2(y) + ", " + format2(z) + ")");
             }
             if ((flags & 0x2) != 0)
             {
@@ -252,7 +279,7 @@ public class B3DReader
                 float y = readFloat(i);
                 float z = readFloat(i);
                 read += 12;
-                System.out.println("            Scale: (" + x + ", " + y + ", " + z + ")");
+                System.out.println("            Scale: (" + format2(x) + ", " + format2(y) + ", " + format2(z) + ")");
             }
             if ((flags & 0x4) != 0)
             {
@@ -261,7 +288,7 @@ public class B3DReader
                 float y = readFloat(i);
                 float z = readFloat(i);
                 read += 16;
-                System.out.println("            Rot: (" + w  + ", " + x + ", " + y + ", " + z + ")");
+                System.out.println("            Rot: (" + format3(w)  + ", " + format3(x) + ", " + format3(y) + ", " + format3(z) + ")");
             }
         }
     }
@@ -309,9 +336,9 @@ public class B3DReader
         float z_rot = readFloat(i);
         
         System.out.println("        Name: " + node.name);
-        System.out.println("        Position: (" + x + ", " + y + ", " + z + ")");
-        System.out.println("        Scale: (" + x_scale + ", " + y_scale + ", " + z_scale + ")");
-        System.out.println("        Rotation: (" + w_rot + ", " + x_rot + ", " + y_rot + ", " + z_rot + ")");
+        System.out.println("        Position: (" + format2(x) + ", " + format2(y) + ", " + format2(z) + ")");
+        System.out.println("        Scale: (" + format2(x_scale) + ", " + format2(y_scale) + ", " + format2(z_scale) + ")");
+        System.out.println("        Rotation: (" + format3(w_rot) + ", " + format3(x_rot) + ", " + format3(y_rot) + ", " + format3(z_rot) + ")");
     }
     
     public static void readChunk(InputStream i, int level) throws Exception
@@ -377,6 +404,7 @@ public class B3DReader
     
     public static void main(String[] args) throws Exception
     {
+        if (args.length > 1 && args[1].equals("--no-vrts")) showVrts = false;
         FileInputStream i = new FileInputStream( new File(args[0]) );
         
         readChunk(i, 0);
