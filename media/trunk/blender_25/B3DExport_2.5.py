@@ -678,13 +678,13 @@ def write_node(objects=[]):
                     arm_matrix[3][1] = arm_matrix[3][2]
                     arm_matrix[3][2] = tmp
                     
-                    print("arm_matrix =", arm_matrix)
+                    #print("arm_matrix =", arm_matrix)
 
                     for bone_name in arm.data.bones.keys():
                         #bone_matrix = mathutils.Matrix(arm_pose.bones[bone_name].poseMatrix)
                         bone_matrix = mathutils.Matrix(arm_pose.bones[bone_name].matrix)
                         
-                        print("(outer loop) bone_matrix for",bone_name,"=", bone_matrix)
+                        #print("(outer loop) bone_matrix for",bone_name,"=", bone_matrix)
                         
                         #print(bone_name,":",bone_matrix)
                         
