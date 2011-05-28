@@ -971,11 +971,13 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
                 #if arm_action:
                 if b3d_parameters.get("local-space"):
                     vert_matrix *= TRANS_MATRIX
+                    t = [0,0,0]
+                    
                 else:
                     vert_matrix *= TRANS_MATRIX
                     
                     #e = obj.matrix_world.to_euler()
-                    #t = obj.matrix_world.to_translation()
+                    t = obj.matrix_world.to_translation()
                     #s = obj.matrix_world.to_scale()
 
                     #tmp = e[2]
@@ -998,7 +1000,7 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
 
 
                 mesh_stack[ivert][0] = ivert
-                mesh_stack[ivert][1] = vert_matrix
+                mesh_stack[ivert][1] = mathutils.Vector([vert_matrix[0]+t[0], vert_matrix[1]+t[1], vert_matrix[2]+t[2]])
                 
                 #if DEBUG: print "        <vertex id=",vert.index,"/>"
 
