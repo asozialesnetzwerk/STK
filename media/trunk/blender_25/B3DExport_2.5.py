@@ -590,27 +590,35 @@ def write_node(objects=[]):
                     matrix = mathutils.Matrix(bone.matrix)
                     
                     if parent:
-                        #par_matrix = matrix * mathutils.Matrix(parent.matrix["ARMATURESPACE"]).invert()
+
+                        #par_matrix = arm_matrix * matrix.to_4x4()
                         
-                        par_matrix = arm_matrix * matrix.to_4x4()
-                        
-                        # remove translation
-                        par_matrix[3][0] = 0
-                        par_matrix[3][1] = 0
-                        par_matrix[3][2] = 0
-                        
-                        #translation = mathutils.Vector(bone.head_local)
-                        
-                        #translation = (bone.head_local - bone.parent.head_local)
-                        #translation = translation * bone.parent.matrix
-                        
-                        #tmp = translation[1]
-                        #translation[1] = translation[2]
-                        #translation[2] = tmp
-                        
-                        translation = mathutils.Vector([0,(bone.head_local - bone.parent.head_local).length,0])
-                        
-                        par_matrix = mathutils.Matrix.Translation(translation) * par_matrix
+                        # FIXME: in the 2.4 exporter, there was no such if, the same code worked in both cases
+                        if bone.use_connect:
+                            par_matrix = arm_matrix * matrix.to_4x4()
+                            # remove translation
+                            par_matrix[3][0] = 0
+                            par_matrix[3][1] = 0
+                            par_matrix[3][2] = 0
+                            
+                            translation = mathutils.Vector([0,(bone.head_local - bone.parent.head_local).length,0])
+                            par_matrix = mathutils.Matrix.Translation(translation) * par_matrix
+                            
+                        else:
+                            # FIXME: ugly hack to behave like the 2.4 exporter
+                            print("==== "+bone.name+" ====")
+                            a = (bone.matrix_local)
+                            
+                            print("A : ", a)
+                            
+                            b = (parent.matrix.inverted().to_4x4())
+                            
+                            print("B : ", b)
+                            
+                            par_matrix = b * a
+                            
+                            print("C : ",  par_matrix)
+                            
                     else:
                         arm_matrix_2 = arm_matrix*TRANS_MATRIX
                         arm_matrix_2[0][0] = -arm_matrix_2[0][0]
