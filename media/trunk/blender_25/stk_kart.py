@@ -29,6 +29,14 @@ the_scene = None
 
 log = []
 
+thelist = []
+def getlist(self):
+    global thelist
+    return thelist
+def setlist(self, value):
+    global thelist
+    thelist = value
+
 def log_info(msg):
     print("INFO:", msg)
     log.append( ('INFO', msg) )
@@ -103,8 +111,8 @@ def saveWheels(f, lWheels, path):
         f.write('    <%s position = "%f %f %f"\n' \
                 % ( lSides[index], wheel.location.x, wheel.location.z, wheel.location.y))
         f.write('                 model    = "%s"       />\n'%lWheelNames[index])
-        lOldPos = mathutils.Vector(wheel.location.x, wheel.location.y, wheel.location.z)
-        wheel.location = mathutils.Vector(0, 0, 0)
+        lOldPos = Vector([wheel.location.x, wheel.location.y, wheel.location.z])
+        wheel.location = Vector([0, 0, 0])
         
         global the_scene
         the_scene.obj_list = [wheel]
@@ -115,7 +123,7 @@ def saveWheels(f, lWheels, path):
         the_scene.obj_list = []
         
     
-        wheel.setLocation(lOldPos)
+        wheel.location = lOldPos
                                   
     f.write('  </wheels>\n')
 
@@ -277,7 +285,7 @@ def exportKart(path):
 
     # Export the actual kart (the wheels are already exported in saveWheels)
     global the_scene
-    the_scene.obj_list = [lKart]
+    the_scene.obj_list = lKart
     
     bpy.ops.screen.b3d_export(localsp=False, mipmap=True, lights=False, vcolors=True,
                               vnormals=True, cameras=False, filepath=path+"/"+model_file,
@@ -331,6 +339,11 @@ class STK_Kart_Export_Operator(bpy.types.Operator):
 
         global operator
         operator = self
+        
+        # FIXME: silly and ugly hack, the list of objects to export is passed through
+        #        a custom scene property
+        # FIXME: both the kart export script and the track export script do this!! conflicts in sight?
+        bpy.types.Scene.obj_list = property(getlist, setlist)
         
         import os.path
         savescene_callback(os.path.dirname(self.filepath))
