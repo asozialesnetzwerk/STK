@@ -294,7 +294,6 @@ def exportKart(path):
     
     #b3d_export.write_b3d_file(Blender.sys.join(path, model_file), lKart)
     
-    writeIDProperties()
     log_info("Export completed on " + now.strftime("%Y-%m-%d %H:%M"))
 
 
@@ -404,7 +403,7 @@ class STK_Kart_Exporter_Panel(bpy.types.Panel):
 def menu_func_export(self, context):
     global the_scene
     the_scene = context.scene
-    self.layout.operator(STK_Track_Export_Operator.bl_idname, text="STK Kart")
+    self.layout.operator(STK_Kart_Export_Operator.bl_idname, text="STK Kart")
 
 def register():
     bpy.types.INFO_MT_file_export.append(menu_func_export)
