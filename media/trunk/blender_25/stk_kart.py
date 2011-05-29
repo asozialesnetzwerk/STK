@@ -137,21 +137,22 @@ def saveAnimations(f):
     # search for animation
     lAnims = []
     for i in range(first_frame, last_frame+1):
-        try:
-            marker = scene.timeline_markers[i].name.lower()
-            if  marker in \
-               ["straight", "right", "left", "start-winning", "start-winning-loop",
-                "end-winning", "start-losing", "start-losing-loop", "end-losing",
-                "start-explosion", "end-explosion",
-                "turning-l", "center", "turning-r", "repeat-losing", "repeat-winning"]:
-                if marker=="turning-l": marker="left"
-                if marker=="turning-r": marker="right"
-                if marker=="center": marker="straight"
-                if marker=="repeat-losing": marker="start-losing-loop"
-                if marker=="repeat-winning": marker="start-winning-loop"
-                lAnims.append( (marker, i-1) )
-        except:
-            pass
+
+        # Find markers at this frame
+        for curr in the_scene.timeline_markers:
+            if curr.frame == i:
+                markerName = curr.name.lower()
+                if  markerName in \
+                   ["straight", "right", "left", "start-winning", "start-winning-loop",
+                    "end-winning", "start-losing", "start-losing-loop", "end-losing",
+                    "start-explosion", "end-explosion",
+                    "turning-l", "center", "turning-r", "repeat-losing", "repeat-winning"]:
+                    if markerName=="turning-l": markerName="left"
+                    if markerName=="turning-r": markerName="right"
+                    if markerName=="center": markerName="straight"
+                    if markerName=="repeat-losing": markerName="start-losing-loop"
+                    if markerName=="repeat-winning": markerName="start-winning-loop"
+                    lAnims.append( (markerName, i-1) )
 
     if lAnims:
         f.write('  <animations %s = "%s"' % (lAnims[0][0], lAnims[0][1]))
@@ -294,6 +295,8 @@ def exportKart(path):
     
     #b3d_export.write_b3d_file(Blender.sys.join(path, model_file), lKart)
     
+    import datetime
+    now = datetime.datetime.now()
     log_info("Export completed on " + now.strftime("%Y-%m-%d %H:%M"))
 
 
