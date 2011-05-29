@@ -1487,24 +1487,6 @@ class B3D_Export_Operator(bpy.types.Operator):
                 write_b3d_file(self.filepath)
         return {'FINISHED'}
 
-# ==== PANEL ====
-class OBJECT_PT_hello(bpy.types.Panel):
-    bl_label = "B3D Exporter"
-    bl_space_type = "PROPERTIES"
-    bl_region_type = "WINDOW"
-    bl_context = "scene"
-    
-    def draw(self, context):
-        global the_scene
-        the_scene = context.scene
-        
-        layout = self.layout
-        
-        # ==== Types group ====
-        row = layout.row()
-        
-        row.operator("screen.b3d_export", "Export", icon='BLENDER')
-
 
 # Add to a menu
 def menu_func_export(self, context):
