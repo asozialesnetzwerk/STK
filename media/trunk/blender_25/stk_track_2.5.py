@@ -1972,6 +1972,16 @@ class STK_Track_Export_Operator(bpy.types.Operator):
         savescene_callback(self.filepath)
         return {'FINISHED'}
 
+
+class STK_Copy_Log_Operator(bpy.types.Operator):
+    bl_idname = ("screen.stk_track_copy_log")
+    bl_label = ("Copy Log")
+
+    def execute(self, context):
+        global log
+        context.window_manager.clipboard = str(log)
+        return {'FINISHED'}
+
 class STK_Clean_Log_Operator(bpy.types.Operator):
     bl_idname = ("screen.stk_track_clean_log")
     bl_label = ("Clean Log")
@@ -2022,6 +2032,7 @@ class STK_Track_Exporter_Panel(bpy.types.Panel):
             
             row = box.row()
             row.operator("screen.stk_track_clean_log", text="Clear Log", icon='X')
+            row.operator("screen.stk_track_copy_log",  text="Copy Log", icon='COPYDOWN')
               
         #row = layout.row()
         #row.label("Warning, your drivelines don't look legit11", icon='ERROR')   
