@@ -459,9 +459,6 @@ STK_TRACK_WIDE_PROPERTIES = OrderedDict([
         ('weather',        StkEnumProperty( id='weather',       name='Weather',         default='none', contextLevel=CONTEXT_SCENE, values=WEATHER))
         ])
 
-TRACK = {'is_stk_track' : StkBoolProperty(id='is_stk_track', name='Is a SuperTuxKart track', default='false', contextLevel=CONTEXT_SCENE,
-                                         subproperties=STK_TRACK_WIDE_PROPERTIES, box=False)}
-
 COMPOSITING_VALUES = {'none'     : StkEnumChoice("None", {}),
                       'blend'    : StkEnumChoice("Alpha Blend", {}),
                       'test'     : StkEnumChoice("Alpha Test", {}),
@@ -492,7 +489,7 @@ ZIPPER_PROPERTIES = {
        'zipper_speed_gain' : StkFloatProperty( id='zipper_speed_gain', name="Zipper speed gain", default=4.5)
        }
 
-# TODO: only enable rolloff of positional is checked
+# TODO: only enable rolloff if positional is checked
 
 SFX_PROPERTIES = OrderedDict([
        ('sfx_filename'  ,      StkProperty( id='sfx_filename',   name="Sound File",               default="some_file.ogg")),
@@ -520,11 +517,31 @@ STK_MATERIAL_PROPERTIES = OrderedDict([
        ('use_sfx',          StkBoolProperty( id='use_sfx',          name="Play sound effect",          default="false", contextLevel=CONTEXT_MATERIAL, subproperties=SFX_PROPERTIES)),
        ('reset',            StkBoolProperty( id='reset',            name="Reset kart",                 default="false", contextLevel=CONTEXT_MATERIAL)),
        ('sphere',           StkBoolProperty( id='sphere',           name="Sphere mapping",             default="false", contextLevel=CONTEXT_MATERIAL)),
-       ('friction',        StkFloatProperty( id='friction',         name="Tires adhesion",             default=50000)),
+       ('friction',        StkFloatProperty( id='friction',         name="Tires adhesion",             default=50000.0)),
        ('zipper',           StkBoolProperty( id='zipper',           name="Zipper (speed boost)",       default="false", contextLevel=CONTEXT_MATERIAL, subproperties=ZIPPER_PROPERTIES))
        ])
 
+ENGINE_SOUNDS = {'large'    : StkEnumChoice("Large", {}),
+                 'small'    : StkEnumChoice("Small", {})
+                }
+                     
 
+STK_KART_PROPERTIES = OrderedDict([
+        ('name',               StkProperty( id='name',          name='Name',                 default='My New Kart')),
+        ('group',              StkProperty( id='group ',        name='Group ',               default='standard')),
+        ('icon',               StkProperty( id='icon',          name='Icon',                 default='icon.png')),
+        ('minimap_icon',       StkProperty( id='minimap_icon',  name='Minimap Icon',         default='icon.png')),
+        ('shadow',             StkProperty( id='shadow',        name='Shadow',               default='generic_shadow.png')),
+        ('color',         StkColorProperty( id='color',         name="Color",                default="255 255 255", contextLevel=CONTEXT_SCENE)),
+        ('center_shift',  StkFloatProperty( id='center_shift',  name="Gravity Center Shift", default=0.0)),
+        ('engine_sfx',     StkEnumProperty( id='engine_sfx',    name='Engine sound',         default='large', contextLevel=CONTEXT_SCENE, values=ENGINE_SOUNDS))
+        ])
+
+
+SCENE_PROPS = {'is_stk_track' : StkBoolProperty(id='is_stk_track', name='Is a SuperTuxKart track', default='false', contextLevel=CONTEXT_SCENE,
+                                                subproperties=STK_TRACK_WIDE_PROPERTIES, box=False),
+               'is_stk_kart'  : StkBoolProperty(id='is_stk_kart', name='Is a SuperTuxKart kart', default='false', contextLevel=CONTEXT_SCENE,
+                                                subproperties=STK_KART_PROPERTIES, box=False)}
 
 # ==== PANEL BASE ====
 class PanelBase:
@@ -620,7 +637,7 @@ class SuperTuxKartScenePanel(bpy.types.Panel, PanelBase):
         obj = context.scene
         
         if obj is not None:
-            self.recursivelyAddProperties(TRACK, layout, obj)   
+            self.recursivelyAddProperties(SCENE_PROPS, layout, obj)   
 
 
 # ==== IMAGE PANEL ====
