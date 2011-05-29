@@ -9,7 +9,7 @@ bl_info = {
     "location": "Properties Panel",
     "warning": '', # used for warning icon and text in addons panel
     "wiki_url": "http://supertuxkart.sourceforge.net/Get_involved",
-    "tracker_url": "https://sourceforge.net/apps/trac/supertuxkart/>",
+    "tracker_url": "https://sourceforge.net/apps/trac/supertuxkart/",
     "category": "Object"}
 
 import bpy

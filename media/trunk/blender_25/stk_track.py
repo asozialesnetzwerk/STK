@@ -40,7 +40,7 @@ bl_info = {
     "location": "File > Export",
     "warning": '', # used for warning icon and text in addons panel
     "wiki_url": "http://supertuxkart.sourceforge.net/Get_involved",
-    "tracker_url": "https://sourceforge.net/apps/trac/supertuxkart/>",
+    "tracker_url": "https://sourceforge.net/apps/trac/supertuxkart/",
     "category": "Import-Export"}
 
 from mathutils import *
