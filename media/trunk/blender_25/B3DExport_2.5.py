@@ -585,61 +585,33 @@ def write_node(objects=[]):
                     if (parent and not bone.parent.name == parent.name):
                         return
 
-                    #FIXME?
-                    #matrix = mathutils.Matrix(bone.matrix["ARMATURESPACE"])
                     matrix = mathutils.Matrix(bone.matrix)
                     
                     if parent:
 
-                        #par_matrix = arm_matrix * matrix.to_4x4()
+                        print("==== "+bone.name+" ====")
+                        a = (bone.matrix_local)
+                            
+                        print("A : [%.2f %.2f %.2f %.2f]" % (a[0][0], a[0][1], a[0][2], a[0][3]))
+                        print("    [%.2f %.2f %.2f %.2f]" % (a[1][0], a[1][1], a[1][2], a[1][3]))
+                        print("    [%.2f %.2f %.2f %.2f]" % (a[2][0], a[2][1], a[2][2], a[2][3]))
+                        print("    [%.2f %.2f %.2f %.2f]" % (a[3][0], a[3][1], a[3][2], a[3][3]))
                         
-                        # FIXME: in the 2.4 exporter, there was no such if, the same code worked in both cases
-                        if bone.use_connect:
-                            
-                            print("==== "+bone.name+" (connected) ====")
+                        b = (parent.matrix_local.inverted().to_4x4())
 
-                            par_matrix = arm_matrix * matrix.to_4x4()
-                            # remove translation
-                            par_matrix[3][0] = 0
-                            par_matrix[3][1] = 0
-                            par_matrix[3][2] = 0
-                            
-                            translation = mathutils.Vector([0,(bone.head_local - bone.parent.head_local).length,0])
-                            par_matrix = mathutils.Matrix.Translation(translation) * par_matrix
-                            
-                            c = par_matrix
-                            print("C : [%.2f %.2f %.2f %.2f]" % (c[0][0], c[0][1], c[0][2], c[0][3]))
-                            print("    [%.2f %.2f %.2f %.2f]" % (c[1][0], c[1][1], c[1][2], c[1][3]))
-                            print("    [%.2f %.2f %.2f %.2f]" % (c[2][0], c[2][1], c[2][2], c[2][3]))
-                            print("    [%.2f %.2f %.2f %.2f]" % (c[3][0], c[3][1], c[3][2], c[3][3]))
-                            
-                        else:
-                            print("==== "+bone.name+" (non-connected) ====")
-                            a = (bone.matrix_local)
-                            
-                            print("A : [%.2f %.2f %.2f %.2f]" % (a[0][0], a[0][1], a[0][2], a[0][3]))
-                            print("    [%.2f %.2f %.2f %.2f]" % (a[1][0], a[1][1], a[1][2], a[1][3]))
-                            print("    [%.2f %.2f %.2f %.2f]" % (a[2][0], a[2][1], a[2][2], a[2][3]))
-                            print("    [%.2f %.2f %.2f %.2f]" % (a[3][0], a[3][1], a[3][2], a[3][3]))
-                            
-                            b = (parent.matrix_local.inverted().to_4x4())
-                            #b[3][0] = -bone.parent.tail[0]
-                            #b[3][1] = -bone.parent.tail[1]
-                            #b[3][2] = -bone.parent.tail[2]
-                            
-                            print("B : [%.2f %.2f %.2f %.2f]" % (b[0][0], b[0][1], b[0][2], b[0][3]))
-                            print("    [%.2f %.2f %.2f %.2f]" % (b[1][0], b[1][1], b[1][2], b[1][3]))
-                            print("    [%.2f %.2f %.2f %.2f]" % (b[2][0], b[2][1], b[2][2], b[2][3]))
-                            print("    [%.2f %.2f %.2f %.2f]" % (b[3][0], b[3][1], b[3][2], b[3][3]))
-                            
-                            par_matrix = b * a
-                            
-                            c = par_matrix
-                            print("C : [%.2f %.2f %.2f %.2f]" % (c[0][0], c[0][1], c[0][2], c[0][3]))
-                            print("    [%.2f %.2f %.2f %.2f]" % (c[1][0], c[1][1], c[1][2], c[1][3]))
-                            print("    [%.2f %.2f %.2f %.2f]" % (c[2][0], c[2][1], c[2][2], c[2][3]))
-                            print("    [%.2f %.2f %.2f %.2f]" % (c[3][0], c[3][1], c[3][2], c[3][3]))
-                            
+                        print("B : [%.2f %.2f %.2f %.2f]" % (b[0][0], b[0][1], b[0][2], b[0][3]))
+                        print("    [%.2f %.2f %.2f %.2f]" % (b[1][0], b[1][1], b[1][2], b[1][3]))
+                        print("    [%.2f %.2f %.2f %.2f]" % (b[2][0], b[2][1], b[2][2], b[2][3]))
+                        print("    [%.2f %.2f %.2f %.2f]" % (b[3][0], b[3][1], b[3][2], b[3][3]))
+                        
+                        par_matrix = b * a
+                        
+                        c = par_matrix
+                        print("C : [%.2f %.2f %.2f %.2f]" % (c[0][0], c[0][1], c[0][2], c[0][3]))
+                        print("    [%.2f %.2f %.2f %.2f]" % (c[1][0], c[1][1], c[1][2], c[1][3]))
+                        print("    [%.2f %.2f %.2f %.2f]" % (c[2][0], c[2][1], c[2][2], c[2][3]))
+                        print("    [%.2f %.2f %.2f %.2f]" % (c[3][0], c[3][1], c[3][2], c[3][3]))
+                        
                     else:
                         arm_matrix_2 = arm_matrix*TRANS_MATRIX
                         arm_matrix_2[0][0] = -arm_matrix_2[0][0]
