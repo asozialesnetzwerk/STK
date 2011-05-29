@@ -10,3 +10,4 @@ Needed changes to port :
 * Take 'enable sfx on texture' boolean into account
 * Old browser used yes/no for booleans... new one uses true/false. Fix this.
 * clampU --> clampu, clampV --> clampv
+* Convert kart color from floating point format to integer format

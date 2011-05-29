@@ -9,13 +9,26 @@ Blender: 248a
 Group: 'Export'
 Tooltip: 'Export a SuperTuxKart kart'
 """
-__author__  = ["Joerg Henrichs (hiker)/xapantu"]
+__author__  = ["Joerg Henrichs (hiker), Marianne Gagnon (Auria), xapantu"]
 __url__     = ["supertuxkart.sourceforge.net"]
 __version__ = "$Revision$"
 __bpydoc__  = """\
 """
 
-# Copyright (C) 2009-2010 Joerg Henrichs / Xapantu
+# Copyright (C) 2009-2011 Joerg Henrichs, Marianne Gagnon, Xapantu
+
+bl_info = {
+    "name": "SuperTuxKart Kart Exporter",
+    "description": "Exports a blender character/kart to SuperTuxKart",
+    "author": "Joerg Henrichs, Marianne Gagnon, Xapantu",
+    "version": (3,0),
+    "blender": (2, 5, 7),
+    "api": 31236,
+    "location": "File > Export",
+    "warning": '', # used for warning icon and text in addons panel
+    "wiki_url": "http://supertuxkart.sourceforge.net/Get_involved",
+    "tracker_url": "https://sourceforge.net/apps/trac/supertuxkart/>",
+    "category": "Import-Export"}
 
 #If you get an error here, it might be
 #because you don't have Python installed.

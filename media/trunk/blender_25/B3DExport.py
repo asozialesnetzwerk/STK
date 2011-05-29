@@ -12,7 +12,7 @@ __version__ = "3.0"
 __bpydoc__ = """\
 """
 
-# BLITZ3D EXPORTER 2.06:
+# BLITZ3D EXPORTER 3.0
 # Copyright (C) 2009 by Diego "GaNDaLDF" Parisi  -  www.gandaldf.com
 #
 # Lightmap issue fixed by Capricorn 76 Pty. Ltd. - www.capricorn76.com
@@ -33,6 +33,19 @@ __bpydoc__ = """\
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+
+bl_info = {
+    "name": "B3D (BLITZ3D) Model Exporter",
+    "description": "Exports a blender scene or object to the B3D (BLITZ3D) format",
+    "author": "Diego 'GaNDaLDF' Parisi, Joerg Henrichs, Marianne Gagnon",
+    "version": (3,0),
+    "blender": (2, 5, 7),
+    "api": 31236,
+    "location": "File > Export",
+    "warning": '', # used for warning icon and text in addons panel
+    "wiki_url": "http://supertuxkart.sourceforge.net/Get_involved",
+    "tracker_url": "https://sourceforge.net/apps/trac/supertuxkart/>",
+    "category": "Import-Export"}
 
 
 #If you get an error here, it might be

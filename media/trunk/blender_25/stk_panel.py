@@ -1,3 +1,17 @@
+
+bl_info = {
+    "name": "SuperTuxKart Panel",
+    "description": "Allows editing object, scene and material properties for SuperTuxKart",
+    "author": "Joerg Henrichs, Marianne Gagnon, Asciimonster",
+    "version": (2,0),
+    "blender": (2, 5, 7),
+    "api": 31236,
+    "location": "Properties Panel",
+    "warning": '', # used for warning icon and text in addons panel
+    "wiki_url": "http://supertuxkart.sourceforge.net/Get_involved",
+    "tracker_url": "https://sourceforge.net/apps/trac/supertuxkart/>",
+    "category": "Object"}
+
 import bpy
 from collections import OrderedDict
 import getpass
@@ -616,13 +630,13 @@ class SuperTuxKartObjectPanel(bpy.types.Panel, PanelBase):
     bl_context = "object"
     
     def draw(self, context):
-	
+    
         layout = self.layout
         
         if "is_stk_track" not in context.scene or context.scene["is_stk_track"] != "true":
-		        layout.label("(Not a SuperTuxKart track)")
-		        return
-	
+                layout.label("(Not a SuperTuxKart track)")
+                return
+        
         obj = context.object
         
         if obj is not None:
@@ -718,8 +732,12 @@ class SuperTuxKartImagePanel(bpy.types.Panel, PanelBase):
         obj = getObject(context, CONTEXT_MATERIAL)
         if obj is not None:
             self.recursivelyAddProperties(STK_MATERIAL_PROPERTIES, layout, obj)
-            
+
 def register():
     bpy.utils.register_module(__name__)
 
-register()
+def unregister():
+    pass
+
+if __name__ == "__main__":
+    register()

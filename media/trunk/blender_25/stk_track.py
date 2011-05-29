@@ -30,6 +30,19 @@ import sys, os, os.path, struct, math, string, re
 #from Blender.BGL import *
 #from Blender import sys as bsys
 
+bl_info = {
+    "name": "SuperTuxKart Track Exporter",
+    "description": "Exports a blender scene to the SuperTuxKart track format",
+    "author": "Joerg Henrichs, Marianne Gagnon",
+    "version": (1,0),
+    "blender": (2, 5, 7),
+    "api": 31236,
+    "location": "File > Export",
+    "warning": '', # used for warning icon and text in addons panel
+    "wiki_url": "http://supertuxkart.sourceforge.net/Get_involved",
+    "tracker_url": "https://sourceforge.net/apps/trac/supertuxkart/>",
+    "category": "Import-Export"}
+
 from mathutils import *
 
 operator = None
