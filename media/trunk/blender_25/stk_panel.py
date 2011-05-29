@@ -528,7 +528,7 @@ ENGINE_SOUNDS = {'large'    : StkEnumChoice("Large", {}),
 
 STK_KART_PROPERTIES = OrderedDict([
         ('name',               StkProperty( id='name',          name='Name',                 default='My New Kart')),
-        ('group',              StkProperty( id='group ',        name='Group ',               default='standard')),
+        ('group',              StkProperty( id='group',         name='Group',                default='standard')),
         ('icon',               StkProperty( id='icon',          name='Icon',                 default='icon.png')),
         ('minimap_icon',       StkProperty( id='minimap_icon',  name='Minimap Icon',         default='icon.png')),
         ('shadow',             StkProperty( id='shadow',        name='Shadow',               default='generic_shadow.png')),
