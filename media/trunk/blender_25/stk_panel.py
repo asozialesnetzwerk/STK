@@ -616,8 +616,13 @@ class SuperTuxKartObjectPanel(bpy.types.Panel, PanelBase):
     bl_context = "object"
     
     def draw(self, context):
+	
         layout = self.layout
         
+        if "is_stk_track" not in context.scene or context.scene["is_stk_track"] != "true":
+		        layout.label("(Not a SuperTuxKart track)")
+		        return
+	
         obj = context.object
         
         if obj is not None:
