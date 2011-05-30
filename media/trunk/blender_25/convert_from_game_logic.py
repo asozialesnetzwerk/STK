@@ -9,6 +9,8 @@ for obj in bpy.data.objects:
 
             if val == "nitro-small":  val = "nitro_small"
             elif val == "nitro-big" : val = "nitro_big"
+            elif val == "yes" :       val = "true"
+            elif val == "no" :        val = "false"
 
             obj[k.replace("-","_").lower()] = val
         
@@ -38,7 +40,6 @@ for m in bpy.data.images:
         m['use_sfx'] = 'false'
         
 
-# TODO: booleans now use "true" and "false"; I think it used to be "yes" and "no" :(
 # TODO: Convert kart color from floating point format to integer format
 
 bpy.data.scenes[0]['is_stk_track'] = 'true'
