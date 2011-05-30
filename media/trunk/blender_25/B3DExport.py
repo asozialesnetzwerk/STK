@@ -990,25 +990,8 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
                 else:
                     vert_matrix *= TRANS_MATRIX
                     
-                    #e = obj.matrix_world.to_euler()
-                    t = obj.matrix_world.to_translation()
-                    #s = obj.matrix_world.to_scale()
-
-                    #tmp = e[2]
-                    #e[2] = e[1]
-                    #e[1] = tmp
-                    
-                    #rotation_matrix = e.to_matrix().to_4x4()
-                    
-                    #scale_matrix = mathutils.Matrix()
-                    #scale_matrix[0][0] = s[0]
-                    #scale_matrix[1][1] = s[1]
-                    #scale_matrix[2][2] = s[2]
-                    
-                    #vert_matrix = scale_matrix*vert_matrix
-                    
-                    #vert_matrix *= TRANS_MATRIX
-                    #vert_matrix = vert_matrix*rotation_matrix
+                    #t = obj.matrix_world.to_translation()
+                    t = [0,0,0]
 
                 vert_matrix = vert_matrix.to_translation()
 
