@@ -452,7 +452,7 @@ WEATHER = {'none' : StkEnumChoice("None",{}),
           }
 
 # these names are just waaaay too long to fit in the table below
-k  = ['start-karts-per-row', 'start-forwards-distance', 'start-sidewards-distance', 'start-upwards-distance']
+k  = ['start_karts_per_row', 'start_forwards_distance', 'start_sidewards_distance', 'start_upwards_distance']
 kk = ['Karts per row on start', 'Start Forwards Distance', 'Start Sidewards Distance', 'Start upwards distance']
 
 STK_TRACK_WIDE_PROPERTIES = OrderedDict([
