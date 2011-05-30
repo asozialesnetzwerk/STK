@@ -5,7 +5,12 @@ for obj in bpy.data.objects:
     if obj.game and obj.game.properties:
         for k in obj.game.properties.keys():
             # TODO: remove old values?
-            obj[k.replace("-","_").lower()] = obj.game.properties[k].value
+            val = obj.game.properties[k].value
+
+            if val == "nitro-small":  val = "nitro_small"
+            elif val == "nitro-big" : val = "nitro_big"
+
+            obj[k.replace("-","_").lower()] = val
         
         if 'anim_texture' in obj and len(obj['anim_texture']) > 0:
             obj['enable_anim_texture'] = 'true'
