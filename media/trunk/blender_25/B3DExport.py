@@ -1459,6 +1459,7 @@ class B3D_Export_Operator(bpy.types.Operator):
     def execute(self, context):
         
         global b3d_parameters
+        global the_scene
         b3d_parameters["export-selected"] = self.selected
         b3d_parameters["vertex-normals" ] = self.vnormals
         b3d_parameters["vertex-colors"  ] = self.vcolors
@@ -1466,6 +1467,8 @@ class B3D_Export_Operator(bpy.types.Operator):
         b3d_parameters["lights"         ] = self.lights
         b3d_parameters["mipmap"         ] = self.mipmap
         b3d_parameters["local-space"    ] = self.localsp
+        
+        the_scene = context.scene
         
         if self.filepath == "":
             return {'FINISHED'}
