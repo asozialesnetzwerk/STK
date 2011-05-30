@@ -155,11 +155,11 @@ class Driveline:
         self.is_last_main = 0
         # Invisible drivelines are not shown in the minimap
         self.invisible = getProperty(driveline, "invisible", 0)
-        self.ai_ignore = getProperty(driveline, "ai-ignore", "no")
+        self.ai_ignore = getProperty(driveline, "ai_ignore", "no")
         self.enabled   = not getProperty(driveline, "disable",   0)
         self.activate  = getProperty(driveline, "activate", None)
         self.strict_lap = convertTextToYN(getProperty(driveline,
-                                                      "strict-lapline", "N") ) \
+                                                      "strict_lapline", "N") ) \
                            == "Y"
         
     # --------------------------------------------------------------------------
@@ -1287,7 +1287,7 @@ class TrackExport:
                         radius = r
                 
                 radius = math.sqrt(radius)
-                inner_radius = getProperty(obj, "inner-radius", radius)
+                inner_radius = getProperty(obj, "inner_radius", radius)
                 color = getProperty(obj, "color", "255 120 120 120")
                 f.write("    <check-sphere%sxyz=\"%f %f %f\" radius=\"%f\"\n" % \
                         (kind, obj.location[0], obj.location[2], obj.location[1], radius) )
@@ -1303,10 +1303,12 @@ class TrackExport:
     def checkForAnimatedTextures(self, lObjects):
         lAnimTextures = []
         for obj in lObjects:
-            anim_texture = getProperty(obj, "anim-texture", None)
-            if not anim_texture: continue
-            dx = getProperty(obj, "anim-dx", 0)
-            dy = getProperty(obj, "anim-dy", 0)
+            use_anim_texture = getProperty(obj, "enable_anim_texture", "false")
+            if use_anim_texture != 'true': continue
+            
+            anim_texture = getProperty(obj, "anim_texture", None)
+            dx = getProperty(obj, "anim_dx", 0)
+            dy = getProperty(obj, "anim_dy", 0)
             lAnimTextures.append( (anim_texture, dx, dy) )
         return lAnimTextures
             
@@ -1373,10 +1375,10 @@ class TrackExport:
     def writeStartPositions(self, f, lStart):
         global the_scene
         scene = the_scene
-        karts_per_row      = getIdProperty(scene, "start-karts-per-row",      "2"  )
-        distance_forwards  = getIdProperty(scene, "start-forwards-distance",  "1.5")
-        distance_sidewards = getIdProperty(scene, "start-sidewards-distance", "3"  )
-        distance_upwards   = getIdProperty(scene, "start-upwards-distance",   "0.1")
+        karts_per_row      = getIdProperty(scene, "start_karts_per_row",      "2"  )
+        distance_forwards  = getIdProperty(scene, "start_forwards_distance",  "1.5")
+        distance_sidewards = getIdProperty(scene, "start_sidewards_distance", "3"  )
+        distance_upwards   = getIdProperty(scene, "start_upwards_distance",   "0.1")
         f.write("  <default-start karts-per-row     =\"%s\"\n"%karts_per_row     )
         f.write("                 forwards-distance =\"%s\"\n"%distance_forwards )
         f.write("                 sidewards-distance=\"%s\"\n"%distance_sidewards)
