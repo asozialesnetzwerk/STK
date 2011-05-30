@@ -27,7 +27,7 @@ for prop in s.keys():
 for m in bpy.data.images:
     for prop in m.keys():
         # TODO: remove old values?
-        m[prop.replace("-","_").lower()] = m[prop]
+        m[prop.replace("-","_").replace(":","_").lower()] = m[prop]
     
     if 'max_speed' in m and m['max_speed'] < 1.0:
         m['use_slowdown'] = 'true'
@@ -38,8 +38,15 @@ for m in bpy.data.images:
         m['use_sfx'] = 'true'
     else:
         m['use_sfx'] = 'false'
+    
+    if 'particle_base' in m and len(m['particle_base']) > 0:
+        m['particle'] = 'true'
+    else:
+        m['particle'] = 'false'
         
 
+# TODO: slowdown not converted properly?
+# TODO: while we're at it, convert all old transparency/alpha properties over to the new compositing one?
 # TODO: Convert kart color from floating point format to integer format
 
 bpy.data.scenes[0]['is_stk_track'] = 'true'
