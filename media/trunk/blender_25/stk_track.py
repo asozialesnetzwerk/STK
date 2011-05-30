@@ -1557,6 +1557,7 @@ class TrackExport:
                 if name=="SHERRING": name="small-nitro"
             else:
                 if name=="nitro-big": name="big-nitro"
+                if name=="nitro_big": name="big-nitro"
                 if name=="nitro-small": name="small-nitro"
                 if name=="nitro_small": name="small-nitro"
 
