@@ -21,9 +21,18 @@ for m in bpy.data.images:
     for prop in m.keys():
         # TODO: remove old values?
         m[prop.replace("-","_").lower()] = m[prop]
+    
+    if 'max_speed' in m and m['max_speed'] < 1.0:
+        m['use_slowdown'] = 'true'
+    else:
+        m['use_slowdown'] = 'false'
+    
+    if 'sfx_filename' in m and len(m['sfx_filename']) > 0:
+        m['use_sfx'] = 'true'
+    else:
+        m['use_sfx'] = 'false'
+        
 
-# TODO: create 'use_slowdown' boolean from material id-properties as needed
-# TODO: create 'use_sfx' boolean from material id-properties as needed
 # TODO: booleans now use "true" and "false"; I think it used to be "yes" and "no" :(
 # TODO: Convert kart color from floating point format to integer format
 
