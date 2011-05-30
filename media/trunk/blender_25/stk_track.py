@@ -1000,7 +1000,7 @@ class TrackExport:
             for bez in curve.keyframe_points:
                 if bez.interpolation=='BEZIER':
                     f.write("      <p c=\"%f %f\" h1=\"%f %f\" h2=\"%f %f\"/>\n"%\
-                            (bez.co[0],factor*bez.co[1][1],
+                            (bez.co[0],factor*bez.co[1],
                              bez.left_handle[0], factor*bez.left_handle[1],
                              bez.right_handle[0], factor*bez.right_handle[1]))
                 else:
@@ -1556,6 +1556,7 @@ class TrackExport:
             else:
                 if name=="nitro-big": name="big-nitro"
                 if name=="nitro-small": name="small-nitro"
+                if name=="nitro_small": name="small-nitro"
 
             # Get the position of the item - first check if the item should
             # be dropped on the track, or stay at the position indicated.
@@ -1824,6 +1825,7 @@ class TrackExport:
                 if stktype[:8] in ["GHERRING", "RHERRING", "YHERRING", "SHERRING"] \
                    or stktype[: 6]== "BANANA"     or stktype[:4]=="ITEM"           \
                    or stktype[:11]=="NITRO-SMALL" or stktype[:9]=="NITRO-BIG"      \
+                   or stktype[:11]=="NITRO_SMALL" or stktype[:9]=="NITRO_BIG"      \
                    or stktype[:11]=="SMALL-NITRO" or stktype[:9]=="BIG-NITRO"      \
                    or stktype[: 6]=="ZIPPER":
                     lItems.append(obj)
@@ -1870,8 +1872,7 @@ class TrackExport:
             else:
                 s = getProperty(obj, "type", None)
                 if s:
-                    log_warning("object", obj.name,  \
-                          " has type property '%s', which is not supported.\n"%s)
+                    log_warning("object " + obj.name + " has type property '%s', which is not supported.\n"%s)
                 lTrack.append(obj)
 
         if not found_main_driveline:
