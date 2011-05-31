@@ -1001,8 +1001,8 @@ class TrackExport:
                 if bez.interpolation=='BEZIER':
                     f.write("      <p c=\"%f %f\" h1=\"%f %f\" h2=\"%f %f\"/>\n"%\
                             (bez.co[0],factor*bez.co[1],
-                             bez.left_handle[0], factor*bez.left_handle[1],
-                             bez.right_handle[0], factor*bez.right_handle[1]))
+                             bez.handle_left[0], factor*bez.handle_left[1],
+                             bez.handle_right[0], factor*bez.handle_right[1]))
                 else:
                     f.write("      <p c=\"%f %f\"/>\n"%(bez.co[0],
                                                         factor*bez.co[1]))
