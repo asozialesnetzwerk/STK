@@ -533,7 +533,7 @@ def write_node(objects=[]):
                 temp_buf += write_float(quat.y) #Rotation Z
             else:
                 if b3d_parameters.get("local-space"):
-                    matrix = TRANS_MATRIX
+                    matrix = mathutils.Matrix()
                 else:
                     matrix = obj.matrix_world*TRANS_MATRIX
                     
