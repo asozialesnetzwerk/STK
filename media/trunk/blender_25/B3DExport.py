@@ -177,7 +177,13 @@ def write_texs(objects=[]):
                         #data.activeUVLayer = uvlayer
                         
                         #layer_set[iuvlayer].append(face.uv)
-                        layer_set[iuvlayer].append( uvlayer.data[face.index].uv )
+                        new_data = None
+                        try:
+	                        new_data = uvlayer.data[face.index].uv
+                        except:
+                           pass
+	
+                        layer_set[iuvlayer].append( new_data )
 
             for i in range(len(data.uv_textures)):
                 if set_wrote:
@@ -208,7 +214,8 @@ def write_texs(objects=[]):
                         #data.activeUVLayer = uvlayer
                         
                         #if DEBUG: print("<uv face=", face.index, ">")
-                        if data.uv_textures[0].data[face.index].image:
+                        if len(data.uv_textures) > 0 and face.index < len(data.uv_textures[0].data) and \
+                           data.uv_textures[0].data[face.index].image:
                             
                             img_name = os.path.basename(data.uv_textures[0].data[face.index].image.filepath)
                             #img_name = data.uv_textures[0].data[face.index].image.name
@@ -295,7 +302,8 @@ def write_brus(objects=[]):
                         img_id = -1
                         
                         #if data.faceUV and face.image:
-                        if data.uv_textures[0].data[face.index].image:
+                        if len(data.uv_textures) > 0 and face.index < len(data.uv_textures[0].data) and \
+                           data.uv_textures[0].data[face.index].image:
                             img_found = 1
                             
                             #print("len(texs_stack) =", len(texs_stack))
@@ -1024,7 +1032,7 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
                     elif vertex_id == 3:
                         mesh_stack[ivert][3] = data.vertex_colors[0].data[face.index].color4
 
-                if (len(data.uv_textures) > 0):
+                if len(data.uv_textures) > 0 and face.index < len(data.uv_textures[0].data):
                     if vertex_id == 0:
                         mesh_stack[ivert][4][0].append([face.index,data.uv_textures[0].data[face.index].uv1])
                         if DEBUG: print("            <uv face=",face.index,"vertex=",vertex_id,">",
@@ -1132,10 +1140,22 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
 
             #for iuvlayer in xrange(len(data.getUVLayerNames())):
             for iuvlayer in range(len(data.uv_textures)):
-                temp_buf += write_float(mesh_stack[ivert][4][iuvlayer][iuv][1][0])  #U
-                temp_buf += write_float(1-mesh_stack[ivert][4][iuvlayer][iuv][1][1]) #V
-                if DEBUG: print("                <uv layer=",iuvlayer,">",mesh_stack[ivert][4][iuvlayer][iuv][1][0],
-                                                  1-mesh_stack[ivert][4][iuvlayer][iuv][1][1],"</uv>")
+                assert ivert < len(mesh_stack)
+                assert len(mesh_stack[ivert]) >= 5
+                assert iuvlayer < len(mesh_stack[ivert][4])
+
+
+                if not iuv < len(mesh_stack[ivert][4][iuvlayer]):
+	                print("iuv",iuv,"not available for uv layer", iuvlayer, ", vertex", ivert, "of", obj.name)
+	                temp_buf += write_float(0.0)
+	                temp_buf += write_float(0.0)
+                else:
+	                assert len(mesh_stack[ivert][4][iuvlayer][iuv]) >= 2
+	                assert len(mesh_stack[ivert][4][iuvlayer][iuv][1]) >= 2
+	                temp_buf += write_float(mesh_stack[ivert][4][iuvlayer][iuv][1][0])  #U
+	                temp_buf += write_float(1-mesh_stack[ivert][4][iuvlayer][iuv][1][1]) #V
+	                if DEBUG: print("                <uv layer=",iuvlayer,">",mesh_stack[ivert][4][iuvlayer][iuv][1][0],
+	                                                  1-mesh_stack[ivert][4][iuvlayer][iuv][1][1],"</uv>")
 
             if DEBUG: print("            </vertex>")
 
@@ -1169,18 +1189,18 @@ def write_node_mesh_tris(obj,obj_count,arm_action,exp_root):
         #for iuvlayer,uvlayer in enumerate(data.getUVLayerNames()):
         for iuvlayer,uvlayer in enumerate(data.uv_textures):
             if iuvlayer < 8:
-	
-	            #FIXME?
+                
+                #FIXME?
                 #data.activeUVLayer = uvlayer
 
-	            # Blender 2.5 :
-	            # data.uv_textures[0].data[0].image
+                # Blender 2.5 :
+                # data.uv_textures[0].data[0].image
 
                 img_id = -1
 
                 #FIXME?
                 #if data.faceUV and face.image:
-                if data.uv_textures[0].data[face.index].image:
+                if face.index < len(data.uv_textures[0].data) and data.uv_textures[0].data[face.index].image:
                     img_found = 1
                     for i in range(len(texs_stack)-1):
                         if texs_stack[i][0] == os.path.basename(data.uv_textures[0].data[face.index].image.filepath):
