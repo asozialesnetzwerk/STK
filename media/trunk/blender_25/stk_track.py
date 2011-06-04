@@ -1076,36 +1076,43 @@ class TrackExport:
     # --------------------------------------------------------------------------
     # billboard section (check if the billboard is correct and write in the file)
     def writeBillboard(self,f, obj):
-        data = obj.getData(mesh=True)
+        data = obj.data
+        
         # check the face
         if len(data.faces) > 1:
             log_error("Billboard <" + getProperty(obj, "name", obj.name) \
-                  + "> has more than ONE texture")
+                  + "> has more than ONE face")
             return
         
         # check the points
-        if len(data.verts) > 4:
+        if len(data.vertices) > 4:
             log_error("Billboard <" + getProperty(obj, "name", obj.name)\
                        + "> has more than 4 points")
             return
         
+        if len(data.uv_textures) < 1 or len(data.uv_textures[0].data) < 1:
+            log_error("Billboard <" + getProperty(obj, "name", obj.name)\
+                       + "> has no UV texture")
+            return
+        
+        
         try:
             # write in the XML
             # calcul the size and the position
-            x_min = data.verts[0].co[0]
+            x_min = data.vertices[0].co[0]
             x_max = x_min
-            y_min = data.verts[0].co[2]
+            y_min = data.vertices[0].co[2]
             y_max = y_min
             for i in range(1, 4):
-                x_min = min(x_min, data.verts[i].co[0])
-                x_max = max(x_max, data.verts[i].co[0])
-                y_min = min(y_min, data.verts[i].co[2])
-                y_max = max(y_max, data.verts[i].co[2])
+                x_min = min(x_min, data.vertices[i].co[0])
+                x_max = max(x_max, data.vertices[i].co[0])
+                y_min = min(y_min, data.vertices[i].co[2])
+                y_max = max(y_max, data.vertices[i].co[2])
                 
 
             f.write('  <object type="billboard" texture="%s" xyz="%f %f %f" \n'%
-                    (Blender.sys.basename(data.faces[0].image.getFilename()),
-                     obj.loc[0], obj.loc[2], obj.loc[1]) )
+                    (os.path.basename(data.uv_textures[0].data[0].image.filepath),
+                     obj.location[0], obj.location[2], obj.location[1]) )
             f.write('             width="%f" height="%f">\n' %(x_max-x_min, y_max-y_min) )
             if obj.getIpo():
                 self.writeIPO(f, obj.getIpo())
