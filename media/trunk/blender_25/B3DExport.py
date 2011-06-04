@@ -534,34 +534,12 @@ def write_node(objects=[]):
             else:
                 if b3d_parameters.get("local-space"):
                     matrix = TRANS_MATRIX
-                    
-                    scale = [1.0,1.0,1.0]
-                    
                 else:
+                    matrix = obj.matrix_world*TRANS_MATRIX
                     
-                    e = obj.matrix_world.to_euler()
-                    t = obj.matrix_world.to_translation()
-                    
-                    #e.rotate_axis('X', -math.pi/2)
-                    #e.rotate_axis('Z',- math.pi/2)
-                    
-                    tmp = e[2]
-                    e[2] = e[1]
-                    e[1] = tmp
-                    
-                    #print(obj.name, e[0], e[1], e[2])
-                    
-                    matrix = e.to_matrix().to_4x4()
-                    matrix = mathutils.Matrix.Translation(t)*matrix
-                    
-                    scale = obj.matrix_world.to_scale()
-                    
-                    #matrix = mathutils.Matrix.Rotation(math.pi/2,4,'X')
-                    #matrix *= obj.matrix_world
-                    #matrix *= TRANS_MATRIX
-                    
-                    #matrix = obj.matrix_world
-                    #matrix *= TRANS_MATRIX
+                    tmp = mathutils.Vector(matrix[1])
+                    matrix[1] = matrix[2]
+                    matrix[2] = tmp
 
                 temp_buf += write_string(obj.name) #Node Name
 
@@ -572,6 +550,7 @@ def write_node(objects=[]):
                 temp_buf += write_float(position[2])  #Position Y
                 temp_buf += write_float(position[1])  #Position Z
 
+                scale = matrix.to_scale()
                 temp_buf += write_float(scale[0]) #Scale X
                 temp_buf += write_float(scale[2]) #Scale Y
                 temp_buf += write_float(scale[1]) #Scale Z
@@ -583,8 +562,8 @@ def write_node(objects=[]):
 
                 temp_buf += write_float(quat.w)  #Rotation W
                 temp_buf += write_float(quat.x)  #Rotation X
-                temp_buf += write_float(quat.y)  #Rotation Y
-                temp_buf += write_float(-quat.z) #Rotation Z
+                temp_buf += write_float(quat.z)  #Rotation Y
+                temp_buf += write_float(quat.y)  #Rotation Z
 
                 if DEBUG: print("        <position>",position[0],position[2],position[1],"</position>")
                 if DEBUG: print("        <scale>",scale[0],scale[1],scale[2],"</scale>")
