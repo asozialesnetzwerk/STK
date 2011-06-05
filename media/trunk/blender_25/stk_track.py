@@ -629,10 +629,10 @@ class TrackExport:
         screenshot  = getIdProperty(scene, "screenshot", "")
         # Add default settings for sky-dome so that the user is aware of
         # can be set.
-        getIdProperty(scene, "sky-type", "dome")
-        getIdProperty(scene, "sky-texture", "" )
-        getIdProperty(scene, "sky-speed-x", "0")
-        getIdProperty(scene, "sky-speed-y", "0")
+        getIdProperty(scene, "sky_type", "dome")
+        getIdProperty(scene, "sky_texture", "" )
+        getIdProperty(scene, "sky_speed_x", "0")
+        getIdProperty(scene, "sky_speed_y", "0")
         # Not sure if these should be added - if the user wants a sky
         # box they are quiet annoying.
         #getIdProperty(scene, "sky-color","")
@@ -1591,23 +1591,23 @@ class TrackExport:
             self.writeChecks(f, lChecks, mainDriveline)
         
         scene   = the_scene
-        sky     = getIdProperty(scene, "sky-type", None)
+        sky     = getIdProperty(scene, "sky_type", None)
         # Note that there is a limit to the length of id properties,
         # which can easily be exceeded by 6 sky textures for a full sky box.
         # Therefore also check for sky-texture1 and sky-texture2.
-        texture = getIdProperty(scene, "sky-texture", "")
-        s       = getIdProperty(scene, "sky-texture1", "")
+        texture = getIdProperty(scene, "sky_texture", "")
+        s       = getIdProperty(scene, "sky_texture1", "")
         if s: texture = "%s %s"%(texture, s)
-        s       = getIdProperty(scene, "sky-texture2", "")
+        s       = getIdProperty(scene, "sky_texture2", "")
         if s: texture = "%s %s"%(texture, s)
         if sky and texture:
             if sky=="dome":
-                hori           = getIdProperty(scene, "sky-horizontal",     16  )
-                verti          = getIdProperty(scene, "sky-vertical",       16  )
-                tex_percent    = getIdProperty(scene, "sky-texture-percent", 0.5)
-                sphere_percent = getIdProperty(scene, "sky-sphere-percent",  1.3)
-                speed_x        = getIdProperty(scene, "sky-speed-x",         0.0)
-                speed_y        = getIdProperty(scene, "sky-speed-y",         0.0)
+                hori           = getIdProperty(scene, "sky_horizontal",     16  )
+                verti          = getIdProperty(scene, "sky_vertical",       16  )
+                tex_percent    = getIdProperty(scene, "sky_texture-percent", 0.5)
+                sphere_percent = getIdProperty(scene, "sky_sphere-percent",  1.3)
+                speed_x        = getIdProperty(scene, "sky_speed_x",         0.0)
+                speed_y        = getIdProperty(scene, "sky_speed_y",         0.0)
                 f.write("""
   <sky-dome texture=\"%s\"
             horizontal=\"%s\" vertical=\"%s\" 
@@ -1626,7 +1626,7 @@ class TrackExport:
                     log_warning("Found %d textures for sky box, must be 5 or 6 space separated texture names.\n" \
                                 %len(lTextures))
                 
-        camera_far  = getIdProperty(scene, "camera-far", ""             )
+        camera_far  = getIdProperty(scene, "camera_far", ""             )
         if camera_far:            
             f.write("  <camera far=\"%s\"/>\n"%camera_far)
         self.writeStartPositions(f, lStart)
