@@ -1497,14 +1497,14 @@ class TrackExport:
         s = getIdProperty(scene, "fog", 0)
         if s== "yes":
             sSky="%s fog=\"true\""%sSky
-            s=getIdProperty(scene, "fog-color", 0)
-            if s: sSky="%s fog-color=\"%s\""%(sSky, s)
-            s=getIdProperty(scene, "fog-density", 0)
-            if s: sSky="%s fog-density=\"%s\""%(sSky, s)
-            s=getIdProperty(scene, "fog-start", 0)
-            if s: sSky="%s fog-start=\"%s\""%(sSky, s)
-            s=getIdProperty(scene, "fog-end", 0)
-            if s: sSky="%s fog-end=\"%s\""%(sSky, s)
+            s=getIdProperty(scene, "fog_color", 0)
+            if s: sSky="%s fog_color=\"%s\""%(sSky, s)
+            s=getIdProperty(scene, "fog_density", 0)
+            if s: sSky="%s fog_density=\"%s\""%(sSky, s)
+            s=getIdProperty(scene, "fog_start", 0)
+            if s: sSky="%s fog_start=\"%s\""%(sSky, s)
+            s=getIdProperty(scene, "fog_end", 0)
+            if s: sSky="%s fog_end=\"%s\""%(sSky, s)
 
         # If there is a sun:
         if len(lSun) > 0:
@@ -1512,11 +1512,11 @@ class TrackExport:
             xyz=sun.location
             sSky="%s xyz=\"%s %s %s\""%(sSky, xyz[0],xyz[2],xyz[1])
             s=getProperty(sun, "color", 0)
-            if s: sSky="%s sun-color=\"%s\""%(sSky, s)
+            if s: sSky="%s sun_color=\"%s\""%(sSky, s)
             s=getProperty(sun, "specular", 0)
-            if s: sSky="%s sun-specular=\"%s\""%(sSky, s)
+            if s: sSky="%s sun_specular=\"%s\""%(sSky, s)
             s=getProperty(sun, "diffuse", 0)
-            if s: sSky="%s sun-diffuse=\"%s\""%(sSky, s)
+            if s: sSky="%s sun_diffuse=\"%s\""%(sSky, s)
             s=getProperty(sun, "ambient", 0)
             if s: sSky="%s ambient=\"%s\""%(sSky, s)
 
@@ -1715,10 +1715,10 @@ class TrackExport:
             #["particle:condition","skid"]
         ]
 
-        lBooleanAttributes = ["clampU","clampV","light","sphere","surface","below-surface",\
-                              "falling-effect", \
-                              "anisotropic","backface-culling","ignore","disable-z-write","reset",\
-                              "sfx:positional"]
+        lBooleanAttributes = ["clampu","clampv","light","sphere","surface","below_surface",
+                              "falling-effect",
+                              "anisotropic","backface_culling","ignore","disable_z_write","reset",
+                              "sfx_positional"]
         
         #start_time = bsys.time()
         print("Writing material file --> \t")
@@ -1734,7 +1734,7 @@ class TrackExport:
             sSFX = ""
             sParticle = ""
             sZipper = ""
-            hasSoundeffect = (convertTextToYN(getIdProperty(i, "sound-effect", "no")) == "Y")
+            hasSoundeffect = (convertTextToYN(getIdProperty(i, "use_sfx", "no")) == "Y")
             hasParticle = (convertTextToYN(getIdProperty(i, "particle", "no")) == "Y")
             hasZipper = (convertTextToYN(getIdProperty(i, "zipper", "no")) == "Y")
 
@@ -1754,20 +1754,20 @@ class TrackExport:
                     currentValue = convertTextToYN(currentValue)
                 
                 #These items pertain to the soundeffects (starting with sfx:)
-                if AProperty.strip().upper().startswith("SFX:"):
+                if AProperty.strip().upper().startswith("SFX_"):
                     strippedName = AProperty.strip().split(":")[1]
                     sSFX = "%s %s=\"%s\""%(sSFX,strippedName,currentValue)
-                elif AProperty.strip().upper().startswith("PARTICLE:"):
+                elif AProperty.strip().upper().startswith("PARTICLE_"):
                     #These items pertain to the particles (starting with sfx:)
                     strippedName = AProperty.strip().split(":")[1]
                     sParticle = "%s %s=\"%s\""%(sParticle,strippedName,currentValue)   
-                elif AProperty.strip().upper().startswith("ZIPPER:"):
+                elif AProperty.strip().upper().startswith("ZIPPER_"):
                     #These items pertain to the particles (starting with sfx:)
                     strippedName = AProperty.strip().split(":")[1]
                     sZipper = "%s %s=\"%s\""%(sZipper,strippedName,currentValue)   
                 else:
                     #These items are standard items
-                    if AProperty.strip().upper() not in ["PARTICLE","SOUND-EFFECT","ZIPPER"]:
+                    if AProperty.strip().upper() not in ["PARTICLE","SOUND_EFFECT","ZIPPER"]:
                         sImage = "%s %s=\"%s\""%(sImage,AProperty,currentValue)
 
             # Now write the main content of the materials.xml file
