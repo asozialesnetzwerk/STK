@@ -1755,15 +1755,15 @@ class TrackExport:
                 
                 #These items pertain to the soundeffects (starting with sfx:)
                 if AProperty.strip().upper().startswith("SFX_"):
-                    strippedName = APropertyline[len("SFX_"):]
+                    strippedName = AProperty.strip()[len("SFX_"):]
                     sSFX = "%s %s=\"%s\""%(sSFX,strippedName,currentValue)
                 elif AProperty.strip().upper().startswith("PARTICLE_"):
                     #These items pertain to the particles (starting with sfx:)
-                    strippedName = APropertyline[len("PARTICLE_"):]
+                    strippedName = AProperty.strip()[len("PARTICLE_"):]
                     sParticle = "%s %s=\"%s\""%(sParticle,strippedName,currentValue)   
                 elif AProperty.strip().upper().startswith("ZIPPER_"):
                     #These items pertain to the particles (starting with sfx:)
-                    strippedName = APropertyline[len("ZIPPER_"):]
+                    strippedName = AProperty.strip()[len("ZIPPER_"):]
                     sZipper = "%s %s=\"%s\""%(sZipper,strippedName,currentValue)   
                 else:
                     #These items are standard items
