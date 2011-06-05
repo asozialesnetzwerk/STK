@@ -1755,15 +1755,15 @@ class TrackExport:
                 
                 #These items pertain to the soundeffects (starting with sfx:)
                 if AProperty.strip().upper().startswith("SFX_"):
-                    strippedName = AProperty.strip().split(":")[1]
+                    strippedName = APropertyline[len("SFX_"):]
                     sSFX = "%s %s=\"%s\""%(sSFX,strippedName,currentValue)
                 elif AProperty.strip().upper().startswith("PARTICLE_"):
                     #These items pertain to the particles (starting with sfx:)
-                    strippedName = AProperty.strip().split(":")[1]
+                    strippedName = APropertyline[len("PARTICLE_"):]
                     sParticle = "%s %s=\"%s\""%(sParticle,strippedName,currentValue)   
                 elif AProperty.strip().upper().startswith("ZIPPER_"):
                     #These items pertain to the particles (starting with sfx:)
-                    strippedName = AProperty.strip().split(":")[1]
+                    strippedName = APropertyline[len("ZIPPER_"):]
                     sZipper = "%s %s=\"%s\""%(sZipper,strippedName,currentValue)   
                 else:
                     #These items are standard items
@@ -1843,8 +1843,9 @@ class TrackExport:
                 elif stktype[:5]=="START":
                     # Start empties are called start1, start2, ...
                     lStart.append(obj)
-                elif stktype=="PARTICLE-EMITTER":
+                elif stktype=="PARTICLE_EMITTER":
                     lParticleEmitters.append(obj)
+                    continue
                 else:
                     print("Empty '%s' has type '%s' which is not valid - ignored."%\
                           (obj.name, stktype))
