@@ -1716,7 +1716,7 @@ class TrackExport:
         ]
 
         lBooleanAttributes = ["clampu","clampv","light","sphere","surface","below_surface",
-                              "falling-effect",
+                              "falling_effect",
                               "anisotropic","backface_culling","ignore","disable_z_write","reset",
                               "sfx_positional"]
         
