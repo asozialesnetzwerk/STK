@@ -532,6 +532,7 @@ STK_MATERIAL_PROPERTIES = OrderedDict([
        ('use_sfx',          StkBoolProperty( id='use_sfx',          name="Play sound effect",          default="false", contextLevel=CONTEXT_MATERIAL, subproperties=SFX_PROPERTIES)),
        ('reset',            StkBoolProperty( id='reset',            name="Reset kart",                 default="false", contextLevel=CONTEXT_MATERIAL)),
        ('sphere',           StkBoolProperty( id='sphere',           name="Sphere mapping",             default="false", contextLevel=CONTEXT_MATERIAL)),
+       ('surface',          StkBoolProperty( id='surface',          name="Surface",                    default="false", contextLevel=CONTEXT_MATERIAL)),
        ('friction',        StkFloatProperty( id='friction',         name="Tires adhesion",             default=50000.0)),
        ('zipper',           StkBoolProperty( id='zipper',           name="Zipper (speed boost)",       default="false", contextLevel=CONTEXT_MATERIAL, subproperties=ZIPPER_PROPERTIES))
        ])
