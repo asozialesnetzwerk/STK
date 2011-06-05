@@ -424,6 +424,7 @@ STK_PER_OBJECT_PROPERTIES = OrderedDict([
         ])
 
 SKY_TYPES = {
+        'none'   : StkEnumChoice('None', {}),
         'box'    : StkEnumChoice('Box', OrderedDict([
                      ('sky_texture1'       ,      StkProperty(id='sky_texture1',        name='Sky Texture 1',         default="")),
                      ('sky_texture2'       ,      StkProperty(id='sky_texture2',        name='Sky Texture 2',         default="")),
