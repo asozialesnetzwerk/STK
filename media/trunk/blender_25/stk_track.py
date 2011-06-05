@@ -1523,7 +1523,7 @@ class TrackExport:
         if sSky:
             f.write("  <sun %s/>\n"%sSky)
             
-        sky_color=getIdProperty(scene, "sky-color", None)
+        sky_color=getIdProperty(scene, "sky_color", None)
         if sky_color:
             f.write("  <sky-color rgb=\"%s\"/>\n"%sky_color)
 
