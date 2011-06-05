@@ -1495,7 +1495,7 @@ class TrackExport:
         global the_scene
         scene = the_scene
         s = getIdProperty(scene, "fog", 0)
-        if s== "yes":
+        if s == "yes" or s == "true":
             sSky="%s fog=\"true\""%sSky
             s=getIdProperty(scene, "fog_color", 0)
             if s: sSky="%s fog_color=\"%s\""%(sSky, s)
