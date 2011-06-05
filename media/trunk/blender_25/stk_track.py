@@ -1498,13 +1498,13 @@ class TrackExport:
         if s == "yes" or s == "true":
             sSky="%s fog=\"true\""%sSky
             s=getIdProperty(scene, "fog_color", 0)
-            if s: sSky="%s fog_color=\"%s\""%(sSky, s)
+            if s: sSky="%s fog-color=\"%s\""%(sSky, s)
             s=getIdProperty(scene, "fog_density", 0)
-            if s: sSky="%s fog_density=\"%s\""%(sSky, s)
+            if s: sSky="%s fog-density=\"%s\""%(sSky, s)
             s=getIdProperty(scene, "fog_start", 0)
-            if s: sSky="%s fog_start=\"%s\""%(sSky, s)
+            if s: sSky="%s fog-start=\"%s\""%(sSky, s)
             s=getIdProperty(scene, "fog_end", 0)
-            if s: sSky="%s fog_end=\"%s\""%(sSky, s)
+            if s: sSky="%s fog-end=\"%s\""%(sSky, s)
 
         # If there is a sun:
         if len(lSun) > 0:
@@ -1512,11 +1512,11 @@ class TrackExport:
             xyz=sun.location
             sSky="%s xyz=\"%s %s %s\""%(sSky, xyz[0],xyz[2],xyz[1])
             s=getProperty(sun, "color", 0)
-            if s: sSky="%s sun_color=\"%s\""%(sSky, s)
+            if s: sSky="%s sun-color=\"%s\""%(sSky, s)
             s=getProperty(sun, "specular", 0)
-            if s: sSky="%s sun_specular=\"%s\""%(sSky, s)
+            if s: sSky="%s sun-specular=\"%s\""%(sSky, s)
             s=getProperty(sun, "diffuse", 0)
-            if s: sSky="%s sun_diffuse=\"%s\""%(sSky, s)
+            if s: sSky="%s sun-diffuse=\"%s\""%(sSky, s)
             s=getProperty(sun, "ambient", 0)
             if s: sSky="%s ambient=\"%s\""%(sSky, s)
 
