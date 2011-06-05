@@ -141,11 +141,6 @@
     <check-line kind="activate" other-ids="0" p1="-48.496944 -75.644157" p2="-51.889187 -98.006584"
                 min-height="28.795845" same-group="1"/>
   </checks>
-
-  <sky-dome texture="lighthouse_sky.jpg"
-            horizontal="12" vertical="12" 
-            texture-percent="0.5" sphere-percent="1.3"
-            speed-x="0" speed-y="0" />
   <camera far="2000"/>
   <default-start karts-per-row     ="2"
                  forwards-distance ="1.5"
