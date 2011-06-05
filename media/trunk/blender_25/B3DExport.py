@@ -879,9 +879,11 @@ def write_node_mesh(obj,obj_count,arm_action,exp_root):
     mesh_buf = bytearray()
     temp_buf = bytearray()
 
+    data = obj.to_mesh(the_scene, True, 'PREVIEW')
+    
     temp_buf += write_int(-1) #Brush ID
-    temp_buf += write_node_mesh_vrts(obj,obj_count,arm_action,exp_root) #NODE MESH VRTS
-    temp_buf += write_node_mesh_tris(obj,obj_count,arm_action,exp_root) #NODE MESH TRIS
+    temp_buf += write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root) #NODE MESH VRTS
+    temp_buf += write_node_mesh_tris(obj, data, obj_count, arm_action, exp_root) #NODE MESH TRIS
 
     if len(temp_buf) > 0:
         mesh_buf += write_chunk(b"MESH",temp_buf)
@@ -892,7 +894,7 @@ def write_node_mesh(obj,obj_count,arm_action,exp_root):
 #ids_count = 0
 
 # ==== Write NODE MESH VRTS Chunk ====
-def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
+def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
     #global ids_count
     vrts_buf = bytearray()
     temp_buf = bytearray()
@@ -900,7 +902,7 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
     ids_count = 0
 
     #data = obj.getData(mesh = True)
-    data = obj.data
+    global the_scene
     
     # FIXME: port to 2.5 API?
     #orig_uvlayer = data.activeUVLayer
@@ -1147,9 +1149,7 @@ def write_node_mesh_vrts(obj,obj_count,arm_action,exp_root):
     return vrts_buf
 
 # ==== Write NODE MESH TRIS Chunk ====
-def write_node_mesh_tris(obj,obj_count,arm_action,exp_root):
-    #data = obj.getData(mesh = True)
-    data = obj.data
+def write_node_mesh_tris(obj, data, obj_count,arm_action,exp_root):
 
     #FIXME?
     #orig_uvlayer = data.activeUVLayer
