@@ -1670,50 +1670,25 @@ class TrackExport:
             print("No Materials defined.")
             return
 
-        ### Below a rewrite due to the problems with default values detected by Auria ###
 
-        #Shape and form of things to write
-        #-> this is basically an extract of the stk_browser datamodel... Perhaps go for intergation?
-        
-        # The list of all attributes that should always be written, even if
-        # they are set to the default. For now this list is empty, but I left
-        # the code in place in case that it might be needed later.
-        lTextureDefaults = [
-            #["anisotropic","yes"],\
-            #["backface-culling","yes"],\
-            #["clampU","no"],\
-            #["clampV","no"],\
-            #["compositing","none"],\
-            #["disable-z-write","no"],\
-            #["friction",1.0],\
-            #["graphical-effect","none"],\
-            #["ignore","no"],\
-            #["light","yes"],\
-            #["max-speed",1.0],\
-            #["reset","no"],\
-            #["slowdown-time",1.0],\
-            #["sphere","no"],\
-            #["surface","no"],\
-            #["below-surface","no"],\
-            #["falling-effect","no"],\
-            #
-            #["sfx:filename",""],\
-            #["sfx:name",""],\
-            #["sfx:rolloff",0.1],\
-            #["sfx:min-speed",0.0],\
-            #["sfx:max-speed",30.0],\
-            #["sfx:min-pitch",1.0],\
-            #["sfx:max-pitch",1.0],\
-            #["sfx:positional","no"],\
-            #
-            #["zipper:duration",3.5],\
-            #["zipper:max-speed-increase",15],\
-            #["zipper:fade-out-time",3],\
-            #["zipper:speed-gain",4.5],\
-            #
-            #["particle:base",""],\
-            #["particle:condition","skid"]
-        ]
+
+        lTextureDefaults = {
+               'light'            : ("Y", None),
+               'backface_culling' : ("Y", None),
+               'below_surface'    : ("N", None),
+               'compositing'      : ('none', None),
+               'clampu'           : ("N", None),
+               'clampv'           : ("N", None),
+               'disable_z_write'  : ("N", None),
+               'falling_effect'   : ("N", None),
+               'graphical_effect' : ('none', None),
+               'ignore'           : ("N", None),
+               'reset'            : ("N", None),
+               'sphere'           : ("N", None),
+               'friction'         : (50000.0, None),
+               'slowdown_time'    : (1.0, 'use_slowdown'),
+               'max_speed'        : (1.0, 'use_slowdown')
+        }
 
         lBooleanAttributes = ["clampu","clampv","light","sphere","surface","below_surface",
                               "falling_effect",
@@ -1740,7 +1715,7 @@ class TrackExport:
 
             # Create a copy of the list of defaults so that it can be modified. Then add
             # all properties of the current image
-            l = lTextureDefaults[:]
+            l = []
             for sAttrib in i.keys():
                 if sAttrib not in l:
                     l.append( (sAttrib, i[sAttrib]) )
@@ -1767,8 +1742,16 @@ class TrackExport:
                     sZipper = "%s %s=\"%s\""%(sZipper,strippedName,currentValue)   
                 else:
                     #These items are standard items
-                    if AProperty.strip().upper() not in ["PARTICLE","SOUND_EFFECT","ZIPPER"]:
-                        sImage = "%s %s=\"%s\""%(sImage,AProperty,currentValue)
+                    prop = AProperty.strip().lower()
+                    
+                    if prop in lTextureDefaults.keys():
+                        
+                        # if this property isc onditional on another
+                        cond = lTextureDefaults[prop][1]
+                        
+                        if currentValue != lTextureDefaults[prop][0] and (cond is None or (cond in i and i[cond] == "Y")):
+                            # In blender, proeprties use '_', but STK still expects '-'
+                            sImage = "%s %s=\"%s\""%(sImage,AProperty.replace("_","-"),currentValue)
 
             # Now write the main content of the materials.xml file
             if sImage or hasSoundeffect or hasParticle or hasZipper:
