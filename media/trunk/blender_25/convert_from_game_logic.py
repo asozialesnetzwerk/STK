@@ -7,10 +7,11 @@ for obj in bpy.data.objects:
             # TODO: remove old values?
             val = obj.game.properties[k].value
 
-            if val == "nitro-small":  val = "nitro_small"
-            elif val == "nitro-big" : val = "nitro_big"
-            elif val == "yes" :       val = "true"
-            elif val == "no" :        val = "false"
+            if val == "nitro-small":         val = "nitro_small"
+            elif val == "nitro-big" :        val = "nitro_big"
+            elif val == "yes" :              val = "true"
+            elif val == "no" :               val = "false"
+            elif val == "particle-emitter" : val = "particle_emitter"
 
             obj[k.replace("-","_").lower()] = val
         
@@ -45,7 +46,6 @@ for m in bpy.data.images:
         m['particle'] = 'false'
         
 
-# TODO: slowdown not converted properly?
 # TODO: while we're at it, convert all old transparency/alpha properties over to the new compositing one?
 # TODO: Convert kart color from floating point format to integer format
 
