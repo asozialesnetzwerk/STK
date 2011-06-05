@@ -23,12 +23,16 @@ for obj in bpy.data.objects:
 s = bpy.data.scenes[0]
 for prop in s.keys():
     # TODO: remove old values?
-    s[prop.replace("-","_").lower()] = s[prop]
+    val = s[prop]
+    if val == "yes" : val = "true"
+    s[prop.replace("-","_").lower()] = val
 
 for m in bpy.data.images:
     for prop in m.keys():
         # TODO: remove old values?
-        m[prop.replace("-","_").replace(":","_").lower()] = m[prop]
+        val = m[prop]
+        if val == "yes" : val = "true"
+        m[prop.replace("-","_").replace(":","_").lower()] = val
     
     if 'max_speed' in m and m['max_speed'] < 1.0:
         m['use_slowdown'] = 'true'
