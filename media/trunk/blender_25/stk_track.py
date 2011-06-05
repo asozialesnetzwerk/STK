@@ -1114,8 +1114,8 @@ class TrackExport:
                     (os.path.basename(data.uv_textures[0].data[0].image.filepath),
                      obj.location[0], obj.location[2], obj.location[1]) )
             f.write('             width="%f" height="%f">\n' %(x_max-x_min, y_max-y_min) )
-            if obj.getIpo():
-                self.writeIPO(f, obj.getIpo())
+            if obj.animation_data and obj.animation_data.action and obj.animation_data.action.fcurves and len(obj.animation_data.action.fcurves) > 0:
+                self.writeIPO(f, obj.animation_data.action.fcurves)
             f.write('  </billboard>\n')
 
         except ValueError:
