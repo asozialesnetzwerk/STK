@@ -719,7 +719,10 @@ class SuperTuxKartImagePanel(bpy.types.Panel, PanelBase):
                         context.scene['selected_image'] = self.value
                         
                         global preview_texture
-                        preview_texture.image = bpy.data.images[self.value]
+                        if self.value in bpy.data.images:
+                            preview_texture.image = bpy.data.images[self.value]
+                        else:
+                            preview_texture.image = None
                         
                         if self.value in bpy.data.images:
                             createProperties(bpy.data.images[self.value], STK_MATERIAL_PROPERTIES)
