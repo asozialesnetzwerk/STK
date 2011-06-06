@@ -663,6 +663,13 @@ class SuperTuxKartScenePanel(bpy.types.Panel, PanelBase):
 
 # ==== IMAGE PANEL ====
 
+bpy.ops.texture.new()
+preview_texture = bpy.data.textures[-1]
+preview_texture.name = "STKPreviewTexture"
+preview_texture = bpy.data.textures[-1]
+preview_texture.type = 'IMAGE'
+preview_texture = bpy.data.textures[-1]
+preview_texture.use_preview_alpha = True
 
 import os
 
@@ -670,7 +677,7 @@ class SuperTuxKartImagePanel(bpy.types.Panel, PanelBase):
     bl_label = "SuperTuxKart Image Properties"
     bl_space_type = "PROPERTIES"
     bl_region_type = "WINDOW"
-    bl_context = "material"
+    bl_context = "scene"
     
     m_current_image = ''
     m_previous_texture_list = []
@@ -685,6 +692,9 @@ class SuperTuxKartImagePanel(bpy.types.Panel, PanelBase):
             
             bl_idname = ("screen.stk_refresh_image_list")
             bl_label = ("STK refresh image list")
+            
+            global preview_texture
+            self.layout.template_preview(preview_texture, show_buttons=True)
             
             def execute(self, context):
                 the_list = [ ("None", "None", "None") ]
@@ -708,6 +718,9 @@ class SuperTuxKartImagePanel(bpy.types.Panel, PanelBase):
                         global selected_image
                         context.scene['selected_image'] = self.value
                         
+                        global preview_texture
+                        preview_texture.image = bpy.data.images[self.value]
+                        
                         if self.value in bpy.data.images:
                             createProperties(bpy.data.images[self.value], STK_MATERIAL_PROPERTIES)
                         
@@ -729,7 +742,7 @@ class SuperTuxKartImagePanel(bpy.types.Panel, PanelBase):
         
         self.m_op_name = "screen.stk_select_image"
         row.operator_menu_enum(self.m_op_name, property="value", text=label)
-        row.operator("screen.stk_refresh_image_list", text="", icon="FILE_REFRESH")
+        row.operator("screen.stk_refresh_image_list", text="Refresh", icon="FILE_REFRESH")
         
         obj = getObject(context, CONTEXT_MATERIAL)
         if obj is not None:
