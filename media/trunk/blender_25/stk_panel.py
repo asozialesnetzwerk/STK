@@ -465,7 +465,6 @@ STK_TRACK_WIDE_PROPERTIES = OrderedDict([
         ('sky_type',       StkEnumProperty( id='sky_type',      name='Sky Type',        default='dome',        contextLevel=CONTEXT_SCENE,  values=SKY_TYPES)),
         ('arena',          StkBoolProperty( id='arena',         name='Battle Arena',    default="false",       contextLevel=CONTEXT_SCENE)),
         ('fog',            StkBoolProperty( id='fog',           name='Fog',             default='false',       contextLevel=CONTEXT_SCENE,  subproperties=FOG_PROPERTIES)),
-        ('ambient_color', StkColorProperty( id='ambient_color', name="Ambient Color",   default="255 255 255", contextLevel=CONTEXT_SCENE)),
         ('camera_far',    StkFloatProperty( id='camera_far',    name='Camera Far Clip', default=1000.0)),
         (k[0],              StkIntProperty( id=k[0],            name=kk[0],             default=2)),
         (k[1],            StkFloatProperty( id=k[1],            name=kk[1],             default=1.1)),
