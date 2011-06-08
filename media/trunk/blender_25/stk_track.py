@@ -1419,6 +1419,8 @@ class TrackExport:
         print ("Exporting water -->")
         for obj in lWater:
             name     = getProperty(obj, "name",   obj.name )
+            if len(name) == 0:
+                name = obj.name
             height   = getProperty(obj, "height", None     )
             speed    = getProperty(obj, "speed",  None     )
             length   = getProperty(obj, "length", None     )
