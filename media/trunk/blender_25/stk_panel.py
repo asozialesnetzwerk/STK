@@ -702,6 +702,15 @@ class SuperTuxKartImagePanel(bpy.types.Panel, PanelBase):
                     the_list.append( (curr.name, filename, filename) )
                 print("Refreshed list :",the_list)
                 
+                global selected_image
+                global preview_texture
+                if 'selected_image' not in context.scene['selected_image'] and len(bpy.data.images) > 0:
+                    preview_texture.image = bpy.data.images[0]
+                    context.scene['selected_image'] = preview_texture.image.name
+                    createProperties(preview_texture.image, STK_MATERIAL_PROPERTIES)
+                
+                context.region.tag_redraw()
+                
                 class STK_SelectImage(bpy.types.Operator):
                     bl_idname = ("screen.stk_select_image")
                     bl_label = ("STK Object :: select image")
@@ -725,6 +734,8 @@ class SuperTuxKartImagePanel(bpy.types.Panel, PanelBase):
                         
                         if self.value in bpy.data.images:
                             createProperties(bpy.data.images[self.value], STK_MATERIAL_PROPERTIES)
+                        
+                        context.region.tag_redraw()
                         
                         return {'FINISHED'}
                 

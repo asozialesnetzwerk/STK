@@ -1958,6 +1958,11 @@ class STK_Track_Export_Operator(bpy.types.Operator):
     filepath = bpy.props.StringProperty(subtype="FILE_PATH")
 
     def invoke(self, context, event):
+        
+        if 'is_stk_track' not in context.scene or context.scene['is_stk_track'] != 'true':
+            log_error("Not a STK track!")
+            return {'FINISHED'}
+        
         blend_filepath = context.blend_data.filepath
         if not blend_filepath:
             blend_filepath = "Untitled"
@@ -1970,7 +1975,7 @@ class STK_Track_Export_Operator(bpy.types.Operator):
         return {'RUNNING_MODAL'}
 
     def execute(self, context):
-        if self.filepath == "":
+        if self.filepath == "" or 'is_stk_track' not in context.scene or context.scene['is_stk_track'] != 'true':
             return {'FINISHED'}
 
         global operator
