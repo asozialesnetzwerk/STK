@@ -1617,16 +1617,14 @@ class TrackExport:
             speed-x=\"%s\" speed-y=\"%s\" />
 """ %(texture, hori, verti, tex_percent, sphere_percent, speed_x, speed_y))
             elif sky=="box":
-                lTextures = string.split(texture)
-                if len(lTextures)==5:
-                    # Append a dummy 6th element
-                    lTextures.append(lTextures[4])
-                if len(lTextures)==6:
-                    f.write("  <sky-box texture=\"%s\"/>\n" % \
+                lTextures = [getIdProperty(scene, "sky_texture2", ""),
+                             getIdProperty(scene, "sky_texture3", ""),
+                             getIdProperty(scene, "sky_texture4", ""),
+                             getIdProperty(scene, "sky_texture5", ""),
+                             getIdProperty(scene, "sky_texture6", ""),
+                             getIdProperty(scene, "sky_texture1", "")]
+                f.write("  <sky-box texture=\"%s\"/>\n" % \
                             " ".join(lTextures))
-                else:
-                    log_warning("Found %d textures for sky box, must be 5 or 6 space separated texture names.\n" \
-                                %len(lTextures))
                 
         camera_far  = getIdProperty(scene, "camera_far", ""             )
         if camera_far:            
