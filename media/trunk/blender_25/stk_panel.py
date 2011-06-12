@@ -721,8 +721,45 @@ preview_texture = bpy.data.textures[-1]
 preview_texture.type = 'IMAGE'
 preview_texture = bpy.data.textures[-1]
 preview_texture.use_preview_alpha = True
+preview_texture = bpy.data.textures[-1]
 
 import os
+
+class ImagePickerMenu(bpy.types.Menu):
+    bl_idname = "scene.stk_image_menu"
+    bl_label  = "SuperTuxKart Image Menu"
+    
+    def draw(self, context):
+        objects = context.scene.objects
+        
+        layout = self.layout
+        for curr in bpy.data.images:
+            layout.operator("scene.stk_select_image", text=curr.name).name=curr.name
+
+bpy.utils.register_class(ImagePickerMenu)
+
+class STK_SelectImage(bpy.types.Operator):
+    bl_idname = ("scene.stk_select_image")
+    bl_label = ("STK Object :: select image")
+    
+    name = bpy.props.StringProperty()
+    
+    def execute(self, context):
+        global selected_image
+        context.scene['selected_image'] = self.name
+        
+        global preview_texture
+        if self.name in bpy.data.images:
+            preview_texture.image = bpy.data.images[self.name]
+        else:
+            preview_texture.image = None
+        
+        if self.name in bpy.data.images:
+            createProperties(bpy.data.images[self.name], STK_MATERIAL_PROPERTIES)
+        
+        return {'FINISHED'}
+
+bpy.utils.register_class(STK_SelectImage)
 
 class SuperTuxKartImagePanel(bpy.types.Panel, PanelBase):
     bl_label = "SuperTuxKart Image Properties"
@@ -731,83 +768,21 @@ class SuperTuxKartImagePanel(bpy.types.Panel, PanelBase):
     bl_context = "scene"
     
     m_current_image = ''
-    m_previous_texture_list = []
     
-    m_list = [ ("None", "None", "None") ]
-    
-    def __init__(self):
-        
-        the_list = self.m_list
-        
-        class STK_RefreshImageList(bpy.types.Operator):
-            
-            bl_idname = ("screen.stk_refresh_image_list")
-            bl_label = ("STK refresh image list")
-            
-            global preview_texture
-            self.layout.template_preview(preview_texture, show_buttons=True)
-            
-            def execute(self, context):
-                the_list = [ ("None", "None", "None") ]
-                for curr in bpy.data.images:
-                    filename = os.path.basename(curr.filepath)
-                    the_list.append( (curr.name, filename, filename) )
-                print("Refreshed list :",the_list)
-                
-                global selected_image
-                global preview_texture
-                if 'selected_image' not in context.scene['selected_image'] and len(bpy.data.images) > 0:
-                    preview_texture.image = bpy.data.images[0]
-                    context.scene['selected_image'] = preview_texture.image.name
-                    createProperties(preview_texture.image, STK_MATERIAL_PROPERTIES)
-                
-                context.region.tag_redraw()
-                
-                class STK_SelectImage(bpy.types.Operator):
-                    bl_idname = ("screen.stk_select_image")
-                    bl_label = ("STK Object :: select image")
-                    
-                    # FIXME: this value needs to be updatable, not static
-                    value = bpy.props.EnumProperty(attr="values", name="values", default="None",
-                                                   items=the_list)
-                    
-                    def execute(self, context):
-                        
-                        #obj = context.object
-                        #obj["type"] = ""
-                        global selected_image
-                        context.scene['selected_image'] = self.value
-                        
-                        global preview_texture
-                        if self.value in bpy.data.images:
-                            preview_texture.image = bpy.data.images[self.value]
-                        else:
-                            preview_texture.image = None
-                        
-                        if self.value in bpy.data.images:
-                            createProperties(bpy.data.images[self.value], STK_MATERIAL_PROPERTIES)
-                        
-                        context.region.tag_redraw()
-                        
-                        return {'FINISHED'}
-                
-                bpy.utils.register_class(STK_SelectImage)
-                return {'FINISHED'}
-                    
-        bpy.utils.register_class(STK_RefreshImageList)
-        
-        
     def draw(self, context):
         layout = self.layout
         row = layout.row()
         
-        label = "Select Image"
+        global preview_texture
+        layout.template_preview(preview_texture, show_buttons=True)
+
+        label = "Select an image"
         if 'selected_image' in context.scene:
             label = context.scene['selected_image']
         
-        self.m_op_name = "screen.stk_select_image"
-        row.operator_menu_enum(self.m_op_name, property="value", text=label)
-        row.operator("screen.stk_refresh_image_list", text="Refresh", icon="FILE_REFRESH")
+        self.m_op_name = "scene.stk_image_menu"
+        row.label(label)
+        row.menu(self.m_op_name, text="", icon="TRIA_DOWN")
         
         obj = getObject(context, CONTEXT_MATERIAL)
         if obj is not None:
