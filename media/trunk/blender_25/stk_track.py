@@ -1149,9 +1149,9 @@ class TrackExport:
         # Collect the indices of all check structures for all groups
         ind = 1
         for obj in lChecks:
-            name = getProperty(obj, "type", obj.name.lower())
+            name = getProperty(obj, "type", obj.name.lower()).lower()
             if name!="lap":
-                name = getProperty(obj, "name", obj.name.lower())
+                name = getProperty(obj, "name", obj.name.lower()).lower()
             if name in dGroup2Indices:
                 dGroup2Indices[name].append(ind)
             else:
@@ -1264,9 +1264,9 @@ class TrackExport:
             # Get the group name this object belongs to. If the objects
             # is of type lap then 'lap' is the group name, otherwise
             # it's taken from the name property (or the object name).
-            name = getProperty(obj, "type", obj.name.lower())
+            name = getProperty(obj, "type", obj.name.lower()).lower()
             if name!="lap":
-                name = getProperty(obj, "name", obj.name.lower())
+                name = getProperty(obj, "name", obj.name.lower()).lower()
                 
             # Get the list of indices of this group, excluding
             # the index of the current object. So create a copy
