@@ -413,13 +413,13 @@ type = StkEnumProperty('type', "Type",
        {''                 : StkEnumChoice('None', {}),
         'banana'           : StkEnumChoice('Banana', {}),
         'billboard'        : StkEnumChoice('Billboard', {}),
-        'check'            : StkEnumChoice('Checkline',
-                                 {'name'     : StkProperty(id='name', name="Name", default=""),
-                                  'activate' : StkObjectReferenceProperty(id='activate', name="Activate", default="", contextLevel=CONTEXT_OBJECT, filter=lambda self, o : 'type' in o and o['type'] == 'check')
+        'check'            : StkEnumChoice('Checkline', OrderedDict([
+                                  ('name'    , StkProperty(id='name', name="Name", default="")),
+                                  ('activate', StkObjectReferenceProperty(id='activate', name="Activate", default="", contextLevel=CONTEXT_OBJECT, filter=lambda self, o : 'type' in o and o['type'] == 'check'))
                                   #'toggle'  : Stkproperty("Toggle"),
                                   #'inner_radius' : StkFloatProperty("Color radius"),
                                   #'color'        : 
-                                 }),
+                                 ])),
         'driveline'        : StkEnumChoice('Driveline (additional)',
                                  {'invisible' : StkBoolProperty(id='invisible', name="Invisible",      default="false",
                                                                 contextLevel=CONTEXT_OBJECT),
