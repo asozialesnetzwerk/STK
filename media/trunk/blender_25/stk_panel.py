@@ -427,7 +427,8 @@ type = StkEnumProperty('type', "Type",
                                                                 contextLevel=CONTEXT_OBJECT)
                                  }),
         'maindriveline'    : StkEnumChoice('Driveline (main)',
-                                 {'activate' : StkProperty(id='activate', name="Activate", default="")
+                                 {'activate' : StkObjectReferenceProperty(id='activate', name="Activate", default="", contextLevel=CONTEXT_OBJECT, filter=lambda self, o : 'type' in o and o['type'] == 'check')
+
                                  }),
         'fixed'            : StkEnumChoice('End Camera (Fixed)', camera_properties),
         'ahead'            : StkEnumChoice('End Camera (Look Ahead)', camera_properties),
