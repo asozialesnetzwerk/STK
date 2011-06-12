@@ -61,6 +61,51 @@ class StkProperty:
         self.default = default
 
 
+class StkObjectReferenceProperty(StkProperty):
+    
+    def __init__(self, id, name, contextLevel, default, filter):
+        super(StkObjectReferenceProperty, self).__init__(id, name, default)
+        
+        class SelectObjectOperator(bpy.types.Operator):
+            bl_idname = "scene.stk_select_object_" + id
+            bl_label = "Select Object Operator"
+
+            m_id = id
+            m_context_level = contextLevel
+            
+            # name of the object to select
+            name = bpy.props.StringProperty()
+
+            def execute(self, context):
+                object = getObject(context, self.m_context_level)
+                object[self.m_id] = self.name
+                return {'FINISHED'}
+
+        bpy.utils.register_class(SelectObjectOperator)
+        
+        class ObjectPickerMenu(bpy.types.Menu):
+            m_filter = filter
+            bl_idname = "screen.stk_object_menu_" + id
+            bl_label  = ("SuperTuxKart Object Picker Menu (" + id + ")")
+            m_property_id = id
+            
+            def draw(self, context):
+                objects = context.scene.objects
+                
+                layout = self.layout
+                for object in objects:
+                    if self.m_filter(object):
+                        text = object.name
+                        object_id = object.name
+                        if 'name' in object:
+                            text = text + " (" + object["name"] + ")"
+                            object_id = object["name"]
+                        layout.operator("scene.stk_select_object_"+self.m_property_id, text=text).name=object_id
+                layout.operator("scene.stk_select_object_"+self.m_property_id, text="Lap").name="lap"
+
+        
+        bpy.utils.register_class(ObjectPickerMenu)
+
 def createProperties(object, props):
     for p in props.keys():
         
@@ -370,7 +415,7 @@ type = StkEnumProperty('type', "Type",
         'billboard'        : StkEnumChoice('Billboard', {}),
         'check'            : StkEnumChoice('Checkline',
                                  {'name'     : StkProperty(id='name', name="Name", default=""),
-                                  'activate' : StkProperty(id='activate', name="Activate", default="")
+                                  'activate' : StkObjectReferenceProperty(id='activate', name="Activate", default="", contextLevel=CONTEXT_OBJECT, filter=lambda self, o : 'type' in o and o['type'] == 'check')
                                   #'toggle'  : Stkproperty("Toggle"),
                                   #'inner_radius' : StkFloatProperty("Color radius"),
                                   #'color'        : 
@@ -617,7 +662,13 @@ class PanelBase:
                 if curr_value in curr.values and len(curr.values[curr_value].subproperties) > 0:
                     box = layout.box()
                     self.recursivelyAddProperties(curr.values[curr_value].subproperties, box, obj)
-                
+            
+            elif isinstance(curr, StkObjectReferenceProperty):
+              
+              if curr.id in obj:
+                    row.prop(obj, '["' + curr.id + '"]', text="")
+                    row.menu("screen.stk_object_menu_" + curr.id, text="", icon='TRIA_DOWN')
+              
             else:
                 # String or int or float property (Blender chooses the correct widget from the type of the ID-property)
                 if curr.id in obj:
