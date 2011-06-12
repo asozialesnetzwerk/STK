@@ -713,15 +713,18 @@ class SuperTuxKartScenePanel(bpy.types.Panel, PanelBase):
 
 
 # ==== IMAGE PANEL ====
+def createPreviewTexture():
+    global preview_texture
+    bpy.ops.texture.new()
+    preview_texture = bpy.data.textures[-1]
+    preview_texture.name = "STKPreviewTexture"
+    preview_texture = bpy.data.textures["STKPreviewTexture"]
+    preview_texture.type = 'IMAGE'
+    preview_texture = bpy.data.textures["STKPreviewTexture"]
+    preview_texture.use_preview_alpha = True
+    preview_texture = bpy.data.textures["STKPreviewTexture"]
 
-bpy.ops.texture.new()
-preview_texture = bpy.data.textures[-1]
-preview_texture.name = "STKPreviewTexture"
-preview_texture = bpy.data.textures[-1]
-preview_texture.type = 'IMAGE'
-preview_texture = bpy.data.textures[-1]
-preview_texture.use_preview_alpha = True
-preview_texture = bpy.data.textures[-1]
+createPreviewTexture()
 
 import os
 
@@ -773,9 +776,14 @@ class SuperTuxKartImagePanel(bpy.types.Panel, PanelBase):
         layout = self.layout
         row = layout.row()
         
-        global preview_texture
-        layout.template_preview(preview_texture, show_buttons=True)
+        #global preview_texture
+        #layout.template_preview(preview_texture, show_buttons=True)
 
+        if "STKPreviewTexture" in bpy.data.textures:
+            layout.template_preview(bpy.data.textures["STKPreviewTexture"])
+        else:
+            layout.label("Sorry, no image preview available")
+    
         label = "Select an image"
         if 'selected_image' in context.scene:
             label = context.scene['selected_image']
