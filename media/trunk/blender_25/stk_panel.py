@@ -12,6 +12,8 @@ bl_info = {
     "tracker_url": "https://sourceforge.net/apps/trac/supertuxkart/",
     "category": "Object"}
 
+# TODO: verify properties have the right type : isinstance(bpy.data.scenes[0]['sky_speed_x'], float)
+
 import bpy
 from collections import OrderedDict
 import getpass
@@ -264,18 +266,6 @@ class StkBoolProperty(StkProperty):
             m_property_id = id
             m_super_self = super_self
             
-            def createProperties(self, object, props):
-                for p in props.keys():
-                    
-                    if not p in object:
-                        # create property by setting default  value
-                        v = props[p].default
-                        object[p] = v
-                        
-                        if isinstance(props[p], StkEnumProperty):
-                            if v in props[p].values:
-                                self.createProperties(object, props[p].values[v].subproperties)
-            
             def execute(self, context):
                 
                 # Set the property
@@ -298,7 +288,7 @@ class StkBoolProperty(StkProperty):
                 
                 # If sub-properties are needed, create them
                 if object[self.m_property_id] == "true":
-                    self.createProperties(object, self.m_super_self.subproperties)
+                    createProperties(object, self.m_super_self.subproperties)
                 
                 return {'FINISHED'}
         
