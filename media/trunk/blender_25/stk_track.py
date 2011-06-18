@@ -1606,8 +1606,8 @@ class TrackExport:
             if sky=="dome":
                 hori           = getIdProperty(scene, "sky_horizontal",     16  )
                 verti          = getIdProperty(scene, "sky_vertical",       16  )
-                tex_percent    = getIdProperty(scene, "sky_texture-percent", 0.5)
-                sphere_percent = getIdProperty(scene, "sky_sphere-percent",  1.3)
+                tex_percent    = getIdProperty(scene, "sky_texture_percent", 0.5)
+                sphere_percent = getIdProperty(scene, "sky_sphere_percent",  1.3)
                 speed_x        = getIdProperty(scene, "sky_speed_x",         0.0)
                 speed_y        = getIdProperty(scene, "sky_speed_y",         0.0)
                 f.write("""
