@@ -12,8 +12,6 @@ bl_info = {
     "tracker_url": "https://sourceforge.net/apps/trac/supertuxkart/",
     "category": "Object"}
 
-# TODO: verify properties have the right type : isinstance(bpy.data.scenes[0]['sky_speed_x'], float)
-
 import bpy
 from collections import OrderedDict
 import getpass
@@ -120,6 +118,29 @@ def createProperties(object, props):
             if isinstance(props[p], StkEnumProperty):
                 if v in props[p].values:
                     createProperties(object, props[p].values[v].subproperties)
+        
+        # check the property has the right type
+        elif isinstance(props[p], StkFloatProperty) :
+            
+            if not isinstance(object[p], float):
+                try:
+                    object[p] = float(object[p])
+                except:
+                    object[p] = props[p].default
+            
+        elif isinstance(props[p], StkIntProperty):
+            
+            if not isinstance(object[p], int):
+                try:
+                    object[p] = int(object[p])
+                except:
+                    object[p] = props[p].default
+                
+        elif isinstance(props[p], StkProperty) and not isinstance(object[p], str):
+            try:
+                object[p] = str(object[p])
+            except:
+                object[p] = props[p].default
 
 #! An enum property
 class StkEnumProperty(StkProperty):
