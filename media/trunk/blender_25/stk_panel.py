@@ -482,7 +482,10 @@ SKY_TYPES = {
                      ('sky_texture'        ,      StkProperty(id='sky_texture',         name='Sky Texture',           default="")),
                      ('sky_horizontal'     ,   StkIntProperty(id='sky_horizontal',      name='Horizontal Definition', default=20)),
                      ('sky_vertical'       ,   StkIntProperty(id='sky_vertical',        name='Vertical Definition',   default=20)),
-                     ('sky_texture_percent', StkFloatProperty(id='sky_texture_percent', name='Sky Texture Percent',   default=1.0))])),
+                     ('sky_texture_percent', StkFloatProperty(id='sky_texture_percent', name='Sky Texture Percent',   default=1.0)),
+                     ('sky_sphere_percent' , StkFloatProperty(id='sky_sphere_percent',  name='Sky Sphere Percent',    default=1.3)),
+                     ('sky_speed_x'        , StkFloatProperty(id='sky_speed_x',         name='Sky Speed X',           default=0.0)),
+                     ('sky_speed_y'        , StkFloatProperty(id='sky_speed_y',         name='Sky Speed Y',           default=0.0))])),
         'simple' : StkEnumChoice('Plain color',
                      {'sky_color' : StkColorProperty(id="sky_color", name="Sky Color", default="77 104 255", contextLevel=CONTEXT_SCENE)})
         }
