@@ -130,6 +130,10 @@ def saveWheels(f, lWheels, path):
         global the_scene
         the_scene.obj_list = [wheel]
         
+        if 'b3d_export' not in dir(bpy.ops.screen):
+            log_error("Cannot find the B3D exporter, make sure you installed it properly")
+            return
+        
         bpy.ops.screen.b3d_export(localsp=False, mipmap=True, lights=False, vcolors=True,
                                   vnormals=True, cameras=False, filepath=path + "/" + lWheelNames[index],
                                   overwrite_without_asking=True)
@@ -300,6 +304,10 @@ def exportKart(path):
     # Export the actual kart (the wheels are already exported in saveWheels)
     global the_scene
     the_scene.obj_list = lKart
+    
+    if 'b3d_export' not in dir(bpy.ops.screen):
+        log_error("Cannot find the B3D exporter, make sure you installed it properly")
+        return
     
     bpy.ops.screen.b3d_export(localsp=False, mipmap=True, lights=False, vcolors=True,
                               vnormals=True, cameras=False, filepath=path+"/"+model_file,
