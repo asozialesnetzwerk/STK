@@ -729,15 +729,10 @@ class SuperTuxKartScenePanel(bpy.types.Panel, PanelBase):
 
 # ==== IMAGE PANEL ====
 def createPreviewTexture():
-    global preview_texture
     bpy.ops.texture.new()
-    preview_texture = bpy.data.textures[-1]
-    preview_texture.name = "STKPreviewTexture"
-    preview_texture = bpy.data.textures["STKPreviewTexture"]
-    preview_texture.type = 'IMAGE'
-    preview_texture = bpy.data.textures["STKPreviewTexture"]
-    preview_texture.use_preview_alpha = True
-    preview_texture = bpy.data.textures["STKPreviewTexture"]
+    bpy.data.textures[-1].name = "STKPreviewTexture"
+    bpy.data.textures["STKPreviewTexture"].type = 'IMAGE'
+    bpy.data.textures["STKPreviewTexture"].use_preview_alpha = True
 
 createPreviewTexture()
 
@@ -766,11 +761,16 @@ class STK_SelectImage(bpy.types.Operator):
         global selected_image
         context.scene['selected_image'] = self.name
         
-        global preview_texture
-        if self.name in bpy.data.images:
-            preview_texture.image = bpy.data.images[self.name]
+        if "STKPreviewTexture" not in bpy.data.textures:
+            createPreviewTexture()
+
+        if "STKPreviewTexture" in bpy.data.textures:
+            if self.name in bpy.data.images:
+                bpy.data.textures["STKPreviewTexture"].image = bpy.data.images[self.name]
+            else:
+                bpy.data.textures["STKPreviewTexture"].image = None
         else:
-            preview_texture.image = None
+            print("STK Panel : can't create preview texture!")
         
         if self.name in bpy.data.images:
             createProperties(bpy.data.images[self.name], STK_MATERIAL_PROPERTIES)
@@ -791,9 +791,6 @@ class SuperTuxKartImagePanel(bpy.types.Panel, PanelBase):
         layout = self.layout
         row = layout.row()
         
-        #global preview_texture
-        #layout.template_preview(preview_texture, show_buttons=True)
-
         if "STKPreviewTexture" in bpy.data.textures:
             layout.template_preview(bpy.data.textures["STKPreviewTexture"])
         else:
