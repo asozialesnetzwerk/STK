@@ -84,7 +84,7 @@ def Round(f):
 # defined, this function will also set the property to this default value.
 def getIdProperty(obj, name, default="", set_value_if_undefined=1):
     try:
-        return obj[name]
+        return obj[name].replace('&', '&amp;') # this is XML
     except:
         if default!=None and set_value_if_undefined:
             obj[name] = default
