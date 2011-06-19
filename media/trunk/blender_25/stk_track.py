@@ -580,6 +580,10 @@ class TrackExport:
         # If the object was already exported, we don't have to do it again.
         if name in self.dExportedObjects: return name
         
+        if 'b3d_export' not in dir(bpy.ops.screen):
+            log_error("Cannot find the B3D exporter, make sure you installed it properly")
+            return
+        
         # FIXME: silly and ugly hack, the list of objects to export is passed through
         #        a custom scene property
         global the_scene
@@ -1906,6 +1910,10 @@ class TrackExport:
         # FIXME: silly and ugly hack, the list of objects to export is passed through
         #        a custom scene property
         scene.obj_list = lTrack
+        
+        if 'b3d_export' not in dir(bpy.ops.screen):
+            log_error("Cannot find the B3D exporter, make sure you installed it properly")
+            return
         
         bpy.ops.screen.b3d_export(localsp=False, mipmap=True, lights=False, vcolors=True,
                                   vnormals=True, cameras=False, filepath=sPath+"/"+sTrackName,
