@@ -483,12 +483,12 @@ STK_PER_OBJECT_PROPERTIES = OrderedDict([
 SKY_TYPES = {
         'none'   : StkEnumChoice('None', {}),
         'box'    : StkEnumChoice('Box', OrderedDict([
-                     ('sky_texture1'       ,      StkProperty(id='sky_texture1',        name='Sky Texture 1',         default="")),
-                     ('sky_texture2'       ,      StkProperty(id='sky_texture2',        name='Sky Texture 2',         default="")),
-                     ('sky_texture3'       ,      StkProperty(id='sky_texture3',        name='Sky Texture 3',         default="")),
-                     ('sky_texture4'       ,      StkProperty(id='sky_texture4',        name='Sky Texture 4',         default="")),
-                     ('sky_texture5'       ,      StkProperty(id='sky_texture5',        name='Sky Texture 5',         default="")),
-                     ('sky_texture6'       ,      StkProperty(id='sky_texture6',        name='Sky Texture 6',         default=""))])),
+                     ('sky_texture2'       ,      StkProperty(id='sky_texture2',        name='Sky Texture Top',       default="")),
+                     ('sky_texture3'       ,      StkProperty(id='sky_texture3',        name='Sky Texture Bottom',    default="")),
+                     ('sky_texture4'       ,      StkProperty(id='sky_texture4',        name='Sky Texture East',      default="")),
+                     ('sky_texture5'       ,      StkProperty(id='sky_texture5',        name='Sky Texture West',      default="")),
+                     ('sky_texture1'       ,      StkProperty(id='sky_texture1',        name='Sky Texture North',     default="")),
+                     ('sky_texture6'       ,      StkProperty(id='sky_texture6',        name='Sky Texture South',     default=""))])),
         'dome'   : StkEnumChoice('Dome', OrderedDict([
                      ('sky_texture'        ,      StkProperty(id='sky_texture',         name='Sky Texture',           default="")),
                      ('sky_horizontal'     ,   StkIntProperty(id='sky_horizontal',      name='Horizontal Definition', default=20)),
