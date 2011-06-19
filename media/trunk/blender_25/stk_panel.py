@@ -746,8 +746,15 @@ class ImagePickerMenu(bpy.types.Menu):
         objects = context.scene.objects
         
         layout = self.layout
-        for curr in bpy.data.images:
-            layout.operator("scene.stk_select_image", text=curr.name).name=curr.name
+        row = layout.row()
+        col = row.column()
+
+        for i,curr in enumerate(bpy.data.images):
+	            
+            if (i % 20 == 0):
+                col = row.column()
+		          
+            col.operator("scene.stk_select_image", text=curr.name).name=curr.name
 
 bpy.utils.register_class(ImagePickerMenu)
 
