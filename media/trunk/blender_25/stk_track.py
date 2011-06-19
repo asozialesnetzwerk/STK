@@ -914,7 +914,7 @@ class TrackExport:
             # Write the connection from an already written quad to this
             fr = driveline.getFromQuad()
             to = driveline.getFirstQuadIndex()
-            if not dWrittenEdges.has_key( (fr,to) ):
+            if (fr,to) not in dWrittenEdges:
                 f.write("  <edge from=\"%d\" to=\"%d\"/>\n" %(fr, to))
                 #if to.isEnabled() and fr.isEnabled():
                 #    f.write("  <edge from=\"%d\" to=\"%d\"/>\n" %(fr, to))
@@ -931,7 +931,7 @@ class TrackExport:
                           driveline.getLastQuadIndex()))
             fr = driveline.getLastQuadIndex()
             to = driveline.computeSuccessor(lSorted)
-            if not dWrittenEdges.has_key( (fr, to) ):
+            if (fr, to) not in dWrittenEdges:
                 f.write("  <edge from=\"%d\" to=\"%d\"/>\n" %(fr, to))
                 dWrittenEdges[ (fr, to) ] = 1
         f.write("</graph>\n")
