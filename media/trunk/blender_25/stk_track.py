@@ -1248,7 +1248,7 @@ class TrackExport:
                 activate = getProperty(obj, "activate", "")
                 if activate:
                     group = activate.lower()
-                    if not dGroup2Indices.has_key(group):
+                    if group not in dGroup2Indices:
                         log_warning("Activate group '%s' not found for lap line!"%group)
                         print("Ignored - but lap counting might not work correctly.")
                         print("Make sure there is an object of type 'check' with")
