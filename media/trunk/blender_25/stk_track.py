@@ -1683,6 +1683,7 @@ class TrackExport:
                'falling_effect'   : ("N", None),
                'graphical_effect' : ('none', None),
                'ignore'           : ("N", None),
+               'mask'             : ("", None),
                'reset'            : ("N", None),
                'sphere'           : ("N", None),
                'surface'          : ("N", None),

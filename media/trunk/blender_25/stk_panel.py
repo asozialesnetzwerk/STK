@@ -587,6 +587,7 @@ STK_MATERIAL_PROPERTIES = OrderedDict([
        ('falling_effect',   StkBoolProperty( id='falling_effect',   name="Falling Effect",             default="false", contextLevel=CONTEXT_MATERIAL)),
        ('graphical_effect', StkEnumProperty( id='graphical_effect', name="Graphical Effect",           default='none',  contextLevel=CONTEXT_MATERIAL, values=GFX_VALUES)),
        ('ignore',           StkBoolProperty( id='ignore',           name="Ignore (ghost material)",    default="false", contextLevel=CONTEXT_MATERIAL)),
+       ('mask',                 StkProperty( id='mask',             name="Mask image",                 default="")),
        ('particle',         StkBoolProperty( id='particle',         name="Particle effect",            default="false", contextLevel=CONTEXT_MATERIAL, subproperties=PARTICLE_PROPERTIES)),
        ('use_sfx',          StkBoolProperty( id='use_sfx',          name="Play sound effect",          default="false", contextLevel=CONTEXT_MATERIAL, subproperties=SFX_PROPERTIES)),
        ('reset',            StkBoolProperty( id='reset',            name="Reset kart",                 default="false", contextLevel=CONTEXT_MATERIAL)),
