@@ -15,7 +15,7 @@
   <material name="seabed.png" graphical-effect="water" falling-effect="Y"/>
   <material name="tree_1.png" backface-culling="N" light="N" compositing="blend"/>
   <material name="water_dark.png" light="N" reset="Y" surface="Y">
-    <sfx filename="splash.ogg" name="splash"/>
+    <sfx filename="splash.ogg"/>
     <particles base="splash.xml" condition="skid drive"/>
   </material>
   <material name="Window4.png" anisotropic="Y"/>

@@ -27,7 +27,7 @@
   <material name="transparence.png" reset="Y" compositing="test"/>
   <material name="seabed.jpg" graphical-effect="water" falling-effect="Y"/>
   <material name="canyon_water.png" reset="Y" surface="Y">
-    <sfx filename="splash.ogg" name="splash"/>
+    <sfx filename="splash.ogg"/>
     <particles base="splash.xml" condition="skid drive"/>
   </material>
 </materials>

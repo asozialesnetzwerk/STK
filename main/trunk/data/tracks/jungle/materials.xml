@@ -33,7 +33,7 @@
   <material name="statue.JPG" anisotropic="Y" friction="1.0" max-speed="1.0" slowdown-time="1.0" />
   <material name="transparence.png" compositing="test" disable-z-write="Y" reset="Y"/>
   <material name="water_light.png" anisotropic="Y" friction="1.0" ignore="Y" max-speed="1.0" slowdown-time="1.0" surface="Y" >
-    <sfx filename="splash.ogg" name="splash" rolloff="0.10000000149" min-speed="0.0" max-speed="30.0" min-pitch="1.0" max-pitch="1.0" positional="N"/>
+    <sfx filename="splash.ogg" rolloff="0.10000000149" min-speed="0.0" max-speed="30.0" min-pitch="1.0" max-pitch="1.0" positional="N"/>
     <particles base="splash.xml" condition="skid drive"/>
   </material>
   <material name="wood.png" anisotropic="Y" friction="1.0" max-speed="1.0" slowdown-time="1.0" />

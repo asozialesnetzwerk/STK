@@ -12,11 +12,11 @@
     <particles condition="skid" base="smoke.xml"/>
   </material>
   <material name="mine_water_alpha.png" compositing="blend" clampV="no" surface="Y">
-    <sfx filename="splash.ogg" name="splash"/>
+    <sfx filename="splash.ogg"/>
     <particles base="splash.xml" condition="skid drive"/>
   </material>
   <material name="mine_water_reset.png" reset="Y" graphical-effect="water" falling-effect="Y"/>
   <material name="wood_beam.png">
-    <sfx filename="wooden_bridge.ogg" name="wood" rolloff="0.6" min_speed="9.0" max_speed="22.0" min_pitch="1.0" max_pitch="1.7" positional="Y" volume="1.0"/>
+    <sfx filename="wooden_bridge.ogg" rolloff="0.6" min_speed="9.0" max_speed="22.0" min_pitch="1.0" max_pitch="1.7" positional="Y" volume="1.0"/>
   </material>
 </materials>
