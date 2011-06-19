@@ -686,7 +686,7 @@ class TrackExport:
                             % (type, curves.name))
                     for i in nu:
                         v=Vector(i[0],i[1],i[2]) * matrix
-                        f.write("      <p=\"%f %f %f\"/>\n"%(v[0], v[1], v[2]))
+                        f.write("      <p=\"%.3f %.3f %.3f\"/>\n"%(v[0], v[1], v[2]))
                     f.write("    </%s>\n"%type)
                 elif nu.type==1:
                     f.write("    <%s curvetype=\"bezier\" name=\"%s\">\n" \
@@ -999,7 +999,7 @@ class TrackExport:
             
             for bez in curve.keyframe_points:
                 if bez.interpolation=='BEZIER':
-                    f.write("      <p c=\"%f %f\" h1=\"%f %f\" h2=\"%f %f\"/>\n"%\
+                    f.write("      <p c=\"%.3f %.3f\" h1=\"%.3f %.3f\" h2=\"%.3f %.3f\"/>\n"%\
                             (bez.co[0],factor*bez.co[1],
                              bez.handle_left[0], factor*bez.handle_left[1],
                              bez.handle_right[0], factor*bez.handle_right[1]))
@@ -1044,9 +1044,9 @@ class TrackExport:
     def writeAnimatedTextures(self, f, lAnimTextures):
         for (name, dx, dy) in lAnimTextures:
             sdx=""
-            if dx: sdx = " dx=\"%s\" "%dx
+            if dx: sdx = " dx=\"%.3f\" "%float(dx)
             sdy=""
-            if dy: sdy = " dy=\"%s\" "%dy
+            if dy: sdy = " dy=\"%.3f\" "%float(dy)
             f.write("    <animated-texture name=\"%s\"%s%s/>\n"%(name, sdx, sdy) )
         
     # --------------------------------------------------------------------------
@@ -1382,14 +1382,14 @@ class TrackExport:
     def writeStartPositions(self, f, lStart):
         global the_scene
         scene = the_scene
-        karts_per_row      = getIdProperty(scene, "start_karts_per_row",      "2"  )
-        distance_forwards  = getIdProperty(scene, "start_forwards_distance",  "1.5")
-        distance_sidewards = getIdProperty(scene, "start_sidewards_distance", "3"  )
-        distance_upwards   = getIdProperty(scene, "start_upwards_distance",   "0.1")
-        f.write("  <default-start karts-per-row     =\"%s\"\n"%karts_per_row     )
-        f.write("                 forwards-distance =\"%s\"\n"%distance_forwards )
-        f.write("                 sidewards-distance=\"%s\"\n"%distance_sidewards)
-        f.write("                 upwards-distance  =\"%s\"/>\n"%distance_upwards)
+        karts_per_row      = getIdProperty(scene, "start_karts_per_row",      2.0)
+        distance_forwards  = getIdProperty(scene, "start_forwards_distance",  1.5)
+        distance_sidewards = getIdProperty(scene, "start_sidewards_distance", 3  )
+        distance_upwards   = getIdProperty(scene, "start_upwards_distance",   0.1)
+        f.write("  <default-start karts-per-row     =\"%.2f\"\n"%karts_per_row     )
+        f.write("                 forwards-distance =\"%.2f\"\n"%distance_forwards )
+        f.write("                 sidewards-distance=\"%.2f\"\n"%distance_sidewards)
+        f.write("                 upwards-distance  =\"%.2f\"/>\n"%distance_upwards)
         
         dId2Obj     = {}
         count = 1
@@ -1428,9 +1428,9 @@ class TrackExport:
             b3d_name = self.exportLocalB3D(obj, sPath, name)
             s="  <water model=\"%s\" %s" % \
                 (b3d_name, getXYZHPRString(obj))
-            if height: s="%s height=\"%s\""%(s, height)
-            if speed:  s="%s speed=\"%s\"" %(s, speed )
-            if length: s="%s length=\"%s\""%(s, length)
+            if height: s="%s height=\"%.2f\""%(s, float(height))
+            if speed:  s="%s speed=\"%.2f\"" %(s, float(speed))
+            if length: s="%s length=\"%.2f\""%(s, float(length))
             if lAnim:
                 f.write("%s>\n" % s)
                 self.writeAnimatedTextures(f, lAnim)
@@ -1512,7 +1512,7 @@ class TrackExport:
         if len(lSun) > 0:
             sun = lSun[0]
             xyz=sun.location
-            sSky="%s xyz=\"%s %s %s\""%(sSky, xyz[0],xyz[2],xyz[1])
+            sSky="%s xyz=\"%.2f %.2f %.2f\""%(sSky, float(xyz[0]), float(xyz[2]), float(xyz[1]))
             s=getProperty(sun, "color", 0)
             if s: sSky="%s sun-color=\"%s\""%(sSky, s)
             s=getProperty(sun, "specular", 0)
@@ -1732,7 +1732,11 @@ class TrackExport:
                 #These items pertain to the soundeffects (starting with sfx:)
                 if AProperty.strip().upper().startswith("SFX_"):
                     strippedName = AProperty.strip()[len("SFX_"):]
-                    sSFX = "%s %s=\"%s\""%(sSFX,strippedName,currentValue)
+                    
+                    if isinstance(currentValue, float):
+                        sSFX = "%s %s=\"%.2f\""%(sSFX,strippedName,currentValue)
+                    else:
+                        sSFX = "%s %s=\"%s\""%(sSFX,strippedName,currentValue)
                 elif AProperty.strip().upper().startswith("PARTICLE_"):
                     #These items pertain to the particles (starting with sfx:)
                     strippedName = AProperty.strip()[len("PARTICLE_"):]
@@ -1740,6 +1744,7 @@ class TrackExport:
                 elif AProperty.strip().upper().startswith("ZIPPER_"):
                     #These items pertain to the particles (starting with sfx:)
                     strippedName = AProperty.strip()[len("ZIPPER_"):]
+                    
                     sZipper = "%s %s=\"%s\""%(sZipper,strippedName,currentValue)   
                 else:
                     #These items are standard items
@@ -1750,9 +1755,13 @@ class TrackExport:
                         # if this property isc onditional on another
                         cond = lTextureDefaults[prop][1]
                         
-                        if currentValue != lTextureDefaults[prop][0] and (cond is None or (cond in i and i[cond] == "Y")):
-                            # In blender, proeprties use '_', but STK still expects '-'
-                            sImage = "%s %s=\"%s\""%(sImage,AProperty.replace("_","-"),currentValue)
+                        if currentValue != lTextureDefaults[prop][0] and (cond is None or (cond in i and i[cond] == "true")):
+                            if isinstance(currentValue, float):
+                                # In blender, proeprties use '_', but STK still expects '-'
+                                sImage = "%s %s=\"%.2f\""%(sImage,AProperty.replace("_","-"),currentValue)
+                            else:
+                                # In blender, proeprties use '_', but STK still expects '-'
+                                sImage = "%s %s=\"%s\""%(sImage,AProperty.replace("_","-"),currentValue)
 
             # Now write the main content of the materials.xml file
             if sImage or hasSoundeffect or hasParticle or hasZipper:
