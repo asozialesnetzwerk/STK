@@ -12,6 +12,7 @@ for obj in bpy.data.objects:
             elif val == "yes" :              val = "true"
             elif val == "no" :               val = "false"
             elif val == "particle-emitter" : val = "particle_emitter"
+            elif val == "main-driveline" :   val = "maindriveline"
 
             obj[k.replace("-","_").lower()] = val
         
