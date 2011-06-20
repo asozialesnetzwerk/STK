@@ -1008,8 +1008,8 @@ class TrackExport:
                              bez.handle_left[0], factor*bez.handle_left[1],
                              bez.handle_right[0], factor*bez.handle_right[1]))
                 else:
-                    f.write("      <p c=\"%f %f\"/>\n"%(bez.co[0],
-                                                        factor*bez.co[1]))
+                    f.write("      <p c=\"%.3f %.3f\"/>\n"%(bez.co[0],
+                                                            factor*bez.co[1]))
             f.write("    </curve>\n")
         
     # --------------------------------------------------------------------------
