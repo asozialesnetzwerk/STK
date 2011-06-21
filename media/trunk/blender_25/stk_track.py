@@ -977,7 +977,7 @@ class TrackExport:
             elif curve.data_path == 'scale':
                 name = "Scale" + axes[curve.array_index]
             else:
-                log_warning("Unknown curve type", curve.data_path)
+                log_warning("Unknown curve type " + curve.data_path)
                 continue
             
             extrapolation = "const"
