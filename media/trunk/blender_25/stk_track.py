@@ -1386,11 +1386,11 @@ class TrackExport:
     def writeStartPositions(self, f, lStart):
         global the_scene
         scene = the_scene
-        karts_per_row      = getIdProperty(scene, "start_karts_per_row",      2.0)
+        karts_per_row      = getIdProperty(scene, "start_karts_per_row",      2)
         distance_forwards  = getIdProperty(scene, "start_forwards_distance",  1.5)
-        distance_sidewards = getIdProperty(scene, "start_sidewards_distance", 3  )
+        distance_sidewards = getIdProperty(scene, "start_sidewards_distance", 3.0)
         distance_upwards   = getIdProperty(scene, "start_upwards_distance",   0.1)
-        f.write("  <default-start karts-per-row     =\"%.2f\"\n"%karts_per_row     )
+        f.write("  <default-start karts-per-row     =\"%i\"\n"%karts_per_row     )
         f.write("                 forwards-distance =\"%.2f\"\n"%distance_forwards )
         f.write("                 sidewards-distance=\"%.2f\"\n"%distance_sidewards)
         f.write("                 upwards-distance  =\"%.2f\"/>\n"%distance_upwards)
