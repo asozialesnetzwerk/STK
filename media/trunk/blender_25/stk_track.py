@@ -1736,13 +1736,14 @@ class TrackExport:
                     currentValue = convertTextToYN(currentValue)
                 
                 #These items pertain to the soundeffects (starting with sfx:)
-                if AProperty.strip().upper().startswith("SFX_"):
-                    strippedName = AProperty.strip()[len("SFX_"):]
+                if AProperty.strip().startswith("sfx_"):
+                    strippedName = AProperty.strip()[len("sfx_"):]
                     
-                    if isinstance(currentValue, float):
-                        sSFX = "%s %s=\"%.2f\""%(sSFX,strippedName,currentValue)
-                    else:
-                        sSFX = "%s %s=\"%s\""%(sSFX,strippedName,currentValue)
+                    if strippedName in ['filename', 'rolloff', 'min_speed', 'max_speed', 'min_pitch', 'max_pitch', 'positional', 'volume']:
+                        if isinstance(currentValue, float):
+                            sSFX = "%s %s=\"%.2f\""%(sSFX,strippedName,currentValue)
+                        else:
+                            sSFX = "%s %s=\"%s\""%(sSFX,strippedName,currentValue)
                 elif AProperty.strip().upper().startswith("PARTICLE_"):
                     #These items pertain to the particles (starting with sfx:)
                     strippedName = AProperty.strip()[len("PARTICLE_"):]
