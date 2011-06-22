@@ -1754,7 +1754,7 @@ class TrackExport:
                     sZipper = "%s %s=\"%s\""%(sZipper,strippedName,currentValue)   
                 else:
                     #These items are standard items
-                    prop = AProperty.strip().lower()
+                    prop = AProperty.strip()#.lower()
                     
                     if prop in lTextureDefaults.keys():
                         
