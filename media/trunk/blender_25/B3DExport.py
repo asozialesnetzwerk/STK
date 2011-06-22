@@ -533,13 +533,13 @@ def write_node(objects=[]):
                 temp_buf += write_float(quat.y) #Rotation Z
             else:
                 if b3d_parameters.get("local-space"):
-                    matrix = mathutils.Matrix()
+                    matrix = TRANS_MATRIX
                 else:
                     matrix = obj.matrix_world*TRANS_MATRIX
                     
-                    tmp = mathutils.Vector(matrix[1])
-                    matrix[1] = matrix[2]
-                    matrix[2] = tmp
+                tmp = mathutils.Vector(matrix[1])
+                matrix[1] = matrix[2]
+                matrix[2] = tmp
 
                 temp_buf += write_string(obj.name) #Node Name
 
@@ -564,7 +564,7 @@ def write_node(objects=[]):
                 temp_buf += write_float(quat.x)  #Rotation X
                 temp_buf += write_float(quat.z)  #Rotation Y
                 temp_buf += write_float(quat.y)  #Rotation Z
-
+                  
                 if DEBUG: print("        <position>",position[0],position[2],position[1],"</position>")
                 if DEBUG: print("        <scale>",scale[0],scale[1],scale[2],"</scale>")
                 if DEBUG: print("        <rotation>", quat.w, quat.x, quat.y, quat.z, "</rotation>")
@@ -695,8 +695,8 @@ def write_node(objects=[]):
                                     pass
                                 else:
                                     if b3d_parameters.get("local-space"):
-                                        #bone_matrix *= TRANS_MATRIX
-                                        pass
+                                        bone_matrix = TRANS_MATRIX*bone_matrix
+                                        #pass
                                     else:
                                         bone_matrix = arm_matrix*bone_matrix
                                 
@@ -1368,9 +1368,14 @@ def write_node_keys(ibone):
             temp_buf += write_int(keys_stack[ikeys][0]) #Frame
 
             position = keys_stack[ikeys][2]
-            temp_buf += write_float(-position[0]) #Position X
-            temp_buf += write_float(position[1])  #Position Y
-            temp_buf += write_float(position[2])  #Position Z
+            if b3d_parameters.get("local-space"):
+                temp_buf += write_float(position[0])  #Position X
+                temp_buf += write_float(position[2])  #Position Y
+                temp_buf += write_float(position[1])  #Position Z
+            else:
+                temp_buf += write_float(-position[0]) #Position X
+                temp_buf += write_float(position[1])  #Position Y
+                temp_buf += write_float(position[2])  #Position Z
 
             scale = keys_stack[ikeys][3]
             temp_buf += write_float(scale[0]) #Scale X
