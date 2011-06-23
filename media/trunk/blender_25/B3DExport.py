@@ -607,12 +607,16 @@ def write_node(objects=[]):
                         par_matrix = b * a
                         
                         c = par_matrix
+                        print("With parent")
                         print("C : [%.2f %.2f %.2f %.2f]" % (c[0][0], c[0][1], c[0][2], c[0][3]))
                         print("    [%.2f %.2f %.2f %.2f]" % (c[1][0], c[1][1], c[1][2], c[1][3]))
                         print("    [%.2f %.2f %.2f %.2f]" % (c[2][0], c[2][1], c[2][2], c[2][3]))
                         print("    [%.2f %.2f %.2f %.2f]" % (c[3][0], c[3][1], c[3][2], c[3][3]))
                         
                     else:
+                        
+                        print("==== "+bone.name+" ====")
+                        
                         arm_matrix_2 = arm_matrix*TRANS_MATRIX
                         arm_matrix_2[0][0] = -arm_matrix_2[0][0]
                         arm_matrix_2[3][0] = -arm_matrix_2[3][0]
@@ -624,6 +628,28 @@ def write_node(objects=[]):
                         matrix_with_t = mathutils.Matrix.Translation(bone.head) * matrix.to_4x4()
                         
                         par_matrix = arm_matrix_2 * matrix_with_t
+                        
+                        if b3d_parameters.get("local-space"):
+                            # FIXME: ugly hack to have matrices close to those of the 2.4 exporter
+                            tmp = par_matrix[0][1]
+                            par_matrix[0][1] = par_matrix[0][2]
+                            par_matrix[0][2] = tmp
+                            
+                            tmp = par_matrix[1][1]
+                            par_matrix[1][1] = par_matrix[1][2]
+                            par_matrix[1][2] = tmp
+                            
+                            tmp = par_matrix[2][1]
+                            par_matrix[2][1] = par_matrix[2][2]
+                            par_matrix[2][2] = tmp
+                        
+                        c = par_matrix
+                        
+                        print("Without parent")
+                        print("C : [%.2f %.2f %.2f %.2f]" % (c[0][0], c[0][1], c[0][2], c[0][3]))
+                        print("    [%.2f %.2f %.2f %.2f]" % (c[1][0], c[1][1], c[1][2], c[1][3]))
+                        print("    [%.2f %.2f %.2f %.2f]" % (c[2][0], c[2][1], c[2][2], c[2][3]))
+                        print("    [%.2f %.2f %.2f %.2f]" % (c[3][0], c[3][1], c[3][2], c[3][3]))
                         
 
                     bone_stack.append([par_matrix,parent,bone])
@@ -690,9 +716,11 @@ def write_node(objects=[]):
                                 if DEBUG: print("            <bone id=",ibone,"name=",bone_name,">")
                                 
                                 if bone_stack[ibone][1]:
-                                    par_matrix = mathutils.Matrix(arm_pose.bones[bone_stack[ibone][1].name].matrix)
-                                    bone_matrix = par_matrix.inverted()*bone_matrix
-                                    pass
+                                    if b3d_parameters.get("local-space"):
+                                        pass
+                                    else:
+                                        par_matrix = mathutils.Matrix(arm_pose.bones[bone_stack[ibone][1].name].matrix)
+                                        bone_matrix = par_matrix.inverted()*bone_matrix
                                 else:
                                     if b3d_parameters.get("local-space"):
                                         bone_matrix = TRANS_MATRIX*bone_matrix
@@ -1310,9 +1338,15 @@ def write_node_node(ibone):
     temp_buf += write_float(position[2])  #Position Z
 
     scale = matrix.to_scale()
-    temp_buf += write_float(scale[0]) #Scale X
-    temp_buf += write_float(scale[1]) #Scale Y
-    temp_buf += write_float(scale[2]) #Scale Z
+    if b3d_parameters.get("local-space") and not bone_stack[ibone][1]:
+        # FIXME: stupid hack, for a reason I can't figure out in local-space mode scale is reversed
+        temp_buf += write_float(-scale[0]) #Scale X
+        temp_buf += write_float(-scale[1]) #Scale Y
+        temp_buf += write_float(-scale[2]) #Scale Z
+    else:
+        temp_buf += write_float(scale[0]) #Scale X
+        temp_buf += write_float(scale[1]) #Scale Y
+        temp_buf += write_float(scale[2]) #Scale Z
 
     quat = matrix.to_quaternion()
     quat.normalize()
