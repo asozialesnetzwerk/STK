@@ -591,7 +591,7 @@ def write_node(objects=[]):
 
                         print("==== "+bone.name+" ====")
                         a = (bone.matrix_local)
-                            
+                        
                         print("A : [%.2f %.2f %.2f %.2f]" % (a[0][0], a[0][1], a[0][2], a[0][3]))
                         print("    [%.2f %.2f %.2f %.2f]" % (a[1][0], a[1][1], a[1][2], a[1][3]))
                         print("    [%.2f %.2f %.2f %.2f]" % (a[2][0], a[2][1], a[2][2], a[2][3]))
@@ -618,7 +618,7 @@ def write_node(objects=[]):
                         print("==== "+bone.name+" ====")
                         
                         arm_matrix_2 = arm_matrix*TRANS_MATRIX
-                        arm_matrix_2[0][0] = -arm_matrix_2[0][0]
+                        #arm_matrix_2[0][0] = -arm_matrix_2[0][0]
                         arm_matrix_2[3][0] = -arm_matrix_2[3][0]
                         
                         tmp = arm_matrix_2[3][1]
@@ -642,6 +642,9 @@ def write_node(objects=[]):
                             tmp = par_matrix[2][1]
                             par_matrix[2][1] = par_matrix[2][2]
                             par_matrix[2][2] = tmp
+                        
+                        par_matrix[0][0] = -par_matrix[0][0]
+                        par_matrix[2][0] = -par_matrix[2][0]
                         
                         c = par_matrix
                         
@@ -1353,15 +1356,9 @@ def write_node_node(ibone):
     temp_buf += write_float(position[2])  #Position Z
 
     scale = matrix.to_scale()
-    if b3d_parameters.get("local-space") and not bone_stack[ibone][1]:
-        # FIXME: stupid hack, for a reason I can't figure out in local-space mode scale is reversed
-        temp_buf += write_float(-scale[0]) #Scale X
-        temp_buf += write_float(-scale[1]) #Scale Y
-        temp_buf += write_float(-scale[2]) #Scale Z
-    else:
-        temp_buf += write_float(scale[0]) #Scale X
-        temp_buf += write_float(scale[1]) #Scale Y
-        temp_buf += write_float(scale[2]) #Scale Z
+    temp_buf += write_float(scale[0]) #Scale X
+    temp_buf += write_float(scale[1]) #Scale Y
+    temp_buf += write_float(scale[2]) #Scale Z
 
     quat = matrix.to_quaternion()
     quat.normalize()
