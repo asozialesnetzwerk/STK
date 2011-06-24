@@ -1024,12 +1024,15 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
 
                 #i TODO: test local space more
                 if b3d_parameters.get("local-space"):
-                    
-                    mesh_matrix = mathutils.Matrix()
-                    
+                                        
                     if arm_action:
-                        #vert_matrix = mesh_matrix*vert_matrix
-                        t = [0,0,0] #obj.matrix_world.to_translation()
+                        v = data.vertices[vert].co*mesh_matrix
+                        #tmp = v[2]
+                        #v[2] = v[1]
+                        #v[1] = tmp
+                        vert_matrix = mathutils.Matrix.Translation(v)
+                        t = [0,0,0]
+                        #t = obj.matrix_world.to_translation()
                     else:
                         t = [0,0,0]
                     
