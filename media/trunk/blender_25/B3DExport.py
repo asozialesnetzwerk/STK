@@ -179,10 +179,10 @@ def write_texs(objects=[]):
                         #layer_set[iuvlayer].append(face.uv)
                         new_data = None
                         try:
-	                        new_data = uvlayer.data[face.index].uv
+                            new_data = uvlayer.data[face.index].uv
                         except:
                            pass
-	
+                        
                         layer_set[iuvlayer].append( new_data )
 
             for i in range(len(data.uv_textures)):
@@ -927,7 +927,10 @@ def write_node_mesh(obj,obj_count,arm_action,exp_root):
     mesh_buf = bytearray()
     temp_buf = bytearray()
 
-    data = obj.to_mesh(the_scene, True, 'PREVIEW')
+    if arm_action:
+        data = obj.data
+    else:
+        data = obj.to_mesh(the_scene, True, 'PREVIEW')
     
     temp_buf += write_int(-1) #Brush ID
     temp_buf += write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root) #NODE MESH VRTS
@@ -1021,11 +1024,16 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
 
                 #i TODO: test local space more
                 if b3d_parameters.get("local-space"):
-                    vert_matrix *= TRANS_MATRIX
+                    
+                    mesh_matrix = mathutils.Matrix()
+                    
                     if arm_action:
-                        t = obj.matrix_world.to_translation()
+                        #vert_matrix = mesh_matrix*vert_matrix
+                        t = [0,0,0] #obj.matrix_world.to_translation()
                     else:
                         t = [0,0,0]
+                    
+                    vert_matrix *= TRANS_MATRIX
                     
                 else:
                     vert_matrix *= TRANS_MATRIX
@@ -1087,7 +1095,7 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
                         self.report({'ERROR'}, "Only triangles and quads are supported")
                 else:
                     mesh_stack[ivert][4][0].append([face.index,[0.0,0.0]])
-	            
+                
                 #mesh_stack[vert.index][5].append(vert_influ)
                 
                 for vg in obj.vertex_groups:
@@ -1150,7 +1158,7 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
             temp_buf += write_float(mesh_stack[ivert][1].z)  #Y
             temp_buf += write_float(mesh_stack[ivert][1].y)  #Z
             
-            if DEBUG: print("            <vertex id=",ids_count," loc=",-mesh_stack[ivert][1].x,
+            if DEBUG: print("            <vertex id=",ids_count," loc=", mesh_stack[ivert][1].x,
                                                                          mesh_stack[ivert][1].y,
                                                                          mesh_stack[ivert][1].z,">")
 
