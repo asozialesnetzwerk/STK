@@ -719,12 +719,12 @@ def write_node(objects=[]):
                                 if DEBUG: print("            <bone id=",ibone,"name=",bone_name,">")
                                 
                                 if bone_stack[ibone][1]:
-                                    if b3d_parameters.get("local-space"):
-                                        bone_matrix = bone_matrix*mathutils.Matrix([[-1,0,0,0],[0,0,1,0],[0,1,0,0],[0,0,0,1]])
-                                        pass
-                                    else:
-                                        par_matrix = mathutils.Matrix(arm_pose.bones[bone_stack[ibone][1].name].matrix)
-                                        bone_matrix = par_matrix.inverted()*bone_matrix
+                                    #if b3d_parameters.get("local-space"):
+                                    #    bone_matrix = bone_matrix*mathutils.Matrix([[-1,0,0,0],[0,1,0,0],[0,,1,0],[0,0,0,1]])
+                                    #    pass
+                                    #else:
+                                    par_matrix = mathutils.Matrix(arm_pose.bones[bone_stack[ibone][1].name].matrix)
+                                    bone_matrix = par_matrix.inverted()*bone_matrix
                                 else:
                                     if b3d_parameters.get("local-space"):
                                         bone_matrix = bone_matrix*mathutils.Matrix([[-1,0,0,0],[0,0,1,0],[0,1,0,0],[0,0,0,1]])
@@ -733,15 +733,13 @@ def write_node(objects=[]):
                                         bone_matrix = arm_matrix*bone_matrix
                                 
                                 #print("bone_matrix =", bone_matrix)
-
-                                bone_loc = bone_matrix.to_translation()
                                 
                                 bone_sca = bone_matrix.to_scale()
+                                bone_loc = bone_matrix.to_translation()
                                 
-                                # FIXME: silly tweaks to resemble the Blender 2.4 exporter matrix
+                                # FIXME: silly tweaks to resemble the Blender 2.4 exporter output
                                 if b3d_parameters.get("local-space"):
                                     
-                                    bone_matrix2 = bone_matrix.copy()
                                     bone_rot = bone_matrix.to_quaternion()
                                     bone_rot.normalize()
                                     
@@ -752,6 +750,10 @@ def write_node(objects=[]):
                                         bone_rot.y = tmp
                                         
                                         bone_rot.x = -bone_rot.x
+                                    else:
+                                        tmp = bone_loc.z
+                                        bone_loc.z = bone_loc.y
+                                        bone_loc.y = tmp
 
                                 else:
                                     bone_rot = bone_matrix.to_quaternion()
