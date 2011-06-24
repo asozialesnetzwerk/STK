@@ -717,13 +717,14 @@ def write_node(objects=[]):
                                 
                                 if bone_stack[ibone][1]:
                                     if b3d_parameters.get("local-space"):
+                                        bone_matrix = bone_matrix*mathutils.Matrix([[-1,0,0,0],[0,0,1,0],[0,1,0,0],[0,0,0,1]])
                                         pass
                                     else:
                                         par_matrix = mathutils.Matrix(arm_pose.bones[bone_stack[ibone][1].name].matrix)
                                         bone_matrix = par_matrix.inverted()*bone_matrix
                                 else:
                                     if b3d_parameters.get("local-space"):
-                                        bone_matrix = TRANS_MATRIX*bone_matrix
+                                        bone_matrix = bone_matrix*mathutils.Matrix([[-1,0,0,0],[0,0,1,0],[0,1,0,0],[0,0,0,1]])
                                         #pass
                                     else:
                                         bone_matrix = arm_matrix*bone_matrix
@@ -738,37 +739,15 @@ def write_node(objects=[]):
                                 if b3d_parameters.get("local-space"):
                                     
                                     bone_matrix2 = bone_matrix.copy()
+                                    bone_rot = bone_matrix.to_quaternion()
+                                    bone_rot.normalize()
+                                    
                                     
                                     if not bone_stack[ibone][1]:
-                                        tmp = mathutils.Vector(bone_matrix2[1])
-                                        bone_matrix2[1] = mathutils.Vector(bone_matrix2[2])
-                                        bone_matrix2[2] = tmp
-                                        
-                                        bone_matrix2[0][0] = -bone_matrix2[0][0]
-                                        bone_matrix2[0][1] = -bone_matrix2[0][1]
-                                        bone_matrix2[0][2] = -bone_matrix2[0][2]
-                                    
-                                        bone_rot = bone_matrix2.to_quaternion()
-                                        bone_rot.normalize()
                                         tmp = bone_rot.z
                                         bone_rot.z = bone_rot.y
                                         bone_rot.y = tmp
-                                        bone_rot.x = -bone_rot.x
-                                    else:
-                                        tmp = mathutils.Vector(bone_matrix2[1])
-                                        bone_matrix2[1] = mathutils.Vector(bone_matrix2[0])
-                                        bone_matrix2[0] = tmp
                                         
-                                        bone_matrix2[0][0] = -bone_matrix2[0][0]
-                                        bone_matrix2[0][1] = -bone_matrix2[0][1]
-                                        bone_matrix2[0][2] = -bone_matrix2[0][2]
-                                        
-                                        bone_rot = bone_matrix2.to_quaternion()
-                                        bone_rot.normalize()
-                                        tmp = bone_rot.w
-                                        bone_rot.w = bone_rot.z
-                                        bone_rot.z = -tmp
-                                        bone_rot.y = -bone_rot.y
                                         bone_rot.x = -bone_rot.x
 
                                 else:
