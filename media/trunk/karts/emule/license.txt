@@ -1,5 +1,13 @@
-Emule kart v1.0 by Kinsu for SuperTuxKart
+Emule kart v1.1 by Kinsu for SuperTuxKart
 
 Release license : CC-BY 3.0 (see http://creativecommons.org/licenses/by/3.0/)
 
 Contact : Kinsu @ http://forum.freegamedev.net/
+          kinsumail@gmail.com
+
+--
+Changelog : v1.1
+
+- Reduced tri number by nearly 1000
+- Improved tires look
+- Converted png textures without transparency to jpg
