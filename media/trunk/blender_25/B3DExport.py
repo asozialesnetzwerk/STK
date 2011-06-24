@@ -728,17 +728,53 @@ def write_node(objects=[]):
                                     else:
                                         bone_matrix = arm_matrix*bone_matrix
                                 
-                                # FIXME: silly tweaks to resemble the Blender 2.4 exporter matrix
-                                #bone_matrix[1][2] = -bone_matrix[1][2]
-                                #bone_matrix[2][1] = -bone_matrix[2][1]
-                                #bone_matrix[3][0] = -bone_matrix[3][0]
-                                
                                 #print("bone_matrix =", bone_matrix)
 
                                 bone_loc = bone_matrix.to_translation()
-                                bone_rot = bone_matrix.to_quaternion()
-                                bone_rot.normalize()
+                                
                                 bone_sca = bone_matrix.to_scale()
+                                
+                                # FIXME: silly tweaks to resemble the Blender 2.4 exporter matrix
+                                if b3d_parameters.get("local-space"):
+                                    
+                                    bone_matrix2 = bone_matrix.copy()
+                                    
+                                    if not bone_stack[ibone][1]:
+                                        tmp = mathutils.Vector(bone_matrix2[1])
+                                        bone_matrix2[1] = mathutils.Vector(bone_matrix2[2])
+                                        bone_matrix2[2] = tmp
+                                        
+                                        bone_matrix2[0][0] = -bone_matrix2[0][0]
+                                        bone_matrix2[0][1] = -bone_matrix2[0][1]
+                                        bone_matrix2[0][2] = -bone_matrix2[0][2]
+                                    
+                                        bone_rot = bone_matrix2.to_quaternion()
+                                        bone_rot.normalize()
+                                        tmp = bone_rot.z
+                                        bone_rot.z = bone_rot.y
+                                        bone_rot.y = tmp
+                                        bone_rot.x = -bone_rot.x
+                                    else:
+                                        tmp = mathutils.Vector(bone_matrix2[1])
+                                        bone_matrix2[1] = mathutils.Vector(bone_matrix2[0])
+                                        bone_matrix2[0] = tmp
+                                        
+                                        bone_matrix2[0][0] = -bone_matrix2[0][0]
+                                        bone_matrix2[0][1] = -bone_matrix2[0][1]
+                                        bone_matrix2[0][2] = -bone_matrix2[0][2]
+                                        
+                                        bone_rot = bone_matrix2.to_quaternion()
+                                        bone_rot.normalize()
+                                        tmp = bone_rot.w
+                                        bone_rot.w = bone_rot.z
+                                        bone_rot.z = -tmp
+                                        bone_rot.y = -bone_rot.y
+                                        bone_rot.x = -bone_rot.x
+
+                                else:
+                                    bone_rot = bone_matrix.to_quaternion()
+                                    bone_rot.normalize()
+
                                 keys_stack.append([frame_count - first_frame+1, bone_name, bone_loc, bone_sca, bone_rot])
                                 if DEBUG: print("                <loc>", bone_loc, "</loc>")
                                 if DEBUG: print("                <rot>", bone_rot, "</rot>")
