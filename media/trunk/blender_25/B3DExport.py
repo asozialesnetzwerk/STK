@@ -575,7 +575,7 @@ def write_node(objects=[]):
                 #Blender.Window.Redraw()
                 #bpy.ops.anim.change_frame(frame=0)
 
-                the_scene.frame_set(0,subframe=0.0)
+                the_scene.frame_set(1,subframe=0.0)
 
                 #data = arm.getData()
                 arm_matrix = arm.matrix_world
@@ -645,8 +645,22 @@ def write_node(objects=[]):
                         
                         print("==== "+bone.name+" ====")
                         
-                        
+                        print("Without parent")
+
                         m = arm_matrix*bone.matrix_local
+                        
+                        c = arm.matrix_world
+                        print("A : [%.3f %.3f %.3f %.3f]" % (c[0][0], c[0][1], c[0][2], c[0][3]))
+                        print("    [%.3f %.3f %.3f %.3f]" % (c[1][0], c[1][1], c[1][2], c[1][3]))
+                        print("    [%.3f %.3f %.3f %.3f]" % (c[2][0], c[2][1], c[2][2], c[2][3]))
+                        print("    [%.3f %.3f %.3f %.3f]" % (c[3][0], c[3][1], c[3][2], c[3][3]))
+                        
+                        c = bone.matrix_local
+                        print("B : [%.3f %.3f %.3f %.3f]" % (c[0][0], c[0][1], c[0][2], c[0][3]))
+                        print("    [%.3f %.3f %.3f %.3f]" % (c[1][0], c[1][1], c[1][2], c[1][3]))
+                        print("    [%.3f %.3f %.3f %.3f]" % (c[2][0], c[2][1], c[2][2], c[2][3]))
+                        print("    [%.3f %.3f %.3f %.3f]" % (c[3][0], c[3][1], c[3][2], c[3][3]))
+                        
                         par_matrix = m*mathutils.Matrix([[-1,0,0,0],[0,0,1,0],[0,1,0,0],[0,0,0,1]])
                         
                         #tr = bone.head*arm_matrix
@@ -688,11 +702,10 @@ def write_node(objects=[]):
                         
                         c = par_matrix
                         
-                        print("Without parent")
-                        print("C : [%.2f %.2f %.2f %.2f]" % (c[0][0], c[0][1], c[0][2], c[0][3]))
-                        print("    [%.2f %.2f %.2f %.2f]" % (c[1][0], c[1][1], c[1][2], c[1][3]))
-                        print("    [%.2f %.2f %.2f %.2f]" % (c[2][0], c[2][1], c[2][2], c[2][3]))
-                        print("    [%.2f %.2f %.2f %.2f]" % (c[3][0], c[3][1], c[3][2], c[3][3]))
+                        print("C : [%.3f %.3f %.3f %.3f]" % (c[0][0], c[0][1], c[0][2], c[0][3]))
+                        print("    [%.3f %.3f %.3f %.3f]" % (c[1][0], c[1][1], c[1][2], c[1][3]))
+                        print("    [%.3f %.3f %.3f %.3f]" % (c[2][0], c[2][1], c[2][2], c[2][3]))
+                        print("    [%.3f %.3f %.3f %.3f]" % (c[3][0], c[3][1], c[3][2], c[3][3]))
                         
 
                     bone_stack.append([par_matrix,parent,bone])
