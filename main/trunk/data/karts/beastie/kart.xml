@@ -23,5 +23,9 @@
                  model    = "wheel-front-left.b3d"       />
     <front-right position = "0.336000 0.182370 0.363336"
                  model    = "wheel-front-right.b3d"       />
+    <rear-left position = "-0.336000 0.182370 -0.480000"
+                 model    = "wheel-rear-left.b3d"       />
+    <rear-right position = "0.336000 0.182370 -0.480000"
+                 model    = "wheel-rear-right.b3d"       />
   </wheels>
 </kart>
