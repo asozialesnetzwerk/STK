@@ -5,3 +5,5 @@ http://creativecommons.org/licenses/by-sa/3.0/
 Artwork by yeKcim (Anthony Carré) released under GPL 2
 
 Beagle by Dakal, released under CC-By-SA 3.0
+
+beastie icon by Funto, released under BSD license
