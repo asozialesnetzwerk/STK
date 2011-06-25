@@ -1411,10 +1411,15 @@ def write_node_node(ibone):
     temp_buf += write_string(bone_stack[ibone][2].name) #Node Name
 
     position = matrix.to_translation()
-    temp_buf += write_float(position[0]) #Position X
-    temp_buf += write_float(position[2])  #Position Y
-    temp_buf += write_float(position[1])  #Position Z
-
+    if not b3d_parameters.get("local-space"):
+        temp_buf += write_float(-position[0]) #Position X
+        temp_buf += write_float(position[2])  #Position Y
+        temp_buf += write_float(position[1])  #Position Z
+    else:
+        temp_buf += write_float(position[0])  #Position X
+        temp_buf += write_float(position[2])  #Position Y
+        temp_buf += write_float(position[1])  #Position Z
+    
     scale = matrix.to_scale()
     temp_buf += write_float(scale[0]) #Scale X
     temp_buf += write_float(scale[2]) #Scale Y
