@@ -605,46 +605,86 @@ def write_node(objects=[]):
                         print("    [%.2f %.2f %.2f %.2f]" % (b[3][0], b[3][1], b[3][2], b[3][3]))
                         
                         par_matrix = b * a
+                        par_matrix = par_matrix*mathutils.Matrix([[1,0,0,0],[0,0,1,0],[0,1,0,0],[0,0,0,1]])
+                        #tmp = mathutils.Vector(par_matrix[2])
+                        #par_matrix[2] = par_matrix[1]
+                        #par_matrix[1] = tmp
+                        
+                        tmp = par_matrix[0][2]
+                        par_matrix[0][2] = par_matrix[0][1]
+                        par_matrix[0][1] = tmp
+                        
+                        tmp = par_matrix[1][2]
+                        par_matrix[1][2] = par_matrix[1][1]
+                        par_matrix[1][1] = tmp
+                        
+                        tmp = par_matrix[2][2]
+                        par_matrix[2][2] = par_matrix[2][1]
+                        par_matrix[2][1] = tmp
+                        
+                        tmp = par_matrix[3][2]
+                        par_matrix[3][2] = par_matrix[3][1]
+                        par_matrix[3][1] = tmp
+                        
+                        # FIXME: that's ugly, find a clean way to change the matrix.....
+                        par_matrix[0][1] = -par_matrix[0][1]
+                        par_matrix[0][2] = -par_matrix[0][2]
+                        par_matrix[1][0] = -par_matrix[1][0]
+                        par_matrix[2][0] = -par_matrix[2][0]
+                        par_matrix[3][1] = -par_matrix[3][1]
+                        #par_matrix[1][2] = -par_matrix[1][2]
                         
                         c = par_matrix
                         print("With parent")
-                        print("C : [%.2f %.2f %.2f %.2f]" % (c[0][0], c[0][1], c[0][2], c[0][3]))
-                        print("    [%.2f %.2f %.2f %.2f]" % (c[1][0], c[1][1], c[1][2], c[1][3]))
-                        print("    [%.2f %.2f %.2f %.2f]" % (c[2][0], c[2][1], c[2][2], c[2][3]))
-                        print("    [%.2f %.2f %.2f %.2f]" % (c[3][0], c[3][1], c[3][2], c[3][3]))
+                        print("C : [%.3f %.3f %.3f %.3f]" % (c[0][0], c[0][1], c[0][2], c[0][3]))
+                        print("    [%.3f %.3f %.3f %.3f]" % (c[1][0], c[1][1], c[1][2], c[1][3]))
+                        print("    [%.3f %.3f %.3f %.3f]" % (c[2][0], c[2][1], c[2][2], c[2][3]))
+                        print("    [%.3f %.3f %.3f %.3f]" % (c[3][0], c[3][1], c[3][2], c[3][3]))
                         
                     else:
                         
                         print("==== "+bone.name+" ====")
                         
-                        arm_matrix_2 = arm_matrix*TRANS_MATRIX
-                        #arm_matrix_2[0][0] = -arm_matrix_2[0][0]
-                        arm_matrix_2[3][0] = -arm_matrix_2[3][0]
                         
-                        tmp = arm_matrix_2[3][1]
-                        arm_matrix_2[3][1] = arm_matrix_2[3][2]
-                        arm_matrix_2[3][2] = tmp
+                        m = arm_matrix*bone.matrix_local
+                        par_matrix = m*mathutils.Matrix([[-1,0,0,0],[0,0,1,0],[0,1,0,0],[0,0,0,1]])
                         
-                        matrix_with_t = mathutils.Matrix.Translation(bone.head) * matrix.to_4x4()
+                        #tr = bone.head*arm_matrix
+                        #
+                        #arm_matrix_2 = arm_matrix*TRANS_MATRIX
+                        #arm_matrix_2[3][0] = -arm_matrix_2[3][0]
+                        #
+                        #tmp = arm_matrix_2[3][1]
+                        #arm_matrix_2[3][1] = arm_matrix_2[3][2]
+                        #arm_matrix_2[3][2] = tmp
+                        #
+                        #if b3d_parameters.get("local-space"):
+                        #    
+                        #    par_matrix = arm_matrix_2.copy()
+                        #    par_matrix[3][0] = -tr[0]
+                        #    par_matrix[3][1] = tr[2]
+                        #    par_matrix[3][2] = tr[1]
+
+                        #    # FIXME: ugly hack to have matrices close to those of the 2.4 exporter
+                        #    tmp = par_matrix[0][1]
+                        #    par_matrix[0][1] = par_matrix[0][2]
+                        #    par_matrix[0][2] = tmp
+                        #    
+                        #    tmp = par_matrix[1][1]
+                        #    par_matrix[1][1] = par_matrix[1][2]
+                        #    par_matrix[1][2] = tmp
+                        #    
+                        #    tmp = par_matrix[2][1]
+                        #    par_matrix[2][1] = par_matrix[2][2]
+                        #    par_matrix[2][2] = tmp
+                        #else:
+                        #    
+                        #    matrix_with_t = mathutils.Matrix.Translation(bone.head) * matrix.to_4x4()
+                        #    par_matrix = arm_matrix_2 * matrix_with_t
+
+                        #par_matrix[0][0] = -par_matrix[0][0]
+                        #par_matrix[2][0] = -par_matrix[2][0]
                         
-                        par_matrix = arm_matrix_2 * matrix_with_t
-                        
-                        if b3d_parameters.get("local-space"):
-                            # FIXME: ugly hack to have matrices close to those of the 2.4 exporter
-                            tmp = par_matrix[0][1]
-                            par_matrix[0][1] = par_matrix[0][2]
-                            par_matrix[0][2] = tmp
-                            
-                            tmp = par_matrix[1][1]
-                            par_matrix[1][1] = par_matrix[1][2]
-                            par_matrix[1][2] = tmp
-                            
-                            tmp = par_matrix[2][1]
-                            par_matrix[2][1] = par_matrix[2][2]
-                            par_matrix[2][2] = tmp
-                        
-                        par_matrix[0][0] = -par_matrix[0][0]
-                        par_matrix[2][0] = -par_matrix[2][0]
                         
                         c = par_matrix
                         
@@ -1191,16 +1231,16 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
 
 
                 if not iuv < len(mesh_stack[ivert][4][iuvlayer]):
-	                print("iuv",iuv,"not available for uv layer", iuvlayer, ", vertex", ivert, "of", obj.name)
-	                temp_buf += write_float(0.0)
-	                temp_buf += write_float(0.0)
+                    print("iuv",iuv,"not available for uv layer", iuvlayer, ", vertex", ivert, "of", obj.name)
+                    temp_buf += write_float(0.0)
+                    temp_buf += write_float(0.0)
                 else:
-	                assert len(mesh_stack[ivert][4][iuvlayer][iuv]) >= 2
-	                assert len(mesh_stack[ivert][4][iuvlayer][iuv][1]) >= 2
-	                temp_buf += write_float(mesh_stack[ivert][4][iuvlayer][iuv][1][0])  #U
-	                temp_buf += write_float(1-mesh_stack[ivert][4][iuvlayer][iuv][1][1]) #V
-	                if DEBUG: print("                <uv layer=",iuvlayer,">",mesh_stack[ivert][4][iuvlayer][iuv][1][0],
-	                                                  1-mesh_stack[ivert][4][iuvlayer][iuv][1][1],"</uv>")
+                    assert len(mesh_stack[ivert][4][iuvlayer][iuv]) >= 2
+                    assert len(mesh_stack[ivert][4][iuvlayer][iuv][1]) >= 2
+                    temp_buf += write_float(mesh_stack[ivert][4][iuvlayer][iuv][1][0])  #U
+                    temp_buf += write_float(1-mesh_stack[ivert][4][iuvlayer][iuv][1][1]) #V
+                    if DEBUG: print("                <uv layer=",iuvlayer,">",mesh_stack[ivert][4][iuvlayer][iuv][1][0],
+                                                      1-mesh_stack[ivert][4][iuvlayer][iuv][1][1],"</uv>")
 
             if DEBUG: print("            </vertex>")
 
@@ -1364,22 +1404,22 @@ def write_node_node(ibone):
     temp_buf += write_string(bone_stack[ibone][2].name) #Node Name
 
     position = matrix.to_translation()
-    temp_buf += write_float(-position[0]) #Position X
-    temp_buf += write_float(position[1])  #Position Y
-    temp_buf += write_float(position[2])  #Position Z
+    temp_buf += write_float(position[0]) #Position X
+    temp_buf += write_float(position[2])  #Position Y
+    temp_buf += write_float(position[1])  #Position Z
 
     scale = matrix.to_scale()
     temp_buf += write_float(scale[0]) #Scale X
-    temp_buf += write_float(scale[1]) #Scale Y
-    temp_buf += write_float(scale[2]) #Scale Z
+    temp_buf += write_float(scale[2]) #Scale Y
+    temp_buf += write_float(scale[1]) #Scale Z
 
     quat = matrix.to_quaternion()
     quat.normalize()
 
     temp_buf += write_float(quat.w)  #Rotation W
-    temp_buf += write_float(-quat.x) #Rotation X
-    temp_buf += write_float(quat.y)  #Rotation Y
-    temp_buf += write_float(quat.z)  #Rotation Z
+    temp_buf += write_float(quat.x)  #Rotation X
+    temp_buf += write_float(quat.z)  #Rotation Y
+    temp_buf += write_float(quat.y)  #Rotation Z
 
     temp_buf += write_node_bone(ibone)
     temp_buf += write_node_keys(ibone)
