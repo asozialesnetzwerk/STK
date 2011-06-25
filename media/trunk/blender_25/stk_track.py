@@ -1023,7 +1023,7 @@ class TrackExport:
         # objects.
         parent = obj.parent
         # For now: armature animations are assumed to be looped
-        if parent and parent.type=="Armature":
+        if parent and parent.type=="ARMATURE":
             looped =" looped=\"y\" "
         else:
             looped = ""
