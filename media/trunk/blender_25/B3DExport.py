@@ -1046,6 +1046,8 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
         progress = 0
         print("    mesh_stack, face:",0,"/",len(data.faces))
     
+    the_scene.frame_set(1,subframe=0.0)
+    
     for face in data.faces:
         
         if DEBUG: print("        <!-- Face",face.index,"-->")
