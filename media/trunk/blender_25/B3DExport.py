@@ -1061,34 +1061,26 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
             
             ivert += 1
             
-            #ivert = data.vertices[vert].index
-            
             if DEBUG: print("            <!-- B3D Vertex",ivert,"is blender vertex",data.vertices[vert].index,"for face",face.index,"-->")
-           
+            
             per_face_vertices[face.index].append(ivert)
             
             if mesh_stack[ivert][0] != -1:
                 if DEBUG: print("            <!-- Vertex",ivert,"already handled -->")
             
             if mesh_stack[ivert][0] == -1:
-                link_matrix = obj.matrix_world
+                link_matrix = mathutils.Matrix(obj.matrix_world)
                 mesh_matrix = mathutils.Matrix([link_matrix[0],link_matrix[1],link_matrix[2],link_matrix[3]])
                 vert_matrix = mathutils.Matrix.Translation(data.vertices[vert].co)
-
+                
                 #i TODO: test local space more
                 if b3d_parameters.get("local-space"):
-                                        
+                    
                     if arm_action:
                         v = data.vertices[vert].co*mesh_matrix
-                        #tmp = v[2]
-                        #v[2] = v[1]
-                        #v[1] = tmp
                         vert_matrix = mathutils.Matrix.Translation(v)
-                        t = [0,0,0]
-                        #t = obj.matrix_world.to_translation()
-                    else:
-                        t = [0,0,0]
                     
+                    t = [0,0,0]
                     vert_matrix *= TRANS_MATRIX
                     
                 else:
