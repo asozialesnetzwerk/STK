@@ -145,13 +145,16 @@ def createProperties(object, props):
 #! An enum property
 class StkEnumProperty(StkProperty):
     
+    def getOperatorName(self):
+        return self.operator_name
+    
     #! @param name   User-visible name for this property
     #! @param values A dictionnary of type { 'value' : StkEnumChoice(...) }
     #! @note         The first value will be used by default
-    def __init__(self, id, name, values, contextLevel, default):
+    def __init__(self, id, name, values, contextLevel, default, unique_prefix=""):
         super(StkEnumProperty, self).__init__(id, name, default)
         self.values = values
-        
+        self.operator_name = "screen.stk_set_"   + unique_prefix + id
         default_value = default
         
         values_for_blender_unsorted = []
@@ -167,8 +170,8 @@ class StkEnumProperty(StkProperty):
             value = bpy.props.EnumProperty(attr="values", name="values", default=default_value,
                                            items=values_for_blender)
             
-            bl_idname = ("screen.stk_set_"+id)
-            bl_label  = ("SuperTuxKart set "+id)
+            bl_idname = ("screen.stk_set_"   + unique_prefix + id)
+            bl_label  = ("SuperTuxKart set " + unique_prefix + id)
             
             m_property_id = id
             m_items_val = values_for_blender
@@ -187,7 +190,7 @@ class StkEnumProperty(StkProperty):
                 # If sub-properties are needed, create them
                 if self.value in self.m_values:
                     createProperties(object, self.m_values[self.value].subproperties)
-                    
+                
                 return {'FINISHED'}
             
         bpy.utils.register_class(STK_SetComboValue)
@@ -468,10 +471,10 @@ type = StkEnumProperty('type', "Type",
                                  ('speed' , StkFloatProperty('speed',  "Waves Speed",  200.0)),
                                  ('length', StkFloatProperty('length', "Waves Length", 10.0))
                                  ]))
-       }, contextLevel=CONTEXT_OBJECT, default='')
+       }, contextLevel=CONTEXT_OBJECT, default='', unique_prefix="track_")
 
 
-STK_PER_OBJECT_PROPERTIES = OrderedDict([
+STK_PER_OBJECT_TRACK_PROPERTIES = OrderedDict([
        ('type'               , type),
        ('enable_anim_texture', StkBoolProperty(id='enable_anim_texture', name='Use animated Texture',  default="false", contextLevel=CONTEXT_OBJECT,
              subproperties={'anim_texture' : StkProperty(id='anim_texture', name='Texture to animate', default=""),
@@ -479,6 +482,15 @@ STK_PER_OBJECT_PROPERTIES = OrderedDict([
                             'anim_dy'      : StkFloatProperty(id='anim_dy', name='Animation Y Speed',  default=0.0)
                             }))
         ])
+
+STK_PER_OBJECT_KART_PROPERTIES = OrderedDict([
+       ('type'               , StkEnumProperty('type', "Type", OrderedDict([    (''      , StkEnumChoice('None', {})),
+                                                                                ('wheel' , StkEnumChoice('Wheel', {})),
+                                                                                ('ignore', StkEnumChoice('Ignore', {}))
+                                                                            ]),
+                                               contextLevel=CONTEXT_OBJECT, default='', unique_prefix="kart_")
+        )
+       ])
 
 SKY_TYPES = {
         'none'   : StkEnumChoice('None', {}),
@@ -673,7 +685,7 @@ class PanelBase:
                 if curr_value in curr.values:
                     label = curr.values[curr_value].name
                 
-                row.operator_menu_enum("screen.stk_set_"+id, property="value", text=label)
+                row.operator_menu_enum(curr.getOperatorName(), property="value", text=label)
                 
                 if curr_value in curr.values and len(curr.values[curr_value].subproperties) > 0:
                     box = layout.box()
@@ -701,14 +713,20 @@ class SuperTuxKartObjectPanel(bpy.types.Panel, PanelBase):
     
         layout = self.layout
         
-        if "is_stk_track" not in context.scene or context.scene["is_stk_track"] != "true":
-                layout.label("(Not a SuperTuxKart track)")
-                return
+        is_track = ("is_stk_track" in context.scene and context.scene["is_stk_track"] == "true")
+        is_kart = ("is_stk_kart" in context.scene and context.scene["is_stk_kart"] == "true")
+
+        if not is_track and not is_kart:
+            layout.label("(Not a SuperTuxKart scene)")
+            return
         
         obj = context.object
         
         if obj is not None:
-            self.recursivelyAddProperties(STK_PER_OBJECT_PROPERTIES, layout, obj)
+            if is_track:
+                self.recursivelyAddProperties(STK_PER_OBJECT_TRACK_PROPERTIES, layout, obj)
+            if is_kart:
+                self.recursivelyAddProperties(STK_PER_OBJECT_KART_PROPERTIES, layout, obj)
 
 
 # ==== SCENE PANEL ====
@@ -750,10 +768,10 @@ class ImagePickerMenu(bpy.types.Menu):
         col = row.column()
 
         for i,curr in enumerate(bpy.data.images):
-	            
+            
             if (i % 20 == 0):
                 col = row.column()
-		          
+            
             col.operator("scene.stk_select_image", text=curr.name).name=curr.name
 
 bpy.utils.register_class(ImagePickerMenu)
