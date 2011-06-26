@@ -1,0 +1,9 @@
+Rinky model adapted from Big Buck Bunny, released under the Creative Commons Attribution 3.0 license,
+with modifications by Marianne Gagnon. Kart by Marianne Gagnon. Model as a whole released under
+Creative Commons Attribution 3.0 license.
+
+chrome.png is released under GNU GPL w\2, by the original authors of (Super)TuxKart
+red.png is released under public domain
+
+hair.png adapted from Big Buck Bunny, released under the Creative Commons Attribution 3.0 license,
+with modifications by Marianne Gagnon.
