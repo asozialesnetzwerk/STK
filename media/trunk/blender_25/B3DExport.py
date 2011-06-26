@@ -631,7 +631,6 @@ def write_node(objects=[]):
                         par_matrix[0][2] = -par_matrix[0][2]
                         par_matrix[1][0] = -par_matrix[1][0]
                         par_matrix[2][0] = -par_matrix[2][0]
-                        par_matrix[3][1] = -par_matrix[3][1]
                         #par_matrix[1][2] = -par_matrix[1][2]
                         
                         c = par_matrix
