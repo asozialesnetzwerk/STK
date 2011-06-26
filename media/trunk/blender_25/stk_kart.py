@@ -103,23 +103,24 @@ def saveWheels(f, lWheels, path):
         name = wheel.name.upper()
         # If old stylen names are given, use them to determine
         # which wheel is which.
-        if name=="WHEELFRONT.R":
-            index=0
-        elif name=="WHEELFRONT.L":
-            index=1
-        elif name=="WHEELREAR.R":
-            index=2
-        elif name=="WHEELREAR.L":
-            index=3
-        else:
-            # Otherwise the new style 'type=wheel' is used. Use the x and
-            #  y coordinates to determine where the wheel belongs to.
-            x = wheel.LocX
-            y = wheel.LocY
-            index = 0
-            if y<0:
-                index=index+2
-            if x>0: index=index+1
+        #if name=="WHEELFRONT.R":
+        #    index=0
+        #elif name=="WHEELFRONT.L":
+        #    index=1
+        #elif name=="WHEELREAR.R":
+        #    index=2
+        #elif name=="WHEELREAR.L":
+        #    index=3
+        #else:
+        
+        # Otherwise the new style 'type=wheel' is used. Use the x and
+        #  y coordinates to determine where the wheel belongs to.
+        x = wheel.location.x
+        y = wheel.location.y
+        index = 0
+        if y<0:
+            index=index+2
+        if x<0: index=index+1
         
         f.write('    <%s position = "%f %f %f"\n' \
                 % ( lSides[index], wheel.location.x, wheel.location.z, wheel.location.y))
@@ -241,9 +242,9 @@ def exportKart(path):
         elif stktype=="IGNORE":
             pass
         # For backward compatibility
-        elif name in ["WHEELFRONT.R","WHEELFRONT.L", \
-                      "WHEELREAR.R", "WHEELREAR.L"     ]:
-            lWheels.append(obj)
+        #elif name in ["WHEELFRONT.R","WHEELFRONT.L", \
+        #              "WHEELREAR.R", "WHEELREAR.L"     ]:
+        #    lWheels.append(obj)
         else:
             # Due to limitations with the b3d exporter animated
             # objects must be first in the list of objects to export:
