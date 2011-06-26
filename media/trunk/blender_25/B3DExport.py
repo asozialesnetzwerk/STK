@@ -605,18 +605,12 @@ def write_node(objects=[]):
                         print("    [%.2f %.2f %.2f %.2f]" % (b[3][0], b[3][1], b[3][2], b[3][3]))
                         
                         par_matrix = b * a
-                        transform = mathutils.Matrix([[1,0,0,0],[0,0,1,0],[0,1,0,0],[0,0,0,1]])
+                        transform = mathutils.Matrix([[1,0,0,0],[0,0,-1,0],[0,-1,0,0],[0,0,0,1]])
                         par_matrix = transform*par_matrix*transform
-                        #tmp = mathutils.Vector(par_matrix[2])
-                        #par_matrix[2] = par_matrix[1]
-                        #par_matrix[1] = tmp
                         
                         # FIXME: that's ugly, find a clean way to change the matrix.....
-                        par_matrix[0][1] = -par_matrix[0][1]
-                        par_matrix[0][2] = -par_matrix[0][2]
-                        par_matrix[1][0] = -par_matrix[1][0]
-                        par_matrix[2][0] = -par_matrix[2][0]
-                        #par_matrix[1][2] = -par_matrix[1][2]
+                        par_matrix[3][1] = -par_matrix[3][1]
+                        par_matrix[3][2] = -par_matrix[3][2]
                         
                         c = par_matrix
                         print("With parent")
