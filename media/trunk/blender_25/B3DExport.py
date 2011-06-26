@@ -640,44 +640,7 @@ def write_node(objects=[]):
                         print("    [%.3f %.3f %.3f %.3f]" % (c[3][0], c[3][1], c[3][2], c[3][3]))
                         
                         par_matrix = m*mathutils.Matrix([[-1,0,0,0],[0,0,1,0],[0,1,0,0],[0,0,0,1]])
-                        
-                        #tr = bone.head*arm_matrix
-                        #
-                        #arm_matrix_2 = arm_matrix*TRANS_MATRIX
-                        #arm_matrix_2[3][0] = -arm_matrix_2[3][0]
-                        #
-                        #tmp = arm_matrix_2[3][1]
-                        #arm_matrix_2[3][1] = arm_matrix_2[3][2]
-                        #arm_matrix_2[3][2] = tmp
-                        #
-                        #if b3d_parameters.get("local-space"):
-                        #    
-                        #    par_matrix = arm_matrix_2.copy()
-                        #    par_matrix[3][0] = -tr[0]
-                        #    par_matrix[3][1] = tr[2]
-                        #    par_matrix[3][2] = tr[1]
-
-                        #    # FIXME: ugly hack to have matrices close to those of the 2.4 exporter
-                        #    tmp = par_matrix[0][1]
-                        #    par_matrix[0][1] = par_matrix[0][2]
-                        #    par_matrix[0][2] = tmp
-                        #    
-                        #    tmp = par_matrix[1][1]
-                        #    par_matrix[1][1] = par_matrix[1][2]
-                        #    par_matrix[1][2] = tmp
-                        #    
-                        #    tmp = par_matrix[2][1]
-                        #    par_matrix[2][1] = par_matrix[2][2]
-                        #    par_matrix[2][2] = tmp
-                        #else:
-                        #    
-                        #    matrix_with_t = mathutils.Matrix.Translation(bone.head) * matrix.to_4x4()
-                        #    par_matrix = arm_matrix_2 * matrix_with_t
-
-                        #par_matrix[0][0] = -par_matrix[0][0]
-                        #par_matrix[2][0] = -par_matrix[2][0]
-                        
-                        
+                                                
                         c = par_matrix
                         
                         print("C : [%.3f %.3f %.3f %.3f]" % (c[0][0], c[0][1], c[0][2], c[0][3]))
@@ -721,15 +684,18 @@ def write_node(objects=[]):
                     arm_pose = arm.pose
                     #arm_matrix = arm.getMatrix("worldspace")
                     arm_matrix = arm.matrix_world
-                    arm_matrix *= BONE_TRANS_MATRIX
+                    #arm_matrix *= BONE_TRANS_MATRIX
+                    
+                    transform = mathutils.Matrix([[-1,0,0,0],[0,0,1,0],[0,1,0,0],[0,0,0,1]])
+                    arm_matrix = transform*arm_matrix
                     
                     # FIXME: ugly manual changes to matrix to make it more similar to Blender 2.4 exporter matrix
-                    arm_matrix[1][2] = -arm_matrix[1][2]
-                    arm_matrix[2][1] = -arm_matrix[2][1]
-                    arm_matrix[3][0] = -arm_matrix[3][0]
-                    tmp = arm_matrix[3][1]
-                    arm_matrix[3][1] = arm_matrix[3][2]
-                    arm_matrix[3][2] = tmp
+                    #arm_matrix[1][2] = -arm_matrix[1][2]
+                    #arm_matrix[2][1] = -arm_matrix[2][1]
+                    #arm_matrix[3][0] = -arm_matrix[3][0]
+                    #tmp = arm_matrix[3][1]
+                    #arm_matrix[3][1] = arm_matrix[3][2]
+                    #arm_matrix[3][2] = tmp
                     
                     #print("arm_matrix =", arm_matrix)
 
@@ -749,19 +715,40 @@ def write_node(objects=[]):
                                 
                                 if DEBUG: print("            <bone id=",ibone,"name=",bone_name,">")
                                 
+                                # == 2.4 exporter ==
+                                #if bone_stack[ibone][1]:
+                                #    par_matrix = Blender.Mathutils.Matrix(arm_pose.bones[bone_stack[ibone][1].name].poseMatrix)
+                                #    bone_matrix *= par_matrix.invert()
+                                #else:
+                                #    if b3d_parameters.get("local-space"):
+                                #        bone_matrix *= TRANS_MATRIX
+                                #    else:
+                                #        bone_matrix *= arm_matrix
+                                #bone_loc = bone_matrix.translationPart()
+                                #bone_rot = bone_matrix.rotationPart().toQuat()
+                                #bone_rot.normalize()
+                                #bone_sca = bone_matrix.scalePart()
+                                #keys_stack.append([frame_count - first_frame.val+1,bone_name,bone_loc,bone_sca,bone_rot])
+                                
+                                # if has parent
                                 if bone_stack[ibone][1]:
-                                    #if b3d_parameters.get("local-space"):
-                                    #    bone_matrix = bone_matrix*mathutils.Matrix([[-1,0,0,0],[0,1,0,0],[0,,1,0],[0,0,0,1]])
-                                    #    pass
-                                    #else:
                                     par_matrix = mathutils.Matrix(arm_pose.bones[bone_stack[ibone][1].name].matrix)
                                     bone_matrix = par_matrix.inverted()*bone_matrix
                                 else:
                                     if b3d_parameters.get("local-space"):
                                         bone_matrix = bone_matrix*mathutils.Matrix([[-1,0,0,0],[0,0,1,0],[0,1,0,0],[0,0,0,1]])
-                                        #pass
                                     else:
+                                        
+                                        if frame_count == 1:
+                                            print("====",bone_name,"====")
+                                            print("arm_matrix = ", arm_matrix)
+                                            print("bone_matrix = ", bone_matrix)
+                                        
                                         bone_matrix = arm_matrix*bone_matrix
+                                        
+                                        if frame_count == 1:
+                                            print("arm_matrix*bone_matrix", bone_matrix)
+                                        
                                 
                                 #print("bone_matrix =", bone_matrix)
                                 
@@ -1388,8 +1375,9 @@ def write_node_node(ibone):
     matrix = bone_stack[ibone][0]
     temp_buf += write_string(bone_stack[ibone][2].name) #Node Name
 
+    # FIXME: we should use the same matrix format everywhere to not require this
     position = matrix.to_translation()
-    if not b3d_parameters.get("local-space"):
+    if not b3d_parameters.get("local-space") and bone_stack[ibone][1]:
         temp_buf += write_float(-position[0]) #Position X
         temp_buf += write_float(position[2])  #Position Y
         temp_buf += write_float(position[1])  #Position Z
