@@ -83,8 +83,13 @@ def Round(f):
 # is not set. If set_value_if_undefined is set and the property is not
 # defined, this function will also set the property to this default value.
 def getIdProperty(obj, name, default="", set_value_if_undefined=1):
+    import traceback
     try:
-        return obj[name].replace('&', '&amp;') # this is XML
+        prop = obj[name]
+        if isinstance(prop, str):
+            return obj[name].replace('&', '&amp;') # this is XML
+        else:
+            return prop
     except:
         if default!=None and set_value_if_undefined:
             obj[name] = default
