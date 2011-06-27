@@ -1400,17 +1400,10 @@ class TrackExport:
         count = 1
         for obj in lStart:
             stktype = getProperty(obj, "type", obj.name).upper()
-            try:
-                id = int(getProperty(obj, "position", ""))
-            except:
-                id=None
-            if not id:
-                try:
-                    id = int(stktype[5:])
-                except ValueError:
-                    log_warning ("No valid id in '%s' - using %d\n"%(stktype, count))
-                    id    = count
-                    count = count + 1
+            id = int(getProperty(obj, "start_index", "-1"))
+            if id == "-1":
+                log_warning("Invalid start position " + id)
+
             dId2Obj[id] = obj
         l = dId2Obj.keys()
         #l.sort() # sorting not needed AFAICT, the dictionary keeps the keys sorted
@@ -1843,6 +1836,7 @@ class TrackExport:
                 elif stktype[:5]=="START":
                     # Start empties are called start1, start2, ...
                     lStart.append(obj)
+                    continue
                 elif stktype=="PARTICLE_EMITTER":
                     lParticleEmitters.append(obj)
                     continue

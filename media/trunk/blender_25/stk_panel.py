@@ -460,6 +460,7 @@ type = StkEnumProperty('type', "Type",
         'particle_emitter' : StkEnumChoice('Particle Emitter',
                                  {'kind' : StkProperty(id='kind', name="Particle File", default="smoke.xml")
                                  }),
+        'start'            : StkEnumChoice('Start position', {'start_index' : StkIntProperty('start_index', "Start Index", 1)}),
         'sun'              : StkEnumChoice('Sun',
                                  {'ambient'  : StkColorProperty('ambient',  "Ambient Color",  contextLevel=CONTEXT_OBJECT),
                                   'diffuse'  : StkColorProperty('diffuse',  "Diffuse Color",  contextLevel=CONTEXT_OBJECT),
