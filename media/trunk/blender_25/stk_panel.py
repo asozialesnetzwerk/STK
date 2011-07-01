@@ -49,9 +49,10 @@ class StkEnumChoice:
     #! @param name          User-visible name for this property
     #! @param subproperties A dictionary of type { 'name' : StkProperty(...) }. Contains the
     #                       properties that are to be shown when this enum item is selected
-    def __init__(self, name, subproperties):
+    def __init__(self, name, subproperties, docs="(No documentation was defined for this item)"):
         self.name = name
         self.subproperties = subproperties
+        self.__doc__ = docs
 
 #! The base class for all properties
 class StkProperty:
@@ -63,12 +64,14 @@ class StkProperty:
 
 class StkObjectReferenceProperty(StkProperty):
     
-    def __init__(self, id, name, contextLevel, default, filter):
+    def __init__(self, id, name, contextLevel, default, filter, docs="Select an object"):
         super(StkObjectReferenceProperty, self).__init__(id, name, default)
+        self.docs = docs
         
         class SelectObjectOperator(bpy.types.Operator):
             bl_idname = "scene.stk_select_object_" + id
             bl_label = "Select Object Operator"
+            __doc__ = docs
 
             m_id = id
             m_context_level = contextLevel
@@ -151,10 +154,11 @@ class StkEnumProperty(StkProperty):
     #! @param name   User-visible name for this property
     #! @param values A dictionnary of type { 'value' : StkEnumChoice(...) }
     #! @note         The first value will be used by default
-    def __init__(self, id, name, values, contextLevel, default, unique_prefix=""):
+    def __init__(self, id, name, values, contextLevel, default, unique_prefix="", docs="(No documentation for this item)"):
         super(StkEnumProperty, self).__init__(id, name, default)
         self.values = values
         self.operator_name = "screen.stk_set_"   + unique_prefix + id
+        self.docs = docs
         default_value = default
         
         values_for_blender_unsorted = []
@@ -172,6 +176,7 @@ class StkEnumProperty(StkProperty):
             
             bl_idname = ("screen.stk_set_"   + unique_prefix + id)
             bl_label  = ("SuperTuxKart set " + unique_prefix + id)
+            __doc__ = docs
             
             m_property_id = id
             m_items_val = values_for_blender
@@ -218,6 +223,7 @@ class StkCombinableEnumProperty(StkProperty):
             
                 bl_idname = ("screen.stk_set_"+id+"_"+curr)
                 bl_label  = ("SuperTuxKart set "+id+" = " + curr)
+                __doc__ = values[curr].__doc__ + ""
                 
                 m_property_id = id
                 m_items_val = values_for_blender
@@ -252,17 +258,19 @@ class StkCombinableEnumProperty(StkProperty):
 class StkFloatProperty(StkProperty):
     
     #! @param name   User-visible name for this property
-    def __init__(self, id, name, default=0.0):
+    def __init__(self, id, name, default=0.0, docs="(No documentation defined for this element)"):
         super(StkFloatProperty, self).__init__(id, name, default)
         self.default
+        self.__doc__ = docs
 
 
 #! An integer property
 class StkIntProperty(StkProperty):
     
     #! @param name   User-visible name for this property
-    def __init__(self, id, name, default=0):
+    def __init__(self, id, name, default=0, docs="(No documentation defined for this element)"):
         super(StkIntProperty, self).__init__(id, name, default)
+        self.__doc__ = docs
 
 #! A boolean property
 class StkBoolProperty(StkProperty):
@@ -271,20 +279,19 @@ class StkBoolProperty(StkProperty):
     box = True
     
     #! A floating-point property
-    def __init__(self, id, name, contextLevel, default="false", subproperties={}, box = True):
+    def __init__(self, id, name, contextLevel, default="false", subproperties={}, box = True, docs="(No documentation defined for this element)"):
         super(StkBoolProperty, self).__init__(id, name, default)
         
         self.box = box
         self.subproperties = subproperties
-        
         super_self = self
         
         # Create operator for this bool
         class STK_ToggleBoolValue(bpy.types.Operator):
         
-            
             bl_idname = ("screen.stk_toggle_bool_"+id)
             bl_label  = ("SuperTuxKart toggle "+id)
+            __doc__ = docs
             
             m_context_level = contextLevel
             m_property_id = id
@@ -322,7 +329,7 @@ class StkBoolProperty(StkProperty):
 class StkColorProperty(StkProperty):
     
     #! A floating-point property
-    def __init__(self, id, name, contextLevel, default="255 255 255"):
+    def __init__(self, id, name, contextLevel, default="255 255 255", docs="(No documentation defined for this item)"):
         super(StkColorProperty, self).__init__(id, name, default)
 
         #! Color picker operator (TODO: this operator is mostly for backwards compatibility with our
@@ -331,6 +338,7 @@ class StkColorProperty(StkProperty):
         class Apply_Color_Operator(bpy.types.Operator):
             bl_idname = ("screen.apply_color_"+id)
             bl_label = ("Apply Color")
+            __doc__ = docs
            
             property_id = id
             
@@ -404,8 +412,8 @@ camera_properties = {'start' : StkFloatProperty(id='start', name="Start Sphere R
 object_properties = OrderedDict([
          ('name'       , StkProperty('name', "Name", "")),
          ('interaction', StkEnumProperty('interaction', "Interaction",
-                             {'ghost'  : StkEnumChoice("Ghost", {}),
-                              'static' : StkEnumChoice("Static (wont move)", {}),
+                             {'ghost'  : StkEnumChoice("Ghost", {}, docs="This object will be non-physical (player can drive through it)"),
+                              'static' : StkEnumChoice("Static (wont move)", {}, docs="This object will stay in place, if the user drives on this object they will 'hit a wall'"),
                               'move'   : StkEnumChoice("Movable by player",
                                   {'mass'  : StkFloatProperty(id='mass', name="Mass (kg)", default=100.0),
                                    'shape' : StkEnumProperty(id='shape', name="Shape", contextLevel=CONTEXT_OBJECT,
@@ -418,61 +426,60 @@ object_properties = OrderedDict([
                                               'box'       : StkEnumChoice("Box", {}),
                                               'sphere'    : StkEnumChoice("Sphere", {})
                                              }, default='box')
-                                  })
-                             }, contextLevel=CONTEXT_OBJECT, default='static'))
+                                  }, docs="The player will be able to move this object around by pushing it")
+                             }, contextLevel=CONTEXT_OBJECT, default='static', docs="How this object should interact with other objects in the physics engine"))
         ])
 
 # The 'type' property
 type = StkEnumProperty('type', "Type",
-       {''                 : StkEnumChoice('None', {}),
-        'banana'           : StkEnumChoice('Banana', {}),
-        'billboard'        : StkEnumChoice('Billboard', {}),
+       {''                 : StkEnumChoice('None', {}, docs="Nothing special about this object"),
+        'banana'           : StkEnumChoice('Banana', {}, docs="A banana object that needs to be avoided (apply to an Empty)"),
+        'billboard'        : StkEnumChoice('Billboard', {}, docs="A flat quad that will always face the camera"),
         'check'            : StkEnumChoice('Checkline', OrderedDict([
                                   ('name'    , StkProperty(id='name', name="Name", default="")),
-                                  ('activate', StkObjectReferenceProperty(id='activate', name="Activate", default="", contextLevel=CONTEXT_OBJECT, filter=lambda self, o : 'type' in o and o['type'] == 'check'))
+                                  ('activate', StkObjectReferenceProperty(id='activate', name="Activate", default="", contextLevel=CONTEXT_OBJECT, filter=lambda self, o : 'type' in o and o['type'] == 'check', docs="Which check structure to activate when crossing this checkline"))
                                   #'toggle'  : Stkproperty("Toggle"),
                                   #'inner_radius' : StkFloatProperty("Color radius"),
                                   #'color'        : 
-                                 ])),
+                                 ]), docs="A checkline that the player must cross (used to forbid shortcuts)"),
         'driveline'        : StkEnumChoice('Driveline (additional)',
                                  {'invisible' : StkBoolProperty(id='invisible', name="Invisible",      default="false",
-                                                                contextLevel=CONTEXT_OBJECT),
+                                                                contextLevel=CONTEXT_OBJECT, docs="If checked, this path will not appear in the minimap"),
                                   'ai_ignore' : StkBoolProperty(id='ai_ignore', name="Ignored by AIs", default="false",
-                                                                contextLevel=CONTEXT_OBJECT)
-                                 }),
+                                                                contextLevel=CONTEXT_OBJECT, docs="If checked, AIs will not drive on this path")
+                                 }, docs="Driveline used to mark an alternate path"),
         'maindriveline'    : StkEnumChoice('Driveline (main)',
-                                 {'activate' : StkObjectReferenceProperty(id='activate', name="Activate", default="", contextLevel=CONTEXT_OBJECT, filter=lambda self, o : 'type' in o and o['type'] == 'check')
-
+                                 {'activate' : StkObjectReferenceProperty(id='activate', name="Activate", default="", contextLevel=CONTEXT_OBJECT, filter=lambda self, o : 'type' in o and o['type'] == 'check', docs="Which check structure to activate when crossing the lap line")
                                  }),
-        'fixed'            : StkEnumChoice('End Camera (Fixed)', camera_properties),
-        'ahead'            : StkEnumChoice('End Camera (Look Ahead)', camera_properties),
-        'ignore'           : StkEnumChoice('Ignore', {}),
-        'item'             : StkEnumChoice('Item (Gift Box)', {}),
+        'fixed'            : StkEnumChoice('End Camera (Fixed)',      camera_properties, docs="An end camera that stays in place"),
+        'ahead'            : StkEnumChoice('End Camera (Look Ahead)', camera_properties, docs="An end camera that follows the kart"),
+        'ignore'           : StkEnumChoice('Ignore', {}, docs="An object that is not exported and will not appear in-game"),
+        'item'             : StkEnumChoice('Item (Gift Box)', {}, docs="A gift box containing a random collectible (apply to an Empty)"),
         'lap'              : StkEnumChoice('Lap line',
-                                 {'activate' : StkObjectReferenceProperty(id='activate', name="Activate", default="", contextLevel=CONTEXT_OBJECT, filter=lambda self, o : 'type' in o and o['type'] == 'check')
+                                 {'activate' : StkObjectReferenceProperty(id='activate', name="Activate", default="", contextLevel=CONTEXT_OBJECT, filter=lambda self, o : 'type' in o and o['type'] == 'check', docs="Which check structure to activate when crossing the lap line")
                                   #'toggle'  : Stkproperty("Toggle"),
                                   #'inner_radius' : StkFloatProperty("Color radius"),
                                   #'color'        : 
-                                 }),
-        'nitro_big'        : StkEnumChoice('Nitro (big)', {}),
-        'nitro_small'      : StkEnumChoice('Nitro (small)', {}),
-        'object'           : StkEnumChoice('Object', object_properties),
+                                 }, docs="An extension to the factory lap line"),
+        'nitro_big'        : StkEnumChoice('Nitro (big)', {}, docs="A big nitro collectible (apply to an Empty)"),
+        'nitro_small'      : StkEnumChoice('Nitro (small)', {}, docs="A small nitro collectible (apply to an Empty)"),
+        'object'           : StkEnumChoice('Object', object_properties, docs="An (animatable) object that is exported to a separate model file"),
         'particle_emitter' : StkEnumChoice('Particle Emitter',
                                  {'kind' : StkProperty(id='kind', name="Particle File", default="smoke.xml")
-                                 }),
-        'start'            : StkEnumChoice('Start position', {'start_index' : StkIntProperty('start_index', "Start Index", 1)}),
+                                 }, docs="To be applied to an empty; particles will be emitted from this point"),
+        'start'            : StkEnumChoice('Start position', {'start_index' : StkIntProperty('start_index', "Start Index", 1)}, docs="A start position for karts in battle mode (only useful if this track is an arena)"),
         'sun'              : StkEnumChoice('Sun',
-                                 {'ambient'  : StkColorProperty('ambient',  "Ambient Color",  contextLevel=CONTEXT_OBJECT),
-                                  'diffuse'  : StkColorProperty('diffuse',  "Diffuse Color",  contextLevel=CONTEXT_OBJECT),
-                                  'specular' : StkColorProperty('specular', "Specular Color", contextLevel=CONTEXT_OBJECT)
-                                 }),
+                                 {'ambient'  : StkColorProperty('ambient',  "Ambient Color",  contextLevel=CONTEXT_OBJECT, docs="Click here to pick an ambient color"),
+                                  'diffuse'  : StkColorProperty('diffuse',  "Diffuse Color",  contextLevel=CONTEXT_OBJECT, docs="Click here to pick a diffuse color"),
+                                  'specular' : StkColorProperty('specular', "Specular Color", contextLevel=CONTEXT_OBJECT, docs="Click here to pick a specular color")
+                                 }, docs="Set on a sun; used to specify intensity, direction and color of the ambient light in the track"),
         'water'            : StkEnumChoice('Water', OrderedDict([
                                  ('name'  , StkProperty(id='name', name="Name", default="")),
                                  ('height', StkFloatProperty('height', "Waves Height", 1.0)),
                                  ('speed' , StkFloatProperty('speed',  "Waves Speed",  200.0)),
                                  ('length', StkFloatProperty('length', "Waves Length", 10.0))
-                                 ]))
-       }, contextLevel=CONTEXT_OBJECT, default='', unique_prefix="track_")
+                                 ]), docs="Animate the mesh with waves")
+       }, contextLevel=CONTEXT_OBJECT, default='', unique_prefix="track_", docs="SuperTuxKart Object Type")
 
 
 STK_PER_OBJECT_TRACK_PROPERTIES = OrderedDict([
@@ -481,7 +488,7 @@ STK_PER_OBJECT_TRACK_PROPERTIES = OrderedDict([
              subproperties={'anim_texture' : StkProperty(id='anim_texture', name='Texture to animate', default=""),
                             'anim_dx'      : StkFloatProperty(id='anim_dx', name='Animation X Speed',  default=0.0),
                             'anim_dy'      : StkFloatProperty(id='anim_dy', name='Animation Y Speed',  default=0.0)
-                            }))
+                            }, docs="Make a texture on this object move"))
         ])
 
 STK_PER_OBJECT_KART_PROPERTIES = OrderedDict([
@@ -489,7 +496,7 @@ STK_PER_OBJECT_KART_PROPERTIES = OrderedDict([
                                                                                 ('wheel' , StkEnumChoice('Wheel', {})),
                                                                                 ('ignore', StkEnumChoice('Ignore', {}))
                                                                             ]),
-                                               contextLevel=CONTEXT_OBJECT, default='', unique_prefix="kart_")
+                                               contextLevel=CONTEXT_OBJECT, default='', unique_prefix="kart_", docs="Supertuxkart Object Type")
         )
        ])
 
@@ -515,7 +522,7 @@ SKY_TYPES = {
         }
 
 
-FOG_PROPERTIES = {'fog_color' : StkColorProperty(id='fog_color', name='Fog Color', default="0 0 0", contextLevel=CONTEXT_SCENE),
+FOG_PROPERTIES = {'fog_color' : StkColorProperty(id='fog_color', name='Fog Color', default="0 0 0", contextLevel=CONTEXT_SCENE, docs="Click here to pick the color of the fog"),
                   'fog_start' : StkFloatProperty(id='fog_start', name='Fog Start', default=50.0),
                   'fog_end'   : StkFloatProperty(id='fog_end',   name='Fog End',   default=300.0)
                  }
@@ -535,15 +542,15 @@ STK_TRACK_WIDE_PROPERTIES = OrderedDict([
         ('designer',           StkProperty( id='designer',      name='Designer',        default=getpass.getuser())),
         ('music',              StkProperty( id='music',         name='Music',           default='kart_grand_prix.music')),
         ('screenshot',         StkProperty( id='screenshot',    name='Screenshot',      default='screenshot.jpg')),
-        ('sky_type',       StkEnumProperty( id='sky_type',      name='Sky Type',        default='dome',        contextLevel=CONTEXT_SCENE,  values=SKY_TYPES)),
-        ('arena',          StkBoolProperty( id='arena',         name='Battle Arena',    default="false",       contextLevel=CONTEXT_SCENE)),
-        ('fog',            StkBoolProperty( id='fog',           name='Fog',             default='false',       contextLevel=CONTEXT_SCENE,  subproperties=FOG_PROPERTIES)),
+        ('sky_type',       StkEnumProperty( id='sky_type',      name='Sky Type',        default='dome',        contextLevel=CONTEXT_SCENE,  values=SKY_TYPES, docs="The type of sky")),
+        ('arena',          StkBoolProperty( id='arena',         name='Battle Arena',    default="false",       contextLevel=CONTEXT_SCENE,  docs="Whether this scene is a battle arena")),
+        ('fog',            StkBoolProperty( id='fog',           name='Fog',             default='false',       contextLevel=CONTEXT_SCENE,  subproperties=FOG_PROPERTIES, docs="Whether to enable fog in the track")),
         ('camera_far',    StkFloatProperty( id='camera_far',    name='Camera Far Clip', default=1000.0)),
         (k[0],              StkIntProperty( id=k[0],            name=kk[0],             default=2)),
         (k[1],            StkFloatProperty( id=k[1],            name=kk[1],             default=1.1)),
         (k[2],            StkFloatProperty( id=k[2],            name=kk[2],             default=1.1)),
         (k[3],            StkFloatProperty( id=k[3],            name=kk[3],             default=1.1)),
-        ('weather',        StkEnumProperty( id='weather',       name='Weather',         default='none', contextLevel=CONTEXT_SCENE, values=WEATHER))
+        ('weather',        StkEnumProperty( id='weather',       name='Weather',         default='none', contextLevel=CONTEXT_SCENE, values=WEATHER, docs="The weather effect to use in this track"))
         ])
 
 COMPOSITING_VALUES = {'none'     : StkEnumChoice("None", {}),
@@ -564,7 +571,8 @@ SLOWDOWN_PROPERTIES = {
 PARTICLE_PROPERTIES = {
         'particle_base'      :               StkProperty( id='particle_base',      name="Particles file",        default="smoke.xml"),
         'particle_condition' : StkCombinableEnumProperty( id='particle_condition', name="Use particles when...", default="skid",
-                    contextLevel=CONTEXT_MATERIAL, values={'skid' : StkEnumChoice('Skid',{}), 'drive' : StkEnumChoice('Drive',{})})
+                    contextLevel=CONTEXT_MATERIAL, values={'skid'  : StkEnumChoice('Skid',{}, docs="Use particle when skidding"),
+                                                           'drive' : StkEnumChoice('Drive',{}, docs="Use particles during regular driving")})
         }
 
 long_names = ['zipper_max_speed_increase', "Zipper max speed increase", 'zipper_fade_out_time', "Zipper fade out time"]
@@ -589,25 +597,25 @@ SFX_PROPERTIES = OrderedDict([
        ])
 
 STK_MATERIAL_PROPERTIES = OrderedDict([
-       ('light',            StkBoolProperty( id='light',            name="Affected by lights",         default="true",  contextLevel=CONTEXT_MATERIAL)),
-       ('backface_culling', StkBoolProperty( id='backface_culling', name="Backface Culling",           default="true",  contextLevel=CONTEXT_MATERIAL)),
-       ('below_surface',    StkBoolProperty( id='below_surface',    name="Below Surface",              default="false", contextLevel=CONTEXT_MATERIAL)),
-       ('compositing',      StkEnumProperty( id='compositing',      name="Compsiting Type",            default='none',  contextLevel=CONTEXT_MATERIAL, values=COMPOSITING_VALUES)),
-       ('clampu',           StkBoolProperty( id='clampu',           name="Clamp texture horizontally", default="false", contextLevel=CONTEXT_MATERIAL)),
-       ('clampv',           StkBoolProperty( id='clampv',           name="Clamp texture vertically",   default="false", contextLevel=CONTEXT_MATERIAL)),
-       ('disable_z_write',  StkBoolProperty( id='disable_z_write',  name="Disable writing to Z-buffer",default="false", contextLevel=CONTEXT_MATERIAL)),
-       ('use_slowdown',     StkBoolProperty( id='use_slowdown',     name="Enable Slowdown",            default="false", contextLevel=CONTEXT_MATERIAL, subproperties=SLOWDOWN_PROPERTIES)),
-       ('falling_effect',   StkBoolProperty( id='falling_effect',   name="Falling Effect",             default="false", contextLevel=CONTEXT_MATERIAL)),
+       ('light',            StkBoolProperty( id='light',            name="Affected by lights",         default="true",  contextLevel=CONTEXT_MATERIAL, docs="Whether this material is affected by lgihts and shadows")),
+       ('backface_culling', StkBoolProperty( id='backface_culling', name="Backface Culling",           default="true",  contextLevel=CONTEXT_MATERIAL, docs="If checked, this material will only be visible on the side of the normal")),
+       ('below_surface',    StkBoolProperty( id='below_surface',    name="Below Surface",              default="false", contextLevel=CONTEXT_MATERIAL, docs="Used for the terrain under shallow water where you can drive")),
+       ('compositing',      StkEnumProperty( id='compositing',      name="Compsiting Type",            default='none',  contextLevel=CONTEXT_MATERIAL, values=COMPOSITING_VALUES, docs="How to composite this texture with what is behind it")),
+       ('clampu',           StkBoolProperty( id='clampu',           name="Clamp texture horizontally", default="false", contextLevel=CONTEXT_MATERIAL, docs="if checked, this texture will not be repeated horizontally (if the UV texturing goes beyond the texture bounds)")),
+       ('clampv',           StkBoolProperty( id='clampv',           name="Clamp texture vertically",   default="false", contextLevel=CONTEXT_MATERIAL, docs="if checked, this texture will not be repeated vertically (if the UV texturing goes beyond the texture bounds)")),
+       ('disable_z_write',  StkBoolProperty( id='disable_z_write',  name="Disable writing to Z-buffer",default="false", contextLevel=CONTEXT_MATERIAL, docs="disable writing to the Z buffer (useful for materials with transparency, if irrlicht fails to do proper alpha sorting, in order not to hide what is behind)")),
+       ('use_slowdown',     StkBoolProperty( id='use_slowdown',     name="Enable Slowdown",            default="false", contextLevel=CONTEXT_MATERIAL, subproperties=SLOWDOWN_PROPERTIES, docs="Whether to slow down the kart when driving on this material")),
+       ('falling_effect',   StkBoolProperty( id='falling_effect',   name="Falling Effect",             default="false", contextLevel=CONTEXT_MATERIAL, docs="Whether this material is the bottom of a pit (then camera will look down at kart falling when over it)")),
        ('graphical_effect', StkEnumProperty( id='graphical_effect', name="Graphical Effect",           default='none',  contextLevel=CONTEXT_MATERIAL, values=GFX_VALUES)),
-       ('high_adhesion',    StkBoolProperty( id='high_adhesion',    name="High tires adhesion",        default="false", contextLevel=CONTEXT_MATERIAL)),
-       ('ignore',           StkBoolProperty( id='ignore',           name="Ignore (ghost material)",    default="false", contextLevel=CONTEXT_MATERIAL)),
+       ('high_adhesion',    StkBoolProperty( id='high_adhesion',    name="High tires adhesion",        default="false", contextLevel=CONTEXT_MATERIAL, docs="If checked, karts will have good grip on this surface and not slip, even at angles")),
+       ('ignore',           StkBoolProperty( id='ignore',           name="Ignore (ghost material)",    default="false", contextLevel=CONTEXT_MATERIAL, docs="Drive through this texture like it didn't exist (good for smoke, etc.)")),
        ('mask',                 StkProperty( id='mask',             name="Mask image",                 default="")),
-       ('particle',         StkBoolProperty( id='particle',         name="Particle effect",            default="false", contextLevel=CONTEXT_MATERIAL, subproperties=PARTICLE_PROPERTIES)),
-       ('use_sfx',          StkBoolProperty( id='use_sfx',          name="Play sound effect",          default="false", contextLevel=CONTEXT_MATERIAL, subproperties=SFX_PROPERTIES)),
-       ('reset',            StkBoolProperty( id='reset',            name="Reset kart",                 default="false", contextLevel=CONTEXT_MATERIAL)),
-       ('sphere',           StkBoolProperty( id='sphere',           name="Sphere mapping",             default="false", contextLevel=CONTEXT_MATERIAL)),
-       ('surface',          StkBoolProperty( id='surface',          name="Surface",                    default="false", contextLevel=CONTEXT_MATERIAL)),
-       ('zipper',           StkBoolProperty( id='zipper',           name="Zipper (speed boost)",       default="false", contextLevel=CONTEXT_MATERIAL, subproperties=ZIPPER_PROPERTIES))
+       ('particle',         StkBoolProperty( id='particle',         name="Particle effect",            default="false", contextLevel=CONTEXT_MATERIAL, subproperties=PARTICLE_PROPERTIES, docs="Whether to emit particles (e.g. smoke) when driving on this surface")),
+       ('use_sfx',          StkBoolProperty( id='use_sfx',          name="Play sound effect",          default="false", contextLevel=CONTEXT_MATERIAL, subproperties=SFX_PROPERTIES, docs="Whether to play a sound when driving on this surface")),
+       ('reset',            StkBoolProperty( id='reset',            name="Reset kart",                 default="false", contextLevel=CONTEXT_MATERIAL, docs="whether to rescue kart if it ends up on this surface")),
+       ('sphere',           StkBoolProperty( id='sphere',           name="Sphere mapping",             default="false", contextLevel=CONTEXT_MATERIAL, docs="use sphere mapping on this object (mainly used to simulate a reflection effect)")),
+       ('surface',          StkBoolProperty( id='surface',          name="Surface",                    default="false", contextLevel=CONTEXT_MATERIAL, docs="whether this material is the surface of a water area")),
+       ('zipper',           StkBoolProperty( id='zipper',           name="Zipper (speed boost)",       default="false", contextLevel=CONTEXT_MATERIAL, subproperties=ZIPPER_PROPERTIES, docs="Whether to get a speed boost when driving on this surface"))
        ])
 
 ENGINE_SOUNDS = {'large'    : StkEnumChoice("Large", {}),
