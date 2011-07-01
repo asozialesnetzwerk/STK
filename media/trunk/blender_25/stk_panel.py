@@ -518,7 +518,7 @@ SKY_TYPES = {
                      ('sky_speed_x'        , StkFloatProperty(id='sky_speed_x',         name='Sky Speed X',           default=0.0)),
                      ('sky_speed_y'        , StkFloatProperty(id='sky_speed_y',         name='Sky Speed Y',           default=0.0))])),
         'simple' : StkEnumChoice('Plain color',
-                     {'sky_color' : StkColorProperty(id="sky_color", name="Sky Color", default="77 104 255", contextLevel=CONTEXT_SCENE)})
+                     {'sky_color' : StkColorProperty(id="sky_color", name="Sky Color", default="77 104 255", contextLevel=CONTEXT_SCENE, docs="Click here to select the color of the sky")})
         }
 
 
@@ -592,7 +592,7 @@ SFX_PROPERTIES = OrderedDict([
        ('sfx_max_speed' , StkFloatProperty( id='sfx_max_speed',  name="Maximum kart speed",       default=0.0)),
        ('sfx_min_pitch' , StkFloatProperty( id='sfx_min_pitch',  name="Sound pitch at min speed", default=0.8)),
        ('sfx_max_pitch' , StkFloatProperty( id='sfx_max_pitch',  name="Sound pitch at max speed", default=1.2)),
-       ('sfx_positional',  StkBoolProperty( id='sfx_positional', name="Positional sound effect",  default="true", contextLevel=CONTEXT_MATERIAL)),
+       ('sfx_positional',  StkBoolProperty( id='sfx_positional', name="Positional sound effect",  default="true", contextLevel=CONTEXT_MATERIAL, docs="If true, the sound will get dimmer when far from camera, and with panning; if false, it's heard at centered pan and at full volume")),
        ('sfx_rolloff'   , StkFloatProperty( id='sfx_rolloff',    name="Rolloff rate",             default=0.1))
        ])
 
@@ -606,7 +606,7 @@ STK_MATERIAL_PROPERTIES = OrderedDict([
        ('disable_z_write',  StkBoolProperty( id='disable_z_write',  name="Disable writing to Z-buffer",default="false", contextLevel=CONTEXT_MATERIAL, docs="disable writing to the Z buffer (useful for materials with transparency, if irrlicht fails to do proper alpha sorting, in order not to hide what is behind)")),
        ('use_slowdown',     StkBoolProperty( id='use_slowdown',     name="Enable Slowdown",            default="false", contextLevel=CONTEXT_MATERIAL, subproperties=SLOWDOWN_PROPERTIES, docs="Whether to slow down the kart when driving on this material")),
        ('falling_effect',   StkBoolProperty( id='falling_effect',   name="Falling Effect",             default="false", contextLevel=CONTEXT_MATERIAL, docs="Whether this material is the bottom of a pit (then camera will look down at kart falling when over it)")),
-       ('graphical_effect', StkEnumProperty( id='graphical_effect', name="Graphical Effect",           default='none',  contextLevel=CONTEXT_MATERIAL, values=GFX_VALUES)),
+       ('graphical_effect', StkEnumProperty( id='graphical_effect', name="Graphical Effect",           default='none',  contextLevel=CONTEXT_MATERIAL, values=GFX_VALUES, docs="Select a special graphical effect")),
        ('high_adhesion',    StkBoolProperty( id='high_adhesion',    name="High tires adhesion",        default="false", contextLevel=CONTEXT_MATERIAL, docs="If checked, karts will have good grip on this surface and not slip, even at angles")),
        ('ignore',           StkBoolProperty( id='ignore',           name="Ignore (ghost material)",    default="false", contextLevel=CONTEXT_MATERIAL, docs="Drive through this texture like it didn't exist (good for smoke, etc.)")),
        ('mask',                 StkProperty( id='mask',             name="Mask image",                 default="")),
@@ -636,9 +636,9 @@ STK_KART_PROPERTIES = OrderedDict([
 
 
 SCENE_PROPS = {'is_stk_track' : StkBoolProperty(id='is_stk_track', name='Is a SuperTuxKart track', default='false', contextLevel=CONTEXT_SCENE,
-                                                subproperties=STK_TRACK_WIDE_PROPERTIES, box=False),
+                                                subproperties=STK_TRACK_WIDE_PROPERTIES, box=False, docs="Check this if this blender file is a SuperTuxKart track"),
                'is_stk_kart'  : StkBoolProperty(id='is_stk_kart', name='Is a SuperTuxKart kart', default='false', contextLevel=CONTEXT_SCENE,
-                                                subproperties=STK_KART_PROPERTIES, box=False)}
+                                                subproperties=STK_KART_PROPERTIES, box=False, docs="Check this if this blender file is a SuperTuxKart kart")}
 
 # ==== PANEL BASE ====
 class PanelBase:
