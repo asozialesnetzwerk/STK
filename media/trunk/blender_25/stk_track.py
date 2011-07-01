@@ -1071,6 +1071,8 @@ class TrackExport:
             # objects.
             lAnim    = self.checkForAnimatedTextures([obj])
             name     = getProperty(obj, "name", obj.name)
+            if len(name) == 0: name = obj.name
+            
             b3d_name = self.exportLocalB3D(obj, sPath, name)
             kind     = getProperty(obj, "kind", "")
             if lAnim:
@@ -1160,6 +1162,7 @@ class TrackExport:
         ind = 1
         for obj in lChecks:
             name = getProperty(obj, "type", obj.name.lower()).lower()
+            if len(name) == 0: name = obj.name.lower()
             if name!="lap":
                 name = getProperty(obj, "name", obj.name.lower()).lower()
             if name in dGroup2Indices:
@@ -1277,6 +1280,7 @@ class TrackExport:
             name = getProperty(obj, "type", obj.name.lower()).lower()
             if name!="lap":
                 name = getProperty(obj, "name", obj.name.lower()).lower()
+                if len(name) == 0: name = obj.name.lower()
                 
             # Get the list of indices of this group, excluding
             # the index of the current object. So create a copy
@@ -1335,8 +1339,9 @@ class TrackExport:
     # Type is either 'movable' or 'nophysics'.
     def writeObject(self, f, sPath, obj):
         name     = getProperty(obj, "name", obj.name)
+        if len(name) == 0: name = obj.name
         b3d_name = self.exportLocalB3D(obj, sPath, name)
-
+        
         # First kind of object: ipo. There is one or
         # more IPOs define controlling this object.
         # Second kind of object: no ipo, and no physics.
@@ -1375,7 +1380,7 @@ class TrackExport:
                 if parent:
                     ipo = parent.animation_data
             self.writeAnimationWithIPO(f, b3d_name, obj, ipo)
-        elif interact=="static":
+        elif interact=="static":            
             ipo      = obj.animation_data
             # In objects with skeletal animations the actual armature (which
             # is a parent) contains the IPO. So check for this:
