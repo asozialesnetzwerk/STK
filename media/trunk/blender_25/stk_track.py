@@ -1690,7 +1690,7 @@ class TrackExport:
                'reset'            : ("N", None),
                'sphere'           : ("N", None),
                'surface'          : ("N", None),
-               'friction'         : (50000.0, None),
+               'high_adhesion'    : ('false', None),
                'slowdown_time'    : (1.0, 'use_slowdown'),
                'max_speed'        : (1.0, 'use_slowdown')
         }

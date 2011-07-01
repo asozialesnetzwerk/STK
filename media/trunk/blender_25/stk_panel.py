@@ -449,7 +449,7 @@ type = StkEnumProperty('type', "Type",
         'ignore'           : StkEnumChoice('Ignore', {}),
         'item'             : StkEnumChoice('Item (Gift Box)', {}),
         'lap'              : StkEnumChoice('Lap line',
-                                 {'activate' : StkProperty(id='activate', name="Activate", default="")
+                                 {'activate' : StkObjectReferenceProperty(id='activate', name="Activate", default="", contextLevel=CONTEXT_OBJECT, filter=lambda self, o : 'type' in o and o['type'] == 'check')
                                   #'toggle'  : Stkproperty("Toggle"),
                                   #'inner_radius' : StkFloatProperty("Color radius"),
                                   #'color'        : 
@@ -599,6 +599,7 @@ STK_MATERIAL_PROPERTIES = OrderedDict([
        ('use_slowdown',     StkBoolProperty( id='use_slowdown',     name="Enable Slowdown",            default="false", contextLevel=CONTEXT_MATERIAL, subproperties=SLOWDOWN_PROPERTIES)),
        ('falling_effect',   StkBoolProperty( id='falling_effect',   name="Falling Effect",             default="false", contextLevel=CONTEXT_MATERIAL)),
        ('graphical_effect', StkEnumProperty( id='graphical_effect', name="Graphical Effect",           default='none',  contextLevel=CONTEXT_MATERIAL, values=GFX_VALUES)),
+       ('high_adhesion',    StkBoolProperty( id='high_adhesion',    name="High tires adhesion",        default="false", contextLevel=CONTEXT_MATERIAL)),
        ('ignore',           StkBoolProperty( id='ignore',           name="Ignore (ghost material)",    default="false", contextLevel=CONTEXT_MATERIAL)),
        ('mask',                 StkProperty( id='mask',             name="Mask image",                 default="")),
        ('particle',         StkBoolProperty( id='particle',         name="Particle effect",            default="false", contextLevel=CONTEXT_MATERIAL, subproperties=PARTICLE_PROPERTIES)),
@@ -606,7 +607,6 @@ STK_MATERIAL_PROPERTIES = OrderedDict([
        ('reset',            StkBoolProperty( id='reset',            name="Reset kart",                 default="false", contextLevel=CONTEXT_MATERIAL)),
        ('sphere',           StkBoolProperty( id='sphere',           name="Sphere mapping",             default="false", contextLevel=CONTEXT_MATERIAL)),
        ('surface',          StkBoolProperty( id='surface',          name="Surface",                    default="false", contextLevel=CONTEXT_MATERIAL)),
-       ('friction',        StkFloatProperty( id='friction',         name="Tires adhesion",             default=50000.0)),
        ('zipper',           StkBoolProperty( id='zipper',           name="Zipper (speed boost)",       default="false", contextLevel=CONTEXT_MATERIAL, subproperties=ZIPPER_PROPERTIES))
        ])
 
