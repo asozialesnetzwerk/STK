@@ -4,7 +4,7 @@
   <material name="alpha.png" compositing="test" disable-z-write="Y" reset="Y" falling-effect="Y"/>
   <material name="darkmetal.png" anisotropic="Y"/>
   <material name="metal.png" anisotropic="Y"/>
-  <material name="r-road.png" anisotropic="Y" friction="20000.0">
+  <material name="r-road.png" anisotropic="Y" high-adhesion="true">
     <particles base="smoke.xml"/>
   </material>
   <material name="rail.png" anisotropic="Y"/>
