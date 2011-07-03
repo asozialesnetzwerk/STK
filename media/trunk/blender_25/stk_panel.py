@@ -651,16 +651,20 @@ class PanelBase:
             curr = properties[id]
             
             row = layout.row()
-            row.label(text=curr.name)
             
             if isinstance(curr, StkBoolProperty):
+                
+                 split = row.split(0.8)
+                
+                 split.label(text=curr.name)
+                 
                  state = "false"
                  icon = 'CHECKBOX_DEHLT'
                  if id in obj:
                      state = obj[id]
                      if state == "true":
                          icon = 'CHECKBOX_HLT'
-                 row.operator("screen.stk_toggle_bool_"+id, text="                ", icon=icon, emboss=False)
+                 split.operator("screen.stk_toggle_bool_"+id, text="                ", icon=icon, emboss=False)
                  
                  if state == "true":
                      if len(curr.subproperties) > 0:
@@ -671,11 +675,14 @@ class PanelBase:
                              self.recursivelyAddProperties(curr.subproperties, layout, obj)
                  
             elif isinstance(curr, StkColorProperty):
+                row.label(text=curr.name)
                 if curr.id in obj:
                     row.prop(obj, '["' + curr.id + '"]', text="")
                     row.operator("screen.apply_color_"+curr.id, text="", icon='COLOR')
             
             elif isinstance(curr, StkCombinableEnumProperty):
+                
+                row.label(text=curr.name)
                 
                 if curr.id in obj:
                     curr_val = obj[curr.id]
@@ -687,6 +694,9 @@ class PanelBase:
                         row.operator("screen.stk_set_"+id+"_"+value_id, text=curr.values[value_id].name, icon=icon)
                 
             elif isinstance(curr, StkEnumProperty):
+                
+                row.label(text=curr.name)
+                
                 if id in obj:
                     curr_value = obj[id]
                 else:
@@ -703,12 +713,16 @@ class PanelBase:
                     self.recursivelyAddProperties(curr.values[curr_value].subproperties, box, obj)
             
             elif isinstance(curr, StkObjectReferenceProperty):
+                
+                row.label(text=curr.name)
               
-              if curr.id in obj:
+                if curr.id in obj:
                     row.prop(obj, '["' + curr.id + '"]', text="")
                     row.menu("screen.stk_object_menu_" + curr.id, text="", icon='TRIA_DOWN')
               
             else:
+                row.label(text=curr.name)
+                
                 # String or int or float property (Blender chooses the correct widget from the type of the ID-property)
                 if curr.id in obj:
                     row.prop(obj, '["' + curr.id + '"]', text="")
