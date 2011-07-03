@@ -513,9 +513,9 @@ def write_node(objects=[]):
                 temp_buf += write_string(obj.name) #Node Name
                 
                 position = matrix.to_translation()
-                temp_buf += write_float(-position[0]) #Position X
-                temp_buf += write_float(position[1])  #Position Y
-                temp_buf += write_float(position[2])  #Position Z
+                temp_buf += write_float(position[0]) #Position X
+                temp_buf += write_float(position[1]) #Position Y
+                temp_buf += write_float(position[2]) #Position Z
 
                 scale = matrix.to_scale()
                 temp_buf += write_float(scale[0]) #Scale X
