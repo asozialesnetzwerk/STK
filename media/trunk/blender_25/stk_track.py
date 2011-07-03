@@ -1980,6 +1980,10 @@ class STK_Track_Export_Operator(bpy.types.Operator):
     filepath = bpy.props.StringProperty(subtype="FILE_PATH")
 
     def invoke(self, context, event):
+        if bpy.context.mode != 'OBJECT':
+            self.report({'ERROR'}, "You must be in object mode")
+            log_error("You must be in object mode")
+            return {'FINISHED'}
         
         if 'is_stk_track' not in context.scene or context.scene['is_stk_track'] != 'true':
             log_error("Not a STK track!")
@@ -1997,6 +2001,10 @@ class STK_Track_Export_Operator(bpy.types.Operator):
         return {'RUNNING_MODAL'}
 
     def execute(self, context):
+        if bpy.context.mode != 'OBJECT':
+            self.report({'ERROR'}, "You msut be in object mode")
+            return {'FINISHED'}
+        
         if self.filepath == "" or 'is_stk_track' not in context.scene or context.scene['is_stk_track'] != 'true':
             return {'FINISHED'}
 
@@ -2047,6 +2055,9 @@ class STK_Track_Exporter_Panel(bpy.types.Panel):
         row = layout.row()
         
         row.operator("screen.stk_track_export", "Export", icon='BLENDER')
+        
+        if bpy.context.mode != 'OBJECT':
+            row.enabled = False
         
         # ==== Output Log ====
         
