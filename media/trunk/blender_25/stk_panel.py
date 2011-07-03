@@ -163,8 +163,9 @@ class StkEnumProperty(StkProperty):
         
         values_for_blender_unsorted = []
         for curr_val in values.keys():
-            curr_obj = values[curr_val]
-            values_for_blender_unsorted.append( (curr_val, curr_obj.name, curr_obj.name) )
+            if len(curr_val) > 0:
+                curr_obj = values[curr_val]
+                values_for_blender_unsorted.append( (curr_val, curr_obj.name, curr_obj.name) )
         
         values_for_blender = sorted(values_for_blender_unsorted, key=lambda k: k[1])
         
@@ -433,6 +434,7 @@ object_properties = OrderedDict([
 # The 'type' property
 type = StkEnumProperty('type', "Type",
        {''                 : StkEnumChoice('None', {}, docs="Nothing special about this object"),
+        'none'             : StkEnumChoice('None', {}, docs="Nothing special about this object"),
         'banana'           : StkEnumChoice('Banana', {}, docs="A banana object that needs to be avoided (apply to an Empty)"),
         'billboard'        : StkEnumChoice('Billboard', {}, docs="A flat quad that will always face the camera"),
         'check'            : StkEnumChoice('Checkline', OrderedDict([
@@ -479,7 +481,7 @@ type = StkEnumProperty('type', "Type",
                                  ('speed' , StkFloatProperty('speed',  "Waves Speed",  200.0)),
                                  ('length', StkFloatProperty('length', "Waves Length", 10.0))
                                  ]), docs="Animate the mesh with waves")
-       }, contextLevel=CONTEXT_OBJECT, default='', unique_prefix="track_", docs="SuperTuxKart Object Type")
+       }, contextLevel=CONTEXT_OBJECT, default='none', unique_prefix="track_", docs="SuperTuxKart Object Type")
 
 
 STK_PER_OBJECT_TRACK_PROPERTIES = OrderedDict([
