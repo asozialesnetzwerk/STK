@@ -837,8 +837,8 @@ class SuperTuxKartImagePanel(bpy.types.Panel, PanelBase):
             label = context.scene['selected_image']
         
         self.m_op_name = "scene.stk_image_menu"
-        row.label(label)
-        row.menu(self.m_op_name, text="", icon="TRIA_DOWN")
+        #row.label(label)
+        row.menu(self.m_op_name, text=label)
         
         obj = getObject(context, CONTEXT_MATERIAL)
         if obj is not None:
