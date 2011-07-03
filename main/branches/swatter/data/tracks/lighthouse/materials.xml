@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 7732 -->
+<materials>
+  <material name="fence.png" backface-culling="N" anisotropic="Y" compositing="test"/>
+  <material name="grass.jpg" slowdown-time="0.8" max-speed="0.5" anisotropic="Y"/>
+  <material name="light.png" clampU="Y" clampV="N" fog="N" light="N" ignore="Y" disable-z-write="Y" compositing="blend" backface-culling="N" anisotropic="N"/>
+  <material name="lighthouse.jpg" light="N"/>
+  <material name="lighthouse_path.png">
+    <particles base="smoke_brown.xml" condition="skid drive"/>
+  </material>
+  <material name="lighthouse_sky.jpg" light="N" reset="Y" fog="N"/>
+  <material name="sand.jpg" slowdown-time="0.8" max-speed="0.5">
+    <particles base="smoke_yellow.xml" condition="skid drive"/>
+  </material>
+  <material name="sandgrass.jpg" slowdown-time="0.8" max-speed="0.5">
+    <particles base="smoke_yellow.xml" condition="skid drive"/>
+  </material>
+  <material name="sea.jpg" ignore="Y" surface="Y">
+    <sfx filename="splash.ogg" rolloff="0.10000000149"/>
+    <particles base="splash.xml" condition="skid drive"/>
+  </material>
+  <material name="seabed.jpg" graphical-effect="water" reset="Y" falling-effect="Y"/>
+</materials>

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 7732 -->
+<materials>
+  <material name="corn.png" light="N"/>
+  <material name="earth.jpg" anisotropic="Y">
+    <particles base="smoke_brown.xml" condition="skid drive"/>
+  </material>
+  <material name="horse.jpg" light="N"/>
+  <material name="leaf.png" light="N"/>
+  <material name="leave3.png" light="N" ignore="Y" compositing="test"/>
+  <material name="mill.png" ignore="Y" compositing="blend" disable-z-write="Y"/>
+  <material name="mill.png" ignore="Y" compositing="blend" disable-z-write="Y"/>
+  <material name="mill.png" ignore="Y" compositing="blend" disable-z-write="Y"/>
+  <material name="mill.png" ignore="Y" compositing="blend" disable-z-write="Y"/>
+  <material name="mill.png" ignore="Y" compositing="blend" disable-z-write="Y"/>
+  <material name="mill.png" ignore="Y" compositing="blend" disable-z-write="Y"/>
+  <material name="millstructure.png" transparency="yes" ignore="Y"/>
+  <material name="trail.jpg" anisotropic="Y">
+    <particles base="smoke_brown.xml" condition="skid"/>
+  </material>
+  <material name="trail2dust.jpg" anisotropic="Y" clampU="Y">
+    <particles condition="skid drive" base="smoke_brown.xml"/>
+  </material>
+  <material name="trail2earth.jpg" anisotropic="Y" clampU="Y">
+    <particles condition="skid drive" base="smoke_brown.xml"/>
+  </material>
+  <material name="trail2grass.jpg" anisotropic="Y" clampU="Y"/>
+  <material name="wheat.png" light="N" compositing="test" anisotropic="Y"/>
+  <material name="yellow_dirt.jpg" max-speed="0.5" slowdown-time="1.0" anisotropic="Y">
+    <particles base="smoke_yellow.xml" condition="skid drive"/>
+  </material>
+</materials>

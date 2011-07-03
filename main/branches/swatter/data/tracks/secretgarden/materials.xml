@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 8014 -->
+<materials>
+  <material name="Bleech.png" alpha="yes"/>
+  <material name="bush2.png" transparency="yes" light="N" ignore="Y" compositing="test"/>
+  <material name="Cucurbita_pepo_04.png" transparency="yes" ignore="Y" compositing="test"/>
+  <material name="flower1.png" transparency="yes" light="N" ignore="Y" compositing="test"/>
+  <material name="flower2.png" transparency="yes" light="N" ignore="Y" compositing="test"/>
+  <material name="flower3.png" transparency="yes" light="N" ignore="Y" compositing="test"/>
+  <material name="flower4.png" compositing="test"/>
+  <material name="flower5.png" transparency="yes" light="N" ignore="Y" compositing="test"/>
+  <material name="flower6.png" transparency="yes" light="N" ignore="Y" compositing="test"/>
+  <material name="flower7.png" transparency="yes" light="N" ignore="Y" compositing="test"/>
+  <material name="Greenhouse-Palm-jubaea01.png" alpha="yes" compositing="blend"/>
+  <material name="invisible.png" transparency="yes" compositing="test"/>
+  <material name="leave2.png" transparency="yes" ignore="Y" compositing="test"/>
+  <material name="leave3.png" transparency="yes" ignore="Y" compositing="test"/>
+  <material name="leave4.png" ignore="Y" compositing="test"/>
+  <material name="Palm-arecaceae.png" alpha="yes" compositing="blend"/>
+  <material name="road_dirt.jpg" anisotropic="Y">
+    <particles condition="skid" base="smoke_brown.xml"/>
+  </material>
+  <material name="Rose.png" alpha="yes" compositing="blend"/>
+  <material name="Sophora.png" alpha="yes" compositing="blend"/>
+  <material name="TiZeta_stalkM.png" ignore="Y"/>
+  <material name="Trifolium_repens_07_ies.png" transparency="yes" ignore="Y" compositing="test"/>
+  <material name="water_light2.png" alpha="yes" ignore="Y" compositing="blend" surface="Y">
+    <sfx filename="splash.ogg"/>
+    <particles condition="skid drive" base="splash.xml"/>
+  </material>
+  <material name="water_light3.png" reset="Y" graphical-effect="water" compositing="none" falling-effect="Y"/>
+</materials>
