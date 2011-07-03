@@ -424,7 +424,7 @@ class STK_Kart_Exporter_Panel(bpy.types.Panel):
         # ==== Types group ====
         row = layout.row()
         
-        row.operator("screen.stk_kart_export", "Export", icon='BLENDER')
+        row.operator("screen.stk_kart_export", "Export", icon='AUTO')
         
         if bpy.context.mode != 'OBJECT':
             row.enabled = False
