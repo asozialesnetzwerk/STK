@@ -347,6 +347,11 @@ class STK_Kart_Export_Operator(bpy.types.Operator):
 
     def invoke(self, context, event):
         
+        if bpy.context.mode != 'OBJECT':
+            self.report({'ERROR'}, "You must be in object mode")
+            log_error("You must be in object mode")
+            return {'FINISHED'}
+        
         if 'is_stk_kart' not in context.scene or context.scene['is_stk_kart'] != 'true':
             log_error("Not a STK kart!")
             return {'FINISHED'}
@@ -363,6 +368,12 @@ class STK_Kart_Export_Operator(bpy.types.Operator):
         return {'RUNNING_MODAL'}
 
     def execute(self, context):
+        
+        if bpy.context.mode != 'OBJECT':
+            self.report({'ERROR'}, "You must be in object mode")
+            log_error("You must be in object mode")
+            return {'FINISHED'}
+        
         if self.filepath == "" or 'is_stk_kart' not in context.scene or context.scene['is_stk_kart'] != 'true':
             return {'FINISHED'}
         
@@ -414,6 +425,9 @@ class STK_Kart_Exporter_Panel(bpy.types.Panel):
         row = layout.row()
         
         row.operator("screen.stk_kart_export", "Export", icon='BLENDER')
+        
+        if bpy.context.mode != 'OBJECT':
+            row.enabled = False
         
         # ==== Output Log ====
         
