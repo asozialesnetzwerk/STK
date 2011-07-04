@@ -25,6 +25,7 @@
 #include "config/stk_config.hpp"
 #include "items/item_manager.hpp"
 #include "items/projectile_manager.hpp"
+#include "items/swatter.hpp"
 #include "karts/kart.hpp"
 #include "modes/world.hpp"
 #include "network/network_manager.hpp"
@@ -254,8 +255,19 @@ void Powerup::use()
         break ;
 
     case PowerupManager::POWERUP_SWATTER:
-        m_owner->getAttachment()->set(Attachment::ATTACH_SWATTER,
-                           m_owner->getKartProperties()->getSwatterDuration());
+        // TODO: play some swatter music
+        //m_owner->getAttachment()->set(Attachment::ATTACH_SWATTER,
+        //                   m_owner->getKartProperties()->getSwatterDuration());
+        // If the swatter is already used, fire it
+        if(m_owner->getAttachment()->getType() == Attachment::ATTACH_SWATTER)
+        {
+            m_owner->getAttachment()->startSquashing();
+        }
+        // Otherwise, set it as the new attachment
+        else
+            m_owner->getAttachment()->set(Attachment::ATTACH_SWATTER,
+                                          m_owner->getKartProperties()->getSwatterDuration());
+        break;
         break;
     case PowerupManager::POWERUP_BUBBLEGUM:
         {

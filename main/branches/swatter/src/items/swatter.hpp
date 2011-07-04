@@ -34,7 +34,7 @@ class Attachment;
 /**
   * \ingroup items
   */
-class Swatter : public NoCopy, public AttachmentPlugin
+class Swatter : public NoCopy, public AttachmentPlugin, public scene::IAnimationEndCallBack
 {
 
 private:
@@ -42,30 +42,40 @@ private:
     Kart           *m_kart;
 
     /** How often an attachment can be used (e.g. swatter). */
-    int             m_count;
-
+    int             m_count;    // TODO remove
+    
     /** State of a swatter animation. The swatter is either aiming (looking
      *  for a kart and/or swatting an incoming item), moving towards or back
      *  from a kart, or swatting left and right to hit an item - which has
      *  three phases: going left to an angle a (phae 1), then going to -a
      *  (phase 2), then going back to 0. */
+    /*
     enum            {SWATTER_AIMING, SWATTER_TO_KART,
                      SWATTER_BACK_FROM_KART,
                      SWATTER_ITEM_1, SWATTER_ITEM_2, SWATTER_ITEM_3,
                      SWATTER_BACK_FROM_ITEM} m_animation_phase;
+    */
+    enum            {SWATTER_AIMING, SWATTER_SQUASHING}
+                    m_animation_phase;
 
     /** Timer for swatter animation. */
     float           m_animation_timer;
 
     /** The kart the swatter is aiming at. */
     Kart           *m_animation_target;
+    
+    bool            m_done_squashing;
 
     /** Rotation per second so that the swatter will hit the kart. */
-    core::vector3df m_rot_per_sec;
+    //core::vector3df m_rot_per_sec;
 
-    void            aimSwatter();
-    bool            isLeftSideOfKart(const Vec3 &xyz);
-    void            checkForHitKart(bool isSwattingToLeft);
+    //void            aimSwatter();
+    //bool            isLeftSideOfKart(const Vec3 &xyz);
+    //void            checkForHitKart(bool isSwattingToLeft);
+    
+    Kart*           getBestSquashableKart() const;
+    void            pointSwatterToTarget();
+    void            squashKartsAround();
 
 public:
           Swatter(Attachment *attachment, Kart *kart);
@@ -73,6 +83,7 @@ public:
     bool  updateAndTestFinished(float dt);
     void  updateSwatter(float dt);
     void  swatItem();
+    void  startSquashing();
 
     // ------------------------------------------------------------------------
     /** Returns if the swatter is currently aiming, i.e. can be used to
@@ -81,6 +92,8 @@ public:
         return m_animation_phase == SWATTER_AIMING;
     }   // isSwatterReady
     // ------------------------------------------------------------------------
+    // Implement scene::IAnimationEndCallBack
+    virtual void OnAnimationEnd(scene::IAnimatedMeshSceneNode* node);
 };   // Swatter
 
 #endif

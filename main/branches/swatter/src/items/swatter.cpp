@@ -23,7 +23,11 @@
 #include "modes/world.hpp"
 #include "karts/kart.hpp"
 
-#define SWAT_ANGLE 22.0f
+//#define SWAT_ANGLE 22.0f
+#define SWAT_POS_OFFSET        core::vector3df(0.0, 0.2, -0.4)
+#define SWAT_ANGLE_MIN  45
+#define SWAT_ANGLE_MAX  135
+#define SWAT_ANGLE_OFFSET (90.0f + 15.0f)
 
 Swatter::Swatter(Attachment *attachment, Kart *kart) 
        : AttachmentPlugin(attachment, kart)
@@ -32,9 +36,16 @@ Swatter::Swatter(Attachment *attachment, Kart *kart)
     m_count            = kart->getKartProperties()->getSwatterCount();
     m_animation_timer  = 0.0f;
     m_animation_phase  = SWATTER_AIMING;
-    m_rot_per_sec      = core::vector3df(0,0,0);
+    //m_rot_per_sec      = core::vector3df(0,0,0);
     m_rotation         = core::vector3df(0,0,0);
     m_animation_target = NULL;
+    
+    // Special position for the swatter and no animation to begin with
+    scene::IAnimatedMeshSceneNode* node = m_attachment->getNode();
+    node->setPosition(SWAT_POS_OFFSET);
+    node->setAnimationSpeed(0);
+    node->setAnimationEndCallback(this);
+    m_done_squashing = false;
 }   // Swatter
 
 //-----------------------------------------------------------------------------
@@ -50,7 +61,57 @@ Swatter::~Swatter()
  */
 bool Swatter::updateAndTestFinished(float dt)
 {
-    m_rotation += m_rot_per_sec * dt;
+    switch(m_animation_phase)
+    {
+    case SWATTER_AIMING:
+    {
+        m_done_squashing = false;
+        Kart* best_kart = getBestSquashableKart();
+        if(!best_kart)
+        {
+            printf("not found\n");
+            break;
+        }
+        printf("best kart: %s\n", best_kart->getIdent().c_str());
+        
+        m_animation_target = best_kart;
+        pointSwatterToTarget();
+    }
+        break;
+    case SWATTER_SQUASHING:
+    {
+        scene::IAnimatedMeshSceneNode *node = m_attachment->getNode();
+        if(m_animation_target)
+            pointSwatterToTarget();
+        
+        const float middle_frame = node->getEndFrame()/2.0f;
+        
+        // When in the middle of the animation, squash all karts within the range
+        if(node->getFrameNr() > middle_frame && !m_done_squashing)
+        {
+            squashKartsAround();
+            m_done_squashing = true;
+        }
+        
+        // Check if we are done playing the animation
+        //if(m_node->getFrameNr() < 0.01)
+        //    printf("frame: %f\n", m_node->getFrameNr());
+        //printf("end: %d\n", m_node->getEndFrame());
+        /*if(m_node->getFrameNr() == m_node->getEndFrame())
+        {
+            printf("DONE!\n");
+            m_animation_phase = SWATTER_AIMING;
+            m_node->setAnimationSpeed(0.0f);
+        }*/
+    }
+        break;
+    }
+    
+    // If the swatter is used up, trigger cleaning up
+    // TODO: use a timeout (m_animation_timer?)
+    return (m_count==0);
+    
+/*    m_rotation += m_rot_per_sec * dt;
     switch(m_animation_phase)
     {
     case SWATTER_AIMING:    
@@ -100,20 +161,100 @@ bool Swatter::updateAndTestFinished(float dt)
 
     // If the swatter is used up, trigger cleaning up
     return (m_count==0);
+*/
 }   // updateAndTestFinished
+
+void Swatter::startSquashing()
+{
+    //m_count --;   // TODO
+    m_animation_phase = SWATTER_SQUASHING;
+    const KartProperties    *kp = m_kart->getKartProperties();
+    m_animation_timer = kp->getSwatterAnimationTime();
+    
+    scene::IAnimatedMeshSceneNode* node = m_attachment->getNode();
+    node->setCurrentFrame(0.0f);
+    node->setLoopMode(false);
+    node->setAnimationSpeed(20.0f / m_animation_timer); // TODO
+}   // startSquashing
+
+// Looks for the closest, not eliminated, not squashed kart
+Kart* Swatter::getBestSquashableKart() const
+{
+    const World *world = World::getWorld();
+    Kart *closest_kart     = NULL;
+    // Square of the minimum distance for being squashed
+    float min_dist2    = m_kart->getKartProperties()->getSwatterDistance2();
+
+    for(unsigned int i=0; i<world->getNumKarts(); i++)
+    {
+        Kart *kart = world->getKart(i);
+        if(kart->isEliminated() || kart==m_kart || kart->isSquashed())
+            continue;
+        float f = (kart->getXYZ()-m_kart->getXYZ()).length2();
+        if(f<min_dist2)
+        {
+            min_dist2 = f;
+            closest_kart = kart;
+        }
+    }
+    return closest_kart;    // may be NULL
+}   // getBestSquashableKart
+
+void Swatter::pointSwatterToTarget()
+{
+    Vec3 swatter_to_target = m_animation_target->getXYZ() - m_attachment->getNode()->getAbsolutePosition();
+
+    float dy = -swatter_to_target.getZ();
+    float dx = swatter_to_target.getX();
+    float angle = SWAT_ANGLE_OFFSET + (atan2(dy, dx) - m_kart->getHeading()) * 180.0f/M_PI;
+    
+    m_rotation = core::vector3df(0.0, angle, 0.0);
+}   // pointSwatterToTarget
+
+void Swatter::squashKartsAround()
+{
+    const KartProperties          *kp          = m_kart->getKartProperties();
+    float                          min_dist2   = kp->getSwatterDistance2();    // Square of the minimum distance
+    const World                   *world       = World::getWorld();
+    scene::IAnimatedMeshSceneNode *node        = m_attachment->getNode();
+    
+    scene::ISceneNode* swatter_node = node->getJointNode("Swatter");
+    assert(swatter_node);
+    Vec3 swatter_pos = swatter_node->getAbsolutePosition();
+    
+    for(unsigned int i=0; i<world->getNumKarts(); i++)
+    {
+        Kart *kart = world->getKart(i);
+        if(kart->isEliminated() || kart==m_kart || kart->isSquashed())
+            continue;
+        float dist2 = (kart->getXYZ()-swatter_pos).length2();
+        
+        if(dist2 < min_dist2)
+        {
+            kart->setSquash(kp->getSquashDuration(),
+                            kp->getSquashSlowdown());
+        }
+    }
+}
+
+void Swatter::OnAnimationEnd(scene::IAnimatedMeshSceneNode* node)
+{
+    m_animation_phase = SWATTER_AIMING;
+    node->setAnimationSpeed(0.0f);
+}
 
 //-----------------------------------------------------------------------------
 /** Returns true if the point xyz is to the left of the kart. 
  *  \param xyz Point to determine the direction 
  */
-bool Swatter::isLeftSideOfKart(const Vec3 &xyz)
+/*bool Swatter::isLeftSideOfKart(const Vec3 &xyz)
 {
     Vec3 forw_vec = m_kart->getTrans().getBasis().getColumn(2);
     const Vec3& k1 = m_kart->getXYZ();
     const Vec3  k2 = k1+forw_vec;
     return xyz.sideOfLine2D(k1, k2)>0;
 }   // isLeftSideOfKart
-
+*/
 //-----------------------------------------------------------------------------
 /** This function is called when the swatter reaches the hit angle (i.e. it
  *  is furthest down). Check all karts if any one is hit, i.e. is at the right
@@ -121,7 +262,7 @@ bool Swatter::isLeftSideOfKart(const Vec3 &xyz)
  *  \param isWattingLeft True if the swatter is aiming to the left side
  *         of the kart.
  */
-void Swatter::checkForHitKart(bool isSwattingLeft)
+/*void Swatter::checkForHitKart(bool isSwattingLeft)
 {
     // Square of the minimum distance
     const KartProperties *kp = m_kart->getKartProperties();
@@ -169,13 +310,14 @@ void Swatter::checkForHitKart(bool isSwattingLeft)
     }   // for i < num_karts
 
 }   // angleToKart
+*/
 
 //-----------------------------------------------------------------------------
 /** Checks for any kart that is not already squashed that is close enough.
  *  If a kart is found, it changes the state of the swatter to be 
  *  SWATTER_TARGET and starts the animation.
  */
-void Swatter::aimSwatter()
+/*void Swatter::aimSwatter()
 {
     const World *world = World::getWorld();
     Kart *min_kart     = NULL;
@@ -210,12 +352,13 @@ void Swatter::aimSwatter()
                                     left ?90.0f:-90.0f) / m_animation_timer;
 
 }   // aimSwatter
+*/
 
 //-----------------------------------------------------------------------------
 /** Starts a (smaller) and faster swatting movement to be played
  *  when the kart is hit by an item.
  */
-void Swatter::swatItem()
+/*void Swatter::swatItem()
 {
     if(UserConfigParams::logMisc())
         printf("[swatter] %s swatting item.\n",
@@ -228,3 +371,4 @@ void Swatter::swatItem()
     m_count--;
     m_rot_per_sec = core::vector3df(0, 0, SWAT_ANGLE) / m_animation_timer;
 }   // swatItem
+*/

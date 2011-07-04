@@ -64,15 +64,18 @@ void Attachment::set(AttachmentType type, float time, Kart *current_kart)
 {
     clear();
     
+    m_node->setMesh(attachment_manager->getMesh(type));
+    
     // If necessary create the appropriate plugin which encapsulates 
     switch(type)
     {
     case ATTACH_SWATTER : 
         m_plugin = new Swatter(this, m_kart);
-    default: break;
+        break;
+    default:
+        m_node->setPosition(core::vector3df());
+        break;
     }   // switch(type)
-
-    m_node->setMesh(attachment_manager->getMesh(type));
 
     if (!UserConfigParams::m_graphical_effects)
     {
@@ -103,6 +106,7 @@ void Attachment::set(AttachmentType type, float time, Kart *current_kart)
             m_node->setAnimationSpeed(50);
         }
     }
+    
     m_node->setVisible(true);
 }   // set
 
@@ -306,8 +310,8 @@ void Attachment::update(float dt)
  */
 void Attachment::swatItem()
 {
-    assert(m_type==ATTACH_SWATTER);
-    ((Swatter*)m_plugin)->swatItem();
+//    assert(m_type==ATTACH_SWATTER);
+//    ((Swatter*)m_plugin)->swatItem();
 }   // swatItem
 // ----------------------------------------------------------------------------
 /** Returns if the swatter is currently aiming, i.e. can be used to
@@ -317,3 +321,10 @@ bool Attachment::isSwatterReady() const
     assert(m_type==ATTACH_SWATTER);
     return ((Swatter*)m_plugin)->isSwatterReady();
 }   // isSwatterReady
+
+// ----------------------------------------------------------------------------
+void Attachment::startSquashing()
+{
+    assert(m_type==ATTACH_SWATTER);
+    return ((Swatter*)m_plugin)->startSquashing();
+}   // startSquasing

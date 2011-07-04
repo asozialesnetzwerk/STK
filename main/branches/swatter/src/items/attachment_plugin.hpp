@@ -40,13 +40,17 @@ class AttachmentPlugin
 protected:
     /** Keeps track of the rotation of an attachment, this base class
      *  will set it to 0. */
-    core::vector3df   m_rotation;
+    core::vector3df     m_rotation;
+    
+    /** Parent Attachment of this plugin */
+    Attachment         *m_attachment;
 
 public:
     /** Constructor for a plugin. */
     AttachmentPlugin(Attachment *attachment, Kart *kart) 
     {
         m_rotation = core::vector3df(0,0,0);
+        m_attachment = attachment;
     }
     
     // ------------------------------------------------------------------------

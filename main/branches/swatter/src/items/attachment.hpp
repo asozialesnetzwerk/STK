@@ -99,6 +99,7 @@ public:
     void  moveBombFromTo(Kart *from, Kart *to);
     void  swatItem();
     bool  isSwatterReady() const;
+    void  startSquashing();
 
     void  set (AttachmentType type, float time, Kart *previous_kart=NULL);
     // ------------------------------------------------------------------------
@@ -121,6 +122,8 @@ public:
     /** Returns additional weight for the kart. */
     float weightAdjust() const { 
         return m_type==ATTACH_ANVIL ? stk_config->m_anvil_weight : 0.0f; }
+    // ------------------------------------------------------------------------
+    scene::IAnimatedMeshSceneNode* getNode() {return m_node;}
     // ------------------------------------------------------------------------
 };   // Attachment
 
