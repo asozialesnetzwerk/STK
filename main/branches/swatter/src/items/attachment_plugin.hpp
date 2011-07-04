@@ -25,6 +25,14 @@
 class Kart;
 class Attachment;
 
+namespace irr
+{
+namespace scene
+{
+    class IAnimatedMeshSceneNode;
+}
+}
+
 /**
   * \ingroup items
   *  This is the base class for a plugin into an attachment. Plugins are
@@ -61,6 +69,8 @@ public:
     // ------------------------------------------------------------------------
     /** Returns the rotation of the attachment. */
     virtual const core::vector3df& getRotation() const { return m_rotation; }
+    
+    virtual void  onAnimationEnd(scene::IAnimatedMeshSceneNode* node) {}
 };   // AttachmentPlugin
 
 #endif

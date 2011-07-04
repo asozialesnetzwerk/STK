@@ -24,6 +24,7 @@
 #include "items/attachment_plugin.hpp"
 #include "utils/no_copy.hpp"
 #include "utils/random_generator.hpp"
+#include "irrlicht.h"
 
 class Kart;
 class Item;
@@ -41,7 +42,7 @@ class Item;
  *  a scene node).
  *  \ingroup items
  */
-class Attachment: public NoCopy
+class Attachment: public NoCopy, public scene::IAnimationEndCallBack
 {
 public:
     // Some loop in attachment.cpp depend on ATTACH_FIRST and ATTACH_MAX.
@@ -125,6 +126,8 @@ public:
     // ------------------------------------------------------------------------
     scene::IAnimatedMeshSceneNode* getNode() {return m_node;}
     // ------------------------------------------------------------------------
+    // Implement scene::IAnimationEndCallBack
+    virtual void OnAnimationEnd(scene::IAnimatedMeshSceneNode* node);
 };   // Attachment
 
 #endif

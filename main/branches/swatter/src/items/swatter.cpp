@@ -44,7 +44,6 @@ Swatter::Swatter(Attachment *attachment, Kart *kart)
     scene::IAnimatedMeshSceneNode* node = m_attachment->getNode();
     node->setPosition(SWAT_POS_OFFSET);
     node->setAnimationSpeed(0);
-    node->setAnimationEndCallback(this);
     m_done_squashing = false;
 }   // Swatter
 
@@ -69,10 +68,10 @@ bool Swatter::updateAndTestFinished(float dt)
         Kart* best_kart = getBestSquashableKart();
         if(!best_kart)
         {
-            printf("not found\n");
+            //printf("not found\n");
             break;
         }
-        printf("best kart: %s\n", best_kart->getIdent().c_str());
+        //printf("best kart: %s\n", best_kart->getIdent().c_str());
         
         m_animation_target = best_kart;
         pointSwatterToTarget();
@@ -237,7 +236,7 @@ void Swatter::squashKartsAround()
     }
 }
 
-void Swatter::OnAnimationEnd(scene::IAnimatedMeshSceneNode* node)
+void Swatter::onAnimationEnd(scene::IAnimatedMeshSceneNode* node)
 {
     m_animation_phase = SWATTER_AIMING;
     node->setAnimationSpeed(0.0f);

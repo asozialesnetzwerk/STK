@@ -34,7 +34,7 @@ class Attachment;
 /**
   * \ingroup items
   */
-class Swatter : public NoCopy, public AttachmentPlugin, public scene::IAnimationEndCallBack
+class Swatter : public NoCopy, public AttachmentPlugin
 {
 
 private:
@@ -78,12 +78,13 @@ private:
     void            squashKartsAround();
 
 public:
-          Swatter(Attachment *attachment, Kart *kart);
-         ~Swatter();
-    bool  updateAndTestFinished(float dt);
-    void  updateSwatter(float dt);
-    void  swatItem();
-    void  startSquashing();
+                  Swatter(Attachment *attachment, Kart *kart);
+                 ~Swatter();
+    bool          updateAndTestFinished(float dt);
+    void          updateSwatter(float dt);
+    void          swatItem();
+    void          startSquashing();
+    virtual void  onAnimationEnd(scene::IAnimatedMeshSceneNode* node);
 
     // ------------------------------------------------------------------------
     /** Returns if the swatter is currently aiming, i.e. can be used to
@@ -91,9 +92,6 @@ public:
     bool isSwatterReady() const {
         return m_animation_phase == SWATTER_AIMING;
     }   // isSwatterReady
-    // ------------------------------------------------------------------------
-    // Implement scene::IAnimationEndCallBack
-    virtual void OnAnimationEnd(scene::IAnimatedMeshSceneNode* node);
 };   // Swatter
 
 #endif

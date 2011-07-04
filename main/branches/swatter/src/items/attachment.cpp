@@ -71,9 +71,11 @@ void Attachment::set(AttachmentType type, float time, Kart *current_kart)
     {
     case ATTACH_SWATTER : 
         m_plugin = new Swatter(this, m_kart);
+        m_node->setAnimationEndCallback(this);
         break;
     default:
         m_node->setPosition(core::vector3df());
+        m_node->setAnimationEndCallback(NULL);
         break;
     }   // switch(type)
 
@@ -328,3 +330,10 @@ void Attachment::startSquashing()
     assert(m_type==ATTACH_SWATTER);
     return ((Swatter*)m_plugin)->startSquashing();
 }   // startSquasing
+
+// ----------------------------------------------------------------------------
+void Attachment::OnAnimationEnd(scene::IAnimatedMeshSceneNode* node)
+{
+    if(m_plugin)
+        m_plugin->onAnimationEnd(node);
+}
