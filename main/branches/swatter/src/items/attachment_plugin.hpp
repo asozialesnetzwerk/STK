@@ -60,6 +60,7 @@ public:
         m_rotation = core::vector3df(0,0,0);
         m_attachment = attachment;
     }
+    virtual ~AttachmentPlugin() {}
     
     // ------------------------------------------------------------------------
     /** Updates a plugin. This is called once each time frame. If the
