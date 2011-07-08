@@ -168,11 +168,11 @@ class StkEnumProperty(StkProperty):
                 values_for_blender_unsorted.append( (curr_val, curr_obj.name, curr_obj.name) )
         
         values_for_blender = sorted(values_for_blender_unsorted, key=lambda k: k[1])
-        
+                
         # Create operator for this combo
         class STK_SetComboValue(bpy.types.Operator):
         
-            value = bpy.props.EnumProperty(attr="values", name="values", default=default_value,
+            value = bpy.props.EnumProperty(attr="values", name="values", default=default_value + "",
                                            items=values_for_blender)
             
             bl_idname = ("screen.stk_set_"   + unique_prefix + id)
@@ -495,10 +495,11 @@ STK_PER_OBJECT_TRACK_PROPERTIES = OrderedDict([
 
 STK_PER_OBJECT_KART_PROPERTIES = OrderedDict([
        ('type'               , StkEnumProperty('type', "Type", OrderedDict([    (''      , StkEnumChoice('None', {})),
+                                                                                ('none'  , StkEnumChoice('None', {})),
                                                                                 ('wheel' , StkEnumChoice('Wheel', {})),
                                                                                 ('ignore', StkEnumChoice('Ignore', {}))
                                                                             ]),
-                                               contextLevel=CONTEXT_OBJECT, default='', unique_prefix="kart_", docs="Supertuxkart Object Type")
+                                               contextLevel=CONTEXT_OBJECT, default='none', unique_prefix="kart_", docs="Supertuxkart Object Type")
         )
        ])
 
