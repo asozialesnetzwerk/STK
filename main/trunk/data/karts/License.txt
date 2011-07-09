@@ -58,3 +58,4 @@ Animations :
 Cartoonish character icons :
     by Anthony Carré (yekcim), released under GPL 2
     except Beagle icon, by Dakal, released under CC-BY-SA 3.0
+    and beastie (see beastie/License.txt)
