@@ -83,7 +83,17 @@ Under Creative Commons Attribution Share-Alike (CC-BY-SA) - http://creativecommo
 * marble.png
     released under CC-BY-SA 3.0, by Marianne Gagnon
     based on public domain image from wikimedia
-    
+
+* dirtbrick.png, metal_plates.png
+    by Dakal
+
+* city_fern, city_grass, city_tree_leaves, city_tree
+    (c) http://www.yofrankie.org
+
+* vegetation_1.png
+    by Dim, released under CC-BY-SA 3.0
+    from open game art (http://opengameart.org/content/dims-arboretum-0)
+
 ================
 Other licenses :
 ================
@@ -113,13 +123,7 @@ Other licenses :
 
 * snowflake
     based on public domain image by NetAlloy (http://www.openclipart.org/detail/100231)
-
-* dirtbrick.png, metal_plates.png
-    by Dakal
-
-* city_fern, city_grass, city_tree_leaves, city_tree
-    (c) http://www.yofrankie.org
-
+    
 ============================================================
 Credits for GPL textures :
 ============================================================
