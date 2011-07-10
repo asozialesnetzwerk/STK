@@ -8,7 +8,7 @@
       shadow-file       = "beagle_shadow.png"
       groups            = "standard"
       rgb               = "0.7 0 0" 
-      RandomWheelRot    = "true">
+      random-wheel-rot  = "true">
   <sounds engine = "large"/>
   <animations left = "0"
               straight = "20"
