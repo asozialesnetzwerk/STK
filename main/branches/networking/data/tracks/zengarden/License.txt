@@ -1,0 +1,29 @@
+--------------------------------------------------------------------------------
+-- world:   zen garden
+-- author:  jean-manuel clemençon aka samuncle
+-- version: 0.4 RC1
+-- (c) 2011 supertuxkart
+--------------------------------------------------------------------------------
+
+Textures based on pictures from burningwell
+    blackRoad.png, japanRedWood.png, JapanwoodBridge.png, pagoda_wall.png, ToblackRoad.png
+    rockTograss.png, wooden2.png, wooden.png, blackrock.jpg, rockwaterfall.jpg
+    black_rockMountain.jpg, bridge_wood.jpg, rockMountain.jpg, to_black_rockMountain.jpg
+    released under public domain
+
+Texture from open game art (http://opengameart.org/content/dims-arboretum-0)
+    Catail.png, vegetation_1.png
+    by released under CC-BY-SA 3.0
+    shintoB.jpg
+    by gladius CC-BY-SA 3.0
+
+Based on supertuxkart textures
+    grass.png, grassroad.png, plants.png, sky.png, stone_lantern.png
+    monumentBmarble.png, roadRoundBrick.jpg
+    tree_1Low.png, tree_1.png
+
+by Jean-Manuel Clemençon (Samuncle; http://samuncle.toile-libre.org/)
+    dynamiclight.png, fence_pagoda.png, fog.png, lanternDirection.png
+    lanternsupport.png, lightHaloY.png, monumentWater2.png, monumentWater3.png
+    monumentWater.png, waterfall-particules.png and all other models
+    released under CC-BY-SA 3.0
