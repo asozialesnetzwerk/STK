@@ -144,3 +144,5 @@ Credits for GPL textures :
 * green_check.png, red_mark.png
     from the Gnome icon set, GPL v 2.0+
 
+* palmtree
+    by Fraang
