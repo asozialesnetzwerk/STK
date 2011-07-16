@@ -1,6 +1,6 @@
-============================================================
-All textures in this directory are licensed under GPL except :
-============================================================
+============
+CC-BY-SA 3.0
+============
 
 Under Creative Commons Attribution Share-Alike (CC-BY-SA) - http://creativecommons.org/licenses/by-sa/3.0/ :
 
@@ -94,6 +94,35 @@ Under Creative Commons Attribution Share-Alike (CC-BY-SA) - http://creativecommo
     by Dim, released under CC-BY-SA 3.0
     from open game art (http://opengameart.org/content/dims-arboretum-0)
 
+
+===
+GPL
+===
+
+* greenice
+* ice
+* snow
+* snowyrock
+    are taken from Extreme Tux Racer game (http://extremetuxracer.com/)
+
+* mossy_stone and obelisk, bush2
+
+    are from the http://www.titusgames.de GLEST jungle set
+
+* explosion
+    from original TuxKart, with modifications by MiniBjorn (fixed blue edge and spread + blur detail)
+    
+* green_check.png, red_mark.png
+    from the Gnome icon set, GPL v 2.0+
+
+* palmtree, palm
+    by the original (Super)TuxKart team and Fraang
+
+* bananawrap, bricks, butterfly, chess, chrome, chrome2, concrete, dirt, fence, flames, grass,
+  lava, lscales, pebbles, railing, roadway, redwhite, stonetex, stonewall, trackborder
+    by the original (Super)TuxKart team
+
+
 ================
 Other licenses :
 ================
@@ -123,26 +152,3 @@ Other licenses :
 
 * snowflake
     based on public domain image by NetAlloy (http://www.openclipart.org/detail/100231)
-    
-============================================================
-Credits for GPL textures :
-============================================================
-
-* greenice
-* ice
-* snow
-* snowyrock
-    are taken from Extreme Tux Racer game (http://extremetuxracer.com/)
-
-* mossy_stone and obelisk, bush2
-
-    are from the http://www.titusgames.de GLEST jungle set
-
-* explosion
-    from original TuxKart, with modifications by MiniBjorn (fixed blue edge and spread + blur detail)
-    
-* green_check.png, red_mark.png
-    from the Gnome icon set, GPL v 2.0+
-
-* palmtree
-    by Fraang
