@@ -3,6 +3,11 @@
 <materials>
   <material name="blueZipper.png" compositing="blend" light="N"/>
   <material name="blueZipper_effect.png" compositing="blend" light="N"/>
+  
+  <material name="greenice.png">
+    <particles base="smoke.xml" condition="skid" />
+  </material>
+  
   <material name="ice.png" reset="Y"/>
   <material name="icepic.png" compositing="test" backface-culling="N"/>
   <material name="invisible.png" compositing="test"/>
