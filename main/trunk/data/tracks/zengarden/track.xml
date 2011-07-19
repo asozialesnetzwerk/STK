@@ -2,7 +2,7 @@
 <!-- Generated with script from SVN rev 9137 -->
 <track  name        = "Zen Garden"
         version     = "5"
-        groups      = "bigupdate"
+        groups      = "standard"
         designer    = "jean-Manuel Clamencon"
         music       = "kart_grand_prix.music"
         screenshot  = "screenshot.jpg"
