@@ -4,8 +4,8 @@
     by the "Battle For Wesnoth" project
 
 * bowling_roll
-    Released under the Creative Commons Sampling Plus 1.0 license
-    (http://creativecommons.org/licenses/sampling+/1.0/, see license text below)
+    Released under the CC-BY-SA 3.0 license (sounds originally released under CC-Sampling+, but obtained permission
+    from author to release them under CC-By-SA 3.0)
     By Marianne Gagnon (Auria), based on "PaintCan", "StoneSpinLong" and
     "PaintCanDropHardAndRoll" by daveincamas, released under the same license
 
