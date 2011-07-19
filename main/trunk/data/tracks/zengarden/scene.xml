@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev 9137 -->
 <scene>
-  <track model="zenGarden25_track.b3d" x="0" y="0" z="0">
+  <track model="zenGarden_track.b3d" x="0" y="0" z="0">
     <static-object model="torii_LODx.b3d" xyz="1.500000 0.000000 10.000000" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
     <static-object model="sakuraPine_LODx.b3d" xyz="-16.206482 0.947139 -13.212413" hpr="2.077206 306.091048 7.703775" scale="0.603109 0.603109 0.603109"/>
     <static-object model="sakuraPine_LODx.b3d" xyz="-93.090782 0.547386 27.580124" hpr="2.077206 256.332901 7.703775" scale="0.737364 0.737364 0.737364"/>
@@ -33,8 +33,6 @@
     <static-object model="directionLanLite_LODx.b3d" xyz="-171.019424 2.731712 -59.935833" hpr="-89.999996 -19.974977 0.000000" scale="1.000000 1.000000 1.000000"/>
     <static-object model="directionLantern_LODx.b3d" xyz="-17.514322 1.718832 -51.468906" hpr="-89.999996 226.017202 -0.000000" scale="1.000000 1.000000 1.000000"/>
     <static-object model="pagoda1_LOD50.b3d" xyz="-102.804398 7.021167 148.302338" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object model="stonePagoda_LOD25.b3d" xyz="-115.274307 -0.400407 154.000000" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object model="stonePagoda_LODx.b3d" xyz="-161.257690 -0.446902 23.323637" hpr="-89.999996 -0.000000 0.000000" scale="1.011824 1.011824 1.011824"/>
     <static-object model="pineTree1_LOD50.b3d" xyz="-99.791351 0.209517 132.220230" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
     <static-object model="pineTree1_LODx.b3d" xyz="-124.480301 0.663813 57.220230" hpr="-89.999996 50.957156 0.000000" scale="1.000000 1.000000 1.000000"/>
     <static-object model="pineTree1_LODx.b3d" xyz="-132.264297 -0.077335 41.380646" hpr="-89.999996 18.967567 0.000000" scale="1.000000 1.000000 1.000000"/>
@@ -107,7 +105,6 @@
     <static-object model="pineVeryLow.b3d" xyz="-33.460518 0.694474 74.488777" hpr="-89.999996 -4.468890 0.000000" scale="1.239249 1.239249 1.239249"/>
     <static-object model="pineVeryLow.b3d" xyz="-21.938166 1.168826 55.517548" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
     <static-object model="pagoda1_LOD200.b3d" xyz="-102.804398 7.021167 168.302338" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object model="stonePagoda_LOD80.b3d" xyz="-115.274307 -0.400407 158.000000" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
     <static-object model="pagoda1_LODx.b3d" xyz="-102.804398 7.021167 36.302338" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
     <static-object model="limit_LODx.b3d" xyz="-33.249905 0.457083 -58.068447" hpr="-89.999996 73.821436 0.000000" scale="1.000000 1.000000 1.000000"/>
     <static-object model="limit_LOD90.b3d" xyz="-33.249905 0.457083 173.899765" hpr="-89.999996 73.821436 0.000000" scale="1.000000 1.000000 1.000000"/>
