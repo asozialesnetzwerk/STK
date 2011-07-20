@@ -2,7 +2,7 @@
 
 """
 Name: 'B3D Exporter (.b3d)...'
-Blender: 248a
+Blender: 258
 Group: 'Export'
 Tooltip: 'Export to Blitz3D file format (.b3d)'
 """
@@ -39,7 +39,7 @@ bl_info = {
     "description": "Exports a blender scene or object to the B3D (BLITZ3D) format",
     "author": "Diego 'GaNDaLDF' Parisi, Joerg Henrichs, Marianne Gagnon",
     "version": (3,0),
-    "blender": (2, 5, 7),
+    "blender": (2, 5, 8),
     "api": 31236,
     "location": "File > Export",
     "warning": '', # used for warning icon and text in addons panel
