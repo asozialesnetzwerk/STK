@@ -17,8 +17,8 @@
     (see license text below)
     
 * energy_bar_full
-    obtained from : http://www.freesoundfiles.tintagel.net/Audio/
-    (see license text below)
+    By legoluft (http://www.legoluft.de), from the Krank sound pack
+    released under CC0
     
 * engine_large
     released under CC-BY-SA 3.0
