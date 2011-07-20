@@ -18,6 +18,7 @@
     
 * energy_bar_full
     By legoluft (http://www.legoluft.de), from the Krank sound pack
+    http://opengameart.org/content/atmospheric-interaction
     released under CC0
     
 * engine_large
@@ -49,8 +50,8 @@
     By Mike Koenig (from http://soundbible.com/989-10-Second-Applause.html)
 
 * grab_collectable
-    obtained from : http://www.freesoundfiles.tintagel.net/Audio/
-    (see license text below)
+    by Brandon Morris, released under CC-BY 3.0
+    http://opengameart.org/content/completion-sound
     
 * horn
     Released under the Creative Commons BY (Attribution) 3.0
