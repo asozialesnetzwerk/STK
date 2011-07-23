@@ -95,9 +95,11 @@
     obtained from : http://www.freesoundfiles.tintagel.net/Audio/
     (see license text below)
     
-* strike (Based on sound "11913201" by Radio Mall)
-    Released under the SoundSnap license (http://www.soundsnap.com/licence)
-    (see license text below)
+* strike
+    based on http://www.freesound.org/samplesViewSingle.php?id=82359 (1 and 2) and
+    http://www.freesound.org/samplesViewSingle.php?id=82358 (3) by juskiddink.
+    Released under cc-by-sa 3.0 http://creativecommons.org/licenses/by-sa/3.0/ .
+    With modifications by qubodup <qubodup@gmail.com>
 
 * swap
     By "Stephan" from pdsounds.org (license is public domain)
