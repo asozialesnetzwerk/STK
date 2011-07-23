@@ -50,8 +50,8 @@
     By Mike Koenig (from http://soundbible.com/989-10-Second-Applause.html)
 
 * grab_collectable
-    by Brandon Morris, released under CC-BY 3.0
-    http://opengameart.org/content/completion-sound
+    obtained from : http://www.freesoundfiles.tintagel.net/Audio/
+    (see license text below)
     
 * horn
     Released under the Creative Commons BY (Attribution) 3.0
