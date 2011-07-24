@@ -42,6 +42,5 @@
    <sfx filename="gp_end.ogg"           volume="1.0" positional="false" />
    <sfx filename="last_lap_fanfare.ogg" volume="1.0" positional="false" />
    <sfx filename="wooden_bridge.ogg"    volume="1.0" positional="true" rolloff="0.1"  />
-   <sfx filename="swatter.ogg"          volume="1.0" positional="false"  />
 </sfx-config>
 
