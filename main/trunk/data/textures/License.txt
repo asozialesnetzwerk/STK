@@ -152,3 +152,6 @@ Other licenses :
 
 * snowflake
     based on public domain image by NetAlloy (http://www.openclipart.org/detail/100231)
+
+* pyramidwall
+    by fraang, released under CC-0
