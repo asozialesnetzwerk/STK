@@ -1856,7 +1856,7 @@ class TrackExport:
             elif obj.type=="CURVE":
                 # Only append camera, other curves will be handled in animations
                 if stktype[:6]=="CAMERA": lCameraCurves.append(obj)
-            elif obj.type=="LAMP":
+            elif obj.type=="LAMP" and stktype == "SUN":
                 lSun.append(obj)
                 continue
             elif obj.type=="CAMERA":
@@ -1890,7 +1890,8 @@ class TrackExport:
                     log_warning("object " + obj.name + " has type property '%s', which is not supported.\n"%s)
                 lTrack.append(obj)
 
-        if not found_main_driveline:
+        is_arena = getIdProperty(bpy.data.scenes[0], "arena",      "n"            )
+        if not found_main_driveline and not is_arena:
             log_warning("Main driveline missing, using first driveline as main!")
             
         # Now export the different parts: track file
