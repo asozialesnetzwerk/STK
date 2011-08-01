@@ -159,8 +159,8 @@ class Driveline:
         self.to_driveline=None
         self.is_last_main = 0
         # Invisible drivelines are not shown in the minimap
-        self.invisible = getProperty(driveline, "invisible", 0)
-        self.ai_ignore = getProperty(driveline, "ai_ignore", "no")
+        self.invisible = getProperty(driveline, "invisible", "false")
+        self.ai_ignore = getProperty(driveline, "ai_ignore", "false")
         self.enabled   = not getProperty(driveline, "disable",   0)
         self.activate  = getProperty(driveline, "activate", None)
         self.strict_lap = convertTextToYN(getProperty(driveline,
@@ -531,12 +531,12 @@ class Driveline:
         l1  = self.mesh.vertices[self.lLeft[1]].co
         r1  = self.mesh.vertices[self.lRight[1]].co
 
-        if self.invisible:
+        if self.invisible and self.invisible != "false":
             sInv = " invisible=\"yes\" "
         else:
             sInv = " "
         
-        if self.ai_ignore and self.ai_ignore!="no":
+        if self.ai_ignore and self.ai_ignore!="false":
             sAIIgnore = "ai-ignore=\"yes\" "
         else:
             sAIIgnore = " "
