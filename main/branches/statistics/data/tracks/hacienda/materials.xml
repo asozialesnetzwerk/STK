@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 7732 -->
+<materials>
+  <material name="bigFork.png" transparency="yes" ignore="Y"/>
+  <material name="cactus.png" compositing="blend" backface-culling="N" light="N" disable-z-write="Y"/>
+  <material name="grass.png" ignore="Y" backface-culling="N" disable-z-write="Y" compositing="blend"/>
+  <material name="hacienda_ground.jpg">
+    <particles base="smoke.xml" condition="skid"/>
+  </material>
+  <material name="hacienda_ground_dark.jpg" anisotropic="Y">
+    <particles base="smoke.xml" condition="skid"/>
+  </material>
+  <material name="hacienda_groundTodark.jpg">
+    <particles base="smoke.xml" condition="skid"/>
+  </material>
+  <material name="lanternDetail.png" transparency="yes" light="N" ignore="Y"/>
+  <material name="light.png" alpha="yes" light="N"/>
+  <material name="mill.png" ignore="Y" compositing="blend" disable-z-write="Y"/>
+  <material name="millstructure.png" transparency="yes" ignore="Y"/>
+  <material name="palm_b.png" backface-culling="N" compositing="blend" disable-z-write="Y"/>
+  <material name="palmacacia.jpg" light="N" ignore="Y" compositing="blend" disable-z-write="Y" mask="palmacacia_alpha.jpg"/>
+  <material name="pix.png" transparency="yes" reset="Y"/>
+  <material name="pix_2.png" compositing="test"/>
+  <material name="sageBrush.jpg" mask="sageBrush_alpha.jpg" transparency="yes" light="N" ignore="Y"/>
+  <material name="sky.jpg" light="N"/>
+  <material name="tail.png" ignore="Y" disable-z-write="Y" backface-culling="N" compositing="blend"/>
+  <material name="traildust.jpg" anisotropic="Y">
+    <particles base="smoke_brown.xml" condition="skid"/>
+  </material>
+  <material name="trailrock.jpg" anisotropic="Y">
+    <particles base="smoke.xml" condition="skid"/>
+  </material>
+  <material name="trailrock2dust.jpg" anisotropic="Y">
+    <particles base="smoke_brown.xml" condition="skid"/>
+  </material>
+  <material name="windmill_palm_detail.png" compositing="test"/>
+  <material name="woodBridge.jpg">
+    <sfx filename="wooden_bridge.ogg" rolloff="0.6" min-speed="9.0" max-speed="22.0" min-pitch="1.0" max-pitch="1.7" positional="Y" volume="1.0"/>
+  </material>
+  <material name="yellow_dirt.jpg">
+    <particles base="smoke_yellow.xml" condition="skid drive"/>
+  </material>
+</materials>

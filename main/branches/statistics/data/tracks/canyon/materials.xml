@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 7732 -->
+<materials>
+  <material name="canyon_asphalt_blend_1.jpg" anisotropic="Y">
+    <particles base="smoke_brown.xml" condition="skid drive"/>
+  </material>
+  <material name="canyon_asphalt_blend_2.jpg" anisotropic="Y">
+    <particles base="smoke.xml"/>
+  </material>
+  <material name="canyon_boards.png">
+    <sfx filename="wooden_bridge.ogg" name="wooden_bridge" rolloff="0.600000023842" max-speed="22.0" max-pitch="1.70000004768"/>
+  </material>
+  <material name="city_checker.png" anisotropic="Y"/>
+  <material name="city_asphalt_1.jpg" anisotropic="Y">
+    <particles condition="skid" base="smoke.xml"/>
+  </material>
+  <material name="canyon_conveyor.png" sphere="Y"/>
+  <material name="canyon_conveyor_belt.png">
+    <zipper duration="2.0" fade-out-time="1.0" max-speed-increase="5.0" speed-gain="5.0"/>
+  </material>
+  <material name="canyon_dirt_road.jpg" anisotropic="Y" high-adhesion="true">
+    <particles base="smoke_brown.xml" condition="skid"/>
+  </material>
+  <material name="canyon_ground.jpg" anisotropic="Y" max-speed="0.40000000596" slowdown-time="0.600000023842">
+    <particles condition="skid drive" base="smoke_brown.xml"/>
+  </material>
+  <material name="transparence.png" reset="Y" compositing="test"/>
+  <material name="seabed.jpg" graphical-effect="water" falling-effect="Y"/>
+  <material name="canyon_water.png" reset="Y" surface="Y">
+    <sfx filename="splash.ogg"/>
+    <particles base="splash.xml" condition="skid drive"/>
+  </material>
+</materials>
