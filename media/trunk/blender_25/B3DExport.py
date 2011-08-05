@@ -1027,6 +1027,14 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
         per_face_vertices[face.index] = []
         
         mesh_matrix = obj.matrix_world.copy()
+              
+        if b3d_parameters.get("local-space"):      
+            t = [0,0,0]
+        else:
+            if arm_action:
+                t = obj.matrix_world.to_translation()
+            else:
+                t = [0,0,0]
         
         for vertex_id,vert in enumerate(face.vertices):
             
@@ -1040,26 +1048,15 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
                 if DEBUG: print("            <!-- Vertex",ivert,"already handled -->")
             
             if mesh_stack[ivert][0] == -1:
+                
                 vert_matrix = mathutils.Matrix.Translation(data.vertices[vert].co)
                 
-                #i TODO: test local space more
                 if b3d_parameters.get("local-space"):
-                    
                     if arm_action:
                         v = data.vertices[vert].co*mesh_matrix
                         vert_matrix = mathutils.Matrix.Translation(v)
-                    
-                    t = [0,0,0]
-                    vert_matrix *= TRANS_MATRIX
-                    
-                else:
-                    vert_matrix *= TRANS_MATRIX
-                    
-                    if arm_action:
-                        t = obj.matrix_world.to_translation()
-                    else:
-                        t = [0,0,0]
-
+                
+                vert_matrix *= TRANS_MATRIX
                 vert_matrix = vert_matrix.to_translation()
 
 
