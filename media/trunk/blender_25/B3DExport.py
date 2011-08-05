@@ -1026,6 +1026,8 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
                 
         per_face_vertices[face.index] = []
         
+        mesh_matrix = obj.matrix_world.copy()
+        
         for vertex_id,vert in enumerate(face.vertices):
             
             ivert += 1
@@ -1038,8 +1040,6 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
                 if DEBUG: print("            <!-- Vertex",ivert,"already handled -->")
             
             if mesh_stack[ivert][0] == -1:
-                link_matrix = mathutils.Matrix(obj.matrix_world)
-                mesh_matrix = mathutils.Matrix([link_matrix[0],link_matrix[1],link_matrix[2],link_matrix[3]])
                 vert_matrix = mathutils.Matrix.Translation(data.vertices[vert].co)
                 
                 #i TODO: test local space more
@@ -1069,8 +1069,6 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
                 #if DEBUG: print "        <vertex id=",vert.index,"/>"
 
                 if b3d_parameters.get("vertex-normals"):
-                    link_matrix = obj.matrix_world
-                    mesh_matrix = mathutils.Matrix([link_matrix[0],link_matrix[1],link_matrix[2],link_matrix[3]])
                     norm_matrix = mathutils.Matrix.Translation(data.vertices[vert].normal)
 
                     if arm_action:
