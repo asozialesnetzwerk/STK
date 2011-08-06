@@ -470,6 +470,11 @@ type = StkEnumProperty('type', "Type",
                                  {'kind' : StkProperty(id='kind', name="Particle File", default="smoke.xml")
                                  }, docs="To be applied to an empty; particles will be emitted from this point"),
         'start'            : StkEnumChoice('Start position', {'start_index' : StkIntProperty('start_index', "Start Index", 1)}, docs="A start position for karts in battle mode (only useful if this track is an arena)"),
+        'sfx_emitter'      : StkEnumChoice('Sound Emitter', OrderedDict([
+                                           ('sfx_filename'  ,      StkProperty( id='sfx_filename',   name="Sound File",   default="some_file.ogg")),
+                                           ('sfx_volume'    , StkFloatProperty( id='sfx_volume',     name="Sound volume", default=1.0)),
+                                           ('sfx_rolloff'   , StkFloatProperty( id='sfx_rolloff',    name="Rolloff rate", default=0.1))]),
+                                           docs="A sound will be heard when close to this point"),
         'sun'              : StkEnumChoice('Sun',
                                  {'ambient'  : StkColorProperty('ambient',  "Ambient Color",  contextLevel=CONTEXT_OBJECT, docs="Click here to pick an ambient color"),
                                   'diffuse'  : StkColorProperty('diffuse',  "Diffuse Color",  contextLevel=CONTEXT_OBJECT, docs="Click here to pick a diffuse color"),

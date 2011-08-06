@@ -1146,7 +1146,22 @@ class TrackExport:
             except:
                 log_error("Invalid particle emitter <" + getProperty(obj, "name", obj.name) + "> ",
                     sys.exc_info()[0])
-    
+
+    # --------------------------------------------------------------------------
+    # Sound emitter 
+    def writeSoundEmitters(self,f, lSoundEmitters):
+        for obj in lSoundEmitters:
+            try:
+                # origin
+                originXYZ = getXYZHPRString(obj)
+                f.write('  <object type="sfx-emitter" sound="%s" rolloff="%s" volume="%s" %s/>\n' %\
+                        (getProperty(obj, "sfx_filename", "some_sound.ogg"),
+                         getProperty(obj, "sfx_rolloff", 0.05),
+                         getProperty(obj, "sfx_volume", 0), originXYZ))
+            except:
+                log_error("Invalid particle emitter <" + getProperty(obj, "name", obj.name) + "> ",
+                    sys.exc_info()[0])
+        
     # --------------------------------------------------------------------------
     # Writes out all checklines.
     # \param lChecks All check meshes
@@ -1450,8 +1465,8 @@ class TrackExport:
         
     # --------------------------------------------------------------------------
     # Writes the scene files, which includes all models, animations, and items
-    def writeSceneFile(self, sPath, sTrackName, lWater, lTrack, lItems,
-                       lObjects, lBillboards, lParticleEmitters,  lChecks, lSun, mainDriveline, lStart,
+    def writeSceneFile(self, sPath, sTrackName, lWater, lTrack, lItems, lObjects, lBillboards,
+                       lParticleEmitters, lSoundEmitters, lChecks, lSun, mainDriveline, lStart,
                        lEndCameras, lCameraCurves):
 
         #start_time = bsys.time()
@@ -1492,6 +1507,9 @@ class TrackExport:
         
         if lParticleEmitters:
             self.writeParticleEmitters(f, lParticleEmitters)
+        if lSoundEmitters:
+            self.writeSoundEmitters(f, lSoundEmitters)
+            
         for obj in lOtherObjects:
             self.writeObject(f, sPath, obj)
         for obj in lBillboards:
@@ -1813,6 +1831,7 @@ class TrackExport:
         lObjects             = []                    # All special objects
         lBillboards          = []                    # All billboards
         lParticleEmitters    = []                    # All particle emitters
+        lSoundEmitters       = []
         lChecks              = []                    # All check structures
         lSun                 = []
         lStart               = []                    # All start positions
@@ -1849,6 +1868,9 @@ class TrackExport:
                     continue
                 elif stktype=="PARTICLE_EMITTER":
                     lParticleEmitters.append(obj)
+                    continue
+                elif stktype=="SFX_EMITTER":
+                    lSoundEmitters.append(obj)
                     continue
                 else:
                     print("Empty '%s' has type '%s' which is not valid - ignored."%\
@@ -1937,8 +1959,8 @@ class TrackExport:
         if len(lDrivelines)==0:
             lDrivelines=[None]
         self.writeSceneFile(sPath, sTrackName, lWater, lTrack, lItems,
-                            lObjects, lBillboards, lParticleEmitters, lChecks, lSun, lDrivelines[0],
-                            lStart, lEndCameras, lCameraCurves)
+                            lObjects, lBillboards, lParticleEmitters, lSoundEmitters, lChecks, lSun,
+                            lDrivelines[0], lStart, lEndCameras, lCameraCurves)
         # materials file
         # ----------
         self.writeMaterialsFile(sPath)
