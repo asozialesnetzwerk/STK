@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 7732 -->
+<!-- Generated with script from SVN rev 9401 -->
 <scene>
   <track model="scotland_track.b3d" x="0" y="0" z="0">
     <static-object model="pinetree.b3d" xyz="37.893661 -0.529887 -156.867035" hpr="-0.000000 -0.000000 -0.000000" scale="1.393991 1.393991 1.393991"/>
@@ -46,13 +46,14 @@
     <static-object model="pinetree.b3d" xyz="-43.479439 -0.369333 -47.096680" hpr="-0.000000 106.766198 0.000000" scale="1.691888 1.691888 1.691888"/>
     <static-object model="pinetree.b3d" xyz="29.207897 -3.124180 187.617279" hpr="-0.000702 180.537090 0.074900" scale="2.351285 2.351285 2.351285"/>
   </track>
-  <water model="water1.b3d" xyz="85.811806 -7.296509 35.094959" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000" height="0.10000000149"/>
-  <water model="water2.b3d" xyz="-37.457680 -4.810161 10.933683" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000" height="0.0500000007451"/>
-  <object type="animation" model="nessy.b3d" xyz="148.605347 3.402345 -181.443665" hpr="-0.000000 -0.000000 -0.000000" scale="0.129744 0.129744 0.129744" >
+  <water model="water1.b3d" xyz="85.811806 -7.296509 35.094959" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000" height="0.10"/>
+  <water model="water2.b3d" xyz="-37.457680 -4.810161 10.933683" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000" height="0.05"/>
+  <object type="sfx-emitter" sound="sheep.ogg" rolloff="0.1" volume="1.0" xyz="-5.603088 1.194352 -43.282104" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
+  <object type="animation" model="nessy.b3d" xyz="148.605347 0.003935 -181.443665" hpr="-0.000000 -0.000000 -0.000000" scale="0.129744 0.129744 0.129744" >
     <curve channel="LocY" interpolation="bezier" extend="const">
-      <p c="-0.013532 0.001519" h1="-23.978897 0.001519" h2="23.951832 0.001519"/>
-      <p c="61.503738 4.043911" h1="37.490631 4.043911" h2="114.816376 4.043911"/>
-      <p c="198.081146 0.019253" h1="144.782898 0.019253" h2="251.379410 0.019253"/>
+      <p c="-0.014 0.002" h1="-23.979 0.002" h2="23.952 0.002"/>
+      <p c="61.504 4.044" h1="37.491 4.044" h2="114.816 4.044"/>
+      <p c="198.081 0.019" h1="144.783 0.019" h2="251.379 0.019"/>
     </curve>
   </object>
   <sun  xyz="34.4485244751 47.8925704956 -49.4461555481"/>
@@ -87,12 +88,12 @@
   <sky-dome texture="sky2.jpg"
             horizontal="16" vertical="16" 
             texture-percent="0.5" sphere-percent="1.1"
-            speed-x="0.005" speed-y="0" />
-  <camera far="1000"/>
+            speed-x="0.005" speed-y="0.0" />
+  <camera far="1000.0"/>
   <default-start karts-per-row     ="2"
-                 forwards-distance ="1.5"
-                 sidewards-distance="3"
-                 upwards-distance  ="0.1"/>
+                 forwards-distance ="1.50"
+                 sidewards-distance="3.00"
+                 upwards-distance  ="0.10"/>
   <end-cameras>
     <camera type="ahead_of_kart" xyz="64.940468 42.875816 -116.728485" distance="5"/>
   </end-cameras>
