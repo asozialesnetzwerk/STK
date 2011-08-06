@@ -648,7 +648,7 @@ int handleCmdLine(int argc, char **argv)
                 const Track *track = track_manager->getTrack(i);
                 if (!unlock_manager->isLocked(track->getIdent()))
                 {
-                    fprintf ( stdout, "\t%10s: %ls\n",
+                    fprintf ( stdout, "\t%14s: %ls\n",
                               track->getIdent().c_str(),
                               track->getName());
                 }

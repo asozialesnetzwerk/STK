@@ -178,9 +178,12 @@ void ProfileWorld::enterRaceOverState()
         m_karts[i]->finishedRace(estimateFinishTimeForKart(m_karts[i]));
     }
 
+    // Print framerate statistics
     float runtime = (irr_driver->getRealTime()-m_start_time)*0.001f;
     printf("Number of frames: %d time %f, Average FPS: %f\n",
            m_frame_count, runtime, (float)m_frame_count/runtime);
+
+    // Print geometry statistics if we're not in no-graphics mode
     if(!m_no_graphics)
     {
         printf("Average # drawn nodes           %f k\n",
@@ -195,16 +198,24 @@ void ProfileWorld::enterRaceOverState()
                (float)m_num_trans_effect/m_frame_count);
     }
 
+    // Print race statistics for each individual kart
     float min_t=999999.9f, max_t=0.0, av_t=0.0;
     printf("Name\t\tstart\tend\ttime\t");
-    if(m_profile_mode==PROFILE_LAPS)
+    
+    if (m_profile_mode==PROFILE_LAPS) {
         printf("aver.\t");
+    }
+
     printf("top\tskid\trescue\trescue\t"
-           "expl.\texpl.\n");
+           "expl.\texpl.\tbonus\tbanana\tS nitro\tL nitro\tbblgum\n");
     printf("\t\t\t\t\t");
-    if(m_profile_mode==PROFILE_LAPS)
+
+    if (m_profile_mode==PROFILE_LAPS) {
         printf("speed\t");
-    printf("speed\ttime\ttime\tcount\ttime\tcount\n");
+    }
+
+    printf("speed\ttime\ttime\tcount\ttime\tcount\tcount\tcount\tcount\tcount\tcount\n");
+
     for ( KartList::size_type i = 0; i < m_karts.size(); ++i)
     {
         max_t = std::max(max_t, m_karts[i]->getFinishTime());
@@ -232,8 +243,20 @@ void ProfileWorld::enterRaceOverState()
                             (m_karts[i])->getExplosionTime(),
                            dynamic_cast<KartWithStats*>
                             (m_karts[i])->getExplosionCount() );
+        printf("%d\t", dynamic_cast<KartWithStats*>
+                            (m_karts[i])->getBonusCount() );
+        printf("%d\t", dynamic_cast<KartWithStats*>
+                            (m_karts[i])->getBananaCount() );
+        printf("%d\t", dynamic_cast<KartWithStats*>
+                            (m_karts[i])->getSmallNitroCount() );
+        printf("%d\t", dynamic_cast<KartWithStats*>
+                            (m_karts[i])->getLargeNitroCount() );
+        printf("%d\t", dynamic_cast<KartWithStats*>
+                            (m_karts[i])->getBubblegumCount() );
         printf("\n");
     }
+
+    // Print group statistics of all karts
     printf("min %f  max %f  av %f\n",min_t, max_t, av_t/m_karts.size());
 
     std::exit(-2);
