@@ -218,41 +218,33 @@ void ProfileWorld::enterRaceOverState()
 
     for ( KartList::size_type i = 0; i < m_karts.size(); ++i)
     {
-        max_t = std::max(max_t, m_karts[i]->getFinishTime());
-        min_t = std::min(min_t, m_karts[i]->getFinishTime());
-        av_t += m_karts[i]->getFinishTime();
-        printf("%s\t%s",   m_karts[i]->getIdent().c_str(),
-                           m_karts[i]->getIdent().size()<8 ? "\t" : "");
-        printf("%d\t%d\t", 1 + (int)i, m_karts[i]->getPosition());
-        printf("%4.2f\t",     m_karts[i]->getFinishTime());
+        KartWithStats* kart = dynamic_cast<KartWithStats*>(m_karts[i]);
+
+        max_t = std::max(max_t, kart->getFinishTime());
+        min_t = std::min(min_t, kart->getFinishTime());
+        av_t += kart->getFinishTime();
+        printf("%s\t%s", kart->getIdent().c_str(),
+                         kart->getIdent().size() < 8 ? "\t" : "");
+        printf("%d\t", 1 + (int)i);
+        printf("%d\t", kart->getPosition());
+        printf("%4.2f\t", kart->getFinishTime());
         if(m_profile_mode==PROFILE_LAPS)
         {
             float distance = race_manager->getNumLaps()
                            * m_track->getTrackLength();
-            printf("%4.2f\t",distance/m_karts[i]->getFinishTime());
+            printf("%4.2f\t", distance/kart->getFinishTime());
         }
-        printf("%3.2f\t",     dynamic_cast<KartWithStats*>
-                               (m_karts[i])->getTopSpeed());
-        printf("%4.2f\t",     dynamic_cast<KartWithStats*>
-                               (m_karts[i])->getSkiddingTime());
-        printf("%4.2f\t%d\t", dynamic_cast<KartWithStats*>
-                            (m_karts[i])->getRescueTime(),
-                           dynamic_cast<KartWithStats*>
-                            (m_karts[i])->getRescueCount());
-        printf("%4.2f\t%d\t", dynamic_cast<KartWithStats*>
-                            (m_karts[i])->getExplosionTime(),
-                           dynamic_cast<KartWithStats*>
-                            (m_karts[i])->getExplosionCount() );
-        printf("%d\t", dynamic_cast<KartWithStats*>
-                            (m_karts[i])->getBonusCount() );
-        printf("%d\t", dynamic_cast<KartWithStats*>
-                            (m_karts[i])->getBananaCount() );
-        printf("%d\t", dynamic_cast<KartWithStats*>
-                            (m_karts[i])->getSmallNitroCount() );
-        printf("%d\t", dynamic_cast<KartWithStats*>
-                            (m_karts[i])->getLargeNitroCount() );
-        printf("%d\t", dynamic_cast<KartWithStats*>
-                            (m_karts[i])->getBubblegumCount() );
+        printf("%3.2f\t", kart->getTopSpeed());
+        printf("%4.2f\t", kart->getSkiddingTime());
+        printf("%4.2f\t%d\t", kart->getRescueTime(),
+                              kart->getRescueCount());
+        printf("%4.2f\t%d\t", kart->getExplosionTime(),
+                              kart->getExplosionCount() );
+        printf("%d\t", kart->getBonusCount() );
+        printf("%d\t", kart->getBananaCount() );
+        printf("%d\t", kart->getSmallNitroCount() );
+        printf("%d\t", kart->getLargeNitroCount() );
+        printf("%d\t", kart->getBubblegumCount() );
         printf("\n");
     }
 
