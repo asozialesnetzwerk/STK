@@ -1005,9 +1005,10 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
     if PROGRESS: print("Preparing mesh_stack")
     amount = 0
     for f in data.faces:
-        amount += len(f.vertices)
-    
-    mesh_stack = [[-1,-1,-1,[],[[],[],[],[],[],[],[],[]],[]]]*amount
+        for v in f.vertices:
+            mesh_stack.append([-1,-1,-1,[],[[],[],[],[],[],[],[],[]],[]])
+
+    if PROGRESS: print("DONE Preparing mesh_stack")
 
     amount = 0
     
@@ -1409,6 +1410,7 @@ def write_node_bone(ibone):
                                     " weigth=", vert_influ[1] , "/>")
                     temp_buf.append(write_int(mesh_stack[ivert][0] + iuv)) # Face Vertex ID
                     temp_buf.append(write_float(vert_influ[1])) #Weight
+                    break
 
     bone_buf += write_chunk(b"BONE", b"".join(temp_buf))
     temp_buf = []
@@ -1448,7 +1450,7 @@ def write_node_keys(ibone):
             temp_buf.append(write_float(-quat.x)) #Rotation X
             temp_buf.append(write_float(quat.y))  #Rotation Y
             temp_buf.append(write_float(quat.z))  #Rotation Z
-            break
+            #break
 
     keys_buf += write_chunk(b"KEYS",b"".join(temp_buf))
     temp_buf = []
