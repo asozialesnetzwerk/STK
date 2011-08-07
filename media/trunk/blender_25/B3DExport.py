@@ -1448,6 +1448,7 @@ def write_node_keys(ibone):
             temp_buf.append(write_float(-quat.x)) #Rotation X
             temp_buf.append(write_float(quat.y))  #Rotation Y
             temp_buf.append(write_float(quat.z))  #Rotation Z
+            break
 
     keys_buf += write_chunk(b"KEYS",b"".join(temp_buf))
     temp_buf = []
