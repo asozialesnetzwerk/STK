@@ -1015,15 +1015,7 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
     the_scene.frame_set(1,subframe=0.0)
     
     mesh_matrix = obj.matrix_world.copy()
-          
-    if b3d_parameters.get("local-space"):      
-        t = [0,0,0]
-    else:
-        if arm_action:
-            t = obj.matrix_world.to_translation()
-        else:
-            t = [0,0,0]
-            
+    
     for face in data.faces:
         
         if DEBUG: print("        <!-- Face",face.index,"-->")
@@ -1060,7 +1052,7 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
 
 
                 mesh_stack[ivert][0] = ivert
-                mesh_stack[ivert][1] = mathutils.Vector([vert_matrix[0]+t[0], vert_matrix[1]+t[1], vert_matrix[2]+t[2]])
+                mesh_stack[ivert][1] = mathutils.Vector([vert_matrix[0], vert_matrix[1], vert_matrix[2]])
                 
                 #if DEBUG: print "        <vertex id=",vert.index,"/>"
 
