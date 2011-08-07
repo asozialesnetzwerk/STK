@@ -110,6 +110,9 @@ def write_b3d_file(filename, objects=[]):
     file_buf = bytearray()
     temp_buf = bytearray()
 
+    import time
+    start = time.time()
+
     temp_buf += write_int(1) #Version
     temp_buf += write_texs(objects) #TEXS
     temp_buf += write_brus(objects) #BRUS
@@ -122,6 +125,10 @@ def write_b3d_file(filename, objects=[]):
     file = open(filename,'wb')
     file.write(file_buf)
     file.close()
+    
+    end = time.time()
+    
+    print("Exported in", (end - start))
 
 # ==== Write TEXS Chunk ====
 def write_texs(objects=[]):
@@ -414,10 +421,10 @@ def write_node(objects=[]):
     global b3d_parameters
     global the_scene
     
-    root_buf = bytearray()
-    node_buf = bytearray()
+    root_buf = []
+    node_buf = []
     main_buf = bytearray()
-    temp_buf = bytearray()
+    temp_buf = []
     obj_count = 0
     amb_light = 0
 
@@ -468,20 +475,20 @@ def write_node(objects=[]):
         exp_root = 0
 
     if exp_root:
-        root_buf += write_string("ROOT") #Node Name
+        root_buf.append(write_string("ROOT")) #Node Name
 
-        root_buf += write_float(0) #Position X
-        root_buf += write_float(0) #Position Y
-        root_buf += write_float(0) #Position Z
+        root_buf.append(write_float(0)) #Position X
+        root_buf.append(write_float(0)) #Position Y
+        root_buf.append(write_float(0)) #Position Z
 
-        root_buf += write_float(1) #Scale X
-        root_buf += write_float(1) #Scale Y
-        root_buf += write_float(1) #Scale Z
+        root_buf.append(write_float(1)) #Scale X
+        root_buf.append(write_float(1)) #Scale Y
+        root_buf.append(write_float(1)) #Scale Z
 
-        root_buf += write_float(1) #Rotation W
-        root_buf += write_float(0) #Rotation X
-        root_buf += write_float(0) #Rotation Y
-        root_buf += write_float(0) #Rotation Z
+        root_buf.append(write_float(1)) #Rotation W
+        root_buf.append(write_float(0)) #Rotation X
+        root_buf.append(write_float(0)) #Rotation Y
+        root_buf.append(write_float(0)) #Rotation Z
 
     if PROGRESS: progress = 0
 
@@ -510,27 +517,27 @@ def write_node(objects=[]):
             if anim_data:
                 matrix = mathutils.Matrix()
 
-                temp_buf += write_string(obj.name) #Node Name
+                temp_buf.append(write_string(obj.name)) #Node Name
                 
                 position = matrix.to_translation()
-                temp_buf += write_float(position[0]) #Position X
-                temp_buf += write_float(position[1]) #Position Y
-                temp_buf += write_float(position[2]) #Position Z
+                temp_buf.append(write_float(position[0])) #Position X
+                temp_buf.append(write_float(position[1])) #Position Y
+                temp_buf.append(write_float(position[2])) #Position Z
 
                 scale = matrix.to_scale()
-                temp_buf += write_float(scale[0]) #Scale X
-                temp_buf += write_float(scale[2]) #Scale Y
-                temp_buf += write_float(scale[1]) #Scale Z
+                temp_buf.append(write_float(scale[0])) #Scale X
+                temp_buf.append(write_float(scale[2])) #Scale Y
+                temp_buf.append(write_float(scale[1])) #Scale Z
 
                 if DEBUG: print("        <arm name=", obj.name, " loc=", -position[0], position[1], position[2], " scale=", scale[0], scale[1], scale[2], "/>")
                 
                 quat = matrix.to_quaternion()
                 quat.normalize()
 
-                temp_buf += write_float(quat.w) #Rotation W
-                temp_buf += write_float(quat.x) #Rotation X
-                temp_buf += write_float(quat.z) #Rotation Y
-                temp_buf += write_float(quat.y) #Rotation Z
+                temp_buf.append(write_float(quat.w)) #Rotation W
+                temp_buf.append(write_float(quat.x)) #Rotation X
+                temp_buf.append(write_float(quat.z)) #Rotation Y
+                temp_buf.append(write_float(quat.y)) #Rotation Z
             else:
                 if b3d_parameters.get("local-space"):
                     matrix = TRANS_MATRIX.copy()
@@ -543,29 +550,29 @@ def write_node(objects=[]):
                 matrix[1] = matrix[2]
                 matrix[2] = tmp
 
-                temp_buf += write_string(obj.name) #Node Name
+                temp_buf.append(write_string(obj.name)) #Node Name
 
                 #print("Matrix : ", matrix)
                 position = matrix.to_translation()
 
-                temp_buf += write_float(position[0]) #Position X
-                temp_buf += write_float(position[2]) #Position Y
-                temp_buf += write_float(position[1]) #Position Z
+                temp_buf.append(write_float(position[0])) #Position X
+                temp_buf.append(write_float(position[2])) #Position Y
+                temp_buf.append(write_float(position[1])) #Position Z
 
                 scale = scale_matrix.to_scale()
-                temp_buf += write_float(scale[0]) #Scale X
-                temp_buf += write_float(scale[2]) #Scale Y
-                temp_buf += write_float(scale[1]) #Scale Z
+                temp_buf.append(write_float(scale[0])) #Scale X
+                temp_buf.append(write_float(scale[2])) #Scale Y
+                temp_buf.append(write_float(scale[1])) #Scale Z
 
                 #matrix *= mathutils.Matrix.Rotation(math.pi, 4, 'Y')
                 #matrix *= mathutils.Matrix.Rotation(math.pi/2, 4, 'X')
                 quat = matrix.to_quaternion()
                 quat.normalize()
 
-                temp_buf += write_float(quat.w)  #Rotation W
-                temp_buf += write_float(quat.x)  #Rotation X
-                temp_buf += write_float(quat.z)  #Rotation Y
-                temp_buf += write_float(quat.y)  #Rotation Z
+                temp_buf.append(write_float(quat.w))  #Rotation W
+                temp_buf.append(write_float(quat.x))  #Rotation X
+                temp_buf.append(write_float(quat.z))  #Rotation Y
+                temp_buf.append(write_float(quat.y))  #Rotation Z
                   
                 if DEBUG: print("        <position>",position[0],position[2],position[1],"</position>")
                 if DEBUG: print("        <scale>",scale[0],scale[1],scale[2],"</scale>")
@@ -791,20 +798,20 @@ def write_node(objects=[]):
                 #Blender.Set("curframe",0)
                 #Blender.Window.Redraw()
 
-            temp_buf += write_node_mesh(obj,obj_count,anim_data,exp_root) #NODE MESH
+            temp_buf.append(write_node_mesh(obj,obj_count,anim_data,exp_root)) #NODE MESH
             
             if anim_data:
-                temp_buf += write_node_anim(num_frames) #NODE ANIM
+                temp_buf.append(write_node_anim(num_frames)) #NODE ANIM
 
                 for ibone in range(len(bone_stack)):
                     if not bone_stack[ibone][1]:
-                        temp_buf += write_node_node(ibone) #NODE NODE
+                        temp_buf.append(write_node_node(ibone)) #NODE NODE
 
             obj_count += 1
 
             if len(temp_buf) > 0:
-                node_buf += write_chunk(b"NODE",temp_buf)
-                temp_buf = bytearray()
+                node_buf.append(write_chunk(b"NODE",b"".join(temp_buf)))
+                temp_buf = []
             
             if DEBUG: print("    </mesh>")
 
@@ -826,30 +833,30 @@ def write_node(objects=[]):
 
                 node_name = ("CAMS"+"\n%s"%obj.name+"\n%s"%cam_type+\
                              "\n%s"%cam_zoom+"\n%s"%cam_near+"\n%s"%cam_far)
-                temp_buf += write_string(node_name) #Node Name
+                temp_buf.append(write_string(node_name)) #Node Name
 
                 position = matrix.translation_part()
-                temp_buf += write_float(-position[0]) #Position X
-                temp_buf += write_float(position[1])  #Position Y
-                temp_buf += write_float(position[2])  #Position Z
+                temp_buf.append(write_float(-position[0])) #Position X
+                temp_buf.append(write_float(position[1]))  #Position Y
+                temp_buf.append(write_float(position[2]))  #Position Z
 
                 scale = matrix.scale_part()
-                temp_buf += write_float(scale[0]) #Scale X
-                temp_buf += write_float(scale[1]) #Scale Y
-                temp_buf += write_float(scale[2]) #Scale Z
+                temp_buf.append(write_float(scale[0])) #Scale X
+                temp_buf.append(write_float(scale[1])) #Scale Y
+                temp_buf.append(write_float(scale[2])) #Scale Z
 
                 matrix *= mathutils.Matrix.Rotation(180,4,'Y')
                 quat = matrix.to_quat()
                 quat.normalize()
 
-                temp_buf += write_float(quat.w)  #Rotation W
-                temp_buf += write_float(quat.x)  #Rotation X
-                temp_buf += write_float(quat.y)  #Rotation Y
-                temp_buf += write_float(-quat.z) #Rotation Z
+                temp_buf.append(write_float(quat.w))  #Rotation W
+                temp_buf.append(write_float(quat.x))  #Rotation X
+                temp_buf.append(write_float(quat.y))  #Rotation Y
+                temp_buf.append(write_float(-quat.z)) #Rotation Z
 
                 if len(temp_buf) > 0:
-                    node_buf += write_chunk(b"NODE",temp_buf)
-                    temp_buf = ""
+                    node_buf.append(write_chunk(b"NODE",b"".join(temp_buf)))
+                    temp_buf = []
 
         if b3d_parameters.get("lights"):
             if amb_light == 0:
@@ -859,24 +866,24 @@ def write_node(objects=[]):
                 amb_color = (int(data.amb[2]*255) |(int(data.amb[1]*255) << 8) | (int(data.amb[0]*255) << 16))
 
                 node_name = (b"AMBI"+"\n%s"%amb_color)
-                temp_buf += write_string(node_name) #Node Name
+                temp_buf.append(write_string(node_name)) #Node Name
 
-                temp_buf += write_float(0) #Position X
-                temp_buf += write_float(0) #Position Y
-                temp_buf += write_float(0) #Position Z
+                temp_buf.append(write_float(0)) #Position X
+                temp_buf.append(write_float(0)) #Position Y
+                temp_buf.append(write_float(0)) #Position Z
 
-                temp_buf += write_float(1) #Scale X
-                temp_buf += write_float(1) #Scale Y
-                temp_buf += write_float(1) #Scale Z
+                temp_buf.append(write_float(1)) #Scale X
+                temp_buf.append(write_float(1)) #Scale Y
+                temp_buf.append(write_float(1)) #Scale Z
 
-                temp_buf += write_float(1) #Rotation W
-                temp_buf += write_float(0) #Rotation X
-                temp_buf += write_float(0) #Rotation Y
-                temp_buf += write_float(0) #Rotation Z
+                temp_buf.append(write_float(1)) #Rotation W
+                temp_buf.append(write_float(0)) #Rotation X
+                temp_buf.append(write_float(0)) #Rotation Y
+                temp_buf.append(write_float(0)) #Rotation Z
 
                 if len(temp_buf) > 0:
-                    node_buf += write_chunk(b"NODE",temp_buf)
-                    temp_buf = ""
+                    node_buf.append(write_chunk(b"NODE",b"".join(temp_buf)))
+                    temp_buf = []
 
             if obj.type == "LAMP":
                 data = obj.getData()
@@ -896,18 +903,18 @@ def write_node(objects=[]):
 
                 node_name = ("LIGS"+"\n%s"%obj.name+"\n%s"%lig_type+\
                              "\n%s"%lig_angle+"\n%s"%lig_color+"\n%s"%lig_range)
-                temp_buf += write_string(node_name) #Node Name
+                temp_buf.append(write_string(node_name)) #Node Name
 
                 position = matrix.translation_part()
-                temp_buf += write_float(-position[0]) #Position X
-                temp_buf += write_float(position[1])  #Position Y
-                temp_buf += write_float(position[2])  #Position Z
+                temp_buf.append(write_float(-position[0])) #Position X
+                temp_buf.append(write_float(position[1]))  #Position Y
+                temp_buf.append(write_float(position[2]))  #Position Z
                 if DEBUG: print("        <position>",-position[0],position[1],position[2],"</position>")
 
                 scale = matrix.scale_part()
-                temp_buf += write_float(scale[0]) #Scale X
-                temp_buf += write_float(scale[1]) #Scale Y
-                temp_buf += write_float(scale[2]) #Scale Z
+                temp_buf.append(write_float(scale[0])) #Scale X
+                temp_buf.append(write_float(scale[1])) #Scale Y
+                temp_buf.append(write_float(scale[2])) #Scale Z
                 
                 if DEBUG: print("        <scale>",scale[0],scale[1],scale[2],"</scale>")
 
@@ -915,25 +922,25 @@ def write_node(objects=[]):
                 quat = matrix.toQuat()
                 quat.normalize()
 
-                temp_buf += write_float(quat.w)  #Rotation W
-                temp_buf += write_float(quat.x)  #Rotation X
-                temp_buf += write_float(quat.y)  #Rotation Y
-                temp_buf += write_float(-quat.z) #Rotation Z
+                temp_buf.append(write_float(quat.w))  #Rotation W
+                temp_buf.append(write_float(quat.x))  #Rotation X
+                temp_buf.append(write_float(quat.y))  #Rotation Y
+                temp_buf.append(write_float(-quat.z)) #Rotation Z
 
                 if DEBUG: print("        <rotation>", quat.w, quat.x, quat.y, quat.z, "</rotation>")
 
                 if len(temp_buf) > 0:
-                    node_buf += write_chunk(b"NODE",temp_buf)
-                    temp_buf = ""
+                    node_buf.append(write_chunk(b"NODE","b".join(temp_buf)))
+                    temp_buf = []
     
     if len(node_buf) > 0:
         if exp_root:
-            main_buf += write_chunk(b"NODE",root_buf + node_buf)
+            main_buf += write_chunk(b"NODE",b"".join(root_buf) + b"".join(node_buf))
         else:
-            main_buf += node_buf
+            main_buf += b"".join(node_buf)
 
-        node_buf = ""
-        root_buf = ""
+        node_buf = []
+        root_buf = []
 
     if DEBUG: print("</node>")
 
@@ -967,7 +974,7 @@ def write_node_mesh(obj,obj_count,arm_action,exp_root):
 def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
     #global ids_count
     vrts_buf = bytearray()
-    temp_buf = bytearray()
+    temp_buf = []
     obj_flags = 0
     ids_count = 0
 
@@ -984,10 +991,10 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
     if b3d_parameters.get("vertex-colors") and len(data.vertex_colors) > 0:
         obj_flags += 2
 
-    temp_buf += write_int(obj_flags) #Flags
+    temp_buf.append(write_int(obj_flags)) #Flags
     #temp_buf += write_int(len(data.getUVLayerNames())) #UV Set
-    temp_buf += write_int(len(data.uv_textures)) #UV Set
-    temp_buf += write_int(2) #UV Set Size
+    temp_buf.append(write_int(len(data.uv_textures))) #UV Set
+    temp_buf.append(write_int(2)) #UV Set Size
 
     # ---- Prepare the mesh "stack"
 
@@ -998,8 +1005,11 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
     if PROGRESS: print("Preparing mesh_stack")
     amount = 0
     for f in data.faces:
-        for v in f.vertices:
-            mesh_stack.append([-1,-1,-1,[],[[],[],[],[],[],[],[],[]],[]])
+        amount += len(f.vertices)
+    
+    mesh_stack = [[-1,-1,-1,[],[[],[],[],[],[],[],[],[]],[]]]*amount
+
+    amount = 0
     
     # ---- Fill the mesh "stack"
     if DEBUG: print("")
@@ -1157,27 +1167,27 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
         for iuv in range(len(mesh_stack[ivert][4][0])):
             ids_count += 1
 
-            temp_buf += write_float(mesh_stack[ivert][1].x)  #X
-            temp_buf += write_float(mesh_stack[ivert][1].z)  #Y
-            temp_buf += write_float(mesh_stack[ivert][1].y)  #Z
+            temp_buf.append(write_float(mesh_stack[ivert][1].x))  #X
+            temp_buf.append(write_float(mesh_stack[ivert][1].z))  #Y
+            temp_buf.append(write_float(mesh_stack[ivert][1].y))  #Z
             
             if DEBUG: print("            <vertex id=",ids_count," loc=", mesh_stack[ivert][1].x,
                                                                          mesh_stack[ivert][1].y,
                                                                          mesh_stack[ivert][1].z,">")
 
             if b3d_parameters.get("vertex-normals"):
-                temp_buf += write_float(mesh_stack[ivert][2].x)  #NX
-                temp_buf += write_float(mesh_stack[ivert][2].z)  #NY
-                temp_buf += write_float(mesh_stack[ivert][2].y)  #NZ
+                temp_buf.append(write_float(mesh_stack[ivert][2].x))  #NX
+                temp_buf.append(write_float(mesh_stack[ivert][2].z))  #NY
+                temp_buf.append(write_float(mesh_stack[ivert][2].y))  #NZ
                 if DEBUG: print("                <normal>",-mesh_stack[ivert][2].x,
                                                             mesh_stack[ivert][2].y,
                                                             mesh_stack[ivert][2].z,"</normal>")
 
             if b3d_parameters.get("vertex-colors") and len(data.vertex_colors) > 0:
-                temp_buf += write_float(mesh_stack[ivert][3].r) #R
-                temp_buf += write_float(mesh_stack[ivert][3].g) #G
-                temp_buf += write_float(mesh_stack[ivert][3].b) #B
-                temp_buf += write_float(1.0) #A (FIXME?)
+                temp_buf.append(write_float(mesh_stack[ivert][3].r)) #R
+                temp_buf.append(write_float(mesh_stack[ivert][3].g)) #G
+                temp_buf.append(write_float(mesh_stack[ivert][3].b)) #B
+                temp_buf.append(write_float(1.0)) #A (FIXME?)
                 #temp_buf += write_float(mesh_stack[ivert][3].a/255.0) #A
                 if DEBUG: print("                <color>",mesh_stack[ivert][3].r,
                                                           mesh_stack[ivert][3].g,
@@ -1192,13 +1202,13 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
 
                 if not iuv < len(mesh_stack[ivert][4][iuvlayer]):
                     print("iuv",iuv,"not available for uv layer", iuvlayer, ", vertex", ivert, "of", obj.name)
-                    temp_buf += write_float(0.0)
-                    temp_buf += write_float(0.0)
+                    temp_buf.append(write_float(0.0))
+                    temp_buf.append(write_float(0.0))
                 else:
                     assert len(mesh_stack[ivert][4][iuvlayer][iuv]) >= 2
                     assert len(mesh_stack[ivert][4][iuvlayer][iuv][1]) >= 2
-                    temp_buf += write_float(mesh_stack[ivert][4][iuvlayer][iuv][1][0])  #U
-                    temp_buf += write_float(1-mesh_stack[ivert][4][iuvlayer][iuv][1][1]) #V
+                    temp_buf.append(write_float(mesh_stack[ivert][4][iuvlayer][iuv][1][0]))  #U
+                    temp_buf.append(write_float(1-mesh_stack[ivert][4][iuvlayer][iuv][1][1]) )#V
                     if DEBUG: print("                <uv layer=",iuvlayer,">",mesh_stack[ivert][4][iuvlayer][iuv][1][0],
                                                       1-mesh_stack[ivert][4][iuvlayer][iuv][1][1],"</uv>")
 
@@ -1207,8 +1217,8 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
         if DEBUG: print("        </ivert>")
 
     if len(temp_buf) > 0:
-        vrts_buf += write_chunk(b"VRTS",temp_buf)
-        temp_buf = ""
+        vrts_buf += write_chunk(b"VRTS",b"".join(temp_buf))
+        temp_buf = []
 
     return vrts_buf
 
@@ -1293,7 +1303,7 @@ def write_node_mesh_tris(obj, data, obj_count,arm_action,exp_root):
             progress += 1
             print("BRUS:",progress,"/",len(dBrushId2Face.keys()))
         
-        temp_buf = write_int(brus_id) #Brush ID
+        temp_buf = [write_int(brus_id)] #Brush ID
         
         if DEBUG: print("        <brush id=", brus_id, ">")
         
@@ -1304,39 +1314,23 @@ def write_node_mesh_tris(obj, data, obj_count,arm_action,exp_root):
             if PROGRESS_VERBOSE:
                 progress2 += 1
                 if (progress2 % 50 == 0): print("    TRIS:",progress2,"/",len(dBrushId2Face[brus_id]))
-            
-            #face_id = [0,0,0,0]
-            #if data.faceUV:
-            #if len(data.uv_textures) > 0:
-            #    for i in range(len(face.vertices)):
-            #        vi = data.vertices[face.vertices[i]].index
-            #        for iuv in range(len(mesh_stack[vi][4][0])):
-            #            if mesh_stack[vi][4][0][iuv][0] == face.index:
-            #                face_id[i] = mesh_stack[vi][0] + iuv
-            #else:
-            #    for i in range(len(face.verts)):
-            #        face_id[i] = mesh_stack[face.v[i].index][0]
 
             vertices = per_face_vertices[face.index]
 
-            temp_buf += write_int(vertices[2]) #A
-            temp_buf += write_int(vertices[1]) #B
-            temp_buf += write_int(vertices[0]) #C
+            temp_buf.append(write_int(vertices[2])) #A
+            temp_buf.append(write_int(vertices[1])) #B
+            temp_buf.append(write_int(vertices[0])) #C
 
             if DEBUG: print("            <face id=", vertices[2], vertices[1], vertices[0],"/> <!-- face",face.index,"-->")
 
             if len(face.vertices) == 4:
-                temp_buf += write_int(vertices[3]) #A
-                temp_buf += write_int(vertices[2]) #B
-                temp_buf += write_int(vertices[0]) #C
+                temp_buf.append(write_int(vertices[3])) #A
+                temp_buf.append(write_int(vertices[2])) #B
+                temp_buf.append(write_int(vertices[0])) #C
                 if DEBUG: print("            <face id=", vertices[3], vertices[2], vertices[0],"/> <!-- face",face.index,"-->")
 
         if DEBUG: print("        </brush>")
-        tris_buf += write_chunk(b"TRIS",temp_buf)
-     
-    #FIXME?   
-    #if orig_uvlayer:
-    #    data.activeUVLayer = orig_uvlayer
+        tris_buf += write_chunk(b"TRIS", b"".join(temp_buf))
 
     return tris_buf
 
@@ -1358,52 +1352,52 @@ def write_node_anim(num_frames):
 # ==== Write NODE NODE Chunk ====
 def write_node_node(ibone):
     node_buf = bytearray()
-    temp_buf = bytearray()
+    temp_buf = []
 
     matrix = bone_stack[ibone][0]
-    temp_buf += write_string(bone_stack[ibone][2].name) #Node Name
+    temp_buf.append(write_string(bone_stack[ibone][2].name)) #Node Name
 
     # FIXME: we should use the same matrix format everywhere to not require this
     position = matrix.to_translation()
     if not b3d_parameters.get("local-space") and bone_stack[ibone][1]:
-        temp_buf += write_float(-position[0]) #Position X
-        temp_buf += write_float(position[2])  #Position Y
-        temp_buf += write_float(position[1])  #Position Z
+        temp_buf.append(write_float(-position[0])) #Position X
+        temp_buf.append(write_float(position[2]))  #Position Y
+        temp_buf.append(write_float(position[1]))  #Position Z
     else:
-        temp_buf += write_float(position[0])  #Position X
-        temp_buf += write_float(position[2])  #Position Y
-        temp_buf += write_float(position[1])  #Position Z
+        temp_buf.append(write_float(position[0]))  #Position X
+        temp_buf.append(write_float(position[2]))  #Position Y
+        temp_buf.append(write_float(position[1]))  #Position Z
     
     scale = matrix.to_scale()
-    temp_buf += write_float(scale[0]) #Scale X
-    temp_buf += write_float(scale[2]) #Scale Y
-    temp_buf += write_float(scale[1]) #Scale Z
+    temp_buf.append(write_float(scale[0])) #Scale X
+    temp_buf.append(write_float(scale[2])) #Scale Y
+    temp_buf.append(write_float(scale[1])) #Scale Z
 
     quat = matrix.to_quaternion()
     quat.normalize()
 
-    temp_buf += write_float(quat.w)  #Rotation W
-    temp_buf += write_float(quat.x)  #Rotation X
-    temp_buf += write_float(quat.z)  #Rotation Y
-    temp_buf += write_float(quat.y)  #Rotation Z
+    temp_buf.append(write_float(quat.w))  #Rotation W
+    temp_buf.append(write_float(quat.x))  #Rotation X
+    temp_buf.append(write_float(quat.z))  #Rotation Y
+    temp_buf.append(write_float(quat.y))  #Rotation Z
 
-    temp_buf += write_node_bone(ibone)
-    temp_buf += write_node_keys(ibone)
+    temp_buf.append(write_node_bone(ibone))
+    temp_buf.append(write_node_keys(ibone))
 
     for iibone in range(len(bone_stack)):
         if bone_stack[iibone][1] == bone_stack[ibone][2]:
-            temp_buf += write_node_node(iibone)
+            temp_buf.append(write_node_node(iibone))
 
     if len(temp_buf) > 0:
-        node_buf += write_chunk(b"NODE",temp_buf)
-        temp_buf = bytearray()
+        node_buf += write_chunk(b"NODE", b"".join(temp_buf))
+        temp_buf = []
 
     return node_buf
 
 # ==== Write NODE BONE Chunk ====
 def write_node_bone(ibone):
     bone_buf = bytearray()
-    temp_buf = bytearray()
+    temp_buf = []
 
     for ivert in range(len(mesh_stack)):
         for iuv in range(len(mesh_stack[ivert][4][0])):
@@ -1413,50 +1407,50 @@ def write_node_bone(ibone):
                 if bone_stack[ibone][2].name == vert_influ[0]:
                     if DEBUG: print("        <bone name=",bone_stack[ibone][2].name,"face_vertex_id=", mesh_stack[ivert][0] + iuv,
                                     " weigth=", vert_influ[1] , "/>")
-                    temp_buf += write_int(mesh_stack[ivert][0] + iuv) # Face Vertex ID
-                    temp_buf += write_float(vert_influ[1]) #Weight
+                    temp_buf.append(write_int(mesh_stack[ivert][0] + iuv)) # Face Vertex ID
+                    temp_buf.append(write_float(vert_influ[1])) #Weight
 
-    bone_buf += write_chunk(b"BONE",temp_buf)
-    temp_buf = bytearray()
+    bone_buf += write_chunk(b"BONE", b"".join(temp_buf))
+    temp_buf = []
 
     return bone_buf
 
 # ==== Write NODE KEYS Chunk ====
 def write_node_keys(ibone):
     keys_buf = bytearray()
-    temp_buf = bytearray()
+    temp_buf = []
 
-    temp_buf += write_int(7) #Flags
+    temp_buf.append(write_int(7)) #Flags
 
     for ikeys in range(len(keys_stack)):
         if keys_stack[ikeys][1] == bone_stack[ibone][2].name:
-            temp_buf += write_int(keys_stack[ikeys][0]) #Frame
+            temp_buf.append(write_int(keys_stack[ikeys][0])) #Frame
 
             position = keys_stack[ikeys][2]
             if b3d_parameters.get("local-space"):
-                temp_buf += write_float(position[0])  #Position X
-                temp_buf += write_float(position[2])  #Position Y
-                temp_buf += write_float(position[1])  #Position Z
+                temp_buf.append(write_float(position[0]))  #Position X
+                temp_buf.append(write_float(position[2]))  #Position Y
+                temp_buf.append(write_float(position[1]))  #Position Z
             else:
-                temp_buf += write_float(-position[0]) #Position X
-                temp_buf += write_float(position[1])  #Position Y
-                temp_buf += write_float(position[2])  #Position Z
+                temp_buf.append(write_float(-position[0])) #Position X
+                temp_buf.append(write_float(position[1]))  #Position Y
+                temp_buf.append(write_float(position[2]))  #Position Z
 
             scale = keys_stack[ikeys][3]
-            temp_buf += write_float(scale[0]) #Scale X
-            temp_buf += write_float(scale[1]) #Scale Y
-            temp_buf += write_float(scale[2]) #Scale Z
+            temp_buf.append(write_float(scale[0])) #Scale X
+            temp_buf.append(write_float(scale[1])) #Scale Y
+            temp_buf.append(write_float(scale[2])) #Scale Z
 
             quat = keys_stack[ikeys][4]
             quat.normalize()
 
-            temp_buf += write_float(quat.w)  #Rotation W
-            temp_buf += write_float(-quat.x) #Rotation X
-            temp_buf += write_float(quat.y)  #Rotation Y
-            temp_buf += write_float(quat.z)  #Rotation Z
+            temp_buf.append(write_float(quat.w))  #Rotation W
+            temp_buf.append(write_float(-quat.x)) #Rotation X
+            temp_buf.append(write_float(quat.y))  #Rotation Y
+            temp_buf.append(write_float(quat.z))  #Rotation Z
 
-    keys_buf += write_chunk(b"KEYS",temp_buf)
-    temp_buf = bytearray()
+    keys_buf += write_chunk(b"KEYS",b"".join(temp_buf))
+    temp_buf = []
 
     return keys_buf
 
