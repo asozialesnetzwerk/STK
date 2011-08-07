@@ -75,6 +75,11 @@ VERTEX_COLOR = 3
 VERTEX_UV = 4
 VERTEX_GROUPS = 5
 
+# bone_stack indices constants
+BONE_PARENT_MATRIX = 0
+BONE_PARENT = 1
+BONE_ITSELF = 2
+
 per_face_vertices = {}
 
 the_scene = None
@@ -727,7 +732,7 @@ def write_node(objects=[]):
                         
                         for ibone in range(len(bone_stack)):
                             
-                            if bone_stack[ibone][2].name == bone_name:
+                            if bone_stack[ibone][BONE_ITSELF].name == bone_name:
                                 
                                 if DEBUG: print("            <bone id=",ibone,"name=",bone_name,">")
                                 
@@ -747,8 +752,8 @@ def write_node(objects=[]):
                                 #keys_stack.append([frame_count - first_frame.val+1,bone_name,bone_loc,bone_sca,bone_rot])
                                 
                                 # if has parent
-                                if bone_stack[ibone][1]:
-                                    par_matrix = mathutils.Matrix(arm_pose.bones[bone_stack[ibone][1].name].matrix)
+                                if bone_stack[ibone][BONE_PARENT]:
+                                    par_matrix = mathutils.Matrix(arm_pose.bones[bone_stack[ibone][BONE_PARENT].name].matrix)
                                     bone_matrix = par_matrix.inverted()*bone_matrix
                                 else:
                                     if b3d_parameters.get("local-space"):
@@ -778,7 +783,7 @@ def write_node(objects=[]):
                                     bone_rot.normalize()
                                     
                                     
-                                    if not bone_stack[ibone][1]:
+                                    if not bone_stack[ibone][BONE_PARENT]:
                                         tmp = bone_rot.z
                                         bone_rot.z = bone_rot.y
                                         bone_rot.y = tmp
@@ -812,7 +817,7 @@ def write_node(objects=[]):
                 temp_buf.append(write_node_anim(num_frames)) #NODE ANIM
 
                 for ibone in range(len(bone_stack)):
-                    if not bone_stack[ibone][1]:
+                    if not bone_stack[ibone][BONE_PARENT]:
                         temp_buf.append(write_node_node(ibone)) #NODE NODE
 
             obj_count += 1
@@ -1363,12 +1368,12 @@ def write_node_node(ibone):
     node_buf = bytearray()
     temp_buf = []
 
-    matrix = bone_stack[ibone][0]
-    temp_buf.append(write_string(bone_stack[ibone][2].name)) #Node Name
+    matrix = bone_stack[ibone][BONE_PARENT_MATRIX]
+    temp_buf.append(write_string(bone_stack[ibone][BONE_ITSELF].name)) #Node Name
 
     # FIXME: we should use the same matrix format everywhere to not require this
     position = matrix.to_translation()
-    if not b3d_parameters.get("local-space") and bone_stack[ibone][1]:
+    if not b3d_parameters.get("local-space") and bone_stack[ibone][BONE_PARENT]:
         temp_buf.append(write_float(-position[0])) #Position X
         temp_buf.append(write_float(position[2]))  #Position Y
         temp_buf.append(write_float(position[1]))  #Position Z
@@ -1394,7 +1399,7 @@ def write_node_node(ibone):
     temp_buf.append(write_node_keys(ibone))
 
     for iibone in range(len(bone_stack)):
-        if bone_stack[iibone][1] == bone_stack[ibone][2]:
+        if bone_stack[iibone][BONE_PARENT] == bone_stack[ibone][BONE_ITSELF]:
             temp_buf.append(write_node_node(iibone))
 
     if len(temp_buf) > 0:
@@ -1413,8 +1418,8 @@ def write_node_bone(ibone):
             for vert_influ in mesh_stack[ivert][VERTEX_GROUPS]:
                 #print("bone_stack[ibone] =", bone_stack[ibone])
                 #print("vert_influ =",vert_influ)
-                if bone_stack[ibone][2].name == vert_influ[0]:
-                    if DEBUG: print("        <bone name=",bone_stack[ibone][2].name,"face_vertex_id=", mesh_stack[ivert][VERTEX_ID] + iuv,
+                if bone_stack[ibone][BONE_ITSELF].name == vert_influ[0]:
+                    if DEBUG: print("        <bone name=",bone_stack[ibone][BONE_ITSELF].name,"face_vertex_id=", mesh_stack[ivert][VERTEX_ID] + iuv,
                                     " weigth=", vert_influ[1] , "/>")
                     temp_buf.append(write_int(mesh_stack[ivert][VERTEX_ID] + iuv)) # Face Vertex ID
                     temp_buf.append(write_float(vert_influ[1])) #Weight
@@ -1433,7 +1438,7 @@ def write_node_keys(ibone):
     temp_buf.append(write_int(7)) #Flags
 
     for ikeys in range(len(keys_stack)):
-        if keys_stack[ikeys][1] == bone_stack[ibone][2].name:
+        if keys_stack[ikeys][1] == bone_stack[ibone][BONE_ITSELF].name:
             temp_buf.append(write_int(keys_stack[ikeys][0])) #Frame
 
             position = keys_stack[ikeys][2]
