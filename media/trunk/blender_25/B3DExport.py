@@ -1018,17 +1018,16 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
             
             per_face_vertices[face.index].append(ivert)
             
-            if mesh_stack[ivert][0] != -1:
+            if mesh_stack[ivert][VERTEX_ID] != -1:
                 if DEBUG: print("            <!-- Vertex",ivert,"already handled -->")
             
-            if mesh_stack[ivert][0] == -1:
+            if mesh_stack[ivert][VERTEX_ID] == -1:
                 
                 vert_matrix = mathutils.Matrix.Translation(data.vertices[vert].co)
                 
-                if b3d_parameters.get("local-space"):
-                    if arm_action:
-                        v = data.vertices[vert].co*mesh_matrix
-                        vert_matrix = mathutils.Matrix.Translation(v)
+                if arm_action:
+                    v = data.vertices[vert].co*mesh_matrix
+                    vert_matrix = mathutils.Matrix.Translation(v)
                 
                 vert_matrix *= TRANS_MATRIX
                 vert_matrix = vert_matrix.to_translation()
