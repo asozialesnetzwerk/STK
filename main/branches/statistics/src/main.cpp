@@ -710,6 +710,12 @@ int handleCmdLine(int argc, char **argv)
         else if( !strcmp(argv[i], "--no-graphics") )
         {
             ProfileWorld::disableGraphics();
+            // Set default profile mode of 1 lap if we haven't already set one
+            if (!ProfileWorld::isProfileMode()) {
+                UserConfigParams::m_no_start_screen = true;
+                ProfileWorld::setProfileModeLaps(1);
+                race_manager->setNumLaps(1);
+            }
         }
         else if( sscanf(argv[i], "--history=%d",  &n)==1)
         {
