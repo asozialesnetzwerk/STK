@@ -902,7 +902,10 @@ void Kart::update(float dt)
         if     (material->isDriveReset() && isOnGround())
             forceRescue();
         else if(material->isZipper()     && isOnGround())
+        {
             handleZipper(material);
+            showZipperFire();
+        }
         else
         {
             MaxSpeed::setSlowdown(MaxSpeed::MS_DECREASE_TERRAIN,
@@ -952,6 +955,16 @@ void Kart::update(float dt)
         m_shadow_enabled = true;
     }
 }   // update
+
+//-----------------------------------------------------------------------------
+
+/**
+  * Show fire to go with a zipper
+  */
+void Kart::showZipperFire()
+{
+    m_nitro->setCreationRate(800.0f);
+}
 
 //-----------------------------------------------------------------------------
 /** Squashes this kart: it will scale the kart in up direction, and causes
@@ -1324,11 +1337,14 @@ void Kart::crashed(Kart *k, const Material *m)
     // karts from bouncing back, they will instead stuck towards the obstable).
     if(m_bounce_back_time<=0.0f)
     {
-        // In case that the sfx is longer than 0.5 seconds, only play it if
-        // it's not already playing.
-        if(m_crash_sound->getStatus() != SFXManager::SFX_PLAYING)
-            m_crash_sound->play();
-
+        if (fabsf(m_vehicle->getCurrentSpeedKmHour() > 2.0f))
+        {
+            // In case that the sfx is longer than 0.5 seconds, only play it if
+            // it's not already playing.
+            if(m_crash_sound->getStatus() != SFXManager::SFX_PLAYING)
+                m_crash_sound->play();
+        }
+        
         m_bounce_back_time = 0.1f;
     }
 }   // crashed
@@ -1901,9 +1917,11 @@ void Kart::updateGraphics(float dt, const Vec3& offset_xyz,
             const float rate    = fabsf(getSpeed())/m_kart_properties->getMaxSpeed();
             assert(rate >= 0.0f); // allow for rounding errors...
             //assert(rate <= 2.0f); // max speed is not always respected it seems...
-            m_nitro->setCreationRate(m_controls.m_nitro && isOnGround() && 
-                                     m_collected_energy>0
-                                     ? (min_rate + rate*(max_rate - min_rate)) : 0);
+            float calculated_rate = m_controls.m_nitro && isOnGround() &&  m_collected_energy > 0
+                                    ? (min_rate + rate*(max_rate - min_rate)) : 0;
+            
+            // the std::max call is there to let nitro fade out smoothly instead of stopping sharply
+            m_nitro->setCreationRate(std::max(calculated_rate, m_nitro->getCreationRate() - dt*800.0f));
             
             // the emitter box should spread from last frame's position to the current position
             // if we want nitro to be emitted in a smooth, continuous flame and not in blobs

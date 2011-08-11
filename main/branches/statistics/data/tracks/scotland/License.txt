@@ -57,3 +57,8 @@ Made by Canis Lupus, released under CC-BY-SA 3
 -WindowOld.png
 -pub1.png
    
+
+=============
+Public Domain
+=============
+- Sheep.ogg, by earthcalling from pdsounds.org

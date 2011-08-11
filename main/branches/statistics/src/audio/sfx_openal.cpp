@@ -225,7 +225,7 @@ void SFXOpenAL::position(const Vec3 &position)
         return;
     if (!m_ok)
     {
-        fprintf(stderr, "WARNING, position called on non-ok SFX\n");
+        fprintf(stderr, "WARNING, position called on non-ok SFX <%s>\n", m_soundBuffer->getFileName().c_str());
         return;
     }
     if (!m_positional)
@@ -278,6 +278,13 @@ void SFXOpenAL::onSoundEnabledBack()
             alSourcef(m_soundSource, AL_GAIN, (m_gain < 0.0f ? m_defaultGain : m_gain));
         }
     }
+}
+
+//-----------------------------------------------------------------------------
+
+void SFXOpenAL::setRolloff(float rolloff)
+{
+    alSourcef (m_soundSource, AL_ROLLOFF_FACTOR,  rolloff);
 }
 
 #endif //if HAVE_OGGVORBIS

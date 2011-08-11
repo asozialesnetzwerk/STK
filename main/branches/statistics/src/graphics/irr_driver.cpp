@@ -88,7 +88,6 @@ void IrrDriver::initDevice()
     // ---- the first time, get a list of available video modes
     if (firstTime)
     {        
-        printf("[IrrDriver] Creating NULL device\n");
         m_device = createDevice(video::EDT_NULL);
         
         video::IVideoModeList* modes = m_device->getVideoModeList();
@@ -542,9 +541,12 @@ scene::ISceneNode* IrrDriver::addWaterNode(scene::IMesh *mesh,
                                            float wave_speed,
                                            float wave_length)
 {
-    return m_scene_manager->addWaterSurfaceSceneNode(mesh,
+    mesh->setMaterialFlag(EMF_GOURAUD_SHADING, true);
+    scene::ISceneNode* out = m_scene_manager->addWaterSurfaceSceneNode(mesh,
                                                      wave_height, wave_speed,
                                                      wave_length);
+    out->getMaterial(0).setFlag(EMF_GOURAUD_SHADING, true);
+    return out;
 }   // addWaterNode
 
 // ----------------------------------------------------------------------------
@@ -1370,6 +1372,8 @@ void IrrDriver::update(float dt)
 #endif
     
     m_video_driver->endScene();
+    
+    getPostProcessing()->update(dt);
     
     // Enable this next print statement to get render information printed
     // E.g. number of triangles rendered, culled etc. The stats is only

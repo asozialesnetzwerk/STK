@@ -32,6 +32,7 @@
 #include "tracks/quad_set.hpp"
 
 const int QuadGraph::UNKNOWN_SECTOR  = -1;
+QuadGraph *QuadGraph::m_quad_graph = NULL;
 
 /** Constructor, loads the graph information for a given set of quads
  *  from a graph file.
@@ -219,7 +220,7 @@ void QuadGraph::setDefaultStartPositions(AlignedArray<btTransform>
                                          float upwards_distance) const
 {
     // Node 0 is always the node on which the start line is.
-    int current_node          = getPredecessor(0);
+    int current_node          = getNode(0).getPredecessor();
     
     float distance_from_start = 0.1f+forwards_distance;
 
@@ -242,7 +243,7 @@ void QuadGraph::setDefaultStartPositions(AlignedArray<btTransform>
             while(distance_from_start > getNode(current_node).getNodeLength())
             {
                 distance_from_start -= getNode(current_node).getNodeLength();
-                current_node = getPredecessor(current_node);
+                current_node = getNode(current_node).getPredecessor();
             }
             const GraphNode &gn   = getNode(current_node);
             Vec3 center_line = gn.getLowerCenter() - gn.getUpperCenter();
@@ -463,27 +464,33 @@ void QuadGraph::getSuccessors(int node_number,
     }
 }   // getSuccessors
 
-//-----------------------------------------------------------------------------
-/** Returns the first predecessor or a node (i.e. the one usually on the main
- *  driveline).
- *  \param node_number The number of the node.
- *  \return The node number of the first predecessor node, or -1 if no
- *          predecessor was found (and a warning is printed in this case).
+// ----------------------------------------------------------------------------
+/** Increases 
  */
-int QuadGraph::getPredecessor(unsigned int target_node) const
+void QuadGraph::updateDistancesForAllSuccessors(unsigned int indx, float delta)
 {
-    for(unsigned int node_id=0; node_id<m_all_nodes.size(); node_id++)
+    GraphNode &g=getNode(indx);
+    g.setDistanceFromStart(g.getDistanceFromStart()+delta);
+    for(unsigned int i=0; i<g.getNumberOfSuccessors(); i++)
     {
-        const GraphNode *gn=m_all_nodes[node_id];
-        for(unsigned int i=0; i <gn ->getNumberOfSuccessors(); i++)
+        GraphNode &g_next = getNode(g.getSuccessor(i));
+        // If we reach the beginning of the graph (usually node with index 0,
+        // but just in case also test for nodes with distance 0), all nodes
+        // are updated, so no need to recurse any further.
+        if(g_next.getIndex()==0 ||
+            g_next.getDistanceFromStart()==0)
+            continue;
+
+        // Only increase the distance from start of a successor node, if 
+        // this successor has a distance from start that is smaller then 
+        // the increased amount.
+        if(g.getDistanceFromStart()+g.getDistanceToSuccessor(i) >
+            g_next.getDistanceFromStart())
         {
-            if(gn->getSuccessor(i)==target_node)
-                return node_id;
-        }   // for i<gn->getNumberOfSuccessors()
-    }   // node_id<m_all_nodes.size()
-    printf("Warning: no predecessor for node '%d' found.\n", target_node);
-    return -1;
-}   // getPredecessor
+            updateDistancesForAllSuccessors(g.getSuccessor(i), delta);
+        }
+    }
+}   // updateDistancesForAllSuccessors
 
 //-----------------------------------------------------------------------------
 /** This function takes absolute coordinates (coordinates in OpenGL
@@ -509,12 +516,9 @@ void QuadGraph::spatialToTrack(Vec3 *dst, const Vec3& xyz,
 
 //-----------------------------------------------------------------------------
 /** findRoadSector returns in which sector on the road the position
- *  xyz is. If xyz is not on top of the road, it returns
- *  UNKNOWN_SECTOR.
+ *  xyz is. If xyz is not on top of the road, it sets UNKNOWN_SECTOR as sector.
  *
- *  The 'sector' could be defined as the number of the closest track
- *  segment to XYZ.
- *  \param XYZ Position for which the segment should be determined.
+ *  \param xyz Position for which the segment should be determined.
  *  \param sector Contains the previous sector (as a shortcut, since usually
  *         the sector is the same as the last one), and on return the result
  *  \param all_sectors If this is not NULL, it is a list of all sectors to 
@@ -527,7 +531,7 @@ void QuadGraph::findRoadSector(const Vec3& xyz, int *sector,
 {
     // Most likely the kart will still be on the sector it was before,
     // so this simple case is tested first.
-    if(*sector!=UNKNOWN_SECTOR && getQuad(*sector).pointInQuad(xyz) )
+    if(*sector!=UNKNOWN_SECTOR && getQuadOfNode(*sector).pointInQuad(xyz) )
     {
         return; 
     }   // if still on same quad
@@ -556,9 +560,9 @@ void QuadGraph::findRoadSector(const Vec3& xyz, int *sector,
             indx = (*all_sectors)[i];
         else
             indx = indx<(int)m_all_nodes.size()-1 ? indx +1 : 0;
-        const Quad &q = getQuad(indx);
+        const Quad &q = getQuadOfNode(indx);
         float dist    = xyz.getY() - q.getMinHeight();
-        // While negative distances are unlikely, we allow some small netative
+        // While negative distances are unlikely, we allow some small negative
         // numbers in case that the kart is partly in the track.
         if(q.pointInQuad(xyz) && dist < min_dist && dist>-1.0f)
         {

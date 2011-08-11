@@ -90,7 +90,7 @@
   <material name="pebbles.png"/>
   <material name="pino.png"              compositing="blend" />
   <material name="pino2.png"             compositing="blend" />
-  <material name="pyramidwall.png" />
+  <material name="pyramidwall.jpg" />
 
   <material name="rain.png"              compositing="blend" light="N" anisotropic="Y" />
   

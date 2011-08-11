@@ -25,6 +25,7 @@
 #include "audio/sfx_manager.hpp"
 #include "network/network_manager.hpp" 
 #include "race/history.hpp"
+#include "tracks/track_sector.hpp"
 #include "tracks/track.hpp"
 #include "utils/constants.hpp"
 #include "utils/string_utils.hpp"
@@ -61,31 +62,7 @@ void LinearWorld::init()
     for(unsigned int n=0; n<kart_amount; n++)
     {
         KartInfo info;
-        info.m_track_sector         = QuadGraph::UNKNOWN_SECTOR;
-        info.m_last_valid_sector    = 0;
-        info.m_lap_start_time       = 0;
-        m_track->getQuadGraph().findRoadSector(m_karts[n]->getXYZ(),
-                                               &info.m_track_sector);
-
-        //If m_track_sector == UNKNOWN_SECTOR, then the kart is not on top of
-        //the road, so we have to use another function to find the sector.
-        info.m_on_road = info.m_track_sector != QuadGraph::UNKNOWN_SECTOR;
-        if (!info.m_on_road)
-        {
-            info.m_track_sector =
-                m_track->getQuadGraph().findOutOfRoadSector(m_karts[n]->getXYZ(),
-                                                            QuadGraph::UNKNOWN_SECTOR );
-        }
-
-        m_track->getQuadGraph().spatialToTrack(&info.m_curr_track_coords,
-                                               m_karts[n]->getXYZ(),
-                                               info.m_track_sector );
-
-        info.m_race_lap             = -1;
-        info.m_lap_start_time       = 0;
-        info.m_time_at_last_lap     = 99999.9f;
-        info.m_estimated_finish     = -1.0f;
-
+        info.getSector()->update(m_karts[n]->getXYZ());
         m_kart_info.push_back(info);
     }   // next kart
 
@@ -114,29 +91,8 @@ void LinearWorld::restartRace()
     const unsigned int kart_amount = m_karts.size();
     for(unsigned int i=0; i<kart_amount; i++)
     {
-        KartInfo& info              = m_kart_info[i];
-        info.m_track_sector         = QuadGraph::UNKNOWN_SECTOR;
-        info.m_last_valid_sector    = 0;
-        info.m_lap_start_time       = 0;
-        m_track->getQuadGraph().findRoadSector(m_karts[i]->getXYZ(),
-                                               &info.m_track_sector);
-
-        //If m_track_sector == UNKNOWN_SECTOR, then the kart is not on top of
-        //the road, so we have to use another function to find the sector.
-        info.m_on_road = info.m_track_sector != QuadGraph::UNKNOWN_SECTOR;
-        if (!info.m_on_road)
-        {
-            info.m_track_sector =
-                m_track->getQuadGraph().findOutOfRoadSector(m_karts[i]->getXYZ(),
-                                                            QuadGraph::UNKNOWN_SECTOR );
-        }
-
-        m_track->getQuadGraph().spatialToTrack(&info.m_curr_track_coords,
-                                               m_karts[i]->getXYZ(),
-                                               info.m_track_sector );
-        info.m_race_lap             = -1;
-        info.m_lap_start_time       = -0;
-        info.m_time_at_last_lap     = 99999.9f;
+        m_kart_info[i].reset();
+        m_kart_info[i].getSector()->update(m_karts[i]->getXYZ());
     }   // next kart
 
     // First all kart infos must be updated before  the kart position can be 
@@ -193,30 +149,7 @@ void LinearWorld::update(float dt)
         // Nothing to do for karts that are currently being rescued or eliminated
         if(kart->playingEmergencyAnimation()) continue;
 
-        // ---------- deal with sector data ---------
-
-        // update sector variables
-        int prev_sector = kart_info.m_track_sector;
-        m_track->getQuadGraph().findRoadSector(kart->getXYZ(),
-                                               &kart_info.m_track_sector);
-
-        kart_info.m_on_road = kart_info.m_track_sector != QuadGraph::UNKNOWN_SECTOR;
-        if(kart_info.m_on_road)
-        {
-            kart_info.m_last_valid_sector   = kart_info.m_track_sector;
-        }
-        else
-        {
-            // Kart off road. Find the closest sector instead.
-            kart_info.m_track_sector =
-                m_track->getQuadGraph().findOutOfRoadSector(kart->getXYZ(), prev_sector );
-        }
-
-        // Update track coords (=progression)
-        m_track->getQuadGraph().spatialToTrack(&kart_info.m_curr_track_coords,
-                                               kart->getXYZ(),
-                                               kart_info.m_track_sector    );
-
+        kart_info.getSector()->update(kart->getXYZ());
     }   // for n
 
     // Update all positions. This must be done after _all_ karts have
@@ -390,7 +323,7 @@ void LinearWorld::newLap(unsigned int kart_index)
 //-----------------------------------------------------------------------------
 int LinearWorld::getSectorForKart(const int kart_id) const
 {
-    return m_kart_info[kart_id].m_track_sector;
+    return m_kart_info[kart_id].getSector()->getCurrentGraphNode();
 }   // getSectorForKart
 
 //-----------------------------------------------------------------------------
@@ -400,7 +333,7 @@ int LinearWorld::getSectorForKart(const int kart_id) const
  */
 float LinearWorld::getDistanceDownTrackForKart(const int kart_id) const
 {
-    return m_kart_info[kart_id].m_curr_track_coords.getZ();
+    return m_kart_info[kart_id].getSector()->getDistanceFromStart();
 }   // getDistanceDownTrackForKart
 
 //-----------------------------------------------------------------------------
@@ -410,7 +343,7 @@ float LinearWorld::getDistanceDownTrackForKart(const int kart_id) const
  */
 float LinearWorld::getDistanceToCenterForKart(const int kart_id) const
 {
-    return m_kart_info[kart_id].m_curr_track_coords.getX();
+    return m_kart_info[kart_id].getSector()->getDistanceToCenter();
 }   // getDistanceToCenterForKart
 
 //-----------------------------------------------------------------------------
@@ -544,6 +477,17 @@ float LinearWorld::estimateFinishTimeForKart(Kart* kart)
 
     // Finish time is the time needed for the whole race with
     // the average speed computed above.
+#ifdef DEBUG
+    if(full_distance < distance_covered)
+    {
+        printf("WARNING: full distance < distance covered for kart '%s':\n",
+               kart->getIdent().c_str());
+        printf("%f < %f\n", full_distance, distance_covered);
+    }
+#endif
+    if(full_distance < distance_covered)
+        return getTime() + kart->getInitialPosition();
+    
     return getTime() + (full_distance - distance_covered)  / average_speed;
 
 }   // estimateFinishTimeForKart
@@ -555,29 +499,13 @@ void LinearWorld::moveKartAfterRescue(Kart* kart)
 {
     KartInfo& info = m_kart_info[kart->getWorldKartId()];
 
-    // If the kart is off road, rescue it to the last valid track position
-    // instead of the current one (since the sector might be determined by
-    // being closest to it, which allows shortcuts like drive towards another
-    // part of the lap, press rescue, and be rescued to this other part of
-    // the track (example: math class, drive towards the left after start,
-    // when hitting the books, press rescue --> you are rescued to the
-    // end of the track).
-    if(!info.m_on_road)
-    {
-        info.m_track_sector = info.m_last_valid_sector;
-    }
-
-    // Using the predecessor has the additional afvantage (besides punishing
-    // the player a bit more) that it makes it less likely to fall in a 
-    // rescue loop since the kart moves back on each attempt. 
-    const QuadGraph &qg     = m_track->getQuadGraph();
-    info.m_track_sector     = qg.getNode(info.m_track_sector).getPredecessor();
-    info.m_last_valid_sector= qg.getNode(info.m_track_sector).getPredecessor();
-
-    kart->setXYZ( m_track->trackToSpatial(info.m_track_sector) );
+    info.getSector()->rescue();
+    int sector = info.getSector()->getCurrentGraphNode();
+    kart->setXYZ( QuadGraph::get()
+                  ->getQuadOfNode(sector).getCenter());
 
     btQuaternion heading(btVector3(0.0f, 1.0f, 0.0f),
-                         m_track->getAngle(info.m_track_sector) );
+                         m_track->getAngle(sector) );
     kart->setRotation(heading);
 
     // A certain epsilon is added here to the Z coordinate, in case
@@ -589,7 +517,7 @@ void LinearWorld::moveKartAfterRescue(Kart* kart)
     btTransform pos;
     pos.setOrigin(kart->getXYZ()+btVector3(0, kart->getKartHeight() + epsilon, 0));
     pos.setRotation(btQuaternion(btVector3(0.0f, 1.0f, 0.0f),
-                    m_track->getAngle(info.m_track_sector)));
+                    m_track->getAngle(sector)));
 
     kart->getBody()->setCenterOfMassTransform(pos);
 
@@ -802,19 +730,20 @@ void LinearWorld::updateRacePosition()
 void LinearWorld::checkForWrongDirection(unsigned int i)
 {
     if(!m_karts[i]->getController()->isPlayerController()) return;
-    if(!m_kart_info[i].m_on_road ||
+    if(!m_kart_info[i].getSector()->isOnRoad()||
         m_karts[i]->playingEmergencyAnimation()) return;
 
     const Kart *kart=m_karts[i];
     // If the kart can go in more than one directions from the current track
     // don't do any reverse message handling, since it is likely that there
     // will be one direction in which it isn't going backwards anyway.
-    if(m_track->getQuadGraph().getNumberOfSuccessors(m_kart_info[i].m_track_sector)>1)
+    int sector = m_kart_info[i].getSector()->getCurrentGraphNode();
+    if(QuadGraph::get()->getNumberOfSuccessors(sector)>1)
         return;
 
     // check if the player is going in the wrong direction
     float angle_diff = kart->getHeading() -
-                       m_track->getAngle(m_kart_info[i].m_track_sector);
+                       m_track->getAngle(sector);
     if(angle_diff > M_PI) angle_diff -= 2*M_PI;
     else if (angle_diff < -M_PI) angle_diff += 2*M_PI;
     // Display a warning message if the kart is going back way (unless

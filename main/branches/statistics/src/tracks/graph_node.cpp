@@ -75,7 +75,7 @@ void GraphNode::addSuccessor(unsigned int to)
     const Quad &this_quad = m_all_quads->getQuad(m_quad_index);
     // to is the graph node, so we have to use m_all_nodes to get the right quad
     GraphNode &gn = m_all_nodes->getNode(to);
-    const Quad &next_quad = m_all_nodes->getQuad(to);
+    const Quad &next_quad = m_all_nodes->getQuadOfNode(to);
 
     // Keep the first predecessor, which is usually the most 'natural' one.
     if(gn.m_predecessor==-1)
@@ -95,13 +95,24 @@ void GraphNode::addSuccessor(unsigned int to)
     // The distance from start for the successor node 
     if(to!=0)
     {
-        // Do not change an existing, already set distance on another
-        // node (since this would mean that we then have to change all
-        // other nodes following that node, too).
+        float distance_for_next = m_distance_from_start+distance_to_next;
+        // If the successor node does not have a distance from start defined,
+        // update its distance. Otherwise if the node already has a distance,
+        // it is potentially necessary to update its distance from start:
+        // without this the length of the track (as taken by the distance
+        // from start of the last node) could be smaller than some of the 
+        // paths. This can result in incorrect results for the arrival time
+        // estimation of the AI karts. See trac #354 for details.
         if(m_all_nodes->getNode(to).m_distance_from_start==0)
         {
-            m_all_nodes->getNode(to).m_distance_from_start =
-                        m_distance_from_start+distance_to_next;
+            m_all_nodes->getNode(to).m_distance_from_start = distance_for_next;
+        }
+        else if(m_all_nodes->getNode(to).m_distance_from_start
+                   <  distance_for_next)
+        {
+            float delta = distance_for_next
+                        - m_all_nodes->getNode(to).getDistanceFromStart();
+            m_all_nodes->updateDistancesForAllSuccessors(to, delta);
         }
     }
 }   // addSuccessor
