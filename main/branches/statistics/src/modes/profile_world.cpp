@@ -200,21 +200,13 @@ void ProfileWorld::enterRaceOverState()
 
     // Print race statistics for each individual kart
     float min_t=999999.9f, max_t=0.0, av_t=0.0;
-    printf("Name\t\tstart\tend\ttime\t");
+    printf("name,start_position,end_position,time,");
     
     if (m_profile_mode==PROFILE_LAPS) {
-        printf("aver.\t");
+        printf("average_speed,");
     }
 
-    printf("top\tskid\trescue\trescue\t"
-           "expl.\texpl.\tbonus\tbanana\tS nitro\tL nitro\tbblgum\n");
-    printf("\t\t\t\t\t");
-
-    if (m_profile_mode==PROFILE_LAPS) {
-        printf("speed\t");
-    }
-
-    printf("speed\ttime\ttime\tcount\ttime\tcount\tcount\tcount\tcount\tcount\tcount\n");
+    printf("top_speed,skid_time,rescue_time,rescue_count,explosion_time,explosion_count,bonus_count,banana_count,small_nitro_count,large_nitro_count,bubblegum_count\n");
 
     for ( KartList::size_type i = 0; i < m_karts.size(); ++i)
     {
@@ -223,28 +215,27 @@ void ProfileWorld::enterRaceOverState()
         max_t = std::max(max_t, kart->getFinishTime());
         min_t = std::min(min_t, kart->getFinishTime());
         av_t += kart->getFinishTime();
-        printf("%s\t%s", kart->getIdent().c_str(),
-                         kart->getIdent().size() < 8 ? "\t" : "");
-        printf("%d\t", 1 + (int)i);
-        printf("%d\t", kart->getPosition());
-        printf("%4.2f\t", kart->getFinishTime());
+        printf("%s,", kart->getIdent().c_str());
+        printf("%d,", 1 + (int)i);
+        printf("%d,", kart->getPosition());
+        printf("%4.2f,", kart->getFinishTime());
         if(m_profile_mode==PROFILE_LAPS)
         {
             float distance = race_manager->getNumLaps()
                            * m_track->getTrackLength();
-            printf("%4.2f\t", distance/kart->getFinishTime());
+            printf("%4.2f,", distance/kart->getFinishTime());
         }
-        printf("%3.2f\t", kart->getTopSpeed());
-        printf("%4.2f\t", kart->getSkiddingTime());
-        printf("%4.2f\t%d\t", kart->getRescueTime(),
-                              kart->getRescueCount());
-        printf("%4.2f\t%d\t", kart->getExplosionTime(),
-                              kart->getExplosionCount() );
-        printf("%d\t", kart->getBonusCount() );
-        printf("%d\t", kart->getBananaCount() );
-        printf("%d\t", kart->getSmallNitroCount() );
-        printf("%d\t", kart->getLargeNitroCount() );
-        printf("%d\t", kart->getBubblegumCount() );
+        printf("%3.2f,", kart->getTopSpeed());
+        printf("%4.2f,", kart->getSkiddingTime());
+        printf("%4.2f,%d,", kart->getRescueTime(),
+                            kart->getRescueCount());
+        printf("%4.2f,%d,", kart->getExplosionTime(),
+                            kart->getExplosionCount() );
+        printf("%d,", kart->getBonusCount() );
+        printf("%d,", kart->getBananaCount() );
+        printf("%d,", kart->getSmallNitroCount() );
+        printf("%d,", kart->getLargeNitroCount() );
+        printf("%d", kart->getBubblegumCount() );
         printf("\n");
     }
 
