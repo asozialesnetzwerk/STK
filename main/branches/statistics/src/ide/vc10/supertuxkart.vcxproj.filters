@@ -795,6 +795,9 @@
     <ClCompile Include="..\..\karts\kart_with_stats.cpp">
       <Filter>Quelldateien\karts</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\tracks\track_sector.cpp">
+      <Filter>Quelldateien\tracks</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\main_loop.hpp">
@@ -1507,6 +1510,9 @@
     </ClInclude>
     <ClInclude Include="..\..\karts\kart_with_stats.hpp">
       <Filter>Headerdateien\karts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\tracks\track_sector.hpp">
+      <Filter>Headerdateien\tracks</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
