@@ -348,6 +348,10 @@ int handleCmdLinePreliminary(int argc, char **argv)
             KartPropertiesManager::addKartSearchDir(argv[i+1]);
             i++;
         }
+        else if( !strcmp(argv[i], "--no-graphics") )
+        {
+            ProfileWorld::disableGraphics();
+        }
 #if !defined(WIN32) && !defined(__CYGWIN)
         else if ( !strcmp(argv[i], "--fullscreen") || !strcmp(argv[i], "-f"))
         {
@@ -709,7 +713,6 @@ int handleCmdLine(int argc, char **argv)
         }
         else if( !strcmp(argv[i], "--no-graphics") )
         {
-            ProfileWorld::disableGraphics();
             // Set default profile mode of 1 lap if we haven't already set one
             if (!ProfileWorld::isProfileMode()) {
                 UserConfigParams::m_no_start_screen = true;
