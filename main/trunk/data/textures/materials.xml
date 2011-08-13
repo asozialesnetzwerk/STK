@@ -9,7 +9,8 @@
   <material name="smoke_red.png"         compositing="blend" light="N" ignore="Y"/>
   <material name="snowflake.png"         compositing="blend" light="N" ignore="Y"/>
   <material name="nitro-particle.png"    additive="Y" light="N" ignore="Y"/>
-  
+  <material name="zipper-particle.png"   additive="Y" light="N" ignore="Y"/>
+
   <!-- Textures -->
   <material name="bananawrap.png"        compositing="test" clampU="Y" clampV="Y" light="N" zipper="Y"/>
   <material name="bumpy_surface.png">
