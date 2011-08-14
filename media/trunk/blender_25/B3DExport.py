@@ -306,13 +306,16 @@ def write_brus(objects=[]):
             #data = obj.getData(mesh = True)
             data = obj.data
             
+            if len(data.uv_textures) <= 0:
+                continue
+            
             # FIXME?
             #orig_uvlayer = data.activeUVLayer
 
             if DEBUG: print("<obj name=",obj.name,">")
 
             for face in data.faces:
-                if len(data.uv_textures) <= 0 or face.index >= len(data.uv_textures[0].data) or not data.uv_textures[0].data[face.index].image:
+                if face.index >= len(data.uv_textures[0].data) or not data.uv_textures[0].data[face.index].image:
                     continue
                 
                 img_found = 0
@@ -338,6 +341,7 @@ def write_brus(objects=[]):
                             if texs_stack[i][0] == img_name:
                                 if texs_stack[i][1] == sets_stack[obj_count][iuvlayer]:
                                     img_id = i
+                                    break
                         
                         face_stack.insert(iuvlayer,img_id)
                         if DEBUG: print("    <uv face=",face.index,"layer=", iuvlayer, " imgid=", img_id, "/>")
