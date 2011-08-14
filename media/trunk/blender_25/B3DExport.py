@@ -99,6 +99,9 @@ def write_int(value):
 def write_float(value):
     return struct.pack("<f",round(value,4))
 
+def write_float_couple(value1, value2):
+    return struct.pack("<ff", round(value1,4), round(value2,4))
+
 def write_float_triplet(value1, value2, value3):
     return struct.pack("<fff", round(value1,4), round(value2,4), round(value3,4))
 
@@ -940,6 +943,18 @@ def write_node_mesh(obj,obj_count,arm_action,exp_root):
 
 #ids_count = 0
 
+def build_mesh_stack(data):
+    for f in data.faces:
+        for v in f.vertices:
+            mesh_stack.append([-1,-1,-1,[],[[],[],[],[],[],[],[],[]],{}])
+
+#time_in_a = 0
+#time_in_b = 0
+#time_in_b1 = 0
+#time_in_b2 = 0
+#time_in_b3 = 0
+#time_in_b4 = 0
+
 # ==== Write NODE MESH VRTS Chunk ====
 def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
     #global ids_count
@@ -947,6 +962,13 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
     temp_buf = []
     obj_flags = 0
     ids_count = 0
+    
+    #global time_in_a
+    #global time_in_b
+    #global time_in_b1
+    #global time_in_b2
+    #global time_in_b3
+    #global time_in_b4
 
     #data = obj.getData(mesh = True)
     global the_scene
@@ -973,11 +995,7 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
 
     # FIXME: major bottleneck
     if PROGRESS: print("Preparing mesh_stack")
-    amount = 0
-    for f in data.faces:
-        for v in f.vertices:
-            mesh_stack.append([-1,-1,-1,[],[[],[],[],[],[],[],[],[]],{}])
-
+    build_mesh_stack(data)
     if PROGRESS: print("DONE Preparing mesh_stack")
 
     amount = 0
@@ -997,15 +1015,17 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
     
     mesh_matrix = obj.matrix_world.copy()
     
+    #import time
+    #a = time.time()
+    
     for face in data.faces:
         
         if DEBUG: print("        <!-- Face",face.index,"-->")
         
-        if PROGRESS_VERBOSE:
-            progress += 1
-            if (progress % 50 == 0): print("    mesh_stack, face:",progress,"/",len(data.faces))
+        #if PROGRESS_VERBOSE:
+        #    progress += 1
+        #    if (progress % 50 == 0): print("    mesh_stack, face:",progress,"/",len(data.faces))
         
-                
         per_face_vertices[face.index] = []
         
         for vertex_id,vert in enumerate(face.vertices):
@@ -1078,9 +1098,7 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
                         self.report({'ERROR'}, "Only triangles and quads are supported")
                 else:
                     mesh_stack[ivert][VERTEX_UV][0].append([face.index,[0.0,0.0]])
-                
-                #mesh_stack[vert.index][5].append(vert_influ)
-                
+                                
                 for vg in obj.vertex_groups:
                     w = 0.0
                     try:
@@ -1090,45 +1108,20 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
                     mesh_stack[ivert][VERTEX_GROUPS][vg.name] = (vg.name, w)
                     
                     if DEBUG: print("            <weigth vertex=", ivert,"bone=",vg.name,">",w,"</weight>")
-                    
-                    #print("mesh_stack[ivert][5] =",mesh_stack[ivert][5])
-                
-                #if data.vertexUV and not data.faceUV:
-                #    mesh_stack[vert.index][4][0].append([face.index,vert.uvco[0]])
-                #if not data.vertexUV and not data.faceUV:
-                #    mesh_stack[vert.index][4][0].append([face.index,[0.0,0.0]])
+    
+    #b = time.time()
+    #time_in_a += b - a
     
     if DEBUG: print("")
-
-    #if data.faceUV:
-    #    if not 65536 in sets_stack[obj_count]:
-    #        vert_opti = 1
-    #    else:
-    #        vert_opti = 0
-#
-#        for iuvlayer,uvlayer in enumerate(data.getUVLayerNames()):
-#            if iuvlayer < 8:
-#                data.activeUVLayer = uvlayer
-#                for face in data.faces:
-#                    for ivert,vert in enumerate(face.verts):
-#                        if vert_opti:
-#                            if not face.uv[ivert] in mesh_stack[vert.index][4][iuvlayer]:
-#                                mesh_stack[vert.index][4][iuvlayer].append([face.index,face.uv[ivert]])
-#                        else:
-#                            mesh_stack[vert.index][4][iuvlayer].append([face.index,face.uv[ivert]])
-
-    # FIXME: port to 2.5 API?
-    #if orig_uvlayer:
-    #    data.activeUVLayer = orig_uvlayer
-
+    
     if PROGRESS_VERBOSE: progress = 0
 
     for ivert in range(len(mesh_stack)):
+        assert ivert < len(mesh_stack)
         
-        if PROGRESS_VERBOSE:
-            progress += 1
-            if (progress % 50 == 0): print("    VRTS:",progress,"/",len(mesh_stack))
-
+        #if PROGRESS_VERBOSE:
+        #    progress += 1
+        #    if (progress % 50 == 0): print("    VRTS:",progress,"/",len(mesh_stack))
         
         mesh_stack[ivert][VERTEX_ID] = ids_count
         
@@ -1137,14 +1130,15 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
         for iuv in range(len(mesh_stack[ivert][VERTEX_UV][0])):
             ids_count += 1
 
-            temp_buf.append(write_float_triplet(mesh_stack[ivert][VERTEX_COORD].x,   #X
-                                                mesh_stack[ivert][VERTEX_COORD].z,   #Y
-                                                mesh_stack[ivert][VERTEX_COORD].y))  #Z
+            #t1 = time.time()
+            v = mesh_stack[ivert][VERTEX_COORD]
+            temp_buf.append(write_float_triplet(v.x, v.z, v.y))
             
-            if DEBUG: print("            <vertex id=",ids_count," loc=", mesh_stack[ivert][VERTEX_COORD].x,
-                                                                         mesh_stack[ivert][VERTEX_COORD].y,
-                                                                         mesh_stack[ivert][VEXTEX_COORD].z,">")
+            if DEBUG: print("            <vertex id=",ids_count," loc=", v.x, v.y, v.z,">")
 
+            #t2 = time.time()
+            #time_in_b1 += t2 - t1
+            
             if b3d_parameters.get("vertex-normals"):
                 temp_buf.append(write_float_triplet(mesh_stack[ivert][VERTEX_NORMAL].x,  #NX
                                                     mesh_stack[ivert][VERTEX_NORMAL].z,  #NY
@@ -1153,6 +1147,9 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
                                                             mesh_stack[ivert][VERTEX_NORMAL].y,
                                                             mesh_stack[ivert][VERTEX_NORMAL].z,"</normal>")
 
+            #t3 = time.time()
+            #time_in_b2 += t3 - t2
+            
             if b3d_parameters.get("vertex-colors") and len(data.vertex_colors) > 0:
                 temp_buf.append(write_float_quad(mesh_stack[ivert][VERTEX_COLOR].r, #R
                                                  mesh_stack[ivert][VERTEX_COLOR].g, #G
@@ -1163,28 +1160,38 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
                                                           mesh_stack[ivert][VERTEX_COLOR].g,
                                                           mesh_stack[ivert][VERTEX_COLOR].b,"</color>")
 
-            #for iuvlayer in xrange(len(data.getUVLayerNames())):
+            #t4 = time.time()
+            #time_in_b3 += t4 - t3
+            
+            assert len(data.uv_textures) <= len(mesh_stack[ivert][VERTEX_UV])
+
             for iuvlayer in range(len(data.uv_textures)):
-                assert ivert < len(mesh_stack)
-                assert len(mesh_stack[ivert]) >= 5
-                assert iuvlayer < len(mesh_stack[ivert][VERTEX_UV])
-
-
                 if not iuv < len(mesh_stack[ivert][4][iuvlayer]):
                     print("iuv",iuv,"not available for uv layer", iuvlayer, ", vertex", ivert, "of", obj.name)
-                    temp_buf.append(write_float(0.0))
-                    temp_buf.append(write_float(0.0))
+                    temp_buf.append(write_float_couple(0.0, 0.0))
                 else:
-                    assert len(mesh_stack[ivert][VERTEX_UV][iuvlayer][iuv]) >= 2
-                    assert len(mesh_stack[ivert][VERTEX_UV][iuvlayer][iuv][1]) >= 2
-                    temp_buf.append(write_float(mesh_stack[ivert][VERTEX_UV][iuvlayer][iuv][1][0]))  #U
-                    temp_buf.append(write_float(1-mesh_stack[ivert][VERTEX_UV][iuvlayer][iuv][1][1]) )#V
+                    #assert len(mesh_stack[ivert][VERTEX_UV][iuvlayer][iuv]) >= 2
+                    #assert len(mesh_stack[ivert][VERTEX_UV][iuvlayer][iuv][1]) >= 2
+                    uv = mesh_stack[ivert][VERTEX_UV][iuvlayer][iuv][1]
+                    temp_buf.append(write_float_couple(uv[0], 1-uv[1]) ) # U, V
                     if DEBUG: print("                <uv layer=",iuvlayer,">",mesh_stack[ivert][VERTEX_UV][iuvlayer][iuv][1][0],
                                                       1-mesh_stack[ivert][VERTEX_UV][iuvlayer][iuv][1][1],"</uv>")
+
+            #t5 = time.time()
+            #time_in_b4 += t5 - t4
 
             if DEBUG: print("            </vertex>")
 
         if DEBUG: print("        </ivert>")
+
+    #c = time.time()
+    #time_in_b += c - b
+    #print("time_in_a = ",time_in_a)
+    #print("time_in_b = ",time_in_b)
+    #print("time_in_b1 = ", time_in_b1)
+    #print("time_in_b2 = ", time_in_b2)
+    #print("time_in_b3 = ", time_in_b3)
+    #print("time_in_b4 = ", time_in_b4)
 
     if len(temp_buf) > 0:
         vrts_buf += write_chunk(b"VRTS",b"".join(temp_buf))
