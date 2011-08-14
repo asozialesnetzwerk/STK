@@ -313,12 +313,17 @@ def write_brus(objects=[]):
             if DEBUG: print("<obj name=",obj.name,">")
 
             for face in data.faces:
+                if len(data.uv_textures) <= 0 or face.index >= len(data.uv_textures[0].data) or not data.uv_textures[0].data[face.index].image:
+                    continue
+                
                 img_found = 0
                 face_stack = []
                 
+                img_name = os.path.basename(data.uv_textures[0].data[face.index].image.filepath)
+
                 if DEBUG: print("    <!-- Building FACE 'stack' -->")
                 
-                #for iuvlayer,uvlayer in enumerate(data.getUVLayerNames()):
+                # FIXME: add back support for multiple UV layers!
                 for iuvlayer,uvlayer in enumerate(data.uv_textures):
                     if iuvlayer < 8:
                         
@@ -326,21 +331,14 @@ def write_brus(objects=[]):
                         #data.activeUVLayer = uvlayer
                         
                         img_id = -1
+                        img_found = 1
                         
-                        #if data.faceUV and face.image:
-                        if len(data.uv_textures) > 0 and face.index < len(data.uv_textures[0].data) and \
-                           data.uv_textures[0].data[face.index].image:
-                            img_found = 1
+                        #print("len(texs_stack) =", len(texs_stack))
+                        for i in range(len(texs_stack)-1):
                             
-                            #print("len(texs_stack) =", len(texs_stack))
-                            for i in range(len(texs_stack)-1):
-                                
-                                img_name = os.path.basename(data.uv_textures[0].data[face.index].image.filepath)
-                                #img_name = data.uv_textures[0].data[face.index].image.name
-                                
-                                if texs_stack[i][0] == img_name:
-                                    if texs_stack[i][1] == sets_stack[obj_count][iuvlayer]:
-                                        img_id = i
+                            if texs_stack[i][0] == img_name:
+                                if texs_stack[i][1] == sets_stack[obj_count][iuvlayer]:
+                                    img_id = i
                         
                         face_stack.insert(iuvlayer,img_id)
                         if DEBUG: print("    <uv face=",face.index,"layer=", iuvlayer, " imgid=", img_id, "/>")
