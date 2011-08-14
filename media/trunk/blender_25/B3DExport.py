@@ -97,16 +97,16 @@ def write_int(value):
     return struct.pack("<i",value)
 
 def write_float(value):
-    return struct.pack("<f",round(value,4))
+    return struct.pack("<f",value)
 
 def write_float_couple(value1, value2):
-    return struct.pack("<ff", round(value1,4), round(value2,4))
+    return struct.pack("<ff", value1, value2)
 
 def write_float_triplet(value1, value2, value3):
-    return struct.pack("<fff", round(value1,4), round(value2,4), round(value3,4))
+    return struct.pack("<fff", value1, value2, value3)
 
 def write_float_quad(value1, value2, value3, value4):
-    return struct.pack("<ffff", round(value1,4), round(value2,4), round(value3,4), round(value4,4))
+    return struct.pack("<ffff", value1, value2, value3, value4)
     
 def write_string(value):
     binary_format = "<%ds"%(len(value)+1)
@@ -1123,15 +1123,18 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
         #    progress += 1
         #    if (progress % 50 == 0): print("    VRTS:",progress,"/",len(mesh_stack))
         
-        mesh_stack[ivert][VERTEX_ID] = ids_count
+        mesh_stack_entry = mesh_stack[ivert]
+        
+        mesh_stack_entry[VERTEX_ID] = ids_count
         
         if DEBUG: print("        <ivert id=",ivert,">")
         
-        for iuv in range(len(mesh_stack[ivert][VERTEX_UV][0])):
+        v = mesh_stack_entry[VERTEX_COORD]
+
+        for iuv in range(len(mesh_stack_entry[VERTEX_UV][0])):
             ids_count += 1
 
             #t1 = time.time()
-            v = mesh_stack[ivert][VERTEX_COORD]
             temp_buf.append(write_float_triplet(v.x, v.z, v.y))
             
             if DEBUG: print("            <vertex id=",ids_count," loc=", v.x, v.y, v.z,">")
@@ -1140,9 +1143,9 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
             #time_in_b1 += t2 - t1
             
             if b3d_parameters.get("vertex-normals"):
-                temp_buf.append(write_float_triplet(mesh_stack[ivert][VERTEX_NORMAL].x,  #NX
-                                                    mesh_stack[ivert][VERTEX_NORMAL].z,  #NY
-                                                    mesh_stack[ivert][VERTEX_NORMAL].y))  #NZ
+                temp_buf.append(write_float_triplet(mesh_stack_entry[VERTEX_NORMAL].x,  #NX
+                                                    mesh_stack_entry[VERTEX_NORMAL].z,  #NY
+                                                    mesh_stack_entry[VERTEX_NORMAL].y))  #NZ
                 if DEBUG: print("                <normal>",-mesh_stack[ivert][VERTEX_NORMAL].x,
                                                             mesh_stack[ivert][VERTEX_NORMAL].y,
                                                             mesh_stack[ivert][VERTEX_NORMAL].z,"</normal>")
@@ -1151,9 +1154,9 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
             #time_in_b2 += t3 - t2
             
             if b3d_parameters.get("vertex-colors") and len(data.vertex_colors) > 0:
-                temp_buf.append(write_float_quad(mesh_stack[ivert][VERTEX_COLOR].r, #R
-                                                 mesh_stack[ivert][VERTEX_COLOR].g, #G
-                                                 mesh_stack[ivert][VERTEX_COLOR].b, #B
+                temp_buf.append(write_float_quad(mesh_stack_entry[VERTEX_COLOR].r, #R
+                                                 mesh_stack_entry[VERTEX_COLOR].g, #G
+                                                 mesh_stack_entry[VERTEX_COLOR].b, #B
                                                 1.0))                               #A (FIXME?)
                 #temp_buf += write_float(mesh_stack[ivert][3].a/255.0) #A
                 if DEBUG: print("                <color>",mesh_stack[ivert][VERTEX_COLOR].r,
@@ -1166,13 +1169,14 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
             assert len(data.uv_textures) <= len(mesh_stack[ivert][VERTEX_UV])
 
             for iuvlayer in range(len(data.uv_textures)):
-                if not iuv < len(mesh_stack[ivert][4][iuvlayer]):
+                layer = mesh_stack_entry[VERTEX_UV][iuvlayer]
+                if iuv >= len(layer):
                     print("iuv",iuv,"not available for uv layer", iuvlayer, ", vertex", ivert, "of", obj.name)
                     temp_buf.append(write_float_couple(0.0, 0.0))
                 else:
                     #assert len(mesh_stack[ivert][VERTEX_UV][iuvlayer][iuv]) >= 2
                     #assert len(mesh_stack[ivert][VERTEX_UV][iuvlayer][iuv][1]) >= 2
-                    uv = mesh_stack[ivert][VERTEX_UV][iuvlayer][iuv][1]
+                    uv = layer[iuv][1]
                     temp_buf.append(write_float_couple(uv[0], 1-uv[1]) ) # U, V
                     if DEBUG: print("                <uv layer=",iuvlayer,">",mesh_stack[ivert][VERTEX_UV][iuvlayer][iuv][1][0],
                                                       1-mesh_stack[ivert][VERTEX_UV][iuvlayer][iuv][1][1],"</uv>")
