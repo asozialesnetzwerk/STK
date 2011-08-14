@@ -1221,12 +1221,12 @@ def write_node_mesh_tris(obj, data, obj_count,arm_action,exp_root):
 
                 img_id = -1
 
-                #FIXME?
-                #if data.faceUV and face.image:
                 if face.index < len(data.uv_textures[0].data) and data.uv_textures[0].data[face.index].image:
+                    trimmed_path = os.path.basename(data.uv_textures[0].data[face.index].image.filepath)
+                    
                     img_found = 1
                     for i in range(len(texs_stack)-1):
-                        if texs_stack[i][0] == os.path.basename(data.uv_textures[0].data[face.index].image.filepath):
+                        if texs_stack[i][0] == trimmed_path:
                             if texs_stack[i][1] == sets_stack[obj_count][iuvlayer]:
                                 img_id = i
 
