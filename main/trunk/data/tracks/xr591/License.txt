@@ -11,6 +11,8 @@ Creative-Commons-BY-SA 3.0
     hot.ogg - based on "Hot Sizzling-SoundBible.com-403305607.wav" by Mike Koenig from soundbible
               and "Water vaporizing on hot Stones" by Natalie from pdsound.org
               mixed by Marianne Gagnon
+
+    sky_*.jpg - by Samuncle
     
 ____________________________________________________________________
 Reused with different colors from supertuxkart/data/textures (see their individual licenses) :
