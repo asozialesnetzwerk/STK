@@ -1151,6 +1151,7 @@ def write_node_mesh_tris(obj, data, obj_count,arm_action,exp_root):
                         if texs_stack[i][0] == trimmed_path:
                             if texs_stack[i][1] == sets_stack[obj_count][iuvlayer]:
                                 img_id = i
+                                break
 
                 face_stack.insert(iuvlayer,img_id)
 
@@ -1165,15 +1166,18 @@ def write_node_mesh_tris(obj, data, obj_count,arm_action,exp_root):
                     for i in range(len(brus_stack)):
                         if brus_stack[i] == mat_name:
                             brus_id = i
+                            break
             else:
                 for i in range(len(brus_stack)):
                     if brus_stack[i] == face_stack:
                         brus_id = i
+                        break
         else:
             brus_id = -1
             for i in range(len(brus_stack)):
                 if brus_stack[i] == face_stack:
                     brus_id = i
+                    break
 
         if brus_id in dBrushId2Face:
             dBrushId2Face[brus_id].append(face)
