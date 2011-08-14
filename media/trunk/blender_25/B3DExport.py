@@ -69,8 +69,7 @@ keys_stack     = []
 
 # mesh_stack indices constants
 VERTEX_ID = 0
-VERTEX_UV = 1
-VERTEX_GROUPS = 2
+VERTEX_GROUPS = 1
 
 # bone_stack indices constants
 BONE_PARENT_MATRIX = 0
@@ -943,7 +942,7 @@ def write_node_mesh(obj,obj_count,arm_action,exp_root):
 def build_mesh_stack(data):
     for f in data.faces:
         for v in f.vertices:
-            mesh_stack.append([-1,[[],[],[],[],[],[],[],[]],{}])
+            mesh_stack.append([-1,{}])
 
 #time_in_a = 0
 #time_in_b = 0
@@ -1073,9 +1072,6 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
                                                      vcolor.g, #G
                                                      vcolor.b, #B
                                                      1.0))     #A (FIXME?)
-                    
-                else:
-                    mesh_stack[ivert][VERTEX_UV][0].append([face.index,[0.0,0.0]])
                 
                 for vg in obj.vertex_groups:
                     w = 0.0
@@ -1086,7 +1082,6 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
                     mesh_stack[ivert][VERTEX_GROUPS][vg.name] = (vg.name, w)
                                     
                 for iuvlayer in range(len(data.uv_textures)):
-                    layer = mesh_stack[ivert][VERTEX_UV][iuvlayer]
                     if vertex_id == 0:
                         uv = data.uv_textures[iuvlayer].data[face.index].uv1
                     elif vertex_id == 1:
@@ -1294,11 +1289,10 @@ def write_node_bone(ibone):
     for ivert in range(len(mesh_stack)):
         if my_name in mesh_stack[ivert][VERTEX_GROUPS]:
             vert_influ = mesh_stack[ivert][VERTEX_GROUPS][my_name]
-            for iuv in range(len(mesh_stack[ivert][VERTEX_UV][0])):
-                if DEBUG: print("        <bone name=",bone_stack[ibone][BONE_ITSELF].name,"face_vertex_id=", mesh_stack[ivert][VERTEX_ID] + iuv,
-                                " weigth=", vert_influ[1] , "/>")
-                temp_buf.append(write_int(mesh_stack[ivert][VERTEX_ID] + iuv)) # Face Vertex ID
-                temp_buf.append(write_float(vert_influ[1])) #Weight
+            if DEBUG: print("        <bone name=",bone_stack[ibone][BONE_ITSELF].name,"face_vertex_id=", mesh_stack[ivert][VERTEX_ID] + iuv,
+                            " weigth=", vert_influ[1] , "/>")
+            temp_buf.append(write_int(mesh_stack[ivert][VERTEX_ID] + iuv)) # Face Vertex ID
+            temp_buf.append(write_float(vert_influ[1])) #Weight
 
     bone_buf += write_chunk(b"BONE", b"".join(temp_buf))
     temp_buf = []
