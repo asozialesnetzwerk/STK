@@ -1374,7 +1374,6 @@ def write_node_bone(ibone):
                                 " weigth=", vert_influ[1] , "/>")
                 temp_buf.append(write_int(mesh_stack[ivert][VERTEX_ID] + iuv)) # Face Vertex ID
                 temp_buf.append(write_float(vert_influ[1])) #Weight
-                break
 
     bone_buf += write_chunk(b"BONE", b"".join(temp_buf))
     temp_buf = []
