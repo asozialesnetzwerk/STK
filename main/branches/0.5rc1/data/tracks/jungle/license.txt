@@ -1,3 +1,0 @@
-Released under GPL.
-
-All textures and some models are from the http://www.titusgames.de GLEST jungle set, also released under GPL.

@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<materials>
-  <material name="plants.png" alpha="y"/>
-  <material name="metalfence.png" transparency="y"/>
-  <material name="nightsky1.png" light="N"/>
-  <material name="nightsky2.png" light="N"/>
-  <material name="owl.png" light="N"/>
-</materials>  

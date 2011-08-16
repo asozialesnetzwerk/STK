@@ -1,6 +1,0 @@
-(music-information
-  (title    "SuperTuxKart Main Theme")
-  (composer "Weirwood"               )
-  (music    "main_theme.ogg"         )
-  (loop    10)
-)

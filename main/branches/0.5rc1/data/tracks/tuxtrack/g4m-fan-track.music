@@ -1,7 +1,0 @@
-(music-information
-  (title    "G4M fan track"    )
-  (composer "P@ule"            )
-  (music    "g4m-fan-track.ogg")
-  (loop     10                 )
-)
-

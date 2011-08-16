@@ -1,8 +1,0 @@
-(music-information
-  (title    "Tuxkart 2")
-  (composer "Matt Thomas")
-  (music    "tk5a.ogg")
-  (fast-music    "tk2.ogg")
-  (fade-time   2)
-  (loop     10)
-)

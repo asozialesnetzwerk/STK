@@ -1,6 +1,0 @@
-(music-information
-  (title    "TuxR"       )
-  (composer "Matt Thomas")
-  (music    "tuxr.ogg"   )
-  (loop     10           )
-)
