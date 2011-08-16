@@ -1,4 +1,0 @@
-# Same setting as the snow texture in the main texture directory, but it does not
-# have a slowdown when driving on it.
-# TextureName              Clamp Trans Alpha Light SphMp Frict Ign Zip Rst Col mxSpd SldT
-"snow.rgb"		            N N    N	0.0    Y     N    0.00000018   N   N   N   N
