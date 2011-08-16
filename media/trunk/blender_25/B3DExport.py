@@ -112,10 +112,12 @@ def write_chunk(name,value):
     dummy = bytearray()
     return dummy + name + write_int(len(value)) + value
 
+trimmed_paths = {}
+
 # ==== Write B3D File ====
 # (main exporter function)
 def write_b3d_file(filename, objects=[]):
-    global sets_stack, texs_stack
+    global sets_stack, texs_stack, trimmed_paths
     global brus_stack, mesh_stack, bone_stack, keys_stack
 
     #Global Stacks
@@ -125,6 +127,7 @@ def write_b3d_file(filename, objects=[]):
     mesh_stack = []
     bone_stack = []
     keys_stack = []
+    trimmed_paths = {}
     file_buf = bytearray()
     temp_buf = bytearray()
 
@@ -144,6 +147,9 @@ def write_b3d_file(filename, objects=[]):
     file.write(file_buf)
     file.close()
     
+    # free memory
+    trimmed_paths = {}
+    
     end = time.time()
     
     print("Exported in", (end - start))
@@ -151,6 +157,7 @@ def write_b3d_file(filename, objects=[]):
 # ==== Write TEXS Chunk ====
 def write_texs(objects=[]):
     global b3d_parameters
+    global trimmed_paths
     texs_buf = bytearray()
     temp_buf = bytearray()
     layer_max = 0
@@ -239,11 +246,16 @@ def write_texs(objects=[]):
                         #data.activeUVLayer = uvlayer
                         
                         #if DEBUG: print("<uv face=", face.index, ">")
-                        if len(data.uv_textures) > 0 and face.index < len(data.uv_textures[0].data) and \
-                           data.uv_textures[0].data[face.index].image:
+                        
+                        img = data.uv_textures[0].data[face.index].image
+                        
+                        if len(data.uv_textures) > 0 and face.index < len(data.uv_textures[0].data) and img:
                             
-                            img_name = os.path.basename(data.uv_textures[0].data[face.index].image.filepath)
-                            #img_name = data.uv_textures[0].data[face.index].image.name
+                            if img.filepath in trimmed_paths:
+                                img_name = trimmed_paths[img.filepath]
+                            else:
+                                img_name = os.path.basename(img.filepath)
+                                trimmed_paths[img.filepath] = img_name
                             
                             if not [img_name, sets_stack[obj_count][iuvlayer]] in texs_stack:
                                 if DEBUG: print("<image id=",len(texs_stack),"name=","'"+img_name+"'","/>")
@@ -278,6 +290,7 @@ def write_texs(objects=[]):
 # ==== Write BRUS Chunk ====
 def write_brus(objects=[]):
     global b3d_parameters
+    global trimmed_paths
     brus_buf = bytearray()
     temp_buf = bytearray()
     mat_count = 0
@@ -315,14 +328,20 @@ def write_brus(objects=[]):
             if DEBUG: print("<obj name=",obj.name,">")
 
             for face in data.faces:
-                if face.index >= len(data.uv_textures[0].data) or not data.uv_textures[0].data[face.index].image:
+                img = data.uv_textures[0].data[face.index].image
+                
+                if face.index >= len(data.uv_textures[0].data) or not img:
                     continue
                 
                 img_found = 0
                 face_stack = []
                 
-                img_name = os.path.basename(data.uv_textures[0].data[face.index].image.filepath)
-
+                if img.filepath in trimmed_paths:
+                    img_name = trimmed_paths[img.filepath]
+                else:
+                    img_name = os.path.basename(img.filepath)
+                    trimmed_paths[img.filepath] = img_name
+                
                 if DEBUG: print("    <!-- Building FACE 'stack' -->")
                 
                 # FIXME: add back support for multiple UV layers!
@@ -1147,12 +1166,18 @@ def write_node_mesh_tris(obj, data, obj_count,arm_action,exp_root):
 
                 img_id = -1
 
-                if face.index < len(data.uv_textures[0].data) and data.uv_textures[0].data[face.index].image:
-                    trimmed_path = os.path.basename(data.uv_textures[0].data[face.index].image.filepath)
+                img = data.uv_textures[0].data[face.index].image
+                if face.index < len(data.uv_textures[0].data) and img:
+                    
+                    if img.filepath in trimmed_paths:
+                        img_name = trimmed_paths[img.filepath]
+                    else:
+                        img_name = os.path.basename(img.filepath)
+                        trimmed_paths[img.filepath] = img_name
                     
                     img_found = 1
                     for i in range(len(texs_stack)-1):
-                        if texs_stack[i][0] == trimmed_path:
+                        if texs_stack[i][0] == img_name:
                             if texs_stack[i][1] == sets_stack[obj_count][iuvlayer]:
                                 img_id = i
                                 break
