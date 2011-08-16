@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<!-- Generated with script from SVN rev 6538 -->
-<materials>
-  <material name="metalfence.png" transparency="Y"/>
-  <material name="nightsky1.png" light="N"/>
-  <material name="nightsky2.png" light="N"/>
-  <material name="owl.png" light="N"/>
-  <material name="plants.png" alpha="Y"/>
-</materials>
