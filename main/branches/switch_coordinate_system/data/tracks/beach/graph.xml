@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<graph>
-  <!-- First define all nodes of the graph, and what quads they represent            -->
-  <node-list from-quad="0" to-quad="291"/>  <!-- Graph nodes 0-291 are quads 0-291   -->
-
-  <!-- Then add the connection of the graph nodes to form the actual graph           -->
-  <edge-loop from="0" to="291"/>            <!-- The actual main track is a loop     -->
-</graph>
-
