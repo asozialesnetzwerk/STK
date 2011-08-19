@@ -531,12 +531,12 @@ class Driveline:
         l1  = self.mesh.vertices[self.lLeft[1]].co
         r1  = self.mesh.vertices[self.lRight[1]].co
 
-        if self.invisible and self.invisible != "false":
+        if self.invisible and self.invisible=="true":
             sInv = " invisible=\"yes\" "
         else:
             sInv = " "
         
-        if self.ai_ignore and self.ai_ignore!="false":
+        if self.ai_ignore and self.ai_ignore=="true":
             sAIIgnore = "ai-ignore=\"yes\" "
         else:
             sAIIgnore = " "
