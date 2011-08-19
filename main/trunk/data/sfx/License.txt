@@ -12,6 +12,11 @@
 * bzzt
     Released under the GNU GPL, coming from original (Super)TuxKart
 
+* clock
+    based on sound by Natalie from pdsounds.org
+    with modifications by Marianne Gagnon
+    released under public domain
+
 * crash
     obtained from : http://www.freesoundfiles.tintagel.net/Audio/
     (see license text below)
