@@ -39,3 +39,8 @@ Wheat picture by Tarquin
 Trail texture by Marianne Gagnon
     based on public domain image from Burningwell
     released under CC-BY-SA 3.0
+
+cow.ogg
+    based on sounds by "Secretlondon" (released under CC-Attribution 3) and "Buffbill84" (released under CC-BY-SA 3)
+    released under CC-BY-SA 3.0
+    
