@@ -1906,6 +1906,8 @@ class TrackExport:
             # for billboard
             elif stktype=="BILLBOARD":
                 lBillboards.append(obj)
+            elif stktype=="NONE":
+                lTrack.append(obj)
             else:
                 s = getProperty(obj, "type", None)
                 if s:
