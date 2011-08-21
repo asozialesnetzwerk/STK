@@ -2,6 +2,9 @@
 <!-- Generated with script from SVN rev 9577 -->
 <scene>
   <track model="xr591_track.b3d" x="0" y="0" z="0">
+    <static-object model="aliens_LOD60.b3d" xyz="-48.629471 6.506891 98.987541" hpr="-90.000003 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
+    <static-object model="aliens_LODx.b3d" xyz="-53.973763 6.506891 100.635033" hpr="-90.000003 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
+    <static-object model="aliens_LOD200.b3d" xyz="-43.445908 6.506892 96.737312" hpr="-90.000003 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
     <animated-texture name="arc1.png" dx="2.000" />
     <animated-texture name="arc2.png" dx="-1.700" />
   </track>
