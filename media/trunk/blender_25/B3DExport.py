@@ -60,12 +60,14 @@ if not hasattr(sys,"argv"): sys.argv = ["???"]
 
 #Global Stacks
 b3d_parameters = {}
-sets_stack     = []
+texture_flags  = []
 texs_stack     = []
 brus_stack     = []
 mesh_stack     = []
 bone_stack     = {}
 keys_stack     = []
+
+texture_count = 0
 
 # mesh_stack indices constants
 VERTEX_ID = 0
@@ -75,6 +77,10 @@ VERTEX_GROUPS = 1
 BONE_PARENT_MATRIX = 0
 BONE_PARENT = 1
 BONE_ITSELF = 2
+
+# texture stack indices constants
+TEXTURE_IMAGE_NAME = 0
+TEXTURE_FLAGS = 1
 
 per_face_vertices = {}
 
@@ -117,11 +123,11 @@ trimmed_paths = {}
 # ==== Write B3D File ====
 # (main exporter function)
 def write_b3d_file(filename, objects=[]):
-    global sets_stack, texs_stack, trimmed_paths
+    global texture_flags, texs_stack, trimmed_paths
     global brus_stack, mesh_stack, bone_stack, keys_stack
 
     #Global Stacks
-    sets_stack = []
+    texture_flags = []
     texs_stack = []
     brus_stack = []
     mesh_stack = []
@@ -158,6 +164,7 @@ def write_b3d_file(filename, objects=[]):
 def write_texs(objects=[]):
     global b3d_parameters
     global trimmed_paths
+    global texture_count
     texs_buf = bytearray()
     temp_buf = bytearray()
     layer_max = 0
@@ -192,7 +199,9 @@ def write_texs(objects=[]):
             #orig_uvlayer = data.activeUVLayer
             
             layer_set = [[],[],[],[],[],[],[],[]]
-            sets_stack.append([[],[],[],[],[],[],[],[]])
+            
+            # 8 UV layers are supported
+            texture_flags.append([None,None,None,None,None,None,None,None])
 
             #if len(data.getUVLayerNames()) <= 8:
             if len(data.uv_textures) <= 8:
@@ -224,7 +233,7 @@ def write_texs(objects=[]):
 
                 for iuvlayer in range(i,len(data.uv_textures)):
                     if layer_set[i] == layer_set[iuvlayer]:
-                        if sets_stack[obj_count][iuvlayer] == []:
+                        if texture_flags[obj_count][iuvlayer] is None:
                             if set_count == 0:
                                 tex_flag = 1
                             elif set_count == 1:
@@ -235,7 +244,7 @@ def write_texs(objects=[]):
                                 enable_mipmaps=8
                             else:
                                 enable_mipmaps=0
-                            sets_stack[obj_count][iuvlayer] = tex_flag|enable_mipmaps
+                            texture_flags[obj_count][iuvlayer] = tex_flag | enable_mipmaps
                             set_wrote = 1
 
             for face in data.faces:
@@ -257,11 +266,11 @@ def write_texs(objects=[]):
                                 img_name = os.path.basename(img.filepath)
                                 trimmed_paths[img.filepath] = img_name
                             
-                            if not [img_name, sets_stack[obj_count][iuvlayer]] in texs_stack:
+                            if not [img_name, texture_flags[obj_count][iuvlayer]] in texs_stack:
                                 if DEBUG: print("<image id=",len(texs_stack),"name=","'"+img_name+"'","/>")
-                                texs_stack.append([img_name, sets_stack[obj_count][iuvlayer]])
+                                texs_stack.append([img_name, texture_flags[obj_count][iuvlayer]])
                                 temp_buf += write_string(img_name) #Texture File Name
-                                temp_buf += write_int(sets_stack[obj_count][iuvlayer]) #Flags
+                                temp_buf += write_int(texture_flags[obj_count][iuvlayer]) #Flags
                                 temp_buf += write_int(2)   #Blend
                                 temp_buf += write_float(0) #X_Pos
                                 temp_buf += write_float(0) #Y_Pos
@@ -279,7 +288,7 @@ def write_texs(objects=[]):
             #if orig_uvlayer:
             #    data.activeUVLayer = orig_uvlayer
 
-    texs_stack.append(layer_max)
+    texture_count = layer_max
 
     if len(temp_buf) > 0:
         texs_buf += write_chunk(b"TEXS",temp_buf)
@@ -291,6 +300,7 @@ def write_texs(objects=[]):
 def write_brus(objects=[]):
     global b3d_parameters
     global trimmed_paths
+    global texture_count
     brus_buf = bytearray()
     temp_buf = bytearray()
     mat_count = 0
@@ -348,24 +358,19 @@ def write_brus(objects=[]):
                 for iuvlayer,uvlayer in enumerate(data.uv_textures):
                     if iuvlayer < 8:
                         
-                        #FIXME?
-                        #data.activeUVLayer = uvlayer
-                        
                         img_id = -1
                         img_found = 1
                         
-                        #print("len(texs_stack) =", len(texs_stack))
-                        for i in range(len(texs_stack)-1):
+                        for i in range(len(texs_stack)):
                             
-                            if texs_stack[i][0] == img_name:
-                                if texs_stack[i][1] == sets_stack[obj_count][iuvlayer]:
-                                    img_id = i
-                                    break
+                            if texs_stack[i][TEXTURE_IMAGE_NAME] == img_name:
+                                img_id = i
+                                break
                         
                         face_stack.insert(iuvlayer,img_id)
                         if DEBUG: print("    <uv face=",face.index,"layer=", iuvlayer, " imgid=", img_id, "/>")
 
-                for i in range(len(face_stack),texs_stack[-1]):
+                for i in range(len(face_stack),texture_count):
                     face_stack.append(-1)
 
 
@@ -414,6 +419,7 @@ def write_brus(objects=[]):
                                 for i in face_stack:
                                     temp_buf += write_int(i) #Texture ID
                 else: # img_found
+                
                     if not face_stack in brus_stack:
                         brus_stack.append(face_stack)
                         mat_count += 1
@@ -448,7 +454,7 @@ def write_brus(objects=[]):
             #    data.activeUVLayer = orig_uvlayer
 
     if len(temp_buf) > 0:
-        brus_buf += write_chunk(b"BRUS",write_int(texs_stack[-1]) + temp_buf) #N Texs
+        brus_buf += write_chunk(b"BRUS",write_int(texture_count) + temp_buf) #N Texs
         temp_buf = ""
 
     return brus_buf
@@ -1140,6 +1146,8 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
 # ==== Write NODE MESH TRIS Chunk ====
 def write_node_mesh_tris(obj, data, obj_count,arm_action,exp_root):
 
+    global texture_count
+
     #FIXME?
     #orig_uvlayer = data.activeUVLayer
 
@@ -1176,26 +1184,24 @@ def write_node_mesh_tris(obj, data, obj_count,arm_action,exp_root):
                         trimmed_paths[img.filepath] = img_name
                     
                     img_found = 1
-                    for i in range(len(texs_stack)-1):
-                        if texs_stack[i][0] == img_name:
-                            if texs_stack[i][1] == sets_stack[obj_count][iuvlayer]:
-                                img_id = i
-                                break
+                    for i in range(len(texs_stack)):
+                        if texs_stack[i][TEXTURE_IMAGE_NAME] == img_name and texs_stack[i][TEXTURE_FLAGS] == texture_flags[obj_count][iuvlayer]:
+                            img_id = i
+                            break
 
                 face_stack.insert(iuvlayer,img_id)
 
-        for i in range(len(face_stack),texs_stack[-1]):
+        for i in range(len(face_stack),texture_count):
             face_stack.append(-1)
 
         if img_found == 0:
             brus_id = -1
-            if data.materials:
-                if data.materials[face.material_index]:
-                    mat_name = data.materials[face.material_index].name
-                    for i in range(len(brus_stack)):
-                        if brus_stack[i] == mat_name:
-                            brus_id = i
-                            break
+            if data.materials and data.materials[face.material_index]:
+                mat_name = data.materials[face.material_index].name
+                for i in range(len(brus_stack)):
+                    if brus_stack[i] == mat_name:
+                        brus_id = i
+                        break
             else:
                 for i in range(len(brus_stack)):
                     if brus_stack[i] == face_stack:
