@@ -61,7 +61,7 @@ if not hasattr(sys,"argv"): sys.argv = ["???"]
 #Global Stacks
 b3d_parameters = {}
 texture_flags  = []
-texs_stack     = []
+texs_stack     = {}
 brus_stack     = []
 mesh_stack     = []
 bone_stack     = {}
@@ -79,7 +79,7 @@ BONE_PARENT = 1
 BONE_ITSELF = 2
 
 # texture stack indices constants
-TEXTURE_IMAGE_NAME = 0
+TEXTURE_ID = 0
 TEXTURE_FLAGS = 1
 
 per_face_vertices = {}
@@ -128,7 +128,7 @@ def write_b3d_file(filename, objects=[]):
 
     #Global Stacks
     texture_flags = []
-    texs_stack = []
+    texs_stack = {}
     brus_stack = []
     mesh_stack = []
     bone_stack = []
@@ -266,9 +266,8 @@ def write_texs(objects=[]):
                                 img_name = os.path.basename(img.filepath)
                                 trimmed_paths[img.filepath] = img_name
                             
-                            if not [img_name, texture_flags[obj_count][iuvlayer]] in texs_stack:
-                                if DEBUG: print("<image id=",len(texs_stack),"name=","'"+img_name+"'","/>")
-                                texs_stack.append([img_name, texture_flags[obj_count][iuvlayer]])
+                            if not img_name in texs_stack:
+                                texs_stack[img_name] = [len(texs_stack), texture_flags[obj_count][iuvlayer]]
                                 temp_buf += write_string(img_name) #Texture File Name
                                 temp_buf += write_int(texture_flags[obj_count][iuvlayer]) #Flags
                                 temp_buf += write_int(2)   #Blend
@@ -361,11 +360,8 @@ def write_brus(objects=[]):
                         img_id = -1
                         img_found = 1
                         
-                        for i in range(len(texs_stack)):
-                            
-                            if texs_stack[i][TEXTURE_IMAGE_NAME] == img_name:
-                                img_id = i
-                                break
+                        if img_name in texs_stack:
+                            img_id = texs_stack[img_name][TEXTURE_ID]
                         
                         face_stack.insert(iuvlayer,img_id)
                         if DEBUG: print("    <uv face=",face.index,"layer=", iuvlayer, " imgid=", img_id, "/>")
@@ -1184,10 +1180,8 @@ def write_node_mesh_tris(obj, data, obj_count,arm_action,exp_root):
                         trimmed_paths[img.filepath] = img_name
                     
                     img_found = 1
-                    for i in range(len(texs_stack)):
-                        if texs_stack[i][TEXTURE_IMAGE_NAME] == img_name and texs_stack[i][TEXTURE_FLAGS] == texture_flags[obj_count][iuvlayer]:
-                            img_id = i
-                            break
+                    if img_name in texs_stack:
+                        img_id = texs_stack[img_name][TEXTURE_ID]
 
                 face_stack.insert(iuvlayer,img_id)
 
