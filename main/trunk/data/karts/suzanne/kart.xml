@@ -7,7 +7,7 @@
       minimap-icon-file = "icon32.png"
       shadow-file       = "shadow.png"
       groups            = "standard"
-      rgb               = "0.7 0 0" >
+      rgb               = "1.0 0.53 0" >
   <animations left = "1"
               straight = "10"
               right = "20"
