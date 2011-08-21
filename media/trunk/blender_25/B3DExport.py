@@ -1010,14 +1010,7 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
     temp_buf.append(write_int(2)) #UV Set Size
 
     # ---- Prepare the mesh "stack"
-
-    #for i in data.vertices:
-    #    mesh_stack.append([-1,-1,-1,[],[[],[],[],[],[],[],[],[]],[]])
-
-    # FIXME: major bottleneck
-    if PROGRESS: print("Preparing mesh_stack")
     build_mesh_stack(data)
-    if PROGRESS: print("DONE Preparing mesh_stack")
 
     amount = 0
     
