@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 7732 -->
+<!-- Generated with script from SVN rev 9577 -->
 <scene>
   <track model="islandtrack_track.b3d" x="0" y="0" z="0"/>
-  <water model="Water.b3d" xyz="8.845343 0.000000 -0.728317" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000" height="0.6" speed="300">
-    <animated-texture name="water_light.png" dy="0.0500000007451" />
+  <water model="Water.b3d" xyz="8.845343 0.000000 -0.728317" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000" height="0.60" speed="300.00">
+    <animated-texture name="water_light.png" dy="0.050" />
   </water>
-  <sun  xyz="14.9597110748 5.90386199951 0.779863536358"/>
+  <weather particles="none.xml" />
   <banana x="-69.491959" y="25" z="-87.157188" />
   <item x="-17.470287" y="25" z="-54.1586" />
   <item x="-44.838158" y="25" z="26.494734" />
@@ -45,11 +45,12 @@
   <sky-dome texture="sky2.jpg"
             horizontal="16" vertical="16" 
             texture-percent="1.0" sphere-percent="2.0"
-            speed-x="0" speed-y="0" />
+            speed-x="0.0" speed-y="0.0" />
+  <camera far="1000.0"/>
   <default-start karts-per-row     ="2"
-                 forwards-distance ="1.5"
-                 sidewards-distance="3"
-                 upwards-distance  ="0.1"/>
+                 forwards-distance ="1.50"
+                 sidewards-distance="3.00"
+                 upwards-distance  ="0.10"/>
   <end-cameras>
     <camera type="static_follow_kart" xyz="-171.678848 -0.656335 103.592842" distance="7.5"/>
     <camera type="static_follow_kart" xyz="-239.978836 11.263998 88.137695" distance="30"/>
