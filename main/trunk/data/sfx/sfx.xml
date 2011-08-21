@@ -43,6 +43,6 @@
    <sfx filename="track_intro.ogg"      volume="1.0" positional="false" />
    <sfx filename="ugh.ogg"              volume="1.0" positional="false" />
    <sfx filename="wee.ogg"              volume="1.0" positional="false" />
-   <sfx filename="wooden_bridge.ogg"    volume="1.0" positional="true" rolloff="0.1"  />
+   <sfx filename="wooden_bridge.ogg"    volume="0.4" positional="true" rolloff="0.1"  />
 </sfx-config>
 
