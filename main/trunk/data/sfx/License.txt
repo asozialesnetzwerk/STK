@@ -3,6 +3,10 @@
     Released under the GPL
     by the "Battle For Wesnoth" project
 
+* ball_bounce
+    Released under GPL vs2+
+    by the Supertux team
+
 * bowling_roll
     Released under the CC-BY-SA 3.0 license (sounds originally released under CC-Sampling+, but obtained permission
     from author to release them under CC-By-SA 3.0)
