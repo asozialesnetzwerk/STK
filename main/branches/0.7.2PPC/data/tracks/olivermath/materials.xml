@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 6875 -->
+<materials>
+  <material name="mathclassfloor.png" transparency="Y">
+    <particles base="smoke.xml" condition="skid" />
+  </material>
+  
+</materials>
