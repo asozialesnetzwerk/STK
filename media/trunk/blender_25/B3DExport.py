@@ -258,7 +258,7 @@ def write_texs(objects=[]):
                         
                         img = data.uv_textures[0].data[face.index].image
                         
-                        if len(data.uv_textures) > 0 and img:
+                        if img:
                             
                             if img.filepath in trimmed_paths:
                                 img_name = trimmed_paths[img.filepath]
@@ -1164,7 +1164,7 @@ def write_node_mesh_tris(obj, data, obj_count,arm_action,exp_root):
                 img_id = -1
 
                 img = data.uv_textures[0].data[face.index].image
-                if face.index < len(data.uv_textures[0].data) and img:
+                if img:
                     
                     if img.filepath in trimmed_paths:
                         img_name = trimmed_paths[img.filepath]
