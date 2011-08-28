@@ -321,6 +321,11 @@ class Driveline:
         self.lRight  = [self.lStart[1], self.dNext[self.lStart[1]][0]]
         self.lCenter = []
         
+        # this is for error handling only
+        processed_vertices = {}
+        processed_vertices[self.lStart[0]] = True
+        processed_vertices[self.lStart[1]] = True
+
         # The quads can be either clockwise or counter-clockwise oriented. STK
         # expectes counter-clockwise, so if the orientation is wrong, swap
         # left and right side.
@@ -352,6 +357,8 @@ class Driveline:
 
         while count < max_count:
             count = count + 1
+
+            processed_vertices[self.lLeft[-1]] = True
 
             # Get all neighbours. One is the previous point, one
             # points to the opposite side - we need the other one.
@@ -389,6 +396,8 @@ class Driveline:
             self.lLeft.append(next_left[0])
 
             
+            processed_vertices[self.lRight[-1]] = True
+
             # Same for other side:
             neighb = self.dNext[self.lRight[-1]]
             next_right = []
@@ -434,6 +443,11 @@ class Driveline:
                 break                
             self.lRight.append(next_right[0])
 
+            processed_vertices[self.lRight[-1]] = True
+            processed_vertices[self.lLeft[-1]] = True
+            processed_vertices[self.lRight[-2]] = True
+            processed_vertices[self.lLeft[-2]] = True
+
             cp=[]
             for i in range(3):
                 cp.append((self.mesh.vertices[self.lLeft[-2]].co[i] + 
@@ -445,6 +459,29 @@ class Driveline:
         if count>=max_count:
             log_warning("Warning, Only the first %d vertices of driveline '%s' are exported" %\
                         (max_count, self.name))
+        
+        if warning_printed != 1:
+            
+            not_connected = None
+            not_connected_distance = 99999
+            
+            for v in self.dNext:
+                if not v in processed_vertices:
+                    
+                    # find closest connected vertex (this is only to improve the error message)
+                    for pv in processed_vertices:
+                        dist = (self.mesh.vertices[v].co - self.mesh.vertices[pv].co).length
+                        if dist < not_connected_distance:
+                            not_connected_distance = dist
+                            not_connected = v
+            
+            if not_connected:
+                log_warning("Warning, driveline '%s' appears to be broken in separate sections. Vertex at %f %f %f is not connected with the rest" % \
+                                    (self.name,
+                                     self.mesh.vertices[not_connected].co[0],
+                                     self.mesh.vertices[not_connected].co[1],
+                                     self.mesh.vertices[not_connected].co[2]))
+
         
         # Now remove the first two points, which are only used to indicate
         # the starting point:
