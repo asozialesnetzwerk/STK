@@ -3,7 +3,6 @@
 
   <!-- Particles -->
   <material name="smoke.png"             compositing="blend" light="N" ignore="Y"/>
-  <material name="smoke_acid.png"        compositing="blend" light="N" ignore="Y"/>
   <material name="smoke_yellow.png"      compositing="blend" light="N" ignore="Y"/>
   <material name="smoke_brown.png"       compositing="blend" light="N" ignore="Y"/>
   <material name="smoke_red.png"         compositing="blend" light="N" ignore="Y"/>
