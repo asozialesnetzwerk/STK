@@ -1699,24 +1699,25 @@ class TrackExport:
 
 
         lTextureDefaults = {
-               'light'            : ("Y", None),
-               'backface_culling' : ("Y", None),
-               'below_surface'    : ("N", None),
-               'compositing'      : ('none', None),
-               'crash_reset'      : ("N", None),
-               'clampu'           : ("N", None),
-               'clampv'           : ("N", None),
-               'disable_z_write'  : ("N", None),
-               'falling_effect'   : ("N", None),
-               'graphical_effect' : ('none', None),
-               'ignore'           : ("N", None),
-               'mask'             : ("", None),
-               'reset'            : ("N", None),
-               'sphere'           : ("N", None),
-               'surface'          : ("N", None),
-               'high_adhesion'    : ('false', None),
-               'slowdown_time'    : (1.0, 'use_slowdown'),
-               'max_speed'        : (1.0, 'use_slowdown')
+               'light'                 : ("Y", None),
+               'backface_culling'      : ("Y", None),
+               'below_surface'         : ("N", None),
+               'compositing'           : ('none', None),
+               'crash_reset'           : ("N", None),
+               'crash_reset_particles' : ("", 'crash_reset'),
+               'clampu'                : ("N", None),
+               'clampv'                : ("N", None),
+               'disable_z_write'       : ("N", None),
+               'falling_effect'        : ("N", None),
+               'graphical_effect'      : ('none', None),
+               'ignore'                : ("N", None),
+               'mask'                  : ("", None),
+               'reset'                 : ("N", None),
+               'sphere'                : ("N", None),
+               'surface'               : ("N", None),
+               'high_adhesion'         : ('false', None),
+               'slowdown_time'         : (1.0, 'use_slowdown'),
+               'max_speed'             : (1.0, 'use_slowdown')
         }
 
         lBooleanAttributes = ["clampu","clampv","light","sphere","surface","below_surface",

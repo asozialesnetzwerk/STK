@@ -604,6 +604,10 @@ SFX_PROPERTIES = OrderedDict([
        ('sfx_rolloff'   , StkFloatProperty( id='sfx_rolloff',    name="Rolloff rate",             default=0.1))
        ])
 
+CRASH_RESET_PROPERTIES = OrderedDict([
+       ('crash_reset_particles',  StkProperty( id='crash_reset_particles', name="Particles on hit", default=""))
+       ])
+
 STK_MATERIAL_PROPERTIES = OrderedDict([
        ('light',            StkBoolProperty( id='light',            name="Affected by lights",         default="true",  contextLevel=CONTEXT_MATERIAL, docs="Whether this material is affected by lgihts and shadows")),
        ('backface_culling', StkBoolProperty( id='backface_culling', name="Backface Culling",           default="true",  contextLevel=CONTEXT_MATERIAL, docs="If checked, this material will only be visible on the side of the normal")),
@@ -621,7 +625,7 @@ STK_MATERIAL_PROPERTIES = OrderedDict([
        ('particle',         StkBoolProperty( id='particle',         name="Particle effect",            default="false", contextLevel=CONTEXT_MATERIAL, subproperties=PARTICLE_PROPERTIES, docs="Whether to emit particles (e.g. smoke) when driving on this surface")),
        ('use_sfx',          StkBoolProperty( id='use_sfx',          name="Play sound effect",          default="false", contextLevel=CONTEXT_MATERIAL, subproperties=SFX_PROPERTIES, docs="Whether to play a sound when driving on this surface")),
        ('reset',            StkBoolProperty( id='reset',            name="Reset kart (on drive)",      default="false", contextLevel=CONTEXT_MATERIAL, docs="whether to rescue kart if it ends up [driving] on this surface")),
-       ('crash_reset',      StkBoolProperty( id='crash_reset',      name="Reset kart (on touch)",      default="false", contextLevel=CONTEXT_MATERIAL, docs="whether to rescue kart if it touches/hits this material in any way")),
+       ('crash_reset',      StkBoolProperty( id='crash_reset',      name="Reset kart (on touch)",      default="false", contextLevel=CONTEXT_MATERIAL, subproperties=CRASH_RESET_PROPERTIES, docs="whether to rescue kart if it touches/hits this material in any way")),
        ('sphere',           StkBoolProperty( id='sphere',           name="Sphere mapping",             default="false", contextLevel=CONTEXT_MATERIAL, docs="use sphere mapping on this object (mainly used to simulate a reflection effect)")),
        ('surface',          StkBoolProperty( id='surface',          name="Surface",                    default="false", contextLevel=CONTEXT_MATERIAL, docs="whether this material is the surface of a water area")),
        ('zipper',           StkBoolProperty( id='zipper',           name="Zipper (speed boost)",       default="false", contextLevel=CONTEXT_MATERIAL, subproperties=ZIPPER_PROPERTIES, docs="Whether to get a speed boost when driving on this surface"))
