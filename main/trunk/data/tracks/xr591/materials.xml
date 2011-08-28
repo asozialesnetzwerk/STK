@@ -9,8 +9,8 @@
     <particles condition="skid drive" base="acid_splash.xml"/>
   </material>
   <material name="acid_lake_bottom.jpg" reset="Y" graphical-effect="water" falling-effect="Y"/>
-  <material name="arc1.png" reset="Y" crash-reset="Y" compositing="blend" backface-culling="N" light="N" disable-z-write="Y"/>
-  <material name="arc2.png" reset="Y" crash-reset="Y" compositing="blend" backface-culling="N" light="N" disable-z-write="Y"/>
+  <material name="arc1.png" reset="Y" crash-reset="Y" crash-reset-particles="sparks.xml" compositing="blend" backface-culling="N" light="N" disable-z-write="Y"/>
+  <material name="arc2.png" reset="Y" crash-reset="Y" crash-reset-particles="sparks.xml" compositing="blend" backface-culling="N" light="N" disable-z-write="Y"/>
   <material name="laser_bridge_green.png" compositing="blend" backface-culling="N"/>
   <material name="laser_bridge_red.png" compositing="blend" backface-culling="N"/>
   <material name="metal_ground.jpg">

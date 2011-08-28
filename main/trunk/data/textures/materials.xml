@@ -2,6 +2,7 @@
 <materials>
 
   <!-- Particles -->
+  <material name="flaring-star.png"      compositing="additive" ignore="Y"/>
   <material name="smoke.png"             compositing="blend" light="N" ignore="Y"/>
   <material name="smoke_yellow.png"      compositing="blend" light="N" ignore="Y"/>
   <material name="smoke_brown.png"       compositing="blend" light="N" ignore="Y"/>
