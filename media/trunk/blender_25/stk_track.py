@@ -1703,6 +1703,7 @@ class TrackExport:
                'backface_culling' : ("Y", None),
                'below_surface'    : ("N", None),
                'compositing'      : ('none', None),
+               'crash_reset'      : ("N", None),
                'clampu'           : ("N", None),
                'clampv'           : ("N", None),
                'disable_z_write'  : ("N", None),
@@ -1719,7 +1720,7 @@ class TrackExport:
         }
 
         lBooleanAttributes = ["clampu","clampv","light","sphere","surface","below_surface",
-                              "falling_effect",
+                              "falling_effect", "crash_reset",
                               "anisotropic","backface_culling","ignore","disable_z_write","reset",
                               "sfx_positional"]
         
