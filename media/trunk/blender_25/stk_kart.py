@@ -302,8 +302,6 @@ def exportKart(path):
     f.write('</kart>\n')
     f.close()
 
-    # Export the actual kart (the wheels are already exported in saveWheels)
-    global the_scene
     the_scene.obj_list = lKart
     
     if 'b3d_export' not in dir(bpy.ops.screen):
@@ -316,6 +314,14 @@ def exportKart(path):
     the_scene.obj_list = []
     
     #b3d_export.write_b3d_file(Blender.sys.join(path, model_file), lKart)
+    
+    # materials file
+    # ----------
+    if 'stk_material_exporter' not in dir(bpy.ops.screen):
+        log_error("Cannot find the material exporter, make sure you installed it properly")
+        return
+    
+    bpy.ops.screen.stk_material_exporter(filepath=path)
     
     import datetime
     now = datetime.datetime.now()
