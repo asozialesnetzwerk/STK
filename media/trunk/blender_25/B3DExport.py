@@ -63,15 +63,11 @@ b3d_parameters = {}
 texture_flags  = []
 texs_stack     = {}
 brus_stack     = []
-mesh_stack     = []
+vertex_groups  = []
 bone_stack     = {}
 keys_stack     = []
 
 texture_count = 0
-
-# mesh_stack indices constants
-VERTEX_ID = 0
-VERTEX_GROUPS = 1
 
 # bone_stack indices constants
 BONE_PARENT_MATRIX = 0
@@ -124,13 +120,13 @@ trimmed_paths = {}
 # (main exporter function)
 def write_b3d_file(filename, objects=[]):
     global texture_flags, texs_stack, trimmed_paths
-    global brus_stack, mesh_stack, bone_stack, keys_stack
+    global brus_stack, vertex_groups, bone_stack, keys_stack
 
     #Global Stacks
     texture_flags = []
     texs_stack = {}
     brus_stack = []
-    mesh_stack = []
+    vertex_groups = []
     bone_stack = []
     keys_stack = []
     trimmed_paths = {}
@@ -765,15 +761,15 @@ def write_node(objects=[]):
                                         bone_matrix = bone_matrix*mathutils.Matrix([[-1,0,0,0],[0,0,1,0],[0,1,0,0],[0,0,0,1]])
                                     else:
                                         
-                                        if frame_count == 1:
-                                            print("====",bone_name,"====")
-                                            print("arm_matrix = ", arm_matrix)
-                                            print("bone_matrix = ", bone_matrix)
+                                        #if frame_count == 1:
+                                        #    print("====",bone_name,"====")
+                                        #    print("arm_matrix = ", arm_matrix)
+                                        #    print("bone_matrix = ", bone_matrix)
                                         
                                         bone_matrix = arm_matrix*bone_matrix
                                         
-                                        if frame_count == 1:
-                                            print("arm_matrix*bone_matrix", bone_matrix)
+                                        #if frame_count == 1:
+                                        #    print("arm_matrix*bone_matrix", bone_matrix)
                                         
                                 
                                 #print("bone_matrix =", bone_matrix)
@@ -942,8 +938,8 @@ def write_node(objects=[]):
 
 # ==== Write NODE MESH Chunk ====
 def write_node_mesh(obj,obj_count,arm_action,exp_root):
-    global mesh_stack
-    mesh_stack = []
+    global vertex_groups
+    vertex_groups = []
     mesh_buf = bytearray()
     temp_buf = bytearray()
 
@@ -964,10 +960,10 @@ def write_node_mesh(obj,obj_count,arm_action,exp_root):
 
 #ids_count = 0
 
-def build_mesh_stack(data):
+def build_vertex_groups(data):
     for f in data.faces:
         for v in f.vertices:
-            mesh_stack.append([-1,{}])
+            vertex_groups.append({})
 
 #time_in_a = 0
 #time_in_b = 0
@@ -1010,35 +1006,36 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
     temp_buf.append(write_int(2)) #UV Set Size
 
     # ---- Prepare the mesh "stack"
-    build_mesh_stack(data)
+    build_vertex_groups(data)
 
     amount = 0
     
     # ---- Fill the mesh "stack"
     if DEBUG: print("")
-    if DEBUG: print("        <!-- Building mesh_stack -->\n")
+    if DEBUG: print("        <!-- Building vertex_groups -->\n")
 
     ivert = -1
 
 
     if PROGRESS_VERBOSE:
         progress = 0
-        print("    mesh_stack, face:",0,"/",len(data.faces))
+        print("    vertex_groups, face:",0,"/",len(data.faces))
     
     the_scene.frame_set(1,subframe=0.0)
     
     mesh_matrix = obj.matrix_world.copy()
     
-    #import time
-    #a = time.time()
+    import time
     
+    
+    uv_layers_count = len(data.uv_textures)
     for face in data.faces:
         
         if DEBUG: print("        <!-- Face",face.index,"-->")
         
         #if PROGRESS_VERBOSE:
         #    progress += 1
-        #    if (progress % 50 == 0): print("    mesh_stack, face:",progress,"/",len(data.faces))
+        #    if (progress % 50 == 0): print("    vertex_groups, face:",progress,"/",len(data.faces))
         
         per_face_vertices[face.index] = []
         
@@ -1048,72 +1045,89 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
                         
             per_face_vertices[face.index].append(ivert)
             
-            if mesh_stack[ivert][VERTEX_ID] == -1:
-                
+            #a = time.time()
+                            
+            if arm_action:
+                v = data.vertices[vert].co*mesh_matrix
+                vert_matrix = mathutils.Matrix.Translation(v)
+            else:
                 vert_matrix = mathutils.Matrix.Translation(data.vertices[vert].co)
-                
+
+            vert_matrix *= TRANS_MATRIX
+            vcoord = vert_matrix.to_translation()
+
+            temp_buf.append(write_float_triplet(vcoord.x, vcoord.z, vcoord.y))
+
+            #b = time.time()
+            #time_in_a += b - a
+            
+            if b3d_parameters.get("vertex-normals"):
+                norm_matrix = mathutils.Matrix.Translation(data.vertices[vert].normal)
+
                 if arm_action:
-                    v = data.vertices[vert].co*mesh_matrix
-                    vert_matrix = mathutils.Matrix.Translation(v)
+                    norm_matrix *= mesh_matrix
+
+                norm_matrix *= TRANS_MATRIX
+                normal_vector = norm_matrix.to_translation()
                 
-                vert_matrix *= TRANS_MATRIX
-                vert_matrix = vert_matrix.to_translation()
+                temp_buf.append(write_float_triplet(normal_vector.x,  #NX
+                                                    normal_vector.z,  #NY
+                                                    normal_vector.y)) #NZ
 
-                mesh_stack[ivert][VERTEX_ID] = ivert
-                vcoord = mathutils.Vector([vert_matrix[0], vert_matrix[1], vert_matrix[2]])
-                temp_buf.append(write_float_triplet(vcoord.x, vcoord.z, vcoord.y))
+            #c = time.time()
+            #time_in_b += c - b
 
-                if b3d_parameters.get("vertex-normals"):
-                    norm_matrix = mathutils.Matrix.Translation(data.vertices[vert].normal)
-
-                    if arm_action:
-                        norm_matrix *= mesh_matrix
-
-                    norm_matrix *= TRANS_MATRIX
-                    normal_vector = norm_matrix.to_translation()
-                    
-                    temp_buf.append(write_float_triplet(normal_vector.x,  #NX
-                                    normal_vector.z,  #NY
-                                    normal_vector.y)) #NZ
-
-                if b3d_parameters.get("vertex-colors") and len(data.vertex_colors) > 0:
-                    if vertex_id == 0:
-                        vcolor = data.vertex_colors[0].data[face.index].color1
-                    elif vertex_id == 1:
-                        vcolor = data.vertex_colors[0].data[face.index].color2
-                    elif vertex_id == 2:
-                        vcolor = data.vertex_colors[0].data[face.index].color3
-                    elif vertex_id == 3:
-                        vcolor = data.vertex_colors[0].data[face.index].color4
-                    
-                    temp_buf.append(write_float_quad(vcolor.r, #R
-                                                     vcolor.g, #G
-                                                     vcolor.b, #B
-                                                     1.0))     #A (FIXME?)
+            if b3d_parameters.get("vertex-colors") and len(data.vertex_colors) > 0:
+                if vertex_id == 0:
+                    vcolor = data.vertex_colors[0].data[face.index].color1
+                elif vertex_id == 1:
+                    vcolor = data.vertex_colors[0].data[face.index].color2
+                elif vertex_id == 2:
+                    vcolor = data.vertex_colors[0].data[face.index].color3
+                elif vertex_id == 3:
+                    vcolor = data.vertex_colors[0].data[face.index].color4
                 
-                for vg in obj.vertex_groups:
-                    w = 0.0
-                    try:
-                        w = vg.weight(vert)
-                    except:
-                        pass
-                    mesh_stack[ivert][VERTEX_GROUPS][vg.name] = (vg.name, w)
-                                    
-                for iuvlayer in range(len(data.uv_textures)):
-                    if vertex_id == 0:
-                        uv = data.uv_textures[iuvlayer].data[face.index].uv1
-                    elif vertex_id == 1:
-                        uv = data.uv_textures[iuvlayer].data[face.index].uv2
-                    elif vertex_id == 2:
-                        uv = data.uv_textures[iuvlayer].data[face.index].uv3
-                    elif vertex_id == 3:
-                        uv = data.uv_textures[iuvlayer].data[face.index].uv4
-                    
+                temp_buf.append(write_float_quad(vcolor.r, #R
+                                                 vcolor.g, #G
+                                                 vcolor.b, #B
+                                                 1.0))     #A (FIXME?)
+            
+            #d = time.time()
+            #time_in_b1 += d - c
+            
+            for vg in obj.vertex_groups:
+                w = 0.0
+                try:
+                    w = vg.weight(vert)
+                except:
+                    pass
+                vertex_groups[ivert][vg.name] = w
+            
+            #e = time.time()
+            #time_in_b2 += e - d
+            
+            # ==== !!bottleneck here!! (40% of the function)
+            if vertex_id == 0:
+                for iuvlayer in range(uv_layers_count):
+                    uv = data.uv_textures[iuvlayer].data[face.index].uv1
+                    temp_buf.append(write_float_couple(uv[0], 1-uv[1]) ) # U, V
+            elif vertex_id == 1:
+                for iuvlayer in range(uv_layers_count):
+                    uv = data.uv_textures[iuvlayer].data[face.index].uv2
+                    temp_buf.append(write_float_couple(uv[0], 1-uv[1]) ) # U, V
+            elif vertex_id == 2:
+                for iuvlayer in range(uv_layers_count):
+                    uv = data.uv_textures[iuvlayer].data[face.index].uv3
+                    temp_buf.append(write_float_couple(uv[0], 1-uv[1]) ) # U, V
+            elif vertex_id == 3:
+                for iuvlayer in range(uv_layers_count):
+                    uv = data.uv_textures[iuvlayer].data[face.index].uv4
                     temp_buf.append(write_float_couple(uv[0], 1-uv[1]) ) # U, V
 
-    
-    #b = time.time()
-    #time_in_a += b - a
+            #f = time.time()
+            #time_in_b3 += f - e
+            # =====================
+
     
     if DEBUG: print("")
     
@@ -1312,13 +1326,13 @@ def write_node_bone(ibone):
 
     my_name = bone_stack[ibone][BONE_ITSELF].name
 
-    for ivert in range(len(mesh_stack)):
-        if my_name in mesh_stack[ivert][VERTEX_GROUPS]:
-            vert_influ = mesh_stack[ivert][VERTEX_GROUPS][my_name]
-            if DEBUG: print("        <bone name=",bone_stack[ibone][BONE_ITSELF].name,"face_vertex_id=", mesh_stack[ivert][VERTEX_ID] + iuv,
+    for ivert in range(len(vertex_groups)):
+        if my_name in vertex_groups[ivert]:
+            vert_influ = vertex_groups[ivert][my_name]
+            if DEBUG: print("        <bone name=",bone_stack[ibone][BONE_ITSELF].name,"face_vertex_id=", ivert + iuv,
                             " weigth=", vert_influ[1] , "/>")
-            temp_buf.append(write_int(mesh_stack[ivert][VERTEX_ID])) # Face Vertex ID
-            temp_buf.append(write_float(vert_influ[1])) #Weight
+            temp_buf.append(write_int(ivert)) # Face Vertex ID
+            temp_buf.append(write_float(vert_influ)) #Weight
 
     bone_buf += write_chunk(b"BONE", b"".join(temp_buf))
     temp_buf = []
