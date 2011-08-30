@@ -126,13 +126,13 @@ public class B3DReader
             float rot = readFloat(i);
             read += 28;
             
-            System.out.println("    TEXS entry " + n + ": ");
-            System.out.println("        Filename: " + filename);
-            System.out.println("        Flags: " + flags);
-            System.out.println("        Blend: " + blend);
-            System.out.println("        Position: (" + format2(x) + ", " + format2(y)  + ")");
-            System.out.println("        Scale: (" + format2(x_scale) + ", " + format2(y_scale) + ")");
-            System.out.println("        Rotation: " + rot);
+            System.out.println("        TEXS entry " + n + ": ");
+            System.out.println("            Filename: " + filename);
+            System.out.println("            Flags: " + flags);
+            System.out.println("            Blend: " + blend);
+            System.out.println("            Position: (" + format2(x) + ", " + format2(y)  + ")");
+            System.out.println("            Scale: (" + format2(x_scale) + ", " + format2(y_scale) + ")");
+            System.out.println("            Rotation: " + rot);
             
             n++;
         }
@@ -159,19 +159,19 @@ public class B3DReader
             int fx = readInt(i);
             read += 28;
 
-            System.out.println("    BRUSH " + brush_id + " :");
-            System.out.println("        Material name: " + name);
-            System.out.println("        RGBA: (" + r + ", " + g + ", " + b + ", " + a + ")");
-            System.out.println("        Shininess: " + shininess);
-            System.out.println("        Blend: " + blend);
-            System.out.println("        FX: " + fx);
+            System.out.println("        BRUSH " + brush_id + " :");
+            System.out.println("            Material name: " + name);
+            System.out.println("            RGBA: (" + r + ", " + g + ", " + b + ", " + a + ")");
+            System.out.println("            Shininess: " + shininess);
+            System.out.println("            Blend: " + blend);
+            System.out.println("            FX: " + fx);
             
             
             for (int n=0; n<num; n++)
             {
                 int tid = readInt(i);
                 read += 4;
-                System.out.println("        TextureID[" + n + "] : " + tid);
+                System.out.println("            TextureID[" + n + "] : " + tid);
             }
             
             brush_id++;
@@ -242,7 +242,7 @@ public class B3DReader
     public static void readTRISChunk(InputStream i, final int length) throws Exception
     {
         int brush_id = readInt(i);
-        System.out.println("        BrushID: " + brush_id);
+        System.out.println("            Tris.BrushID: " + brush_id);
         
         int read = 4;
         
@@ -253,7 +253,7 @@ public class B3DReader
             int vertex_3 = readInt(i);
             read += 12;
             if (showVrts)
-                System.out.println("        Triangle: (" + vertex_1 + ", " + vertex_2 + ", " + vertex_3 + ")");
+                System.out.println("            Triangle: (" + vertex_1 + ", " + vertex_2 + ", " + vertex_3 + ")");
         }
     }
     
