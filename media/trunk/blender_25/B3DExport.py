@@ -247,12 +247,15 @@ def write_texs(objects=[]):
                 for iuvlayer,uvlayer in enumerate(data.uv_textures):
                     if iuvlayer < 8:
                         
+                        if not (iuvlayer < len(data.uv_textures)):
+                            continue
+                        
                         # FIXME?
                         #data.activeUVLayer = uvlayer
                         
                         #if DEBUG: print("<uv face=", face.index, ">")
                         
-                        img = data.uv_textures[0].data[face.index].image
+                        img = data.uv_textures[iuvlayer].data[face.index].image
                         
                         if img:
                             
@@ -332,29 +335,35 @@ def write_brus(objects=[]):
 
             if DEBUG: print("<obj name=",obj.name,">")
 
+            img_found = 0
+            
             for face in data.faces:
-                img = data.uv_textures[0].data[face.index].image
                 
-                if face.index >= len(data.uv_textures[0].data) or not img:
-                    continue
-                
-                img_found = 0
                 face_stack = []
-                
-                if img.filepath in trimmed_paths:
-                    img_name = trimmed_paths[img.filepath]
-                else:
-                    img_name = os.path.basename(img.filepath)
-                    trimmed_paths[img.filepath] = img_name
-                
-                if DEBUG: print("    <!-- Building FACE 'stack' -->")
                 
                 # FIXME: add back support for multiple UV layers!
                 for iuvlayer,uvlayer in enumerate(data.uv_textures):
                     if iuvlayer < 8:
                         
                         img_id = -1
+                        
+                        if face.index >= len(data.uv_textures[iuvlayer].data):
+                            continue
+                        
+                        img = data.uv_textures[iuvlayer].data[face.index].image
+                        
+                        if not img:
+                            continue
+                        
                         img_found = 1
+                        
+                        if img.filepath in trimmed_paths:
+                            img_name = trimmed_paths[img.filepath]
+                        else:
+                            img_name = os.path.basename(img.filepath)
+                            trimmed_paths[img.filepath] = img_name
+                        
+                        if DEBUG: print("    <!-- Building FACE 'stack' -->")
                         
                         if img_name in texs_stack:
                             img_id = texs_stack[img_name][TEXTURE_ID]
@@ -448,6 +457,8 @@ def write_brus(objects=[]):
     if len(temp_buf) > 0:
         brus_buf += write_chunk(b"BRUS",write_int(texture_count) + temp_buf) #N Texs
         temp_buf = ""
+
+    print("==BRUS STACK==", brus_stack)
 
     return brus_buf
 
@@ -1169,6 +1180,9 @@ def write_node_mesh_tris(obj, data, obj_count,arm_action,exp_root):
         for iuvlayer,uvlayer in enumerate(data.uv_textures):
             if iuvlayer < 8:
                 
+                if iuvlayer >= len(data.uv_textures):
+                    continue
+                
                 #FIXME?
                 #data.activeUVLayer = uvlayer
 
@@ -1177,7 +1191,7 @@ def write_node_mesh_tris(obj, data, obj_count,arm_action,exp_root):
 
                 img_id = -1
 
-                img = data.uv_textures[0].data[face.index].image
+                img = data.uv_textures[iuvlayer].data[face.index].image
                 if img:
                     
                     if img.filepath in trimmed_paths:
@@ -1214,6 +1228,8 @@ def write_node_mesh_tris(obj, data, obj_count,arm_action,exp_root):
                 if brus_stack[i] == face_stack:
                     brus_id = i
                     break
+            if brus_id == -1:
+                print("Cannot find in brus stack : ", face_stack)
 
         if brus_id in dBrushId2Face:
             dBrushId2Face[brus_id].append(face)
