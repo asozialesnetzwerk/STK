@@ -1,16 +1,9 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 9117 -->
+<!-- Generated with script from SVN rev Unknown -->
 <materials>
   <material name="blueZipper.png" compositing="blend" light="N"/>
   <material name="blueZipper_effect.png" compositing="blend" light="N"/>
-  
-  <material name="greenice.png">
-    <particles base="smoke.xml" condition="skid" />
-  </material>
-  
-  <material name="ice.png" reset="Y"/>
   <material name="icepic.png" compositing="test" backface-culling="N"/>
-  <material name="invisible.png" compositing="test"/>
   <material name="sky.jpg" light="N"/>
   <material name="transparence.png" compositing="test"/>
   <material name="tree_1.png" compositing="blend" disable-z-write="Y" backface-culling="N"/>
