@@ -1073,9 +1073,16 @@ class TrackExport:
         if shape:
             shape="shape=\"%s\""%shape
         if not ipo: ipo=[]
-        # Note: Y and Z are swapped!
-        f.write("  <object type=\"animation\" model=\"%s\" %s %s%s>\n"% \
-                (name, getXYZHPRString(obj), shape, looped))
+        
+        lodstring = self.getLODString(obj)
+        
+        # TODO: don't export any model name for LOD instances
+        if parent and parent.type=="ARMATURE":
+            f.write("  <object type=\"animation\" model=\"%s\" %s %s%s%s>\n"% \
+                    (name, getXYZHPRString(parent), shape, looped, lodstring))
+        else:
+            f.write("  <object type=\"animation\" model=\"%s\" %s %s%s%s>\n"% \
+                    (name, getXYZHPRString(obj), shape, looped, lodstring))
         self.writeIPO(f, ipo)
         f.write("  </object>\n")
             
@@ -1101,6 +1108,9 @@ class TrackExport:
     # physical).
     def writeStaticObjects(self, f, sPath, lStaticObjects, lAnimTextures):
         for obj in lStaticObjects:
+            
+            lodstring = self.getLODString(obj)
+
             # An object can set the 'name' property, then this name will
             # be used to name the exported object (instead of the python name
             # which might be a default name with a number). Additionally, names
@@ -1110,17 +1120,44 @@ class TrackExport:
             name     = getProperty(obj, "name", obj.name)
             if len(name) == 0: name = obj.name
             
-            b3d_name = self.exportLocalB3D(obj, sPath, name)
-            kind     = getProperty(obj, "kind", "")
+            if getProperty(obj, "type", "X") != "lod_instance":
+                b3d_name = self.exportLocalB3D(obj, sPath, name)
+            kind = getProperty(obj, "kind", "")
+            
+            if getProperty(obj, "type", "X") == "lod_instance":
+                model_string = ""
+            else:
+                model_string =  " model=\"%s\""%b3d_name
+
             if lAnim:
-                f.write("    <static-object model=\"%s\" %s>\n"% \
-                        (b3d_name, getXYZHPRString(obj)) )
+                f.write("    <static-object%s%s %s>\n"% \
+                        (lodstring, model_string, getXYZHPRString(obj)) )
                 self.writeAnimatedTextures(f, lAnim)
                 f.write("    </static-object>\n")
             else:
-                f.write("    <static-object model=\"%s\" %s/>\n"% \
-                        (b3d_name, getXYZHPRString(obj)) )
+                f.write("    <static-object%s%s %s/>\n"% \
+                        (lodstring, model_string, getXYZHPRString(obj)) )
         self.writeAnimatedTextures(f, lAnimTextures)
+
+    # --------------------------------------------------------------------------
+    # Get LOD string for a given object (returns an empty string if object is not LOD)
+    def getLODString(self, obj):
+        lodstring = ""
+        type = getProperty(obj, "type", "object")
+        if type == "lod_model":
+            dist = type = getProperty(obj, "lod_distance", None)
+            if dist is None:
+                log_warning("LOD model " + obj.name + " has no distance property")
+            group = type = getProperty(obj, "lod_name", "")
+            if len(group) == 0:
+                log_warning("LOD model " + obj.name + " has no group property")
+            lodstring = ' lod_distance="' + str(dist) + '" lod_group="' + group + '"'
+        elif type == "lod_instance":
+            group = type = getProperty(obj, "lod_name", "")
+            if len(group) == 0:
+                log_warning("LOD instance " + obj.name + " has no group property")
+            lodstring = ' lod_instance="true" lod_group="' + group + '"'
+        return lodstring
 
     # --------------------------------------------------------------------------
     # billboard section (check if the billboard is correct and write in the file)
@@ -1384,7 +1421,7 @@ class TrackExport:
             dy = getProperty(obj, "anim_dy", 0)
             lAnimTextures.append( (anim_texture, dx, dy) )
         return lAnimTextures
-            
+    
     # --------------------------------------------------------------------------
     # Writes a non-static track object. The objects can be animated or
     # non-animated meshes, and physical or non-physical.
@@ -1392,7 +1429,9 @@ class TrackExport:
     def writeObject(self, f, sPath, obj):
         name     = getProperty(obj, "name", obj.name)
         if len(name) == 0: name = obj.name
-        b3d_name = self.exportLocalB3D(obj, sPath, name)
+        
+        if getProperty(obj, "type", "X") != "lod_instance":
+            b3d_name = self.exportLocalB3D(obj, sPath, name)
         
         # First kind of object: ipo. There is one or
         # more IPOs define controlling this object.
@@ -1414,9 +1453,12 @@ class TrackExport:
                             % obj.name)
                 shape="box"
             mass  = getProperty(obj, "mass", 10)
+            lodstring = self.getLODString(obj)
+
+            # TODO: don't export any model name for LOD instances
             f.write("  <object type=\"movable\" %s\n"%(getXYZHPRString(obj)))
-            f.write("          model=\"%s\" shape=\"%s\" mass=\"%s\"/>\n"\
-                    % (b3d_name, shape, mass))
+            f.write("          model=\"%s\" shape=\"%s\" mass=\"%s\"%s/>\n"\
+                    % (b3d_name, shape, mass, lodstring))
             
         # Now the object either has an IPO, or is a 'ghost' object.
         # Either can have an IPO. Even if the objects don't move
@@ -1519,6 +1561,7 @@ class TrackExport:
         lStaticObjects = []
         lOtherObjects  = []
         for obj in lObjects:
+
             interact = getProperty(obj, "interaction", "static")
             if interact=="static":
                 
@@ -1802,7 +1845,7 @@ class TrackExport:
                 found_main_driveline = True
             elif stktype=="DRIVELINE":
                 lDrivelines.append(Driveline(obj, 0))
-            elif stktype=="OBJECT" or stktype=="SPECIAL_OBJECT":
+            elif stktype=="OBJECT" or stktype=="SPECIAL_OBJECT" or stktype=="LOD_MODEL" or stktype=="LOD_INSTANCE":
                 lObjects.append(obj)
             # for billboard
             elif stktype=="BILLBOARD":

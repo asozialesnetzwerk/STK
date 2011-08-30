@@ -24,6 +24,7 @@ public class B3DReader
     static ArrayList<Chunk> m_all_brus = new ArrayList<Chunk>();
 
     static boolean showVrts = true;
+    static boolean showKeyframes = true;
     
     public static int readInt(InputStream i) throws Exception
     {
@@ -67,6 +68,21 @@ public class B3DReader
         return f;
     }
     
+    public static String readFloat(InputStream i, boolean printBytes) throws Exception
+    {
+        byte[] bytes = new byte[4];
+        if (i.read(bytes) != 4)
+        {
+            throw new RuntimeException("Can't read int");
+        }
+        
+        int packed_bytes = ((bytes[0] & 0xFF) | ((bytes[1] & 0xFF) << 8) | ((bytes[2] & 0xFF) << 16) | ((bytes[3] & 0xFF) << 24));
+        
+        float f = Float.intBitsToFloat(packed_bytes);
+        if (f == -0) f = 0;
+        return f + ""; // + " [" + Integer.toHexString(packed_bytes) + "]";
+    }
+    
     public static void readBB3DChunk(InputStream i, final int length) throws Exception
     {
         int version = readInt(i);
@@ -79,7 +95,11 @@ public class B3DReader
     
     public static String format3(float f)
     {
-        return String.format("%.3f", f);
+        String lOut = String.format("%.3f", f);
+        
+        if (lOut.equals("-0.000")) return "0.000";
+        
+        return lOut;
     }
     
     public static String format2(float f)
@@ -90,6 +110,8 @@ public class B3DReader
     public static void readTEXSChunk(InputStream i, final int length) throws Exception
     {
         int read = 0;
+        
+        int n = 0;
         
         while (read < length)
         {
@@ -104,12 +126,15 @@ public class B3DReader
             float rot = readFloat(i);
             read += 28;
             
+            System.out.println("    TEXS entry " + n + ": ");
             System.out.println("        Filename: " + filename);
             System.out.println("        Flags: " + flags);
             System.out.println("        Blend: " + blend);
             System.out.println("        Position: (" + format2(x) + ", " + format2(y)  + ")");
             System.out.println("        Scale: (" + format2(x_scale) + ", " + format2(y_scale) + ")");
             System.out.println("        Rotation: " + rot);
+            
+            n++;
         }
     }
     
@@ -117,6 +142,8 @@ public class B3DReader
     {
         int num = readInt(i);
         int read = 4;
+        
+        int brush_id = 0;
         
         while (read < length)
         {
@@ -132,6 +159,7 @@ public class B3DReader
             int fx = readInt(i);
             read += 28;
 
+            System.out.println("    BRUSH " + brush_id + " :");
             System.out.println("        Material name: " + name);
             System.out.println("        RGBA: (" + r + ", " + g + ", " + b + ", " + a + ")");
             System.out.println("        Shininess: " + shininess);
@@ -145,6 +173,8 @@ public class B3DReader
                 read += 4;
                 System.out.println("        TextureID[" + n + "] : " + tid);
             }
+            
+            brush_id++;
         }
     }
     
@@ -248,7 +278,9 @@ public class B3DReader
             int vertex_id = readInt(i);
             float weigth = readFloat(i);
             read += 8;
-            System.out.println("        Vertex: " + vertex_id + " (weight=" + weigth + ")");
+            
+            if (showVrts)
+                System.out.println("        Vertex: " + vertex_id + " (weight=" + weigth + ")");
         }
     }
     
@@ -263,7 +295,9 @@ public class B3DReader
         {
             int frame = readInt(i);
             read += 4;
-            System.out.println("        Frame: " + frame);
+            
+            if (showKeyframes)
+                System.out.println("        Frame: " + frame);
             
             if ((flags & 0x1) != 0)
             {
@@ -271,7 +305,9 @@ public class B3DReader
                 float y = readFloat(i);
                 float z = readFloat(i);
                 read += 12;
-                System.out.println("            Position: (" + format2(x) + ", " + format2(y) + ", " + format2(z) + ")");
+                
+                if (showKeyframes)
+                    System.out.println("            Position: (" + format2(x) + ", " + format2(y) + ", " + format2(z) + ")");
             }
             if ((flags & 0x2) != 0)
             {
@@ -279,7 +315,9 @@ public class B3DReader
                 float y = readFloat(i);
                 float z = readFloat(i);
                 read += 12;
-                System.out.println("            Scale: (" + format2(x) + ", " + format2(y) + ", " + format2(z) + ")");
+                
+                if (showKeyframes)
+                    System.out.println("            Scale: (" + format2(x) + ", " + format2(y) + ", " + format2(z) + ")");
             }
             if ((flags & 0x4) != 0)
             {
@@ -288,7 +326,9 @@ public class B3DReader
                 float y = readFloat(i);
                 float z = readFloat(i);
                 read += 16;
-                System.out.println("            Rot: (" + format3(w)  + ", " + format3(x) + ", " + format3(y) + ", " + format3(z) + ")");
+                
+                if (showKeyframes)
+                    System.out.println("            Rot: (" + format3(w)  + ", " + format3(x) + ", " + format3(y) + ", " + format3(z) + ")");
             }
         }
     }
@@ -353,7 +393,8 @@ public class B3DReader
         int len = readInt(i);
         
         for (int n=0; n<level; n++) System.out.print("    ");
-        System.out.println(tag_str + " (" + len + " bytes)");
+        // System.out.println(tag_str + " (" + len + " bytes)");
+        System.out.println(tag_str);
         
         if (tag_str.equals("BB3D"))
         {
@@ -404,8 +445,13 @@ public class B3DReader
     
     public static void main(String[] args) throws Exception
     {
-        if (args.length > 1 && args[1].equals("--no-vrts")) showVrts = false;
-        FileInputStream i = new FileInputStream( new File(args[0]) );
+        for (int n=0; n<args.length-1; n++)
+        {
+            if (args[n].equals("--no-vrts")) showVrts = false;
+            if (args[n].equals("--no-keys")) showKeyframes = false;
+        }
+            
+        FileInputStream i = new FileInputStream( new File(args[args.length - 1]) );
         
         readChunk(i, 0);
     }

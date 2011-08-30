@@ -463,6 +463,14 @@ type = StkEnumProperty('type', "Type",
                                   #'inner_radius' : StkFloatProperty("Color radius"),
                                   #'color'        : 
                                  }, docs="An extension to the factory lap line"),
+        'lod_instance'     : StkEnumChoice('LOD Instance',
+                                 {'lod_name'     :      StkProperty( id='lod_name',     name="LOD Group Name", default="SomeModel")
+                                 }, docs="A LOD (level-of-detail) instance, will display either of the LOD Models in this LOD group at this location"),
+        'lod_model'        : StkEnumChoice('LOD Model',
+                                 {'lod_distance' : StkFloatProperty( id='lod_distance', name="Distance",       default=60.0),
+                                  'lod_name'     :      StkProperty( id='lod_name',     name="LOD Group Name", default="SomeModel"),
+                                  'name'         :      StkProperty( id='name',         name="Model Filename", default="")
+                                 }, docs="A LOD (level-of-detail) model (this model will not be visible in game, only LOD instances will)"),
         'nitro_big'        : StkEnumChoice('Nitro (big)', {}, docs="A big nitro collectible (apply to an Empty)"),
         'nitro_small'      : StkEnumChoice('Nitro (small)', {}, docs="A small nitro collectible (apply to an Empty)"),
         'object'           : StkEnumChoice('Object', object_properties, docs="An (animatable) object that is exported to a separate model file"),
