@@ -39,9 +39,9 @@
     </curve>
   </object>
   <object type="movable" xyz="79.532364 0.067819 97.131233" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"
-          model="pot.b3d" shape="cone" mass="15.0"/>
+          model="pot.b3d" shape="cylinderY" mass="15.0"/>
   <object type="movable" xyz="103.951904 0.067819 100.646759" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"
-          model="pot.b3d" shape="cone" mass="15.0"/>
+          model="pot.b3d" shape="cylinderY" mass="15.0"/>
   <item x="-2.079498" y="-0.03716" z="47" />
   <item x="2" y="-0.03716" z="47" />
   <item x="74" y="-0.131533" z="97" />
