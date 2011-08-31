@@ -587,10 +587,15 @@ SKY_TYPES = {
                      ('sky_texture'        ,      StkProperty(id='sky_texture',         name='Sky Texture',           default="")),
                      ('sky_horizontal'     ,   StkIntProperty(id='sky_horizontal',      name='Horizontal Definition', default=20)),
                      ('sky_vertical'       ,   StkIntProperty(id='sky_vertical',        name='Vertical Definition',   default=20)),
-                     ('sky_texture_percent', StkFloatProperty(id='sky_texture_percent', name='Sky Texture Percent',   default=1.0)),
-                     ('sky_sphere_percent' , StkFloatProperty(id='sky_sphere_percent',  name='Sky Sphere Percent',    default=1.3)),
-                     ('sky_speed_x'        , StkFloatProperty(id='sky_speed_x',         name='Sky Speed X',           default=0.0)),
-                     ('sky_speed_y'        , StkFloatProperty(id='sky_speed_y',         name='Sky Speed Y',           default=0.0))])),
+                     ('sky_texture_percent', StkFloatProperty(id='sky_texture_percent', name='Sky Texture Percent',   default=1.0, min=0.0, max=1.0,
+                                                              doc="How much of the height of the texture is used")),
+                     ('sky_sphere_percent' , StkFloatProperty(id='sky_sphere_percent',  name='Sky Sphere Percent',    default=1.3, min=0.0, max=2.0,
+                                                              doc="1.0 : half-sphere; 2.0 : full sphere")),
+                     ('sky_speed_x'        , StkFloatProperty(id='sky_speed_x',         name='Sky Speed X',           default=0.0, min=0.0, max=10.0,
+                                                              doc="Speed at which the sky moves horizontally")),
+                     ('sky_speed_y'        , StkFloatProperty(id='sky_speed_y',         name='Sky Speed Y',           default=0.0, min=0.0, max=10.0,
+                                                              doc="Speed at which the sky moves vertically"))
+                     ])),
         'simple' : StkEnumChoice('Plain color',
                      {'sky_color' : StkColorProperty(id="sky_color", name="Sky Color", default="77 104 255", contextLevel=CONTEXT_SCENE,
                                                      doc="Click here to select the color of the sky")},
@@ -854,7 +859,7 @@ class PanelBase:
                 
                 # String or int or float property (Blender chooses the correct widget from the type of the ID-property)
                 if curr.id in obj:
-                    if "min" in dir(curr) and "max" in dir(curr):
+                    if "min" in dir(curr) and "max" in dir(curr) and curr.min is not None and curr.max is not None:
                         row.prop(obj, '["' + curr.id + '"]', text="", slider=True)
                     else:
                         row.prop(obj, '["' + curr.id + '"]', text="")
