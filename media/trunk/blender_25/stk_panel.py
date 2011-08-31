@@ -33,7 +33,6 @@ def getObject(context, contextLevel):
     
     return None
 
-# ==== TYPE OPERATORS ====
 class STK_TypeUnset(bpy.types.Operator):
     bl_idname = ("screen.stk_unset_type")
     bl_label = ("STK Object :: unset type")
@@ -43,74 +42,11 @@ class STK_TypeUnset(bpy.types.Operator):
         obj["type"] = ""
         return {'FINISHED'}
 
-#! @see StkEnumProperty
-class StkEnumChoice:
-    
-    #! @param name          User-visible name for this property
-    #! @param subproperties A dictionary of type { 'name' : StkProperty(...) }. Contains the
-    #                       properties that are to be shown when this enum item is selected
-    def __init__(self, name, subproperties, doc="(No documentation was defined for this item)"):
-        self.name = name
-        self.subproperties = subproperties
-        self.__doc__ = doc
-        self.doc = doc
-
-#! The base class for all properties
-class StkProperty:
-    def __init__(self, id, name, default, doc="(No documentation was defined for this item)"):
-        self.name = name
-        self.id = id
-        self.default = default
-        self.doc = doc
-
-
-class StkObjectReferenceProperty(StkProperty):
-    
-    def __init__(self, id, name, contextLevel, default, filter, doc="Select an object"):
-        super(StkObjectReferenceProperty, self).__init__(id, name, default)
-        self.doc = doc
-        
-        class SelectObjectOperator(bpy.types.Operator):
-            bl_idname = "scene.stk_select_object_" + id
-            bl_label = "Select Object Operator"
-            __doc__ = doc
-
-            m_id = id
-            m_context_level = contextLevel
-            
-            # name of the object to select
-            name = bpy.props.StringProperty()
-
-            def execute(self, context):
-                object = getObject(context, self.m_context_level)
-                object[self.m_id] = self.name
-                return {'FINISHED'}
-
-        bpy.utils.register_class(SelectObjectOperator)
-        
-        class ObjectPickerMenu(bpy.types.Menu):
-            m_filter = filter
-            bl_idname = "screen.stk_object_menu_" + id
-            bl_label  = ("SuperTuxKart Object Picker Menu (" + id + ")")
-            m_property_id = id
-            
-            def draw(self, context):
-                objects = context.scene.objects
-                
-                layout = self.layout
-                for object in objects:
-                    if self.m_filter(object):
-                        text = object.name
-                        object_id = object.name
-                        if 'name' in object:
-                            text = text + " (" + object["name"] + ")"
-                            object_id = object["name"]
-                        layout.operator("scene.stk_select_object_"+self.m_property_id, text=text).name=object_id
-                layout.operator("scene.stk_select_object_"+self.m_property_id, text="Lap").name="lap"
-
-        
-        bpy.utils.register_class(ObjectPickerMenu)
-
+# ------------------------------------------------------------------------------
+#! Utility function, creates all properties in a given object
+#!
+#! object   the object to create properties in
+#! props    a list of properties to create
 def createProperties(object, props):
     
     if not "_RNA_UI" in object:
@@ -172,11 +108,128 @@ def createProperties(object, props):
         except:
             pass
         
-        print(p,"~~>",rna_ui_dict)
         object["_RNA_UI"][p] = rna_ui_dict
 
 
+# ------------------------------------------------------------------------------
+#! The base class for all properties.
+#! If you use this property directly (and not a subclass), you get a simple text box
+class StkProperty:
+    def __init__(self, id, name, default, doc="(No documentation was defined for this item)"):
+        self.name = name
+        self.id = id
+        self.default = default
+        self.doc = doc
+
+
+# ------------------------------------------------------------------------------
+#! A text field where you can type a reference to another object (or a property
+#! of another object) with an optional dropdown button to see current choices
+#!
+#! id               the id of the blender id-property
+#! name             user-visible name
+#! contextLevel     object, scene, material level?
+#! default          default value for this property
+#! filter           a lambda taking arguments "self" and "object", and that returns
+#!                  parameter 'object' is to be displayed in the dropdown of this property
+#! doc              documentation to show in the tooltip
+#! static_objects   items to append to the menu unconditionally (a list of tuples of
+#!                  form 'id', 'visible name')
+#! unique_id_suffix if the blender id-property name is not unique, you can append a
+#!                  custom suffix here to make sure the 2 same-name properties each have
+#!                  their own dropdown (e.g. 'activate' for a checkline object and
+#!                  'activate' for a lapline)
+#! obj_identifier   a lambda taking arguments "self" and "object", and that returns
+#!                  the id (value) of an object that should be put in this property when
+#!                  the object is selected
+#! obj_text         a lambda taking arguments "self" and "object", and that returns
+#!                  the user-visible string to apear in the dropdown for an object
+class StkObjectReferenceProperty(StkProperty):
+    
+    def __init__(self, id, name, contextLevel, default, filter, doc="Select an object",
+                 static_objects=[], unique_id_suffix = "",
+                 obj_identifier=lambda self, obj: obj.name,
+                 obj_text=lambda self, obj: (obj.name + (" (" + obj["name"] + ")") if "name" in obj else "")):
+        super(StkObjectReferenceProperty, self).__init__(id, name, default)
+        self.doc = doc
+        self.unique_id_suffix = unique_id_suffix
+        
+        print("CTOR ",id + unique_id_suffix," static_objects = ", static_objects)
+
+        class SelectObjectOperator(bpy.types.Operator):
+            bl_idname = "scene.stk_select_object_" + id + unique_id_suffix
+            bl_label = "Select Object Operator"
+            __doc__ = doc
+
+            m_id = id
+            m_context_level = contextLevel
+            
+            # name of the object to select
+            name = bpy.props.StringProperty()
+
+            def execute(self, context):
+                object = getObject(context, self.m_context_level)
+                object[self.m_id] = self.name
+                return {'FINISHED'}
+
+        bpy.utils.register_class(SelectObjectOperator)
+        
+        class ObjectPickerMenu(bpy.types.Menu):
+            m_filter = filter
+            m_obj_identifier = obj_identifier
+            m_obj_text = obj_text
+            m_static_objects = static_objects
+            bl_idname = "screen.stk_object_menu_" + id + unique_id_suffix
+            bl_label  = ("SuperTuxKart Object Picker Menu (" + id + unique_id_suffix + ")")
+            m_property_id = id + unique_id_suffix
+            
+            def draw(self, context):
+                objects = context.scene.objects
+                
+                seen_objs = {}
+                
+                layout = self.layout
+                for object in objects:
+                    if self.m_filter(object):
+                        text = self.m_obj_text(object)
+                        object_id = self.m_obj_identifier(object)
+                        
+                        if object_id is not None and object_id not in seen_objs:
+                            layout.operator("scene.stk_select_object_"+self.m_property_id, text=text).name = object_id
+                            seen_objs[object_id] = True
+
+                print(self.bl_idname," :: self.m_static_objects =", self.m_static_objects)
+                for curr in self.m_static_objects:
+                    layout.operator("scene.stk_select_object_"+self.m_property_id, text=curr[1]).name=curr[0]
+
+        
+        bpy.utils.register_class(ObjectPickerMenu)
+
+# ------------------------------------------------------------------------------
+#! One entry in a StkEnumProperty
+class StkEnumChoice:
+    
+    #! @param name          User-visible name for this property
+    #! @param subproperties A dictionary of type { 'name' : StkProperty(...) }. Contains the
+    #                       properties that are to be shown when this enum item is selected
+    def __init__(self, name, subproperties, doc="(No documentation was defined for this item)"):
+        self.name = name
+        self.subproperties = subproperties
+        self.__doc__ = doc
+        self.doc = doc
+
+# ------------------------------------------------------------------------------
 #! An enum property
+#!
+#! id               the id of the blender id-property
+#! name             user-visible name
+#! values           the choices offered by this enum, as a list of 'StkEnumChoice' objects
+#! contextLevel     object, scene, material level?
+#! default          default value for this property
+#! unique_prefix    if the blender id-property name is not unique, you can prepend a
+#!                  custom prefix here to make sure the 2 same-name properties each have
+#!                  their own dropdown (e.g. 'activate' for a checkline object and
+#!                  'activate' for a lapline)
 class StkEnumProperty(StkProperty):
     
     def getOperatorName(self):
@@ -232,7 +285,16 @@ class StkEnumProperty(StkProperty):
             
         bpy.utils.register_class(STK_SetComboValue)
 
-#! A combinable enum property
+# ------------------------------------------------------------------------------
+#! A combinable enum property (each value can be checked or unchecked, and
+#! several values can be selected at once. gives a text property containing
+#! the IDs of the selected values, separated by spaces)
+#!
+#! id               the id of the blender id-property
+#! name             user-visible name
+#! values           the choices offered by this enum, as a list of 'StkEnumChoice' objects
+#! contextLevel     object, scene, material level?
+#! default          default value for this property
 class StkCombinableEnumProperty(StkProperty):
     
     #! @param name   User-visible name for this property
@@ -285,8 +347,17 @@ class StkCombinableEnumProperty(StkProperty):
                     return {'FINISHED'}
                 
             bpy.utils.register_class(STK_SetEnumComboValue)
-    
+
+
+# ------------------------------------------------------------------------------
 #! A floating-point property
+#!
+#! id               the id of the blender id-property
+#! name             user-visible name
+#! default          default value for this property
+#! doc              documentation shown to the user in a tooltip
+#! min              minimum accepted value
+#! max              maximum accepted value
 class StkFloatProperty(StkProperty):
     
     #! @param name   User-visible name for this property
@@ -298,7 +369,15 @@ class StkFloatProperty(StkProperty):
         self.max = max
 
 
+# ------------------------------------------------------------------------------
 #! An integer property
+#!
+#! id               the id of the blender id-property
+#! name             user-visible name
+#! default          default value for this property
+#! doc              documentation shown to the user in a tooltip
+#! min              minimum accepted value
+#! max              maximum accepted value
 class StkIntProperty(StkProperty):
     
     #! @param name   User-visible name for this property
@@ -308,7 +387,19 @@ class StkIntProperty(StkProperty):
         self.min = min
         self.max = max
 
-#! A boolean property
+
+# ------------------------------------------------------------------------------
+#! A boolean property (appears as a checkbox)
+#!
+#! id               the id of the blender id-property
+#! name             user-visible name
+#! contextLevel     object, scene, material level?
+#! default          default value for this property
+#! subproperties    a map of format {id : StkProperty} that specifies subproperties
+#!                  to activate when this checkbox is checked
+#! box              if True, the properties from 'subproperties' are displayed in
+#!                  a box
+#! doc              documentation shown to the user in a tooltip
 class StkBoolProperty(StkProperty):
     
     # (self, id, name, values, default):
@@ -362,7 +453,15 @@ class StkBoolProperty(StkProperty):
         
         bpy.utils.register_class(STK_ToggleBoolValue)
 
+
+# ------------------------------------------------------------------------------
 #! A color property
+#!
+#! id               the id of the blender id-property
+#! name             user-visible name
+#! contextLevel     object, scene, material level?
+#! default          default value for this property
+#! doc              documentation shown to the user in a tooltip
 class StkColorProperty(StkProperty):
     
     #! A floating-point property
@@ -445,6 +544,11 @@ class StkColorProperty(StkProperty):
 camera_properties = {'start' : StkFloatProperty(id='start', name="Start Sphere Radius", default=10.0)
                     }
 
+
+# ------------------------------------------------------------------------------
+#                                  THE PROPERTIES
+# ------------------------------------------------------------------------------
+
 # Property when type="object"
 object_properties = OrderedDict([
          ('name'       , StkProperty('name', "Name", "", doc="Name of this object (objects with the same name are exported as a single file)")),
@@ -479,7 +583,8 @@ type = StkEnumProperty('type', "Type",
         'billboard'        : StkEnumChoice('Billboard', {}, doc="A flat quad that will always face the camera"),
         'check'            : StkEnumChoice('Checkline', OrderedDict([
                                   ('name'    , StkProperty(id='name', name="Name", default="", doc="Name of the checkline")),
-                                  ('activate', StkObjectReferenceProperty(id='activate', name="Activate", default="", contextLevel=CONTEXT_OBJECT,
+                                  ('activate', StkObjectReferenceProperty(id='activate', unique_id_suffix="_checkline", name="Activate", default="",
+                                                                          contextLevel=CONTEXT_OBJECT, static_objects=[("lap","Lap")],
                                                                           filter=lambda self, o : 'type' in o and o['type'] == 'check',
                                                                           doc="Which check structure to activate when crossing this checkline"))
                                   #'toggle'  : Stkproperty("Toggle"),
@@ -493,7 +598,8 @@ type = StkEnumProperty('type', "Type",
                                                                 contextLevel=CONTEXT_OBJECT, doc="If checked, AIs will not drive on this path")
                                  }, doc="Driveline used to mark an alternate path"),
         'maindriveline'    : StkEnumChoice('Driveline (main)',
-                                 {'activate' : StkObjectReferenceProperty(id='activate', name="Activate", default="", contextLevel=CONTEXT_OBJECT,
+                                 {'activate' : StkObjectReferenceProperty(id='activate', unique_id_suffix="_maindriveline", name="Activate", default="",
+                                                                          contextLevel=CONTEXT_OBJECT,
                                                                           filter=lambda self, o : 'type' in o and o['type'] == 'check',
                                                                           doc="Which check structure to activate when crossing the lap line")
                                  }),
@@ -502,7 +608,8 @@ type = StkEnumProperty('type', "Type",
         'ignore'           : StkEnumChoice('Ignore', {}, doc="An object that is not exported and will not appear in-game"),
         'item'             : StkEnumChoice('Item (Gift Box)', {}, doc="A gift box containing a random collectible (apply to an Empty)"),
         'lap'              : StkEnumChoice('Lap line',
-                                 {'activate' : StkObjectReferenceProperty(id='activate', name="Activate", default="", contextLevel=CONTEXT_OBJECT,
+                                 {'activate' : StkObjectReferenceProperty(id='activate', unique_id_suffix="_lap", name="Activate", default="",
+                                                                          contextLevel=CONTEXT_OBJECT,
                                                                           filter=lambda self, o : 'type' in o and o['type'] == 'check',
                                                                           doc="Which check structure to activate when crossing the lap line")
                                   #'toggle'  : Stkproperty("Toggle"),
@@ -510,8 +617,12 @@ type = StkEnumProperty('type', "Type",
                                   #'color'        : 
                                  }, doc="An extension to the factory lap line"),
         'lod_instance'     : StkEnumChoice('LOD Instance',
-                                 {'lod_name'     :      StkProperty( id='lod_name',     name="LOD Group Name", default="SomeModel",
-                                                                     doc="Name of the LOD group this object is an instance of")
+                                 {'lod_name' : StkObjectReferenceProperty( id='lod_name', name="LOD Group Name", default="SomeModel",
+                                                                           doc="Name of the LOD group this object is an instance of",
+                                                                           contextLevel=CONTEXT_OBJECT,
+                                                                           filter=lambda self, o: "lod_name" in o,
+                                                                           obj_identifier=lambda self, o : o["lod_name"],
+                                                                           obj_text=lambda self, o : o["lod_name"])
                                  }, doc="A LOD (level-of-detail) instance, will display either of the LOD Models in this LOD group at this location"),
         'lod_model'        : StkEnumChoice('LOD Model',
                                  {'lod_distance' : StkFloatProperty( id='lod_distance', name="Distance",       default=60.0, min=0.0, max=5000.0,
@@ -852,7 +963,7 @@ class PanelBase:
               
                 if curr.id in obj:
                     row.prop(obj, '["' + curr.id + '"]', text="")
-                    row.menu("screen.stk_object_menu_" + curr.id, text="", icon='TRIA_DOWN')
+                    row.menu("screen.stk_object_menu_" + curr.id + curr.unique_id_suffix, text="", icon='TRIA_DOWN')
               
             else:
                 row.label(text=curr.name)
