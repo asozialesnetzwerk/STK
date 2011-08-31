@@ -118,24 +118,6 @@ def createProperties(object, props):
         
     for p in props.keys():
         
-        rna_ui_dict = {}
-        try:
-            rna_ui_dict["description"] = props[p].doc
-        except:
-            pass
-        
-        try:
-            if p.min is not None: rna_ui_dict["min"] = props[p].min
-        except:
-            pass
-        
-        try:
-            if p.max is not None: rna_ui_dict["max"] = props[p].max
-        except:
-            pass
-        
-        object["_RNA_UI"][p] = rna_ui_dict
-
         if not p in object:
             
             # create property by setting default value
@@ -168,6 +150,31 @@ def createProperties(object, props):
                 object[p] = str(object[p])
             except:
                 object[p] = props[p].default
+
+
+        rna_ui_dict = {}
+        try:
+            rna_ui_dict["description"] = props[p].doc
+        except:
+            pass
+        
+        try:
+            if props[p].min is not None:
+                rna_ui_dict["min"] = props[p].min
+                rna_ui_dict["soft_min"] = rops[p].min
+        except:
+            pass
+        
+        try:
+            if props[p].max is not None:
+                rna_ui_dict["max"] = props[p].max
+                rna_ui_dict["soft_max"] = props[p].max
+        except:
+            pass
+        
+        print(p,"~~>",rna_ui_dict)
+        object["_RNA_UI"][p] = rna_ui_dict
+
 
 #! An enum property
 class StkEnumProperty(StkProperty):
@@ -527,7 +534,7 @@ type = StkEnumProperty('type', "Type",
                                            ('sfx_filename'  ,      StkProperty( id='sfx_filename', name="Sound File",   default="some_file.ogg",
                                                                                 doc="Filename of the sound to play")),
                                            ('sfx_volume'    , StkFloatProperty( id='sfx_volume',   name="Sound volume", default=1.0, min=0.0, max=1.0)),
-                                           ('sfx_rolloff'   , StkFloatProperty( id='sfx_rolloff',  name="Rolloff rate", default=0.1, min=0.0, max=5.0,
+                                           ('sfx_rolloff'   , StkFloatProperty( id='sfx_rolloff',  name="Rolloff rate", default=0.1, min=0.0, max=2.5,
                                                                                 doc="How fast this osund decays when going farther from the emission point"))]),
                                            doc="A sound will be heard when close to this point"),
         'sun'              : StkEnumChoice('Sun',
@@ -683,7 +690,7 @@ SFX_PROPERTIES = OrderedDict([
                                             doc="Pitch of the sound when the kart is going fastly (1.0 is no change, < 1.0 is lower pitch, > 1.0 is higher pitch)")),
        ('sfx_positional',  StkBoolProperty( id='sfx_positional', name="Positional sound effect",  default="true", contextLevel=CONTEXT_MATERIAL,
                                             doc="If true, the sound will get dimmer when far from camera, and with panning; if false, it's heard at centered pan and at full volume")),
-       ('sfx_rolloff'   , StkFloatProperty( id='sfx_rolloff',    name="Rolloff rate",             default=0.1, min=0.0, max=5.0,
+       ('sfx_rolloff'   , StkFloatProperty( id='sfx_rolloff',    name="Rolloff rate",             default=0.1, min=0.0, max=2.5,
                                             doc="Speed at which the sound fades out as you stand further from the sound emitter"))
        ])
 
@@ -847,7 +854,10 @@ class PanelBase:
                 
                 # String or int or float property (Blender chooses the correct widget from the type of the ID-property)
                 if curr.id in obj:
-                    row.prop(obj, '["' + curr.id + '"]', text="")
+                    if "min" in dir(curr) and "max" in dir(curr):
+                        row.prop(obj, '["' + curr.id + '"]', text="", slider=True)
+                    else:
+                        row.prop(obj, '["' + curr.id + '"]', text="")
 
 # ==== OBJECT PANEL ====
 class SuperTuxKartObjectPanel(bpy.types.Panel, PanelBase):
