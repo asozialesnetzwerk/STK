@@ -205,6 +205,7 @@ class StkObjectReferenceProperty(StkProperty):
         
         bpy.utils.register_class(ObjectPickerMenu)
 
+
 # ------------------------------------------------------------------------------
 #! One entry in a StkEnumProperty
 class StkEnumChoice:
@@ -215,8 +216,8 @@ class StkEnumChoice:
     def __init__(self, name, subproperties, doc="(No documentation was defined for this item)"):
         self.name = name
         self.subproperties = subproperties
-        self.__doc__ = doc
         self.doc = doc
+
 
 # ------------------------------------------------------------------------------
 #! An enum property
@@ -317,7 +318,9 @@ class StkCombinableEnumProperty(StkProperty):
             
                 bl_idname = ("screen.stk_set_"+id+"_"+curr)
                 bl_label  = ("SuperTuxKart set "+id+" = " + curr)
-                __doc__ = values[curr].__doc__ + ""
+                
+                if values[curr].doc is not None:
+                    __doc__ = values[curr].doc + ""
                 
                 m_property_id = id
                 m_items_val = values_for_blender
@@ -779,7 +782,8 @@ SLOWDOWN_PROPERTIES = {
         }
 
 PARTICLE_PROPERTIES = {
-        'particle_base'      :               StkProperty( id='particle_base',      name="Particles file",        default="smoke.xml"),
+        'particle_base'      :               StkProperty( id='particle_base',      name="Particles file",        default="smoke.xml",
+                                                          doc="Name of the XML file containing the description of particles to use on this terrain"),
         'particle_condition' : StkCombinableEnumProperty( id='particle_condition', name="Use particles when...", default="skid",
                     contextLevel=CONTEXT_MATERIAL, values={'skid'  : StkEnumChoice('Skid',{}, doc="Use particle when skidding"),
                                                            'drive' : StkEnumChoice('Drive',{}, doc="Use particles during regular driving")})
@@ -1029,7 +1033,7 @@ createPreviewTexture()
 
 import os
 
-class ImagePickerMenu(bpy.types.Menu):
+class ImagePickerMenu(bpy.types.Menu):    
     bl_idname = "scene.stk_image_menu"
     bl_label  = "SuperTuxKart Image Menu"
     
