@@ -154,8 +154,6 @@ class StkObjectReferenceProperty(StkProperty):
         self.doc = doc
         self.unique_id_suffix = unique_id_suffix
         
-        print("CTOR ",id + unique_id_suffix," static_objects = ", static_objects)
-
         class SelectObjectOperator(bpy.types.Operator):
             bl_idname = "scene.stk_select_object_" + id + unique_id_suffix
             bl_label = "Select Object Operator"
@@ -639,7 +637,9 @@ type = StkEnumProperty('type', "Type",
         'nitro_small'      : StkEnumChoice('Nitro (small)', {}, doc="A small nitro collectible (apply to an Empty)"),
         'object'           : StkEnumChoice('Object', object_properties, doc="An (animatable) object that is exported to a separate model file"),
         'particle_emitter' : StkEnumChoice('Particle Emitter',
-                                 {'kind' : StkProperty(id='kind', name="Particle File", default="smoke.xml")
+                                 {'kind'          :    StkProperty(id='kind',          name="Particle File", default="smoke.xml"),
+                                  'clip_distance' : StkIntProperty(id='clip_distance', name="Clip Distance", default=0,
+                                                                   doc="If non-zero, the camera distance at which particles are hidden (for performance reasons)")
                                  }, doc="To be applied to an empty; particles will be emitted from this point"),
         'start'            : StkEnumChoice('Start position', subproperties={'start_index' : StkIntProperty('start_index', "Start Index", 1,
                                                                                                            doc="Start position index for battle mode")},

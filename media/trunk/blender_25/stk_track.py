@@ -1215,8 +1215,13 @@ class TrackExport:
             try:
                 # origin
                 originXYZ = getXYZHString(obj)
-                f.write('  <particle-emitter kind="%s" %s/>\n' %\
-                        (getProperty(obj, "kind", 0) ,originXYZ))
+                
+                if getProperty(obj, "clip_distance", 0) > 0 :
+                    f.write('  <particle-emitter kind="%s" %s clip_distance="%i"/>\n' %\
+                            (getProperty(obj, "kind", 0), originXYZ, getProperty(obj, "clip_distance", 0)))
+                else:
+                    f.write('  <particle-emitter kind="%s" %s/>\n' %\
+                        (getProperty(obj, "kind", 0), originXYZ))
             except:
                 log_error("Invalid particle emitter <" + getProperty(obj, "name", obj.name) + "> ",
                     sys.exc_info()[0])
