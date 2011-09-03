@@ -347,7 +347,7 @@ class Driveline:
         # which the first line of the main driveline is converted) is on the 
         # left side (this only applies for the lap counting line, see
         # Track::setStartCoordinates/getStartTransform).
-        self.start_line = (self.lLeft[1], self.lRight[1])
+        self.start_line = (self.mesh.vertices[self.lLeft[1]].co, self.mesh.vertices[self.lRight[1]].co)
         
         count=0
         # Just in case that we have an infinite loop due to a malformed graph:
@@ -1271,7 +1271,7 @@ class TrackExport:
             if lap[0] is None:
                 return # Invalid driveline (a message will have been printed)
             
-            coord = mainDriveline.mesh.vertices[lap[0]].co
+            coord = lap[0]
             min_h = coord[2]
             if coord[2] < min_h: min_h = coord[2]
 
@@ -1496,10 +1496,10 @@ class TrackExport:
     def writeStartPositions(self, f, lStart):
         global the_scene
         scene = the_scene
-        karts_per_row      = getIdProperty(scene, "start_karts_per_row",      2)
-        distance_forwards  = getIdProperty(scene, "start_forwards_distance",  1.5)
-        distance_sidewards = getIdProperty(scene, "start_sidewards_distance", 3.0)
-        distance_upwards   = getIdProperty(scene, "start_upwards_distance",   0.1)
+        karts_per_row      = int(getIdProperty(scene, "start_karts_per_row",      2))
+        distance_forwards  = float(getIdProperty(scene, "start_forwards_distance",  1.5))
+        distance_sidewards = float(getIdProperty(scene, "start_sidewards_distance", 3.0))
+        distance_upwards   = float(getIdProperty(scene, "start_upwards_distance",   0.1))
         f.write("  <default-start karts-per-row     =\"%i\"\n"%karts_per_row     )
         f.write("                 forwards-distance =\"%.2f\"\n"%distance_forwards )
         f.write("                 sidewards-distance=\"%.2f\"\n"%distance_sidewards)
