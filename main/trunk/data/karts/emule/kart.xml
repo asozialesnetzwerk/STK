@@ -3,12 +3,12 @@
 <kart name              = "Emule"
       version           = "2"
       model-file        = "emule.b3d"
-      icon-file         = "emule_icon64.png"
+      icon-file         = "emule_icon128.png"
       minimap-icon-file = "emule_icon32.png"
       shadow-file       = "emule_shadow.png"
-      center-shift      = "0"
+      center-shift      = "1.1754943508222875e-38"
       groups            = "standard"
-      rgb               = "0.7 0 0" >
+      rgb               = "255 0 0" >
   <sounds engine = "large"/>
   <animations left = "9"
               straight = "19"
@@ -20,13 +20,13 @@
               start-losing-loop = "439"
               end-losing = "479"/>
   <wheels>
-    <front-left position = "-0.318149 0.146322 0.520454"
+    <front-left position = "-0.314000 0.146322 0.520000"
                  model    = "wheel-front-left.b3d"       />
-    <front-right position = "0.321198 0.146322 0.520454"
+    <front-right position = "0.314000 0.146322 0.520000"
                  model    = "wheel-front-right.b3d"       />
-    <rear-left position = "-0.328115 0.146322 -0.374804"
+    <rear-left position = "-0.328000 0.146322 -0.375000"
                  model    = "wheel-rear-left.b3d"       />
-    <rear-right position = "0.331163 0.146322 -0.374804"
+    <rear-right position = "0.327887 0.146322 -0.375000"
                  model    = "wheel-rear-right.b3d"       />
   </wheels>
 </kart>
