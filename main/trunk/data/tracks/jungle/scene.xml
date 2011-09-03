@@ -4,15 +4,15 @@
   <track model="jungle_track.b3d" x="0" y="0" z="0">
     <animated-texture name="water_light.png" dy="0.1" />
   </track>
-  <particle-emitter kind="fire.xml" x="-36.951355" y="13.247737" z="-267.217987" h="0.000000"/>
-  <particle-emitter kind="fire.xml" x="-16.415476" y="13.247737" z="-266.559082" h="0.000000"/>
-  <particle-emitter kind="fire.xml" x="-15.746194" y="13.247737" z="-245.651047" h="-8.144329"/>
-  <particle-emitter kind="fire.xml" x="-36.168301" y="13.247737" z="-243.394058" h="-8.144329"/>
-  <particle-emitter kind="fire.xml" x="-34.423897" y="13.247737" z="-286.185608" h="4.549343"/>
-  <particle-emitter kind="fire.xml" x="-14.004982" y="13.247737" z="-283.899933" h="4.549343"/>
-  <particle-emitter kind="fire.xml" x="-50.161980" y="13.247732" z="-327.927979" h="4.549343"/>
-  <particle-emitter kind="fire.xml" x="-59.349590" y="12.889566" z="-286.837433" h="4.549343"/>
-  <particle-emitter kind="fire.xml" x="-59.162716" y="12.198290" z="-240.242065" h="4.549343"/>
+  <particle-emitter kind="fire.xml" x="-36.951355" y="13.247737" z="-267.217987" h="0.000000"  clip_distance="200"/>
+  <particle-emitter kind="fire.xml" x="-16.415476" y="13.247737" z="-266.559082" h="0.000000"  clip_distance="200"/>
+  <particle-emitter kind="fire.xml" x="-15.746194" y="13.247737" z="-245.651047" h="-8.144329" clip_distance="200"/>
+  <particle-emitter kind="fire.xml" x="-36.168301" y="13.247737" z="-243.394058" h="-8.144329" clip_distance="200"/>
+  <particle-emitter kind="fire.xml" x="-34.423897" y="13.247737" z="-286.185608" h="4.549343"  clip_distance="200"/>
+  <particle-emitter kind="fire.xml" x="-14.004982" y="13.247737" z="-283.899933" h="4.549343"  clip_distance="200"/>
+  <particle-emitter kind="fire.xml" x="-50.161980" y="13.247732" z="-327.927979" h="4.549343"  clip_distance="200"/>
+  <particle-emitter kind="fire.xml" x="-59.349590" y="12.889566" z="-286.837433" h="4.549343"  clip_distance="200"/>
+  <particle-emitter kind="fire.xml" x="-59.162716" y="12.198290" z="-240.242065" h="4.549343"  clip_distance="200"/>
   <banana x="143.363571" y="24.771011" z="-397.839813" />
   <banana x="194.90358" y="24.771011" z="-409.123688" />
   <banana x="279.394592" y="14.622768" z="-380.759613" />
