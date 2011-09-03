@@ -290,8 +290,8 @@ def exportKart(path):
     f.write('      shadow-file       = "%s"\n' % kart_shadow)
     
     center_shift = the_scene['center_shift']
-    if center_shift and len(center_shift) > 0:
-        f.write('      center-shift      = "%s"\n' % center_shift)
+    if center_shift and center_shift != 0:
+        f.write('      center-shift      = "%.2f"\n' % center_shift)
         
     f.write('      groups            = "%s"\n' % kart_group)
     f.write('      rgb               = "%s %s %s" >\n' % tuple(split_color))
