@@ -450,10 +450,10 @@ class STK_Kart_Exporter_Panel(bpy.types.Panel):
                   row.label(msg, icon='INFO')
                 elif type == 'WARNING':
                   row = box.row()
-                  row.label("WARNING: " + msg, icon='GREASEPENCIL')
+                  row.label("WARNING: " + msg, icon='ERROR')
                 elif type == 'ERROR':
                   row = box.row()
-                  row.label("ERROR: " + msg, icon='ERROR')
+                  row.label("ERROR: " + msg, icon='CANCEL')
             
             row = box.row()
             row.operator("screen.stk_kart_clean_log", text="Clear Log", icon='X')

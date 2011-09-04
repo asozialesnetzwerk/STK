@@ -1515,6 +1515,10 @@ class TrackExport:
 
             dId2Obj[id] = obj
         l = dId2Obj.keys()
+        
+        if len(l) < 4 and getIdProperty(scene, "arena",  "false") == "true":
+            log_warning("You should define at least 4 start positions")
+        
         #l.sort() # sorting not needed AFAICT, the dictionary keeps the keys sorted
         for i in l:
             f.write("  <start %s/>\n"%getXYZHString(dId2Obj[i]))
@@ -1812,7 +1816,6 @@ class TrackExport:
                     lItems.append(obj)
                     continue
                 elif stktype[:5]=="START":
-                    # Start empties are called start1, start2, ...
                     lStart.append(obj)
                     continue
                 elif stktype=="PARTICLE_EMITTER":
@@ -2052,10 +2055,10 @@ class STK_Track_Exporter_Panel(bpy.types.Panel):
                   row.label(msg, icon='INFO')
                 elif type == 'WARNING':
                   row = box.row()
-                  row.label("WARNING: " + msg, icon='GREASEPENCIL')
+                  row.label("WARNING: " + msg, icon='ERROR')
                 elif type == 'ERROR':
                   row = box.row()
-                  row.label("ERROR: " + msg, icon='ERROR')
+                  row.label("ERROR: " + msg, icon='CANCEL')
             
             row = box.row()
             row.operator("screen.stk_track_clean_log", text="Clear Log", icon='X')
