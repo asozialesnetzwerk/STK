@@ -818,8 +818,10 @@ SFX_PROPERTIES = [
 CRASH_RESET_PROPERTIES = [StkProperty( id='crash_reset_particles', name="Particles on hit", default="")]
 
 STK_MATERIAL_PROPERTIES = [
+        StkBoolProperty( id='fog',              name="Affected by fog (if any)",   default="true",  contextLevel=CONTEXT_MATERIAL,
+                         doc="Whether this material is affected by fog (if there is fog in this track)"),
         StkBoolProperty( id='light',            name="Affected by lights",         default="true",  contextLevel=CONTEXT_MATERIAL,
-                         doc="Whether this material is affected by lgihts and shadows"),
+                         doc="Whether this material is affected by lights and shadows"),
         StkBoolProperty( id='backface_culling', name="Backface Culling",           default="true",  contextLevel=CONTEXT_MATERIAL,
                          doc="If checked, this material will only be visible on the side of the normal"),
         StkBoolProperty( id='below_surface',    name="Below Surface",              default="false", contextLevel=CONTEXT_MATERIAL,
