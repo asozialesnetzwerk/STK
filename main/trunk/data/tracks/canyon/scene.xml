@@ -136,8 +136,8 @@
                 min-height="-89.800003" same-group="1"/>
   </checks>
   <sky-box texture="canyonsky_t.jpg canyonsky_b.jpg canyonsky_e.jpg canyonsky_w.jpg canyonsky_s.jpg canyonsky_n.jpg"/>
-  <default-start karts-per-row     ="2"
-                 forwards-distance ="1.5"
-                 sidewards-distance="3"
+  <default-start karts-per-row     ="3"
+                 forwards-distance ="1"
+                 sidewards-distance="2.5"
                  upwards-distance  ="0.1"/>
 </scene>
