@@ -1030,10 +1030,12 @@ class TrackExport:
                     extrapolation = "cyclic"
                     break
             
-            # FIXME: in blender 2.5, interpolation is per-point and no more per curve!
-            interpolation = "bezier"
-            if len(curve.keyframe_points) > 0:
-                interpolation = curve.keyframe_points[0].interpolation.lower()
+            # If any point is bezier we'll export as Bezier
+            interpolation = "linear"
+            for bez in curve.keyframe_points:
+                if bez.interpolation=='BEZIER':
+                    interpolation = "bezier"
+                    break
             
             # Rotations are stored in randians
             if name[:3]=="Rot":
@@ -1044,17 +1046,31 @@ class TrackExport:
                     (name, interpolation, extrapolation))
                     #(name, dInterp[curve.interpolation], dExtend[curve.extend]))
             
+            warning_shown = False
+            
             for bez in curve.keyframe_points:
-                if bez.interpolation=='BEZIER':
-                    f.write("      <p c=\"%.3f %.3f\" h1=\"%.3f %.3f\" h2=\"%.3f %.3f\"/>\n"%\
-                            (bez.co[0],factor*bez.co[1],
-                             bez.handle_left[0], factor*bez.handle_left[1],
-                             bez.handle_right[0], factor*bez.handle_right[1]))
+                if interpolation=="bezier":
+                    if bez.interpolation=='BEZIER':
+                        f.write("      <p c=\"%.3f %.3f\" h1=\"%.3f %.3f\" h2=\"%.3f %.3f\"/>\n"%\
+                                (bez.co[0],factor*bez.co[1],
+                                 bez.handle_left[0], factor*bez.handle_left[1],
+                                 bez.handle_right[0], factor*bez.handle_right[1]))
+                    else:
+                        # point with linear IPO in bezier curve
+                        f.write("      <p c=\"%.3f %.3f\" h1=\"%.3f %.3f\" h2=\"%.3f %.3f\"/>\n"%\
+                                (bez.co[0], factor*bez.co[1],
+                                 bez.co[0] - 1, factor*bez.co[1],
+                                 bez.co[0] + 1, factor*bez.co[1]))
+                        
+                        if not warning_shown:
+                            log_warning("You have an animation curve which contains a mix of mixture of Bezier and " +
+                                        "linear interpolation, please convert everything to Bezier for best results")
+                            warning_shown = True
                 else:
                     f.write("      <p c=\"%.3f %.3f\"/>\n"%(bez.co[0],
                                                             factor*bez.co[1]))
             f.write("    </curve>\n")
-        
+    
     # --------------------------------------------------------------------------
     # Writes the animation for objects using IPOs:
     def writeAnimationWithIPO(self, f, name, obj, ipo):
