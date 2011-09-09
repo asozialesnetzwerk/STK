@@ -546,12 +546,20 @@ def write_node(objects=[]):
             #data = obj.getData(mesh = True)
 
             anim_data = None
-            if obj.parent:
-                if obj.parent.type == "ARMATURE":
-                    arm = obj.parent
-                    if arm.animation_data:
-                        anim_data = arm.animation_data
+            
+            # check if this object has an armature modifier
+            for curr_mod in obj.modifiers:
+                if curr_mod.type == 'ARMATURE':
+                    arm = curr_mod.object
+                    anim_data = arm.animation_data
 
+            # check if this object has an armature parent (second way to do armature animations in blender)
+            if anim_data is None:
+                if obj.parent:
+                    if obj.parent.type == "ARMATURE":
+                        arm = obj.parent
+                        if arm.animation_data:
+                            anim_data = arm.animation_data
 
             if anim_data:
                 matrix = mathutils.Matrix()
