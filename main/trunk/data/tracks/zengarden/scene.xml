@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 9644 -->
+<!-- Generated with script from SVN rev 9776 -->
 <scene>
   <track model="zenGarden_track.b3d" x="0" y="0" z="0">
     <static-object lod_instance="true" lod_group="torii" xyz="1.500000 0.000000 10.000000" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
@@ -13,7 +13,7 @@
     <static-object lod_instance="true" lod_group="torii" xyz="-50.431538 0.000000 -50.653206" hpr="-0.000000 99.999994 0.000000" scale="1.000000 1.000000 1.000000"/>
     <static-object lod_instance="true" lod_group="bridge" xyz="-170.790436 0.905083 41.632027" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
     <static-object lod_distance="150.0" lod_group="bridge" model="bridge_LOD150.b3d" xyz="-170.790436 5.047509 106.901207" hpr="-89.999996 49.999997 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object model="bridge_LOD50.b3d" xyz="-170.790436 5.047509 95.632027" hpr="-89.999996 49.999997 0.000000" scale="1.000000 1.000000 1.000000"/>
+    <static-object lod_distance="50.0" lod_group="bridge" model="bridge_LOD50.b3d" xyz="-170.790436 5.047509 95.632027" hpr="-89.999996 49.999997 0.000000" scale="1.000000 1.000000 1.000000"/>
     <static-object lod_distance="500.0" lod_group="bridge" model="bridge_LOD500.b3d" xyz="-170.790436 5.047509 118.632027" hpr="-89.999996 49.999997 0.000000" scale="1.000000 1.000000 1.000000"/>
     <static-object lod_instance="true" lod_group="directionLantern" xyz="-113.952637 2.097772 59.706799" hpr="-89.999996 54.999999 0.000000" scale="1.000000 1.000000 1.000000"/>
     <static-object lod_instance="true" lod_group="directionLanLite" xyz="-157.942490 2.731712 -71.310791" hpr="-89.999996 -60.000002 0.000000" scale="1.000000 1.000000 1.000000"/>
