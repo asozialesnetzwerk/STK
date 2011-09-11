@@ -1092,13 +1092,17 @@ class TrackExport:
         
         lodstring = self.getLODString(obj)
         
-        # TODO: don't export any model name for LOD instances
-        if parent and parent.type=="ARMATURE":
-            f.write("  <object type=\"animation\" model=\"%s\" %s %s%s%s>\n"% \
-                    (name, getXYZHPRString(parent), shape, looped, lodstring))
+        if type == "lod_instance":
+            model_string = ""
         else:
-            f.write("  <object type=\"animation\" model=\"%s\" %s %s%s%s>\n"% \
-                    (name, getXYZHPRString(obj), shape, looped, lodstring))
+            model_string = "model=\"%s\" " % name
+        
+        if parent and parent.type=="ARMATURE":
+            f.write("  <object type=\"animation\" %s%s %s%s%s>\n"% \
+                    (model_string, getXYZHPRString(parent), shape, looped, lodstring))
+        else:
+            f.write("  <object type=\"animation\" %s%s %s%s%s>\n"% \
+                    (model_string, getXYZHPRString(obj), shape, looped, lodstring))
         self.writeIPO(f, ipo)
         f.write("  </object>\n")
             
@@ -1476,10 +1480,16 @@ class TrackExport:
             mass  = getProperty(obj, "mass", 10)
             lodstring = self.getLODString(obj)
 
-            # TODO: don't export any model name for LOD instances
+            type = getProperty(obj, "type", "?")
+            
+            if type == "lod_instance":
+                model_string = ""
+            else:
+                model_string = "model=\"%s\" " % b3d_name
+            
             f.write("  <object type=\"movable\" %s\n"%(getXYZHPRString(obj)))
-            f.write("          model=\"%s\" shape=\"%s\" mass=\"%s\"%s/>\n"\
-                    % (b3d_name, shape, mass, lodstring))
+            f.write("          %sshape=\"%s\" mass=\"%s\"%s/>\n"\
+                    % (model_string, shape, mass, lodstring))
             
         # Now the object either has an IPO, or is a 'ghost' object.
         # Either can have an IPO. Even if the objects don't move
