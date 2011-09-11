@@ -457,9 +457,7 @@ def write_brus(objects=[]):
     if len(temp_buf) > 0:
         brus_buf += write_chunk(b"BRUS",write_int(texture_count) + temp_buf) #N Texs
         temp_buf = ""
-
-    print("==BRUS STACK==", brus_stack)
-
+    
     return brus_buf
 
 # ==== Write NODE Chunk ====
