@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 0.1 -->
+<!-- Generated with script from SVN rev 9747 -->
 <kart name              = "Adiumy"
       version           = "2"
       model-file        = "adiumy.b3d"
@@ -7,7 +7,8 @@
       minimap-icon-file = "adiumyicon.png"
       shadow-file       = "adiumyshadow.png"
       groups            = "standard"
-      rgb               = "0 0.7 0" >
+      rgb               = "0 179 0" >
+  <sounds engine = "small"/>
   <animations left = "0"
               straight = "20"
               right = "40"
@@ -21,9 +22,9 @@
                  model    = "wheel-front-left.b3d"       />
     <front-right position = "0.403855 0.161885 0.255778"
                  model    = "wheel-front-right.b3d"       />
-    <rear-left position = "-0.377048 0.076657 -0.284847"
+    <rear-left position = "-0.029430 0.076657 -0.284847"
                  model    = "wheel-rear-left.b3d"       />
-    <rear-right position = "0.381628 0.076657 -0.284847"
+    <rear-right position = "0.024863 0.076657 -0.284847"
                  model    = "wheel-rear-right.b3d"       />
   </wheels>
 </kart>
