@@ -262,7 +262,7 @@ def write_texs(objects=[]):
                             if img.filepath in trimmed_paths:
                                 img_name = trimmed_paths[img.filepath]
                             else:
-                                img_name = os.path.basename(img.filepath)
+                                img_name = bpy.path.basename(img.filepath)
                                 trimmed_paths[img.filepath] = img_name
 
                             if not img_name in texs_stack:
