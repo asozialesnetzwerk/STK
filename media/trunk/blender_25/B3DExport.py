@@ -264,7 +264,7 @@ def write_texs(objects=[]):
                             else:
                                 img_name = os.path.basename(img.filepath)
                                 trimmed_paths[img.filepath] = img_name
-                            
+
                             if not img_name in texs_stack:
                                 texs_stack[img_name] = [len(texs_stack), texture_flags[obj_count][iuvlayer]]
                                 temp_buf += write_string(img_name) #Texture File Name
@@ -1065,7 +1065,7 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
             #a = time.time()
                             
             if arm_action:
-                v = data.vertices[vert].co*mesh_matrix
+                v = mesh_matrix * data.vertices[vert].co
                 vert_matrix = mathutils.Matrix.Translation(v)
             else:
                 vert_matrix = mathutils.Matrix.Translation(data.vertices[vert].co)
