@@ -5,7 +5,7 @@
 
 """
 Name: 'STK Kart Exporter (.irrkart)...'
-Blender: 248a
+Blender: 259
 Group: 'Export'
 Tooltip: 'Export a SuperTuxKart kart'
 """
@@ -22,7 +22,7 @@ bl_info = {
     "description": "Exports a blender character/kart to SuperTuxKart",
     "author": "Joerg Henrichs, Marianne Gagnon, Xapantu",
     "version": (3,0),
-    "blender": (2, 5, 7),
+    "blender": (2, 5, 9),
     "api": 31236,
     "location": "File > Export",
     "warning": '', # used for warning icon and text in addons panel

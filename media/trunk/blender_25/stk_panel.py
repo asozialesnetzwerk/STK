@@ -4,7 +4,7 @@ bl_info = {
     "description": "Allows editing object, scene and material properties for SuperTuxKart",
     "author": "Joerg Henrichs, Marianne Gagnon, Asciimonster",
     "version": (2,0),
-    "blender": (2, 5, 7),
+    "blender": (2, 5, 9),
     "api": 31236,
     "location": "Properties Panel",
     "warning": '', # used for warning icon and text in addons panel

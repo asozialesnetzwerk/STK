@@ -2,7 +2,7 @@
 
 """
 Name: 'STK Track Exporter (.track)...'
-Blender: 257RC1
+Blender: 259
 Group: 'Export'
 Tooltip: 'Export a SuperTuxKart track scene'
 """
@@ -35,7 +35,7 @@ bl_info = {
     "description": "Exports a blender scene to the SuperTuxKart track format",
     "author": "Joerg Henrichs, Marianne Gagnon",
     "version": (1,0),
-    "blender": (2, 5, 7),
+    "blender": (2, 5, 9),
     "api": 31236,
     "location": "File > Export",
     "warning": '', # used for warning icon and text in addons panel

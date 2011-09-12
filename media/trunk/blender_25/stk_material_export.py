@@ -1,6 +1,6 @@
 """
 Name: 'STK Material Exporter...'
-Blender: 258
+Blender: 259
 Group: 'Export'
 Tooltip: 'Export a SuperTuxKart track scene'
 """
@@ -15,7 +15,7 @@ bl_info = {
     "description": "Exports image properties to the SuperTuxKart track format",
     "author": "Joerg Henrichs, Marianne Gagnon",
     "version": (1,0),
-    "blender": (2, 5, 8),
+    "blender": (2, 5, 9),
     "api": 31236,
     "location": "File > Export",
     "warning": '', # used for warning icon and text in addons panel
