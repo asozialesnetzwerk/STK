@@ -1,5 +1,5 @@
 * thunderbird model 
-    by Kinsu, released under CC-BY-SA 3.0
+    by Funto & Kinsu, released under CC-BY-SA 3.0
 
 * thunderbird texture
     by Fraag, released under CC-BY-SA 3.0
