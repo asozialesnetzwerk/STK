@@ -1,10 +1,13 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 9577 -->
+<!-- Generated with script from SVN rev 9814 -->
 <scene>
   <track model="xr591_track.b3d" x="0" y="0" z="0">
-    <static-object model="aliens_LOD60.b3d" xyz="-48.629471 6.506891 98.987541" hpr="-90.000003 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object model="aliens_LODx.b3d" xyz="-53.973763 6.506891 100.635033" hpr="-90.000003 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object model="aliens_LOD200.b3d" xyz="-43.445908 6.506892 96.737312" hpr="-90.000003 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
+    <static-object lod_distance="60.0" lod_group="aliens" model="aliens_hi.b3d" xyz="-48.213379 7.157094 98.449539" hpr="-90.000003 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
+    <static-object lod_instance="true" lod_group="aliens" xyz="-54.253792 7.157094 100.872543" hpr="-90.000003 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
+    <static-object lod_distance="40.0" lod_group="robot1" model="robot_high.b3d" xyz="32.588623 -3.730915 -203.246124" hpr="-90.000003 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
+    <static-object lod_distance="200.0" lod_group="robot1" model="robot1_low.b3d" xyz="44.101040 -3.730915 -201.253586" hpr="-90.000003 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
+    <static-object lod_instance="true" lod_group="robot1" xyz="-22.980938 -3.730899 -106.718948" hpr="-90.000003 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
+    <static-object lod_distance="200.0" lod_group="aliens" model="aliens_lo.b3d" xyz="-43.742550 6.506892 96.236984" hpr="-90.000003 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
     <animated-texture name="arc1.png" dx="2.000" />
     <animated-texture name="arc2.png" dx="-1.700" />
   </track>
@@ -89,8 +92,10 @@
   <small-nitro x="-33.532902" y="21.494276" z="67.044037" />
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
+    <check-line kind="activate" other-ids="2" p1="53.887032 24.765518" p2="69.395386 21.711842"
+                min-height="15.572582" same-group="1"/>
     <check-line kind="activate" other-ids="0" p1="-38.700382 55.962074" p2="-38.700375 72.786308"
-                min-height="21.524666" same-group="1"/>
+                min-height="21.524666" same-group="2"/>
   </checks>
   <sky-box texture="sky_top.jpg sandred.jpg sky_east.jpg sky_west.jpg sky_south.jpg sky_north.jpg"/>
   <camera far="1000.0"/>
