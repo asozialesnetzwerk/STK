@@ -414,6 +414,8 @@ class StkBoolProperty(StkProperty):
         super(StkBoolProperty, self).__init__(id, name, default)
         
         self.box = box
+        self.contextLevel = contextLevel
+        
         self.subproperties = OrderedDict([])
         for curr in subproperties:
             self.subproperties[curr.id] = curr
@@ -424,7 +426,7 @@ class StkBoolProperty(StkProperty):
         # Create operator for this bool
         class STK_ToggleBoolValue(bpy.types.Operator):
         
-            bl_idname = ("screen.stk_toggle_bool_"+id)
+            bl_idname = ("screen.stk_toggle_bool_"+str(contextLevel)+"_"+id)
             bl_label  = ("SuperTuxKart toggle "+id)
             __doc__ = doc
             
@@ -896,7 +898,7 @@ SCENE_PROPS = [ StkBoolProperty(id='is_stk_track', name='Is a SuperTuxKart track
 # ==== PANEL BASE ====
 class PanelBase:
     
-    def recursivelyAddProperties(self, properties, layout, obj):
+    def recursivelyAddProperties(self, properties, layout, obj, contextLevel):
         
         for id in properties.keys():
             curr = properties[id]
@@ -915,15 +917,15 @@ class PanelBase:
                      state = obj[id]
                      if state == "true":
                          icon = 'CHECKBOX_HLT'
-                 split.operator("screen.stk_toggle_bool_"+id, text="                ", icon=icon, emboss=False)
+                 split.operator("screen.stk_toggle_bool_"+str(contextLevel)+"_"+id, text="                ", icon=icon, emboss=False)
                  
                  if state == "true":
                      if len(curr.subproperties) > 0:
                          if curr.box:
                              box = layout.box()
-                             self.recursivelyAddProperties(curr.subproperties, box, obj)
+                             self.recursivelyAddProperties(curr.subproperties, box, obj, contextLevel)
                          else:
-                             self.recursivelyAddProperties(curr.subproperties, layout, obj)
+                             self.recursivelyAddProperties(curr.subproperties, layout, obj, contextLevel)
                  
             elif isinstance(curr, StkColorProperty):
                 row.label(text=curr.name)
@@ -961,7 +963,7 @@ class PanelBase:
                 
                 if curr_value in curr.values and len(curr.values[curr_value].subproperties) > 0:
                     box = layout.box()
-                    self.recursivelyAddProperties(curr.values[curr_value].subproperties, box, obj)
+                    self.recursivelyAddProperties(curr.values[curr_value].subproperties, box, obj, contextLevel)
             
             elif isinstance(curr, StkObjectReferenceProperty):
                 
@@ -1006,13 +1008,13 @@ class SuperTuxKartObjectPanel(bpy.types.Panel, PanelBase):
                 properties = OrderedDict([])
                 for curr in STK_PER_OBJECT_TRACK_PROPERTIES:
                     properties[curr.id] = curr
-                self.recursivelyAddProperties(properties, layout, obj)
+                self.recursivelyAddProperties(properties, layout, obj, CONTEXT_OBJECT)
                 
             if is_kart:
                 properties = OrderedDict([])
                 for curr in STK_PER_OBJECT_KART_PROPERTIES:
                     properties[curr.id] = curr
-                self.recursivelyAddProperties(properties, layout, obj)
+                self.recursivelyAddProperties(properties, layout, obj, CONTEXT_OBJECT)
 
 
 # ==== SCENE PANEL ====
@@ -1033,7 +1035,7 @@ class SuperTuxKartScenePanel(bpy.types.Panel, PanelBase):
             for curr in SCENE_PROPS:
                 properties[curr.id] = curr
             
-            self.recursivelyAddProperties(properties, layout, obj)   
+            self.recursivelyAddProperties(properties, layout, obj, CONTEXT_SCENE)
 
 
 # ==== IMAGE PANEL ====
@@ -1132,7 +1134,7 @@ class SuperTuxKartImagePanel(bpy.types.Panel, PanelBase):
             for curr in STK_MATERIAL_PROPERTIES:
                 properties[curr.id] = curr
                 
-            self.recursivelyAddProperties(properties, layout, obj)
+            self.recursivelyAddProperties(properties, layout, obj, CONTEXT_MATERIAL)
 
 def register():
     bpy.utils.register_module(__name__)
