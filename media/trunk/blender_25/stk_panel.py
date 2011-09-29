@@ -587,12 +587,23 @@ object_properties = [
                                                             'box'       : StkEnumChoice("Box",          []),
                                                             'sphere'    : StkEnumChoice("Sphere",       [])
                                                            }, default='box', doc="Shape to use in the physics engine to represent this object")
-                                  ], doc="The player will be able to move this object around by pushing it")
+                                  ], doc="The player will be able to move this object around by pushing it"),
+                               'reset' : StkEnumChoice("Reset player", subproperties=
+                                                       [StkEnumProperty(id='shape', name="Shape", contextLevel=CONTEXT_OBJECT, unique_prefix="itrc_reset",
+                                                             values={'coneX'     : StkEnumChoice("Cone (X)",     []),
+                                                                     'coneY'     : StkEnumChoice("Cone (Y)",     []),
+                                                                     'coneZ'     : StkEnumChoice("Cone (Z)",     []),
+                                                                     'cylinderX' : StkEnumChoice("Cylinder (X)", []),
+                                                                     'cylinderY' : StkEnumChoice("Cylinder (Y)", []),
+                                                                     'cylinderZ' : StkEnumChoice("Cylinder (Z)", []),
+                                                                     'box'       : StkEnumChoice("Box",          []),
+                                                                     'sphere'    : StkEnumChoice("Sphere",       []),
+                                                                     'exact'     : StkEnumChoice("Exact",        [])
+                                                                    }, default='box', doc="Shape to use in the physics engine to represent this object")
+                                                       ], doc="The player will be resetted when touching this object")
                              },
                              contextLevel=CONTEXT_OBJECT, default='static',
-                             doc="How this object should interact with other objects in the physics engine"),
-        StkBoolProperty(id='reset', name='Reset',  default="false", contextLevel=CONTEXT_OBJECT,
-                        subproperties=[], doc="Reset the kart if it touches this object")
+                             doc="How this object should interact with other objects in the physics engine")
         ]
 
 # The 'type' property

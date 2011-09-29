@@ -1089,13 +1089,7 @@ class TrackExport:
         if shape:
             shape="shape=\"%s\""%shape
         if not ipo: ipo=[]
-        
-        reset = getProperty(obj, "reset", "")
-        if reset and reset == 'true':
-            reset = " reset=\"y\""
-        else:
-            reset = ""
-        
+
         lodstring = self.getLODString(obj)
         
         if type == "lod_instance":
@@ -1103,12 +1097,18 @@ class TrackExport:
         else:
             model_string = "model=\"%s\" " % name
         
+        interaction = getProperty(obj, "interaction", '??')
+        if interaction == 'reset':
+            reset_string = " reset=\"y\""
+        else:
+            reset_string = ""
+        
         if parent and parent.type=="ARMATURE":
             f.write("  <object type=\"animation\" %s%s %s%s%s%s>\n"% \
-                    (model_string, getXYZHPRString(parent), shape, looped, lodstring, reset))
+                    (model_string, getXYZHPRString(parent), shape, looped, lodstring, reset_string))
         else:
             f.write("  <object type=\"animation\" %s%s %s%s%s%s>\n"% \
-                    (model_string, getXYZHPRString(obj), shape, looped, lodstring, reset))
+                    (model_string, getXYZHPRString(obj), shape, looped, lodstring, reset_string))
         self.writeIPO(f, ipo)
         f.write("  </object>\n")
             
@@ -1155,14 +1155,20 @@ class TrackExport:
             else:
                 model_string =  " model=\"%s\""%b3d_name
 
+            interaction = getProperty(obj, "interaction", '??')
+            if interaction == 'reset':
+                reset_string = " reset=\"y\""
+            else:
+                reset_string = ""
+            
             if lAnim:
-                f.write("    <static-object%s%s %s>\n"% \
-                        (lodstring, model_string, getXYZHPRString(obj)) )
+                f.write("    <static-object%s%s %s%s>\n"% \
+                        (lodstring, model_string, getXYZHPRString(obj), reset_string) )
                 self.writeAnimatedTextures(f, lAnim)
                 f.write("    </static-object>\n")
             else:
-                f.write("    <static-object%s%s %s/>\n"% \
-                        (lodstring, model_string, getXYZHPRString(obj)) )
+                f.write("    <static-object%s%s %s%s/>\n"% \
+                        (lodstring, model_string, getXYZHPRString(obj), reset_string) )
         self.writeAnimatedTextures(f, lAnimTextures)
 
     # --------------------------------------------------------------------------
@@ -1485,13 +1491,7 @@ class TrackExport:
                 shape="box"
             mass  = getProperty(obj, "mass", 10)
             lodstring = self.getLODString(obj)
-
-            reset = getProperty(obj, "reset", "")
-            if reset and reset == 'true':
-                reset = " reset=\"y\""
-            else:
-                reset = ""
-                
+            
             type = getProperty(obj, "type", "?")
             
             if type == "lod_instance":
@@ -1500,8 +1500,8 @@ class TrackExport:
                 model_string = "model=\"%s\" " % b3d_name
             
             f.write("  <object type=\"movable\" %s\n"%(getXYZHPRString(obj)))
-            f.write("          %sshape=\"%s\" mass=\"%s\"%s%s/>\n"\
-                    % (model_string, shape, mass, lodstring, reset))
+            f.write("          %sshape=\"%s\" mass=\"%s\"%s/>\n"\
+                    % (model_string, shape, mass, lodstring))
             
         # Now the object either has an IPO, or is a 'ghost' object.
         # Either can have an IPO. Even if the objects don't move
@@ -1517,7 +1517,8 @@ class TrackExport:
                 if parent:
                     ipo = parent.animation_data
             self.writeAnimationWithIPO(f, b3d_name, obj, ipo)
-        elif interact=="static":            
+            
+        elif interact=="static" or interact=="reset":            
             ipo      = obj.animation_data
             # In objects with skeletal animations the actual armature (which
             # is a parent) contains the IPO. So check for this:
@@ -1610,7 +1611,7 @@ class TrackExport:
         for obj in lObjects:
 
             interact = getProperty(obj, "interaction", "static")
-            if interact=="static":
+            if interact=="static" or interact=="reset":
                 
                 ipo      = obj.animation_data
                 
