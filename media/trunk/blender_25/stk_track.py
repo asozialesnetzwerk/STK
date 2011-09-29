@@ -1090,6 +1090,12 @@ class TrackExport:
             shape="shape=\"%s\""%shape
         if not ipo: ipo=[]
         
+        reset = getProperty(obj, "reset", "")
+        if reset and reset == 'true':
+            reset = " reset=\"y\""
+        else:
+            reset = ""
+        
         lodstring = self.getLODString(obj)
         
         if type == "lod_instance":
@@ -1098,11 +1104,11 @@ class TrackExport:
             model_string = "model=\"%s\" " % name
         
         if parent and parent.type=="ARMATURE":
-            f.write("  <object type=\"animation\" %s%s %s%s%s>\n"% \
-                    (model_string, getXYZHPRString(parent), shape, looped, lodstring))
+            f.write("  <object type=\"animation\" %s%s %s%s%s%s>\n"% \
+                    (model_string, getXYZHPRString(parent), shape, looped, lodstring, reset))
         else:
-            f.write("  <object type=\"animation\" %s%s %s%s%s>\n"% \
-                    (model_string, getXYZHPRString(obj), shape, looped, lodstring))
+            f.write("  <object type=\"animation\" %s%s %s%s%s%s>\n"% \
+                    (model_string, getXYZHPRString(obj), shape, looped, lodstring, reset))
         self.writeIPO(f, ipo)
         f.write("  </object>\n")
             
@@ -1480,6 +1486,12 @@ class TrackExport:
             mass  = getProperty(obj, "mass", 10)
             lodstring = self.getLODString(obj)
 
+            reset = getProperty(obj, "reset", "")
+            if reset and reset == 'true':
+                reset = " reset=\"y\""
+            else:
+                reset = ""
+                
             type = getProperty(obj, "type", "?")
             
             if type == "lod_instance":
@@ -1488,8 +1500,8 @@ class TrackExport:
                 model_string = "model=\"%s\" " % b3d_name
             
             f.write("  <object type=\"movable\" %s\n"%(getXYZHPRString(obj)))
-            f.write("          %sshape=\"%s\" mass=\"%s\"%s/>\n"\
-                    % (model_string, shape, mass, lodstring))
+            f.write("          %sshape=\"%s\" mass=\"%s\"%s%s/>\n"\
+                    % (model_string, shape, mass, lodstring, reset))
             
         # Now the object either has an IPO, or is a 'ghost' object.
         # Either can have an IPO. Even if the objects don't move

@@ -578,7 +578,9 @@ object_properties = [
                                   ], doc="The player will be able to move this object around by pushing it")
                              },
                              contextLevel=CONTEXT_OBJECT, default='static',
-                             doc="How this object should interact with other objects in the physics engine")
+                             doc="How this object should interact with other objects in the physics engine"),
+        StkBoolProperty(id='reset', name='Reset',  default="false", contextLevel=CONTEXT_OBJECT,
+                        subproperties=[], doc="Reset the kart if it touches this object")
         ]
 
 # The 'type' property
