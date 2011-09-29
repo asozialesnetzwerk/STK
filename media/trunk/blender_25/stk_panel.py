@@ -80,7 +80,7 @@ def createProperties(object, props):
                     object[p] = int(object[p])
                 except:
                     object[p] = props[p].default
-                
+        
         elif isinstance(props[p], StkProperty) and not isinstance(object[p], str):
             try:
                 object[p] = str(object[p])
@@ -561,11 +561,23 @@ object_properties = [
          StkProperty('name', "Name", "", doc="Name of this object (objects with the same name are exported as a single file)"),
          StkEnumProperty('interaction', "Interaction",
                              {'ghost'  : StkEnumChoice("Ghost", [], doc="This object will be non-physical (player can drive through it)"),
-                              'static' : StkEnumChoice("Static (wont move)", [],
-                                            doc="This object will stay in place, if the user drives on this object they will 'hit a wall'"),
+                              'static' : StkEnumChoice("Static (wont move)", subproperties=
+                                             [StkEnumProperty(id='shape', name="Shape (if animated object)", contextLevel=CONTEXT_OBJECT, unique_prefix="static",
+                                                    values={'coneX'     : StkEnumChoice("Cone (X)",     []),
+                                                            'coneY'     : StkEnumChoice("Cone (Y)",     []),
+                                                            'coneZ'     : StkEnumChoice("Cone (Z)",     []),
+                                                            'cylinderX' : StkEnumChoice("Cylinder (X)", []),
+                                                            'cylinderY' : StkEnumChoice("Cylinder (Y)", []),
+                                                            'cylinderZ' : StkEnumChoice("Cylinder (Z)", []),
+                                                            'box'       : StkEnumChoice("Box",          []),
+                                                            'sphere'    : StkEnumChoice("Sphere",       []),
+                                                            'exact'     : StkEnumChoice("Exact",        [])
+                                                           }, default='box', doc="Shape to use in the physics engine to represent this object")
+                                              ],
+                                              doc="This object will stay in place, if the user drives on this object they will 'hit a wall'"),
                               'move'   : StkEnumChoice("Movable by player",
                                   [StkFloatProperty(id='mass', name="Mass (kg)", default=100.0, min=0.0, doc="How heavy the object is"),
-                                    StkEnumProperty(id='shape', name="Shape", contextLevel=CONTEXT_OBJECT,
+                                    StkEnumProperty(id='shape', name="Shape", contextLevel=CONTEXT_OBJECT, unique_prefix="move",
                                                     values={'coneX'     : StkEnumChoice("Cone (X)",     []),
                                                             'coneY'     : StkEnumChoice("Cone (Y)",     []),
                                                             'coneZ'     : StkEnumChoice("Cone (Z)",     []),
