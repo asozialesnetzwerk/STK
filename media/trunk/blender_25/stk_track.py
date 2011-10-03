@@ -1614,6 +1614,8 @@ class TrackExport:
             if interact=="static" or interact=="reset":
                 
                 ipo      = obj.animation_data
+                if obj.parent is not None and obj.parent.type=="ARMATURE" and obj.parent.animation_data is not None:
+                    ipo = obj.parent.animation_data
                 
                 # If an static object has an IPO, it will be moved, and
                 # can't be merged with the physics model of the track
