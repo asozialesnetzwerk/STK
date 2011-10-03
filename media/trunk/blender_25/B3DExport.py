@@ -116,6 +116,15 @@ def write_chunk(name,value):
 
 trimmed_paths = {}
 
+def getArmatureAnimationEnd(armature):
+    end_frame = 1
+    if armature.animation_data.action:
+        ipo = armature.animation_data.action.fcurves
+        for curve in ipo:
+            if "pose" in curve.data_path:
+                end_frame = max(end_frame, curve.keyframe_points[-1].co[0])
+    return end_frame
+
 # ==== Write B3D File ====
 # (main exporter function)
 def write_b3d_file(filename, objects=[]):
@@ -486,11 +495,8 @@ def write_node(objects=[]):
     #last_frame = Blender.Draw.Create(exp_con.endFrame())
     #num_frames = last_frame.val - first_frame.val
     first_frame = the_scene.frame_start
-    last_frame = the_scene.frame_end
-    num_frames = last_frame - first_frame
 
-
-    if DEBUG: print("<node first_frame=", first_frame, " last_frame=", last_frame, ">")
+    if DEBUG: print("<node first_frame=", first_frame, ">")
 
     if objects:
         exp_obj = objects
@@ -699,29 +705,17 @@ def write_node(objects=[]):
                 #arm_action.setActive(arm)
                 
                 frame_count = first_frame
+                
+                last_frame = int(getArmatureAnimationEnd(arm))
+                num_frames = last_frame - first_frame
 
-                if PROGRESS_VERBOSE:
-                    print("    FRAME:",frame_count,"in",frame_count,"..",last_frame)
-                    anim_progress = 0
-                        
                 while frame_count <= last_frame:
-                    
-                    if PROGRESS_VERBOSE:
-                        anim_progress += 1
-                        if (anim_progress % 50 == 0): print("    FRAME:",frame_count,"in",frame_count,"..",last_frame)
-                    
-                    #FIXME?
-                    #Blender.Set("curframe",int(frame_count))
-                    #the_scene.frame_current = int(frame_count)
-                    #bpy.ops.anim.change_frame(frame=int(frame_count))
+
                     the_scene.frame_set(int(frame_count), subframe=0.0)
                     
                     if DEBUG: print("        <frame id=", int(frame_count), ">")
-                    #Blender.Window.Redraw()
                     arm_pose = arm.pose
-                    #arm_matrix = arm.getMatrix("worldspace")
                     arm_matrix = arm.matrix_world
-                    #arm_matrix *= BONE_TRANS_MATRIX
                     
                     transform = mathutils.Matrix([[-1,0,0,0],[0,0,1,0],[0,1,0,0],[0,0,0,1]])
                     arm_matrix = transform*arm_matrix
