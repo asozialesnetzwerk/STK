@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 9933 -->
+<track  name        = "Subsea track"
+        version     = "5"
+        groups      = "addons"
+        designer    = "R.Phelippeau"
+        music       = "Boom_boom_boom.music"
+        screenshot  = "Subsea-screenshot.png"
+>
+</track>
