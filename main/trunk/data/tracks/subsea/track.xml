@@ -2,9 +2,9 @@
 <!-- Generated with script from SVN rev 9933 -->
 <track  name        = "Subsea track"
         version     = "5"
-        groups      = "addons"
+        groups      = "standard"
         designer    = "R.Phelippeau"
         music       = "Boom_boom_boom.music"
-        screenshot  = "Subsea-screenshot.png"
+        screenshot  = "subsea-screenshot.png"
 >
 </track>
