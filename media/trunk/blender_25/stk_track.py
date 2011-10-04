@@ -1467,9 +1467,11 @@ class TrackExport:
         name     = getProperty(obj, "name", obj.name)
         if len(name) == 0: name = obj.name
         
-        if getProperty(obj, "type", "X") != "lod_instance":
+        type = getProperty(obj, "type", "X")
+        if type != "lod_instance":
             b3d_name = self.exportLocalB3D(obj, sPath, name)
-        
+
+            
         # First kind of object: ipo. There is one or
         # more IPOs define controlling this object.
         # Second kind of object: no ipo, and no physics.
@@ -1477,6 +1479,7 @@ class TrackExport:
         # as an animation object without an IPO attached.
         # -----------------------------------------------
         interact = getProperty(obj, "interaction", "none")
+        
         # An object that can be moved by the player. This object
         # can not have an IPO, so no need to test this here.
         if interact=="move":
@@ -1609,8 +1612,11 @@ class TrackExport:
         lStaticObjects = []
         lOtherObjects  = []
         for obj in lObjects:
-
+            type = getProperty(obj, "type", "??")
             interact = getProperty(obj, "interaction", "static")
+            if type == "lod_instance" or type == "lod_model":
+                interact = "static"
+            
             if interact=="static" or interact=="reset":
                 
                 ipo      = obj.animation_data
