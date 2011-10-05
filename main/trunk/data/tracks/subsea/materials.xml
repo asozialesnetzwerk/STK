@@ -7,7 +7,7 @@
   <material name="diffus-subsea.png" compositing="blend" ignore="Y"/>
   <material name="eggs-subsea.png" compositing="additive"/>
   <material name="fish-filet-subsea.png" compositing="blend" ignore="Y"/>
-  <material name="flaque-subsea.png" compositing="blend"/>
+  <material name="flaque-subsea.png" compositing="blend" ignore="Y"/>
   <material name="Flower-subsea.png" compositing="blend" ignore="Y"/>
   <material name="Grate-subsea.png" compositing="test"/>
   <material name="light3-subsea.png" clampu="Y" compositing="additive" disable-z-write="Y" ignore="Y"/>
