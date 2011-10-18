@@ -1625,7 +1625,9 @@ class TrackExport:
                 
                 # If an static object has an IPO, it will be moved, and
                 # can't be merged with the physics model of the track
-                if ipo:
+                # BUT 'reset' objects must NOT be static objects otherwise then we can't detect
+                # collisions against it in bullet
+                if ipo or interact=="reset":
                     lOtherObjects.append(obj)
                 else:
                     lStaticObjects.append(obj)
