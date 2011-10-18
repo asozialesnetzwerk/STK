@@ -123,6 +123,11 @@ def getArmatureAnimationEnd(armature):
         for curve in ipo:
             if "pose" in curve.data_path:
                 end_frame = max(end_frame, curve.keyframe_points[-1].co[0])
+    
+    for nla_track in armature.animation_data.nla_tracks:
+        if len(nla_track.strips) > 0:
+            end_frame = max(end_frame, nla_track.strips[-1].frame_end)
+        
     return end_frame
 
 # ==== Write B3D File ====
