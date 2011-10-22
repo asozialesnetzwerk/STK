@@ -15,6 +15,7 @@
     -->
     
    <sfx filename="anvil.ogg"            volume="1.0" positional="true" rolloff="0.5"  />
+   <sfx filename="ball_bounce.ogg"      volume="0.5" positional="true" />
    <sfx filename="bowling_roll.ogg"     volume="1.0" positional="true" rolloff="0.05"  />
    <sfx filename="bzzt.ogg"             volume="1.0" positional="false" />
    <sfx filename="clock.ogg"            volume="1.0" positional="true" rolloff="0.1"  />
@@ -26,8 +27,6 @@
    <sfx filename="goo.ogg"              volume="1.0" positional="true" rolloff="0.1"  />
    <sfx filename="gp_end.ogg"           volume="1.0" positional="false" />
    <sfx filename="grab_collectable.ogg" volume="1.0" positional="false" />
-   <sfx filename="ball_bounce.ogg"      volume="0.5" positional="true" />
-   <sfx filename="ball_hit.ogg"         volume="1.0" positional="true" rolloff="0.05"  />
    <sfx filename="horn.ogg"             volume="0.6" positional="true" rolloff="0.2"   />
    <sfx filename="last_lap_fanfare.ogg" volume="1.0" positional="false" />
    <sfx filename="locked.ogg"           volume="1.0" positional="false" />
