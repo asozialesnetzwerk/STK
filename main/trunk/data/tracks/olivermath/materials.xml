@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 6875 -->
+<!-- Generated with script from SVN rev Unknown -->
 <materials>
-  <material name="mathclassfloor.png" transparency="Y">
-    <particles base="smoke.xml" condition="skid" />
+  <material name="bananawrap.png">
+    <zipper duration="3.5" max_speed_increase="15.0" fade_out_time="3.0" speed_gain="4.5"/>
   </material>
-  
+  <material name="mathclassfloor.png">
+    <particles base="smoke.xml" condition="skid"/>
+  </material>
 </materials>
