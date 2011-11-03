@@ -12,7 +12,6 @@
   <material name="zipper-particle.png"   additive="Y" light="N" ignore="Y"/>
 
   <!-- Textures -->
-  <material name="bananawrap.png"        compositing="test" clampU="Y" clampV="Y" light="N" zipper="Y"/>
   <material name="bumpy_surface.png">
     <particles base="smoke.xml" condition="skid" />
   </material>
