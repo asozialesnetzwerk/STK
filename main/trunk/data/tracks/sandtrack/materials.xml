@@ -9,6 +9,7 @@
     <sfx filename="splash.ogg"/>
     <particles condition="skid drive" base="splash.xml"/>
   </material>
+  <material name="pyramidwall.jpg" normal-map="nm.jpg"/>
   <material name="yellow_dirt.jpg" anisotropic="Y" slowdown-time="1.0">
     <particles base="smoke_yellow.xml" condition="skid"/>
   </material>
