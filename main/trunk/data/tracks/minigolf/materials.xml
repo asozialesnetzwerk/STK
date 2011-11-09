@@ -1,7 +1,14 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev Unknown -->
 <materials>
-  <material name="_particle_sand.jpg" compositing="blend" clampu="Y" clampv="Y" ignore="Y"/>
+  <material name="_particle_sand.png" compositing="blend" clampu="Y" clampv="Y" ignore="Y"/>
+  <material name="arrow.png" compositing="blend" ignore="Y"/>
+  <material name="astro_turf.jpg">
+    <particles condition="skid" base="smoke.xml"/>
+  </material>
+  <material name="bow_tile.jpg">
+    <particles condition="skid drive" base="smoke.xml"/>
+  </material>
   <material name="flag.jpg" backface-culling="N"/>
   <material name="foliage.png" backface-culling="N" compositing="test" clampv="Y"/>
   <material name="grass_trim.png" backface-culling="N" compositing="blend" clampu="Y" ignore="Y"/>
