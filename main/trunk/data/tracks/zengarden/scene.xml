@@ -196,6 +196,6 @@
   <camera far="1000.0"/>
   <default-start karts-per-row     ="2"
                  forwards-distance ="1.10"
-                 sidewards-distance="1.10"
+                 sidewards-distance="2"
                  upwards-distance  ="1.10"/>
 </scene>
