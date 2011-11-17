@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 7732 -->
+<materials>
+  <material name="flaring-star.png" alpha="yes"/>
+  <material name="light1.png" compositing="additive" disable-z-write="Y" light="N" clampU="Y" crash-reset="Y"/>
+  <material name="light2.png" compositing="additive" disable-z-write="Y" light="N" clampU="Y" crash-reset="Y"/>
+  <material name="light3.png" disable-z-write="Y" compositing="additive" light="N" clampU="Y" crash-reset="Y"/>
+  <material name="planet_saturn_rings.png" alpha="yes" light="N"/>
+  <material name="startrack2.png" alpha="yes"/>
+  <material name="startrack3.png" clampU="N" clampV="N" alpha="yes" light="N"/>
+  <material name="transparence.png" alpha="yes" reset="Y"/>
+</materials>
