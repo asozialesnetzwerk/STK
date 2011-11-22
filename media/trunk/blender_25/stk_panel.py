@@ -873,6 +873,8 @@ STK_MATERIAL_PROPERTIES = [
                          doc="Drive through this texture like it didn't exist (good for smoke, etc.)"),
             StkProperty( id='mask',             name="Mask image",                 default="",
                          doc="Greyscale image containing the alpha channel (transparency) for this image"),
+            StkProperty( id='normal_map',       name="Normal Map",                 default="",
+                         doc="Image containing the normal map for this texture (optional)"),
         StkBoolProperty( id='particle',         name="Particle effect",            default="false", contextLevel=CONTEXT_MATERIAL,
                          subproperties=PARTICLE_PROPERTIES, doc="Whether to emit particles (e.g. smoke) when driving on this surface"),
         StkBoolProperty( id='use_sfx',          name="Play sound effect",          default="false", contextLevel=CONTEXT_MATERIAL,

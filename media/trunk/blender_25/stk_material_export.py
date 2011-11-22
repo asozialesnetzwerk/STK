@@ -94,6 +94,7 @@ def writeMaterialsFile(sPath):
            'graphical_effect'      : ('none', None),
            'ignore'                : ("N", None),
            'mask'                  : ("", None),
+           'normal_map'            : ("", None),
            'reset'                 : ("N", None),
            'sphere'                : ("N", None),
            'surface'               : ("N", None),
