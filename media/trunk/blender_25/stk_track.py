@@ -1234,7 +1234,7 @@ class TrackExport:
             f.write('             width="%f" height="%f">\n' %(x_max-x_min, y_max-y_min) )
             if obj.animation_data and obj.animation_data.action and obj.animation_data.action.fcurves and len(obj.animation_data.action.fcurves) > 0:
                 self.writeIPO(f, obj.animation_data.action.fcurves)
-            f.write('  </billboard>\n')
+            f.write('  </object>\n')
 
         except ValueError:
             log_error("Invalid value for billboard <" + getProperty(obj, "name", obj.name) + "> ",
