@@ -1226,14 +1226,20 @@ class TrackExport:
                 x_max = max(x_max, data.vertices[i].co[0])
                 y_min = min(y_min, data.vertices[i].co[2])
                 y_max = max(y_max, data.vertices[i].co[2])
-                
-
+            
+            fadeout_str = ""
+            fadeout = getProperty(obj, "fadeout", "false")
+            if fadeout == "true":
+                start = float(getProperty(obj, "start", 1.0))
+                end = float(getProperty(obj, "end", 15.0))
+                fadeout_str = "fadeout=\"true\" start=\"" + str(start) + "\" end=\"" + str(end) + "\""
+            
             f.write('  <object type="billboard" texture="%s" xyz="%f %f %f" \n'%
                     (os.path.basename(data.uv_textures[0].data[0].image.filepath),
                      obj.location[0], obj.location[2], obj.location[1]) )
-            f.write('             width="%f" height="%f">\n' %(x_max-x_min, y_max-y_min) )
+            f.write('             width="%f" height="%f" %s>\n' %(x_max-x_min, y_max-y_min, fadeout_str) )
             if obj.animation_data and obj.animation_data.action and obj.animation_data.action.fcurves and len(obj.animation_data.action.fcurves) > 0:
-                self.writeIPO(f, obj.animation_data.action.fcurves)
+                self.writeIPO(f, obj.animation_data)
             f.write('  </object>\n')
 
         except ValueError:
