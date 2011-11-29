@@ -81,6 +81,7 @@ def writeMaterialsFile(sPath):
 
     lTextureDefaults = {
            'light'                 : ("Y", None),
+           'additive_lightmap'     : ("N", None),
            'fog'                   : ("Y", None),
            'backface_culling'      : ("Y", None),
            'below_surface'         : ("N", None),
@@ -104,7 +105,7 @@ def writeMaterialsFile(sPath):
     }
 
     lBooleanAttributes = ["clampu","clampv","light","sphere","surface","below_surface",
-                          "falling_effect", "crash_reset", "fog",
+                          "falling_effect", "crash_reset", "fog", "additive_lightmap",
                           "anisotropic","backface_culling","ignore","disable_z_write","reset",
                           "sfx_positional"]
     

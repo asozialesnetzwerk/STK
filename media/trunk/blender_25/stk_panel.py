@@ -880,6 +880,8 @@ STK_MATERIAL_PROPERTIES = [
                          doc="If checked, karts will have good grip on this surface and not slip, even at angles"),
         StkBoolProperty( id='ignore',           name="Ignore (ghost material)",    default="false", contextLevel=CONTEXT_MATERIAL,
                          doc="Drive through this texture like it didn't exist (good for smoke, etc.)"),
+        StkBoolProperty( id='additive_lightmap',name="Lightmap is additive",    default="false", contextLevel=CONTEXT_MATERIAL,
+                         doc="Make lightmap additive (only makes sense if this material has a lightmap)"),
             StkProperty( id='mask',             name="Mask image",                 default="",
                          doc="Greyscale image containing the alpha channel (transparency) for this image"),
             StkProperty( id='normal_map',       name="Normal Map",                 default="",
