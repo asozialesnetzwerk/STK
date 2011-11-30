@@ -896,6 +896,14 @@ STK_MATERIAL_PROPERTIES = [
                          subproperties=CRASH_RESET_PROPERTIES, doc="whether to rescue kart if it touches/hits this material in any way"),
         StkBoolProperty( id='sphere',           name="Sphere mapping",             default="false", contextLevel=CONTEXT_MATERIAL,
                          doc="use sphere mapping on this object (mainly used to simulate a reflection effect)"),
+        StkBoolProperty( id='splatting',        name="Splatting",                  default="false", contextLevel=CONTEXT_MATERIAL,
+                         doc="Use splatting (multiple textures with smooth transitions)", subproperties=
+                         [
+                          StkProperty(id='splatting_texture_1', name="Red Texture",   default=""),
+                          StkProperty(id='splatting_texture_2', name="Green Texture", default=""),
+                          StkProperty(id='splatting_texture_3', name="Blue Texture",  default=""),
+                          StkProperty(id='splatting_texture_4', name="Black Texture", default="")
+                         ]),
         StkBoolProperty( id='surface',          name="Surface",                    default="false", contextLevel=CONTEXT_MATERIAL,
                          doc="whether this material is the surface of a water area"),
         StkBoolProperty( id='zipper',           name="Zipper (speed boost)",       default="false", contextLevel=CONTEXT_MATERIAL,

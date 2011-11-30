@@ -78,7 +78,7 @@ def writeMaterialsFile(sPath):
         return
 
 
-
+    # the values are of format (default value, parent property if any)
     lTextureDefaults = {
            'light'                 : ("Y", None),
            'additive_lightmap'     : ("N", None),
@@ -101,13 +101,18 @@ def writeMaterialsFile(sPath):
            'surface'               : ("N", None),
            'high_adhesion'         : ('false', None),
            'slowdown_time'         : (1.0, 'use_slowdown'),
-           'max_speed'             : (1.0, 'use_slowdown')
+           'max_speed'             : (1.0, 'use_slowdown'),
+           'splatting'             : ("N", None),
+           'splatting_texture_1'   : ("", 'splatting'),
+           'splatting_texture_2'   : ("", 'splatting'),
+           'splatting_texture_3'   : ("", 'splatting'),
+           'splatting_texture_4'   : ("", 'splatting')
     }
 
     lBooleanAttributes = ["clampu","clampv","light","sphere","surface","below_surface",
                           "falling_effect", "crash_reset", "fog", "additive_lightmap",
                           "anisotropic","backface_culling","ignore","disable_z_write","reset",
-                          "sfx_positional"]
+                          "sfx_positional", "splatting"]
     
     #start_time = bsys.time()
     print("Writing material file --> \t")
@@ -166,7 +171,7 @@ def writeMaterialsFile(sPath):
                 
                 if prop in lTextureDefaults.keys():
                     
-                    # if this property isc onditional on another
+                    # if this property is conditional on another
                     cond = lTextureDefaults[prop][1]
                     
                     if currentValue != lTextureDefaults[prop][0] and (cond is None or (cond in i and i[cond] == "true")):
