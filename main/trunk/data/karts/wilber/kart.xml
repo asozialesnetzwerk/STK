@@ -2,7 +2,7 @@
 <!-- Generated with script from SVN rev 0.1 -->
 <kart name              = "Wilber"
       version           = "2"
-      model-file        = "wilber.b3d"
+      model-file        = "wilber.b3dz"
       icon-file         = "wilbericon.png"
       minimap-icon-file = "wilbericon.png"
       shadow-file       = "wilbershadow.png"
