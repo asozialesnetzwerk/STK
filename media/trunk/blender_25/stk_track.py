@@ -1221,11 +1221,15 @@ class TrackExport:
             x_max = x_min
             y_min = data.vertices[0].co[2]
             y_max = y_min
+            z_min = data.vertices[0].co[1]
+            z_max = z_min
             for i in range(1, 4):
                 x_min = min(x_min, data.vertices[i].co[0])
                 x_max = max(x_max, data.vertices[i].co[0])
                 y_min = min(y_min, data.vertices[i].co[2])
                 y_max = max(y_max, data.vertices[i].co[2])
+                z_min = min(z_min, data.vertices[i].co[1])
+                z_max = max(z_max, data.vertices[i].co[1])
             
             fadeout_str = ""
             fadeout = getProperty(obj, "fadeout", "false")
@@ -1237,7 +1241,7 @@ class TrackExport:
             f.write('  <object type="billboard" texture="%s" xyz="%f %f %f" \n'%
                     (os.path.basename(data.uv_textures[0].data[0].image.filepath),
                      obj.location[0], obj.location[2], obj.location[1]) )
-            f.write('             width="%f" height="%f" %s>\n' %(x_max-x_min, y_max-y_min, fadeout_str) )
+            f.write('             width="%f" height="%f" %s>\n' %(max(x_max-x_min, z_max-z_min), y_max-y_min, fadeout_str) )
             if obj.animation_data and obj.animation_data.action and obj.animation_data.action.fcurves and len(obj.animation_data.action.fcurves) > 0:
                 self.writeIPO(f, obj.animation_data)
             f.write('  </object>\n')
