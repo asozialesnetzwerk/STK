@@ -1704,7 +1704,7 @@ class TrackExport:
             f.write("  <sky-color rgb=\"%s\"/>\n"%sky_color)
 
         weather = getIdProperty(scene, "weather", None)
-        if weather:
+        if weather and weather != "none":
             if weather=="rain":
                 f.write("  <weather type=\"rain\" />\n")
             else:
