@@ -2,7 +2,7 @@
 <!-- Generated with script from SVN rev 9075 -->
 <kart name              = "Nolok"
       version           = "2"
-      model-file        = "nolok.b3d"
+      model-file        = "nolok.b3dz"
       icon-file         = "nolokicon.png"
       minimap-icon-file = "nolokicon.png"
       shadow-file       = "nolokshadow.png"

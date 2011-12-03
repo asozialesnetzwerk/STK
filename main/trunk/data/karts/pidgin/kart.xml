@@ -2,7 +2,7 @@
 <!-- Generated with script from SVN rev 0.1 -->
 <kart name              = "Pidgin"
       version           = "2"
-      model-file        = "pidgin.b3d"
+      model-file        = "pidgin.b3dz"
       icon-file         = "pidginicon.png"
       minimap-icon-file = "pidginicon.png"
       shadow-file       = "pidginshadow.png"

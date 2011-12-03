@@ -2,7 +2,7 @@
 <!-- Generated with script from SVN rev 0.1 -->
 <kart name              = "Elephpant"
       version           = "2"
-      model-file        = "elephpant.b3d"
+      model-file        = "elephpant.b3dz"
       icon-file         = "elephpanticon.png"
       minimap-icon-file = "elephpanticon.png"
       shadow-file       = "elephpantshadow.png"

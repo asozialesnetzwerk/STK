@@ -2,7 +2,7 @@
 <!-- Generated with script from SVN rev 9075 -->
 <kart name              = "Konqi"
       version           = "2"
-      model-file        = "konqi.b3d"
+      model-file        = "konqi.b3dz"
       icon-file         = "konqi_icon.png"
       minimap-icon-file = "konqi_icon.png"
       shadow-file       = "konqi_shadow.png"

@@ -2,7 +2,7 @@
 <!-- Generated with script from SVN rev 0.1 -->
 <kart name              = "Hexley"
       version           = "2"
-      model-file        = "hexley.b3d"
+      model-file        = "hexley.b3dz"
       icon-file         = "hexleyicon.png"
       minimap-icon-file = "hexleyicon.png"
       shadow-file       = "hexley2shadow.png"

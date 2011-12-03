@@ -2,7 +2,7 @@
 <!-- Generated with script from SVN rev 9075 -->
 <kart name              = "Beagle"
       version           = "2"
-      model-file        = "beagle.b3d"
+      model-file        = "beagle.b3dz"
       icon-file         = "beagle_icon.png"
       minimap-icon-file = "beagle_icon.png"
       shadow-file       = "beagle_shadow.png"

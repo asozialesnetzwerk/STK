@@ -2,7 +2,7 @@
 <!-- Generated with script from SVN rev 0.1 -->
 <kart name              = "Emule"
       version           = "2"
-      model-file        = "emule.b3d"
+      model-file        = "emule.b3dz"
       icon-file         = "emule_icon128.png"
       minimap-icon-file = "emule_icon32.png"
       shadow-file       = "emule_shadow.png"

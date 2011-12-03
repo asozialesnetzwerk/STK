@@ -2,7 +2,7 @@
 <!-- Generated with script from SVN rev 9747 -->
 <kart name              = "Adiumy"
       version           = "2"
-      model-file        = "adiumy.b3d"
+      model-file        = "adiumy.b3dz"
       icon-file         = "adiumyicon.png"
       minimap-icon-file = "adiumyicon.png"
       shadow-file       = "adiumyshadow.png"

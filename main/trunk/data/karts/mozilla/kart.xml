@@ -2,7 +2,7 @@
 <!-- Generated with script from SVN rev 0.1 -->
 <kart name              = "Mozilla"
       version           = "2"
-      model-file        = "mozilla.b3d"
+      model-file        = "mozilla.b3dz"
       icon-file         = "mozillaicon.png"
       minimap-icon-file = "mozillaicon.png"
       shadow-file       = "mozillashadow.png"
