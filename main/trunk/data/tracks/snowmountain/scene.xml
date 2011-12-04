@@ -1,37 +1,39 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 7732 -->
+<!-- Generated with script from SVN rev 10311 -->
 <scene>
   <track model="snowmountain_track.b3d" x="0" y="0" z="0"/>
-  <object type="animation" model="Balloon.b3d" xyz="-39.316746 39.719826 -180.018707" hpr="-66.375348 89.561293 0.022721" scale="7.327495 7.327496 7.327496" >
+  <particle-emitter kind="black_smoke.xml" x="-122.867119" y="11.926004" z="-17.973167" h="0.000000" clip_distance="200"/>
+  <particle-emitter kind="black_smoke.xml" x="-75.356117" y="15.299392" z="-20.407894" h="0.000000" clip_distance="200"/>
+  <object type="animation" model="Balloon.b3d" xyz="-39.316746 39.719826 -180.018707" hpr="-66.375355 89.561299 0.022721" scale="7.327495 7.327496 7.327496" >
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
-      <p c="0.172394 -40.000000" h1="-51.067390 -82.012352" h2="51.412178 2.012353"/>
-      <p c="169.893951 99.157532" h1="103.757736 99.157532" h2="310.133057 99.157532"/>
-      <p c="529.781555 -151.640366" h1="389.314209 -151.640366" h2="588.447510 -151.640366"/>
-      <p c="680.088013 -40.000000" h1="632.979553 -74.989906" h2="727.196472 -5.010097"/>
+      <p c="0.172 -40.000" h1="-51.067 -82.012" h2="51.412 2.012"/>
+      <p c="169.894 99.158" h1="103.758 99.158" h2="310.133 99.158"/>
+      <p c="529.782 -151.640" h1="389.314 -151.640" h2="588.448 -151.640"/>
+      <p c="680.088 -40.000" h1="632.980 -74.990" h2="727.196 -5.010"/>
     </curve>
-    <curve channel="LocZ" interpolation="bezier" extend="cyclic_extrap">
-      <p c="0.896271 -180.018784" h1="-131.535202 -180.007858" h2="103.519028 -180.027252"/>
-      <p c="340.106354 98.386124" h1="207.674881 98.386124" h2="472.816162 98.386124"/>
-      <p c="680.029419 -179.988876" h1="578.468445 -179.986755" h2="812.521790 -179.991638"/>
+    <curve channel="LocZ" interpolation="bezier" extend="cyclic">
+      <p c="0.896 -180.019" h1="-131.535 -180.008" h2="103.519 -180.027"/>
+      <p c="340.106 98.386" h1="207.675 98.386" h2="472.816 98.386"/>
+      <p c="680.029 -179.989" h1="578.468 -179.987" h2="812.522 -179.992"/>
     </curve>
     <curve channel="RotX" interpolation="bezier" extend="const">
-      <p c="0.422103 -66.375351" h1="-175.490082 -66.375351" h2="176.334305 -66.375351"/>
-      <p c="451.003571 -66.334219" h1="275.091370 -66.334219" h2="626.915771 -66.334219"/>
+      <p c="0.422 -66.375" h1="-175.490 -66.375" h2="176.334 -66.375"/>
+      <p c="451.004 -66.334" h1="275.091 -66.334" h2="626.916 -66.334"/>
     </curve>
     <curve channel="RotZ" interpolation="bezier" extend="const">
-      <p c="0.762403 0.022721" h1="-142.680481 0.022721" h2="144.205292 0.022721"/>
-      <p c="368.177002 0.064737" h1="224.734116 0.064737" h2="511.619873 0.064737"/>
+      <p c="0.762 0.023" h1="-142.680 0.023" h2="144.205 0.023"/>
+      <p c="368.177 0.065" h1="224.734 0.065" h2="511.620 0.065"/>
     </curve>
     <curve channel="RotY" interpolation="linear" extend="cyclic">
-      <p c="0.012781 90.084076"/>
-      <p c="679.984253 -269.996967"/>
+      <p c="0.013 90.084"/>
+      <p c="679.984 -269.997"/>
     </curve>
     <curve channel="LocY" interpolation="bezier" extend="const">
-      <p c="0.868374 39.719826" h1="-182.734314 39.719826" h2="184.471069 39.719826"/>
-      <p c="471.148315 39.712345" h1="287.545624 39.712345" h2="654.751038 39.712345"/>
+      <p c="0.868 39.720" h1="-182.734 39.720" h2="184.471 39.720"/>
+      <p c="471.148 39.712" h1="287.546 39.712" h2="654.751 39.712"/>
     </curve>
   </object>
-  <sun  xyz="4.07624530792 5.90386199951 1.00545394421"/>
+  <weather particles="snow.xml" />
   <banana x="-2.883005" y="-0.301474" z="39.38063" />
   <banana x="-51.491741" y="3.660036" z="77.638718" />
   <banana x="-64.635597" y="2.494776" z="33.101471" />
@@ -81,11 +83,10 @@
                 min-height="11.353293" same-group="2"/>
   </checks>
   <sky-box texture="winter_sky_6.jpg winter_sky_5.jpg winter_sky_2.jpg winter_sky_4.jpg winter_sky_3.jpg winter_sky_1.jpg"/>
-  <weather particles="snow.xml" />
   <default-start karts-per-row     ="2"
-                 forwards-distance ="1.5"
-                 sidewards-distance="3"
-                 upwards-distance  ="0.1"/>
+                 forwards-distance ="1.50"
+                 sidewards-distance="3.00"
+                 upwards-distance  ="0.10"/>
   <end-cameras>
     <camera type="ahead_of_kart" xyz="7.481132 5.343665 -6.507640" distance="5"/>
   </end-cameras>

@@ -7,6 +7,7 @@
   <material name="smoke_yellow.png"      compositing="blend" light="N" ignore="Y"/>
   <material name="smoke_brown.png"       compositing="blend" light="N" ignore="Y"/>
   <material name="smoke_red.png"         compositing="blend" light="N" ignore="Y"/>
+  <material name="smoke_black.png"       compositing="blend" light="N" ignore="Y"/>
   <material name="snowflake.png"         compositing="blend" light="N" ignore="Y"/>
   <material name="nitro-particle.png"    additive="Y" light="N" ignore="Y"/>
   <material name="zipper-particle.png"   additive="Y" light="N" ignore="Y"/>
