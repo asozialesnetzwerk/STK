@@ -6,8 +6,10 @@
     <velocity  x="0.000"
                y="0.002"
                z="0.000"         />
-    
-    <material  file="smoke_acid.png"  />
+        
+    <materials>
+        <material name="smoke_acid.png" compositing="blend" light="N" ignore="Y"/>
+    </materials>
     
     <!-- Amount of particles emitted per second -->
     <rate      min="300"

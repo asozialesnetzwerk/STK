@@ -1,9 +1,6 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev 9577 -->
 <materials>
-  <!-- Particles -->
-  <material name="smoke_acid.png"        compositing="blend" light="N" ignore="Y"/>
-  
   <material name="acid_lake.jpg" ignore="Y" surface="Y">
     <sfx filename="hot.ogg"/>
     <particles condition="skid drive" base="acid_splash.xml"/>

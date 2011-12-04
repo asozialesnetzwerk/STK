@@ -2,7 +2,7 @@
 <!-- Generated with script from SVN rev 8870 -->
 <kart name              = "Beastie"
       version           = "2"
-      model-file        = "beastie.b3d"
+      model-file        = "beastie.b3dz"
       icon-file         = "beastie-icon.png"
       minimap-icon-file = "beastie-icon.png"
       shadow-file       = "beastie-shadow.png"

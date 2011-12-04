@@ -2,7 +2,7 @@
 <!-- Generated with script from SVN rev 0.1 -->
 <kart name              = "Puffy"
       version           = "2"
-      model-file        = "puffy.b3d"
+      model-file        = "puffy.b3dz"
       icon-file         = "puffy-icon.png"
       minimap-icon-file = "puffy-icon.png"
       shadow-file       = "puffy-shadow.png"

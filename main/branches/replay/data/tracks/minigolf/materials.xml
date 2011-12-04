@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev Unknown -->
 <materials>
-  <material name="_particle_sand.png" compositing="blend" clampu="Y" clampv="Y" ignore="Y"/>
   <material name="arrow.png" compositing="blend" ignore="Y"/>
   <material name="astro_turf.jpg">
     <particles condition="skid" base="smoke.xml"/>
@@ -20,4 +19,6 @@
     <sfx filename="splash.ogg" min_speed="0.00" max_speed="0.00" min_pitch="0.80" max_pitch="1.20" positional="Y" rolloff="0.30"/>
     <particles condition="skid drive" base="splash.xml"/>
   </material>
+  
+  <material name="golfball_baked.jpg" normal-map="golfball_baked_normal.png" />
 </materials>

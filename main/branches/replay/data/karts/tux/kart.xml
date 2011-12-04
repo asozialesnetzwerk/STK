@@ -2,7 +2,7 @@
 <!-- Generated with script from SVN rev 0.1 -->
 <kart name              = "Tux"
       version           = "2"
-      model-file        = "tux.b3d"
+      model-file        = "tux.b3dz"
       icon-file         = "tuxicon.png"
       minimap-icon-file = "tuxicon.png"
       shadow-file       = "tuxkartshadow.png"

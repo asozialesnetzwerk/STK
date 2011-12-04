@@ -7,8 +7,10 @@
                y="0.0150"
                z="0.000"         />
     
-    <material  file="_particle_sand.png"  />
-    
+    <materials>
+      <material name="_particle_sand.png" compositing="blend" clampu="Y" clampv="Y" ignore="Y"/>
+    </materials>
+        
     <!-- Amount of particles emitted per second -->
     <rate      min="100"
                max="400"         />
