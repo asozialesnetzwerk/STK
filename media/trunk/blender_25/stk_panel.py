@@ -803,6 +803,8 @@ COMPOSITING_VALUES = {'none'     : StkEnumChoice("None",              []),
                                                  doc="Use transparency on this texture, using the alpha channel or a specified external mask"),
                       'test'     : StkEnumChoice("Alpha Test",        [],
                                                  doc="Use fully-opaque-or-fully-transparent transparency on this texture, using the alpha channel or a specified external mask"),
+                      'coverage' : StkEnumChoice("Alpha to Coverage",        [],
+                                                 doc="Like alpha testing but with softer edges"),
                       'additive' : StkEnumChoice("Additive Blending", [],
                                                  doc="Brighten up anything under by adding the current color on top (useful for fire or light)")
                      }
