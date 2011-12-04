@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 9776 -->
+<!-- Generated with script from SVN rev 10311 -->
 <scene>
   <track model="zenGarden_track.b3d" x="0" y="0" z="0">
     <static-object lod_instance="true" lod_group="torii" xyz="1.500000 0.000000 10.000000" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
@@ -44,7 +44,7 @@
     <static-object lod_instance="true" lod_group="pineTree1" xyz="-21.624260 0.561535 31.704771" hpr="-89.999996 18.967567 0.000000" scale="1.247470 1.247470 1.247470"/>
     <static-object lod_instance="true" lod_group="pineTree1" xyz="-36.511135 0.601239 20.270184" hpr="-89.999996 18.967567 0.000000" scale="1.000000 1.000000 1.000000"/>
     <static-object lod_distance="100.0" lod_group="pineLow" model="pineLow_LOD100.b3d" xyz="-92.341362 -2.592548 121.031982" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="50.0" lod_group="pineLow" model="pineLow_LOD500.b3d" xyz="-81.341362 -2.592548 121.031982" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
+    <static-object lod_distance="500.0" lod_group="pineLow" model="pineLow_LOD500.b3d" xyz="-81.341362 -2.592548 121.031982" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
     <static-object lod_instance="true" lod_group="pineLow" xyz="-105.341362 1.294929 70.332489" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
     <static-object lod_instance="true" lod_group="pineLow" xyz="-93.243416 1.717649 70.332489" hpr="-90.000003 -94.157484 -0.000004" scale="1.000000 1.000000 1.000000"/>
     <static-object lod_instance="true" lod_group="pineLow" xyz="-69.433998 2.140041 56.580074" hpr="-89.999996 -52.355756 0.000003" scale="1.000000 1.000000 1.000000"/>
@@ -138,16 +138,15 @@
   </track>
   <particle-emitter kind="waterfall.xml" x="-183.360977" y="0.767353" z="50.632050" h="0.000000"/>
   <object type="billboard" texture="lightHaloY.png" xyz="-157.922165 3.779043 -71.275635" 
-             width="7.591702" height="9.267756">
-  </billboard>
+             width="7.591702" height="9.267756" >
+  </object>
   <object type="billboard" texture="lightHaloY.png" xyz="-145.348633 3.779043 -75.742592" 
-             width="7.591702" height="9.267756">
-  </billboard>
+             width="7.591702" height="9.267756" >
+  </object>
   <object type="billboard" texture="lightHaloY.png" xyz="-170.981247 3.779043 -59.921993" 
-             width="7.591702" height="9.267756">
-  </billboard>
+             width="7.591702" height="9.267756" >
+  </object>
   <sun  xyz="-85.00 56.00 0.00" sun-specular="255 255 255" sun-diffuse="255 255 255" ambient="255 255 255"/>
-  <weather particles="none.xml" />
   <big-nitro x="-135.285248" y="0.779279" z="-46.432125" />
   <big-nitro x="-139.340012" y="0.779279" z="-40.465088" />
   <big-nitro x="-143.258148" y="0.779279" z="-40.408115" />
@@ -196,6 +195,6 @@
   <camera far="1000.0"/>
   <default-start karts-per-row     ="2"
                  forwards-distance ="1.10"
-                 sidewards-distance="2"
+                 sidewards-distance="2.00"
                  upwards-distance  ="1.10"/>
 </scene>
