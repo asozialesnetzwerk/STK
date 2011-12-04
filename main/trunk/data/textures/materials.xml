@@ -42,7 +42,7 @@
   <material name="chrome.png"            light="N" sphere="Y"/>
   <material name="chrome2.png"           light="N" sphere="Y"/>
   <material name="clouds.png"            light="N" reset="Y" ignore="Y"/>
-  <material name="coniferous_tree.jpg"   mask="coniferous_tree_alpha.jpg" compositing="blend" light="N" ignore="Y"/>
+  <material name="coniferous_tree.jpg"   mask="coniferous_tree_alpha.jpg" compositing="coverage" light="N" ignore="Y"/>
   <material name="dirt.png" />
   <material name="dirt2sand.png"         anisotropic="Y"/>
   
