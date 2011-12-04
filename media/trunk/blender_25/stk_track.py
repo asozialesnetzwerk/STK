@@ -1092,6 +1092,7 @@ class TrackExport:
 
         lodstring = self.getLODString(obj)
         
+        type = getProperty(obj, "type", "")
         if type == "lod_instance":
             model_string = ""
         else:
@@ -1478,7 +1479,9 @@ class TrackExport:
         if len(name) == 0: name = obj.name
         
         type = getProperty(obj, "type", "X")
-        if type != "lod_instance":
+        if type == "lod_instance":
+            b3d_name = None
+        else:
             b3d_name = self.exportLocalB3D(obj, sPath, name)
 
             
