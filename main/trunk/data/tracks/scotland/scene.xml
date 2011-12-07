@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 9401 -->
+<!-- Generated with script from SVN rev 10311 -->
 <scene>
   <track model="scotland_track.b3d" x="0" y="0" z="0">
     <static-object model="pinetree.b3d" xyz="37.893661 -0.529887 -156.867035" hpr="-0.000000 -0.000000 -0.000000" scale="1.393991 1.393991 1.393991"/>
@@ -48,7 +48,7 @@
   </track>
   <water model="water1.b3d" xyz="85.811806 -7.296509 35.094959" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000" height="0.10"/>
   <water model="water2.b3d" xyz="-37.457680 -4.810161 10.933683" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000" height="0.05"/>
-  <object type="sfx-emitter" sound="sheep.ogg" rolloff="0.1" volume="1.0" xyz="-5.603088 1.194352 -43.282104" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
+  <object type="sfx-emitter" sound="sheep.ogg" rolloff="0.1" volume="1.0" xyz="-8.592916 1.685662 -41.912350" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
   <object type="animation" model="nessy.b3d" xyz="148.605347 0.003935 -181.443665" hpr="-0.000000 -0.000000 -0.000000" scale="0.129744 0.129744 0.129744" >
     <curve channel="LocY" interpolation="bezier" extend="const">
       <p c="-0.014 0.002" h1="-23.979 0.002" h2="23.952 0.002"/>
@@ -56,7 +56,7 @@
       <p c="198.081 0.019" h1="144.783 0.019" h2="251.379 0.019"/>
     </curve>
   </object>
-  <sun  xyz="34.4485244751 47.8925704956 -49.4461555481"/>
+  <sun  xyz="33.45 47.89 -49.45"/>
   <banana x="-84.262421" y="41.486603" z="47.046745" />
   <banana x="-7.090578" y="41.486595" z="116.020927" />
   <banana  x="3.064586" y="21.662115" z="30.374775" />

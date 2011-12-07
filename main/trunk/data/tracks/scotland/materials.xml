@@ -1,29 +1,20 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 7732 -->
+<!-- Generated with script from SVN rev Unknown -->
 <materials>
-  <material name="brick1.png" anisotropic="Y" backface-culling="N"/>
+  <material name="brick1.png" backface-culling="N"/>
   <material name="bush3.png" light="N" ignore="Y" compositing="test"/>
-  <material name="Factory4b.png" anisotropic="Y"/>
-  <material name="grass.jpg" max-speed="0.40000000596" slowdown-time="1.0"/>
-  <material name="grass2.jpg" max-speed="0.40000000596" slowdown-time="1.0"/>
-  <material name="HortonStone6.jpg" anisotropic="Y"/>
-  <material name="HortonStone7.jpg" anisotropic="Y"/>
-  <material name="leaves2.png" ignore="Y" compositing="test"/>
-  <material name="Mossy_wall.png" anisotropic="Y"/>
-  <material name="rock_darkgrey.png" anisotropic="Y"/>
-  <material name="rock_grey.png" anisotropic="Y"/>
+  <material name="coniferous_tree.jpg" compositing="coverage" mask="coniferous_tree_alpha.jpg"/>
+  <material name="grass.jpg" max-speed="0.40"/>
+  <material name="grass2.jpg" max-speed="0.40"/>
+  <material name="leaves2.png" ignore="Y" compositing="coverage"/>
   <material name="seabed.png" graphical-effect="water" falling-effect="Y"/>
-  <material name="tree_1.png" backface-culling="N" light="N" compositing="blend"/>
+  <material name="tree_1.png" light="N" compositing="coverage" backface-culling="N"/>
   <material name="water_dark.png" light="N" reset="Y" surface="Y">
     <sfx filename="splash.ogg"/>
     <particles base="splash.xml" condition="skid drive"/>
   </material>
-  <material name="Window4.png" anisotropic="Y"/>
-  <material name="Window5.png" anisotropic="Y"/>
-  <material name="Window6.png" anisotropic="Y"/>
-  <material name="WindowOld.png" anisotropic="Y"/>
-  <material name="wooden2.png" backface-culling="N" transparency="yes"/>
-  <material name="zipper_collect.png" transparency="yes" light="N">
-    <zipper/>
+  <material name="wooden2.png" backface-culling="N" compositing="test"/>
+  <material name="zipper_collect.png" light="N" compositing="test">
+    <zipper max_speed_increase="15.0" duration="3.5" speed_gain="4.5" fade_out_time="3.0"/>
   </material>
 </materials>
