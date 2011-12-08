@@ -141,7 +141,6 @@
   <material name="speedfore.png"    compositing="test" clampU="Y" clampV="Y" light="N" ignore="Y"/>
   <material name="starparticle.png" compositing="blend" clampU="Y" clampV="Y" ignore="Y" light="N"/>
   <material name="stonetex.jpg" />
-  <material name="stonewall.png"/>
   
   <material name="track.png" anisotropic="Y">
     <particles base="smoke.xml" condition="skid" />
@@ -160,7 +159,6 @@
   <material name="water_light.png" light="N" reset="Y"/>
   <material name="water-splash.png" compositing="blend" light="N" ignore="Y"/>
 
-  <material name="wood.jpg" anisotropic="Y"/>
   <material name="wood_planks1_alpha.png" compositing="blend"/>
   
   <material name="yellow_dirt.jpg" max-speed="0.4" slowdown-time="2.0" anisotropic="Y">
