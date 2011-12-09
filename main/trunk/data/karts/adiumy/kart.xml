@@ -7,7 +7,7 @@
       minimap-icon-file = "adiumyicon.png"
       shadow-file       = "adiumyshadow.png"
       groups            = "standard"
-      rgb               = "0 179 0" >
+      rgb               = "0 0.7 0" >
   <sounds engine = "small"/>
   <animations left = "0"
               straight = "20"
