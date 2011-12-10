@@ -625,9 +625,7 @@ def write_node(objects=[]):
                 arm_matrix = arm.matrix_world
                 
                 if b3d_parameters.get("local-space"):
-                    arm_matrix[3][0] = 0.0
-                    arm_matrix[3][1] = 0.0
-                    arm_matrix[3][2] = 0.0
+                    arm_matrix = mathutils.Matrix()
                 
                 def read_armature(arm_matrix,bone,parent = None):
                     if (parent and not bone.parent.name == parent.name):
