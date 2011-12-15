@@ -87,7 +87,10 @@ def getIdProperty(obj, name, default="", set_value_if_undefined=1):
     try:
         prop = obj[name]
         if isinstance(prop, str):
-            return obj[name].replace('&', '&amp;') # this is XML
+            from xml.sax.saxutils import escape
+            # + "" is used to force a copy of the string AND to convert from binary format to string format
+            # escape formats the string for XML
+            return (escape(prop + "") + "").encode('ascii', 'xmlcharrefreplace').decode("ascii")
         else:
             return prop
     except:
