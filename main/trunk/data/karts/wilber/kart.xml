@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 0.1 -->
+<!-- Generated with script from SVN rev 10384 -->
 <kart name              = "Wilber"
       version           = "2"
       model-file        = "wilber.b3dz"
@@ -7,7 +7,8 @@
       minimap-icon-file = "wilbericon.png"
       shadow-file       = "wilbershadow.png"
       groups            = "standard"
-      rgb               = "1.0 0.65 0" >
+      rgb               = "1.00 0.42 0.00" >
+  <sounds engine = "small"/>
   <animations left = "0"
               straight = "20"
               right = "40"
