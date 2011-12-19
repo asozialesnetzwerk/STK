@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 10427 -->
+<graph>
+  <!-- First define all nodes of the graph, and what quads they represent -->
+  <node-list from-quad="0" to-quad="68"/>  <!-- map each quad to a node  -->
+  <!-- Define the main loop -->
+  <edge-loop from="0" to="50"/>
+  <!-- Shortcut Driveline1 -->
+  <edge from="7" to="51"/>
+  <edge-line from="51" to="60"/>
+  <edge from="60" to="23"/>
+  <!-- Shortcut Driveline2 -->
+  <edge from="6" to="61"/>
+  <edge-line from="61" to="68"/>
+  <edge from="68" to="40"/>
+</graph>
