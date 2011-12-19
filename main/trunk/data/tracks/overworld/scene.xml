@@ -2,6 +2,10 @@
 <!-- Generated with script from SVN rev 10427 -->
 <scene>
   <track model="overworld_track.b3d" x="0" y="0" z="0">
+    <static-object model="cactus.b3d" xyz="-176.917572 -4.728680 130.190201" hpr="-0.000000 367.079146 0.000000" scale="1.847463 1.847463 1.847463"/>
+    <static-object model="cactus.b3d" xyz="-138.253647 -8.514604 132.533463" hpr="-0.000000 210.248577 -0.000000" scale="1.847463 1.847463 1.847463"/>
+    <static-object model="cactus.b3d" xyz="-176.750198 -6.260209 181.072601" hpr="-0.000000 230.110849 0.000000" scale="1.847463 1.847463 1.847463"/>
+    <static-object model="cactus.b3d" xyz="-201.354523 -2.538082 84.831215" hpr="-0.000000 506.779163 0.000000" scale="1.847463 1.847463 1.847463"/>
     <static-object lod_distance="100.0" lod_group="pineLow" model="pineLow_LOD100.b3d" xyz="48.600410 6.968265 -147.549683" hpr="-85.305894 -45.440422 -3.768771" scale="0.776224 0.776224 0.776224"/>
     <static-object model="pineVeryLow.b3d" xyz="50.847824 9.259468 -98.415878" hpr="-90.981822 -94.307878 2.293462" scale="0.627703 0.627703 0.627703"/>
     <static-object model="pineVeryLow.b3d" xyz="48.359749 9.719052 -75.557739" hpr="-93.279743 -104.474253 -6.612985" scale="0.627704 0.627704 0.627703"/>
