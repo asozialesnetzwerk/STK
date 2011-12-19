@@ -1,14 +1,14 @@
 # data/tracks
 
 pkgdatadir= $(datadir)/games/$(PACKAGE)/data/tracks
-nobase_dist_pkgdata_DATA = $(shell find $(srcdir) -name "*.jpg")           \
-                           $(shell find $(srcdir) -name "*.JPG")           \
-                           $(shell find $(srcdir) -name "*.png")           \
-                           $(shell find $(srcdir) -name "*.b3d")           \
-                           $(shell find $(srcdir) -name "License.txt")     \
-                           $(shell find $(srcdir) -name "*.xml")           \
-                           $(shell find $(srcdir) -name "*.challenge")     \
-                           $(shell find $(srcdir) -name "Music_license.rtf") \
-                           $(shell find $(srcdir) -name "*.music")         \
-                           $(shell find $(srcdir) -name "*.ogg")
+nobase_dist_pkgdata_DATA = $(shell find $(srcdir) -name "*.jpg" -print0)           \
+                           $(shell find $(srcdir) -name "*.JPG" -print0)           \
+                           $(shell find $(srcdir) -name "*.png" -print0)           \
+                           $(shell find $(srcdir) -name "*.b3d" -print0)           \
+                           $(shell find $(srcdir) -name "License.txt" -print0)     \
+                           $(shell find $(srcdir) -name "*.xml" -print0)           \
+                           $(shell find $(srcdir) -name "*.challenge" -print0)     \
+                           $(shell find $(srcdir) -name "Music_license.rtf" -print0) \
+                           $(shell find $(srcdir) -name "*.music" -print0)         \
+                           $(shell find $(srcdir) -name "*.ogg" -print0)
 
