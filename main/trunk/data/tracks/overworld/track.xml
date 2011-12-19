@@ -6,5 +6,6 @@
         designer    = "mmg"
         music       = "kart_grand_prix.music"
         screenshot  = "screenshot.jpg"
+        internal    = "true"
 >
 </track>
