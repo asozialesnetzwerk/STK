@@ -1,15 +1,21 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev Unknown -->
 <materials>
+  <material name="blackrock_lava.jpg" light="N"/>
   <material name="BurdockLeaf.png" backface-culling="N" compositing="coverage" ignore="Y"/>
+  <material name="castelwall.jpg" backface-culling="N"/>
+  <material name="chain.png" compositing="test" backface-culling="N"/>
   <material name="city_tree_leaves.jpg" compositing="blend" ignore="Y" backface-culling="N" disable-z-write="Y" mask="city_tree_leaves_alpha.jpg"/>
   <material name="CornusAmericana.png" backface-culling="N" compositing="coverage" ignore="Y"/>
+  <material name="dynamiclight.png" compositing="blend" light="N" ignore="Y" backface-culling="N" disable-z-write="Y"/>
   <material name="FieldPlant2.png" light="N" backface-culling="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
   <material name="grass.jpg" slowdown-time="0.80" max-speed="0.50"/>
   <material name="GrassTall.png" light="N" backface-culling="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
   <material name="GroundCover.png" backface-culling="N" compositing="test" ignore="Y"/>
   <material name="Jackinthepulpit.png" backface-culling="N" compositing="coverage" ignore="Y"/>
+  <material name="lava_1.jpg" light="N"/>
   <material name="light.png" light="N" ignore="Y" compositing="blend" clampu="Y" disable-z-write="Y" backface-culling="N" fog="N"/>
+  <material name="lightHaloY.png" compositing="blend" light="N" ignore="Y" disable-z-write="Y"/>
   <material name="lighthouse.jpg" light="N"/>
   <material name="Mint.png" light="N" backface-culling="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
   <material name="Mushroom 2 side.png" light="N" backface-culling="N" compositing="coverage" ignore="Y"/>
@@ -20,14 +26,21 @@
   <material name="Mushroom 7.png" light="N" backface-culling="N" compositing="coverage" ignore="Y"/>
   <material name="palm_b.png" compositing="coverage" backface-culling="N" disable-z-write="Y"/>
   <material name="palm_tree_leaf.png" compositing="coverage"/>
+  <material name="pix.png" compositing="test" reset="Y"/>
   <material name="city_grass.png" backface-culling="N" compositing="coverage" ignore="Y"/>
   <material name="splat.png" splatting="Y" splatting-texture-1="dirt.jpg" splatting-texture-2="grass2.jpg" splatting-texture-3="rock_brown.jpg" splatting-texture-4="sand2.jpg"/>
   <material name="splat2.png" splatting="Y" splatting-texture-1="dirt.jpg" splatting-texture-2="grass2.jpg" splatting-texture-3="snow.png" splatting-texture-4="rock_grey.jpg"/>
   <material name="StreamPlant.png" backface-culling="N" compositing="coverage" ignore="Y"/>
+  <material name="track_01.jpg" backface-culling="N"/>
   <material name="tree_1.png" backface-culling="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
   <material name="tree_1Low.png" backface-culling="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
   <material name="vegetation_1.png" backface-culling="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
+  <material name="wall_wood1.jpg">
+    <particles condition="skid" base="smoke.xml"/>
+  </material>
   <material name="WhiteFlowerLeaves.png" backface-culling="N" compositing="coverage" ignore="Y"/>
   <material name="WhiteFlowerSkin.png" backface-culling="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
   <material name="wooden2.png" backface-culling="N" compositing="test" disable-z-write="Y" ignore="Y"/>
+  <material name="zipper.png" compositing="blend" light="N"/>
+  <material name="zipper_effect.png" compositing="blend" light="N"/>
 </materials>
