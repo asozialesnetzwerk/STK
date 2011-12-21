@@ -55,13 +55,18 @@
     <static-object lod_distance="50.0" lod_group="tree_2" model="tree_2_LOD50.b3d" xyz="-82.315109 -3.376666 134.414398" hpr="-0.000000 180.000005 0.000000" scale="1.801355 1.801355 1.801355"/>
     <static-object lod_distance="50.0" lod_group="tree_2" model="tree_2_LOD50.b3d" xyz="-45.836021 -4.418539 116.544937" hpr="-0.000000 117.658136 0.000000" scale="1.801355 1.801355 1.801355"/>
     <static-object lod_distance="50.0" lod_group="tree_2" model="tree_2_LOD50.b3d" xyz="-88.765030 -0.292060 109.460594" hpr="-0.000000 117.658136 0.000000" scale="1.801355 1.801355 1.801355"/>
+    <static-object lod_instance="true" lod_group="tree_2" xyz="-59.420765 0.287679 -113.349365" hpr="-0.000000 165.555125 -0.000000" scale="1.200000 1.200000 1.200000"/>
+    <static-object lod_instance="true" lod_group="tree_2" xyz="-115.639236 -5.255705 -62.649265" hpr="-0.000000 165.555125 -0.000000" scale="1.200000 1.200000 1.200000"/>
+    <static-object model="terrain1_splat.b3d" if="splatting" xyz="-33.562141 -6.924582 104.264420" hpr="-0.000000 -0.000000 -0.000000" scale="2.369410 2.369410 2.369410"/>
+    <static-object model="terrain2_splat.b3d" if="splatting" xyz="-33.562141 -6.924582 104.264420" hpr="-0.000000 -0.000000 -0.000000" scale="2.369410 2.369410 2.369410"/>
+    <static-object model="terrain_nosplat.b3d" ifnot="splatting" xyz="-33.562141 -6.924582 104.264420" hpr="-0.000000 -0.000000 -0.000000" scale="2.369410 2.369410 2.369410"/>
   </track>
   <water model="lava.b3d" xyz="-33.777596 -37.691032 472.648193" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000" height="0.30" speed="200.00" length="10.00">
     <animated-texture name="lava.png" dx="0.100" />
   </water>
   <water model="water.b3d" xyz="106.878517 -16.628115 163.765686" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000" height="0.15" speed="400.00" length="10.00"/>
-  <object type="animation" model="cart.b3d" xyz="-74.910225 -17.739193 310.778168" hpr="-2.611778 -2.190221 -0.570424" scale="0.922713 0.922713 0.922713" >
-  </object>
+  <object type="movable" xyz="-74.910225 -17.739193 310.778168" hpr="-2.611778 -2.190221 -0.570424" scale="0.922713 0.922713 0.922713"
+          model="cart.b3d" shape="box" mass="100.0"/>
   <object type="animation" model="cogwheel3.b3d" xyz="-72.533844 -14.642933 321.703552" hpr="90.000003 139.733922 -352.805990" scale="0.722790 0.722790 0.722790" >
   </object>
   <object type="animation" model="cogwheel4.b3d" xyz="-72.890259 -11.603506 321.401611" hpr="283.160682 -413.101835 77.620510" scale="0.554242 0.554242 0.554242" >
