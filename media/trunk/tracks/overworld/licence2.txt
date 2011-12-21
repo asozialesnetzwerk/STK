@@ -27,3 +27,13 @@ roof
 blackrock.jpg, castelwall.jpg
     by Jean-Manuel Clemençon (Samuncle; http://samuncle.toile-libre.org/)
     released under CC-BY-SA 3.0 license
+
+wood_planks*
+    based on image by Varivar, modified by Canis Lupus
+    CC-BY-SA 3.0
+
+ship models by Canis Lupus
+
+cactus model and texture (c) 2008-2010 thomas oppl (toppl@fh-sbg.ac.at)
+    licensed under CC BY-SA 3.0
+    http://creativecommons.org/licenses/by-sa/3.0/
