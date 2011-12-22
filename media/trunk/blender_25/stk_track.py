@@ -1159,6 +1159,18 @@ class TrackExport:
             else:
                 model_string =  " model=\"%s\""%b3d_name
 
+            condition_if = getProperty(obj, "if", "")
+            if len(condition_if) > 0:
+                condition_if_str = " if=\"%s\""%condition_if
+            else:
+                condition_if_str = ""
+            
+            condition_ifnot = getProperty(obj, "ifnot", "")
+            if len(condition_ifnot) > 0:
+                condition_ifnot_str = " ifnot=\"%s\""%condition_ifnot
+            else:
+                condition_ifnot_str = ""
+                
             interaction = getProperty(obj, "interaction", '??')
             if interaction == 'reset':
                 reset_string = " reset=\"y\""
@@ -1166,13 +1178,15 @@ class TrackExport:
                 reset_string = ""
             
             if lAnim:
-                f.write("    <static-object%s%s %s%s>\n"% \
-                        (lodstring, model_string, getXYZHPRString(obj), reset_string) )
+                f.write("    <static-object%s%s %s%s%s%s>\n"% \
+                        (lodstring, model_string, getXYZHPRString(obj), reset_string,
+                         condition_if_str, condition_ifnot_str) )
                 self.writeAnimatedTextures(f, lAnim)
                 f.write("    </static-object>\n")
             else:
-                f.write("    <static-object%s%s %s%s/>\n"% \
-                        (lodstring, model_string, getXYZHPRString(obj), reset_string) )
+                f.write("    <static-object%s%s %s%s%s%s/>\n"% \
+                        (lodstring, model_string, getXYZHPRString(obj), reset_string,
+                         condition_if_str, condition_ifnot_str) )
         self.writeAnimatedTextures(f, lAnimTextures)
 
     # --------------------------------------------------------------------------

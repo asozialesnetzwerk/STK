@@ -572,7 +572,9 @@ object_properties = [
                                                             'box'       : StkEnumChoice("Box",          []),
                                                             'sphere'    : StkEnumChoice("Sphere",       []),
                                                             'exact'     : StkEnumChoice("Exact",        [])
-                                                           }, default='box', doc="Shape to use in the physics engine to represent this object")
+                                                           }, default='box', doc="Shape to use in the physics engine to represent this object"),
+                                                StkProperty('if',    "Visible if...", "", doc="Make this object conditionally visible"),
+                                                StkProperty('ifnot', "Visible if not...", "", doc="Make this object conditionally visible")
                                               ],
                                               doc="This object will stay in place, if the user drives on this object they will 'hit a wall'"),
                               'move'   : StkEnumChoice("Movable by player",
