@@ -41,6 +41,9 @@
     <static-object model="pineVeryLow.b3d" xyz="59.704979 10.580782 -18.404697" hpr="-89.012391 -78.944132 -12.520389" scale="0.499663 0.499663 0.499663"/>
     <static-object model="pineVeryLow.b3d" xyz="55.282158 12.440687 -36.557316" hpr="-90.502438 -78.968940 -5.815873" scale="0.499663 0.499663 0.499663"/>
     <static-object model="pineVeryLow.b3d" xyz="47.079823 8.193026 -56.774986" hpr="-90.473560 -86.430334 -1.627241" scale="0.627703 0.627703 0.627703"/>
+    <static-object lod_instance="true" lod_group="rocket" xyz="-39.458508 -18.057045 337.457611" hpr="-0.000000 48.758941 0.000000" scale="0.620237 0.620237 0.620237"/>
+    <static-object lod_distance="350.0" lod_group="rocket" model="rocket_lo.b3d" xyz="190.422485 -14.357060 342.184906" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
+    <static-object lod_distance="80.0" lod_group="rocket" model="rocket_hi.b3d" xyz="174.034454 -14.357060 342.184906" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
     <static-object lod_instance="true" lod_group="tree_2" xyz="-55.336502 -5.400406 153.295776" hpr="-0.000000 180.000005 0.000000" scale="1.200000 1.200000 1.200000"/>
     <static-object lod_instance="true" lod_group="tree_2" xyz="-50.742165 -5.139952 126.565063" hpr="-0.000000 112.167190 0.000000" scale="1.200000 1.200000 1.200000"/>
     <static-object lod_instance="true" lod_group="tree_2" xyz="-82.593811 -2.159126 119.673561" hpr="-0.000000 165.555125 -0.000000" scale="1.200000 1.200000 1.200000"/>
@@ -57,9 +60,9 @@
     <static-object lod_distance="50.0" lod_group="tree_2" model="tree_2_LOD50.b3d" xyz="-88.765030 -0.292060 109.460594" hpr="-0.000000 117.658136 0.000000" scale="1.801355 1.801355 1.801355"/>
     <static-object lod_instance="true" lod_group="tree_2" xyz="-59.420765 0.287679 -113.349365" hpr="-0.000000 165.555125 -0.000000" scale="1.200000 1.200000 1.200000"/>
     <static-object lod_instance="true" lod_group="tree_2" xyz="-115.639236 -5.255705 -62.649265" hpr="-0.000000 165.555125 -0.000000" scale="1.200000 1.200000 1.200000"/>
-    <static-object model="terrain1_splat.b3d" if="splatting" xyz="-33.562141 -6.924582 104.264420" hpr="-0.000000 -0.000000 -0.000000" scale="2.369410 2.369410 2.369410"/>
-    <static-object model="terrain2_splat.b3d" if="splatting" xyz="-33.562141 -6.924582 104.264420" hpr="-0.000000 -0.000000 -0.000000" scale="2.369410 2.369410 2.369410"/>
-    <static-object model="terrain_nosplat.b3d" ifnot="splatting" xyz="-33.562141 -6.924582 104.264420" hpr="-0.000000 -0.000000 -0.000000" scale="2.369410 2.369410 2.369410"/>
+    <static-object model="terrain1_splat.b3d" xyz="-33.562141 -6.924582 104.264420" hpr="-0.000000 -0.000000 -0.000000" scale="2.369410 2.369410 2.369410" if="splatting"/>
+    <static-object model="terrain2_splat.b3d" xyz="-33.562141 -6.924582 104.264420" hpr="-0.000000 -0.000000 -0.000000" scale="2.369410 2.369410 2.369410" if="splatting"/>
+    <static-object model="terrain_nosplat.b3d" xyz="-33.562141 -6.924582 104.264420" hpr="-0.000000 -0.000000 -0.000000" scale="2.369410 2.369410 2.369410" ifnot="splatting"/>
   </track>
   <water model="lava.b3d" xyz="-33.777596 -37.691032 472.648193" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000" height="0.30" speed="200.00" length="10.00">
     <animated-texture name="lava.png" dx="0.100" />
