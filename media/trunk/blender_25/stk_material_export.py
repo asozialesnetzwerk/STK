@@ -95,7 +95,9 @@ def writeMaterialsFile(sPath):
            'graphical_effect'      : ('none', None),
            'ignore'                : ("N", None),
            'mask'                  : ("", None),
-           'normal_map'            : ("", None),
+           'normal_map'            : ("", 'use_normal_map'),
+           'normal_map_uv2'        : ("", 'use_normal_map'),
+           'use_normal_map'        : ("N", None),
            'reset'                 : ("N", None),
            'sphere'                : ("N", None),
            'surface'               : ("N", None),
@@ -112,7 +114,7 @@ def writeMaterialsFile(sPath):
     lBooleanAttributes = ["clampu","clampv","light","sphere","surface","below_surface",
                           "falling_effect", "crash_reset", "fog", "additive_lightmap",
                           "anisotropic","backface_culling","ignore","disable_z_write","reset",
-                          "sfx_positional", "splatting"]
+                          "sfx_positional", "splatting", "use_normal_map", "normal_map_uv2"]
     
     #start_time = bsys.time()
     print("Writing material file --> \t")

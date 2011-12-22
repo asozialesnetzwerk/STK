@@ -888,8 +888,16 @@ STK_MATERIAL_PROPERTIES = [
                          doc="Make lightmap additive (only makes sense if this material has a lightmap)"),
             StkProperty( id='mask',             name="Mask image",                 default="",
                          doc="Greyscale image containing the alpha channel (transparency) for this image"),
-            StkProperty( id='normal_map',       name="Normal Map",                 default="",
-                         doc="Image containing the normal map for this texture (optional)"),
+        StkBoolProperty( id='use_normal_map',name="Normal Map",    default="false", contextLevel=CONTEXT_MATERIAL,
+                         doc="Use a normal map for this image",
+                         subproperties=
+                         [
+                            StkProperty( id='normal_map',       name="Normal Map Image", default="",
+                                         doc="Image containing the normal map for this texture (optional)"),
+                            StkBoolProperty( id='normal_map_uv2',name="Use second UV layer",  default="false",
+                                             contextLevel=CONTEXT_MATERIAL,
+                                             doc="If checked, UV layer 2 will be used to map the normal map on the object")
+                         ]),
         StkBoolProperty( id='particle',         name="Particle effect",            default="false", contextLevel=CONTEXT_MATERIAL,
                          subproperties=PARTICLE_PROPERTIES, doc="Whether to emit particles (e.g. smoke) when driving on this surface"),
         StkBoolProperty( id='use_sfx',          name="Play sound effect",          default="false", contextLevel=CONTEXT_MATERIAL,
