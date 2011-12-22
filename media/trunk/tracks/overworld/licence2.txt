@@ -37,3 +37,7 @@ ship models by Canis Lupus
 cactus model and texture (c) 2008-2010 thomas oppl (toppl@fh-sbg.ac.at)
     licensed under CC BY-SA 3.0
     http://creativecommons.org/licenses/by-sa/3.0/
+
+rocket model by t4k1t and CT. da'Bomb
+rocket textures by CT. da'Bomb
+    reelased under CC-BY-SA 3.0
