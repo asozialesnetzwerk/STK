@@ -11,10 +11,8 @@
   <material name="GroundCover.png" backface-culling="N" compositing="test" ignore="Y"/>
   <material name="Jackinthepulpit.png" backface-culling="N" compositing="coverage" ignore="Y"/>
   <material name="light.png" light="N" ignore="Y" compositing="blend" clampu="Y" disable-z-write="Y" backface-culling="N" fog="N"/>
-  <material name="light1.png" compositing="additive" light="N" disable-z-write="Y" clampu="Y"/>
-  <material name="light2.png" compositing="additive" light="N" disable-z-write="Y" clampu="Y"/>
-  <material name="light3.png" compositing="additive" light="N" disable-z-write="Y" clampu="Y"/>
   <material name="lighthouse.jpg" light="N"/>
+  <material name="marble.jpg" normal-map="column_normal_map.png" use-normal-map="Y" normal-map-uv2="Y"/>
   <material name="Mint.png" light="N" backface-culling="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
   <material name="Mushroom 2 side.png" light="N" backface-culling="N" compositing="coverage" ignore="Y"/>
   <material name="Mushroom 2.png" light="N" backface-culling="N" compositing="coverage" ignore="Y"/>
