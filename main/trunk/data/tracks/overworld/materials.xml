@@ -1,10 +1,13 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev Unknown -->
 <materials>
+  <material name="bubble.png" light="N" backface-culling="N" compositing="blend" disable-z-write="Y" graphical-effect="bubble" ignore="Y"/>
   <material name="BurdockLeaf.png" backface-culling="N" compositing="coverage" ignore="Y"/>
   <material name="castelwall.jpg" backface-culling="N"/>
   <material name="city_tree_leaves.jpg" compositing="blend" ignore="Y" backface-culling="N" disable-z-write="Y" mask="city_tree_leaves_alpha.jpg"/>
   <material name="CornusAmericana.png" backface-culling="N" compositing="coverage" ignore="Y"/>
+  <material name="envmap.png" fog="N" light="N" compositing="blend" disable-z-write="Y" graphical-effect="bubble" ignore="Y"/>
+  <material name="envmap2.png" fog="N" light="N" compositing="blend" disable-z-write="Y" graphical-effect="bubble" ignore="Y"/>
   <material name="FieldPlant2.png" light="N" backface-culling="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
   <material name="grass.jpg" slowdown-time="0.80" max-speed="0.50"/>
   <material name="GrassTall.png" light="N" backface-culling="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
