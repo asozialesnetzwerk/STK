@@ -38,10 +38,11 @@ cactus model and texture (c) 2008-2010 thomas oppl (toppl@fh-sbg.ac.at)
     licensed under CC BY-SA 3.0
     http://creativecommons.org/licenses/by-sa/3.0/
 
-rocket model by t4k1t and CT. da'Bomb
-rocket textures by CT. da'Bomb
-    released under CC-BY-SA 3.0
-
 ufo model, metal_plate.png and ufo_window.png
     by Rudy85
+    released under CC-BY-SA 3.0
+    
+bubble.png
+    by Marianne Gagnon
+    based on images from Wikimedia commons by Saperaud and Mila Zinkova
     released under CC-BY-SA 3.0
