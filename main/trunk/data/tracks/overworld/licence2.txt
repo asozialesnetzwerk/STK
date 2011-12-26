@@ -41,3 +41,8 @@ cactus model and texture (c) 2008-2010 thomas oppl (toppl@fh-sbg.ac.at)
 ufo model, metal_plate.png and ufo_window.png
     by Rudy85
     released under CC-BY-SA 3.0
+    
+bubble.png
+    by Marianne Gagnon
+    based on images from Wikimedia commons by Saperaud and Mila Zinkova
+    released under CC-BY-SA 3.0
