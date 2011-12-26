@@ -1,7 +1,19 @@
-palm_b et palmBark from Hacienda. License unknown!
-wooden, wooden2, tree_1, tree1Low, vegetation1 from Zen Garden
+palm_b et palmBark
+    from Hacienda, by Jean-Manuel Clemencon (Samuncle)
+    >> clarify license!! probably CC-BY-SA 3.0 <<
 
-palm_tree_lead by Auria (PD)
+tree_1, tree1Low
+    from Zen Garden, by Jean-Manuel Clemencon (Samuncle)
+    >> clarify license!! probably CC-BY-SA 3.0 <<
+
+wooden, wooden2
+    by Jean-Manuel Clemencon (Samuncle)
+    based on public domain images from burningwell
+    released under the public domain
+
+palm_tree_leaf, sign*, lighthouse.jpg, house.jpg
+    by Auria, based on images from burningwell, http://www.publicdomainpictures.net/ and OpenClipArt
+    released under the public domain
 
 trees from http://www.yofrankie.org
     licensed under CC BY 3.0
@@ -32,7 +44,7 @@ wood_planks*
     based on image by Varivar, modified by Canis Lupus
     CC-BY-SA 3.0
 
-ship models by Canis Lupus
+sea ship models by Canis Lupus
 
 cactus model and texture (c) 2008-2010 thomas oppl (toppl@fh-sbg.ac.at)
     licensed under CC BY-SA 3.0
@@ -45,4 +57,8 @@ ufo model, metal_plate.png and ufo_window.png
 bubble.png
     by Marianne Gagnon
     based on images from Wikimedia commons by Saperaud and Mila Zinkova
+    released under CC-BY-SA 3.0
+
+rocket model, metaloverlap.png and door.JPG
+    by CT_daBomb
     released under CC-BY-SA 3.0

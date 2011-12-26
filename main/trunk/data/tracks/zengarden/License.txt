@@ -27,7 +27,7 @@ water_light3
 
 Texture from open game art (http://opengameart.org/content/dims-arboretum-0)
     Catail.png, vegetation_1.png
-    by released under CC-BY-SA 3.0
+    by Dims, released under CC-BY-SA 3.0
     shintoB.jpg
     by gladius CC-BY-SA 3.0
 
