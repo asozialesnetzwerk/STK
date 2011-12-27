@@ -459,7 +459,7 @@ class Driveline:
                            self.mesh.vertices[self.lRight[-1]].co[i])*0.25)
             self.lCenter.append(cp)
 
-        if count>=max_count:
+        if count>=max_count and not warning_printed:
             log_warning("Warning, Only the first %d vertices of driveline '%s' are exported" %\
                         (max_count, self.name))
         
@@ -1170,6 +1170,12 @@ class TrackExport:
                 condition_ifnot_str = " ifnot=\"%s\""%condition_ifnot
             else:
                 condition_ifnot_str = ""
+            
+            challenge_val = getProperty(obj, "challenge", "")
+            if len(challenge_val) > 0:
+                challenge_str = " challenge=\"%s\""% challenge_val
+            else:
+                challenge_str = ""
                 
             interaction = getProperty(obj, "interaction", '??')
             if interaction == 'reset':
@@ -1184,9 +1190,9 @@ class TrackExport:
                 self.writeAnimatedTextures(f, lAnim)
                 f.write("    </static-object>\n")
             else:
-                f.write("    <static-object%s%s %s%s%s%s/>\n"% \
+                f.write("    <static-object%s%s %s%s%s%s%s/>\n"% \
                         (lodstring, model_string, getXYZHPRString(obj), reset_string,
-                         condition_if_str, condition_ifnot_str) )
+                         condition_if_str, condition_ifnot_str, challenge_str) )
         self.writeAnimatedTextures(f, lAnimTextures)
 
     # --------------------------------------------------------------------------
