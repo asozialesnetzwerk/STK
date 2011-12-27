@@ -78,6 +78,9 @@
   </object>
   <object type="animation" model="Light.b3d" xyz="117.709335 -7.926303 181.484467" hpr="-0.000000 -0.000000 -0.000000" scale="0.470766 0.470766 0.470766" >
   </object>
+  <object type="billboard" texture="crystal_ball_halo.png" xyz="-94.175735 -3.446599 -64.875000" 
+             width="1.559660" height="1.562031" >
+  </object>
   <checks>
     <check-lap kind="lap" same-group="0"  />
   </checks>
