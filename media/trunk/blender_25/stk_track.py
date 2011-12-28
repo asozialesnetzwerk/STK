@@ -1663,7 +1663,7 @@ class TrackExport:
                 # can't be merged with the physics model of the track
                 # BUT 'reset' objects must NOT be static objects otherwise then we can't detect
                 # collisions against it in bullet
-                if ipo or interact=="reset":
+                if (ipo and ipo.action) or interact=="reset":
                     lOtherObjects.append(obj)
                 else:
                     lStaticObjects.append(obj)
