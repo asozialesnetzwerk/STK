@@ -9,6 +9,7 @@
   <material name="crystal_ball_halo.png" compositing="blend" disable-z-write="Y"/>
   <material name="envmap.png" fog="N" light="N" compositing="blend" disable-z-write="Y" graphical-effect="bubble" ignore="Y"/>
   <material name="envmap2.png" fog="N" light="N" compositing="blend" disable-z-write="Y" graphical-effect="bubble" ignore="Y"/>
+  <material name="envmap3.png" fog="N" light="N" compositing="blend" disable-z-write="Y" graphical-effect="bubble" ignore="Y"/>
   <material name="FieldPlant2.png" light="N" backface-culling="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
   <material name="grass.jpg" slowdown-time="0.80" max-speed="0.50"/>
   <material name="GrassTall.png" light="N" backface-culling="N" compositing="blend" disable-z-write="Y" ignore="Y"/>

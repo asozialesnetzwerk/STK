@@ -9,6 +9,10 @@
     <static-object model="crystal_ball.b3d" xyz="-108.845551 -2.868811 -87.104507" hpr="-6.093145 -178.458636 1.204983" scale="0.864835 0.779854 0.864835" challenge="farmtracktime"/>
     <static-object model="crystal_ball.b3d" xyz="-49.224033 0.967313 -99.738831" hpr="-0.000000 -323.405031 0.000000" scale="0.864835 0.779854 0.864835" challenge="snowmountain"/>
     <static-object model="crystal_ball.b3d" xyz="-94.172577 -3.468164 -64.878593" hpr="-0.000000 -142.445426 0.000000" scale="0.864835 0.779854 0.864835" challenge="energymathclass"/>
+    <static-object model="crystal_ball.b3d" xyz="61.628532 -8.918773 123.222534" hpr="-0.000000 -323.405031 0.000000" scale="0.864835 0.779854 0.864835" challenge="snowmountain"/>
+    <static-object model="crystal_ball.b3d" xyz="56.124252 -8.792643 158.455795" hpr="-0.000000 -323.405031 0.000000" scale="0.864835 0.779854 0.864835" challenge="snowmountain"/>
+    <static-object model="crystal_ball.b3d" xyz="-0.477034 -10.816338 140.560944" hpr="-0.000000 -323.405031 0.000000" scale="0.864835 0.779854 0.864835" challenge="snowmountain"/>
+    <static-object model="crystal_ball.b3d" xyz="-0.010937 -10.510856 117.882919" hpr="-0.000000 -323.405031 0.000000" scale="0.864835 0.779854 0.864835" challenge="snowmountain"/>
     <static-object lod_distance="100.0" lod_group="pineLow" model="pineLow_LOD100.b3d" xyz="48.600410 6.968265 -147.549683" hpr="-85.305894 -45.440422 -3.768771" scale="0.776224 0.776224 0.776224"/>
     <static-object model="pineVeryLow.b3d" xyz="50.847824 9.259468 -98.415878" hpr="-90.981822 -94.307878 2.293462" scale="0.627703 0.627703 0.627703"/>
     <static-object model="pineVeryLow.b3d" xyz="48.359749 9.719052 -75.557739" hpr="-93.279743 -104.474253 -6.612985" scale="0.627704 0.627704 0.627703"/>
@@ -88,6 +92,18 @@
              width="1.559660" height="1.562031" >
   </object>
   <object type="billboard" texture="crystal_ball_halo.png" xyz="-49.220814 0.963967 -99.742386" 
+             width="1.559660" height="1.562031" >
+  </object>
+  <object type="billboard" texture="crystal_ball_halo.png" xyz="61.447887 -8.950585 123.229317" 
+             width="1.559660" height="1.562031" >
+  </object>
+  <object type="billboard" texture="crystal_ball_halo.png" xyz="56.127472 -8.795988 158.452240" 
+             width="1.559660" height="1.562031" >
+  </object>
+  <object type="billboard" texture="crystal_ball_halo.png" xyz="-0.473814 -10.819683 140.557388" 
+             width="1.559660" height="1.562031" >
+  </object>
+  <object type="billboard" texture="crystal_ball_halo.png" xyz="-0.007717 -10.514201 117.879364" 
              width="1.559660" height="1.562031" >
   </object>
   <checks>
