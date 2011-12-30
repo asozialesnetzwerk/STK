@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev Unknown -->
 <materials>
-  <material name="aoMapGoatv3.jpg" backface-culling="N"/>
   <material name="bubble.png" light="N" backface-culling="N" compositing="blend" disable-z-write="Y" graphical-effect="bubble" ignore="Y"/>
   <material name="BurdockLeaf.png" backface-culling="N" compositing="coverage" ignore="Y"/>
   <material name="castelwall.jpg" backface-culling="N"/>

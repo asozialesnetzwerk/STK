@@ -25,6 +25,16 @@
     <static-object model="crystal_ball.b3d" xyz="-183.136429 -1.003240 140.653015" hpr="-0.000000 -174.896925 0.000000" scale="0.864835 0.779854 0.864835" challenge="snowmountain"/>
     <static-object model="crystal_ball.b3d" xyz="-184.125732 -3.180295 179.299896" hpr="-0.000000 -174.896925 0.000000" scale="0.864835 0.779854 0.864835" challenge="snowmountain"/>
     <static-object model="crystal_ball.b3d" xyz="-189.632660 -0.049246 87.469673" hpr="-0.000000 -174.896925 0.000000" scale="0.864835 0.779854 0.864835" challenge="snowmountain"/>
+    <static-object lod_instance="true" lod_group="pedestral" xyz="-184.103226 -5.737461 179.291672" hpr="-0.000000 -29.614000 0.000000" scale="0.713262 0.713262 0.713262"/>
+    <static-object lod_instance="true" lod_group="pedestral" xyz="-49.196262 -1.576530 -99.742943" hpr="-0.000000 1.482337 0.000000" scale="0.713262 0.713262 0.713262"/>
+    <static-object lod_instance="true" lod_group="pedestral" xyz="-108.827042 -5.367986 -87.451317" hpr="7.814713 0.000000 0.000000" scale="0.677854 0.677853 0.677853"/>
+    <static-object lod_instance="true" lod_group="pedestral" xyz="56.155071 -11.359985 158.460602" hpr="-0.000000 1.619496 0.000000" scale="0.713262 0.713262 0.713262"/>
+    <static-object lod_instance="true" lod_group="pedestral" xyz="61.650295 -11.502080 123.219887" hpr="-0.000000 3.064123 0.000000" scale="0.713262 0.713262 0.713262"/>
+    <static-object lod_instance="true" lod_group="pedestral" xyz="-183.108597 -3.550768 140.645508" hpr="-0.000000 -29.418909 0.000000" scale="0.713262 0.713262 0.713262"/>
+    <static-object lod_distance="35.0" lod_group="pedestral" model="pedestral_hi.b3d" xyz="-247.581360 -6.105000 -90.682999" hpr="-0.000000 -0.000000 -0.000000" scale="0.713262 0.713262 0.713262"/>
+    <static-object lod_distance="70.0" lod_group="pedestral" model="pedestral_lo.b3d" xyz="-247.581360 -6.105302 -89.220985" hpr="-0.000000 -0.000000 -0.000000" scale="0.713262 0.713262 0.713262"/>
+    <static-object lod_instance="true" lod_group="pedestral" xyz="-94.155693 -6.105019 -64.900787" hpr="-0.000000 -0.000000 -0.000000" scale="0.713262 0.713262 0.713262"/>
+    <static-object lod_instance="true" lod_group="pedestral" xyz="-189.610519 -2.588892 87.487083" hpr="-0.000000 -30.415211 0.000000" scale="0.713262 0.713262 0.713262"/>
     <static-object lod_distance="100.0" lod_group="pineLow" model="pineLow_LOD100.b3d" xyz="48.600410 6.968265 -147.549683" hpr="-85.305894 -45.440422 -3.768771" scale="0.776224 0.776224 0.776224"/>
     <static-object model="pineVeryLow.b3d" xyz="50.847824 9.259468 -98.415878" hpr="-90.981822 -94.307878 2.293462" scale="0.627703 0.627703 0.627703"/>
     <static-object model="pineVeryLow.b3d" xyz="48.359749 9.719052 -75.557739" hpr="-93.279743 -104.474253 -6.612985" scale="0.627704 0.627704 0.627703"/>
