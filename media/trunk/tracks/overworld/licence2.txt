@@ -63,11 +63,14 @@ rocket model, metaloverlap.png and door.JPG
     by CT_daBomb
     released under CC-BY-SA 3.0
 
-hacienda model
+hacienda and hut models
     by Jean-Manuel Clemencon
     released under CC-BY-SA 3.0
 
-wall.jpg
+wall.jpg, wall.png
     by Jean-Manuel Clemencon
     released under the public domain
-    
+
+roof.png
+    by Jean-Manuel Clemencon & Marianne Gagnon
+    released under the public domain
