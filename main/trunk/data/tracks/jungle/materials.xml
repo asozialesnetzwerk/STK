@@ -2,7 +2,7 @@
 <!-- Generated with script from SVN rev Unknown -->
 <materials>
   <material name="bush2.png" compositing="blend" clampu="Y" clampv="Y"/>
-  <material name="city_checker.png" clampu="Y" clampv="Y"/>
+  <material name="city_checker.png" clampu="Y"/>
   <material name="city_fern.png" backface-culling="N" compositing="coverage" ignore="Y"/>
   <material name="city_grass.png" backface-culling="N" compositing="coverage" ignore="Y"/>
   <material name="grass2.jpg" max-speed="0.50"/>
