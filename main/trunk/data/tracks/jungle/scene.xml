@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev 10507 -->
 <scene>
-  <track model="jungle2.5_track.b3d" x="0" y="0" z="0">
+  <track model="jungle_track.b3d" x="0" y="0" z="0">
     <animated-texture name="water_light.png" dy="0.100" />
   </track>
   <particle-emitter kind="fire.xml" x="-30.401325" y="13.247737" z="-163.044968" h="0.000000" clip_distance="200"/>
