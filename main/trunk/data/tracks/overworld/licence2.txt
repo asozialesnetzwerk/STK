@@ -11,7 +11,7 @@ wooden, wooden2
     based on public domain images from burningwell
     released under the public domain
 
-palm_tree_leaf, sign*, lighthouse.jpg, house.jpg
+sign*, lighthouse.jpg, house.jpg
     by Auria, based on images from burningwell, http://www.publicdomainpictures.net/ and OpenClipArt
     released under the public domain
 
@@ -20,7 +20,7 @@ trees from http://www.yofrankie.org
     http://creativecommons.org/licenses/by/3.0/
 
 mushrooms and small plants, BurdockLeaf.png, CornusAmericana.png,
-FieldPlant2.png, GrassTall.png, GroundCover.png, Jackinthepulpit.png,
+FieldPlant2.png, GroundCover.png, Jackinthepulpit.png,
 Mint.png, Mushroom*, StreamPlant.png, WhiteFlowerLeaves.png,
 WhiteFlowerSkin.png
     from the dims_arboretum

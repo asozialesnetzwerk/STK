@@ -1,40 +1,32 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 7732 -->
+<!-- Generated with script from SVN rev Unknown -->
 <materials>
-  <material name="bush.png" compositing="blend" anisotropic="Y" friction="1.0" max-speed="1.0" slowdown-time="1.0" />
-  <material name="bush2.png" clampU="Y" clampV="Y" compositing="blend" anisotropic="Y" friction="1.0" max-speed="1.0" slowdown-time="1.0" />
-  <material name="chess.png" anisotropic="Y" friction="1.0" max-speed="1.0" slowdown-time="1.0" />
-  <material name="dirt2sand.png" anisotropic="Y" friction="1.0" max-speed="1.0" slowdown-time="1.0" clampU="Y" clampV="N" />
-  <material name="grass2.jpg" anisotropic="Y" friction="1.0" max-speed="0.5" slowdown-time="1.0" />
-  <material name="grass2.jpg" anisotropic="Y" friction="1.0" max-speed="0.5" slowdown-time="1.0" />
-  <material name="grass2dirt.png" anisotropic="Y" friction="1.0" max-speed="1.0" slowdown-time="1.0" clampU="Y" clampV="N" />
-  <material name="jungle_wall.jpg" anisotropic="Y" friction="1.0" max-speed="1.0" slowdown-time="1.0" />
-  <material name="logs.png" anisotropic="Y" friction="1.0" max-speed="1.0" slowdown-time="1.0" >
+  <material name="bush2.png" compositing="blend" clampu="Y" clampv="Y"/>
+  <material name="city_fern.png" backface-culling="N" compositing="coverage" ignore="Y"/>
+  <material name="city_grass.png" backface-culling="N" compositing="coverage" ignore="Y"/>
+  <material name="grass2.jpg" max-speed="0.50"/>
+  <material name="grass2.jpg" max-speed="0.50"/>
+  <material name="grass2dirt.png" clampu="Y"/>
+  <material name="GrassTall.png" light="N" backface-culling="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
+  <material name="jungle_skybox.jpg" fog="N" light="N"/>
+  <material name="logs.png">
     <particles base="smoke.xml" condition="skid"/>
   </material>
-  <material name="mossy_stone.png" anisotropic="Y" friction="1.0" max-speed="1.0" slowdown-time="1.0" />
-  <material name="mossy_stone.png" anisotropic="Y" friction="1.0" max-speed="1.0" slowdown-time="1.0" />
-  <material name="mossy_stone2.png" anisotropic="Y" friction="1.0" max-speed="1.0" slowdown-time="1.0" />
-  <material name="obelisk.png" anisotropic="Y" friction="1.0" max-speed="1.0" slowdown-time="1.0" />
-  <material name="palm.png" anisotropic="Y" friction="1.0" max-speed="1.0" slowdown-time="1.0" />
-  <material name="palmBark.jpg" anisotropic="Y" friction="1.0" max-speed="1.0" slowdown-time="1.0" />
-  <material name="palmtree.png" compositing="blend" anisotropic="Y" friction="1.0" max-speed="1.0" slowdown-time="1.0" />
-  <material name="palmtree3.jpg" mask="palmtree3_alpha.jpg" compositing="blend" anisotropic="Y" friction="1.0" max-speed="1.0" slowdown-time="1.0" />
-  <material name="Paving_stones_2.jpg" anisotropic="Y" friction="1.0" max-speed="1.0" slowdown-time="1.0" >
+  <material name="palm_tree_leaf.png" compositing="coverage"/>
+  <material name="palmtree.png" compositing="blend"/>
+  <material name="palmtree3.jpg" compositing="blend" mask="palmtree3_alpha.jpg"/>
+  <material name="Paving_stones_2.jpg">
     <particles base="smoke.xml" condition="skid"/>
   </material>
-  <material name="plants.jpg" mask="plants_alpha.jpg" anisotropic="Y" backface-culling="N" compositing="blend" friction="1.0" max-speed="1.0" slowdown-time="1.0" />
-  <material name="pot.jpg" anisotropic="Y" backface-culling="N" friction="1.0" max-speed="1.0" slowdown-time="1.0" />
-  <material name="road_dirt.jpg" anisotropic="Y" friction="1.0" max-speed="1.0" slowdown-time="1.0" >
+  <material name="plants.jpg" compositing="blend" mask="plants_alpha.jpg"/>
+  <material name="pot.jpg" backface-culling="N"/>
+  <material name="road_dirt.jpg">
     <particles base="smoke_brown.xml" condition="skid"/>
   </material>
-  <material name="sand2.jpg" anisotropic="Y" friction="1.0" max-speed="1.0" slowdown-time="1.0" />
-  <material name="seabed.jpg" graphical-effect="water" falling-effect="Y" reset="Y"/>
-  <material name="statue.JPG" anisotropic="Y" friction="1.0" max-speed="1.0" slowdown-time="1.0" />
-  <material name="transparence.png" compositing="test" disable-z-write="Y" reset="Y"/>
-  <material name="water_light.png" anisotropic="Y" friction="1.0" ignore="Y" max-speed="1.0" slowdown-time="1.0" surface="Y" >
-    <sfx filename="splash.ogg" rolloff="0.10000000149" min-speed="0.0" max-speed="30.0" min-pitch="1.0" max-pitch="1.0" positional="N"/>
+  <material name="roof.png" backface-culling="N"/>
+  <material name="wall.png" backface-culling="N"/>
+  <material name="water_light.png" ignore="Y" surface="Y">
+    <sfx filename="splash.ogg" rolloff="0.10" min_speed="0.00" max_speed="30.00" min_pitch="1.00" max_pitch="1.00" positional="N"/>
     <particles base="splash.xml" condition="skid drive"/>
   </material>
-  <material name="wood.png" anisotropic="Y" friction="1.0" max-speed="1.0" slowdown-time="1.0" />
 </materials>
