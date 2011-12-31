@@ -3,6 +3,7 @@
 <scene>
   <track model="jungle_track.b3d" x="0" y="0" z="0">
     <animated-texture name="water_light.png" dy="0.100" />
+    <animated-texture name="water_light.png" dy="0.100" />
   </track>
   <particle-emitter kind="fire.xml" x="-30.401325" y="13.247737" z="-163.044968" h="0.000000" clip_distance="200"/>
   <particle-emitter kind="fire.xml" x="-9.865446" y="13.247737" z="-162.386063" h="0.000000" clip_distance="200"/>
@@ -55,8 +56,8 @@
   <small-nitro x="78.098602" y="13.821575" z="-322.691162" />
   <checks>
     <check-lap kind="lap" same-group="0 2 3" other-ids="1" />
-    <check-line kind="activate" other-ids="0 2 3" p1="313.383087 -103.716087" p2="299.768646 -116.171570"
-                min-height="13.537922" same-group="1"/>
+    <check-line kind="activate" other-ids="0 2 3" p1="323.315125 -112.019569" p2="297.815399 -109.414879"
+                min-height="15.369856" same-group="1"/>
     <check-line kind="lap" other-ids="1" p1="12.179106 3.189663" p2="4.133845 3.212799"
                 min-height="-2.068940" same-group="0 2 3"/>
     <check-line kind="lap" other-ids="1" p1="-6.681207 3.102375" p2="-17.880486 3.125511"

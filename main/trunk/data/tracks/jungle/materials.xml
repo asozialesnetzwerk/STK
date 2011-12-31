@@ -2,16 +2,12 @@
 <!-- Generated with script from SVN rev Unknown -->
 <materials>
   <material name="bush2.png" compositing="blend" clampu="Y" clampv="Y"/>
+  <material name="city_checker.png" clampu="Y" clampv="Y"/>
   <material name="city_fern.png" backface-culling="N" compositing="coverage" ignore="Y"/>
   <material name="city_grass.png" backface-culling="N" compositing="coverage" ignore="Y"/>
   <material name="grass2.jpg" max-speed="0.50"/>
-  <material name="grass2.jpg" max-speed="0.50"/>
   <material name="grass2dirt.png" clampu="Y"/>
   <material name="GrassTall.png" light="N" backface-culling="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
-  <material name="jungle_skybox.jpg" fog="N" light="N"/>
-  <material name="logs.png">
-    <particles base="smoke.xml" condition="skid"/>
-  </material>
   <material name="palm_tree_leaf.png" compositing="coverage"/>
   <material name="palmtree.png" compositing="blend"/>
   <material name="palmtree3.jpg" compositing="blend" mask="palmtree3_alpha.jpg"/>
@@ -24,6 +20,7 @@
     <particles base="smoke_brown.xml" condition="skid"/>
   </material>
   <material name="roof.png" backface-culling="N"/>
+  <material name="seabed.jpg" falling-effect="Y" graphical-effect="water" crash-reset="Y"/>
   <material name="wall.png" backface-culling="N"/>
   <material name="water_light.png" ignore="Y" surface="Y">
     <sfx filename="splash.ogg" rolloff="0.10" min_speed="0.00" max_speed="30.00" min_pitch="1.00" max_pitch="1.00" positional="N"/>
