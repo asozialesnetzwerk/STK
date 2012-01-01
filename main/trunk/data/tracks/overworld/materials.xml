@@ -6,7 +6,7 @@
   <material name="castelwall.jpg" backface-culling="N"/>
   <material name="city_tree_leaves.jpg" compositing="blend" ignore="Y" backface-culling="N" disable-z-write="Y" mask="city_tree_leaves_alpha.jpg"/>
   <material name="CornusAmericana.png" backface-culling="N" compositing="coverage" ignore="Y"/>
-  <material name="crystal_ball_halo.png" compositing="blend" disable-z-write="Y"/>
+  <material name="crystal_ball_halo.png" backface-culling="N" compositing="blend" disable-z-write="Y"/>
   <material name="envmap.png" fog="N" light="N" compositing="blend" disable-z-write="Y" graphical-effect="bubble" ignore="Y"/>
   <material name="envmap2.png" fog="N" light="N" compositing="blend" disable-z-write="Y" graphical-effect="bubble" ignore="Y"/>
   <material name="envmap3.png" fog="N" light="N" compositing="blend" disable-z-write="Y" graphical-effect="bubble" ignore="Y"/>
@@ -29,7 +29,7 @@
   <material name="palm_b.png" compositing="coverage" backface-culling="N" disable-z-write="Y"/>
   <material name="palm_tree_leaf.png" compositing="coverage"/>
   <material name="city_grass.png" backface-culling="N" compositing="coverage" ignore="Y"/>
-  <material name="roof.png" backface-culling="N"/>
+  <material name="hut_roof.jpg" backface-culling="N"/>
   <material name="splat.png" splatting="Y" splatting-texture-1="dirt.jpg" splatting-texture-2="grass2.jpg" splatting-texture-3="rock_brown.jpg" splatting-texture-4="sand2.jpg"/>
   <material name="splat2.png" splatting="Y" splatting-texture-1="dirt.jpg" splatting-texture-2="grass2.jpg" splatting-texture-3="snow.png" splatting-texture-4="rock_grey.jpg"/>
   <material name="track_screenshot_dummy.png" fog="N" light="N" compositing="blend"/>
