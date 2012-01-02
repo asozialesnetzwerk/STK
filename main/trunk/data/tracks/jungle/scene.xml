@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev 10507 -->
 <scene>
-  <track model="jungle_track.b3d" x="0" y="0" z="0">
+  <track model="jungle2.5_track.b3d" x="0" y="0" z="0">
     <animated-texture name="water_light.png" dy="0.100" />
     <animated-texture name="water_light.png" dy="0.100" />
   </track>
