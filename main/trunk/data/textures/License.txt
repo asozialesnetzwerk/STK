@@ -63,8 +63,9 @@ Under Creative Commons Attribution Share-Alike (CC-BY-SA) - http://creativecommo
     by jmimu
     released under CC-BY-SA 3.0
 
-* starparticle.png
-    by Samuncle (Jean-Manuel Clamençon)
+* starparticle.png, cracked-earth-texture, grass_dark
+    by Samuncle (Jean-Manuel Clémençon)
+    based on public domain images from http://www.publicdomainpictures.net/ and burningwell
 
 * TiZeta_ivy
     http://commons.wikimedia.org/wiki/File:Conlon_Ivy.JPG, by Found5dollar
@@ -78,12 +79,9 @@ Under Creative Commons Attribution Share-Alike (CC-BY-SA) - http://creativecommo
 * HortonRockWall2.png
 * HortonStone6.png
 * Paving_stones_2.png
-    by Marianne Gagnon, made from public domain images from BurningWell
-    and released under CC-BY-SA 3
-
 * marble.png, palm_tree_leaf
-    released under CC-BY-SA 3.0, by Marianne Gagnon
-    based on public domain image from wikimedia, burningwell, http://www.publicdomainpictures.net/
+    by Marianne Gagnon, made from public domain images from BurningWell, http://www.publicdomainpictures.net/, Wikimedia commons
+    and released under CC-BY-SA 3
 
 * dirtbrick.png, metal_plates.png
     by Dakal
