@@ -6,7 +6,7 @@
   <material name="castelwall.jpg" backface-culling="N"/>
   <material name="city_tree_leaves.jpg" compositing="blend" ignore="Y" backface-culling="N" disable-z-write="Y" mask="city_tree_leaves_alpha.jpg"/>
   <material name="CornusAmericana.png" backface-culling="N" compositing="coverage" ignore="Y"/>
-  <material name="crystal_ball_halo.png" backface-culling="N" compositing="blend" disable-z-write="Y"/>
+  <material name="crystal_ball_halo.png" fog="N" light="N" backface-culling="N" compositing="blend" disable-z-write="Y"/>
   <material name="envmap.png" fog="N" light="N" compositing="blend" disable-z-write="Y" graphical-effect="bubble" ignore="Y"/>
   <material name="envmap2.png" fog="N" light="N" compositing="blend" disable-z-write="Y" graphical-effect="bubble" ignore="Y"/>
   <material name="envmap3.png" fog="N" light="N" compositing="blend" disable-z-write="Y" graphical-effect="bubble" ignore="Y"/>
