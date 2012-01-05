@@ -20,5 +20,5 @@
     <particles condition="skid drive" base="splash.xml"/>
   </material>
   
-  <material name="golfball_baked.jpg" normal-map="golfball_baked_normal.png" />
+  <material name="golfball_baked.jpg" use-normal-map="Y" normal-map="golfball_baked_normal.png" />
 </materials>
