@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev Unknown -->
 <materials>
+  <material name="aoMapGoatv3.jpg" backface-culling="N"/>
   <material name="bubble.png" light="N" backface-culling="N" compositing="blend" disable-z-write="Y" graphical-effect="bubble" ignore="Y"/>
   <material name="BurdockLeaf.png" backface-culling="N" compositing="coverage" ignore="Y"/>
   <material name="castelwall.jpg" backface-culling="N"/>
@@ -19,6 +20,7 @@
   <material name="light.png" light="N" ignore="Y" compositing="blend" clampu="Y" disable-z-write="Y" backface-culling="N" fog="N"/>
   <material name="lighthouse.jpg" light="N"/>
   <material name="marble.jpg" normal-map="column_normal_map.png" use-normal-map="Y" normal-map-uv2="Y"/>
+  <material name="Metal-plate.png" backface-culling="N"/>
   <material name="Mint.png" light="N" backface-culling="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
   <material name="Mushroom 2 side.png" light="N" backface-culling="N" compositing="coverage" ignore="Y"/>
   <material name="Mushroom 2.png" light="N" backface-culling="N" compositing="coverage" ignore="Y"/>
@@ -43,5 +45,6 @@
   </material>
   <material name="WhiteFlowerLeaves.png" backface-culling="N" compositing="coverage" ignore="Y"/>
   <material name="WhiteFlowerSkin.png" backface-culling="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
+  <material name="ufo_window.png" backface-culling="N" compositing="blend" disable-z-write="Y"/>
   <material name="wooden2.png" backface-culling="N" compositing="test" disable-z-write="Y" ignore="Y"/>
 </materials>
