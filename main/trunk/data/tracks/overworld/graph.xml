@@ -2,15 +2,26 @@
 <!-- Generated with script from SVN rev 10507 -->
 <graph>
   <!-- First define all nodes of the graph, and what quads they represent -->
-  <node-list from-quad="0" to-quad="68"/>  <!-- map each quad to a node  -->
+  <node-list from-quad="0" to-quad="92"/>  <!-- map each quad to a node  -->
   <!-- Define the main loop -->
   <edge-loop from="0" to="50"/>
+  <!-- Shortcut Driveline1.003 -->
+  <edge from="49" to="51"/>
+  <edge-line from="51" to="56"/>
+  <edge from="56" to="0"/>
+  <!-- Shortcut Driveline1.001 -->
+  <edge from="23" to="57"/>
+  <edge-line from="57" to="65"/>
+  <edge from="65" to="84"/>
   <!-- Shortcut Driveline1 -->
-  <edge from="7" to="51"/>
-  <edge-line from="51" to="60"/>
-  <edge from="60" to="23"/>
+  <edge from="7" to="66"/>
+  <edge-line from="66" to="75"/>
+  <edge from="75" to="23"/>
   <!-- Shortcut Driveline2 -->
-  <edge from="6" to="61"/>
-  <edge-line from="61" to="68"/>
-  <edge from="68" to="40"/>
+  <edge from="6" to="76"/>
+  <edge-line from="76" to="83"/>
+  <edge from="83" to="40"/>
+  <!-- Shortcut Driveline1.002 -->
+  <edge-line from="84" to="92"/>
+  <edge from="92" to="27"/>
 </graph>
