@@ -2,7 +2,7 @@
 <!-- Generated with script from SVN rev Unknown -->
 <materials>
   <material name="aoMapGoatv3.jpg" backface-culling="N"/>
-  <material name="bubble.png" light="N" backface-culling="N" compositing="blend" disable-z-write="Y" graphical-effect="bubble" ignore="Y"/>
+  <material name="bubble.png" light="N" backface-culling="N" compositing="blend" disable-z-write="Y" graphical-effect="bubble" collision-reaction="push" collision-particles="sparks.xml" collision-detect="Y"/>
   <material name="BurdockLeaf.png" backface-culling="N" compositing="coverage" ignore="Y"/>
   <material name="castelwall.jpg" backface-culling="N"/>
   <material name="city_tree_leaves.jpg" compositing="blend" ignore="Y" backface-culling="N" disable-z-write="Y" mask="city_tree_leaves_alpha.jpg"/>
@@ -38,6 +38,7 @@
   <material name="StreamPlant.png" backface-culling="N" compositing="coverage" ignore="Y"/>
   <material name="tree_1.png" backface-culling="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
   <material name="tree_1Low.png" backface-culling="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
+  <material name="ufo_window.png" backface-culling="N" compositing="blend" disable-z-write="Y"/>
   <material name="vegetation_1.png" backface-culling="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
   <material name="wall.png" backface-culling="N"/>
   <material name="wall_wood1.jpg">
@@ -45,6 +46,5 @@
   </material>
   <material name="WhiteFlowerLeaves.png" backface-culling="N" compositing="coverage" ignore="Y"/>
   <material name="WhiteFlowerSkin.png" backface-culling="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
-  <material name="ufo_window.png" backface-culling="N" compositing="blend" disable-z-write="Y"/>
   <material name="wooden2.png" backface-culling="N" compositing="test" disable-z-write="Y" ignore="Y"/>
 </materials>
