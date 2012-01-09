@@ -856,7 +856,12 @@ SFX_PROPERTIES = [
                           doc="Speed at which the sound fades out as you stand further from the sound emitter")
       ]
 
-CRASH_RESET_PROPERTIES = [StkProperty( id='crash_reset_particles', name="Particles on hit", default="")]
+COLLISION_DETECTION_PROPERTIES = [StkEnumProperty( id='collision_reaction', name="Action", default='none',  contextLevel=CONTEXT_MATERIAL,
+                                                   values={'none' : StkEnumChoice("None", []),
+                                                           'reset' : StkEnumChoice("Rescue kart", []),
+                                                           'push' : StkEnumChoice("Push back kart", [])},
+                                                   doc="How to react when kart touches this material"),
+                                  StkProperty( id='collision_particles', name="Particles on hit", default="")]
 
 STK_MATERIAL_PROPERTIES = [
         StkBoolProperty( id='fog',              name="Affected by fog (if any)",   default="true",  contextLevel=CONTEXT_MATERIAL,
@@ -871,7 +876,9 @@ STK_MATERIAL_PROPERTIES = [
                          doc="if checked, this texture will not be repeated horizontally (if the UV texturing goes beyond the texture bounds)"),
         StkBoolProperty( id='clampv',           name="Clamp texture vertically",   default="false", contextLevel=CONTEXT_MATERIAL,
                          doc="if checked, this texture will not be repeated vertically (if the UV texturing goes beyond the texture bounds)"),
-        StkEnumProperty( id='compositing',      name="Compsiting Type",            default='none',  contextLevel=CONTEXT_MATERIAL,
+        StkBoolProperty( id='collision_detect', name="Collision action",      default="false", contextLevel=CONTEXT_MATERIAL,
+                         subproperties=COLLISION_DETECTION_PROPERTIES, doc="What happens when the kart touches/hits this material in any way"),
+        StkEnumProperty( id='compositing',      name="Compositing Type",           default='none',  contextLevel=CONTEXT_MATERIAL,
                          values=COMPOSITING_VALUES, doc="How to composite this texture with what is behind it"),
         StkBoolProperty( id='disable_z_write',  name="Disable writing to Z-buffer",default="false", contextLevel=CONTEXT_MATERIAL,
                          doc="disable writing to the Z buffer (useful for materials with transparency, if irrlicht fails to do proper alpha sorting, in order not to hide what is behind)"),
@@ -905,8 +912,6 @@ STK_MATERIAL_PROPERTIES = [
                          subproperties=SFX_PROPERTIES, doc="Whether to play a sound when driving on this surface"),
         StkBoolProperty( id='reset',            name="Reset kart (on drive)",      default="false", contextLevel=CONTEXT_MATERIAL,
                          doc="whether to rescue kart if it ends up [driving] on this surface"),
-        StkBoolProperty( id='crash_reset',      name="Reset kart (on touch)",      default="false", contextLevel=CONTEXT_MATERIAL,
-                         subproperties=CRASH_RESET_PROPERTIES, doc="whether to rescue kart if it touches/hits this material in any way"),
         StkBoolProperty( id='sphere',           name="Sphere mapping",             default="false", contextLevel=CONTEXT_MATERIAL,
                          doc="use sphere mapping on this object (mainly used to simulate a reflection effect)"),
         StkBoolProperty( id='splatting',        name="Splatting",                  default="false", contextLevel=CONTEXT_MATERIAL,

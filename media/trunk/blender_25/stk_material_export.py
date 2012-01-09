@@ -86,8 +86,9 @@ def writeMaterialsFile(sPath):
            'backface_culling'      : ("Y", None),
            'below_surface'         : ("N", None),
            'compositing'           : ('none', None),
-           'crash_reset'           : ("N", None),
-           'crash_reset_particles' : ("", 'crash_reset'),
+           'collision_detect'      : ("N", None),
+           'collision_particles'   : ("", 'collision_detect'),
+           'collision_reaction'    : ("none", 'collision_detect'),
            'clampu'                : ("N", None),
            'clampv'                : ("N", None),
            'disable_z_write'       : ("N", None),
@@ -112,7 +113,7 @@ def writeMaterialsFile(sPath):
     }
 
     lBooleanAttributes = ["clampu","clampv","light","sphere","surface","below_surface",
-                          "falling_effect", "crash_reset", "fog", "additive_lightmap",
+                          "falling_effect", "collision_detect", "fog", "additive_lightmap",
                           "anisotropic","backface_culling","ignore","disable_z_write","reset",
                           "sfx_positional", "splatting", "use_normal_map", "normal_map_uv2"]
     
