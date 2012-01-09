@@ -4,11 +4,7 @@
   <!-- First define all nodes of the graph, and what quads they represent -->
   <node-list from-quad="0" to-quad="92"/>  <!-- map each quad to a node  -->
   <!-- Define the main loop -->
-  <edge-loop from="0" to="50"/>
-  <!-- Shortcut Driveline1.003 -->
-  <edge from="49" to="51"/>
-  <edge-line from="51" to="56"/>
-  <edge from="56" to="0"/>
+  <edge-loop from="0" to="56"/>
   <!-- Shortcut Driveline1.001 -->
   <edge from="23" to="57"/>
   <edge-line from="57" to="65"/>
