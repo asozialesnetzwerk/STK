@@ -126,7 +126,8 @@ def getXYZHString(obj):
 # of 10 degrees.)
 def getXYZHPRString(obj):
     loc     = obj.location
-    hpr     = obj.rotation_euler
+    # irrlicht uses XZY
+    hpr     = obj.rotation_euler.to_quaternion().to_euler('XZY')
     si      = obj.scale
     rad2deg = 180.0/3.1415926535;
     s="xyz=\"%f %f %f\" hpr=\"%f %f %f\" scale=\"%f %f %f\"" %\
