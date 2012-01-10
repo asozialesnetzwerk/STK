@@ -2,7 +2,8 @@
 <!-- Generated with script from SVN rev Unknown -->
 <materials>
   <material name="aoMapGoatv3.jpg" backface-culling="N"/>
-  <material name="bubble.png" light="N" backface-culling="N" compositing="blend" disable-z-write="Y" graphical-effect="bubble" collision-reaction="push" collision-particles="sparks.xml" collision-detect="Y"/>
+  <material name="bubble.png" light="N" backface-culling="N" compositing="blend" disable-z-write="Y" graphical-effect="bubble" ignore="Y"/>
+  <material name="bubble_solid_texture.png" collision-detect="Y" compositing="test" collision-reaction="push" collision-particles="sparks.xml"/>
   <material name="BurdockLeaf.png" backface-culling="N" compositing="coverage" ignore="Y"/>
   <material name="castelwall.jpg" backface-culling="N"/>
   <material name="city_tree_leaves.jpg" compositing="blend" ignore="Y" backface-culling="N" disable-z-write="Y" mask="city_tree_leaves_alpha.jpg"/>

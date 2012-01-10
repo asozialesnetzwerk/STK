@@ -98,6 +98,17 @@
     <static-object model="pineVeryLow.b3d" xyz="148.907166 10.580782 98.915558" hpr="-89.012391 -78.944132 -12.520389" scale="0.499663 0.499663 0.499663"/>
     <static-object model="pineVeryLow.b3d" xyz="144.484344 12.440687 80.762939" hpr="-90.502438 -78.968940 -5.815873" scale="0.499663 0.499663 0.499663"/>
     <static-object model="pineVeryLow.b3d" xyz="136.282013 8.193026 60.545273" hpr="-90.473560 -86.430334 -1.627241" scale="0.627703 0.627703 0.627703"/>
+    <static-object model="bubble_solid.b3d" xyz="-6.877246 -2.518781 27.503002" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000" if="trophies lt 16"/>
+    <static-object model="bubble_solid.b3d" xyz="4.613936 -2.989283 44.708878" hpr="3.548210 27.740364 1.880031" scale="1.000000 1.000000 1.000000" if="trophies lt 17"/>
+    <static-object model="bubble_solid.b3d" xyz="29.574402 -1.119859 22.972950" hpr="-2.598344 189.834494 -17.013586" scale="1.000000 1.000000 1.000000" if="trophies lt 15"/>
+    <static-object model="bubble_solid.b3d" xyz="123.725334 2.859797 36.960197" hpr="1.828038 177.403645 28.732249" scale="1.100300 1.100300 1.100300" if="trophies lt 20"/>
+    <static-object model="bubble_solid.b3d" xyz="126.888977 3.280477 2.993811" hpr="6.057267 170.000594 27.951251" scale="1.100300 1.100300 1.100300" if="trophies lt 20"/>
+    <static-object model="bubble_solid.b3d" xyz="130.404907 6.454190 -21.555746" hpr="-0.706025 164.173268 30.157256" scale="1.100300 1.100300 1.100300" if="trophies lt 20"/>
+    <static-object model="bubble_solid.b3d" xyz="-84.499695 -0.091485 205.697037" hpr="-3.110479 -15.145299 -5.320482" scale="1.489023 1.489023 1.489023" if="trophies lt 20"/>
+    <static-object model="bubble_solid.b3d" xyz="-81.251633 -2.922204 257.852325" hpr="-3.110479 -15.145299 -5.320482" scale="1.918149 1.918149 1.918149" if="trophies lt 20"/>
+    <static-object model="bubble_solid.b3d" xyz="-74.152267 -1.975186 289.613953" hpr="-2.245602 9.071316 -5.179510" scale="1.784251 1.784251 1.784251" if="trophies lt 20"/>
+    <static-object model="bubble_solid.b3d" xyz="100.890152 -1.243658 254.195389" hpr="-16.091700 19.527132 68.351998" scale="2.075813 2.075812 2.075812" if="trophies lt 20"/>
+    <static-object model="bubble_solid.b3d" xyz="99.861679 -1.624555 231.432236" hpr="-22.676856 20.132751 68.532684" scale="2.075813 2.075812 2.075812" if="trophies lt 20"/>
     <static-object lod_instance="true" lod_group="rocket" xyz="49.743679 -18.057045 454.777863" hpr="-0.000000 48.758941 0.000000" scale="0.620237 0.620237 0.620237"/>
     <static-object lod_distance="350.0" lod_group="rocket" model="rocket_lo.b3d" xyz="279.624664 -14.357060 459.505157" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
     <static-object lod_distance="80.0" lod_group="rocket" model="rocket_hi.b3d" xyz="263.236633 -14.357060 459.505157" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
