@@ -661,7 +661,9 @@ type = StkEnumProperty('type', "Type",
                                                               contextLevel=CONTEXT_OBJECT,
                                                               filter=lambda self, o: "lod_name" in o,
                                                               obj_identifier=lambda self, o : o["lod_name"],
-                                                              obj_text=lambda self, o : o["lod_name"])
+                                                              obj_text=lambda self, o : o["lod_name"]),
+                                                StkProperty('if',    "Visible if...", "", doc="Make this object conditionally visible"),
+                                                StkProperty('ifnot', "Visible if not...", "", doc="Make this object conditionally visible")
                                  ], doc="A LOD (level-of-detail) instance, will display either of the LOD Models in this LOD group at this location"),
         'lod_model'        : StkEnumChoice('LOD Model',
                                  [StkFloatProperty( id='lod_distance', name="Distance",       default=60.0, min=0.0, max=5000.0,
