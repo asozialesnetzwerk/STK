@@ -12,14 +12,14 @@
     <static-object lod_distance="100.0" lod_group="bubble_sea1" model="bubble_sea1.b3d" xyz="77.878754 1.841820 235.700104" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
     <static-object lod_instance="true" lod_group="bubble_desert3" xyz="-78.885902 -2.805182 292.407288" hpr="3.169680 372.007537 -2.573961" scale="8.697837 8.697834 8.697836"/>
     <static-object lod_instance="true" lod_group="bubble_sea1" xyz="99.614182 -7.017948 235.847961" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="100.0" lod_group="bubble_village3" model="bubble_village3.b3d" xyz="-15.642807 0.965657 16.002907" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="100.0" lod_group="bubble_village2" model="bubble_village2.b3d" xyz="6.596886 -2.100624 58.735790" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
+    <static-object lod_distance="100.0" lod_group="bubble_village3" model="bubble_village3.b3d" xyz="-12.071953 2.962247 15.131655" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
+    <static-object lod_distance="100.0" lod_group="bubble_village2" model="bubble_village2.b3d" xyz="7.205660 -0.538748 60.988091" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
     <static-object lod_instance="true" lod_group="bubble_techno1" xyz="9.667923 -15.957792 410.779144" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
     <static-object lod_distance="100.0" lod_group="bubble_techno1" model="bubble_techno1.b3d" xyz="-17.348175 -8.726301 410.779144" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
     <static-object lod_instance="true" lod_group="bubble_techno2" xyz="55.068985 -14.620827 425.234161" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
     <static-object lod_distance="100.0" lod_group="bubble_techno2" model="bubble_techno2.b3d" xyz="72.524178 -10.871288 430.879547" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
     <static-object lod_distance="100.0" lod_group="bubble_desert1" model="bubble_desert1.b3d" xyz="-198.925110 6.262818 262.041718" hpr="1.272020 347.528904 3.273281" scale="9.384320 9.384319 9.384319"/>
-    <static-object lod_distance="100.0" lod_group="bubble_village1" model="bubble_village1.b3d" xyz="37.667007 -1.133521 33.197594" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
+    <static-object lod_distance="100.0" lod_group="bubble_village1" model="bubble_village1.b3d" xyz="35.808613 -0.338666 35.387814" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
     <static-object lod_instance="true" lod_group="bubble_village1" xyz="32.234676 -1.133521 21.405464" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
     <static-object lod_instance="true" lod_group="bubble_desert1" xyz="-91.884377 -3.876851 258.067413" hpr="1.272020 347.528904 3.273281" scale="9.384320 9.384319 9.384319"/>
     <static-object lod_instance="true" lod_group="bubble_mountain" xyz="126.161041 0.347182 36.068649" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
