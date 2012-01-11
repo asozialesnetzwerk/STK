@@ -120,8 +120,10 @@
     <static-object lod_distance="100.0" lod_group="bubble_sea4" model="bubble_sea4.b3d" xyz="160.360550 -9.289998 275.295166" hpr="-0.000000 -0.000000 -0.000000" scale="3.834855 3.834855 3.834855"/>
     <static-object lod_instance="true" lod_group="bubble_forest" xyz="47.924686 -2.983419 234.512589" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
     <static-object lod_distance="100.0" lod_group="bubble_forest" model="bubble_forest.b3d" xyz="59.746899 0.930735 234.512589" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="bubble_forest" xyz="4.471115 -2.637153 250.531128" hpr="-0.000003 -180.511614 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="bubble_forest" xyz="5.892433 -0.958432 226.478973" hpr="-0.000000 -164.173869 0.000002" scale="1.000000 1.000000 1.000000"/>
+    <static-object lod_instance="true" lod_group="bubble_forest3" xyz="4.471115 -2.637153 250.531128" hpr="-0.000003 -180.511614 0.000000" scale="1.000000 1.000000 1.000000"/>
+    <static-object lod_instance="true" lod_group="bubble_forest2" xyz="5.892433 -0.958432 226.478973" hpr="-0.000000 -164.173869 0.000002" scale="1.000000 1.000000 1.000000"/>
+    <static-object lod_distance="100.0" lod_group="bubble_forest2" model="bubble_forest2.b3d" xyz="-4.994175 0.930736 226.773422" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
+    <static-object lod_distance="100.0" lod_group="bubble_forest3" model="bubble_forest3.b3d" xyz="-17.052021 0.930710 250.544586" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
     <static-object lod_instance="true" lod_group="tree_2" xyz="33.865685 -5.400406 270.616028" hpr="-0.000000 180.000005 0.000000" scale="1.200000 1.200000 1.200000"/>
     <static-object lod_instance="true" lod_group="tree_2" xyz="38.460022 -5.139952 243.885315" hpr="-0.000000 112.167190 0.000000" scale="1.200000 1.200000 1.200000"/>
     <static-object lod_instance="true" lod_group="tree_2" xyz="6.608376 -2.159126 236.993820" hpr="-0.000000 165.555125 -0.000000" scale="1.200000 1.200000 1.200000"/>
