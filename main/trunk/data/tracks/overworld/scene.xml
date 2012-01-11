@@ -1,163 +1,166 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 10507 -->
+<!-- Generated with script from SVN rev 10633 -->
 <scene>
   <track model="overworld_track.b3d" x="0" y="0" z="0">
-    <static-object lod_instance="true" lod_group="bubble_desert2" xyz="-89.491341 -0.830315 206.324677" hpr="3.169680 344.081735 -2.573961" scale="8.697837 8.697834 8.697836"/>
-    <static-object lod_instance="true" lod_group="bubble_village3" xyz="-9.962311 -3.199043 28.619843" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="bubble_village2" xyz="2.475838 -4.054693 47.084938" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="bubble_sea2" xyz="101.174179 -7.017948 258.653625" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="100.0" lod_group="bubble_desert2" model="bubble_desert2.b3d" xyz="-194.104858 6.885770 206.324677" hpr="3.169680 344.081735 -2.573961" scale="8.697837 8.697834 8.697836"/>
-    <static-object lod_distance="100.0" lod_group="bubble_desert3" model="bubble_desert3.b3d" xyz="-187.516327 7.140542 309.364227" hpr="3.169680 372.007537 -2.573961" scale="8.697837 8.697834 8.697836"/>
-    <static-object lod_distance="100.0" lod_group="bubble_sea2" model="bubble_sea2.b3d" xyz="76.259163 0.126566 260.354065" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="100.0" lod_group="bubble_sea1" model="bubble_sea1.b3d" xyz="77.878754 1.841820 235.700104" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="bubble_desert3" xyz="-78.885902 -2.805182 292.407288" hpr="3.169680 372.007537 -2.573961" scale="8.697837 8.697834 8.697836"/>
-    <static-object lod_instance="true" lod_group="bubble_sea1" xyz="99.614182 -7.017948 235.847961" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="100.0" lod_group="bubble_village3" model="bubble_village3.b3d" xyz="-12.071953 2.962247 15.131655" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="100.0" lod_group="bubble_village2" model="bubble_village2.b3d" xyz="7.205660 -0.538748 60.988091" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="bubble_techno1" xyz="9.667923 -15.957792 410.779144" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="100.0" lod_group="bubble_techno1" model="bubble_techno1.b3d" xyz="-17.348175 -8.726301 410.779144" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="bubble_techno2" xyz="55.068985 -14.620827 425.234161" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="100.0" lod_group="bubble_techno2" model="bubble_techno2.b3d" xyz="72.524178 -10.871288 430.879547" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="100.0" lod_group="bubble_desert1" model="bubble_desert1.b3d" xyz="-198.925110 6.262818 262.041718" hpr="1.272020 347.528904 3.273281" scale="9.384320 9.384319 9.384319"/>
-    <static-object lod_distance="100.0" lod_group="bubble_village1" model="bubble_village1.b3d" xyz="35.808613 -0.338666 35.387814" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="bubble_village1" xyz="32.234676 -1.133521 21.405464" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="bubble_desert1" xyz="-91.884377 -3.876851 258.067413" hpr="1.272020 347.528904 3.273281" scale="9.384320 9.384319 9.384319"/>
-    <static-object lod_instance="true" lod_group="bubble_mountain" xyz="126.161041 0.347182 36.068649" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="100.0" lod_group="bubble_mountain" model="bubble_mountain.b3d" xyz="84.748222 0.347182 36.068649" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="bubble_mountain" xyz="129.149628 0.347182 2.641815" hpr="-0.000000 -8.343299 0.000000" scale="1.049750 1.049750 1.049750"/>
-    <static-object lod_instance="true" lod_group="bubble_mountain" xyz="133.094269 3.990510 -21.964561" hpr="-1.882307 -14.427864 -5.724018" scale="1.049750 1.049750 1.049750"/>
-    <static-object model="cactus.b3d" xyz="-80.596901 -6.683528 281.963287" hpr="-0.000000 565.262740 -0.000000" scale="1.847463 1.847463 1.847463"/>
-    <static-object model="cactus.b3d" xyz="-87.906990 -4.728680 240.612473" hpr="-0.000000 367.079146 0.000000" scale="1.116601 1.116601 1.116601"/>
-    <static-object model="cactus.b3d" xyz="-49.051460 -8.514604 249.853729" hpr="-0.000000 210.248577 -0.000000" scale="1.215161 1.215161 1.215161"/>
-    <static-object model="cactus.b3d" xyz="-81.835426 -6.260209 318.988220" hpr="-0.000000 320.329780 0.000000" scale="1.293727 1.293727 1.293727"/>
-    <static-object model="cactus.b3d" xyz="-49.335365 -7.322938 286.330688" hpr="-0.000000 506.779163 0.000000" scale="1.124712 1.124712 1.124712"/>
-    <static-object model="crystal_ball.b3d" xyz="-19.643364 -2.868811 30.215752" hpr="-6.093145 -178.458636 1.204983" scale="0.864835 0.779854 0.864835" challenge="farmtracktime"/>
-    <static-object model="crystal_ball.b3d" xyz="39.978153 0.967313 17.581429" hpr="-0.000000 -323.405031 0.000000" scale="0.864835 0.779854 0.864835" challenge="snowmountain"/>
-    <static-object model="crystal_ball.b3d" xyz="-4.970390 -3.468164 52.441666" hpr="-0.000000 -142.445426 0.000000" scale="0.864835 0.779854 0.864835" challenge="energymathclass"/>
-    <static-object model="crystal_ball.b3d" xyz="150.830719 -8.918773 240.542786" hpr="-0.000000 -323.405031 0.000000" scale="0.864835 0.779854 0.864835" challenge="snowmountain"/>
-    <static-object model="crystal_ball.b3d" xyz="145.326447 -8.792643 275.776062" hpr="-0.000000 -323.405031 0.000000" scale="0.864835 0.779854 0.864835" challenge="snowmountain"/>
-    <static-object model="crystal_ball.b3d" xyz="88.725151 -10.816338 257.881195" hpr="-0.000000 -323.405031 0.000000" scale="0.864835 0.779854 0.864835" challenge="snowmountain"/>
-    <static-object model="crystal_ball.b3d" xyz="89.191246 -10.510856 235.203186" hpr="-0.000000 -323.405031 0.000000" scale="0.864835 0.779854 0.864835" challenge="snowmountain"/>
-    <static-object model="crystal_ball.b3d" xyz="-93.934242 -1.003240 257.973267" hpr="-0.000000 -174.896925 0.000000" scale="0.864835 0.779854 0.864835" challenge="snowmountain"/>
-    <static-object model="crystal_ball.b3d" xyz="-94.923546 -3.180295 296.620148" hpr="-0.000000 -174.896925 0.000000" scale="0.864835 0.779854 0.864835" challenge="snowmountain"/>
-    <static-object model="crystal_ball.b3d" xyz="-100.430473 -0.049246 204.789932" hpr="-0.000000 -174.896925 0.000000" scale="0.864835 0.779854 0.864835" challenge="snowmountain"/>
-    <static-object model="crystal_ball.b3d" xyz="48.843536 -3.733327 234.296082" hpr="0.063812 -365.596640 0.120572" scale="0.864835 0.779854 0.864835" challenge="snowmountain"/>
-    <static-object model="crystal_ball.b3d" xyz="4.661430 -2.788718 250.386719" hpr="-0.044092 -339.036028 -0.068446" scale="0.864835 0.779854 0.864835" challenge="snowmountain"/>
-    <static-object model="crystal_ball.b3d" xyz="4.661430 -0.549865 226.668030" hpr="-0.000000 -347.873200 0.000000" scale="0.864835 0.779854 0.864835" challenge="snowmountain"/>
-    <static-object model="crystal_ball.b3d" xyz="-19.664627 -17.278517 408.167786" hpr="-0.000000 -323.405031 0.000000" scale="0.864835 0.779854 0.864835" challenge="snowmountain"/>
-    <static-object model="crystal_ball.b3d" xyz="58.025723 -12.950220 426.691772" hpr="-0.000000 -323.405031 0.000000" scale="0.864835 0.779854 0.864835" challenge="snowmountain"/>
-    <static-object model="crystal_ball.b3d" xyz="141.334885 0.639684 34.806503" hpr="-0.000000 -323.405031 0.000000" scale="0.864835 0.779854 0.864835" challenge="snowmountain"/>
-    <static-object model="crystal_ball.b3d" xyz="144.714813 0.166427 3.998444" hpr="-0.000000 -323.405031 0.000000" scale="0.864835 0.779854 0.864835" challenge="snowmountain"/>
-    <static-object model="crystal_ball.b3d" xyz="146.390167 3.202545 -19.864723" hpr="-0.000000 -323.405031 0.000000" scale="0.864835 0.779854 0.864835" challenge="snowmountain"/>
-    <static-object lod_instance="true" lod_group="pedestral" xyz="-94.901039 -5.737461 296.611938" hpr="-0.000000 -29.614000 0.000000" scale="0.713262 0.713262 0.713262"/>
-    <static-object lod_instance="true" lod_group="pedestral" xyz="40.005924 -1.576530 17.577316" hpr="-0.000000 1.482337 0.000000" scale="0.713262 0.713262 0.713262"/>
-    <static-object lod_instance="true" lod_group="pedestral" xyz="-19.624855 -5.367986 29.868942" hpr="7.814713 0.000000 0.000000" scale="0.677854 0.677853 0.677853"/>
-    <static-object lod_instance="true" lod_group="pedestral" xyz="145.357254 -11.359985 275.780853" hpr="-0.000000 1.619496 0.000000" scale="0.713262 0.713262 0.713262"/>
-    <static-object lod_instance="true" lod_group="pedestral" xyz="-19.633804 -19.845861 408.172577" hpr="-0.000000 1.619496 0.000000" scale="0.713262 0.713262 0.713262"/>
-    <static-object lod_instance="true" lod_group="pedestral" xyz="150.852478 -11.502080 240.540146" hpr="-0.000000 3.064123 0.000000" scale="0.713262 0.713262 0.713262"/>
-    <static-object lod_instance="true" lod_group="pedestral" xyz="141.240952 -1.969604 34.791695" hpr="0.313274 2.247416 -3.465565" scale="0.713262 0.713262 0.713262"/>
-    <static-object lod_instance="true" lod_group="pedestral" xyz="-93.906410 -3.550768 257.965759" hpr="-0.000000 -29.418909 0.000000" scale="0.713262 0.713262 0.713262"/>
-    <static-object lod_distance="35.0" lod_group="pedestral" model="pedestral_hi.b3d" xyz="-158.379181 -6.105000 26.637260" hpr="-0.000000 -0.000000 -0.000000" scale="0.713262 0.713262 0.713262"/>
-    <static-object lod_distance="70.0" lod_group="pedestral" model="pedestral_lo.b3d" xyz="-158.379181 -6.105302 28.099274" hpr="-0.000000 -0.000000 -0.000000" scale="0.713262 0.713262 0.713262"/>
-    <static-object lod_instance="true" lod_group="pedestral" xyz="-4.953506 -6.105019 52.419472" hpr="-0.000000 -0.000000 -0.000000" scale="0.713262 0.713262 0.713262"/>
-    <static-object lod_instance="true" lod_group="pedestral" xyz="-100.408333 -2.588892 204.807343" hpr="-0.000000 -30.415211 0.000000" scale="0.713262 0.713262 0.713262"/>
-    <static-object lod_instance="true" lod_group="pedestral" xyz="144.448608 -2.458969 3.987877" hpr="0.532569 1.649826 -7.091750" scale="0.713262 0.713262 0.713262"/>
-    <static-object lod_instance="true" lod_group="pedestral" xyz="145.921051 0.627461 -19.894966" hpr="0.900778 2.034825 -11.113711" scale="0.713262 0.713262 0.713262"/>
-    <static-object model="littleTree.b3d" xyz="120.212677 -1.725849 9.384491" hpr="-75.911884 -45.764719 11.499353" scale="0.776224 0.776224 0.776224"/>
-    <static-object model="littleTree.b3d" xyz="124.162613 1.374624 -17.092979" hpr="-79.842712 -48.584532 -9.410653" scale="0.776224 0.776224 0.776224"/>
-    <static-object lod_distance="100.0" lod_group="pineLow" model="pineLow_LOD100.b3d" xyz="137.802597 6.968265 -30.229424" hpr="-85.305894 -45.440422 -3.768771" scale="0.776224 0.776224 0.776224"/>
-    <static-object model="pinetreeDetailed.b3d" xyz="123.253654 -1.882569 49.696083" hpr="-89.999996 18.967567 0.000000" scale="1.237831 1.237831 1.237831"/>
-    <static-object model="pinetreeDetailed.b3d" xyz="124.992393 -1.891085 66.295288" hpr="-87.895949 -28.149305 4.363463" scale="1.237831 1.237831 1.237831"/>
-    <static-object model="pinetreeDetailed.b3d" xyz="121.325806 -1.938968 26.945442" hpr="-91.882594 74.268342 9.155829" scale="1.237831 1.237831 1.237831"/>
-    <static-object model="pinetreeDetailed.b3d" xyz="128.382767 2.234553 12.425209" hpr="-100.329386 74.735602 11.645006" scale="1.237831 1.237831 1.237831"/>
-    <static-object model="pinetreeDetailed.b3d" xyz="121.758209 0.420578 -4.867393" hpr="-91.882594 74.268342 9.155829" scale="1.237831 1.237831 1.237831"/>
-    <static-object model="pinetreeDetailed.b3d" xyz="125.708145 3.526137 -31.344872" hpr="-91.882594 74.268342 9.155829" scale="1.237831 1.237831 1.237831"/>
-    <static-object model="pineVeryLow.b3d" xyz="140.050018 9.259468 18.904381" hpr="-90.981822 -94.307878 2.293462" scale="0.627703 0.627703 0.627703"/>
-    <static-object model="pineVeryLow.b3d" xyz="137.561935 9.719052 41.762520" hpr="-93.279743 -104.474253 -6.612985" scale="0.627704 0.627704 0.627703"/>
-    <static-object model="pineVeryLow.b3d" xyz="139.739838 11.768454 51.623520" hpr="-90.426923 -93.660280 -1.859379" scale="0.627703 0.627703 0.627703"/>
-    <static-object model="pineVeryLow.b3d" xyz="142.096542 12.525733 31.832626" hpr="-91.516830 -93.670266 3.696194" scale="0.627703 0.627703 0.627703"/>
-    <static-object model="pineVeryLow.b3d" xyz="142.745621 9.816809 1.113647" hpr="-89.389787 -109.981571 -10.814390" scale="0.627703 0.627703 0.627703"/>
-    <static-object model="pineVeryLow.b3d" xyz="145.165100 12.185087 11.343712" hpr="-91.254722 -93.835482 2.498877" scale="0.627703 0.627703 0.627704"/>
-    <static-object model="pineVeryLow.b3d" xyz="139.333160 10.149780 70.302757" hpr="-88.916612 -93.668313 -10.858677" scale="0.627703 0.627703 0.627703"/>
-    <static-object model="pineVeryLow.b3d" xyz="147.416260 12.708249 -15.224586" hpr="-81.856573 -99.091865 -4.389684" scale="0.627703 0.627703 0.627703"/>
-    <static-object model="pineVeryLow.b3d" xyz="156.084930 16.119135 -25.374687" hpr="-88.959259 -89.303057 4.966353" scale="0.627703 0.627703 0.627703"/>
-    <static-object model="pineVeryLow.b3d" xyz="164.621933 15.486694 -37.772270" hpr="-91.128568 -76.970167 11.707746" scale="0.627703 0.627703 0.627704"/>
-    <static-object model="pineVeryLow.b3d" xyz="162.960968 17.394497 -27.771935" hpr="-88.931098 -80.890326 7.923952" scale="0.627703 0.627703 0.627703"/>
-    <static-object model="pineVeryLow.b3d" xyz="158.754974 17.838415 -17.163322" hpr="-80.712557 -89.281378 4.207431" scale="0.627703 0.627703 0.627703"/>
-    <static-object model="pineVeryLow.b3d" xyz="150.110718 14.528648 -5.436409" hpr="-82.585293 -100.821577 -3.302534" scale="0.627703 0.627703 0.627704"/>
-    <static-object model="pineVeryLow.b3d" xyz="155.703857 17.941853 -3.131660" hpr="-82.927471 -100.040941 3.351911" scale="0.499663 0.499663 0.499663"/>
-    <static-object model="pineVeryLow.b3d" xyz="152.470673 16.824841 11.596558" hpr="-91.254722 -93.835482 2.498877" scale="0.499663 0.499663 0.499663"/>
-    <static-object model="pineVeryLow.b3d" xyz="149.402130 18.561258 32.085472" hpr="-91.656781 -90.669928 10.162370" scale="0.499663 0.499663 0.499663"/>
-    <static-object model="pineVeryLow.b3d" xyz="147.045425 18.856615 51.876366" hpr="-90.426923 -93.660280 -1.859379" scale="0.499663 0.499663 0.499663"/>
-    <static-object model="pineVeryLow.b3d" xyz="143.600311 15.718891 43.536507" hpr="-90.426923 -93.660280 -1.859379" scale="0.499663 0.499663 0.499663"/>
-    <static-object model="pineVeryLow.b3d" xyz="145.957001 15.813631 23.745605" hpr="-91.516830 -93.670266 3.696194" scale="0.499663 0.499663 0.499663"/>
-    <static-object model="pineVeryLow.b3d" xyz="149.025558 16.135523 3.256691" hpr="-91.254722 -93.835482 2.498877" scale="0.499663 0.499663 0.499663"/>
-    <static-object model="pineVeryLow.b3d" xyz="143.193619 14.100216 62.215729" hpr="-88.916612 -93.668313 -10.858677" scale="0.499663 0.499663 0.499663"/>
-    <static-object model="pineVeryLow.b3d" xyz="153.971191 16.052227 -13.523430" hpr="-82.852742 -100.726377 -1.811457" scale="0.499663 0.499663 0.499663"/>
-    <static-object model="pineVeryLow.b3d" xyz="137.331726 7.161229 -56.112480" hpr="-90.405572 -23.158322 10.231815" scale="0.627703 0.627703 0.627703"/>
-    <static-object model="pineVeryLow.b3d" xyz="123.048492 5.153397 -59.159813" hpr="-93.436626 -2.338319 1.245446" scale="0.627703 0.627703 0.627704"/>
-    <static-object model="frontTrees.b3d" xyz="89.631012 3.773499 9.365456" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object model="pineVeryLow.b3d" xyz="148.907166 10.580782 98.915558" hpr="-89.012391 -78.944132 -12.520389" scale="0.499663 0.499663 0.499663"/>
-    <static-object model="pineVeryLow.b3d" xyz="144.484344 12.440687 80.762939" hpr="-90.502438 -78.968940 -5.815873" scale="0.499663 0.499663 0.499663"/>
-    <static-object model="pineVeryLow.b3d" xyz="136.282013 8.193026 60.545273" hpr="-90.473560 -86.430334 -1.627241" scale="0.627703 0.627703 0.627703"/>
-    <static-object model="bubble_solid.b3d" xyz="-6.877246 -2.518781 27.503002" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000" if="trophies lt 16"/>
-    <static-object model="bubble_solid.b3d" xyz="4.613936 -2.989283 44.708878" hpr="3.548210 27.740364 1.880031" scale="1.000000 1.000000 1.000000" if="trophies lt 17"/>
-    <static-object model="bubble_solid.b3d" xyz="29.574402 -1.119859 22.972950" hpr="-2.598344 189.834494 -17.013586" scale="1.000000 1.000000 1.000000" if="trophies lt 15"/>
-    <static-object model="bubble_solid.b3d" xyz="123.725334 2.859797 36.960197" hpr="1.828038 177.403645 28.732249" scale="1.100300 1.100300 1.100300" if="trophies lt 20"/>
-    <static-object model="bubble_solid.b3d" xyz="126.888977 3.280477 2.993811" hpr="6.057267 170.000594 27.951251" scale="1.100300 1.100300 1.100300" if="trophies lt 20"/>
-    <static-object model="bubble_solid.b3d" xyz="130.404907 6.454190 -21.555746" hpr="-0.706025 164.173268 30.157256" scale="1.100300 1.100300 1.100300" if="trophies lt 20"/>
-    <static-object model="bubble_solid.b3d" xyz="-84.499695 -0.091485 205.697037" hpr="-3.110479 -15.145299 -5.320482" scale="1.489023 1.489023 1.489023" if="trophies lt 20"/>
-    <static-object model="bubble_solid.b3d" xyz="-81.251633 -2.922204 257.852325" hpr="-3.110479 -15.145299 -5.320482" scale="1.918149 1.918149 1.918149" if="trophies lt 20"/>
-    <static-object model="bubble_solid.b3d" xyz="-74.152267 -1.975186 289.613953" hpr="-2.245602 9.071316 -5.179510" scale="1.784251 1.784251 1.784251" if="trophies lt 20"/>
-    <static-object model="bubble_solid.b3d" xyz="100.890152 -1.243658 254.195389" hpr="-16.091700 19.527132 68.351998" scale="2.075813 2.075812 2.075812" if="trophies lt 20"/>
-    <static-object model="bubble_solid.b3d" xyz="99.861679 -1.624555 231.432236" hpr="-22.676856 20.132751 68.532684" scale="2.075813 2.075812 2.075812" if="trophies lt 20"/>
-    <static-object lod_instance="true" lod_group="rocket" xyz="49.743679 -18.057045 454.777863" hpr="-0.000000 48.758941 0.000000" scale="0.620237 0.620237 0.620237"/>
-    <static-object lod_distance="350.0" lod_group="rocket" model="rocket_lo.b3d" xyz="279.624664 -14.357060 459.505157" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="80.0" lod_group="rocket" model="rocket_hi.b3d" xyz="263.236633 -14.357060 459.505157" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="bubble_sea4" xyz="142.185364 -9.289998 275.479980" hpr="-0.000000 -0.000000 -0.000000" scale="3.834855 3.834855 3.834855"/>
-    <static-object lod_distance="100.0" lod_group="bubble_sea3" model="bubble_sea3.b3d" xyz="163.845245 -9.289998 243.928284" hpr="-0.000000 -0.000000 -0.000000" scale="3.834855 3.834855 3.834855"/>
-    <static-object lod_instance="true" lod_group="bubble_sea3" xyz="148.185699 -9.289998 239.906433" hpr="-0.000000 -0.000000 -0.000000" scale="3.834855 3.834855 3.834855"/>
-    <static-object lod_distance="100.0" lod_group="bubble_sea4" model="bubble_sea4.b3d" xyz="160.360550 -9.289998 275.295166" hpr="-0.000000 -0.000000 -0.000000" scale="3.834855 3.834855 3.834855"/>
-    <static-object lod_instance="true" lod_group="bubble_forest" xyz="47.924686 -2.983419 234.512589" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="100.0" lod_group="bubble_forest" model="bubble_forest.b3d" xyz="59.746899 0.930735 234.512589" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="bubble_forest3" xyz="4.471115 -2.637153 250.531128" hpr="-0.000003 -180.511614 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="bubble_forest2" xyz="5.892433 -0.958432 226.478973" hpr="-0.000000 -164.173869 0.000002" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="100.0" lod_group="bubble_forest2" model="bubble_forest2.b3d" xyz="-4.994175 0.930736 226.773422" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="100.0" lod_group="bubble_forest3" model="bubble_forest3.b3d" xyz="-17.052021 0.930710 250.544586" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="tree_2" xyz="33.865685 -5.400406 270.616028" hpr="-0.000000 180.000005 0.000000" scale="1.200000 1.200000 1.200000"/>
-    <static-object lod_instance="true" lod_group="tree_2" xyz="38.460022 -5.139952 243.885315" hpr="-0.000000 112.167190 0.000000" scale="1.200000 1.200000 1.200000"/>
-    <static-object lod_instance="true" lod_group="tree_2" xyz="6.608376 -2.159126 236.993820" hpr="-0.000000 165.555125 -0.000000" scale="1.200000 1.200000 1.200000"/>
-    <static-object lod_instance="true" lod_group="tree_2" xyz="1.805199 -4.300071 267.274689" hpr="-0.000000 165.555125 -0.000000" scale="1.200000 1.200000 1.200000"/>
-    <static-object lod_instance="true" lod_group="tree_2" xyz="-4.877480 -2.162922 249.106171" hpr="-0.000000 165.555125 -0.000000" scale="1.200000 1.200000 1.200000"/>
-    <static-object lod_instance="true" lod_group="tree_2" xyz="46.186867 -5.740013 225.716782" hpr="-0.000000 165.555125 -0.000000" scale="1.200000 1.200000 1.200000"/>
-    <static-object lod_instance="true" lod_group="tree_2" xyz="4.311203 -1.350625 217.781113" hpr="-0.000000 165.555125 -0.000000" scale="1.200000 1.200000 1.200000"/>
-    <static-object lod_instance="true" lod_group="tree_2" xyz="44.794670 -3.110458 261.009674" hpr="-0.000000 165.555125 -0.000000" scale="1.200000 1.200000 1.200000"/>
-    <static-object lod_distance="50.0" lod_group="tree_2" model="tree_2_LOD50.b3d" xyz="293.725861 -17.974255 641.808899" hpr="-0.000000 180.000005 0.000000" scale="1.200000 1.200000 1.200000"/>
-    <static-object lod_distance="150.0" lod_group="tree_2" model="tree_2_LOD150.b3d" xyz="276.617645 -17.974255 641.808899" hpr="-0.000000 180.000005 0.000000" scale="1.200000 1.200000 1.200000"/>
-    <static-object lod_distance="500.0" lod_group="tree_2" model="tree_2_LOD500.b3d" xyz="260.908905 -17.974255 641.808899" hpr="-0.000000 180.000005 0.000000" scale="1.200000 1.200000 1.200000"/>
-    <static-object lod_instance="true" lod_group="tree_2" xyz="29.781422 0.287679 3.970894" hpr="-0.000000 165.555125 -0.000000" scale="1.200000 1.200000 1.200000"/>
-    <static-object lod_instance="true" lod_group="tree_2" xyz="-26.437050 -5.255705 54.670994" hpr="-0.000000 165.555125 -0.000000" scale="1.200000 1.200000 1.200000"/>
-    <static-object model="terrain2_splat.b3d" xyz="55.640045 -6.924582 221.584686" hpr="-0.000000 -0.000000 -0.000000" scale="2.369410 2.369410 2.369410" if="splatting"/>
-    <static-object model="terrain_nosplat.b3d" xyz="55.831512 -6.924546 221.685577" hpr="-0.000000 -0.000000 -0.000000" scale="2.369410 2.369410 2.369410" ifnot="splatting"/>
-    <static-object model="terrain1_splat.b3d" xyz="55.640045 -6.924582 221.584686" hpr="-0.000000 -0.000000 -0.000000" scale="2.369410 2.369410 2.369410" if="splatting"/>
+    <static-object lod_instance="true" lod_group="bubble_desert2" xyz="-89.49 -0.83 206.32" hpr="3.9 -15.9 -2.7" scale="8.70 8.70 8.70"/>
+    <static-object lod_instance="true" lod_group="bubble_village3" xyz="-9.96 -3.20 28.62" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="bubble_village2" xyz="2.48 -4.05 47.08" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="bubble_sea2" xyz="101.17 -7.02 258.65" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="100.0" lod_group="bubble_desert2" model="bubble_desert2.b3d" xyz="-194.10 6.89 206.32" hpr="3.9 -15.9 -2.7" scale="8.70 8.70 8.70"/>
+    <static-object lod_distance="100.0" lod_group="bubble_desert3" model="bubble_desert3.b3d" xyz="-187.52 7.14 309.36" hpr="2.6 12.0 -2.6" scale="8.70 8.70 8.70"/>
+    <static-object lod_distance="100.0" lod_group="bubble_sea2" model="bubble_sea2.b3d" xyz="76.26 0.13 260.35" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="100.0" lod_group="bubble_sea1" model="bubble_sea1.b3d" xyz="77.88 1.84 235.70" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="bubble_desert3" xyz="-78.89 -2.81 292.41" hpr="2.6 12.0 -2.6" scale="8.70 8.70 8.70"/>
+    <static-object lod_instance="true" lod_group="bubble_sea1" xyz="99.61 -7.02 235.85" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="100.0" lod_group="bubble_village3" model="bubble_village3.b3d" xyz="-12.07 2.96 15.13" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="100.0" lod_group="bubble_village2" model="bubble_village2.b3d" xyz="7.21 -0.54 60.99" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="bubble_techno1" xyz="9.67 -15.96 410.78" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="100.0" lod_group="bubble_techno1" model="bubble_techno1.b3d" xyz="-17.35 -8.73 410.78" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="bubble_techno2" xyz="55.07 -14.62 425.23" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="100.0" lod_group="bubble_techno2" model="bubble_techno2.b3d" xyz="72.52 -10.87 430.88" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="100.0" lod_group="bubble_desert1" model="bubble_desert1.b3d" xyz="-198.93 6.26 262.04" hpr="0.5 -12.5 3.4" scale="9.38 9.38 9.38"/>
+    <static-object lod_distance="100.0" lod_group="bubble_village1" model="bubble_village1.b3d" xyz="35.81 -0.34 35.39" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="bubble_village1" xyz="32.23 -1.13 21.41" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="bubble_desert1" xyz="-91.88 -3.88 258.07" hpr="0.5 -12.5 3.4" scale="9.38 9.38 9.38"/>
+    <static-object lod_instance="true" lod_group="bubble_mountain" xyz="126.16 0.35 36.07" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="100.0" lod_group="bubble_mountain" model="bubble_mountain.b3d" xyz="84.75 0.35 36.07" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="bubble_mountain" xyz="129.15 0.35 2.64" hpr="0.0 -8.3 0.0" scale="1.05 1.05 1.05"/>
+    <static-object lod_instance="true" lod_group="bubble_mountain" xyz="133.09 3.99 -21.96" hpr="-0.4 -14.4 -5.9" scale="1.05 1.05 1.05"/>
+    <static-object model="cactus.b3d" xyz="-80.60 -6.68 281.96" hpr="-0.0 -154.7 -0.0" scale="1.85 1.85 1.85"/>
+    <static-object model="cactus.b3d" xyz="-87.91 -4.73 240.61" hpr="0.0 7.1 0.0" scale="1.12 1.12 1.12"/>
+    <static-object model="cactus.b3d" xyz="-49.05 -8.51 249.85" hpr="-0.0 -149.8 0.0" scale="1.22 1.22 1.22"/>
+    <static-object model="cactus.b3d" xyz="-81.84 -6.26 318.99" hpr="-0.0 -39.7 0.0" scale="1.29 1.29 1.29"/>
+    <static-object model="cactus.b3d" xyz="-49.34 -7.32 286.33" hpr="-0.0 146.8 -0.0" scale="1.12 1.12 1.12"/>
+    <static-object model="crystal_ball.b3d" xyz="-19.64 -2.87 30.22" hpr="-6.1 -178.5 -1.2" scale="0.86 0.78 0.86" challenge="farmtracktime"/>
+    <static-object model="crystal_ball.b3d" xyz="39.98 0.97 17.58" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="snowmountain"/>
+    <static-object model="crystal_ball.b3d" xyz="-4.97 -3.47 52.44" hpr="-0.0 -142.4 -0.0" scale="0.86 0.78 0.86" challenge="energymathclass"/>
+    <static-object model="crystal_ball.b3d" xyz="150.83 -8.92 240.54" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="snowmountain"/>
+    <static-object model="crystal_ball.b3d" xyz="145.33 -8.79 275.78" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="snowmountain"/>
+    <static-object model="crystal_ball.b3d" xyz="88.73 -10.82 257.88" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="snowmountain"/>
+    <static-object model="crystal_ball.b3d" xyz="89.19 -10.51 235.20" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="snowmountain"/>
+    <static-object model="crystal_ball.b3d" xyz="-93.93 -1.00 257.97" hpr="-0.0 -174.9 -0.0" scale="0.86 0.78 0.86" challenge="snowmountain"/>
+    <static-object model="crystal_ball.b3d" xyz="-94.92 -3.18 296.62" hpr="-0.0 -174.9 -0.0" scale="0.86 0.78 0.86" challenge="snowmountain"/>
+    <static-object model="crystal_ball.b3d" xyz="-100.43 -0.05 204.79" hpr="-0.0 -174.9 -0.0" scale="0.86 0.78 0.86" challenge="snowmountain"/>
+    <static-object model="crystal_ball.b3d" xyz="48.84 -3.73 234.30" hpr="0.1 -5.6 0.1" scale="0.86 0.78 0.86" challenge="snowmountain"/>
+    <static-object model="crystal_ball.b3d" xyz="4.66 -2.79 250.39" hpr="-0.1 21.0 -0.1" scale="0.86 0.78 0.86" challenge="snowmountain"/>
+    <static-object model="crystal_ball.b3d" xyz="4.66 -0.55 226.67" hpr="0.0 12.1 0.0" scale="0.86 0.78 0.86" challenge="snowmountain"/>
+    <static-object model="crystal_ball.b3d" xyz="-19.66 -17.28 408.17" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="snowmountain"/>
+    <static-object model="crystal_ball.b3d" xyz="58.03 -12.95 426.69" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="snowmountain"/>
+    <static-object model="crystal_ball.b3d" xyz="141.33 0.64 34.81" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="snowmountain"/>
+    <static-object model="crystal_ball.b3d" xyz="144.71 0.17 4.00" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="snowmountain"/>
+    <static-object model="crystal_ball.b3d" xyz="146.39 3.20 -19.86" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="snowmountain"/>
+    <static-object lod_instance="true" lod_group="pedestral" xyz="-94.90 -5.74 296.61" hpr="0.0 -29.6 0.0" scale="0.71 0.71 0.71"/>
+    <static-object lod_instance="true" lod_group="pedestral" xyz="40.01 -1.58 17.58" hpr="0.0 1.5 0.0" scale="0.71 0.71 0.71"/>
+    <static-object lod_instance="true" lod_group="pedestral" xyz="-19.62 -5.37 29.87" hpr="7.8 0.0 0.0" scale="0.68 0.68 0.68"/>
+    <static-object lod_instance="true" lod_group="pedestral" xyz="145.36 -11.36 275.78" hpr="0.0 1.6 0.0" scale="0.71 0.71 0.71"/>
+    <static-object lod_instance="true" lod_group="pedestral" xyz="-19.63 -19.85 408.17" hpr="0.0 1.6 0.0" scale="0.71 0.71 0.71"/>
+    <static-object lod_instance="true" lod_group="pedestral" xyz="150.85 -11.50 240.54" hpr="0.0 3.1 0.0" scale="0.71 0.71 0.71"/>
+    <static-object lod_instance="true" lod_group="pedestral" xyz="141.24 -1.97 34.79" hpr="0.2 2.2 -3.5" scale="0.71 0.71 0.71"/>
+    <static-object lod_instance="true" lod_group="pedestral" xyz="-93.91 -3.55 257.97" hpr="0.0 -29.4 0.0" scale="0.71 0.71 0.71"/>
+    <static-object lod_distance="35.0" lod_group="pedestral" model="pedestral_hi.b3d" xyz="-158.38 -6.10 26.64" hpr="0.0 -0.0 0.0" scale="0.71 0.71 0.71"/>
+    <static-object lod_distance="70.0" lod_group="pedestral" model="pedestral_lo.b3d" xyz="-158.38 -6.11 28.10" hpr="0.0 -0.0 0.0" scale="0.71 0.71 0.71"/>
+    <static-object lod_instance="true" lod_group="pedestral" xyz="-4.95 -6.11 52.42" hpr="0.0 -0.0 0.0" scale="0.71 0.71 0.71"/>
+    <static-object lod_instance="true" lod_group="pedestral" xyz="-100.41 -2.59 204.81" hpr="0.0 -30.4 0.0" scale="0.71 0.71 0.71"/>
+    <static-object lod_instance="true" lod_group="pedestral" xyz="144.45 -2.46 3.99" hpr="0.3 1.6 -7.1" scale="0.71 0.71 0.71"/>
+    <static-object lod_instance="true" lod_group="pedestral" xyz="145.92 0.63 -19.89" hpr="0.5 2.0 -11.1" scale="0.71 0.71 0.71"/>
+    <static-object model="littleTree.b3d" xyz="120.21 -1.73 9.38" hpr="-87.5 -44.6 16.3" scale="0.78 0.78 0.78"/>
+    <static-object model="littleTree.b3d" xyz="124.16 1.37 -17.09" hpr="-69.3 -47.7 -14.1" scale="0.78 0.78 0.78"/>
+    <static-object lod_distance="100.0" lod_group="pineLow" model="pineLow_LOD100.b3d" xyz="137.80 6.97 -30.23" hpr="-81.5 -45.3 -5.4" scale="0.78 0.78 0.78"/>
+    <static-object model="pinetreeDetailed.b3d" xyz="123.25 -1.88 49.70" hpr="-90.0 19.0 -0.0" scale="1.24 1.24 1.24"/>
+    <static-object model="pinetreeDetailed.b3d" xyz="124.99 -1.89 66.30" hpr="-90.2 -28.1 4.9" scale="1.24 1.24 1.24"/>
+    <static-object model="pinetreeDetailed.b3d" xyz="121.33 -1.94 26.95" hpr="-62.4 71.9 30.7" scale="1.24 1.24 1.24"/>
+    <static-object model="pinetreeDetailed.b3d" xyz="128.38 2.23 12.43" hpr="-63.8 70.9 38.1" scale="1.24 1.24 1.24"/>
+    <static-object model="pinetreeDetailed.b3d" xyz="121.76 0.42 -4.87" hpr="-62.4 71.9 30.7" scale="1.24 1.24 1.24"/>
+    <static-object model="pinetreeDetailed.b3d" xyz="125.71 3.53 -31.34" hpr="-62.4 71.9 30.7" scale="1.24 1.24 1.24"/>
+    <static-object model="pineVeryLow.b3d" xyz="140.05 9.26 18.90" hpr="-63.0 -94.9 -28.1" scale="0.63 0.63 0.63"/>
+    <static-object model="pineVeryLow.b3d" xyz="137.56 9.72 41.76" hpr="-117.3 -105.9 24.9" scale="0.63 0.63 0.63"/>
+    <static-object model="pineVeryLow.b3d" xyz="139.74 11.77 51.62" hpr="-117.3 -94.1 27.0" scale="0.63 0.63 0.63"/>
+    <static-object model="pineVeryLow.b3d" xyz="142.10 12.53 31.83" hpr="-46.4 -95.2 -45.3" scale="0.63 0.63 0.63"/>
+    <static-object model="pineVeryLow.b3d" xyz="142.75 9.82 1.11" hpr="-116.7 -112.6 29.2" scale="0.63 0.63 0.63"/>
+    <static-object model="pineVeryLow.b3d" xyz="145.17 12.19 11.34" hpr="-58.2 -94.6 -33.1" scale="0.63 0.63 0.63"/>
+    <static-object model="pineVeryLow.b3d" xyz="139.33 10.15 70.30" hpr="19.9 -78.5 -108.4" scale="0.63 0.63 0.63"/>
+    <static-object model="pineVeryLow.b3d" xyz="147.42 12.71 -15.22" hpr="-107.4 -100.1 25.9" scale="0.63 0.63 0.63"/>
+    <static-object model="pineVeryLow.b3d" xyz="156.08 16.12 -25.37" hpr="9.0 -95.0 -98.0" scale="0.63 0.63 0.63"/>
+    <static-object model="pineVeryLow.b3d" xyz="164.62 15.49 -37.77" hpr="-132.4 -72.6 42.6" scale="0.63 0.63 0.63"/>
+    <static-object model="pineVeryLow.b3d" xyz="162.96 17.39 -27.77" hpr="-129.6 -77.9 41.3" scale="0.63 0.63 0.63"/>
+    <static-object model="pineVeryLow.b3d" xyz="158.75 17.84 -17.16" hpr="19.0 -94.3 -99.7" scale="0.63 0.63 0.63"/>
+    <static-object model="pineVeryLow.b3d" xyz="150.11 14.53 -5.44" hpr="-99.4 -101.3 17.1" scale="0.63 0.63 0.63"/>
+    <static-object model="pineVeryLow.b3d" xyz="155.70 17.94 -3.13" hpr="-64.7 -100.6 -18.6" scale="0.50 0.50 0.50"/>
+    <static-object model="pineVeryLow.b3d" xyz="152.47 16.82 11.60" hpr="-58.2 -94.6 -33.1" scale="0.50 0.50 0.50"/>
+    <static-object model="pineVeryLow.b3d" xyz="149.40 18.56 32.09" hpr="-5.4 -100.2 -86.3" scale="0.50 0.50 0.50"/>
+    <static-object model="pineVeryLow.b3d" xyz="147.05 18.86 51.88" hpr="-117.3 -94.1 27.0" scale="0.50 0.50 0.50"/>
+    <static-object model="pineVeryLow.b3d" xyz="143.60 15.72 43.54" hpr="-117.3 -94.1 27.0" scale="0.50 0.50 0.50"/>
+    <static-object model="pineVeryLow.b3d" xyz="145.96 15.81 23.75" hpr="-46.4 -95.2 -45.3" scale="0.50 0.50 0.50"/>
+    <static-object model="pineVeryLow.b3d" xyz="149.03 16.14 3.26" hpr="-58.2 -94.6 -33.1" scale="0.50 0.50 0.50"/>
+    <static-object model="pineVeryLow.b3d" xyz="143.19 14.10 62.22" hpr="19.9 -78.5 -108.4" scale="0.50 0.50 0.50"/>
+    <static-object model="pineVeryLow.b3d" xyz="153.97 16.05 -13.52" hpr="-92.3 -100.9 9.6" scale="0.50 0.50 0.50"/>
+    <static-object model="pineVeryLow.b3d" xyz="137.33 7.16 -56.11" hpr="-94.8 -22.8 11.1" scale="0.63 0.63 0.63"/>
+    <static-object model="pineVeryLow.b3d" xyz="123.05 5.15 -59.16" hpr="-93.5 -2.3 1.2" scale="0.63 0.63 0.63"/>
+    <static-object model="frontTrees.b3d" xyz="89.63 3.77 9.37" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="pineVeryLow.b3d" xyz="148.91 10.58 98.92" hpr="-41.0 -73.4 -49.2" scale="0.50 0.50 0.50"/>
+    <static-object model="pineVeryLow.b3d" xyz="144.48 12.44 80.76" hpr="-63.0 -77.5 -28.0" scale="0.50 0.50 0.50"/>
+    <static-object model="pineVeryLow.b3d" xyz="136.28 8.19 60.55" hpr="-66.0 -86.1 -24.5" scale="0.63 0.63 0.63"/>
+    <static-object model="bubble_solid.b3d" xyz="-6.88 -2.52 27.50" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" if="trophies lt 16"/>
+    <static-object model="bubble_solid.b3d" xyz="4.61 -2.99 44.71" hpr="4.5 27.7 2.1" scale="1.00 1.00 1.00" if="trophies lt 17"/>
+    <static-object model="bubble_solid.b3d" xyz="29.57 -1.12 22.97" hpr="-5.5 -170.6 17.3" scale="1.00 1.00 1.00" if="trophies lt 15"/>
+    <static-object model="bubble_solid.b3d" xyz="123.73 2.86 36.96" hpr="0.6 177.7 -28.8" scale="1.10 1.10 1.10" if="trophies lt 20"/>
+    <static-object model="bubble_solid.b3d" xyz="126.89 3.28 2.99" hpr="1.3 171.2 -28.3" scale="1.10 1.10 1.10" if="trophies lt 20"/>
+    <static-object model="bubble_solid.b3d" xyz="130.40 6.45 -21.56" hpr="-8.8 166.4 -31.1" scale="1.10 1.10 1.10" if="trophies lt 20"/>
+    <static-object model="bubble_solid.b3d" xyz="-84.50 -0.09 205.70" hpr="-1.7 -15.1 -5.5" scale="1.49 1.49 1.49" if="trophies lt 20"/>
+    <static-object model="bubble_solid.b3d" xyz="-81.25 -2.92 257.85" hpr="-1.7 -15.1 -5.5" scale="1.92 1.92 1.92" if="trophies lt 20"/>
+    <static-object model="bubble_solid.b3d" xyz="-74.15 -1.98 289.61" hpr="-3.1 9.0 -5.2" scale="1.78 1.78 1.78" if="trophies lt 20"/>
+    <static-object model="bubble_solid.b3d" xyz="100.89 -1.24 254.20" hpr="2.2 7.1 69.5" scale="2.08 2.08 2.08" if="trophies lt 20"/>
+    <static-object model="bubble_solid.b3d" xyz="99.86 -1.62 231.43" hpr="-3.8 7.2 69.7" scale="2.08 2.08 2.08" if="trophies lt 20"/>
+    <static-object lod_instance="true" lod_group="rocket" xyz="49.74 -18.06 454.78" hpr="0.0 48.8 0.0" scale="0.62 0.62 0.62"/>
+    <static-object lod_distance="350.0" lod_group="rocket" model="rocket_lo.b3d" xyz="279.62 -14.36 459.51" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="80.0" lod_group="rocket" model="rocket_hi.b3d" xyz="263.24 -14.36 459.51" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="bubble_sea4" xyz="142.19 -9.29 275.48" hpr="0.0 -0.0 0.0" scale="3.83 3.83 3.83"/>
+    <static-object lod_distance="100.0" lod_group="bubble_sea3" model="bubble_sea3.b3d" xyz="163.85 -9.29 243.93" hpr="0.0 -0.0 0.0" scale="3.83 3.83 3.83"/>
+    <static-object lod_instance="true" lod_group="bubble_sea3" xyz="148.19 -9.29 239.91" hpr="0.0 -0.0 0.0" scale="3.83 3.83 3.83"/>
+    <static-object lod_distance="100.0" lod_group="bubble_sea4" model="bubble_sea4.b3d" xyz="160.36 -9.29 275.30" hpr="0.0 -0.0 0.0" scale="3.83 3.83 3.83"/>
+    <static-object lod_instance="true" lod_group="bubble_forest" xyz="47.92 -2.98 234.51" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="100.0" lod_group="bubble_forest" model="bubble_forest.b3d" xyz="59.75 0.93 234.51" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="bubble_forest3" xyz="4.47 -2.64 250.53" hpr="-0.0 179.5 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="bubble_forest2" xyz="5.89 -0.96 226.48" hpr="0.0 -164.2 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="100.0" lod_group="bubble_forest2" model="bubble_forest2.b3d" xyz="-4.99 0.93 226.77" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="100.0" lod_group="bubble_forest3" model="bubble_forest3.b3d" xyz="-17.05 0.93 250.54" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="tree_2" xyz="33.87 -5.40 270.62" hpr="0.0 -180.0 -0.0" scale="1.20 1.20 1.20"/>
+    <static-object lod_instance="true" lod_group="tree_2" xyz="38.46 -5.14 243.89" hpr="-0.0 112.2 -0.0" scale="1.20 1.20 1.20"/>
+    <static-object lod_instance="true" lod_group="tree_2" xyz="6.61 -2.16 236.99" hpr="0.0 165.6 0.0" scale="1.20 1.20 1.20"/>
+    <static-object lod_instance="true" lod_group="tree_2" xyz="1.81 -4.30 267.27" hpr="0.0 165.6 0.0" scale="1.20 1.20 1.20"/>
+    <static-object lod_instance="true" lod_group="tree_2" xyz="-4.88 -2.16 249.11" hpr="0.0 165.6 0.0" scale="1.20 1.20 1.20"/>
+    <static-object lod_instance="true" lod_group="tree_2" xyz="46.19 -5.74 225.72" hpr="0.0 165.6 0.0" scale="1.20 1.20 1.20"/>
+    <static-object lod_instance="true" lod_group="tree_2" xyz="4.31 -1.35 217.78" hpr="0.0 165.6 0.0" scale="1.20 1.20 1.20"/>
+    <static-object lod_instance="true" lod_group="tree_2" xyz="44.79 -3.11 261.01" hpr="0.0 165.6 0.0" scale="1.20 1.20 1.20"/>
+    <static-object lod_distance="50.0" lod_group="tree_2" model="tree_2_LOD50.b3d" xyz="293.73 -17.97 641.81" hpr="0.0 -180.0 -0.0" scale="1.20 1.20 1.20"/>
+    <static-object lod_distance="150.0" lod_group="tree_2" model="tree_2_LOD150.b3d" xyz="276.62 -17.97 641.81" hpr="0.0 -180.0 -0.0" scale="1.20 1.20 1.20"/>
+    <static-object lod_distance="500.0" lod_group="tree_2" model="tree_2_LOD500.b3d" xyz="260.91 -17.97 641.81" hpr="0.0 -180.0 -0.0" scale="1.20 1.20 1.20"/>
+    <static-object lod_instance="true" lod_group="tree_2" xyz="29.78 0.29 3.97" hpr="0.0 165.6 0.0" scale="1.20 1.20 1.20"/>
+    <static-object lod_instance="true" lod_group="tree_2" xyz="-26.44 -5.26 54.67" hpr="0.0 165.6 0.0" scale="1.20 1.20 1.20"/>
+    <static-object model="terrain2_splat.b3d" xyz="55.64 -6.92 221.58" hpr="0.0 -0.0 0.0" scale="2.37 2.37 2.37" if="splatting"/>
+    <static-object model="terrain_nosplat.b3d" xyz="55.83 -6.92 221.69" hpr="0.0 -0.0 0.0" scale="2.37 2.37 2.37" ifnot="splatting"/>
+    <static-object model="terrain1_splat.b3d" xyz="55.64 -6.92 221.58" hpr="0.0 -0.0 0.0" scale="2.37 2.37 2.37" if="splatting"/>
   </track>
-  <water model="lava.b3d" xyz="55.424591 -37.691032 589.968445" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000" height="0.30" speed="200.00" length="10.00">
+  <water model="lava.b3d" xyz="55.42 -37.69 589.97" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="0.30" speed="200.00" length="10.00">
     <animated-texture name="lava.png" dx="0.100" />
   </water>
-  <water model="water.b3d" xyz="196.080704 -16.628115 281.085938" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000" height="0.15" speed="400.00" length="10.00"/>
-  <object type="movable" xyz="14.291962 -17.739193 428.098419" hpr="-2.611778 -2.190221 -0.570424" scale="0.922713 0.922713 0.922713"
+  <water model="water.b3d" xyz="196.08 -16.63 281.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="0.15" speed="400.00" length="10.00"/>
+  <object type="sfx-emitter" sound="portal.ogg" rolloff="0.1" volume="1.0" xyz="2.91 -6.10 46.24" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7"/>
+  <object type="sfx-emitter" sound="portal.ogg" rolloff="0.1" volume="1.0" xyz="-9.73 -5.39 28.57" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7"/>
+  <object type="sfx-emitter" sound="portal.ogg" rolloff="0.1" volume="1.0" xyz="32.21 -2.58 21.68" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7"/>
+  <object type="movable" xyz="14.29 -17.74 428.10" hpr="-2.6 -2.2 -0.6" scale="0.92 0.92 0.92"
           model="cart.b3d" shape="box" mass="100.0"/>
-  <object type="animation" model="cogwheel3.b3d" xyz="16.668343 -14.642933 439.023804" hpr="90.000003 139.733922 -352.805990" scale="0.722790 0.722790 0.722790" >
+  <object type="animation" model="cogwheel3.b3d" xyz="16.67 -14.64 439.02" hpr="83.9 140.1 -9.4" scale="0.72 0.72 0.72" >
   </object>
-  <object type="animation" model="cogwheel4.b3d" xyz="16.311928 -11.603506 438.721863" hpr="283.160682 -413.101835 77.620510" scale="0.554242 0.554242 0.554242" >
+  <object type="animation" model="cogwheel4.b3d" xyz="16.31 -11.60 438.72" hpr="-129.3 -9.9 82.5" scale="0.55 0.55 0.55" >
   </object>
-  <object type="animation" model="cogwheel2.b3d" xyz="16.668343 -8.599846 439.023804" hpr="90.000003 139.733936 0.000000" scale="0.716688 0.716688 0.716688" >
+  <object type="animation" model="cogwheel2.b3d" xyz="16.67 -8.60 439.02" hpr="90.0 139.7 -0.0" scale="0.72 0.72 0.72" >
   </object>
-  <object type="movable" xyz="-53.301567 -8.549882 215.980865" hpr="-11.958493 56.256433 -1.762934" scale="1.000000 1.000000 1.000000"
+  <object type="movable" xyz="-53.30 -8.55 215.98" hpr="-14.6 56.2 -3.2" scale="1.00 1.00 1.00"
           model="skull.b3d" shape="box" mass="100.0"/>
-  <object type="movable" xyz="-72.926750 -5.957461 317.423676" hpr="-11.958494 -39.487803 -1.762934" scale="1.000000 1.000000 1.000000"
+  <object type="movable" xyz="-72.93 -5.96 317.42" hpr="-10.5 -39.5 -2.3" scale="1.00 1.00 1.00"
           model="skull.b3d" shape="box" mass="100.0"/>
-  <object type="animation" model="Light.b3d" xyz="206.911530 -7.926303 298.804718" hpr="-0.000000 -0.000000 -0.000000" scale="0.470766 0.470766 0.470766" >
+  <object type="animation" model="Light.b3d" xyz="206.91 -7.93 298.80" hpr="0.0 -0.0 0.0" scale="0.47 0.47 0.47" >
   </object>
   <object type="billboard" texture="crystal_ball_halo.png" xyz="-4.973549 -3.446599 52.445259" 
              width="1.559660" height="1.562031" >

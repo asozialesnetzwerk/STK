@@ -81,6 +81,10 @@
      * GNU GPL Version 2 or Later
      * CreativeCommons BY 3.0
 
+* portal
+    by Arthur_D
+    released under CC-BY-SA 3.0
+
 * pre_start_race
     obtained from : http://www.freesoundfiles.tintagel.net/Audio/
     (see license text below)
