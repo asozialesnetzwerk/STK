@@ -114,7 +114,7 @@ def getXYZHString(obj):
     loc     = obj.location
     hpr     = obj.rotation_euler
     rad2deg = 180.0/3.1415926535;
-    s="x=\"%f\" y=\"%f\" z=\"%f\" h=\"%f\"" %\
+    s="x=\"%.2f\" y=\"%.2f\" z=\"%.2f\" h=\"%f\"" %\
        (loc[0], loc[2], loc[1], hpr[2]*rad2deg)
     return s
 
@@ -130,7 +130,7 @@ def getXYZHPRString(obj):
     hpr     = obj.rotation_euler.to_quaternion().to_euler('XZY')
     si      = obj.scale
     rad2deg = 180.0/3.1415926535;
-    s="xyz=\"%f %f %f\" hpr=\"%f %f %f\" scale=\"%f %f %f\"" %\
+    s="xyz=\"%.2f %.2f %.2f\" hpr=\"%.1f %.1f %.1f\" scale=\"%.2f %.2f %.2f\"" %\
        (loc[0], loc[2], loc[1], -hpr[0]*rad2deg, -hpr[2]*rad2deg,
         -hpr[1]*rad2deg, si[0], si[2], si[1])
     return s
@@ -1300,10 +1300,16 @@ class TrackExport:
             try:
                 # origin
                 originXYZ = getXYZHPRString(obj)
-                f.write('  <object type="sfx-emitter" sound="%s" rolloff="%s" volume="%s" %s/>\n' %\
+                
+                play_near_string = ""
+                if getProperty(obj, "play_when_near", "false") == "true":
+                    dist = getProperty(obj, "play_distance", 1.0)
+                    play_near_string = " play-when-near=\"true\" distance=\"%.1f\"" % dist
+                
+                f.write('  <object type="sfx-emitter" sound="%s" rolloff="%s" volume="%s" %s%s/>\n' %\
                         (getProperty(obj, "sfx_filename", "some_sound.ogg"),
                          getProperty(obj, "sfx_rolloff", 0.05),
-                         getProperty(obj, "sfx_volume", 0), originXYZ))
+                         getProperty(obj, "sfx_volume", 0), originXYZ, play_near_string))
             except:
                 log_error("Invalid particle emitter <" + getProperty(obj, "name", obj.name) + "> ",
                     sys.exc_info()[0])
