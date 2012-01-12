@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 10633 -->
+<!-- Generated with script from SVN rev 10645 -->
 <scene>
   <track model="overworld_track.b3d" x="0" y="0" z="0">
     <static-object lod_instance="true" lod_group="bubble_desert2" xyz="-89.49 -0.83 206.32" hpr="3.9 -15.9 -2.7" scale="8.70 8.70 8.70"/>
@@ -15,7 +15,7 @@
     <static-object lod_distance="100.0" lod_group="bubble_village3" model="bubble_village3.b3d" xyz="-12.07 2.96 15.13" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_distance="100.0" lod_group="bubble_village2" model="bubble_village2.b3d" xyz="7.21 -0.54 60.99" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="bubble_techno1" xyz="9.67 -15.96 410.78" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_distance="100.0" lod_group="bubble_techno1" model="bubble_techno1.b3d" xyz="-17.35 -8.73 410.78" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="100.0" lod_group="bubble_techno1" model="bubble_techno1.b3d" xyz="-4.16 -5.42 413.63" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="bubble_techno2" xyz="55.07 -14.62 425.23" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_distance="100.0" lod_group="bubble_techno2" model="bubble_techno2.b3d" xyz="72.52 -10.87 430.88" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_distance="100.0" lod_group="bubble_desert1" model="bubble_desert1.b3d" xyz="-198.93 6.26 262.04" hpr="0.5 -12.5 3.4" scale="9.38 9.38 9.38"/>
@@ -148,6 +148,21 @@
   <object type="sfx-emitter" sound="portal.ogg" rolloff="0.1" volume="1.0" xyz="2.91 -6.10 46.24" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7"/>
   <object type="sfx-emitter" sound="portal.ogg" rolloff="0.1" volume="1.0" xyz="-9.73 -5.39 28.57" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7"/>
   <object type="sfx-emitter" sound="portal.ogg" rolloff="0.1" volume="1.0" xyz="32.21 -2.58 21.68" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7"/>
+  <object type="sfx-emitter" sound="portal.ogg" rolloff="0.1" volume="1.0" xyz="124.95 -1.53 36.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7"/>
+  <object type="sfx-emitter" sound="portal.ogg" rolloff="0.1" volume="1.0" xyz="128.42 -0.70 2.08" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7"/>
+  <object type="sfx-emitter" sound="portal.ogg" rolloff="0.1" volume="1.0" xyz="132.21 2.84 -22.13" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7"/>
+  <object type="sfx-emitter" sound="portal.ogg" rolloff="0.1" volume="1.0" xyz="145.93 -10.67 239.25" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7"/>
+  <object type="sfx-emitter" sound="portal.ogg" rolloff="0.1" volume="1.0" xyz="139.89 -10.67 275.59" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7"/>
+  <object type="sfx-emitter" sound="portal.ogg" rolloff="0.1" volume="1.0" xyz="105.07 -8.63 258.13" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7"/>
+  <object type="sfx-emitter" sound="portal.ogg" rolloff="0.1" volume="1.0" xyz="104.01 -8.63 235.17" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7"/>
+  <object type="sfx-emitter" sound="portal.ogg" rolloff="0.1" volume="1.0" xyz="44.37 -4.87 234.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7"/>
+  <object type="sfx-emitter" sound="portal.ogg" rolloff="0.1" volume="1.0" xyz="8.78 -2.24 226.87" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7"/>
+  <object type="sfx-emitter" sound="portal.ogg" rolloff="0.1" volume="1.0" xyz="7.66 -4.23 251.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7"/>
+  <object type="sfx-emitter" sound="portal.ogg" rolloff="0.1" volume="1.0" xyz="-77.51 -5.25 292.41" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7"/>
+  <object type="sfx-emitter" sound="portal.ogg" rolloff="0.1" volume="1.0" xyz="-85.07 -3.83 258.28" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7"/>
+  <object type="sfx-emitter" sound="portal.ogg" rolloff="0.1" volume="1.0" xyz="-89.57 -2.26 206.23" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7"/>
+  <object type="sfx-emitter" sound="portal.ogg" rolloff="0.1" volume="1.0" xyz="12.70 -17.64 410.15" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7"/>
+  <object type="sfx-emitter" sound="portal.ogg" rolloff="0.1" volume="1.0" xyz="54.33 -14.78 425.34" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7"/>
   <object type="movable" xyz="14.29 -17.74 428.10" hpr="-2.6 -2.2 -0.6" scale="0.92 0.92 0.92"
           model="cart.b3d" shape="box" mass="100.0"/>
   <object type="animation" model="cogwheel3.b3d" xyz="16.67 -14.64 439.02" hpr="83.9 140.1 -9.4" scale="0.72 0.72 0.72" >
