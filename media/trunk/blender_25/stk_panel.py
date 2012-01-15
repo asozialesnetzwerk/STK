@@ -673,7 +673,10 @@ type = StkEnumProperty('type', "Type",
                                        StkProperty( id='lod_name',     name="LOD Group Name", default="SomeModel",
                                                     doc="Name of the LOD group this object is part of"),
                                        StkProperty( id='name',         name="Model Filename", default="",
-                                                    doc="Name of the model to export")
+                                                    doc="Name of the model to export"),
+                                   StkBoolProperty( id='tangents', name="Use Tangent Space", default="false",
+                                                    contextLevel=CONTEXT_OBJECT,
+                                                    doc="Export object in tangent space, which is required for normal maps")
                                  ], doc="A LOD (level-of-detail) model (this model will not be visible in game, only LOD instances will)"),
         'nitro_big'        : StkEnumChoice('Nitro (big)',   [], doc="A big nitro collectible (apply to an Empty)"),
         'nitro_small'      : StkEnumChoice('Nitro (small)', [], doc="A small nitro collectible (apply to an Empty)"),
@@ -909,10 +912,7 @@ STK_MATERIAL_PROPERTIES = [
                          subproperties=
                          [
                             StkProperty( id='normal_map',       name="Normal Map Image", default="",
-                                         doc="Image containing the normal map for this texture (optional)"),
-                            StkBoolProperty( id='normal_map_uv2',name="Use second UV layer",  default="false",
-                                             contextLevel=CONTEXT_MATERIAL,
-                                             doc="If checked, UV layer 2 will be used to map the normal map on the object")
+                                         doc="Image containing the normal map for this texture (optional)")
                          ]),
         StkBoolProperty( id='particle',         name="Particle effect",            default="false", contextLevel=CONTEXT_MATERIAL,
                          subproperties=PARTICLE_PROPERTIES, doc="Whether to emit particles (e.g. smoke) when driving on this surface"),
