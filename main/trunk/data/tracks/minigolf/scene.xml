@@ -23,15 +23,15 @@
     </curve>
   </object>
   <object type="movable" xyz="75.901749 1.567079 -52.989964" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"
-          model="Golfball.b3d" shape="sphere" mass="15.0"/>
+          model="Golfball.b3d" shape="sphere" mass="15.0" tangents="true"/>
   <object type="movable" xyz="77.972786 1.567079 -51.377403" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"
-          model="Golfball.b3d" shape="sphere" mass="15.0"/>
+          model="Golfball.b3d" shape="sphere" mass="15.0" tangents="true"/>
   <object type="movable" xyz="79.000397 1.567079 -54.681572" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"
-          model="Golfball.b3d" shape="sphere" mass="15.0"/>
+          model="Golfball.b3d" shape="sphere" mass="15.0" tangents="true"/>
   <object type="movable" xyz="73.198341 1.567079 -51.187691" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"
-          model="Golfball.b3d" shape="sphere" mass="15.0"/>
+          model="Golfball.b3d" shape="sphere" mass="15.0" tangents="true"/>
   <object type="movable" xyz="153.000000 1.100000 -110.000000" hpr="-0.000000 -0.000000 -0.000000" scale="1.158103 1.158103 1.158103"
-          model="Golfball.b3d" shape="sphere" mass="15.0"/>
+          model="Golfball.b3d" shape="sphere" mass="15.0" tangents="true"/>
   <object type="animation" model="duck2.b3d" xyz="14.000423 -56.644772 -4.424834" hpr="-0.000000 -42.189088 0.000000" scale="1.000000 1.000000 1.000000" >
     <curve channel="LocY" interpolation="bezier" extend="const">
       <p c="1.000 -56.645" h1="-5.242 -56.645" h2="7.242 -56.645"/>
