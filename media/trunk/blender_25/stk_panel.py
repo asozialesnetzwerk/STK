@@ -605,7 +605,9 @@ object_properties = [
                                                        ], doc="The player will be resetted when touching this object")
                              },
                              contextLevel=CONTEXT_OBJECT, default='static',
-                             doc="How this object should interact with other objects in the physics engine")
+                             doc="How this object should interact with other objects in the physics engine"),
+        StkBoolProperty(id='tangents', name="Use Tangent Space", default="false",
+                        contextLevel=CONTEXT_OBJECT, doc="Export object in tangent space, which is required for normal maps"),
         ]
 
 # The 'type' property

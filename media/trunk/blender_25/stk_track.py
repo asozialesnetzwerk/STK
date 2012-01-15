@@ -1108,12 +1108,18 @@ class TrackExport:
         else:
             reset_string = ""
         
+        tangent_string = ""
+        if getProperty(obj, "tangents", "false") == "true":
+            tangent_string="tangents=\"true\" "
+            
         if parent and parent.type=="ARMATURE":
-            f.write("  <object type=\"animation\" %s%s %s%s%s%s>\n"% \
-                    (model_string, getXYZHPRString(parent), shape, looped, lodstring, reset_string))
+            f.write("  <object type=\"animation\" %s%s %s%s%s%s%s>\n"% \
+                    (model_string, getXYZHPRString(parent), shape, looped,
+                     lodstring, reset_string, tangent_string))
         else:
-            f.write("  <object type=\"animation\" %s%s %s%s%s%s>\n"% \
-                    (model_string, getXYZHPRString(obj), shape, looped, lodstring, reset_string))
+            f.write("  <object type=\"animation\" %s%s %s%s%s%s%s>\n"% \
+                    (model_string, getXYZHPRString(obj), shape, looped,
+                     lodstring, reset_string, tangent_string))
         self.writeIPO(f, ipo)
         f.write("  </object>\n")
             
@@ -1184,16 +1190,20 @@ class TrackExport:
             else:
                 reset_string = ""
             
+            tangent_string = ""
+            if getProperty(obj, "tangents", "false") == "true":
+                tangent_string=" tangents=\"true\""
+            
             if lAnim:
-                f.write("    <static-object%s%s %s%s%s%s>\n"% \
+                f.write("    <static-object%s%s %s%s%s%s%s>\n"% \
                         (lodstring, model_string, getXYZHPRString(obj), reset_string,
-                         condition_if_str, condition_ifnot_str) )
+                         condition_if_str, condition_ifnot_str, tangent_string) )
                 self.writeAnimatedTextures(f, lAnim)
                 f.write("    </static-object>\n")
             else:
-                f.write("    <static-object%s%s %s%s%s%s%s/>\n"% \
+                f.write("    <static-object%s%s %s%s%s%s%s%s/>\n"% \
                         (lodstring, model_string, getXYZHPRString(obj), reset_string,
-                         condition_if_str, condition_ifnot_str, challenge_str) )
+                         condition_if_str, condition_ifnot_str, challenge_str, tangent_string) )
         self.writeAnimatedTextures(f, lAnimTextures)
 
     # --------------------------------------------------------------------------
@@ -1545,9 +1555,13 @@ class TrackExport:
             else:
                 model_string = "model=\"%s\" " % b3d_name
             
+            tangent_string = ""
+            if getProperty(obj, "tangents", "false") == "true":
+                tangent_string=" tangents=\"true\" "
+            
             f.write("  <object type=\"movable\" %s\n"%(getXYZHPRString(obj)))
-            f.write("          %sshape=\"%s\" mass=\"%s\"%s/>\n"\
-                    % (model_string, shape, mass, lodstring))
+            f.write("          %sshape=\"%s\" mass=\"%s\"%s%s/>\n"\
+                    % (model_string, shape, mass, lodstring, tangent_string))
             
         # Now the object either has an IPO, or is a 'ghost' object.
         # Either can have an IPO. Even if the objects don't move
