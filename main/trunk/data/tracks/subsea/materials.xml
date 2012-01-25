@@ -1,9 +1,6 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev Unknown -->
 <materials>
-  
-  <material name="waterparticles0-subsea.png" compositing="blend"/>
-
   <material name="diffus-subsea.png" compositing="blend" ignore="Y"/>
   <material name="eggs-subsea.png" compositing="additive"/>
   <material name="fish-filet-subsea.png" compositing="blend" ignore="Y"/>
@@ -20,7 +17,7 @@
     <particles base="smoke.xml" condition="skid"/>
   </material>
   <material name="Pirate_Flag_of_Rack_Rackham-subsea.png" compositing="test"/>
-  <material name="sand-subsea.jpg" falling-effect="Y" reset="Y" crash-reset="Y"/>
+  <material name="sand-subsea.jpg" falling-effect="Y" reset="Y" collision-detect="Y" collision-reaction="reset"/>
   <material name="Transparent-Broken-1-subsea.png" compositing="blend" disable-z-write="Y">
     <particles base="smoke.xml" condition="skid"/>
   </material>
@@ -37,7 +34,7 @@
   <material name="treasure_map2-subsea.png" compositing="test"/>
   <material name="treasuremap-subsea.png" compositing="test" disable-z-write="Y"/>
   <material name="water_dark-subsea.jpg" ignore="Y"/>
-  <material name="water_dark-transp-subsea.png" compositing="blend"/>
+  <material name="water_dark-transp-subsea.png" compositing="blend" collision-detect="Y" collision-reaction="reset" collision-particles="splash.xml"/>
   <material name="waterparticles-subsea.png" compositing="blend" ignore="Y"/>
   <material name="zipper-inverted-subsea.png" light="N" compositing="blend" disable-z-write="Y">
     <zipper duration="3.5" max_speed_increase="15.0" fade_out_time="3.0" speed_gain="4.5"/>
