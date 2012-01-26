@@ -31,24 +31,24 @@
     <static-object model="cactus.b3d" xyz="-49.05 -8.51 249.85" hpr="-0.0 -149.8 0.0" scale="1.22 1.22 1.22"/>
     <static-object model="cactus.b3d" xyz="-81.84 -6.26 318.99" hpr="-0.0 -39.7 0.0" scale="1.29 1.29 1.29"/>
     <static-object model="cactus.b3d" xyz="-49.34 -7.32 286.33" hpr="-0.0 146.8 -0.0" scale="1.12 1.12 1.12"/>
-    <static-object model="crystal_ball.b3d" xyz="-19.64 -2.87 30.22" hpr="-6.1 -178.5 -1.2" scale="0.86 0.78 0.86" challenge="farmtracktime"/>
-    <static-object model="crystal_ball.b3d" xyz="39.98 0.97 17.58" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="snowmountain"/>
-    <static-object model="crystal_ball.b3d" xyz="-4.97 -3.47 52.44" hpr="-0.0 -142.4 -0.0" scale="0.86 0.78 0.86" challenge="energymathclass"/>
-    <static-object model="crystal_ball.b3d" xyz="150.83 -8.92 240.54" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="snowmountain"/>
-    <static-object model="crystal_ball.b3d" xyz="145.33 -8.79 275.78" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="snowmountain"/>
-    <static-object model="crystal_ball.b3d" xyz="88.73 -10.82 257.88" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="snowmountain"/>
-    <static-object model="crystal_ball.b3d" xyz="89.19 -10.51 235.20" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="snowmountain"/>
-    <static-object model="crystal_ball.b3d" xyz="-93.93 -1.00 257.97" hpr="-0.0 -174.9 -0.0" scale="0.86 0.78 0.86" challenge="snowmountain"/>
-    <static-object model="crystal_ball.b3d" xyz="-94.92 -3.18 296.62" hpr="-0.0 -174.9 -0.0" scale="0.86 0.78 0.86" challenge="snowmountain"/>
-    <static-object model="crystal_ball.b3d" xyz="-100.43 -0.05 204.79" hpr="-0.0 -174.9 -0.0" scale="0.86 0.78 0.86" challenge="snowmountain"/>
-    <static-object model="crystal_ball.b3d" xyz="48.84 -3.73 234.30" hpr="0.1 -5.6 0.1" scale="0.86 0.78 0.86" challenge="snowmountain"/>
-    <static-object model="crystal_ball.b3d" xyz="4.66 -2.79 250.39" hpr="-0.1 21.0 -0.1" scale="0.86 0.78 0.86" challenge="snowmountain"/>
-    <static-object model="crystal_ball.b3d" xyz="4.66 -0.55 226.67" hpr="0.0 12.1 0.0" scale="0.86 0.78 0.86" challenge="snowmountain"/>
-    <static-object model="crystal_ball.b3d" xyz="-19.66 -17.28 408.17" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="snowmountain"/>
-    <static-object model="crystal_ball.b3d" xyz="58.03 -12.95 426.69" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="snowmountain"/>
+    <static-object model="crystal_ball.b3d" xyz="-19.64 -2.87 30.22" hpr="-6.1 -178.5 -1.2" scale="0.86 0.78 0.86" challenge="olivermath"/>
+    <static-object model="crystal_ball.b3d" xyz="39.98 0.97 17.58" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="farm"/>
+    <static-object model="crystal_ball.b3d" xyz="-4.97 -3.47 52.44" hpr="-0.0 -142.4 -0.0" scale="0.86 0.78 0.86" challenge="city"/>
+    <static-object model="crystal_ball.b3d" xyz="150.83 -8.92 240.54" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="islandtrack"/>
+    <static-object model="crystal_ball.b3d" xyz="145.33 -8.79 275.78" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="lighthouse"/>
+    <static-object model="crystal_ball.b3d" xyz="88.73 -10.82 257.88" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="scotland"/>
+    <static-object model="crystal_ball.b3d" xyz="89.19 -10.51 235.20" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="subsea"/>
+    <static-object model="crystal_ball.b3d" xyz="-93.93 -1.00 257.97" hpr="-0.0 -174.9 -0.0" scale="0.86 0.78 0.86" challenge="sandtrack"/>
+    <static-object model="crystal_ball.b3d" xyz="-94.92 -3.18 296.62" hpr="-0.0 -174.9 -0.0" scale="0.86 0.78 0.86" challenge="hacienda"/>
+    <static-object model="crystal_ball.b3d" xyz="-100.43 -0.05 204.79" hpr="-0.0 -174.9 -0.0" scale="0.86 0.78 0.86" challenge="jungle"/>
+    <static-object model="crystal_ball.b3d" xyz="48.84 -3.73 234.30" hpr="0.1 -5.6 0.1" scale="0.86 0.78 0.86" challenge="mansion"/>
+    <static-object model="crystal_ball.b3d" xyz="4.66 -2.79 250.39" hpr="-0.1 21.0 -0.1" scale="0.86 0.78 0.86" challenge="minigolf"/>
+    <static-object model="crystal_ball.b3d" xyz="4.66 -0.55 226.67" hpr="0.0 12.1 0.0" scale="0.86 0.78 0.86" challenge="tuxtollway"/>
+    <static-object model="crystal_ball.b3d" xyz="-19.66 -17.28 408.17" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="mines"/>
+    <static-object model="crystal_ball.b3d" xyz="58.03 -12.95 426.69" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="xr591"/>
     <static-object model="crystal_ball.b3d" xyz="141.33 0.64 34.81" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="snowmountain"/>
-    <static-object model="crystal_ball.b3d" xyz="144.71 0.17 4.00" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="snowmountain"/>
-    <static-object model="crystal_ball.b3d" xyz="146.39 3.20 -19.86" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="snowmountain"/>
+    <static-object model="crystal_ball.b3d" xyz="144.71 0.17 4.00" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="zengarden"/>
+    <static-object model="crystal_ball.b3d" xyz="146.39 3.20 -19.86" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="snowpeak"/>
     <static-object lod_instance="true" lod_group="pedestral" xyz="-94.90 -5.74 296.61" hpr="0.0 -29.6 0.0" scale="0.71 0.71 0.71"/>
     <static-object lod_instance="true" lod_group="pedestral" xyz="40.01 -1.58 17.58" hpr="0.0 1.5 0.0" scale="0.71 0.71 0.71"/>
     <static-object lod_instance="true" lod_group="pedestral" xyz="-19.62 -5.37 29.87" hpr="7.8 0.0 0.0" scale="0.68 0.68 0.68"/>
