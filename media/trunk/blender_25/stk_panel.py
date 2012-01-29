@@ -932,6 +932,8 @@ STK_MATERIAL_PROPERTIES = [
                          ]),
         StkBoolProperty( id='surface',          name="Surface",                    default="false", contextLevel=CONTEXT_MATERIAL,
                          doc="whether this material is the surface of a water area"),
+        StkBoolProperty( id='water_shader',     name="Water Shader",               default="false",  contextLevel=CONTEXT_MATERIAL,
+                         doc="If checked, a shader will simulate light reflexions and moving waves on this surface"),
         StkBoolProperty( id='zipper',           name="Zipper (speed boost)",       default="false", contextLevel=CONTEXT_MATERIAL,
                          subproperties=ZIPPER_PROPERTIES, doc="Whether to get a speed boost when driving on this surface")
        ]

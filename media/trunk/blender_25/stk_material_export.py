@@ -108,13 +108,14 @@ def writeMaterialsFile(sPath):
            'splatting_texture_1'   : ("", 'splatting'),
            'splatting_texture_2'   : ("", 'splatting'),
            'splatting_texture_3'   : ("", 'splatting'),
-           'splatting_texture_4'   : ("", 'splatting')
+           'splatting_texture_4'   : ("", 'splatting'),
+           'water_shader'          : ("N", None)
     }
 
     lBooleanAttributes = ["clampu","clampv","light","sphere","surface","below_surface",
                           "falling_effect", "collision_detect", "fog", "additive_lightmap",
                           "anisotropic","backface_culling","ignore","disable_z_write","reset",
-                          "sfx_positional", "splatting", "use_normal_map"]
+                          "sfx_positional", "splatting", "use_normal_map", "water_shader"]
     
     #start_time = bsys.time()
     print("Writing material file --> \t")
