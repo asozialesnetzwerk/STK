@@ -59,6 +59,11 @@ bubble.png
     based on images from Wikimedia commons by Saperaud and Mila Zinkova
     released under CC-BY-SA 3.0
 
+sea.jpg
+    by Marianne Gagnon
+    based on public domain image from http://www.publicdomainpictures.net/
+    released under the public domain
+
 rocket model, metaloverlap.png and door.JPG
     by CT_daBomb
     released under CC-BY-SA 3.0

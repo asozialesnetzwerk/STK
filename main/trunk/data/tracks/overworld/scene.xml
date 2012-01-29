@@ -34,8 +34,8 @@
     <static-object model="crystal_ball.b3d" xyz="-19.64 -2.87 30.22" hpr="-6.1 -178.5 -1.2" scale="0.86 0.78 0.86" challenge="olivermath"/>
     <static-object model="crystal_ball.b3d" xyz="39.98 0.97 17.58" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="farm"/>
     <static-object model="crystal_ball.b3d" xyz="-4.97 -3.47 52.44" hpr="-0.0 -142.4 -0.0" scale="0.86 0.78 0.86" challenge="city"/>
-    <static-object model="crystal_ball.b3d" xyz="150.83 -8.92 240.54" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="islandtrack"/>
-    <static-object model="crystal_ball.b3d" xyz="145.33 -8.79 275.78" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="lighthouse"/>
+    <static-object model="crystal_ball.b3d" xyz="150.83 -11.09 240.54" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="islandtrack"/>
+    <static-object model="crystal_ball.b3d" xyz="145.33 -10.84 275.78" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="lighthouse"/>
     <static-object model="crystal_ball.b3d" xyz="88.73 -10.82 257.88" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="scotland"/>
     <static-object model="crystal_ball.b3d" xyz="89.19 -10.51 235.20" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="subsea"/>
     <static-object model="crystal_ball.b3d" xyz="-93.93 -1.00 257.97" hpr="-0.0 -174.9 -0.0" scale="0.86 0.78 0.86" challenge="sandtrack"/>
@@ -52,9 +52,9 @@
     <static-object lod_instance="true" lod_group="pedestral" xyz="-94.90 -5.74 296.61" hpr="0.0 -29.6 0.0" scale="0.71 0.71 0.71"/>
     <static-object lod_instance="true" lod_group="pedestral" xyz="40.01 -1.58 17.58" hpr="0.0 1.5 0.0" scale="0.71 0.71 0.71"/>
     <static-object lod_instance="true" lod_group="pedestral" xyz="-19.62 -5.37 29.87" hpr="7.8 0.0 0.0" scale="0.68 0.68 0.68"/>
-    <static-object lod_instance="true" lod_group="pedestral" xyz="145.36 -11.36 275.78" hpr="0.0 1.6 0.0" scale="0.71 0.71 0.71"/>
+    <static-object lod_instance="true" lod_group="pedestral" xyz="145.36 -13.41 275.78" hpr="0.0 1.6 0.0" scale="0.71 0.71 0.71"/>
     <static-object lod_instance="true" lod_group="pedestral" xyz="-19.63 -19.85 408.17" hpr="0.0 1.6 0.0" scale="0.71 0.71 0.71"/>
-    <static-object lod_instance="true" lod_group="pedestral" xyz="150.85 -11.50 240.54" hpr="0.0 3.1 0.0" scale="0.71 0.71 0.71"/>
+    <static-object lod_instance="true" lod_group="pedestral" xyz="150.85 -13.67 240.54" hpr="0.0 3.1 0.0" scale="0.71 0.71 0.71"/>
     <static-object lod_instance="true" lod_group="pedestral" xyz="141.24 -1.97 34.79" hpr="0.2 2.2 -3.5" scale="0.71 0.71 0.71"/>
     <static-object lod_instance="true" lod_group="pedestral" xyz="-93.91 -3.55 257.97" hpr="0.0 -29.4 0.0" scale="0.71 0.71 0.71"/>
     <static-object lod_distance="35.0" lod_group="pedestral" model="pedestral_hi.b3d" xyz="-158.38 -6.10 26.64" hpr="0.0 -0.0 0.0" scale="0.71 0.71 0.71" tangents="true"/>
@@ -110,17 +110,17 @@
     <static-object lod_instance="true" lod_group="rocket" xyz="49.74 -18.06 454.78" hpr="0.0 48.8 0.0" scale="0.62 0.62 0.62"/>
     <static-object lod_distance="350.0" lod_group="rocket" model="rocket_lo.b3d" xyz="279.62 -14.36 459.51" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_distance="80.0" lod_group="rocket" model="rocket_hi.b3d" xyz="263.24 -14.36 459.51" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object model="bubble_solid_sphere.b3d" xyz="137.64 -9.75 275.41" hpr="0.0 13.7 0.0" scale="1.00 1.00 1.00" if="trophies lt 8"/>
-    <static-object lod_instance="true" lod_group="bubble_sea3" xyz="148.22 -8.40 240.15" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="bubble_solid_sphere.b3d" xyz="137.64 -11.80 275.41" hpr="0.0 13.7 0.0" scale="1.00 1.00 1.00" if="trophies lt 8"/>
+    <static-object lod_instance="true" lod_group="bubble_sea3" xyz="148.22 -10.51 240.15" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_distance="100.0" lod_group="bubble_sea3" model="bubble_sea3.b3d" xyz="164.11 -8.40 244.05" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_instance="true" lod_group="bubble_sea4" xyz="142.34 -8.40 275.44" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="bubble_sea4" xyz="142.34 -10.29 275.44" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="bubble_forest" xyz="47.92 -2.98 234.51" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_distance="100.0" lod_group="bubble_forest" model="bubble_forest.b3d" xyz="59.75 0.93 234.51" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="bubble_forest3" xyz="4.47 -2.64 250.53" hpr="-0.0 179.5 -0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="bubble_forest2" xyz="5.89 -0.96 226.48" hpr="0.0 -164.2 -0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_distance="100.0" lod_group="bubble_forest2" model="bubble_forest2.b3d" xyz="-4.99 0.93 226.77" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_distance="100.0" lod_group="bubble_forest3" model="bubble_forest3.b3d" xyz="-17.05 0.93 250.54" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object model="bubble_solid_sphere.b3d" xyz="143.70 -9.75 239.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" if="trophies lt 7"/>
+    <static-object model="bubble_solid_sphere.b3d" xyz="143.70 -11.91 239.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" if="trophies lt 7"/>
     <static-object model="bubble_solid_sphere.b3d" xyz="11.36 -1.49 226.28" hpr="-0.0 -162.9 -0.0" scale="1.20 1.20 1.20" if="trophies lt 7"/>
     <static-object model="bubble_solid_sphere.b3d" xyz="10.61 -2.96 250.44" hpr="-0.0 -162.9 -0.0" scale="1.20 1.20 1.20" if="trophies lt 10"/>
     <static-object lod_distance="100.0" lod_group="bubble_sea4" model="bubble_sea4.b3d" xyz="159.61 -8.40 277.44" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
@@ -152,8 +152,8 @@
   <object type="sfx-emitter" sound="portal.ogg" rolloff="0.1" volume="1.0" xyz="124.95 -1.53 36.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7"/>
   <object type="sfx-emitter" sound="portal.ogg" rolloff="0.1" volume="1.0" xyz="128.42 -0.70 2.08" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7"/>
   <object type="sfx-emitter" sound="portal.ogg" rolloff="0.1" volume="1.0" xyz="132.21 2.84 -22.13" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7"/>
-  <object type="sfx-emitter" sound="portal.ogg" rolloff="0.1" volume="1.0" xyz="145.93 -10.67 239.25" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7"/>
-  <object type="sfx-emitter" sound="portal.ogg" rolloff="0.1" volume="1.0" xyz="139.89 -10.67 275.59" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7"/>
+  <object type="sfx-emitter" sound="portal.ogg" rolloff="0.1" volume="1.0" xyz="145.93 -12.84 239.25" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7"/>
+  <object type="sfx-emitter" sound="portal.ogg" rolloff="0.1" volume="1.0" xyz="139.89 -12.72 275.59" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7"/>
   <object type="sfx-emitter" sound="portal.ogg" rolloff="0.1" volume="1.0" xyz="105.07 -8.63 258.13" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7"/>
   <object type="sfx-emitter" sound="portal.ogg" rolloff="0.1" volume="1.0" xyz="104.01 -8.63 235.17" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7"/>
   <object type="sfx-emitter" sound="portal.ogg" rolloff="0.1" volume="1.0" xyz="44.37 -4.87 234.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7"/>
@@ -187,10 +187,10 @@
   <object type="billboard" texture="crystal_ball_halo.png" xyz="39.981373 0.963967 17.577873" 
              width="1.559660" height="1.562031" >
   </object>
-  <object type="billboard" texture="crystal_ball_halo.png" xyz="150.650070 -8.950585 240.549576" 
+  <object type="billboard" texture="crystal_ball_halo.png" xyz="150.650070 -11.118367 240.549576" 
              width="1.559660" height="1.562031" >
   </object>
-  <object type="billboard" texture="crystal_ball_halo.png" xyz="145.329651 -8.795988 275.772491" 
+  <object type="billboard" texture="crystal_ball_halo.png" xyz="145.329651 -10.846199 275.772491" 
              width="1.559660" height="1.562031" >
   </object>
   <object type="billboard" texture="crystal_ball_halo.png" xyz="88.728371 -10.819683 257.877655" 
