@@ -65,9 +65,10 @@
     <static-object lod_instance="true" lod_group="pedestral" xyz="-100.41 -2.59 204.81" hpr="0.0 -30.4 0.0" scale="0.71 0.71 0.71"/>
     <static-object lod_instance="true" lod_group="pedestral" xyz="144.45 -2.46 3.99" hpr="0.3 1.6 -7.1" scale="0.71 0.71 0.71"/>
     <static-object lod_instance="true" lod_group="pedestral" xyz="145.92 0.63 -19.89" hpr="0.5 2.0 -11.1" scale="0.71 0.71 0.71"/>
-    <static-object model="littleTree.b3d" xyz="120.21 -1.73 9.38" hpr="-87.5 -44.6 16.3" scale="0.78 0.78 0.78"/>
-    <static-object model="littleTree.b3d" xyz="124.16 1.37 -17.09" hpr="-69.3 -47.7 -14.1" scale="0.78 0.78 0.78"/>
+    <static-object model="mountainTrees2.b3d" xyz="124.01 5.74 20.26" hpr="-87.5 -44.6 16.3" scale="0.78 0.78 0.78"/>
+    <static-object model="mountainTrees.b3d" xyz="126.93 6.88 -8.96" hpr="-69.3 -47.7 -14.1" scale="0.78 0.78 0.78"/>
     <static-object lod_distance="100.0" lod_group="pineLow" model="pineLow_LOD100.b3d" xyz="137.80 6.97 -30.23" hpr="-81.5 -45.3 -5.4" scale="0.78 0.78 0.78"/>
+    <static-object model="mountainTrees3.b3d" xyz="123.91 2.53 55.85" hpr="-90.2 -28.1 4.9" scale="1.24 1.24 1.24"/>
     <static-object model="pineVeryLow.b3d" xyz="140.05 9.26 18.90" hpr="-63.0 -94.9 -28.1" scale="0.63 0.63 0.63"/>
     <static-object model="pineVeryLow.b3d" xyz="137.56 9.72 41.76" hpr="-117.3 -105.9 24.9" scale="0.63 0.63 0.63"/>
     <static-object model="pineVeryLow.b3d" xyz="139.74 11.77 51.62" hpr="-117.3 -94.1 27.0" scale="0.63 0.63 0.63"/>
@@ -92,7 +93,8 @@
     <static-object model="pineVeryLow.b3d" xyz="153.97 16.05 -13.52" hpr="-92.3 -100.9 9.6" scale="0.50 0.50 0.50"/>
     <static-object model="pineVeryLow.b3d" xyz="137.33 7.16 -56.11" hpr="-94.8 -22.8 11.1" scale="0.63 0.63 0.63"/>
     <static-object model="pineVeryLow.b3d" xyz="123.05 5.15 -59.16" hpr="-93.5 -2.3 1.2" scale="0.63 0.63 0.63"/>
-    <static-object model="frontTrees.b3d" xyz="89.63 3.77 9.37" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="frontTrees.b3d" xyz="99.64 1.95 27.15" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="frontTrees2.b3d" xyz="104.01 8.82 -28.44" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object model="pineVeryLow.b3d" xyz="148.91 10.58 98.92" hpr="-41.0 -73.4 -49.2" scale="0.50 0.50 0.50"/>
     <static-object model="pineVeryLow.b3d" xyz="144.48 12.44 80.76" hpr="-63.0 -77.5 -28.0" scale="0.50 0.50 0.50"/>
     <static-object model="pineVeryLow.b3d" xyz="136.28 8.19 60.55" hpr="-66.0 -86.1 -24.5" scale="0.63 0.63 0.63"/>
