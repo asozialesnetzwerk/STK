@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 10507 -->
+<scene>
+  <track model="mansion_track.b3d" x="0" y="0" z="0">
+    <static-object model="Circle.007.b3d" xyz="0.000000 0.000000 0.000000" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000">
+    <animated-texture name="" dx="0.050" />
+    </static-object>
+    <static-object model="Circle.008.b3d" xyz="0.000000 0.000000 0.000000" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000">
+    <animated-texture name="" dx="0.050" />
+    </static-object>
+    <static-object model="Circle.009.b3d" xyz="0.000000 333.196533 0.000000" hpr="-0.000000 135.000000 0.000000" scale="1.199207 1.199207 1.199207">
+    <animated-texture name="clouds.png" dx="0.050" />
+    </static-object>
+    <static-object model="Circle.010.b3d" xyz="0.000000 333.196533 0.000000" hpr="-0.000000 135.000000 0.000000" scale="1.199207 1.199207 1.199207">
+    <animated-texture name="clouds.png" dx="0.050" />
+    </static-object>
+    <static-object model="Circle.011.b3d" xyz="0.000000 333.196533 0.000000" hpr="-0.000000 135.000000 0.000000" scale="1.199207 1.199207 1.199207">
+    <animated-texture name="clouds.png" dx="0.050" />
+    </static-object>
+    <static-object model="Circle.012.b3d" xyz="0.000000 333.196533 0.000000" hpr="-0.000000 135.000000 0.000000" scale="1.199207 1.199207 1.199207">
+    <animated-texture name="clouds.png" dx="0.050" />
+    </static-object>
+    <static-object model="Circle.013.b3d" xyz="0.000000 277.411652 0.000000" hpr="-0.000000 135.000000 0.000000" scale="1.114474 1.114474 1.114474">
+    <animated-texture name="clouds.png" dx="0.040" />
+    </static-object>
+    <static-object model="Circle.014.b3d" xyz="0.000000 277.411652 0.000000" hpr="-0.000000 135.000000 0.000000" scale="1.114474 1.114474 1.114474">
+    <animated-texture name="clouds.png" dx="0.040" />
+    </static-object>
+    <static-object model="Circle.015.b3d" xyz="0.000000 277.411652 0.000000" hpr="-0.000000 135.000000 0.000000" scale="1.114474 1.114474 1.114474">
+    <animated-texture name="clouds.png" dx="0.040" />
+    </static-object>
+    <static-object model="Circle.016.b3d" xyz="0.000000 277.411652 0.000000" hpr="-0.000000 135.000000 0.000000" scale="1.114474 1.114474 1.114474">
+    <animated-texture name="clouds.png" dx="0.040" />
+    </static-object>
+    <static-object model="Circle.017.b3d" xyz="0.000000 98.470345 0.000000" hpr="-0.000000 135.000000 0.000000" scale="1.146537 1.146537 1.146537">
+    <animated-texture name="clouds.png" dx="0.030" />
+    </static-object>
+    <static-object model="Circle.018.b3d" xyz="0.000000 98.470345 0.000000" hpr="-0.000000 135.000000 0.000000" scale="1.146537 1.146537 1.146537">
+    <animated-texture name="clouds.png" dx="0.030" />
+    </static-object>
+    <static-object model="Circle.019.b3d" xyz="0.000000 98.470345 0.000000" hpr="-0.000000 135.000000 0.000000" scale="1.146537 1.146537 1.146537">
+    <animated-texture name="clouds.png" dx="0.030" />
+    </static-object>
+    <static-object model="Circle.020.b3d" xyz="0.000000 98.470345 0.000000" hpr="-0.000000 135.000000 0.000000" scale="1.146537 1.146537 1.146537">
+    <animated-texture name="clouds.png" dx="0.030" />
+    </static-object>
+    <static-object model="Plane.008.b3d" xyz="-104.598518 0.387494 -87.808578" hpr="-0.000000 41.558399 0.000000" scale="1.000000 1.000000 1.000000"/>
+    <static-object model="Plane.009.b3d" xyz="-122.256485 0.003187 -44.194813" hpr="-0.000000 113.678841 0.000000" scale="1.000000 1.000000 1.000000"/>
+    <static-object model="basicfence.b3d" xyz="-9.854014 1.463953 5.000000" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
+    <static-object model="Plane.014.b3d" xyz="-104.253792 -3.773676 -10.178982" hpr="-0.000000 113.678841 0.000000" scale="1.000000 1.000000 1.000000"/>
+    <static-object model="Plane.015.b3d" xyz="-112.818039 -3.773676 55.451420" hpr="-0.000000 113.678841 0.000000" scale="1.000000 1.000000 1.000000"/>
+    <static-object model="Plane.016.b3d" xyz="-88.639069 -3.773676 96.445847" hpr="-0.000000 147.260299 -0.000000" scale="1.000000 1.000000 1.000000"/>
+    <static-object model="Plane.017.b3d" xyz="-49.781715 -3.773676 112.389702" hpr="-0.000000 214.220182 -0.000000" scale="1.000000 1.000000 1.000000"/>
+    <static-object model="Plane.018.b3d" xyz="-76.156822 -3.773676 -51.066811" hpr="-0.000000 289.929017 0.000000" scale="1.000000 1.000000 1.000000"/>
+    <static-object model="Plane.019.b3d" xyz="-49.781715 -3.773676 51.343082" hpr="-0.000000 214.220182 -0.000000" scale="1.000000 1.000000 1.000000"/>
+    <static-object model="Plane.020.b3d" xyz="-37.877975 -3.773676 12.061733" hpr="-0.000000 302.618607 0.000000" scale="1.000000 1.000000 1.000000"/>
+    <static-object model="Plane.026.b3d" xyz="21.590836 -1.463265 112.389702" hpr="-0.000000 285.406667 0.000000" scale="1.000000 1.000000 1.000000"/>
+    <static-object model="Plane.027.b3d" xyz="21.590836 0.494299 53.280201" hpr="-0.000000 285.406667 0.000000" scale="1.000000 1.000000 1.000000"/>
+    <static-object model="Plane.028.b3d" xyz="-29.256895 -3.773676 75.200966" hpr="-0.000000 365.867689 0.000000" scale="1.000000 1.000000 1.000000"/>
+  </track>
+  <sun  fog="true" fog-color="7 8 11" fog-start="1.1754943508222875e-38" fog-end="75.0" xyz="0.00 118.17 0.00" sun-specular="255 255 255" sun-diffuse="70 85 85" ambient="70 85 85"/>
+  <sky-color rgb="7 7 11"/>
+  <checks>
+    <check-lap kind="lap" same-group="0" other-ids="1" />
+    <check-line kind="activate" other-ids="0" p1="-20.198870 -87.102974" p2="-11.933348 -71.332611"
+                min-height="3.810055" same-group="1"/>
+  </checks>
+  <sky-box texture="SKY0006.png SKY0001.png SKY0003.png SKY0002.png SKY0005.png SKY0004.png"/>
+  <camera far="2000.0"/>
+  <default-start karts-per-row     ="2"
+                 forwards-distance ="1.10"
+                 sidewards-distance="1.10"
+                 upwards-distance  ="1.10"/>
+</scene>

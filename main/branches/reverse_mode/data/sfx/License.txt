@@ -1,0 +1,175 @@
+
+* anvil
+    Released under the GPL
+    by the "Battle For Wesnoth" project
+
+* ball_bounce
+    Released under GPL vs2+
+    by the Supertux team
+
+* bowling_roll
+    Released under the CC-BY-SA 3.0 license (sounds originally released under CC-Sampling+, but obtained permission
+    from author to release them under CC-By-SA 3.0)
+    By Marianne Gagnon (Auria), based on "PaintCan", "StoneSpinLong" and
+    "PaintCanDropHardAndRoll" by daveincamas, released under the same license
+
+* bzzt
+    Released under the GNU GPL, coming from original (Super)TuxKart
+
+* clock
+    based on sound by Natalie from pdsounds.org
+    with modifications by Marianne Gagnon
+    released under public domain
+
+* crash
+    obtained from : http://www.freesoundfiles.tintagel.net/Audio/
+    (see license text below)
+    
+* energy_bar_full
+    By legoluft (http://www.legoluft.de), from the Krank sound pack
+    http://opengameart.org/content/atmospheric-interaction
+    released under CC0
+    
+* engine_large
+    released under CC-BY-SA 3.0
+    based on "Compressed Motor" by Stephan from pdsounds.org,
+    "Transfer Truck idle and drive sound" by Mike koenig from soundbible.com, released under Attribution 3.0,
+    "Car accelerating sound" by speedjunkiefrom soundbible.com released under Attribution 3.0,
+    mixing and mash-up by Marianne Gagnon
+    
+* engine_small
+    Released under GPL
+    by Richard Langridge, from the Trigger-Rally project
+    
+* explosion
+    Released under the GNU GPL, coming from original (Super)TuxKart
+    
+* goo
+    based on Squish 1-SoundBible.com-662226724
+    by Mike Keonig, released under CC-Attribution 3.0 License
+    
+    based on Water Down Gutter 2-SoundBible.com-246890987
+    by Mike Keonig, released under CC-Attribution 3.0 License
+    
+    with modifications by Marianne Gagnon
+    released under CC-Attribution 3.0 License
+
+* gp_end
+    Released under Creative Commons Attribution 3.0 license
+    By Mike Koenig (from http://soundbible.com/989-10-Second-Applause.html)
+
+* grab_collectable
+    obtained from : http://www.freesoundfiles.tintagel.net/Audio/
+    (see license text below)
+    
+* horn
+    Released under the Creative Commons BY (Attribution) 3.0
+    Recorded by Mike Koenig, with modifications by Marianne Gagnon (Auria)
+    
+* last lap fanfare
+    by Dundersylt
+    released under CC-BY-SA 3.0+
+
+* locked
+    By "Stephan" from pdsounds.org (license is public domain)
+    
+* parachute
+    based on Public Domain Sounds from either pdsounds or ghb_pd
+    Modifications (c) 2009 Christoph Egger <debian@christoph-egger.org>.
+    You may choose one of the following Licenses:
+     * ZLib License
+     * GNU GPL Version 2 or Later
+     * CreativeCommons BY 3.0
+
+* portal
+    by Arthur_D
+    released under CC-BY-SA 3.0
+
+* pre_start_race
+    obtained from : http://www.freesoundfiles.tintagel.net/Audio/
+    (see license text below)
+    
+* shoot
+    Released under the GNU GPL v2 license
+    Based on sound effects from the Warmux and Battle for Wesnoth projects,
+    both released under the same license,
+    with modifications by Marianne Gagnon
+          
+* skid 
+    Released under Creative Commons Attribution - Share Alike License 3.0
+    by Atheal Washington and Stephen Dunn (stevo14)
+    WARNING: in the past, Atheal Washington also provided us with material that infringed copyright.
+             the status of this particular sound is unknown, and a replacement would be welcome
+
+* splash
+    Based on 'Fish Splashing-SoundBible.com-250179430' sound bible, by blastwavefx.com, released under CC-BY-SA 3.0
+    and on 'Water vaporizing on hot Stones' by Natalie from pdsounds.org, released under public domain
+    Mix by Marianne Gagnon, released under CC-BY-SA 3.0
+
+* start_race
+    obtained from : http://www.freesoundfiles.tintagel.net/Audio/
+    (see license text below)
+    
+* strike
+    based on http://www.freesound.org/samplesViewSingle.php?id=82359 (1 and 2) and
+    http://www.freesound.org/samplesViewSingle.php?id=82358 (3) by juskiddink.
+    Released under cc-by-sa 3.0 http://creativecommons.org/licenses/by-sa/3.0/ .
+    With modifications by qubodup <qubodup@gmail.com>
+
+* swap
+    By "Stephan" from pdsounds.org (license is public domain)
+
+* swatter
+    By snottyboi, released under Creative Commons Attribution 3.0
+    from SoundBible ("Whip Crack Sound")
+
+* thunder
+    based on "Lightning Strike Summer Storm Sound" by Mike koenig  from soundbible
+    with modifications by Marianne Gagnon
+    released under CC-BY 3.0
+
+* track intro, race finish
+    by Dundersylt
+    released under CC-BY-SA 3.0+
+
+* ugh
+    Released under the GNU GPL, coming from original (Super)TuxKart
+
+* Wooden bridge
+    from pdsounds.org, edited by Marianne Gagnon
+    released under public domain.
+
+* wee
+    Released under the GNU GPL, coming from original (Super)TuxKart
+
+______________________________________________________________________________________________________
+
+
+Tintagel license :
+    | These sound files are provided free of charge, without any representation or warranty whatsoever.
+    | To the best of our knowledge, all wave, midi, and audio files presented here are in the public
+    | domain and are available for use without restriction.
+
+    
+SoundSnap license (short version) :
+    |    You are Free:
+    |        - To remix or transform the sounds in any way
+    |        - To copy, distribute and transmit the sounds
+    |        - To use the sounds in any music, film, video game, website etc. whether commercial
+    |          or not, without paying royalties or other fees
+    |    You Cannot:
+    |        - Make commercial distribution of these sounds 'as they are'.
+    |          For example, you cannot download and sell them as part of a CD library
+
+
+Creative-Common Sampling Plus license (short version) :
+    |    You are free:
+    |        - To sample, mash-up, or otherwise creatively transform this work for
+    |          commercial or noncommercial purposes.
+    |        - To perform, display, and distribute copies of this whole work for noncommercial purposes 
+    |    Under the following conditions:
+    |        - You must attribute the work in the manner specified by the author or licensor
+    |          (but not in any way that suggests that they endorse you or your use of the work).
+    |        - You may not use this work to advertise for or promote anything
+    |          but the work you create from it.
+    |        - For any reuse or distribution, you must make clear to others the license terms of this work.
