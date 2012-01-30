@@ -54,6 +54,8 @@
     <static-object lod_instance="true" lod_group="pedestral" xyz="-19.62 -5.37 29.87" hpr="7.8 0.0 0.0" scale="0.68 0.68 0.68"/>
     <static-object lod_instance="true" lod_group="pedestral" xyz="145.36 -13.41 275.78" hpr="0.0 1.6 0.0" scale="0.71 0.71 0.71"/>
     <static-object lod_instance="true" lod_group="pedestral" xyz="-19.63 -19.85 408.17" hpr="0.0 1.6 0.0" scale="0.71 0.71 0.71"/>
+    <static-object lod_instance="true" lod_group="pedestral" xyz="88.73 -13.21 257.89" hpr="0.0 -178.3 -0.0" scale="0.71 0.71 0.71"/>
+    <static-object lod_instance="true" lod_group="pedestral" xyz="89.20 -12.90 235.21" hpr="0.0 -178.3 -0.0" scale="0.71 0.71 0.71"/>
     <static-object lod_instance="true" lod_group="pedestral" xyz="150.85 -13.67 240.54" hpr="0.0 3.1 0.0" scale="0.71 0.71 0.71"/>
     <static-object lod_instance="true" lod_group="pedestral" xyz="141.24 -1.97 34.79" hpr="0.2 2.2 -3.5" scale="0.71 0.71 0.71"/>
     <static-object lod_instance="true" lod_group="pedestral" xyz="-93.91 -3.55 257.97" hpr="0.0 -29.4 0.0" scale="0.71 0.71 0.71"/>
