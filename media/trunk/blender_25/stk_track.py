@@ -607,7 +607,8 @@ class Driveline:
                   r1[0],r1[2],r1[1], l1[0],l1[2],l1[1]) )
         if self.is_last_main:
             f.write("  <quad%sp0=\"%d:3\" p1=\"%d:2\" p2=\"0:1\" p3=\"0:0\"/>\n"\
-                    % (sInv, max_index-1, max_index-1))
+                    % (sInv, self.global_quad_index_start+max_index-1, \
+                             self.global_quad_index_start+max_index-1))
 
 # ==============================================================================
 # The actual exporter. It is using a class mainly to store some information
@@ -2210,4 +2211,4 @@ def unregister():
 
 if __name__ == "__main__":
     register()
-    
+
