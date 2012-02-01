@@ -1,11 +1,10 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 9577 -->
+<!-- Generated with script from SVN rev 10769 -->
 <scene>
   <track model="islandtrack_track.b3d" x="0" y="0" z="0"/>
-  <water model="Water.b3d" xyz="8.845343 0.000000 -0.728317" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000" height="0.60" speed="300.00">
+  <water model="Water.b3d" xyz="8.85 0.00 -0.73" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="0.20" speed="300.00" length="10.00">
     <animated-texture name="water_light.png" dy="0.050" />
   </water>
-  <weather particles="none.xml" />
   <banana x="-69.491959" y="25" z="-87.157188" />
   <item x="-17.470287" y="25" z="-54.1586" />
   <item x="-44.838158" y="25" z="26.494734" />
