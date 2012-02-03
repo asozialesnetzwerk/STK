@@ -8,7 +8,7 @@
   <material name="leaves2.png" ignore="Y" compositing="coverage"/>
   <material name="seabed.png" graphical-effect="water" falling-effect="Y"/>
   <material name="tree_1.png" light="N" compositing="coverage" backface-culling="N"/>
-  <material name="water_dark.png" light="N" reset="Y" surface="Y" water-shader="Y" water-shader-speed-1="0.00" water-shader-speed-2="0.00">
+  <material name="water_dark.png" light="N" reset="Y" surface="Y" water-shader="Y" water-shader-speed-1="1.50" water-shader-speed-2="1.50">
     <sfx filename="splash.ogg"/>
     <particles base="splash.xml" condition="skid drive"/>
   </material>
