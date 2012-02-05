@@ -614,6 +614,12 @@ object_properties = [
 type = StkEnumProperty('type', "Type",
        {''                 : StkEnumChoice('None',      [], doc="Nothing special about this object"),
         'none'             : StkEnumChoice('None',      [], doc="Nothing special about this object"),
+        'action_trigger'   : StkEnumChoice('Action trigger',
+                                 [
+                                        StkProperty(id='action', name="Action", default="", doc="Name of the action to trigger"),
+                                   StkFloatProperty(id='trigger_distance', name="Trigger Distance", default=5.0,
+                                                    doc="Distance at which this action is triggered")
+                                 ], doc="Make something happen when driving there (FOR INTERNAL USE ONLY AT THIS TIME)"),
         'banana'           : StkEnumChoice('Banana',    [], doc="A banana object that needs to be avoided (apply to an Empty)"),
         'billboard'        : StkEnumChoice('Billboard',
                                  [

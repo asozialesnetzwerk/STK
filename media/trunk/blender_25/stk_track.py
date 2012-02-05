@@ -1322,7 +1322,23 @@ class TrackExport:
                          getProperty(obj, "sfx_rolloff", 0.05),
                          getProperty(obj, "sfx_volume", 0), originXYZ, play_near_string))
             except:
-                log_error("Invalid particle emitter <" + getProperty(obj, "name", obj.name) + "> ",
+                log_error("Invalid sound emitter <" + getProperty(obj, "name", obj.name) + "> ",
+                    sys.exc_info()[0])
+        
+    # --------------------------------------------------------------------------
+    # Action Triggers
+    def writeActionTriggers(self, f, lActionEmitters):
+        for obj in lActionEmitters:
+            try:
+                # origin
+                originXYZ = getXYZHPRString(obj)
+                
+                f.write('  <object type="action-trigger" action="%s" distance="%s" %s/>\n' %\
+                        (getProperty(obj, "action", ""),
+                         getProperty(obj, "trigger_distance", 5.0),
+                         originXYZ))
+            except:
+                log_error("Invalid action <" + getProperty(obj, "name", obj.name) + "> ",
                     sys.exc_info()[0])
         
     # --------------------------------------------------------------------------
@@ -1654,8 +1670,8 @@ class TrackExport:
     # --------------------------------------------------------------------------
     # Writes the scene files, which includes all models, animations, and items
     def writeSceneFile(self, sPath, sTrackName, lWater, lTrack, lItems, lObjects, lBillboards,
-                       lParticleEmitters, lSoundEmitters, lChecks, lSun, mainDriveline, lStart,
-                       lEndCameras, lCameraCurves):
+                       lParticleEmitters, lSoundEmitters, lActionTriggers, lChecks, lSun, mainDriveline,
+                       lStart, lEndCameras, lCameraCurves):
 
         #start_time = bsys.time()
         print("Writing scene file --> \t")
@@ -1705,6 +1721,8 @@ class TrackExport:
             self.writeParticleEmitters(f, lParticleEmitters)
         if lSoundEmitters:
             self.writeSoundEmitters(f, lSoundEmitters)
+        if lActionTriggers:
+            self.writeActionTriggers(f, lActionTriggers)
             
         for obj in lOtherObjects:
             self.writeObject(f, sPath, obj)
@@ -1892,6 +1910,7 @@ class TrackExport:
         lBillboards          = []                    # All billboards
         lParticleEmitters    = []                    # All particle emitters
         lSoundEmitters       = []
+        lActionTriggers      = []
         lChecks              = []                    # All check structures
         lSun                 = []
         lStart               = []                    # All start positions
@@ -1930,6 +1949,9 @@ class TrackExport:
                     continue
                 elif stktype=="SFX_EMITTER":
                     lSoundEmitters.append(obj)
+                    continue
+                elif stktype=="ACTION_TRIGGER":
+                    lActionTriggers.append(obj)
                     continue
                 else:
                     print("Empty '%s' has type '%s' which is not valid - ignored."%\
@@ -2020,8 +2042,8 @@ class TrackExport:
         if len(lDrivelines)==0:
             lDrivelines=[None]
         self.writeSceneFile(sPath, sTrackName, lWater, lTrack, lItems,
-                            lObjects, lBillboards, lParticleEmitters, lSoundEmitters, lChecks, lSun,
-                            lDrivelines[0], lStart, lEndCameras, lCameraCurves)
+                            lObjects, lBillboards, lParticleEmitters, lSoundEmitters, lActionTriggers,
+                            lChecks, lSun, lDrivelines[0], lStart, lEndCameras, lCameraCurves)
         # materials file
         # ----------
         if 'stk_material_exporter' not in dir(bpy.ops.screen):
