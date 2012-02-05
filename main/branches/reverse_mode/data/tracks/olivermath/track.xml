@@ -5,6 +5,7 @@
         groups      = "standard"
         designer    = "Oliver &amp; Steve Baker"
         music       = "Boom_boom_boom.music"
+        reverse     = "true"
         screenshot  = "mathclass.jpg"
 >
 </track>
