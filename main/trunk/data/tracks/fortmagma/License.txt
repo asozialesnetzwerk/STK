@@ -16,7 +16,7 @@ roof
     by Jean-Manuel Clemençon (Samuncle; http://samuncle.toile-libre.org/)
     based on work by Marianne Gagnon (Auria), based on public domain photos from BurningWell
 
-torch.png
+torch.png, lava_sky
     by Marianne Gagnon, released under CC-BY-SA 3
 
 painting1.jpg, painting2.jpg
