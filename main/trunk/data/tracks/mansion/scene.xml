@@ -1,63 +1,142 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 10507 -->
+<!-- Generated with script from SVN rev 10769 -->
 <scene>
   <track model="mansion_track.b3d" x="0" y="0" z="0">
-    <static-object model="Circle.007.b3d" xyz="0.000000 0.000000 0.000000" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000">
+    <static-object model="Circle.007.b3d" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
     <animated-texture name="" dx="0.050" />
     </static-object>
-    <static-object model="Circle.008.b3d" xyz="0.000000 0.000000 0.000000" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000">
+    <static-object model="Circle.008.b3d" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
     <animated-texture name="" dx="0.050" />
     </static-object>
-    <static-object model="Circle.009.b3d" xyz="0.000000 333.196533 0.000000" hpr="-0.000000 135.000000 0.000000" scale="1.199207 1.199207 1.199207">
+    <static-object model="Circle.009.b3d" xyz="0.00 333.20 0.00" hpr="-0.0 135.0 -0.0" scale="1.20 1.20 1.20">
     <animated-texture name="clouds.png" dx="0.050" />
     </static-object>
-    <static-object model="Circle.010.b3d" xyz="0.000000 333.196533 0.000000" hpr="-0.000000 135.000000 0.000000" scale="1.199207 1.199207 1.199207">
+    <static-object model="Circle.010.b3d" xyz="0.00 333.20 0.00" hpr="-0.0 135.0 -0.0" scale="1.20 1.20 1.20">
     <animated-texture name="clouds.png" dx="0.050" />
     </static-object>
-    <static-object model="Circle.011.b3d" xyz="0.000000 333.196533 0.000000" hpr="-0.000000 135.000000 0.000000" scale="1.199207 1.199207 1.199207">
+    <static-object model="Circle.011.b3d" xyz="0.00 333.20 0.00" hpr="-0.0 135.0 -0.0" scale="1.20 1.20 1.20">
     <animated-texture name="clouds.png" dx="0.050" />
     </static-object>
-    <static-object model="Circle.012.b3d" xyz="0.000000 333.196533 0.000000" hpr="-0.000000 135.000000 0.000000" scale="1.199207 1.199207 1.199207">
+    <static-object model="Circle.012.b3d" xyz="0.00 333.20 0.00" hpr="-0.0 135.0 -0.0" scale="1.20 1.20 1.20">
     <animated-texture name="clouds.png" dx="0.050" />
     </static-object>
-    <static-object model="Circle.013.b3d" xyz="0.000000 277.411652 0.000000" hpr="-0.000000 135.000000 0.000000" scale="1.114474 1.114474 1.114474">
+    <static-object model="Circle.013.b3d" xyz="0.00 277.41 0.00" hpr="-0.0 135.0 -0.0" scale="1.11 1.11 1.11">
     <animated-texture name="clouds.png" dx="0.040" />
     </static-object>
-    <static-object model="Circle.014.b3d" xyz="0.000000 277.411652 0.000000" hpr="-0.000000 135.000000 0.000000" scale="1.114474 1.114474 1.114474">
+    <static-object model="Circle.014.b3d" xyz="0.00 277.41 0.00" hpr="-0.0 135.0 -0.0" scale="1.11 1.11 1.11">
     <animated-texture name="clouds.png" dx="0.040" />
     </static-object>
-    <static-object model="Circle.015.b3d" xyz="0.000000 277.411652 0.000000" hpr="-0.000000 135.000000 0.000000" scale="1.114474 1.114474 1.114474">
+    <static-object model="Circle.015.b3d" xyz="0.00 277.41 0.00" hpr="-0.0 135.0 -0.0" scale="1.11 1.11 1.11">
     <animated-texture name="clouds.png" dx="0.040" />
     </static-object>
-    <static-object model="Circle.016.b3d" xyz="0.000000 277.411652 0.000000" hpr="-0.000000 135.000000 0.000000" scale="1.114474 1.114474 1.114474">
+    <static-object model="Circle.016.b3d" xyz="0.00 277.41 0.00" hpr="-0.0 135.0 -0.0" scale="1.11 1.11 1.11">
     <animated-texture name="clouds.png" dx="0.040" />
     </static-object>
-    <static-object model="Circle.017.b3d" xyz="0.000000 98.470345 0.000000" hpr="-0.000000 135.000000 0.000000" scale="1.146537 1.146537 1.146537">
+    <static-object model="Circle.017.b3d" xyz="0.00 98.47 0.00" hpr="-0.0 135.0 -0.0" scale="1.15 1.15 1.15">
     <animated-texture name="clouds.png" dx="0.030" />
     </static-object>
-    <static-object model="Circle.018.b3d" xyz="0.000000 98.470345 0.000000" hpr="-0.000000 135.000000 0.000000" scale="1.146537 1.146537 1.146537">
+    <static-object model="Circle.018.b3d" xyz="0.00 98.47 0.00" hpr="-0.0 135.0 -0.0" scale="1.15 1.15 1.15">
     <animated-texture name="clouds.png" dx="0.030" />
     </static-object>
-    <static-object model="Circle.019.b3d" xyz="0.000000 98.470345 0.000000" hpr="-0.000000 135.000000 0.000000" scale="1.146537 1.146537 1.146537">
+    <static-object model="Circle.019.b3d" xyz="0.00 98.47 0.00" hpr="-0.0 135.0 -0.0" scale="1.15 1.15 1.15">
     <animated-texture name="clouds.png" dx="0.030" />
     </static-object>
-    <static-object model="Circle.020.b3d" xyz="0.000000 98.470345 0.000000" hpr="-0.000000 135.000000 0.000000" scale="1.146537 1.146537 1.146537">
+    <static-object model="Circle.020.b3d" xyz="0.00 98.47 0.00" hpr="-0.0 135.0 -0.0" scale="1.15 1.15 1.15">
     <animated-texture name="clouds.png" dx="0.030" />
     </static-object>
-    <static-object model="Plane.008.b3d" xyz="-104.598518 0.387494 -87.808578" hpr="-0.000000 41.558399 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object model="Plane.009.b3d" xyz="-122.256485 0.003187 -44.194813" hpr="-0.000000 113.678841 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object model="basicfence.b3d" xyz="-9.854014 1.463953 5.000000" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object model="Plane.014.b3d" xyz="-104.253792 -3.773676 -10.178982" hpr="-0.000000 113.678841 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object model="Plane.015.b3d" xyz="-112.818039 -3.773676 55.451420" hpr="-0.000000 113.678841 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object model="Plane.016.b3d" xyz="-88.639069 -3.773676 96.445847" hpr="-0.000000 147.260299 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object model="Plane.017.b3d" xyz="-49.781715 -3.773676 112.389702" hpr="-0.000000 214.220182 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object model="Plane.018.b3d" xyz="-76.156822 -3.773676 -51.066811" hpr="-0.000000 289.929017 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object model="Plane.019.b3d" xyz="-49.781715 -3.773676 51.343082" hpr="-0.000000 214.220182 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object model="Plane.020.b3d" xyz="-37.877975 -3.773676 12.061733" hpr="-0.000000 302.618607 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object model="Plane.026.b3d" xyz="21.590836 -1.463265 112.389702" hpr="-0.000000 285.406667 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object model="Plane.027.b3d" xyz="21.590836 0.494299 53.280201" hpr="-0.000000 285.406667 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object model="Plane.028.b3d" xyz="-29.256895 -3.773676 75.200966" hpr="-0.000000 365.867689 0.000000" scale="1.000000 1.000000 1.000000"/>
+    <static-object lod_instance="true" lod_group="lantern" xyz="-0.84 2.78 38.08" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="50.0" lod_group="lantern" model="Mesh.001.b3d" xyz="-4.00 3.72 39.00" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="20.0" lod_group="lantern" model="Mesh.002.b3d" xyz="-3.76 2.78 38.08" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="lantern" xyz="2.38 1.55 68.83" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="lantern" xyz="-8.03 0.62 91.27" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="lantern" xyz="-47.89 0.62 89.60" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="lantern" xyz="-80.12 -0.40 66.54" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="lantern" xyz="-86.29 -1.51 34.49" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="lantern" xyz="-77.58 -2.37 25.33" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="lantern" xyz="-61.57 -2.85 -5.64" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="lantern" xyz="-92.00 -0.94 -31.02" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="lantern" xyz="-100.91 1.46 -63.56" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="lantern" xyz="-68.10 4.65 -81.62" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Plane.008.b3d" xyz="-104.60 0.39 -87.81" hpr="0.0 41.6 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Plane.009.b3d" xyz="-122.26 0.00 -44.19" hpr="-0.0 113.7 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="basicfence.b3d" xyz="-9.85 1.46 5.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Plane.014.b3d" xyz="-104.25 -3.77 -10.18" hpr="-0.0 113.7 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Plane.015.b3d" xyz="-112.82 -3.77 55.45" hpr="-0.0 113.7 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Plane.016.b3d" xyz="-88.64 -3.77 96.45" hpr="0.0 147.3 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Plane.017.b3d" xyz="-49.78 -3.77 112.39" hpr="-0.0 -145.8 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Plane.018.b3d" xyz="-76.16 -3.77 -51.07" hpr="-0.0 -70.1 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Plane.019.b3d" xyz="-49.78 -3.77 51.34" hpr="-0.0 -145.8 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Plane.020.b3d" xyz="-37.88 -3.77 12.06" hpr="-0.0 -57.4 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Plane.026.b3d" xyz="21.59 -1.46 112.39" hpr="-0.0 -74.6 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Plane.027.b3d" xyz="21.59 0.49 53.28" hpr="-0.0 -74.6 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Plane.028.b3d" xyz="-29.26 -3.77 75.20" hpr="0.0 5.9 0.0" scale="1.00 1.00 1.00"/>
   </track>
+  <object type="billboard" texture="lightHaloY.png" xyz="-0.826620 2.265366 38.080910" 
+             width="3.600000" height="3.600001" >
+  </object>
+  <object type="billboard" texture="halo.png" xyz="-0.826620 2.265366 38.097462" 
+             width="2.000000" height="2.000000" fadeout="true" start="10.0" end="20.0">
+  </object>
+  <object type="billboard" texture="halo.png" xyz="2.400137 1.032259 68.840210" 
+             width="2.000000" height="2.000000" fadeout="true" start="10.0" end="20.0">
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="2.400137 1.032259 68.823654" 
+             width="3.600000" height="3.600001" >
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="-8.015487 0.106140 91.262222" 
+             width="3.600000" height="3.600001" >
+  </object>
+  <object type="billboard" texture="halo.png" xyz="-8.015487 0.106140 91.278778" 
+             width="2.000000" height="2.000000" fadeout="true" start="10.0" end="20.0">
+  </object>
+  <object type="billboard" texture="halo.png" xyz="-47.876728 0.106140 89.608742" 
+             width="2.000000" height="2.000000" fadeout="true" start="10.0" end="20.0">
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="-47.876728 0.106140 89.592186" 
+             width="3.600000" height="3.600001" >
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="-80.105347 -0.917364 66.538048" 
+             width="3.600000" height="3.600001" >
+  </object>
+  <object type="billboard" texture="halo.png" xyz="-80.105347 -0.917364 66.554604" 
+             width="2.000000" height="2.000000" fadeout="true" start="10.0" end="20.0">
+  </object>
+  <object type="billboard" texture="halo.png" xyz="-86.272156 -2.021050 34.501274" 
+             width="2.000000" height="2.000000" fadeout="true" start="10.0" end="20.0">
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="-86.272156 -2.021050 34.484718" 
+             width="3.600000" height="3.600001" >
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="-77.565521 -2.885439 25.325146" 
+             width="3.600000" height="3.600001" >
+  </object>
+  <object type="billboard" texture="halo.png" xyz="-77.565521 -2.885439 25.341702" 
+             width="2.000000" height="2.000000" fadeout="true" start="10.0" end="20.0">
+  </object>
+  <object type="billboard" texture="halo.png" xyz="-61.555695 -3.364831 -5.622980" 
+             width="2.000000" height="2.000000" fadeout="true" start="10.0" end="20.0">
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="-61.555695 -3.364831 -5.639535" 
+             width="3.600000" height="3.600001" >
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="-91.984512 -1.450876 -31.021549" 
+             width="3.600000" height="3.600001" >
+  </object>
+  <object type="billboard" texture="halo.png" xyz="-91.984512 -1.450876 -31.004993" 
+             width="2.000000" height="2.000000" fadeout="true" start="10.0" end="20.0">
+  </object>
+  <object type="billboard" texture="halo.png" xyz="-100.895111 0.942386 -63.550278" 
+             width="2.000000" height="2.000000" fadeout="true" start="10.0" end="20.0">
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="-100.895111 0.942386 -63.566833" 
+             width="3.600000" height="3.600001" >
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="-68.084206 4.137913 -81.618721" 
+             width="3.600000" height="3.600001" >
+  </object>
+  <object type="billboard" texture="halo.png" xyz="-68.084206 4.137913 -81.602165" 
+             width="2.000000" height="2.000000" fadeout="true" start="10.0" end="20.0">
+  </object>
   <sun  fog="true" fog-color="7 8 11" fog-start="1.1754943508222875e-38" fog-end="75.0" xyz="0.00 118.17 0.00" sun-specular="255 255 255" sun-diffuse="70 85 85" ambient="70 85 85"/>
   <sky-color rgb="7 7 11"/>
   <checks>
