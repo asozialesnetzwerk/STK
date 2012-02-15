@@ -5,6 +5,7 @@
         groups      = "standard"
         designer    = "Mac"
         music       = "Boom_boom_boom.music"
+        reverse     = "false"
         screenshot  = "minigolf.jpg"
 >
 </track>

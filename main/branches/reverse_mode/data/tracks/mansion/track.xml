@@ -5,6 +5,7 @@
         groups      = "standard"
         designer    = "Jean-Manuel Cl&#233;men&#231;on"
         music       = "ChillCarrier-Druckverlust.music"
+        reverse     = "false"
         screenshot  = "screenshot.jpg"
 >
 </track>
