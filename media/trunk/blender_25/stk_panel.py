@@ -645,7 +645,14 @@ type = StkEnumProperty('type', "Type",
                                  [StkBoolProperty(id='invisible', name="Invisible",      default="false",
                                                   contextLevel=CONTEXT_OBJECT, doc="If checked, this path will not appear in the minimap"),
                                   StkBoolProperty(id='ai_ignore', name="Ignored by AIs", default="false",
-                                                  contextLevel=CONTEXT_OBJECT, doc="If checked, AIs will not drive on this path")
+                                                  contextLevel=CONTEXT_OBJECT, doc="If checked, AIs will not drive on this path"),
+                                  StkEnumProperty('direction', "Usable directions",      default="both",
+                                                  values = {
+                                                   'both'    : StkEnumChoice('Both directions', [], doc="Drivable both in forward and reverse directions"),
+                                                   'forward' : StkEnumChoice('Forward only',    [], doc="Drivable only in forward direction"),
+                                                   'reverse' : StkEnumChoice('Reverse only',    [], doc="Drivable only in reverse direction")
+                                                  }, contextLevel=CONTEXT_OBJECT,
+                                                  doc="In which direction(s) this part of the track is drivable (used with the 'reverse driving' feature)")
                                  ], doc="Driveline used to mark an alternate path"),
         'maindriveline'    : StkEnumChoice('Driveline (main)',
                                  [StkObjectReferenceProperty(id='activate', unique_id_suffix="_maindriveline", name="Activate",
