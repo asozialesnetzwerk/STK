@@ -165,6 +165,7 @@ class Driveline:
         # Invisible drivelines are not shown in the minimap
         self.invisible = getProperty(driveline, "invisible", "false")
         self.ai_ignore = getProperty(driveline, "ai_ignore", "false")
+        self.direction = getProperty(driveline, "direction", "both")
         self.enabled   = not getProperty(driveline, "disable",   0)
         self.activate  = getProperty(driveline, "activate", None)
         self.strict_lap = convertTextToYN(getProperty(driveline,
@@ -582,6 +583,11 @@ class Driveline:
         else:
             sAIIgnore = " "
         
+        if self.direction and self.direction != "both":
+            sDirection = "direction=\"" + self.direction + "\" "
+        else:
+            sDirection = " "
+            
         max_index = len(self.lLeft) - 1
         
         # If this is the last main driveline, the last quad is a dummy element
@@ -595,15 +601,15 @@ class Driveline:
         # (this results that the AI will not go to the first quad, but
         # if it should end up somewhere on the shortcut, it will
         # continue to drive on the shortcut.
-        f.write("  <quad%s%sp0=\"%f %f %f\" p1=\"%f %f %f\" p2=\"%f %f %f\" p3=\"%f %f %f\"/>\n" \
-            %(sInv, sAIIgnore, l[0],l[2],l[1], r[0],r[2],r[1], r1[0],r1[2],r1[1], l1[0],l1[2],l1[1]) )
+        f.write("  <quad%s%s%sp0=\"%f %f %f\" p1=\"%f %f %f\" p2=\"%f %f %f\" p3=\"%f %f %f\"/>\n" \
+            %(sInv, sAIIgnore, sDirection, l[0],l[2],l[1], r[0],r[2],r[1], r1[0],r1[2],r1[1], l1[0],l1[2],l1[1]) )
         for i in range(1, max_index):
             if self.lRight[i+1] is None: return # broken driveline (messages will already have been printed)
           
             l1  = self.mesh.vertices[self.lLeft[i+1]].co
             r1  = self.mesh.vertices[self.lRight[i+1]].co
-            f.write("  <quad%sp0=\"%d:3\" p1=\"%d:2\" p2=\"%f %f %f\" p3=\"%f %f %f\"/>\n" \
-                    %(sInv,self.global_quad_index_start+i-1, self.global_quad_index_start+i-1, \
+            f.write("  <quad%s%sp0=\"%d:3\" p1=\"%d:2\" p2=\"%f %f %f\" p3=\"%f %f %f\"/>\n" \
+                    %(sInv,sDirection,self.global_quad_index_start+i-1, self.global_quad_index_start+i-1, \
                   r1[0],r1[2],r1[1], l1[0],l1[2],l1[1]) )
         if self.is_last_main:
             f.write("  <quad%sp0=\"%d:3\" p1=\"%d:2\" p2=\"0:1\" p3=\"0:0\"/>\n"\
