@@ -5,6 +5,7 @@
         groups      = "standard"
         designer    = "Marianne Gagnon &amp; Ingo Ruhnke"
         music       = "ChillCarrier-Druckverlust.music"
+        reverse     = "false"
         screenshot  = "sshot-crescent.jpg"
 >
 </track>
