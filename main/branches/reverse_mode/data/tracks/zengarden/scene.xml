@@ -1,134 +1,134 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 10311 -->
+<!-- Generated with script from SVN rev 10769 -->
 <scene>
   <track model="zenGarden_track.b3d" x="0" y="0" z="0">
-    <static-object lod_instance="true" lod_group="torii" xyz="1.500000 0.000000 10.000000" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="70.0" lod_group="sakuraPine" model="sakuraPine_LOD70.b3d" xyz="-54.592690 2.147242 147.310043" hpr="2.077206 242.085127 7.703775" scale="0.922287 0.922287 0.922287"/>
-    <static-object lod_distance="45.0" lod_group="sakuraPine" model="sakuraPine_LOD45.b3d" xyz="-54.592690 2.147242 128.000000" hpr="2.077206 242.085127 7.703775" scale="0.922287 0.922287 0.922287"/>
-    <static-object lod_distance="100.0" lod_group="sakuraPine" model="sakuraPine_LOD100.b3d" xyz="-57.592690 2.147242 164.000000" hpr="2.077206 242.085127 7.703775" scale="0.922287 0.922287 0.922287"/>
-    <static-object lod_distance="200.0" lod_group="sakuraPine" model="sakuraPine_LOD200.b3d" xyz="-57.592690 2.147242 187.000000" hpr="2.077206 242.085127 7.703775" scale="0.922287 0.922287 0.922287"/>
-    <static-object lod_distance="50.0" lod_group="torii" model="torii_LOD50.b3d" xyz="-16.500000 0.000000 173.831589" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="75.0" lod_group="torii" model="torii_LOD75.b3d" xyz="-16.500000 0.000000 178.637695" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="120.0" lod_group="torii" model="torii_LOD120.b3d" xyz="-16.500000 0.000000 183.000000" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="torii" xyz="-50.431538 0.000000 -50.653206" hpr="-0.000000 99.999994 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="bridge" xyz="-170.790436 0.905083 41.632027" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="150.0" lod_group="bridge" model="bridge_LOD150.b3d" xyz="-170.790436 5.047509 106.901207" hpr="-89.999996 49.999997 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="50.0" lod_group="bridge" model="bridge_LOD50.b3d" xyz="-170.790436 5.047509 95.632027" hpr="-89.999996 49.999997 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="500.0" lod_group="bridge" model="bridge_LOD500.b3d" xyz="-170.790436 5.047509 118.632027" hpr="-89.999996 49.999997 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="directionLantern" xyz="-113.952637 2.097772 59.706799" hpr="-89.999996 54.999999 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="directionLanLite" xyz="-157.942490 2.731712 -71.310791" hpr="-89.999996 -60.000002 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="25.0" lod_group="directionLantern" model="directionLantern_LOD25.b3d" xyz="-169.062576 0.731712 79.109940" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="75.0" lod_group="directionLantern" model="directionLantern_LOD75.b3d" xyz="-165.162048 0.731712 79.104713" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="100.0" lod_group="directionLantern" model="directionLantern_LOD100.b3d" xyz="-161.184753 0.731712 79.137871" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="35.0" lod_group="limit" model="limit_LOD35.b3d" xyz="-33.249905 0.457083 170.899765" hpr="-89.999996 73.821436 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="directionLantern" xyz="-6.136702 2.097772 27.370922" hpr="-89.999996 91.017195 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="25.0" lod_group="directionLanLite" model="directionLanLite_LOD25.b3d" xyz="-157.952637 2.731712 75.706802" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="80.0" lod_group="directionLanLite" model="directionLanLite_LOD80.b3d" xyz="-157.952637 2.731712 78.706802" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="directionLanLite" xyz="-145.354279 2.731712 -75.782814" hpr="-89.999996 -82.057135 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="directionLanLite" xyz="-171.019424 2.731712 -59.935833" hpr="-89.999996 -19.974977 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="directionLantern" xyz="-17.514322 1.718832 -51.468906" hpr="-89.999996 226.017202 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="50.0" lod_group="pagoda1" model="pagoda1_LOD50.b3d" xyz="-102.804398 7.021167 148.302338" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="60.0" lod_group="pineTree1" model="pineTree1_LOD50.b3d" xyz="-99.791351 0.209517 132.220230" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="pineTree1" xyz="-124.480301 0.663813 57.220230" hpr="-89.999996 50.957156 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="pineTree1" xyz="-132.264297 -0.077335 41.380646" hpr="-89.999996 18.967567 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="pineTree1" xyz="-86.669754 0.810303 64.975800" hpr="-89.999996 50.957156 0.000000" scale="0.843144 0.843144 0.843144"/>
-    <static-object lod_instance="true" lod_group="pineTree1" xyz="-147.918701 -0.077335 55.122219" hpr="-89.999996 -0.000000 0.000000" scale="0.843144 0.843144 0.843144"/>
-    <static-object lod_distance="500.0" lod_group="pineTree1" model="pineTree1_LOD500.b3d" xyz="-113.765587 0.209517 119.346275" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="100.0" lod_group="pineTree1" model="pineTree1_LOD90.b3d" xyz="-106.750984 0.209517 125.558395" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="pineTree1" xyz="-168.773987 0.329288 54.066189" hpr="-89.999996 50.957156 0.000000" scale="0.937754 0.937754 0.937754"/>
-    <static-object lod_instance="true" lod_group="pineTree1" xyz="-174.229065 -0.231391 11.312600" hpr="-89.999996 75.198839 0.000000" scale="1.034461 1.034461 1.034461"/>
-    <static-object lod_instance="true" lod_group="pineTree1" xyz="-74.128464 0.843075 31.330193" hpr="-89.999996 50.957156 0.000000" scale="0.937754 0.937754 0.937754"/>
-    <static-object lod_instance="true" lod_group="pineTree1" xyz="-53.428333 0.836643 11.929753" hpr="-89.999996 18.967567 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="pineTree1" xyz="-109.438499 1.002602 65.616035" hpr="-89.999996 50.957156 0.000000" scale="0.937754 0.937754 0.937754"/>
-    <static-object lod_instance="true" lod_group="pineTree1" xyz="-76.108231 1.427750 53.315437" hpr="-89.999996 50.957156 0.000000" scale="0.843144 0.843144 0.843144"/>
-    <static-object lod_instance="true" lod_group="pineTree1" xyz="-21.624260 0.561535 31.704771" hpr="-89.999996 18.967567 0.000000" scale="1.247470 1.247470 1.247470"/>
-    <static-object lod_instance="true" lod_group="pineTree1" xyz="-36.511135 0.601239 20.270184" hpr="-89.999996 18.967567 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="100.0" lod_group="pineLow" model="pineLow_LOD100.b3d" xyz="-92.341362 -2.592548 121.031982" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="500.0" lod_group="pineLow" model="pineLow_LOD500.b3d" xyz="-81.341362 -2.592548 121.031982" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="pineLow" xyz="-105.341362 1.294929 70.332489" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="pineLow" xyz="-93.243416 1.717649 70.332489" hpr="-90.000003 -94.157484 -0.000004" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="pineLow" xyz="-69.433998 2.140041 56.580074" hpr="-89.999996 -52.355756 0.000003" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="pineLow" xyz="-69.433998 1.237875 40.841988" hpr="-89.999996 33.127418 0.000002" scale="0.796528 0.796528 0.796528"/>
-    <static-object lod_instance="true" lod_group="pineLow" xyz="-33.600960 2.407159 31.475866" hpr="-90.000003 101.346777 0.000004" scale="0.795937 0.795937 0.795937"/>
-    <static-object lod_instance="true" lod_group="pineLow" xyz="-62.463943 1.387869 25.326130" hpr="-90.000003 154.887804 0.000002" scale="0.664904 0.664904 0.664904"/>
-    <static-object lod_distance="40.0" lod_group="fern" model="fern_LOD30.b3d" xyz="-25.132071 0.000009 127.662247" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="pineTree1" xyz="-107.979668 0.181207 46.385544" hpr="-89.999996 6.547739 0.000000" scale="1.085344 1.085344 1.085344"/>
-    <static-object lod_distance="70.0" lod_group="fern" model="fern_LOD60.b3d" xyz="-26.500053 0.000009 134.662537" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="fern" xyz="-92.293594 0.228406 45.558655" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="100.0" lod_group="fern" model="fern_LOD100.b3d" xyz="-26.936131 0.000009 142.298233" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="fern" xyz="-90.718796 0.228406 30.160439" hpr="-89.999996 -80.228707 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="fern" xyz="-111.894073 0.228406 45.558655" hpr="-89.999996 -31.509063 0.000000" scale="0.747768 0.747768 0.747768"/>
-    <static-object lod_instance="true" lod_group="fern" xyz="-115.715393 0.228406 38.289558" hpr="-89.999996 -53.051534 0.000000" scale="0.878034 0.878034 0.878034"/>
-    <static-object lod_instance="true" lod_group="fern" xyz="-124.156219 0.228406 25.379917" hpr="-71.112877 -149.133656 21.756266" scale="0.878034 0.878034 0.878034"/>
-    <static-object lod_instance="true" lod_group="pineLow" xyz="-48.199417 1.877144 20.456165" hpr="-90.000003 120.009811 0.000002" scale="1.187457 1.187457 1.187457"/>
-    <static-object lod_instance="true" lod_group="pineLow" xyz="-63.794292 2.599542 30.226910" hpr="-90.000003 132.756037 0.000002" scale="1.187457 1.187457 1.187457"/>
-    <static-object lod_instance="true" lod_group="fern" xyz="-90.718796 0.228406 36.025749" hpr="-89.999996 2.994293 0.000000" scale="1.338174 1.338174 1.338174"/>
-    <static-object lod_instance="true" lod_group="fern" xyz="-90.718796 0.228406 40.709503" hpr="-89.999996 -78.055873 0.000000" scale="0.885865 0.885865 0.885865"/>
-    <static-object lod_instance="true" lod_group="fern" xyz="-133.224823 0.062750 22.929251" hpr="-76.075494 -97.398156 27.468518" scale="0.759677 0.759677 0.759677"/>
-    <static-object lod_instance="true" lod_group="fern" xyz="-140.459137 0.062750 25.519541" hpr="-104.041601 6.170435 17.126230" scale="0.759677 0.759677 0.759677"/>
-    <static-object lod_instance="true" lod_group="fern" xyz="-151.792160 0.062750 36.100601" hpr="-115.654145 46.784405 4.898005" scale="1.318144 1.318144 1.318144"/>
-    <static-object lod_instance="true" lod_group="fern" xyz="-169.692459 -0.895546 31.202374" hpr="-74.432847 45.018026 -16.165439" scale="1.318144 1.318144 1.318144"/>
-    <static-object lod_instance="true" lod_group="fern" xyz="-163.707275 -0.393225 25.369112" hpr="-89.999996 42.793860 0.000000" scale="1.318144 1.318144 1.318144"/>
-    <static-object lod_instance="true" lod_group="fern" xyz="-180.506821 0.160535 20.515663" hpr="-88.790731 -39.433868 -15.546327" scale="1.318144 1.318144 1.318144"/>
-    <static-object model="pineVeryLow.b3d" xyz="-51.948692 -2.592548 66.594193" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object model="pineVeryLow.b3d" xyz="-44.973812 1.727691 35.983353" hpr="-89.999996 -28.693737 0.000000" scale="1.198930 1.198930 1.198930"/>
-    <static-object model="pineVeryLow.b3d" xyz="-58.128853 1.727691 40.983353" hpr="-89.999996 76.306259 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object model="pineVeryLow.b3d" xyz="-121.017006 10.330232 85.834145" hpr="-89.999996 -28.693737 0.000000" scale="0.693170 0.693170 0.693170"/>
-    <static-object model="pineVeryLow.b3d" xyz="-141.167191 10.330232 85.834145" hpr="-89.999996 -28.693737 0.000000" scale="0.867623 0.867623 0.867623"/>
-    <static-object model="pineVeryLow.b3d" xyz="-141.912979 10.330232 69.253731" hpr="-89.999996 -5.814520 0.000000" scale="0.635035 0.635035 0.635035"/>
-    <static-object model="pineVeryLow.b3d" xyz="-162.566772 10.330232 72.682800" hpr="-89.999996 -5.814520 0.000000" scale="0.635035 0.635035 0.635035"/>
-    <static-object model="pineVeryLow.b3d" xyz="-162.566772 10.330232 83.993881" hpr="-89.999996 -5.814520 0.000000" scale="0.635035 0.635035 0.635035"/>
-    <static-object model="pineVeryLow.b3d" xyz="-138.678436 12.489944 3.941565" hpr="-89.999996 -207.783548 0.000000" scale="0.463305 0.463305 0.463305"/>
-    <static-object model="pineVeryLow.b3d" xyz="-98.788315 11.616585 -2.254264" hpr="-89.999996 -132.179446 0.000000" scale="0.500748 0.500748 0.500748"/>
-    <static-object model="pineVeryLow.b3d" xyz="-84.015823 11.616585 -14.102802" hpr="-89.999996 -132.179446 0.000000" scale="0.431344 0.431344 0.431343"/>
-    <static-object model="pineVeryLow.b3d" xyz="-77.483749 11.616585 -29.761074" hpr="-89.999996 -111.322446 0.000000" scale="0.411908 0.411908 0.411908"/>
-    <static-object model="pineVeryLow.b3d" xyz="-105.685989 12.080578 -56.795204" hpr="-89.999996 -36.992503 0.000000" scale="0.406785 0.406785 0.406785"/>
-    <static-object model="pineVeryLow.b3d" xyz="-77.061562 11.616585 -45.168770" hpr="-89.999996 -98.395022 0.000000" scale="0.579177 0.579177 0.579177"/>
-    <static-object model="pineVeryLow.b3d" xyz="-90.517578 11.616585 -29.761074" hpr="-89.999996 -111.330581 0.000000" scale="0.860581 0.860581 0.860581"/>
-    <static-object model="pineVeryLow.b3d" xyz="-93.921524 11.616585 -50.637085" hpr="-89.999996 -111.330581 0.000000" scale="0.678092 0.678092 0.678092"/>
-    <static-object model="pineVeryLow.b3d" xyz="-114.037384 11.616585 -12.609697" hpr="-89.999996 -159.126879 -0.000000" scale="0.863601 0.863601 0.863601"/>
-    <static-object model="pineVeryLow.b3d" xyz="-201.985153 10.330232 27.801575" hpr="-89.999996 74.383246 0.000000" scale="0.635035 0.635035 0.635035"/>
-    <static-object model="pineVeryLow.b3d" xyz="-213.131104 10.330232 25.875885" hpr="-89.999996 74.383246 0.000000" scale="0.635035 0.635035 0.635035"/>
-    <static-object model="pineVeryLow.b3d" xyz="-194.883621 10.330232 6.777587" hpr="-89.999996 51.504025 0.000000" scale="0.867623 0.867623 0.867623"/>
-    <static-object model="pineVeryLow.b3d" xyz="-185.631638 10.330232 -16.280857" hpr="-89.999996 51.504025 0.000000" scale="0.693170 0.693170 0.693170"/>
-    <static-object model="pineVeryLow.b3d" xyz="-213.957199 11.887501 -4.806028" hpr="-89.999996 37.211704 0.000000" scale="0.693170 0.693170 0.693170"/>
-    <static-object model="pineVeryLow.b3d" xyz="-160.675674 9.690204 -11.941910" hpr="-89.999996 -207.783548 0.000000" scale="0.589584 0.589584 0.589584"/>
-    <static-object model="pineVeryLow.b3d" xyz="-187.781494 15.823449 61.067940" hpr="-89.999996 -46.478000 0.000000" scale="0.635035 0.635035 0.635035"/>
-    <static-object model="pineVeryLow.b3d" xyz="-199.538361 15.823449 59.842995" hpr="-89.999996 -46.478000 0.000000" scale="0.757168 0.757168 0.757168"/>
-    <static-object model="pineVeryLow.b3d" xyz="-184.976501 15.823449 72.929901" hpr="-89.999996 -46.478000 0.000000" scale="0.757168 0.757168 0.757168"/>
-    <static-object model="pineVeryLow.b3d" xyz="-79.642899 0.694474 78.665222" hpr="-89.999996 18.247750 0.000000" scale="0.909989 0.909989 0.909989"/>
-    <static-object model="pineVeryLow.b3d" xyz="-33.460518 0.694474 74.488777" hpr="-89.999996 -4.468890 0.000000" scale="1.239249 1.239249 1.239249"/>
-    <static-object model="pineVeryLow.b3d" xyz="-21.938166 1.168826 55.517548" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="200.0" lod_group="pagoda1" model="pagoda1_LOD200.b3d" xyz="-102.804398 7.021167 168.302338" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="pagoda1" xyz="-102.804398 7.021167 36.302338" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="limit" xyz="-33.249905 0.457083 -58.068447" hpr="-89.999996 73.821436 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="90.0" lod_group="limit" model="limit_LOD90.b3d" xyz="-33.249905 0.457083 173.899765" hpr="-89.999996 73.821436 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="limit" xyz="-24.310785 0.759391 -39.823261" hpr="-89.999996 50.350338 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="limit" xyz="4.822686 0.528344 -20.257751" hpr="-89.999996 16.317670 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="limit" xyz="-63.300999 0.759391 -1.995897" hpr="-89.999996 110.891400 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="pineTree1" xyz="-139.497116 -0.077335 50.929111" hpr="-89.999996 18.967567 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="pineTree1" xyz="-128.273148 -0.077335 50.929111" hpr="-89.999996 18.967567 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="500.0" lod_group="sakuraLow" model="sakuraLow_LOD500.b3d" xyz="-65.941277 1.106152 132.089554" hpr="-0.000000 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="100.0" lod_group="sakuraLow" model="sakuraLow_LOD100.b3d" xyz="-65.941277 1.106152 125.089561" hpr="-0.000000 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object model="Plane.007.b3d" xyz="-143.000000 15.000000 -74.000000" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="sakuraLow" xyz="-27.841267 -11.893848 -1.988960" hpr="-0.000000 -0.000000 0.000000" scale="1.090822 1.090822 1.090822"/>
-    <static-object model="waterLily.b3d" xyz="-141.273621 -0.469738 -49.210869" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object model="waterLily.b3d" xyz="-134.817169 -0.645729 -53.789658" hpr="-0.000000 -43.570077 -0.000000" scale="0.776509 0.776510 0.776509"/>
-    <static-object model="waterLily.b3d" xyz="-128.537399 -0.469738 -41.960205" hpr="-0.000000 58.997166 0.000000" scale="0.776509 0.776510 0.776509"/>
-    <static-object lod_distance="50.0" lod_group="catailVeg" model="catailVeg_LOD50.b3d" xyz="-27.591881 -3.038374 153.053879" hpr="-0.000000 214.426303 0.000000" scale="0.788667 0.788667 0.788667"/>
-    <static-object lod_instance="true" lod_group="catailVeg" xyz="-149.963959 -3.038374 -41.773083" hpr="-0.000000 240.292831 0.000000" scale="0.600329 0.600329 0.600329"/>
-    <static-object lod_instance="true" lod_group="catailVeg" xyz="-151.696640 -3.038374 -37.634644" hpr="-0.000000 214.426303 0.000000" scale="0.788667 0.788667 0.788667"/>
-    <static-object lod_instance="true" lod_group="catailVeg" xyz="-129.048660 -3.038374 -37.695621" hpr="-0.000000 416.549004 0.000000" scale="0.600329 0.600329 0.600329"/>
-    <static-object lod_instance="true" lod_group="catailVeg" xyz="-127.049454 -3.038374 -41.712093" hpr="-0.000000 390.682477 0.000000" scale="0.788667 0.788667 0.788667"/>
-    <static-object lod_instance="true" lod_group="catailVeg" xyz="-134.344589 -3.038374 -55.699066" hpr="-0.000000 457.745754 0.000000" scale="0.661223 0.661223 0.661223"/>
-    <static-object lod_instance="true" lod_group="catailVeg" xyz="-131.424789 -3.038374 -52.292648" hpr="-0.000000 483.612255 0.000000" scale="0.803118 0.803118 0.803118"/>
-    <static-object lod_instance="true" lod_group="catailVeg" xyz="-139.460571 -3.038374 -59.307167" hpr="-0.000000 600.082607 -0.000000" scale="0.729917 0.729917 0.729917"/>
-    <static-object lod_instance="true" lod_group="catailVeg" xyz="-141.208435 -3.038374 -54.154842" hpr="-0.000000 574.216080 -0.000000" scale="0.890709 0.890709 0.890709"/>
-    <static-object lod_instance="true" lod_group="sakuraPine" xyz="-16.206482 0.947139 -13.212413" hpr="2.077206 306.091048 7.703775" scale="0.603109 0.603109 0.603109"/>
-    <static-object lod_instance="true" lod_group="sakuraPine" xyz="-19.215218 0.947139 0.000000" hpr="2.077206 242.085127 7.703775" scale="0.922287 0.922287 0.922287"/>
-    <static-object lod_instance="true" lod_group="sakuraPine" xyz="-26.706581 0.947139 3.835445" hpr="2.077206 136.231183 7.703775" scale="0.737364 0.737364 0.737364"/>
-    <static-object lod_instance="true" lod_group="sakuraPine" xyz="-93.090782 0.547386 27.580124" hpr="2.077206 256.332901 7.703775" scale="0.737364 0.737364 0.737364"/>
-    <static-object lod_instance="true" lod_group="sakuraPine" xyz="-115.447945 0.638174 31.665670" hpr="-2.473004 136.939378 -8.354645" scale="0.737364 0.737364 0.737364"/>
+    <static-object lod_instance="true" lod_group="torii" xyz="1.50 0.00 10.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="70.0" lod_group="sakuraPine" model="sakuraPine_LOD70.b3d" xyz="-54.59 2.15 147.31" hpr="16.3 -118.9 -16.1" scale="0.92 0.92 0.92"/>
+    <static-object lod_distance="45.0" lod_group="sakuraPine" model="sakuraPine_LOD45.b3d" xyz="-54.59 2.15 128.00" hpr="16.3 -118.9 -16.1" scale="0.92 0.92 0.92"/>
+    <static-object lod_distance="100.0" lod_group="sakuraPine" model="sakuraPine_LOD100.b3d" xyz="-57.59 2.15 164.00" hpr="16.3 -118.9 -16.1" scale="0.92 0.92 0.92"/>
+    <static-object lod_distance="200.0" lod_group="sakuraPine" model="sakuraPine_LOD200.b3d" xyz="-57.59 2.15 187.00" hpr="16.3 -118.9 -16.1" scale="0.92 0.92 0.92"/>
+    <static-object lod_distance="50.0" lod_group="torii" model="torii_LOD50.b3d" xyz="-16.50 0.00 173.83" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="75.0" lod_group="torii" model="torii_LOD75.b3d" xyz="-16.50 0.00 178.64" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="120.0" lod_group="torii" model="torii_LOD120.b3d" xyz="-16.50 0.00 183.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="torii" xyz="-50.43 0.00 -50.65" hpr="-0.0 100.0 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="bridge" xyz="-170.79 0.91 41.63" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="150.0" lod_group="bridge" model="bridge_LOD150.b3d" xyz="-170.79 5.05 106.90" hpr="-90.0 50.0 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="50.0" lod_group="bridge" model="bridge_LOD50.b3d" xyz="-170.79 5.05 95.63" hpr="-90.0 50.0 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="500.0" lod_group="bridge" model="bridge_LOD500.b3d" xyz="-170.79 5.05 118.63" hpr="-90.0 50.0 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="directionLantern" xyz="-113.95 2.10 59.71" hpr="-90.0 55.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="directionLanLite" xyz="-157.94 2.73 -71.31" hpr="-90.0 -60.0 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="25.0" lod_group="directionLantern" model="directionLantern_LOD25.b3d" xyz="-169.06 0.73 79.11" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="75.0" lod_group="directionLantern" model="directionLantern_LOD75.b3d" xyz="-165.16 0.73 79.10" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="100.0" lod_group="directionLantern" model="directionLantern_LOD100.b3d" xyz="-161.18 0.73 79.14" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="35.0" lod_group="limit" model="limit_LOD35.b3d" xyz="-33.25 0.46 170.90" hpr="-90.0 73.8 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="directionLantern" xyz="-6.14 2.10 27.37" hpr="-90.0 91.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="25.0" lod_group="directionLanLite" model="directionLanLite_LOD25.b3d" xyz="-157.95 2.73 75.71" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="80.0" lod_group="directionLanLite" model="directionLanLite_LOD80.b3d" xyz="-157.95 2.73 78.71" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="directionLanLite" xyz="-145.35 2.73 -75.78" hpr="-90.0 -82.1 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="directionLanLite" xyz="-171.02 2.73 -59.94" hpr="-90.0 -20.0 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="directionLantern" xyz="-17.51 1.72 -51.47" hpr="-90.0 -134.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="50.0" lod_group="pagoda1" model="pagoda1_LOD50.b3d" xyz="-102.80 7.02 148.30" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="60.0" lod_group="pineTree1" model="pineTree1_LOD50.b3d" xyz="-99.79 0.21 132.22" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="pineTree1" xyz="-124.48 0.66 57.22" hpr="-90.0 51.0 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="pineTree1" xyz="-132.26 -0.08 41.38" hpr="-90.0 19.0 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="pineTree1" xyz="-86.67 0.81 64.98" hpr="-90.0 51.0 -0.0" scale="0.84 0.84 0.84"/>
+    <static-object lod_instance="true" lod_group="pineTree1" xyz="-147.92 -0.08 55.12" hpr="-90.0 -0.0 0.0" scale="0.84 0.84 0.84"/>
+    <static-object lod_distance="500.0" lod_group="pineTree1" model="pineTree1_LOD500.b3d" xyz="-113.77 0.21 119.35" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="100.0" lod_group="pineTree1" model="pineTree1_LOD90.b3d" xyz="-106.75 0.21 125.56" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="pineTree1" xyz="-168.77 0.33 54.07" hpr="-90.0 51.0 -0.0" scale="0.94 0.94 0.94"/>
+    <static-object lod_instance="true" lod_group="pineTree1" xyz="-174.23 -0.23 11.31" hpr="-90.0 75.2 0.0" scale="1.03 1.03 1.03"/>
+    <static-object lod_instance="true" lod_group="pineTree1" xyz="-74.13 0.84 31.33" hpr="-90.0 51.0 -0.0" scale="0.94 0.94 0.94"/>
+    <static-object lod_instance="true" lod_group="pineTree1" xyz="-53.43 0.84 11.93" hpr="-90.0 19.0 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="pineTree1" xyz="-109.44 1.00 65.62" hpr="-90.0 51.0 -0.0" scale="0.94 0.94 0.94"/>
+    <static-object lod_instance="true" lod_group="pineTree1" xyz="-76.11 1.43 53.32" hpr="-90.0 51.0 -0.0" scale="0.84 0.84 0.84"/>
+    <static-object lod_instance="true" lod_group="pineTree1" xyz="-21.62 0.56 31.70" hpr="-90.0 19.0 -0.0" scale="1.25 1.25 1.25"/>
+    <static-object lod_instance="true" lod_group="pineTree1" xyz="-36.51 0.60 20.27" hpr="-90.0 19.0 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="100.0" lod_group="pineLow" model="pineLow_LOD100.b3d" xyz="-92.34 -2.59 121.03" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="500.0" lod_group="pineLow" model="pineLow_LOD500.b3d" xyz="-81.34 -2.59 121.03" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="pineLow" xyz="-105.34 1.29 70.33" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="pineLow" xyz="-93.24 1.72 70.33" hpr="-90.0 -94.2 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="pineLow" xyz="-69.43 2.14 56.58" hpr="-90.0 -52.4 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="pineLow" xyz="-69.43 1.24 40.84" hpr="-90.0 33.1 0.0" scale="0.80 0.80 0.80"/>
+    <static-object lod_instance="true" lod_group="pineLow" xyz="-33.60 2.41 31.48" hpr="-90.0 101.3 -0.0" scale="0.80 0.80 0.80"/>
+    <static-object lod_instance="true" lod_group="pineLow" xyz="-62.46 1.39 25.33" hpr="-90.0 154.9 -0.0" scale="0.66 0.66 0.66"/>
+    <static-object lod_distance="40.0" lod_group="fern" model="fern_LOD30.b3d" xyz="-25.13 0.00 127.66" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="pineTree1" xyz="-107.98 0.18 46.39" hpr="-90.0 6.5 0.0" scale="1.09 1.09 1.09"/>
+    <static-object lod_distance="70.0" lod_group="fern" model="fern_LOD60.b3d" xyz="-26.50 0.00 134.66" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="fern" xyz="-92.29 0.23 45.56" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="100.0" lod_group="fern" model="fern_LOD100.b3d" xyz="-26.94 0.00 142.30" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="fern" xyz="-90.72 0.23 30.16" hpr="-90.0 -80.2 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="fern" xyz="-111.89 0.23 45.56" hpr="-90.0 -31.5 -0.0" scale="0.75 0.75 0.75"/>
+    <static-object lod_instance="true" lod_group="fern" xyz="-115.72 0.23 38.29" hpr="-90.0 -53.1 0.0" scale="0.88 0.88 0.88"/>
+    <static-object lod_instance="true" lod_group="fern" xyz="-124.16 0.23 25.38" hpr="-58.6 -151.5 -24.9" scale="0.88 0.88 0.88"/>
+    <static-object lod_instance="true" lod_group="pineLow" xyz="-48.20 1.88 20.46" hpr="-90.0 120.0 -0.0" scale="1.19 1.19 1.19"/>
+    <static-object lod_instance="true" lod_group="pineLow" xyz="-63.79 2.60 30.23" hpr="-90.0 132.8 -0.0" scale="1.19 1.19 1.19"/>
+    <static-object lod_instance="true" lod_group="fern" xyz="-90.72 0.23 36.03" hpr="-90.0 3.0 -0.0" scale="1.34 1.34 1.34"/>
+    <static-object lod_instance="true" lod_group="fern" xyz="-90.72 0.23 40.71" hpr="-90.0 -78.1 -0.0" scale="0.89 0.89 0.89"/>
+    <static-object lod_instance="true" lod_group="fern" xyz="-133.22 0.06 22.93" hpr="-1.8 -118.4 -76.1" scale="0.76 0.76 0.76"/>
+    <static-object lod_instance="true" lod_group="fern" xyz="-140.46 0.06 25.52" hpr="-102.2 5.9 17.2" scale="0.76 0.76 0.76"/>
+    <static-object lod_instance="true" lod_group="fern" xyz="-151.79 0.06 36.10" hpr="-110.5 46.6 7.1" scale="1.32 1.32 1.32"/>
+    <static-object lod_instance="true" lod_group="fern" xyz="-169.69 -0.90 31.20" hpr="-90.0 42.8 -22.3" scale="1.32 1.32 1.32"/>
+    <static-object lod_instance="true" lod_group="fern" xyz="-163.71 -0.39 25.37" hpr="-90.0 42.8 -0.0" scale="1.32 1.32 1.32"/>
+    <static-object lod_instance="true" lod_group="fern" xyz="-180.51 0.16 20.52" hpr="-76.4 -37.7 -19.8" scale="1.32 1.32 1.32"/>
+    <static-object model="pineVeryLow.b3d" xyz="-51.95 -2.59 66.59" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="pineVeryLow.b3d" xyz="-44.97 1.73 35.98" hpr="-90.0 -28.7 -0.0" scale="1.20 1.20 1.20"/>
+    <static-object model="pineVeryLow.b3d" xyz="-58.13 1.73 40.98" hpr="-90.0 76.3 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="pineVeryLow.b3d" xyz="-121.02 10.33 85.83" hpr="-90.0 -28.7 -0.0" scale="0.69 0.69 0.69"/>
+    <static-object model="pineVeryLow.b3d" xyz="-141.17 10.33 85.83" hpr="-90.0 -28.7 -0.0" scale="0.87 0.87 0.87"/>
+    <static-object model="pineVeryLow.b3d" xyz="-141.91 10.33 69.25" hpr="-90.0 -5.8 0.0" scale="0.64 0.64 0.64"/>
+    <static-object model="pineVeryLow.b3d" xyz="-162.57 10.33 72.68" hpr="-90.0 -5.8 0.0" scale="0.64 0.64 0.64"/>
+    <static-object model="pineVeryLow.b3d" xyz="-162.57 10.33 83.99" hpr="-90.0 -5.8 0.0" scale="0.64 0.64 0.64"/>
+    <static-object model="pineVeryLow.b3d" xyz="-138.68 12.49 3.94" hpr="-90.0 152.2 -0.0" scale="0.46 0.46 0.46"/>
+    <static-object model="pineVeryLow.b3d" xyz="-98.79 11.62 -2.25" hpr="-90.0 -132.2 0.0" scale="0.50 0.50 0.50"/>
+    <static-object model="pineVeryLow.b3d" xyz="-84.02 11.62 -14.10" hpr="-90.0 -132.2 0.0" scale="0.43 0.43 0.43"/>
+    <static-object model="pineVeryLow.b3d" xyz="-77.48 11.62 -29.76" hpr="-90.0 -111.3 -0.0" scale="0.41 0.41 0.41"/>
+    <static-object model="pineVeryLow.b3d" xyz="-105.69 12.08 -56.80" hpr="-90.0 -37.0 -0.0" scale="0.41 0.41 0.41"/>
+    <static-object model="pineVeryLow.b3d" xyz="-77.06 11.62 -45.17" hpr="-90.0 -98.4 0.0" scale="0.58 0.58 0.58"/>
+    <static-object model="pineVeryLow.b3d" xyz="-90.52 11.62 -29.76" hpr="-90.0 -111.3 -0.0" scale="0.86 0.86 0.86"/>
+    <static-object model="pineVeryLow.b3d" xyz="-93.92 11.62 -50.64" hpr="-90.0 -111.3 -0.0" scale="0.68 0.68 0.68"/>
+    <static-object model="pineVeryLow.b3d" xyz="-114.04 11.62 -12.61" hpr="-90.0 -159.1 -0.0" scale="0.86 0.86 0.86"/>
+    <static-object model="pineVeryLow.b3d" xyz="-201.99 10.33 27.80" hpr="-90.0 74.4 0.0" scale="0.64 0.64 0.64"/>
+    <static-object model="pineVeryLow.b3d" xyz="-213.13 10.33 25.88" hpr="-90.0 74.4 0.0" scale="0.64 0.64 0.64"/>
+    <static-object model="pineVeryLow.b3d" xyz="-194.88 10.33 6.78" hpr="-90.0 51.5 -0.0" scale="0.87 0.87 0.87"/>
+    <static-object model="pineVeryLow.b3d" xyz="-185.63 10.33 -16.28" hpr="-90.0 51.5 -0.0" scale="0.69 0.69 0.69"/>
+    <static-object model="pineVeryLow.b3d" xyz="-213.96 11.89 -4.81" hpr="-90.0 37.2 0.0" scale="0.69 0.69 0.69"/>
+    <static-object model="pineVeryLow.b3d" xyz="-160.68 9.69 -11.94" hpr="-90.0 152.2 -0.0" scale="0.59 0.59 0.59"/>
+    <static-object model="pineVeryLow.b3d" xyz="-187.78 15.82 61.07" hpr="-90.0 -46.5 0.0" scale="0.64 0.64 0.64"/>
+    <static-object model="pineVeryLow.b3d" xyz="-199.54 15.82 59.84" hpr="-90.0 -46.5 0.0" scale="0.76 0.76 0.76"/>
+    <static-object model="pineVeryLow.b3d" xyz="-184.98 15.82 72.93" hpr="-90.0 -46.5 0.0" scale="0.76 0.76 0.76"/>
+    <static-object model="pineVeryLow.b3d" xyz="-79.64 0.69 78.67" hpr="-90.0 18.2 0.0" scale="0.91 0.91 0.91"/>
+    <static-object model="pineVeryLow.b3d" xyz="-33.46 0.69 74.49" hpr="-90.0 -4.5 0.0" scale="1.24 1.24 1.24"/>
+    <static-object model="pineVeryLow.b3d" xyz="-21.94 1.17 55.52" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="200.0" lod_group="pagoda1" model="pagoda1_LOD200.b3d" xyz="-102.80 7.02 168.30" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="pagoda1" xyz="-102.80 7.02 36.30" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="limit" xyz="-33.25 0.46 -58.07" hpr="-90.0 73.8 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="90.0" lod_group="limit" model="limit_LOD90.b3d" xyz="-33.25 0.46 173.90" hpr="-90.0 73.8 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="limit" xyz="-24.31 0.76 -39.82" hpr="-90.0 50.4 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="limit" xyz="4.82 0.53 -20.26" hpr="-90.0 16.3 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="limit" xyz="-63.30 0.76 -2.00" hpr="-90.0 110.9 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="pineTree1" xyz="-139.50 -0.08 50.93" hpr="-90.0 19.0 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="pineTree1" xyz="-128.27 -0.08 50.93" hpr="-90.0 19.0 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="500.0" lod_group="sakuraLow" model="sakuraLow_LOD500.b3d" xyz="-65.94 1.11 132.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="100.0" lod_group="sakuraLow" model="sakuraLow_LOD100.b3d" xyz="-65.94 1.11 125.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Plane.007.b3d" xyz="-143.00 15.00 -74.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="sakuraLow" xyz="-27.84 -11.89 -1.99" hpr="0.0 -0.0 0.0" scale="1.09 1.09 1.09"/>
+    <static-object model="waterLily.b3d" xyz="-141.27 -0.47 -49.21" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="waterLily.b3d" xyz="-134.82 -0.65 -53.79" hpr="0.0 -43.6 0.0" scale="0.78 0.78 0.78"/>
+    <static-object model="waterLily.b3d" xyz="-128.54 -0.47 -41.96" hpr="0.0 59.0 0.0" scale="0.78 0.78 0.78"/>
+    <static-object lod_distance="50.0" lod_group="catailVeg" model="catailVeg_LOD50.b3d" xyz="-27.59 -3.04 153.05" hpr="0.0 -145.6 -0.0" scale="0.79 0.79 0.79"/>
+    <static-object lod_instance="true" lod_group="catailVeg" xyz="-149.96 -3.04 -41.77" hpr="0.0 -119.7 -0.0" scale="0.60 0.60 0.60"/>
+    <static-object lod_instance="true" lod_group="catailVeg" xyz="-151.70 -3.04 -37.63" hpr="0.0 -145.6 -0.0" scale="0.79 0.79 0.79"/>
+    <static-object lod_instance="true" lod_group="catailVeg" xyz="-129.05 -3.04 -37.70" hpr="0.0 56.5 0.0" scale="0.60 0.60 0.60"/>
+    <static-object lod_instance="true" lod_group="catailVeg" xyz="-127.05 -3.04 -41.71" hpr="0.0 30.7 0.0" scale="0.79 0.79 0.79"/>
+    <static-object lod_instance="true" lod_group="catailVeg" xyz="-134.34 -3.04 -55.70" hpr="-0.0 97.7 -0.0" scale="0.66 0.66 0.66"/>
+    <static-object lod_instance="true" lod_group="catailVeg" xyz="-131.42 -3.04 -52.29" hpr="-0.0 123.6 -0.0" scale="0.80 0.80 0.80"/>
+    <static-object lod_instance="true" lod_group="catailVeg" xyz="-139.46 -3.04 -59.31" hpr="-0.0 -119.9 -0.0" scale="0.73 0.73 0.73"/>
+    <static-object lod_instance="true" lod_group="catailVeg" xyz="-141.21 -3.04 -54.15" hpr="-0.0 -145.8 -0.0" scale="0.89 0.89 0.89"/>
+    <static-object lod_instance="true" lod_group="sakuraPine" xyz="-16.21 0.95 -13.21" hpr="-8.3 -53.2 12.9" scale="0.60 0.60 0.60"/>
+    <static-object lod_instance="true" lod_group="sakuraPine" xyz="-19.22 0.95 0.00" hpr="16.3 -118.9 -16.1" scale="0.92 0.92 0.92"/>
+    <static-object lod_instance="true" lod_group="sakuraPine" xyz="-26.71 0.95 3.84" hpr="-5.2 136.7 -10.6" scale="0.74 0.74 0.74"/>
+    <static-object lod_instance="true" lod_group="sakuraPine" xyz="-93.09 0.55 27.58" hpr="30.9 -105.7 -29.8" scale="0.74 0.74 0.74"/>
+    <static-object lod_instance="true" lod_group="sakuraPine" xyz="-115.45 0.64 31.67" hpr="5.3 137.5 11.4" scale="0.74 0.74 0.74"/>
     <animated-texture name="monumentWater3.png" dy="-0.300" />
     <animated-texture name="monumentWater2.png" dy="-0.400" />
     <animated-texture name="monumentWater2.png" dy="-0.700" />
@@ -136,7 +136,7 @@
     <animated-texture name="water_light2.png" dy="0.050" />
     <animated-texture name="water_light2.png" dy="0.050" />
   </track>
-  <particle-emitter kind="waterfall.xml" x="-183.360977" y="0.767353" z="50.632050" h="0.000000"/>
+  <particle-emitter kind="waterfall.xml" x="-183.36" y="0.77" z="50.63" h="0.000000"/>
   <object type="billboard" texture="lightHaloY.png" xyz="-157.922165 3.779043 -71.275635" 
              width="7.591702" height="9.267756" >
   </object>
