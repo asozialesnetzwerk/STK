@@ -6,5 +6,6 @@
         designer    = "Thomas Oppl"
         music       = "Penguin_Party.music"
         screenshot  = "city_screenshot.jpg"
+   reverse="true"
 >
 </track>
