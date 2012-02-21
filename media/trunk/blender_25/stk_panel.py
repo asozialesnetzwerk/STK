@@ -699,6 +699,12 @@ type = StkEnumProperty('type', "Type",
                                   StkIntProperty(id='clip_distance', name="Clip Distance", default=0,
                                                  doc="If non-zero, the camera distance at which particles are hidden (for performance reasons)")
                                  ], doc="To be applied to an empty; particles will be emitted from this point"),
+        'single_lod'       : StkEnumChoice('Single LOD',
+                                 [
+                                  StkProperty('name', "Name", "", doc="Name of this object, used to name the model file when exporting (if not specified, the blender name of the object will be used)"),
+                                  StkFloatProperty( id='lod_distance', name="Distance",       default=60.0, min=0.0, max=5000.0,
+                                                    doc="Distance from the camera at which this object becomes visible")
+                                 ], doc="An object that will only be visible when the camera is close enough (shortcut for LOD objects that don't have multiple levels)"),
         'start'            : StkEnumChoice('Start position', subproperties=[StkIntProperty('start_index', "Start Index", 1,
                                                                                            doc="Start position index for battle mode")],
                                            doc="A start position for karts in battle mode (only useful if this track is an arena)"),

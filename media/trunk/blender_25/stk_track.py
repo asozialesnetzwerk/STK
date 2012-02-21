@@ -1164,11 +1164,19 @@ class TrackExport:
             name     = getProperty(obj, "name", obj.name)
             if len(name) == 0: name = obj.name
             
-            if getProperty(obj, "type", "X") != "lod_instance":
+            type = getProperty(obj, "type", "X")
+            
+            if type != "lod_instance":
                 b3d_name = self.exportLocalB3D(obj, sPath, name)
             kind = getProperty(obj, "kind", "")
             
-            if getProperty(obj, "type", "X") == "lod_instance":
+            if type == "lod_instance":
+                model_string = ""
+            elif type == "single_lod":
+                # single_lod is a shortcut that generates both a lod_instance and a lod_model
+                model_string2 =  " model=\"%s\""%b3d_name
+                lodstring2 = ' lod_distance="' + str(getProperty(obj, "lod_distance", 60.0)) + '" lod_group="_single_lod_' + name + '"'
+                f.write("    <static-object%s%s %s/>\n" % (lodstring2, model_string2, getXYZHPRString(obj)) )
                 model_string = ""
             else:
                 model_string =  " model=\"%s\""%b3d_name
@@ -1231,6 +1239,8 @@ class TrackExport:
             if len(group) == 0:
                 log_warning("LOD instance " + obj.name + " has no group property")
             lodstring = ' lod_instance="true" lod_group="' + group + '"'
+        elif type == "single_lod":
+            lodstring = ' lod_instance="true" lod_group="_single_lod_' + getProperty(obj, "name", obj.name) + '"'
         return lodstring
 
     # --------------------------------------------------------------------------
@@ -1694,7 +1704,7 @@ class TrackExport:
         for obj in lObjects:
             type = getProperty(obj, "type", "??")
             interact = getProperty(obj, "interaction", "static")
-            if type == "lod_instance" or type == "lod_model":
+            if type == "lod_instance" or type == "lod_model" or type == "single_lod":
                 interact = "static"
             
             if interact=="static" or interact=="reset":
@@ -1988,7 +1998,7 @@ class TrackExport:
                 found_main_driveline = True
             elif stktype=="DRIVELINE":
                 lDrivelines.append(Driveline(obj, 0))
-            elif stktype=="OBJECT" or stktype=="SPECIAL_OBJECT" or stktype=="LOD_MODEL" or stktype=="LOD_INSTANCE":
+            elif stktype=="OBJECT" or stktype=="SPECIAL_OBJECT" or stktype=="LOD_MODEL" or stktype=="LOD_INSTANCE" or stktype=="SINGLE_LOD":
                 lObjects.append(obj)
             # for billboard
             elif stktype=="BILLBOARD":
