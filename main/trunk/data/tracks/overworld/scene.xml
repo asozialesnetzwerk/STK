@@ -98,23 +98,23 @@
     <static-object model="pineVeryLow.b3d" xyz="148.91 10.58 98.92" hpr="-41.0 -73.4 -49.2" scale="0.50 0.50 0.50"/>
     <static-object model="pineVeryLow.b3d" xyz="144.48 12.44 80.76" hpr="-63.0 -77.5 -28.0" scale="0.50 0.50 0.50"/>
     <static-object model="pineVeryLow.b3d" xyz="136.28 8.19 60.55" hpr="-66.0 -86.1 -24.5" scale="0.63 0.63 0.63"/>
-    <static-object model="bubble_solid_house.b3d" xyz="-7.84 -3.55 28.17" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" if="trophies lt 0"/>
-    <static-object model="bubble_solid_house.b3d" xyz="3.95 -4.37 45.84" hpr="0.0 23.5 0.0" scale="1.00 1.00 1.00" if="trophies lt 1"/>
-    <static-object model="bubble_solid_house.b3d" xyz="30.67 -0.66 22.50" hpr="-0.0 -163.0 -0.0" scale="1.00 1.00 1.00" if="trophies lt 0"/>
-    <static-object model="bubble_solid_mountain.b3d" xyz="123.36 0.66 36.48" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" if="trophies lt 0"/>
-    <static-object model="bubble_solid_mountain.b3d" xyz="126.36 0.90 2.64" hpr="0.7 -8.3 0.7" scale="1.00 1.00 1.00" if="trophies lt 1"/>
-    <static-object model="bubble_solid_mountain.b3d" xyz="130.11 4.24 -21.80" hpr="0.7 -8.3 0.7" scale="1.00 1.00 1.00" if="trophies lt 2"/>
-    <static-object model="bubble_solid2.b3d" xyz="-86.30 -0.89 206.96" hpr="-1.8 -23.8 4.4" scale="1.00 1.00 1.00" if="trophies lt 0"/>
-    <static-object model="bubble_solid.b3d" xyz="-83.16 -2.58 257.91" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" if="trophies lt 1"/>
-    <static-object model="bubble_solid2.b3d" xyz="-75.54 -3.78 291.73" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" if="trophies lt 2"/>
-    <static-object model="bubble_solid_sea.b3d" xyz="104.97 -4.78 258.03" hpr="-3.8 7.2 69.7" scale="2.08 2.08 2.08" if="trophies lt 6"/>
-    <static-object model="bubble_solid_sea.b3d" xyz="103.59 -4.69 235.33" hpr="-3.8 7.2 69.7" scale="2.08 2.08 2.08" if="trophies lt 5"/>
-    <static-object model="bubble_solid_techno.b3d" xyz="14.00 -15.29 410.78" hpr="8.1 -7.9 45.6" scale="1.97 1.97 1.97" if="trophies lt 12"/>
-    <static-object model="bubble_solid_saucer.b3d" xyz="52.91 -13.66 425.68" hpr="-9.4 170.6 -31.6" scale="1.02 1.02 1.02" if="trophies lt 10"/>
+    <static-object model="bubble_solid_house.b3d" xyz="-7.84 -3.55 28.17" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" if="trophies"/>
+    <static-object model="bubble_solid_house.b3d" xyz="3.95 -4.37 45.84" hpr="0.0 23.5 0.0" scale="1.00 1.00 1.00" if="trophies"/>
+    <static-object model="bubble_solid_house.b3d" xyz="30.67 -0.66 22.50" hpr="-0.0 -163.0 -0.0" scale="1.00 1.00 1.00" if="trophies"/>
+    <static-object model="bubble_solid_mountain.b3d" xyz="123.36 0.66 36.48" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" if="trophies"/>
+    <static-object model="bubble_solid_mountain.b3d" xyz="126.36 0.90 2.64" hpr="0.7 -8.3 0.7" scale="1.00 1.00 1.00" if="trophies"/>
+    <static-object model="bubble_solid_mountain.b3d" xyz="130.11 4.24 -21.80" hpr="0.7 -8.3 0.7" scale="1.00 1.00 1.00" if="trophies"/>
+    <static-object model="bubble_solid2.b3d" xyz="-86.30 -0.89 206.96" hpr="-1.8 -23.8 4.4" scale="1.00 1.00 1.00" if="trophies"/>
+    <static-object model="bubble_solid.b3d" xyz="-83.16 -2.58 257.91" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" if="trophies"/>
+    <static-object model="bubble_solid2.b3d" xyz="-75.54 -3.78 291.73" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" if="trophies"/>
+    <static-object model="bubble_solid_sea.b3d" xyz="104.97 -4.78 258.03" hpr="-3.8 7.2 69.7" scale="2.08 2.08 2.08" if="trophies"/>
+    <static-object model="bubble_solid_sea.b3d" xyz="103.59 -4.69 235.33" hpr="-3.8 7.2 69.7" scale="2.08 2.08 2.08" if="trophies"/>
+    <static-object model="bubble_solid_techno.b3d" xyz="14.00 -15.29 410.78" hpr="8.1 -7.9 45.6" scale="1.97 1.97 1.97" if="trophies"/>
+    <static-object model="bubble_solid_saucer.b3d" xyz="52.91 -13.66 425.68" hpr="-9.4 170.6 -31.6" scale="1.02 1.02 1.02" if="trophies"/>
     <static-object lod_instance="true" lod_group="rocket" xyz="49.74 -18.06 454.78" hpr="0.0 48.8 0.0" scale="0.62 0.62 0.62"/>
     <static-object lod_distance="350.0" lod_group="rocket" model="rocket_lo.b3d" xyz="279.62 -14.36 459.51" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_distance="80.0" lod_group="rocket" model="rocket_hi.b3d" xyz="263.24 -14.36 459.51" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object model="bubble_solid_sphere.b3d" xyz="137.64 -11.80 275.41" hpr="0.0 13.7 0.0" scale="1.00 1.00 1.00" if="trophies lt 8"/>
+    <static-object model="bubble_solid_sphere.b3d" xyz="137.64 -11.80 275.41" hpr="0.0 13.7 0.0" scale="1.00 1.00 1.00" if="trophies"/>
     <static-object lod_instance="true" lod_group="bubble_sea3" xyz="148.22 -10.51 240.15" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_distance="100.0" lod_group="bubble_sea3" model="bubble_sea3.b3d" xyz="164.11 -8.40 244.05" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="bubble_sea4" xyz="142.34 -10.29 275.44" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
@@ -124,11 +124,11 @@
     <static-object lod_instance="true" lod_group="bubble_forest2" xyz="5.89 -0.96 226.48" hpr="0.0 -164.2 -0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_distance="100.0" lod_group="bubble_forest2" model="bubble_forest2.b3d" xyz="-4.99 0.93 226.77" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_distance="100.0" lod_group="bubble_forest3" model="bubble_forest3.b3d" xyz="-17.05 0.93 250.54" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object model="bubble_solid_sphere.b3d" xyz="143.70 -11.91 239.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" if="trophies lt 7"/>
-    <static-object model="bubble_solid_sphere.b3d" xyz="11.36 -1.49 226.28" hpr="-0.0 -162.9 -0.0" scale="1.20 1.20 1.20" if="trophies lt 7"/>
-    <static-object model="bubble_solid_sphere.b3d" xyz="10.61 -2.96 250.44" hpr="-0.0 -162.9 -0.0" scale="1.20 1.20 1.20" if="trophies lt 10"/>
+    <static-object model="bubble_solid_sphere.b3d" xyz="143.70 -11.91 239.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" if="trophies"/>
+    <static-object model="bubble_solid_sphere.b3d" xyz="11.36 -1.49 226.28" hpr="-0.0 -162.9 -0.0" scale="1.20 1.20 1.20" if="trophies"/>
+    <static-object model="bubble_solid_sphere.b3d" xyz="10.61 -2.96 250.44" hpr="-0.0 -162.9 -0.0" scale="1.20 1.20 1.20" if="trophies"/>
     <static-object lod_distance="100.0" lod_group="bubble_sea4" model="bubble_sea4.b3d" xyz="159.61 -8.40 277.44" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object model="bubble_solid_sphere.b3d" xyz="42.27 -3.11 233.94" hpr="0.0 8.5 0.0" scale="1.20 1.20 1.20" if="trophies lt 5"/>
+    <static-object model="bubble_solid_sphere.b3d" xyz="42.27 -3.11 233.94" hpr="0.0 8.5 0.0" scale="1.20 1.20 1.20" if="trophies"/>
     <static-object lod_instance="true" lod_group="tree_2" xyz="33.87 -5.40 270.62" hpr="0.0 -180.0 -0.0" scale="1.20 1.20 1.20"/>
     <static-object lod_instance="true" lod_group="tree_2" xyz="38.46 -5.14 243.89" hpr="-0.0 112.2 -0.0" scale="1.20 1.20 1.20"/>
     <static-object lod_instance="true" lod_group="tree_2" xyz="6.61 -2.16 236.99" hpr="0.0 165.6 0.0" scale="1.20 1.20 1.20"/>
