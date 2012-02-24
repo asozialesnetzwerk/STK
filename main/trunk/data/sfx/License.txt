@@ -86,8 +86,8 @@
     released under CC-BY-SA 3.0
 
 * pre_start_race
-    obtained from : http://www.freesoundfiles.tintagel.net/Audio/
-    (see license text below)
+    Released under CC-BY-SA 3.0 license
+    by Iwan 'qubodup' Gabovitch <http://opengameart.org/content/race-start-beeps>
     
 * shoot
     Released under the GNU GPL v2 license
@@ -97,9 +97,9 @@
           
 * skid 
     Released under Creative Commons Attribution - Share Alike License 3.0
-    by Atheal Washington and Stephen Dunn (stevo14)
-    WARNING: in the past, Atheal Washington also provided us with material that infringed copyright.
-             the status of this particular sound is unknown, and a replacement would be welcome
+    by Tom Haigh and Iwan 'qubodup' Gabovitch
+    http://www.freesound.org/people/audible-edge/sounds/71739/
+    http://opengameart.org/content/car-tire-squeal-skid-loop
 
 * splash
     Based on 'Fish Splashing-SoundBible.com-250179430' sound bible, by blastwavefx.com, released under CC-BY-SA 3.0
@@ -107,8 +107,8 @@
     Mix by Marianne Gagnon, released under CC-BY-SA 3.0
 
 * start_race
-    obtained from : http://www.freesoundfiles.tintagel.net/Audio/
-    (see license text below)
+    Released under CC-BY-SA 3.0 license
+    by Iwan 'qubodup' Gabovitch <http://opengameart.org/content/race-start-beeps>
     
 * strike
     based on http://www.freesound.org/samplesViewSingle.php?id=82359 (1 and 2) and
