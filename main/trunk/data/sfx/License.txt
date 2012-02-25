@@ -142,35 +142,3 @@
 
 * wee
     Released under the GNU GPL, coming from original (Super)TuxKart
-
-______________________________________________________________________________________________________
-
-
-Tintagel license :
-    | These sound files are provided free of charge, without any representation or warranty whatsoever.
-    | To the best of our knowledge, all wave, midi, and audio files presented here are in the public
-    | domain and are available for use without restriction.
-
-    
-SoundSnap license (short version) :
-    |    You are Free:
-    |        - To remix or transform the sounds in any way
-    |        - To copy, distribute and transmit the sounds
-    |        - To use the sounds in any music, film, video game, website etc. whether commercial
-    |          or not, without paying royalties or other fees
-    |    You Cannot:
-    |        - Make commercial distribution of these sounds 'as they are'.
-    |          For example, you cannot download and sell them as part of a CD library
-
-
-Creative-Common Sampling Plus license (short version) :
-    |    You are free:
-    |        - To sample, mash-up, or otherwise creatively transform this work for
-    |          commercial or noncommercial purposes.
-    |        - To perform, display, and distribute copies of this whole work for noncommercial purposes 
-    |    Under the following conditions:
-    |        - You must attribute the work in the manner specified by the author or licensor
-    |          (but not in any way that suggests that they endorse you or your use of the work).
-    |        - You may not use this work to advertise for or promote anything
-    |          but the work you create from it.
-    |        - For any reuse or distribution, you must make clear to others the license terms of this work.
