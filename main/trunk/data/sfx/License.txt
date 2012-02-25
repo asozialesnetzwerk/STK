@@ -22,8 +22,9 @@
     released under public domain
 
 * crash
-    obtained from : http://www.freesoundfiles.tintagel.net/Audio/
-    (see license text below)
+    released under CC-BY-SA 3.0
+    layered and mixed by qubodup <qubodup.net>
+    recorded by Halleck <http://www.freesound.org/people/Halleck/>
     
 * energy_bar_full
     By legoluft (http://www.legoluft.de), from the Krank sound pack
