@@ -1109,24 +1109,26 @@ class TrackExport:
         else:
             model_string = "model=\"%s\" " % name
         
-        interaction = getProperty(obj, "interaction", '??')
+        interaction = getProperty(obj, "interaction", 'static')
         if interaction == 'reset':
             reset_string = " reset=\"y\""
         else:
             reset_string = ""
+        
+        interaction_string = ' interaction="' + interaction + '"'
         
         tangent_string = ""
         if getProperty(obj, "tangents", "false") == "true":
             tangent_string="tangents=\"true\" "
             
         if parent and parent.type=="ARMATURE":
-            f.write("  <object type=\"animation\" %s%s %s%s%s%s%s>\n"% \
+            f.write("  <object type=\"animation\" %s%s %s%s%s%s%s%s>\n"% \
                     (model_string, getXYZHPRString(parent), shape, looped,
-                     lodstring, reset_string, tangent_string))
+                     lodstring, reset_string, tangent_string, interaction_string))
         else:
-            f.write("  <object type=\"animation\" %s%s %s%s%s%s%s>\n"% \
+            f.write("  <object type=\"animation\" %s%s %s%s%s%s%s%s>\n"% \
                     (model_string, getXYZHPRString(obj), shape, looped,
-                     lodstring, reset_string, tangent_string))
+                     lodstring, reset_string, tangent_string, interaction_string))
         self.writeIPO(f, ipo)
         f.write("  </object>\n")
             
