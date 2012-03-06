@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev Unknown -->
+<materials>
+  <material name="road_sand.jpg">
+    <particles base="smoke_yellow.xml" condition="skid"/>
+  </material>
+  <material name="road_sand_side.jpg">
+    <particles base="smoke.xml" condition="skid drive"/>
+  </material>
+  <material name="sand2.jpg" max-speed="0.60">
+    <particles base="smoke_yellow.xml" condition="skid drive"/>
+  </material>
+  <material name="sea2.jpg" water-shader="Y"/>
+</materials>
