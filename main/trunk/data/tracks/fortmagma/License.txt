@@ -12,7 +12,7 @@ Textures based on pictures from burningwell
 zipper.png by Dakal
     by Dakal, released under CC-BY-SA 3.0
 
-roof
+roof, castelwall.jpg
     by Jean-Manuel Clemençon (Samuncle; http://samuncle.toile-libre.org/)
     based on work by Marianne Gagnon (Auria), based on public domain photos from BurningWell
 
