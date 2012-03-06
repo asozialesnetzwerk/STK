@@ -21,7 +21,7 @@ Texture from wikipedia
     http://fr.wikipedia.org/wiki/Fichier:Cyprinus_carpio.jpg
     released under CC-BY-SA 3.0
     
-water_light3
+water_light3, grass_detail1
     by Marianne Gagnon and Samuncle, based on public images from Bruningwell
     released under CC-BY-SA 3.0
 
