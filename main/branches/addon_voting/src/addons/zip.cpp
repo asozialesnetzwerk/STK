@@ -58,17 +58,18 @@ bool extract_zip(const std::string &from, const std::string &to)
 {
     //Add the zip to the file system
     IFileSystem *file_system = irr_driver->getDevice()->getFileSystem();
-    if(!file_system->addFileArchive(from.c_str(), 
-                                    /*ignoreCase*/false, 
-                                   /*ignorePath*/true, io::EFAT_ZIP))
+    IFileArchive *zip_archive = NULL;
+    if (!file_system->addFileArchive(from.c_str(),
+                                     /* ignoreCase */ false,
+                                     /* ignorePath */ true,
+                                     io::EFAT_ZIP,
+                                     /* password */ "",
+                                     &zip_archive))
     {
         return false;
     }
+    assert(zip_archive != NULL);
 
-    // Get the recently added archive, which is necessary to get a 
-    // list of file in the zip archive.
-    io::IFileArchive *zip_archive = 
-        file_system->getFileArchive(file_system->getFileArchiveCount()-1);
     const io::IFileList *zip_file_list = zip_archive->getFileList();
     // Copy all files from the zip archive to the destination
     bool error = false;
@@ -113,12 +114,8 @@ bool extract_zip(const std::string &from, const std::string &to)
         src_file->drop();
     }
     // Remove the zip from the filesystem to save memory and avoid 
-    // problem with a name conflict. Note that we have to convert
-    // the path using getAbsolutePath, otherwise windows name
-    // will not be detected correctly (e.g. if from=c:\...  the
-    // stored filename will be c:/..., which then does not match
-    // on removing it. getAbsolutePath will convert all \ to /.
-    file_system->removeFileArchive(file_system->getAbsolutePath(from.c_str()));
+    // problem with a name conflict.
+    file_system->removeFileArchive(zip_archive);
     
     return !error;
 }   // extract_zip
