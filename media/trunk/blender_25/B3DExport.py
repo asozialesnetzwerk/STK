@@ -38,7 +38,7 @@ bl_info = {
     "name": "B3D (BLITZ3D) Model Exporter",
     "description": "Exports a blender scene or object to the B3D (BLITZ3D) format",
     "author": "Diego 'GaNDaLDF' Parisi, Joerg Henrichs, Marianne Gagnon",
-    "version": (3,0),
+    "version": (3,1),
     "blender": (2, 5, 9),
     "api": 31236,
     "location": "File > Export",
@@ -338,14 +338,10 @@ def write_brus(objects=[]):
             if (progress % 10 == 0): print("BRUS",progress,"/",len(exp_obj))
             
         if obj.type == "MESH":
-            #data = obj.getData(mesh = True)
             data = obj.data
             
             if len(data.uv_textures) <= 0:
                 continue
-            
-            # FIXME?
-            #orig_uvlayer = data.activeUVLayer
 
             if DEBUG: print("<obj name=",obj.name,">")
 
@@ -355,7 +351,6 @@ def write_brus(objects=[]):
                 
                 face_stack = []
                 
-                # FIXME: add back support for multiple UV layers!
                 for iuvlayer,uvlayer in enumerate(data.uv_textures):
                     if iuvlayer < 8:
                         
@@ -552,7 +547,6 @@ def write_node(objects=[]):
             
             bone_stack = {}
             keys_stack = []
-            #data = obj.getData(mesh = True)
 
             anim_data = None
             
@@ -594,10 +588,25 @@ def write_node(objects=[]):
                 else:
                     matrix = obj.matrix_world*TRANS_MATRIX
                     scale_matrix = obj.matrix_world.copy()
+                
+                
+                if bpy.app.version[1] >= 62:
+                    # blender 2.62 broke the API : Column-major access was changed to row-major access
+                    # TODO: test me
+                    tmp = mathutils.Vector([matrix[0][1], matrix[1][1], matrix[2][1], matrix[3][1]])
+                    matrix[0][1] = matrix[0][2]
+                    matrix[1][1] = matrix[1][2]
+                    matrix[2][1] = matrix[2][2]
+                    matrix[3][1] = matrix[3][2]
                     
-                tmp = mathutils.Vector(matrix[1])
-                matrix[1] = matrix[2]
-                matrix[2] = tmp
+                    matrix[0][2] = tmp[0]
+                    matrix[1][2] = tmp[1]
+                    matrix[2][2] = tmp[2]
+                    matrix[3][2] = tmp[3]
+                else:
+                    tmp = mathutils.Vector(matrix[1])
+                    matrix[1] = matrix[2]
+                    matrix[2] = tmp
 
                 temp_buf.append(write_string(obj.name)) #Node Name
 
@@ -656,8 +665,14 @@ def write_node(objects=[]):
                         par_matrix = transform*par_matrix*transform
                         
                         # FIXME: that's ugly, find a clean way to change the matrix.....
-                        par_matrix[3][1] = -par_matrix[3][1]
-                        par_matrix[3][2] = -par_matrix[3][2]
+                        if bpy.app.version[1] >= 62:
+                            # blender 2.62 broke the API : Column-major access was changed to row-major access
+                            # TODO: test me
+                            par_matrix[1][3] = -par_matrix[1][3]
+                            par_matrix[2][3] = -par_matrix[2][3]
+                        else:
+                            par_matrix[3][1] = -par_matrix[3][1]
+                            par_matrix[3][2] = -par_matrix[3][2]
                         
                         #c = par_matrix
                         #print("With parent")
@@ -703,9 +718,6 @@ def write_node(objects=[]):
                     if not bone.parent:
                         read_armature(arm_matrix,bone)
 
-                # FIXME?
-                #arm_action.setActive(arm)
-                
                 frame_count = first_frame
                 
                 last_frame = int(getArmatureAnimationEnd(arm))
@@ -721,16 +733,6 @@ def write_node(objects=[]):
                     
                     transform = mathutils.Matrix([[-1,0,0,0],[0,0,1,0],[0,1,0,0],[0,0,0,1]])
                     arm_matrix = transform*arm_matrix
-                    
-                    # FIXME: ugly manual changes to matrix to make it more similar to Blender 2.4 exporter matrix
-                    #arm_matrix[1][2] = -arm_matrix[1][2]
-                    #arm_matrix[2][1] = -arm_matrix[2][1]
-                    #arm_matrix[3][0] = -arm_matrix[3][0]
-                    #tmp = arm_matrix[3][1]
-                    #arm_matrix[3][1] = arm_matrix[3][2]
-                    #arm_matrix[3][2] = tmp
-                    
-                    #print("arm_matrix =", arm_matrix)
 
                     for bone_name in arm.data.bones.keys():
                         #bone_matrix = mathutils.Matrix(arm_pose.bones[bone_name].poseMatrix)
@@ -1187,9 +1189,6 @@ def write_node_mesh_tris(obj, data, obj_count,arm_action,exp_root):
                 
                 if iuvlayer >= len(data.uv_textures):
                     continue
-                
-                #FIXME?
-                #data.activeUVLayer = uvlayer
 
                 # Blender 2.5 :
                 # data.uv_textures[0].data[0].image
@@ -1374,6 +1373,7 @@ def write_node_keys(ibone):
             temp_buf.append(write_int(keys_stack[ikeys][0])) #Frame
 
             position = keys_stack[ikeys][2]
+            # FIXME: we should use the same matrix format everywhere and not require this
             if b3d_parameters.get("local-space"):
                 temp_buf.append(write_float_triplet(position[0], position[2], position[1]))
             else:
