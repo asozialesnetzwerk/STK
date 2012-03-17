@@ -1,3 +1,15 @@
+# Kohana
+We use a framework called Kohana (http://kohanaframework.org).
+All files within the "system" folder are part of the framework and you should
+never modify these files because they might get overwritten when switching to
+a newer Kohana version. Instead you should rely on the "cascading filesystem"
+feature which allows to customize almost all components. Please refer to the
+Kohana user guide for more details.
+
+You can run some sanity checks by renaming _install.php to install.php.
+Make sure the directories application/cache and application/logs are writable!
+
+# Database scheme
 There is a sql scheme : table.sql (maybe it needs updates, in that case, just
 tell me).
 Copy config-base.php to config.php and edit the file manually.
