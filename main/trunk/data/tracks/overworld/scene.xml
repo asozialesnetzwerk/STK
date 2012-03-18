@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 10769 -->
+<!-- Generated with script from SVN rev 10928 -->
 <scene>
   <track model="overworld_track.b3d" x="0" y="0" z="0">
     <static-object lod_instance="true" lod_group="bubble_desert2" xyz="-89.49 -0.83 206.32" hpr="3.9 -15.9 -2.7" scale="8.70 8.70 8.70"/>
@@ -171,17 +171,17 @@
   <object type="action-trigger" action="garage" distance="5.0" xyz="2.61 0.26 -21.81" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
   <object type="movable" xyz="14.29 -17.74 428.10" hpr="-2.6 -2.2 -0.6" scale="0.92 0.92 0.92"
           model="cart.b3d" shape="box" mass="100.0"/>
-  <object type="animation" model="cogwheel3.b3d" xyz="16.67 -14.64 439.02" hpr="83.9 140.1 -9.4" scale="0.72 0.72 0.72" >
+  <object type="animation" model="cogwheel3.b3d" xyz="16.67 -14.64 439.02" hpr="83.9 140.1 -9.4" scale="0.72 0.72 0.72"  interaction="ghost">
   </object>
-  <object type="animation" model="cogwheel4.b3d" xyz="16.31 -11.60 438.72" hpr="-129.3 -9.9 82.5" scale="0.55 0.55 0.55" >
+  <object type="animation" model="cogwheel4.b3d" xyz="16.31 -11.60 438.72" hpr="-129.3 -9.9 82.5" scale="0.55 0.55 0.55"  interaction="ghost">
   </object>
-  <object type="animation" model="cogwheel2.b3d" xyz="16.67 -8.60 439.02" hpr="90.0 139.7 -0.0" scale="0.72 0.72 0.72" >
+  <object type="animation" model="cogwheel2.b3d" xyz="16.67 -8.60 439.02" hpr="90.0 139.7 -0.0" scale="0.72 0.72 0.72"  interaction="ghost">
   </object>
   <object type="movable" xyz="-53.30 -8.55 215.98" hpr="-14.6 56.2 -3.2" scale="1.00 1.00 1.00"
           model="skull.b3d" shape="box" mass="100.0"/>
   <object type="movable" xyz="-72.93 -5.96 317.42" hpr="-10.5 -39.5 -2.3" scale="1.00 1.00 1.00"
           model="skull.b3d" shape="box" mass="100.0"/>
-  <object type="animation" model="Light.b3d" xyz="206.91 -7.93 298.80" hpr="0.0 -0.0 0.0" scale="0.47 0.47 0.47" >
+  <object type="animation" model="Light.b3d" xyz="206.91 -7.93 298.80" hpr="0.0 -0.0 0.0" scale="0.47 0.47 0.47"  interaction="ghost">
   </object>
   <object type="billboard" texture="crystal_ball_halo.png" xyz="-4.973549 -3.446599 52.445259" 
              width="1.559660" height="1.562031" >
