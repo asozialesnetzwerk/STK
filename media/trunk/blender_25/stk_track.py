@@ -669,6 +669,9 @@ class TrackExport:
             is_arena="n"
         is_arena = not (is_arena[0]=="n" or is_arena[0]=="N" or \
                         is_arena[0]=="f" or is_arena[0]=="F"      )
+
+        is_internal = getIdProperty(scene, "internal",   "n"            )
+        is_internal = (is_internal == "true")
         
         designer    = getIdProperty(scene, "designer",   ""             )
         
@@ -712,6 +715,9 @@ class TrackExport:
         
         if is_arena:
             f.write("        arena       = \"Y\"\n")
+
+        if is_internal:
+            f.write("        internal    = \"Y\"\n")
         
         if screenshot:
             f.write("        screenshot  = \"%s\"\n"%screenshot)
