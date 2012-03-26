@@ -1,46 +1,42 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 7732 -->
+<!-- Generated with script from SVN rev Unknown -->
 <scene>
   <track model="hacienda_track.b3d" x="0" y="0" z="0">
-    <static-object model="Plane.002.b3d" xyz="309.950012 6.816651 191.000000" hpr="-89.999996 44.999998 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object model="Plane.009.b3d" xyz="-10.535511 3.530046 104.222214" hpr="-89.999996 114.354429 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object model="Plane.010.b3d" xyz="-16.837925 3.611140 84.850960" hpr="-89.999996 89.999996 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object model="Plane.018.b3d" xyz="-9.287827 1.061536 124.155380" hpr="89.999996 124.022083 0.000000" scale="1.550462 1.550462 1.550462"/>
-    <static-object model="Plane.019.b3d" xyz="-36.551079 1.061536 94.617584" hpr="89.999996 124.022083 0.000000" scale="2.065848 2.065848 2.065848"/>
-    <static-object model="Plane.021.b3d" xyz="93.920021 5.440402 103.466812" hpr="0.000000 0.000000 -99.999994" scale="1.395905 1.395905 1.395905"/>
-    <static-object model="Plane.023.b3d" xyz="93.920021 5.235190 96.523232" hpr="0.000000 0.000000 -99.999994" scale="1.976332 1.976332 1.976332"/>
-    <static-object model="Plane.024.b3d" xyz="82.677414 5.235190 102.686172" hpr="0.000000 2.376045 -91.543038" scale="1.976332 1.976332 1.976332"/>
-    <static-object model="Plane.025.b3d" xyz="73.050026 5.235190 95.988853" hpr="0.000000 2.376045 -91.543038" scale="2.349022 2.349022 2.349022"/>
-    <static-object model="Plane.026.b3d" xyz="107.739128 5.235190 98.905632" hpr="0.000000 0.000000 -99.999994" scale="1.976332 1.976332 1.976332"/>
-    <static-object model="Plane.043.b3d" xyz="388.002991 4.049253 13.777832" hpr="-0.000000 86.717953 0.000000" scale="2.507707 2.507707 2.507707"/>
-    <static-object model="Plane.044.b3d" xyz="388.002991 11.031302 153.431229" hpr="-0.000000 56.741851 0.000000" scale="2.877843 2.877843 2.877843"/>
-    <static-object model="Plane.045.b3d" xyz="388.002991 1.694489 -116.023880" hpr="-0.000000 32.681055 0.000000" scale="3.756340 3.756340 3.756340"/>
-    <static-object model="Plane.046.b3d" xyz="311.032959 4.971196 68.846397" hpr="-0.000000 56.741851 0.000000" scale="2.877843 2.877843 2.877843"/>
-    <static-object model="Plane.047.b3d" xyz="309.836151 -3.360561 13.814255" hpr="-0.000000 56.741851 0.000000" scale="2.877843 2.877843 2.877843"/>
-    <static-object model="Plane.049.b3d" xyz="384.464722 7.749483 112.150581" hpr="-89.999996 44.999998 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object model="Plane.050.b3d" xyz="384.464722 -7.065646 -25.183746" hpr="-89.999996 44.999998 0.000000" scale="1.000000 1.000000 1.000000"/>
+    <static-object model="Plane.002.b3d" xyz="309.95 6.82 191.00" hpr="-90.0 45.0 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Plane.009.b3d" xyz="-10.54 3.53 104.22" hpr="-90.0 114.4 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Plane.010.b3d" xyz="-16.84 3.61 84.85" hpr="-90.0 90.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Plane.018.b3d" xyz="-9.29 1.06 124.16" hpr="90.0 124.0 -0.0" scale="1.55 1.55 1.55"/>
+    <static-object model="Plane.019.b3d" xyz="-36.55 1.06 94.62" hpr="90.0 124.0 -0.0" scale="2.07 2.07 2.07"/>
+    <static-object model="Plane.021.b3d" xyz="93.92 5.44 103.47" hpr="0.0 -0.0 -100.0" scale="1.40 1.40 1.40"/>
+    <static-object model="Plane.023.b3d" xyz="93.92 5.24 96.52" hpr="0.0 -0.0 -100.0" scale="1.98 1.98 1.98"/>
+    <static-object model="Plane.024.b3d" xyz="82.68 5.24 102.69" hpr="-2.4 -0.1 -91.5" scale="1.98 1.98 1.98"/>
+    <static-object model="Plane.025.b3d" xyz="73.05 5.24 95.99" hpr="-2.4 -0.1 -91.5" scale="2.35 2.35 2.35"/>
+    <static-object model="Plane.026.b3d" xyz="107.74 5.24 98.91" hpr="0.0 -0.0 -100.0" scale="1.98 1.98 1.98"/>
+    <static-object model="Plane.043.b3d" xyz="388.00 4.05 13.78" hpr="0.0 86.7 0.0" scale="2.51 2.51 2.51"/>
+    <static-object model="Plane.044.b3d" xyz="388.00 11.03 153.43" hpr="0.0 56.7 0.0" scale="2.88 2.88 2.88"/>
+    <static-object model="Plane.045.b3d" xyz="388.00 1.69 -116.02" hpr="0.0 32.7 0.0" scale="3.76 3.76 3.76"/>
+    <static-object model="Plane.046.b3d" xyz="311.03 4.97 68.85" hpr="0.0 56.7 0.0" scale="2.88 2.88 2.88"/>
+    <static-object model="Plane.047.b3d" xyz="309.84 -3.36 13.81" hpr="0.0 56.7 0.0" scale="2.88 2.88 2.88"/>
+    <static-object model="Plane.049.b3d" xyz="384.46 7.75 112.15" hpr="-90.0 45.0 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Plane.050.b3d" xyz="384.46 -7.07 -25.18" hpr="-90.0 45.0 -0.0" scale="1.00 1.00 1.00"/>
   </track>
-  <object type="animation" model="mill.b3d" xyz="246.505005 39.382900 -153.967865" hpr="-0.000000 -213.891008 -0.000000" scale="1.000000 1.000000 1.000000" >
+  <object type="animation" model="mill.b3d" xyz="246.51 39.38 -153.97" hpr="-0.0 146.1 -0.0" scale="1.00 1.00 1.00"  interaction="none">
     <curve channel="RotZ" interpolation="linear" extend="cyclic">
-      <p c="1.000000 -0.000000"/>
-      <p c="100.000000 -360.000000"/>
+      <p c="1.000 -0.000"/>
+      <p c="100.000 -360.000"/>
     </curve>
   </object>
-  <object type="animation" model="mill.001.b3d" xyz="310.573364 54.229939 -218.051254" hpr="-0.000000 -213.891008 -0.000000" scale="1.000000 1.000000 1.000000" >
+  <object type="animation" model="mill.001.b3d" xyz="310.57 54.23 -218.05" hpr="-0.0 146.1 -0.0" scale="1.00 1.00 1.00"  interaction="none">
     <curve channel="RotZ" interpolation="linear" extend="cyclic">
-      <p c="1.000000 -0.000000"/>
-      <p c="100.000000 -360.000000"/>
+      <p c="1.000 -0.000"/>
+      <p c="100.000 -360.000"/>
     </curve>
   </object>
-  <object type="animation" model="mill.002.b3d" xyz="222.110153 39.544590 -252.994049" hpr="-0.000000 -213.891008 -0.000000" scale="1.000000 1.000000 1.000000" >
-    <curve channel="RotZ" interpolation="linear" extend="cyclic">
-      <p c="1.000000 -0.000000"/>
-      <p c="100.000000 -360.000000"/>
-    </curve>
+  <object type="animation" model="mill.002.b3d" xyz="222.11 39.54 -252.99" hpr="-0.0 146.1 -0.0" scale="1.00 1.00 1.00"  interaction="none">
   </object>
-  <object type="movable" xyz="79.532364 0.067819 97.131233" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"
+  <object type="movable" xyz="79.53 0.07 97.13" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
           model="pot.b3d" shape="cylinderY" mass="15.0"/>
-  <object type="movable" xyz="103.951904 0.067819 100.646759" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"
+  <object type="movable" xyz="103.95 0.07 100.65" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
           model="pot.b3d" shape="cylinderY" mass="15.0"/>
   <item x="-2.079498" y="-0.03716" z="47" />
   <item x="2" y="-0.03716" z="47" />
@@ -58,13 +54,14 @@
   <big-nitro x="51.447353" y="-9.265882" z="-84.557457" />
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
-    <check-line kind="activate" other-ids="2" p1="227.982346 109.128738" p2="229.342407 90.069756"
+    <check-line kind="activate" other-ids="2" p1="227.982346 109.128746" p2="229.342407 90.069756"
                 min-height="-0.008819" same-group="1"/>
     <check-line kind="activate" other-ids="0" p1="92.126266 -117.803696" p2="79.177559 -140.231522"
                 min-height="-13.228691" same-group="2"/>
   </checks>
+  <camera far="1000.0"/>
   <default-start karts-per-row     ="2"
-                 forwards-distance ="1.5"
-                 sidewards-distance="3"
-                 upwards-distance  ="0.1"/>
+                 forwards-distance ="1.50"
+                 sidewards-distance="3.00"
+                 upwards-distance  ="0.10"/>
 </scene>
