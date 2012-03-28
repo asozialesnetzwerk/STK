@@ -81,7 +81,10 @@ if (isset($_SERVER['KOHANA_ENV']))
  */
 Kohana::init(array(
 	'base_url' => '/',
-	'index_file' => 'kohana.php'
+	'index_file' => '',
+	'errors' => true,
+	'profile' => true,
+	'caching' => false
 ));
 
 /**
