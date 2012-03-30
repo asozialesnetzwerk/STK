@@ -25,5 +25,6 @@
   <material name="sea2.jpg" ignore="Y" surface="Y" water-shader="Y">
     <sfx filename="splash.ogg" rolloff="0.10" min_speed="0.00" max_speed="30.00" min_pitch="1.00" max_pitch="1.00" positional="N"/>
     <particles base="splash.xml" condition="skid drive"/>
-  </material>
+  </material>  <material name="zipper_jungle.png" compositing="blend" disable-z-write="Y" backface-culling="N">
+<zipper duration="350.5" max_speed_increase="850.0" fade_out_time="30.0" speed_gain="550.5"/> </material>
 </materials>
