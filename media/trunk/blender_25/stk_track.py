@@ -1364,6 +1364,32 @@ class TrackExport:
             except:
                 log_error("Invalid action <" + getProperty(obj, "name", obj.name) + "> ",
                     sys.exc_info()[0])
+
+    # --------------------------------------------------------------------------
+    # Writes out all checklines.
+    # \param lChecks All check meshes
+    # \param mainDriveline The main driveline, from which the lap
+    #        counting check line is determined.
+    def writeCannon(self, f, cannon):
+    
+        start = cannon[0]
+        end = cannon[1]
+        
+        if len(start.data.vertices) != 2:
+            log_warning("Cannon start " + start.name + " is not a line made of 2 vertices as expected")
+        if len(end.data.vertices) != 2:
+            log_warning("Cannon end " + end.name + " is not a line made of 2 vertices as expected")
+        
+        startloc = start.location
+        endloc = end.location
+        
+        f.write('  <cannon speed="%.2f" p1="%.2f %.2f %.2f" p2="%.2f %.2f %.2f" target-p1="%.2f %.2f %.2f" target-p2="%.2f %.2f %.2f">\n'%\
+                (getProperty(start, "cannonspeed", 50.0),
+                start.data.vertices[0].co[0] + startloc[0], start.data.vertices[0].co[2] + startloc[2], start.data.vertices[0].co[1] + startloc[1],
+                start.data.vertices[1].co[0] + startloc[0], start.data.vertices[1].co[2] + startloc[2], start.data.vertices[1].co[1] + startloc[1],
+                end.data.vertices[0].co[0] + endloc[0], end.data.vertices[0].co[2] + endloc[2], end.data.vertices[0].co[1] + endloc[1],
+                end.data.vertices[1].co[0] + endloc[0], end.data.vertices[1].co[2] + endloc[2], end.data.vertices[1].co[1] + endloc[1]))
+        f.write('  </cannon>\n')
         
     # --------------------------------------------------------------------------
     # Writes out all checklines.
@@ -1695,7 +1721,7 @@ class TrackExport:
     # Writes the scene files, which includes all models, animations, and items
     def writeSceneFile(self, sPath, sTrackName, lWater, lTrack, lItems, lObjects, lBillboards,
                        lParticleEmitters, lSoundEmitters, lActionTriggers, lChecks, lSun, mainDriveline,
-                       lStart, lEndCameras, lCameraCurves):
+                       lStart, lEndCameras, lCameraCurves, lCannons):
 
         #start_time = bsys.time()
         print("Writing scene file --> \t")
@@ -1856,6 +1882,9 @@ class TrackExport:
                 log_warning("No check defined, lap counting will not work properly!")
             self.writeChecks(f, lChecks, mainDriveline)
         
+        for cannon in lCannons:
+            self.writeCannon(f, cannon)
+        
         scene   = the_scene
         sky     = getIdProperty(scene, "sky_type", None)
         # Note that there is a limit to the length of id properties,
@@ -1938,6 +1967,7 @@ class TrackExport:
         lChecks              = []                    # All check structures
         lSun                 = []
         lStart               = []                    # All start positions
+        lCannons             = []
         for obj in lObj:
             # Try to get the supertuxkart type field. If it's not defined,
             # use the name of the objects as type.
@@ -1978,8 +2008,7 @@ class TrackExport:
                     lActionTriggers.append(obj)
                     continue
                 else:
-                    print("Empty '%s' has type '%s' which is not valid - ignored."%\
-                          (obj.name, stktype))
+                    log_warning("Empty '%s' has type '%s' which is not valid - ignored."%(obj.name, stktype))
             elif obj.type=="CURVE":
                 # Only append camera, other curves will be handled in animations
                 if stktype[:6]=="CAMERA": lCameraCurves.append(obj)
@@ -2011,6 +2040,14 @@ class TrackExport:
             # for billboard
             elif stktype=="BILLBOARD":
                 lBillboards.append(obj)
+            elif stktype=="CANNONSTART":
+                end = getProperty(obj, "cannonend", "")
+                if len(end) == 0:
+                    log_warning("Cannon " + obj.name + " has no associated end")
+                    continue
+                lCannons.append( (obj, bpy.data.objects[end]) )
+            elif stktype=="CANNONEND":
+                pass # cannon ends are handled with cannon start objects
             elif stktype=="NONE":
                 lTrack.append(obj)
             else:
@@ -2067,7 +2104,7 @@ class TrackExport:
             lDrivelines=[None]
         self.writeSceneFile(sPath, sTrackName, lWater, lTrack, lItems,
                             lObjects, lBillboards, lParticleEmitters, lSoundEmitters, lActionTriggers,
-                            lChecks, lSun, lDrivelines[0], lStart, lEndCameras, lCameraCurves)
+                            lChecks, lSun, lDrivelines[0], lStart, lEndCameras, lCameraCurves, lCannons)
         # materials file
         # ----------
         if 'stk_material_exporter' not in dir(bpy.ops.screen):

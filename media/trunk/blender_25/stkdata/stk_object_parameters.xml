@@ -33,6 +33,20 @@
             </BoolProp>
         </EnumChoice>
         
+        <!-- Cannon -->
+        <EnumChoice id="cannonstart" label="Cannon Start" doc="A 'cannon' defines a fly path for the kart. This should be assigned to a line indicating the start of the flight." >
+            <ObjRefProp id="cannonend" name="Flight end line" default="" 
+                        filter="lambda self, o : 'type' in o and o['type'] == 'cannonend'"
+                        doc="The flight end line associated with this flight start line"/>
+            <ObjRefProp id="cannonpath" name="Path" default="" 
+                        filter="lambda self, o : o.type == 'CURVE'"
+                        doc="Path that the kart will follow while flying"/>
+            <FloatProp id="cannonspeed" name="Speed" default="50.0" min="0.0" max="250.0" doc="Speed at which the kart flies"/>
+        </EnumChoice>
+        
+        <EnumChoice id="cannonend" label="Cannon End" doc="A 'cannon' defines a fly path for the kart. This should be assigned to a line indicating the end of the flight." >
+        </EnumChoice>
+        
         <!-- Drivelines and checklines -->
         <EnumChoice id="check" label="Checkline" doc="A checkline that the player must cross (used to forbid shortcuts)" >
             <StringProp id="name" name="Name" default="" doc="Name of the checkline"/>
