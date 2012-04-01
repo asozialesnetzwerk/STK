@@ -149,7 +149,7 @@ class StkObjectReferenceProperty(StkProperty):
     def __init__(self, id, name, contextLevel, default, filter, doc="Select an object",
                  static_objects=[], unique_id_suffix = "",
                  obj_identifier=lambda self, obj: obj.name,
-                 obj_text=lambda self, obj: (obj.name + (" (" + obj["name"] + ")") if "name" in obj else "")):
+                 obj_text=lambda self, obj: (obj.name + ((" (" + obj["name"] + ")") if "name" in obj else ""))):
         super(StkObjectReferenceProperty, self).__init__(id, name, default)
         self.doc = doc
         self.unique_id_suffix = unique_id_suffix
@@ -591,7 +591,7 @@ def parseProperties(node, contextLevel):
             if defaultval == "$user":
                 defaultval = getpass.getuser()
                 
-            if node.hasAttribute("doc"):
+            if e.hasAttribute("doc"):
                 props.append(StkProperty(id=e.getAttribute("id"), name=e.getAttribute("name"), default=defaultval,
                                          doc=e.getAttribute("doc")))
             else:
@@ -604,11 +604,11 @@ def parseProperties(node, contextLevel):
             args["name"] = e.getAttribute("name")
             args["default"] = e.getAttribute("default")
             
-            if node.hasAttribute("unique_prefix"):
-                args["unique_prefix"] = node.getAttribute("unique_prefix")
+            if e.hasAttribute("unique_prefix"):
+                args["unique_prefix"] = e.getAttribute("unique_prefix")
             
-            if node.hasAttribute("doc"):
-                args["doc"] = node.getAttribute("doc")
+            if e.hasAttribute("doc"):
+                args["doc"] = e.getAttribute("doc")
             
             args["values"] = readEnumValues(e.childNodes, contextLevel)
             args["contextLevel"] = contextLevel
@@ -622,8 +622,8 @@ def parseProperties(node, contextLevel):
             args["name"] = e.getAttribute("name")
             args["default"] = e.getAttribute("default")
             
-            if node.hasAttribute("unique_prefix"):
-                args["unique_prefix"] = node.getAttribute("unique_prefix")
+            if e.hasAttribute("unique_prefix"):
+                args["unique_prefix"] = e.getAttribute("unique_prefix")
             
             args["values"] = readEnumValues(e.childNodes, contextLevel)
             args["contextLevel"] = contextLevel
@@ -631,7 +631,7 @@ def parseProperties(node, contextLevel):
             props.append(StkCombinableEnumProperty(**args))
         
         elif e.localName == "IntProp":
-            if node.hasAttribute("doc"):
+            if e.hasAttribute("doc"):
                 props.append(StkIntProperty(id=e.getAttribute("id"), name=e.getAttribute("name"), default=int(e.getAttribute("default")),
                                             doc=e.getAttribute("doc")))
             else:
@@ -643,17 +643,17 @@ def parseProperties(node, contextLevel):
             args["name"] = e.getAttribute("name")
             args["default"] = float(e.getAttribute("default"))
             
-            if node.hasAttribute("doc"):
+            if e.hasAttribute("doc"):
                 args["doc"] = e.getAttribute("doc")
-            if node.hasAttribute("min"):
+            if e.hasAttribute("min"):
                 args["min"] = float(e.getAttribute("min"))
-            if node.hasAttribute("max"):
+            if e.hasAttribute("max"):
                 args["max"] = float(e.getAttribute("max"))
             
             props.append(StkFloatProperty(**args))
         
         elif e.localName == "ColorProp":
-            if node.hasAttribute("doc"):
+            if e.hasAttribute("doc"):
                 props.append(StkColorProperty(id=e.getAttribute("id"), name=e.getAttribute("name"), default=e.getAttribute("default"),
                                               doc=e.getAttribute("doc"), contextLevel=contextLevel))
             else:
@@ -669,10 +669,10 @@ def parseProperties(node, contextLevel):
             args["subproperties"] = parseProperties(e, contextLevel)
             args["contextLevel"] = contextLevel
             
-            if node.hasAttribute("doc"):
+            if e.hasAttribute("doc"):
                 args["doc"] = e.getAttribute("doc")
             
-            if node.hasAttribute("box"):
+            if e.hasAttribute("box"):
                 args["box"] = bool(e.getAttribute("box"))
             
             props.append(StkBoolProperty(**args))
@@ -689,21 +689,21 @@ def parseProperties(node, contextLevel):
             exec("filterFn = " + e.getAttribute("filter"), global_env, local_env)
             args["filter"] = local_env["filterFn"]
             
-            if node.hasAttribute("static_objects"):
+            if e.hasAttribute("static_objects"):
                 exec("static_objects_fn = " + e.getAttribute("static_objects"), global_env, local_env)
                 args["static_objects"] = local_env["static_objects_fn"]
             
-            if node.hasAttribute("doc"):
+            if e.hasAttribute("doc"):
                 args["doc"] = e.getAttribute("doc")
             
-            if node.hasAttribute("unique_id_suffix"):
-                args["unique_id_suffix"] = node.getAttribute("unique_id_suffix")
+            if e.hasAttribute("unique_id_suffix"):
+                args["unique_id_suffix"] = e.getAttribute("unique_id_suffix")
             
-            if node.hasAttribute("obj_identifier"):
+            if e.hasAttribute("obj_identifier"):
                 exec("obj_identifier_fn = " + e.getAttribute("obj_identifier"), global_env, local_env)
                 args["obj_identifier"] = local_env["obj_identifier_fn"]
             
-            if node.hasAttribute("obj_text"):
+            if e.hasAttribute("obj_text"):
                 exec("obj_text_fn = " + e.getAttribute("obj_text"), global_env, local_env)
                 args["obj_text"] = local_env["obj_text_fn"]
             
