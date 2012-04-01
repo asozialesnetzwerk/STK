@@ -728,9 +728,30 @@ class TrackExport:
         f.write("</track>\n")
         f.close()
         #print bsys.time() - start_time, "seconds"
-        
+     
     # --------------------------------------------------------------------------
-    def writeCurve(self, f, lCurves):
+    
+    def writeBezierCurve(self, f, curve):
+        matrix = curve.rotation_euler.to_matrix()
+        if len(curve.data.splines) > 1:
+            log_warning(curve.name + " contains multiple curves, will noly export the first one")
+        
+        f.write('    <curve curvetype="bezier">\n')
+        if curve.data.splines[0].type != 'BEZIER':
+            log_warning(curve.name + " should be a bezier curve, not a " + curve.data.splines[0].type)
+        else:
+            for pt in curve.data.splines[0].bezier_points:
+                v0 = pt.handle_left*matrix
+                v1 = pt.co*matrix
+                v2 = pt.handle_right*matrix
+                f.write("      <point c=\"%f %f %f\" h1=\"%f %f %f\" h2=\"%f %f %f\" />\n"% \
+                        ( v1[0],v1[1],v1[2],
+                          v0[0],v0[1],v0[2],
+                          v2[0],v2[1],v2[2] ) )
+        f.write("    </curve>\n")
+    
+    # --------------------------------------------------------------------------
+    def writeCurves(self, f, lCurves):
         count = 0
         for curves in lCurves:
             type=getProperty(curves, "type").lower()
@@ -738,37 +759,37 @@ class TrackExport:
             count = count + 1
         if count==0: return
         f.write("  <curves>\n")
-        for curves in lCurves:
-            type=getProperty(curves, "type").lower()
+        for curve in lCurves:
+            type=getProperty(curve, "type").lower()
             if not type in ["camera", "anim2d", "anim3d"]: continue
-            matrix = curves.getMatrix()
-            for nu in curves.data:
-                # 0:"poly", 1:"bezier", 4:"nurbs"
-                if nu.type==4:
-                    f.write("    <%s curvetype=\"nurb\" name=\"%s\">\n" \
-                            % (type, curves.name))
-                    for i in nu:
-                        v=Vector(i[0],i[1],i[2]) * matrix
-                        f.write("      <p=\"%.3f %.3f %.3f\"/>\n"%(v[0], v[1], v[2]))
-                    f.write("    </%s>\n"%type)
-                elif nu.type==1:
-                    f.write("    <%s curvetype=\"bezier\" name=\"%s\">\n" \
-                            % (type, curves.name))
-                    for i in list(nu):
-                        # v0/v2 = hanldes, v1 = control point
-                        v0 = Vector(i.vec[0][0],i.vec[0][1],i.vec[0][2])
-                        v1 = Vector(i.vec[1][0],i.vec[1][1],i.vec[1][2])
-                        v2 = Vector(i.vec[2][0],i.vec[2][1],i.vec[2][2])
-                        v0 = v0*matrix
-                        v1 = v1*matrix
-                        v2 = v2*matrix
-                        f.write("      <point c=\"%f %f %f\" h1=\"%f %f %f\" h2=\"%f %f %f\" />\n"% \
-                                ( v1[0],v1[1],v1[2],
-                                  v0[0],v0[1],v0[2],
-                                  v2[0],v2[1],v2[2] ) )
-                    f.write("    </%s>\n"%type)
+            matrix = curve.getMatrix()
+        for nu in curve.data:
+            # 0:"poly", 1:"bezier", 4:"nurbs"
+            if nu.type==4:
+                f.write("    <%s curvetype=\"nurb\" name=\"%s\">\n" \
+                        % (type, curve.name))
+                for i in nu:
+                    v=Vector(i[0],i[1],i[2]) * matrix
+                    f.write("      <p=\"%.3f %.3f %.3f\"/>\n"%(v[0], v[1], v[2]))
+                f.write("    </%s>\n"%type)
+            elif nu.type==1:
+                f.write("    <%s curvetype=\"bezier\" name=\"%s\">\n" \
+                        % (type, curve.name))
+                for i in list(nu):
+                    # v0/v2 = hanldes, v1 = control point
+                    v0 = Vector(i.vec[0][0],i.vec[0][1],i.vec[0][2])
+                    v1 = Vector(i.vec[1][0],i.vec[1][1],i.vec[1][2])
+                    v2 = Vector(i.vec[2][0],i.vec[2][1],i.vec[2][2])
+                    v0 = v0*matrix
+                    v1 = v1*matrix
+                    v2 = v2*matrix
+                    f.write("      <point c=\"%f %f %f\" h1=\"%f %f %f\" h2=\"%f %f %f\" />\n"% \
+                            ( v1[0],v1[1],v1[2],
+                              v0[0],v0[1],v0[2],
+                              v2[0],v2[1],v2[2] ) )
+                f.write("    </%s>\n"%type)
         f.write("  </curves>\n")
-                    
+        
     # --------------------------------------------------------------------------
     # Finds the closest driveline from the list lDrivelines to the point p (i.e.
     # the driveline for which the distance between p and the drivelines start
@@ -1383,12 +1404,26 @@ class TrackExport:
         startloc = start.location
         endloc = end.location
         
+        start_matrix = start.rotation_euler.to_matrix()
+        end_matrix = end.rotation_euler.to_matrix()
+        
+        curvename = getProperty(start, "cannonpath", "")
+        
+        start_pt1 = start.data.vertices[0].co*start_matrix + startloc
+        start_pt2 = start.data.vertices[0].co*start_matrix + startloc
+        end_pt1 = end.data.vertices[0].co*end_matrix + endloc
+        end_pt2 = end.data.vertices[0].co*end_matrix + endloc
+        
         f.write('  <cannon speed="%.2f" p1="%.2f %.2f %.2f" p2="%.2f %.2f %.2f" target-p1="%.2f %.2f %.2f" target-p2="%.2f %.2f %.2f">\n'%\
                 (getProperty(start, "cannonspeed", 50.0),
-                start.data.vertices[0].co[0] + startloc[0], start.data.vertices[0].co[2] + startloc[2], start.data.vertices[0].co[1] + startloc[1],
-                start.data.vertices[1].co[0] + startloc[0], start.data.vertices[1].co[2] + startloc[2], start.data.vertices[1].co[1] + startloc[1],
-                end.data.vertices[0].co[0] + endloc[0], end.data.vertices[0].co[2] + endloc[2], end.data.vertices[0].co[1] + endloc[1],
-                end.data.vertices[1].co[0] + endloc[0], end.data.vertices[1].co[2] + endloc[2], end.data.vertices[1].co[1] + endloc[1]))
+                start_pt1[0], start_pt1[2], start_pt1[1],
+                start_pt2[0], start_pt2[2], start_pt2[1],
+                end_pt1[0],   end_pt1[2],   end_pt1[1],
+                end_pt2[0],   end_pt2[2],   end_pt2[1]))
+        
+        if len(curvename) > 0:
+            self.writeBezierCurve(f, bpy.data.objects[curvename])
+        
         f.write('  </cannon>\n')
         
     # --------------------------------------------------------------------------
@@ -1941,7 +1976,7 @@ class TrackExport:
             f.write("  </end-cameras>\n")
 
         # Write camera curves (unused atm)
-        self.writeCurve(f, lCameraCurves)
+        self.writeCurves(f, lCameraCurves)
         f.write("</scene>\n")
         f.close()
         #print bsys.time()-start_time,"seconds"
