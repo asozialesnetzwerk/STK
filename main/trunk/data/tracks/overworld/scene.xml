@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 10928 -->
+<!-- Generated with script from SVN rev 11060 -->
 <scene>
   <track model="overworld_track.b3d" x="0" y="0" z="0">
     <static-object lod_instance="true" lod_group="bubble_desert2" xyz="-89.49 -0.83 206.32" hpr="3.9 -15.9 -2.7" scale="8.70 8.70 8.70"/>
@@ -250,6 +250,19 @@
                  forwards-distance ="1.10"
                  sidewards-distance="1.10"
                  upwards-distance  ="1.10"/>
+  <start x="7.15" y="-1.46" z="-3.49" h="0.000000"/>
+  <start x="28.50" y="-6.20" z="143.08" h="0.000000"/>
+  <start x="20.63" y="-5.53" z="238.52" h="0.000000"/>
+  <start x="-67.56" y="-5.53" z="226.87" h="0.000000"/>
+  <start x="-68.35" y="-5.91" z="278.57" h="0.000000"/>
+  <start x="114.31" y="-9.62" z="247.08" h="0.000000"/>
+  <start x="111.15" y="-3.70" z="30.79" h="0.000000"/>
+  <start x="112.63" y="1.50" z="-9.39" h="0.000000"/>
+  <start x="125.69" y="-5.93" z="136.88" h="0.000000"/>
+  <start x="23.67" y="-9.54" z="336.84" h="0.000000"/>
+  <start x="32.27" y="-17.19" z="416.94" h="0.000000"/>
+  <start x="28.64" y="-29.79" z="514.87" h="0.000000"/>
+  <start x="14.14" y="-5.57" z="30.82" h="0.000000"/>
   <end-cameras>
     <camera type="ahead_of_kart" xyz="73.392960 5.788126 206.152283" distance="5"/>
   </end-cameras>
