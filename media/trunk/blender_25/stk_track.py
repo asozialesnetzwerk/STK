@@ -1410,9 +1410,9 @@ class TrackExport:
         curvename = getProperty(start, "cannonpath", "")
         
         start_pt1 = start.data.vertices[0].co*start_matrix + startloc
-        start_pt2 = start.data.vertices[0].co*start_matrix + startloc
+        start_pt2 = start.data.vertices[1].co*start_matrix + startloc
         end_pt1 = end.data.vertices[0].co*end_matrix + endloc
-        end_pt2 = end.data.vertices[0].co*end_matrix + endloc
+        end_pt2 = end.data.vertices[1].co*end_matrix + endloc
         
         f.write('  <cannon speed="%.2f" p1="%.2f %.2f %.2f" p2="%.2f %.2f %.2f" target-p1="%.2f %.2f %.2f" target-p2="%.2f %.2f %.2f">\n'%\
                 (getProperty(start, "cannonspeed", 50.0),
