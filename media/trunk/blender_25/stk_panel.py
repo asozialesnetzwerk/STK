@@ -154,6 +154,9 @@ class StkObjectReferenceProperty(StkProperty):
         self.doc = doc
         self.unique_id_suffix = unique_id_suffix
         
+        if filter is None:
+            raise Exception("Filter may not be None")
+        
         class SelectObjectOperator(bpy.types.Operator):
             bl_idname = "scene.stk_select_object_" + id + unique_id_suffix
             bl_label = "Select Object Operator"
@@ -680,10 +683,15 @@ def parseProperties(node, contextLevel):
             args["name"] = e.getAttribute("name")
             args["default"] = e.getAttribute("default")
             args["contextLevel"] = contextLevel
-            args["filter"] = exec(e.getAttribute("filter"))
+            
+            global_env = {}
+            local_env = {}
+            exec("filterFn = " + e.getAttribute("filter"), global_env, local_env)
+            args["filter"] = local_env["filterFn"]
             
             if node.hasAttribute("static_objects"):
-                args["static_objects"] = exec(e.getAttribute("static_objects"))
+                exec("static_objects_fn = " + e.getAttribute("static_objects"), global_env, local_env)
+                args["static_objects"] = local_env["static_objects_fn"]
             
             if node.hasAttribute("doc"):
                 args["doc"] = e.getAttribute("doc")
@@ -692,10 +700,12 @@ def parseProperties(node, contextLevel):
                 args["unique_id_suffix"] = node.getAttribute("unique_id_suffix")
             
             if node.hasAttribute("obj_identifier"):
-                args["obj_identifier"] = exec(e.getAttribute("obj_identifier"))
+                exec("obj_identifier_fn = " + e.getAttribute("obj_identifier"), global_env, local_env)
+                args["obj_identifier"] = local_env["obj_identifier_fn"]
             
             if node.hasAttribute("obj_text"):
-                args["obj_text"] = exec(e.getAttribute("obj_text"))
+                exec("obj_text_fn = " + e.getAttribute("obj_text"), global_env, local_env)
+                args["obj_text"] = local_env["obj_text_fn"]
             
             props.append(StkObjectReferenceProperty(**args))
             
