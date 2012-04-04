@@ -32,6 +32,7 @@ def getScriptVersion():
         return "Unknown"
 
 import bpy
+import bpy.path
 import os
 
 # ------------------------------------------------------------------------------
@@ -191,7 +192,7 @@ def writeMaterialsFile(sPath):
         if sImage or hasSoundeffect or hasParticle or hasZipper:
             #Get the filename of the image.
             s = i.filepath
-            sImage="  <material name=\"%s\"%s" % (os.path.basename(s),sImage)                
+            sImage="  <material name=\"%s\"%s" % (bpy.path.basename(s),sImage)                
             if hasSoundeffect:
                 sImage="%s>\n    <sfx%s/" % (sImage,sSFX)
             if hasParticle:
