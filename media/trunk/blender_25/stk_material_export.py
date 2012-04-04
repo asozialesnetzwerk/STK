@@ -153,7 +153,7 @@ def writeMaterialsFile(sPath):
             if AProperty in lBooleanAttributes:
                 currentValue = convertTextToYN(currentValue)
             
-            #These items pertain to the soundeffects (starting with sfx:)
+            #These items pertain to the soundeffects (starting with sfx_)
             if AProperty.strip().startswith("sfx_"):
                 strippedName = AProperty.strip()[len("sfx_"):]
                 
@@ -163,14 +163,14 @@ def writeMaterialsFile(sPath):
                     else:
                         sSFX = "%s %s=\"%s\""%(sSFX,strippedName,currentValue)
             elif AProperty.strip().upper().startswith("PARTICLE_"):
-                #These items pertain to the particles (starting with sfx:)
+                #These items pertain to the particles (starting with particle_)
                 strippedName = AProperty.strip()[len("PARTICLE_"):]
                 sParticle = "%s %s=\"%s\""%(sParticle,strippedName,currentValue)   
             elif AProperty.strip().upper().startswith("ZIPPER_"):
-                #These items pertain to the particles (starting with sfx:)
+                #These items pertain to the zippers (starting with zipper_)
                 strippedName = AProperty.strip()[len("ZIPPER_"):]
                 
-                sZipper = "%s %s=\"%s\""%(sZipper,strippedName,currentValue)   
+                sZipper = "%s %s=\"%s\""%(sZipper,strippedName.replace('_', '-'),currentValue)   
             else:
                 #These items are standard items
                 prop = AProperty.strip()#.lower()
