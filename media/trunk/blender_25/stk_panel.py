@@ -719,7 +719,15 @@ def getPropertiesFromXML(filename, contextLevel):
     raise Exception("No <Properties> node in " + filename)
 
 import os.path
-datapath = os.path.join(bpy.utils.script_paths()[0], "addons", "stkdata")
+
+datapath = None
+for curr in bpy.utils.script_paths():
+    if os.path.exists(os.path.join(curr, "addons", "stkdata")):
+        datapath = os.path.join(bpy.utils.script_paths()[0], "addons", "stkdata")
+
+if datapath is None:
+    print("Make sure the stkdata folder is installed, cannot locate it!!")
+
 SCENE_PROPS = getPropertiesFromXML(os.path.join(datapath, "stk_panel_parameters.xml"), contextLevel=CONTEXT_SCENE)
 STK_PER_OBJECT_TRACK_PROPERTIES = getPropertiesFromXML(os.path.join(datapath, "stk_object_parameters.xml"), contextLevel=CONTEXT_OBJECT)
 STK_MATERIAL_PROPERTIES = getPropertiesFromXML(os.path.join(datapath, "stk_material_parameters.xml"), contextLevel=CONTEXT_MATERIAL)
