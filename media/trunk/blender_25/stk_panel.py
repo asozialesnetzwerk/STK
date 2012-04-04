@@ -724,6 +724,7 @@ datapath = None
 for curr in bpy.utils.script_paths():
     if os.path.exists(os.path.join(curr, "addons", "stkdata")):
         datapath = os.path.join(bpy.utils.script_paths()[0], "addons", "stkdata")
+        break
 
 if datapath is None:
     print("Make sure the stkdata folder is installed, cannot locate it!!")
