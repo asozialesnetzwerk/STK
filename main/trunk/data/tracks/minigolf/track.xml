@@ -1,11 +1,10 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 10009 -->
+<!-- Generated with script from SVN rev 11062 -->
 <track  name        = "Minigolf Mischief"
         version     = "5"
         groups      = "standard"
         designer    = "Mac"
         music       = "Boom_boom_boom.music"
-        reverse     = "false"
         screenshot  = "minigolf.jpg"
 >
 </track>

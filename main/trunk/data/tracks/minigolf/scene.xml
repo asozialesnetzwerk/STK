@@ -1,52 +1,61 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 10009 -->
+<!-- Generated with script from SVN rev 11062 -->
 <scene>
   <track model="minigolf_track.b3d" x="0" y="0" z="0"/>
-  <water model="fol1.b3d" xyz="2.840485 14.038836 -8.197711" hpr="-0.000000 6.212369 0.000000" scale="1.000000 1.000000 1.000000" height="0.25" speed="200.00" length="10.00"/>
-  <water model="fol2.b3d" xyz="3.507049 14.038836 -12.863655" hpr="-0.000000 -0.084466 0.000000" scale="1.000000 1.000000 1.000000" height="0.25" speed="260.00" length="10.00"/>
-  <water model="vlag.b3d" xyz="43.247086 -1.923478 -39.837109" hpr="-8.741405 339.173834 -0.220471" scale="1.000000 1.000000 1.000000" height="1.00" speed="500.00" length="5.00"/>
-  <water model="Water.b3d" xyz="-42.984173 -57.315575 2.962359" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000" height="0.20" speed="200.00" length="2.00">
+  <water model="fol1.b3d" xyz="2.84 14.04 -8.20" hpr="0.0 6.2 0.0" scale="1.00 1.00 1.00" height="0.25" speed="200.00" length="10.00"/>
+  <water model="fol2.b3d" xyz="3.51 14.04 -12.86" hpr="0.0 -0.1 0.0" scale="1.00 1.00 1.00" height="0.25" speed="260.00" length="10.00"/>
+  <water model="vlag.b3d" xyz="43.25 -1.92 -39.84" hpr="-8.7 -20.8 -0.2" scale="1.00 1.00 1.00" height="1.00" speed="500.00" length="5.00"/>
+  <water model="Water.b3d" xyz="-42.98 -57.32 2.96" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="0.20" speed="200.00" length="2.00">
     <animated-texture name="water.png" dx="0.010"  dy="-0.005" />
   </water>
-  <object type="animation" model="windmill_arm1.b3d" xyz="101.509171 19.808308 -11.427334" hpr="-1.459187 -1.459187 -1.459187" scale="0.921784 0.921784 0.921784" >
+  <object type="animation" model="windmill_arm1.b3d" xyz="101.51 19.81 -11.43" hpr="0.0 -0.0 0.0" scale="0.92 0.92 0.92"  interaction="ghost">
     <curve channel="RotX" interpolation="linear" extend="const">
-      <p c="1.000 -1.459"/>
-      <p c="50.000 -1.459"/>
+      <p c="1.000 -0.000"/>
+      <p c="50.000 -0.000"/>
+      <p c="100.000 -0.000"/>
+      <p c="150.000 -0.000"/>
+      <p c="200.000 -0.000"/>
     </curve>
     <curve channel="RotZ" interpolation="linear" extend="const">
-      <p c="1.000 -1.459"/>
-      <p c="50.000 88.462"/>
+      <p c="1.000 -0.000"/>
+      <p c="50.000 90.000"/>
+      <p c="100.000 180.000"/>
+      <p c="150.000 270.000"/>
+      <p c="200.000 360.000"/>
     </curve>
     <curve channel="RotY" interpolation="linear" extend="const">
-      <p c="1.000 -1.459"/>
-      <p c="50.000 -1.459"/>
+      <p c="1.000 -0.000"/>
+      <p c="50.000 -0.000"/>
+      <p c="100.000 -0.000"/>
+      <p c="150.000 -0.000"/>
+      <p c="200.000 -0.000"/>
     </curve>
   </object>
-  <object type="movable" xyz="75.901749 1.567079 -52.989964" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"
-          model="Golfball.b3d" shape="sphere" mass="15.0" tangents="true"/>
-  <object type="movable" xyz="77.972786 1.567079 -51.377403" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"
-          model="Golfball.b3d" shape="sphere" mass="15.0" tangents="true"/>
-  <object type="movable" xyz="79.000397 1.567079 -54.681572" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"
-          model="Golfball.b3d" shape="sphere" mass="15.0" tangents="true"/>
-  <object type="movable" xyz="73.198341 1.567079 -51.187691" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"
-          model="Golfball.b3d" shape="sphere" mass="15.0" tangents="true"/>
-  <object type="movable" xyz="153.000000 1.100000 -110.000000" hpr="-0.000000 -0.000000 -0.000000" scale="1.158103 1.158103 1.158103"
-          model="Golfball.b3d" shape="sphere" mass="15.0" tangents="true"/>
-  <object type="animation" model="duck2.b3d" xyz="14.000423 -56.644772 -4.424834" hpr="-0.000000 -42.189088 0.000000" scale="1.000000 1.000000 1.000000" >
+  <object type="movable" xyz="75.90 1.57 -52.99" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
+          model="Golfball.b3d" shape="sphere" mass="15.0" tangents="true" />
+  <object type="movable" xyz="77.97 1.57 -51.38" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
+          model="Golfball.b3d" shape="sphere" mass="15.0" tangents="true" />
+  <object type="movable" xyz="79.00 1.57 -54.68" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
+          model="Golfball.b3d" shape="sphere" mass="15.0" tangents="true" />
+  <object type="movable" xyz="73.20 1.57 -51.19" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
+          model="Golfball.b3d" shape="sphere" mass="15.0" tangents="true" />
+  <object type="movable" xyz="153.00 1.10 -110.00" hpr="0.0 -0.0 0.0" scale="1.16 1.16 1.16"
+          model="Golfball.b3d" shape="sphere" mass="15.0"/>
+  <object type="animation" model="duck2.b3d" xyz="14.00 -56.64 -4.42" hpr="0.0 -42.2 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
     <curve channel="LocY" interpolation="bezier" extend="const">
       <p c="1.000 -56.645" h1="-5.242 -56.645" h2="7.242 -56.645"/>
       <p c="17.000 -57.270" h1="10.754 -57.270" h2="36.128 -57.270"/>
       <p c="66.000 -56.659" h1="46.871 -56.659" h2="85.129 -56.659"/>
     </curve>
   </object>
-  <object type="animation" model="duck3.b3d" xyz="59.858791 -56.644772 -7.970584" hpr="-0.000000 -141.433875 0.000000" scale="1.000000 1.000000 1.000000" >
+  <object type="animation" model="duck3.b3d" xyz="59.86 -56.64 -7.97" hpr="-0.0 -141.4 -0.0" scale="1.00 1.00 1.00"  interaction="ghost">
     <curve channel="LocY" interpolation="bezier" extend="const">
       <p c="1.000 -56.645" h1="-13.053 -56.645" h2="15.053 -56.645"/>
       <p c="37.000 -57.270" h1="22.946 -57.270" h2="44.027 -57.270"/>
       <p c="55.000 -56.659" h1="47.977 -56.659" h2="62.023 -56.659"/>
     </curve>
   </object>
-  <object type="animation" model="duck.b3d" xyz="-45.804558 -56.644772 16.849667" hpr="-0.000000 -116.098135 0.000000" scale="1.000000 1.000000 1.000000" >
+  <object type="animation" model="duck.b3d" xyz="-45.80 -56.64 16.85" hpr="-0.0 -116.1 -0.0" scale="1.00 1.00 1.00"  interaction="ghost">
     <curve channel="LocY" interpolation="bezier" extend="const">
       <p c="1.000 -56.645" h1="-13.834 -56.645" h2="15.834 -56.645"/>
       <p c="39.000 -57.270" h1="24.165 -57.270" h2="46.027 -57.270"/>
@@ -54,7 +63,6 @@
     </curve>
   </object>
   <sun  fog="true" fog-color="93 118 153" fog-start="50.0" fog-end="100.0" xyz="4.58 16.67 6.29" sun-specular="255 255 255" sun-diffuse="238 255 151" ambient="45 58 87"/>
-  <weather particles="none.xml" />
   <small-nitro x="-19.024166" y="1.199415" z="-20.606453" />
   <small-nitro x="-29.13542" y="1.199415" z="-20.606453" />
   <item x="-63.847694" y="1.865967" z="-36.48304" />
