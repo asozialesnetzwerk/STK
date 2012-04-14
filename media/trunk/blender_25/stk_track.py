@@ -731,12 +731,12 @@ class TrackExport:
      
     # --------------------------------------------------------------------------
     
-    def writeBezierCurve(self, f, curve):
+    def writeBezierCurve(self, f, curve, speed):
         matrix = curve.rotation_euler.to_matrix()
         if len(curve.data.splines) > 1:
-            log_warning(curve.name + " contains multiple curves, will noly export the first one")
+            log_warning(curve.name + " contains multiple curves, will only export the first one")
         
-        f.write('    <curve curvetype="bezier">\n')
+        f.write('    <curve channel="LocXYZ" speed="%.2f" curvetype="bezier">\n'%speed)
         if curve.data.splines[0].type != 'BEZIER':
             log_warning(curve.name + " should be a bezier curve, not a " + curve.data.splines[0].type)
         else:
@@ -745,9 +745,9 @@ class TrackExport:
                 v1 = pt.co*matrix
                 v2 = pt.handle_right*matrix
                 f.write("      <point c=\"%f %f %f\" h1=\"%f %f %f\" h2=\"%f %f %f\" />\n"% \
-                        ( v1[0],v1[1],v1[2],
-                          v0[0],v0[1],v0[2],
-                          v2[0],v2[1],v2[2] ) )
+                        ( v1[0],v1[2],v1[1],
+                          v0[0],v0[2],v0[1],
+                          v2[0],v2[2],v2[1] ) )
         f.write("    </curve>\n")
     
     # --------------------------------------------------------------------------
@@ -1421,16 +1421,16 @@ class TrackExport:
         end_pt2 = end.data.vertices[1].co*end_matrix + endloc
         
 
-        f.write('    <cannon speed="%.2f" p1="%.2f %.2f" p2="%.2f %.2f" min-height="%f" target-p1="%.2f %.2f %.2f" target-p2="%.2f %.2f %.2f">\n'%\
-                (getProperty(start, "cannonspeed", 50.0),
-                start_pt1[0], start_pt1[1],
-                start_pt2[0], start_pt2[1],
-                min(start_pt1[2], start_pt2[2]),
-                end_pt1[0],   end_pt1[2],   end_pt1[1],
-                end_pt2[0],   end_pt2[2],   end_pt2[1]))
+        f.write('    <cannon p1="%.2f %.2f" p2="%.2f %.2f" min-height="%f" target-p1="%.2f %.2f %.2f" target-p2="%.2f %.2f %.2f">\n'%\
+                (start_pt1[0], start_pt1[1],
+                 start_pt2[0], start_pt2[1],
+                 min(start_pt1[2], start_pt2[2]),
+                 end_pt1[0],   end_pt1[2],   end_pt1[1],
+                 end_pt2[0],   end_pt2[2],   end_pt2[1]))
         
         if len(curvename) > 0:
-            self.writeBezierCurve(f, bpy.data.objects[curvename])
+            self.writeBezierCurve(f, bpy.data.objects[curvename], \
+                                  getProperty(start, "cannonspeed", 50.0) )
         
         f.write('    </cannon>\n')
         
