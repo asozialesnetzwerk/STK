@@ -732,8 +732,7 @@ class TrackExport:
     # --------------------------------------------------------------------------
     
     def writeBezierCurve(self, f, curve, speed):
-        translation = curve.location
-        matrix = curve.rotation_euler.to_matrix()
+        matrix = curve.matrix_world
         if len(curve.data.splines) > 1:
             log_warning(curve.name + " contains multiple curves, will only export the first one")
         
@@ -742,9 +741,9 @@ class TrackExport:
             log_warning(curve.name + " should be a bezier curve, not a " + curve.data.splines[0].type)
         else:
             for pt in curve.data.splines[0].bezier_points:
-                v0 = pt.handle_left*matrix + translation
-                v1 = pt.co*matrix + translation
-                v2 = pt.handle_right*matrix + translation
+                v0 = matrix*pt.handle_left
+                v1 = matrix*pt.co*matrix 
+                v2 = matrix*pt.handle_right
                 f.write("      <point c=\"%f %f %f\" h1=\"%f %f %f\" h2=\"%f %f %f\" />\n"% \
                         ( v1[0],v1[2],v1[1],
                           v0[0],v0[2],v0[1],
