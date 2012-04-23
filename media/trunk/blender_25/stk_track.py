@@ -2068,7 +2068,7 @@ class TrackExport:
             elif obj.type=="LAMP" and stktype == "SUN":
                 lSun.append(obj)
                 continue
-            elif obj.type=="CAMERA":
+            elif obj.type=="CAMERA" and stktype in ['fixed', 'ahead']:
                 lEndCameras.append(obj)
                 continue
             elif obj.type!="MESH":
