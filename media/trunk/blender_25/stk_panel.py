@@ -1006,6 +1006,12 @@ class STK_AddObject(bpy.types.Operator):
                     curr.empty_draw_type = 'CONE'
                 elif self.value == 'sfx_emitter':
                     curr.empty_draw_type = 'SPHERE'
+                    
+                for prop in STK_PER_OBJECT_TRACK_PROPERTIES:
+                    if prop.name == "Type":
+                        createProperties(curr, prop.values[self.value].subproperties)
+                        break
+            
                 break
         
         return {'FINISHED'}
