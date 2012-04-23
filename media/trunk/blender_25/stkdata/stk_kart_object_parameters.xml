@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<Properties>
+
+    <!-- ******** STK Object Type ******** -->
+    <EnumProp id="type" name="Type" default="none" doc="SuperTuxKart Object Type" unique_prefix="kart_">
+    
+        <!-- None -->
+        <EnumChoice id="" label="None" doc="Nothing special about this object" />
+        <EnumChoice id="none" label="None" doc="Nothing special about this object" />
+        
+        <EnumChoice id="ignore" label="Ignore" doc="Do not export this object" />
+        <EnumChoice id="wheel" label="Wheel" doc="This object is a kart wheel" />
+    </EnumProp>
+</Properties>

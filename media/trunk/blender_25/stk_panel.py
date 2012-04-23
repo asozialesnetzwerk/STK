@@ -731,6 +731,7 @@ if datapath is None:
 
 SCENE_PROPS = getPropertiesFromXML(os.path.join(datapath, "stk_panel_parameters.xml"), contextLevel=CONTEXT_SCENE)
 STK_PER_OBJECT_TRACK_PROPERTIES = getPropertiesFromXML(os.path.join(datapath, "stk_object_parameters.xml"), contextLevel=CONTEXT_OBJECT)
+STK_PER_OBJECT_KART_PROPERTIES = getPropertiesFromXML(os.path.join(datapath, "stk_kart_object_parameters.xml"), contextLevel=CONTEXT_OBJECT)
 STK_MATERIAL_PROPERTIES = getPropertiesFromXML(os.path.join(datapath, "stk_material_parameters.xml"), contextLevel=CONTEXT_MATERIAL)
 
 
