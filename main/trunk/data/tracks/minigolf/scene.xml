@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 11062 -->
+<!-- Generated with script from SVN rev 11144 -->
 <scene>
   <track model="minigolf_track.b3d" x="0" y="0" z="0"/>
   <water model="fol1.b3d" xyz="2.84 14.04 -8.20" hpr="0.0 6.2 0.0" scale="1.00 1.00 1.00" height="0.25" speed="200.00" length="10.00"/>
@@ -9,21 +9,21 @@
     <animated-texture name="water.png" dx="0.010"  dy="-0.005" />
   </water>
   <object type="animation" model="windmill_arm1.b3d" xyz="101.51 19.81 -11.43" hpr="0.0 -0.0 0.0" scale="0.92 0.92 0.92"  interaction="ghost">
-    <curve channel="RotX" interpolation="linear" extend="const">
+    <curve channel="RotX" interpolation="linear" extend="cyclic">
       <p c="1.000 -0.000"/>
       <p c="50.000 -0.000"/>
       <p c="100.000 -0.000"/>
       <p c="150.000 -0.000"/>
       <p c="200.000 -0.000"/>
     </curve>
-    <curve channel="RotZ" interpolation="linear" extend="const">
+    <curve channel="RotZ" interpolation="linear" extend="cyclic">
       <p c="1.000 -0.000"/>
       <p c="50.000 90.000"/>
       <p c="100.000 180.000"/>
       <p c="150.000 270.000"/>
       <p c="200.000 360.000"/>
     </curve>
-    <curve channel="RotY" interpolation="linear" extend="const">
+    <curve channel="RotY" interpolation="linear" extend="cyclic">
       <p c="1.000 -0.000"/>
       <p c="50.000 -0.000"/>
       <p c="100.000 -0.000"/>
@@ -42,21 +42,21 @@
   <object type="movable" xyz="153.00 1.10 -110.00" hpr="0.0 -0.0 0.0" scale="1.16 1.16 1.16"
           model="Golfball.b3d" shape="sphere" mass="15.0"/>
   <object type="animation" model="duck2.b3d" xyz="14.00 -56.64 -4.42" hpr="0.0 -42.2 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
-    <curve channel="LocY" interpolation="bezier" extend="const">
+    <curve channel="LocY" interpolation="bezier" extend="cyclic">
       <p c="1.000 -56.645" h1="-5.242 -56.645" h2="7.242 -56.645"/>
       <p c="17.000 -57.270" h1="10.754 -57.270" h2="36.128 -57.270"/>
       <p c="66.000 -56.659" h1="46.871 -56.659" h2="85.129 -56.659"/>
     </curve>
   </object>
   <object type="animation" model="duck3.b3d" xyz="59.86 -56.64 -7.97" hpr="-0.0 -141.4 -0.0" scale="1.00 1.00 1.00"  interaction="ghost">
-    <curve channel="LocY" interpolation="bezier" extend="const">
+    <curve channel="LocY" interpolation="bezier" extend="cyclic">
       <p c="1.000 -56.645" h1="-13.053 -56.645" h2="15.053 -56.645"/>
       <p c="37.000 -57.270" h1="22.946 -57.270" h2="44.027 -57.270"/>
       <p c="55.000 -56.659" h1="47.977 -56.659" h2="62.023 -56.659"/>
     </curve>
   </object>
   <object type="animation" model="duck.b3d" xyz="-45.80 -56.64 16.85" hpr="-0.0 -116.1 -0.0" scale="1.00 1.00 1.00"  interaction="ghost">
-    <curve channel="LocY" interpolation="bezier" extend="const">
+    <curve channel="LocY" interpolation="bezier" extend="cyclic">
       <p c="1.000 -56.645" h1="-13.834 -56.645" h2="15.834 -56.645"/>
       <p c="39.000 -57.270" h1="24.165 -57.270" h2="46.027 -57.270"/>
       <p c="57.000 -56.659" h1="49.977 -56.659" h2="64.023 -56.659"/>
@@ -128,19 +128,4 @@
                  forwards-distance ="2.00"
                  sidewards-distance="2.50"
                  upwards-distance  ="1.10"/>
-  <end-cameras>
-    <camera type="static_follow_kart" xyz="-31.347261 7.883405 -37.556545" distance="50.0"/>
-    <camera type="static_follow_kart" xyz="-54.303005 0.246248 -30.253376" distance="30.0"/>
-    <camera type="static_follow_kart" xyz="-85.884789 5.406722 -6.234883" distance="30.0"/>
-    <camera type="static_follow_kart" xyz="-119.035538 0.187697 -15.456582" distance="25.0"/>
-    <camera type="static_follow_kart" xyz="-104.210182 -5.452283 29.863569" distance="40.0"/>
-    <camera type="static_follow_kart" xyz="-58.053513 -5.452006 15.696690" distance="30.0"/>
-    <camera type="static_follow_kart" xyz="-18.954487 -5.986171 29.182613" distance="30.0"/>
-    <camera type="static_follow_kart" xyz="22.877390 10.247544 9.278451" distance="40.0"/>
-    <camera type="static_follow_kart" xyz="82.321632 6.061478 11.388822" distance="35.0"/>
-    <camera type="static_follow_kart" xyz="110.024414 16.979927 -14.278487" distance="35.0"/>
-    <camera type="static_follow_kart" xyz="107.827469 2.119936 -54.790871" distance="30.0"/>
-    <camera type="static_follow_kart" xyz="60.935028 37.335701 -51.578594" distance="40.0"/>
-    <camera type="static_follow_kart" xyz="18.901966 6.718008 -57.748661" distance="25.0"/>
-  </end-cameras>
 </scene>
