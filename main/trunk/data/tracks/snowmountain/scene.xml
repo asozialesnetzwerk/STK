@@ -1,26 +1,26 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 10311 -->
+<!-- Generated with script from SVN rev 11144 -->
 <scene>
   <track model="snowmountain_track.b3d" x="0" y="0" z="0"/>
-  <particle-emitter kind="black_smoke.xml" x="-122.867119" y="11.926004" z="-17.973167" h="0.000000" clip_distance="200"/>
-  <particle-emitter kind="black_smoke.xml" x="-75.356117" y="15.299392" z="-20.407894" h="0.000000" clip_distance="200"/>
-  <object type="animation" model="Balloon.b3d" xyz="-39.316746 39.719826 -180.018707" hpr="-66.375355 89.561299 0.022721" scale="7.327495 7.327496 7.327496" >
+  <particle-emitter kind="black_smoke.xml" x="-122.87" y="11.93" z="-17.97" h="0.000000" clip_distance="200"/>
+  <particle-emitter kind="black_smoke.xml" x="-75.36" y="15.30" z="-20.41" h="0.000000" clip_distance="200"/>
+  <object type="animation" model="Balloon.b3d" xyz="-39.99 39.72 -180.02" hpr="-63.4 89.6 3.0" scale="7.33 7.33 7.33"  interaction="none">
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
-      <p c="0.172 -40.000" h1="-51.067 -82.012" h2="51.412 2.012"/>
+      <p c="0.172 -40.000" h1="-51.067 -40.000" h2="51.412 -40.000"/>
       <p c="169.894 99.158" h1="103.758 99.158" h2="310.133 99.158"/>
       <p c="529.782 -151.640" h1="389.314 -151.640" h2="588.448 -151.640"/>
-      <p c="680.088 -40.000" h1="632.980 -74.990" h2="727.196 -5.010"/>
+      <p c="680.088 -40.000" h1="632.980 -40.000" h2="727.196 -40.000"/>
     </curve>
     <curve channel="LocZ" interpolation="bezier" extend="cyclic">
       <p c="0.896 -180.019" h1="-131.535 -180.008" h2="103.519 -180.027"/>
       <p c="340.106 98.386" h1="207.675 98.386" h2="472.816 98.386"/>
       <p c="680.029 -179.989" h1="578.468 -179.987" h2="812.522 -179.992"/>
     </curve>
-    <curve channel="RotX" interpolation="bezier" extend="const">
+    <curve channel="RotX" interpolation="bezier" extend="cyclic">
       <p c="0.422 -66.375" h1="-175.490 -66.375" h2="176.334 -66.375"/>
       <p c="451.004 -66.334" h1="275.091 -66.334" h2="626.916 -66.334"/>
     </curve>
-    <curve channel="RotZ" interpolation="bezier" extend="const">
+    <curve channel="RotZ" interpolation="bezier" extend="cyclic">
       <p c="0.762 0.023" h1="-142.680 0.023" h2="144.205 0.023"/>
       <p c="368.177 0.065" h1="224.734 0.065" h2="511.620 0.065"/>
     </curve>
@@ -28,7 +28,7 @@
       <p c="0.013 90.084"/>
       <p c="679.984 -269.997"/>
     </curve>
-    <curve channel="LocY" interpolation="bezier" extend="const">
+    <curve channel="LocY" interpolation="bezier" extend="cyclic">
       <p c="0.868 39.720" h1="-182.734 39.720" h2="184.471 39.720"/>
       <p c="471.148 39.712" h1="287.546 39.712" h2="654.751 39.712"/>
     </curve>
@@ -87,7 +87,4 @@
                  forwards-distance ="1.50"
                  sidewards-distance="3.00"
                  upwards-distance  ="0.10"/>
-  <end-cameras>
-    <camera type="ahead_of_kart" xyz="7.481132 5.343665 -6.507640" distance="5"/>
-  </end-cameras>
 </scene>
