@@ -1,38 +1,38 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 10270 -->
+<!-- Generated with script from SVN rev 11144 -->
 <scene>
   <track model="startrack_track.b3d" x="0" y="0" z="0"/>
-  <object type="animation" model="earth.b3d" xyz="-209.179321 56.037697 -81.508003" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000" >
+  <object type="animation" model="earth.b3d" xyz="-209.18 56.04 -81.51" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"  interaction="none">
     <curve channel="RotY" interpolation="linear" extend="cyclic">
       <p c="1.000 -0.000"/>
       <p c="200.000 360.000"/>
     </curve>
   </object>
-  <object type="animation" model="jupiter.b3d" xyz="-309.000641 51.166660 299.268799" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000" >
+  <object type="animation" model="jupiter.b3d" xyz="-309.00 51.17 299.27" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"  interaction="none">
     <curve channel="RotY" interpolation="linear" extend="cyclic">
       <p c="1.000 -0.000"/>
       <p c="400.000 -360.000"/>
     </curve>
   </object>
-  <object type="animation" model="mars.b3d" xyz="-263.803162 52.853378 76.073677" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000" >
+  <object type="animation" model="mars.b3d" xyz="-263.80 52.85 76.07" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"  interaction="none">
     <curve channel="RotY" interpolation="linear" extend="cyclic">
       <p c="1.000 -0.000"/>
       <p c="120.000 360.000"/>
     </curve>
   </object>
-  <object type="animation" model="mercury.b3d" xyz="72.960579 24.066813 -217.588989" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000" >
+  <object type="animation" model="mercury.b3d" xyz="72.96 24.07 -217.59" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"  interaction="none">
     <curve channel="RotY" interpolation="linear" extend="cyclic">
       <p c="1.000 -0.000"/>
       <p c="150.000 360.000"/>
     </curve>
   </object>
-  <object type="animation" model="moon.b3d" xyz="-209.256607 72.570587 -81.483040" hpr="-0.000000 -0.000000 -0.000000" scale="41.538010 41.538010 41.538010" >
+  <object type="animation" model="moon.b3d" xyz="-209.26 72.57 -81.48" hpr="0.0 -0.0 0.0" scale="41.54 41.54 41.54"  interaction="static">
     <curve channel="RotY" interpolation="linear" extend="cyclic">
       <p c="1.000 -0.000"/>
       <p c="100.000 -360.000"/>
     </curve>
   </object>
-  <object type="animation" model="neptune.b3d" xyz="147.635162 52.488739 355.462952" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000" >
+  <object type="animation" model="neptune.b3d" xyz="147.64 52.49 355.46" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"  interaction="none">
     <curve channel="RotX" interpolation="linear" extend="cyclic">
       <p c="1.000 -0.000"/>
       <p c="120.000 -0.000"/>
@@ -46,7 +46,7 @@
       <p c="120.000 360.000"/>
     </curve>
   </object>
-  <object type="animation" model="pluto.b3d" xyz="178.753586 53.103935 243.272598" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000" >
+  <object type="animation" model="pluto.b3d" xyz="178.75 53.10 243.27" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"  interaction="none">
     <curve channel="RotX" interpolation="linear" extend="cyclic">
       <p c="1.000 -0.000"/>
       <p c="180.000 -0.000"/>
@@ -60,22 +60,22 @@
       <p c="180.000 360.000"/>
     </curve>
   </object>
-  <object type="animation" model="saturn.b3d" xyz="-130.988831 51.315945 505.674744" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000" >
+  <object type="animation" model="saturn.b3d" xyz="-130.99 51.32 505.67" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"  interaction="none">
     <curve channel="RotY" interpolation="linear" extend="cyclic">
       <p c="1.000 -0.000"/>
       <p c="400.000 360.000"/>
     </curve>
   </object>
-  <object type="animation" model="saturn-rings.b3d" xyz="-134.522278 50.496094 508.859741" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000" >
+  <object type="animation" model="saturn-rings.b3d" xyz="-134.52 50.50 508.86" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"  interaction="none">
   </object>
-  <object type="animation" model="sun.b3d" xyz="321.547241 210.001358 -432.779846" hpr="0.006833 -0.033722 0.250054" scale="1.000000 1.000000 1.000000" >
+  <object type="animation" model="sun.b3d" xyz="321.55 210.00 -432.78" hpr="0.0 -0.0 0.3" scale="1.00 1.00 1.00"  interaction="none">
     <curve channel="RotY" interpolation="linear" extend="cyclic">
       <p c="1.000 -0.034"/>
       <p c="1600.000 358.966"/>
     </curve>
   </object>
-  <object type="animation" model="Saucer.b3d" xyz="0.142100 6.684343 3.862184" hpr="15.000000 -0.000000 0.000000" scale="1.691000 8.046885 1.690522" >
-    <curve channel="LocX" interpolation="bezier" extend="const">
+  <object type="animation" model="Saucer.b3d" xyz="0.14 6.68 3.86" hpr="15.0 -0.0 0.0" scale="1.69 8.05 1.69"  interaction="static">
+    <curve channel="LocX" interpolation="bezier" extend="cyclic">
       <p c="1.000 0.142" h1="-17.855 0.142" h2="19.855 0.142"/>
       <p c="50.000 8.537" h1="37.658 0.142" h2="65.546 19.110"/>
       <p c="100.000 118.395" h1="90.106 101.568" h2="109.894 135.223"/>
@@ -99,7 +99,7 @@
       <p c="1000.000 -3.265" h1="980.642 -5.778" h2="1019.358 -0.752"/>
       <p c="1050.000 0.142" h1="1030.525 0.142" h2="1069.475 0.142"/>
     </curve>
-    <curve channel="LocZ" interpolation="bezier" extend="const">
+    <curve channel="LocZ" interpolation="bezier" extend="cyclic">
       <p c="1.000 3.862" h1="-8.770 3.862" h2="10.770 3.862"/>
       <p c="50.000 -78.623" h1="36.660 -64.912" h2="63.612 -92.614"/>
       <p c="100.000 -97.237" h1="81.137 -97.237" h2="118.863 -97.237"/>
@@ -123,7 +123,7 @@
       <p c="1000.000 61.235" h1="987.732 76.419" h2="1012.268 46.052"/>
       <p c="1050.000 3.862" h1="1037.175 3.862" h2="1062.825 3.862"/>
     </curve>
-    <curve channel="LocY" interpolation="bezier" extend="const">
+    <curve channel="LocY" interpolation="bezier" extend="cyclic">
       <p c="1.000 6.684" h1="-17.856 6.684" h2="19.856 6.684"/>
       <p c="50.000 -1.707" h1="30.871 -1.707" h2="69.519 -1.707"/>
       <p c="100.000 5.578" h1="80.621 3.228" h2="119.379 7.927"/>
@@ -147,11 +147,11 @@
       <p c="1000.000 5.437" h1="980.612 5.437" h2="1019.388 5.437"/>
       <p c="1050.000 6.685" h1="1030.485 6.685" h2="1069.515 6.685"/>
     </curve>
-    <curve channel="RotX" interpolation="bezier" extend="const">
+    <curve channel="RotX" interpolation="bezier" extend="cyclic">
       <p c="1.000 15.000" h1="-37.651 15.000" h2="39.651 15.000"/>
       <p c="100.000 15.000" h1="61.349 15.000" h2="138.651 15.000"/>
     </curve>
-    <curve channel="RotZ" interpolation="bezier" extend="const">
+    <curve channel="RotZ" interpolation="bezier" extend="cyclic">
       <p c="1.000 0.000" h1="-37.651 0.000" h2="39.651 0.000"/>
       <p c="100.000 0.000" h1="61.349 0.000" h2="138.651 0.000"/>
     </curve>
@@ -160,13 +160,13 @@
       <p c="320.844 -360.000"/>
     </curve>
   </object>
-  <object type="animation" model="uranus.b3d" xyz="42.709274 49.987076 481.086456" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000" >
+  <object type="animation" model="uranus.b3d" xyz="42.71 49.99 481.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"  interaction="none">
     <curve channel="RotY" interpolation="linear" extend="cyclic">
       <p c="1.000 -0.000"/>
       <p c="100.000 -360.000"/>
     </curve>
   </object>
-  <object type="animation" model="venus.b3d" xyz="-131.835190 24.230515 -196.770508" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000" >
+  <object type="animation" model="venus.b3d" xyz="-131.84 24.23 -196.77" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"  interaction="none">
     <curve channel="RotY" interpolation="linear" extend="cyclic">
       <p c="1.000 -0.000"/>
       <p c="300.000 360.000"/>
