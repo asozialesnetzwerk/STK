@@ -1884,6 +1884,9 @@ class TrackExport:
                     weather=weather+".xml"
                 f.write("  <weather particles=\"%s\" />\n"%weather)
 
+        smooth_normals = getIdProperty(scene, "smooth_normals", "false")
+        f.write("  <smooth-normals value=\"%s\" />\n"%smooth_normals)
+        
         rad2deg = 180.0/3.1415926
         for obj in lItems:
             name     = getProperty(obj, "type", "").lower()

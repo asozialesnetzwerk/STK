@@ -49,6 +49,7 @@
         <FloatProp id="start_sidewards_distance" name="Start Sidewards Distance" default="1.1"/>
         <FloatProp id="start_upwards_distance" name="Start upwards distance" default="1.1"/>
     </BoolProp>
+    <BoolProp id="smooth_normals" name="Smooth Normals" default="false" doc="Whether to interpolate the normals (gives smoother driving but requires that floors and walls be split)"/>
     <EnumProp id="weather" name="Weather" default="none" doc="The weather effect to use in this track">
         <EnumChoice id="none" label="None" doc="The weather effect to use in this track"/>
         <EnumChoice id="rain" label="Rain" doc="The weather effect to use in this track"/>
