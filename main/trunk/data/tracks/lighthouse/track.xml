@@ -6,5 +6,6 @@
         designer    = "Ingo Ruhnke &amp; Marianne Gagnon &amp; Stephen Dunn"
         music       = "OnTheRiver.music"
         screenshot  = "sshot-lighthouse.jpg"
+        smooth-normals = "true"
 >
 </track>
