@@ -1310,13 +1310,17 @@ def write_node_node(ibone):
 
     matrix = bone[BONE_PARENT_MATRIX]
     temp_buf.append(write_string(bone[BONE_ITSELF].name)) #Node Name
+    
+
 
     # FIXME: we should use the same matrix format everywhere to not require this
+    
     position = matrix.to_translation()
-    if not b3d_parameters.get("local-space") and bone[BONE_PARENT]:
-        temp_buf.append(write_float_triplet(-position[0], position[2], position[1])) 
+    if bone[BONE_PARENT]:
+        temp_buf.append(write_float_triplet(-position[0], position[2], position[1]))
     else:
         temp_buf.append(write_float_triplet(position[0], position[2], position[1]))
+    
     
     scale = matrix.to_scale()
     temp_buf.append(write_float_triplet(scale[0], scale[2], scale[1]))
@@ -1375,7 +1379,10 @@ def write_node_keys(ibone):
             position = keys_stack[ikeys][2]
             # FIXME: we should use the same matrix format everywhere and not require this
             if b3d_parameters.get("local-space"):
-                temp_buf.append(write_float_triplet(position[0], position[2], position[1]))
+                if bone_stack[ibone][BONE_PARENT]:
+                    temp_buf.append(write_float_triplet(-position[0], position[2], position[1]))
+                else:
+                    temp_buf.append(write_float_triplet(position[0], position[2], position[1]))
             else:
                 temp_buf.append(write_float_triplet(-position[0], position[1], position[2]))
 
