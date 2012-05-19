@@ -232,7 +232,7 @@ def write_texs(objects=[]):
                         try:
                             new_data = uvlayer.data[face.index].uv
                         except:
-                           pass
+                            pass
                         
                         layer_set[iuvlayer].append( new_data )
 
@@ -973,27 +973,17 @@ def write_node_mesh(obj,obj_count,arm_action,exp_root):
 
     return mesh_buf
 
-#ids_count = 0
-
 def build_vertex_groups(data):
     for f in data.faces:
         for v in f.vertices:
             vertex_groups.append({})
 
-#time_in_a = 0
-#time_in_b = 0
-#time_in_b1 = 0
-#time_in_b2 = 0
-#time_in_b3 = 0
-#time_in_b4 = 0
 
 # ==== Write NODE MESH VRTS Chunk ====
 def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
-    #global ids_count
     vrts_buf = bytearray()
     temp_buf = []
     obj_flags = 0
-    ids_count = 0
     
     #global time_in_a
     #global time_in_b
@@ -1022,8 +1012,6 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
 
     # ---- Prepare the mesh "stack"
     build_vertex_groups(data)
-
-    amount = 0
     
     # ---- Fill the mesh "stack"
     if DEBUG: print("")
@@ -1032,9 +1020,9 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
     ivert = -1
 
 
-    if PROGRESS_VERBOSE:
-        progress = 0
-        print("    vertex_groups, face:",0,"/",len(data.faces))
+    #if PROGRESS_VERBOSE:
+    #    progress = 0
+    #    print("    vertex_groups, face:",0,"/",len(data.faces))
     
     the_scene.frame_set(1,subframe=0.0)
     
@@ -1043,9 +1031,8 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
     else:
         mesh_matrix = obj.matrix_world.copy()
     
-    import time
-    
-    
+    #import time
+        
     uv_layers_count = len(data.uv_textures)
     for face in data.faces:
         
@@ -1353,8 +1340,8 @@ def write_node_bone(ibone):
     for ivert in range(len(vertex_groups)):
         if my_name in vertex_groups[ivert]:
             vert_influ = vertex_groups[ivert][my_name]
-            if DEBUG: print("        <bone name=",bone_stack[ibone][BONE_ITSELF].name,"face_vertex_id=", ivert + iuv,
-                            " weigth=", vert_influ[1] , "/>")
+            #if DEBUG: print("        <bone name=",bone_stack[ibone][BONE_ITSELF].name,"face_vertex_id=", ivert + iuv,
+            #                " weigth=", vert_influ[1] , "/>")
             temp_buf.append(write_int(ivert)) # Face Vertex ID
             temp_buf.append(write_float(vert_influ)) #Weight
 
@@ -1446,7 +1433,6 @@ class B3D_Export_Operator(bpy.types.Operator):
         if not blend_filepath:
             blend_filepath = "Untitled.b3d"
         else:
-            import os
             blend_filepath = os.path.splitext(blend_filepath)[0] + ".b3d"
         self.filepath = blend_filepath
         
@@ -1479,7 +1465,7 @@ class B3D_Export_Operator(bpy.types.Operator):
             #        a custom scene property
             obj_list = context.scene.obj_list
         except:
-             pass
+            pass
         
         if len(obj_list) > 0:
           
