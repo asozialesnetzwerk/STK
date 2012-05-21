@@ -14,10 +14,9 @@ __bpydoc__ = """\
 
 # BLITZ3D EXPORTER 3.0
 # Copyright (C) 2009 by Diego "GaNDaLDF" Parisi  -  www.gandaldf.com
-#
 # Lightmap issue fixed by Capricorn 76 Pty. Ltd. - www.capricorn76.com
-#
-# With changes by Marianne Gagnon and Joerg Henrichs, supertuxkart.sf.net
+# With changes by Marianne Gagnon and Joerg Henrichs, supertuxkart.sf.net (Copyright (C) 2011-2012)
+# Blender 2.63 compatiblity based on work by MTLZ, www.is06.com
 #
 # LICENSE:
 # This program is free software; you can redistribute it and/or modify
@@ -37,7 +36,7 @@ __bpydoc__ = """\
 bl_info = {
     "name": "B3D (BLITZ3D) Model Exporter",
     "description": "Exports a blender scene or object to the B3D (BLITZ3D) format",
-    "author": "Diego 'GaNDaLDF' Parisi, Joerg Henrichs, Marianne Gagnon",
+    "author": "Diego 'GaNDaLDF' Parisi, Joerg Henrichs, Marianne Gagnon, MTLZ (is06)",
     "version": (3,1),
     "blender": (2, 5, 9),
     "api": 31236,
@@ -170,6 +169,27 @@ def write_b3d_file(filename, objects=[]):
     
     print("Exported in", (end - start))
 
+def getUVTextures(obj_data):
+    # BMesh in blender 2.63 broke this
+    if bpy.app.version[1] >= 63:
+        return obj_data.tessface_uv_textures
+    else:
+        return obj_data.uv_textures
+
+def getFaces(obj_data):
+    # BMesh in blender 2.63 broke this
+    if bpy.app.version[1] >= 63:
+        return obj_data.tessfaces
+    else:
+        return obj_data.faces
+
+def getVertexColors(obj_data):
+    # BMesh in blender 2.63 broke this
+    if bpy.app.version[1] >= 63:
+        return obj_data.tessface_vertex_colors
+    else:
+        return obj_data.vertex_colors
+
 # ==== Write TEXS Chunk ====
 def write_texs(objects=[]):
     global b3d_parameters
@@ -214,14 +234,15 @@ def write_texs(objects=[]):
             texture_flags.append([None,None,None,None,None,None,None,None])
 
             #if len(data.getUVLayerNames()) <= 8:
-            if len(data.uv_textures) <= 8:
-                if len(data.uv_textures) > layer_max:
-                    layer_max = len(data.uv_textures)
+            uv_textures = getUVTextures(data)
+            if len(uv_textures) <= 8:
+                if len(uv_textures) > layer_max:
+                    layer_max = len(uv_textures)
             else:
                 layer_max = 8
 
-            for face in data.faces:
-                for iuvlayer,uvlayer in enumerate(data.uv_textures):
+            for face in getFaces(data):
+                for iuvlayer,uvlayer in enumerate(uv_textures):
                     if iuvlayer < 8:
                         
                         # FIXME?
@@ -236,12 +257,12 @@ def write_texs(objects=[]):
                         
                         layer_set[iuvlayer].append( new_data )
 
-            for i in range(len(data.uv_textures)):
+            for i in range(len(uv_textures)):
                 if set_wrote:
                     set_count += 1
                     set_wrote = 0
 
-                for iuvlayer in range(i,len(data.uv_textures)):
+                for iuvlayer in range(i,len(uv_textures)):
                     if layer_set[i] == layer_set[iuvlayer]:
                         if texture_flags[obj_count][iuvlayer] is None:
                             if set_count == 0:
@@ -257,11 +278,11 @@ def write_texs(objects=[]):
                             texture_flags[obj_count][iuvlayer] = tex_flag | enable_mipmaps
                             set_wrote = 1
 
-            for face in data.faces:
-                for iuvlayer,uvlayer in enumerate(data.uv_textures):
+            for face in getFaces(data):
+                for iuvlayer,uvlayer in enumerate(uv_textures):
                     if iuvlayer < 8:
                         
-                        if not (iuvlayer < len(data.uv_textures)):
+                        if not (iuvlayer < len(uv_textures)):
                             continue
                         
                         # FIXME?
@@ -340,26 +361,28 @@ def write_brus(objects=[]):
         if obj.type == "MESH":
             data = obj.data
             
-            if len(data.uv_textures) <= 0:
+            uv_textures = getUVTextures(data)
+            
+            if len(uv_textures) <= 0:
                 continue
 
             if DEBUG: print("<obj name=",obj.name,">")
 
             img_found = 0
             
-            for face in data.faces:
+            for face in getFaces(data):
                 
                 face_stack = []
                 
-                for iuvlayer,uvlayer in enumerate(data.uv_textures):
+                for iuvlayer,uvlayer in enumerate(uv_textures):
                     if iuvlayer < 8:
                         
                         img_id = -1
                         
-                        if face.index >= len(data.uv_textures[iuvlayer].data):
+                        if face.index >= len(uv_textures[iuvlayer].data):
                             continue
                         
-                        img = data.uv_textures[iuvlayer].data[face.index].image
+                        img = uv_textures[iuvlayer].data[face.index].image
                         
                         if not img:
                             continue
@@ -405,7 +428,7 @@ def write_brus(objects=[]):
                                 temp_buf += write_float(mat_alpha) #Alpha
                                 temp_buf += write_float(0)         #Shininess
                                 temp_buf += write_int(1)           #Blend
-                                if b3d_parameters.get("vertex-colors") and len(data.vertex_colors):
+                                if b3d_parameters.get("vertex-colors") and len(getVertexColors(data)):
                                     temp_buf += write_int(2) #Fx
                                 else:
                                     temp_buf += write_int(0) #Fx
@@ -413,7 +436,7 @@ def write_brus(objects=[]):
                                 for i in face_stack:
                                     temp_buf += write_int(i) #Texture ID
                     else:
-                        if b3d_parameters.get("vertex-colors") and len(data.vertex_colors) > 0:
+                        if b3d_parameters.get("vertex-colors") and len(getVertexColors(data)) > 0:
                             if not face_stack in brus_stack:
                                 brus_stack.append(face_stack)
                                 mat_count += 1
@@ -443,7 +466,7 @@ def write_brus(objects=[]):
                         
                         if DEBUG: print("    <brush id=",len(brus_stack),">")
                         
-                        if b3d_parameters.get("vertex-colors") and len(data.vertex_colors) > 0:
+                        if b3d_parameters.get("vertex-colors") and len(getVertexColors(data)) > 0:
                             temp_buf += write_int(2) #Fx
                         else:
                             temp_buf += write_int(0) #Fx
@@ -592,7 +615,6 @@ def write_node(objects=[]):
                 
                 if bpy.app.version[1] >= 62:
                     # blender 2.62 broke the API : Column-major access was changed to row-major access
-                    # TODO: test me
                     tmp = mathutils.Vector([matrix[0][1], matrix[1][1], matrix[2][1], matrix[3][1]])
                     matrix[0][1] = matrix[0][2]
                     matrix[1][1] = matrix[1][2]
@@ -974,7 +996,7 @@ def write_node_mesh(obj,obj_count,arm_action,exp_root):
     return mesh_buf
 
 def build_vertex_groups(data):
-    for f in data.faces:
+    for f in getFaces(data):
         for v in f.vertices:
             vertex_groups.append({})
 
@@ -1002,12 +1024,12 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
         obj_flags += 1
 
     #if b3d_parameters.get("vertex-colors") and data.getColorLayerNames():
-    if b3d_parameters.get("vertex-colors") and len(data.vertex_colors) > 0:
+    if b3d_parameters.get("vertex-colors") and len(getVertexColors(data)) > 0:
         obj_flags += 2
 
     temp_buf.append(write_int(obj_flags)) #Flags
     #temp_buf += write_int(len(data.getUVLayerNames())) #UV Set
-    temp_buf.append(write_int(len(data.uv_textures))) #UV Set
+    temp_buf.append(write_int(len(getUVTextures(data)))) #UV Set
     temp_buf.append(write_int(2)) #UV Set Size
 
     # ---- Prepare the mesh "stack"
@@ -1022,7 +1044,7 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
 
     #if PROGRESS_VERBOSE:
     #    progress = 0
-    #    print("    vertex_groups, face:",0,"/",len(data.faces))
+    #    print("    vertex_groups, face:",0,"/",len(getFaces(data)))
     
     the_scene.frame_set(1,subframe=0.0)
     
@@ -1033,8 +1055,8 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
     
     #import time
         
-    uv_layers_count = len(data.uv_textures)
-    for face in data.faces:
+    uv_layers_count = len(getUVTextures(data))
+    for face in getFaces(data):
         
         if DEBUG: print("        <!-- Face",face.index,"-->")
         
@@ -1082,15 +1104,16 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
             #c = time.time()
             #time_in_b += c - b
 
-            if b3d_parameters.get("vertex-colors") and len(data.vertex_colors) > 0:
+            if b3d_parameters.get("vertex-colors") and len(getVertexColors(data)) > 0:
+                vertex_colors = getVertexColors(data)
                 if vertex_id == 0:
-                    vcolor = data.vertex_colors[0].data[face.index].color1
+                    vcolor = vertex_colors[0].data[face.index].color1
                 elif vertex_id == 1:
-                    vcolor = data.vertex_colors[0].data[face.index].color2
+                    vcolor = vertex_colors[0].data[face.index].color2
                 elif vertex_id == 2:
-                    vcolor = data.vertex_colors[0].data[face.index].color3
+                    vcolor = vertex_colors[0].data[face.index].color3
                 elif vertex_id == 3:
-                    vcolor = data.vertex_colors[0].data[face.index].color4
+                    vcolor = vertex_colors[0].data[face.index].color4
                 
                 temp_buf.append(write_float_quad(vcolor.r, #R
                                                  vcolor.g, #G
@@ -1114,19 +1137,19 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
             # ==== !!bottleneck here!! (40% of the function)
             if vertex_id == 0:
                 for iuvlayer in range(uv_layers_count):
-                    uv = data.uv_textures[iuvlayer].data[face.index].uv1
+                    uv = getUVTextures(data)[iuvlayer].data[face.index].uv1
                     temp_buf.append(write_float_couple(uv[0], 1-uv[1]) ) # U, V
             elif vertex_id == 1:
                 for iuvlayer in range(uv_layers_count):
-                    uv = data.uv_textures[iuvlayer].data[face.index].uv2
+                    uv = getUVTextures(data)[iuvlayer].data[face.index].uv2
                     temp_buf.append(write_float_couple(uv[0], 1-uv[1]) ) # U, V
             elif vertex_id == 2:
                 for iuvlayer in range(uv_layers_count):
-                    uv = data.uv_textures[iuvlayer].data[face.index].uv3
+                    uv = getUVTextures(data)[iuvlayer].data[face.index].uv3
                     temp_buf.append(write_float_couple(uv[0], 1-uv[1]) ) # U, V
             elif vertex_id == 3:
                 for iuvlayer in range(uv_layers_count):
-                    uv = data.uv_textures[iuvlayer].data[face.index].uv4
+                    uv = getUVTextures(data)[iuvlayer].data[face.index].uv4
                     temp_buf.append(write_float_couple(uv[0], 1-uv[1]) ) # U, V
 
             #f = time.time()
@@ -1166,23 +1189,21 @@ def write_node_mesh_tris(obj, data, obj_count,arm_action,exp_root):
     
     if DEBUG: print("")
     
-    for face in data.faces:
+    for face in getFaces(data):
         img_found = 0
         face_stack = []
         
-        #for iuvlayer,uvlayer in enumerate(data.getUVLayerNames()):
-        for iuvlayer,uvlayer in enumerate(data.uv_textures):
+        uv_textures = getUVTextures(data)
+        uv_layer_count = len(uv_textures)
+        for iuvlayer,uvlayer in enumerate(uv_textures):
             if iuvlayer < 8:
                 
-                if iuvlayer >= len(data.uv_textures):
+                if iuvlayer >= uv_layer_count:
                     continue
-
-                # Blender 2.5 :
-                # data.uv_textures[0].data[0].image
-
+                
                 img_id = -1
-
-                img = data.uv_textures[iuvlayer].data[face.index].image
+                
+                img = uv_textures[iuvlayer].data[face.index].image
                 if img:
                     
                     if img.filepath in trimmed_paths:
