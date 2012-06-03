@@ -15,20 +15,14 @@ __bpydoc__ = """\
 # From Supertuxkart SVN revision $Revision$
 
 # Copyright (C) 2010 Joerg Henrichs
-# Copyright (C) 2011 Marianne Gagnon
+# Copyright (C) 2012 Marianne Gagnon
 # INSERT (C) here!
 
 #If you get an error here, it might be
 #because you don't have Python installed.
 import bpy
 import sys, os, os.path, struct, math, string, re
-#import b3d_export
 
-#from Blender import Mathutils, IpoCurve, Constraint
-#from Blender.Mathutils import *
-#from Blender import Draw, BGL
-#from Blender.BGL import *
-#from Blender import sys as bsys
 
 bl_info = {
     "name": "SuperTuxKart Track Exporter",
@@ -670,6 +664,7 @@ class TrackExport:
         is_arena = not (is_arena[0]=="n" or is_arena[0]=="N" or \
                         is_arena[0]=="f" or is_arena[0]=="F"      )
 
+        is_cutscene = getIdProperty(scene, "cutscene",  "false") == "true"
         is_internal = getIdProperty(scene, "internal",   "n"            )
         is_internal = (is_internal == "true")
         
@@ -715,6 +710,9 @@ class TrackExport:
         
         if is_arena:
             f.write("        arena       = \"Y\"\n")
+
+        if is_cutscene:
+            f.write("        cutscene    = \"Y\"\n")
 
         if is_internal:
             f.write("        internal    = \"Y\"\n")
@@ -2107,7 +2105,8 @@ class TrackExport:
                 lTrack.append(obj)
 
         is_arena = getIdProperty(bpy.data.scenes[0], "arena",      "n"            )
-        if not found_main_driveline and not is_arena:
+        is_cutscene = getIdProperty(bpy.data.scenes[0], "cutscene",  "false") == "true"
+        if not found_main_driveline and not is_arena and not is_cutscene:
             log_warning("Main driveline missing, using first driveline as main!")
             
         # Now export the different parts: track file
@@ -2124,7 +2123,8 @@ class TrackExport:
         if not is_arena: is_arena="n"
         is_arena = not (is_arena[0]=="n" or is_arena[0]=="N" or \
                         is_arena[0]=="f" or is_arena[0]=="F"     )
-        if not is_arena:
+                        
+        if not is_arena and not is_cutscene:
             self.writeQuadAndGraph(sPath, lDrivelines, lEndCameras)
         #start_time = bsys.time()
 
@@ -2170,20 +2170,10 @@ class TrackExport:
 
 # ==============================================================================
 def savescene_callback(sFilename):
-    # Settings for the b3d exporter:
-    #b3d_export.b3d_parameters["vertex-normals" ] = 1  # Vertex normals.
-    #b3d_export.b3d_parameters["vertex-colors"  ] = 1  # Vertex colors
-    #b3d_export.b3d_parameters["cameras"        ] = 0  # Cameras
-    #b3d_export.b3d_parameters["lights"         ] = 0  # Lights
-    #b3d_export.b3d_parameters["mipmap"         ] = 1  # Enable mipmap
-    #b3d_export.b3d_parameters["local-space"    ] = 0  # Export in world space
-
     global log
     log = []
     
     exporter = TrackExport(sFilename)
-    #bpy.ops.screen.b3d_export(localsp=False, mipmap=True, lights=False, vcolors=True,
-    #                          vnormals=True, cameras=False)
 
 thelist = []
 def getlist(self):
@@ -2303,32 +2293,8 @@ class STK_Track_Exporter_Panel(bpy.types.Panel):
             row = box.row()
             row.operator("screen.stk_track_clean_log", text="Clear Log", icon='X')
             row.operator("screen.stk_track_copy_log",  text="Copy Log", icon='COPYDOWN')
-              
-        #row = layout.row()
-        #row.label("Warning, your drivelines don't look legit11", icon='ERROR')   
-        
-        #row = layout.row()
-        #row.label("Warning, your drivelines don't look legit12", icon='GREASEPENCIL') 
-        
-        #row = layout.row()
-        #row.label("A very bad error occurred while exporting the SuperTuxKart track", icon='X')
-        
-        #row = layout.row()
-        #row.label("Warning, your drivelines don't look legit5", icon='INFO')
-        
-        #row = layout.row()
-        #row.label("Warning, your drivelines don't look legit8", icon='GHOST_ENABLED')
 
-        #row = layout.row()
-        #row.label("Warning, your drivelines don't look legit10", icon='QUESTION')     
-        
-        #row = layout.row()
-        #row.label("Warning, your drivelines don't look legit11", icon='ERROR')   
-        
-        #row = layout.row()
-        #row.label("Warning, your drivelines don't look legit12", icon='GREASEPENCIL') 
 
-             
 # Add to a menu
 def menu_func_export(self, context):
     global the_scene
