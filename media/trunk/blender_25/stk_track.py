@@ -1109,7 +1109,7 @@ class TrackExport:
     
     # --------------------------------------------------------------------------
     # Writes the animation for objects using IPOs:
-    def writeAnimationWithIPO(self, f, name, obj, ipo):
+    def writeAnimationWithIPO(self, f, name, obj, ipo, objectType="animation"):
         # An animated object can set the 'name' property, then this name will
         # be used to name the exported object (instead of the python name
         # which might be a default name with a number). Additionally, names
@@ -1147,12 +1147,12 @@ class TrackExport:
             tangent_string="tangents=\"true\" "
             
         if parent and parent.type=="ARMATURE":
-            f.write("  <object type=\"animation\" %s%s %s%s%s%s%s%s>\n"% \
-                    (model_string, getXYZHPRString(parent), shape, looped,
+            f.write("  <object type=\"%s\" %s%s %s%s%s%s%s%s>\n"% \
+                    (objectType, model_string, getXYZHPRString(parent), shape, looped,
                      lodstring, reset_string, tangent_string, interaction_string))
         else:
-            f.write("  <object type=\"animation\" %s%s %s%s%s%s%s%s>\n"% \
-                    (model_string, getXYZHPRString(obj), shape, looped,
+            f.write("  <object type=\"%s\" %s%s %s%s%s%s%s%s>\n"% \
+                    (objectType, model_string, getXYZHPRString(obj), shape, looped,
                      lodstring, reset_string, tangent_string, interaction_string))
         self.writeIPO(f, ipo)
         f.write("  </object>\n")
@@ -1640,10 +1640,12 @@ class TrackExport:
         if len(name) == 0: name = obj.name
         
         type = getProperty(obj, "type", "X")
-        if type == "lod_instance":
-            b3d_name = None
-        else:
-            b3d_name = self.exportLocalB3D(obj, sPath, name)
+        
+        if obj.type != "CAMERA":
+            if type == "lod_instance":
+                b3d_name = None
+            else:
+                b3d_name = self.exportLocalB3D(obj, sPath, name)
 
             
         # First kind of object: ipo. There is one or
@@ -1654,9 +1656,12 @@ class TrackExport:
         # -----------------------------------------------
         interact = getProperty(obj, "interaction", "none")
         
+        if obj.type=="CAMERA":
+            ipo  = obj.animation_data
+            self.writeAnimationWithIPO(f, "none", obj, ipo, objectType="cutscene_camera")
         # An object that can be moved by the player. This object
         # can not have an IPO, so no need to test this here.
-        if interact=="move":
+        elif interact=="move":
             ipo      = obj.animation_data
             if ipo and ipo.action:
                 log_warning("Movable object %s has an ipo - ipo is ignored." \
@@ -2034,6 +2039,7 @@ class TrackExport:
             # copied into the main track.
             if stktype=="IGNORE": continue
             
+            
             if obj.type=="EMPTY":
                 # For backward compatibility test for the blender name
                 # in case that there is no type property defined. This makes
@@ -2071,6 +2077,9 @@ class TrackExport:
                 continue
             elif obj.type=="CAMERA" and stktype in ['fixed', 'ahead']:
                 lEndCameras.append(obj)
+                continue
+            elif obj.type=="CAMERA" and stktype == 'CUTSCENE_CAMERA':
+                lObjects.append(obj)
                 continue
             elif obj.type!="MESH":
                 #print "Non-mesh object '%s' (type: '%s') is ignored!"%(obj.name, stktype)
