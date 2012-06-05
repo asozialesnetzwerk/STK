@@ -1658,7 +1658,7 @@ class TrackExport:
         
         if obj.type=="CAMERA":
             ipo  = obj.animation_data
-            self.writeAnimationWithIPO(f, "none", obj, ipo, objectType="cutscene_camera")
+            self.writeAnimationWithIPO(f, "", obj, ipo, objectType="cutscene_camera")
         # An object that can be moved by the player. This object
         # can not have an IPO, so no need to test this here.
         elif interact=="move":
