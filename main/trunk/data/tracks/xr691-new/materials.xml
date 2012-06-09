@@ -9,11 +9,6 @@
   <material name="arc1.png" light="N" backface-culling="N" disable-z-write="Y"/>
   <material name="arc2.png" reset="Y" compositing="blend" backface-culling="N" light="N" disable-z-write="Y"/>
   <material name="glass.png" backface-culling="N" compositing="blend" disable-z-write="Y"/>
-  <material name="laser_bridge_green.png" compositing="blend" backface-culling="N"/>
-  <material name="laser_bridge_red.png" compositing="blend" backface-culling="N"/>
-  <material name="metal_ground.jpg">
-    <particles base="smoke.xml" condition="skid"/>
-  </material>
   <material name="trail.png">
     <particles base="smoke_red.xml" condition="skid"/>
   </material>
