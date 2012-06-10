@@ -92,9 +92,9 @@
   <small-nitro x="65.250786" y="18.134247" z="22.053024" />
   <small-nitro x="-35.167824" y="20.993225" z="65.193352" />
   <checks>
-    <check-lap kind="lap" same-group="0"  />
+    <check-lap kind="lap" same-group="0" other-ids="1" />
     <check-line kind="activate" other-ids="2" p1="53.887032 24.765518" p2="69.395386 21.711842"
-                min-height="15.572582" same-group="1"/>
+                min-height="17.419651" same-group="1"/>
     <check-line kind="activate" other-ids="0" p1="-16.813904 4.203712" p2="-16.813900 21.027946"
                 min-height="23.926331" same-group="2"/>
   </checks>
