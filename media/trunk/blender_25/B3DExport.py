@@ -89,6 +89,8 @@ DEBUG = False
 PROGRESS = True
 PROGRESS_VERBOSE = False
 
+tesselated_objects = {}
+
 #Support Functions
 def write_int(value):
     return struct.pack("<i",value)
@@ -132,7 +134,7 @@ def getArmatureAnimationEnd(armature):
 # ==== Write B3D File ====
 # (main exporter function)
 def write_b3d_file(filename, objects=[]):
-    global texture_flags, texs_stack, trimmed_paths
+    global texture_flags, texs_stack, trimmed_paths, tesselated_objects
     global brus_stack, vertex_groups, bone_stack, keys_stack
 
     #Global Stacks
@@ -145,6 +147,7 @@ def write_b3d_file(filename, objects=[]):
     trimmed_paths = {}
     file_buf = bytearray()
     temp_buf = bytearray()
+    tesselated_objects = {}
 
     import time
     start = time.time()
@@ -169,24 +172,31 @@ def write_b3d_file(filename, objects=[]):
     
     print("Exported in", (end - start))
 
+
+def tesselate_if_needed(objdata):
+    if objdata not in tesselated_objects:
+        objdata.calc_tessface()
+        tesselated_objects[objdata] = True
+    return objdata
+
 def getUVTextures(obj_data):
     # BMesh in blender 2.63 broke this
     if bpy.app.version[1] >= 63:
-        return obj_data.tessface_uv_textures
+        return tesselate_if_needed(obj_data).tessface_uv_textures
     else:
         return obj_data.uv_textures
 
 def getFaces(obj_data):
     # BMesh in blender 2.63 broke this
     if bpy.app.version[1] >= 63:
-        return obj_data.tessfaces
+        return tesselate_if_needed(obj_data).tessfaces
     else:
         return obj_data.faces
 
 def getVertexColors(obj_data):
     # BMesh in blender 2.63 broke this
     if bpy.app.version[1] >= 63:
-        return obj_data.tessface_vertex_colors
+        return tesselate_if_needed(obj_data).tessface_vertex_colors
     else:
         return obj_data.vertex_colors
 
