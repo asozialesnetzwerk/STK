@@ -1481,16 +1481,19 @@ class TrackExport:
             activate = mainDriveline.getActivate()
             if activate:
                 group = activate.lower()
+                
+                if not group or group not in dGroup2Indices:
+                    log_warning("Activate group '%s' not found!"%group)
+                    print("Ignored - but lap counting might not work correctly.")
+                    print("Make sure there is an object of type 'check' with")
+                    print("the name '%s' defined."%group)
+                    activate = ""
+                else:
+                    activate = reduce(lambda x,y: str(x)+" "+str(y), dGroup2Indices[group])
             else:
                 group = ""
-            if not group or group not in dGroup2Indices:
-                log_warning("Activate group '%s' not found!"%group)
-                print("Ignored - but lap counting might not work correctly.")
-                print("Make sure there is an object of type 'check' with")
-                print("the name '%s' defined."%group)
                 activate = ""
-            else:
-                activate = reduce(lambda x,y: str(x)+" "+str(y), dGroup2Indices[group])
+                log_warning("Warning : the main driveline does not activate any checkline. Lap counting and kart rescue will not work correctly.")
         else:
             # No main drive defined, print a warning and add some dummy
             # driveline (makes the rest of this code easier)
