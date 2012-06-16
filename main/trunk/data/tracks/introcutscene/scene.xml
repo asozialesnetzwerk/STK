@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 11277 -->
+<!-- Generated with script from SVN rev 11294 -->
 <scene>
   <track model="introcutscene_track.b3d" x="0" y="0" z="0">
     <static-object model="pineVeryLow.b3d" xyz="-125.39 11.62 9.12" hpr="-90.0 -175.6 -0.0" scale="0.50 0.50 0.50"/>
@@ -17,6 +17,7 @@
     <static-object model="pineVeryLow.b3d" xyz="-97.79 11.00 2.32" hpr="-90.0 -150.0 -0.0" scale="0.50 0.50 0.50"/>
   </track>
   <object type="sfx-emitter" sound="gnu_flute.ogg" rolloff="0.1" volume="1.0" xyz="-97.45 1.04 51.28" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+  <object type="sfx-emitter" sound="appear.ogg" rolloff="0.0010000000474974513" volume="1.0" xyz="-93.03 2.42 29.84" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 360"/>
   <object type="cutscene_camera" model="" xyz="-144.43 3.58 29.92" hpr="-100.4 74.5 -1.2" scale="1.00 1.00 1.00"  interaction="ghost">
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="0.000 -144.430" h1="-38.575 -144.430" h2="38.575 -144.430"/>
