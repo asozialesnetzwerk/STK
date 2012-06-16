@@ -45,6 +45,10 @@
 * explosion
     Released under the GNU GPL, coming from original (Super)TuxKart
     
+* gnu_flute
+    Released under CC-BY 3.0 license
+    by Kerri (http://www.freesound.org/people/kerri/sounds/27257/)
+
 * goo
     based on Squish 1-SoundBible.com-662226724
     by Mike Keonig, released under CC-Attribution 3.0 License
