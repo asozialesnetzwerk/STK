@@ -196,6 +196,7 @@
                 <FloatProp id="play_distance" name="Play when at distance" default="1.0" min="0.0" max="20.0"
                            doc="Distance at which the sound starts playing when approaching"/>
             </BoolProp>
+            <StringProp id="sfx_conditions" name="Sound conditions" default="" doc="For internal use only by STK developers"/>
         </EnumChoice>
         
         <!-- Sun -->

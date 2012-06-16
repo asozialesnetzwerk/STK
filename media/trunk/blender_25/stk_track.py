@@ -1360,10 +1360,14 @@ class TrackExport:
                     dist = getProperty(obj, "play_distance", 1.0)
                     play_near_string = " play-when-near=\"true\" distance=\"%.1f\"" % dist
                 
-                f.write('  <object type="sfx-emitter" sound="%s" rolloff="%s" volume="%s" %s%s/>\n' %\
+                conditions_string = ""
+                if len(getProperty(obj, "sfx_conditions", "")) > 0:
+                    conditions_string = ' conditions="' + getProperty(obj, "sfx_conditions", "") + '"'
+                
+                f.write('  <object type="sfx-emitter" sound="%s" rolloff="%s" volume="%s" %s%s%s/>\n' %\
                         (getProperty(obj, "sfx_filename", "some_sound.ogg"),
                          getProperty(obj, "sfx_rolloff", 0.05),
-                         getProperty(obj, "sfx_volume", 0), originXYZ, play_near_string))
+                         getProperty(obj, "sfx_volume", 0), originXYZ, play_near_string, conditions_string))
             except:
                 log_error("Invalid sound emitter <" + getProperty(obj, "name", obj.name) + "> ",
                     sys.exc_info()[0])
