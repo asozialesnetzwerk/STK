@@ -3,6 +3,10 @@
     Released under the GPL
     by the "Battle For Wesnoth" project
 
+* appear
+    Released under Creative Commons 0
+    By Martian/www.fork-media.com (http://www.freesound.org/people/martian/sounds/19284/)
+
 * ball_bounce
     Released under GPL vs2+
     by the Supertux team
