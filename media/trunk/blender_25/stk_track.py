@@ -1621,7 +1621,7 @@ class TrackExport:
                     f.write("                  same-group=\"%s\"\n"%sSameGroup.strip())
                     f.write("                  inner-radius=\"%f\" color=\"%s\"/>\n"% \
                             (inner_radius, color) )
-            except Exception as ex:
+            except Exception as exc:
                 log_error("Error exporting checkline " + obj.name + ", make sure it is properly formed")
                 
                 from traceback import format_tb
