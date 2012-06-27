@@ -1524,103 +1524,108 @@ class TrackExport:
         ind = 1
         for obj in lChecks:
         
-            type = getProperty(obj, "type", "")
-            if type == "cannonstart":
-                self.writeCannon(f, obj)
-                continue
-            elif type == "cannonend":
-                continue
-            
-            mesh = obj.data.copy()
-            # Convert to world space
-            mesh.transform(obj.matrix_world)
-            # One of lap, activate, toggle, ambient
-            activate = getProperty(obj, "activate", "")
-            kind=" "
-            if activate:
-                group = activate.lower()
-                if group not in dGroup2Indices:
-                    log_warning("Activate group '%s' not found!"%group)
-                    print("Ignored - but lap counting might not work correctly.")
-                    print("Make sure there is an object of type 'check' with")
-                    print("the name '%s' defined."%group)
+            try:
+                type = getProperty(obj, "type", "")
+                if type == "cannonstart":
+                    self.writeCannon(f, obj)
                     continue
-                s = reduce(lambda x,y: str(x)+" "+str(y), dGroup2Indices[group])
-                kind = " kind=\"activate\" other-ids=\"%s\" "% s
-
-            toggle = getProperty(obj, "toggle", "")
-            if toggle:
-                group = toggle.lower()
-                if group not in dGroup2Indices:
-                    log_warning("Toggle group '%s' not found!"%group)
-                    print("Ignored - but lap counting might not work correctly.")
-                    print("Make sure there is an object of type 'check' with")
-                    print("the name '%s' defined."%group)
+                elif type == "cannonend":
                     continue
-                s = reduce(lambda x,y: str(x)+" "+str(y), dGroup2Indices[group])
-                kind = " kind=\"toggle\" other-ids=\"%s\" "% s
-
-            lap = getProperty(obj, "type", obj.name).upper()
-            if lap[:3]=="LAP":
-                kind = " kind=\"lap\" "  # xml needs a value for an attribute
+                
+                mesh = obj.data.copy()
+                # Convert to world space
+                mesh.transform(obj.matrix_world)
+                # One of lap, activate, toggle, ambient
                 activate = getProperty(obj, "activate", "")
+                kind=" "
                 if activate:
                     group = activate.lower()
                     if group not in dGroup2Indices:
-                        log_warning("Activate group '%s' not found for lap line!"%group)
+                        log_warning("Activate group '%s' not found!"%group)
                         print("Ignored - but lap counting might not work correctly.")
                         print("Make sure there is an object of type 'check' with")
                         print("the name '%s' defined."%group)
                         continue
                     s = reduce(lambda x,y: str(x)+" "+str(y), dGroup2Indices[group])
-                    kind = "%sother-ids=\"%s\" "% (kind, s)
-            
-            ambient = getProperty(obj, "ambient", "").upper()
-            if ambient:
-                kind=" kind=\"ambient-light\" "
+                    kind = " kind=\"activate\" other-ids=\"%s\" "% s
 
-            # Get the group name this object belongs to. If the objects
-            # is of type lap then 'lap' is the group name, otherwise
-            # it's taken from the name property (or the object name).
-            name = getProperty(obj, "type", obj.name.lower()).lower()
-            if name!="lap":
-                name = getProperty(obj, "name", obj.name.lower()).lower()
-                if len(name) == 0: name = obj.name.lower()
+                toggle = getProperty(obj, "toggle", "")
+                if toggle:
+                    group = toggle.lower()
+                    if group not in dGroup2Indices:
+                        log_warning("Toggle group '%s' not found!"%group)
+                        print("Ignored - but lap counting might not work correctly.")
+                        print("Make sure there is an object of type 'check' with")
+                        print("the name '%s' defined."%group)
+                        continue
+                    s = reduce(lambda x,y: str(x)+" "+str(y), dGroup2Indices[group])
+                    kind = " kind=\"toggle\" other-ids=\"%s\" "% s
+
+                lap = getProperty(obj, "type", obj.name).upper()
+                if lap[:3]=="LAP":
+                    kind = " kind=\"lap\" "  # xml needs a value for an attribute
+                    activate = getProperty(obj, "activate", "")
+                    if activate:
+                        group = activate.lower()
+                        if group not in dGroup2Indices:
+                            log_warning("Activate group '%s' not found for lap line!"%group)
+                            print("Ignored - but lap counting might not work correctly.")
+                            print("Make sure there is an object of type 'check' with")
+                            print("the name '%s' defined."%group)
+                            continue
+                        s = reduce(lambda x,y: str(x)+" "+str(y), dGroup2Indices[group])
+                        kind = "%sother-ids=\"%s\" "% (kind, s)
                 
-            # Get the list of indices of this group, excluding
-            # the index of the current object. So create a copy
-            # of the list and remove the current index
-            l = dGroup2Indices[name][:]
-            sSameGroup = reduce(lambda x,y: str(x)+" "+str(y), l, "")
-            ind = ind + 1
+                ambient = getProperty(obj, "ambient", "").upper()
+                if ambient:
+                    kind=" kind=\"ambient-light\" "
 
-            if len(mesh.vertices)==2:   # Check line
-                min_h = mesh.vertices[0].co[2]
-                if mesh.vertices[1].co[2] < min_h: min_h = mesh.vertices[1].co[2]
-                f.write("    <check-line%sp1=\"%f %f\" p2=\"%f %f\"\n" %
-                        (kind, mesh.vertices[0].co[0], mesh.vertices[0].co[1],
-                         mesh.vertices[1].co[0], mesh.vertices[1].co[1]   )  )
+                # Get the group name this object belongs to. If the objects
+                # is of type lap then 'lap' is the group name, otherwise
+                # it's taken from the name property (or the object name).
+                name = getProperty(obj, "type", obj.name.lower()).lower()
+                if name!="lap":
+                    name = getProperty(obj, "name", obj.name.lower()).lower()
+                    if len(name) == 0: name = obj.name.lower()
+                    
+                # Get the list of indices of this group, excluding
+                # the index of the current object. So create a copy
+                # of the list and remove the current index
+                l = dGroup2Indices[name][:]
+                sSameGroup = reduce(lambda x,y: str(x)+" "+str(y), l, "")
+                ind = ind + 1
 
-                f.write("                min-height=\"%f\" same-group=\"%s\"/>\n" \
-                        % (min_h, sSameGroup.strip())  )
-            else:
-                radius = 0
-                for v in mesh.vertices:
-                    r = (obj.location[0]-v[0])*(obj.location[0]-v[0]) + \
-                        (obj.location[1]-v[1])*(obj.location[1]-v[1]) + \
-                        (obj.location[2]-v[2])*(obj.loc[2]-v[2])
-                    if r > radius:
-                        radius = r
+                if len(mesh.vertices)==2:   # Check line
+                    min_h = mesh.vertices[0].co[2]
+                    if mesh.vertices[1].co[2] < min_h: min_h = mesh.vertices[1].co[2]
+                    f.write("    <check-line%sp1=\"%f %f\" p2=\"%f %f\"\n" %
+                            (kind, mesh.vertices[0].co[0], mesh.vertices[0].co[1],
+                             mesh.vertices[1].co[0], mesh.vertices[1].co[1]   )  )
+
+                    f.write("                min-height=\"%f\" same-group=\"%s\"/>\n" \
+                            % (min_h, sSameGroup.strip())  )
+                else:
+                    radius = 0
+                    for v in mesh.vertices:
+                        r = (obj.location[0]-v[0])*(obj.location[0]-v[0]) + \
+                            (obj.location[1]-v[1])*(obj.location[1]-v[1]) + \
+                            (obj.location[2]-v[2])*(obj.loc[2]-v[2])
+                        if r > radius:
+                            radius = r
+                    
+                    radius = math.sqrt(radius)
+                    inner_radius = getProperty(obj, "inner_radius", radius)
+                    color = getProperty(obj, "color", "255 120 120 120")
+                    f.write("    <check-sphere%sxyz=\"%f %f %f\" radius=\"%f\"\n" % \
+                            (kind, obj.location[0], obj.location[2], obj.location[1], radius) )
+                    f.write("                  same-group=\"%s\"\n"%sSameGroup.strip())
+                    f.write("                  inner-radius=\"%f\" color=\"%s\"/>\n"% \
+                            (inner_radius, color) )
+            except Exception as ex:
+                log_error("Error exporting checkline " + obj.name + ", make sure it is properly formed")
                 
-                radius = math.sqrt(radius)
-                inner_radius = getProperty(obj, "inner_radius", radius)
-                color = getProperty(obj, "color", "255 120 120 120")
-                f.write("    <check-sphere%sxyz=\"%f %f %f\" radius=\"%f\"\n" % \
-                        (kind, obj.location[0], obj.location[2], obj.location[1], radius) )
-                f.write("                  same-group=\"%s\"\n"%sSameGroup.strip())
-                f.write("                  inner-radius=\"%f\" color=\"%s\"/>\n"% \
-                        (inner_radius, color) )
-                        
+                from traceback import format_tb
+                print(format_tb(exc.__traceback__)[0])
         f.write("  </checks>\n")
             
     # --------------------------------------------------------------------------
