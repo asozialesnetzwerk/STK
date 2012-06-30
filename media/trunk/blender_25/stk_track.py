@@ -1338,11 +1338,16 @@ class TrackExport:
                 originXYZ = getXYZHString(obj)
                 
                 if getProperty(obj, "clip_distance", 0) > 0 :
-                    f.write('  <particle-emitter kind="%s" %s clip_distance="%i"/>\n' %\
+                    f.write('  <particle-emitter kind="%s" %s clip_distance="%i">\n' %\
                             (getProperty(obj, "kind", 0), originXYZ, getProperty(obj, "clip_distance", 0)))
                 else:
-                    f.write('  <particle-emitter kind="%s" %s/>\n' %\
+                    f.write('  <particle-emitter kind="%s" %s>\n' %\
                         (getProperty(obj, "kind", 0), originXYZ))
+                
+                if obj.animation_data and obj.animation_data.action and obj.animation_data.action.fcurves and len(obj.animation_data.action.fcurves) > 0:
+                    self.writeIPO(f, obj.animation_data)
+                
+                f.write('  </particle-emitter>\n')
             except:
                 log_error("Invalid particle emitter <" + getProperty(obj, "name", obj.name) + "> ",
                     sys.exc_info()[0])
@@ -1364,10 +1369,22 @@ class TrackExport:
                 if len(getProperty(obj, "sfx_conditions", "")) > 0:
                     conditions_string = ' conditions="' + getProperty(obj, "sfx_conditions", "") + '"'
                 
-                f.write('  <object type="sfx-emitter" sound="%s" rolloff="%s" volume="%s" %s%s%s/>\n' %\
-                        (getProperty(obj, "sfx_filename", "some_sound.ogg"),
-                         getProperty(obj, "sfx_rolloff", 0.05),
-                         getProperty(obj, "sfx_volume", 0), originXYZ, play_near_string, conditions_string))
+                
+                if getProperty(obj, "sfx_rolloff_type", "inverse") == "linear":
+                    f.write('  <object type="sfx-emitter" sound="%s" rolloff_type="linear" distance="%.3f" volume="%s" %s%s%s>\n' %\
+                            (getProperty(obj, "sfx_filename", "some_sound.ogg"),
+                             getProperty(obj, "sfx_rolloff_distance", 10.0),
+                             getProperty(obj, "sfx_volume", 0), originXYZ, play_near_string, conditions_string))
+                else:
+                    f.write('  <object type="sfx-emitter" sound="%s" rolloff_type="inverse" rolloff="%.3f" volume="%s" %s%s%s>\n' %\
+                            (getProperty(obj, "sfx_filename", "some_sound.ogg"),
+                             getProperty(obj, "sfx_rolloff", 0.05),
+                             getProperty(obj, "sfx_volume", 0), originXYZ, play_near_string, conditions_string))
+                
+                if obj.animation_data and obj.animation_data.action and obj.animation_data.action.fcurves and len(obj.animation_data.action.fcurves) > 0:
+                    self.writeIPO(f, obj.animation_data)
+                
+                f.write('  </object>\n')
             except:
                 log_error("Invalid sound emitter <" + getProperty(obj, "name", obj.name) + "> ",
                     sys.exc_info()[0])

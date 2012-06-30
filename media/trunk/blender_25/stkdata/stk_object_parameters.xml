@@ -190,8 +190,20 @@
         <EnumChoice id="sfx_emitter" label="Sound Emitter" doc="A sound will be heard when close to this point">
             <StringProp id="sfx_filename" name="Sound File" default="some_file.ogg" doc="Filename of the sound to play"/>
             <FloatProp id="sfx_volume" name="Sound volume" default="1.0" min="0.0" max="1.0"/>
-            <FloatProp id="sfx_rolloff" name="Rolloff rate" default="0.1" min="0.0" max="2.5"
-                       doc="How fast this sound decays when going farther from the emission point"/>
+            
+            
+            <EnumProp id="sfx_rolloff_type" name="Rolloff type" default="inverse"
+                      doc="How the sound fades in when listener approaches">
+                <EnumChoice id="inverse" label="Inverse (1/x)">
+                    <FloatProp id="sfx_rolloff" name="Rolloff rate" default="0.1" min="0.0" max="2.5"
+                               doc="How fast this sound decays when going farther from the emission point"/>
+                </EnumChoice>
+                <EnumChoice id="linear" label="Linear">
+                    <FloatProp id="sfx_rolloff_distance" name="Distance" default="10.0" min="0.0" max="500.0"
+                               doc="Distance at which the sound starts being audible"/>
+                </EnumChoice>
+            </EnumProp>
+                       
             <BoolProp id="play_when_near" name="Play on approach" default="false" doc="Play when the kart approaches this object">
                 <FloatProp id="play_distance" name="Play when at distance" default="1.0" min="0.0" max="20.0"
                            doc="Distance at which the sound starts playing when approaching"/>
