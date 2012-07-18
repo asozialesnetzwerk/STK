@@ -1,20 +1,32 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev Unknown -->
+<!-- Generated with script from SVN rev 11339 -->
 <scene>
-  <track model="jungle_track.b3d" x="0" y="0" z="0">   <animated-texture name="zipper_jungle.png" dy="0.5" /> <animated-texture name="zipper_jungle.png" dy="0.5" />  <animated-texture name="zipper_jungle.png" dy="0.5" />
+  <track model="jungle_track.b3d" x="0" y="0" z="0">
+    <animated-texture name="zipper_jungle.png" dy="0.500" />
+    <animated-texture name="zipper_jungle.png" dy="0.500" />
     <animated-texture name="water_light.png" dy="0.100" />
     <animated-texture name="water_light.png" dy="0.100" />
   </track>
-  <particle-emitter kind="fire.xml" x="-30.40" y="13.25" z="-163.04" h="0.000000" clip_distance="200"/>
-  <particle-emitter kind="fire.xml" x="-9.87" y="13.25" z="-162.39" h="0.000000" clip_distance="200"/>
-  <particle-emitter kind="fire.xml" x="-9.20" y="13.25" z="-141.48" h="-8.144329" clip_distance="200"/>
-  <particle-emitter kind="fire.xml" x="-29.62" y="13.25" z="-139.22" h="-8.144329" clip_distance="200"/>
-  <particle-emitter kind="fire.xml" x="-27.87" y="13.25" z="-182.01" h="4.549343" clip_distance="200"/>
-  <particle-emitter kind="fire.xml" x="-7.45" y="13.25" z="-179.73" h="4.549343" clip_distance="200"/>
-  <particle-emitter kind="fire.xml" x="-43.61" y="13.25" z="-223.75" h="4.549343" clip_distance="200"/>
-  <particle-emitter kind="fire.xml" x="-52.80" y="12.89" z="-182.66" h="4.549343" clip_distance="200"/>
-  <particle-emitter kind="fire.xml" x="-52.61" y="12.20" z="-136.07" h="4.549343" clip_distance="200"/>
+  <particle-emitter kind="fire.xml" x="-30.40" y="13.25" z="-163.04" h="0.000000" clip_distance="200">
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" x="-9.87" y="13.25" z="-162.39" h="0.000000" clip_distance="200">
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" x="-9.20" y="13.25" z="-141.48" h="-8.144329" clip_distance="200">
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" x="-29.62" y="13.25" z="-139.22" h="-8.144329" clip_distance="200">
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" x="-27.87" y="13.25" z="-182.01" h="4.549343" clip_distance="200">
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" x="-7.45" y="13.25" z="-179.73" h="4.549343" clip_distance="200">
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" x="-43.61" y="13.25" z="-223.75" h="4.549343" clip_distance="200">
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" x="-52.80" y="12.89" z="-182.66" h="4.549343" clip_distance="200">
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" x="-52.61" y="12.20" z="-136.07" h="4.549343" clip_distance="200">
+  </particle-emitter>
   <sky-color rgb="77 104 255"/>
+  <smooth-normals value="false" />
   <banana x="-17.052567" y="12.000861" z="-297.328125" />
   <banana x="139.893326" y="14.487841" z="-290.335388" />
   <banana x="62.066906" y="5.96323" z="-245.256454" />
