@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 11339 -->
+<!-- Generated with script from SVN rev 11355 -->
 <scene>
   <track model="introcutscene_track.b3d" x="0" y="0" z="0">
     <static-object model="pineVeryLow.b3d" xyz="-125.39 11.62 9.12" hpr="-90.0 -175.6 -0.0" scale="0.50 0.50 0.50"/>
@@ -578,11 +578,11 @@
       <p c="1472.000 1.000" h1="1468.096 1.000" h2="1475.904 1.000"/>
     </curve>
   </particle-emitter>
-  <object type="sfx-emitter" sound="gnu_flute.ogg" rolloff_type="inverse" rolloff="0.100" volume="1.0" xyz="-97.45 1.04 51.28" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  <object type="sfx-emitter" sound="gnu_flute.ogg" rolloff_type="inverse" rolloff="0.100" volume="1.0" max_dist="500.0" xyz="-97.45 1.04 51.28" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </object>
-  <object type="sfx-emitter" sound="appear.ogg" rolloff_type="inverse" rolloff="0.001" volume="1.0" xyz="-93.03 2.42 29.84" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 360">
+  <object type="sfx-emitter" sound="appear.ogg" rolloff_type="inverse" rolloff="0.001" volume="1.0" max_dist="500.0" xyz="-93.03 2.42 29.84" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 360">
   </object>
-  <object type="sfx-emitter" sound="spaceship.ogg" rolloff_type="linear" distance="20.000" volume="1.0" xyz="-222.68 4.71 46.16" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  <object type="sfx-emitter" sound="spaceship.ogg" rolloff_type="inverse" rolloff="0.050" volume="1.0" max_dist="85.0" xyz="-222.68 4.71 46.16" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="1.000 -222.679" h1="-292.034 -222.679" h2="294.034 -222.679"/>
       <p c="752.000 -197.453" h1="557.820 -217.439" h2="790.836 -193.455"/>
@@ -664,6 +664,8 @@
       <p c="1430.000 1.000" h1="1343.994 1.000" h2="1447.201 1.000"/>
       <p c="1474.059 1.000" h1="1456.858 1.000" h2="1491.261 1.000"/>
     </curve>
+  </object>
+  <object type="sfx-emitter" sound="tractor_beam.ogg" rolloff_type="inverse" rolloff="0.001" volume="1.0" max_dist="500.0" xyz="-101.64 0.87 49.75" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 1116">
   </object>
   <object type="cutscene_camera" model="" xyz="-144.43 3.58 29.92" hpr="-100.4 74.5 -1.2" scale="1.00 1.00 1.00"  interaction="ghost">
     <curve channel="LocX" interpolation="bezier" extend="const">
