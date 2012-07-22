@@ -110,6 +110,11 @@
     http://www.freesound.org/people/audible-edge/sounds/71739/
     http://opengameart.org/content/car-tire-squeal-skid-loop
 
+* spaceship
+    Based on work by Ch0cchi
+    http://www.freesound.org/people/Ch0cchi/sounds/15347/
+    Released under CC-BY 3.0
+
 * splash
     Based on 'Fish Splashing-SoundBible.com-250179430' sound bible, by blastwavefx.com, released under CC-BY-SA 3.0
     and on 'Water vaporizing on hot Stones' by Natalie from pdsounds.org, released under public domain
@@ -140,6 +145,11 @@
 * track intro, race finish
     by Dundersylt
     released under CC-BY-SA 3.0+
+
+* tractor_beam,
+    by metamorphmuses
+    http://www.freesound.org/people/metamorphmuses/sounds/35201/
+    Released under CC-BY 3.0
 
 * ugh
     Released under the GNU GPL, coming from original (Super)TuxKart
