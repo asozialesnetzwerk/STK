@@ -15,8 +15,6 @@
     <particles base="smoke.xml" condition="skid"/>
   </material>
   <material name="l_lampsglass0.png" compositing="blend" disable-z-write="Y"/>
-  <material name="lanternDetail.png" light="N" ignore="Y" compositing="test"/>
-  <material name="light.png" light="N" compositing="blend"/>
   <material name="mill.png" ignore="Y" compositing="blend" disable-z-write="Y"/>
   <material name="millstructure.png" ignore="Y" compositing="test"/>
   <material name="palm_b.png" compositing="blend" backface-culling="N" disable-z-write="Y"/>

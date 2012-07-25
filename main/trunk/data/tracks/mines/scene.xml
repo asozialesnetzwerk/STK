@@ -1,57 +1,57 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 9664 -->
+<!-- Generated with script from SVN rev Unknown -->
 <scene>
   <track model="mines_track.b3d" x="0" y="0" z="0">
-    <static-object model="lamp1.b3d" xyz="73.528641 13.074365 48.170361" hpr="-0.000000 -0.000000 -0.000000" scale="0.812535 0.205050 0.812535"/>
-    <static-object model="lamp1.b3d" xyz="161.502914 7.478988 -107.907242" hpr="-0.000000 -0.000000 -0.000000" scale="0.812535 0.205050 0.812535"/>
-    <static-object model="lamp1.b3d" xyz="143.865448 6.647511 -100.245491" hpr="-0.000000 -0.000000 -0.000000" scale="0.812535 0.205050 0.812535"/>
-    <static-object model="lamp1.b3d" xyz="168.856140 9.253891 -79.728439" hpr="-0.000000 -0.000000 -0.000000" scale="0.812535 0.205050 0.812535"/>
-    <static-object model="lamp1.b3d" xyz="170.707306 10.760847 -63.890720" hpr="-0.000000 -0.000000 -0.000000" scale="0.812535 0.205050 0.812535"/>
-    <static-object model="lamp1.b3d" xyz="168.958984 11.384665 -50.469795" hpr="-0.000000 -0.000000 -0.000000" scale="0.812535 0.205050 0.812535"/>
-    <static-object model="lamp1.b3d" xyz="157.546051 13.074366 -16.822353" hpr="-0.000000 -0.000000 -0.000000" scale="0.812535 0.205050 0.812535"/>
-    <static-object model="lamp1.b3d" xyz="116.899506 13.074366 28.788658" hpr="-0.000000 -0.000000 -0.000000" scale="0.812535 0.205050 0.812535"/>
-    <static-object model="lamp1.b3d" xyz="105.005478 13.074366 4.690323" hpr="-0.000000 -0.000000 -0.000000" scale="0.812535 0.205050 0.812535"/>
-    <static-object model="lamp1.b3d" xyz="108.427666 14.674051 -103.164185" hpr="-0.000000 -0.000000 -0.000000" scale="0.812535 0.205050 0.812535"/>
-    <static-object model="lamp1.b3d" xyz="71.223145 12.105494 -147.481339" hpr="-0.000000 -0.000000 -0.000000" scale="0.812535 0.205050 0.812535"/>
-    <static-object model="lamp1.b3d" xyz="159.857437 8.453105 -98.240059" hpr="-0.000000 -0.000000 -0.000000" scale="0.812535 0.205050 0.812535"/>
-    <static-object model="lamp1.b3d" xyz="88.457588 11.017857 -122.450356" hpr="-0.000000 -0.000000 -0.000000" scale="0.812535 0.205050 0.812535"/>
-    <static-object model="lamp1.b3d" xyz="73.411636 9.969548 -178.667480" hpr="-0.000000 -0.000000 -0.000000" scale="0.812535 0.205050 0.812535"/>
-    <static-object model="lamp1.b3d" xyz="109.248344 9.689287 -190.293900" hpr="-0.000000 -0.000000 -0.000000" scale="0.812535 0.205050 0.812535"/>
-    <static-object model="lamp1.b3d" xyz="146.219971 5.575435 -251.086929" hpr="-0.000000 -0.000000 -0.000000" scale="0.812535 0.205050 0.812535"/>
-    <static-object model="lamp1.b3d" xyz="73.821991 11.134741 -236.799545" hpr="-0.000000 -0.000000 -0.000000" scale="0.812535 0.205050 0.812535"/>
-    <static-object model="lamp1.b3d" xyz="24.571163 6.142864 -235.444275" hpr="-0.000000 -0.000000 -0.000000" scale="0.812535 0.205050 0.812535"/>
-    <static-object model="lamp1.b3d" xyz="30.790829 6.631379 -260.637360" hpr="-0.000000 -0.000000 -0.000000" scale="0.812535 0.205050 0.812535"/>
-    <static-object model="lamp1.b3d" xyz="63.877815 9.689289 -286.835419" hpr="-0.000000 -0.000000 -0.000000" scale="0.812535 0.205050 0.812535"/>
-    <static-object model="lamp1.b3d" xyz="-0.059701 7.571029 -261.063019" hpr="-0.000000 -0.000000 -0.000000" scale="0.812535 0.205050 0.812535"/>
-    <static-object model="lamp1.b3d" xyz="-5.866757 5.199286 -232.113937" hpr="-0.000000 -0.000000 -0.000000" scale="0.812535 0.205050 0.812535"/>
-    <static-object model="lamp1.b3d" xyz="-35.005383 6.616151 -263.783356" hpr="-0.000000 -0.000000 -0.000000" scale="0.812535 0.205050 0.812535"/>
-    <static-object model="lamp1.b3d" xyz="111.166016 9.728848 -257.252960" hpr="-0.000000 -0.000000 -0.000000" scale="0.812535 0.205050 0.812535"/>
-    <static-object lod_instance="true" lod_group="lantern" xyz="0.800000 3.948800 -21.279999" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="50" lod_group="lantern" model="lantern_LOD50.b3d" xyz="-10.200000 3.948800 -21.279999" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="20" lod_group="lantern" model="lantern_LOD20.b3d" xyz="-9.200000 3.948800 -21.279999" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="lantern" xyz="-0.138783 5.244079 8.395885" hpr="-89.999996 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="lantern" xyz="0.577268 4.877250 21.842363" hpr="-89.999996 1.690577 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="lantern" xyz="6.090750 4.561754 37.566719" hpr="-89.999996 1.690577 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="lantern" xyz="19.850994 3.629982 47.441345" hpr="-89.999996 91.690570 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="lantern" xyz="167.230087 7.396749 -38.925728" hpr="-89.999996 172.888330 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="lantern" xyz="134.450333 -1.349418 -203.090759" hpr="-89.999996 99.392981 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="lantern" xyz="150.583511 -1.559584 -213.465729" hpr="-95.919256 141.479282 1.402721" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="lantern" xyz="154.932434 -1.736525 -231.701523" hpr="-95.919256 188.689959 1.402721" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="lantern" xyz="90.426872 -7.259464 -273.121033" hpr="-95.919256 243.623340 1.402721" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="lantern" xyz="43.349686 -6.314137 -258.589386" hpr="-95.919256 158.623343 1.402721" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="lantern" xyz="34.230152 -4.699362 -230.456711" hpr="-95.919256 298.623356 1.402721" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="lantern" xyz="-32.911911 -2.989870 -237.746490" hpr="-95.919256 403.623363 1.402721" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="lantern" xyz="15.694172 -1.195070 -214.716507" hpr="-95.919256 403.623363 1.402721" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="lantern" xyz="26.345638 0.214924 -180.828979" hpr="-95.919256 367.170452 1.402721" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="lantern" xyz="21.869411 2.141186 -157.024902" hpr="-95.919256 335.083617 1.402721" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="lantern" xyz="9.467781 2.861664 -142.583420" hpr="-95.919256 335.083617 1.402721" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="lantern" xyz="0.200365 2.137593 -129.525299" hpr="-95.919256 335.083617 1.402721" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="lantern" xyz="-18.365225 2.053641 -99.039520" hpr="-95.919256 335.083617 1.402721" scale="1.000000 1.000000 1.000000"/>
+    <static-object model="lamp1.b3d" xyz="73.53 13.07 48.17" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/>
+    <static-object model="lamp1.b3d" xyz="161.50 7.48 -107.91" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/>
+    <static-object model="lamp1.b3d" xyz="143.87 6.65 -100.25" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/>
+    <static-object model="lamp1.b3d" xyz="168.86 9.25 -79.73" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/>
+    <static-object model="lamp1.b3d" xyz="170.71 10.76 -63.89" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/>
+    <static-object model="lamp1.b3d" xyz="168.96 11.38 -50.47" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/>
+    <static-object model="lamp1.b3d" xyz="157.55 13.07 -16.82" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/>
+    <static-object model="lamp1.b3d" xyz="116.90 13.07 28.79" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/>
+    <static-object model="lamp1.b3d" xyz="105.01 13.07 4.69" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/>
+    <static-object model="lamp1.b3d" xyz="108.43 14.67 -103.16" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/>
+    <static-object model="lamp1.b3d" xyz="71.22 12.11 -147.48" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/>
+    <static-object model="lamp1.b3d" xyz="159.86 8.45 -98.24" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/>
+    <static-object model="lamp1.b3d" xyz="88.46 11.02 -122.45" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/>
+    <static-object model="lamp1.b3d" xyz="73.41 9.97 -178.67" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/>
+    <static-object model="lamp1.b3d" xyz="109.25 9.69 -190.29" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/>
+    <static-object model="lamp1.b3d" xyz="146.22 5.58 -251.09" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/>
+    <static-object model="lamp1.b3d" xyz="73.82 11.13 -236.80" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/>
+    <static-object model="lamp1.b3d" xyz="24.57 6.14 -235.44" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/>
+    <static-object model="lamp1.b3d" xyz="30.79 6.63 -260.64" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/>
+    <static-object model="lamp1.b3d" xyz="63.88 9.69 -286.84" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/>
+    <static-object model="lamp1.b3d" xyz="-0.06 7.57 -261.06" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/>
+    <static-object model="lamp1.b3d" xyz="-5.87 5.20 -232.11" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/>
+    <static-object model="lamp1.b3d" xyz="-35.01 6.62 -263.78" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/>
+    <static-object model="lamp1.b3d" xyz="111.17 9.73 -257.25" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/>
+    <static-object lod_instance="true" lod_group="lantern" xyz="0.80 3.95 -21.28" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="50" lod_group="lantern" model="lantern_LOD50.b3d" xyz="-10.20 3.95 -21.28" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="20" lod_group="lantern" model="lantern_LOD20.b3d" xyz="-9.20 3.95 -21.28" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="lantern" xyz="-0.14 5.24 8.40" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="lantern" xyz="0.58 4.88 21.84" hpr="-90.0 1.7 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="lantern" xyz="6.09 4.56 37.57" hpr="-90.0 1.7 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="lantern" xyz="19.85 3.63 47.44" hpr="-90.0 91.7 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="lantern" xyz="167.23 7.40 -38.93" hpr="-90.0 172.9 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="lantern" xyz="134.45 -1.35 -203.09" hpr="-90.0 99.4 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="lantern" xyz="150.58 -1.56 -213.47" hpr="-97.0 141.5 -1.8" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="lantern" xyz="154.93 -1.74 -231.70" hpr="-95.7 -171.3 -1.4" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="lantern" xyz="90.43 -7.26 -273.12" hpr="-93.1 -116.4 -3.2" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="lantern" xyz="43.35 -6.31 -258.59" hpr="-96.5 158.6 -1.5" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="lantern" xyz="34.23 -4.70 -230.46" hpr="-98.5 -61.3 2.9" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="lantern" xyz="-32.91 -2.99 -237.75" hpr="-94.6 43.6 1.9" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="lantern" xyz="15.69 -1.20 -214.72" hpr="-94.6 43.6 1.9" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="lantern" xyz="26.35 0.21 -180.83" hpr="-95.7 7.2 1.4" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="lantern" xyz="21.87 2.14 -157.02" hpr="-96.6 -24.9 1.5" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="lantern" xyz="9.47 2.86 -142.58" hpr="-96.6 -24.9 1.5" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="lantern" xyz="0.20 2.14 -129.53" hpr="-96.6 -24.9 1.5" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="lantern" xyz="-18.37 2.05 -99.04" hpr="-96.6 -24.9 1.5" scale="1.00 1.00 1.00"/>
     <animated-texture name="mine_water_alpha.png" dy="0.500" />
     <animated-texture name="mine_water_alpha.png" dy="0.500" />
   </track>
-  <water model="water.b3d" xyz="99.244125 -14.704125 -150.551712" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000" height="0.25" speed="200.00" length="10.00"/>
-  <object type="animation" model="cart.b3d" xyz="34.090733 1.353933 60.885803" hpr="-0.000000 33.594443 0.000000" scale="1.000000 1.000000 1.000000" >
+  <water model="water.b3d" xyz="99.24 -14.70 -150.55" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="0.25" speed="200.00" length="10.00"/>
+  <object type="animation" model="cart.b3d" xyz="34.09 1.35 60.89" hpr="0.0 33.6 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
       <p c="1.000 34.091" h1="-1.312 30.472" h2="3.312 37.710"/>
       <p c="12.000 51.310" h1="9.698 47.684" h2="14.720 55.594"/>
@@ -119,89 +119,89 @@
       <p c="150.000 -6.553" h1="144.619 16.548" h2="155.381 -29.653"/>
     </curve>
   </object>
-  <object type="animation" model="cogwheel1.b3d" xyz="153.402405 -4.630000 -105.631821" hpr="90.000003 -0.000000 0.000000" scale="1.226275 1.226275 1.226275" >
+  <object type="animation" model="cogwheel1.b3d" xyz="153.40 -4.63 -105.63" hpr="90.0 -0.0 0.0" scale="1.23 1.23 1.23"  interaction="ghost">
     <curve channel="RotZ" interpolation="bezier" extend="cyclic">
       <p c="1.000 0.000" h1="-6.496 56.219" h2="8.496 -56.219"/>
       <p c="25.000 -180.000" h1="17.450 -124.508" h2="32.864 -237.804"/>
       <p c="50.000 -360.000" h1="42.079 -302.970" h2="57.921 -417.030"/>
     </curve>
   </object>
-  <object type="animation" model="cogwheel3.b3d" xyz="97.249710 -6.796127 -209.367935" hpr="90.000003 -0.000000 0.000000" scale="1.935402 1.935402 1.935402" >
+  <object type="animation" model="cogwheel3.b3d" xyz="97.25 -6.80 -209.37" hpr="90.0 -0.0 0.0" scale="1.94 1.94 1.94"  interaction="ghost">
     <curve channel="RotZ" interpolation="bezier" extend="cyclic">
       <p c="1.000 0.000" h1="-6.496 56.219" h2="8.496 -56.219"/>
       <p c="25.000 -180.000" h1="17.450 -124.508" h2="32.864 -237.804"/>
       <p c="50.000 -360.000" h1="42.079 -302.970" h2="57.921 -417.030"/>
     </curve>
   </object>
-  <object type="animation" model="cogwheel4.b3d" xyz="98.500488 1.342495 -209.367935" hpr="90.000003 -360.000010 -270.000028" scale="1.484084 1.484085 1.484084" >
+  <object type="animation" model="cogwheel4.b3d" xyz="98.50 1.34 -209.37" hpr="90.0 0.0 90.0" scale="1.48 1.48 1.48"  interaction="ghost">
     <curve channel="RotZ" interpolation="bezier" extend="cyclic">
       <p c="1.000 -270.000" h1="-6.496 -326.219" h2="8.496 -213.781"/>
       <p c="25.000 -90.000" h1="17.450 -145.492" h2="32.864 -32.196"/>
       <p c="50.000 90.000" h1="42.079 32.970" h2="57.921 147.030"/>
     </curve>
   </object>
-  <object type="animation" model="cogwheel2.b3d" xyz="97.249710 9.385337 -209.367935" hpr="90.000003 -0.000000 -0.000000" scale="1.919062 1.919063 1.919062" >
+  <object type="animation" model="cogwheel2.b3d" xyz="97.25 9.39 -209.37" hpr="90.0 -0.0 -0.0" scale="1.92 1.92 1.92"  interaction="ghost">
   </object>
   <object type="billboard" texture="lightHaloY.png" xyz="0.800000 3.180149 -21.279999" 
-             width="5.112502" height="5.112503">
-  </billboard>
+             width="5.112502" height="5.112503" >
+  </object>
   <object type="billboard" texture="lightHaloY.png" xyz="-0.138783 4.475428 8.395885" 
-             width="5.112502" height="5.112503">
-  </billboard>
+             width="5.112502" height="5.112503" >
+  </object>
   <object type="billboard" texture="lightHaloY.png" xyz="0.577268 4.108599 21.842363" 
-             width="5.112502" height="5.112503">
-  </billboard>
+             width="5.112502" height="5.112503" >
+  </object>
   <object type="billboard" texture="lightHaloY.png" xyz="6.090750 3.793103 37.566719" 
-             width="5.112502" height="5.112503">
-  </billboard>
+             width="5.112502" height="5.112503" >
+  </object>
   <object type="billboard" texture="lightHaloY.png" xyz="19.850994 2.861330 47.441345" 
-             width="5.112502" height="5.112503">
-  </billboard>
+             width="5.112502" height="5.112503" >
+  </object>
   <object type="billboard" texture="lightHaloY.png" xyz="167.230087 6.628097 -38.925728" 
-             width="5.112502" height="5.112503">
-  </billboard>
+             width="5.112502" height="5.112503" >
+  </object>
   <object type="billboard" texture="lightHaloY.png" xyz="134.450333 -2.118070 -203.090759" 
-             width="5.112502" height="5.112503">
-  </billboard>
+             width="5.112502" height="5.112503" >
+  </object>
   <object type="billboard" texture="lightHaloY.png" xyz="150.618240 -2.323909 -213.539398" 
-             width="5.112502" height="5.112503">
-  </billboard>
+             width="5.112502" height="5.112503" >
+  </object>
   <object type="billboard" texture="lightHaloY.png" xyz="154.901947 -2.500850 -231.777054" 
-             width="5.112502" height="5.112503">
-  </billboard>
+             width="5.112502" height="5.112503" >
+  </object>
   <object type="billboard" texture="lightHaloY.png" xyz="90.347557 -8.023788 -273.139465" 
-             width="5.112502" height="5.112503">
-  </billboard>
+             width="5.112502" height="5.112503" >
+  </object>
   <object type="billboard" texture="lightHaloY.png" xyz="43.361137 -7.078462 -258.670013" 
-             width="5.112502" height="5.112503">
-  </billboard>
+             width="5.112502" height="5.112503" >
+  </object>
   <object type="billboard" texture="lightHaloY.png" xyz="34.169552 -5.463687 -230.402298" 
-             width="5.112502" height="5.112503">
-  </billboard>
+             width="5.112502" height="5.112503" >
+  </object>
   <object type="billboard" texture="lightHaloY.png" xyz="-32.843666 -3.754195 -237.702026" 
-             width="5.112502" height="5.112503">
-  </billboard>
+             width="5.112502" height="5.112503" >
+  </object>
   <object type="billboard" texture="lightHaloY.png" xyz="15.762417 -1.959394 -214.672043" 
-             width="5.112502" height="5.112503">
-  </billboard>
+             width="5.112502" height="5.112503" >
+  </object>
   <object type="billboard" texture="lightHaloY.png" xyz="26.374111 -0.549401 -180.752655" 
-             width="5.112502" height="5.112503">
-  </billboard>
+             width="5.112502" height="5.112503" >
+  </object>
   <object type="billboard" texture="lightHaloY.png" xyz="21.852993 1.376862 -156.945099" 
-             width="5.112502" height="5.112503">
-  </billboard>
+             width="5.112502" height="5.112503" >
+  </object>
   <object type="billboard" texture="lightHaloY.png" xyz="9.451363 2.097339 -142.503616" 
-             width="5.112502" height="5.112503">
-  </billboard>
+             width="5.112502" height="5.112503" >
+  </object>
   <object type="billboard" texture="lightHaloY.png" xyz="0.183947 1.373269 -129.445496" 
-             width="5.112502" height="5.112503">
-  </billboard>
+             width="5.112502" height="5.112503" >
+  </object>
   <object type="billboard" texture="lightHaloY.png" xyz="-18.381643 1.289316 -98.959717" 
-             width="5.112502" height="5.112503">
-  </billboard>
+             width="5.112502" height="5.112503" >
+  </object>
   <sun  fog="true" fog-color="12 6 0" fog-start="0" fog-end="50"/>
   <sky-color rgb="12 6 0"/>
-  <weather particles="none.xml" />
+  <smooth-normals value="false" />
   <banana x="100.780777" y="-0.404809" z="25.302782" />
   <small-nitro x="86.887367" y="-8.432766" z="-119.353081" h="-106.29825" />
   <banana x="155.707458" y="-1.364308" z="-11.022039" />

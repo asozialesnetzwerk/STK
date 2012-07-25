@@ -14,6 +14,6 @@
   </material>
   <material name="wooden2.png" backface-culling="N" compositing="test"/>
   <material name="zipper_collect.png" light="N" compositing="test">
-    <zipper max_speed_increase="15.0" duration="3.5" speed_gain="4.5" fade_out_time="3.0"/>
+    <zipper max-speed-increase="15.0" duration="3.5" speed-gain="4.5" fade-out-time="3.0"/>
   </material>
 </materials>

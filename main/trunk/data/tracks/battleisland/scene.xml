@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 9432 -->
+<!-- Generated with script from SVN rev Unknown -->
 <scene>
   <track model="battleisland_track.b3d" x="0" y="0" z="0"/>
-  <water model="Water.b3d" xyz="0.000000 -0.910806 0.200000" hpr="-0.000000 -0.000000 -0.000000" scale="1.080112 1.087375 1.075909" height="0.10" speed="1000.00" length="20.00"/>
+  <water model="Water.b3d" xyz="0.00 -0.91 0.20" hpr="0.0 -0.0 0.0" scale="1.08 1.09 1.08" height="0.10" speed="1000.00" length="20.00"/>
   <sun  xyz="47.41 27.04 28.28" sun-specular="255 255 255" sun-diffuse="255 255 255" ambient="255 255 255"/>
   <sky-color rgb="77 104 255"/>
-  <weather particles="none.xml" />
+  <smooth-normals value="false" />
   <item x="-0.063063" y="2" z="-25.666687" h="-43.790225" />
   <big-nitro x="0" y="1.6" z="0" />
   <big-nitro x="0" y="4.6" z="0" />
@@ -26,10 +26,8 @@
                  forwards-distance ="1.10"
                  sidewards-distance="1.10"
                  upwards-distance  ="1.10"/>
-  <start x="38.400002" y="2.200000" z="0.000000" h="-90.000037"/>
-  <start x="-38.400002" y="2.200000" z="0.000000" h="90.000037"/>
-  <start x="0.000000" y="2.200000" z="38.400002" h="180.000073"/>
-  <start x="0.000000" y="2.200000" z="-38.400002" h="0.000000"/>
-  <end-cameras>
-  </end-cameras>
+  <start x="38.40" y="2.20" z="0.00" h="-90.000037"/>
+  <start x="-38.40" y="2.20" z="0.00" h="90.000037"/>
+  <start x="0.00" y="2.20" z="38.40" h="180.000073"/>
+  <start x="0.00" y="2.20" z="-38.40" h="0.000000"/>
 </scene>

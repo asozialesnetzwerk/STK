@@ -10,7 +10,6 @@
   <material name="lanternDirection.png" backface-culling="N"/>
   <material name="lanternsupport.jpg" backface-culling="N"/>
   <material name="lightHaloY.png" light="N" compositing="blend" disable-z-write="Y"/>
-  <material name="monumentBmarble.png" backface-culling="N"/>
   <material name="monumentWater.png" compositing="blend" disable-z-write="Y"/>
   <material name="monumentWater2.png" compositing="blend" disable-z-write="Y"/>
   <material name="monumentWater3.png" compositing="blend" disable-z-write="Y"/>

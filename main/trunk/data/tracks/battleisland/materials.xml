@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 9432 -->
+<!-- Generated with script from SVN rev Unknown -->
 <materials>
   <material name="yellow_dirt.jpg" slowdown-time="0.00" max-speed="2.00"/>
-  <material name="leaves_dry1.png" backface-culling="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
+  <material name="leaves_dry1.png" backface-culling="N" compositing="blend" ignore="Y"/>
   <material name="sand2.jpg" slowdown-time="0.00" max-speed="2.00"/>
   <material name="water_light.png" graphical-effect="water" reset="Y"/>
   <material name="woodBridge.jpg">

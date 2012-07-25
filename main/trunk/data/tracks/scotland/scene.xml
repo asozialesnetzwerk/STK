@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 10769 -->
+<!-- Generated with script from SVN rev Unknown -->
 <scene>
   <track model="scotland_track.b3d" x="0" y="0" z="0">
     <static-object model="pinetree.b3d" xyz="37.89 -0.53 -156.87" hpr="0.0 -0.0 0.0" scale="1.39 1.39 1.39"/>
@@ -49,7 +49,7 @@
   <water model="water1.b3d" xyz="85.81 -7.30 35.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="0.10"/>
   <water model="water2.b3d" xyz="-37.46 -4.81 10.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="0.05"/>
   <object type="sfx-emitter" sound="sheep.ogg" rolloff="0.1" volume="1.0" xyz="-8.59 1.69 -41.91" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-  <object type="animation" model="nessy.b3d" xyz="148.61 0.00 -181.44" hpr="0.0 -0.0 0.0" scale="0.13 0.13 0.13" >
+  <object type="animation" model="nessy.b3d" xyz="148.61 0.00 -181.44" hpr="0.0 -0.0 0.0" scale="0.13 0.13 0.13"  interaction="none">
     <curve channel="LocY" interpolation="bezier" extend="const">
       <p c="-0.014 0.002" h1="-23.979 0.002" h2="23.952 0.002"/>
       <p c="61.504 4.044" h1="37.491 4.044" h2="114.816 4.044"/>
@@ -57,6 +57,7 @@
     </curve>
   </object>
   <sun  xyz="33.45 47.89 -49.45" sun-specular="255 255 255" sun-diffuse="255 255 255" ambient="120 120 120"/>
+  <smooth-normals value="false" />
   <banana x="-84.262421" y="41.486603" z="47.046745" />
   <banana x="-7.090578" y="41.486595" z="116.020927" />
   <banana  x="3.064586" y="21.662115" z="30.374775" />
@@ -81,7 +82,7 @@
   <item x="198.146927" y="41.486603" z="98.216888" />
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
-    <check-line kind="activate" other-ids="0" p1="225.981140 -48.748291" p2="225.088287 -14.625542"
+    <check-line kind="activate" other-ids="0" p1="225.981140 -48.748295" p2="225.088272 -14.625541"
                 min-height="1.616020" same-group="1"/>
   </checks>
 
@@ -94,7 +95,4 @@
                  forwards-distance ="1.50"
                  sidewards-distance="3.00"
                  upwards-distance  ="0.10"/>
-  <end-cameras>
-    <camera type="ahead_of_kart" xyz="64.940468 42.875816 -116.728485" distance="5"/>
-  </end-cameras>
 </scene>

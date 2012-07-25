@@ -1,11 +1,10 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 9664 -->
+<!-- Generated with script from SVN rev Unknown -->
 <track  name        = "Shiny Suburbs"
         version     = "5"
         groups      = "standard"
         designer    = "Thomas Oppl"
         music       = "Penguin_Party.music"
         screenshot  = "city_screenshot.jpg"
-   reverse="true"
 >
 </track>

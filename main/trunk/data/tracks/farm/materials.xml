@@ -8,7 +8,7 @@
   <material name="horse.jpg" light="N"/>
   <material name="leaf.png" light="N"/>
   <material name="leave3.png" light="N" ignore="Y" compositing="test"/>
-  <material name="mill.png" compositing="test" ignore="Y"/>
+  <material name="mill.png" compositing="test"/>
   <material name="millstructure.png" compositing="test" ignore="Y"/>
   <material name="trail.jpg">
     <particles base="smoke_brown.xml" condition="skid"/>

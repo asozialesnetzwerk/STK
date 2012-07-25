@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 11062 -->
+<!-- Generated with script from SVN rev Unknown -->
 <scene>
   <track model="hacienda_track.b3d" x="0" y="0" z="0">
     <static-object lod_distance="50.0" lod_group="lantern" model="Mesh.b3d" xyz="-14.00 3.85 0.00" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
@@ -67,6 +67,7 @@
           model="pot.b3d" shape="cylinderY" mass="15.0"/>
   <object type="movable" xyz="103.95 0.07 100.65" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
           model="pot.b3d" shape="cylinderY" mass="15.0"/>
+  <smooth-normals value="false" />
   <item x="-2.079498" y="-0.03716" z="47" />
   <item x="2" y="-0.03716" z="47" />
   <item x="74" y="-0.131533" z="97" />

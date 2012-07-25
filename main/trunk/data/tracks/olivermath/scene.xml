@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 7732 -->
+<!-- Generated with script from SVN rev Unknown -->
 <scene>
   <track model="olivermath_track.b3d" x="0" y="0" z="0"/>
+  <smooth-normals value="false" />
   <banana x="30" y="1" z="60" />
   <item x="40.639221" y="1" z="34.077877" />
   <item x="2.791108" y="1" z="68.640533" />
@@ -33,8 +34,9 @@
     <check-line kind="lap" other-ids="1" p1="-4.887419 0.488598" p2="-6.676180 0.180269"
                 min-height="-0.060456" same-group="0 2 3"/>
   </checks>
+  <camera far="1000.0"/>
   <default-start karts-per-row     ="2"
-                 forwards-distance ="1.5"
-                 sidewards-distance="3"
-                 upwards-distance  ="0.1"/>
+                 forwards-distance ="1.50"
+                 sidewards-distance="3.00"
+                 upwards-distance  ="0.10"/>
 </scene>
