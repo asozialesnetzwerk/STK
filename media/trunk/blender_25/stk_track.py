@@ -682,6 +682,9 @@ class TrackExport:
         
         music       = getIdProperty(scene, "music", "")
         screenshot  = getIdProperty(scene, "screenshot", "")
+
+        smooth_normals = getIdProperty(scene, "smooth_normals", "false")
+
         # Add default settings for sky-dome so that the user is aware of
         # can be set.
         getIdProperty(scene, "sky_type", "dome")
@@ -699,28 +702,30 @@ class TrackExport:
         f = open(sPath+"/track.xml", mode='w', encoding='utf-8')
         f.write("<?xml version=\"1.0\"?>\n")
         f.write("<!-- Generated with script from SVN rev %s -->\n"%getScriptVersion())
-        f.write("<track  name        = \"%s\"\n"%name)
-        f.write("        version     = \"5\"\n")
-        f.write("        groups      = \"%s\"\n"%groups)
-        f.write("        designer    = \"%s\"\n"%designer)
+        f.write("<track  name           = \"%s\"\n"%name)
+        f.write("        version        = \"5\"\n")
+        f.write("        groups         = \"%s\"\n"%groups)
+        f.write("        designer       = \"%s\"\n"%designer)
         if music:
-            f.write("        music       = \"%s\"\n"%music)
+            f.write("        music          = \"%s\"\n"%music)
         else:
             log_warning("No music file defined.")
         
         if is_arena:
-            f.write("        arena       = \"Y\"\n")
+            f.write("        arena          = \"Y\"\n")
 
         if is_cutscene:
-            f.write("        cutscene    = \"Y\"\n")
+            f.write("        cutscene       = \"Y\"\n")
 
         if is_internal:
-            f.write("        internal    = \"Y\"\n")
+            f.write("        internal       = \"Y\"\n")
         
         if screenshot:
-            f.write("        screenshot  = \"%s\"\n"%screenshot)
+            f.write("        screenshot     = \"%s\"\n"%screenshot)
         else:
             log_warning("No screenshot defined")
+
+        f.write("        smooth-normals = \"%s\"\n" % smooth_normals)
         
         f.write(">\n")
         f.write("</track>\n")
@@ -1910,9 +1915,6 @@ class TrackExport:
                 if weather[:4]!=".xml":
                     weather=weather+".xml"
                 f.write("  <weather particles=\"%s\" />\n"%weather)
-
-        smooth_normals = getIdProperty(scene, "smooth_normals", "false")
-        f.write("  <smooth-normals value=\"%s\" />\n"%smooth_normals)
         
         rad2deg = 180.0/3.1415926
         for obj in lItems:
