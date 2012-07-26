@@ -5,7 +5,6 @@
   <water model="Water.b3d" xyz="0.00 -0.91 0.20" hpr="0.0 -0.0 0.0" scale="1.08 1.09 1.08" height="0.10" speed="1000.00" length="20.00"/>
   <sun  xyz="47.41 27.04 28.28" sun-specular="255 255 255" sun-diffuse="255 255 255" ambient="255 255 255"/>
   <sky-color rgb="77 104 255"/>
-  <smooth-normals value="false" />
   <item x="-0.063063" y="2" z="-25.666687" h="-43.790225" />
   <big-nitro x="0" y="1.6" z="0" />
   <big-nitro x="0" y="4.6" z="0" />

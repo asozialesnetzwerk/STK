@@ -1732,7 +1732,6 @@
   </object>
   <object type="animation" model="tree.b3d" xyz="-93.38 0.35 27.60" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
   </object>
-  <smooth-normals value="false" />
 
   <sky-dome texture="sky.jpg"
             horizontal="20" vertical="20" 

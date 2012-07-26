@@ -57,7 +57,6 @@
     </curve>
   </object>
   <sun  xyz="33.45 47.89 -49.45" sun-specular="255 255 255" sun-diffuse="255 255 255" ambient="120 120 120"/>
-  <smooth-normals value="false" />
   <banana x="-84.262421" y="41.486603" z="47.046745" />
   <banana x="-7.090578" y="41.486595" z="116.020927" />
   <banana  x="3.064586" y="21.662115" z="30.374775" />

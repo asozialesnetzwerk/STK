@@ -83,7 +83,6 @@
           model="crate.b3d" shape="box" mass="100.0"/>
   <object type="movable" xyz="177.60 40.70 62.90" hpr="0.0 25.0 0.0" scale="1.00 1.00 1.00"
           model="crate.b3d" shape="box" mass="100.0"/>
-  <smooth-normals value="false" />
   <banana x="36" y="45.820133" z="205" />
   <banana x="25" y="45.820133" z="187" />
   <banana x="141" y="45.820133" z="103.5" />

@@ -34,7 +34,6 @@
     </curve>
   </object>
   <weather particles="snow.xml" />
-  <smooth-normals value="false" />
   <banana x="-2.883005" y="-0.301474" z="39.38063" />
   <banana x="-51.491741" y="3.660036" z="77.638718" />
   <banana x="-64.635597" y="2.494776" z="33.101471" />

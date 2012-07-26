@@ -2,7 +2,6 @@
 <!-- Generated with script from SVN rev Unknown -->
 <scene>
   <track model="olivermath_track.b3d" x="0" y="0" z="0"/>
-  <smooth-normals value="false" />
   <banana x="30" y="1" z="60" />
   <item x="40.639221" y="1" z="34.077877" />
   <item x="2.791108" y="1" z="68.640533" />

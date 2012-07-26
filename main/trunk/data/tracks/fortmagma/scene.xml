@@ -39,7 +39,6 @@
   <particle-emitter kind="fire.xml" x="-38.04" y="14.06" z="2.24" h="89.999996"/>
   <particle-emitter kind="fire.xml" x="-28.17" y="13.79" z="-6.07" h="269.999973"/>
   <particle-emitter kind="fire.xml" x="-38.04" y="10.63" z="-17.54" h="89.999996"/>
-  <smooth-normals value="false" />
   <small-nitro x="-148.238953" y="1.299999" z="27.879166" h="179.999994" />
   <small-nitro x="-156.238953" y="1.299999" z="11.879166" h="179.999994" />
   <small-nitro x="-157.238953" y="3.076542" z="-34.120834" h="179.999994" />

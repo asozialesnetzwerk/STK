@@ -201,7 +201,6 @@
   </object>
   <sun  fog="true" fog-color="12 6 0" fog-start="0" fog-end="50"/>
   <sky-color rgb="12 6 0"/>
-  <smooth-normals value="false" />
   <banana x="100.780777" y="-0.404809" z="25.302782" />
   <small-nitro x="86.887367" y="-8.432766" z="-119.353081" h="-106.29825" />
   <banana x="155.707458" y="-1.364308" z="-11.022039" />

@@ -26,7 +26,6 @@
   <particle-emitter kind="fire.xml" x="-52.61" y="12.20" z="-136.07" h="4.549343" clip_distance="200">
   </particle-emitter>
   <sky-color rgb="77 104 255"/>
-  <smooth-normals value="false" />
   <banana x="-17.052567" y="12.000861" z="-297.328125" />
   <banana x="139.893326" y="14.487841" z="-290.335388" />
   <banana x="62.066906" y="5.96323" z="-245.256454" />
