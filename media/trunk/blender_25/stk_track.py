@@ -1203,7 +1203,7 @@ class TrackExport:
                 # single_lod is a shortcut that generates both a lod_instance and a lod_model
                 model_string2 =  " model=\"%s\""%b3d_name
                 lodstring2 = ' lod_distance="' + str(getProperty(obj, "lod_distance", 60.0)) + '" lod_group="_single_lod_' + name + '"'
-                f.write("    <static-object%s%s %s/>\n" % (lodstring2, model_string2, getXYZHPRString(obj)) )
+                f.write("    <static-object%s%s %s interaction\"%s\"/> <!-- writeStaticObjects -->\n" % (lodstring2, model_string2, getXYZHPRString(obj), getProperty(obj, "interaction", "static")) )
                 model_string = ""
             else:
                 model_string =  " model=\"%s\""%b3d_name
@@ -1237,13 +1237,13 @@ class TrackExport:
                 tangent_string=" tangents=\"true\""
             
             if lAnim:
-                f.write("    <static-object%s%s %s%s%s%s%s>\n"% \
+                f.write("    <static-object%s%s %s%s%s%s%s> <!-- writeStaticObjects 2 -->\n"% \
                         (lodstring, model_string, getXYZHPRString(obj), reset_string,
                          condition_if_str, condition_ifnot_str, tangent_string) )
                 self.writeAnimatedTextures(f, lAnim)
                 f.write("    </static-object>\n")
             else:
-                f.write("    <static-object%s%s %s%s%s%s%s%s/>\n"% \
+                f.write("    <static-object%s%s %s%s%s%s%s%s/> <!-- writeStaticObjects 3 -->\n"% \
                         (lodstring, model_string, getXYZHPRString(obj), reset_string,
                          condition_if_str, condition_ifnot_str, challenge_str, tangent_string) )
         self.writeAnimatedTextures(f, lAnimTextures)
@@ -1821,8 +1821,8 @@ class TrackExport:
         for obj in lObjects:
             type = getProperty(obj, "type", "??")
             interact = getProperty(obj, "interaction", "static")
-            if type == "lod_instance" or type == "lod_model" or type == "single_lod":
-                interact = "static"
+            #if type == "lod_instance" or type == "lod_model" or type == "single_lod":
+            #    interact = "static"
             
             if interact=="static" or interact=="reset":
                 

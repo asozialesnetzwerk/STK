@@ -102,6 +102,10 @@
                         doc="Name of the LOD group this object is an instance of"/>
             <StringProp id="if" name="Visible if..." default="" doc="Make this object conditionally visible"/>
             <StringProp id="ifnot" name="Visible if not..." default="" doc="Make this object conditionally visible"/>
+            <EnumProp id="interaction" name="Interaction" default="static" unique_prefix="lod" doc="How this object should interact with other objects in the physics engine">
+                <EnumChoice id="ghost" label="Ghost" doc="This object will be non-physical (player can drive through it)" />
+                <EnumChoice id="static" label="Static (wont move)" doc="This object will stay in place, if the user drives on this object they will 'hit a wall'" />
+            </EnumProp>
         </EnumChoice>
         <EnumChoice id="lod_model" label="LOD Model" doc="A LOD (level-of-detail) model (this model will not be visible in game, only LOD instances will)">
             <FloatProp id="lod_distance" name="Distance" default="60.0" min="0.0" max="5000.0"
