@@ -300,7 +300,7 @@ def write_texs(objects=[]):
                         
                         #if DEBUG: print("<uv face=", face.index, ">")
                         
-                        img = data.uv_textures[iuvlayer].data[face.index].image
+                        img = getUVTextures(data)[iuvlayer].data[face.index].image
                         
                         if img:
                             
