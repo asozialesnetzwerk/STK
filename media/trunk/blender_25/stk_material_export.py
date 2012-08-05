@@ -98,6 +98,7 @@ def writeMaterialsFile(sPath):
            'ignore'                : ("N", None),
            'mask'                  : ("", None),
            'normal_map'            : ("", 'use_normal_map'),
+           'normal_light_map'      : ("", 'use_normal_map'),
            'use_normal_map'        : ("N", None),
            'reset'                 : ("N", None),
            'sphere'                : ("N", None),

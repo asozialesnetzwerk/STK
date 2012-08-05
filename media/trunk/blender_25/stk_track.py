@@ -1867,6 +1867,24 @@ class TrackExport:
         for obj in lBillboards:
             self.writeBillboard(f, obj)
         
+        # Subtitles
+        subtitles = []
+        end_time = bpy.data.scenes[0].frame_end
+        for marker in reversed(bpy.data.scenes[0].timeline_markers):
+            if marker.name.startswith("subtitle"):
+                subtitle_text = bpy.data.scenes[0][marker.name]
+                subtitles.insert(0, [marker.frame, end_time - 1, subtitle_text])
+            end_time = marker.frame
+        
+        if len(subtitles) > 0:
+            f.write("  <subtitles>\n")
+            
+            for subtitle in subtitles:
+                f.write("        <subtitle from=\"%i\" to=\"%i\" text=\"%s\"/>\n" % (subtitle[0], subtitle[1], subtitle[2]))
+            
+            f.write("  </subtitles>\n")
+        
+        
         # Assemble all sky/fog related parameters
         # ---------------------------------------
         if len(lSun) > 1:

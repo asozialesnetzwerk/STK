@@ -84,7 +84,8 @@
     <!-- Normal map -->
     <BoolProp id="use_normal_map" name="Normal Map" default="false"
               doc="Use normal maps for this material (the model must be exported as tangent for this to work)">
-        <StringProp id="normal_map" name="Normal Map Image" default="" doc="Image containing the normal map for this texture (optional)"/>
+        <StringProp id="normal_map" name="Normal Map Image" default="" doc="Image containing the normal map for this texture"/>
+        <StringProp id="normal_light_map" name="Light Map Image" default="" doc="Image containing the lightmap for this texture (optional)"/>
     </BoolProp>
     
     <!-- Particles -->
