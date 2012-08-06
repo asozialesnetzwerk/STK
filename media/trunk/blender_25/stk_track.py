@@ -1126,9 +1126,12 @@ class TrackExport:
             looped =" looped=\"y\" "
         else:
             looped = ""
+            
+        interaction = getProperty(obj, "interaction", 'static')
         shape = getProperty(obj, "shape", "")
-        if shape:
-            shape="shape=\"%s\""%shape
+        shape_str = ""
+        if shape and interaction != 'ghost':
+            shape_str = "shape=\"%s\""%shape
         if not ipo: ipo=[]
 
         lodstring = self.getLODString(obj)
@@ -1139,7 +1142,6 @@ class TrackExport:
         else:
             model_string = "model=\"%s\" " % name
         
-        interaction = getProperty(obj, "interaction", 'static')
         if interaction == 'reset':
             reset_string = " reset=\"y\""
         else:
@@ -1153,11 +1155,11 @@ class TrackExport:
             
         if parent and parent.type=="ARMATURE":
             f.write("  <object type=\"%s\" %s%s %s%s%s%s%s%s>\n"% \
-                    (objectType, model_string, getXYZHPRString(parent), shape, looped,
+                    (objectType, model_string, getXYZHPRString(parent), shape_str, looped,
                      lodstring, reset_string, tangent_string, interaction_string))
         else:
             f.write("  <object type=\"%s\" %s%s %s%s%s%s%s%s>\n"% \
-                    (objectType, model_string, getXYZHPRString(obj), shape, looped,
+                    (objectType, model_string, getXYZHPRString(obj), shape_str, looped,
                      lodstring, reset_string, tangent_string, interaction_string))
         self.writeIPO(f, ipo)
         f.write("  </object>\n")
