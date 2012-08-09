@@ -4,6 +4,7 @@
         version        = "5"
         groups         = "standard"
         designer       = "mmg"
+        music          = "intro2.music"
         cutscene       = "Y"
         internal       = "Y"
         screenshot     = "screenshot.jpg"
