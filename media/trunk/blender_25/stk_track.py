@@ -1344,12 +1344,16 @@ class TrackExport:
                 # origin
                 originXYZ = getXYZHString(obj)
                 
+                condition_str = ""
+                if len(getProperty(obj, "particle_condition", "")) > 0:
+                    condition_str = ' conditions="' + getProperty(obj, "particle_condition", "") + '"'
+                
                 if getProperty(obj, "clip_distance", 0) > 0 :
-                    f.write('  <particle-emitter kind="%s" %s clip_distance="%i">\n' %\
-                            (getProperty(obj, "kind", 0), originXYZ, getProperty(obj, "clip_distance", 0)))
+                    f.write('  <particle-emitter kind="%s" %s clip_distance="%i"%s>\n' %\
+                            (getProperty(obj, "kind", 0), originXYZ, getProperty(obj, "clip_distance", 0)), condition_str)
                 else:
-                    f.write('  <particle-emitter kind="%s" %s>\n' %\
-                        (getProperty(obj, "kind", 0), originXYZ))
+                    f.write('  <particle-emitter kind="%s" %s%s>\n' %\
+                        (getProperty(obj, "kind", 0), originXYZ, condition_str))
                 
                 if obj.animation_data and obj.animation_data.action and obj.animation_data.action.fcurves and len(obj.animation_data.action.fcurves) > 0:
                     self.writeIPO(f, obj.animation_data)
@@ -1831,7 +1835,7 @@ class TrackExport:
             #if type == "lod_instance" or type == "lod_model" or type == "single_lod":
             #    interact = "static"
             
-            if interact=="static" or interact=="reset":
+            if interact=="static" or interact=="reset" or type == "lod_model":
                 
                 ipo      = obj.animation_data
                 if obj.parent is not None and obj.parent.type=="ARMATURE" and obj.parent.animation_data is not None:
