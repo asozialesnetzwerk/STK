@@ -26,6 +26,43 @@
   </particle-emitter>
   <particle-emitter kind="smoke_short_burst.xml" x="1.62" y="2.38" z="6.65" h="0.000000" conditions="frame 445">
   </particle-emitter>
+  <object type="sfx-emitter" sound="engine_large.ogg" rolloff="0.100" volume="0.6025640964508057" max_dist="500.0" xyz="3.13 1.79 13.35" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 240">
+  </object>
+  <object type="sfx-emitter" sound="metal_clang.ogg" rolloff="0.100" volume="1.0" max_dist="500.0" xyz="1.92 1.79 4.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 126">
+  </object>
+  <object type="sfx-emitter" sound="car_revup.ogg" rolloff="0.100" volume="1.0" max_dist="500.0" xyz="1.16 1.79 13.95" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 237">
+  </object>
+  <object type="sfx-emitter" sound="car_revup.ogg" rolloff="0.100" volume="1.0" max_dist="500.0" xyz="1.53 1.79 14.41" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 276">
+  </object>
+  <object type="sfx-emitter" sound="car_revup.ogg" rolloff="0.100" volume="1.0" max_dist="500.0" xyz="0.83 1.74 13.33" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 319">
+  </object>
+  <object type="sfx-emitter" sound="car_accel.ogg" rolloff="0.100" volume="1.0" max_dist="542.7" xyz="2.55 1.71 14.03" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 399">
+    <curve channel="ScaleX" interpolation="bezier" extend="const">
+      <p c="478.000 1.000" h1="477.000 1.000" h2="479.000 1.000"/>
+    </curve>
+    <curve channel="ScaleZ" interpolation="bezier" extend="const">
+      <p c="478.000 1.000" h1="477.000 1.000" h2="479.000 1.000"/>
+    </curve>
+    <curve channel="ScaleY" interpolation="bezier" extend="const">
+      <p c="478.000 1.000" h1="477.000 1.000" h2="479.000 1.000"/>
+    </curve>
+    <curve channel="LocX" interpolation="bezier" extend="const">
+      <p c="426.000 2.546" h1="405.699 2.546" h2="446.301 2.546"/>
+      <p c="478.000 2.546" h1="457.699 2.546" h2="498.301 2.546"/>
+    </curve>
+    <curve channel="LocZ" interpolation="bezier" extend="const">
+      <p c="426.000 14.028" h1="406.267 14.028" h2="445.733 14.028"/>
+      <p c="478.000 26.600" h1="458.267 26.600" h2="497.733 26.600"/>
+    </curve>
+    <curve channel="LocY" interpolation="bezier" extend="const">
+      <p c="426.000 1.711" h1="405.699 1.711" h2="446.301 1.711"/>
+      <p c="478.000 1.711" h1="457.699 1.711" h2="498.301 1.711"/>
+    </curve>
+  </object>
+  <object type="sfx-emitter" sound="break.ogg" rolloff="0.100" volume="1.0" max_dist="500.0" xyz="2.57 1.74 8.45" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 449">
+  </object>
+  <object type="sfx-emitter" sound="dark.ogg" rolloff="0.100" volume="1.0" max_dist="500.0" xyz="-1.30 3.97 2.30" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 5">
+  </object>
   <object type="cutscene_camera" model="" xyz="3.94 4.77 5.18" hpr="-78.7 -144.0 -0.6" scale="1.00 1.00 1.00"  interaction="static">
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="1.000 3.935" h1="-72.788 3.935" h2="74.788 3.935"/>
