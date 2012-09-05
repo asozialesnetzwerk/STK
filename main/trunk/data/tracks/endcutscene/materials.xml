@@ -3,4 +3,5 @@
 <materials>
   <material name="chain2.png" backface-culling="N" compositing="test"/>
   <material name="gnu.png" backface-culling="N" compositing="test"/>
+  <material name="torch.png" compositing="test" disable-z-write="Y"/>
 </materials>

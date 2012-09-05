@@ -26,6 +26,10 @@
   </particle-emitter>
   <particle-emitter kind="smoke_short_burst.xml" x="1.62" y="2.38" z="6.65" h="0.000000" conditions="frame 445">
   </particle-emitter>
+  <particle-emitter kind="fire.xml" x="10.39" y="4.05" z="17.82" h="-90.000003">
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" x="10.39" y="4.05" z="11.34" h="-90.000003">
+  </particle-emitter>
   <object type="sfx-emitter" sound="engine_large.ogg" rolloff="0.100" volume="0.6025640964508057" max_dist="500.0" xyz="3.13 1.79 13.35" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 240">
   </object>
   <object type="sfx-emitter" sound="metal_clang.ogg" rolloff="0.100" volume="1.0" max_dist="500.0" xyz="1.92 1.79 4.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 126">
