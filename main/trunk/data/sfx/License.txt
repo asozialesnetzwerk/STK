@@ -83,6 +83,17 @@
 * grab_collectable
     obtained from : http://www.freesoundfiles.tintagel.net/Audio/
     (see license text below)
+
+* hammer
+    Mix by Marianne Gagnon, released under CC-BY 3.0
+    Including samples by snottyboi, released under Creative Commons Attribution 3.0
+                         from SoundBible ("Whip Crack Sound")
+                      by Tomlija, released under CC-BY 3.0
+                         from http://www.freesound.org/people/Tomlija/sounds/98946/
+                      by Mike Koenig, released under CC-BY 3.0
+                         from http://soundbible.com/1217-Metal-Clang.html
+                      by Stickinthemud, released under CC-BY 3.0
+                         from http://www.freesound.org/people/Stickinthemud/sounds/27528/
     
 * horn
     Released under the Creative Commons BY (Attribution) 3.0
