@@ -9,6 +9,8 @@
     <static-object lod_distance="40.0" lod_group="robot1" model="robot_high.b3d" xyz="32.59 -3.73 -203.25" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_distance="200.0" lod_group="robot1" model="robot1_low.b3d" xyz="44.10 -3.73 -201.25" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_distance="200.0" lod_group="aliens" model="aliens_lo.b3d" xyz="-43.74 6.51 96.24" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="curious.b3d" xyz="-94.29 8.90 142.70" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="love.b3d" xyz="-93.47 5.53 159.28" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <animated-texture name="arc1.png" dx="2.000" />
     <animated-texture name="arc2.png" dx="-1.700" />
   </track>
