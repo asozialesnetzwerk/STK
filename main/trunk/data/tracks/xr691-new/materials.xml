@@ -6,7 +6,7 @@
     <particles condition="skid drive" base="acid_splash.xml"/>
   </material>
   <material name="acid_lake_bottom.jpg" reset="Y" graphical-effect="water" falling-effect="Y"/>
-  <material name="arc1.png" light="N" backface-culling="N" disable-z-write="Y"/>
+  <material name="arc1.png" light="N" backface-culling="N" compositing="blend" disable-z-write="Y"/>
   <material name="arc2.png" reset="Y" compositing="blend" backface-culling="N" light="N" disable-z-write="Y"/>
   <material name="curious.png" backface-culling="N" compositing="blend" disable-z-write="Y"/>
   <material name="glass.png" backface-culling="N" compositing="blend" disable-z-write="Y"/>
