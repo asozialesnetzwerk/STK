@@ -136,6 +136,13 @@ GPL
 Other licenses :
 ================
 
+Textures based on pictures from burningwell
+    blackRoad.png, japanRedWood.png, JapanwoodBridge.png, pagoda_wall.png, ToblackRoad.png
+    rockTograss.png, wooden2.png, wooden.png, blackrock.jpg, rockwaterfall.jpg
+    black_rockMountain.jpg, bridge_wood.jpg, rockMountain.jpg, to_black_rockMountain.jpg
+    rockMountainWater.jpg, tree_zenRed.jpg
+    released under public domain
+    
 * sakura_leaves
     by the Yo Frankie team
     released under CC-BY 3.0
