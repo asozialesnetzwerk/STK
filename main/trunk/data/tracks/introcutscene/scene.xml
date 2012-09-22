@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 11462 -->
+<!-- Generated with script from SVN rev 11470 -->
 <scene>
   <track model="introcutscene_track.b3d" x="0" y="0" z="0">
     <static-object model="pineVeryLow.b3d" xyz="-125.39 11.62 9.12" hpr="-90.0 -175.6 -0.0" scale="0.50 0.50 0.50"/> <!-- writeStaticObjects 3 -->
@@ -582,10 +582,10 @@
   </object>
   <object type="sfx-emitter" sound="appear.ogg" rolloff="0.001" volume="1.0" max_dist="500.0" xyz="-93.03 2.42 29.84" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 360">
   </object>
-  <object type="sfx-emitter" sound="spaceship.ogg" rolloff="0.050" volume="1.0" max_dist="85.0" xyz="-222.68 4.71 46.16" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  <object type="sfx-emitter" sound="spaceship.ogg" rolloff="0.050" volume="1.0" max_dist="85.0" xyz="-301.50 4.71 46.16" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
     <curve channel="LocX" interpolation="bezier" extend="const">
-      <p c="1.000 -222.679" h1="-292.034 -222.679" h2="294.034 -222.679"/>
-      <p c="752.000 -197.453" h1="557.820 -217.439" h2="790.836 -193.455"/>
+      <p c="1.000 -301.503" h1="-289.425 -301.503" h2="291.425 -301.503"/>
+      <p c="752.000 -197.453" h1="559.110 -227.429" h2="790.578 -191.457"/>
       <p c="852.000 -180.226" h1="815.591 -194.317" h2="876.394 -170.785"/>
       <p c="919.000 -139.907" h1="897.310 -154.528" h2="936.805 -127.905"/>
       <p c="974.000 -98.853" h1="953.883 -98.853" h2="1074.586 -98.853"/>
