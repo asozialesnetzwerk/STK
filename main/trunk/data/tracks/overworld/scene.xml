@@ -51,6 +51,7 @@
     <static-object model="crystal_ball.b3d" xyz="146.39 3.20 -19.86" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="snowpeak"/> <!-- writeStaticObjects 3 -->
     <static-object model="crystal_ball.b3d" xyz="28.92 -31.76 531.90" hpr="-0.0 -53.4 0.0" scale="0.86 0.78 0.86" challenge="fortmagma"/> <!-- writeStaticObjects 3 -->
     <static-object model="crystal_ball.b3d" xyz="48.49 -21.01 463.34" hpr="-0.0 -53.4 0.0" scale="0.86 0.78 0.86" challenge="xr591"/> <!-- writeStaticObjects 3 -->
+    <static-object model="crystal_ball.b3d" xyz="-3.28 -3.71 138.04" hpr="-4.8 -152.5 3.0" scale="0.86 0.78 0.86" challenge="gp1"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="pedestral" xyz="-94.90 -5.74 296.61" hpr="0.0 -29.6 0.0" scale="0.71 0.71 0.71"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="pedestral" xyz="40.01 -1.58 17.58" hpr="0.0 1.5 0.0" scale="0.71 0.71 0.71"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="pedestral" xyz="-19.62 -5.37 29.87" hpr="7.8 0.0 0.0" scale="0.68 0.68 0.68"/> <!-- writeStaticObjects 3 -->
@@ -69,6 +70,7 @@
     <static-object lod_instance="true" lod_group="pedestral" xyz="145.92 0.63 -19.89" hpr="0.5 2.0 -11.1" scale="0.71 0.71 0.71"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="pedestral" xyz="28.92 -34.33 531.93" hpr="0.0 -88.4 0.0" scale="0.71 0.71 0.71"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="pedestral" xyz="48.48 -23.57 463.37" hpr="0.0 -88.4 0.0" scale="0.71 0.71 0.71"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="pedestral" xyz="-3.28 -6.27 137.83" hpr="-4.3 172.6 0.2" scale="0.71 0.71 0.71"/> <!-- writeStaticObjects 3 -->
     <static-object model="mountainTrees2.b3d" xyz="124.01 5.74 20.26" hpr="-87.5 -44.6 16.3" scale="0.78 0.78 0.78"/> <!-- writeStaticObjects 3 -->
     <static-object model="mountainTrees.b3d" xyz="126.93 6.88 -8.96" hpr="-69.3 -47.7 -14.1" scale="0.78 0.78 0.78"/> <!-- writeStaticObjects 3 -->
     <static-object lod_distance="100.0" lod_group="pineLow" model="pineLow_LOD100.b3d" xyz="137.80 6.97 -30.23" hpr="-81.5 -45.3 -5.4" scale="0.78 0.78 0.78"/> <!-- writeStaticObjects 3 -->
@@ -139,6 +141,9 @@
     <static-object lod_instance="true" lod_group="bubble_rocket" xyz="45.01 -21.17 463.46" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_distance="100.0" lod_group="bubble_rocket" model="bubble_rocket.b3d" xyz="54.49 -21.17 463.01" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object model="bubble_solid_sphere.b3d" xyz="44.18 -21.67 462.31" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" if="trophies"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="bubble_gp1" xyz="-2.61 -3.33 138.54" hpr="-15.9 -102.1 19.7" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="100.0" lod_group="bubble_gp1" model="bubble_gp1.b3d" xyz="-1.83 20.59 129.23" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object model="bubble_solid_sphere.b3d" xyz="2.26 -4.38 139.45" hpr="-4.3 -177.1 0.5" scale="1.00 1.00 1.00" if="trophies"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="tree_2" xyz="33.87 -5.40 270.62" hpr="0.0 -180.0 -0.0" scale="1.20 1.20 1.20"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="tree_2" xyz="38.46 -5.14 243.89" hpr="-0.0 112.2 -0.0" scale="1.20 1.20 1.20"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="tree_2" xyz="6.61 -2.16 236.99" hpr="0.0 165.6 0.0" scale="1.20 1.20 1.20"/> <!-- writeStaticObjects 3 -->
@@ -199,6 +204,8 @@
   <object type="sfx-emitter" sound="portal.ogg" rolloff="0.100" volume="1.0" max_dist="500.0" xyz="29.13 -33.16 528.88" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7">
   </object>
   <object type="sfx-emitter" sound="portal.ogg" rolloff="0.100" volume="1.0" max_dist="500.0" xyz="46.35 -22.78 461.39" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7">
+  </object>
+  <object type="sfx-emitter" sound="portal.ogg" rolloff="0.100" volume="1.0" max_dist="500.0" xyz="-0.39 -5.66 138.62" hpr="-6.4 170.7 -10.4" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7">
   </object>
   <object type="action-trigger" action="garage" distance="5.0" xyz="2.61 0.26 -21.81" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
   <object type="movable" xyz="14.29 -17.74 428.10" hpr="-2.6 -2.2 -0.6" scale="0.92 0.92 0.92"

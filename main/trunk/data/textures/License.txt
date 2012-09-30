@@ -23,6 +23,13 @@ Under Creative Commons Attribution Share-Alike (CC-BY-SA) - http://creativecommo
 * cup_*, speedback, speedfore
     by yeKcim (Anthony Carré)
 
+* gnu, tapis
+    by Benjamin Arnaudet
+    released under GNU GPL license
+
+* nolok_character
+    by Cheleb
+    
 * purplenebula*, waternormals.jpg, waternormals2.jpg, sea2
     by Marianne Gagnon (Auria)
 
