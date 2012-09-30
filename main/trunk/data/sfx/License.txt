@@ -105,6 +105,10 @@
 
 * locked
     By "Stephan" from pdsounds.org (license is public domain)
+
+* machine_sound
+    based on sound by Swelk, released under CC-BY 3.0, with modifications by Marianne Gagnon
+    http://www.freesound.org/people/swelk/sounds/12906/
     
 * metal_clang
     based on public domain sound by dADDoiT and CC-BY 3.0 sounds by Mike Koenig

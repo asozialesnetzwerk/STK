@@ -790,6 +790,147 @@
       <p c="1472.000 1.000" h1="1461.068 1.000" h2="1482.932 1.000"/>
     </curve>
   </object>
+  <object type="sfx-emitter" sound="machine_sound.ogg" rolloff="0.100" volume="0.6499999761581421" max_dist="500.0" xyz="-132.63 3.94 57.80" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 1055">
+    <curve channel="LocX" interpolation="bezier" extend="const">
+      <p c="927.000 -132.635" h1="921.299 -132.635" h2="932.701 -132.635"/>
+      <p c="947.000 -113.914" h1="940.687 -118.509" h2="955.839 -107.482"/>
+      <p c="975.000 -99.368" h1="965.299 -99.368" h2="984.701 -99.368"/>
+    </curve>
+    <curve channel="LocZ" interpolation="bezier" extend="const">
+      <p c="927.000 57.799" h1="919.202 57.799" h2="934.798 57.799"/>
+      <p c="947.000 56.777" h1="939.204 57.207" h2="957.915 56.176"/>
+      <p c="975.000 55.121" h1="964.088 55.121" h2="985.912 55.121"/>
+    </curve>
+    <curve channel="LocY" interpolation="bezier" extend="const">
+      <p c="927.000 3.945" h1="919.192 3.945" h2="934.808 3.945"/>
+      <p c="947.000 3.945" h1="939.216 3.945" h2="957.897 3.945"/>
+      <p c="975.000 8.383" h1="964.203 8.383" h2="985.797 8.383"/>
+    </curve>
+    <curve channel="RotX" interpolation="bezier" extend="const">
+      <p c="927.000 -0.000" h1="919.192 -0.000" h2="934.808 -0.000"/>
+      <p c="947.000 -0.000" h1="939.192 -0.000" h2="957.932 -0.000"/>
+      <p c="975.000 -0.000" h1="964.068 -0.000" h2="985.932 -0.000"/>
+    </curve>
+    <curve channel="RotZ" interpolation="bezier" extend="const">
+      <p c="927.000 -0.000" h1="919.192 -0.000" h2="934.808 -0.000"/>
+      <p c="947.000 -0.000" h1="939.192 -0.000" h2="957.932 -0.000"/>
+      <p c="975.000 -0.000" h1="964.068 -0.000" h2="985.932 -0.000"/>
+    </curve>
+    <curve channel="RotY" interpolation="bezier" extend="const">
+      <p c="927.000 -0.000" h1="919.192 -0.000" h2="934.808 -0.000"/>
+      <p c="947.000 -0.000" h1="939.192 -0.000" h2="957.932 -0.000"/>
+      <p c="975.000 -0.000" h1="964.068 -0.000" h2="985.932 -0.000"/>
+    </curve>
+    <curve channel="ScaleX" interpolation="bezier" extend="const">
+      <p c="927.000 1.000" h1="919.192 1.000" h2="934.808 1.000"/>
+      <p c="947.000 1.000" h1="939.192 1.000" h2="957.932 1.000"/>
+      <p c="975.000 1.000" h1="964.068 1.000" h2="985.932 1.000"/>
+    </curve>
+    <curve channel="ScaleZ" interpolation="bezier" extend="const">
+      <p c="927.000 1.000" h1="919.192 1.000" h2="934.808 1.000"/>
+      <p c="947.000 1.000" h1="939.192 1.000" h2="957.932 1.000"/>
+      <p c="975.000 1.000" h1="964.068 1.000" h2="985.932 1.000"/>
+    </curve>
+    <curve channel="ScaleY" interpolation="bezier" extend="const">
+      <p c="927.000 1.000" h1="919.192 1.000" h2="934.808 1.000"/>
+      <p c="947.000 1.000" h1="939.192 1.000" h2="957.932 1.000"/>
+      <p c="975.000 1.000" h1="964.068 1.000" h2="985.932 1.000"/>
+    </curve>
+  </object>
+  <object type="sfx-emitter" sound="machine_sound.ogg" rolloff="0.010" volume="1.0" max_dist="500.0" xyz="-132.63 3.94 57.80" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 1300">
+    <curve channel="LocX" interpolation="bezier" extend="const">
+      <p c="927.000 -132.635" h1="921.299 -132.635" h2="932.701 -132.635"/>
+      <p c="947.000 -113.914" h1="940.687 -118.509" h2="955.839 -107.482"/>
+      <p c="975.000 -99.368" h1="965.299 -99.368" h2="984.701 -99.368"/>
+    </curve>
+    <curve channel="LocZ" interpolation="bezier" extend="const">
+      <p c="927.000 57.799" h1="919.202 57.799" h2="934.798 57.799"/>
+      <p c="947.000 56.777" h1="939.204 57.207" h2="957.915 56.176"/>
+      <p c="975.000 55.121" h1="964.088 55.121" h2="985.912 55.121"/>
+    </curve>
+    <curve channel="LocY" interpolation="bezier" extend="const">
+      <p c="927.000 3.945" h1="919.192 3.945" h2="934.808 3.945"/>
+      <p c="947.000 3.945" h1="939.216 3.945" h2="957.897 3.945"/>
+      <p c="975.000 8.383" h1="964.203 8.383" h2="985.797 8.383"/>
+    </curve>
+    <curve channel="RotX" interpolation="bezier" extend="const">
+      <p c="927.000 -0.000" h1="919.192 -0.000" h2="934.808 -0.000"/>
+      <p c="947.000 -0.000" h1="939.192 -0.000" h2="957.932 -0.000"/>
+      <p c="975.000 -0.000" h1="964.068 -0.000" h2="985.932 -0.000"/>
+    </curve>
+    <curve channel="RotZ" interpolation="bezier" extend="const">
+      <p c="927.000 -0.000" h1="919.192 -0.000" h2="934.808 -0.000"/>
+      <p c="947.000 -0.000" h1="939.192 -0.000" h2="957.932 -0.000"/>
+      <p c="975.000 -0.000" h1="964.068 -0.000" h2="985.932 -0.000"/>
+    </curve>
+    <curve channel="RotY" interpolation="bezier" extend="const">
+      <p c="927.000 -0.000" h1="919.192 -0.000" h2="934.808 -0.000"/>
+      <p c="947.000 -0.000" h1="939.192 -0.000" h2="957.932 -0.000"/>
+      <p c="975.000 -0.000" h1="964.068 -0.000" h2="985.932 -0.000"/>
+    </curve>
+    <curve channel="ScaleX" interpolation="bezier" extend="const">
+      <p c="927.000 1.000" h1="919.192 1.000" h2="934.808 1.000"/>
+      <p c="947.000 1.000" h1="939.192 1.000" h2="957.932 1.000"/>
+      <p c="975.000 1.000" h1="964.068 1.000" h2="985.932 1.000"/>
+    </curve>
+    <curve channel="ScaleZ" interpolation="bezier" extend="const">
+      <p c="927.000 1.000" h1="919.192 1.000" h2="934.808 1.000"/>
+      <p c="947.000 1.000" h1="939.192 1.000" h2="957.932 1.000"/>
+      <p c="975.000 1.000" h1="964.068 1.000" h2="985.932 1.000"/>
+    </curve>
+    <curve channel="ScaleY" interpolation="bezier" extend="const">
+      <p c="927.000 1.000" h1="919.192 1.000" h2="934.808 1.000"/>
+      <p c="947.000 1.000" h1="939.192 1.000" h2="957.932 1.000"/>
+      <p c="975.000 1.000" h1="964.068 1.000" h2="985.932 1.000"/>
+    </curve>
+  </object>
+  <object type="sfx-emitter" sound="machine_sound.ogg" rolloff="0.010" volume="1.0" max_dist="500.0" xyz="-132.63 3.94 57.80" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 1055">
+    <curve channel="LocX" interpolation="bezier" extend="const">
+      <p c="927.000 -132.635" h1="921.299 -132.635" h2="932.701 -132.635"/>
+      <p c="947.000 -113.914" h1="940.687 -118.509" h2="955.839 -107.482"/>
+      <p c="975.000 -99.368" h1="965.299 -99.368" h2="984.701 -99.368"/>
+    </curve>
+    <curve channel="LocZ" interpolation="bezier" extend="const">
+      <p c="927.000 57.799" h1="919.202 57.799" h2="934.798 57.799"/>
+      <p c="947.000 56.777" h1="939.204 57.207" h2="957.915 56.176"/>
+      <p c="975.000 55.121" h1="964.088 55.121" h2="985.912 55.121"/>
+    </curve>
+    <curve channel="LocY" interpolation="bezier" extend="const">
+      <p c="927.000 3.945" h1="919.192 3.945" h2="934.808 3.945"/>
+      <p c="947.000 3.945" h1="939.216 3.945" h2="957.897 3.945"/>
+      <p c="975.000 8.383" h1="964.203 8.383" h2="985.797 8.383"/>
+    </curve>
+    <curve channel="RotX" interpolation="bezier" extend="const">
+      <p c="927.000 -0.000" h1="919.192 -0.000" h2="934.808 -0.000"/>
+      <p c="947.000 -0.000" h1="939.192 -0.000" h2="957.932 -0.000"/>
+      <p c="975.000 -0.000" h1="964.068 -0.000" h2="985.932 -0.000"/>
+    </curve>
+    <curve channel="RotZ" interpolation="bezier" extend="const">
+      <p c="927.000 -0.000" h1="919.192 -0.000" h2="934.808 -0.000"/>
+      <p c="947.000 -0.000" h1="939.192 -0.000" h2="957.932 -0.000"/>
+      <p c="975.000 -0.000" h1="964.068 -0.000" h2="985.932 -0.000"/>
+    </curve>
+    <curve channel="RotY" interpolation="bezier" extend="const">
+      <p c="927.000 -0.000" h1="919.192 -0.000" h2="934.808 -0.000"/>
+      <p c="947.000 -0.000" h1="939.192 -0.000" h2="957.932 -0.000"/>
+      <p c="975.000 -0.000" h1="964.068 -0.000" h2="985.932 -0.000"/>
+    </curve>
+    <curve channel="ScaleX" interpolation="bezier" extend="const">
+      <p c="927.000 1.000" h1="919.192 1.000" h2="934.808 1.000"/>
+      <p c="947.000 1.000" h1="939.192 1.000" h2="957.932 1.000"/>
+      <p c="975.000 1.000" h1="964.068 1.000" h2="985.932 1.000"/>
+    </curve>
+    <curve channel="ScaleZ" interpolation="bezier" extend="const">
+      <p c="927.000 1.000" h1="919.192 1.000" h2="934.808 1.000"/>
+      <p c="947.000 1.000" h1="939.192 1.000" h2="957.932 1.000"/>
+      <p c="975.000 1.000" h1="964.068 1.000" h2="985.932 1.000"/>
+    </curve>
+    <curve channel="ScaleY" interpolation="bezier" extend="const">
+      <p c="927.000 1.000" h1="919.192 1.000" h2="934.808 1.000"/>
+      <p c="947.000 1.000" h1="939.192 1.000" h2="957.932 1.000"/>
+      <p c="975.000 1.000" h1="964.068 1.000" h2="985.932 1.000"/>
+    </curve>
+  </object>
   <object type="cutscene_camera" model="" xyz="-144.43 3.58 29.92" hpr="-100.4 74.5 -1.2" scale="1.00 1.00 1.00"  interaction="ghost">
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="0.000 -144.430" h1="-38.575 -144.430" h2="38.575 -144.430"/>
@@ -1196,13 +1337,13 @@
   </object>
   <object type="animation" model="Gnu.b3d" xyz="-98.65 1.82 50.86" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"  looped="y"  interaction="ghost">
   </object>
-  <object type="animation" model="tree1.b3d" xyz="-115.73 -0.02 40.52" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
+  <object type="animation" model="tree1.b3d" xyz="-123.55 3.17 45.41" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
   </object>
-  <object type="animation" model="tree2.b3d" xyz="-115.73 -0.02 40.52" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
+  <object type="animation" model="tree2.b3d" xyz="-131.64 3.69 35.79" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
   </object>
-  <object type="animation" model="tree3.b3d" xyz="-115.73 -0.02 40.52" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
+  <object type="animation" model="tree3.b3d" xyz="-135.89 4.77 48.24" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
   </object>
-  <object type="animation" model="tree4.b3d" xyz="-115.73 -0.02 40.52" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
+  <object type="animation" model="tree4.b3d" xyz="-125.64 4.05 62.36" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
   </object>
   <object type="animation" model="leaves1.b3d" xyz="-114.64 10.99 46.79" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
   </object>
