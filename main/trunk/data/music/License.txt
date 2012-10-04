@@ -53,6 +53,11 @@ OnTheRiver.ogg
     with modifications by Magne Djupvik
     license : CC-BY-SA 3.0
 
+overworld.ogg
+-------------
+    by 0zone0ne
+    released under CC-BY-SA 3.0
+    
 Snowy.ogg
 ---------
     Music made by Chris Leutwyler (Krobonil)
