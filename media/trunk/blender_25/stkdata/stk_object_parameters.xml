@@ -3,8 +3,8 @@
 
     <BoolProp id="enable_anim_texture" name="Use animated Texture" default="false" doc="Make a texture on this object move">
         <StringProp id="anim_texture" name="Texture to animate" default="" doc="Filename of the texture to animate"/>
-        <FloatProp id="anim_dx" name="Animation X Speed" default="0.0" min="0.0"/>
-        <FloatProp id="anim_dy" name="Animation Y Speed" default="0.0" min="0.0"/>
+        <FloatProp id="anim_dx" name="Animation X Speed" default="0.0" min="-10.0" max="10.0"/>
+        <FloatProp id="anim_dy" name="Animation Y Speed" default="0.0" min="-10.0" max="10.0"/>
     </BoolProp>
     
     <!-- ******** STK Object Type ******** -->
