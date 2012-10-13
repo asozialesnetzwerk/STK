@@ -518,7 +518,9 @@ class StkColorProperty(StkProperty):
                     currcol[2] = currcol[2]/255.0
                 except:
                     pass
-                self.temp_color = currcol
+                
+                if currcol is not None and len(currcol) > 2:
+                    self.temp_color = currcol
                 context.window_manager.invoke_props_dialog(self)
                 return {'RUNNING_MODAL'}
            
