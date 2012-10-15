@@ -42,13 +42,13 @@
                    doc="Distance from camera at which fog starts dimming objects"/>
         <FloatProp id="fog_end" name="Fog End" default="300.0" min="0.0" max="1000.0"
                    doc="Distance from camera at which fog is so dense you can't see a thing"/>
-        <FloatProp id="camera_far" name="Camera Far Clip" default="1000.0" min="0.0" max="1000.0"
-                   doc="Distance from camera at which objects are clipped (no more visible)"/>
-        <IntProp id="start_karts_per_row" name="Karts per row on start" default="2"/>
-        <FloatProp id="start_forwards_distance" name="Start Forwards Distance" default="1.1"/>
-        <FloatProp id="start_sidewards_distance" name="Start Sidewards Distance" default="1.1"/>
-        <FloatProp id="start_upwards_distance" name="Start upwards distance" default="1.1"/>
     </BoolProp>
+    <FloatProp id="camera_far" name="Camera Far Clip" default="1000.0" min="0.0" max="1000.0"
+                   doc="Distance from camera at which objects are clipped (no more visible)"/>
+    <IntProp id="start_karts_per_row" name="Karts per row on start" default="2"/>
+    <FloatProp id="start_forwards_distance" name="Start Forwards Distance" default="1.1"/>
+    <FloatProp id="start_sidewards_distance" name="Start Sidewards Distance" default="1.1"/>
+    <FloatProp id="start_upwards_distance" name="Start upwards distance" default="1.1"/>
     <BoolProp id="smooth_normals" name="Smooth Normals" default="false" doc="Whether to interpolate the normals (gives smoother driving but requires that floors and walls be split)"/>
     <EnumProp id="weather" name="Weather" default="none" doc="The weather effect to use in this track">
         <EnumChoice id="none" label="None" doc="The weather effect to use in this track"/>
