@@ -11,8 +11,8 @@
     <static-object model="windows.b3d" xyz="-114.89 40.79 -38.64" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object model="windows.b3d" xyz="-71.89 40.79 31.36" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object model="Plane.034.b3d" xyz="-150.95 16.47 -29.25" hpr="-0.0 -180.0 -0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="Plane.035.b3d" xyz="-115.85 25.22 -68.42" hpr="-0.0 -180.0 -0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="Plane.036.b3d" xyz="-60.53 41.23 -105.14" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object model="Plane.035.b3d" xyz="-107.47 12.36 -68.42" hpr="-0.0 -180.0 -0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object model="Plane.036.b3d" xyz="-51.49 51.13 -107.15" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object model="Plane.037.b3d" xyz="-92.12 33.44 -125.21" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object model="Plane.038.b3d" xyz="-152.08 6.00 19.05" hpr="-0.0 -180.0 -0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object model="Plane.039.b3d" xyz="-75.78 -21.83 226.36" hpr="-0.0 -101.7 -0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
@@ -22,21 +22,40 @@
     <static-object model="Plane.048.b3d" xyz="84.91 45.00 -72.95" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"> <!-- writeStaticObjects 2 -->
     <animated-texture name="zipper.png" dy="1.500" />
     </static-object>
-    <static-object model="Plane.062.b3d" xyz="-115.85 37.53 -82.95" hpr="-0.0 -180.0 -0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <animated-texture name="lava_1.jpg" dy="0.100" />
-    <animated-texture name="lava_1.jpg" dy="0.100" />
-    <animated-texture name="lava_1.jpg" dy="0.100" />
-    <animated-texture name="lava_1.jpg" dy="0.100" />
-    <animated-texture name="lava_1.jpg" dy="0.100" />
-    <animated-texture name="lava_1.jpg" dy="0.100" />
-    <animated-texture name="lava_1.jpg" dy="-0.100" />
+    <static-object model="Plane.062.b3d" xyz="-131.58 39.59 -76.19" hpr="-0.0 139.4 -0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <animated-texture name="lava.png" dy="-0.100" />
+    <animated-texture name="lava.png" dy="-0.100" />
+    <animated-texture name="lava.png" dy="-0.100" />
+    <animated-texture name="lava.png" dy="-0.100" />
+    <animated-texture name="lava.png" dy="-0.100" />
+    <animated-texture name="lava.png" dy="-0.100" />
   </track>
-  <particle-emitter kind="fire.xml" x="-112.33" y="40.64" z="-26.75" h="89.999996">
+  <particle-emitter kind="fire.xml" x="-111.75" y="40.64" z="-26.75" h="89.999996">
   </particle-emitter>
-  <particle-emitter kind="fire.xml" x="-112.33" y="40.64" z="-50.84" h="89.999996">
+  <particle-emitter kind="fire.xml" x="-111.75" y="40.64" z="-51.54" h="89.999996">
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" x="-106.21" y="38.96" z="-120.62" h="89.999996">
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" x="-28.61" y="50.79" z="-115.14" h="90.000009">
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" x="-55.01" y="48.09" z="-83.02" h="89.999996">
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" x="-88.14" y="48.09" z="-83.82" h="89.999996">
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" x="-136.35" y="23.13" z="-90.26" h="89.999996">
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" x="-156.53" y="12.68" z="-46.83" h="89.999996">
   </particle-emitter>
   <particle-emitter kind="fire.xml" x="-38.04" y="10.63" z="-17.54" h="89.999996">
   </particle-emitter>
+  <particle-emitter kind="fire.xml" x="-156.94" y="8.90" z="-43.18" h="89.999996">
+  </particle-emitter>
+  <object type="animation" model="roadpart.b3d" xyz="-161.72 0.64 -33.25" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
+  </object>
+  <object type="animation" model="winFrame.b3d" xyz="-115.18 9.74 -38.64" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
+  </object>
+  <object type="animation" model="windows.b3d" xyz="-114.89 2.26 -38.64" hpr="0.0 -0.0 0.0" scale="1.00 1.18 1.00"  interaction="ghost">
+  </object>
   <small-nitro x="-148.238953" y="1.299999" z="27.879166" h="179.999994" />
   <small-nitro x="-156.238953" y="1.299999" z="11.879166" h="179.999994" />
   <small-nitro x="-157.238953" y="3.076542" z="-34.120834" h="179.999994" />
