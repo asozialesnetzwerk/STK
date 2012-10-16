@@ -6,7 +6,7 @@ Blender: 259
 Group: 'Export'
 Tooltip: 'Export to Blitz3D file format (.b3d)'
 """
-__author__ = ["Diego 'GaNDaLDF' Parisi"]
+__author__ = ["iego 'GaNDaLDF' Parisi, MTLZ (is06), Joerg Henrichs, Marianne Gagnon"]
 __url__ = ["www.gandaldf.com"]
 __version__ = "3.0"
 __bpydoc__ = """\
@@ -15,8 +15,8 @@ __bpydoc__ = """\
 # BLITZ3D EXPORTER 3.0
 # Copyright (C) 2009 by Diego "GaNDaLDF" Parisi  -  www.gandaldf.com
 # Lightmap issue fixed by Capricorn 76 Pty. Ltd. - www.capricorn76.com
-# With changes by Marianne Gagnon and Joerg Henrichs, supertuxkart.sf.net (Copyright (C) 2011-2012)
 # Blender 2.63 compatiblity based on work by MTLZ, www.is06.com
+# With changes by Marianne Gagnon and Joerg Henrichs, supertuxkart.sf.net (Copyright (C) 2011-2012)
 #
 # LICENSE:
 # This program is free software; you can redistribute it and/or modify
@@ -36,7 +36,7 @@ __bpydoc__ = """\
 bl_info = {
     "name": "B3D (BLITZ3D) Model Exporter",
     "description": "Exports a blender scene or object to the B3D (BLITZ3D) format",
-    "author": "Diego 'GaNDaLDF' Parisi, Joerg Henrichs, Marianne Gagnon, MTLZ (is06)",
+    "author": "Diego 'GaNDaLDF' Parisi, MTLZ (is06), Joerg Henrichs, Marianne Gagnon",
     "version": (3,1),
     "blender": (2, 5, 9),
     "api": 31236,
@@ -47,8 +47,6 @@ bl_info = {
     "category": "Import-Export"}
 
 
-#If you get an error here, it might be
-#because you don't have Python installed.
 import bpy
 import sys,os,os.path,struct,math,string
 import mathutils
@@ -1490,6 +1488,8 @@ class B3D_Export_Operator(bpy.types.Operator):
         if not self.filepath.endswith(".b3d"):
             self.filepath += ".b3d"
 
+        print("EXPORT", self.filepath," vcolor = ", self.vcolors)
+            
         obj_list = []
         try:
             # FIXME: silly and ugly hack, the list of objects to export is passed through

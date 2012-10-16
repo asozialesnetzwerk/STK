@@ -175,6 +175,20 @@
                         <EnumChoice id="exact" label="Exact" />
                     </EnumProp>
                 </EnumChoice>
+                <EnumChoice id="explode" label="Knock player" doc="The player will jump like they were hit when touching this object" >
+                    <EnumProp id="shape" name="Shape" default="box" unique_prefix="itrc_explode"
+                              doc="Shape to use in the physics engine to represent this object">
+                        <EnumChoice id="coneX" label="Cone (X)" />
+                        <EnumChoice id="coneY" label="Cone (Y)" />
+                        <EnumChoice id="coneZ" label="Cone (Z)" />
+                        <EnumChoice id="cylinderX" label="Cylinder (X)" />
+                        <EnumChoice id="cylinderY" label="Cylinder (Y)" />
+                        <EnumChoice id="cylinderZ" label="Cylinder (Z)" />
+                        <EnumChoice id="box" label="Box" />
+                        <EnumChoice id="sphere" label="Sphere" />
+                        <EnumChoice id="exact" label="Exact" />
+                    </EnumProp>
+                </EnumChoice>
             </EnumProp>
             <BoolProp id="tangents" name="Use Tangent Space" default="false" doc="Export object in tangent space, which is required for normal mapping"/>
         </EnumChoice>

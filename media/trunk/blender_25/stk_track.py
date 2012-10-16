@@ -1144,6 +1144,8 @@ class TrackExport:
         
         if interaction == 'reset':
             reset_string = " reset=\"y\""
+        elif interaction == 'explode':
+            reset_string = " explode=\"y\""
         else:
             reset_string = ""
         
@@ -1236,6 +1238,8 @@ class TrackExport:
             interaction = getProperty(obj, "interaction", '??')
             if interaction == 'reset':
                 reset_string = " reset=\"y\""
+            elif interaction == 'explode':
+                reset_string = " explode=\"y\""
             else:
                 reset_string = ""
             
@@ -1739,7 +1743,7 @@ class TrackExport:
                     ipo = parent.animation_data
             self.writeAnimationWithIPO(f, b3d_name, obj, ipo)
             
-        elif interact=="static" or interact=="reset":            
+        elif interact=="static" or interact=="reset" or interact=="explode":      
             ipo      = obj.animation_data
             # In objects with skeletal animations the actual armature (which
             # is a parent) contains the IPO. So check for this:
@@ -1835,7 +1839,7 @@ class TrackExport:
             #if type == "lod_instance" or type == "lod_model" or type == "single_lod":
             #    interact = "static"
             
-            if interact=="static" or interact=="reset" or type == "lod_model":
+            if interact=="static" or interact=="reset" or type == "lod_model" or interact=="explode":
                 
                 ipo      = obj.animation_data
                 if obj.parent is not None and obj.parent.type=="ARMATURE" and obj.parent.animation_data is not None:
@@ -1845,7 +1849,7 @@ class TrackExport:
                 # can't be merged with the physics model of the track
                 # BUT 'reset' objects must NOT be static objects otherwise then we can't detect
                 # collisions against it in bullet
-                if (ipo and ipo.action) or interact=="reset":
+                if (ipo and ipo.action) or interact=="reset" or interact=="explode":
                     lOtherObjects.append(obj)
                 else:
                     lStaticObjects.append(obj)
