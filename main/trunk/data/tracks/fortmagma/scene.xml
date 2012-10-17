@@ -16,6 +16,9 @@
     <static-object model="Plane.037.b3d" xyz="-92.12 33.44 -125.21" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object model="Plane.038.b3d" xyz="-152.08 6.00 19.05" hpr="-0.0 -180.0 -0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object model="Plane.039.b3d" xyz="-75.78 -21.83 226.36" hpr="-0.0 -101.7 -0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object model="backRoom.b3d" xyz="-388.85 -120.41 -70.56" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"> <!-- writeStaticObjects 2 -->
+    <animated-texture name="backeffect.jpg" dx="0.254"  dy="0.169" />
+    </static-object>
     <static-object model="Plane.047.b3d" xyz="85.14 45.00 -72.95" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"> <!-- writeStaticObjects 2 -->
     <animated-texture name="zipper_effect.png" dy="-0.100" />
     </static-object>
@@ -72,7 +75,7 @@
       <p c="350.000 42.201" h1="318.767 42.201" h2="381.233 42.201"/>
     </curve>
   </object>
-  <object type="animation" model="canonBall.b3d" xyz="27.81 10.04 -144.25" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" shape="sphere" reset="y" interaction="reset">
+  <object type="animation" model="canonBall.b3d" xyz="27.81 10.04 -144.25" hpr="28.6 -15.6 178.3" scale="1.00 1.00 1.00" shape="sphere" explode="y" interaction="explode">
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
       <p c="250.000 27.806" h1="244.144 27.806" h2="255.856 27.806"/>
       <p c="265.000 27.806" h1="259.144 27.806" h2="270.466 27.806"/>
@@ -96,6 +99,18 @@
       <p c="290.000 54.518" h1="287.929 54.518" h2="291.883 54.518"/>
       <p c="300.000 10.339" h1="297.490 11.186" h2="307.970 7.652"/>
       <p c="350.000 7.652" h1="330.508 7.652" h2="369.492 7.652"/>
+    </curve>
+    <curve channel="RotX" interpolation="bezier" extend="cyclic">
+      <p c="250.000 -1000.000" h1="213.172 -1742.468" h2="286.828 -257.532"/>
+      <p c="350.000 1016.052" h1="313.172 273.584" h2="386.828 1758.521"/>
+    </curve>
+    <curve channel="RotZ" interpolation="bezier" extend="cyclic">
+      <p c="250.000 -600.000" h1="210.967 -644.681" h2="289.033 -555.319"/>
+      <p c="350.000 -485.531" h1="310.967 -530.212" h2="389.033 -440.850"/>
+    </curve>
+    <curve channel="RotY" interpolation="bezier" extend="cyclic">
+      <p c="250.000 -0.000" h1="210.959 -11.963" h2="289.041 11.963"/>
+      <p c="350.000 30.642" h1="310.959 18.679" h2="389.041 42.605"/>
     </curve>
   </object>
   <object type="animation" model="winFrame.b3d" xyz="-115.18 9.74 -38.64" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
