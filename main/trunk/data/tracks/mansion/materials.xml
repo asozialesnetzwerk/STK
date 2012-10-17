@@ -12,7 +12,9 @@
   <material name="lightHaloY.png" fog="N" light="N" compositing="additive" disable-z-write="Y"/>
   <material name="mansion_curtains.png" compositing="test"/>
   <material name="mansion_windows.png" compositing="blend" disable-z-write="Y"/>
+  <material name="pix.png" compositing="test" reset="Y"/>
   <material name="plants.png" backface-culling="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
+  <material name="torch.png" backface-culling="N" compositing="test"/>
   <material name="tree_1Low.png" backface-culling="N" compositing="blend" disable-z-write="Y"/>
   <material name="water_light2.png" compositing="blend" disable-z-write="Y"/>
   <material name="woodPost.png" backface-culling="N"/>
