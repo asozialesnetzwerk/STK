@@ -2,6 +2,17 @@
 <!-- Generated with script from SVN rev 11688 -->
 <scene>
   <track model="FortMagma_track.b3d" x="0" y="0" z="0">
+    <static-object lod_instance="true" lod_group="lavaspike" xyz="-153.73 10.28 7.05" hpr="-0.0 -180.0 -0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="70.0" lod_group="lavaspike" model="lavaspike.002.b3d" xyz="-176.73 72.28 7.05" hpr="-0.0 -180.0 -0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="150.0" lod_group="lavaspike" model="lavaspike.003.b3d" xyz="-180.73 72.28 7.05" hpr="-0.0 -180.0 -0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="lavaspike" xyz="-155.14 34.75 -42.49" hpr="-0.0 -180.0 -0.0" scale="3.20 3.20 3.20"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="lavaspike" xyz="-139.53 21.64 -28.23" hpr="-0.0 -180.0 -0.0" scale="1.36 1.36 1.36"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="lavaspike" xyz="-94.17 57.89 -110.78" hpr="-0.0 -180.0 -0.0" scale="4.90 4.90 4.90"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="lavaspike" xyz="-244.90 30.47 -51.54" hpr="-0.0 -180.0 -0.0" scale="4.90 4.90 4.90"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="lavaspike" xyz="-192.76 52.36 -77.70" hpr="-0.0 -180.0 -0.0" scale="4.90 4.90 4.90"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="lavaspike" xyz="-60.30 31.43 -83.39" hpr="-180.0 -0.0 -0.0" scale="2.48 2.48 2.48"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="lavaspike" xyz="-149.41 -8.88 -60.99" hpr="-180.0 -0.0 -0.0" scale="4.90 4.90 4.90"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="lavaspike" xyz="-78.46 31.43 -84.84" hpr="0.0 85.0 -180.0" scale="2.48 2.48 2.48"/> <!-- writeStaticObjects 3 -->
     <static-object model="Plane.011.b3d" xyz="-118.01 3.00 109.97" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00"> <!-- writeStaticObjects 2 -->
     <animated-texture name="zipper.png" dy="1.500" />
     </static-object>
@@ -52,6 +63,14 @@
   <particle-emitter kind="fire.xml" x="-38.04" y="10.63" z="-17.54" h="89.999996">
   </particle-emitter>
   <particle-emitter kind="fire.xml" x="-156.94" y="8.90" z="-43.18" h="89.999996">
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" x="-71.70" y="32.74" z="27.44" h="0.000000">
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" x="-61.41" y="49.52" z="0.75" h="60.000002">
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" x="-74.34" y="49.52" z="0.76" h="659.999977">
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" x="-67.86" y="49.52" z="11.95" h="540.000001">
   </particle-emitter>
   <object type="animation" model="roadpart.b3d" xyz="-161.72 0.64 -33.25" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
   </object>
@@ -138,7 +157,7 @@
   <small-nitro x="-188.122894" y="13.737944" z="-91.574036" h="179.999994" />
   <item x="-100.252861" y="1.299999" z="96.482597" h="179.999994" />
   <small-nitro x="-69.487511" y="33.560059" z="-112.042816" h="179.999994" />
-  <big-nitro x="-53.44479" y="1.299999" z="-8.863762" h="179.999994" />
+  <big-nitro x="-62.706367" y="1.299999" z="-8.863762" h="179.999994" />
   <small-nitro x="-69.487511" y="33.560059" z="-118.329651" h="179.999994" />
   <small-nitro x="-78.34288" y="1.299999" z="81.498901" h="179.999994" />
   <small-nitro x="-62.964733" y="34.553207" z="-114.64817" h="179.999994" />
