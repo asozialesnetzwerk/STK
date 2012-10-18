@@ -3,7 +3,7 @@
 <scene>
   <track model="mansion_track.b3d" x="0" y="0" z="0">
     <static-object lod_instance="true" lod_group="tombStone" xyz="-91.29 -1.13 -84.42" hpr="0.0 -87.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_distance="60.0" lod_group="tombStone" model="BezierCurve.002.b3d" xyz="79.06 -1.13 -2.68" hpr="0.0 -87.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="70.0" lod_group="tombStone" model="BezierCurve.002.b3d" xyz="79.06 -1.13 -2.68" hpr="0.0 -87.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="tombStone" xyz="-73.38 -0.41 -66.52" hpr="15.1 -29.9 -8.3" scale="0.84 0.84 0.84"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="tombStone" xyz="-119.92 -0.99 -50.39" hpr="13.0 2.8 0.0" scale="1.35 1.35 1.35"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="tombStone" xyz="-89.06 -2.79 -52.37" hpr="30.7 95.1 31.2" scale="1.35 1.35 1.35"/> <!-- writeStaticObjects 3 -->
