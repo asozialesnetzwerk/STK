@@ -10,6 +10,9 @@
   <material name="arc2.png" reset="Y" compositing="blend" backface-culling="N" light="N" disable-z-write="Y"/>
   <material name="curious.png" backface-culling="N" compositing="blend" disable-z-write="Y"/>
   <material name="glass.png" backface-culling="N" compositing="blend" disable-z-write="Y"/>
+  <material name="halo.png" fog="N" light="N" backface-culling="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
+  <material name="light-1.png" fog="N" light="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
+  <material name="light.png" fog="N" light="N" compositing="additive" disable-z-write="Y" ignore="Y"/>
   <material name="love.png" backface-culling="N" compositing="blend" disable-z-write="Y"/>
   <material name="trail.png">
     <particles base="smoke_red.xml" condition="skid"/>
