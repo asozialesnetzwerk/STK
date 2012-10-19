@@ -13,6 +13,7 @@
     <static-object lod_instance="true" lod_group="lavaspike" xyz="-60.30 31.43 -83.39" hpr="-180.0 -0.0 -0.0" scale="2.48 2.48 2.48"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="lavaspike" xyz="-149.41 -8.88 -60.99" hpr="-180.0 -0.0 -0.0" scale="4.90 4.90 4.90"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="lavaspike" xyz="-78.46 31.43 -84.84" hpr="0.0 85.0 -180.0" scale="2.48 2.48 2.48"/> <!-- writeStaticObjects 3 -->
+    <static-object model="castel.b3d" xyz="-72.18 -0.31 67.74" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object model="Plane.011.b3d" xyz="-118.01 3.00 109.97" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00"> <!-- writeStaticObjects 2 -->
     <animated-texture name="zipper.png" dy="1.500" />
     </static-object>
