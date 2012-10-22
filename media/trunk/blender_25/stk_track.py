@@ -1495,6 +1495,8 @@ class TrackExport:
         if mainDriveline:
             lap = mainDriveline.getStartEdge()
             
+            strict_lapline = mainDriveline.isStrictLapline()
+            
             if lap[0] is None:
                 return # Invalid driveline (a message will have been printed)
             
@@ -1528,18 +1530,18 @@ class TrackExport:
         else:
             # No main drive defined, print a warning and add some dummy
             # driveline (makes the rest of this code easier)
-            log_warning("no main driveline defined, adding dummy driveline")
             lap        = [ [-1, 0], [1, 0] ]
             min_h      = 0
             sSameGroup = ""
             activate = ""
+            strict_lapline = True
 
         if sSameGroup:
             sSameGroup="same-group=\"%s\""%sSameGroup.strip()
 
         if activate:
             activate = "other-ids=\"%s\""%activate
-        strict_lapline = mainDriveline.isStrictLapline()
+        
         if not strict_lapline:
             f.write("    <check-lap kind=\"lap\" %s %s />\n"%(sSameGroup, activate))
         else:
@@ -1993,6 +1995,8 @@ class TrackExport:
 
             f.write("  <%s />\n"%s)
 
+        if mainDriveline is None:
+            log_error("No main driveline found")
         if lChecks or mainDriveline:
             if not lChecks:
                 log_warning("No check defined, lap counting will not work properly!")
@@ -2167,10 +2171,13 @@ class TrackExport:
                     log_warning("object " + obj.name + " has type property '%s', which is not supported.\n"%s)
                 lTrack.append(obj)
 
-        is_arena = getIdProperty(bpy.data.scenes[0], "arena",      "n"            )
+        is_arena = getIdProperty(bpy.data.scenes[0], "arena", "false") == "true"
         is_cutscene = getIdProperty(bpy.data.scenes[0], "cutscene",  "false") == "true"
         if not found_main_driveline and not is_arena and not is_cutscene:
-            log_warning("Main driveline missing, using first driveline as main!")
+            if len(lDrivelines) > 0:
+                log_warning("Main driveline missing, using first driveline as main!")
+            else:
+                log_error("No driveline found")
             
         # Now export the different parts: track file
         # ------------------------------------------
