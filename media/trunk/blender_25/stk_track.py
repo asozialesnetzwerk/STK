@@ -1545,10 +1545,10 @@ class TrackExport:
         if not strict_lapline:
             f.write("    <check-lap kind=\"lap\" %s %s />\n"%(sSameGroup, activate))
         else:
-            f.write("    <check-line kind=\"lap\" p1=\"%f %f\" p2=\"%f %f\"\n"% \
+            f.write("    <check-line kind=\"lap\" p1=\"%.2f %.2f\" p2=\"%.2f %.2f\"\n"% \
                     (lap[0][0], lap[0][1],
                      lap[1][0], lap[1][1] )  )
-            f.write("                min-height=\"%f\" %s %s/>\n"% (min_h, sSameGroup, activate) )
+            f.write("                min-height=\"%.2f\" %s %s/>\n"% (min_h, sSameGroup, activate) )
 
         ind = 1
         for obj in lChecks:
@@ -1627,11 +1627,11 @@ class TrackExport:
                 if len(mesh.vertices)==2:   # Check line
                     min_h = mesh.vertices[0].co[2]
                     if mesh.vertices[1].co[2] < min_h: min_h = mesh.vertices[1].co[2]
-                    f.write("    <check-line%sp1=\"%f %f\" p2=\"%f %f\"\n" %
+                    f.write("    <check-line%sp1=\"%.2f %.2f\" p2=\"%.2f %.2f\"\n" %
                             (kind, mesh.vertices[0].co[0], mesh.vertices[0].co[1],
                              mesh.vertices[1].co[0], mesh.vertices[1].co[1]   )  )
 
-                    f.write("                min-height=\"%f\" same-group=\"%s\"/>\n" \
+                    f.write("                min-height=\"%.2f\" same-group=\"%s\"/>\n" \
                             % (min_h, sSameGroup.strip())  )
                 else:
                     radius = 0
@@ -1645,10 +1645,10 @@ class TrackExport:
                     radius = math.sqrt(radius)
                     inner_radius = getProperty(obj, "inner_radius", radius)
                     color = getProperty(obj, "color", "255 120 120 120")
-                    f.write("    <check-sphere%sxyz=\"%f %f %f\" radius=\"%f\"\n" % \
+                    f.write("    <check-sphere%sxyz=\"%.2f %.2f %.2f\" radius=\"%.2f\"\n" % \
                             (kind, obj.location[0], obj.location[2], obj.location[1], radius) )
                     f.write("                  same-group=\"%s\"\n"%sSameGroup.strip())
-                    f.write("                  inner-radius=\"%f\" color=\"%s\"/>\n"% \
+                    f.write("                  inner-radius=\"%.2f\" color=\"%s\"/>\n"% \
                             (inner_radius, color) )
             except Exception as exc:
                 log_error("Error exporting checkline " + obj.name + ", make sure it is properly formed")
