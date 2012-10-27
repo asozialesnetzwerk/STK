@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 11470 -->
+<!-- Generated with script from SVN rev 11737 -->
 <scene>
   <track model="introcutscene2_track.b3d" x="0" y="0" z="0"/>
   <particle-emitter kind="smoke.xml" x="-8.49" y="8.79" z="45.99" h="0.000000">
@@ -255,7 +255,7 @@
       <p c="1521.000 1.000" h1="1505.384 1.000" h2="1536.616 1.000"/>
     </curve>
   </particle-emitter>
-  <object type="sfx-emitter" sound="nolok_speech.ogg" rolloff="0.001" volume="1.0" max_dist="1000.0" xyz="-85.38 7.86 56.79" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 374">
+  <object type="sfx-emitter" sound="nolok_speech.ogg" rolloff="0.001" volume="1.0" max_dist="1000.0" xyz="-89.49 7.86 44.46" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 374">
   </object>
   <object type="sfx-emitter" sound="spaceship.ogg" rolloff="0.100" volume="1.0" max_dist="500.0" xyz="-9.51 8.39 50.66" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 25">
     <curve channel="LocX" interpolation="bezier" extend="const">
