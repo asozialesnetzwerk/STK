@@ -33,7 +33,7 @@ Under Creative Commons Attribution Share-Alike (CC-BY-SA) - http://creativecommo
 * purplenebula*, waternormals.jpg, waternormals2.jpg, sea2
     by Marianne Gagnon (Auria)
 
-* roof, concrete2, garagedoor, tree_cut
+* dirt.jpg, roof, concrete2, garagedoor, tree_cut
     by Marianne Gagnon (Auria), based on public domain photos from BurningWell
 
 * racetrack_tire, city_buildings_3, city_brick_1, canyo
