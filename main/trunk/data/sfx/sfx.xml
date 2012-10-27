@@ -34,6 +34,7 @@
    <sfx filename="machine_sound.ogg"    volume="1.0" positional="true" />
    <sfx filename="parachute.ogg"        volume="1.0" positional="true" rolloff="0.5"  />
    <sfx filename="portal.ogg"           volume="1.0" positional="true" />
+   <sfx filename="plunger.ogg"          volume="1.0" positional="false" />
    <sfx filename="pre_start_race.ogg"   volume="1.0" positional="false" />
    <sfx filename="race_finish.ogg"      volume="1.0" positional="false" />
    <sfx filename="shoot.ogg"            volume="1.0" positional="true" rolloff="0.1"  />
