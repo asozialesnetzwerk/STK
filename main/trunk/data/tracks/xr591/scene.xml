@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 11688 -->
+<!-- Generated with script from SVN rev 11737 -->
 <scene>
   <track model="xr591_track.b3d" x="0" y="0" z="0">
     <static-object model="tube 2.b3d" xyz="-18.83 13.31 38.01" hpr="-0.0 -0.0 5.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
@@ -98,7 +98,6 @@
   <item x="-36.958542" y="9.143855" z="39.580902" h="-98.250251" />
   <item x="-36.994221" y="9.143855" z="35.506424" h="-98.250251" />
   <item x="-37.237793" y="9.143855" z="31.326281" h="-98.250251" />
-  <big-nitro x="-66.397209" y="1.518223" z="159.305527" h="-98.250251" />
   <banana x="-71.333054" y="5.194869" z="89.776024" />
   <small-nitro x="-44.550083" y="-5.21029" z="-62.911774" />
   <small-nitro x="-86.842316" y="-2.51655" z="-30.783516" />
@@ -114,10 +113,10 @@
   <banana x="-30.195202" y="21.43276" z="-32.225163" />
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
-    <check-line kind="activate" other-ids="2" p1="53.887032 24.765518" p2="69.395386 21.711842"
-                min-height="17.419651" same-group="1"/>
-    <check-line kind="activate" other-ids="0" p1="-82.015343 -82.279510" p2="-65.764381 -77.925079"
-                min-height="-7.093292" same-group="2"/>
+    <check-line kind="activate" other-ids="2" p1="53.89 24.77" p2="69.40 21.71"
+                min-height="17.42" same-group="1"/>
+    <check-line kind="activate" other-ids="0" p1="-82.02 -82.28" p2="-65.76 -77.93"
+                min-height="-7.09" same-group="2"/>
   </checks>
   <sky-box texture="SKY0006.png sandred.jpg SKY0002.png SKY0004.png SKY0005.png SKY0003.png"/>
   <camera far="1000.0"/>
