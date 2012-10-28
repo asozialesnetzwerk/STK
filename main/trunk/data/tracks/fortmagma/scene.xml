@@ -75,7 +75,22 @@
   </particle-emitter>
   <object type="animation" model="roadpart.b3d" xyz="-161.72 0.64 -33.25" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
   </object>
-  <object type="animation" model="cannonAnim.b3d" xyz="27.81 41.00 -91.85" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
+  <object type="animation" model="cannonAnim.b3d" xyz="27.81 41.00 -92.21" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
+    <curve channel="LocX" interpolation="bezier" extend="cyclic">
+      <p c="0.000 27.806" h1="-5.075 27.806" h2="5.075 27.806"/>
+      <p c="13.000 27.806" h1="7.925 27.806" h2="37.986 27.806"/>
+      <p c="77.000 27.806" h1="52.014 27.806" h2="101.986 27.806"/>
+    </curve>
+    <curve channel="LocZ" interpolation="bezier" extend="cyclic">
+      <p c="0.000 -92.221" h1="-5.064 -92.221" h2="5.064 -92.221"/>
+      <p c="13.000 -91.335" h1="7.926 -91.335" h2="37.978 -91.335"/>
+      <p c="77.000 -92.310" h1="52.017 -92.310" h2="101.983 -92.310"/>
+    </curve>
+    <curve channel="LocY" interpolation="bezier" extend="cyclic">
+      <p c="0.000 40.999" h1="-5.075 40.999" h2="5.075 40.999"/>
+      <p c="13.000 40.999" h1="7.925 40.999" h2="37.986 40.999"/>
+      <p c="77.000 40.999" h1="52.014 40.999" h2="101.986 40.999"/>
+    </curve>
   </object>
   <object type="movable" xyz="-103.69 32.51 -35.42" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
           model="diamond.b3d" shape="sphere" mass="5.0"/>
