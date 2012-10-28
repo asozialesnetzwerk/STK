@@ -24,6 +24,28 @@ import bpy
 import sys, os, os.path, struct, math, string, re
 
 
+track_tesselated_objects = {}
+
+def track_tesselate_if_needed(objdata):
+    if objdata not in track_tesselated_objects:
+        objdata.calc_tessface()
+        track_tesselated_objects[objdata] = True
+    return objdata
+
+def track_getFaces(obj_data):
+    # BMesh in blender 2.63 broke this
+    if bpy.app.version[1] >= 63:
+        return track_tesselate_if_needed(obj_data).tessfaces
+    else:
+        return obj_data.faces
+
+def track_getUVTextures(obj_data):
+    # BMesh in blender 2.63 broke this
+    if bpy.app.version[1] >= 63:
+        return track_tesselate_if_needed(obj_data).tessface_uv_textures
+    else:
+        return obj_data.uv_textures
+        
 bl_info = {
     "name": "SuperTuxKart Track Exporter",
     "description": "Exports a blender scene to the SuperTuxKart track format",
@@ -1287,18 +1309,18 @@ class TrackExport:
         data = obj.data
         
         # check the face
-        if len(data.faces) > 1:
+        if len(track_getFaces(data)) > 1:
             log_error("Billboard <" + getProperty(obj, "name", obj.name) \
                   + "> has more than ONE face")
             return
         
         # check the points
-        if len(data.vertices) > 4:
+        if len(track_getFaces(data)[0].vertices) > 4:
             log_error("Billboard <" + getProperty(obj, "name", obj.name)\
                        + "> has more than 4 points")
             return
         
-        if len(data.uv_textures) < 1 or len(data.uv_textures[0].data) < 1:
+        if len(track_getUVTextures(data)) < 1 or len(track_getUVTextures(data)[0].data) < 1:
             log_error("Billboard <" + getProperty(obj, "name", obj.name)\
                        + "> has no UV texture")
             return
@@ -1328,8 +1350,9 @@ class TrackExport:
                 end = float(getProperty(obj, "end", 15.0))
                 fadeout_str = "fadeout=\"true\" start=\"" + str(start) + "\" end=\"" + str(end) + "\""
             
+            uv = track_getUVTextures(data)
             f.write('  <object type="billboard" texture="%s" xyz="%f %f %f" \n'%
-                    (os.path.basename(data.uv_textures[0].data[0].image.filepath),
+                    (os.path.basename(uv[0].data[0].image.filepath),
                      obj.location[0], obj.location[2], obj.location[1]) )
             f.write('             width="%f" height="%f" %s>\n' %(max(x_max-x_min, z_max-z_min), y_max-y_min, fadeout_str) )
             if obj.animation_data and obj.animation_data.action and obj.animation_data.action.fcurves and len(obj.animation_data.action.fcurves) > 0:
