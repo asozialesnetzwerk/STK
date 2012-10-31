@@ -47,3 +47,6 @@ incorporting elements from pictures
     WelshPonySectionD.jpg and WelshPonySectonB.jpg
     by Hü
     both released under CC-BY-SA 3.0
+
+stable model and mill by samuncle
+released under CC-BY-SA 3.0
