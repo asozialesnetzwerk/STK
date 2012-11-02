@@ -9,6 +9,7 @@
     <static-object lod_instance="true" lod_group="horse" xyz="78.26 3.96 85.97" hpr="0.1 11.1 -0.6" scale="0.55 0.55 0.55"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="horse" xyz="83.34 4.29 84.75" hpr="0.1 30.9 -0.5" scale="0.75 0.75 0.75"/> <!-- writeStaticObjects 3 -->
     <static-object lod_distance="100.0" lod_group="horse" model="horse.b3d" xyz="72.30 6.51 155.27" hpr="0.1 -19.4 -0.6" scale="0.75 0.75 0.75"/> <!-- writeStaticObjects 3 -->
+    <static-object model="silo.b3d" xyz="34.83 15.14 -105.46" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="cow" xyz="-59.26 8.47 -125.68" hpr="-0.0 -90.0 0.0" scale="0.52 0.36 0.52"/> <!-- writeStaticObjects 3 -->
     <static-object lod_distance="130.0" lod_group="cow" model="cow.b3d" xyz="-145.89 13.10 -125.68" hpr="-0.0 -90.0 0.0" scale="0.52 0.36 0.52"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="well" xyz="-50.31 6.00 -89.63" hpr="0.0 64.7 0.0" scale="1.91 1.91 1.91"/> <!-- writeStaticObjects 3 -->
