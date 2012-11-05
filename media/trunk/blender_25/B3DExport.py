@@ -585,7 +585,8 @@ def write_node(objects=[]):
             for curr_mod in obj.modifiers:
                 if curr_mod.type == 'ARMATURE':
                     arm = curr_mod.object
-                    anim_data = arm.animation_data
+                    if arm is not None:
+                        anim_data = arm.animation_data
 
             # check if this object has an armature parent (second way to do armature animations in blender)
             if anim_data is None:
