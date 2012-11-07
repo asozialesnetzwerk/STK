@@ -33,6 +33,7 @@
   <material name="palm_b.png" compositing="coverage" backface-culling="N" disable-z-write="Y"/>
   <material name="palm_tree_leaf.png" compositing="coverage"/>
   <material name="city_grass.png" backface-culling="N" compositing="coverage" ignore="Y"/>
+  <material name="rock_brown.jpg" fog="N"/>
   <material name="hut_roof.jpg" backface-culling="N"/>
   <material name="sand2.jpg" fog="N"/>
   <material name="sea.jpg" reset="Y" water-shader="Y"/>
