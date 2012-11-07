@@ -16,6 +16,7 @@
   <material name="envmap4.png" fog="N" light="N" compositing="blend" disable-z-write="Y" graphical-effect="bubble" ignore="Y"/>
   <material name="FieldPlant2.png" light="N" backface-culling="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
   <material name="grass.jpg" slowdown-time="0.80" max-speed="0.50"/>
+  <material name="grass2.jpg" fog="N"/>
   <material name="GrassTall.png" light="N" backface-culling="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
   <material name="GroundCover.png" backface-culling="N" compositing="test" ignore="Y"/>
   <material name="Jackinthepulpit.png" backface-culling="N" compositing="coverage" ignore="Y"/>
@@ -33,6 +34,7 @@
   <material name="palm_tree_leaf.png" compositing="coverage"/>
   <material name="city_grass.png" backface-culling="N" compositing="coverage" ignore="Y"/>
   <material name="hut_roof.jpg" backface-culling="N"/>
+  <material name="sand2.jpg" fog="N"/>
   <material name="sea.jpg" reset="Y" water-shader="Y"/>
   <material name="splat.png" splatting="Y" splatting-texture-1="dirt.jpg" splatting-texture-2="grass2.jpg" splatting-texture-3="rock_brown.jpg" splatting-texture-4="sand2.jpg"/>
   <material name="splat2.png" splatting="Y" splatting-texture-1="dirt.jpg" splatting-texture-2="grass2.jpg" splatting-texture-3="snow.png" splatting-texture-4="rock_grey.jpg"/>
