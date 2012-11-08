@@ -6,6 +6,8 @@
         designer       = "mmg"
         music          = "overworld.music"
         internal       = "Y"
+        push-back      = "N"
+        auto-rescue    = "N"
         screenshot     = "screenshot.jpg"
         smooth-normals = "false"
 >
