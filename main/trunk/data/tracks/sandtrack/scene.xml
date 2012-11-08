@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 11785 -->
+<!-- Generated with script from SVN rev 11904 -->
 <scene>
   <track model="sandtrack_track.b3d" x="0" y="0" z="0">
     <animated-texture name="water_light.png" dx="0.050" />
@@ -8,6 +8,8 @@
     <animated-texture name="water_light.png" dx="0.075" />
     <animated-texture name="water_light.png" dx="0.020" />
   </track>
+  <particle-emitter kind="/home/ctdabomb/supertuxkart-0.7.3-linux-glibc2.7-i386/data/tracks/zengarden/waterfall.xml" x="-192.84" y="-166.25" z="4.00" h="0.000000">
+  </particle-emitter>
   <item x="-1.628945" y="-132.904556" z="15.806046" />
   <item x="0.873242" y="-132.904556" z="15.806046" />
   <item x="4.000975" y="-132.904556" z="15.806046" />
@@ -23,6 +25,7 @@
   <banana x="-33.982067" y="-137.756088" z="176.308243" h="-41.746991" />
   <banana x="-30.501228" y="-137.756088" z="178.554184" h="-41.746991" />
   <banana x="-28.015648" y="-137.756088" z="180.538101" h="-41.746991" />
+  <small-nitro x="-182.98941" y="-130.12677" z="-174.135544" />
   <banana x="-225.91008" y="-149.654129" z="-77.424614" />
   <banana x="-226.466766" y="-149.654129" z="-80.803192" />
   <banana x="-227.113724" y="-149.654129" z="-84.922974" />
@@ -32,6 +35,7 @@
   <small-nitro x="-224.157013" y="-137.522644" z="45.890717" />
   <small-nitro x="-214.3853" y="-137.522644" z="40.939716" />
   <small-nitro x="-205.265045" y="-137.522644" z="47.714767" />
+  <small-nitro x="-116.386871" y="-146.887604" z="-190.347122" />
   <big-nitro x="-112.890938" y="-127.461868" z="-25.160461" />
   <small-nitro x="-67.142311" y="-114.421524" z="-113.579109" />
   <small-nitro x="-66.753304" y="-118.188263" z="-125.249306" />
