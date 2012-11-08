@@ -690,6 +690,12 @@ class TrackExport:
         is_internal = getIdProperty(scene, "internal",   "n"            )
         is_internal = (is_internal == "true")
         
+        push_back   = getIdProperty(scene, "pushback",   "true"         )
+        push_back   = (push_back == "false")
+        
+        auto_rescue = getIdProperty(scene, "autorescue",   "true"       )
+        auto_rescue = (auto_rescue == "false")
+        
         designer    = getIdProperty(scene, "designer",   ""             )
         
         # Support for multi-line descriptions:
@@ -742,6 +748,12 @@ class TrackExport:
         if is_internal:
             f.write("        internal       = \"Y\"\n")
         
+        if not push_back:
+            f.write("        push-back      = \"N\"\n")
+        
+        if not auto_rescue:
+            f.write("        auto-rescue    = \"N\"\n")
+            
         if screenshot:
             f.write("        screenshot     = \"%s\"\n"%screenshot)
         else:
