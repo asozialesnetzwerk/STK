@@ -691,10 +691,10 @@ class TrackExport:
         is_internal = (is_internal == "true")
         
         push_back   = getIdProperty(scene, "pushback",   "true"         )
-        push_back   = (push_back == "false")
+        push_back   = (push_back != "false")
         
         auto_rescue = getIdProperty(scene, "autorescue",   "true"       )
-        auto_rescue = (auto_rescue == "false")
+        auto_rescue = (auto_rescue != "false")
         
         designer    = getIdProperty(scene, "designer",   ""             )
         
