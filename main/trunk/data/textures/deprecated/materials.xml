@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<materials>
+  <material name="wood.jpg" anisotropic="Y"/>
+  <material name="bananawrap.png"  compositing="test" 
+            clampU="Y" clampV="Y" light="N" zipper="Y"/>
+
