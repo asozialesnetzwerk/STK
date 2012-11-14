@@ -6,5 +6,6 @@
         designer    = "Ingo Ruhnke, modified by A. Billing"
         music       = "Ethereal_Spectrum.music"
         screenshot  = "screenshot-startrack.png"
+        reverse     = "Y"
 >
 </track>

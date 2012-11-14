@@ -7,5 +7,6 @@
         music          = "dance_cleopatra.music"
         screenshot     = "sshot-islandtrack.jpg"
         smooth-normals = "false"
+        reverse     = "Y"
 >
 </track>

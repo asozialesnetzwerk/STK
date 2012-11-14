@@ -7,5 +7,6 @@
         music          = "kart_grand_prix.music"
         screenshot     = "city_screenshot.jpg"
         smooth-normals = "false"
+        reverse     = "Y"
 >
 </track>

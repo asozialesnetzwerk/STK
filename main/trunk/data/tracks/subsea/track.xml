@@ -6,5 +6,6 @@
         designer    = "R.Phelippeau"
         music       = "subsea.music"
         screenshot  = "subsea-sshot.jpg"
+        reverse     = "Y"
 >
 </track>

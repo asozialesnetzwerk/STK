@@ -9,5 +9,6 @@
         internal       = "Y"
         screenshot     = "screenshot.jpg"
         smooth-normals = "false"
+        reverse     = "Y"
 >
 </track>

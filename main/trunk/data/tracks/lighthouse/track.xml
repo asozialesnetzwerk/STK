@@ -7,5 +7,6 @@
         music          = "OnTheRiver.music"
         screenshot     = "sshot-lighthouse.jpg"
         smooth-normals = "false"
+        reverse     = "Y"
 >
 </track>

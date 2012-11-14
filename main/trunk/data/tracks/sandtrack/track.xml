@@ -7,5 +7,6 @@
         music          = "TheDeadRocks-GreenSecretFromAmazonia.music"
         screenshot     = "sshot-sandtrack.jpg"
         smooth-normals = "false"
+        reverse     = "Y"
 >
 </track>

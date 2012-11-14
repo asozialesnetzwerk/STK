@@ -10,5 +10,6 @@
         auto-rescue    = "N"
         screenshot     = "screenshot.jpg"
         smooth-normals = "false"
+        reverse     = "Y"
 >
 </track>
