@@ -3,4 +3,7 @@
   <material name="wood.jpg" anisotropic="Y"/>
   <material name="bananawrap.png"  compositing="test" 
             clampU="Y" clampV="Y" light="N" zipper="Y"/>
+  <material name="tinytux.png" 
+            clampU="Y" clampV="Y" compositing="test"" light="N" ignore="Y"/>
+</materials>
 
