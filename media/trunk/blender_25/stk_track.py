@@ -761,6 +761,12 @@ class TrackExport:
 
         f.write("        smooth-normals = \"%s\"\n" % smooth_normals)
         
+        reverse = getIdProperty(scene, "reverse", "false")
+        if reverse == "true":
+            f.write("        reverse        = \"Y\"\n")
+        else:
+            f.write("        reverse        = \"N\"\n")
+        
         f.write(">\n")
         f.write("</track>\n")
         f.close()
