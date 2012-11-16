@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 11785 -->
+<!-- Generated with script from SVN rev 11906 -->
 <scene>
   <track model="overworld_track.b3d" x="0" y="0" z="0">
     <static-object lod_instance="true" lod_group="bubble_desert2" xyz="-89.49 -0.83 206.32" hpr="3.9 -15.9 -2.7" scale="8.70 8.70 8.70"/> <!-- writeStaticObjects 3 -->
@@ -49,12 +49,14 @@
     <static-object model="crystal_ball.b3d" xyz="141.33 0.64 34.81" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="snowmountain"/> <!-- writeStaticObjects 3 -->
     <static-object model="crystal_ball.b3d" xyz="144.71 0.17 4.00" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="zengarden"/> <!-- writeStaticObjects 3 -->
     <static-object model="crystal_ball.b3d" xyz="146.39 3.20 -19.86" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="snowpeak"/> <!-- writeStaticObjects 3 -->
-    <static-object model="crystal_ball.b3d" xyz="28.92 -31.76 531.90" hpr="-0.0 -53.4 0.0" scale="0.86 0.78 0.86" challenge="fortmagma"/> <!-- writeStaticObjects 3 -->
+    <static-object model="crystal_ball.b3d" xyz="28.92 -30.14 531.90" hpr="-0.0 -53.4 0.0" scale="0.86 0.78 0.86" challenge="fortmagma"/> <!-- writeStaticObjects 3 -->
     <static-object model="crystal_ball.b3d" xyz="48.49 -21.01 463.34" hpr="-0.0 -53.4 0.0" scale="0.86 0.78 0.86" challenge="xr591"/> <!-- writeStaticObjects 3 -->
     <static-object model="crystal_ball.b3d" xyz="-3.28 -3.71 138.04" hpr="-4.8 -152.5 3.0" scale="0.86 0.78 0.86" challenge="gp1"/> <!-- writeStaticObjects 3 -->
     <static-object model="crystal_ball.b3d" xyz="45.55 -3.71 121.05" hpr="-4.8 -152.5 3.0" scale="0.86 0.78 0.86" challenge="gp2"/> <!-- writeStaticObjects 3 -->
     <static-object model="crystal_ball.b3d" xyz="44.32 -6.87 327.10" hpr="-4.8 -152.5 3.0" scale="0.86 0.78 0.86" challenge="gp3"/> <!-- writeStaticObjects 3 -->
     <static-object model="crystal_ball.b3d" xyz="8.15 -4.52 317.03" hpr="0.4 -152.8 -0.4" scale="0.86 0.78 0.86" challenge="gp4"/> <!-- writeStaticObjects 3 -->
+    <static-object model="LeftDoorClosed.b3d" xyz="18.16 -19.97 506.10" hpr="0.0 -0.0 0.0" scale="1.00 0.92 1.00" ifnot="allchallenges"/> <!-- writeStaticObjects 3 -->
+    <static-object model="LeftDoorOpen.b3d" xyz="18.16 -19.97 506.10" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" if="allchallenges"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="pedestral" xyz="-94.90 -5.74 296.61" hpr="0.0 -29.6 0.0" scale="0.71 0.71 0.71"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="pedestral" xyz="40.01 -1.58 17.58" hpr="0.0 1.5 0.0" scale="0.71 0.71 0.71"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="pedestral" xyz="-19.62 -5.37 29.87" hpr="7.8 0.0 0.0" scale="0.68 0.68 0.68"/> <!-- writeStaticObjects 3 -->
@@ -71,7 +73,7 @@
     <static-object lod_instance="true" lod_group="pedestral" xyz="-100.41 -2.59 204.81" hpr="0.0 -30.4 0.0" scale="0.71 0.71 0.71"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="pedestral" xyz="144.45 -2.46 3.99" hpr="0.3 1.6 -7.1" scale="0.71 0.71 0.71"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="pedestral" xyz="145.92 0.63 -19.89" hpr="0.5 2.0 -11.1" scale="0.71 0.71 0.71"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_instance="true" lod_group="pedestral" xyz="28.92 -34.33 531.93" hpr="0.0 -88.4 0.0" scale="0.71 0.71 0.71"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="pedestral" xyz="28.92 -32.71 531.93" hpr="0.0 -88.4 0.0" scale="0.71 0.71 0.71"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="pedestral" xyz="48.48 -23.57 463.37" hpr="0.0 -88.4 0.0" scale="0.71 0.71 0.71"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="pedestral" xyz="-3.28 -6.27 137.83" hpr="-4.3 172.6 0.2" scale="0.71 0.71 0.71"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="pedestral" xyz="45.56 -6.27 120.84" hpr="-4.3 172.6 0.2" scale="0.71 0.71 0.71"/> <!-- writeStaticObjects 3 -->
@@ -123,6 +125,8 @@
     <static-object model="bubble_solid_sea.b3d" xyz="103.59 -4.69 235.33" hpr="-3.8 7.2 69.7" scale="2.08 2.08 2.08" if="trophies"/> <!-- writeStaticObjects 3 -->
     <static-object model="bubble_solid_techno.b3d" xyz="14.00 -15.29 410.78" hpr="8.1 -7.9 45.6" scale="1.97 1.97 1.97" if="trophies"/> <!-- writeStaticObjects 3 -->
     <static-object model="bubble_solid_saucer.b3d" xyz="52.91 -13.66 425.68" hpr="-9.4 170.6 -31.6" scale="1.02 1.02 1.02" if="trophies"/> <!-- writeStaticObjects 3 -->
+    <static-object model="RightDoorClosed.b3d" xyz="40.24 -20.21 505.72" hpr="0.0 -0.0 0.0" scale="1.00 0.92 1.00" ifnot="allchallenges"/> <!-- writeStaticObjects 3 -->
+    <static-object model="RightDoorOpen.b3d" xyz="40.14 -20.21 505.72" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" if="allchallenges"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="rocket" xyz="49.74 -18.06 454.78" hpr="0.0 48.8 0.0" scale="0.62 0.62 0.62"/> <!-- writeStaticObjects 3 -->
     <static-object lod_distance="350.0" lod_group="rocket" model="rocket_lo.b3d" xyz="279.62 -14.36 459.51" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_distance="80.0" lod_group="rocket" model="rocket_hi.b3d" xyz="263.24 -14.36 459.51" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
@@ -139,11 +143,11 @@
     <static-object model="bubble_solid_sphere.b3d" xyz="143.70 -11.91 239.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" if="trophies"/> <!-- writeStaticObjects 3 -->
     <static-object model="bubble_solid_sphere.b3d" xyz="11.36 -1.49 226.28" hpr="-0.0 -162.9 -0.0" scale="1.20 1.20 1.20" if="trophies"/> <!-- writeStaticObjects 3 -->
     <static-object model="bubble_solid_sphere.b3d" xyz="10.61 -2.96 250.44" hpr="-0.0 -162.9 -0.0" scale="1.20 1.20 1.20" if="trophies"/> <!-- writeStaticObjects 3 -->
-    <static-object model="bubble_solid_sphere.b3d" xyz="29.37 -31.38 526.40" hpr="37.2 -73.6 -35.8" scale="1.00 1.00 1.00" if="trophies"/> <!-- writeStaticObjects 3 -->
+    <static-object model="bubble_solid_sphere.b3d" xyz="29.37 -29.76 526.40" hpr="37.2 -73.6 -35.8" scale="1.00 1.00 1.00" if="trophies"/> <!-- writeStaticObjects 3 -->
     <static-object lod_distance="100.0" lod_group="bubble_sea4" model="bubble_sea4.b3d" xyz="159.61 -8.40 277.44" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object model="bubble_solid_sphere.b3d" xyz="42.27 -3.11 233.94" hpr="0.0 8.5 0.0" scale="1.20 1.20 1.20" if="trophies"/> <!-- writeStaticObjects 3 -->
     <static-object lod_distance="100.0" lod_group="bubble_fortmagma" model="bubble_fortmagma.b3d" xyz="62.84 -8.40 517.98" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_instance="true" lod_group="bubble_fortmagma" xyz="29.26 -31.24 531.46" hpr="13.9 -1.1 0.3" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="bubble_fortmagma" xyz="29.26 -29.62 531.46" hpr="13.9 -1.1 0.3" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="bubble_rocket" xyz="45.01 -21.17 463.46" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_distance="100.0" lod_group="bubble_rocket" model="bubble_rocket.b3d" xyz="54.49 -21.17 463.01" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object model="bubble_solid_sphere.b3d" xyz="44.18 -21.67 462.31" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" if="trophies"/> <!-- writeStaticObjects 3 -->
@@ -216,7 +220,7 @@
   </object>
   <object type="sfx-emitter" sound="portal.ogg" rolloff="0.100" volume="1.0" max_dist="500.0" xyz="54.33 -14.78 425.34" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7">
   </object>
-  <object type="sfx-emitter" sound="portal.ogg" rolloff="0.100" volume="1.0" max_dist="500.0" xyz="29.13 -33.16 528.88" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7">
+  <object type="sfx-emitter" sound="portal.ogg" rolloff="0.100" volume="1.0" max_dist="500.0" xyz="29.13 -31.54 528.88" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7">
   </object>
   <object type="sfx-emitter" sound="portal.ogg" rolloff="0.100" volume="1.0" max_dist="500.0" xyz="46.35 -22.78 461.39" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7">
   </object>
@@ -327,5 +331,4 @@
   <start x="20.91" y="-5.04" z="255.40" h="0.000000"/>
   <start x="30.66" y="-15.49" z="408.42" h="0.000000"/>
   <start x="31.02" y="-19.51" z="450.31" h="0.000000"/>
-  <start x="29.71" y="-28.81" z="518.35" h="0.000000"/>
 </scene>
