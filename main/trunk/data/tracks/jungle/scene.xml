@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 11355 -->
+<!-- Generated with script from SVN rev 11982 -->
 <scene>
   <track model="jungle_track.b3d" x="0" y="0" z="0">
     <animated-texture name="zipper_jungle.png" dy="0.500" />
@@ -67,8 +67,8 @@
   <small-nitro x="78.098602" y="13.821575" z="-322.691162" />
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
-    <check-line kind="activate" other-ids="0" p1="323.315125 -112.019569" p2="297.815399 -109.414879"
-                min-height="15.369856" same-group="1"/>
+    <check-line kind="activate" other-ids="0" p1="323.32 -112.02" p2="297.82 -109.41"
+                min-height="15.37" same-group="1"/>
   </checks>
   <sky-box texture="skybox5.jpg skybox5.jpg skybox4.jpg skybox2.jpg skybox3.jpg skybox1.jpg"/>
   <camera far="1000.0"/>
