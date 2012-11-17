@@ -1378,8 +1378,7 @@ class TrackExport:
             f.write('  </object>\n')
 
         except ValueError:
-            log_error("Invalid value for billboard <" + getProperty(obj, "name", obj.name) + "> ",
-                    sys.exc_info()[0])
+            log_error("Invalid value for billboard <" + getProperty(obj, "name", obj.name) + "> ")
 
     # --------------------------------------------------------------------------
     # Particle emitter 
@@ -1405,8 +1404,7 @@ class TrackExport:
                 
                 f.write('  </particle-emitter>\n')
             except:
-                log_error("Invalid particle emitter <" + getProperty(obj, "name", obj.name) + "> ",
-                    sys.exc_info()[0])
+                log_error("Invalid particle emitter <" + getProperty(obj, "name", obj.name) + "> ")
 
     # --------------------------------------------------------------------------
     # Sound emitter 
@@ -1437,8 +1435,7 @@ class TrackExport:
                 
                 f.write('  </object>\n')
             except:
-                log_error("Invalid sound emitter <" + getProperty(obj, "name", obj.name) + "> ",
-                    sys.exc_info()[0])
+                log_error("Invalid sound emitter <" + getProperty(obj, "name", obj.name) + "> ")
         
     # --------------------------------------------------------------------------
     # Action Triggers
@@ -1453,8 +1450,7 @@ class TrackExport:
                          getProperty(obj, "trigger_distance", 5.0),
                          originXYZ))
             except:
-                log_error("Invalid action <" + getProperty(obj, "name", obj.name) + "> ",
-                    sys.exc_info()[0])
+                log_error("Invalid action <" + getProperty(obj, "name", obj.name) + "> ")
 
     # --------------------------------------------------------------------------
     # Writes out all checklines.
