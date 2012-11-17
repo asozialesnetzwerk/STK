@@ -5,7 +5,7 @@
   <material name="blueZipper_effect.png" compositing="blend" light="N"/>
   <material name="icepic.png" compositing="test" backface-culling="N"/>
   <material name="sky.jpg" light="N"/>
-  <material name="transparence.png" compositing="test"/>
+  <material name="transparence.png" compositing="test" falling-effect="Y" reset="Y"/>
   <material name="tree_1.png" compositing="blend" disable-z-write="Y" backface-culling="N"/>
   <material name="tree_1Low.png" compositing="blend" backface-culling="N" disable-z-write="Y"/>
   <material name="wood_planks1.jpg">

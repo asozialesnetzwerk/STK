@@ -1,106 +1,106 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 9664 -->
+<!-- Generated with script from SVN rev 11785 -->
 <scene>
   <track model="snowtuxpeak_track.b3d" x="0" y="0" z="0">
-    <static-object lod_instance="true" lod_group="pipe" xyz="-105.230225 44.634220 4.646932" hpr="-0.000000 -173.304002 0.000000" scale="0.723381 0.723381 0.723381"/>
-    <static-object lod_distance="170" lod_group="pipe" model="pipe_LOD170.b3d" xyz="17.769791 -3.365788 13.646933" hpr="-0.000000 -173.304002 0.000000" scale="0.723381 0.723381 0.723381"/>
-    <static-object lod_instance="true" lod_group="pipe" xyz="-28.888580 32.374630 -136.011520" hpr="-0.000000 -22.885725 0.000000" scale="0.723381 0.723381 0.723381"/>
-    <static-object lod_distance="50" lod_group="pipe" model="pipe_LOD50.b3d" xyz="20.447914 -0.952980 9.682364" hpr="-0.000000 -22.885725 0.000000" scale="0.723381 0.723381 0.723381"/>
-    <static-object lod_instance="true" lod_group="crystal" xyz="-16.721104 17.567678 -5.132743" hpr="-0.000000 -0.000000 -0.000000" scale="0.946936 0.946936 0.946936"/>
-    <static-object lod_instance="true" lod_group="crystal" xyz="-61.136765 12.540060 30.363468" hpr="-0.000000 -0.000000 -0.000000" scale="1.481494 1.481494 1.481494"/>
-    <static-object lod_instance="true" lod_group="crystal" xyz="-120.732841 38.554848 -33.033295" hpr="-0.000000 -0.000000 -0.000000" scale="2.183954 2.183954 2.183954"/>
-    <static-object lod_instance="true" lod_group="crystal" xyz="-61.136765 11.437729 35.140312" hpr="-0.000000 -361.745123 0.000000" scale="1.902472 1.902472 1.902472"/>
-    <static-object lod_instance="true" lod_group="crystal" xyz="-120.732841 37.608833 -38.858910" hpr="-0.000000 81.027511 0.000000" scale="1.401647 1.401647 1.401647"/>
-    <static-object lod_distance="150" lod_group="crystal" model="crystal_LOD70.b3d" xyz="25.783451 5.432984 -4.374561" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="crystal" xyz="-0.401695 9.074031 -65.000565" hpr="-0.000000 -0.000000 -0.000000" scale="0.946936 0.946936 0.946936"/>
-    <static-object lod_distance="100" lod_group="crystal" model="crystal_LOD20.b3d" xyz="23.943920 2.250855 -5.132743" hpr="-0.000000 -0.000000 -0.000000" scale="0.946936 0.946936 0.946936"/>
-    <static-object lod_instance="true" lod_group="crystal" xyz="3.109084 8.272098 -65.000565" hpr="-0.000000 -0.000000 -0.000000" scale="1.398205 1.398205 1.398205"/>
-    <static-object lod_instance="true" lod_group="crystal" xyz="-61.136765 11.760421 33.024696" hpr="-0.000000 -110.652254 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="crystal" xyz="6.985496 7.926232 -65.000565" hpr="-0.000000 -0.000000 -0.000000" scale="0.944489 0.944489 0.944489"/>
-    <static-object lod_distance="20" lod_group="crystal" model="crystal.b3d" xyz="-138.644272 10.747574 36.490791" hpr="-0.000000 -361.745123 0.000000" scale="0.686910 0.686910 0.686910"/>
-    <static-object lod_distance="20" lod_group="crystal" model="crystal.b3d" xyz="-136.912491 10.747574 38.417042" hpr="-0.000000 -361.745123 0.000000" scale="1.006871 1.006871 1.006871"/>
-    <static-object lod_instance="true" lod_group="adScreen" xyz="-20.812675 20.819803 -0.367902" hpr="-0.000000 319.999991 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="160" lod_group="adScreen" model="adScreen_LOD160.b3d" xyz="70.777130 2.000000 15.981212" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="adScreen" xyz="-5.829287 3.000001 35.070717" hpr="-0.000000 -44.999998 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="adScreen" xyz="-144.929306 22.000004 -128.029297" hpr="-0.000000 -224.999982 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="adScreen" xyz="-139.929306 13.900002 35.170715" hpr="-0.000000 -134.999987 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="adScreen" xyz="-18.799984 32.000004 -109.000008" hpr="-0.000000 -0.000000 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object model="PanelDisplay.001.b3d" xyz="-18.999990 32.000004 -109.000015" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000">
+    <static-object lod_instance="true" lod_group="pipe" xyz="-105.23 44.63 4.65" hpr="-0.0 -173.3 -0.0" scale="0.72 0.72 0.72"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="170" lod_group="pipe" model="pipe_LOD170.b3d" xyz="17.77 -3.37 13.65" hpr="-0.0 -173.3 -0.0" scale="0.72 0.72 0.72"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="pipe" xyz="-28.89 32.37 -136.01" hpr="0.0 -22.9 0.0" scale="0.72 0.72 0.72"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="50" lod_group="pipe" model="pipe_LOD50.b3d" xyz="20.45 -0.95 9.68" hpr="0.0 -22.9 0.0" scale="0.72 0.72 0.72"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="crystal" xyz="-16.72 17.57 -5.13" hpr="0.0 -0.0 0.0" scale="0.95 0.95 0.95"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="crystal" xyz="-61.14 12.54 30.36" hpr="0.0 -0.0 0.0" scale="1.48 1.48 1.48"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="crystal" xyz="-120.73 38.55 -33.03" hpr="0.0 -0.0 0.0" scale="2.18 2.18 2.18"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="crystal" xyz="-61.14 11.44 35.14" hpr="-0.0 -1.7 0.0" scale="1.90 1.90 1.90"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="crystal" xyz="-120.73 37.61 -38.86" hpr="0.0 81.0 0.0" scale="1.40 1.40 1.40"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="150" lod_group="crystal" model="crystal_LOD70.b3d" xyz="25.78 5.43 -4.37" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="crystal" xyz="-0.40 9.07 -65.00" hpr="0.0 -0.0 0.0" scale="0.95 0.95 0.95"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="100" lod_group="crystal" model="crystal_LOD20.b3d" xyz="23.94 2.25 -5.13" hpr="0.0 -0.0 0.0" scale="0.95 0.95 0.95"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="crystal" xyz="3.11 8.27 -65.00" hpr="0.0 -0.0 0.0" scale="1.40 1.40 1.40"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="crystal" xyz="-61.14 11.76 33.02" hpr="-0.0 -110.7 -0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="crystal" xyz="6.99 7.93 -65.00" hpr="0.0 -0.0 0.0" scale="0.94 0.94 0.94"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="20" lod_group="crystal" model="crystal.b3d" xyz="-138.64 10.75 36.49" hpr="-0.0 -1.7 0.0" scale="0.69 0.69 0.69"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="20" lod_group="crystal" model="crystal.b3d" xyz="-136.91 10.75 38.42" hpr="-0.0 -1.7 0.0" scale="1.01 1.01 1.01"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="adScreen" xyz="-20.81 20.82 -0.37" hpr="-0.0 -40.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="160" lod_group="adScreen" model="adScreen_LOD160.b3d" xyz="70.78 2.00 15.98" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="adScreen" xyz="-5.83 3.00 35.07" hpr="0.0 -45.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="adScreen" xyz="-144.93 22.00 -128.03" hpr="-0.0 135.0 -0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="adScreen" xyz="-139.93 13.90 35.17" hpr="-0.0 -135.0 -0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="adScreen" xyz="-18.80 32.00 -109.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object model="PanelDisplay.001.b3d" xyz="-19.00 32.00 -109.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"> <!-- writeStaticObjects 2 -->
     <animated-texture name="blueZipper.png" dy="1.500" />
     </static-object>
-    <static-object model="PanelDisplay.002.b3d" xyz="-5.899996 3.000001 35.000004" hpr="-0.000000 -44.999998 0.000000" scale="1.000000 1.000000 1.000000">
+    <static-object model="PanelDisplay.002.b3d" xyz="-5.90 3.00 35.00" hpr="0.0 -45.0 0.0" scale="1.00 1.00 1.00"> <!-- writeStaticObjects 2 -->
     <animated-texture name="blueZipper_effect.png" dy="-0.100" />
     </static-object>
-    <static-object model="PanelDisplay.003.b3d" xyz="-5.970707 3.000001 34.929295" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000">
+    <static-object model="PanelDisplay.003.b3d" xyz="-5.97 3.00 34.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"> <!-- writeStaticObjects 2 -->
     <animated-texture name="blueZipper.png" dy="1.500" />
     </static-object>
-    <static-object model="PanelDisplay.004.b3d" xyz="-139.829300 13.918616 34.929298" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000">
+    <static-object model="PanelDisplay.004.b3d" xyz="-139.83 13.92 34.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"> <!-- writeStaticObjects 2 -->
     <animated-texture name="blueZipper.png" dy="1.500" />
     </static-object>
-    <static-object model="PanelDisplay.005.b3d" xyz="-139.900009 14.000002 35.000008" hpr="-0.000000 -134.999987 0.000000" scale="1.000000 1.000000 1.000000">
+    <static-object model="PanelDisplay.005.b3d" xyz="-139.90 14.00 35.00" hpr="-0.0 -135.0 -0.0" scale="1.00 1.00 1.00"> <!-- writeStaticObjects 2 -->
     <animated-texture name="blueZipper_effect.png" dy="-0.100" />
     </static-object>
-    <static-object model="PanelDisplay.006.b3d" xyz="-144.829300 22.000004 -127.929306" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000">
+    <static-object model="PanelDisplay.006.b3d" xyz="-144.83 22.00 -127.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"> <!-- writeStaticObjects 2 -->
     <animated-texture name="blueZipper.png" dy="1.500" />
     </static-object>
-    <static-object model="PanelDisplay.007.b3d" xyz="-144.900009 22.000004 -128.000000" hpr="-0.000000 -224.999982 0.000000" scale="1.000000 1.000000 1.000000">
+    <static-object model="PanelDisplay.007.b3d" xyz="-144.90 22.00 -128.00" hpr="-0.0 135.0 -0.0" scale="1.00 1.00 1.00"> <!-- writeStaticObjects 2 -->
     <animated-texture name="blueZipper_effect.png" dy="-0.100" />
     </static-object>
-    <static-object model="PanelDisplay.008.b3d" xyz="-18.899992 32.000004 -109.000015" hpr="-0.000000 -0.000000 0.000000" scale="1.000000 1.000000 1.000000">
+    <static-object model="PanelDisplay.008.b3d" xyz="-18.90 32.00 -109.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"> <!-- writeStaticObjects 2 -->
     <animated-texture name="blueZipper_effect.png" dy="-0.100" />
     </static-object>
-    <static-object model="PanelDisplay.009.b3d" xyz="-20.889280 20.819803 -0.432200" hpr="-0.000000 319.999991 0.000000" scale="1.000000 1.000000 1.000000">
+    <static-object model="PanelDisplay.009.b3d" xyz="-20.89 20.82 -0.43" hpr="-0.0 -40.0 0.0" scale="1.00 1.00 1.00"> <!-- writeStaticObjects 2 -->
     <animated-texture name="blueZipper_effect.png" dy="-0.100" />
     </static-object>
-    <static-object model="PanelDisplay.b3d" xyz="-20.965883 20.819803 -0.496479" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000">
+    <static-object model="PanelDisplay.b3d" xyz="-20.97 20.82 -0.50" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"> <!-- writeStaticObjects 2 -->
     <animated-texture name="blueZipper.png" dy="1.500" />
     </static-object>
-    <static-object lod_distance="200" lod_group="crystal" model="crystal_LOD170.b3d" xyz="26.000004 5.000000 -1.000000" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="75" lod_group="adScreen" model="adScreen_LOD50.b3d" xyz="68.747841 3.000001 16.051924" hpr="-0.000000 -44.999998 0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="pillard" xyz="-13.522590 26.421766 -6.469584" hpr="-0.000000 -0.000000 -0.000000" scale="1.867486 1.867486 1.867486"/>
-    <static-object lod_instance="true" lod_group="pillard" xyz="-11.059982 11.003078 41.618317" hpr="-0.000000 -0.000000 -0.000000" scale="1.310020 1.310020 1.310020"/>
-    <static-object lod_instance="true" lod_group="pillard" xyz="0.940019 7.972337 30.474085" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="pillard" xyz="-135.974411 18.470570 41.618317" hpr="-0.000000 -0.000000 -0.000000" scale="0.943527 0.943527 0.943527"/>
-    <static-object lod_instance="true" lod_group="pillard" xyz="-144.834229 21.460892 33.320915" hpr="-0.000000 -0.000000 -0.000000" scale="1.806068 1.806068 1.806068"/>
-    <static-object lod_instance="true" lod_group="pillard" xyz="-146.231827 18.710938 26.379868" hpr="-0.000000 -0.000000 -0.000000" scale="1.030113 1.030113 1.030113"/>
-    <static-object lod_instance="true" lod_group="pillard" xyz="-140.905014 33.121693 -135.628601" hpr="-0.000000 -0.000000 -0.000000" scale="1.806068 1.806068 1.806068"/>
-    <static-object lod_instance="true" lod_group="pillard" xyz="-151.697372 28.382978 -124.001083" hpr="-0.000000 -0.000000 -0.000000" scale="1.418243 1.418243 1.418243"/>
-    <static-object lod_instance="true" lod_group="pillard" xyz="-154.891693 22.017757 -29.802238" hpr="-0.000000 -0.000000 -0.000000" scale="1.806068 1.806068 1.806068"/>
-    <static-object lod_instance="true" lod_group="pillard" xyz="-153.564163 18.533722 -45.603790" hpr="-0.000000 -0.000000 -0.000000" scale="1.160792 1.160792 1.160792"/>
-    <static-object lod_instance="true" lod_group="pillard" xyz="-17.419094 44.859612 -118.529579" hpr="-0.000000 -0.000000 -0.000000" scale="1.806068 1.806068 1.806068"/>
-    <static-object lod_instance="true" lod_group="pillard" xyz="-17.419094 37.385918 -99.768295" hpr="-0.000000 -0.000000 -0.000000" scale="1.003339 1.003339 1.003339"/>
-    <static-object lod_distance="180" lod_group="pillard" model="pillard_LOD180.b3d" xyz="87.696053 7.972325 14.738688" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="pillard" xyz="-26.838036 25.408596 7.190457" hpr="-0.000000 -0.000000 -0.000000" scale="0.741042 0.741042 0.741042"/>
-    <static-object lod_distance="120" lod_group="pillard" model="pillard_LOD70.b3d" xyz="88.054092 7.972324 21.675301" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="160" lod_group="treeMod1" model="treeMod1_LOD80.b3d" xyz="39.282383 0.000000 17.995144" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="300" lod_group="treeMod1" model="treeMod1_LOD170.b3d" xyz="39.282383 0.000000 7.995143" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="treeMod1" xyz="-155.774734 12.937372 -118.570847" hpr="-0.000000 -0.000000 -0.000000" scale="1.466704 1.466704 1.466704"/>
-    <static-object lod_instance="true" lod_group="treeMod1" xyz="-43.702076 21.190372 -143.476120" hpr="-0.000000 -27.418601 0.000000" scale="1.203294 1.203294 1.203294"/>
-    <static-object lod_instance="true" lod_group="treeMod1" xyz="-33.644356 22.948643 -139.330002" hpr="-0.000000 -0.000000 -0.000000" scale="1.203294 1.203294 1.203294"/>
-    <static-object lod_instance="true" lod_group="treeMod1" xyz="-12.900703 21.355242 -139.330002" hpr="-0.000000 -33.840340 0.000000" scale="1.466704 1.466704 1.466704"/>
-    <static-object lod_instance="true" lod_group="treeMod1" xyz="-12.900703 21.355242 -126.228371" hpr="-0.000000 -43.301180 0.000000" scale="1.466704 1.466704 1.466704"/>
-    <static-object lod_instance="true" lod_group="treeMod1" xyz="-9.767776 19.843487 -113.023445" hpr="-0.000000 -43.301180 0.000000" scale="2.376800 2.376800 2.376800"/>
-    <static-object model="treelow1.b3d" xyz="3.091396 22.241020 -140.782074" hpr="-0.000000 74.547601 0.000000" scale="5.364209 5.364208 5.364209"/>
-    <static-object model="treelow1.b3d" xyz="5.854203 22.241020 -131.762741" hpr="-0.000000 74.547601 0.000000" scale="3.648715 3.648715 3.648715"/>
-    <static-object lod_instance="true" lod_group="treeMod1" xyz="6.211559 12.992486 -119.466225" hpr="-0.000000 -43.301180 0.000000" scale="1.466704 1.466704 1.466704"/>
-    <static-object model="treelow1.b3d" xyz="-264.258575 7.542684 -357.460632" hpr="-0.000000 35.000000 0.000000" scale="8.928003 8.928003 8.928003"/>
-    <static-object model="treelow1.b3d" xyz="-253.571198 7.542684 -357.460632" hpr="-0.000000 64.867543 0.000000" scale="10.853763 10.853762 10.853763"/>
-    <static-object model="treelow1.b3d" xyz="9.000001 2.000000 359.000031" hpr="-0.000000 35.000000 0.000000" scale="14.000001 14.000000 14.000001"/>
-    <static-object model="treelow1.b3d" xyz="33.725555 2.000000 359.000031" hpr="-0.000000 3.282412 0.000000" scale="8.055831 8.055830 8.055831"/>
-    <static-object model="treelow1.b3d" xyz="58.287666 2.000000 359.000031" hpr="-0.000000 74.547601 0.000000" scale="13.236457 13.236455 13.236457"/>
-    <static-object model="treelow1.b3d" xyz="-5.503132 22.241020 -131.762741" hpr="-0.000000 74.547601 0.000000" scale="3.648715 3.648715 3.648715"/>
-    <static-object lod_instance="true" lod_group="wpill" xyz="-141.379517 10.274149 -28.185390" hpr="-0.000000 -0.000000 -0.000000" scale="1.800000 1.800000 1.800000"/>
-    <static-object lod_instance="true" lod_group="wpill" xyz="-140.594223 10.274149 -46.283955" hpr="-0.000000 61.011990 0.000000" scale="1.800000 1.800000 1.800000"/>
-    <static-object lod_instance="true" lod_group="wpill" xyz="-152.379517 10.274149 -28.830160" hpr="-0.000000 27.106627 0.000000" scale="1.500000 1.500000 1.500000"/>
-    <static-object lod_instance="true" lod_group="wpill" xyz="-151.594223 10.274149 -46.928726" hpr="-0.000000 -0.000000 -0.000000" scale="1.500000 1.500000 1.500000"/>
-    <static-object lod_distance="250" lod_group="wpill" model="wpill_LOD150.b3d" xyz="53.820316 6.066573 12.259425" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="wpill" xyz="-111.804939 36.754833 -23.940308" hpr="-0.000000 -0.000000 -0.000000" scale="1.500000 1.500000 1.500000"/>
-    <static-object lod_instance="true" lod_group="wpill" xyz="-113.140770 36.282753 -31.503601" hpr="-0.000000 -85.607016 0.000000" scale="1.822943 1.822943 1.822943"/>
-    <static-object lod_instance="true" lod_group="wpill" xyz="-112.652649 35.712807 -40.184200" hpr="-0.000000 89.501931 0.000000" scale="1.500000 1.500000 1.500000"/>
-    <static-object lod_instance="true" lod_group="wpill" xyz="-112.096878 35.712807 -49.011700" hpr="-0.000000 -0.000000 -0.000000" scale="1.736701 1.736701 1.736701"/>
-    <static-object lod_instance="true" lod_group="wpill" xyz="-96.641891 35.729862 12.455358" hpr="3.326357 77.946563 0.229755" scale="1.800000 1.800000 1.800000"/>
-    <static-object lod_instance="true" lod_group="wpill" xyz="-114.148506 36.783142 7.918455" hpr="1.412256 138.927987 3.020722" scale="1.800000 1.800000 1.800000"/>
-    <static-object lod_distance="120" lod_group="wpill" model="wpill_LOD50.b3d" xyz="54.118595 5.740168 10.294086" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
+    <static-object lod_distance="200" lod_group="crystal" model="crystal_LOD170.b3d" xyz="26.00 5.00 -1.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="75" lod_group="adScreen" model="adScreen_LOD50.b3d" xyz="68.75 3.00 16.05" hpr="0.0 -45.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="pillard" xyz="-13.52 26.42 -6.47" hpr="0.0 -0.0 0.0" scale="1.87 1.87 1.87"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="pillard" xyz="-11.06 11.00 41.62" hpr="0.0 -0.0 0.0" scale="1.31 1.31 1.31"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="pillard" xyz="0.94 7.97 30.47" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="pillard" xyz="-135.97 18.47 41.62" hpr="0.0 -0.0 0.0" scale="0.94 0.94 0.94"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="pillard" xyz="-144.83 21.46 33.32" hpr="0.0 -0.0 0.0" scale="1.81 1.81 1.81"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="pillard" xyz="-146.23 18.71 26.38" hpr="0.0 -0.0 0.0" scale="1.03 1.03 1.03"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="pillard" xyz="-140.91 33.12 -135.63" hpr="0.0 -0.0 0.0" scale="1.81 1.81 1.81"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="pillard" xyz="-151.70 28.38 -124.00" hpr="0.0 -0.0 0.0" scale="1.42 1.42 1.42"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="pillard" xyz="-154.89 22.02 -29.80" hpr="0.0 -0.0 0.0" scale="1.81 1.81 1.81"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="pillard" xyz="-153.56 18.53 -45.60" hpr="0.0 -0.0 0.0" scale="1.16 1.16 1.16"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="pillard" xyz="-17.42 44.86 -118.53" hpr="0.0 -0.0 0.0" scale="1.81 1.81 1.81"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="pillard" xyz="-17.42 37.39 -99.77" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="180" lod_group="pillard" model="pillard_LOD180.b3d" xyz="87.70 7.97 14.74" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="pillard" xyz="-26.84 25.41 7.19" hpr="0.0 -0.0 0.0" scale="0.74 0.74 0.74"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="120" lod_group="pillard" model="pillard_LOD70.b3d" xyz="88.05 7.97 21.68" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="160" lod_group="treeMod1" model="treeMod1_LOD80.b3d" xyz="39.28 0.00 18.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="300" lod_group="treeMod1" model="treeMod1_LOD170.b3d" xyz="39.28 0.00 8.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="treeMod1" xyz="-155.77 12.94 -118.57" hpr="0.0 -0.0 0.0" scale="1.47 1.47 1.47"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="treeMod1" xyz="-43.70 21.19 -143.48" hpr="0.0 -27.4 0.0" scale="1.20 1.20 1.20"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="treeMod1" xyz="-33.64 22.95 -139.33" hpr="0.0 -0.0 0.0" scale="1.20 1.20 1.20"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="treeMod1" xyz="-12.90 21.36 -139.33" hpr="0.0 -33.8 0.0" scale="1.47 1.47 1.47"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="treeMod1" xyz="-12.90 21.36 -126.23" hpr="0.0 -43.3 0.0" scale="1.47 1.47 1.47"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="treeMod1" xyz="-9.77 19.84 -113.02" hpr="0.0 -43.3 0.0" scale="2.38 2.38 2.38"/> <!-- writeStaticObjects 3 -->
+    <static-object model="treelow1.b3d" xyz="3.09 22.24 -140.78" hpr="0.0 74.5 0.0" scale="5.36 5.36 5.36"/> <!-- writeStaticObjects 3 -->
+    <static-object model="treelow1.b3d" xyz="5.85 22.24 -131.76" hpr="0.0 74.5 0.0" scale="3.65 3.65 3.65"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="treeMod1" xyz="6.21 12.99 -119.47" hpr="0.0 -43.3 0.0" scale="1.47 1.47 1.47"/> <!-- writeStaticObjects 3 -->
+    <static-object model="treelow1.b3d" xyz="-264.26 7.54 -357.46" hpr="0.0 35.0 0.0" scale="8.93 8.93 8.93"/> <!-- writeStaticObjects 3 -->
+    <static-object model="treelow1.b3d" xyz="-253.57 7.54 -357.46" hpr="0.0 64.9 0.0" scale="10.85 10.85 10.85"/> <!-- writeStaticObjects 3 -->
+    <static-object model="treelow1.b3d" xyz="9.00 2.00 359.00" hpr="0.0 35.0 0.0" scale="14.00 14.00 14.00"/> <!-- writeStaticObjects 3 -->
+    <static-object model="treelow1.b3d" xyz="33.73 2.00 359.00" hpr="0.0 3.3 0.0" scale="8.06 8.06 8.06"/> <!-- writeStaticObjects 3 -->
+    <static-object model="treelow1.b3d" xyz="58.29 2.00 359.00" hpr="0.0 74.5 0.0" scale="13.24 13.24 13.24"/> <!-- writeStaticObjects 3 -->
+    <static-object model="treelow1.b3d" xyz="-5.50 22.24 -131.76" hpr="0.0 74.5 0.0" scale="3.65 3.65 3.65"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="wpill" xyz="-141.38 10.27 -28.19" hpr="0.0 -0.0 0.0" scale="1.80 1.80 1.80"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="wpill" xyz="-140.59 10.27 -46.28" hpr="0.0 61.0 0.0" scale="1.80 1.80 1.80"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="wpill" xyz="-152.38 10.27 -28.83" hpr="0.0 27.1 0.0" scale="1.50 1.50 1.50"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="wpill" xyz="-151.59 10.27 -46.93" hpr="0.0 -0.0 0.0" scale="1.50 1.50 1.50"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="250" lod_group="wpill" model="wpill_LOD150.b3d" xyz="53.82 6.07 12.26" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="wpill" xyz="-111.80 36.75 -23.94" hpr="0.0 -0.0 0.0" scale="1.50 1.50 1.50"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="wpill" xyz="-113.14 36.28 -31.50" hpr="0.0 -85.6 0.0" scale="1.82 1.82 1.82"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="wpill" xyz="-112.65 35.71 -40.18" hpr="0.0 89.5 0.0" scale="1.50 1.50 1.50"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="wpill" xyz="-112.10 35.71 -49.01" hpr="0.0 -0.0 0.0" scale="1.74 1.74 1.74"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="wpill" xyz="-96.64 35.73 12.46" hpr="4.4 77.9 1.1" scale="1.80 1.80 1.80"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="wpill" xyz="-114.15 36.78 7.92" hpr="-1.2 139.0 -4.0" scale="1.80 1.80 1.80"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="120" lod_group="wpill" model="wpill_LOD50.b3d" xyz="54.12 5.74 10.29" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <animated-texture name="smoke.png" dy="0.500" />
     <animated-texture name="smoke.png" dy="0.500" />
   </track>
@@ -134,10 +134,10 @@
   <banana x="-81.51918" y="3.448152" z="32.256142" h="-8.210756" />
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
-    <check-line kind="activate" other-ids="2" p1="-48.496944 -75.644157" p2="-51.889187 -98.006584"
-                min-height="28.795845" same-group="1"/>
-    <check-line kind="activate" other-ids="0" p1="80.496956 -89.091560" p2="59.521156 -80.629799"
-                min-height="1.636525" same-group="2"/>
+    <check-line kind="activate" other-ids="2" p1="-48.50 -75.64" p2="-51.89 -98.01"
+                min-height="28.80" same-group="1"/>
+    <check-line kind="activate" other-ids="0" p1="80.50 -89.09" p2="59.52 -80.63"
+                min-height="1.64" same-group="2"/>
   </checks>
   <camera far="1000.0"/>
   <default-start karts-per-row     ="2"
