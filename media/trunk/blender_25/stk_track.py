@@ -1394,7 +1394,7 @@ class TrackExport:
                 
                 if getProperty(obj, "clip_distance", 0) > 0 :
                     f.write('  <particle-emitter kind="%s" %s clip_distance="%i"%s>\n' %\
-                            (getProperty(obj, "kind", 0), originXYZ, getProperty(obj, "clip_distance", 0)), condition_str)
+                            (getProperty(obj, "kind", 0), originXYZ, getProperty(obj, "clip_distance", 0), condition_str))
                 else:
                     f.write('  <particle-emitter kind="%s" %s%s>\n' %\
                         (getProperty(obj, "kind", 0), originXYZ, condition_str))
