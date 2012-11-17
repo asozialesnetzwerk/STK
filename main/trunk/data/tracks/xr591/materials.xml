@@ -17,4 +17,5 @@
   <material name="trail.png">
     <particles base="smoke_red.xml" condition="skid"/>
   </material>
+  <material name="transparence.png" backface-culling="N" compositing="test" falling-effect="Y" reset="Y"/>
 </materials>
