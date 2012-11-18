@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 11947 -->
+<!-- Generated with script from SVN rev 11785 -->
 <track  name           = "Shifting Sands"
         version        = "5"
         groups         = "standard"
@@ -7,6 +7,5 @@
         music          = "TheDeadRocks-GreenSecretFromAmazonia.music"
         screenshot     = "sshot-sandtrack.jpg"
         smooth-normals = "true"
-        reverse        = "N"
 >
 </track>
