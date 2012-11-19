@@ -37,7 +37,7 @@
   <material name="woodBridge.jpg">
     <sfx filename="wooden_bridge.ogg" rolloff="0.60" min_speed="9.00" max_speed="22.00" min_pitch="1.00" max_pitch="1.70" positional="Y" volume="1.00"/>
   </material>
-  <material name="yellow_dirt.jpg">
+  <material name="yellow_dirt.jpg" slowdown-time="2.00" max-speed="0.70">
     <particles base="smoke_yellow.xml" condition="drive skid"/>
   </material>
   <material name="zipper-effect.png" light="N" compositing="blend" disable-z-write="Y"/>
