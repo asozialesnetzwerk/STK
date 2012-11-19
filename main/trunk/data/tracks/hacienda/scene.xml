@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 11737 -->
+<!-- Generated with script from SVN rev 11982 -->
 <scene>
-  <track model="grass.jpg_track.b3d" x="0" y="0" z="0">
+  <track model="hacienda_track.b3d" x="0" y="0" z="0">
     <static-object lod_distance="50.0" lod_group="lantern" model="Mesh.b3d" xyz="-14.00 3.85 0.00" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_distance="225.0" lod_group="lantern" model="Mesh.001.b3d" xyz="-14.00 3.85 -3.00" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="lantern" xyz="10.14 6.63 0.06" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
@@ -9,7 +9,7 @@
     <static-object lod_instance="true" lod_group="lantern" xyz="11.09 7.33 39.96" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="lantern" xyz="13.06 7.33 77.28" hpr="-90.0 14.6 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="lantern" xyz="46.18 5.93 109.09" hpr="-90.0 -83.7 -0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_instance="true" lod_group="lantern" xyz="92.75 6.03 98.55" hpr="-90.0 -12.5 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="lantern" xyz="92.75 6.03 99.83" hpr="-90.0 -12.5 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="lantern" xyz="225.33 7.74 98.55" hpr="-90.0 -12.5 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="lantern" xyz="230.10 15.52 104.96" hpr="-90.0 -12.5 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="lantern" xyz="142.94 -11.38 -81.16" hpr="-90.0 -12.5 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
@@ -67,9 +67,9 @@
           model="pot.b3d" shape="cylinderY" mass="15.0"/>
   <object type="movable" xyz="103.95 0.07 100.65" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
           model="pot.b3d" shape="cylinderY" mass="15.0"/>
-  <item x="-2.079498" y="-0.03716" z="47" />
-  <item x="2" y="-0.03716" z="47" />
-  <item x="74" y="-0.131533" z="97" />
+  <item x="-2.482748" y="-0.03716" z="47" />
+  <item x="0.62153" y="-0.03716" z="47" />
+  <item x="74" y="-0.131533" z="100.241394" />
   <small-nitro x="91" y="1.3" z="105" />
   <big-nitro x="105" y="2.411794" z="105" />
   <item x="224.821701" y="9.644772" z="98" />
@@ -93,6 +93,12 @@
   <small-nitro x="288.082001" y="6.406003" z="167.58313" />
   <small-nitro x="286.391113" y="6.406003" z="165.52832" />
   <small-nitro x="284.435425" y="6.406003" z="163.374878" />
+  <small-nitro x="159.642075" y="0.556666" z="95.888184" h="44.999999" />
+  <small-nitro x="159.502228" y="0.556666" z="98.793777" h="44.999999" />
+  <small-nitro x="159.244904" y="0.556666" z="101.442383" h="44.999999" />
+  <item x="3.613916" y="-0.03716" z="47" />
+  <item x="96.328545" y="-2.895056" z="-133.490265" h="-86.484465" />
+  <item x="96.635139" y="-2.895056" z="-138.480865" h="-86.484465" />
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
     <check-line kind="activate" other-ids="2" p1="227.98 109.13" p2="229.34 90.07"
