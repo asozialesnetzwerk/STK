@@ -43,4 +43,7 @@ Trail texture by Marianne Gagnon
 cow.ogg
     based on sounds by "Secretlondon" (released under CC-Attribution 3) and "Buffbill84" (released under CC-BY-SA 3)
     released under CC-BY-SA 3.0
-    
+
+skybox.jpg by samuncle
+Based on http://commons.wikimedia.org/wiki/File:Wheat_fields_in_Ukraine-5966-98.jpg
+by Raimond Spekking released under CC-BY-SA 3.0
