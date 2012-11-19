@@ -10,6 +10,7 @@
   <material name="leave3.png" light="N" ignore="Y" compositing="test" backface-culling="N"/>
   <material name="mill.png" compositing="test"/>
   <material name="millstructure.png" compositing="test" ignore="Y"/>
+  <material name="skybox.jpg" fog="N" light="N"/>
   <material name="trail.jpg">
     <particles base="smoke_brown.xml" condition="skid"/>
   </material>

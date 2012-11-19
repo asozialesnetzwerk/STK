@@ -6,7 +6,6 @@
         designer       = "Marianne Gagnon &amp; Ville Seppanen"
         music          = "TheDeadRocks-EasyJob.music"
         screenshot     = "farm.jpg"
-        smooth-normals = "false"
-        reverse     = "Y"
+        smooth-normals = "true"
 >
 </track>
