@@ -20,7 +20,7 @@
   <material name="shintoB.jpg" backface-culling="N"/>
   <material name="tree_1.png" backface-culling="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
   <material name="tree_1Low.png" backface-culling="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
-  <material name="vegetation_1.png" backface-culling="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
+  <material name="vegetation_1.png" backface-culling="N" compositing="coverage" ignore="Y"/>
   <material name="water_light2.png" compositing="blend" disable-z-write="Y" graphical-effect="water" reset="Y" surface="Y">
     <sfx filename="splash.ogg" min_speed="0.00" max_speed="0.00" min_pitch="0.80" max_pitch="1.20" positional="Y" rolloff="0.10"/>
     <particles condition="skid drive" base="splash.xml"/>
