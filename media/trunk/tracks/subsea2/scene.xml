@@ -1,28 +1,22 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 9933 -->
+<!-- Generated with script from SVN rev 11785 -->
 <scene>
   <track model="subsea_track.b3d" x="0" y="0" z="0">
-    <static-object lod_instance="true" lod_group="chest" xyz="-49.986485 -35.133244 388.984955" hpr="-0.000000 -38.276749 0.000000" scale="5.603395 2.801697 2.801697"/>
-    <static-object lod_instance="true" lod_group="chest" xyz="-356.429871 -30.351295 393.421082" hpr="-0.000000 -75.872815 0.000000" scale="5.603395 2.801697 2.801697"/>
-    <static-object lod_distance="100.0" lod_group="chest" model="Cube.012.b3d" xyz="-49.986485 -35.133244 653.409363" hpr="-0.000000 -38.276749 0.000000" scale="5.603395 2.801697 2.801697"/>
-    <static-object lod_distance="350.0" lod_group="chest" model="Cube.013.b3d" xyz="-49.986485 -35.133244 670.600159" hpr="-0.000000 -38.276749 0.000000" scale="5.603395 2.801697 2.801697"/>
-    <static-object lod_instance="true" lod_group="pillar" xyz="-89.389244 -18.100859 366.080780" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="200.0" lod_group="pillar" model="pillar_high.b3d" xyz="-89.389244 -18.100859 618.338989" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="pillar2" xyz="-89.429169 -18.100861 392.365173" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="200.0" lod_group="pillar2" model="pillar2_high.b3d" xyz="-89.429169 -18.100861 644.623413" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="pillar2" xyz="-195.986008 -16.728302 369.858032" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="400.0" lod_group="pillar2" model="pillar2_lo.b3d" xyz="-95.057648 -18.100861 644.623413" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="400.0" lod_group="pillar" model="pillar_lo.b3d" xyz="-95.017723 -18.100859 618.338989" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="pillar" xyz="-328.867218 -14.970972 400.237701" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="pillar" xyz="-196.209534 -16.728302 395.960815" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_instance="true" lod_group="pillar" xyz="-324.974884 -14.970972 372.694641" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"/>
-    <static-object lod_distance="150.0" lod_group="submarine" model="submarine_hi.b3d" xyz="-395.687836 4.292450 -365.184937" hpr="-61.095960 -0.000000 89.999996" scale="4.663857 4.917124 4.663856"/>
-    <static-object lod_instance="true" lod_group="submarine" xyz="-395.687836 4.292450 -71.497688" hpr="-61.095960 -0.000000 89.999996" scale="4.663857 4.917124 4.663856"/>
-    <static-object lod_distance="400.0" lod_group="submarine" model="submarine_lo.b3d" xyz="-360.901581 4.292450 -371.982513" hpr="-61.095960 -0.000000 89.999996" scale="4.663857 4.917124 4.663856"/>
-    <static-object lod_instance="true" lod_group="chest_mound" xyz="-159.439636 -34.413837 400.433167" hpr="88.997638 -70.501588 0.381065" scale="2.519846 2.519846 2.519846"/>
-    <static-object lod_distance="80.0" lod_group="chest_mound" model="chest_mound_hi.b3d" xyz="-159.638016 -34.413837 665.682129" hpr="88.997638 -81.336679 0.381065" scale="2.519846 2.519846 2.519846"/>
-    <static-object lod_distance="350.0" lod_group="chest_mound" model="chest_mound_lo.b3d" xyz="-191.526474 -34.413837 665.682129" hpr="88.997638 -81.336679 0.381065" scale="2.519846 2.519846 2.519846"/>
-    <static-object lod_instance="true" lod_group="chest_mound" xyz="-298.176117 -34.413841 371.916870" hpr="88.997638 -127.393273 0.381065" scale="2.519846 2.519846 2.519846"/>
+    <static-object lod_instance="true" lod_group="chest" xyz="-49.99 -35.13 388.98" hpr="0.0 -38.3 0.0" scale="5.60 2.80 2.80"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="chest" xyz="-356.43 -30.35 393.42" hpr="0.0 -75.9 0.0" scale="5.60 2.80 2.80"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="100.0" lod_group="chest" model="Cube.012.b3d" xyz="-49.99 -35.13 653.41" hpr="0.0 -38.3 0.0" scale="5.60 2.80 2.80"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="350.0" lod_group="chest" model="Cube.013.b3d" xyz="-49.99 -35.13 670.60" hpr="0.0 -38.3 0.0" scale="5.60 2.80 2.80"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="200.0" lod_group="pillar" model="pillar_high.b3d" xyz="-89.39 -18.10 618.34" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="200.0" lod_group="pillar2" model="pillar2_high.b3d" xyz="-89.43 -18.10 644.62" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="400.0" lod_group="pillar2" model="pillar2_lo.b3d" xyz="-95.06 -18.10 644.62" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="400.0" lod_group="pillar" model="pillar_lo.b3d" xyz="-95.02 -18.10 618.34" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="150.0" lod_group="submarine" model="submarine_hi.b3d" xyz="-395.69 4.29 -365.18" hpr="-61.1 0.0 90.0" scale="4.66 4.92 4.66"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="submarine" xyz="-395.69 4.29 -71.50" hpr="-61.1 0.0 90.0" scale="4.66 4.92 4.66"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="400.0" lod_group="submarine" model="submarine_lo.b3d" xyz="-360.90 4.29 -371.98" hpr="-61.1 0.0 90.0" scale="4.66 4.92 4.66"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="chest_mound" xyz="-159.44 -34.41 400.43" hpr="87.9 -70.5 1.1" scale="2.52 2.52 2.52"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="80.0" lod_group="chest_mound" model="chest_mound_hi.b3d" xyz="-159.64 -34.41 665.68" hpr="86.5 -81.3 2.5" scale="2.52 2.52 2.52"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="350.0" lod_group="chest_mound" model="chest_mound_lo.b3d" xyz="-191.53 -34.41 665.68" hpr="86.5 -81.3 2.5" scale="2.52 2.52 2.52"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="chest_mound" xyz="-298.18 -34.41 371.92" hpr="89.5 -127.4 -0.6" scale="2.52 2.52 2.52"/> <!-- writeStaticObjects 3 -->
     <animated-texture name="water_dark-transp-subsea.png" dy="-0.100" />
     <animated-texture name="eggs.png" dy="0.500" />
     <animated-texture name="organic-subsea.jpg" dy="0.100" />
@@ -36,11 +30,26 @@
     <animated-texture name="waterparticles-subsea.png" dy="6.000" />
     <animated-texture name="waterparticles-subsea.png" dy="4.000" />
   </track>
-  <particle-emitter kind="fuite.xml" x="-276.472809" y="4.773684" z="289.394745" h="13.539063"/>
-  <particle-emitter kind="fuite0.xml" x="-216.496231" y="4.125765" z="292.306030" h="13.539063"/>
-  <particle-emitter kind="fuite1.xml" x="-102.333740" y="1.934503" z="253.327820" h="13.539063"/>
-  <object type="animation" model="Mouette.002.b3d" xyz="-47.814579 61.581970 306.814270" hpr="-0.000000 130.844855 -0.000000" scale="6.682693 6.682693 6.682693" shape="box" looped="y" >
-    <curve channel="LocX" interpolation="bezier" extend="const">
+  <particle-emitter kind="fuite.xml" x="-276.47" y="4.77" z="289.39" h="13.539063">
+  </particle-emitter>
+  <particle-emitter kind="fuite0.xml" x="-216.50" y="4.13" z="292.31" h="13.539063">
+  </particle-emitter>
+  <particle-emitter kind="fuite1.xml" x="-102.33" y="1.93" z="253.33" h="13.539063">
+  </particle-emitter>
+  <object type="movable" xyz="-89.39 -18.10 366.08" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
+          shape="cylinder" mass="45.0" lod_instance="true" lod_group="pillar"/>
+  <object type="movable" xyz="-89.43 -18.10 392.37" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
+          shape="cylinder" mass="45.0" lod_instance="true" lod_group="pillar2"/>
+  <object type="movable" xyz="-195.99 -16.73 369.86" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
+          shape="cylinder" mass="45.0" lod_instance="true" lod_group="pillar2"/>
+  <object type="movable" xyz="-328.87 -14.97 400.24" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
+          shape="cylinder" mass="45.0" lod_instance="true" lod_group="pillar"/>
+  <object type="movable" xyz="-196.21 -16.73 395.96" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
+          shape="cylinder" mass="45.0" lod_instance="true" lod_group="pillar"/>
+  <object type="movable" xyz="-324.97 -14.97 372.69" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
+          shape="cylinder" mass="45.0" lod_instance="true" lod_group="pillar"/>
+  <object type="animation" model="Mouette.002.b3d" xyz="-47.81 61.58 306.81" hpr="0.0 130.8 0.0" scale="6.68 6.68 6.68" shape="box" looped="y"  interaction="static">
+    <curve channel="LocX" interpolation="bezier" extend="cyclic">
       <p c="1.000 -47.815" h1="0.391 -47.815" h2="1.609 -47.815"/>
       <p c="5.000 -38.367" h1="4.425 -39.820" h2="5.718 -36.552"/>
       <p c="10.000 -24.910" h1="9.093 -26.638" h2="10.907 -23.181"/>
@@ -62,7 +71,7 @@
       <p c="240.000 -75.767" h1="236.766 -82.874" h2="242.426 -70.437"/>
       <p c="255.000 -47.860" h1="252.227 -47.860" h2="257.773 -47.860"/>
     </curve>
-    <curve channel="LocZ" interpolation="bezier" extend="const">
+    <curve channel="LocZ" interpolation="bezier" extend="cyclic">
       <p c="1.000 306.814" h1="0.188 306.814" h2="1.812 306.814"/>
       <p c="5.000 300.238" h1="3.634 300.666" h2="6.474 299.777"/>
       <p c="10.000 299.777" h1="8.721 299.777" h2="11.279 299.777"/>
@@ -84,7 +93,7 @@
       <p c="240.000 340.214" h1="236.145 347.004" h2="242.892 335.122"/>
       <p c="255.000 307.089" h1="252.584 307.089" h2="257.416 307.089"/>
     </curve>
-    <curve channel="LocY" interpolation="bezier" extend="const">
+    <curve channel="LocY" interpolation="bezier" extend="cyclic">
       <p c="1.000 61.582" h1="-0.562 61.582" h2="2.562 61.582"/>
       <p c="5.000 61.582" h1="3.438 61.582" h2="6.952 61.582"/>
       <p c="10.000 61.582" h1="8.048 61.582" h2="11.952 61.582"/>
@@ -106,7 +115,7 @@
       <p c="240.000 61.582" h1="232.192 61.582" h2="245.856 61.582"/>
       <p c="255.000 61.582" h1="249.144 61.582" h2="260.856 61.582"/>
     </curve>
-    <curve channel="RotX" interpolation="bezier" extend="const">
+    <curve channel="RotX" interpolation="bezier" extend="cyclic">
       <p c="1.000 -0.000" h1="-0.562 -0.000" h2="2.562 -0.000"/>
       <p c="5.000 -0.000" h1="3.438 -0.000" h2="6.952 -0.000"/>
       <p c="10.000 -0.000" h1="8.048 -0.000" h2="11.952 -0.000"/>
@@ -128,7 +137,7 @@
       <p c="240.000 -0.000" h1="232.192 -0.000" h2="245.856 -0.000"/>
       <p c="255.000 -0.000" h1="249.144 -0.000" h2="260.856 -0.000"/>
     </curve>
-    <curve channel="RotZ" interpolation="bezier" extend="const">
+    <curve channel="RotZ" interpolation="bezier" extend="cyclic">
       <p c="1.000 -0.000" h1="-0.562 -0.000" h2="2.562 -0.000"/>
       <p c="5.000 -0.000" h1="3.438 -0.000" h2="6.952 -0.000"/>
       <p c="10.000 0.000" h1="8.048 0.000" h2="11.952 0.000"/>
@@ -150,7 +159,7 @@
       <p c="240.000 -0.000" h1="232.192 -0.000" h2="245.856 -0.000"/>
       <p c="255.000 -0.000" h1="249.144 -0.000" h2="260.856 -0.000"/>
     </curve>
-    <curve channel="RotY" interpolation="bezier" extend="const">
+    <curve channel="RotY" interpolation="bezier" extend="cyclic">
       <p c="1.000 130.845" h1="-0.560 130.845" h2="2.560 130.845"/>
       <p c="5.000 120.400" h1="3.450 130.845" h2="6.939 107.339"/>
       <p c="10.000 64.398" h1="8.089 87.188" h2="11.911 41.609"/>
@@ -172,7 +181,7 @@
       <p c="240.000 -224.796" h1="232.192 -224.796" h2="245.856 -224.796"/>
       <p c="255.000 -226.019" h1="249.144 -226.019" h2="260.856 -226.019"/>
     </curve>
-    <curve channel="ScaleX" interpolation="bezier" extend="const">
+    <curve channel="ScaleX" interpolation="bezier" extend="cyclic">
       <p c="1.000 6.683" h1="-0.562 6.683" h2="2.562 6.683"/>
       <p c="5.000 6.683" h1="3.438 6.683" h2="6.952 6.683"/>
       <p c="10.000 6.683" h1="8.048 6.683" h2="11.952 6.683"/>
@@ -194,7 +203,7 @@
       <p c="240.000 6.683" h1="232.192 6.683" h2="245.856 6.683"/>
       <p c="255.000 6.683" h1="249.144 6.683" h2="260.856 6.683"/>
     </curve>
-    <curve channel="ScaleZ" interpolation="bezier" extend="const">
+    <curve channel="ScaleZ" interpolation="bezier" extend="cyclic">
       <p c="1.000 6.683" h1="-0.562 6.683" h2="2.562 6.683"/>
       <p c="5.000 6.683" h1="3.438 6.683" h2="6.952 6.683"/>
       <p c="10.000 6.683" h1="8.048 6.683" h2="11.952 6.683"/>
@@ -216,7 +225,7 @@
       <p c="240.000 6.683" h1="232.192 6.683" h2="245.856 6.683"/>
       <p c="255.000 6.683" h1="249.144 6.683" h2="260.856 6.683"/>
     </curve>
-    <curve channel="ScaleY" interpolation="bezier" extend="const">
+    <curve channel="ScaleY" interpolation="bezier" extend="cyclic">
       <p c="1.000 6.683" h1="-0.562 6.683" h2="2.562 6.683"/>
       <p c="5.000 6.683" h1="3.438 6.683" h2="6.952 6.683"/>
       <p c="10.000 6.683" h1="8.048 6.683" h2="11.952 6.683"/>
@@ -239,39 +248,39 @@
       <p c="255.000 6.683" h1="249.144 6.683" h2="260.856 6.683"/>
     </curve>
   </object>
-  <object type="movable" xyz="-342.097198 -32.602638 394.941772" hpr="0.635044 -153.811243 -12.354612" scale="1.200000 1.200000 1.200000"
+  <object type="movable" xyz="-342.10 -32.60 394.94" hpr="-5.4 -154.5 13.7" scale="1.20 1.20 1.20"
           model="Rubis.b3d" shape="cylinder" mass="10.0"/>
-  <object type="movable" xyz="-279.977600 -32.602638 373.643616" hpr="0.635044 5.862252 -12.354611" scale="1.200000 1.200000 1.200000"
+  <object type="movable" xyz="-279.98 -32.60 373.64" hpr="-0.6 5.7 -12.4" scale="1.20 1.20 1.20"
           model="Rubis.b3d" shape="cylinder" mass="10.0"/>
-  <object type="movable" xyz="-51.124683 -37.273811 380.710571" hpr="0.426006 5.817489 -12.375495" scale="1.200000 1.200000 1.200000"
+  <object type="movable" xyz="-51.12 -37.27 380.71" hpr="-0.8 5.7 -12.4" scale="1.20 1.20 1.20"
           model="Rubis.b3d" shape="cylinder" mass="10.0"/>
-  <object type="movable" xyz="-178.532135 3.698309 83.578140" hpr="-0.000000 -0.000000 -0.000000" scale="0.857733 0.857733 0.857733"
+  <object type="movable" xyz="-178.53 3.70 83.58" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86"
           model="egg.b3d" shape="sphere" mass="2.0"/>
-  <object type="movable" xyz="-176.742523 3.698309 80.893700" hpr="-0.000000 -0.000000 -0.000000" scale="0.857733 0.857733 0.857733"
+  <object type="movable" xyz="-176.74 3.70 80.89" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86"
           model="egg.b3d" shape="sphere" mass="2.0"/>
-  <object type="movable" xyz="-181.147751 3.698309 83.784637" hpr="-0.000000 -0.000000 -0.000000" scale="0.857733 0.857733 0.857733"
+  <object type="movable" xyz="-181.15 3.70 83.78" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86"
           model="egg.b3d" shape="sphere" mass="2.0"/>
-  <object type="movable" xyz="-174.126923 3.698309 81.650848" hpr="-0.000000 -0.000000 -0.000000" scale="0.857733 0.857733 0.857733"
+  <object type="movable" xyz="-174.13 3.70 81.65" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86"
           model="egg.b3d" shape="sphere" mass="2.0"/>
-  <object type="movable" xyz="-174.373672 3.698309 77.865112" hpr="-0.000000 -0.000000 -0.000000" scale="0.857733 0.857733 0.857733"
+  <object type="movable" xyz="-174.37 3.70 77.87" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86"
           model="egg.b3d" shape="sphere" mass="2.0"/>
-  <object type="movable" xyz="-180.046448 3.698309 80.343048" hpr="-0.000000 -0.000000 -0.000000" scale="0.857733 0.857733 0.857733"
+  <object type="movable" xyz="-180.05 3.70 80.34" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86"
           model="egg.b3d" shape="sphere" mass="2.0"/>
-  <object type="movable" xyz="-182.524368 3.698309 78.759918" hpr="-0.000000 -0.000000 -0.000000" scale="0.857733 0.857733 0.857733"
+  <object type="movable" xyz="-182.52 3.70 78.76" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86"
           model="egg.b3d" shape="sphere" mass="2.0"/>
-  <object type="movable" xyz="-177.499664 3.698309 77.245621" hpr="-0.000000 -0.000000 -0.000000" scale="0.857733 0.857733 0.857733"
+  <object type="movable" xyz="-177.50 3.70 77.25" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86"
           model="egg.b3d" shape="sphere" mass="2.0"/>
-  <object type="movable" xyz="-180.815155 3.698309 76.097992" hpr="-0.000000 -0.000000 -0.000000" scale="0.857733 0.857733 0.857733"
+  <object type="movable" xyz="-180.82 3.70 76.10" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86"
           model="egg.b3d" shape="sphere" mass="2.0"/>
-  <object type="movable" xyz="-175.979904 3.698309 74.434448" hpr="-0.000000 -0.000000 -0.000000" scale="0.857733 0.857733 0.857733"
+  <object type="movable" xyz="-175.98 3.70 74.43" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86"
           model="egg.b3d" shape="sphere" mass="2.0"/>
-  <object type="movable" xyz="-181.715790 3.698309 72.071800" hpr="-0.000000 -0.000000 -0.000000" scale="0.857733 0.857733 0.857733"
+  <object type="movable" xyz="-181.72 3.70 72.07" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86"
           model="egg.b3d" shape="sphere" mass="2.0"/>
-  <object type="movable" xyz="-179.158051 3.698309 73.246513" hpr="-0.000000 -0.000000 -0.000000" scale="0.857733 0.857733 0.857733"
+  <object type="movable" xyz="-179.16 3.70 73.25" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86"
           model="egg.b3d" shape="sphere" mass="2.0"/>
-  <object type="movable" xyz="-177.504227 3.698309 70.769875" hpr="-0.000000 -0.000000 -0.000000" scale="0.857733 0.857733 0.857733"
+  <object type="movable" xyz="-177.50 3.70 70.77" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86"
           model="egg.b3d" shape="sphere" mass="2.0"/>
-  <object type="movable" xyz="-183.544327 3.698309 74.012077" hpr="-0.000000 -0.000000 -0.000000" scale="0.857733 0.857733 0.857733"
+  <object type="movable" xyz="-183.54 3.70 74.01" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86"
           model="egg.b3d" shape="sphere" mass="2.0"/>
   <sun  fog="true" fog-color="111 135 164" fog-start="30.0" fog-end="450.0"/>
   <sky-color rgb="111 135 164"/>
@@ -374,8 +383,8 @@
   <item x="-447.572174" y="5.191294" z="-44.160496" h="-352.616745" />
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
-    <check-line kind="activate" other-ids="0" p1="-465.700134 41.717461" p2="-450.401062 40.585411"
-                min-height="6.724489" same-group="1"/>
+    <check-line kind="activate" other-ids="0" p1="-465.70 41.72" p2="-450.40 40.59"
+                min-height="6.72" same-group="1"/>
   </checks>
   <camera far="800"/>
   <default-start karts-per-row     ="2"
