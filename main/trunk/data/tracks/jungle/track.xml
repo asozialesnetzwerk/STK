@@ -7,6 +7,6 @@
         music          = "amazon_jungle.music"
         screenshot     = "sshot-jungle.jpg"
         smooth-normals = "false"
-        reverse        = "N"
+        reverse        = "Y"
 >
 </track>
