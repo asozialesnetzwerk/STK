@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 11785 -->
+<!-- Generated with script from SVN rev 11982 -->
 <scene>
   <track model="sandtrack_track.b3d" x="0" y="0" z="0">
     <animated-texture name="water_light.png" dx="0.050" />
@@ -25,8 +25,7 @@
   <banana x="-33.982067" y="-137.756088" z="176.308243" h="-41.746991" />
   <banana x="-30.501228" y="-137.756088" z="178.554184" h="-41.746991" />
   <banana x="-28.015648" y="-137.756088" z="180.538101" h="-41.746991" />
-  <small-nitro x="-179.763443" y="-135.030838" z="-181.09375" />
-  <small-nitro x="-165.647064" y="-142.344009" z="-191.327301" />
+  <small-nitro x="-182.98941" y="-130.12677" z="-174.135544" />
   <banana x="-225.91008" y="-149.654129" z="-77.424614" />
   <banana x="-226.466766" y="-149.654129" z="-80.803192" />
   <banana x="-227.113724" y="-149.654129" z="-84.922974" />
