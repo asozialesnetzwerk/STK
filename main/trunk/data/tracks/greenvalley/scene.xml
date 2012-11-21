@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 11947 -->
+<!-- Generated with script from SVN rev 11982 -->
 <scene>
-  <track model="greenvalley_track.b3d" x="0" y="0" z="0">
+  <track model="greenalley_track.b3d" x="0" y="0" z="0">
     <static-object lod_distance="150.0" lod_group="plant1" model="ArctinumMinus.b3d" xyz="15.35 -0.41 -11.70" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="plant1" xyz="-14.97 1.11 21.26" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="plant1" xyz="233.42 2.77 42.49" hpr="-12.2 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
