@@ -18,6 +18,13 @@ Demonhill.ogg
 -------------
     by 0zone0ne
 
+hacienda.ogg
+menutheme.ogg
+win_theme.ogg
+-------------
+    by Claude Werner (Bollen)
+    CC-BY-SA 3.0
+    
 g4m-fan-track.ogg
 -----------------
   Paul Esra Martin, license: CC-SA v3.0
@@ -27,7 +34,6 @@ Boom_boom_boom.ogg
   Matt Thomas, license: GNU GPL v3 (or later)
 
 kart_grand_prix.ogg
-Win Theme
 Lose Theme
 --------------------
   Weirwood, license: CC
