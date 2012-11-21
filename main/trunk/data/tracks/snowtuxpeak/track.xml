@@ -1,12 +1,11 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 11982 -->
+<!-- Generated with script from SVN rev 11785 -->
 <track  name           = "Snow Peak"
         version        = "5"
         groups         = "standard"
-        designer       = "Jean-Manuel Clamencon &amp; Ivar Ten Cate"
+        designer       = "Jean-Manuel Clemencon &amp; Ivar Ten Cate"
         music          = "OnTheRiver.music"
         screenshot     = "sshot-snowtuxpeak.jpg"
-        smooth-normals = "false"
-        reverse        = "Y"
+        smooth-normals = "true"
 >
 </track>
