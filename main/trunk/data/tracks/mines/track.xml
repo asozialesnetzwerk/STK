@@ -7,6 +7,6 @@
         music          = "West.music"
         screenshot     = "sshot-mines.jpg"
         smooth-normals = "true"
-        reverse        = "N"
+        reverse        = "Y"
 >
 </track>
