@@ -6,6 +6,6 @@
         designer       = "jean-Manuel Clamencon"
         music          = "garden.music"
         screenshot     = "screenshot.jpg"
-        smooth-normals = "false"
+        smooth-normals = "true"
 >
 </track>
