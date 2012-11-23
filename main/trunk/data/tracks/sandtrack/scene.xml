@@ -8,7 +8,7 @@
     <animated-texture name="water_light.png" dx="0.075" />
     <animated-texture name="water_light.png" dx="0.020" />
   </track>
-  <particle-emitter kind="/home/ctdabomb/supertuxkart-0.7.3-linux-glibc2.7-i386/data/tracks/zengarden/waterfall.xml" x="-192.84" y="-166.25" z="4.00" h="0.000000">
+  <particle-emitter kind="waterfall.xml" x="-192.84" y="-166.25" z="4.00" h="0.000000">
   </particle-emitter>
   <item x="-1.628945" y="-132.904556" z="15.806046" />
   <item x="0.873242" y="-132.904556" z="15.806046" />
