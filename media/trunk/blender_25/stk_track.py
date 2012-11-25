@@ -2170,7 +2170,7 @@ class TrackExport:
             elif obj.type=="LAMP" and stktype == "SUN":
                 lSun.append(obj)
                 continue
-            elif obj.type=="CAMERA" and stktype in ['fixed', 'ahead']:
+            elif obj.type=="CAMERA" and stktype in ['FIXED', 'AHEAD']:
                 lEndCameras.append(obj)
                 continue
             elif obj.type=="CAMERA" and stktype == 'CUTSCENE_CAMERA':
