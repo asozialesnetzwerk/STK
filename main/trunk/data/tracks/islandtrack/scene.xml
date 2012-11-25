@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 11947 -->
+<!-- Generated with script from SVN rev 11982 -->
 <scene>
   <track model="islandtrack_track.b3d" x="0" y="0" z="0"/>
   <water model="Water.b3d" xyz="10.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="0.60" speed="300.00" length="10.00"/>
@@ -61,4 +61,18 @@
                  forwards-distance ="1.50"
                  sidewards-distance="3.00"
                  upwards-distance  ="0.10"/>
+  <end-cameras>
+    <camera type="static_follow_kart" xyz="-170.343643 3.373950 111.604774" distance="25"/>
+    <camera type="static_follow_kart" xyz="-239.978836 11.263998 88.137695" distance="30"/>
+    <camera type="static_follow_kart" xyz="-172.593246 30.054396 51.266113" distance="37.5"/>
+    <camera type="static_follow_kart" xyz="-196.806870 -1.104542 30.431049" distance="9"/>
+    <camera type="static_follow_kart" xyz="-188.394852 4.461543 -10.564974" distance="15.0"/>
+    <camera type="static_follow_kart" xyz="-110.802765 4.461543 -37.487766" distance="15.0"/>
+    <camera type="ahead_of_kart" xyz="-52.360519 4.461546 -39.665741" distance="15.0"/>
+    <camera type="ahead_of_kart" xyz="-14.369432 8.777266 7.627800" distance="15.0"/>
+    <camera type="static_follow_kart" xyz="-84.049606 32.552750 26.343983" distance="15.0"/>
+    <camera type="static_follow_kart" xyz="-73.970406 7.255007 -68.454987" distance="25.0"/>
+    <camera type="static_follow_kart" xyz="-24.391632 7.255007 -65.730881" distance="25.0"/>
+    <camera type="ahead_of_kart" xyz="28.764820 7.255023 -91.457855" distance="25.0"/>
+  </end-cameras>
 </scene>
