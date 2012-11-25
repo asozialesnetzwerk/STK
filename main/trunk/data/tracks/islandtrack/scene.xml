@@ -63,14 +63,14 @@
                  upwards-distance  ="0.10"/>
   <end-cameras>
     <camera type="static_follow_kart" xyz="-170.343643 3.373950 111.604774" distance="15"/> <!-- EndCam1 -->
-    <camera type="static_follow_kart" xyz="-239.978836 11.263998 88.137695" distance="25"/> <!-- EndCam2 -->
-    <camera type="static_follow_kart" xyz="-172.593246 30.054396 51.266113" distance="25"/> <!-- EndCam3 -->
-    <camera type="static_follow_kart" xyz="-188.394852 4.461543 -10.564974" distance="20.0"/> <!-- EndCam4 -->
-    <camera type="static_follow_kart" xyz="-129.716629 4.461542 -35.218102" distance="15.0"/> <!-- EndCam5 -->
-    <camera type="ahead_of_kart" xyz="-52.360519 4.461546 -39.665741" distance="15.0"/> <!-- EndCam6 -->
-    <camera type="static_follow_kart" xyz="-84.049606 32.552750 26.343983" distance="15.0"/> <!-- EndCam7 -->
-    <camera type="static_follow_kart" xyz="-73.970406 7.255007 -68.454987" distance="25.0"/> <!-- EndCam8 -->
-    <camera type="static_follow_kart" xyz="-24.391632 7.255007 -65.730881" distance="25.0"/> <!-- EndCam9 -->
-    <camera type="ahead_of_kart" xyz="28.764820 7.255023 -91.457855" distance="25.0"/> <!-- EndCam10 -->
+    <camera type="static_follow_kart" xyz="-239.978836 11.263998 88.137695" distance="35"/> <!-- EndCam2 -->
+    <camera type="static_follow_kart" xyz="-172.593246 30.054396 51.266113" distance="35"/> <!-- EndCam3 -->
+    <camera type="static_follow_kart" xyz="-188.394852 4.461543 -10.564974" distance="30.0"/> <!-- EndCam4 -->
+    <camera type="static_follow_kart" xyz="-129.716629 4.461542 -35.218102" distance="25.0"/> <!-- EndCam5 -->
+    <camera type="ahead_of_kart" xyz="-52.360519 4.461546 -39.665741" distance="25.0"/> <!-- EndCam6 -->
+    <camera type="static_follow_kart" xyz="-84.049606 32.552750 26.343983" distance="25.0"/> <!-- EndCam7 -->
+    <camera type="static_follow_kart" xyz="-73.970406 7.255007 -68.454987" distance="35.0"/> <!-- EndCam8 -->
+    <camera type="static_follow_kart" xyz="-24.391632 7.255007 -65.730881" distance="35.0"/> <!-- EndCam9 -->
+    <camera type="ahead_of_kart" xyz="28.764820 7.255023 -91.457855" distance="35.0"/> <!-- EndCam10 -->
   </end-cameras>
 </scene>
