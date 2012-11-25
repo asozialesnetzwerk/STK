@@ -41,6 +41,7 @@
   <material name="splat2.png" splatting="Y" splatting-texture-1="dirt.jpg" splatting-texture-2="grass2.jpg" splatting-texture-3="snow.png" splatting-texture-4="rock_grey.jpg"/>
   <material name="track_screenshot_dummy.png" fog="N" light="N" compositing="blend"/>
   <material name="StreamPlant.png" backface-culling="N" compositing="coverage" ignore="Y"/>
+  <material name="transparence2.png" compositing="test"/>
   <material name="tree_1.png" backface-culling="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
   <material name="tree_1Low.png" backface-culling="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
   <material name="ufo_window.png" backface-culling="N" compositing="blend" disable-z-write="Y"/>
