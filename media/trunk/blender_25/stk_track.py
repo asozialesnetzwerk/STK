@@ -2090,8 +2090,8 @@ class TrackExport:
                     continue
                 xyz = "%f %f %f" % (i.location[0], i.location[2], i.location[1])
                 start = getProperty(i, "start", 5)
-                f.write("    <camera type=\"%s\" xyz=\"%s\" distance=\"%s\"/>\n"%
-                        (type, xyz, start) )
+                f.write("    <camera type=\"%s\" xyz=\"%s\" distance=\"%s\"/> <!-- %s -->\n"%
+                        (type, xyz, start, i.name) )
             f.write("  </end-cameras>\n")
 
         # Write camera curves (unused atm)
