@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 11144 -->
+<!-- Generated with script from SVN rev 11947 -->
 <scene>
   <track model="startrack_track.b3d" x="0" y="0" z="0"/>
   <object type="animation" model="earth.b3d" xyz="-209.18 56.04 -81.51" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"  interaction="none">
@@ -194,11 +194,11 @@
   <small-nitro x="-111.620171" y="8.318328" z="338.781006" />
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
-    <check-line kind="activate" other-ids="0" p1="41.465298 108.328346" p2="24.237980 81.109566"
-                min-height="6.730086" same-group="1"/>
+    <check-line kind="activate" other-ids="0" p1="41.47 108.33" p2="24.24 81.11"
+                min-height="6.73" same-group="1"/>
   </checks>
   <sky-box texture="purplenebula_bk.jpg purplenebula_ft.jpg purplenebula_bk.jpg purplenebula_ft.jpg purplenebula_ft.jpg purplenebula_bk.jpg"/>
-  <default-start karts-per-row     ="2"
+  <default-start karts-per-row     ="3"
                  forwards-distance ="1.50"
                  sidewards-distance="3.00"
                  upwards-distance  ="0.10"/>

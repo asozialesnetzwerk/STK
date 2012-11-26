@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 11982 -->
+<!-- Generated with script from SVN rev 11947 -->
 <scene>
   <track model="sandtrack_track.b3d" x="0" y="0" z="0">
     <animated-texture name="water_light.png" dx="0.050" />
@@ -52,7 +52,7 @@
   </checks>
   <sky-box texture="skybox3.jpg skybox3.jpg skybox2.jpg skybox2.jpg skybox2.jpg skybox2.jpg"/>
   <camera far="1000.0"/>
-  <default-start karts-per-row     ="2"
+  <default-start karts-per-row     ="3"
                  forwards-distance ="1.10"
                  sidewards-distance="1.10"
                  upwards-distance  ="1.10"/>

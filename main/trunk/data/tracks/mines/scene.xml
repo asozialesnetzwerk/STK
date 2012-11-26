@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 11982 -->
+<!-- Generated with script from SVN rev 12070 -->
 <scene>
   <track model="mines_track.b3d" x="0" y="0" z="0">
     <static-object model="lamp1.b3d" xyz="73.53 13.07 48.17" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/> <!-- writeStaticObjects 3 -->
@@ -256,7 +256,7 @@
                 min-height="-6.72" same-group="1"/>
   </checks>
   <camera far="100.0"/>
-  <default-start karts-per-row     ="2"
+  <default-start karts-per-row     ="3"
                  forwards-distance ="1.50"
                  sidewards-distance="3.00"
                  upwards-distance  ="0.10"/>
