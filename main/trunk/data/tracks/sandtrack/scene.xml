@@ -10,6 +10,10 @@
   </track>
   <particle-emitter kind="waterfall.xml" x="-192.84" y="-166.25" z="4.00" h="0.000000">
   </particle-emitter>
+  <object type="animation" model="palm1.b3d" xyz="-71.37 -126.12 -78.55" hpr="0.0 5.6 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
+  </object>
+  <object type="animation" model="palm2.b3d" xyz="-79.02 -127.77 -66.33" hpr="0.0 72.6 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
+  </object>
   <item x="-1.628945" y="-132.904556" z="15.806046" />
   <item x="0.873242" y="-132.904556" z="15.806046" />
   <item x="4.000975" y="-132.904556" z="15.806046" />
