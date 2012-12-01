@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 11947 -->
+<!-- Generated with script from SVN rev 12070 -->
 <scene>
   <track model="sandtrack_track.b3d" x="0" y="0" z="0">
     <animated-texture name="water_light.png" dx="0.050" />
@@ -26,6 +26,7 @@
   <banana x="-30.501228" y="-137.756088" z="178.554184" h="-41.746991" />
   <banana x="-28.015648" y="-137.756088" z="180.538101" h="-41.746991" />
   <small-nitro x="-182.98941" y="-130.12677" z="-174.135544" />
+  <small-nitro x="-127.508217" y="-134.982422" z="-18.983131" />
   <banana x="-225.91008" y="-149.654129" z="-77.424614" />
   <banana x="-226.466766" y="-149.654129" z="-80.803192" />
   <banana x="-227.113724" y="-149.654129" z="-84.922974" />
@@ -36,7 +37,8 @@
   <small-nitro x="-214.3853" y="-137.522644" z="40.939716" />
   <small-nitro x="-205.265045" y="-137.522644" z="47.714767" />
   <small-nitro x="-116.386871" y="-146.887604" z="-190.347122" />
-  <big-nitro x="-112.890938" y="-127.461868" z="-25.160461" />
+  <small-nitro x="-127.149017" y="-134.982422" z="-15.955594" />
+  <small-nitro x="-126.789818" y="-134.982422" z="-13.082" />
   <small-nitro x="-67.142311" y="-114.421524" z="-113.579109" />
   <small-nitro x="-66.753304" y="-118.188263" z="-125.249306" />
   <small-nitro x="-60.529198" y="-118.188263" z="-127.972351" />
@@ -54,6 +56,6 @@
   <camera far="1000.0"/>
   <default-start karts-per-row     ="3"
                  forwards-distance ="1.10"
-                 sidewards-distance="1.10"
+                 sidewards-distance="2.00"
                  upwards-distance  ="1.10"/>
 </scene>
