@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 12070 -->
+<!-- Generated with script from SVN rev 11785 -->
 <scene>
   <track model="zenGarden_track.b3d" x="0" y="0" z="0">
     <static-object lod_instance="true" lod_group="torii" xyz="1.50 0.00 10.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
@@ -11,7 +11,7 @@
     <static-object lod_distance="75.0" lod_group="torii" model="torii_LOD75.b3d" xyz="-16.50 0.00 178.64" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_distance="120.0" lod_group="torii" model="torii_LOD120.b3d" xyz="-16.50 0.00 183.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="torii" xyz="-50.43 0.00 -50.65" hpr="-0.0 100.0 -0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_instance="true" lod_group="bridge" xyz="-170.79 0.91 41.63" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="bridge" xyz="-170.79 -16.09 41.63" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_distance="150.0" lod_group="bridge" model="bridge_LOD150.b3d" xyz="-170.79 5.05 106.90" hpr="-90.0 50.0 -0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_distance="50.0" lod_group="bridge" model="bridge_LOD50.b3d" xyz="-170.79 5.05 95.63" hpr="-90.0 50.0 -0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_distance="500.0" lod_group="bridge" model="bridge_LOD500.b3d" xyz="-170.79 5.05 118.63" hpr="-90.0 50.0 -0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
