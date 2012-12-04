@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 11947 -->
+<!-- Generated with script from SVN rev 12125 -->
 <scene>
   <track model="startrack_track.b3d" x="0" y="0" z="0"/>
   <object type="animation" model="earth.b3d" xyz="-209.18 56.04 -81.51" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"  interaction="none">
@@ -198,6 +198,7 @@
                 min-height="6.73" same-group="1"/>
   </checks>
   <sky-box texture="purplenebula_bk.jpg purplenebula_ft.jpg purplenebula_bk.jpg purplenebula_ft.jpg purplenebula_ft.jpg purplenebula_bk.jpg"/>
+  <camera far="1000.0"/>
   <default-start karts-per-row     ="3"
                  forwards-distance ="1.50"
                  sidewards-distance="3.00"
