@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 12070 -->
+<!-- Generated with script from SVN rev 12125 -->
 <scene>
   <track model="greenvalley_track.b3d" x="0" y="0" z="0">
     <static-object lod_distance="150.0" lod_group="plant1" model="ArctinumMinus.b3d" xyz="15.35 -0.41 -11.70" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
@@ -360,8 +360,7 @@
   <small-nitro x="-0.249491" y="-1.388952" z="-68.278313" />
   <banana x="-0.613992" y="-1.306638" z="-59.692795" />
   <checks>
-    <check-line kind="lap" p1="-3.86 -0.35" p2="3.97 -0.21"
-                min-height="0.78" same-group="0" other-ids="1"/>
+    <check-lap kind="lap" same-group="0" other-ids="1" />
     <check-line kind="activate" other-ids="0" p1="177.59 -141.65" p2="174.92 -105.72"
                 min-height="-10.54" same-group="1"/>
   </checks>
