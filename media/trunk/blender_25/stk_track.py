@@ -1221,6 +1221,9 @@ class TrackExport:
             if dx: sdx = " dx=\"%.3f\" "%float(dx)
             sdy=""
             if dy: sdy = " dy=\"%.3f\" "%float(dy)
+            
+            if name is None or len(name) == 0:
+                continue
             f.write("    <animated-texture name=\"%s\"%s%s/>\n"%(name, sdx, sdy) )
         
     # --------------------------------------------------------------------------
@@ -1704,6 +1707,11 @@ class TrackExport:
             if use_anim_texture != 'true': continue
             
             anim_texture = getProperty(obj, "anim_texture", None)
+            
+            if anim_texture is None or len(anim_texture) == 0:
+                log_warning("object %s has an invalid animated-texture configuration" % obj.name)
+                continue
+            
             dx = getProperty(obj, "anim_dx", 0)
             dy = getProperty(obj, "anim_dy", 0)
             lAnimTextures.append( (anim_texture, dx, dy) )
