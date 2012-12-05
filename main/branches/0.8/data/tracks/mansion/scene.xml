@@ -12,10 +12,8 @@
     <static-object lod_instance="true" lod_group="pumpkin" xyz="-92.70 -5.29 59.42" hpr="0.0 -16.2 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="jackOlantern" xyz="-93.79 -5.44 57.39" hpr="0.0 177.2 0.0" scale="1.62 1.62 1.62"/> <!-- writeStaticObjects 3 -->
     <static-object model="Circle.007.b3d" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"> <!-- writeStaticObjects 2 -->
-    <animated-texture name="" dx="0.050" />
     </static-object>
     <static-object model="Circle.008.b3d" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"> <!-- writeStaticObjects 2 -->
-    <animated-texture name="" dx="0.050" />
     </static-object>
     <static-object model="Circle.009.b3d" xyz="0.00 333.20 0.00" hpr="-0.0 135.0 -0.0" scale="1.20 1.20 1.20"> <!-- writeStaticObjects 2 -->
     <animated-texture name="clouds.png" dx="0.050" />
