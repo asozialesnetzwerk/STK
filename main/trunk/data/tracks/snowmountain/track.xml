@@ -7,6 +7,6 @@
         music          = "Snowy.music"
         screenshot     = "sshot-mountain.jpg"
         smooth-normals = "false"
-        reverse        = "N"
+        reverse        = "Y"
 >
 </track>
