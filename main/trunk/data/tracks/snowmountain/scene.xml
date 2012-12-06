@@ -1,9 +1,11 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev Unknown -->
+<!-- Generated with script from SVN rev 12125 -->
 <scene>
   <track model="snowmountain_track.b3d" x="0" y="0" z="0"/>
-  <particle-emitter kind="black_smoke.xml" x="-122.87" y="11.93" z="-17.97" h="0.000000" clip_distance="200"/>
-  <particle-emitter kind="black_smoke.xml" x="-75.36" y="15.30" z="-20.41" h="0.000000" clip_distance="200"/>
+  <particle-emitter kind="black_smoke.xml" x="-122.87" y="11.93" z="-17.97" h="0.000000" clip_distance="200">
+  </particle-emitter>
+  <particle-emitter kind="black_smoke.xml" x="-75.36" y="15.30" z="-20.41" h="0.000000" clip_distance="200">
+  </particle-emitter>
   <object type="animation" model="Balloon.b3d" xyz="-39.99 39.72 -180.02" hpr="-63.4 89.6 3.0" scale="7.33 7.33 7.33"  interaction="none">
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
       <p c="0.172 -40.000" h1="-51.067 -40.000" h2="51.412 -40.000"/>
@@ -77,10 +79,10 @@
   <small-nitro x="-1.413081" y="-3.764242" z="-38.041679" />
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
-    <check-line kind="activate" other-ids="2" p1="-38.917896 66.436386" p2="-36.257420 87.415909"
-                min-height="2.804375" same-group="1"/>
-    <check-line kind="activate" other-ids="0" p1="-24.747654 -59.180248" p2="-23.794647 -37.289577"
-                min-height="11.353293" same-group="2"/>
+    <check-line kind="activate" other-ids="2" p1="-38.92 66.44" p2="-36.26 87.42"
+                min-height="2.80" same-group="1"/>
+    <check-line kind="activate" other-ids="0" p1="-24.75 -59.18" p2="-23.79 -37.29"
+                min-height="11.35" same-group="2"/>
   </checks>
   <sky-box texture="winter_sky_6.jpg winter_sky_5.jpg winter_sky_2.jpg winter_sky_4.jpg winter_sky_3.jpg winter_sky_1.jpg"/>
   <default-start karts-per-row     ="2"
