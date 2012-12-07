@@ -8,5 +8,6 @@
   <material name="roadwayborder.png">
     <particles base="smoke.xml" condition="skid drive"/>
   </material>
+  <material name="snow2.png" max-speed="0.70"/>
   <material name="water_light.png" reset="Y"/>
 </materials>
