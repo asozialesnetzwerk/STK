@@ -7,6 +7,10 @@ Creative-Commons-BY-SA 3.0
     
     arc1.png - based on picture by Mike Switzerland, found on Wikimedia Commons, with modifications by Marianne Gagnon
     arc2.png - based on picture by Axel Rouvin (Attribution license), found on Wikimedia Commons, with modifications by Marianne Gagnon
+    hot.ogg  - based on "Hot Sizzling-SoundBible.com-403305607.wav" by Mike Koenig from soundbible
+               and "Water vaporizing on hot Stones" by Natalie from pdsound.org
+               mixed by Marianne Gagnon
+
     
 ____________________________________________________________________
 Reused with different colors from supertuxkart/data/textures (see their individual licenses) :
