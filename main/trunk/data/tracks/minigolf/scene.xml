@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 11355 -->
+<!-- Generated with script from SVN rev 12125 -->
 <scene>
   <track model="minigolf_track.b3d" x="0" y="0" z="0"/>
   <water model="fol1.b3d" xyz="2.84 14.04 -8.20" hpr="0.0 6.2 0.0" scale="1.00 1.00 1.00" height="0.25" speed="200.00" length="10.00"/>
@@ -63,7 +63,6 @@
     </curve>
   </object>
   <sun  fog="true" fog-color="93 118 153" fog-start="50.0" fog-end="100.0" xyz="4.58 16.67 6.29" sun-specular="255 255 255" sun-diffuse="238 255 151" ambient="45 58 87"/>
-  <smooth-normals value="false" />
   <small-nitro x="-19.024166" y="1.199415" z="-20.606453" />
   <small-nitro x="-29.13542" y="1.199415" z="-20.606453" />
   <item x="-63.847694" y="1.865967" z="-36.48304" />
@@ -116,8 +115,8 @@
   <big-nitro x="-59.803425" y="-6.164577" z="70.076027" />
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
-    <check-line kind="activate" other-ids="0" p1="-5.249225 35.801460" p2="-5.249225 19.001461"
-                min-height="-6.099164" same-group="1"/>
+    <check-line kind="activate" other-ids="0" p1="-5.25 35.80" p2="-5.25 19.00"
+                min-height="-6.10" same-group="1"/>
   </checks>
 
   <sky-dome texture="sky3.jpg"
@@ -129,4 +128,19 @@
                  forwards-distance ="2.00"
                  sidewards-distance="2.50"
                  upwards-distance  ="1.10"/>
+  <end-cameras>
+    <camera type="static_follow_kart" xyz="-31.347261 7.883405 -37.556545" distance="50.0"/> <!-- Camera -->
+    <camera type="static_follow_kart" xyz="-54.303005 0.246248 -30.253376" distance="30.0"/> <!-- Camera.001 -->
+    <camera type="static_follow_kart" xyz="-85.884789 5.406722 -6.234883" distance="30.0"/> <!-- Camera.002 -->
+    <camera type="static_follow_kart" xyz="-119.035538 0.187697 -15.456582" distance="25.0"/> <!-- Camera.003 -->
+    <camera type="static_follow_kart" xyz="-104.210182 -5.452283 29.863569" distance="40.0"/> <!-- Camera.004 -->
+    <camera type="static_follow_kart" xyz="-58.053513 -5.452006 15.696690" distance="30.0"/> <!-- Camera.005 -->
+    <camera type="static_follow_kart" xyz="-18.954487 -5.986171 29.182613" distance="30.0"/> <!-- Camera.006 -->
+    <camera type="static_follow_kart" xyz="22.877390 10.247544 9.278451" distance="40.0"/> <!-- Camera.007 -->
+    <camera type="static_follow_kart" xyz="82.321632 6.061478 11.388822" distance="35.0"/> <!-- Camera.008 -->
+    <camera type="static_follow_kart" xyz="110.024414 16.979927 -14.278487" distance="35.0"/> <!-- Camera.009 -->
+    <camera type="static_follow_kart" xyz="107.827469 2.119936 -54.790871" distance="30.0"/> <!-- Camera.010 -->
+    <camera type="static_follow_kart" xyz="60.935028 37.335701 -51.578594" distance="40.0"/> <!-- Camera.011 -->
+    <camera type="static_follow_kart" xyz="18.901966 6.718008 -57.748661" distance="25.0"/> <!-- Camera.012 -->
+  </end-cameras>
 </scene>
