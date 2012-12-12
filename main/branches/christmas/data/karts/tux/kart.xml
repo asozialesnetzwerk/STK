@@ -3,8 +3,11 @@
 <kart name              = "Tux"
       version           = "2"
       model-file        = "tux.b3dz"
+      xmas-model-file   = "xmas-tux.b3d"
       icon-file         = "tuxicon.png"
+      xmas-icon-file    = "xmas-tuxicon.png"
       minimap-icon-file = "tuxicon.png"
+      xmas-minimap-icon-file = "xmas-tuxicon.png"
       shadow-file       = "tuxkartshadow.png"
       groups            = "standard"
       rgb               = "0.7 0 0" >
