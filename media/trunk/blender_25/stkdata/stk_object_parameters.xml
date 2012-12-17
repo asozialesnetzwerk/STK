@@ -85,6 +85,11 @@
         
         <!-- Item (gift box) -->
         <EnumChoice id="item" label="Item (Gift Box)" doc="A gift box containing a random collectible (apply to an Empty)"/>
+        <EnumChoice id="egg_easy" label="Easter Egg (easy)" doc="A hidden item for easy mode (apply to an Empty)"/>
+        <EnumChoice id="egg_easy_hard" label="Easter Egg (easy-hard)" doc="A hidden item for easy-hard mode (apply to an Empty)"/>
+        <EnumChoice id="egg_medium" label="Easter Egg (medium)" doc="A hidden item for medium mode (apply to an Empty)"/>
+        <EnumChoice id="egg_medium_hard" label="Easter Egg (medium-hard)" doc="A hidden item for medium-hard mode (apply to an Empty)"/>
+        <EnumChoice id="egg_hard" label="Easter Egg (hard)" doc="A hidden item for hard mode (apply to an Empty)"/>
         
         <!-- Lap line extension -->
         <EnumChoice id="lap" label="Lap line" doc="An extension to the factory lap line">
