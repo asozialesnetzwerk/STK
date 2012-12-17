@@ -774,12 +774,13 @@ class TrackExport:
      
     # --------------------------------------------------------------------------
     
-    def writeBezierCurve(self, f, curve, speed):
+    def writeBezierCurve(self, f, curve, speed, extend="cyclic"):
         matrix = curve.matrix_world
         if len(curve.data.splines) > 1:
             log_warning(curve.name + " contains multiple curves, will only export the first one")
         
-        f.write('    <curve channel="LocXYZ" speed="%.2f" curvetype="bezier">\n'%speed)
+        f.write('    <curve channel="LocXYZ" speed="%.2f" curvetype="bezier" extend="%s">\n'\
+               %(speed, extend))
         if curve.data.splines[0].type != 'BEZIER':
             log_warning(curve.name + " should be a bezier curve, not a " + curve.data.splines[0].type)
         else:
@@ -1490,16 +1491,15 @@ class TrackExport:
         end_pt2 = end.data.vertices[1].co*end_matrix + endloc
         
 
-        f.write('    <cannon p1="%.2f %.2f" p2="%.2f %.2f" min-height="%f" target-p1="%.2f %.2f %.2f" target-p2="%.2f %.2f %.2f">\n'%\
-                (start_pt1[0], start_pt1[1],
-                 start_pt2[0], start_pt2[1],
-                 min(start_pt1[2], start_pt2[2]),
+        f.write('    <cannon p1="%.2f %.2f %.2f" p2="%.2f %.2f %.2f" target-p1="%.2f %.2f %.2f" target-p2="%.2f %.2f %.2f">\n'%\
+                (start_pt1[0], start_pt1[2], start_pt1[1],
+                 start_pt2[0], start_pt2[2], start_pt2[1],
                  end_pt1[0],   end_pt1[2],   end_pt1[1],
                  end_pt2[0],   end_pt2[2],   end_pt2[1]))
         
         if len(curvename) > 0:
             self.writeBezierCurve(f, bpy.data.objects[curvename], \
-                                  getProperty(start, "cannonspeed", 50.0) )
+                                  getProperty(start, "cannonspeed", 50.0), "const" )
         
         f.write('    </cannon>\n')
         
