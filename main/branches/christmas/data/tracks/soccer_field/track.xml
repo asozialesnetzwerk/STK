@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 12183 -->
+<!-- Generated with script from SVN rev 12280 -->
 <track  name           = "Soccer field"
         version        = "5"
         groups         = "standard"
-        designer       = "&lt;Thomas Oppl - stadium model &amp; Pixel_2ACF3 (Wayne Dennis)  &amp; Lionel Fuentes (soccer field)"
+        designer       = "Thomas Oppl - stadium model &amp; Pixel_2ACF3 (Wayne Dennis)  &amp; Funto (soccer field)"
         music          = "Penguin_Party.music"
-        arena          = "Y"
+        soccer         = "Y"
         screenshot     = "soccer_field_screenshot.png"
         smooth-normals = "false"
         reverse        = "N"
