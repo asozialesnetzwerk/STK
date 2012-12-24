@@ -72,7 +72,8 @@
 * zipper_collect
     by Dakal, released under CC-BY-SA 3.0
 
-* swatter
+* swatter, christmas hat model and texture
+    released under CC-BY-SA 3.0
     by Funto
 
 Others are GPL, by the original (super)TuxKart team
