@@ -16,6 +16,7 @@
               start-losing = "486"
               start-losing-loop = "832"
               end-losing = "852"/>
+  <hat offset="0 0.2 0"/>
   <wheels>
     <front-left position = "-0.283304 0.101876 0.407714"
                  model    = "wheel-front-left.b3d"       />

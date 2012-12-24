@@ -22,6 +22,7 @@
               start-losing = "80"
               start-losing-loop = "90"
               end-losing = "100"/>
+  <hat offset="0 0.12 0"/>
   <wheels>
     <rear-right position = "0.392944 0.184659 -0.353249"
                  model    = "wheel-rear-right.b3d"       />
