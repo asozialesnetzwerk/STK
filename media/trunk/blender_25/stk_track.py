@@ -685,6 +685,12 @@ class TrackExport:
             is_arena="n"
         is_arena = not (is_arena[0]=="n" or is_arena[0]=="N" or \
                         is_arena[0]=="f" or is_arena[0]=="F"      )
+                        
+        is_soccer   = getIdProperty(scene, "soccer",     "n"            )
+        if not is_soccer:
+            is_soccer="n"
+        is_soccer = not (is_soccer[0]=="n" or is_soccer[0]=="N" or \
+                         is_soccer[0]=="f" or is_soccer[0]=="F"      )
 
         is_cutscene = getIdProperty(scene, "cutscene",  "false") == "true"
         is_internal = getIdProperty(scene, "internal",   "n"            )
@@ -741,6 +747,9 @@ class TrackExport:
         
         if is_arena:
             f.write("        arena          = \"Y\"\n")
+            
+        if is_soccer:
+            f.write("        soccer         = \"Y\"\n")
 
         if is_cutscene:
             f.write("        cutscene       = \"Y\"\n")
@@ -1502,6 +1511,25 @@ class TrackExport:
                                   getProperty(start, "cannonspeed", 50.0), "const" )
         
         f.write('    </cannon>\n')
+    
+    # Write out a goal line
+    def writeGoal(self, f, goal):
+        if len(goal.data.vertices) != 2:
+            log_warning("Goal line is not a line made of 2 vertices as expected")
+            
+        goal_matrix = goal.rotation_euler.to_matrix()
+        
+        goal_pt1 = goal.data.vertices[0].co*goal_matrix + goal.location
+        goal_pt2 = goal.data.vertices[1].co*goal_matrix + goal.location
+        
+        first_goal_string = ""
+        if getProperty(goal, "first_goal", "false") == "true":
+            first_goal_string=" first_goal=\"true\" "
+        
+        f.write('    <goal p1="%.2f %.2f %.2f" p2="%.2f %.2f %.2f" %s/>\n'%\
+                (goal_pt1[0], goal_pt1[2], goal_pt1[1],
+                 goal_pt2[0], goal_pt2[2], goal_pt2[1],
+                 first_goal_string))
         
     # --------------------------------------------------------------------------
     # Writes out all checklines.
@@ -1510,7 +1538,7 @@ class TrackExport:
     #        counting check line is determined.
     def writeChecks(self, f, lChecks, mainDriveline):
         f.write("  <checks>\n")
-
+        
         # A dictionary containing a list of indices of check structures
         # that belong to this group.
         dGroup2Indices = {"lap":[0]}
@@ -1531,6 +1559,8 @@ class TrackExport:
             else:
                 dGroup2Indices[name] = [ ind ]
             ind = ind + 1
+            
+        print("**** dGroup2Indices:", dGroup2Indices)
 
         if mainDriveline:
             lap = mainDriveline.getStartEdge()
@@ -1599,6 +1629,9 @@ class TrackExport:
                     self.writeCannon(f, obj)
                     continue
                 elif type == "cannonend":
+                    continue
+                elif type == "goal":
+                    self.writeGoal(f, obj)
                     continue
                 
                 mesh = obj.data.copy()
@@ -2190,7 +2223,7 @@ class TrackExport:
             
             if stktype=="WATER":
                 lWater.append(obj)
-            elif stktype=="CHECK" or stktype=="LAP" or stktype=="CANNONSTART":
+            elif stktype=="CHECK" or stktype=="LAP" or stktype=="CANNONSTART" or stktype=="GOAL":
                 lChecks.append(obj)
             # Check for new drivelines
             elif stktype=="MAIN-DRIVELINE" or \
@@ -2217,8 +2250,9 @@ class TrackExport:
                 lTrack.append(obj)
 
         is_arena = getIdProperty(bpy.data.scenes[0], "arena", "false") == "true"
+        is_soccer = getIdProperty(bpy.data.scenes[0], "soccer", "false") == "true"
         is_cutscene = getIdProperty(bpy.data.scenes[0], "cutscene",  "false") == "true"
-        if not found_main_driveline and not is_arena and not is_cutscene:
+        if not found_main_driveline and not is_arena and not is_soccer and not is_cutscene:
             if len(lDrivelines) > 0:
                 log_warning("Main driveline missing, using first driveline as main!")
             else:
@@ -2234,12 +2268,18 @@ class TrackExport:
         # -----------------------
         global the_scene
         scene    = the_scene
+        
         is_arena = getIdProperty(scene, "arena", "n")
         if not is_arena: is_arena="n"
         is_arena = not (is_arena[0]=="n" or is_arena[0]=="N" or \
                         is_arena[0]=="f" or is_arena[0]=="F"     )
                         
-        if not is_arena and not is_cutscene:
+        is_soccer = getIdProperty(scene, "soccer", "n")
+        if not is_soccer: is_soccer="n"
+        is_soccer = not (is_soccer[0]=="n" or is_soccer[0]=="N" or \
+                         is_soccer[0]=="f" or is_soccer[0]=="F"     )
+                        
+        if not is_arena and not is_soccer and not is_cutscene:
             self.writeQuadAndGraph(sPath, lDrivelines, lEndCameras)
         #start_time = bsys.time()
 

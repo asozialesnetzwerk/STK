@@ -15,6 +15,8 @@
   <checks>
     <check-line kind="lap" p1="-1.00 0.00" p2="1.00 0.00"
                 min-height="0.00"  />
+    <goal p1="9.37 0.07 39.56" p2="-9.37 0.07 39.56"  first_goal="true" />
+    <goal p1="-9.37 0.07 -39.46" p2="9.37 0.07 -39.46" />
   </checks>
 
   <sky-dome texture="racetrack_sky.jpg"

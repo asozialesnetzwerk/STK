@@ -69,6 +69,11 @@
                         filter="lambda self, o : 'type' in o and o['type'] == 'check'"
                         doc="Which check structure to activate when crossing the lap line"/>
         </EnumChoice>
+        
+        <!-- Goal -->
+        <EnumChoice id="goal" label="Goal line" doc="A point is scored when a soccer ball crosses this line" >
+            <BoolProp id="first_goal" name="First goal" default="true" doc="Checked=first goal, unchecked=second goal"/>
+        </EnumChoice>
 
         <!-- End cameras -->
         <EnumChoice id="fixed" label="End Camera (Fixed)" doc="An end camera that stays in place">
