@@ -201,6 +201,7 @@
                 </EnumChoice>
             </EnumProp>
             <BoolProp id="tangents" name="Use Tangent Space" default="false" doc="Export object in tangent space, which is required for normal mapping"/>
+            <BoolProp id="soccer_ball" name="Is Soccer Ball" default="false" doc="Exported object is a soccer ball (used for soccer mode)"/>
         </EnumChoice>
         
         <!-- Particle emitter -->

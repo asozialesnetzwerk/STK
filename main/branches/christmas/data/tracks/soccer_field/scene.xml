@@ -3,7 +3,7 @@
 <scene>
   <track model="soccer_field_track.b3d" x="0" y="0" z="0"/>
   <object type="movable" xyz="0.24 13.76 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
-          model="soccer_ball.b3d" shape="sphere" mass="100.0"/>
+          model="soccer_ball.b3d" shape="sphere" mass="100.0" soccer_ball="true" />
   <item x="-9.436516" y="0.146487" z="-16.33383" h="-29.999995" />
   <item x="9.424168" y="0.146487" z="-16.333828" h="30.000008" />
   <item x="30.101673" y="0.146487" z="-54.0984" h="30.000008" />
