@@ -1,6 +1,0 @@
-(music-information
-  (title    "Another Caribbean Beat"    )
-  (composer "Dr.Sternhagel"             )
-  (music    "another_caribbean_beat.ogg")
-  (loop     10                          )
-)
