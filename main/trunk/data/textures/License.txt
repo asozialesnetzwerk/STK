@@ -111,6 +111,9 @@ n_boards
 * GrassTall.png
     from the dims_arboretum by Dims
 
+* zipper particles, skid particles
+    by TotoPlus62
+    
 ===
 GPL
 ===
