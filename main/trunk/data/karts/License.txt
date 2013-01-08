@@ -43,6 +43,8 @@ Wilber and Elephpant :
 Hexley :
     by Frederico de Oliveira
     released under GPL
+    
+    kart texture by S@f, released under CC-BY-SA 3.0
 
 Puffy :
     By MiniBjorn
