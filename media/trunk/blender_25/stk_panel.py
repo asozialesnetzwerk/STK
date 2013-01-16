@@ -882,10 +882,14 @@ class SuperTuxKartScenePanel(bpy.types.Panel, PanelBase):
 
 # ==== IMAGE PANEL ====
 def createPreviewTexture():
-    bpy.ops.texture.new()
-    bpy.data.textures[-1].name = "STKPreviewTexture"
-    bpy.data.textures["STKPreviewTexture"].type = 'IMAGE'
-    bpy.data.textures["STKPreviewTexture"].use_preview_alpha = True
+    try:
+        bpy.ops.texture.new()
+        bpy.data.textures[-1].name = "STKPreviewTexture"
+        bpy.data.textures["STKPreviewTexture"].type = 'IMAGE'
+        bpy.data.textures["STKPreviewTexture"].use_preview_alpha = True
+    except:
+        print("Exception caught in createPreviewTexture")
+        traceback.print_exc(file=sys.stdout)
 
 createPreviewTexture()
 
@@ -979,6 +983,7 @@ class SuperTuxKartImagePanel(bpy.types.Panel, PanelBase):
             self.recursivelyAddProperties(properties, layout, obj, CONTEXT_MATERIAL)
 
 
+# Extension to the 'add' menu
 class STK_AddObject(bpy.types.Operator):
     bl_idname = ("scene.stk_add_object")
     bl_label = ("STK Object :: add object")
@@ -988,6 +993,7 @@ class STK_AddObject(bpy.types.Operator):
     value = bpy.props.EnumProperty(attr="values", name="values", default='banana',
                                            items=[('banana', 'Banana', 'Banana'),
                                                   ('item', 'Item (Gift Box)', 'Item (Gift Box)'),
+                                                  ('light', 'Light', 'Light'),
                                                   ('nitro_big', 'Nitro (Big)', 'Nitro (big)'),
                                                   ('nitro_small', 'Nitro (Small)', 'Nitro (Small)'),
                                                   ('particle_emitter', 'Particle Emitter', 'Particle Emitter'),
@@ -996,26 +1002,36 @@ class STK_AddObject(bpy.types.Operator):
                                                   ])
 
     def execute(self, context):
-        bpy.ops.object.add(type='EMPTY', location=bpy.data.scenes[0].cursor_location)
-                
-        for curr in bpy.data.objects:
-            if curr.type == 'EMPTY' and curr.select:
-                # FIXME: create associated subproperties if any
-                curr['type'] = self.value
-                
-                if self.value == 'item':
-                    curr.empty_draw_type = 'CUBE'
-                elif self.value == 'nitro_big' or self.value == 'nitro_small' :
-                    curr.empty_draw_type = 'CONE'
-                elif self.value == 'sfx_emitter':
-                    curr.empty_draw_type = 'SPHERE'
-                    
-                for prop in STK_PER_OBJECT_TRACK_PROPERTIES:
-                    if prop.name == "Type":
-                        createProperties(curr, prop.values[self.value].subproperties)
-                        break
+        if self.value == 'light':
+            bpy.ops.object.add(type='LAMP', location=bpy.data.scenes[0].cursor_location)
             
-                break
+            for curr in bpy.data.objects:
+                if curr.type == 'LAMP' and curr.select:
+                    # FIXME: create associated subproperties if any
+                    curr['type'] = self.value
+                    curr.data.use_sphere = True
+                    break
+        else:    
+            bpy.ops.object.add(type='EMPTY', location=bpy.data.scenes[0].cursor_location)
+                    
+            for curr in bpy.data.objects:
+                if curr.type == 'EMPTY' and curr.select:
+                    # FIXME: create associated subproperties if any
+                    curr['type'] = self.value
+                    
+                    if self.value == 'item':
+                        curr.empty_draw_type = 'CUBE'
+                    elif self.value == 'nitro_big' or self.value == 'nitro_small' :
+                        curr.empty_draw_type = 'CONE'
+                    elif self.value == 'sfx_emitter':
+                        curr.empty_draw_type = 'SPHERE'
+                        
+                    for prop in STK_PER_OBJECT_TRACK_PROPERTIES:
+                        if prop.name == "Type":
+                            createProperties(curr, prop.values[self.value].subproperties)
+                            break
+                
+                    break
         
         return {'FINISHED'}
 
