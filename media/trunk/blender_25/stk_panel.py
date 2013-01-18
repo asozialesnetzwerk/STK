@@ -889,6 +889,8 @@ def createPreviewTexture():
         bpy.data.textures["STKPreviewTexture"].use_preview_alpha = True
     except:
         print("Exception caught in createPreviewTexture")
+        import traceback
+        import sys
         traceback.print_exc(file=sys.stdout)
 
 createPreviewTexture()
