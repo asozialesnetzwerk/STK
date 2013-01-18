@@ -36,8 +36,10 @@ Under Creative Commons Attribution Share-Alike (CC-BY-SA) - http://creativecommo
 * dirt.jpg, roof, concrete2, garagedoor, tree_cut
     by Marianne Gagnon (Auria), based on public domain photos from BurningWell
 
-* racetrack_tire, city_buildings_3, city_brick_1, canyo
-n_boards
+* canyon_water
+    by fraang
+    
+* racetrack_tire, city_buildings_3, city_brick_1, canyon_boards
 * banana, city_asphalt, city_concrete, city_checker, city_metal, city_sky*
 * track, track2, canyon_dirt_road, city_ground, city_rock, city_tree
 * racetrack_asphalt, racetrack_wall, racetrack_grass
