@@ -12,8 +12,29 @@
     <animated-texture name="mov.png" dy="0.250" />
     <animated-texture name="water-animation.png" dy="0.125" />
   </track>
-  <water model="sunFlare.b3d" xyz="0.00 -11.17 -563.01" hpr="0.0 -0.0 0.0" scale="0.91 0.91 0.91" height="1.00" speed="300.00" length="10.00">
-    <animated-texture name="sunFlar.png" dy="-0.020" />
+  <water model="sunFlare.b3d" xyz="-0.00 0.00 -563.01" hpr="0.0 -0.0 0.0" scale="0.91 0.91 0.91" height="1.00" speed="300.00" length="10.00">
+    <animated-texture name="sunFlar.png" dy="-0.100" />
+  </water>
+  <water model="sunFlare.b3d" xyz="396.00 0.00 -563.01" hpr="0.0 -0.0 0.0" scale="0.91 0.91 0.91" height="1.00" speed="300.00" length="10.00">
+    <animated-texture name="sunFlar.png" dy="-0.100" />
+  </water>
+  <water model="sunFlare3.b3d" xyz="-0.00 0.00 -563.01" hpr="2.3 -12.2 143.2" scale="0.91 0.91 0.91" height="1.00" speed="400.00" length="10.00">
+    <animated-texture name="sunFlar.png" dy="-0.100" />
+  </water>
+  <water model="sunFlare.b3d" xyz="-0.00 0.00 -563.01" hpr="25.5 2.4 100.6" scale="0.91 0.91 0.91" height="1.00" speed="300.00" length="10.00">
+    <animated-texture name="sunFlar.png" dy="-0.100" />
+  </water>
+  <water model="sunFlare.b3d" xyz="-0.00 0.00 -563.01" hpr="0.0 0.0 -164.4" scale="0.91 0.91 0.91" height="1.00" speed="300.00" length="10.00">
+    <animated-texture name="sunFlar.png" dy="-0.100" />
+  </water>
+  <water model="sunFlare.b3d" xyz="-0.00 0.00 -563.01" hpr="3.8 0.2 -93.1" scale="0.91 0.91 0.91" height="1.00" speed="300.00" length="10.00">
+    <animated-texture name="sunFlar.png" dy="-0.100" />
+  </water>
+  <water model="sunFlare3.b3d" xyz="-0.00 0.00 -563.01" hpr="2.3 -12.2 57.3" scale="0.91 0.91 0.91" height="1.00" speed="400.00" length="10.00">
+    <animated-texture name="sunFlar.png" dy="-0.100" />
+  </water>
+  <water model="sunFlare3.b3d" xyz="-0.00 0.00 -563.01" hpr="10.5 -6.8 -57.3" scale="0.91 0.91 0.91" height="1.00" speed="400.00" length="10.00">
+    <animated-texture name="sunFlar.png" dy="-0.100" />
   </water>
   <water model="sunBody2.b3d" xyz="0.00 0.00 -563.01" hpr="-0.0 -0.0 90.0" scale="1.00 1.00 1.00" height="1.50" speed="500.00" length="1.00"/>
   <water model="sunBody2.b3d" xyz="0.00 0.00 -563.01" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="1.50" speed="500.00" length="1.00"/>
