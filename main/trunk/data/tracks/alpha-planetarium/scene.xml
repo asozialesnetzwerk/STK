@@ -2,15 +2,18 @@
 <!-- Generated with script from SVN rev 11785 -->
 <scene>
   <track model="galaxy_track.b3d" x="0" y="0" z="0">
+    <static-object model="generic clouds.b3d" xyz="-223.23 -0.12 -57.49" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"> <!-- writeStaticObjects 2 -->
+    <animated-texture name="genericCloud.png" dx="0.010" />
+    </static-object>
+    <static-object model="penumbra.b3d" xyz="-222.61 -0.12 -57.49" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object model="penumbra.b3d" xyz="-223.16 0.57 -175.33" hpr="0.0 -0.0 0.0" scale="0.28 0.28 0.28"/> <!-- writeStaticObjects 3 -->
+    <static-object model="earthHalo.b3d" xyz="-223.23 -0.12 -57.49" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <animated-texture name="mov.png" dy="0.250" />
     <animated-texture name="mov.png" dy="0.250" />
-    <animated-texture name="water-animation.png" dt="0.08" dy="0.125" animByStep="true"/>
+    <animated-texture name="water-animation.png" dy="0.125" />
   </track>
-  <water model="sunBody2.b3d" xyz="0.00 0.00 -285.65" hpr="-0.0 -0.0 90.0" scale="1.00 1.00 1.00" height="1.00" speed="500.00" length="1.00"/>
-  <water model="sunBody2.b3d" xyz="0.00 0.00 -285.65" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="1.00" speed="500.00" length="1.00"/>
-  <object type="billboard" texture="sunHalo.png" xyz="0.000000 0.000000 -285.647919" 
-             width="146.163483" height="146.163483" >
-  </object>
+  <water model="sunBody2.b3d" xyz="0.00 0.00 -563.01" hpr="-0.0 -0.0 90.0" scale="1.00 1.00 1.00" height="1.50" speed="500.00" length="1.00"/>
+  <water model="sunBody2.b3d" xyz="0.00 0.00 -563.01" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="1.50" speed="500.00" length="1.00"/>
   <sky-color rgb="0 0 0"/>
   <checks>
     <check-lap kind="lap" same-group="0"  />
