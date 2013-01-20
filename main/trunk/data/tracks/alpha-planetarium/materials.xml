@@ -6,5 +6,6 @@
   <material name="pnumbra.png" compositing="blend" disable-z-write="Y"/>
   <material name="star_sun.png" fog="N" light="N"/>
   <material name="sunBody.png" fog="N" light="N" backface-culling="N" compositing="additive" disable-z-write="Y"/>
+  <material name="sunFlar.png" fog="N" light="N" backface-culling="N" compositing="additive" disable-z-write="Y"/>
   <material name="sunHalo.png" fog="N" light="N" compositing="additive"/>
 </materials>

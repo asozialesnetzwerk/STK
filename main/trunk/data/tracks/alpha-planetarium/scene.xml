@@ -12,6 +12,9 @@
     <animated-texture name="mov.png" dy="0.250" />
     <animated-texture name="water-animation.png" dy="0.125" />
   </track>
+  <water model="sunFlare.b3d" xyz="0.00 -11.17 -563.01" hpr="0.0 -0.0 0.0" scale="0.91 0.91 0.91" height="1.00" speed="300.00" length="10.00">
+    <animated-texture name="sunFlar.png" dy="-0.020" />
+  </water>
   <water model="sunBody2.b3d" xyz="0.00 0.00 -563.01" hpr="-0.0 -0.0 90.0" scale="1.00 1.00 1.00" height="1.50" speed="500.00" length="1.00"/>
   <water model="sunBody2.b3d" xyz="0.00 0.00 -563.01" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="1.50" speed="500.00" length="1.00"/>
   <sky-color rgb="0 0 0"/>
