@@ -103,6 +103,10 @@
                         doc="Which check structure to activate when crossing the lap line"/>
         </EnumChoice>
         
+        <!-- Light -->
+        <EnumChoice id="light" label="Light" doc="A dynamic light emitter">
+        </EnumChoice>
+        
         <!-- LOD -->
         <EnumChoice id="lod_instance" label="LOD Instance" doc="A LOD (level-of-detail) instance, will display either of the LOD Models in this LOD group at this location">
             <ObjRefProp id="lod_name" name="LOD Group Name" default="SomeModel"

@@ -992,7 +992,7 @@ def write_node_mesh(obj,obj_count,arm_action,exp_root):
     if arm_action:
         data = obj.data
     else:
-        data = obj.to_mesh(the_scene, True, 'PREVIEW')
+        data = obj.to_mesh(the_scene, True, 'PREVIEW') # Apply modifiers
     
     temp_buf += write_int(-1) #Brush ID
     temp_buf += write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root) #NODE MESH VRTS

@@ -64,6 +64,7 @@ from mathutils import *
 operator = None
 the_scene = None
 
+
 log = []
 
 def log_info(msg):
@@ -86,6 +87,125 @@ def getScriptVersion():
     except:
         return "Unknown"
 
+def writeIPO(f, anim_data ):
+    #dInterp = {IpoCurve.InterpTypes.BEZIER:        "bezier",
+    #           IpoCurve.InterpTypes.LINEAR:        "linear",
+    #           IpoCurve.InterpTypes.CONST:         "const"          }
+    #dExtend = {IpoCurve.ExtendTypes.CONST:         "const",
+    #           IpoCurve.ExtendTypes.EXTRAP:        "extrap",
+    #           IpoCurve.ExtendTypes.CYCLIC_EXTRAP: "cyclic_extrap",
+    #           IpoCurve.ExtendTypes.CYCLIC:        "cyclic"         }
+    
+    if anim_data and anim_data.action:
+        ipo = anim_data.action.fcurves
+    else:
+        return
+    
+    # ==== Possible values returned by blender ====
+    # fcurves[0].data_path
+    #    location, rotation_euler, scale
+    # fcurves[0].extrapolation
+    #    CONSTANT, LINEART
+    # fcurves[0].keyframe_points[0].interpolation
+    #    CONSTANT, LINEAR, BEZIER
+    
+    # Swap Y and Z axis
+    axes = ['X', 'Z', 'Y']
+    
+    for curve in ipo:
+        
+        if curve.data_path == 'location':
+            name = "Loc" + axes[curve.array_index]
+        elif curve.data_path == 'rotation_euler':
+            name = "Rot" + axes[curve.array_index]
+        elif curve.data_path == 'scale':
+            name = "Scale" + axes[curve.array_index]
+        else:
+            if "pose.bones" not in curve.data_path: # we ignore bone curves
+                log_warning("Unknown curve type " + curve.data_path)
+            continue
+        
+        extrapolation = "const"
+        
+        for modifier in curve.modifiers:
+            if modifier.type == 'CYCLES':
+                extrapolation = "cyclic"
+                break
+        
+        # If any point is bezier we'll export as Bezier
+        interpolation = "linear"
+        for bez in curve.keyframe_points:
+            if bez.interpolation=='BEZIER':
+                interpolation = "bezier"
+                break
+        
+        # Rotations are stored in randians
+        if name[:3]=="Rot":
+            factor=-57.29577951 # 180/PI
+        else:
+            factor=1
+        f.write("    <curve channel=\"%s\" interpolation=\"%s\" extend=\"%s\">\n"% \
+                (name, interpolation, extrapolation))
+                #(name, dInterp[curve.interpolation], dExtend[curve.extend]))
+        
+        warning_shown = False
+        
+        for bez in curve.keyframe_points:
+            if interpolation=="bezier":
+                if bez.interpolation=='BEZIER':
+                    f.write("      <p c=\"%.3f %.3f\" h1=\"%.3f %.3f\" h2=\"%.3f %.3f\"/>\n"%\
+                            (bez.co[0],factor*bez.co[1],
+                                bez.handle_left[0], factor*bez.handle_left[1],
+                                bez.handle_right[0], factor*bez.handle_right[1]))
+                else:
+                    # point with linear IPO in bezier curve
+                    f.write("      <p c=\"%.3f %.3f\" h1=\"%.3f %.3f\" h2=\"%.3f %.3f\"/>\n"%\
+                            (bez.co[0], factor*bez.co[1],
+                                bez.co[0] - 1, factor*bez.co[1],
+                                bez.co[0] + 1, factor*bez.co[1]))
+                    
+                    if not warning_shown:
+                        log_warning("You have an animation curve which contains a mix of mixture of Bezier and " +
+                                    "linear interpolation, please convert everything to Bezier for best results")
+                        warning_shown = True
+            else:
+                f.write("      <p c=\"%.3f %.3f\"/>\n"%(bez.co[0],
+                                                        factor*bez.co[1]))
+        f.write("    </curve>\n")
+            
+            
+# ------------------------------------------------------------------------------
+# Checks if there are any animated textures in any of the objects in the
+# list l.
+def checkForAnimatedTextures(lObjects):
+    lAnimTextures = []
+    for obj in lObjects:
+        use_anim_texture = getProperty(obj, "enable_anim_texture", "false")
+        if use_anim_texture != 'true': continue
+        
+        anim_texture = getProperty(obj, "anim_texture", None)
+        
+        if anim_texture is None or len(anim_texture) == 0:
+            log_warning("object %s has an invalid animated-texture configuration" % obj.name)
+            continue
+        
+        dx = getProperty(obj, "anim_dx", 0)
+        dy = getProperty(obj, "anim_dy", 0)
+        lAnimTextures.append( (anim_texture, dx, dy) )
+    return lAnimTextures
+
+# ------------------------------------------------------------------------------
+def writeAnimatedTextures(f, lAnimTextures):
+    for (name, dx, dy) in lAnimTextures:
+        sdx=""
+        if dx: sdx = " dx=\"%.3f\" "%float(dx)
+        sdy=""
+        if dy: sdy = " dy=\"%.3f\" "%float(dy)
+        
+        if name is None or len(name) == 0:
+            continue
+        f.write("    <animated-texture name=\"%s\"%s%s/>\n"%(name, sdx, sdy) )
+            
 # ------------------------------------------------------------------------------
 def Round(f):
     r = round(f,6) # precision set to 10e-06
@@ -123,6 +243,7 @@ def getProperty(obj, name, default=""):
         return default
 
 # ------------------------------------------------------------------------------
+# FIXME: should use xyz="..." format
 # Returns a string 'x="1" y="2" z="3" h="4"', where 1, 2, ...are the actual
 # location and rotation of the given object. The location has a swapped
 # y and z axis (so that the same coordinate system as in-game is used).
@@ -130,7 +251,7 @@ def getXYZHString(obj):
     loc     = obj.location
     hpr     = obj.rotation_euler
     rad2deg = 180.0/3.1415926535;
-    s="x=\"%.2f\" y=\"%.2f\" z=\"%.2f\" h=\"%f\"" %\
+    s="x=\"%.2f\" y=\"%.2f\" z=\"%.2f\" h=\"%.2f\"" %\
        (loc[0], loc[2], loc[1], hpr[2]*rad2deg)
     return s
 
@@ -151,6 +272,13 @@ def getXYZHPRString(obj):
         -hpr[1]*rad2deg, si[0], si[2], si[1])
     return s
 
+    
+# ------------------------------------------------------------------------------
+def getXYZString(obj):
+    loc = obj.location
+    s = "xyz=\"%.2f %.2f %.2f\"" % (loc[0], loc[2], loc[1])
+    return s
+    
 # --------------------------------------------------------------------------
 # Write several ways of writing true/false as Y/N
 def convertTextToYN(sText):
@@ -160,6 +288,328 @@ def convertTextToYN(sText):
     else:
         return "Y"
 
+# ------------------------------------------------------------------------------
+class WaterExporter:
+    
+    def __init__(self, parentTrackExporter, sPath):
+        self.m_parent_track_exporter = parentTrackExporter;
+        self.m_export_path = sPath
+        self.m_objects = []
+    
+    def processObject(self, object, stktype):
+        if stktype=="WATER":
+            self.m_objects.append(object)
+            return True
+        else:
+            return False
+    
+    def export(self, f):
+        for obj in self.m_objects:
+            name     = getProperty(obj, "name",   obj.name )
+            if len(name) == 0:
+                name = obj.name
+            height   = getProperty(obj, "height", None     )
+            speed    = getProperty(obj, "speed",  None     )
+            length   = getProperty(obj, "length", None     )
+            lAnim    = checkForAnimatedTextures([obj])
+            b3d_name = self.m_parent_track_exporter.exportLocalB3D(obj, self.m_export_path, name)
+            s = "  <water model=\"%s\" %s" % (b3d_name, getXYZHPRString(obj))
+            if height: s = "%s height=\"%.2f\""%(s, float(height))
+            if speed:  s = "%s speed=\"%.2f\"" %(s, float(speed))
+            if length: s = "%s length=\"%.2f\""%(s, float(length))
+            if lAnim:
+                f.write("%s>\n" % s)
+                writeAnimatedTextures(f, lAnim)
+                f.write("  </water>\n")
+            else:
+                f.write("%s/>\n" % s);
+
+           
+# ------------------------------------------------------------------------------
+class ItemsExporter:
+    
+    def __init__(self):
+        self.m_objects = []
+    
+    def processObject(self, object, stktype):
+        
+        if object.type=="EMPTY":
+            # For backward compatibility test for the blender name
+            # in case that there is no type property defined. This makes
+            # it easier to port old style tracks without having to
+            # add the property for all items.
+            stktype = getProperty(object, "type", object.name).upper()
+            # Check for old and new style names
+            if stktype[:8] in ["GHERRING", "RHERRING", "YHERRING", "SHERRING"] \
+                or stktype[: 6]== "BANANA"     or stktype[:4]=="ITEM"           \
+                or stktype[:11]=="NITRO-SMALL" or stktype[:9]=="NITRO-BIG"      \
+                or stktype[:11]=="NITRO_SMALL" or stktype[:9]=="NITRO_BIG"      \
+                or stktype[:11]=="SMALL-NITRO" or stktype[:9]=="BIG-NITRO"      \
+                or stktype[: 6]=="ZIPPER":
+                self.m_objects.append(object)
+                return True
+        return False
+    
+    
+    def export(self, f):
+        rad2deg = 180.0/3.1415926535
+        
+        for obj in self.m_objects:
+            name = getProperty(obj, "type", "").lower()
+            if name=="":
+                # If the type is not specified in the property,
+                # assume it's an old style item, which means the
+                # blender object name is to be used
+                l = obj.name.split(".")
+                if len(l)!=1:
+                    if l[-1].isdigit():   # Remove number appended by blender
+                        l = l[:-1]
+                    name = ".".join(l)
+                else:
+                    name = obj.name
+                # Portability for old models:
+                g=re.match("(.*) *{(.*)}", name)
+                if g:
+                    name  = g.group(1)
+                    specs = g.group(2).lower()
+                    if specs.find("z")>=0: z=None
+                    if specs.find("p")>=0: p=None
+                    if specs.find("r")>=0: r=None
+                if name=="GHERRING": name="banana"
+                if name=="RHERRING": name="item"
+                if name=="YHERRING": name="big-nitro"
+                if name=="SHERRING": name="small-nitro"
+            else:
+                if name=="nitro-big": name="big-nitro"
+                if name=="nitro_big": name="big-nitro"
+                if name=="nitro-small": name="small-nitro"
+                if name=="nitro_small": name="small-nitro"
+
+            # Get the position of the item - first check if the item should
+            # be dropped on the track, or stay at the position indicated.
+            rx,ry,rz = map(lambda x: rad2deg*x, obj.rotation_euler)
+            h,p,r    = map(lambda i: "%.2f"%i, [rz,rx,ry])
+            x,y,z    = map(lambda i: "%.2f"%i, obj.location)
+            drop     = getProperty(obj, "drop", "y").lower()
+            # Swap y and z axis to have the same coordinate system used in game.
+            s        = "%s x=\"%s\" y=\"%s\" z=\"%s\"" % (name, x, z, y)
+            if h and h!="0.00": s = "%s h=\"%s\""%(s, h)
+            if drop=="n":
+                # Pitch and roll will be set automatically if dropped
+                if p and p!="0.00": s="%s p=\"%s\""%(s, p)
+                if r and r!="0.00": s="%s r=\"%s\""%(s, r)
+                s="%s drop=\"n\""%s
+
+            f.write("  <%s />\n"%s)
+
+
+# ------------------------------------------------------------------------------
+class ParticleEmitterExporter:
+    
+    def __init__(self):
+        self.m_objects = []
+    
+    def processObject(self, object, stktype):
+        
+        if object.type=="EMPTY" and stktype=="PARTICLE_EMITTER":
+            self.m_objects.append(object)
+            return True
+        else:
+            return False
+            
+    def export(self, f):
+        for obj in self.m_objects:
+            try:
+                # origin
+                originXYZ = getXYZHString(obj)
+                
+                condition_str = ""
+                if len(getProperty(obj, "particle_condition", "")) > 0:
+                    condition_str = ' conditions="' + getProperty(obj, "particle_condition", "") + '"'
+                
+                if getProperty(obj, "clip_distance", 0) > 0 :
+                    f.write('  <particle-emitter kind="%s" %s clip_distance="%i"%s>\n' %\
+                            (getProperty(obj, "kind", 0), originXYZ, getProperty(obj, "clip_distance", 0), condition_str))
+                else:
+                    f.write('  <particle-emitter kind="%s" %s%s>\n' %\
+                        (getProperty(obj, "kind", 0), originXYZ, condition_str))
+                
+                if obj.animation_data and obj.animation_data.action and obj.animation_data.action.fcurves and len(obj.animation_data.action.fcurves) > 0:
+                    writeIPO(f, obj.animation_data)
+                
+                f.write('  </particle-emitter>\n')
+            except:
+                log_error("Invalid particle emitter <" + getProperty(obj, "name", obj.name) + "> ")
+    
+    
+# ------------------------------------------------------------------------------
+class SoundEmitterExporter:
+    
+    def __init__(self):
+        self.m_objects = []
+    
+    def processObject(self, object, stktype):
+        
+        if object.type=="EMPTY" and stktype=="SFX_EMITTER":
+            self.m_objects.append(object)
+            return True
+        else:
+            return False
+            
+    def export(self, f):
+        for obj in self.m_objects:
+            try:
+                # origin
+                originXYZ = getXYZHPRString(obj)
+                
+                play_near_string = ""
+                if getProperty(obj, "play_when_near", "false") == "true":
+                    dist = getProperty(obj, "play_distance", 1.0)
+                    play_near_string = " play-when-near=\"true\" distance=\"%.1f\"" % dist
+                
+                conditions_string = ""
+                if len(getProperty(obj, "sfx_conditions", "")) > 0:
+                    conditions_string = ' conditions="' + getProperty(obj, "sfx_conditions", "") + '"'
+                
+                
+                f.write('  <object type="sfx-emitter" sound="%s" rolloff="%.3f" volume="%s" max_dist="%.1f" %s%s%s>\n' %\
+                        (getProperty(obj, "sfx_filename", "some_sound.ogg"),
+                         getProperty(obj, "sfx_rolloff", 0.05),
+                         getProperty(obj, "sfx_volume", 0),
+                         getProperty(obj, "sfx_max_dist", 500.0), originXYZ, play_near_string, conditions_string))
+                
+                if obj.animation_data and obj.animation_data.action and obj.animation_data.action.fcurves and len(obj.animation_data.action.fcurves) > 0:
+                    writeIPO(f, obj.animation_data)
+                
+                f.write('  </object>\n')
+            except:
+                log_error("Invalid sound emitter <" + getProperty(obj, "name", obj.name) + "> ")
+                
+        
+# ------------------------------------------------------------------------------
+class ActionTriggerExporter:
+    
+    def __init__(self):
+        self.m_objects = []
+    
+    def processObject(self, object, stktype):
+        
+        if object.type=="EMPTY" and stktype=="ACTION_TRIGGER":
+            self.m_objects.append(object)
+            return True
+        else:
+            return False
+            
+    def export(self, f):
+        for obj in self.m_objects:
+            try:
+                # origin
+                originXYZ = getXYZHPRString(obj)
+                
+                f.write('  <object type="action-trigger" action="%s" distance="%s" %s/>\n' %\
+                        (getProperty(obj, "action", ""),
+                         getProperty(obj, "trigger_distance", 5.0),
+                         originXYZ))
+            except:
+                log_error("Invalid action <" + getProperty(obj, "name", obj.name) + "> ")
+
+        
+# ------------------------------------------------------------------------------
+class BillboardExporter:
+    
+    def __init__(self):
+        self.m_objects = []
+    
+    def processObject(self, object, stktype):
+        
+        if stktype=="BILLBOARD":
+            self.m_objects.append(object)
+            return True
+        else:
+            return False
+            
+    def export(self, f):
+        for obj in self.m_objects:
+            data = obj.data
+            
+            # check the face
+            if len(track_getFaces(data)) > 1:
+                log_error("Billboard <" + getProperty(obj, "name", obj.name) \
+                    + "> has more than ONE face")
+                return
+            
+            # check the points
+            if len(track_getFaces(data)[0].vertices) > 4:
+                log_error("Billboard <" + getProperty(obj, "name", obj.name)\
+                        + "> has more than 4 points")
+                return
+            
+            if len(track_getUVTextures(data)) < 1 or len(track_getUVTextures(data)[0].data) < 1:
+                log_error("Billboard <" + getProperty(obj, "name", obj.name)\
+                        + "> has no UV texture")
+                return
+            
+            
+            try:
+                # write in the XML
+                # calcul the size and the position
+                x_min = data.vertices[0].co[0]
+                x_max = x_min
+                y_min = data.vertices[0].co[2]
+                y_max = y_min
+                z_min = data.vertices[0].co[1]
+                z_max = z_min
+                for i in range(1, 4):
+                    x_min = min(x_min, data.vertices[i].co[0])
+                    x_max = max(x_max, data.vertices[i].co[0])
+                    y_min = min(y_min, data.vertices[i].co[2])
+                    y_max = max(y_max, data.vertices[i].co[2])
+                    z_min = min(z_min, data.vertices[i].co[1])
+                    z_max = max(z_max, data.vertices[i].co[1])
+                
+                fadeout_str = ""
+                fadeout = getProperty(obj, "fadeout", "false")
+                if fadeout == "true":
+                    start = float(getProperty(obj, "start", 1.0))
+                    end = float(getProperty(obj, "end", 15.0))
+                    fadeout_str = "fadeout=\"true\" start=\"%.2f\" end=\"%.2f\""%(start,end)
+                
+                uv = track_getUVTextures(data)
+                f.write('  <object type="billboard" texture="%s" xyz="%.2f %.2f %.2f" \n'%
+                        (os.path.basename(uv[0].data[0].image.filepath),
+                        obj.location[0], obj.location[2], obj.location[1]) )
+                f.write('             width="%.3f" height="%.3f" %s>\n' %(max(x_max-x_min, z_max-z_min), y_max-y_min, fadeout_str) )
+                if obj.animation_data and obj.animation_data.action and obj.animation_data.action.fcurves and len(obj.animation_data.action.fcurves) > 0:
+                    writeIPO(f, obj.animation_data)
+                f.write('  </object>\n')
+
+            except ValueError:
+                log_error("Invalid value for billboard <" + getProperty(obj, "name", obj.name) + "> ")
+                
+
+# ------------------------------------------------------------------------------
+class LightsExporter:
+    
+    def __init__(self):
+        self.m_objects = []
+    
+    def processObject(self, object, stktype):
+        
+        if object.type=="LAMP" and stktype == "LIGHT":
+            self.m_objects.append(object)
+            return True
+        else:
+            return False
+            
+    def export(self, f):
+        for obj in self.m_objects:
+            colR = int(obj.data.color[0] * 255)
+            colG = int(obj.data.color[1] * 255)
+            colB = int(obj.data.color[2] * 255)
+            f.write('  <light %s distance="%.2f" color="%i %i %i"/>\n' \
+                    % (getXYZString(obj), obj.data.distance, colR, colG, colB))
+
+    
 # ==============================================================================
 # A special class to store a drivelines.
 class Driveline:
@@ -1076,93 +1526,6 @@ class TrackExport:
         #print bsys.time()-start_time,"seconds. "
           
     # --------------------------------------------------------------------------
-    def writeIPO(self, f, anim_data ):
-        #dInterp = {IpoCurve.InterpTypes.BEZIER:        "bezier",
-        #           IpoCurve.InterpTypes.LINEAR:        "linear",
-        #           IpoCurve.InterpTypes.CONST:         "const"          }
-        #dExtend = {IpoCurve.ExtendTypes.CONST:         "const",
-        #           IpoCurve.ExtendTypes.EXTRAP:        "extrap",
-        #           IpoCurve.ExtendTypes.CYCLIC_EXTRAP: "cyclic_extrap",
-        #           IpoCurve.ExtendTypes.CYCLIC:        "cyclic"         }
-        
-        if anim_data and anim_data.action:
-            ipo = anim_data.action.fcurves
-        else:
-            return
-        
-        # ==== Possible values returned by blender ====
-        # fcurves[0].data_path
-        #    location, rotation_euler, scale
-        # fcurves[0].extrapolation
-        #    CONSTANT, LINEART
-        # fcurves[0].keyframe_points[0].interpolation
-        #    CONSTANT, LINEAR, BEZIER
-        
-        # Swap Y and Z axis
-        axes = ['X', 'Z', 'Y']
-        
-        for curve in ipo:
-          
-            if curve.data_path == 'location':
-                name = "Loc" + axes[curve.array_index]
-            elif curve.data_path == 'rotation_euler':
-                name = "Rot" + axes[curve.array_index]
-            elif curve.data_path == 'scale':
-                name = "Scale" + axes[curve.array_index]
-            else:
-                if "pose.bones" not in curve.data_path: # we ignore bone curves
-                    log_warning("Unknown curve type " + curve.data_path)
-                continue
-            
-            extrapolation = "const"
-            
-            for modifier in curve.modifiers:
-                if modifier.type == 'CYCLES':
-                    extrapolation = "cyclic"
-                    break
-            
-            # If any point is bezier we'll export as Bezier
-            interpolation = "linear"
-            for bez in curve.keyframe_points:
-                if bez.interpolation=='BEZIER':
-                    interpolation = "bezier"
-                    break
-            
-            # Rotations are stored in randians
-            if name[:3]=="Rot":
-                factor=-57.29577951 # 180/PI
-            else:
-                factor=1
-            f.write("    <curve channel=\"%s\" interpolation=\"%s\" extend=\"%s\">\n"% \
-                    (name, interpolation, extrapolation))
-                    #(name, dInterp[curve.interpolation], dExtend[curve.extend]))
-            
-            warning_shown = False
-            
-            for bez in curve.keyframe_points:
-                if interpolation=="bezier":
-                    if bez.interpolation=='BEZIER':
-                        f.write("      <p c=\"%.3f %.3f\" h1=\"%.3f %.3f\" h2=\"%.3f %.3f\"/>\n"%\
-                                (bez.co[0],factor*bez.co[1],
-                                 bez.handle_left[0], factor*bez.handle_left[1],
-                                 bez.handle_right[0], factor*bez.handle_right[1]))
-                    else:
-                        # point with linear IPO in bezier curve
-                        f.write("      <p c=\"%.3f %.3f\" h1=\"%.3f %.3f\" h2=\"%.3f %.3f\"/>\n"%\
-                                (bez.co[0], factor*bez.co[1],
-                                 bez.co[0] - 1, factor*bez.co[1],
-                                 bez.co[0] + 1, factor*bez.co[1]))
-                        
-                        if not warning_shown:
-                            log_warning("You have an animation curve which contains a mix of mixture of Bezier and " +
-                                        "linear interpolation, please convert everything to Bezier for best results")
-                            warning_shown = True
-                else:
-                    f.write("      <p c=\"%.3f %.3f\"/>\n"%(bez.co[0],
-                                                            factor*bez.co[1]))
-            f.write("    </curve>\n")
-    
-    # --------------------------------------------------------------------------
     # Writes the animation for objects using IPOs:
     def writeAnimationWithIPO(self, f, name, obj, ipo, objectType="animation"):
         # An animated object can set the 'name' property, then this name will
@@ -1213,7 +1576,7 @@ class TrackExport:
             f.write("  <object type=\"%s\" %s%s %s%s%s%s%s%s>\n"% \
                     (objectType, model_string, getXYZHPRString(obj), shape_str, looped,
                      lodstring, reset_string, tangent_string, interaction_string))
-        self.writeIPO(f, ipo)
+        writeIPO(f, ipo)
         f.write("  </object>\n")
             
         
@@ -1223,19 +1586,7 @@ class TrackExport:
         #print "b3d export", obj.name
         print("'%s' is using path '%s'"%(obj.name,
                                obj.constraints[0][Constraint.Settings.TARGET].name))
-    
-    # --------------------------------------------------------------------------
-    def writeAnimatedTextures(self, f, lAnimTextures):
-        for (name, dx, dy) in lAnimTextures:
-            sdx=""
-            if dx: sdx = " dx=\"%.3f\" "%float(dx)
-            sdy=""
-            if dy: sdy = " dy=\"%.3f\" "%float(dy)
-            
-            if name is None or len(name) == 0:
-                continue
-            f.write("    <animated-texture name=\"%s\"%s%s/>\n"%(name, sdx, sdy) )
-        
+      
     # --------------------------------------------------------------------------
     # Write the objects that are part of the track (but not animated or
     # physical).
@@ -1249,7 +1600,7 @@ class TrackExport:
             # which might be a default name with a number). Additionally, names
             # are cached so it can be avoided to export two or more identical
             # objects.
-            lAnim    = self.checkForAnimatedTextures([obj])
+            lAnim    = checkForAnimatedTextures([obj])
             name     = getProperty(obj, "name", obj.name)
             if len(name) == 0: name = obj.name
             
@@ -1304,13 +1655,13 @@ class TrackExport:
                 f.write("    <static-object%s%s %s%s%s%s%s> <!-- writeStaticObjects 2 -->\n"% \
                         (lodstring, model_string, getXYZHPRString(obj), reset_string,
                          condition_if_str, condition_ifnot_str, tangent_string) )
-                self.writeAnimatedTextures(f, lAnim)
+                writeAnimatedTextures(f, lAnim)
                 f.write("    </static-object>\n")
             else:
                 f.write("    <static-object%s%s %s%s%s%s%s%s/> <!-- writeStaticObjects 3 -->\n"% \
                         (lodstring, model_string, getXYZHPRString(obj), reset_string,
                          condition_if_str, condition_ifnot_str, challenge_str, tangent_string) )
-        self.writeAnimatedTextures(f, lAnimTextures)
+        writeAnimatedTextures(f, lAnimTextures)
 
     # --------------------------------------------------------------------------
     # Get LOD string for a given object (returns an empty string if object is not LOD)
@@ -1334,137 +1685,7 @@ class TrackExport:
             lodstring = ' lod_instance="true" lod_group="_single_lod_' + getProperty(obj, "name", obj.name) + '"'
         return lodstring
 
-    # --------------------------------------------------------------------------
-    # billboard section (check if the billboard is correct and write in the file)
-    def writeBillboard(self,f, obj):
-        data = obj.data
-        
-        # check the face
-        if len(track_getFaces(data)) > 1:
-            log_error("Billboard <" + getProperty(obj, "name", obj.name) \
-                  + "> has more than ONE face")
-            return
-        
-        # check the points
-        if len(track_getFaces(data)[0].vertices) > 4:
-            log_error("Billboard <" + getProperty(obj, "name", obj.name)\
-                       + "> has more than 4 points")
-            return
-        
-        if len(track_getUVTextures(data)) < 1 or len(track_getUVTextures(data)[0].data) < 1:
-            log_error("Billboard <" + getProperty(obj, "name", obj.name)\
-                       + "> has no UV texture")
-            return
-        
-        
-        try:
-            # write in the XML
-            # calcul the size and the position
-            x_min = data.vertices[0].co[0]
-            x_max = x_min
-            y_min = data.vertices[0].co[2]
-            y_max = y_min
-            z_min = data.vertices[0].co[1]
-            z_max = z_min
-            for i in range(1, 4):
-                x_min = min(x_min, data.vertices[i].co[0])
-                x_max = max(x_max, data.vertices[i].co[0])
-                y_min = min(y_min, data.vertices[i].co[2])
-                y_max = max(y_max, data.vertices[i].co[2])
-                z_min = min(z_min, data.vertices[i].co[1])
-                z_max = max(z_max, data.vertices[i].co[1])
-            
-            fadeout_str = ""
-            fadeout = getProperty(obj, "fadeout", "false")
-            if fadeout == "true":
-                start = float(getProperty(obj, "start", 1.0))
-                end = float(getProperty(obj, "end", 15.0))
-                fadeout_str = "fadeout=\"true\" start=\"" + str(start) + "\" end=\"" + str(end) + "\""
-            
-            uv = track_getUVTextures(data)
-            f.write('  <object type="billboard" texture="%s" xyz="%f %f %f" \n'%
-                    (os.path.basename(uv[0].data[0].image.filepath),
-                     obj.location[0], obj.location[2], obj.location[1]) )
-            f.write('             width="%f" height="%f" %s>\n' %(max(x_max-x_min, z_max-z_min), y_max-y_min, fadeout_str) )
-            if obj.animation_data and obj.animation_data.action and obj.animation_data.action.fcurves and len(obj.animation_data.action.fcurves) > 0:
-                self.writeIPO(f, obj.animation_data)
-            f.write('  </object>\n')
-
-        except ValueError:
-            log_error("Invalid value for billboard <" + getProperty(obj, "name", obj.name) + "> ")
-
-    # --------------------------------------------------------------------------
-    # Particle emitter 
-    def writeParticleEmitters(self,f, lParticleEmitters):
-        for obj in lParticleEmitters:
-            try:
-                # origin
-                originXYZ = getXYZHString(obj)
-                
-                condition_str = ""
-                if len(getProperty(obj, "particle_condition", "")) > 0:
-                    condition_str = ' conditions="' + getProperty(obj, "particle_condition", "") + '"'
-                
-                if getProperty(obj, "clip_distance", 0) > 0 :
-                    f.write('  <particle-emitter kind="%s" %s clip_distance="%i"%s>\n' %\
-                            (getProperty(obj, "kind", 0), originXYZ, getProperty(obj, "clip_distance", 0), condition_str))
-                else:
-                    f.write('  <particle-emitter kind="%s" %s%s>\n' %\
-                        (getProperty(obj, "kind", 0), originXYZ, condition_str))
-                
-                if obj.animation_data and obj.animation_data.action and obj.animation_data.action.fcurves and len(obj.animation_data.action.fcurves) > 0:
-                    self.writeIPO(f, obj.animation_data)
-                
-                f.write('  </particle-emitter>\n')
-            except:
-                log_error("Invalid particle emitter <" + getProperty(obj, "name", obj.name) + "> ")
-
-    # --------------------------------------------------------------------------
-    # Sound emitter 
-    def writeSoundEmitters(self,f, lSoundEmitters):
-        for obj in lSoundEmitters:
-            try:
-                # origin
-                originXYZ = getXYZHPRString(obj)
-                
-                play_near_string = ""
-                if getProperty(obj, "play_when_near", "false") == "true":
-                    dist = getProperty(obj, "play_distance", 1.0)
-                    play_near_string = " play-when-near=\"true\" distance=\"%.1f\"" % dist
-                
-                conditions_string = ""
-                if len(getProperty(obj, "sfx_conditions", "")) > 0:
-                    conditions_string = ' conditions="' + getProperty(obj, "sfx_conditions", "") + '"'
-                
-                
-                f.write('  <object type="sfx-emitter" sound="%s" rolloff="%.3f" volume="%s" max_dist="%.1f" %s%s%s>\n' %\
-                        (getProperty(obj, "sfx_filename", "some_sound.ogg"),
-                         getProperty(obj, "sfx_rolloff", 0.05),
-                         getProperty(obj, "sfx_volume", 0),
-                         getProperty(obj, "sfx_max_dist", 500.0), originXYZ, play_near_string, conditions_string))
-                
-                if obj.animation_data and obj.animation_data.action and obj.animation_data.action.fcurves and len(obj.animation_data.action.fcurves) > 0:
-                    self.writeIPO(f, obj.animation_data)
-                
-                f.write('  </object>\n')
-            except:
-                log_error("Invalid sound emitter <" + getProperty(obj, "name", obj.name) + "> ")
-        
-    # --------------------------------------------------------------------------
-    # Action Triggers
-    def writeActionTriggers(self, f, lActionEmitters):
-        for obj in lActionEmitters:
-            try:
-                # origin
-                originXYZ = getXYZHPRString(obj)
-                
-                f.write('  <object type="action-trigger" action="%s" distance="%s" %s/>\n' %\
-                        (getProperty(obj, "action", ""),
-                         getProperty(obj, "trigger_distance", 5.0),
-                         originXYZ))
-            except:
-                log_error("Invalid action <" + getProperty(obj, "name", obj.name) + "> ")
-
+    
     # --------------------------------------------------------------------------
     # Writes out all checklines.
     # \param lChecks All check meshes
@@ -1729,27 +1950,7 @@ class TrackExport:
                 from traceback import format_tb
                 print(format_tb(exc.__traceback__)[0])
         f.write("  </checks>\n")
-            
-    # --------------------------------------------------------------------------
-    # Checks if there are any animated textures in any of the objects in the
-    # list l.
-    def checkForAnimatedTextures(self, lObjects):
-        lAnimTextures = []
-        for obj in lObjects:
-            use_anim_texture = getProperty(obj, "enable_anim_texture", "false")
-            if use_anim_texture != 'true': continue
-            
-            anim_texture = getProperty(obj, "anim_texture", None)
-            
-            if anim_texture is None or len(anim_texture) == 0:
-                log_warning("object %s has an invalid animated-texture configuration" % obj.name)
-                continue
-            
-            dx = getProperty(obj, "anim_dx", 0)
-            dy = getProperty(obj, "anim_dy", 0)
-            lAnimTextures.append( (anim_texture, dx, dy) )
-        return lAnimTextures
-    
+   
     # --------------------------------------------------------------------------
     # Writes a non-static track object. The objects can be animated or
     # non-animated meshes, and physical or non-physical.
@@ -1757,7 +1958,7 @@ class TrackExport:
     def writeObject(self, f, sPath, obj):
         name     = getProperty(obj, "name", obj.name)
         if len(name) == 0: name = obj.name
-        
+            
         type = getProperty(obj, "type", "X")
         
         if obj.type != "CAMERA":
@@ -1879,7 +2080,7 @@ class TrackExport:
             height   = getProperty(obj, "height", None     )
             speed    = getProperty(obj, "speed",  None     )
             length   = getProperty(obj, "length", None     )
-            lAnim    = self.checkForAnimatedTextures([obj])
+            lAnim    = checkForAnimatedTextures([obj])
             b3d_name = self.exportLocalB3D(obj, sPath, name)
             s="  <water model=\"%s\" %s" % \
                 (b3d_name, getXYZHPRString(obj))
@@ -1888,7 +2089,7 @@ class TrackExport:
             if length: s="%s length=\"%.2f\""%(s, float(length))
             if lAnim:
                 f.write("%s>\n" % s)
-                self.writeAnimatedTextures(f, lAnim)
+                writeAnimatedTextures(f, lAnim)
                 f.write("  </water>\n")
             else:
                 f.write("%s/>\n" % s);
@@ -1897,9 +2098,8 @@ class TrackExport:
         
     # --------------------------------------------------------------------------
     # Writes the scene files, which includes all models, animations, and items
-    def writeSceneFile(self, sPath, sTrackName, lWater, lTrack, lItems, lObjects, lBillboards,
-                       lParticleEmitters, lSoundEmitters, lActionTriggers, lChecks, lSun, mainDriveline,
-                       lStart, lEndCameras, lCameraCurves):
+    def writeSceneFile(self, sPath, sTrackName, exporters, lTrack, lObjects, lChecks,
+                       lSun, mainDriveline, lStart, lEndCameras, lCameraCurves):
 
         #start_time = bsys.time()
         print("Writing scene file --> \t")
@@ -1936,27 +2136,17 @@ class TrackExport:
             else:
                 lOtherObjects.append(obj)
                 
-        lAnimTextures  = self.checkForAnimatedTextures(lTrack)
+        lAnimTextures  = checkForAnimatedTextures(lTrack)
         if lStaticObjects or lAnimTextures:
             f.write("  <track model=\"%s\" x=\"0\" y=\"0\" z=\"0\">\n"%sTrackName)
             self.writeStaticObjects(f, sPath, lStaticObjects, lAnimTextures)
             f.write("  </track>\n")
         else:
             f.write("  <track model=\"%s\" x=\"0\" y=\"0\" z=\"0\"/>\n"%sTrackName)
-        self.writeWaterNodes(f, sPath, lWater)
         
-        if lParticleEmitters:
-            self.writeParticleEmitters(f, lParticleEmitters)
-        if lSoundEmitters:
-            self.writeSoundEmitters(f, lSoundEmitters)
-        if lActionTriggers:
-            self.writeActionTriggers(f, lActionTriggers)
-            
         for obj in lOtherObjects:
             self.writeObject(f, sPath, obj)
-        for obj in lBillboards:
-            self.writeBillboard(f, obj)
-        
+
         # Subtitles
         subtitles = []
         end_time = bpy.data.scenes[0].frame_end
@@ -1989,10 +2179,10 @@ class TrackExport:
             if s: sSky="%s fog-color=\"%s\""%(sSky, s)
             s=getIdProperty(scene, "fog_density", 0)
             if s: sSky="%s fog-density=\"%s\""%(sSky, s)
-            s=getIdProperty(scene, "fog_start", 0)
-            if s: sSky="%s fog-start=\"%s\""%(sSky, s)
-            s=getIdProperty(scene, "fog_end", 0)
-            if s: sSky="%s fog-end=\"%s\""%(sSky, s)
+            s=float(getIdProperty(scene, "fog_start", 0))
+            if s: sSky="%s fog-start=\"%.2f\""%(sSky, s)
+            s=float(getIdProperty(scene, "fog_end", 0))
+            if s: sSky="%s fog-end=\"%.2f\""%(sSky, s)
 
         # If there is a sun:
         if len(lSun) > 0:
@@ -2025,53 +2215,7 @@ class TrackExport:
                 f.write("  <weather particles=\"%s\" />\n"%weather)
         
         rad2deg = 180.0/3.1415926
-        for obj in lItems:
-            name     = getProperty(obj, "type", "").lower()
-            if name=="":
-                # If the type is not specified in the property,
-                # assume it's an old style item, which means the
-                # blender object name is to be used
-                l = obj.name.split(".")
-                if len(l)!=1:
-                    if l[-1].isdigit():   # Remove number appended by blender
-                        l = l[:-1]
-                    name = ".".join(l)
-                else:
-                    name = obj.name
-                # Portability for old models:
-                g=re.match("(.*) *{(.*)}", name)
-                if g:
-                    name  = g.group(1)
-                    specs = g.group(2).lower()
-                    if specs.find("z")>=0: z=None
-                    if specs.find("p")>=0: p=None
-                    if specs.find("r")>=0: r=None
-                if name=="GHERRING": name="banana"
-                if name=="RHERRING": name="item"
-                if name=="YHERRING": name="big-nitro"
-                if name=="SHERRING": name="small-nitro"
-            else:
-                if name=="nitro-big": name="big-nitro"
-                if name=="nitro_big": name="big-nitro"
-                if name=="nitro-small": name="small-nitro"
-                if name=="nitro_small": name="small-nitro"
 
-            # Get the position of the item - first check if the item should
-            # be dropped on the track, or stay at the position indicated.
-            rx,ry,rz = map(lambda x: rad2deg*x, obj.rotation_euler)
-            h,p,r    = map(str, map(Round, [rz,rx,ry])  )
-            x,y,z    = map(str, map(Round, obj.location )  )
-            drop     = getProperty(obj, "drop", "y").lower()
-            # Swap y and z axis to have the same coordinate system used in game.
-            s        = "%s x=\"%s\" y=\"%s\" z=\"%s\"" % (name, x, z, y)
-            if h and h!="0": s = "%s h=\"%s\""%(s, h)
-            if drop=="n":
-                # Pitch and roll will be set automatically if dropped
-                if p and p!="0": s="%s p=\"%s\""%(s, p)
-                if r and r!="0": s="%s r=\"%s\""%(s, r)
-                s="%s drop=\"n\""%s
-
-            f.write("  <%s />\n"%s)
 
         if mainDriveline is None:
             log_error("No main driveline found")
@@ -2135,8 +2279,12 @@ class TrackExport:
                         (type, xyz, start, i.name) )
             f.write("  </end-cameras>\n")
 
+        for exporter in exporters:
+            exporter.export(f)
+            
         # Write camera curves (unused atm)
         self.writeCurves(f, lCameraCurves)
+        
         f.write("</scene>\n")
         f.close()
         #print bsys.time()-start_time,"seconds"
@@ -2144,21 +2292,21 @@ class TrackExport:
     def __init__(self, sFilename):
         self.dExportedObjects = {}
         
+        sBase = os.path.basename(sFilename)
+        sPath = os.path.dirname(sFilename)
+        
+        
+        exporters = [WaterExporter(self, sPath), ParticleEmitterExporter(), SoundEmitterExporter(), ActionTriggerExporter(), ItemsExporter(), BillboardExporter(), LightsExporter()]
+        
         # Collect the different kind of meshes this exporter handles
         # ----------------------------------------------------------
         lObj                 = bpy.data.objects      # List of all objects
-        lWater               = []                    # List of all water objects
         lTrack               = []                    # All main track objects
         lDrivelines          = []                    # All drivelines
         found_main_driveline = False
-        lItems               = []                    # All track items
         lEndCameras          = []                    # List of all end cameras
         lCameraCurves        = []                    # Camera curves (unused atm)
         lObjects             = []                    # All special objects
-        lBillboards          = []                    # All billboards
-        lParticleEmitters    = []                    # All particle emitters
-        lSoundEmitters       = []
-        lActionTriggers      = []
         lChecks              = []                    # All check structures
         lSun                 = []
         lStart               = []                    # All start positions
@@ -2176,35 +2324,17 @@ class TrackExport:
             if stktype=="IGNORE": continue
             
             
-            if obj.type=="EMPTY":
-                # For backward compatibility test for the blender name
-                # in case that there is no type property defined. This makes
-                # it easier to port old style tracks without having to
-                # add the property for all items.
-                stktype = getProperty(obj, "type", obj.name).upper()
-                # Check for old and new style names
-                if stktype[:8] in ["GHERRING", "RHERRING", "YHERRING", "SHERRING"] \
-                   or stktype[: 6]== "BANANA"     or stktype[:4]=="ITEM"           \
-                   or stktype[:11]=="NITRO-SMALL" or stktype[:9]=="NITRO-BIG"      \
-                   or stktype[:11]=="NITRO_SMALL" or stktype[:9]=="NITRO_BIG"      \
-                   or stktype[:11]=="SMALL-NITRO" or stktype[:9]=="BIG-NITRO"      \
-                   or stktype[: 6]=="ZIPPER":
-                    lItems.append(obj)
-                    continue
-                elif stktype[:5]=="START":
-                    lStart.append(obj)
-                    continue
-                elif stktype=="PARTICLE_EMITTER":
-                    lParticleEmitters.append(obj)
-                    continue
-                elif stktype=="SFX_EMITTER":
-                    lSoundEmitters.append(obj)
-                    continue
-                elif stktype=="ACTION_TRIGGER":
-                    lActionTriggers.append(obj)
-                    continue
-                else:
-                    log_warning("Empty '%s' has type '%s' which is not valid - ignored."%(obj.name, stktype))
+            objectProcessed = False
+            for exporter in exporters:
+                if exporter.processObject(obj, stktype):
+                    objectProcessed = True
+                    break
+            if objectProcessed:
+                continue
+            
+            if obj.type=="EMPTY" and stktype[:5]=="START":
+                lStart.append(obj)
+                continue
             elif obj.type=="CURVE":
                 # Only append camera, other curves will be handled in animations
                 if stktype[:6]=="CAMERA": lCameraCurves.append(obj)
@@ -2221,9 +2351,7 @@ class TrackExport:
                 #print "Non-mesh object '%s' (type: '%s') is ignored!"%(obj.name, stktype)
                 continue
             
-            if stktype=="WATER":
-                lWater.append(obj)
-            elif stktype=="CHECK" or stktype=="LAP" or stktype=="CANNONSTART" or stktype=="GOAL":
+            if stktype=="CHECK" or stktype=="LAP" or stktype=="CANNONSTART" or stktype=="GOAL":
                 lChecks.append(obj)
             # Check for new drivelines
             elif stktype=="MAIN-DRIVELINE" or \
@@ -2236,9 +2364,6 @@ class TrackExport:
                 lDrivelines.append(Driveline(obj, 0))
             elif stktype=="OBJECT" or stktype=="SPECIAL_OBJECT" or stktype=="LOD_MODEL" or stktype=="LOD_INSTANCE" or stktype=="SINGLE_LOD":
                 lObjects.append(obj)
-            # for billboard
-            elif stktype=="BILLBOARD":
-                lBillboards.append(obj)
             elif stktype=="CANNONEND":
                 pass # cannon ends are handled with cannon start objects
             elif stktype=="NONE":
@@ -2260,8 +2385,6 @@ class TrackExport:
             
         # Now export the different parts: track file
         # ------------------------------------------
-        sBase = os.path.basename(sFilename)
-        sPath = os.path.dirname(sFilename)
         self.writeTrackFile(sPath, sBase)
     
         # Quads and mapping files
@@ -2307,9 +2430,8 @@ class TrackExport:
         # ----------
         if len(lDrivelines)==0:
             lDrivelines=[None]
-        self.writeSceneFile(sPath, sTrackName, lWater, lTrack, lItems,
-                            lObjects, lBillboards, lParticleEmitters, lSoundEmitters, lActionTriggers,
-                            lChecks, lSun, lDrivelines[0], lStart, lEndCameras, lCameraCurves)
+        self.writeSceneFile(sPath, sTrackName, exporters, lTrack, lObjects, lChecks, lSun,
+                            lDrivelines[0], lStart, lEndCameras, lCameraCurves)
         # materials file
         # ----------
         if 'stk_material_exporter' not in dir(bpy.ops.screen):
@@ -2328,7 +2450,7 @@ def savescene_callback(sFilename):
     global log
     log = []
     
-    exporter = TrackExport(sFilename)
+    TrackExport(sFilename)
 
 thelist = []
 def getlist(self):
