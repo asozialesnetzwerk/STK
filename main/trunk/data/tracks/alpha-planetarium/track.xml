@@ -5,7 +5,7 @@
         groups         = "alpha"
         designer       = "samuncle"
         music          = "kart_grand_prix.music"
-        screenshot     = "screenshot.jpg"
+        screenshot     = "screenshot.png"
         smooth-normals = "false"
 >
 </track>

@@ -2,12 +2,22 @@
 <!-- Generated with script from SVN rev 11785 -->
 <scene>
   <track model="galaxy_track.b3d" x="0" y="0" z="0">
+    <static-object model="saturn ring.b3d" xyz="-168.46 -0.12 353.57" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object model="generic clouds.b3d" xyz="-223.23 -0.12 -57.49" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"> <!-- writeStaticObjects 2 -->
     <animated-texture name="genericCloud.png" dx="0.010" />
     </static-object>
-    <static-object model="penumbra.b3d" xyz="-222.61 -0.12 -57.49" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="penumbra.b3d" xyz="-223.16 0.57 -175.33" hpr="0.0 -0.0 0.0" scale="0.28 0.28 0.28"/> <!-- writeStaticObjects 3 -->
+    <static-object model="mars clouds.b3d" xyz="-223.20 -0.12 17.33" hpr="0.0 -0.0 0.0" scale="0.91 0.91 0.91"> <!-- writeStaticObjects 2 -->
+    <animated-texture name="genericCloud.png" dx="0.010" />
+    </static-object>
     <static-object model="earthHalo.b3d" xyz="-223.23 -0.12 -57.49" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object model="marsHalo.b3d" xyz="-223.20 -0.12 18.49" hpr="0.0 -0.0 0.0" scale="0.95 0.95 0.95"/> <!-- writeStaticObjects 3 -->
+    <static-object model="marsHalo.b3d" xyz="-223.20 0.99 152.39" hpr="0.0 12.2 0.0" scale="2.85 2.85 2.85"/> <!-- writeStaticObjects 3 -->
+    <static-object model="penumbra.b3d" xyz="-222.61 -0.12 -57.49" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object model="penumbra.b3d" xyz="-222.64 -0.12 17.36" hpr="0.0 -0.0 0.0" scale="0.91 0.91 0.91"/> <!-- writeStaticObjects 3 -->
+    <static-object model="penumbra.b3d" xyz="-223.16 0.57 -175.33" hpr="0.0 -0.0 0.0" scale="0.28 0.28 0.28"/> <!-- writeStaticObjects 3 -->
+    <static-object model="penumbra.b3d" xyz="-222.64 -0.12 149.33" hpr="0.0 42.6 0.0" scale="2.65 2.65 2.65"/> <!-- writeStaticObjects 3 -->
+    <static-object model="penumbra.b3d" xyz="-168.46 -0.12 353.57" hpr="0.0 42.6 0.0" scale="2.12 2.12 2.12"/> <!-- writeStaticObjects 3 -->
+    <static-object model="penumbra.b3d" xyz="117.23 -0.12 373.34" hpr="0.0 42.6 0.0" scale="1.33 1.33 1.33"/> <!-- writeStaticObjects 3 -->
     <animated-texture name="mov.png" dy="0.250" />
     <animated-texture name="mov.png" dy="0.250" />
     <animated-texture name="water-animation.png" dy="0.125" />
@@ -38,6 +48,7 @@
   </water>
   <water model="sunBody2.b3d" xyz="0.00 0.00 -563.01" hpr="-0.0 -0.0 90.0" scale="1.00 1.00 1.00" height="1.50" speed="500.00" length="1.00"/>
   <water model="sunBody2.b3d" xyz="0.00 0.00 -563.01" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="1.50" speed="500.00" length="1.00"/>
+  <sun  xyz="0.00 0.00 -563.01" ambient="120 120 120"/>
   <sky-color rgb="0 0 0"/>
   <checks>
     <check-lap kind="lap" same-group="0"  />
