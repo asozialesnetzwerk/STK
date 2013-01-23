@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev 11785 -->
-<track  name           = "planetarium"
+<track  name           = "galaxy"
         version        = "5"
         groups         = "alpha"
-        designer       = "samuncle"
+        designer       = "jmclemencon"
         music          = "kart_grand_prix.music"
         screenshot     = "screenshot.png"
         smooth-normals = "false"
