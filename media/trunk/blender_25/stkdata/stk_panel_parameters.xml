@@ -44,7 +44,7 @@
         <FloatProp id="fog_end" name="Fog End" default="300.0" min="0.0" max="1000.0"
                    doc="Distance from camera at which fog is so dense you can't see a thing"/>
     </BoolProp>
-    <FloatProp id="camera_far" name="Camera Far Clip" default="1000.0" min="0.0" max="1000.0"
+    <FloatProp id="camera_far" name="Camera Far Clip" default="1000.0" min="0.0" max="5000.0"
                    doc="Distance from camera at which objects are clipped (no more visible)"/>
     <IntProp id="start_karts_per_row" name="Karts per row on start" default="2"/>
     <FloatProp id="start_forwards_distance" name="Start Forwards Distance" default="1.1"/>
