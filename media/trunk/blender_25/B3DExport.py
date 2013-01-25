@@ -991,8 +991,10 @@ def write_node_mesh(obj,obj_count,arm_action,exp_root):
 
     if arm_action:
         data = obj.data
-    else:
+    elif b3d_parameters.get("apply-modifiers"):
         data = obj.to_mesh(the_scene, True, 'PREVIEW') # Apply modifiers
+    else:
+        data = obj.data
     
     temp_buf += write_int(-1) #Brush ID
     temp_buf += write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root) #NODE MESH VRTS
@@ -1451,7 +1453,8 @@ class B3D_Export_Operator(bpy.types.Operator):
     lights   = bpy.props.BoolProperty(name="Export Lights", default=False)
     mipmap   = bpy.props.BoolProperty(name="Mipmap", default=False)
     localsp  = bpy.props.BoolProperty(name="Use Local Space Coords", default=False)
-
+    applymodifiers = bpy.props.BoolProperty(name="Apply modifiers", default=True)
+    
     overwrite_without_asking  = bpy.props.BoolProperty(name="Overwrite without asking", default=False)
     
     #skip_dialog = False
@@ -1480,6 +1483,7 @@ class B3D_Export_Operator(bpy.types.Operator):
         b3d_parameters["lights"         ] = self.lights
         b3d_parameters["mipmap"         ] = self.mipmap
         b3d_parameters["local-space"    ] = self.localsp
+        b3d_parameters["apply-modifiers"] = self.applymodifiers
         
         the_scene = context.scene
         

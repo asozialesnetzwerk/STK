@@ -130,8 +130,12 @@
         </EnumChoice>
         <EnumChoice id="single_lod" label="LOD Standalone" doc="An object that will only be visible when the camera is close enough (shortcut for LOD objects that don't have multiple levels)">
             <StringProp id="name" name="Name" default="" doc="Name of this object, used to name the model file when exporting (if not specified, the blender name of the object will be used)" />
-            <FloatProp id="lod_distance" name="Distance" default="60.0" min="0.0" max="5000.0"
+            <FloatProp id="lod_distance" name="Visibility distance" default="60.0" min="0.0" max="5000.0"
                        doc="Distance from the camera at which this object becomes visible"/>
+            <BoolProp id="nomodifierautolod" name="Also export without modifiers" default="false" doc="Export one version of the model without modifiers as an extra LOD level">
+                <FloatProp id="nomodierlod_distance" name="Modifiers enabled distance" default="30.0" min="0.0" max="5000.0"
+                       doc="Distance from the camera at which the model is seen with modifiers. Should be smaller than 'Visibility distance'."/>
+            </BoolProp>
         </EnumChoice>
         
         <!-- Nitro -->

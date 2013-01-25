@@ -312,7 +312,7 @@ class WaterExporter:
             speed    = getProperty(obj, "speed",  None     )
             length   = getProperty(obj, "length", None     )
             lAnim    = checkForAnimatedTextures([obj])
-            b3d_name = self.m_parent_track_exporter.exportLocalB3D(obj, self.m_export_path, name)
+            b3d_name = self.m_parent_track_exporter.exportLocalB3D(obj, self.m_export_path, name, True)
             s = "  <water model=\"%s\" %s" % (b3d_name, getXYZHPRString(obj))
             if height: s = "%s height=\"%.2f\""%(s, float(height))
             if speed:  s = "%s speed=\"%.2f\"" %(s, float(speed))
@@ -1089,7 +1089,7 @@ class TrackExport:
     
     # Exports the models as b3d object in local coordinate, i.e. with the object
     # center at (0,0,0).
-    def exportLocalB3D(self, obj, sPath, name):
+    def exportLocalB3D(self, obj, sPath, name, applymodifiers=True):
         # If the name contains a ".b3d" the model is assumed to be part of
         # the standard objects included in STK, so there is no need to
         # export the model.
@@ -1109,7 +1109,7 @@ class TrackExport:
         the_scene.obj_list = [obj]
         bpy.ops.screen.b3d_export(localsp=True, mipmap=True, lights=False, vcolors=True,
                                   vnormals=True, cameras=False, filepath=sPath+"/"+name,
-                                  overwrite_without_asking=True)
+                                  overwrite_without_asking=True, applymodifiers=applymodifiers)
         the_scene.obj_list = []
         #bpy.ops.screen.b3d_export.skip_dialog = False
         #setObjList([])
@@ -1607,16 +1607,29 @@ class TrackExport:
             type = getProperty(obj, "type", "X")
             
             if type != "lod_instance":
-                b3d_name = self.exportLocalB3D(obj, sPath, name)
+                b3d_name = self.exportLocalB3D(obj, sPath, name, True)
             kind = getProperty(obj, "kind", "")
             
             if type == "lod_instance":
                 model_string = ""
             elif type == "single_lod":
                 # single_lod is a shortcut that generates both a lod_instance and a lod_model
+                
+                loddistance = str(getProperty(obj, "lod_distance", 60.0))
+                
+                if getProperty(obj, "nomodifierautolod", "false") == "true":
+                    loddistance = str(getProperty(obj, "nomodierlod_distance", 30.0))
+                    exportedModelfFilename3 = self.exportLocalB3D(obj, sPath, (b3d_name[:-4] + '_mid'), False)
+                    model_string3 =  " model=\"%s\""%(b3d_name[:-4] + '_mid')
+                    lodstring3 = ' lod_distance="' + str(getProperty(obj, "lod_distance", 60.0)) + '" lod_group="_single_lod_' + name + '"'
+                    f.write("    <static-object%s model=\"%s\" %s interaction=\"%s\"/> <!-- writeStaticObjects -->\n" % (lodstring3, exportedModelfFilename3, getXYZHPRString(obj), getProperty(obj, "interaction", "static")) )
+ 
+ 
                 model_string2 =  " model=\"%s\""%b3d_name
-                lodstring2 = ' lod_distance="' + str(getProperty(obj, "lod_distance", 60.0)) + '" lod_group="_single_lod_' + name + '"'
-                f.write("    <static-object%s%s %s interaction\"%s\"/> <!-- writeStaticObjects -->\n" % (lodstring2, model_string2, getXYZHPRString(obj), getProperty(obj, "interaction", "static")) )
+                lodstring2 = ' lod_distance="' + loddistance + '" lod_group="_single_lod_' + name + '"'
+                f.write("    <static-object%s%s %s interaction=\"%s\"/> <!-- writeStaticObjects -->\n" % (lodstring2, model_string2, getXYZHPRString(obj), getProperty(obj, "interaction", "static")) )
+                
+                
                 model_string = ""
             else:
                 model_string =  " model=\"%s\""%b3d_name
@@ -1965,7 +1978,7 @@ class TrackExport:
             if type == "lod_instance":
                 b3d_name = None
             else:
-                b3d_name = self.exportLocalB3D(obj, sPath, name)
+                b3d_name = self.exportLocalB3D(obj, sPath, name, True)
 
             
         # First kind of object: ipo. There is one or
@@ -2081,7 +2094,7 @@ class TrackExport:
             speed    = getProperty(obj, "speed",  None     )
             length   = getProperty(obj, "length", None     )
             lAnim    = checkForAnimatedTextures([obj])
-            b3d_name = self.exportLocalB3D(obj, sPath, name)
+            b3d_name = self.exportLocalB3D(obj, sPath, name, True)
             s="  <water model=\"%s\" %s" % \
                 (b3d_name, getXYZHPRString(obj))
             if height: s="%s height=\"%.2f\""%(s, float(height))
