@@ -90,12 +90,14 @@
         
         <!-- Item (gift box) -->
         <EnumChoice id="item" label="Item (Gift Box)" doc="A gift box containing a random collectible (apply to an Empty)"/>
-        <EnumChoice id="egg_easy" label="Easter Egg (easy)" doc="A hidden item for easy mode (apply to an Empty)"/>
-        <EnumChoice id="egg_easy_hard" label="Easter Egg (easy-hard)" doc="A hidden item for easy-hard mode (apply to an Empty)"/>
-        <EnumChoice id="egg_medium" label="Easter Egg (medium)" doc="A hidden item for medium mode (apply to an Empty)"/>
-        <EnumChoice id="egg_medium_hard" label="Easter Egg (medium-hard)" doc="A hidden item for medium-hard mode (apply to an Empty)"/>
-        <EnumChoice id="egg_hard" label="Easter Egg (hard)" doc="A hidden item for hard mode (apply to an Empty)"/>
         
+        <!-- Easter egg -->
+        <EnumChoice id="easteregg" label="Easter Egg" doc="A hidden item (apply to an Empty)">
+            <BoolProp id="easteregg_easy" name="Easy" default="true" doc="Visible in easy difficulty"/>
+            <BoolProp id="easteregg_medium" name="Intermediate" default="true" doc="Visible in intermediate difficulty"/>
+            <BoolProp id="easteregg_hard" name="Hard" default="true" doc="Visible in hard difficulty"/>
+        </EnumChoice>
+                
         <!-- Lap line extension -->
         <EnumChoice id="lap" label="Lap line" doc="An extension to the factory lap line">
             <ObjRefProp id="activate" unique_id_suffix="_lap" name="Activate" default=""
