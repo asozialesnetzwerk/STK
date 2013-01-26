@@ -4,6 +4,7 @@
   <material name="earthHalo.png" compositing="additive" disable-z-write="Y"/>
   <material name="genericCloud.png" compositing="blend" disable-z-write="Y"/>
   <material name="marsHalo.png" compositing="additive" disable-z-write="Y"/>
+  <material name="milkyway.png" compositing="additive" disable-z-write="Y"/>
   <material name="nebula-blue-halo.png" fog="N" light="N" compositing="additive" disable-z-write="Y"/>
   <material name="nebula-cloud-blue.png" compositing="additive" disable-z-write="Y"/>
   <material name="nebula-cloud-redLight.png" compositing="additive" disable-z-write="Y"/>
