@@ -5,9 +5,9 @@
   <material name="genericCloud.png" compositing="blend" disable-z-write="Y"/>
   <material name="marsHalo.png" compositing="additive" disable-z-write="Y"/>
   <material name="nebula-blue-halo.png" fog="N" light="N" compositing="additive" disable-z-write="Y"/>
-  <material name="nebula-cloud-blue.png" fog="N" light="N" compositing="blend" disable-z-write="Y"/>
-  <material name="nebula-cloud-redLight.png" fog="N" light="N" compositing="additive" disable-z-write="Y"/>
-  <material name="nebula-cloud.png" compositing="blend" disable-z-write="Y"/>
+  <material name="nebula-cloud-blue.png" compositing="additive" disable-z-write="Y"/>
+  <material name="nebula-cloud-redLight.png" compositing="additive" disable-z-write="Y"/>
+  <material name="nebula-cloud.png" compositing="additive" disable-z-write="Y"/>
   <material name="nebula-halo.png" fog="N" light="N" compositing="additive" disable-z-write="Y"/>
   <material name="nebula-red-halo.png" fog="N" light="N" compositing="additive" disable-z-write="Y"/>
   <material name="pnumbra.png" compositing="blend" disable-z-write="Y"/>

@@ -138,23 +138,47 @@
   <object type="billboard" texture="nebula-cloud-blue.png" xyz="318.444336 162.030289 -194.012177" 
              width="115.308685" height="115.308685" >
   </object>
+  <object type="billboard" texture="nebula-cloud-redLight.png" xyz="517.710693 88.831161 401.432281" 
+             width="91.819954" height="91.819954" >
+  </object>
+  <object type="billboard" texture="nebula-cloud-redLight.png" xyz="517.710693 108.219215 407.180939" 
+             width="91.819954" height="91.819954" >
+  </object>
+  <object type="billboard" texture="nebula-cloud-redLight.png" xyz="517.710693 172.603531 209.507736" 
+             width="30.832424" height="30.832424" >
+  </object>
+  <object type="billboard" texture="nebula-cloud-redLight.png" xyz="517.710693 172.603531 199.764206" 
+             width="69.866508" height="69.866508" >
+  </object>
+  <object type="billboard" texture="nebula-cloud-redLight.png" xyz="272.639038 105.966148 -54.186981" 
+             width="69.866508" height="69.866508" >
+  </object>
+  <object type="billboard" texture="nebula-cloud-redLight.png" xyz="272.639038 105.966148 -44.443451" 
+             width="30.832424" height="30.832424" >
+  </object>
+  <object type="billboard" texture="nebula-cloud-redLight.png" xyz="272.639038 93.392464 -62.231842" 
+             width="30.832424" height="30.832424" >
+  </object>
+  <object type="billboard" texture="nebula-cloud-redLight.png" xyz="272.639038 93.392464 -71.975372" 
+             width="69.866508" height="69.866508" >
+  </object>
   <object type="billboard" texture="nebula-cloud-redLight.png" xyz="517.710693 160.029846 181.975800" 
-             width="52.398308" height="52.398308" >
+             width="69.866508" height="69.866508" >
   </object>
   <object type="billboard" texture="nebula-cloud-redLight.png" xyz="517.710693 160.029846 186.790054" 
              width="35.259972" height="35.259972" >
   </object>
   <object type="billboard" texture="nebula-cloud-redLight.png" xyz="517.710693 160.029846 191.719330" 
-             width="23.123623" height="23.123623" >
+             width="30.832424" height="30.832424" >
   </object>
   <object type="billboard" texture="nebula-cloud-redLight.png" xyz="517.710693 88.831161 388.732361" 
-             width="23.123623" height="23.123623" >
+             width="40.520584" height="40.520584" >
   </object>
   <object type="billboard" texture="nebula-cloud-redLight.png" xyz="517.710693 88.831161 383.803101" 
-             width="35.259972" height="35.259972" >
+             width="61.787663" height="61.787663" >
   </object>
-  <object type="billboard" texture="nebula-cloud-redLight.png" xyz="517.710693 88.831161 378.988831" 
-             width="52.398308" height="52.398308" >
+  <object type="billboard" texture="nebula-cloud-redLight.png" xyz="517.710693 81.110840 378.988831" 
+             width="91.819954" height="91.819954" >
   </object>
   <object type="billboard" texture="nebula-red-halo.png" xyz="517.710693 88.831161 384.411682" 
              width="30.818134" height="30.818134" >
@@ -168,7 +192,7 @@
   <object type="billboard" texture="nebula-blue-halo.png" xyz="557.019836 -164.631729 0.527306" 
              width="119.874146" height="119.874146" >
   </object>
-  <sun  fog="true" fog-color="0 0 0" fog-start="50.0" fog-end="1000.0" xyz="0.00 0.00 -563.01" ambient="120 120 120"/>
+  <sun  fog="true" fog-color="0 0 0" fog-end="1000.0" xyz="0.00 0.00 -563.01" ambient="120 120 120"/>
   <sky-color rgb="6 13 23"/>
   <checks>
     <check-lap kind="lap" same-group="0"  />
