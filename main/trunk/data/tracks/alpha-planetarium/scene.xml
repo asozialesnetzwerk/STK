@@ -5,21 +5,29 @@
     <static-object model="saturn ring.b3d" xyz="-123.62 -0.12 359.04" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object model="neptun ring (arc).b3d" xyz="287.15 -3.58 444.14" hpr="-55.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object model="neptun ring (arc).b3d" xyz="287.15 -856.74 444.14" hpr="-55.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object model="milkyway0.b3d" xyz="-62.39 184.63 617.26" hpr="-14.1 -5.1 2.1" scale="1.00 1.00 1.00"> <!-- writeStaticObjects 2 -->
+    <animated-texture name="milkyway.png" dx="0.001" />
+    </static-object>
+    <static-object model="milkyway1.b3d" xyz="-18.56 -14.00 -831.87" hpr="-14.1 -5.1 2.1" scale="1.00 1.00 1.00"> <!-- writeStaticObjects 2 -->
+    <animated-texture name="milkyway.png" dx="0.001" />
+    </static-object>
     <static-object model="generic clouds.b3d" xyz="-236.50 -0.03 -99.76" hpr="0.0 -0.0 0.0" scale="0.76 0.76 0.76"> <!-- writeStaticObjects 2 -->
     <animated-texture name="genericCloud.png" dx="0.010" />
     </static-object>
     <static-object model="mars clouds.b3d" xyz="-223.13 -0.03 -5.68" hpr="0.0 -0.0 0.0" scale="0.69 0.69 0.69"> <!-- writeStaticObjects 2 -->
     <animated-texture name="genericCloud.png" dx="0.010" />
     </static-object>
+    <static-object model="sunHalo.b3d" xyz="0.00 0.00 -563.01" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object model="earthHalo.b3d" xyz="-236.50 -0.03 -99.76" hpr="0.0 -0.0 0.0" scale="0.76 0.76 0.76"/> <!-- writeStaticObjects 3 -->
     <static-object model="marsHalo.b3d" xyz="-223.13 -0.03 -4.80" hpr="0.0 -0.0 0.0" scale="0.72 0.72 0.72"/> <!-- writeStaticObjects 3 -->
     <static-object model="marsHalo.b3d" xyz="-223.20 0.99 152.39" hpr="0.0 12.2 0.0" scale="2.85 2.85 2.85"/> <!-- writeStaticObjects 3 -->
+    <static-object model="siliconSolarPanel.b3d" xyz="0.00 -1.85 0.51" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" tangents="true"/> <!-- writeStaticObjects 3 -->
     <static-object model="penumbra.b3d" xyz="-236.03 -0.03 -99.76" hpr="0.0 -0.0 0.0" scale="0.76 0.76 0.76"/> <!-- writeStaticObjects 3 -->
     <static-object model="penumbra.b3d" xyz="-222.71 -0.03 -5.66" hpr="0.0 -0.0 0.0" scale="0.69 0.69 0.69"/> <!-- writeStaticObjects 3 -->
     <static-object model="penumbra.b3d" xyz="-236.45 0.49 -189.29" hpr="0.0 -0.0 0.0" scale="0.21 0.21 0.21"/> <!-- writeStaticObjects 3 -->
     <static-object model="penumbra.b3d" xyz="-222.64 -0.12 149.33" hpr="0.0 32.6 0.0" scale="2.65 2.65 2.65"/> <!-- writeStaticObjects 3 -->
     <static-object model="penumbra.b3d" xyz="-123.62 -0.12 359.04" hpr="0.0 30.3 0.0" scale="2.12 2.12 2.12"/> <!-- writeStaticObjects 3 -->
-    <static-object model="penumbra.b3d" xyz="116.14 -0.12 426.93" hpr="0.0 42.6 0.0" scale="1.33 1.33 1.33"/> <!-- writeStaticObjects 3 -->
+    <static-object model="penumbra.b3d" xyz="116.14 10.98 426.93" hpr="0.0 42.6 0.0" scale="1.33 1.33 1.33"/> <!-- writeStaticObjects 3 -->
     <static-object model="penumbra.b3d" xyz="286.96 -0.12 445.52" hpr="0.0 52.2 0.0" scale="1.37 1.37 1.37"/> <!-- writeStaticObjects 3 -->
     <static-object model="penumbra.b3d" xyz="-139.55 -0.23 -358.49" hpr="0.0 -0.0 0.0" scale="0.54 0.54 0.54"/> <!-- writeStaticObjects 3 -->
     <static-object model="penumbra.b3d" xyz="-205.58 0.08 -264.99" hpr="0.0 -0.0 0.0" scale="0.70 0.70 0.70"/> <!-- writeStaticObjects 3 -->
