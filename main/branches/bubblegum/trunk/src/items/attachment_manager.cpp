@@ -53,7 +53,7 @@ initAttachmentType iat[]=
     {Attachment::ATTACH_SWATTER,          "swatter.b3d",      "swatter-icon.png"             },
     {Attachment::ATTACH_NOLOKS_SWATTER,   "swatter_nolok.b3d","swatter-icon.png"             },
     {Attachment::ATTACH_TINYTUX,          "reset-button.b3d", "reset-attach-icon.png"        },
-    {Attachment::ATTACH_BUBBLE_GUM_SHIELD,"reset-button.b3d", "shield-icon.png"}, //TODO: create icon & 3d model ; "bubble-shield-attach-icon.png
+    {Attachment::ATTACH_BUBBLE_GUM_SHIELD,"reset-button.b3d", "shield-icon.png"}, //TODO: make icon work and create 3d model ; "bubble-shield-attach-icon.png
     {Attachment::ATTACH_MAX,              "",                 ""                             },
 };
 

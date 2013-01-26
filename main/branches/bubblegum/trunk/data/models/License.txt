@@ -74,5 +74,8 @@
 
 * rubber_ball-icon
     by Totoplus62, released under CC-BY-SA 3.0
+
+* shield-icon
+   by tuxfan, release under CC-BY-SA 3.0
     
 Others are GPL, by the original (super)TuxKart team
