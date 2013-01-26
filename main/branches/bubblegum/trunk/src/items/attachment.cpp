@@ -129,6 +129,9 @@ void Attachment::set(AttachmentType type, float time,
         m_bomb_sound->position(m_kart->getXYZ());
         m_bomb_sound->play();
         break;
+    //case ATTACH_BUBBLE_GUM_SHIELD:
+    //    m_node->setMesh(attachment_manager->getMesh(type)); //alternatively: setBillboard
+    //    break;
     default:
         m_node->setMesh(attachment_manager->getMesh(type));
         break;

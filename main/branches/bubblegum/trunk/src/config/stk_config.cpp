@@ -122,6 +122,7 @@ void STKConfig::load(const std::string &filename)
     CHECK_NEG(m_anvil_weight,              "anvil-weight"               );
     CHECK_NEG(m_item_switch_time,          "item-switch-time"           );
     CHECK_NEG(m_bubble_gum_counter,        "bubblegum disappear counter");
+    CHECK_NEG(m_bubble_gum_shield_time,    "bubblegum-shield-time");
     CHECK_NEG(m_explosion_impulse_objects, "explosion-impulse-objects"  );
     CHECK_NEG(m_max_history,               "max-history"                );
     CHECK_NEG(m_max_skidmarks,             "max-skidmarks"              );
@@ -163,6 +164,7 @@ void STKConfig::init_defaults()
         m_smooth_angle_limit     =
         m_penalty_time           = m_explosion_impulse_objects = UNDEFINED;
     m_bubble_gum_counter         = -100;
+    m_bubble_gum_shield_time     = -100;
     m_max_karts                  = -100;
     m_max_history                = -100;
     m_max_skidmarks              = -100;
@@ -341,6 +343,7 @@ void STKConfig::getAllData(const XMLNode * root)
     if(const XMLNode *bubble_gum_node= root->getNode("bubble-gum"))
     {
         bubble_gum_node->get("disappear-counter", &m_bubble_gum_counter);
+        bubble_gum_node->get("shield-time", &m_bubble_gum_shield_time);
     }
 
     if(const XMLNode *explosion_node= root->getNode("explosion"))

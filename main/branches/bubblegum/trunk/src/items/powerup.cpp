@@ -262,48 +262,55 @@ void Powerup::use()
                       m_owner->getKartProperties()->getSwatterDuration());
         break;
     case PowerupManager::POWERUP_BUBBLEGUM:
+        // use the bubble gum the traditional way, if the kart is looking back
+        if (m_owner->getControls().m_look_back)
         {
-        Vec3 hit_point;
-        Vec3 normal;
-        const Material* material_hit;
-        Vec3 pos = m_owner->getXYZ();
-        Vec3 to=pos+Vec3(0, -10000, 0);
-        world->getTrack()->getTriangleMesh().castRay(pos, to, &hit_point,
+            Vec3 hit_point;
+            Vec3 normal;
+            const Material* material_hit;
+            Vec3 pos = m_owner->getXYZ();
+            Vec3 to=pos+Vec3(0, -10000, 0);
+            world->getTrack()->getTriangleMesh().castRay(pos, to, &hit_point,
                                                      &material_hit, &normal);
-        // This can happen if the kart is 'over nothing' when dropping
-        // the bubble gum
-        if(!material_hit)
-            return;
-        normal.normalize();
+            // This can happen if the kart is 'over nothing' when dropping
+            // the bubble gum
+            if(!material_hit)
+                return;
+            normal.normalize();
         
-        // in multiplayer mode, sounds are NOT positional (because we have multiple listeners)
-        // so the sounds of all AIs are constantly heard. So reduce volume of sounds.
-        if (race_manager->getNumLocalPlayers() > 1)
+            // in multiplayer mode, sounds are NOT positional (because we have multiple listeners)
+            // so the sounds of all AIs are constantly heard. So reduce volume of sounds.
+            if (race_manager->getNumLocalPlayers() > 1)
+            {
+                const int np = race_manager->getNumLocalPlayers();
+                const int nai = race_manager->getNumberOfKarts() - np;
+            
+                // player karts played at full volume; AI karts much dimmer
+            
+                if (m_owner->getController()->isPlayerController())
+                {
+                    m_sound_use->volume( 1.0f );
+                }
+                else
+                {
+                    m_sound_use->volume( 1.0f / nai );
+                }
+            }
+        
+            m_sound_use->position(m_owner->getXYZ());
+            m_sound_use->play();
+        
+            pos.setY(hit_point.getY()-0.05f);
+        
+            ItemManager::get()->newItem(Item::ITEM_BUBBLEGUM, pos, normal, m_owner);
+        }
+        else // if the kart is looking forward, use the bubblegum as a shield
         {
-            const int np = race_manager->getNumLocalPlayers();
-            const int nai = race_manager->getNumberOfKarts() - np;
-            
-            // player karts played at full volume; AI karts much dimmer
-            
-            if (m_owner->getController()->isPlayerController())
-            {
-                m_sound_use->volume( 1.0f );
-            }
-            else
-            {
-                m_sound_use->volume( 1.0f / nai );
-            }
-        }
-        
-        m_sound_use->position(m_owner->getXYZ());
-        m_sound_use->play();
-        
-        pos.setY(hit_point.getY()-0.05f);
-        
-        ItemManager::get()->newItem(Item::ITEM_BUBBLEGUM, pos, normal, m_owner);
-        }
+            m_owner->getAttachment()->set(Attachment::ATTACH_BUBBLE_GUM_SHIELD,
+                                           stk_config->m_anvil_time);//TODO adjust stk_comfig
+
+        }// ENDOF PowerupManager::POWERUP_BUBBLEGUM
         break;
-        
     case PowerupManager::POWERUP_ANVIL:
         
         //Attach an anvil(twice as good as the one given
