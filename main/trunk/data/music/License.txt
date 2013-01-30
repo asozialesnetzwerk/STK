@@ -36,7 +36,7 @@ Boom_boom_boom.ogg
 kart_grand_prix.ogg
 Lose Theme
 --------------------
-  Weirwood, license: CC
+  Weirwood, license: CC-BY-SA v3.0
 
 race summary
 -------------
