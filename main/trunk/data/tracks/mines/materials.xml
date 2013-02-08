@@ -3,7 +3,7 @@
 <materials>
   <material name="clip.png" compositing="test"/>
   <material name="fence_chain.png" compositing="test"/>
-  <material name="lightHaloY.png" light="N" compositing="blend"/>
+  <material name="lightHaloY.png" light="N" compositing="additive" fog="N"/>
   <material name="mine_road.jpg">
     <particles base="smoke.xml" condition="skid"/>
   </material>
