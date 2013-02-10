@@ -3,14 +3,8 @@
 <kart name              = "Tux"
       version           = "2"
       model-file        = "tux.b3dz"
-      xmas-model-file   = "xmas-tux.b3d"
-      halloween-model-file   = "halloween-tux.b3d"
       icon-file         = "tuxicon.png"
-      xmas-icon-file    = "xmas-tuxicon.png"
-      halloween-icon-file    = "halloween-tuxicon.png"
       minimap-icon-file = "tuxicon.png"
-      xmas-minimap-icon-file = "xmas-tuxicon.png"
-      halloween-minimap-icon-file = "halloween-tuxicon.png"
       shadow-file       = "tuxkartshadow.png"
       groups            = "standard"
       rgb               = "0.7 0 0" >
@@ -22,6 +16,7 @@
               start-losing = "486"
               start-losing-loop = "832"
               end-losing = "852"/>
+  <hat offset="0 0.2 0"/>
   <wheels>
     <front-left position = "-0.283304 0.101876 0.407714"
                  model    = "wheel-front-left.b3d"       />
