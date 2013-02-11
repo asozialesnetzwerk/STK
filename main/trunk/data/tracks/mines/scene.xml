@@ -292,8 +292,8 @@
   <object type="billboard" texture="lightHaloY.png" xyz="-18.38 1.29 -98.96" 
              width="5.113" height="5.113" >
   </object>
-  <object type="billboard" texture="halo_lamp.png" xyz="86.00 7.16 30.93" 
-             width="2.851" height="3.725" fadeout="true" start="1.00" end="15.00">
+  <object type="billboard" texture="halo_lamp.png" xyz="73.43 2.74 48.18" 
+             width="7.160" height="9.356" fadeout="true" start="5.00" end="20.00">
   </object>
   <object type="billboard" texture="lightHaloY.png" xyz="73.51 6.16 48.14" 
              width="0.750" height="0.750" >
@@ -301,11 +301,8 @@
   <object type="billboard" texture="lightHaloY.png" xyz="85.99 8.61 30.91" 
              width="0.750" height="0.750" >
   </object>
-  <object type="billboard" texture="halo_lamp.png" xyz="73.52 4.70 48.16" 
-             width="2.851" height="3.725" fadeout="true" start="5.00" end="20.00">
-  </object>
-  <object type="billboard" texture="halo_lamp.png" xyz="116.96 4.70 28.86" 
-             width="2.851" height="3.725" fadeout="true" start="5.00" end="20.00">
+  <object type="billboard" texture="halo_lamp.png" xyz="85.95 4.48 30.93" 
+             width="8.276" height="10.814" fadeout="true" start="5.00" end="20.00">
   </object>
   <object type="billboard" texture="lightHaloY.png" xyz="116.95 6.16 28.84" 
              width="0.750" height="0.750" >
@@ -313,11 +310,11 @@
   <object type="billboard" texture="lightHaloY.png" xyz="104.99 6.16 4.65" 
              width="0.750" height="0.750" >
   </object>
-  <object type="billboard" texture="halo_lamp.png" xyz="105.00 4.70 4.66" 
-             width="2.851" height="3.725" fadeout="true" start="5.00" end="20.00">
+  <object type="billboard" texture="halo_lamp.png" xyz="116.90 2.74 28.89" 
+             width="7.160" height="9.356" fadeout="true" start="5.00" end="20.00">
   </object>
-  <object type="billboard" texture="halo_lamp.png" xyz="157.60 4.70 -16.79" 
-             width="2.851" height="3.725" fadeout="true" start="5.00" end="20.00">
+  <object type="billboard" texture="halo_lamp.png" xyz="157.60 2.74 -16.79" 
+             width="7.160" height="9.356" fadeout="true" start="5.00" end="20.00">
   </object>
   <object type="billboard" texture="lightHaloY.png" xyz="157.59 6.16 -16.81" 
              width="0.750" height="0.750" >
@@ -326,10 +323,10 @@
              width="0.750" height="0.750" >
   </object>
   <object type="billboard" texture="halo_lamp.png" xyz="169.00 2.98 -50.46" 
-             width="2.851" height="3.725" fadeout="true" start="1.00" end="15.00">
+             width="3.963" height="5.178" fadeout="true" start="1.00" end="15.00">
   </object>
-  <object type="billboard" texture="halo_lamp.png" xyz="170.73 2.38 -63.89" 
-             width="2.851" height="3.725" fadeout="true" start="1.00" end="15.00">
+  <object type="billboard" texture="halo_lamp.png" xyz="170.73 1.98 -63.89" 
+             width="3.813" height="4.982" fadeout="true" start="1.00" end="15.00">
   </object>
   <object type="billboard" texture="lightHaloY.png" xyz="170.72 3.83 -63.90" 
              width="0.750" height="0.750" >
@@ -337,11 +334,11 @@
   <object type="billboard" texture="lightHaloY.png" xyz="168.87 2.37 -79.73" 
              width="0.750" height="0.750" >
   </object>
-  <object type="billboard" texture="halo_lamp.png" xyz="168.88 0.91 -79.71" 
-             width="2.851" height="3.725" fadeout="true" start="1.00" end="15.00">
+  <object type="billboard" texture="halo_lamp.png" xyz="168.88 0.56 -79.71" 
+             width="3.953" height="5.165" fadeout="true" start="1.00" end="15.00">
   </object>
-  <object type="billboard" texture="halo_lamp.png" xyz="159.87 0.11 -98.24" 
-             width="2.851" height="3.725" fadeout="true" start="1.00" end="15.00">
+  <object type="billboard" texture="halo_lamp.png" xyz="159.87 -1.77 -98.24" 
+             width="5.538" height="7.236" fadeout="true" start="1.00" end="15.00">
   </object>
   <object type="billboard" texture="lightHaloY.png" xyz="159.86 1.56 -98.26" 
              width="0.750" height="0.750" >
@@ -349,13 +346,16 @@
   <object type="billboard" texture="lightHaloY.png" xyz="161.54 0.52 -107.90" 
              width="0.750" height="0.750" >
   </object>
-  <object type="billboard" texture="halo_lamp.png" xyz="161.55 -0.93 -107.88" 
-             width="2.851" height="3.725" fadeout="true" start="1.00" end="15.00">
+  <object type="billboard" texture="halo_lamp.png" xyz="161.55 -1.62 -107.88" 
+             width="3.784" height="4.945" fadeout="true" start="1.00" end="15.00">
   </object>
-  <object type="billboard" texture="halo_lamp.png" xyz="143.97 -1.75 -100.19" 
-             width="2.851" height="3.725" fadeout="true" start="1.00" end="15.00">
+  <object type="billboard" texture="halo_lamp.png" xyz="143.97 -2.95 -100.19" 
+             width="4.803" height="6.275" fadeout="true" start="1.00" end="15.00">
   </object>
   <object type="billboard" texture="lightHaloY.png" xyz="143.96 -0.29 -100.21" 
              width="0.750" height="0.750" >
+  </object>
+  <object type="billboard" texture="halo_lamp.png" xyz="104.98 2.74 4.69" 
+             width="7.160" height="9.356" fadeout="true" start="5.00" end="20.00">
   </object>
 </scene>
