@@ -167,7 +167,7 @@ void Powerup::set(PowerupManager::PowerupType type, int n)
             if(m_owner->getControls().m_look_back) //classic bubble gum if the player is looking back
                 m_sound_use = sfx_manager->createSoundSource("goo");
             else // use bubble gum as a shield
-                m_sound_use = sfx_manager->createSoundSource("goo"); //TODO: add inflate sound here
+                m_sound_use = sfx_manager->createSoundSource("inflate"); //TODO: why does it trigger an error?
             break ;
             
         case PowerupManager::POWERUP_SWITCH:

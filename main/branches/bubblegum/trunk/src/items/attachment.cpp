@@ -91,7 +91,7 @@ void Attachment::set(AttachmentType type, float time,
 {
     bool was_bomb = (m_type == ATTACH_BOMB);
     scene::ISceneNode* bomb_scene_node = NULL;
-    if (was_bomb && type == ATTACH_SWATTER)
+    if (was_bomb && type == ATTACH_SWATTER) //What about  ATTACH_NOLOKS_SWATTER ??
     {
         // let's keep the bomb node, and create a new one for 
         // the new attachment
@@ -107,7 +107,11 @@ void Attachment::set(AttachmentType type, float time,
         m_node->setParent(m_kart->getNode());
         m_node->setVisible(false);
     }
-    
+    //TODO: why might this be causing a memory leak?
+    //prevent other attachments to take over the bubble gum shield
+    if(m_type == ATTACH_BUBBLE_GUM_SHIELD && (type != ATTACH_BUBBLE_GUM_SHIELD || type != ATTACH_SWATTER || type != ATTACH_NOLOKS_SWATTER) )
+        type = ATTACH_NOTHING;
+
     clear();
     
     // If necessary create the appropriate plugin which encapsulates 
@@ -414,6 +418,10 @@ void Attachment::update(float dt)
         break;
     case ATTACH_TINYTUX:
         // Nothing to do for tinytux, this is all handled in EmergencyAnimation
+        break;
+    case ATTACH_BUBBLE_GUM_SHIELD:
+        if(!m_kart->isShielded())
+            m_time_left = 0.0f;
         break;
     }   // switch
 
