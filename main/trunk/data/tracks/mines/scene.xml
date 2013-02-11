@@ -2,20 +2,24 @@
 <!-- Generated with script from SVN rev 12416 -->
 <scene>
   <track model="mines_track.b3d" x="0" y="0" z="0">
-    <static-object model="lamp1.b3d" xyz="73.53 13.07 48.17" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/> <!-- writeStaticObjects 3 -->
-    <static-object model="lamp1.b3d" xyz="161.50 7.48 -107.91" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/> <!-- writeStaticObjects 3 -->
-    <static-object model="lamp1.b3d" xyz="143.87 6.65 -100.25" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/> <!-- writeStaticObjects 3 -->
-    <static-object model="lamp1.b3d" xyz="168.86 9.25 -79.73" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/> <!-- writeStaticObjects 3 -->
-    <static-object model="lamp1.b3d" xyz="170.71 10.76 -63.89" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/> <!-- writeStaticObjects 3 -->
-    <static-object model="lamp1.b3d" xyz="168.96 11.38 -50.47" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/> <!-- writeStaticObjects 3 -->
-    <static-object model="lamp1.b3d" xyz="157.55 13.07 -16.82" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/> <!-- writeStaticObjects 3 -->
-    <static-object model="lamp1.b3d" xyz="116.90 13.07 28.79" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/> <!-- writeStaticObjects 3 -->
-    <static-object model="lamp1.b3d" xyz="105.01 13.07 4.69" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="70.0" lod_group="transfo" model="Circle.036_Circle.000.b3d" xyz="-17.36 2.09 -22.06" hpr="-90.0 115.4 -0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="transfo" xyz="167.38 2.09 -91.75" hpr="-90.0 115.4 -0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="lamp2" xyz="116.92 13.11 28.86" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="lamp2" xyz="85.96 15.56 30.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="lamp2" xyz="168.97 11.38 -50.46" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="lamp2" xyz="170.70 10.78 -63.89" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="lamp2" xyz="168.84 9.32 -79.71" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object model="lamp1.b3d" xyz="108.43 14.67 -103.16" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/> <!-- writeStaticObjects 3 -->
     <static-object model="lamp1.b3d" xyz="71.22 12.11 -147.48" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/> <!-- writeStaticObjects 3 -->
-    <static-object model="lamp1.b3d" xyz="159.86 8.45 -98.24" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/> <!-- writeStaticObjects 3 -->
     <static-object model="lamp1.b3d" xyz="88.46 11.02 -122.45" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/> <!-- writeStaticObjects 3 -->
     <static-object model="lamp1.b3d" xyz="73.41 9.97 -178.67" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="60.0" lod_group="lamp2" model="lamp_2.b3d" xyz="-15.48 12.01 -18.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="lamp2" xyz="73.48 13.11 48.16" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="lamp2" xyz="104.96 13.11 4.66" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="lamp2" xyz="157.56 13.11 -16.79" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="lamp2" xyz="159.83 8.51 -98.24" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="lamp2" xyz="161.51 7.47 -107.88" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="lamp2" xyz="143.94 6.66 -100.19" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object model="lamp1.b3d" xyz="109.25 9.69 -190.29" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/> <!-- writeStaticObjects 3 -->
     <static-object model="lamp1.b3d" xyz="146.22 5.58 -251.09" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/> <!-- writeStaticObjects 3 -->
     <static-object model="lamp1.b3d" xyz="73.82 11.13 -236.80" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/> <!-- writeStaticObjects 3 -->
@@ -287,5 +291,71 @@
   </object>
   <object type="billboard" texture="lightHaloY.png" xyz="-18.38 1.29 -98.96" 
              width="5.113" height="5.113" >
+  </object>
+  <object type="billboard" texture="halo_lamp.png" xyz="86.00 7.16 30.93" 
+             width="2.851" height="3.725" fadeout="true" start="1.00" end="15.00">
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="73.51 6.16 48.14" 
+             width="0.750" height="0.750" >
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="85.99 8.61 30.91" 
+             width="0.750" height="0.750" >
+  </object>
+  <object type="billboard" texture="halo_lamp.png" xyz="73.52 4.70 48.16" 
+             width="2.851" height="3.725" fadeout="true" start="5.00" end="20.00">
+  </object>
+  <object type="billboard" texture="halo_lamp.png" xyz="116.96 4.70 28.86" 
+             width="2.851" height="3.725" fadeout="true" start="5.00" end="20.00">
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="116.95 6.16 28.84" 
+             width="0.750" height="0.750" >
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="104.99 6.16 4.65" 
+             width="0.750" height="0.750" >
+  </object>
+  <object type="billboard" texture="halo_lamp.png" xyz="105.00 4.70 4.66" 
+             width="2.851" height="3.725" fadeout="true" start="5.00" end="20.00">
+  </object>
+  <object type="billboard" texture="halo_lamp.png" xyz="157.60 4.70 -16.79" 
+             width="2.851" height="3.725" fadeout="true" start="5.00" end="20.00">
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="157.59 6.16 -16.81" 
+             width="0.750" height="0.750" >
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="169.00 4.43 -50.48" 
+             width="0.750" height="0.750" >
+  </object>
+  <object type="billboard" texture="halo_lamp.png" xyz="169.00 2.98 -50.46" 
+             width="2.851" height="3.725" fadeout="true" start="1.00" end="15.00">
+  </object>
+  <object type="billboard" texture="halo_lamp.png" xyz="170.73 2.38 -63.89" 
+             width="2.851" height="3.725" fadeout="true" start="1.00" end="15.00">
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="170.72 3.83 -63.90" 
+             width="0.750" height="0.750" >
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="168.87 2.37 -79.73" 
+             width="0.750" height="0.750" >
+  </object>
+  <object type="billboard" texture="halo_lamp.png" xyz="168.88 0.91 -79.71" 
+             width="2.851" height="3.725" fadeout="true" start="1.00" end="15.00">
+  </object>
+  <object type="billboard" texture="halo_lamp.png" xyz="159.87 0.11 -98.24" 
+             width="2.851" height="3.725" fadeout="true" start="1.00" end="15.00">
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="159.86 1.56 -98.26" 
+             width="0.750" height="0.750" >
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="161.54 0.52 -107.90" 
+             width="0.750" height="0.750" >
+  </object>
+  <object type="billboard" texture="halo_lamp.png" xyz="161.55 -0.93 -107.88" 
+             width="2.851" height="3.725" fadeout="true" start="1.00" end="15.00">
+  </object>
+  <object type="billboard" texture="halo_lamp.png" xyz="143.97 -1.75 -100.19" 
+             width="2.851" height="3.725" fadeout="true" start="1.00" end="15.00">
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="143.96 -0.29 -100.21" 
+             width="0.750" height="0.750" >
   </object>
 </scene>
