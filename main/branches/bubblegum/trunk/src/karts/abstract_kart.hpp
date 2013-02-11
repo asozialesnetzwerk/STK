@@ -372,6 +372,14 @@ public:
     // ------------------------------------------------------------------------
     virtual void setInvulnerableTime(float t) = 0;
     // ------------------------------------------------------------------------
+    /** Returns if the kart is protected by a shield. */
+    virtual bool isShielded() const = 0;
+    // ------------------------------------------------------------------------
+    virtual void setShieldTime(float t) = 0;
+    // ------------------------------------------------------------------------
+    virtual float getShieldTime() const = 0;
+    // ------------------------------------------------------------------------
+
     /** Shows the star effect for a certain time. */
     virtual void showStarEffect(float t) = 0;
     // ------------------------------------------------------------------------

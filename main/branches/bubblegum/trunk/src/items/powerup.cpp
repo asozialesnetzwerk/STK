@@ -164,7 +164,10 @@ void Powerup::set(PowerupManager::PowerupType type, int n)
             break;
             
         case PowerupManager::POWERUP_BUBBLEGUM:
-            m_sound_use = sfx_manager->createSoundSource("goo");
+            if(m_owner->getControls().m_look_back) //classic bubble gum if the player is looking back
+                m_sound_use = sfx_manager->createSoundSource("goo");
+            else // use bubble gum as a shield
+                m_sound_use = sfx_manager->createSoundSource("goo"); //TODO: add inflate sound here
             break ;
             
         case PowerupManager::POWERUP_SWITCH:
@@ -307,7 +310,11 @@ void Powerup::use()
         else // if the kart is looking forward, use the bubblegum as a shield
         {
             m_owner->getAttachment()->set(Attachment::ATTACH_BUBBLE_GUM_SHIELD,
-                                           stk_config->m_anvil_time);//TODO adjust stk_comfig
+                                           stk_config->m_bubble_gum_shield_time);
+            if(m_owner->getShieldTime() <= 0.0f) //if the previous shield had been used up.
+                m_owner->setShieldTime(stk_config->m_bubble_gum_shield_time);
+            else // using a bubble gum while still having a shield
+                m_owner->setShieldTime(stk_config->m_bubble_gum_shield_time + m_owner->getShieldTime());
 
         }// ENDOF PowerupManager::POWERUP_BUBBLEGUM
         break;

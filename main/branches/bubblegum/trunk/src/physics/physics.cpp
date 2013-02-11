@@ -224,11 +224,18 @@ void Physics::update(float dt)
             // --------------------
             // Only explode a bowling ball if the target is
             // not invulnerable
+            AbstractKart* target_kart = p->getUserPointer(1)->getPointerKart();
             if(p->getUserPointer(0)->getPointerFlyable()->getType()
-                !=PowerupManager::POWERUP_BOWLING                         ||
-                !p->getUserPointer(1)->getPointerKart()->isInvulnerable()   )
+                !=PowerupManager::POWERUP_BOWLING ||
+                !target_kart->isInvulnerable()      )
+            {
+                if(target_kart->isShielded())
+                    target_kart->setShieldTime(target_kart->getShieldTime() - 10.0f); //TODO: using stk config data.
+                else
                     p->getUserPointer(0)->getPointerFlyable()
-                     ->hit(p->getUserPointer(1)->getPointerKart());
+                     ->hit(target_kart);
+            }
+
         }
         else
         {

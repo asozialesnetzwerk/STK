@@ -31,6 +31,7 @@
 #include "audio/sfx_base.hpp"
 #include "challenges/unlock_manager.hpp"
 #include "config/user_config.hpp"
+//#include "config/stk_config.hpp"
 #include "graphics/camera.hpp"
 #include "graphics/material_manager.hpp"
 #include "graphics/particle_emitter.hpp"
@@ -106,6 +107,7 @@ Kart::Kart (const std::string& ident, unsigned int world_kart_id,
     m_bubblegum_time       = 0.0f;
     m_bubblegum_torque     = 0.0f;
     m_invulnerable_time    = 0.0f;
+    m_bubble_shield_time   = 0.0f;
     m_squash_time          = 0.0f;
     m_shadow_enabled       = false;
 
@@ -340,6 +342,7 @@ void Kart::reset()
     m_bubblegum_time       = 0.0f;
     m_bubblegum_torque     = 0.0f;
     m_invulnerable_time    = 0.0f;
+    m_bubble_shield_time   = 0.0f;
     m_squash_time          = 0.0f;
     m_node->setScale(core::vector3df(1.0f, 1.0f, 1.0f));
     m_collected_energy     = 0;
@@ -1022,7 +1025,10 @@ void Kart::update(float dt)
     if(m_view_blocked_by_plunger > 0) m_view_blocked_by_plunger -= dt;
 
     // Decrease remaining invulnerability time
-    if(m_invulnerable_time>0) m_invulnerable_time-=dt;
+    if(m_invulnerable_time>0) m_invulnerable_time -= dt;
+
+    if(isShielded()) m_bubble_shield_time -= dt;
+    else if(m_bubble_shield_time < 0) m_bubble_shield_time = 0; // TODO: remove if not necessary
 
     m_slipstream->update(dt);
 
@@ -1242,6 +1248,11 @@ void Kart::showZipperFire()
 void Kart::setSquash(float time, float slowdown)
 {
     if (isInvulnerable()) return;
+    if (isShielded())
+    {
+        m_bubble_shield_time = m_bubble_shield_time - stk_config->m_bubble_gum_shield_time/2.0f;
+        return;
+    }
     
     if(m_attachment->getType()==Attachment::ATTACH_BOMB && time>0)
     {

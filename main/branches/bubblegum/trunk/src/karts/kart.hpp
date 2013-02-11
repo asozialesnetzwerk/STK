@@ -133,6 +133,9 @@ private:
     /** Time a kart is invulnerable. */
     float        m_invulnerable_time;
 
+    /** Time a kart is protected by a shield. */
+    float        m_bubble_shield_time;
+
     /** How long a kart is being squashed. If this is >0
      *  the kart is squashed. */
     float        m_squash_time;
@@ -411,8 +414,19 @@ public:
     virtual void  setInvulnerableTime(float t) { m_invulnerable_time = t; };
     // ------------------------------------------------------------------------
     /** Returns if the kart is invulnerable. */
-    virtual bool   isInvulnerable() const { return m_invulnerable_time > 0; }
+    virtual bool   isInvulnerable() const { return m_invulnerable_time > 0; };
     // ------------------------------------------------------------------------
+    /** Enables a kart shield protection for a certain amount of time. */
+    virtual void setShieldTime(float t) { m_bubble_shield_time = t; };
+    // ------------------------------------------------------------------------
+    /** Returns if the kart is protected by a shield. */
+    virtual bool isShielded() const { return m_bubble_shield_time > 0; };
+    // ------------------------------------------------------------------------
+    /** Returns the remaining time the kart is protected by a shield. */
+    virtual float getShieldTime() const { return m_bubble_shield_time; };
+    // ------------------------------------------------------------------------
+
+
     /** Sets the energy the kart has collected. */
     virtual void   setEnergy(float val) { m_collected_energy = val; }
     // ------------------------------------------------------------------------
