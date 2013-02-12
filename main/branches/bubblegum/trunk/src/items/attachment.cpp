@@ -107,10 +107,13 @@ void Attachment::set(AttachmentType type, float time,
         m_node->setParent(m_kart->getNode());
         m_node->setVisible(false);
     }
-    //TODO: why might this be causing a memory leak?
-    //prevent other attachments to take over the bubble gum shield
-    if(m_type == ATTACH_BUBBLE_GUM_SHIELD && (type != ATTACH_BUBBLE_GUM_SHIELD || type != ATTACH_SWATTER || type != ATTACH_NOLOKS_SWATTER) )
-        type = ATTACH_NOTHING;
+    //TODO:This IS causing a memory leak. Still I don't know why.
+    //This two lines of code should do the following:
+    // if the kart is protected by a bubble and drives into a banana,
+    // the shield attachment should disappear, but no negative attachment should be attached to the kart.
+    //
+    //if(m_type == ATTACH_BUBBLE_GUM_SHIELD && (type != ATTACH_BUBBLE_GUM_SHIELD || type != ATTACH_SWATTER || type != ATTACH_NOLOKS_SWATTER) )
+    //    type = ATTACH_NOTHING;
 
     clear();
     
