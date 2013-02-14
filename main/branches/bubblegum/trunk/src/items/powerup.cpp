@@ -34,7 +34,7 @@
 #include "physics/triangle_mesh.hpp"
 #include "tracks/track.hpp"
 #include "utils/string_utils.hpp"
-
+#include "utils/log.hpp" //TODO: remove after debugging is done
 
 const wchar_t* getAnchorString()
 {
@@ -163,11 +163,17 @@ void Powerup::set(PowerupManager::PowerupType type, int n)
             m_sound_use = sfx_manager->createSoundSource("parachute");
             break;
             
-        case PowerupManager::POWERUP_BUBBLEGUM:
+        case PowerupManager::POWERUP_BUBBLEGUM: //TODO: think about a workaround. Probably there needs to be a secondary sound. Or make the attachment have its own one.
             if(m_owner->getControls().m_look_back) //classic bubble gum if the player is looking back
-                m_sound_use = sfx_manager->createSoundSource("goo");
+            {
+                m_sound_use = sfx_manager->createSoundSource("inflate");
+                Log::verbose("powerup", "m_look_back == true \n");
+            }
             else // use bubble gum as a shield
-                m_sound_use = sfx_manager->createSoundSource("inflate"); //TODO: why does it trigger an error?
+            {
+                m_sound_use = sfx_manager->createSoundSource("goo");
+                Log::verbose("powerup", "m_look_back == false \n");
+            }
             break ;
             
         case PowerupManager::POWERUP_SWITCH:
