@@ -35,6 +35,7 @@
 #include "network/race_state.hpp"
 #include "network/network_manager.hpp"
 #include "utils/constants.hpp"
+#include "utils/log.hpp" //TODO: remove after debugging is done
 
 /** Initialises the attachment each kart has.
  */
@@ -107,13 +108,15 @@ void Attachment::set(AttachmentType type, float time,
         m_node->setParent(m_kart->getNode());
         m_node->setVisible(false);
     }
-    //TODO:This IS causing a memory leak. Still I don't know why.
+
     //This two lines of code should do the following:
     // if the kart is protected by a bubble and drives into a banana,
     // the shield attachment should disappear, but no negative attachment should be attached to the kart.
     //
-    //if(m_type == ATTACH_BUBBLE_GUM_SHIELD && (type != ATTACH_BUBBLE_GUM_SHIELD || type != ATTACH_SWATTER || type != ATTACH_NOLOKS_SWATTER) )
-    //    type = ATTACH_NOTHING;
+    if(m_type == ATTACH_BUBBLE_GUM_SHIELD && (type != ATTACH_BUBBLE_GUM_SHIELD || type != ATTACH_SWATTER || type != ATTACH_NOLOKS_SWATTER) )
+        Log::verbose("attachment",
+                   "TEST\n");
+        //    type = ATTACH_NOTHING;     //TODO:This line is causing a memory leak. Still I don't know why.
 
     clear();
     
