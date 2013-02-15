@@ -164,16 +164,8 @@ void Powerup::set(PowerupManager::PowerupType type, int n)
             break;
             
         case PowerupManager::POWERUP_BUBBLEGUM: //TODO: think about a workaround. Probably there needs to be a secondary sound. Or make the attachment have its own one.
-            if(m_owner->getControls().m_look_back) //classic bubble gum if the player is looking back
-            {
-                m_sound_use = sfx_manager->createSoundSource("inflate");
-                Log::verbose("powerup", "m_look_back == true \n");
-            }
-            else // use bubble gum as a shield
-            {
+                //m_sound_use = sfx_manager->createSoundSource("inflate");
                 m_sound_use = sfx_manager->createSoundSource("goo");
-                Log::verbose("powerup", "m_look_back == false \n");
-            }
             break ;
             
         case PowerupManager::POWERUP_SWITCH:
@@ -206,7 +198,7 @@ Material *Powerup::getIcon() const
  */
 void Powerup::use()
 {
-    // Play custom kart sound when collectible is used
+    // Play custom kart sound when collectible is used //TODO: what about the bubble gum?
     if (m_type != PowerupManager::POWERUP_NOTHING && 
         m_type != PowerupManager::POWERUP_SWATTER &&
         m_type != PowerupManager::POWERUP_ZIPPER) 
@@ -271,6 +263,25 @@ void Powerup::use()
                       m_owner->getKartProperties()->getSwatterDuration());
         break;
     case PowerupManager::POWERUP_BUBBLEGUM:
+        // in multiplayer mode, sounds are NOT positional (because we have multiple listeners)
+        // so the sounds of all AIs are constantly heard. So reduce volume of sounds.
+        if (race_manager->getNumLocalPlayers() > 1)
+        {
+            const int np = race_manager->getNumLocalPlayers();
+            const int nai = race_manager->getNumberOfKarts() - np;
+
+            // player karts played at full volume; AI karts much dimmer
+
+            if (m_owner->getController()->isPlayerController())
+            {
+                m_sound_use->volume( 1.0f );
+            }
+            else
+            {
+                m_sound_use->volume( 1.0f / nai );
+            }
+            m_sound_use->position(m_owner->getXYZ());
+        }
         // use the bubble gum the traditional way, if the kart is looking back
         if (m_owner->getControls().m_look_back)
         {
@@ -286,27 +297,7 @@ void Powerup::use()
             if(!material_hit)
                 return;
             normal.normalize();
-        
-            // in multiplayer mode, sounds are NOT positional (because we have multiple listeners)
-            // so the sounds of all AIs are constantly heard. So reduce volume of sounds.
-            if (race_manager->getNumLocalPlayers() > 1)
-            {
-                const int np = race_manager->getNumLocalPlayers();
-                const int nai = race_manager->getNumberOfKarts() - np;
-            
-                // player karts played at full volume; AI karts much dimmer
-            
-                if (m_owner->getController()->isPlayerController())
-                {
-                    m_sound_use->volume( 1.0f );
-                }
-                else
-                {
-                    m_sound_use->volume( 1.0f / nai );
-                }
-            }
-        
-            m_sound_use->position(m_owner->getXYZ());
+
             m_sound_use->play();
         
             pos.setY(hit_point.getY()-0.05f);
@@ -321,6 +312,10 @@ void Powerup::use()
                 m_owner->setShieldTime(stk_config->m_bubble_gum_shield_time);
             else // using a bubble gum while still having a shield
                 m_owner->setShieldTime(stk_config->m_bubble_gum_shield_time + m_owner->getShieldTime());
+
+
+            m_sound_use = sfx_manager->createSoundSource("inflate");             //hack ?
+            m_sound_use->play();
 
         }// ENDOF PowerupManager::POWERUP_BUBBLEGUM
         break;
