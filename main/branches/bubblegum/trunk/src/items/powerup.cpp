@@ -163,8 +163,7 @@ void Powerup::set(PowerupManager::PowerupType type, int n)
             m_sound_use = sfx_manager->createSoundSource("parachute");
             break;
             
-        case PowerupManager::POWERUP_BUBBLEGUM: //TODO: think about a workaround. Probably there needs to be a secondary sound. Or make the attachment have its own one.
-                //m_sound_use = sfx_manager->createSoundSource("inflate");
+        case PowerupManager::POWERUP_BUBBLEGUM:
                 m_sound_use = sfx_manager->createSoundSource("goo");
             break ;
             
@@ -193,6 +192,32 @@ Material *Powerup::getIcon() const
     return powerup_manager->getIcon(m_type);
 }
 
+
+
+
+
+//-----------------------------------------------------------------------------
+/** Does the sound configuration.
+ */
+void  Powerup::adjustSound()
+{
+    m_sound_use->position(m_owner->getXYZ());
+    // in multiplayer mode, sounds are NOT positional (because we have multiple listeners)
+    // so the sounds of all AIs are constantly heard. So reduce volume of sounds.
+    if (race_manager->getNumLocalPlayers() > 1)
+    {
+        // player karts played at full volume; AI karts much dimmer
+
+        if (m_owner->getController()->isPlayerController())
+        {
+            m_sound_use->volume( 1.0f );
+        }
+        else
+        {
+            m_sound_use->volume( std::min(0.5f, 1.0f / race_manager->getNumberOfKarts()) );
+        }
+    }
+}
 //-----------------------------------------------------------------------------
 /** Use (fire) this powerup.
  */
@@ -235,25 +260,9 @@ void Powerup::use()
     case PowerupManager::POWERUP_BOWLING:
     case PowerupManager::POWERUP_PLUNGER:
         
-        m_sound_use->position(m_owner->getXYZ());
-        
-        // in multiplayer mode, sounds are NOT positional (because we have multiple listeners)
-        // so the sounds of all AIs are constantly heard. So reduce volume of sounds.
-        if (race_manager->getNumLocalPlayers() > 1)
-        {
-            // player karts played at full volume; AI karts much dimmer
-            
-            if (m_owner->getController()->isPlayerController())
-            {
-                m_sound_use->volume( 1.0f );
-            }
-            else
-            {
-                m_sound_use->volume( std::min(0.5f, 1.0f / race_manager->getNumberOfKarts()) );
-            }
-        }
-        
+        Powerup::adjustSound();
         m_sound_use->play();
+        
         projectile_manager->newProjectile(m_owner, world->getTrack(), m_type);
         break ;
 
@@ -263,25 +272,7 @@ void Powerup::use()
                       m_owner->getKartProperties()->getSwatterDuration());
         break;
     case PowerupManager::POWERUP_BUBBLEGUM:
-        // in multiplayer mode, sounds are NOT positional (because we have multiple listeners)
-        // so the sounds of all AIs are constantly heard. So reduce volume of sounds.
-        if (race_manager->getNumLocalPlayers() > 1)
-        {
-            const int np = race_manager->getNumLocalPlayers();
-            const int nai = race_manager->getNumberOfKarts() - np;
 
-            // player karts played at full volume; AI karts much dimmer
-
-            if (m_owner->getController()->isPlayerController())
-            {
-                m_sound_use->volume( 1.0f );
-            }
-            else
-            {
-                m_sound_use->volume( 1.0f / nai );
-            }
-            m_sound_use->position(m_owner->getXYZ());
-        }
         // use the bubble gum the traditional way, if the kart is looking back
         if (m_owner->getControls().m_look_back)
         {
@@ -298,6 +289,7 @@ void Powerup::use()
                 return;
             normal.normalize();
 
+            Powerup::adjustSound();
             m_sound_use->play();
         
             pos.setY(hit_point.getY()-0.05f);
@@ -306,15 +298,25 @@ void Powerup::use()
         }
         else // if the kart is looking forward, use the bubblegum as a shield
         {
-            m_owner->getAttachment()->set(Attachment::ATTACH_BUBBLE_GUM_SHIELD,
-                                           stk_config->m_bubble_gum_shield_time);
+
             if(m_owner->getShieldTime() <= 0.0f) //if the previous shield had been used up.
+            {
                 m_owner->setShieldTime(stk_config->m_bubble_gum_shield_time);
+                m_owner->getAttachment()->set(Attachment::ATTACH_BUBBLE_GUM_SHIELD,
+                                               stk_config->m_bubble_gum_shield_time);
+            }
             else // using a bubble gum while still having a shield
+            {
                 m_owner->setShieldTime(stk_config->m_bubble_gum_shield_time + m_owner->getShieldTime());
+                m_owner->getAttachment()->set(Attachment::ATTACH_BUBBLE_GUM_SHIELD,
+                                               stk_config->m_bubble_gum_shield_time + m_owner->getShieldTime());
+            }
 
 
-            m_sound_use = sfx_manager->createSoundSource("inflate");             //hack ?
+            m_sound_use = sfx_manager->createSoundSource("inflate");//Extraordinary. Usually sounds are set in Powerup::set()
+            //In this case this is a workaround, since the bubblegum item has two different sounds.
+
+            Powerup::adjustSound();
             m_sound_use->play();
 
         }// ENDOF PowerupManager::POWERUP_BUBBLEGUM
