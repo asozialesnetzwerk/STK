@@ -57,6 +57,11 @@ ExplosionAnimation *ExplosionAnimation::create(AbstractKart *kart,
 ExplosionAnimation *ExplosionAnimation::create(AbstractKart *kart)
 {
     if(kart->isInvulnerable()) return NULL;
+    else if(kart->isShielded())
+    {
+        kart->setShieldTime(0.01f); //setting the shield time to zero could trigger problems
+        return NULL;
+    }
     return new ExplosionAnimation(kart, kart->getXYZ(), /*direct hit*/true);
 }   // create
 

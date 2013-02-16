@@ -368,6 +368,11 @@ void Powerup::use()
             {
                 AbstractKart *kart=world->getKart(i);
                 if(kart->isEliminated() || kart== m_owner) continue;
+                if(kart->getShieldTime() > 0)
+                {
+                    kart->setShieldTime(kart->getShieldTime() - stk_config->m_bubble_gum_shield_time);
+                    continue;
+                }
                 if(m_owner->getPosition() > kart->getPosition())
                 {
                     kart->getAttachment()

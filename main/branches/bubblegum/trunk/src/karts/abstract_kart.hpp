@@ -379,6 +379,10 @@ public:
     // ------------------------------------------------------------------------
     virtual float getShieldTime() const = 0;
     // ------------------------------------------------------------------------
+    /** Decreases the kart's shield time. */
+    //Hard coded shield decrease time
+    virtual void decreaseShieldTime(float t) = 0;
+    // ------------------------------------------------------------------------
 
     /** Shows the star effect for a certain time. */
     virtual void showStarEffect(float t) = 0;

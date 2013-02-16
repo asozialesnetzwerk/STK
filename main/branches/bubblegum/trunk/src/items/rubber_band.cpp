@@ -238,6 +238,7 @@ void RubberBand::hit(AbstractKart *kart_hit, const Vec3 *track_xyz)
     // a hit as well as the bullet physics.
     if(m_attached_state!=RB_TO_PLUNGER) return;
 
+
     // A kart was hit
     // ==============
     if(kart_hit)

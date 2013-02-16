@@ -109,15 +109,6 @@ void Attachment::set(AttachmentType type, float time,
         m_node->setVisible(false);
     }
 
-    //This two lines of code should do the following:
-    // if the kart is protected by a bubble and drives into a banana,
-    // the shield attachment should disappear, but no negative attachment should be attached to the kart.
-    //
-    if(m_type == ATTACH_BUBBLE_GUM_SHIELD && (type != ATTACH_BUBBLE_GUM_SHIELD || type != ATTACH_SWATTER || type != ATTACH_NOLOKS_SWATTER) )
-        Log::verbose("attachment",
-                   "TEST\n");
-        //    type = ATTACH_NOTHING;     //TODO:This line is causing a memory leak. Still I don't know why.
-
     clear();
     
     // If necessary create the appropriate plugin which encapsulates 
@@ -139,9 +130,6 @@ void Attachment::set(AttachmentType type, float time,
         m_bomb_sound->position(m_kart->getXYZ());
         m_bomb_sound->play();
         break;
-    //case ATTACH_BUBBLE_GUM_SHIELD:
-    //    m_node->setMesh(attachment_manager->getMesh(type)); //alternatively: setBillboard
-    //    break;
     default:
         m_node->setMesh(attachment_manager->getMesh(type));
         break;
@@ -218,6 +206,13 @@ void Attachment::clear()
 */
 void Attachment::hitBanana(Item *item, int new_attachment)
 {
+    //Bubble gum shield effect:
+    if(m_type == ATTACH_BUBBLE_GUM_SHIELD)
+    {
+        m_time_left -= stk_config->m_bubble_gum_shield_time;
+        return;
+    }
+
     float leftover_time   = 0.0f;
     
     bool add_a_new_item = true;

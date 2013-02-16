@@ -107,7 +107,6 @@ Kart::Kart (const std::string& ident, unsigned int world_kart_id,
     m_bubblegum_time       = 0.0f;
     m_bubblegum_torque     = 0.0f;
     m_invulnerable_time    = 0.0f;
-    m_bubble_shield_time   = 0.0f;
     m_squash_time          = 0.0f;
     m_shadow_enabled       = false;
 
@@ -342,7 +341,6 @@ void Kart::reset()
     m_bubblegum_time       = 0.0f;
     m_bubblegum_torque     = 0.0f;
     m_invulnerable_time    = 0.0f;
-    m_bubble_shield_time   = 0.0f;
     m_squash_time          = 0.0f;
     m_node->setScale(core::vector3df(1.0f, 1.0f, 1.0f));
     m_collected_energy     = 0;
@@ -949,6 +947,61 @@ bool Kart::isNearGround() const
                  < stk_config->m_near_ground);
 }   // isNearGround
 
+// ------------------------------------------------------------------------
+/**
+ * Enables a kart shield protection for a certain amount of time.
+ */
+void Kart::setShieldTime(float t)
+{
+    if(this->isShielded())
+    {
+        this->getAttachment()->setTimeLeft(t);
+    }
+}
+// ------------------------------------------------------------------------
+/**
+ * Returns true if the kart is protected by a shield.
+ */
+bool Kart::isShielded() const
+{
+    if(this->getAttachment() != NULL)
+        return this->getAttachment()->getTimeLeft() == Attachment::ATTACH_BUBBLE_GUM_SHIELD;
+    else
+        return false;
+}
+// ------------------------------------------------------------------------
+/**
+ *Returns the remaining time the kart is protected by a shield.
+ */
+float Kart::getShieldTime() const
+{
+    if(this->isShielded())
+        return this->getAttachment()->getTimeLeft();
+    else
+        return 0.0f;
+}
+// ------------------------------------------------------------------------
+/**
+ * Decreases the kart's shield time.
+ * \param t The time substracted from the shield timer. If t == 0.0f, the default amout of time is substracted.
+ */
+void Kart::decreaseShieldTime(float t)
+{
+    if(this->isShielded())
+    {
+        getAttachment()->setTimeLeft( getAttachment()->getTimeLeft() - t );
+        if(t == 0.0f)
+        {
+            getAttachment()->setTimeLeft( getAttachment()->getTimeLeft()
+                                          - stk_config->m_bubble_gum_shield_time);
+        }
+
+    }
+}
+
+
+
+
 //-----------------------------------------------------------------------------
 /** Shows the star effect for a certain time. 
  *  \param t Time to show the star effect for.
@@ -1026,9 +1079,6 @@ void Kart::update(float dt)
 
     // Decrease remaining invulnerability time
     if(m_invulnerable_time>0) m_invulnerable_time -= dt;
-
-    if(isShielded()) m_bubble_shield_time -= dt;
-    else if(m_bubble_shield_time < 0) m_bubble_shield_time = 0; // TODO: remove if not necessary
 
     m_slipstream->update(dt);
 
@@ -1250,7 +1300,7 @@ void Kart::setSquash(float time, float slowdown)
     if (isInvulnerable()) return;
     if (isShielded())
     {
-        m_bubble_shield_time = m_bubble_shield_time - stk_config->m_bubble_gum_shield_time/2.0f;
+        decreaseShieldTime(stk_config->m_bubble_gum_shield_time/2.0f);
         return;
     }
     

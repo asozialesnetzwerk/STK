@@ -133,9 +133,6 @@ private:
     /** Time a kart is invulnerable. */
     float        m_invulnerable_time;
 
-    /** Time a kart is protected by a shield. */
-    float        m_bubble_shield_time;
-
     /** How long a kart is being squashed. If this is >0
      *  the kart is squashed. */
     float        m_squash_time;
@@ -411,21 +408,24 @@ public:
     virtual void eliminate();
     // ------------------------------------------------------------------------
     /** Makes a kart invulnerable for a certain amount of time. */
-    virtual void  setInvulnerableTime(float t) { m_invulnerable_time = t; };
+    virtual void  setInvulnerableTime(float t) { m_invulnerable_time = t; }
     // ------------------------------------------------------------------------
     /** Returns if the kart is invulnerable. */
-    virtual bool   isInvulnerable() const { return m_invulnerable_time > 0; };
+    virtual bool   isInvulnerable() const { return m_invulnerable_time > 0; }
     // ------------------------------------------------------------------------
     /** Enables a kart shield protection for a certain amount of time. */
-    virtual void setShieldTime(float t) { m_bubble_shield_time = t; };
+    virtual void setShieldTime(float t);
     // ------------------------------------------------------------------------
     /** Returns if the kart is protected by a shield. */
-    virtual bool isShielded() const { return m_bubble_shield_time > 0; };
+    virtual bool isShielded() const;
     // ------------------------------------------------------------------------
     /** Returns the remaining time the kart is protected by a shield. */
-    virtual float getShieldTime() const { return m_bubble_shield_time; };
+    virtual float getShieldTime() const;
     // ------------------------------------------------------------------------
-
+    /** Decreases the kart's shield time. */
+    //If t = 0.0f: decrease shield time by the default amount.
+    virtual void decreaseShieldTime(float t);
+    // ------------------------------------------------------------------------
 
     /** Sets the energy the kart has collected. */
     virtual void   setEnergy(float val) { m_collected_energy = val; }
