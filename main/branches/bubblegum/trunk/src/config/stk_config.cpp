@@ -165,6 +165,7 @@ void STKConfig::init_defaults()
         m_penalty_time           = m_explosion_impulse_objects = UNDEFINED;
     m_bubble_gum_counter         = -100;
     m_bubble_gum_shield_time     = -100;
+    m_shield_restrict_weapos     = false;
     m_max_karts                  = -100;
     m_max_history                = -100;
     m_max_skidmarks              = -100;
@@ -344,6 +345,7 @@ void STKConfig::getAllData(const XMLNode * root)
     {
         bubble_gum_node->get("disappear-counter", &m_bubble_gum_counter);
         bubble_gum_node->get("shield-time", &m_bubble_gum_shield_time);
+        bubble_gum_node->get("restrict-weapons", &m_shield_restrict_weapos);
     }
 
     if(const XMLNode *explosion_node= root->getNode("explosion"))

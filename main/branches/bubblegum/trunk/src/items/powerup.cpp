@@ -260,6 +260,8 @@ void Powerup::use()
     case PowerupManager::POWERUP_BOWLING:
     case PowerupManager::POWERUP_PLUNGER:
         
+        if(stk_config->m_shield_restrict_weapos)
+            m_owner->setShieldTime(0.0f); // make weapon usage destroy the shield
         Powerup::adjustSound();
         m_sound_use->play();
         

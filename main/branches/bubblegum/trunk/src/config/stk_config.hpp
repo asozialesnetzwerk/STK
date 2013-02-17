@@ -77,6 +77,7 @@ public:
     int   m_bubble_gum_counter;      /**< How many times bubble gums must be
                                           driven over before they disappear. */
     float m_bubble_gum_shield_time;  /**<How long a bubble gum shield lasts. */
+    bool  m_shield_restrict_weapos;  /**<Wether weapon usage is punished. */
     float m_explosion_impulse_objects;/**<Impulse of explosion on moving
                                           objects, e.g. road cones, ...      */
     float m_penalty_time;            /**< Penalty time when starting too 
