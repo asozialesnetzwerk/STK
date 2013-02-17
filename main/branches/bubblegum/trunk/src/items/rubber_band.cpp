@@ -32,6 +32,8 @@
 #include "race/race_manager.hpp"
 #include "utils/string_utils.hpp"
 
+#include "utils/log.hpp" //TODO: remove after debugging is done
+
 #include <IMesh.h>
 
 const wchar_t* getPlungerString()
