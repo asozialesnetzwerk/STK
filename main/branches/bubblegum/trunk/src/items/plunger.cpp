@@ -228,7 +228,7 @@ bool Plunger::hit(AbstractKart *kart, PhysicalObject *obj)
         }
         World::getWorld()->getPhysics()->removeBody(getBody());
 
-        if(kart && !kart->isShielded())
+        if(kart)
         {
             m_rubber_band->hit(kart);
             return false;
