@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 12125 -->
+<!-- Generated with script from SVN rev 12405 -->
 <scene>
   <track model="zenGarden_track.b3d" x="0" y="0" z="0">
     <static-object lod_instance="true" lod_group="torii" xyz="1.50 0.00 10.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
@@ -135,60 +135,13 @@
     <animated-texture name="monumentWater.png" dy="-0.200" />
     <animated-texture name="water_light2.png" dy="0.050" />
   </track>
-  <water model="Plane.002.b3d" xyz="-140.20 -0.42 -46.58" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="0.10" speed="200.00" length="10.00">
-    <animated-texture name="water_light2.png" dy="0.050" />
-  </water>
-  <particle-emitter kind="waterfall.xml" x="-183.36" y="0.77" z="50.63" h="0.000000">
-  </particle-emitter>
-  <object type="billboard" texture="lightHaloY.png" xyz="-157.922165 3.779043 -71.275635" 
-             width="7.591702" height="9.267756" >
-  </object>
-  <object type="billboard" texture="lightHaloY.png" xyz="-145.348633 3.779043 -75.742592" 
-             width="7.591702" height="9.267756" >
-  </object>
-  <object type="billboard" texture="lightHaloY.png" xyz="-170.981247 3.779043 -59.921993" 
-             width="7.591702" height="9.267756" >
-  </object>
   <sun  xyz="-85.00 56.00 0.00" sun-specular="255 255 255" sun-diffuse="255 255 255" ambient="255 255 255"/>
-  <big-nitro x="-135.285248" y="0.779279" z="-46.432125" />
-  <big-nitro x="-139.340012" y="0.779279" z="-40.465088" />
-  <big-nitro x="-143.258148" y="0.779279" z="-40.408115" />
-  <big-nitro x="-135.282623" y="0.779279" z="-42.668495" />
-  <small-nitro x="-117.490425" y="0.14446" z="50.055927" />
-  <banana x="-30.390236" y="0.14446" z="12.236811" />
-  <small-nitro x="-55.13401" y="0.14446" z="2.097782" />
-  <banana x="-85.165192" y="0.14446" z="40.862762" />
-  <banana x="-135.437683" y="0.14446" z="30.455976" />
-  <item x="-135.47612" y="0.14446" z="32.973801" />
-  <item x="-137.613312" y="0.14446" z="28.653843" />
-  <item x="-135.428711" y="0.14446" z="5.053838" h="0.934825" />
-  <item x="-135.519852" y="0.14446" z="10.639534" h="0.934825" />
-  <banana x="-17.320824" y="0.14446" z="-43.553982" h="0.934825" />
-  <item x="-104.396027" y="0.14446" z="6.680187" h="-27.399122" />
-  <item x="-106.966827" y="0.14446" z="1.720422" h="-27.399122" />
-  <item x="-79.926903" y="0.14446" z="18.296696" h="-41.847484" />
-  <item x="-76.199913" y="0.14446" z="22.458164" h="-41.847484" />
-  <item x="-96.6269" y="0.14446" z="59.73315" h="-15.66515" />
-  <item x="-98.135323" y="0.14446" z="54.354214" h="-15.66515" />
-  <item x="-9.040672" y="0.14446" z="21.637482" h="-41.847484" />
-  <banana x="-77.989861" y="0.14446" z="19.951233" />
-  <item x="-171.74968" y="0.14446" z="20.785917" h="0.934825" />
-  <big-nitro x="-151.022186" y="2.072152" z="60.644623" />
-  <big-nitro x="-154.664764" y="2.072152" z="60.644623" />
-  <item x="-109.709305" y="0.14446" z="-39.967079" h="-117.354222" />
-  <item x="-104.747528" y="0.14446" z="-42.533989" h="-117.354222" />
-  <item x="-149.43869" y="0.14446" z="-72.57901" h="-197.115684" />
-  <item x="-147.794586" y="0.14446" z="-67.239975" h="-197.115684" />
-  <item x="-163.394257" y="0.14446" z="-38.13995" h="-284.232153" />
-  <item x="-168.809235" y="0.14446" z="-36.766514" h="-284.232153" />
-  <item x="-104.834839" y="5.123066" z="-24.232214" h="-376.442577" />
-  <item x="-106.416107" y="5.123066" z="-29.590197" h="-376.442577" />
-  <item x="-35.651997" y="0.562642" z="-54.482079" h="-358.752223" />
-  <item x="-35.773647" y="0.562642" z="-48.896957" h="-358.752223" />
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
+    <check-line kind="activate" other-ids="2" p1="-144.26 0.30" p2="-140.97 15.87"
+                min-height="0.37" same-group="1"/>
     <check-line kind="activate" other-ids="0" p1="-62.52 -56.76" p2="-57.84 -37.91"
-                min-height="0.10" same-group="1"/>
+                min-height="0.10" same-group="2"/>
   </checks>
 
   <sky-dome texture="sky.jpg"
@@ -200,4 +153,53 @@
                  forwards-distance ="1.10"
                  sidewards-distance="2.00"
                  upwards-distance  ="1.10"/>
+  <water model="Plane.002.b3d" xyz="-140.20 -0.42 -46.58" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="0.10" speed="200.00" length="10.00">
+    <animated-texture name="water_light2.png" dy="0.050" />
+  </water>
+  <particle-emitter kind="waterfall.xml" x="-183.36" y="0.77" z="50.63" h="0.00">
+  </particle-emitter>
+  <big-nitro x="-135.29" y="0.78" z="-46.43" />
+  <big-nitro x="-139.34" y="0.78" z="-40.47" />
+  <big-nitro x="-143.26" y="0.78" z="-40.41" />
+  <big-nitro x="-135.28" y="0.78" z="-42.67" />
+  <small-nitro x="-117.49" y="0.14" z="50.06" />
+  <banana x="-30.39" y="0.14" z="12.24" />
+  <small-nitro x="-55.13" y="0.14" z="2.10" />
+  <banana x="-85.17" y="0.14" z="40.86" />
+  <banana x="-135.44" y="0.14" z="30.46" />
+  <item x="-135.48" y="0.14" z="32.97" />
+  <item x="-137.61" y="0.14" z="28.65" />
+  <item x="-135.43" y="0.14" z="5.05" h="0.93" />
+  <item x="-135.52" y="0.14" z="10.64" h="0.93" />
+  <banana x="-17.32" y="0.14" z="-43.55" h="0.93" />
+  <item x="-104.40" y="0.14" z="6.68" h="-27.40" />
+  <item x="-106.97" y="0.14" z="1.72" h="-27.40" />
+  <item x="-79.93" y="0.14" z="18.30" h="-41.85" />
+  <item x="-76.20" y="0.14" z="22.46" h="-41.85" />
+  <item x="-96.63" y="0.14" z="59.73" h="-15.67" />
+  <item x="-98.14" y="0.14" z="54.35" h="-15.67" />
+  <item x="-9.04" y="0.14" z="21.64" h="-41.85" />
+  <banana x="-77.99" y="0.14" z="19.95" />
+  <item x="-171.75" y="0.14" z="20.79" h="0.93" />
+  <big-nitro x="-151.02" y="2.07" z="60.64" />
+  <big-nitro x="-154.66" y="2.07" z="60.64" />
+  <item x="-109.71" y="0.14" z="-39.97" h="-117.35" />
+  <item x="-104.75" y="0.14" z="-42.53" h="-117.35" />
+  <item x="-149.44" y="0.14" z="-72.58" h="-197.12" />
+  <item x="-147.79" y="0.14" z="-67.24" h="-197.12" />
+  <item x="-163.39" y="0.14" z="-38.14" h="-284.23" />
+  <item x="-168.81" y="0.14" z="-36.77" h="-284.23" />
+  <item x="-104.83" y="5.12" z="-24.23" h="-376.44" />
+  <item x="-106.42" y="5.12" z="-29.59" h="-376.44" />
+  <item x="-35.65" y="0.56" z="-54.48" h="-358.75" />
+  <item x="-35.77" y="0.56" z="-48.90" h="-358.75" />
+  <object type="billboard" texture="lightHaloY.png" xyz="-157.92 3.78 -71.28" 
+             width="7.592" height="9.268" >
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="-145.35 3.78 -75.74" 
+             width="7.592" height="9.268" >
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="-170.98 3.78 -59.92" 
+             width="7.592" height="9.268" >
+  </object>
 </scene>
