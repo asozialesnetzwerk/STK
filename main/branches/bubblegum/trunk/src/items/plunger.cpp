@@ -195,7 +195,7 @@ bool Plunger::hit(AbstractKart *kart, PhysicalObject *obj)
     // so in battle mode, always hide view
     if( m_reverse_mode || race_manager->isBattleMode() )
     {
-        if(kart && !kart->isShielded())
+        if(kart)
         {
             kart->blockViewWithPlunger();
             if (kart->getController()->isPlayerController())
