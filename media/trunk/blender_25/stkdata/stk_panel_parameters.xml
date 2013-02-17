@@ -71,6 +71,9 @@
     <EnumProp id="engine_sfx" name="Engine sound" default="large">
         <EnumChoice id="large" label="Large"/>
         <EnumChoice id="small" label="Small"/>
-    </EnumProp>           
+    </EnumProp>  
+    
+    
+    <BoolProp id="random_wheel_rot" name="Randomize wheel rotation" default="true" doc="Randomize the initial rotation of wheels to reduce the feeling that all wheels are identical"/>
 </BoolProp>
 </Properties>
