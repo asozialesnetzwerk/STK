@@ -38,12 +38,12 @@ ExplosionAnimation *ExplosionAnimation::create(AbstractKart *kart,
                                                bool direct_hit)
 {
     if(kart->isInvulnerable()) return NULL;
-    else if(kart->isShielded())
+    /*else if(kart->isShielded()) //Problem here: bouncing ball is not considered properly
     {
         kart->decreaseShieldTime(0.0f); //Decreasing the shield time by the default value.
         Log::verbose("ExlosionAnimation", "Decreasing shield \n");
         return NULL;
-    }
+    }*/
     float r = kart->getKartProperties()->getExplosionRadius();
 
     // Ignore explosion that are too far away.

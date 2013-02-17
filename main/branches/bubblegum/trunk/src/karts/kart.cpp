@@ -517,6 +517,24 @@ void Kart::setPosition(int p)
 }   // setPosition
 
 // -----------------------------------------------------------------------------
+/** Sets that the view is blocked by a plunger. The duration depends on
+ *  the difficulty, see KartPorperties getPlungerInFaceTime.
+ */
+void Kart::blockViewWithPlunger()
+{
+    // Avoid that a plunger extends the plunger time
+    if(m_view_blocked_by_plunger<=0 && !isShielded())
+        m_view_blocked_by_plunger =
+                               m_kart_properties->getPlungerInFaceTime();
+    if(isShielded())
+    {
+        decreaseShieldTime(0.0f); //decrease the default amount of time
+        Log::verbose("Kart", "Decreasing shield, because of removing the plunger. \n");
+    }
+}   // blockViewWithPlunger
+
+
+// -----------------------------------------------------------------------------
 
 /** Returns a transform that will align an object with the kart: the heading 
  *  and the pitch will be set appropriately. A custom pitch value can be 
@@ -1078,7 +1096,9 @@ void Kart::update(float dt)
 
     // if its view is blocked by plunger, decrease remaining time
     if(m_view_blocked_by_plunger > 0) m_view_blocked_by_plunger -= dt;
-
+    //unblock the view if kart just became shielded
+    if(isShielded())
+        m_view_blocked_by_plunger = 0.0f;
     // Decrease remaining invulnerability time
     if(m_invulnerable_time>0) m_invulnerable_time -= dt;
 
