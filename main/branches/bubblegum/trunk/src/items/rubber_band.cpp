@@ -135,7 +135,7 @@ void RubberBand::updatePosition()
  */
 void RubberBand::update(float dt)
 {
-    if(m_owner->isEliminated())
+    if(m_owner->isEliminated() || m_owner->isShielded())
     {
         // Rubber band snaps
         m_plunger->hit(NULL);
@@ -246,9 +246,9 @@ void RubberBand::hit(AbstractKart *kart_hit, const Vec3 *track_xyz)
         if(kart_hit->isShielded())
         {
             kart_hit->decreaseShieldTime(0.0f); //Decreasing the shield time by the default value.
+            m_plunger->setKeepAlive(0.0f);
             Log::verbose("rubber_band", "Decreasing shield! \n");
-            m_hit_position   = *track_xyz;
-            m_attached_state = RB_TO_TRACK;
+
             return;
         }
 
