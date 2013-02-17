@@ -230,7 +230,7 @@ void Physics::update(float dt)
                 !target_kart->isInvulnerable()      )
             {
                 if(target_kart->isShielded())
-                    target_kart->setShieldTime(target_kart->getShieldTime() - 10.0f); //TODO: using stk config data.
+                    target_kart->decreaseShieldTime(0.0f); //Decreasing the shield time by the default value.
                 else
                     p->getUserPointer(0)->getPointerFlyable()
                      ->hit(target_kart);

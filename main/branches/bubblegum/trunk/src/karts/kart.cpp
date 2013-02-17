@@ -964,8 +964,8 @@ void Kart::setShieldTime(float t)
  */
 bool Kart::isShielded() const
 {
-    if(this->getAttachment() != NULL)
-        return this->getAttachment()->getTimeLeft() == Attachment::ATTACH_BUBBLE_GUM_SHIELD;
+    if(getAttachment() != NULL)
+        return getAttachment()->getType() == Attachment::ATTACH_BUBBLE_GUM_SHIELD;
     else
         return false;
 }
@@ -975,8 +975,8 @@ bool Kart::isShielded() const
  */
 float Kart::getShieldTime() const
 {
-    if(this->isShielded())
-        return this->getAttachment()->getTimeLeft();
+    if(isShielded())
+        return getAttachment()->getTimeLeft();
     else
         return 0.0f;
 }

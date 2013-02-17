@@ -39,7 +39,7 @@ ExplosionAnimation *ExplosionAnimation::create(AbstractKart *kart,
     if(kart->isInvulnerable()) return NULL;
     else if(kart->isShielded())
     {
-        kart->setShieldTime(0.01f); //setting the shield time to zero could trigger problems
+        kart->decreaseShieldTime(0.0f); //Decreasing the shield time by the default value.
         return NULL;
     }
     float r = kart->getKartProperties()->getExplosionRadius();
@@ -59,7 +59,7 @@ ExplosionAnimation *ExplosionAnimation::create(AbstractKart *kart)
     if(kart->isInvulnerable()) return NULL;
     else if(kart->isShielded())
     {
-        kart->setShieldTime(0.01f); //setting the shield time to zero could trigger problems
+        kart->decreaseShieldTime(0.0f) ; //decreasing the shieldtime by the default amount
         return NULL;
     }
     return new ExplosionAnimation(kart, kart->getXYZ(), /*direct hit*/true);

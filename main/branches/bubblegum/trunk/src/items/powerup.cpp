@@ -299,15 +299,13 @@ void Powerup::use()
         else // if the kart is looking forward, use the bubblegum as a shield
         {
 
-            if(m_owner->getShieldTime() <= 0.0f) //if the previous shield had been used up.
+            if(!m_owner->isShielded()) //if the previous shield had been used up.
             {
-                m_owner->setShieldTime(stk_config->m_bubble_gum_shield_time);
                 m_owner->getAttachment()->set(Attachment::ATTACH_BUBBLE_GUM_SHIELD,
                                                stk_config->m_bubble_gum_shield_time);
             }
             else // using a bubble gum while still having a shield
             {
-                m_owner->setShieldTime(stk_config->m_bubble_gum_shield_time + m_owner->getShieldTime());
                 m_owner->getAttachment()->set(Attachment::ATTACH_BUBBLE_GUM_SHIELD,
                                                stk_config->m_bubble_gum_shield_time + m_owner->getShieldTime());
             }
@@ -368,9 +366,9 @@ void Powerup::use()
             {
                 AbstractKart *kart=world->getKart(i);
                 if(kart->isEliminated() || kart== m_owner) continue;
-                if(kart->getShieldTime() > 0)
+                if(kart->isShielded())
                 {
-                    kart->setShieldTime(kart->getShieldTime() - stk_config->m_bubble_gum_shield_time);
+                    kart->decreaseShieldTime(stk_config->m_bubble_gum_shield_time);
                     continue;
                 }
                 if(m_owner->getPosition() > kart->getPosition())
