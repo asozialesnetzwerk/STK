@@ -32,6 +32,7 @@
 #include "physics/stk_dynamics_world.hpp"
 #include "physics/triangle_mesh.hpp"
 #include "tracks/track.hpp"
+#include "utils/log.hpp" //TODO: remove after debugging is done
 
 // ----------------------------------------------------------------------------
 /** Initialise physics.
@@ -230,7 +231,10 @@ void Physics::update(float dt)
                 !target_kart->isInvulnerable()      )
             {
                 if(target_kart->isShielded())
+                {
                     target_kart->decreaseShieldTime(0.0f); //Decreasing the shield time by the default value.
+                    Log::verbose("physics", "Decreasing shield! \n");
+                }
                 else
                     p->getUserPointer(0)->getPointerFlyable()
                      ->hit(target_kart);

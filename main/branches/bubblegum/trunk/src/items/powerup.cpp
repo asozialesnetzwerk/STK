@@ -369,6 +369,7 @@ void Powerup::use()
                 if(kart->isShielded())
                 {
                     kart->decreaseShieldTime(stk_config->m_bubble_gum_shield_time);
+                    Log::verbose("Powerup", "Decreasing shield \n");
                     continue;
                 }
                 if(m_owner->getPosition() > kart->getPosition())

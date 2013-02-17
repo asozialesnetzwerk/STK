@@ -24,6 +24,7 @@
 #include "karts/kart_properties.hpp"
 #include "modes/world.hpp"
 #include "tracks/track.hpp"
+#include "utils/log.hpp" //TODO: remove after debugging is done
 
 /** A static create function that does only create an explosion if
  *  the explosion happens to be close enough to affect the kart. 
@@ -40,6 +41,7 @@ ExplosionAnimation *ExplosionAnimation::create(AbstractKart *kart,
     else if(kart->isShielded())
     {
         kart->decreaseShieldTime(0.0f); //Decreasing the shield time by the default value.
+        Log::verbose("ExlosionAnimation", "Decreasing shield \n");
         return NULL;
     }
     float r = kart->getKartProperties()->getExplosionRadius();
@@ -60,6 +62,7 @@ ExplosionAnimation *ExplosionAnimation::create(AbstractKart *kart)
     else if(kart->isShielded())
     {
         kart->decreaseShieldTime(0.0f) ; //decreasing the shieldtime by the default amount
+        Log::verbose("ExplosionAnimation", "Decreasing shield 2\n");
         return NULL;
     }
     return new ExplosionAnimation(kart, kart->getXYZ(), /*direct hit*/true);

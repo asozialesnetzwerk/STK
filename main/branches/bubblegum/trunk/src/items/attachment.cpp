@@ -36,7 +36,7 @@
 #include "network/network_manager.hpp"
 #include "utils/constants.hpp"
 #include "utils/log.hpp" //TODO: remove after debugging is done
-
+// Log::verbose("attachment", "Decreasing shield \n");
 /** Initialises the attachment each kart has.
  */
 Attachment::Attachment(AbstractKart* kart)

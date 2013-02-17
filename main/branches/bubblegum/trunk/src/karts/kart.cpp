@@ -69,6 +69,8 @@
 #include "tracks/track_manager.hpp"
 #include "utils/constants.hpp"
 
+#include "utils/log.hpp" //TODO: remove after debugging is done
+
 #if defined(WIN32) && !defined(__CYGWIN__)  && !defined(__MINGW32__)
    // Disable warning for using 'this' in base member initializer list
 #  pragma warning(disable:4355)
@@ -1301,6 +1303,7 @@ void Kart::setSquash(float time, float slowdown)
     if (isShielded())
     {
         decreaseShieldTime(stk_config->m_bubble_gum_shield_time/2.0f);
+        Log::verbose("Kart", "Decreasing shield \n");
         return;
     }
     
