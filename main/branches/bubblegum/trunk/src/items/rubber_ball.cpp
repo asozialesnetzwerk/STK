@@ -715,16 +715,16 @@ bool RubberBall::hit(AbstractKart* kart, PhysicalObject* object)
     bool was_real_hit = Flyable::hit(kart, object);
     if(was_real_hit)
     {
-        if(kart && kart->isShielded() && kart->getShieldTime() > stk_config->m_bubble_gum_shield_time )
+        /*if(kart && kart->isShielded() && kart->getShieldTime() > stk_config->m_bubble_gum_shield_time )
         {   //remove twice the default shield time
             kart->decreaseShieldTime(stk_config->m_bubble_gum_shield_time * 2);
             Log::verbose("rubber_ball", "Decreasing shield 1! \n");
         }
-        else if(kart && kart->isShielded())
+        else */if(kart && kart->isShielded())
         {
             kart->decreaseShieldTime(stk_config->m_bubble_gum_shield_time);
-            kart->getAttachment()->update(0.0f);
-            kart->setSquash(m_st_squash_duration, m_st_squash_slowdown);
+            //kart->getAttachment()->update(0.0f);
+            //kart->setSquash(m_st_squash_duration, m_st_squash_slowdown);
             Log::verbose("rubber_ball", "Decreasing shield 2! \n");
         }
         else
