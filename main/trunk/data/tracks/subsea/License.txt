@@ -1,7 +1,7 @@
 
 #Textures
 
-brick.jpg 				from supertuxkart 			GPL License
+brick-subsea.jpg, brick-moss-subsea.jpg         by Fraang           CC-BY-SA 3.0
 bribk&moos.jpg				by Christoph Egger Marianne Gagnon	CC-BY-SA 3.0			Based on Grass2					
 Bronze-subsea.jpg 			from supertuxkart 			GPL license 			based on grass.jpg 
 Carapace-subsea.jpg 			by Rudy Phelippeau (STKRudy85) 		CC0 , GPL License
