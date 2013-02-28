@@ -1,12 +1,23 @@
-Konqi character, colormap.jpg, hanky.tga
-by basse <basse@kimppu.org | www.kimppu.org/basse>
-With modifications by Marianne Gagnon
-Released under Gnu LGPL
+konqi v1 (Up-grade version 1 from zero) author : Indro a.k.a Betharatux1, list here:
 
-Kart by Christian Framing
-released under Gnu GPL
+1.konqi vehicle texture up1.png
+2.konqi eye.png
+3.konqiv1 shadow.png
+4.konqiV2 wheel texture.png
+5.konqiV1-steertexture.png
+6.konqiV1-name.png
+7.Konqi v1 vehicle model 3D
 
-KDE logo copyright the KDE project
-released under the Gnu GPL
+This work is released under the Gnu General Public License (GPL)
 
-Icon by Anthony Carré (yekcim), released under GPL 2
+
+modify thing and texture, list:
+
+- konqi model source: ver 0.1
+ 
+by basse <basse@kimppu.org | www.kimppu.org/basse> 
+are published under LGPL licence
+- KDE logo 3d : thanks for Ned J. works
+- konqi_kerchief : modified color by betharatux1, from kongo "hanko.png" texture, based hanko.tga from original konqi source. are published under LGPL licence
+- colormap konqi.jpg : modified color by betharatux, from basse work
+               thanks desatured color by Ned J. are published under LGPL licence
