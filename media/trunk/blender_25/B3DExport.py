@@ -1126,10 +1126,21 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
                 elif vertex_id == 3:
                     vcolor = vertex_colors[0].data[face.index].color4
                 
+                valpha = 1.0
+                if (len(vertex_colors) > 1):
+                    if vertex_id == 0:
+                        valpha = vertex_colors[1].data[face.index].color1.r
+                    elif vertex_id == 1:
+                        valpha = vertex_colors[1].data[face.index].color2.r
+                    elif vertex_id == 2:
+                        valpha = vertex_colors[1].data[face.index].color3.r
+                    elif vertex_id == 3:
+                        valpha = vertex_colors[1].data[face.index].color4.r
+                
                 temp_buf.append(write_float_quad(vcolor.r, #R
                                                  vcolor.g, #G
                                                  vcolor.b, #B
-                                                 1.0))     #A (FIXME?)
+                                                 valpha))  #A (FIXME?)
             
             #d = time.time()
             #time_in_b1 += d - c
