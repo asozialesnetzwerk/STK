@@ -54,7 +54,7 @@
     <animated-texture name="mine_water_alpha.png" dy="0.500" />
     <animated-texture name="mine_water_alpha.png" dy="0.500" />
   </track>
-  <object type="animation" model="woodbridge.b3d" xyz="7.07 -6.21 -230.94" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
+  <object type="animation" model="woodbridge.b3d" xyz="7.07 -6.48 -230.94" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
   </object>
   <object type="animation" model="cart.b3d" xyz="34.09 1.35 60.89" hpr="0.0 33.6 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
@@ -185,7 +185,7 @@
                  forwards-distance ="1.50"
                  sidewards-distance="3.00"
                  upwards-distance  ="0.10"/>
-  <water model="water.b3d" xyz="99.24 -14.70 -150.55" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="0.25" speed="200.00" length="10.00"/>
+  <water model="water.b3d" xyz="99.24 -14.06 -150.55" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="0.25" speed="200.00" length="10.00"/>
   <banana x="100.78" y="-0.40" z="25.30" />
   <small-nitro x="86.89" y="-8.43" z="-119.35" h="-106.30" />
   <banana x="155.71" y="-1.36" z="-11.02" />

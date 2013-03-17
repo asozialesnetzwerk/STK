@@ -9,14 +9,11 @@
   <material name="mine_road.jpg">
     <particles base="smoke.xml" condition="skid"/>
   </material>
-  <material name="mine_road.jpg">
-    <particles condition="skid" base="smoke.xml"/>
-  </material>
-  <material name="mine_water_alpha.png" compositing="blend" surface="Y">
+  <material name="mine_water_alpha.png" compositing="blend" surface="Y" water-shader="Y" water-shader-speed-1="0.50" water-shader-speed-2="1.00">
     <sfx filename="splash.ogg"/>
     <particles base="splash.xml" condition="skid drive"/>
   </material>
-  <material name="mine_water_reset.png" reset="Y" graphical-effect="water" falling-effect="Y"/>
+  <material name="mine_water_reset.png" reset="Y" water-shader="Y" water-shader-speed-1="0.50" water-shader-speed-2="1.00"/>
   <material name="wall_wood1.jpg">
     <particles condition="skid" base="smoke.xml"/>
   </material>
