@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 12125 -->
+<!-- Generated with script from SVN rev 12416 -->
 <scene>
   <track model="mansion_track.b3d" x="0" y="0" z="0">
     <static-object lod_instance="true" lod_group="tombStone" xyz="-91.29 -1.13 -84.42" hpr="0.0 -87.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
@@ -11,12 +11,8 @@
     <static-object lod_instance="true" lod_group="tombStone" xyz="-66.21 -4.32 -25.22" hpr="-74.5 106.6 -74.7" scale="1.35 1.35 1.35"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="pumpkin" xyz="-92.70 -5.29 59.42" hpr="0.0 -16.2 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="jackOlantern" xyz="-93.79 -5.44 57.39" hpr="0.0 177.2 0.0" scale="1.62 1.62 1.62"/> <!-- writeStaticObjects 3 -->
-    <static-object model="Circle.007.b3d" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"> <!-- writeStaticObjects 2 -->
-    <animated-texture name="" dx="0.050" />
-    </static-object>
-    <static-object model="Circle.008.b3d" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"> <!-- writeStaticObjects 2 -->
-    <animated-texture name="" dx="0.050" />
-    </static-object>
+    <static-object model="Circle.007.b3d" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object model="Circle.008.b3d" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object model="Circle.009.b3d" xyz="0.00 333.20 0.00" hpr="-0.0 135.0 -0.0" scale="1.20 1.20 1.20"> <!-- writeStaticObjects 2 -->
     <animated-texture name="clouds.png" dx="0.050" />
     </static-object>
@@ -29,28 +25,28 @@
     <static-object model="Circle.012.b3d" xyz="0.00 333.20 0.00" hpr="-0.0 135.0 -0.0" scale="1.20 1.20 1.20"> <!-- writeStaticObjects 2 -->
     <animated-texture name="clouds.png" dx="0.050" />
     </static-object>
-    <static-object model="Circle.013.b3d" xyz="0.00 277.41 0.00" hpr="-0.0 135.0 -0.0" scale="1.11 1.11 1.11"> <!-- writeStaticObjects 2 -->
+    <static-object model="Circle.013.b3d" xyz="0.00 277.41 0.00" hpr="0.0 -10.0 0.0" scale="1.11 1.11 1.11"> <!-- writeStaticObjects 2 -->
     <animated-texture name="clouds.png" dx="0.040" />
     </static-object>
-    <static-object model="Circle.014.b3d" xyz="0.00 277.41 0.00" hpr="-0.0 135.0 -0.0" scale="1.11 1.11 1.11"> <!-- writeStaticObjects 2 -->
+    <static-object model="Circle.014.b3d" xyz="0.00 277.41 0.00" hpr="0.0 -10.0 0.0" scale="1.11 1.11 1.11"> <!-- writeStaticObjects 2 -->
     <animated-texture name="clouds.png" dx="0.040" />
     </static-object>
-    <static-object model="Circle.015.b3d" xyz="0.00 277.41 0.00" hpr="-0.0 135.0 -0.0" scale="1.11 1.11 1.11"> <!-- writeStaticObjects 2 -->
+    <static-object model="Circle.015.b3d" xyz="0.00 277.41 0.00" hpr="0.0 -10.0 0.0" scale="1.11 1.11 1.11"> <!-- writeStaticObjects 2 -->
     <animated-texture name="clouds.png" dx="0.040" />
     </static-object>
-    <static-object model="Circle.016.b3d" xyz="0.00 277.41 0.00" hpr="-0.0 135.0 -0.0" scale="1.11 1.11 1.11"> <!-- writeStaticObjects 2 -->
+    <static-object model="Circle.016.b3d" xyz="0.00 277.41 0.00" hpr="0.0 -10.0 0.0" scale="1.11 1.11 1.11"> <!-- writeStaticObjects 2 -->
     <animated-texture name="clouds.png" dx="0.040" />
     </static-object>
-    <static-object model="Circle.017.b3d" xyz="0.00 98.47 0.00" hpr="-0.0 135.0 -0.0" scale="1.15 1.15 1.15"> <!-- writeStaticObjects 2 -->
+    <static-object model="Circle.017.b3d" xyz="0.00 98.47 0.00" hpr="0.0 -76.1 -0.0" scale="1.15 1.15 1.15"> <!-- writeStaticObjects 2 -->
     <animated-texture name="clouds.png" dx="0.030" />
     </static-object>
-    <static-object model="Circle.018.b3d" xyz="0.00 98.47 0.00" hpr="-0.0 135.0 -0.0" scale="1.15 1.15 1.15"> <!-- writeStaticObjects 2 -->
+    <static-object model="Circle.018.b3d" xyz="0.00 98.47 0.00" hpr="0.0 -76.1 -0.0" scale="1.15 1.15 1.15"> <!-- writeStaticObjects 2 -->
     <animated-texture name="clouds.png" dx="0.030" />
     </static-object>
-    <static-object model="Circle.019.b3d" xyz="0.00 98.47 0.00" hpr="-0.0 135.0 -0.0" scale="1.15 1.15 1.15"> <!-- writeStaticObjects 2 -->
+    <static-object model="Circle.019.b3d" xyz="0.00 98.47 0.00" hpr="0.0 -76.1 -0.0" scale="1.15 1.15 1.15"> <!-- writeStaticObjects 2 -->
     <animated-texture name="clouds.png" dx="0.030" />
     </static-object>
-    <static-object model="Circle.020.b3d" xyz="0.00 98.47 0.00" hpr="-0.0 135.0 -0.0" scale="1.15 1.15 1.15"> <!-- writeStaticObjects 2 -->
+    <static-object model="Circle.020.b3d" xyz="0.00 98.47 0.00" hpr="0.0 -76.1 -0.0" scale="1.15 1.15 1.15"> <!-- writeStaticObjects 2 -->
     <animated-texture name="clouds.png" dx="0.030" />
     </static-object>
     <static-object lod_instance="true" lod_group="pumpkin" xyz="7.89 0.08 7.93" hpr="-0.0 -134.5 -0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
@@ -156,32 +152,6 @@
     <static-object model="dead_branch.b3d" xyz="-64.61 -0.01 -87.47" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/> <!-- writeStaticObjects 3 -->
     <static-object model="dead_tree_low.b3d" xyz="-96.13 -4.83 118.48" hpr="0.0 178.8 0.0" scale="0.99 0.99 0.99"/> <!-- writeStaticObjects 3 -->
   </track>
-  <water model="waterPond.b3d" xyz="-75.02 -12.93 26.30" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="0.10" speed="500.00" length="5.00">
-    <animated-texture name="water_light2.png" dx="0.100" />
-  </water>
-  <water model="swamp.b3d" xyz="-72.90 -7.49 108.53" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="0.09" speed="500.00" length="10.00"/>
-  <particle-emitter kind="fire.xml" x="-5.13" y="19.78" z="-115.89" h="-89.999996">
-  </particle-emitter>
-  <particle-emitter kind="fire.xml" x="-5.15" y="19.78" z="-107.17" h="-89.999996">
-  </particle-emitter>
-  <particle-emitter kind="fire.xml" x="-5.15" y="19.78" z="-99.01" h="-89.999996">
-  </particle-emitter>
-  <particle-emitter kind="fire.xml" x="18.66" y="19.78" z="-99.78" h="-270.000001">
-  </particle-emitter>
-  <particle-emitter kind="fire.xml" x="18.66" y="19.78" z="-107.81" h="-270.000001">
-  </particle-emitter>
-  <particle-emitter kind="fire.xml" x="18.66" y="19.78" z="-116.38" h="-270.000001">
-  </particle-emitter>
-  <particle-emitter kind="black_smoke.xml" x="28.42" y="46.26" z="-80.29" h="0.000000">
-  </particle-emitter>
-  <particle-emitter kind="black_smoke.xml" x="5.96" y="13.58" z="-124.45" h="0.000000">
-  </particle-emitter>
-  <particle-emitter kind="fire.xml" x="5.87" y="12.96" z="-123.87" h="0.000000">
-  </particle-emitter>
-  <particle-emitter kind="fire.xml" x="-29.18" y="-4.23" z="108.15" h="0.000000">
-  </particle-emitter>
-  <particle-emitter kind="black_smoke.xml" x="-29.09" y="-3.61" z="107.57" h="0.000000">
-  </particle-emitter>
   <object type="animation" model="ghost.b3d" xyz="-67.86 -7.96 -26.49" hpr="0.0 75.1 0.0" scale="0.46 1.39 1.00"  looped="y"  interaction="ghost">
     <curve channel="ScaleX" interpolation="bezier" extend="cyclic">
       <p c="1.000 0.457" h1="-18.129 0.457" h2="20.129 0.457"/>
@@ -202,105 +172,8 @@
       <p c="553.000 1.581" h1="521.768 1.581" h2="584.232 1.581"/>
     </curve>
   </object>
-  <object type="billboard" texture="lightHaloY.png" xyz="-0.826620 2.265366 38.080910" 
-             width="3.600000" height="3.600001" >
-  </object>
-  <object type="billboard" texture="halo.png" xyz="-0.826620 2.265366 38.097462" 
-             width="2.000000" height="2.000000" fadeout="true" start="10.0" end="20.0">
-  </object>
-  <object type="billboard" texture="halo.png" xyz="2.707989 1.032259 68.840210" 
-             width="2.000000" height="2.000000" fadeout="true" start="10.0" end="20.0">
-  </object>
-  <object type="billboard" texture="lightHaloY.png" xyz="2.707989 1.032259 68.823654" 
-             width="3.600000" height="3.600001" >
-  </object>
-  <object type="billboard" texture="lightHaloY.png" xyz="-8.015487 0.106140 91.344887" 
-             width="3.600000" height="3.600001" >
-  </object>
-  <object type="billboard" texture="halo.png" xyz="-8.015487 0.106140 91.376938" 
-             width="2.000000" height="2.000000" fadeout="true" start="10.0" end="20.0">
-  </object>
-  <object type="billboard" texture="halo.png" xyz="-47.629211 0.106140 89.608742" 
-             width="2.000000" height="2.000000" fadeout="true" start="10.0" end="20.0">
-  </object>
-  <object type="billboard" texture="lightHaloY.png" xyz="-47.706966 0.106140 89.592186" 
-             width="3.600000" height="3.600001" >
-  </object>
-  <object type="billboard" texture="lightHaloY.png" xyz="-76.228058 -0.714618 64.440941" 
-             width="3.600000" height="3.600001" >
-  </object>
-  <object type="billboard" texture="halo.png" xyz="-76.228058 -0.714618 64.457497" 
-             width="2.000000" height="2.000000" fadeout="true" start="10.0" end="20.0">
-  </object>
-  <object type="billboard" texture="halo.png" xyz="-86.487244 -2.021050 34.501274" 
-             width="2.000000" height="2.000000" fadeout="true" start="10.0" end="20.0">
-  </object>
-  <object type="billboard" texture="lightHaloY.png" xyz="-86.487244 -2.021050 34.484718" 
-             width="3.600000" height="3.600001" >
-  </object>
-  <object type="billboard" texture="lightHaloY.png" xyz="-77.704369 -2.988134 25.736963" 
-             width="3.600000" height="3.600001" >
-  </object>
-  <object type="billboard" texture="halo.png" xyz="-77.704369 -2.988134 25.753519" 
-             width="2.000000" height="2.000000" fadeout="true" start="10.0" end="20.0">
-  </object>
-  <object type="billboard" texture="halo.png" xyz="-61.269264 -3.364831 -5.690549" 
-             width="2.000000" height="2.000000" fadeout="true" start="10.0" end="20.0">
-  </object>
-  <object type="billboard" texture="lightHaloY.png" xyz="-61.269264 -3.364831 -5.707105" 
-             width="3.600000" height="3.600001" >
-  </object>
-  <object type="billboard" texture="lightHaloY.png" xyz="-91.937279 -1.499643 -31.171637" 
-             width="3.600000" height="3.600001" >
-  </object>
-  <object type="billboard" texture="halo.png" xyz="-91.937279 -1.499643 -31.155081" 
-             width="2.000000" height="2.000000" fadeout="true" start="10.0" end="20.0">
-  </object>
-  <object type="billboard" texture="halo.png" xyz="-97.473389 0.942386 -62.224461" 
-             width="2.000000" height="2.000000" fadeout="true" start="10.0" end="20.0">
-  </object>
-  <object type="billboard" texture="lightHaloY.png" xyz="-97.473389 0.942386 -62.241016" 
-             width="3.600000" height="3.600001" >
-  </object>
-  <object type="billboard" texture="lightHaloY.png" xyz="-68.084206 4.093642 -81.848839" 
-             width="3.600000" height="3.600001" >
-  </object>
-  <object type="billboard" texture="halo.png" xyz="-68.084206 4.093642 -81.832283" 
-             width="2.000000" height="2.000000" fadeout="true" start="10.0" end="20.0">
-  </object>
-  <sun  fog="true" fog-color="7 8 11" fog-start="1.1754943508222875e-38" fog-end="75.0" xyz="0.00 118.17 0.00" sun-specular="255 255 255" sun-diffuse="85 103 103" ambient="85 103 103"/>
+  <sun  fog="true" fog-color="7 8 11" fog-start="0.00" fog-end="75.00" xyz="0.00 118.17 0.00" sun-specular="255 255 255" sun-diffuse="85 103 103" ambient="85 103 103"/>
   <sky-color rgb="7 7 11"/>
-  <banana x="-12.523397" y="-2.702631" z="89.468903" h="-89.999997" />
-  <banana x="9.543741" y="13.031607" z="-100.927292" h="-89.999997" />
-  <banana x="-15.077366" y="4.846305" z="-78.246773" h="-89.999997" />
-  <item x="2.157635" y="0.443297" z="1.051094" />
-  <item x="-1.842365" y="0.443297" z="1.051094" />
-  <item x="6.638491" y="6.144968" z="-26.800203" h="-89.999997" />
-  <item x="-76.703217" y="-6.536561" z="21.54475" h="-89.999997" />
-  <item x="6.580105" y="6.144968" z="-35.471092" h="-89.999997" />
-  <item x="-3.487213" y="10.955063" z="-100.19828" h="-179.999994" />
-  <item x="0.512787" y="10.955063" z="-100.19828" h="-179.999994" />
-  <item x="-63.461121" y="1.354621" z="-79.490479" h="-89.999997" />
-  <item x="-84.26265" y="1.354621" z="-27.778105" h="-89.999997" />
-  <item x="-13.681559" y="-1.177591" z="87.28801" h="-89.999997" />
-  <item x="-11.399647" y="-1.177591" z="91.20472" h="-89.999997" />
-  <item x="0.276339" y="-1.271072" z="41.730217" />
-  <item x="4.276339" y="-1.271072" z="41.730217" />
-  <item x="6.521719" y="6.144968" z="-31.208908" h="-89.999997" />
-  <item x="7.987091" y="13.011327" z="-73.260162" h="-89.999997" />
-  <item x="3.600865" y="13.011327" z="-73.260162" h="-89.999997" />
-  <small-nitro x="22.082684" y="1.900859" z="-16.810974" h="-179.999994" />
-  <small-nitro x="22.997345" y="3.113232" z="-11.564632" h="-179.999994" />
-  <small-nitro x="41.863995" y="5.064489" z="-13.042175" h="-179.999994" />
-  <small-nitro x="50.439743" y="5.064488" z="-18.490299" h="-179.999994" />
-  <small-nitro x="49.632614" y="5.064488" z="-30.395458" h="-179.999994" />
-  <small-nitro x="37.323891" y="5.064489" z="-39.072102" h="-179.999994" />
-  <small-nitro x="-100.875488" y="-2.899033" z="-66.983475" h="-89.999997" />
-  <small-nitro x="-85.349045" y="-5.302226" z="-26.865404" h="-89.999997" />
-  <small-nitro x="-63.436008" y="1.075181" z="-76.473381" h="-89.999997" />
-  <small-nitro x="-50.248009" y="-3.671106" z="89.57679" h="-89.999997" />
-  <small-nitro x="-82.987473" y="-5.302226" z="-29.137011" h="-89.999997" />
-  <small-nitro x="-52.307884" y="-3.671106" z="94.167366" h="-89.999997" />
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
     <check-line kind="activate" other-ids="0" p1="-20.20 -87.10" p2="-11.93 -71.33"
@@ -312,4 +185,127 @@
                  forwards-distance ="1.10"
                  sidewards-distance="1.10"
                  upwards-distance  ="1.10"/>
+  <water model="waterPond.b3d" xyz="-75.02 -12.93 26.30" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="0.10" speed="500.00" length="5.00">
+    <animated-texture name="water_light2.png" dx="0.100" />
+  </water>
+  <water model="swamp.b3d" xyz="-72.90 -7.49 108.53" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="0.09" speed="500.00" length="10.00"/>
+  <particle-emitter kind="fire.xml" x="-5.13" y="19.78" z="-115.89" h="-90.00">
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" x="-5.15" y="19.78" z="-107.17" h="-90.00">
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" x="-5.15" y="19.78" z="-99.01" h="-90.00">
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" x="18.66" y="19.78" z="-99.78" h="-270.00">
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" x="18.66" y="19.78" z="-107.81" h="-270.00">
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" x="18.66" y="19.78" z="-116.38" h="-270.00">
+  </particle-emitter>
+  <particle-emitter kind="black_smoke.xml" x="28.42" y="46.26" z="-80.29" h="0.00">
+  </particle-emitter>
+  <particle-emitter kind="black_smoke.xml" x="5.96" y="13.58" z="-124.45" h="0.00">
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" x="5.87" y="12.96" z="-123.87" h="0.00">
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" x="-29.18" y="-4.23" z="108.15" h="0.00">
+  </particle-emitter>
+  <particle-emitter kind="black_smoke.xml" x="-29.09" y="-3.61" z="107.57" h="0.00">
+  </particle-emitter>
+  <banana x="-12.52" y="-2.70" z="89.47" h="-90.00" />
+  <banana x="9.54" y="13.03" z="-100.93" h="-90.00" />
+  <banana x="-15.08" y="4.85" z="-78.25" h="-90.00" />
+  <item x="2.16" y="0.44" z="1.05" />
+  <item x="-1.84" y="0.44" z="1.05" />
+  <item x="6.64" y="6.14" z="-26.80" h="-90.00" />
+  <item x="-76.70" y="-6.54" z="21.54" h="-90.00" />
+  <item x="6.58" y="6.14" z="-35.47" h="-90.00" />
+  <item x="-3.49" y="10.96" z="-100.20" h="-180.00" />
+  <item x="0.51" y="10.96" z="-100.20" h="-180.00" />
+  <item x="-63.46" y="1.35" z="-79.49" h="-90.00" />
+  <item x="-84.26" y="1.35" z="-27.78" h="-90.00" />
+  <item x="-13.68" y="-1.18" z="87.29" h="-90.00" />
+  <item x="-11.40" y="-1.18" z="91.20" h="-90.00" />
+  <item x="0.28" y="-1.27" z="41.73" />
+  <item x="4.28" y="-1.27" z="41.73" />
+  <item x="6.52" y="6.14" z="-31.21" h="-90.00" />
+  <item x="7.99" y="13.01" z="-73.26" h="-90.00" />
+  <item x="3.60" y="13.01" z="-73.26" h="-90.00" />
+  <small-nitro x="22.08" y="1.90" z="-16.81" h="-180.00" />
+  <small-nitro x="23.00" y="3.11" z="-11.56" h="-180.00" />
+  <small-nitro x="41.86" y="5.06" z="-13.04" h="-180.00" />
+  <small-nitro x="50.44" y="5.06" z="-18.49" h="-180.00" />
+  <small-nitro x="49.63" y="5.06" z="-30.40" h="-180.00" />
+  <small-nitro x="37.32" y="5.06" z="-39.07" h="-180.00" />
+  <small-nitro x="-100.88" y="-2.90" z="-66.98" h="-90.00" />
+  <small-nitro x="-85.35" y="-5.30" z="-26.87" h="-90.00" />
+  <small-nitro x="-63.44" y="1.08" z="-76.47" h="-90.00" />
+  <small-nitro x="-50.25" y="-3.67" z="89.58" h="-90.00" />
+  <small-nitro x="-82.99" y="-5.30" z="-29.14" h="-90.00" />
+  <small-nitro x="-52.31" y="-3.67" z="94.17" h="-90.00" />
+  <object type="billboard" texture="lightHaloY.png" xyz="-0.83 2.27 38.08" 
+             width="3.600" height="3.600" >
+  </object>
+  <object type="billboard" texture="halo.png" xyz="-0.83 2.27 38.10" 
+             width="2.000" height="2.000" fadeout="true" start="10.00" end="20.00">
+  </object>
+  <object type="billboard" texture="halo.png" xyz="2.71 1.03 68.84" 
+             width="2.000" height="2.000" fadeout="true" start="10.00" end="20.00">
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="2.71 1.03 68.82" 
+             width="3.600" height="3.600" >
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="-8.02 0.11 91.34" 
+             width="3.600" height="3.600" >
+  </object>
+  <object type="billboard" texture="halo.png" xyz="-8.02 0.11 91.38" 
+             width="2.000" height="2.000" fadeout="true" start="10.00" end="20.00">
+  </object>
+  <object type="billboard" texture="halo.png" xyz="-47.63 0.11 89.61" 
+             width="2.000" height="2.000" fadeout="true" start="10.00" end="20.00">
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="-47.71 0.11 89.59" 
+             width="3.600" height="3.600" >
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="-76.23 -0.71 64.44" 
+             width="3.600" height="3.600" >
+  </object>
+  <object type="billboard" texture="halo.png" xyz="-76.23 -0.71 64.46" 
+             width="2.000" height="2.000" fadeout="true" start="10.00" end="20.00">
+  </object>
+  <object type="billboard" texture="halo.png" xyz="-86.49 -2.02 34.50" 
+             width="2.000" height="2.000" fadeout="true" start="10.00" end="20.00">
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="-86.49 -2.02 34.48" 
+             width="3.600" height="3.600" >
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="-77.70 -2.99 25.74" 
+             width="3.600" height="3.600" >
+  </object>
+  <object type="billboard" texture="halo.png" xyz="-77.70 -2.99 25.75" 
+             width="2.000" height="2.000" fadeout="true" start="10.00" end="20.00">
+  </object>
+  <object type="billboard" texture="halo.png" xyz="-61.27 -3.36 -5.69" 
+             width="2.000" height="2.000" fadeout="true" start="10.00" end="20.00">
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="-61.27 -3.36 -5.71" 
+             width="3.600" height="3.600" >
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="-91.94 -1.50 -31.17" 
+             width="3.600" height="3.600" >
+  </object>
+  <object type="billboard" texture="halo.png" xyz="-91.94 -1.50 -31.16" 
+             width="2.000" height="2.000" fadeout="true" start="10.00" end="20.00">
+  </object>
+  <object type="billboard" texture="halo.png" xyz="-97.47 0.94 -62.22" 
+             width="2.000" height="2.000" fadeout="true" start="10.00" end="20.00">
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="-97.47 0.94 -62.24" 
+             width="3.600" height="3.600" >
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="-68.08 4.09 -81.85" 
+             width="3.600" height="3.600" >
+  </object>
+  <object type="billboard" texture="halo.png" xyz="-68.08 4.09 -81.83" 
+             width="2.000" height="2.000" fadeout="true" start="10.00" end="20.00">
+  </object>
 </scene>
