@@ -87,32 +87,32 @@
     <static-object model="mountainTrees3.b3d" xyz="123.91 2.53 55.85" hpr="-90.2 -28.1 4.9" scale="1.24 1.24 1.24"/> <!-- writeStaticObjects 3 -->
     <static-object model="pineVeryLow.b3d" xyz="140.05 9.26 18.90" hpr="-63.0 -94.9 -28.1" scale="0.63 0.63 0.63"/> <!-- writeStaticObjects 3 -->
     <static-object model="pineVeryLow.b3d" xyz="137.56 9.72 41.76" hpr="-117.3 -105.9 24.9" scale="0.63 0.63 0.63"/> <!-- writeStaticObjects 3 -->
-    <static-object model="pineVeryLow.b3d" xyz="139.74 11.77 51.62" hpr="-117.3 -94.1 27.0" scale="0.63 0.63 0.63"/> <!-- writeStaticObjects 3 -->
+    <static-object model="pineVeryLow.b3d" xyz="139.74 11.77 51.62" hpr="47.1 -84.9 -137.3" scale="0.63 0.63 0.63"/> <!-- writeStaticObjects 3 -->
     <static-object model="pineVeryLow.b3d" xyz="142.10 12.53 31.83" hpr="-46.4 -95.2 -45.3" scale="0.63 0.63 0.63"/> <!-- writeStaticObjects 3 -->
     <static-object model="pineVeryLow.b3d" xyz="142.75 9.82 1.11" hpr="-116.7 -112.6 29.2" scale="0.63 0.63 0.63"/> <!-- writeStaticObjects 3 -->
     <static-object model="pineVeryLow.b3d" xyz="145.17 12.19 11.34" hpr="-58.2 -94.6 -33.1" scale="0.63 0.63 0.63"/> <!-- writeStaticObjects 3 -->
-    <static-object model="pineVeryLow.b3d" xyz="139.33 10.15 70.30" hpr="19.9 -78.5 -108.4" scale="0.63 0.63 0.63"/> <!-- writeStaticObjects 3 -->
+    <static-object model="pineVeryLow.b3d" xyz="139.33 9.96 70.30" hpr="19.9 -78.5 -108.4" scale="0.63 0.63 0.63"/> <!-- writeStaticObjects 3 -->
     <static-object model="pineVeryLow.b3d" xyz="147.42 12.71 -15.22" hpr="-107.4 -100.1 25.9" scale="0.63 0.63 0.63"/> <!-- writeStaticObjects 3 -->
-    <static-object model="pineVeryLow.b3d" xyz="156.08 16.12 -25.37" hpr="9.0 -95.0 -98.0" scale="0.63 0.63 0.63"/> <!-- writeStaticObjects 3 -->
-    <static-object model="pineVeryLow.b3d" xyz="164.62 15.49 -37.77" hpr="-132.4 -72.6 42.6" scale="0.63 0.63 0.63"/> <!-- writeStaticObjects 3 -->
-    <static-object model="pineVeryLow.b3d" xyz="162.96 17.39 -27.77" hpr="-129.6 -77.9 41.3" scale="0.63 0.63 0.63"/> <!-- writeStaticObjects 3 -->
-    <static-object model="pineVeryLow.b3d" xyz="158.75 17.84 -17.16" hpr="19.0 -94.3 -99.7" scale="0.63 0.63 0.63"/> <!-- writeStaticObjects 3 -->
-    <static-object model="pineVeryLow.b3d" xyz="150.11 14.53 -5.44" hpr="-99.4 -101.3 17.1" scale="0.63 0.63 0.63"/> <!-- writeStaticObjects 3 -->
-    <static-object model="pineVeryLow.b3d" xyz="155.70 17.94 -3.13" hpr="-64.7 -100.6 -18.6" scale="0.50 0.50 0.50"/> <!-- writeStaticObjects 3 -->
+    <static-object model="pineVeryLow.b3d" xyz="156.08 15.73 -25.37" hpr="9.0 -95.0 -98.0" scale="0.63 0.63 0.63"/> <!-- writeStaticObjects 3 -->
+    <static-object model="pineVeryLow.b3d" xyz="164.62 15.13 -37.77" hpr="-132.4 -72.6 42.6" scale="0.63 0.63 0.63"/> <!-- writeStaticObjects 3 -->
+    <static-object model="pineVeryLow.b3d" xyz="162.96 17.22 -27.77" hpr="-129.6 -77.9 41.3" scale="0.63 0.63 0.63"/> <!-- writeStaticObjects 3 -->
+    <static-object model="pineVeryLow.b3d" xyz="158.75 17.18 -17.16" hpr="19.0 -94.3 -99.7" scale="0.63 0.63 0.63"/> <!-- writeStaticObjects 3 -->
+    <static-object model="pineVeryLow.b3d" xyz="150.11 14.50 -5.44" hpr="-99.4 -101.3 17.1" scale="0.63 0.63 0.63"/> <!-- writeStaticObjects 3 -->
+    <static-object model="pineVeryLow.b3d" xyz="155.70 17.12 -3.13" hpr="-91.2 -101.7 8.6" scale="0.50 0.50 0.50"/> <!-- writeStaticObjects 3 -->
     <static-object model="pineVeryLow.b3d" xyz="152.47 16.82 11.60" hpr="-58.2 -94.6 -33.1" scale="0.50 0.50 0.50"/> <!-- writeStaticObjects 3 -->
     <static-object model="pineVeryLow.b3d" xyz="149.40 18.56 32.09" hpr="-5.4 -100.2 -86.3" scale="0.50 0.50 0.50"/> <!-- writeStaticObjects 3 -->
-    <static-object model="pineVeryLow.b3d" xyz="147.05 18.86 51.88" hpr="-117.3 -94.1 27.0" scale="0.50 0.50 0.50"/> <!-- writeStaticObjects 3 -->
-    <static-object model="pineVeryLow.b3d" xyz="143.60 15.72 43.54" hpr="-117.3 -94.1 27.0" scale="0.50 0.50 0.50"/> <!-- writeStaticObjects 3 -->
+    <static-object model="pineVeryLow.b3d" xyz="147.05 18.82 51.88" hpr="-117.3 -94.1 27.0" scale="0.50 0.50 0.50"/> <!-- writeStaticObjects 3 -->
+    <static-object model="pineVeryLow.b3d" xyz="143.60 15.01 43.54" hpr="-64.2 -93.6 -26.3" scale="0.50 0.50 0.50"/> <!-- writeStaticObjects 3 -->
     <static-object model="pineVeryLow.b3d" xyz="145.96 15.81 23.75" hpr="-46.4 -95.2 -45.3" scale="0.50 0.50 0.50"/> <!-- writeStaticObjects 3 -->
     <static-object model="pineVeryLow.b3d" xyz="149.03 16.14 3.26" hpr="-58.2 -94.6 -33.1" scale="0.50 0.50 0.50"/> <!-- writeStaticObjects 3 -->
-    <static-object model="pineVeryLow.b3d" xyz="143.19 14.10 62.22" hpr="19.9 -78.5 -108.4" scale="0.50 0.50 0.50"/> <!-- writeStaticObjects 3 -->
-    <static-object model="pineVeryLow.b3d" xyz="153.97 16.05 -13.52" hpr="-92.3 -100.9 9.6" scale="0.50 0.50 0.50"/> <!-- writeStaticObjects 3 -->
+    <static-object model="pineVeryLow.b3d" xyz="143.19 14.46 62.22" hpr="19.1 -80.0 -107.6" scale="0.50 0.50 0.50"/> <!-- writeStaticObjects 3 -->
+    <static-object model="pineVeryLow.b3d" xyz="153.97 15.83 -13.52" hpr="-92.3 -100.9 9.6" scale="0.50 0.50 0.50"/> <!-- writeStaticObjects 3 -->
     <static-object model="pineVeryLow.b3d" xyz="137.33 7.16 -56.11" hpr="-94.8 -22.8 11.1" scale="0.63 0.63 0.63"/> <!-- writeStaticObjects 3 -->
     <static-object model="pineVeryLow.b3d" xyz="123.05 5.15 -59.16" hpr="-93.5 -2.3 1.2" scale="0.63 0.63 0.63"/> <!-- writeStaticObjects 3 -->
     <static-object model="frontTrees.b3d" xyz="99.64 1.95 27.15" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object model="frontTrees2.b3d" xyz="104.01 8.82 -28.44" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="pineVeryLow.b3d" xyz="148.91 10.58 98.92" hpr="-41.0 -73.4 -49.2" scale="0.50 0.50 0.50"/> <!-- writeStaticObjects 3 -->
-    <static-object model="pineVeryLow.b3d" xyz="144.48 12.44 80.76" hpr="-63.0 -77.5 -28.0" scale="0.50 0.50 0.50"/> <!-- writeStaticObjects 3 -->
+    <static-object model="pineVeryLow.b3d" xyz="148.91 9.48 98.92" hpr="-33.3 -71.7 -56.8" scale="0.50 0.50 0.50"/> <!-- writeStaticObjects 3 -->
+    <static-object model="pineVeryLow.b3d" xyz="144.48 12.35 80.76" hpr="-63.0 -77.5 -28.0" scale="0.50 0.50 0.50"/> <!-- writeStaticObjects 3 -->
     <static-object model="pineVeryLow.b3d" xyz="136.28 8.19 60.55" hpr="-66.0 -86.1 -24.5" scale="0.63 0.63 0.63"/> <!-- writeStaticObjects 3 -->
     <static-object model="bubble_solid_house.b3d" xyz="-7.84 -3.55 28.17" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" if="trophies"/> <!-- writeStaticObjects 3 -->
     <static-object model="bubble_solid_house.b3d" xyz="3.95 -4.37 45.84" hpr="0.0 23.5 0.0" scale="1.00 1.00 1.00" if="trophies"/> <!-- writeStaticObjects 3 -->
@@ -181,9 +181,8 @@
     <static-object lod_distance="500.0" lod_group="tree_2" model="tree_2_LOD500.b3d" xyz="260.91 -17.97 641.81" hpr="0.0 -180.0 -0.0" scale="1.20 1.20 1.20"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="tree_2" xyz="29.78 0.29 3.97" hpr="0.0 165.6 0.0" scale="1.20 1.20 1.20"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="tree_2" xyz="-26.44 -5.26 54.67" hpr="0.0 165.6 0.0" scale="1.20 1.20 1.20"/> <!-- writeStaticObjects 3 -->
-    <static-object model="terrain2_splat.b3d" xyz="55.64 -6.92 221.58" hpr="0.0 -0.0 0.0" scale="2.37 2.37 2.37" if="splatting"/> <!-- writeStaticObjects 3 -->
-    <static-object model="terrain_nosplat.b3d" xyz="55.83 -6.92 221.69" hpr="0.0 -0.0 0.0" scale="2.37 2.37 2.37" ifnot="splatting"/> <!-- writeStaticObjects 3 -->
-    <static-object model="terrain1_splat.b3d" xyz="55.64 -6.92 221.58" hpr="0.0 -0.0 0.0" scale="2.37 2.37 2.37" if="splatting"/> <!-- writeStaticObjects 3 -->
+    <static-object model="terrain2.b3d" xyz="55.83 -6.92 221.69" hpr="0.0 -0.0 0.0" scale="2.37 2.37 2.37"/> <!-- writeStaticObjects 3 -->
+    <static-object model="terrain1.b3d" xyz="55.83 -6.92 221.69" hpr="0.0 -0.0 0.0" scale="2.37 2.37 2.37"/> <!-- writeStaticObjects 3 -->
   </track>
   <object type="movable" xyz="14.29 -17.74 428.10" hpr="-2.6 -2.2 -0.6" scale="0.92 0.92 0.92"
           model="cart.b3d" shape="box" mass="100.0"/>
