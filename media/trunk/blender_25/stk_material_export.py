@@ -111,6 +111,7 @@ def writeMaterialsFile(sPath):
            'splatting_texture_2'   : ("", 'splatting'),
            'splatting_texture_3'   : ("", 'splatting'),
            'splatting_texture_4'   : ("", 'splatting'),
+           'splatting_lightmap'    : ("", 'splatting'),
            'water_shader'          : ("N", None),
            'water_shader_speed_1'  : (6.6667, 'water_shader'),
            'water_shader_speed_2'  : (4.0, 'water_shader')

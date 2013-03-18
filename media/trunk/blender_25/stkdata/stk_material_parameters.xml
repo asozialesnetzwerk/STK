@@ -130,6 +130,7 @@
         <StringProp id="splatting_texture_2" name="Green Texture" default=""/>
         <StringProp id="splatting_texture_3" name="Blue Texture"  default=""/>
         <StringProp id="splatting_texture_4" name="Black Texture" default=""/>
+        <StringProp id="splatting_lightmap" name="Lightmap (optional)" default=""/>
     </BoolProp>
     
     <!-- Surface -->
