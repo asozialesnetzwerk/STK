@@ -2490,12 +2490,16 @@ class STK_Track_Export_Operator(bpy.types.Operator):
             log_error("Not a STK track!")
             return {'FINISHED'}
         
-        blend_filepath = context.blend_data.filepath
-        if not blend_filepath:
-            blend_filepath = "Untitled"
+        if 'stk_last_export_path' not in context.scene or context.scene['stk_last_export_path'] is None or not os.path.exists(os.path.split(context.scene['stk_last_export_path'])[0]):
+            blend_filepath = os.path.splitext(context.blend_data.filepath)[0]
         else:
-            import os
-            blend_filepath = os.path.splitext(blend_filepath)[0]
+            blend_filepath = context.scene['stk_last_export_path']
+        #if not blend_filepath:
+        #    blend_filepath = "Untitled"
+        #else:
+        #    import os
+        #    blend_filepath = os.path.splitext(blend_filepath)[0]
+        
         self.filepath = blend_filepath
         
         context.window_manager.fileselect_add(self)
@@ -2503,12 +2507,15 @@ class STK_Track_Export_Operator(bpy.types.Operator):
 
     def execute(self, context):
         if bpy.context.mode != 'OBJECT':
-            self.report({'ERROR'}, "You msut be in object mode")
+            self.report({'ERROR'}, "You must be in object mode")
             return {'FINISHED'}
         
         if self.filepath == "" or 'is_stk_track' not in context.scene or context.scene['is_stk_track'] != 'true':
             return {'FINISHED'}
 
+            
+        context.scene['stk_last_export_path'] = self.filepath
+        
         global operator
         operator = self
         
