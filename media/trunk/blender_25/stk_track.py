@@ -2082,34 +2082,6 @@ class TrackExport:
             f.write("  <start %s/>\n"%getXYZHString(dId2Obj[i]))
                 
     # --------------------------------------------------------------------------
-    # Writes all special water nodes.
-    def writeWaterNodes(self, f, sPath, lWater):
-        #start_time = bsys.time()
-        print ("Exporting water -->")
-        for obj in lWater:
-            name     = getProperty(obj, "name",   obj.name )
-            if len(name) == 0:
-                name = obj.name
-            height   = getProperty(obj, "height", None     )
-            speed    = getProperty(obj, "speed",  None     )
-            length   = getProperty(obj, "length", None     )
-            lAnim    = checkForAnimatedTextures([obj])
-            b3d_name = self.exportLocalB3D(obj, sPath, name, True)
-            s="  <water model=\"%s\" %s" % \
-                (b3d_name, getXYZHPRString(obj))
-            if height: s="%s height=\"%.2f\""%(s, float(height))
-            if speed:  s="%s speed=\"%.2f\"" %(s, float(speed))
-            if length: s="%s length=\"%.2f\""%(s, float(length))
-            if lAnim:
-                f.write("%s>\n" % s)
-                writeAnimatedTextures(f, lAnim)
-                f.write("  </water>\n")
-            else:
-                f.write("%s/>\n" % s);
-
-        #print bsys.time()-start_time,"seconds."
-        
-    # --------------------------------------------------------------------------
     # Writes the scene files, which includes all models, animations, and items
     def writeSceneFile(self, sPath, sTrackName, exporters, lTrack, lObjects, lChecks,
                        lSun, mainDriveline, lStart, lEndCameras, lCameraCurves):
