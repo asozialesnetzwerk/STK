@@ -106,9 +106,9 @@ def write_float_quad(value1, value2, value3, value4):
     return struct.pack("<ffff", value1, value2, value3, value4)
     
 def write_string(value):
-    if len(value) > 10:
-        value = value[0:10]
     encoded = str.encode(value)
+    if len(encoded) > 48:
+        value = encoded[0:48]
     binary_format = "<%ds"%(len(encoded)+1)
     return struct.pack(binary_format, encoded)
 
