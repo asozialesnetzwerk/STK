@@ -173,7 +173,30 @@ def writeIPO(f, anim_data ):
                                                         factor*bez.co[1]))
         f.write("    </curve>\n")
             
-            
+
+# --------------------------------------------------------------------------
+
+def writeBezierCurve(f, curve, speed, extend="cyclic"):
+    matrix = curve.matrix_world
+    if len(curve.data.splines) > 1:
+        log_warning(curve.name + " contains multiple curves, will only export the first one")
+    
+    f.write('    <curve channel="LocXYZ" speed="%.2f" curvetype="bezier" extend="%s">\n'\
+            %(speed, extend))
+    if curve.data.splines[0].type != 'BEZIER':
+        log_warning(curve.name + " should be a bezier curve, not a " + curve.data.splines[0].type)
+    else:
+        for pt in curve.data.splines[0].bezier_points:
+            v0 = matrix*pt.handle_left
+            v1 = matrix*pt.co*matrix 
+            v2 = matrix*pt.handle_right
+            f.write("      <point c=\"%f %f %f\" h1=\"%f %f %f\" h2=\"%f %f %f\" />\n"% \
+                    ( v1[0],v1[2],v1[1],
+                      v0[0],v0[2],v0[1],
+                      v2[0],v2[2],v2[1] ) )
+    f.write("    </curve>\n")
+        
+    
 # ------------------------------------------------------------------------------
 # Checks if there are any animated textures in any of the objects in the
 # list l.
@@ -1177,7 +1200,49 @@ class DrivelineExporter:
                 (goal_pt1[0], goal_pt1[2], goal_pt1[1],
                  goal_pt2[0], goal_pt2[2], goal_pt2[1],
                  first_goal_string))
+    
+    # Writes out all cannon checklines.
+    def writeCannon(self, f, cannon):
+    
+        start = cannon
         
+        endSegmentName = getProperty(start, "cannonend", "")
+        if len(endSegmentName) == 0 or endSegmentName not in bpy.data.objects:
+            log_error("Cannon " + cannon.name + " end is not defined")
+            return
+        
+        end = bpy.data.objects[endSegmentName]
+        
+        if len(start.data.vertices) != 2:
+            log_warning("Cannon start " + start.name + " is not a line made of 2 vertices as expected")
+        if len(end.data.vertices) != 2:
+            log_warning("Cannon end " + end.name + " is not a line made of 2 vertices as expected")
+        
+        startloc = start.location
+        endloc = end.location
+        
+        start_matrix = start.rotation_euler.to_matrix()
+        end_matrix = end.rotation_euler.to_matrix()
+        
+        curvename = getProperty(start, "cannonpath", "")
+        
+        start_pt1 = start.data.vertices[0].co*start_matrix + startloc
+        start_pt2 = start.data.vertices[1].co*start_matrix + startloc
+        end_pt1 = end.data.vertices[0].co*end_matrix + endloc
+        end_pt2 = end.data.vertices[1].co*end_matrix + endloc
+        
+
+        f.write('    <cannon p1="%.2f %.2f %.2f" p2="%.2f %.2f %.2f" target-p1="%.2f %.2f %.2f" target-p2="%.2f %.2f %.2f">\n'%\
+                (start_pt1[0], start_pt1[2], start_pt1[1],
+                 start_pt2[0], start_pt2[2], start_pt2[1],
+                 end_pt1[0],   end_pt1[2],   end_pt1[1],
+                 end_pt2[0],   end_pt2[2],   end_pt2[1]))
+        
+        if len(curvename) > 0:
+            writeBezierCurve(f, bpy.data.objects[curvename], \
+                             getProperty(start, "cannonspeed", 50.0), "const" )
+        
+        f.write('    </cannon>\n')
         
 # ==============================================================================
 # A special class to store a drivelines.
@@ -1801,69 +1866,6 @@ class TrackExport:
         #print bsys.time() - start_time, "seconds"
      
     # --------------------------------------------------------------------------
-    
-    def writeBezierCurve(self, f, curve, speed, extend="cyclic"):
-        matrix = curve.matrix_world
-        if len(curve.data.splines) > 1:
-            log_warning(curve.name + " contains multiple curves, will only export the first one")
-        
-        f.write('    <curve channel="LocXYZ" speed="%.2f" curvetype="bezier" extend="%s">\n'\
-               %(speed, extend))
-        if curve.data.splines[0].type != 'BEZIER':
-            log_warning(curve.name + " should be a bezier curve, not a " + curve.data.splines[0].type)
-        else:
-            for pt in curve.data.splines[0].bezier_points:
-                v0 = matrix*pt.handle_left
-                v1 = matrix*pt.co*matrix 
-                v2 = matrix*pt.handle_right
-                f.write("      <point c=\"%f %f %f\" h1=\"%f %f %f\" h2=\"%f %f %f\" />\n"% \
-                        ( v1[0],v1[2],v1[1],
-                          v0[0],v0[2],v0[1],
-                          v2[0],v2[2],v2[1] ) )
-        f.write("    </curve>\n")
-    
-    # --------------------------------------------------------------------------
-    def writeCurves(self, f, lCurves):
-        count = 0
-        for curves in lCurves:
-            type=getProperty(curves, "type").lower()
-            if not type in ["camera", "anim2d", "anim3d"]: continue
-            count = count + 1
-        if count==0: return
-        f.write("  <curves>\n")
-        for curve in lCurves:
-            type=getProperty(curve, "type").lower()
-            if not type in ["camera", "anim2d", "anim3d"]: continue
-            matrix = curve.getMatrix()
-        for nu in curve.data:
-            # 0:"poly", 1:"bezier", 4:"nurbs"
-            if nu.type==4:
-                f.write("    <%s curvetype=\"nurb\" name=\"%s\">\n" \
-                        % (type, curve.name))
-                for i in nu:
-                    v=Vector(i[0],i[1],i[2]) * matrix
-                    f.write("      <p=\"%.3f %.3f %.3f\"/>\n"%(v[0], v[1], v[2]))
-                f.write("    </%s>\n"%type)
-            elif nu.type==1:
-                f.write("    <%s curvetype=\"bezier\" name=\"%s\">\n" \
-                        % (type, curve.name))
-                for i in list(nu):
-                    # v0/v2 = hanldes, v1 = control point
-                    v0 = Vector(i.vec[0][0],i.vec[0][1],i.vec[0][2])
-                    v1 = Vector(i.vec[1][0],i.vec[1][1],i.vec[1][2])
-                    v2 = Vector(i.vec[2][0],i.vec[2][1],i.vec[2][2])
-                    v0 = v0*matrix
-                    v1 = v1*matrix
-                    v2 = v2*matrix
-                    f.write("      <point c=\"%f %f %f\" h1=\"%f %f %f\" h2=\"%f %f %f\" />\n"% \
-                            ( v1[0],v1[1],v1[2],
-                              v0[0],v0[1],v0[2],
-                              v2[0],v2[1],v2[2] ) )
-                f.write("    </%s>\n"%type)
-        f.write("  </curves>\n")
-        
-    
-    # --------------------------------------------------------------------------
     # Writes the animation for objects using IPOs:
     def writeAnimationWithIPO(self, f, name, obj, ipo, objectType="animation"):
         # An animated object can set the 'name' property, then this name will
@@ -1909,22 +1911,14 @@ class TrackExport:
         if parent and parent.type=="ARMATURE":
             f.write("  <object type=\"%s\" %s%s %s%s%s%s%s%s>\n"% \
                     (objectType, model_string, getXYZHPRString(parent), shape_str, looped,
-                     lodstring, reset_string, tangent_string, interaction_string))
+                        lodstring, reset_string, tangent_string, interaction_string))
         else:
             f.write("  <object type=\"%s\" %s%s %s%s%s%s%s%s>\n"% \
                     (objectType, model_string, getXYZHPRString(obj), shape_str, looped,
-                     lodstring, reset_string, tangent_string, interaction_string))
+                        lodstring, reset_string, tangent_string, interaction_string))
         writeIPO(f, ipo)
         f.write("  </object>\n")
-            
         
-    # --------------------------------------------------------------------------
-    # Writes an animation that uses a path constrained.
-    def writeAnimationsWithPaths(self, f, sPath, obj):
-        #print "b3d export", obj.name
-        print("'%s' is using path '%s'"%(obj.name,
-                               obj.constraints[0][Constraint.Settings.TARGET].name))
-      
     # --------------------------------------------------------------------------
     # Write the objects that are part of the track (but not animated or
     # physical).
@@ -2037,53 +2031,6 @@ class TrackExport:
         return lodstring
 
     
-    # --------------------------------------------------------------------------
-    # Writes out all checklines.
-    # \param lChecks All check meshes
-    # \param mainDriveline The main driveline, from which the lap
-    #        counting check line is determined.
-    def writeCannon(self, f, cannon):
-    
-        start = cannon
-        
-        endSegmentName = getProperty(start, "cannonend", "")
-        if len(endSegmentName) == 0 or endSegmentName not in bpy.data.objects:
-            log_error("Cannon " + cannon.name + " end is not defined")
-            return
-        
-        end = bpy.data.objects[endSegmentName]
-        
-        if len(start.data.vertices) != 2:
-            log_warning("Cannon start " + start.name + " is not a line made of 2 vertices as expected")
-        if len(end.data.vertices) != 2:
-            log_warning("Cannon end " + end.name + " is not a line made of 2 vertices as expected")
-        
-        startloc = start.location
-        endloc = end.location
-        
-        start_matrix = start.rotation_euler.to_matrix()
-        end_matrix = end.rotation_euler.to_matrix()
-        
-        curvename = getProperty(start, "cannonpath", "")
-        
-        start_pt1 = start.data.vertices[0].co*start_matrix + startloc
-        start_pt2 = start.data.vertices[1].co*start_matrix + startloc
-        end_pt1 = end.data.vertices[0].co*end_matrix + endloc
-        end_pt2 = end.data.vertices[1].co*end_matrix + endloc
-        
-
-        f.write('    <cannon p1="%.2f %.2f %.2f" p2="%.2f %.2f %.2f" target-p1="%.2f %.2f %.2f" target-p2="%.2f %.2f %.2f">\n'%\
-                (start_pt1[0], start_pt1[2], start_pt1[1],
-                 start_pt2[0], start_pt2[2], start_pt2[1],
-                 end_pt1[0],   end_pt1[2],   end_pt1[1],
-                 end_pt2[0],   end_pt2[2],   end_pt2[1]))
-        
-        if len(curvename) > 0:
-            self.writeBezierCurve(f, bpy.data.objects[curvename], \
-                                  getProperty(start, "cannonspeed", 50.0), "const" )
-        
-        f.write('    </cannon>\n')
-    
 
     
     # --------------------------------------------------------------------------
@@ -2174,8 +2121,7 @@ class TrackExport:
                 
     # --------------------------------------------------------------------------
     # Writes the scene files, which includes all models, animations, and items
-    def writeSceneFile(self, sPath, sTrackName, exporters, lTrack, lObjects,
-                       lSun, lCameraCurves):
+    def writeSceneFile(self, sPath, sTrackName, exporters, lTrack, lObjects, lSun):
 
         #start_time = bsys.time()
         print("Writing scene file --> \t")
@@ -2333,14 +2279,12 @@ class TrackExport:
         
         for exporter in exporters:
             exporter.export(f)
-            
-        # Write camera curves (unused atm)
-        self.writeCurves(f, lCameraCurves)
         
         f.write("</scene>\n")
         f.close()
         #print bsys.time()-start_time,"seconds"
 
+    
     def __init__(self, sFilename):
         self.dExportedObjects = {}
         
@@ -2380,10 +2324,7 @@ class TrackExport:
             if objectProcessed:
                 continue
             
-            if obj.type=="CURVE":
-                # Only append camera, other curves will be handled in animations
-                if stktype[:6]=="CAMERA": lCameraCurves.append(obj)
-            elif obj.type=="LAMP" and stktype == "SUN":
+            if obj.type=="LAMP" and stktype == "SUN":
                 lSun.append(obj)
                 continue
             elif obj.type=="CAMERA" and stktype == 'CUTSCENE_CAMERA':
@@ -2455,7 +2396,7 @@ class TrackExport:
         # scene file
         # ----------
 
-        self.writeSceneFile(sPath, sTrackName, exporters, lTrack, lObjects, lSun, lCameraCurves)
+        self.writeSceneFile(sPath, sTrackName, exporters, lTrack, lObjects, lSun)
         
         # materials file
         # ----------
@@ -2470,6 +2411,8 @@ class TrackExport:
         log_info("Export completed on " + now.strftime("%Y-%m-%d %H:%M"))
         print("Finished.")
 
+
+        
 # ==============================================================================
 def savescene_callback(sFilename):
     global log
