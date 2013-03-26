@@ -1159,7 +1159,26 @@ class DrivelineExporter:
                 print(format_tb(exc.__traceback__)[0])
         f.write("  </checks>\n")
    
-    
+    # Write out a goal line
+    def writeGoal(self, f, goal):
+        if len(goal.data.vertices) != 2:
+            log_warning("Goal line is not a line made of 2 vertices as expected")
+            
+        goal_matrix = goal.rotation_euler.to_matrix()
+        
+        goal_pt1 = goal.data.vertices[0].co*goal_matrix + goal.location
+        goal_pt2 = goal.data.vertices[1].co*goal_matrix + goal.location
+        
+        first_goal_string = ""
+        if getProperty(goal, "first_goal", "false") == "true":
+            first_goal_string=" first_goal=\"true\" "
+        
+        f.write('    <goal p1="%.2f %.2f %.2f" p2="%.2f %.2f %.2f" %s/>\n'%\
+                (goal_pt1[0], goal_pt1[2], goal_pt1[1],
+                 goal_pt2[0], goal_pt2[2], goal_pt2[1],
+                 first_goal_string))
+        
+        
 # ==============================================================================
 # A special class to store a drivelines.
 class Driveline:
@@ -2065,25 +2084,7 @@ class TrackExport:
         
         f.write('    </cannon>\n')
     
-    # Write out a goal line
-    def writeGoal(self, f, goal):
-        if len(goal.data.vertices) != 2:
-            log_warning("Goal line is not a line made of 2 vertices as expected")
-            
-        goal_matrix = goal.rotation_euler.to_matrix()
-        
-        goal_pt1 = goal.data.vertices[0].co*goal_matrix + goal.location
-        goal_pt2 = goal.data.vertices[1].co*goal_matrix + goal.location
-        
-        first_goal_string = ""
-        if getProperty(goal, "first_goal", "false") == "true":
-            first_goal_string=" first_goal=\"true\" "
-        
-        f.write('    <goal p1="%.2f %.2f %.2f" p2="%.2f %.2f %.2f" %s/>\n'%\
-                (goal_pt1[0], goal_pt1[2], goal_pt1[1],
-                 goal_pt2[0], goal_pt2[2], goal_pt2[1],
-                 first_goal_string))
-        
+
     
     # --------------------------------------------------------------------------
     # Writes a non-static track object. The objects can be animated or
