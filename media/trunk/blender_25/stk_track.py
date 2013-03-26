@@ -515,6 +515,51 @@ class ActionTriggerExporter:
 
         
 # ------------------------------------------------------------------------------
+class StartPositionExporter:
+    
+    def __init__(self):
+        self.m_objects = []
+    
+    def processObject(self, object, stktype):
+        if object.type=="EMPTY" and stktype[:5]=="START":
+            self.m_objects.append(object)
+            return True
+        else:
+            return False
+            
+    def export(self, f):
+        global the_scene
+        scene = the_scene
+        karts_per_row      = int(getIdProperty(scene, "start_karts_per_row",      2))
+        distance_forwards  = float(getIdProperty(scene, "start_forwards_distance",  1.5))
+        distance_sidewards = float(getIdProperty(scene, "start_sidewards_distance", 3.0))
+        distance_upwards   = float(getIdProperty(scene, "start_upwards_distance",   0.1))
+        f.write("  <default-start karts-per-row     =\"%i\"\n"%karts_per_row     )
+        f.write("                 forwards-distance =\"%.2f\"\n"%distance_forwards )
+        f.write("                 sidewards-distance=\"%.2f\"\n"%distance_sidewards)
+        f.write("                 upwards-distance  =\"%.2f\"/>\n"%distance_upwards)
+
+        dId2Obj = {}
+        count = 1
+        for obj in self.m_objects:
+            stktype = getProperty(obj, "type", obj.name).upper()
+            id = int(getProperty(obj, "start_index", "-1"))
+            if id == "-1":
+                log_warning("Invalid start position " + id)
+
+            dId2Obj[id] = obj
+            
+        l = dId2Obj.keys()
+
+        if len(l) < 4 and getIdProperty(scene, "arena",  "false") == "true":
+            log_warning("You should define at least 4 start positions")
+            
+        for i in l:
+            f.write("  <start %s/>\n"%getXYZHString(dId2Obj[i]))
+
+            
+                
+# ------------------------------------------------------------------------------
 class BillboardExporter:
     
     def __init__(self):
@@ -823,8 +868,7 @@ class DrivelineExporter:
             return
     
         lSorted = []
-        self.convertDrivelinesAndSortEndCameras(lDrivelines, lSorted,
-                                                lEndCameras)
+        self.convertDrivelinesAndSortEndCameras(lDrivelines, lSorted, lEndCameras)
 
         # That means that there were some problems with the drivelines, and
         # it doesn't make any sense to continue anyway
@@ -2126,42 +2170,11 @@ class TrackExport:
         else:
             log_warning("Unknown interaction '%s' - ignored!"%interact)
 
-    # --------------------------------------------------------------------------
-    # Writes all start positions
-    def writeStartPositions(self, f, lStart):
-        global the_scene
-        scene = the_scene
-        karts_per_row      = int(getIdProperty(scene, "start_karts_per_row",      2))
-        distance_forwards  = float(getIdProperty(scene, "start_forwards_distance",  1.5))
-        distance_sidewards = float(getIdProperty(scene, "start_sidewards_distance", 3.0))
-        distance_upwards   = float(getIdProperty(scene, "start_upwards_distance",   0.1))
-        f.write("  <default-start karts-per-row     =\"%i\"\n"%karts_per_row     )
-        f.write("                 forwards-distance =\"%.2f\"\n"%distance_forwards )
-        f.write("                 sidewards-distance=\"%.2f\"\n"%distance_sidewards)
-        f.write("                 upwards-distance  =\"%.2f\"/>\n"%distance_upwards)
-        
-        dId2Obj     = {}
-        count = 1
-        for obj in lStart:
-            stktype = getProperty(obj, "type", obj.name).upper()
-            id = int(getProperty(obj, "start_index", "-1"))
-            if id == "-1":
-                log_warning("Invalid start position " + id)
-
-            dId2Obj[id] = obj
-        l = dId2Obj.keys()
-        
-        if len(l) < 4 and getIdProperty(scene, "arena",  "false") == "true":
-            log_warning("You should define at least 4 start positions")
-        
-        #l.sort() # sorting not needed AFAICT, the dictionary keeps the keys sorted
-        for i in l:
-            f.write("  <start %s/>\n"%getXYZHString(dId2Obj[i]))
                 
     # --------------------------------------------------------------------------
     # Writes the scene files, which includes all models, animations, and items
     def writeSceneFile(self, sPath, sTrackName, exporters, lTrack, lObjects,
-                       lSun, lStart, lEndCameras, lCameraCurves):
+                       lSun, lCameraCurves):
 
         #start_time = bsys.time()
         print("Writing scene file --> \t")
@@ -2316,7 +2329,6 @@ class TrackExport:
         camera_far  = getIdProperty(scene, "camera_far", ""             )
         if camera_far:            
             f.write("  <camera far=\"%s\"/>\n"%camera_far)
-        self.writeStartPositions(f, lStart)
         
         for exporter in exporters:
             exporter.export(f)
@@ -2336,17 +2348,15 @@ class TrackExport:
         
         
         drivelineExporter = DrivelineExporter()
-        exporters = [drivelineExporter, WaterExporter(self, sPath), ParticleEmitterExporter(), SoundEmitterExporter(), ActionTriggerExporter(), ItemsExporter(), BillboardExporter(), LightsExporter()]
+        exporters = [drivelineExporter, WaterExporter(self, sPath), ParticleEmitterExporter(), SoundEmitterExporter(), ActionTriggerExporter(), ItemsExporter(), BillboardExporter(), LightsExporter(), StartPositionExporter()]
         
         # Collect the different kind of meshes this exporter handles
         # ----------------------------------------------------------
         lObj                 = bpy.data.objects      # List of all objects
         lTrack               = []                    # All main track objects
-        lEndCameras          = []                    # List of all end cameras
         lCameraCurves        = []                    # Camera curves (unused atm)
         lObjects             = []                    # All special objects
         lSun                 = []
-        lStart               = []                    # All start positions
         
         for obj in lObj:
             # Try to get the supertuxkart type field. If it's not defined,
@@ -2369,10 +2379,7 @@ class TrackExport:
             if objectProcessed:
                 continue
             
-            if obj.type=="EMPTY" and stktype[:5]=="START":
-                lStart.append(obj)
-                continue
-            elif obj.type=="CURVE":
+            if obj.type=="CURVE":
                 # Only append camera, other curves will be handled in animations
                 if stktype[:6]=="CAMERA": lCameraCurves.append(obj)
             elif obj.type=="LAMP" and stktype == "SUN":
@@ -2447,8 +2454,8 @@ class TrackExport:
         # scene file
         # ----------
 
-        self.writeSceneFile(sPath, sTrackName, exporters, lTrack, lObjects, lSun,
-                            lStart, lEndCameras, lCameraCurves)
+        self.writeSceneFile(sPath, sTrackName, exporters, lTrack, lObjects, lSun, lCameraCurves)
+        
         # materials file
         # ----------
         if 'stk_material_exporter' not in dir(bpy.ops.screen):
