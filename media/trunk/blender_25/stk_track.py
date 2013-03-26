@@ -609,6 +609,512 @@ class LightsExporter:
             f.write('  <light %s distance="%.2f" color="%i %i %i"/>\n' \
                     % (getXYZString(obj), obj.data.distance, colR, colG, colB))
 
+
+# ------------------------------------------------------------------------------
+class DrivelineExporter:
+    
+    def __init__(self):
+        self.lChecks = []
+        self.lDrivelines = []
+        self.found_main_driveline = False
+        self.lEndCameras = []
+    
+    def processObject(self, obj, stktype):
+        
+        if stktype=="CHECK" or stktype=="LAP" or stktype=="CANNONSTART" or stktype=="GOAL":
+            self.lChecks.append(obj)
+            return True
+        # Check for new drivelines
+        elif stktype=="MAIN-DRIVELINE" or \
+                stktype=="MAINDRIVELINE"  or \
+                stktype=="MAINDL":
+            # Main driveline must be the first entry in the list
+            self.lDrivelines.insert(0, Driveline(obj, 1))
+            self.found_main_driveline = True
+            return True
+        elif stktype=="DRIVELINE":
+            self.lDrivelines.append(Driveline(obj, 0))
+            return True
+        elif obj.type=="CAMERA" and stktype in ['FIXED', 'AHEAD']:
+            self.lEndCameras.append(obj)
+            return True
+            
+        return False
+            
+    def export(self, f):
+        is_arena = getIdProperty(bpy.data.scenes[0], "arena", "false") == "true"
+        is_soccer = getIdProperty(bpy.data.scenes[0], "soccer", "false") == "true"
+        is_cutscene = getIdProperty(bpy.data.scenes[0], "cutscene",  "false") == "true"
+        if not self.found_main_driveline and not is_arena and not is_soccer and not is_cutscene:
+            if len(lDrivelines) > 0:
+                log_warning("Main driveline missing, using first driveline as main!")
+            else:
+                log_error("No driveline found")
+        
+        if len(self.lDrivelines) == 0:
+            self.lDrivelines=[None]
+        
+        mainDriveline = self.lDrivelines[0]
+        if mainDriveline is None:
+            log_error("No main driveline found")
+        if self.lChecks or mainDriveline:
+            if not self.lChecks:
+                log_warning("No check defined, lap counting will not work properly!")
+            self.writeChecks(f, self.lChecks, mainDriveline)
+
+        if self.lEndCameras:
+            f.write("  <end-cameras>\n")
+            for i in self.lEndCameras:
+                type = getProperty(i, "type", "ahead").lower()
+                if type=="ahead":
+                    type="ahead_of_kart"
+                elif type=="fixed":
+                    type="static_follow_kart"
+                else:
+                    log_warning ("Unknown camera type %s - ignored." % type)
+                    continue
+                xyz = "%f %f %f" % (i.location[0], i.location[2], i.location[1])
+                start = getProperty(i, "start", 5)
+                f.write("    <camera type=\"%s\" xyz=\"%s\" distance=\"%s\"/> <!-- %s -->\n"%
+                        (type, xyz, start, i.name) )
+            f.write("  </end-cameras>\n")
+
+
+    # --------------------------------------------------------------------------
+    # Finds the closest driveline from the list lDrivelines to the point p (i.e.
+    # the driveline for which the distance between p and the drivelines start
+    # point is as small as possible. Returns the index of the closest drivelines.
+    def findClosestDrivelineToPoint(self, lDrivelines, p):
+        min_index = 0
+        min_dist  = lDrivelines[0].getStartDistanceTo(p)
+        for i in range(1,len(lDrivelines)):
+            driveline=lDrivelines[i]
+            dist_new = driveline.getStartDistanceTo(p)
+            if dist_new<min_dist:
+                min_dist  = dist_new
+                min_index = i
+
+        return min_index
+    
+    # --------------------------------------------------------------------------
+    # Find the driveline from lRemain that is closest to any of the drivelines
+    # in lSorted.
+    def findClosestDrivelineToDrivelines(self, lRemain, lSorted):
+        remain_index                    = 0
+        (min_dist, sorted_index, min_quad) = lRemain[0].getDistanceToStart(lSorted)
+        for i in range(1, len(lRemain)):
+            (dist, index, quad) = lRemain[i].getDistanceToStart(lSorted)
+            if dist<min_dist:
+                min_dist     = dist
+                sorted_index = index
+                min_quad     = quad
+                remain_index = i
+        return (remain_index, sorted_index, min_quad)
+        
+    # --------------------------------------------------------------------------
+    # Converts a new drivelines. New drivelines have the following structure:
+    #   +---+---+--+--...--+--
+    #   |   |      |       |  
+    #   +---+--+---+--...--+--
+    # The starting quad of the drivelines is marked by two edges ending in a
+    # single otherwise unconnected vertex. These two vertices (and edges) are
+    # not used in the actual driveline, they are only used to indicate where
+    # the drivelines starts. This data structure is handled in the Driveline
+    # class.
+    # Additionally, this function sorts the end cameras according to distance
+    # to the main driveline - so the first end camera will be the camera
+    # closest to the start line etc.
+    def convertDrivelinesAndSortEndCameras(self, lDrivelines, lSorted,
+                                           lEndCameras):
+        # First collect all main drivelines, and all remaining drivelines
+        # ---------------------------------------------------------------
+        lMain     = []
+        lRemain   = []
+        for driveline in lDrivelines:
+            if driveline.isMain():
+                lMain.append(driveline)
+            else:
+                lRemain.append(driveline)
+
+        # Now collect all main drivelines in one list starting
+        # with the closest to 0, then the one closest to the
+        # end of the first one, etc
+        p          = (0,0,0)
+        quad_index = 0
+        while lMain:
+            min_index = self.findClosestDrivelineToPoint(lMain, p)
+            # Move the main driveline with minimal distance to the
+            # sorted list.
+            lSorted.append(lMain[min_index])
+            del lMain[min_index]
+            
+            # Set the start quad index for all quads.
+            lSorted[-1].setStartQuadIndex(quad_index)
+            quad_index = quad_index + lSorted[-1].getNumberOfQuads()
+
+            p = lSorted[-1].getEndPoint()
+
+        # Create a new list for all cameras, which also stores the
+        # quad index to which the camera is closest to, the distance
+        # to the quad, and the camera object. The order is important
+        # since this list is later sorted by quad index, so that the
+        # first camera is the first in the list.
+        lCamerasDistance = []
+        for i in range(len(lEndCameras)):
+            cam = lEndCameras[i]
+            try:
+                (distance, driveline_index, quad_index_camera) = \
+                           lSorted[0].getDistanceTo(cam.location, lSorted)
+                # Each list contains the index of the closest quad, the
+                # distance, and then the camera
+                lEndCameras[i] = (driveline_index, quad_index_camera, cam)
+            except:
+                log_warning("Problem with the end camera '%s'. Check if the main driveline is " +\
+                            "properly defined (check warning messages), and the " +\
+                            "settings of the camera."%cam.name)
+                
+        lEndCameras.sort()
+        
+        # After sorting remove the unnecessary distance and quad index
+        for i in range(len(lEndCameras)):
+            # Avoid crash in case that some problem with the camera happened,
+            # and lEndCameras is just the blender camera, not the tuple
+            if type(lEndCameras[i])==type(()):
+                lEndCameras[i] = lEndCameras[i][2]
+
+        # There were already two warning messages printed at this stage, so just
+        # ignore this to avoid further crashes
+        if len(lSorted) < 1:
+            return
+        
+        # The last main driveline needs to be closed to the first quad.
+        # So set a flag in that driveline that it is the last one.
+        lSorted[-1].setIsLastMain(lSorted[0])
+        quad_index = quad_index + 1
+        
+        # Now add the remaining drivelines one at a time. From all remaining
+        # drivelines we pick the one closest to the drivelines contained in
+        # lSorted.
+        while lRemain:
+            t = self.findClosestDrivelineToDrivelines(lRemain, lSorted)
+            (remain_index, sorted_index, quad_to_index) = t
+            lRemain[remain_index].setFromQuad(lSorted[sorted_index],
+                                              quad_to_index)
+            lSorted.append(lRemain[remain_index])
+            del lRemain[remain_index]
+
+            # Set the start quad index for all quads.
+            lSorted[-1].setStartQuadIndex(quad_index)
+            quad_index = quad_index + lSorted[-1].getNumberOfQuads()
+
+    # --------------------------------------------------------------------------
+    # Writes the track.quad file with the list of all quads, and the track.graph
+    # file defining a graph node for each quad and a basic connection between
+    # all graph nodes.
+    def writeQuadAndGraph(self, sPath):
+        #start_time = bsys.time()
+        
+        lDrivelines = self.lDrivelines
+        lEndCameras = self.lEndCameras
+        
+        print("Writing quad file --> \t")
+        if not lDrivelines:
+            print("No main driveline defined, no driveline information exported!!!")
+            return
+    
+        lSorted = []
+        self.convertDrivelinesAndSortEndCameras(lDrivelines, lSorted,
+                                                lEndCameras)
+
+        # That means that there were some problems with the drivelines, and
+        # it doesn't make any sense to continue anyway
+        if not lSorted:
+            return
+        
+        # Stores the first quad number (and since quads = graph nodes the node
+        # number) of each section of the track. I.e. the main track starts with
+        # quad 0, then the first alternative way, ...
+        lStartQuad         = [0]
+        dSuccessor         = {}
+        last_main_lap_quad = 0
+        count              = 0
+        
+        f = open(sPath+"/quads.xml", "w")
+        f.write("<?xml version=\"1.0\"?>\n")
+        f.write("<!-- Generated with script from SVN rev %s -->\n"%getScriptVersion())
+        f.write("<quads>\n")
+
+        for driveline in lSorted:
+            driveline.writeQuads(f)
+
+        f.write("</quads>\n")
+        f.close()
+        #print bsys.time() - start_time,"seconds. "
+
+        #start_time = bsys.time()
+        print("Writing graph file --> \t")
+        f=open(sPath+"/graph.xml", "w")
+        f.write("<?xml version=\"1.0\"?>\n")
+        f.write("<!-- Generated with script from SVN rev %s -->\n"%getScriptVersion())
+        f.write("<graph>\n")
+        f.write("  <!-- First define all nodes of the graph, and what quads they represent -->\n")
+        f.write("  <node-list from-quad=\"%d\" to-quad=\"%d\"/>  <!-- map each quad to a node  -->\n"\
+                %(0, lSorted[-1].getLastQuadIndex()))
+
+        f.write("  <!-- Define the main loop -->\n");
+        last_main = None
+        for i in lSorted:
+            if i.isMain():
+                last_main = i
+            else:
+                break
+
+        # The main driveline is written as a simple loop
+        f.write("  <edge-loop from=\"%d\" to=\"%d\"/>\n" %
+                (0, last_main.getLastQuadIndex()) )
+
+        # Each non-main driveline writes potentially three entries in the
+        # graph file: connection to the beginning of this driveline, the
+        # driveline quads themselves, and a connection from the end of the
+        # driveline to another driveline. But this can result in edged being
+        # written more than once: consider two non-main drivelines A and B
+        # which are connected to each other. Then A will write the edge from
+        # A to B as its end connection, and B will write the same connection
+        # as its begin connection. To avoid this, we keep track of all
+        # written from/to edges, and only write one if it hasn't been written.
+        dWrittenEdges={}
+        # Now write the remaining drivelines
+        for driveline in lSorted:
+            # Mainline was already written, so ignore it
+            if driveline.isMain(): continue
+
+            f.write("  <!-- Shortcut %s -->\n"%driveline.getName())
+            # Write the connection from an already written quad to this
+            fr = driveline.getFromQuad()
+            to = driveline.getFirstQuadIndex()
+            if (fr,to) not in dWrittenEdges:
+                f.write("  <edge from=\"%d\" to=\"%d\"/>\n" %(fr, to))
+                #if to.isEnabled() and fr.isEnabled():
+                #    f.write("  <edge from=\"%d\" to=\"%d\"/>\n" %(fr, to))
+                #elif to.isEnabled():
+                #    f.write("  <!-- %s disabled <edge from=\"%d\" to=\"%d\"/> -->\n" \
+                #            %(fr.getName(), fr, to))
+                #else:
+                #    f.write("  <!-- %s disabled <edge from=\"%d\" to=\"%d\"/> -->\n"
+                #            %(to.getName(), fr, to))
+                dWrittenEdges[ (fr, to) ] = 1
+            if driveline.getFirstQuadIndex()< driveline.getLastQuadIndex():
+                f.write("  <edge-line from=\"%d\" to=\"%d\"/>\n" \
+                        %(driveline.getFirstQuadIndex(),
+                          driveline.getLastQuadIndex()))
+            fr = driveline.getLastQuadIndex()
+            to = driveline.computeSuccessor(lSorted)
+            if (fr, to) not in dWrittenEdges:
+                f.write("  <edge from=\"%d\" to=\"%d\"/>\n" %(fr, to))
+                dWrittenEdges[ (fr, to) ] = 1
+        f.write("</graph>\n")
+        f.close()
+        #print bsys.time()-start_time,"seconds. "
+          
+    # --------------------------------------------------------------------------
+    # Writes out all checklines.
+    # \param lChecks All check meshes
+    # \param mainDriveline The main driveline, from which the lap
+    #        counting check line is determined.
+    def writeChecks(self, f, lChecks, mainDriveline):
+        f.write("  <checks>\n")
+        
+        # A dictionary containing a list of indices of check structures
+        # that belong to this group.
+        dGroup2Indices = {"lap":[0]}
+        # Collect the indices of all check structures for all groups
+        ind = 1
+        for obj in lChecks:
+            name = getProperty(obj, "type", obj.name.lower()).lower()
+            if len(name) == 0: name = obj.name.lower()
+            
+            type = getProperty(obj, "type", "")
+            if type == "cannonstart" or type == "cannonend":
+                continue
+                
+            if name!="lap":
+                name = getProperty(obj, "name", obj.name.lower()).lower()
+            if name in dGroup2Indices:
+                dGroup2Indices[name].append(ind)
+            else:
+                dGroup2Indices[name] = [ ind ]
+            ind = ind + 1
+            
+        print("**** dGroup2Indices:", dGroup2Indices)
+
+        if mainDriveline:
+            lap = mainDriveline.getStartEdge()
+            
+            strict_lapline = mainDriveline.isStrictLapline()
+            
+            if lap[0] is None:
+                return # Invalid driveline (a message will have been printed)
+            
+            coord = lap[0]
+            min_h = coord[2]
+            if coord[2] < min_h: min_h = coord[2]
+
+            # The main driveline is always the first entry, so remove
+            # only the first entry to get the list of all other lap lines
+            l = dGroup2Indices["lap"]
+            
+            from functools import reduce
+            sSameGroup = reduce(lambda x,y: str(x)+" "+str(y), l, "")
+            
+            activate = mainDriveline.getActivate()
+            if activate:
+                group = activate.lower()
+                
+                if not group or group not in dGroup2Indices:
+                    log_warning("Activate group '%s' not found!"%group)
+                    print("Ignored - but lap counting might not work correctly.")
+                    print("Make sure there is an object of type 'check' with")
+                    print("the name '%s' defined."%group)
+                    activate = ""
+                else:
+                    activate = reduce(lambda x,y: str(x)+" "+str(y), dGroup2Indices[group])
+            else:
+                group = ""
+                activate = ""
+                log_warning("Warning : the main driveline does not activate any checkline. Lap counting and kart rescue will not work correctly.")
+        else:
+            # No main drive defined, print a warning and add some dummy
+            # driveline (makes the rest of this code easier)
+            lap        = [ [-1, 0], [1, 0] ]
+            min_h      = 0
+            sSameGroup = ""
+            activate = ""
+            strict_lapline = True
+
+        if sSameGroup:
+            sSameGroup="same-group=\"%s\""%sSameGroup.strip()
+
+        if activate:
+            activate = "other-ids=\"%s\""%activate
+        
+        if not strict_lapline:
+            f.write("    <check-lap kind=\"lap\" %s %s />\n"%(sSameGroup, activate))
+        else:
+            f.write("    <check-line kind=\"lap\" p1=\"%.2f %.2f\" p2=\"%.2f %.2f\"\n"% \
+                    (lap[0][0], lap[0][1],
+                     lap[1][0], lap[1][1] )  )
+            f.write("                min-height=\"%.2f\" %s %s/>\n"% (min_h, sSameGroup, activate) )
+
+        ind = 1
+        for obj in lChecks:
+        
+            try:
+                type = getProperty(obj, "type", "")
+                if type == "cannonstart":
+                    self.writeCannon(f, obj)
+                    continue
+                elif type == "cannonend":
+                    continue
+                elif type == "goal":
+                    self.writeGoal(f, obj)
+                    continue
+                
+                mesh = obj.data.copy()
+                # Convert to world space
+                mesh.transform(obj.matrix_world)
+                # One of lap, activate, toggle, ambient
+                activate = getProperty(obj, "activate", "")
+                kind=" "
+                if activate:
+                    group = activate.lower()
+                    if group not in dGroup2Indices:
+                        log_warning("Activate group '%s' not found!"%group)
+                        print("Ignored - but lap counting might not work correctly.")
+                        print("Make sure there is an object of type 'check' with")
+                        print("the name '%s' defined."%group)
+                        continue
+                    s = reduce(lambda x,y: str(x)+" "+str(y), dGroup2Indices[group])
+                    kind = " kind=\"activate\" other-ids=\"%s\" "% s
+
+                toggle = getProperty(obj, "toggle", "")
+                if toggle:
+                    group = toggle.lower()
+                    if group not in dGroup2Indices:
+                        log_warning("Toggle group '%s' not found!"%group)
+                        print("Ignored - but lap counting might not work correctly.")
+                        print("Make sure there is an object of type 'check' with")
+                        print("the name '%s' defined."%group)
+                        continue
+                    s = reduce(lambda x,y: str(x)+" "+str(y), dGroup2Indices[group])
+                    kind = " kind=\"toggle\" other-ids=\"%s\" "% s
+
+                lap = getProperty(obj, "type", obj.name).upper()
+                if lap[:3]=="LAP":
+                    kind = " kind=\"lap\" "  # xml needs a value for an attribute
+                    activate = getProperty(obj, "activate", "")
+                    if activate:
+                        group = activate.lower()
+                        if group not in dGroup2Indices:
+                            log_warning("Activate group '%s' not found for lap line!"%group)
+                            print("Ignored - but lap counting might not work correctly.")
+                            print("Make sure there is an object of type 'check' with")
+                            print("the name '%s' defined."%group)
+                            continue
+                        s = reduce(lambda x,y: str(x)+" "+str(y), dGroup2Indices[group])
+                        kind = "%sother-ids=\"%s\" "% (kind, s)
+                
+                ambient = getProperty(obj, "ambient", "").upper()
+                if ambient:
+                    kind=" kind=\"ambient-light\" "
+
+                # Get the group name this object belongs to. If the objects
+                # is of type lap then 'lap' is the group name, otherwise
+                # it's taken from the name property (or the object name).
+                name = getProperty(obj, "type", obj.name.lower()).lower()
+                if name!="lap":
+                    name = getProperty(obj, "name", obj.name.lower()).lower()
+                    if len(name) == 0: name = obj.name.lower()
+                    
+                # Get the list of indices of this group, excluding
+                # the index of the current object. So create a copy
+                # of the list and remove the current index
+                l = dGroup2Indices[name][:]
+                sSameGroup = reduce(lambda x,y: str(x)+" "+str(y), l, "")
+                ind = ind + 1
+
+                if len(mesh.vertices)==2:   # Check line
+                    min_h = mesh.vertices[0].co[2]
+                    if mesh.vertices[1].co[2] < min_h: min_h = mesh.vertices[1].co[2]
+                    f.write("    <check-line%sp1=\"%.2f %.2f\" p2=\"%.2f %.2f\"\n" %
+                            (kind, mesh.vertices[0].co[0], mesh.vertices[0].co[1],
+                             mesh.vertices[1].co[0], mesh.vertices[1].co[1]   )  )
+
+                    f.write("                min-height=\"%.2f\" same-group=\"%s\"/>\n" \
+                            % (min_h, sSameGroup.strip())  )
+                else:
+                    radius = 0
+                    for v in mesh.vertices:
+                        r = (obj.location[0]-v[0])*(obj.location[0]-v[0]) + \
+                            (obj.location[1]-v[1])*(obj.location[1]-v[1]) + \
+                            (obj.location[2]-v[2])*(obj.loc[2]-v[2])
+                        if r > radius:
+                            radius = r
+                    
+                    radius = math.sqrt(radius)
+                    inner_radius = getProperty(obj, "inner_radius", radius)
+                    color = getProperty(obj, "color", "255 120 120 120")
+                    f.write("    <check-sphere%sxyz=\"%.2f %.2f %.2f\" radius=\"%.2f\"\n" % \
+                            (kind, obj.location[0], obj.location[2], obj.location[1], radius) )
+                    f.write("                  same-group=\"%s\"\n"%sSameGroup.strip())
+                    f.write("                  inner-radius=\"%.2f\" color=\"%s\"/>\n"% \
+                            (inner_radius, color) )
+            except Exception as exc:
+                log_error("Error exporting checkline " + obj.name + ", make sure it is properly formed")
+                
+                from traceback import format_tb
+                print(format_tb(exc.__traceback__)[0])
+        f.write("  </checks>\n")
+   
     
 # ==============================================================================
 # A special class to store a drivelines.
@@ -1293,238 +1799,7 @@ class TrackExport:
                 f.write("    </%s>\n"%type)
         f.write("  </curves>\n")
         
-    # --------------------------------------------------------------------------
-    # Finds the closest driveline from the list lDrivelines to the point p (i.e.
-    # the driveline for which the distance between p and the drivelines start
-    # point is as small as possible. Returns the index of the closest drivelines.
-    def findClosestDrivelineToPoint(self, lDrivelines, p):
-        min_index = 0
-        min_dist  = lDrivelines[0].getStartDistanceTo(p)
-        for i in range(1,len(lDrivelines)):
-            driveline=lDrivelines[i]
-            dist_new = driveline.getStartDistanceTo(p)
-            if dist_new<min_dist:
-                min_dist  = dist_new
-                min_index = i
-
-        return min_index
     
-    # --------------------------------------------------------------------------
-    # Find the driveline from lRemain that is closest to any of the drivelines
-    # in lSorted.
-    def findClosestDrivelineToDrivelines(self, lRemain, lSorted):
-        remain_index                    = 0
-        (min_dist, sorted_index, min_quad) = lRemain[0].getDistanceToStart(lSorted)
-        for i in range(1, len(lRemain)):
-            (dist, index, quad) = lRemain[i].getDistanceToStart(lSorted)
-            if dist<min_dist:
-                min_dist     = dist
-                sorted_index = index
-                min_quad     = quad
-                remain_index = i
-        return (remain_index, sorted_index, min_quad)
-        
-    # --------------------------------------------------------------------------
-    # Converts a new drivelines. New drivelines have the following structure:
-    #   +---+---+--+--...--+--
-    #   |   |      |       |  
-    #   +---+--+---+--...--+--
-    # The starting quad of the drivelines is marked by two edges ending in a
-    # single otherwise unconnected vertex. These two vertices (and edges) are
-    # not used in the actual driveline, they are only used to indicate where
-    # the drivelines starts. This data structure is handled in the Driveline
-    # class.
-    # Additionally, this function sorts the end cameras according to distance
-    # to the main driveline - so the first end camera will be the camera
-    # closest to the start line etc.
-    def convertDrivelinesAndSortEndCameras(self, lDrivelines, lSorted,
-                                           lEndCameras):
-        # First collect all main drivelines, and all remaining drivelines
-        # ---------------------------------------------------------------
-        lMain     = []
-        lRemain   = []
-        for driveline in lDrivelines:
-            if driveline.isMain():
-                lMain.append(driveline)
-            else:
-                lRemain.append(driveline)
-
-        # Now collect all main drivelines in one list starting
-        # with the closest to 0, then the one closest to the
-        # end of the first one, etc
-        p          = (0,0,0)
-        quad_index = 0
-        while lMain:
-            min_index = self.findClosestDrivelineToPoint(lMain, p)
-            # Move the main driveline with minimal distance to the
-            # sorted list.
-            lSorted.append(lMain[min_index])
-            del lMain[min_index]
-            
-            # Set the start quad index for all quads.
-            lSorted[-1].setStartQuadIndex(quad_index)
-            quad_index = quad_index + lSorted[-1].getNumberOfQuads()
-
-            p = lSorted[-1].getEndPoint()
-
-        # Create a new list for all cameras, which also stores the
-        # quad index to which the camera is closest to, the distance
-        # to the quad, and the camera object. The order is important
-        # since this list is later sorted by quad index, so that the
-        # first camera is the first in the list.
-        lCamerasDistance = []
-        for i in range(len(lEndCameras)):
-            cam = lEndCameras[i]
-            try:
-                (distance, driveline_index, quad_index_camera) = \
-                           lSorted[0].getDistanceTo(cam.location, lSorted)
-                # Each list contains the index of the closest quad, the
-                # distance, and then the camera
-                lEndCameras[i] = (driveline_index, quad_index_camera, cam)
-            except:
-                log_warning("Problem with the end camera '%s'. Check if the main driveline is " +\
-                            "properly defined (check warning messages), and the " +\
-                            "settings of the camera."%cam.name)
-                
-        lEndCameras.sort()
-        
-        # After sorting remove the unnecessary distance and quad index
-        for i in range(len(lEndCameras)):
-            # Avoid crash in case that some problem with the camera happened,
-            # and lEndCameras is just the blender camera, not the tuple
-            if type(lEndCameras[i])==type(()):
-                lEndCameras[i] = lEndCameras[i][2]
-
-        # There were already two warning messages printed at this stage, so just
-        # ignore this to avoid further crashes
-        if len(lSorted) < 1:
-            return
-        
-        # The last main driveline needs to be closed to the first quad.
-        # So set a flag in that driveline that it is the last one.
-        lSorted[-1].setIsLastMain(lSorted[0])
-        quad_index = quad_index + 1
-        
-        # Now add the remaining drivelines one at a time. From all remaining
-        # drivelines we pick the one closest to the drivelines contained in
-        # lSorted.
-        while lRemain:
-            t = self.findClosestDrivelineToDrivelines(lRemain, lSorted)
-            (remain_index, sorted_index, quad_to_index) = t
-            lRemain[remain_index].setFromQuad(lSorted[sorted_index],
-                                              quad_to_index)
-            lSorted.append(lRemain[remain_index])
-            del lRemain[remain_index]
-
-            # Set the start quad index for all quads.
-            lSorted[-1].setStartQuadIndex(quad_index)
-            quad_index = quad_index + lSorted[-1].getNumberOfQuads()
-
-    # --------------------------------------------------------------------------
-    # Writes the track.quad file with the list of all quads, and the track.graph
-    # file defining a graph node for each quad and a basic connection between
-    # all graph nodes.
-    def writeQuadAndGraph(self, sPath, lDrivelines, lEndCameras):
-        #start_time = bsys.time()
-        print("Writing quad file --> \t")
-        if not lDrivelines:
-            print("No main driveline defined, no driveline information exported!!!")
-            return
-    
-        lSorted = []
-        self.convertDrivelinesAndSortEndCameras(lDrivelines, lSorted,
-                                                lEndCameras)
-
-        # That means that there were some problems with the drivelines, and
-        # it doesn't make any sense to continue anyway
-        if not lSorted:
-            return
-        
-        # Stores the first quad number (and since quads = graph nodes the node
-        # number) of each section of the track. I.e. the main track starts with
-        # quad 0, then the first alternative way, ...
-        lStartQuad         = [0]
-        dSuccessor         = {}
-        last_main_lap_quad = 0
-        count              = 0
-        
-        f = open(sPath+"/quads.xml", "w")
-        f.write("<?xml version=\"1.0\"?>\n")
-        f.write("<!-- Generated with script from SVN rev %s -->\n"%getScriptVersion())
-        f.write("<quads>\n")
-
-        for driveline in lSorted:
-            driveline.writeQuads(f)
-
-        f.write("</quads>\n")
-        f.close()
-        #print bsys.time() - start_time,"seconds. "
-
-        #start_time = bsys.time()
-        print("Writing graph file --> \t")
-        f=open(sPath+"/graph.xml", "w")
-        f.write("<?xml version=\"1.0\"?>\n")
-        f.write("<!-- Generated with script from SVN rev %s -->\n"%getScriptVersion())
-        f.write("<graph>\n")
-        f.write("  <!-- First define all nodes of the graph, and what quads they represent -->\n")
-        f.write("  <node-list from-quad=\"%d\" to-quad=\"%d\"/>  <!-- map each quad to a node  -->\n"\
-                %(0, lSorted[-1].getLastQuadIndex()))
-
-        f.write("  <!-- Define the main loop -->\n");
-        last_main = None
-        for i in lSorted:
-            if i.isMain():
-                last_main = i
-            else:
-                break
-
-        # The main driveline is written as a simple loop
-        f.write("  <edge-loop from=\"%d\" to=\"%d\"/>\n" %
-                (0, last_main.getLastQuadIndex()) )
-
-        # Each non-main driveline writes potentially three entries in the
-        # graph file: connection to the beginning of this driveline, the
-        # driveline quads themselves, and a connection from the end of the
-        # driveline to another driveline. But this can result in edged being
-        # written more than once: consider two non-main drivelines A and B
-        # which are connected to each other. Then A will write the edge from
-        # A to B as its end connection, and B will write the same connection
-        # as its begin connection. To avoid this, we keep track of all
-        # written from/to edges, and only write one if it hasn't been written.
-        dWrittenEdges={}
-        # Now write the remaining drivelines
-        for driveline in lSorted:
-            # Mainline was already written, so ignore it
-            if driveline.isMain(): continue
-
-            f.write("  <!-- Shortcut %s -->\n"%driveline.getName())
-            # Write the connection from an already written quad to this
-            fr = driveline.getFromQuad()
-            to = driveline.getFirstQuadIndex()
-            if (fr,to) not in dWrittenEdges:
-                f.write("  <edge from=\"%d\" to=\"%d\"/>\n" %(fr, to))
-                #if to.isEnabled() and fr.isEnabled():
-                #    f.write("  <edge from=\"%d\" to=\"%d\"/>\n" %(fr, to))
-                #elif to.isEnabled():
-                #    f.write("  <!-- %s disabled <edge from=\"%d\" to=\"%d\"/> -->\n" \
-                #            %(fr.getName(), fr, to))
-                #else:
-                #    f.write("  <!-- %s disabled <edge from=\"%d\" to=\"%d\"/> -->\n"
-                #            %(to.getName(), fr, to))
-                dWrittenEdges[ (fr, to) ] = 1
-            if driveline.getFirstQuadIndex()< driveline.getLastQuadIndex():
-                f.write("  <edge-line from=\"%d\" to=\"%d\"/>\n" \
-                        %(driveline.getFirstQuadIndex(),
-                          driveline.getLastQuadIndex()))
-            fr = driveline.getLastQuadIndex()
-            to = driveline.computeSuccessor(lSorted)
-            if (fr, to) not in dWrittenEdges:
-                f.write("  <edge from=\"%d\" to=\"%d\"/>\n" %(fr, to))
-                dWrittenEdges[ (fr, to) ] = 1
-        f.write("</graph>\n")
-        f.close()
-        #print bsys.time()-start_time,"seconds. "
-          
     # --------------------------------------------------------------------------
     # Writes the animation for objects using IPOs:
     def writeAnimationWithIPO(self, f, name, obj, ipo, objectType="animation"):
@@ -1765,205 +2040,7 @@ class TrackExport:
                  goal_pt2[0], goal_pt2[2], goal_pt2[1],
                  first_goal_string))
         
-    # --------------------------------------------------------------------------
-    # Writes out all checklines.
-    # \param lChecks All check meshes
-    # \param mainDriveline The main driveline, from which the lap
-    #        counting check line is determined.
-    def writeChecks(self, f, lChecks, mainDriveline):
-        f.write("  <checks>\n")
-        
-        # A dictionary containing a list of indices of check structures
-        # that belong to this group.
-        dGroup2Indices = {"lap":[0]}
-        # Collect the indices of all check structures for all groups
-        ind = 1
-        for obj in lChecks:
-            name = getProperty(obj, "type", obj.name.lower()).lower()
-            if len(name) == 0: name = obj.name.lower()
-            
-            type = getProperty(obj, "type", "")
-            if type == "cannonstart" or type == "cannonend":
-                continue
-                
-            if name!="lap":
-                name = getProperty(obj, "name", obj.name.lower()).lower()
-            if name in dGroup2Indices:
-                dGroup2Indices[name].append(ind)
-            else:
-                dGroup2Indices[name] = [ ind ]
-            ind = ind + 1
-            
-        print("**** dGroup2Indices:", dGroup2Indices)
-
-        if mainDriveline:
-            lap = mainDriveline.getStartEdge()
-            
-            strict_lapline = mainDriveline.isStrictLapline()
-            
-            if lap[0] is None:
-                return # Invalid driveline (a message will have been printed)
-            
-            coord = lap[0]
-            min_h = coord[2]
-            if coord[2] < min_h: min_h = coord[2]
-
-            # The main driveline is always the first entry, so remove
-            # only the first entry to get the list of all other lap lines
-            l = dGroup2Indices["lap"]
-            
-            from functools import reduce
-            sSameGroup = reduce(lambda x,y: str(x)+" "+str(y), l, "")
-            
-            activate = mainDriveline.getActivate()
-            if activate:
-                group = activate.lower()
-                
-                if not group or group not in dGroup2Indices:
-                    log_warning("Activate group '%s' not found!"%group)
-                    print("Ignored - but lap counting might not work correctly.")
-                    print("Make sure there is an object of type 'check' with")
-                    print("the name '%s' defined."%group)
-                    activate = ""
-                else:
-                    activate = reduce(lambda x,y: str(x)+" "+str(y), dGroup2Indices[group])
-            else:
-                group = ""
-                activate = ""
-                log_warning("Warning : the main driveline does not activate any checkline. Lap counting and kart rescue will not work correctly.")
-        else:
-            # No main drive defined, print a warning and add some dummy
-            # driveline (makes the rest of this code easier)
-            lap        = [ [-1, 0], [1, 0] ]
-            min_h      = 0
-            sSameGroup = ""
-            activate = ""
-            strict_lapline = True
-
-        if sSameGroup:
-            sSameGroup="same-group=\"%s\""%sSameGroup.strip()
-
-        if activate:
-            activate = "other-ids=\"%s\""%activate
-        
-        if not strict_lapline:
-            f.write("    <check-lap kind=\"lap\" %s %s />\n"%(sSameGroup, activate))
-        else:
-            f.write("    <check-line kind=\"lap\" p1=\"%.2f %.2f\" p2=\"%.2f %.2f\"\n"% \
-                    (lap[0][0], lap[0][1],
-                     lap[1][0], lap[1][1] )  )
-            f.write("                min-height=\"%.2f\" %s %s/>\n"% (min_h, sSameGroup, activate) )
-
-        ind = 1
-        for obj in lChecks:
-        
-            try:
-                type = getProperty(obj, "type", "")
-                if type == "cannonstart":
-                    self.writeCannon(f, obj)
-                    continue
-                elif type == "cannonend":
-                    continue
-                elif type == "goal":
-                    self.writeGoal(f, obj)
-                    continue
-                
-                mesh = obj.data.copy()
-                # Convert to world space
-                mesh.transform(obj.matrix_world)
-                # One of lap, activate, toggle, ambient
-                activate = getProperty(obj, "activate", "")
-                kind=" "
-                if activate:
-                    group = activate.lower()
-                    if group not in dGroup2Indices:
-                        log_warning("Activate group '%s' not found!"%group)
-                        print("Ignored - but lap counting might not work correctly.")
-                        print("Make sure there is an object of type 'check' with")
-                        print("the name '%s' defined."%group)
-                        continue
-                    s = reduce(lambda x,y: str(x)+" "+str(y), dGroup2Indices[group])
-                    kind = " kind=\"activate\" other-ids=\"%s\" "% s
-
-                toggle = getProperty(obj, "toggle", "")
-                if toggle:
-                    group = toggle.lower()
-                    if group not in dGroup2Indices:
-                        log_warning("Toggle group '%s' not found!"%group)
-                        print("Ignored - but lap counting might not work correctly.")
-                        print("Make sure there is an object of type 'check' with")
-                        print("the name '%s' defined."%group)
-                        continue
-                    s = reduce(lambda x,y: str(x)+" "+str(y), dGroup2Indices[group])
-                    kind = " kind=\"toggle\" other-ids=\"%s\" "% s
-
-                lap = getProperty(obj, "type", obj.name).upper()
-                if lap[:3]=="LAP":
-                    kind = " kind=\"lap\" "  # xml needs a value for an attribute
-                    activate = getProperty(obj, "activate", "")
-                    if activate:
-                        group = activate.lower()
-                        if group not in dGroup2Indices:
-                            log_warning("Activate group '%s' not found for lap line!"%group)
-                            print("Ignored - but lap counting might not work correctly.")
-                            print("Make sure there is an object of type 'check' with")
-                            print("the name '%s' defined."%group)
-                            continue
-                        s = reduce(lambda x,y: str(x)+" "+str(y), dGroup2Indices[group])
-                        kind = "%sother-ids=\"%s\" "% (kind, s)
-                
-                ambient = getProperty(obj, "ambient", "").upper()
-                if ambient:
-                    kind=" kind=\"ambient-light\" "
-
-                # Get the group name this object belongs to. If the objects
-                # is of type lap then 'lap' is the group name, otherwise
-                # it's taken from the name property (or the object name).
-                name = getProperty(obj, "type", obj.name.lower()).lower()
-                if name!="lap":
-                    name = getProperty(obj, "name", obj.name.lower()).lower()
-                    if len(name) == 0: name = obj.name.lower()
-                    
-                # Get the list of indices of this group, excluding
-                # the index of the current object. So create a copy
-                # of the list and remove the current index
-                l = dGroup2Indices[name][:]
-                sSameGroup = reduce(lambda x,y: str(x)+" "+str(y), l, "")
-                ind = ind + 1
-
-                if len(mesh.vertices)==2:   # Check line
-                    min_h = mesh.vertices[0].co[2]
-                    if mesh.vertices[1].co[2] < min_h: min_h = mesh.vertices[1].co[2]
-                    f.write("    <check-line%sp1=\"%.2f %.2f\" p2=\"%.2f %.2f\"\n" %
-                            (kind, mesh.vertices[0].co[0], mesh.vertices[0].co[1],
-                             mesh.vertices[1].co[0], mesh.vertices[1].co[1]   )  )
-
-                    f.write("                min-height=\"%.2f\" same-group=\"%s\"/>\n" \
-                            % (min_h, sSameGroup.strip())  )
-                else:
-                    radius = 0
-                    for v in mesh.vertices:
-                        r = (obj.location[0]-v[0])*(obj.location[0]-v[0]) + \
-                            (obj.location[1]-v[1])*(obj.location[1]-v[1]) + \
-                            (obj.location[2]-v[2])*(obj.loc[2]-v[2])
-                        if r > radius:
-                            radius = r
-                    
-                    radius = math.sqrt(radius)
-                    inner_radius = getProperty(obj, "inner_radius", radius)
-                    color = getProperty(obj, "color", "255 120 120 120")
-                    f.write("    <check-sphere%sxyz=\"%.2f %.2f %.2f\" radius=\"%.2f\"\n" % \
-                            (kind, obj.location[0], obj.location[2], obj.location[1], radius) )
-                    f.write("                  same-group=\"%s\"\n"%sSameGroup.strip())
-                    f.write("                  inner-radius=\"%.2f\" color=\"%s\"/>\n"% \
-                            (inner_radius, color) )
-            except Exception as exc:
-                log_error("Error exporting checkline " + obj.name + ", make sure it is properly formed")
-                
-                from traceback import format_tb
-                print(format_tb(exc.__traceback__)[0])
-        f.write("  </checks>\n")
-   
+    
     # --------------------------------------------------------------------------
     # Writes a non-static track object. The objects can be animated or
     # non-animated meshes, and physical or non-physical.
@@ -2083,8 +2160,8 @@ class TrackExport:
                 
     # --------------------------------------------------------------------------
     # Writes the scene files, which includes all models, animations, and items
-    def writeSceneFile(self, sPath, sTrackName, exporters, lTrack, lObjects, lChecks,
-                       lSun, mainDriveline, lStart, lEndCameras, lCameraCurves):
+    def writeSceneFile(self, sPath, sTrackName, exporters, lTrack, lObjects,
+                       lSun, lStart, lEndCameras, lCameraCurves):
 
         #start_time = bsys.time()
         print("Writing scene file --> \t")
@@ -2201,13 +2278,6 @@ class TrackExport:
         
         rad2deg = 180.0/3.1415926
 
-
-        if mainDriveline is None:
-            log_error("No main driveline found")
-        if lChecks or mainDriveline:
-            if not lChecks:
-                log_warning("No check defined, lap counting will not work properly!")
-            self.writeChecks(f, lChecks, mainDriveline)
         
         scene   = the_scene
         sky     = getIdProperty(scene, "sky_type", None)
@@ -2247,23 +2317,7 @@ class TrackExport:
         if camera_far:            
             f.write("  <camera far=\"%s\"/>\n"%camera_far)
         self.writeStartPositions(f, lStart)
-        if lEndCameras:
-            f.write("  <end-cameras>\n")
-            for i in lEndCameras:
-                type = getProperty(i, "type", "ahead").lower()
-                if type=="ahead":
-                    type="ahead_of_kart"
-                elif type=="fixed":
-                    type="static_follow_kart"
-                else:
-                    log_warning ("Unknown camera type %s - ignored." % type)
-                    continue
-                xyz = "%f %f %f" % (i.location[0], i.location[2], i.location[1])
-                start = getProperty(i, "start", 5)
-                f.write("    <camera type=\"%s\" xyz=\"%s\" distance=\"%s\"/> <!-- %s -->\n"%
-                        (type, xyz, start, i.name) )
-            f.write("  </end-cameras>\n")
-
+        
         for exporter in exporters:
             exporter.export(f)
             
@@ -2281,18 +2335,16 @@ class TrackExport:
         sPath = os.path.dirname(sFilename)
         
         
-        exporters = [WaterExporter(self, sPath), ParticleEmitterExporter(), SoundEmitterExporter(), ActionTriggerExporter(), ItemsExporter(), BillboardExporter(), LightsExporter()]
+        drivelineExporter = DrivelineExporter()
+        exporters = [drivelineExporter, WaterExporter(self, sPath), ParticleEmitterExporter(), SoundEmitterExporter(), ActionTriggerExporter(), ItemsExporter(), BillboardExporter(), LightsExporter()]
         
         # Collect the different kind of meshes this exporter handles
         # ----------------------------------------------------------
         lObj                 = bpy.data.objects      # List of all objects
         lTrack               = []                    # All main track objects
-        lDrivelines          = []                    # All drivelines
-        found_main_driveline = False
         lEndCameras          = []                    # List of all end cameras
         lCameraCurves        = []                    # Camera curves (unused atm)
         lObjects             = []                    # All special objects
-        lChecks              = []                    # All check structures
         lSun                 = []
         lStart               = []                    # All start positions
         
@@ -2326,9 +2378,6 @@ class TrackExport:
             elif obj.type=="LAMP" and stktype == "SUN":
                 lSun.append(obj)
                 continue
-            elif obj.type=="CAMERA" and stktype in ['FIXED', 'AHEAD']:
-                lEndCameras.append(obj)
-                continue
             elif obj.type=="CAMERA" and stktype == 'CUTSCENE_CAMERA':
                 lObjects.append(obj)
                 continue
@@ -2336,18 +2385,7 @@ class TrackExport:
                 #print "Non-mesh object '%s' (type: '%s') is ignored!"%(obj.name, stktype)
                 continue
             
-            if stktype=="CHECK" or stktype=="LAP" or stktype=="CANNONSTART" or stktype=="GOAL":
-                lChecks.append(obj)
-            # Check for new drivelines
-            elif stktype=="MAIN-DRIVELINE" or \
-                 stktype=="MAINDRIVELINE"  or \
-                 stktype=="MAINDL":
-                # Main driveline must be the first entry in the list
-                lDrivelines.insert(0, Driveline(obj, 1))
-                found_main_driveline = True
-            elif stktype=="DRIVELINE":
-                lDrivelines.append(Driveline(obj, 0))
-            elif stktype=="OBJECT" or stktype=="SPECIAL_OBJECT" or stktype=="LOD_MODEL" or stktype=="LOD_INSTANCE" or stktype=="SINGLE_LOD":
+            if stktype=="OBJECT" or stktype=="SPECIAL_OBJECT" or stktype=="LOD_MODEL" or stktype=="LOD_INSTANCE" or stktype=="SINGLE_LOD":
                 lObjects.append(obj)
             elif stktype=="CANNONEND":
                 pass # cannon ends are handled with cannon start objects
@@ -2362,12 +2400,7 @@ class TrackExport:
         is_arena = getIdProperty(bpy.data.scenes[0], "arena", "false") == "true"
         is_soccer = getIdProperty(bpy.data.scenes[0], "soccer", "false") == "true"
         is_cutscene = getIdProperty(bpy.data.scenes[0], "cutscene",  "false") == "true"
-        if not found_main_driveline and not is_arena and not is_soccer and not is_cutscene:
-            if len(lDrivelines) > 0:
-                log_warning("Main driveline missing, using first driveline as main!")
-            else:
-                log_error("No driveline found")
-            
+
         # Now export the different parts: track file
         # ------------------------------------------
         self.writeTrackFile(sPath, sBase)
@@ -2388,7 +2421,7 @@ class TrackExport:
                          is_soccer[0]=="f" or is_soccer[0]=="F"     )
                         
         if not is_arena and not is_soccer and not is_cutscene:
-            self.writeQuadAndGraph(sPath, lDrivelines, lEndCameras)
+            drivelineExporter.writeQuadAndGraph(sPath)
         #start_time = bsys.time()
 
         sTrackName = sBase+"_track.b3d"
@@ -2413,10 +2446,9 @@ class TrackExport:
     
         # scene file
         # ----------
-        if len(lDrivelines)==0:
-            lDrivelines=[None]
-        self.writeSceneFile(sPath, sTrackName, exporters, lTrack, lObjects, lChecks, lSun,
-                            lDrivelines[0], lStart, lEndCameras, lCameraCurves)
+
+        self.writeSceneFile(sPath, sTrackName, exporters, lTrack, lObjects, lSun,
+                            lStart, lEndCameras, lCameraCurves)
         # materials file
         # ----------
         if 'stk_material_exporter' not in dir(bpy.ops.screen):
