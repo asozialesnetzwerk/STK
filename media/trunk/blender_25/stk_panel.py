@@ -881,19 +881,32 @@ class SuperTuxKartScenePanel(bpy.types.Panel, PanelBase):
 
 
 # ==== IMAGE PANEL ====
-def createPreviewTexture():
-    try:
-        bpy.ops.texture.new()
-        bpy.data.textures[-1].name = "STKPreviewTexture"
-        bpy.data.textures["STKPreviewTexture"].type = 'IMAGE'
-        bpy.data.textures["STKPreviewTexture"].use_preview_alpha = True
-    except:
-        print("Exception caught in createPreviewTexture")
-        import traceback
-        import sys
-        traceback.print_exc(file=sys.stdout)
+class STK_CreateImagePreview(bpy.types.Operator):
+    bl_idname = ("scene.stk_create_material_preview")
+    bl_label = ("STK :: create material preview")
+    
+    name = bpy.props.StringProperty()
+    
+    def execute(self, context):
 
-createPreviewTexture()
+        try:
+            bpy.ops.texture.new()
+            bpy.data.textures[-1].name = "STKPreviewTexture"
+            bpy.data.textures["STKPreviewTexture"].type = 'IMAGE'
+            bpy.data.textures["STKPreviewTexture"].use_preview_alpha = True
+        except:
+            print("Exception caught in createPreviewTexture")
+            import traceback
+            import sys
+            traceback.print_exc(file=sys.stdout)
+        
+        return {'FINISHED'}
+
+bpy.utils.register_class(STK_CreateImagePreview)
+
+
+#row.operator("screen.stk_track_export", "Export", icon='BLENDER')
+        
 
 import os
 
@@ -928,7 +941,7 @@ class STK_SelectImage(bpy.types.Operator):
         context.scene['selected_image'] = self.name
         
         if "STKPreviewTexture" not in bpy.data.textures:
-            createPreviewTexture()
+            bpy.ops.scene.stk_create_material_preview()
 
         if "STKPreviewTexture" in bpy.data.textures:
             if self.name in bpy.data.images:
@@ -949,6 +962,7 @@ class STK_SelectImage(bpy.types.Operator):
         return {'FINISHED'}
 
 bpy.utils.register_class(STK_SelectImage)
+
 
 class SuperTuxKartImagePanel(bpy.types.Panel, PanelBase):
     bl_label = "SuperTuxKart Image Properties"
@@ -983,6 +997,7 @@ class SuperTuxKartImagePanel(bpy.types.Panel, PanelBase):
                 properties[curr.id] = curr
                 
             self.recursivelyAddProperties(properties, layout, obj, CONTEXT_MATERIAL)
+
 
 
 # Extension to the 'add' menu
