@@ -279,6 +279,18 @@ def getXYZHString(obj):
     return s
 
 # ------------------------------------------------------------------------------
+# Returns a string 'x="1" y="2" z="3" h="4"', where 1, 2, ...are the actual
+# location and rotation of the given object. The location has a swapped
+# y and z axis (so that the same coordinate system as in-game is used).
+def getNewXYZHString(obj):
+    loc     = obj.location
+    hpr     = obj.rotation_euler
+    rad2deg = 180.0/3.1415926535;
+    s="xyz=\"%.2f %.2f %.2f\" h=\"%.2f\"" %\
+       (loc[0], loc[2], loc[1], hpr[2]*rad2deg)
+    return s
+    
+# ------------------------------------------------------------------------------
 # Returns a string 'xyz="1 2 3" hpr="4 5 6"' where 1,2,... are the actual
 # location and rotation of the given object. The location has a swapped
 # y and z axis (so that the same coordinate system as in-game is used), and
@@ -443,8 +455,7 @@ class ParticleEmitterExporter:
     def export(self, f):
         for obj in self.m_objects:
             try:
-                # origin
-                originXYZ = getXYZHString(obj)
+                originXYZ = getNewXYZHString(obj)
                 
                 condition_str = ""
                 if len(getProperty(obj, "particle_condition", "")) > 0:
