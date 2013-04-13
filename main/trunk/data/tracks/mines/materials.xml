@@ -4,7 +4,7 @@
   <material name="bulb.png" fog="N" light="N" compositing="additive" disable-z-write="Y"/>
   <material name="clip.png" compositing="test"/>
   <material name="fence_chain.png" compositing="test"/>
-  <material name="halo_lamp.png" fog="N" light="N" compositing="additive" disable-z-write="Y"/>
+  <material name="halo_lamp.png" light="N" compositing="additive" disable-z-write="Y"/>
   <material name="lightHaloY.png" light="N" compositing="additive" disable-z-write="Y" fog="N"/>
   <material name="mine_road.jpg">
     <particles base="smoke.xml" condition="skid"/>
