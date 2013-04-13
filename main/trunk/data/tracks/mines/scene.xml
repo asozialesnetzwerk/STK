@@ -51,10 +51,10 @@
     <static-object lod_instance="true" lod_group="lantern" xyz="43.35 -6.31 -258.59" hpr="-96.5 158.6 -1.5" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="lantern" xyz="34.23 -4.70 -230.46" hpr="-98.5 -61.3 2.9" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="lantern" xyz="-32.91 -2.99 -237.75" hpr="-94.6 43.6 1.9" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_instance="true" lod_group="lantern" xyz="15.69 -1.20 -214.72" hpr="-94.6 43.6 1.9" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="lantern" xyz="15.39 -0.30 -214.72" hpr="-94.6 43.6 1.9" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="lantern" xyz="26.35 0.21 -180.83" hpr="-95.7 7.2 1.4" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_instance="true" lod_group="lantern" xyz="21.87 2.14 -157.02" hpr="-96.6 -24.9 1.5" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_instance="true" lod_group="lantern" xyz="9.47 2.86 -142.58" hpr="-96.6 -24.9 1.5" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="lantern" xyz="21.96 3.45 -156.64" hpr="-96.6 -24.9 1.5" scale="1.09 1.09 1.09"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="lantern" xyz="11.93 3.19 -143.25" hpr="-96.6 -24.9 1.5" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="lantern" xyz="0.20 2.14 -129.53" hpr="-96.6 -24.9 1.5" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="lantern" xyz="-18.37 2.05 -99.04" hpr="-96.6 -24.9 1.5" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <animated-texture name="mine_water_alpha.png" dy="0.500" />
@@ -180,7 +180,7 @@
   <object type="animation" model="cogwheel2.b3d" xyz="97.25 9.39 -209.37" hpr="90.0 -0.0 -0.0" scale="1.92 1.92 1.92"  interaction="ghost">
   </object>
   <sun  fog="true" fog-color="0 0 0" fog-start="10.00" fog-end="80.00"/>
-  <sky-color rgb="12 6 0"/>
+  <sky-color rgb="0 0 0"/>
   <camera far="180.0"/>
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
@@ -276,16 +276,16 @@
   <object type="billboard" texture="lightHaloY.png" xyz="-32.84 -3.75 -237.70" 
              width="5.113" height="5.113" >
   </object>
-  <object type="billboard" texture="lightHaloY.png" xyz="15.76 -1.96 -214.67" 
+  <object type="billboard" texture="lightHaloY.png" xyz="15.46 -1.06 -214.67" 
              width="5.113" height="5.113" >
   </object>
   <object type="billboard" texture="lightHaloY.png" xyz="26.37 -0.55 -180.75" 
              width="5.113" height="5.113" >
   </object>
-  <object type="billboard" texture="lightHaloY.png" xyz="21.85 1.38 -156.95" 
+  <object type="billboard" texture="lightHaloY.png" xyz="21.94 2.62 -156.56" 
              width="5.113" height="5.113" >
   </object>
-  <object type="billboard" texture="lightHaloY.png" xyz="9.45 2.10 -142.50" 
+  <object type="billboard" texture="lightHaloY.png" xyz="11.91 2.43 -143.17" 
              width="5.113" height="5.113" >
   </object>
   <object type="billboard" texture="lightHaloY.png" xyz="0.18 1.37 -129.45" 
