@@ -143,6 +143,23 @@
       <p c="50.000 -0.000" h1="30.870 -0.000" h2="69.130 -0.000"/>
     </curve>
   </object>
+  <object type="animation" model="floatingObject.b3d" xyz="-15.53 -5.01 -45.35" hpr="-37.9 -52.9 54.9" scale="0.85 0.85 0.85"  interaction="ghost">
+    <curve channel="LocX" interpolation="bezier" extend="cyclic">
+      <p c="1.000 -15.533" h1="-18.521 -15.533" h2="20.521 -15.533"/>
+      <p c="51.000 -15.533" h1="31.479 -15.533" h2="68.959 -15.533"/>
+      <p c="97.000 -15.533" h1="79.041 -15.533" h2="114.959 -15.533"/>
+    </curve>
+    <curve channel="LocZ" interpolation="bezier" extend="cyclic">
+      <p c="1.000 -45.347" h1="-18.521 -45.347" h2="20.521 -45.347"/>
+      <p c="51.000 -45.347" h1="31.479 -45.347" h2="68.959 -45.347"/>
+      <p c="97.000 -45.347" h1="79.041 -45.347" h2="114.959 -45.347"/>
+    </curve>
+    <curve channel="LocY" interpolation="bezier" extend="cyclic">
+      <p c="1.000 -5.012" h1="-18.521 -5.012" h2="20.521 -5.012"/>
+      <p c="51.000 -4.912" h1="31.479 -4.912" h2="68.959 -4.912"/>
+      <p c="97.000 -5.012" h1="79.041 -5.012" h2="114.959 -5.012"/>
+    </curve>
+  </object>
   <object type="animation" model="cogwheel3.b3d" xyz="97.25 -6.80 -209.37" hpr="0.0 -0.0 0.0" scale="1.94 1.94 1.94"  interaction="ghost">
     <curve channel="RotX" interpolation="bezier" extend="cyclic">
       <p c="1.000 -0.000" h1="-18.130 -0.000" h2="20.130 -0.000"/>
@@ -211,7 +228,7 @@
       <p c="155.000 -4.595"/>
     </curve>
   </object>
-  <sun  fog="true" fog-color="0 0 0" fog-start="10.00" fog-end="80.00"/>
+  <sun  fog="true" fog-color="0 0 0" fog-start="10.00" fog-end="80.00" xyz="0.00 58.23 0.00" sun-specular="40 40 40" sun-diffuse="40 40 40" ambient="40 40 40"/>
   <sky-color rgb="0 0 0"/>
   <camera far="180.0"/>
   <checks>
