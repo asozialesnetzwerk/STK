@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 12583 -->
+<!-- Generated with script from SVN rev 12633 -->
 <scene>
   <track model="mines_track.b3d" x="0" y="0" z="0">
     <static-object lod_distance="70.0" lod_group="transfo" model="Circle.036_Circle.000.b3d" xyz="-17.36 2.09 -22.06" hpr="-90.0 115.4 -0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
@@ -64,7 +64,7 @@
     <animated-texture name="roller.png" dy="0.500" />
     <animated-texture name="roller.png" dy="0.500" />
   </track>
-  <object type="animation" model="woodbridge.b3d" xyz="24.46 -6.94 -196.64" hpr="0.0 -11.8 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
+  <object type="animation" model="crossbirdge.b3d" xyz="24.46 -6.94 -196.64" hpr="0.0 -11.8 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
   </object>
   <object type="animation" model="woodbridge.b3d" xyz="7.07 -6.48 -230.94" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
   </object>
@@ -512,6 +512,7 @@
   <object type="billboard" texture="halo_lamp.png" xyz="63.98 -5.75 -286.93" 
              width="11.240" height="14.686" fadeout="true" start="1.00" end="15.00">
   </object>
+  <light xyz="24.46 -0.68 -196.64" distance="25.00" color="119 207 255"/>
   <default-start karts-per-row     ="3"
                  forwards-distance ="1.50"
                  sidewards-distance="3.00"
