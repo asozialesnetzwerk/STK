@@ -976,11 +976,14 @@ class SuperTuxKartImagePanel(bpy.types.Panel, PanelBase):
         layout = self.layout
         row = layout.row()
         
-        if "STKPreviewTexture" in bpy.data.textures:
-            layout.template_preview(bpy.data.textures["STKPreviewTexture"])
-        else:
+        try:
+            if "STKPreviewTexture" in bpy.data.textures:
+                layout.template_preview(bpy.data.textures["STKPreviewTexture"])
+            else:
+                layout.label("Sorry, no image preview available")
+        except:
             layout.label("Sorry, no image preview available")
-    
+            
         label = "Select an image"
         if 'selected_image' in context.scene:
             label = context.scene['selected_image']
