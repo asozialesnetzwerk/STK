@@ -5,9 +5,11 @@
   <material name="clip.png" compositing="test"/>
   <material name="fence_chain.png" compositing="test"/>
   <material name="halo_lamp.png" light="N" compositing="additive" disable-z-write="Y"/>
+  <material name="light_lamp_object.png" additive-lightmap="Y"/>
   <material name="lightHaloG.png" fog="N" light="N" backface-culling="N" compositing="additive"/>
   <material name="lightHaloR.png" fog="N" light="N" backface-culling="N" compositing="additive"/>
   <material name="lightHaloY.png" light="N" compositing="additive" disable-z-write="Y" fog="N"/>
+  <material name="metal_rusted_lamp.jpg" fog="N" light="N"/>
   <material name="mine_road.jpg">
     <particles base="smoke.xml" condition="skid"/>
   </material>

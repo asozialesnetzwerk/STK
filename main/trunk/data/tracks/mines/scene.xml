@@ -4,6 +4,7 @@
   <track model="mines_track.b3d" x="0" y="0" z="0">
     <static-object lod_distance="70.0" lod_group="transfo" model="Circle.036_Circle.000.b3d" xyz="-17.36 2.09 -22.06" hpr="-90.0 115.4 -0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="transfo" xyz="167.38 2.09 -91.75" hpr="-90.0 115.4 -0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="lamp2" xyz="143.33 14.06 12.37" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="lamp2" xyz="-13.76 9.71 -36.87" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="lamp2" xyz="-26.68 11.41 -65.20" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="lamp2" xyz="-0.11 10.45 -261.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
@@ -36,6 +37,7 @@
     <static-object lod_instance="true" lod_group="lamp2" xyz="-0.47 9.71 -36.44" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="lamp2" xyz="63.94 8.28 -286.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object model="lamp1.b3d" xyz="109.25 9.69 -190.29" hpr="0.0 -0.0 0.0" scale="0.81 0.21 0.81"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="lantern" xyz="39.44 3.63 48.53" hpr="-90.0 91.7 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="lantern" xyz="0.80 3.95 -21.28" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_distance="80" lod_group="lantern" model="lantern_LOD50.b3d" xyz="-10.20 3.95 -21.28" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_distance="20" lod_group="lantern" model="lantern_LOD20.b3d" xyz="-9.20 3.95 -21.28" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
@@ -528,6 +530,15 @@
   </object>
   <object type="billboard" texture="halo_lamp.png" xyz="63.98 -5.75 -286.93" 
              width="11.240" height="14.686" fadeout="true" start="1.00" end="15.00">
+  </object>
+  <object type="billboard" texture="halo_lamp.png" xyz="143.31 3.69 12.40" 
+             width="7.160" height="9.356" fadeout="true" start="5.00" end="20.00">
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="143.36 7.11 12.35" 
+             width="0.750" height="0.750" >
+  </object>
+  <object type="billboard" texture="lightHaloY.png" xyz="39.44 2.86 48.53" 
+             width="5.113" height="5.113" >
   </object>
   <light xyz="24.46 -0.68 -196.64" distance="25.00" color="119 207 255"/>
   <default-start karts-per-row     ="3"
