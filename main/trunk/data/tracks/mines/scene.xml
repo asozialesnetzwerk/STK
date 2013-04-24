@@ -540,7 +540,6 @@
   <object type="billboard" texture="lightHaloY.png" xyz="39.44 2.86 48.53" 
              width="5.113" height="5.113" >
   </object>
-  <light xyz="24.46 -0.68 -196.64" distance="25.00" color="119 207 255"/>
   <default-start karts-per-row     ="3"
                  forwards-distance ="1.50"
                  sidewards-distance="3.00"
