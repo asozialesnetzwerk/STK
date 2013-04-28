@@ -2,6 +2,18 @@
 <!-- Generated with script from SVN rev 12633 -->
 <scene>
   <track model="planetarium_track.b3d" x="0" y="0" z="0">
+    <static-object model="windows_glass.b3d" xyz="18.39 19.25 -68.65" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object model="windows_glass.b3d" xyz="-18.40 19.25 -68.65" hpr="0.0 30.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object model="windows_glass.b3d" xyz="-68.65 19.25 -18.39" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object model="windows_glass.b3d" xyz="-50.26 19.25 -50.25" hpr="0.0 60.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object model="windows_glass.b3d" xyz="-68.65 19.25 18.40" hpr="-0.0 120.0 -0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object model="windows_glass.b3d" xyz="-50.25 19.25 50.26" hpr="0.0 150.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object model="windows_glass.b3d" xyz="18.40 19.25 68.65" hpr="-0.0 -150.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object model="windows_glass.b3d" xyz="-18.39 19.25 68.65" hpr="-0.0 -180.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object model="windows_glass.b3d" xyz="50.26 19.25 50.25" hpr="0.0 -120.0 -0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object model="windows_glass.b3d" xyz="68.65 19.25 18.39" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object model="windows_glass.b3d" xyz="50.25 19.25 -50.26" hpr="-0.0 -30.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object model="windows_glass.b3d" xyz="68.65 19.25 -18.40" hpr="-0.0 -60.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <animated-texture name="sunFlar.png" dy="-0.100" />
   </track>
   <sky-box texture="star-back.png star-back.png star-back.png star-back.png star-back.png star-back.png"/>
