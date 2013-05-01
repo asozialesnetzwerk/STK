@@ -2296,12 +2296,23 @@ class TrackExport:
         #print bsys.time()-start_time,"seconds"
 
     
-    def __init__(self, sFilename):
+    def __init__(self, sFilename, exportImages):
         self.dExportedObjects = {}
         
         sBase = os.path.basename(sFilename)
         sPath = os.path.dirname(sFilename)
         
+        import shutil
+        if exportImages:
+            for i,curr in enumerate(bpy.data.images):
+                try:
+                    if curr.filepath is None or len(curr.filepath) == 0:
+                        continue
+                    shutil.copy(bpy.path.abspath(curr.filepath), sPath)
+                except:
+                    import traceback
+                    traceback.print_exc(file=sys.stdout)
+                    log_warning('Failed to copy texture ' + curr.filepath)
         
         drivelineExporter = DrivelineExporter()
         exporters = [drivelineExporter, WaterExporter(self, sPath), ParticleEmitterExporter(), SoundEmitterExporter(), ActionTriggerExporter(), ItemsExporter(), BillboardExporter(), LightsExporter(), StartPositionExporter()]
@@ -2425,11 +2436,11 @@ class TrackExport:
 
         
 # ==============================================================================
-def savescene_callback(sFilename):
+def savescene_callback(sFilename, exportImages):
     global log
     log = []
     
-    TrackExport(sFilename)
+    TrackExport(sFilename, exportImages)
 
 thelist = []
 def getlist(self):
@@ -2445,6 +2456,7 @@ class STK_Track_Export_Operator(bpy.types.Operator):
     bl_idname = ("screen.stk_track_export")
     bl_label = ("SuperTuxKart Track Export")
     filepath = bpy.props.StringProperty(subtype="FILE_PATH")
+    exportImages = bpy.props.BoolProperty(name="Copy texture files")
 
     def invoke(self, context, event):
         if bpy.context.mode != 'OBJECT':
@@ -2489,7 +2501,7 @@ class STK_Track_Export_Operator(bpy.types.Operator):
         #        a custom scene property
         bpy.types.Scene.obj_list = property(getlist, setlist)
         
-        savescene_callback(self.filepath)
+        savescene_callback(self.filepath, self.exportImages)
         return {'FINISHED'}
 
 
