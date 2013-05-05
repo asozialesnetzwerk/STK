@@ -8,7 +8,7 @@
     </BoolProp>
     
     <!-- ******** STK Object Type ******** -->
-    <EnumProp id="type" name="Type" default="none" doc="SuperTuxKart Object Type" unique_prefix="objtype_">
+    <EnumProp id="type" name="Type" default="none" doc="SuperTuxKart Object Type">
     
         <!-- None -->
         <EnumChoice id="" label="None" doc="Nothing special about this object" />
@@ -50,7 +50,7 @@
         <!-- Drivelines and checklines -->
         <EnumChoice id="check" label="Checkline" doc="A checkline that the player must cross (used to forbid shortcuts)" >
             <StringProp id="name" name="Name" default="" doc="Name of the checkline"/>
-            <ObjRefProp id="activate" unique_id_suffix="_checkline" name="Activate" default="" static_objects="[('lap','Lap')]"
+            <ObjRefProp id="activate" name="Activate" default="" static_objects="[('lap','Lap')]"
                         filter="lambda self, o : 'type' in o and o['type'] == 'check'"
                         doc="Which check structure to activate when crossing this checkline"/>
         </EnumChoice>
@@ -65,7 +65,7 @@
             </EnumProp>
         </EnumChoice>
         <EnumChoice id="maindriveline" label="Driveline (main)" doc="The main driveline used to mark where karts may drive" >
-            <ObjRefProp id="activate" unique_id_suffix="_maindriveline" name="Activate" default=""
+            <ObjRefProp id="activate" name="Activate" default=""
                         filter="lambda self, o : 'type' in o and o['type'] == 'check'"
                         doc="Which check structure to activate when crossing the lap line"/>
         </EnumChoice>
@@ -100,7 +100,7 @@
                 
         <!-- Lap line extension -->
         <EnumChoice id="lap" label="Lap line" doc="An extension to the factory lap line">
-            <ObjRefProp id="activate" unique_id_suffix="_lap" name="Activate" default=""
+            <ObjRefProp id="activate" name="Activate" default=""
                         filter="lambda self, o : 'type' in o and o['type'] == 'check'"
                         doc="Which check structure to activate when crossing the lap line"/>
         </EnumChoice>
@@ -118,9 +118,67 @@
                         doc="Name of the LOD group this object is an instance of"/>
             <StringProp id="if" name="Visible if..." default="" doc="Make this object conditionally visible"/>
             <StringProp id="ifnot" name="Visible if not..." default="" doc="Make this object conditionally visible"/>
-            <EnumProp id="interaction" name="Interaction" default="static" unique_prefix="lod" doc="How this object should interact with other objects in the physics engine">
+            <!-- Interaction -->
+            <EnumProp id="interaction" name="Interaction" default="static" doc="How this object should interact with other objects in the physics engine">
                 <EnumChoice id="ghost" label="Ghost" doc="This object will be non-physical (player can drive through it)" />
-                <EnumChoice id="static" label="Static (wont move)" doc="This object will stay in place, if the user drives on this object they will 'hit a wall'" />
+                <EnumChoice id="static" label="Static (wont move)" doc="This object will stay in place, if the user drives on this object they will 'hit a wall'" >
+                    <EnumProp id="shape" name="Shape (if animated object)" default="box"
+                              doc="Shape to use in the physics engine to represent this object">
+                        <EnumChoice id="coneX" label="Cone (X)" />
+                        <EnumChoice id="coneY" label="Cone (Y)" />
+                        <EnumChoice id="coneZ" label="Cone (Z)" />
+                        <EnumChoice id="cylinderX" label="Cylinder (X)" />
+                        <EnumChoice id="cylinderY" label="Cylinder (Y)" />
+                        <EnumChoice id="cylinderZ" label="Cylinder (Z)" />
+                        <EnumChoice id="box" label="Box" />
+                        <EnumChoice id="sphere" label="Sphere" />
+                        <EnumChoice id="exact" label="Exact" />
+                    </EnumProp>
+                    <StringProp id="if" name="Visible if..." default="" doc="Make this object conditionally visible"/>
+                    <StringProp id="ifnot" name="Visible if not..." default="" doc="Make this object conditionally visible"/>
+                </EnumChoice>
+                <EnumChoice id="move" label="Movable by player" doc="The player will be able to move this object around by pushing it" >
+                    <FloatProp id="mass" name="Mass (kg)" default="100.0" min="0.0" doc="How heavy the object is"/>
+                    <EnumProp id="shape" name="Shape" default="box"
+                              doc="Shape to use in the physics engine to represent this object">
+                        <EnumChoice id="coneX" label="Cone (X)" />
+                        <EnumChoice id="coneY" label="Cone (Y)" />
+                        <EnumChoice id="coneZ" label="Cone (Z)" />
+                        <EnumChoice id="cylinderX" label="Cylinder (X)" />
+                        <EnumChoice id="cylinderY" label="Cylinder (Y)" />
+                        <EnumChoice id="cylinderZ" label="Cylinder (Z)" />
+                        <EnumChoice id="box" label="Box" />
+                        <EnumChoice id="sphere" label="Sphere" />
+                    </EnumProp>
+                </EnumChoice>
+                <EnumChoice id="reset" label="Reset player" doc="The player will be resetted when touching this object" >
+                    <EnumProp id="shape" name="Shape" default="box"
+                              doc="Shape to use in the physics engine to represent this object">
+                        <EnumChoice id="coneX" label="Cone (X)" />
+                        <EnumChoice id="coneY" label="Cone (Y)" />
+                        <EnumChoice id="coneZ" label="Cone (Z)" />
+                        <EnumChoice id="cylinderX" label="Cylinder (X)" />
+                        <EnumChoice id="cylinderY" label="Cylinder (Y)" />
+                        <EnumChoice id="cylinderZ" label="Cylinder (Z)" />
+                        <EnumChoice id="box" label="Box" />
+                        <EnumChoice id="sphere" label="Sphere" />
+                        <EnumChoice id="exact" label="Exact" />
+                    </EnumProp>
+                </EnumChoice>
+                <EnumChoice id="explode" label="Knock player" doc="The player will jump like they were hit when touching this object" >
+                    <EnumProp id="shape" name="Shape" default="box"
+                              doc="Shape to use in the physics engine to represent this object">
+                        <EnumChoice id="coneX" label="Cone (X)" />
+                        <EnumChoice id="coneY" label="Cone (Y)" />
+                        <EnumChoice id="coneZ" label="Cone (Z)" />
+                        <EnumChoice id="cylinderX" label="Cylinder (X)" />
+                        <EnumChoice id="cylinderY" label="Cylinder (Y)" />
+                        <EnumChoice id="cylinderZ" label="Cylinder (Z)" />
+                        <EnumChoice id="box" label="Box" />
+                        <EnumChoice id="sphere" label="Sphere" />
+                        <EnumChoice id="exact" label="Exact" />
+                    </EnumProp>
+                </EnumChoice>
             </EnumProp>
         </EnumChoice>
         <EnumChoice id="lod_model" label="LOD Model" doc="A LOD (level-of-detail) model (this model will not be visible in game, only LOD instances will)">
@@ -138,21 +196,11 @@
                 <FloatProp id="nomodierlod_distance" name="Modifiers enabled distance" default="30.0" min="0.0" max="5000.0"
                        doc="Distance from the camera at which the model is seen with modifiers. Should be smaller than 'Visibility distance'."/>
             </BoolProp>
-        </EnumChoice>
-        
-        <!-- Nitro -->
-        <EnumChoice id="nitro_big" label="Nitro (big)" doc="A big nitro collectible (apply to an Empty)" />
-        <EnumChoice id="nitro_small" label="Nitro (small)" doc="A small nitro collectible (apply to an Empty)" />
-        
-        <!-- ======== Object ======== -->
-        <EnumChoice id="object" label="Object" doc="An (animatable) object that is exported to a separate model file">
-            <StringProp id="name" name="Name" default="SomeModel" doc="Name of this object (objects with the same name are exported as a single file)"/>
-            
             <!-- Interaction -->
             <EnumProp id="interaction" name="Interaction" default="static" doc="How this object should interact with other objects in the physics engine">
                 <EnumChoice id="ghost" label="Ghost" doc="This object will be non-physical (player can drive through it)" />
                 <EnumChoice id="static" label="Static (wont move)" doc="This object will stay in place, if the user drives on this object they will 'hit a wall'" >
-                    <EnumProp id="shape" name="Shape (if animated object)" default="box" unique_prefix="static"
+                    <EnumProp id="shape" name="Shape (if animated object)" default="box"
                               doc="Shape to use in the physics engine to represent this object">
                         <EnumChoice id="coneX" label="Cone (X)" />
                         <EnumChoice id="coneY" label="Cone (Y)" />
@@ -169,7 +217,7 @@
                 </EnumChoice>
                 <EnumChoice id="move" label="Movable by player" doc="The player will be able to move this object around by pushing it" >
                     <FloatProp id="mass" name="Mass (kg)" default="100.0" min="0.0" doc="How heavy the object is"/>
-                    <EnumProp id="shape" name="Shape" default="box" unique_prefix="move"
+                    <EnumProp id="shape" name="Shape" default="box"
                               doc="Shape to use in the physics engine to represent this object">
                         <EnumChoice id="coneX" label="Cone (X)" />
                         <EnumChoice id="coneY" label="Cone (Y)" />
@@ -182,7 +230,7 @@
                     </EnumProp>
                 </EnumChoice>
                 <EnumChoice id="reset" label="Reset player" doc="The player will be resetted when touching this object" >
-                    <EnumProp id="shape" name="Shape" default="box" unique_prefix="itrc_reset"
+                    <EnumProp id="shape" name="Shape" default="box"
                               doc="Shape to use in the physics engine to represent this object">
                         <EnumChoice id="coneX" label="Cone (X)" />
                         <EnumChoice id="coneY" label="Cone (Y)" />
@@ -196,7 +244,79 @@
                     </EnumProp>
                 </EnumChoice>
                 <EnumChoice id="explode" label="Knock player" doc="The player will jump like they were hit when touching this object" >
-                    <EnumProp id="shape" name="Shape" default="box" unique_prefix="itrc_explode"
+                    <EnumProp id="shape" name="Shape" default="box"
+                              doc="Shape to use in the physics engine to represent this object">
+                        <EnumChoice id="coneX" label="Cone (X)" />
+                        <EnumChoice id="coneY" label="Cone (Y)" />
+                        <EnumChoice id="coneZ" label="Cone (Z)" />
+                        <EnumChoice id="cylinderX" label="Cylinder (X)" />
+                        <EnumChoice id="cylinderY" label="Cylinder (Y)" />
+                        <EnumChoice id="cylinderZ" label="Cylinder (Z)" />
+                        <EnumChoice id="box" label="Box" />
+                        <EnumChoice id="sphere" label="Sphere" />
+                        <EnumChoice id="exact" label="Exact" />
+                    </EnumProp>
+                </EnumChoice>
+            </EnumProp>
+        </EnumChoice>
+        
+        <!-- Nitro -->
+        <EnumChoice id="nitro_big" label="Nitro (big)" doc="A big nitro collectible (apply to an Empty)" />
+        <EnumChoice id="nitro_small" label="Nitro (small)" doc="A small nitro collectible (apply to an Empty)" />
+        
+        <!-- ======== Object ======== -->
+        <EnumChoice id="object" label="Object" doc="An (animatable) object that is exported to a separate model file">
+            <StringProp id="name" name="Name" default="SomeModel" doc="Name of this object (objects with the same name are exported as a single file)"/>
+            
+            <!-- Interaction -->
+            <EnumProp id="interaction" name="Interaction" default="static" doc="How this object should interact with other objects in the physics engine">
+                <EnumChoice id="ghost" label="Ghost" doc="This object will be non-physical (player can drive through it)" />
+                <EnumChoice id="static" label="Static (wont move)" doc="This object will stay in place, if the user drives on this object they will 'hit a wall'" >
+                    <EnumProp id="shape" name="Shape (if animated object)" default="box"
+                              doc="Shape to use in the physics engine to represent this object">
+                        <EnumChoice id="coneX" label="Cone (X)" />
+                        <EnumChoice id="coneY" label="Cone (Y)" />
+                        <EnumChoice id="coneZ" label="Cone (Z)" />
+                        <EnumChoice id="cylinderX" label="Cylinder (X)" />
+                        <EnumChoice id="cylinderY" label="Cylinder (Y)" />
+                        <EnumChoice id="cylinderZ" label="Cylinder (Z)" />
+                        <EnumChoice id="box" label="Box" />
+                        <EnumChoice id="sphere" label="Sphere" />
+                        <EnumChoice id="exact" label="Exact" />
+                    </EnumProp>
+                    <StringProp id="if" name="Visible if..." default="" doc="Make this object conditionally visible"/>
+                    <StringProp id="ifnot" name="Visible if not..." default="" doc="Make this object conditionally visible"/>
+                </EnumChoice>
+                <EnumChoice id="move" label="Movable by player" doc="The player will be able to move this object around by pushing it" >
+                    <FloatProp id="mass" name="Mass (kg)" default="100.0" min="0.0" doc="How heavy the object is"/>
+                    <EnumProp id="shape" name="Shape" default="box"
+                              doc="Shape to use in the physics engine to represent this object">
+                        <EnumChoice id="coneX" label="Cone (X)" />
+                        <EnumChoice id="coneY" label="Cone (Y)" />
+                        <EnumChoice id="coneZ" label="Cone (Z)" />
+                        <EnumChoice id="cylinderX" label="Cylinder (X)" />
+                        <EnumChoice id="cylinderY" label="Cylinder (Y)" />
+                        <EnumChoice id="cylinderZ" label="Cylinder (Z)" />
+                        <EnumChoice id="box" label="Box" />
+                        <EnumChoice id="sphere" label="Sphere" />
+                    </EnumProp>
+                </EnumChoice>
+                <EnumChoice id="reset" label="Reset player" doc="The player will be resetted when touching this object" >
+                    <EnumProp id="shape" name="Shape" default="box"
+                              doc="Shape to use in the physics engine to represent this object">
+                        <EnumChoice id="coneX" label="Cone (X)" />
+                        <EnumChoice id="coneY" label="Cone (Y)" />
+                        <EnumChoice id="coneZ" label="Cone (Z)" />
+                        <EnumChoice id="cylinderX" label="Cylinder (X)" />
+                        <EnumChoice id="cylinderY" label="Cylinder (Y)" />
+                        <EnumChoice id="cylinderZ" label="Cylinder (Z)" />
+                        <EnumChoice id="box" label="Box" />
+                        <EnumChoice id="sphere" label="Sphere" />
+                        <EnumChoice id="exact" label="Exact" />
+                    </EnumProp>
+                </EnumChoice>
+                <EnumChoice id="explode" label="Knock player" doc="The player will jump like they were hit when touching this object" >
+                    <EnumProp id="shape" name="Shape" default="box"
                               doc="Shape to use in the physics engine to represent this object">
                         <EnumChoice id="coneX" label="Cone (X)" />
                         <EnumChoice id="coneY" label="Cone (Y)" />

@@ -2,7 +2,7 @@
 <Properties>
 
     <!-- ******** STK Object Type ******** -->
-    <EnumProp id="type" name="Type" default="none" doc="SuperTuxKart Object Type" unique_prefix="kart_">
+    <EnumProp id="type" name="Type" default="none" doc="SuperTuxKart Object Type">
     
         <!-- None -->
         <EnumChoice id="" label="None" doc="Nothing special about this object" />

@@ -111,13 +111,28 @@ def createProperties(object, props):
         object["_RNA_UI"][p] = rna_ui_dict
 
 
+def simpleHash(x):
+    import hashlib
+    import base64
+    
+    m = hashlib.md5()
+    m.update(x.encode('ascii'))
+    return base64.b64encode(m.digest()).decode('ascii').replace('=', '').replace('/', '_').replace('+', '_').lower()[0:15]
+
+def generateOpName(prefix, fullid, id):
+    if len(prefix + fullid + '_' + id) > 60:
+        return prefix + simpleHash(fullid) + '_' + id
+    else:
+        return prefix + fullid + '_' + id
+
 # ------------------------------------------------------------------------------
 #! The base class for all properties.
 #! If you use this property directly (and not a subclass), you get a simple text box
 class StkProperty:
-    def __init__(self, id, name, default, doc="(No documentation was defined for this item)"):
+    def __init__(self, id, name, default, fullid, doc="(No documentation was defined for this item)"):
         self.name = name
         self.id = id
+        self.fullid = fullid
         self.default = default
         self.doc = doc
 
@@ -135,10 +150,6 @@ class StkProperty:
 #! doc              documentation to show in the tooltip
 #! static_objects   items to append to the menu unconditionally (a list of tuples of
 #!                  form 'id', 'visible name')
-#! unique_id_suffix if the blender id-property name is not unique, you can append a
-#!                  custom suffix here to make sure the 2 same-name properties each have
-#!                  their own dropdown (e.g. 'activate' for a checkline object and
-#!                  'activate' for a lapline)
 #! obj_identifier   a lambda taking arguments "self" and "object", and that returns
 #!                  the id (value) of an object that should be put in this property when
 #!                  the object is selected
@@ -146,19 +157,18 @@ class StkProperty:
 #!                  the user-visible string to apear in the dropdown for an object
 class StkObjectReferenceProperty(StkProperty):
     
-    def __init__(self, id, name, contextLevel, default, filter, doc="Select an object",
-                 static_objects=[], unique_id_suffix = "",
+    def __init__(self, id, fullid, name, contextLevel, default, filter, doc="Select an object",
+                 static_objects=[],
                  obj_identifier=lambda self, obj: obj.name,
                  obj_text=lambda self, obj: (obj.name + ((" (" + obj["name"] + ")") if "name" in obj else ""))):
-        super(StkObjectReferenceProperty, self).__init__(id, name, default)
+        super(StkObjectReferenceProperty, self).__init__(id=id, name=name, default=default, fullid=fullid)
         self.doc = doc
-        self.unique_id_suffix = unique_id_suffix
         
         if filter is None:
             raise Exception("Filter may not be None")
         
         class SelectObjectOperator(bpy.types.Operator):
-            bl_idname = "scene.stk_select_object_" + id + unique_id_suffix
+            bl_idname = generateOpName("scene.stk_select_object_", fullid, id)
             bl_label = "Select Object Operator"
             __doc__ = doc
 
@@ -180,9 +190,9 @@ class StkObjectReferenceProperty(StkProperty):
             m_obj_identifier = obj_identifier
             m_obj_text = obj_text
             m_static_objects = static_objects
-            bl_idname = "screen.stk_object_menu_" + id + unique_id_suffix
-            bl_label  = ("SuperTuxKart Object Picker Menu (" + id + unique_id_suffix + ")")
-            m_property_id = id + unique_id_suffix
+            bl_idname = generateOpName("screen.stk_object_menu_", fullid, id)
+            bl_label  = ("SuperTuxKart Object Picker Menu (" + id + ")")
+            m_property_id = id
             
             def draw(self, context):
                 objects = context.scene.objects
@@ -205,7 +215,6 @@ class StkObjectReferenceProperty(StkProperty):
         
         bpy.utils.register_class(ObjectPickerMenu)
 
-
 # ------------------------------------------------------------------------------
 #! One entry in a StkEnumProperty
 class StkEnumChoice:
@@ -213,8 +222,9 @@ class StkEnumChoice:
     #! @param name          User-visible name for this property
     #! @param subproperties A list of StkProperty's. Contains the properties
     #                       that are to be shown when this enum item is selected
-    def __init__(self, name, subproperties, doc="(No documentation was defined for this item)"):
+    def __init__(self, name, subproperties, fullid, doc="(No documentation was defined for this item)"):
         self.name = name
+        self.fullid = fullid
         
         self.subproperties = OrderedDict([])
         for curr in subproperties:
@@ -231,10 +241,6 @@ class StkEnumChoice:
 #! values           the choices offered by this enum, as a list of 'StkEnumChoice' objects
 #! contextLevel     object, scene, material level?
 #! default          default value for this property
-#! unique_prefix    if the blender id-property name is not unique, you can prepend a
-#!                  custom prefix here to make sure the 2 same-name properties each have
-#!                  their own dropdown (e.g. 'activate' for a checkline object and
-#!                  'activate' for a lapline)
 class StkEnumProperty(StkProperty):
     
     def getOperatorName(self):
@@ -243,10 +249,11 @@ class StkEnumProperty(StkProperty):
     #! @param name   User-visible name for this property
     #! @param values A dictionnary of type { 'value' : StkEnumChoice(...) }
     #! @note         The first value will be used by default
-    def __init__(self, id, name, values, contextLevel, default, unique_prefix="", doc="(No documentation for this item)"):
-        super(StkEnumProperty, self).__init__(id, name, default)
+    def __init__(self, id, name, values, contextLevel, default, fullid, doc="(No documentation for this item)"):
+        super(StkEnumProperty, self).__init__(id=id, name=name, default=default, fullid=fullid)
         self.values = values
-        self.operator_name = "screen.stk_set_"   + unique_prefix + id
+        self.fullid = fullid
+        self.operator_name = generateOpName("screen.stk_set_", fullid, id)
         self.doc = doc
         default_value = default
         
@@ -257,15 +264,15 @@ class StkEnumProperty(StkProperty):
                 values_for_blender_unsorted.append( (curr_val, curr_obj.name, curr_obj.name) )
         
         values_for_blender = sorted(values_for_blender_unsorted, key=lambda k: k[1])
-                
+        
         # Create operator for this combo
         class STK_SetComboValue(bpy.types.Operator):
         
             value = bpy.props.EnumProperty(attr="values", name="values", default=default_value + "",
                                            items=values_for_blender)
             
-            bl_idname = ("screen.stk_set_"   + unique_prefix + id)
-            bl_label  = ("SuperTuxKart set " + unique_prefix + id)
+            bl_idname = generateOpName("screen.stk_set_", fullid, id)
+            bl_label  = ("SuperTuxKart set " + id)
             __doc__ = doc
             
             m_property_id = id
@@ -305,8 +312,8 @@ class StkCombinableEnumProperty(StkProperty):
     #! @param name   User-visible name for this property
     #! @param values A dictionnary of type { 'value' : StkEnumChoice(...) }
     #! @note         The first value will be used by default
-    def __init__(self, id, name, values, contextLevel, default):
-        super(StkCombinableEnumProperty, self).__init__(id, name, default)
+    def __init__(self, id, name, values, contextLevel, default, fullid):
+        super(StkCombinableEnumProperty, self).__init__(id=id, name=name, default=default, fullid=fullid)
         self.values = values
         
         default_value = default
@@ -320,8 +327,8 @@ class StkCombinableEnumProperty(StkProperty):
             # Create operator for this combo
             class STK_SetEnumComboValue(bpy.types.Operator):
             
-                bl_idname = ("screen.stk_set_"+id+"_"+curr)
-                bl_label  = ("SuperTuxKart set "+id+" = " + curr)
+                bl_idname = generateOpName("screen.stk_set_", fullid, id + "_" + curr)
+                bl_label  = ("SuperTuxKart set " + id + " = " + curr)
                 
                 if values[curr].doc is not None:
                     __doc__ = values[curr].doc + ""
@@ -368,8 +375,8 @@ class StkCombinableEnumProperty(StkProperty):
 class StkFloatProperty(StkProperty):
     
     #! @param name   User-visible name for this property
-    def __init__(self, id, name, default=0.0, doc="(No documentation defined for this element)", min = None, max = None):
-        super(StkFloatProperty, self).__init__(id, name, default)
+    def __init__(self, id, name, default=0.0, doc="(No documentation defined for this element)", fullid="", min = None, max = None):
+        super(StkFloatProperty, self).__init__(id=id, name=name, default=default, fullid=fullid)
         self.default
         self.doc = doc
         self.min = min
@@ -388,13 +395,12 @@ class StkFloatProperty(StkProperty):
 class StkIntProperty(StkProperty):
     
     #! @param name   User-visible name for this property
-    def __init__(self, id, name, default=0, doc="(No documentation defined for this element)", min=None, max=None):
-        super(StkIntProperty, self).__init__(id, name, default)
+    def __init__(self, id, name, default=0, doc="(No documentation defined for this element)", fullid="", min=None, max=None):
+        super(StkIntProperty, self).__init__(id=id, name=name, default=default, fullid=fullid)
         self.doc = doc
         self.min = min
         self.max = max
-
-
+        
 # ------------------------------------------------------------------------------
 #! A boolean property (appears as a checkbox)
 #!
@@ -413,8 +419,8 @@ class StkBoolProperty(StkProperty):
     box = True
     
     #! A floating-point property
-    def __init__(self, id, name, contextLevel, default="false", subproperties=[], box = True, doc="(No documentation defined for this element)"):
-        super(StkBoolProperty, self).__init__(id, name, default)
+    def __init__(self, id, name, contextLevel, default="false", subproperties=[], box = True, fullid="", doc="(No documentation defined for this element)"):
+        super(StkBoolProperty, self).__init__(id=id, name=name, default=default, fullid=fullid)
         
         self.box = box
         self.contextLevel = contextLevel
@@ -429,8 +435,8 @@ class StkBoolProperty(StkProperty):
         # Create operator for this bool
         class STK_ToggleBoolValue(bpy.types.Operator):
         
-            bl_idname = ("screen.stk_toggle_bool_"+str(contextLevel)+"_"+id)
-            bl_label  = ("SuperTuxKart toggle "+id)
+            bl_idname = generateOpName("screen.stk_tglbool_", fullid, id)
+            bl_label  = ("SuperTuxKart toggle " + id)
             __doc__ = doc
             
             m_context_level = contextLevel
@@ -477,14 +483,14 @@ class StkBoolProperty(StkProperty):
 class StkColorProperty(StkProperty):
     
     #! A floating-point property
-    def __init__(self, id, name, contextLevel, default="255 255 255", doc="(No documentation defined for this item)"):
-        super(StkColorProperty, self).__init__(id, name, default)
+    def __init__(self, id, name, contextLevel, default="255 255 255", fullid="", doc="(No documentation defined for this item)"):
+        super(StkColorProperty, self).__init__(id=id, name=name, default=default, fullid=fullid)
 
         #! Color picker operator (TODO: this operator is mostly for backwards compatibility with our
         #                               blend files that come from 2.4; blender 2.5 has a color property
         #                               type we could use)
         class Apply_Color_Operator(bpy.types.Operator):
-            bl_idname = ("screen.apply_color_"+id)
+            bl_idname = generateOpName("screen.apply_color_", fullid, id)
             bl_label = ("Apply Color")
             __doc__ = doc
            
@@ -560,7 +566,7 @@ class StkColorProperty(StkProperty):
 
 import xml.dom.minidom
 
-def readEnumValues(valueNodes, contextLevel):
+def readEnumValues(valueNodes, contextLevel, idprefix):
     out = {}
     
     for node in valueNodes:
@@ -568,8 +574,9 @@ def readEnumValues(valueNodes, contextLevel):
             continue
         elif node.localName == "EnumChoice":
             args = dict()
+            args["fullid"] = idprefix + '_' + node.getAttribute("id")
             args["name"] = node.getAttribute("label")
-            args["subproperties"] = parseProperties(node, contextLevel)
+            args["subproperties"] = parseProperties(node, contextLevel, idprefix + '_' + node.getAttribute("id"))
             
             if node.hasAttribute("doc"):
                 args["doc"] = node.getAttribute("doc")
@@ -580,7 +587,7 @@ def readEnumValues(valueNodes, contextLevel):
             
     return out
 
-def parseProperties(node, contextLevel):
+def parseProperties(node, contextLevel, idprefix):
 
     props = []
 
@@ -594,25 +601,28 @@ def parseProperties(node, contextLevel):
                 defaultval = getpass.getuser()
                 
             if e.hasAttribute("doc"):
-                props.append(StkProperty(id=e.getAttribute("id"), name=e.getAttribute("name"), default=defaultval,
+                props.append(StkProperty(id=e.getAttribute("id"), fullid=idprefix+'_'+e.getAttribute("id"),
+                                         name=e.getAttribute("name"), default=defaultval,
                                          doc=e.getAttribute("doc")))
             else:
-                props.append(StkProperty(id=e.getAttribute("id"), name=e.getAttribute("name"), default=defaultval))
+                props.append(StkProperty(id=e.getAttribute("id"), fullid=idprefix+'_'+e.getAttribute("id"),
+                                         name=e.getAttribute("name"), default=defaultval))
         
         elif e.localName == "EnumProp":
             
             args = dict()
             args["id"] = e.getAttribute("id")
+            args["fullid"] = idprefix + '_' + e.getAttribute("id")
             args["name"] = e.getAttribute("name")
             args["default"] = e.getAttribute("default")
             
-            if e.hasAttribute("unique_prefix"):
-                args["unique_prefix"] = e.getAttribute("unique_prefix")
+            #if e.hasAttribute("unique_prefix"):
+            #    args["unique_prefix"] = e.getAttribute("unique_prefix")
             
             if e.hasAttribute("doc"):
                 args["doc"] = e.getAttribute("doc")
             
-            args["values"] = readEnumValues(e.childNodes, contextLevel)
+            args["values"] = readEnumValues(e.childNodes, contextLevel, args["fullid"])
             args["contextLevel"] = contextLevel
             
             props.append(StkEnumProperty(**args))
@@ -621,27 +631,31 @@ def parseProperties(node, contextLevel):
         
             args = dict()
             args["id"] = e.getAttribute("id")
+            args["fullid"] = idprefix + '_' + e.getAttribute("id")
             args["name"] = e.getAttribute("name")
             args["default"] = e.getAttribute("default")
             
-            if e.hasAttribute("unique_prefix"):
-                args["unique_prefix"] = e.getAttribute("unique_prefix")
+            #if e.hasAttribute("unique_prefix"):
+            #    args["unique_prefix"] = e.getAttribute("unique_prefix")
             
-            args["values"] = readEnumValues(e.childNodes, contextLevel)
+            args["values"] = readEnumValues(e.childNodes, contextLevel, args["fullid"])
             args["contextLevel"] = contextLevel
             
             props.append(StkCombinableEnumProperty(**args))
         
         elif e.localName == "IntProp":
             if e.hasAttribute("doc"):
-                props.append(StkIntProperty(id=e.getAttribute("id"), name=e.getAttribute("name"), default=int(e.getAttribute("default")),
+                props.append(StkIntProperty(id=e.getAttribute("id"), fullid = idprefix + '_' + e.getAttribute("id"),
+                                            name=e.getAttribute("name"), default=int(e.getAttribute("default")),
                                             doc=e.getAttribute("doc")))
             else:
-                props.append(StkIntProperty(id=e.getAttribute("id"), name=e.getAttribute("name"), default=int(e.getAttribute("default"))))
+                props.append(StkIntProperty(id=e.getAttribute("id"), fullid = idprefix + '_' + e.getAttribute("id"),
+                                            name=e.getAttribute("name"), default=int(e.getAttribute("default"))))
         
         elif e.localName == "FloatProp":
             args = dict()
             args["id"] = e.getAttribute("id")
+            args["fullid"] = idprefix + '_' + e.getAttribute("id")
             args["name"] = e.getAttribute("name")
             args["default"] = float(e.getAttribute("default"))
             
@@ -656,19 +670,22 @@ def parseProperties(node, contextLevel):
         
         elif e.localName == "ColorProp":
             if e.hasAttribute("doc"):
-                props.append(StkColorProperty(id=e.getAttribute("id"), name=e.getAttribute("name"), default=e.getAttribute("default"),
+                props.append(StkColorProperty(id=e.getAttribute("id"), fullid=idprefix + '_' + e.getAttribute("id"),
+                                              name=e.getAttribute("name"), default=e.getAttribute("default"),
                                               doc=e.getAttribute("doc"), contextLevel=contextLevel))
             else:
-                props.append(StkColorProperty(id=e.getAttribute("id"), name=e.getAttribute("name"), default=e.getAttribute("default"),
+                props.append(StkColorProperty(id=e.getAttribute("id"), fullid=idprefix + '_' + e.getAttribute("id"),
+                                              name=e.getAttribute("name"), default=e.getAttribute("default"),
                                               contextLevel=contextLevel))
                 
         elif e.localName == "BoolProp":
         
             args = dict()
             args["id"] = e.getAttribute("id")
+            args["fullid"] = idprefix + '_' + e.getAttribute("id")
             args["name"] = e.getAttribute("name")
             args["default"] = e.getAttribute("default")
-            args["subproperties"] = parseProperties(e, contextLevel)
+            args["subproperties"] = parseProperties(e, contextLevel, args["fullid"])
             args["contextLevel"] = contextLevel
             
             if e.hasAttribute("doc"):
@@ -682,6 +699,7 @@ def parseProperties(node, contextLevel):
         elif e.localName == "ObjRefProp":
             args = dict()
             args["id"] = e.getAttribute("id")
+            args["fullid"] = idprefix + '_' + e.getAttribute("id")
             args["name"] = e.getAttribute("name")
             args["default"] = e.getAttribute("default")
             args["contextLevel"] = contextLevel
@@ -698,8 +716,8 @@ def parseProperties(node, contextLevel):
             if e.hasAttribute("doc"):
                 args["doc"] = e.getAttribute("doc")
             
-            if e.hasAttribute("unique_id_suffix"):
-                args["unique_id_suffix"] = e.getAttribute("unique_id_suffix")
+            #if e.hasAttribute("unique_id_suffix"):
+            #    args["unique_id_suffix"] = e.getAttribute("unique_id_suffix")
             
             if e.hasAttribute("obj_identifier"):
                 exec("obj_identifier_fn = " + e.getAttribute("obj_identifier"), global_env, local_env)
@@ -714,10 +732,12 @@ def parseProperties(node, contextLevel):
     return props
         
 def getPropertiesFromXML(filename, contextLevel):
+    import os
+    idprefix = os.path.splitext(os.path.basename(filename))[0]
     node = xml.dom.minidom.parse(filename)
     for curr in node.childNodes:
         if curr.localName == "Properties":
-            return parseProperties(curr, contextLevel)
+            return parseProperties(curr, contextLevel, idprefix)
     raise Exception("No <Properties> node in " + filename)
 
 import os.path
@@ -759,7 +779,7 @@ class PanelBase:
                      state = obj[id]
                      if state == "true":
                          icon = 'CHECKBOX_HLT'
-                 split.operator("screen.stk_toggle_bool_"+str(contextLevel)+"_"+id, text="                ", icon=icon, emboss=False)
+                 split.operator(generateOpName("screen.stk_tglbool_", curr.fullid, curr.id), text="                ", icon=icon, emboss=False)
                  
                  if state == "true":
                      if len(curr.subproperties) > 0:
@@ -773,7 +793,7 @@ class PanelBase:
                 row.label(text=curr.name)
                 if curr.id in obj:
                     row.prop(obj, '["' + curr.id + '"]', text="")
-                    row.operator("screen.apply_color_"+curr.id, text="", icon='COLOR')
+                    row.operator(generateOpName("screen.apply_color_", curr.fullid, curr.id), text="", icon='COLOR')
             
             elif isinstance(curr, StkCombinableEnumProperty):
                 
@@ -786,7 +806,7 @@ class PanelBase:
                         icon = 'CHECKBOX_DEHLT'
                         if value_id in curr_val:
                             icon = 'CHECKBOX_HLT'
-                        row.operator("screen.stk_set_"+id+"_"+value_id, text=curr.values[value_id].name, icon=icon)
+                        row.operator(generateOpName("screen.stk_set_", curr.fullid, curr.id + "_" + value_id), text=curr.values[value_id].name, icon=icon)
                 
             elif isinstance(curr, StkEnumProperty):
                 
@@ -813,7 +833,7 @@ class PanelBase:
               
                 if curr.id in obj:
                     row.prop(obj, '["' + curr.id + '"]', text="")
-                    row.menu("screen.stk_object_menu_" + curr.id + curr.unique_id_suffix, text="", icon='TRIA_DOWN')
+                    row.menu(generateOpName("screen.stk_object_menu_", curr.fullid, curr.id), text="", icon='TRIA_DOWN')
               
             else:
                 row.label(text=curr.name)
@@ -1001,6 +1021,18 @@ class SuperTuxKartImagePanel(bpy.types.Panel, PanelBase):
                 
             self.recursivelyAddProperties(properties, layout, obj, CONTEXT_MATERIAL)
 
+
+
+#class STK_AddLightmap(bpy.types.Operator):
+#    def execute(self, context):
+#        if len(context.object.data.uv_textures) == 0:
+#            bpy.ops.mesh.uv_texture_add()
+#            context.object.data.uv_textures[-1].name = 'UV'
+#        if len(context.object.data.uv_textures) < 2:
+#            bpy.ops.mesh.uv_texture_add()
+#            context.object.data.uv_textures[-1].name = 'Lightmap'
+#    
+#bpy.utils.register_class(STK_AddLightmap)
 
 
 # Extension to the 'add' menu
