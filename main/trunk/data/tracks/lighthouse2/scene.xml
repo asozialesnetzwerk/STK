@@ -2,7 +2,12 @@
 <!-- Generated with script from SVN rev 12720 -->
 <scene>
   <track model="lighthouse-terrain_track.b3d" x="0" y="0" z="0">
+    <static-object model="vineUnderCave.b3d" xyz="-86.86 -17.34 -87.70" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object model="lightWindows.b3d" xyz="-158.20 55.48 -63.22" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object model="miniLampPost.b3d" xyz="-127.19 3.73 -63.09" hpr="-90.0 0.0 5.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object model="miniLampPost.b3d" xyz="62.75 -6.67 -171.27" hpr="-88.2 -160.1 -5.3" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object model="miniLampPost.b3d" xyz="74.93 -6.67 -208.19" hpr="25.4 -95.5 -115.3" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object model="miniLampPost.b3d" xyz="-44.05 -14.11 -163.50" hpr="0.0 -95.0 -90.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
   </track>
   <object type="animation" model="lightBeam.b3d" xyz="-148.25 18.15 -63.18" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
     <curve channel="RotX" interpolation="linear" extend="cyclic">
