@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 12720 -->
+<track  name           = "My New Track"
+        version        = "5"
+        groups         = "test"
+        designer       = "jmclemencon"
+        music          = "kart_grand_prix.music"
+        screenshot     = "screenshot.jpg"
+        smooth-normals = "false"
+        reverse        = "N"
+>
+</track>
