@@ -63,6 +63,7 @@
     <EnumProp id="graphical_effect" name="Graphical Effect" default="none" doc="elect a special graphical effect">
         <EnumChoice id="none" label="None"/>
         <EnumChoice id="bubble" label="Bubble (wavy texture)"/>
+        <EnumChoice id="grass" label="Grass"/>
         <EnumChoice id="water" label="Water Splash"/>
     </EnumProp>
     
