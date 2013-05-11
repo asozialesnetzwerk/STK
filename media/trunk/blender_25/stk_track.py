@@ -725,7 +725,7 @@ class DrivelineExporter:
         is_soccer = getIdProperty(bpy.data.scenes[0], "soccer", "false") == "true"
         is_cutscene = getIdProperty(bpy.data.scenes[0], "cutscene",  "false") == "true"
         if not self.found_main_driveline and not is_arena and not is_soccer and not is_cutscene:
-            if len(lDrivelines) > 0:
+            if len(self.lDrivelines) > 0:
                 log_warning("Main driveline missing, using first driveline as main!")
             else:
                 log_error("No driveline found")
