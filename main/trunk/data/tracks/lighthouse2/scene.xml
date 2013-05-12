@@ -3,85 +3,24 @@
 <scene>
   <track model="lighthouse-terrain_track.b3d" x="0" y="0" z="0">
     <static-object model="vineUnderCave.b3d" xyz="-86.86 -17.34 -87.70" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object model="bigTerrainChunk.b3d" xyz="220.85 16.34 -41.59" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="70.0" lod_group="pine_tree_lod" model="pine_tree_lod_hight.b3d" xyz="270.46 -14.16 -16.96" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38"/> <!-- writeStaticObjects 3 -->
     <static-object model="lightWindows.b3d" xyz="-158.20 55.48 -63.22" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="102.39 -11.20 -15.52" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-96.85 -8.65 -29.26" hpr="0.0 -0.0 0.0" scale="2.71 2.71 2.71"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="150.0" lod_group="pine_tree_lod" model="pine_tree_lod_low.b3d" xyz="293.33 -14.16 -16.96" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38"/> <!-- writeStaticObjects 3 -->
     <static-object model="miniLampPost.b3d" xyz="-127.19 3.73 -63.09" hpr="-90.0 0.0 5.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object model="miniLampPost.b3d" xyz="62.75 -6.67 -171.27" hpr="-88.2 -160.1 -5.3" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object model="miniLampPost.b3d" xyz="74.93 -6.67 -208.19" hpr="25.4 -95.5 -115.3" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object model="miniLampPost.b3d" xyz="-44.05 -14.11 -163.50" hpr="0.0 -95.0 -90.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="43.66 -14.17 -75.23" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="35.98 -14.17 -75.23" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="33.20 -14.17 -65.80" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="24.42 -14.17 -71.10" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="16.15 -14.17 -64.13" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="8.91 -14.17 -67.61" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="1.29 -14.17 -63.22" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="0.26 -14.17 -72.13" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="6.72 -14.17 -81.56" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="14.99 -14.17 -89.96" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="24.42 -14.17 -92.54" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="16.67 -14.17 -77.95" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="24.29 -14.17 -81.56" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="31.26 -14.17 -90.61" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="31.65 -14.17 -81.82" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="38.88 -14.17 -92.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="47.15 -14.17 -94.61" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="43.53 -14.17 -85.18" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="51.16 -14.17 -83.37" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="50.90 -14.17 -73.30" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="43.66 -14.17 -65.68" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="51.54 -14.17 -63.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="58.91 -14.17 -60.25" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="58.91 -14.17 -70.71" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="58.78 -14.17 -89.57" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="58.78 -14.17 -79.11" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="65.75 -14.17 -91.77" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="65.75 -14.17 -102.23" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="72.99 -14.17 -113.73" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="72.99 -14.17 -103.27" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="72.86 -14.17 -82.99" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="72.86 -14.17 -93.45" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="65.88 -14.17 -80.79" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="65.88 -14.17 -70.33" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="72.86 -14.17 -64.64" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="72.86 -14.17 -75.11" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="66.14 -14.17 -62.32" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="79.45 -14.17 -69.03" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="86.81 -14.17 -67.61" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="86.81 -14.17 -57.15" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="86.81 -14.17 -85.96" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="86.81 -14.17 -75.49" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="86.94 -14.17 -95.77" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="86.94 -14.17 -106.24" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="93.53 -14.17 -99.13" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="93.53 -14.17 -88.67" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="93.40 -14.17 -68.39" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="93.40 -14.17 -78.85" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="93.40 -14.17 -50.04" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="93.40 -14.17 -60.51" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="101.41 -14.17 -49.40" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="101.41 -14.17 -38.94" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="101.41 -14.17 -67.74" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="101.41 -14.17 -57.28" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="101.54 -14.17 -77.56" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="101.54 -14.17 -88.02" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="108.64 -14.17 -82.08" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="108.64 -14.17 -71.62" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="108.51 -14.17 -51.34" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="108.51 -14.17 -61.80" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="108.51 -14.17 -32.99" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="108.51 -14.17 -43.46" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="113.81 -14.17 -38.03" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="113.81 -14.17 -27.57" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="113.81 -14.17 -56.37" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="113.81 -14.17 -45.91" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="113.94 -14.17 -66.19" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="113.94 -14.17 -76.66" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="120.52 -14.17 -72.26" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="120.52 -14.17 -61.80" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="120.40 -14.17 -41.52" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="120.40 -14.17 -51.98" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="120.40 -14.17 -23.18" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="grass_chunk.b3d" xyz="120.40 -14.17 -33.64" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="60.0" lod_group="grass_chunk" model="grass_chunk_hight.b3d" xyz="266.88 -15.84 -24.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="100.0" lod_group="grass_chunk" model="grass_chunk_low.b3d" xyz="266.88 -15.84 -30.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="grass_chunk" xyz="99.38 -16.17 -18.46" hpr="-0.0 -0.0 6.5" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="grass_chunk" xyz="106.39 -15.64 -18.46" hpr="-0.0 -0.0 0.5" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="grass_chunk" xyz="102.42 -16.06 -12.81" hpr="-0.0 -0.0 6.5" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="grass_chunk" xyz="-93.30 -14.44 -25.77" hpr="19.0 -0.6 1.9" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="grass_chunk" xyz="-93.63 -14.41 -33.94" hpr="-9.9 0.3 1.9" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="grass_chunk" xyz="-101.33 -14.32 -29.38" hpr="-2.8 -2.3 12.3" scale="0.71 0.71 0.71"/> <!-- writeStaticObjects 3 -->
   </track>
   <object type="animation" model="lightBeam.b3d" xyz="-148.25 18.15 -63.18" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
     <curve channel="RotX" interpolation="linear" extend="cyclic">
@@ -209,8 +148,6 @@
   <checks>
     <check-lap kind="lap" same-group="0"  />
   </checks>
-  <water model="oceanBed.b3d" xyz="0.00 4.96 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="1.00" speed="200.00" length="10.00"/>
-  <water model="waterTop.b3d" xyz="0.00 4.96 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="1.00" speed="200.00" length="10.00"/>
   <item x="83.67" y="-16.09" z="0.94" />
   <item x="81.79" y="-16.09" z="-0.97" />
   <item x="79.71" y="-16.09" z="-2.75" />

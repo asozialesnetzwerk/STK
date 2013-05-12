@@ -3,14 +3,15 @@
 <materials>
   <material name="bulb.png" fog="N" light="N" backface-culling="N" compositing="additive" disable-z-write="Y"/>
   <material name="fence_chain.png" compositing="test"/>
-  <material name="grass-anim.png" backface-culling="N" compositing="blend" disable-z-write="Y" graphical-effect="grass"/>
+  <material name="grass-anim.png" backface-culling="N" compositing="blend" disable-z-write="Y" graphical-effect="grass" ignore="Y"/>
   <material name="light-1.png" fog="N" light="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
   <material name="light.png" fog="N" light="N" compositing="additive" disable-z-write="Y" ignore="Y"/>
   <material name="lightHaloY.png" fog="N" light="N" backface-culling="N" compositing="additive" disable-z-write="Y"/>
   <material name="lighthousWindows_diff.png" backface-culling="N" compositing="blend" disable-z-write="Y"/>
   <material name="metaldirt_diff.png" backface-culling="N"/>
-  <material name="plants.png" backface-culling="N" compositing="coverage"/>
+  <material name="plants.png" backface-culling="N" compositing="additive" disable-z-write="Y" graphical-effect="grass"/>
   <material name="racetrack_blend.png" backface-culling="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
-  <material name="sea.png" compositing="blend" disable-z-write="Y" falling-effect="Y" graphical-effect="water" water-shader="Y"/>
   <material name="trail_diff.png" compositing="blend" disable-z-write="Y"/>
+  <material name="tree_1.png" backface-culling="N" compositing="blend" disable-z-write="Y" graphical-effect="grass"/>
+  <material name="tree_noanim.png" backface-culling="N" compositing="coverage"/>
 </materials>
