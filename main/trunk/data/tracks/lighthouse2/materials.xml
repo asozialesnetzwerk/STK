@@ -3,6 +3,7 @@
 <materials>
   <material name="bulb.png" fog="N" light="N" backface-culling="N" compositing="additive" disable-z-write="Y"/>
   <material name="fence_chain.png" compositing="test"/>
+  <material name="grass-anim.png" backface-culling="N" compositing="coverage" graphical-effect="grass"/>
   <material name="light-1.png" fog="N" light="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
   <material name="light.png" fog="N" light="N" compositing="additive" disable-z-write="Y" ignore="Y"/>
   <material name="lightHaloY.png" fog="N" light="N" backface-culling="N" compositing="additive" disable-z-write="Y"/>
