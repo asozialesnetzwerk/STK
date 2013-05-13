@@ -54,7 +54,10 @@ def createProperties(object, props):
         
     for p in props.keys():
         
-        if not p in object:
+        if isinstance(props[p], StkPropertyGroup):
+            createProperties(object, props[p].subproperties)
+            
+        elif not p in object:
             
             # create property by setting default value
             v = props[p].default
@@ -400,6 +403,24 @@ class StkIntProperty(StkProperty):
         self.doc = doc
         self.min = min
         self.max = max
+    
+# ------------------------------------------------------------------------------
+
+class StkPropertyGroup(StkProperty):
+    
+    # (self, id, name, values, default):
+    box = True
+    
+    #! A floating-point property
+    def __init__(self, id, name, contextLevel, subproperties=[], fullid=""):
+        super(StkPropertyGroup, self).__init__(id=id, name=name, default=None, fullid=fullid)
+        
+        self.contextLevel = contextLevel
+        
+        self.subproperties = OrderedDict([])
+        for curr in subproperties:
+            self.subproperties[curr.id] = curr
+        
         
 # ------------------------------------------------------------------------------
 #! A boolean property (appears as a checkbox)
@@ -678,6 +699,16 @@ def parseProperties(node, contextLevel, idprefix):
                                               name=e.getAttribute("name"), default=e.getAttribute("default"),
                                               contextLevel=contextLevel))
                 
+        elif e.localName == "PropGroup":
+            
+            args = dict()
+            args["id"] = e.getAttribute("id")
+            args["fullid"] = idprefix + '_' + e.getAttribute("id")
+            args["name"] = e.getAttribute("name")
+            args["subproperties"] = parseProperties(e, contextLevel, args["fullid"])
+            args["contextLevel"] = contextLevel
+            props.append(StkPropertyGroup(**args))
+            
         elif e.localName == "BoolProp":
         
             args = dict()
@@ -767,7 +798,13 @@ class PanelBase:
             
             row = layout.row()
             
-            if isinstance(curr, StkBoolProperty):
+            if isinstance(curr, StkPropertyGroup):
+                split = row.split(0.8)
+                split.label(text=curr.name)
+                if len(curr.subproperties) > 0:
+                    box = layout.box()
+                    self.recursivelyAddProperties(curr.subproperties, box, obj, contextLevel)
+            elif isinstance(curr, StkBoolProperty):
                 
                  split = row.split(0.8)
                 
