@@ -40,7 +40,7 @@
             </EnumChoice>
         </EnumProp>
         
-<!--         <!-- Disable writing to Z buffer --> -->
+        <!-- Disable writing to Z buffer --> -->
         <BoolProp id="disable_z_write" name="Disable writing to Z-buffer" default="false"
                 doc="disable writing to the Z buffer (useful for materials with transparency, if irrlicht fails to do proper alpha sorting, in order not to hide what is behind)"/>
                 
@@ -87,10 +87,6 @@
             <StringProp id="splatting_lightmap" name="Lightmap (optional)" default=""/>
         </BoolProp>
         
-        <!-- Surface -->
-        <BoolProp id="surface" name="Surface" default="false"
-                doc="whether this material is the surface of a water area"/>
-        
         <!-- Water (DEPRECATED) -->
         <BoolProp id="water_shader" name="Water Shader (DEPRECATED, USE GFX DROPDOWN)" default="false"
                 doc="If checked, a shader will simulate light reflexions and moving waves on this surface">
@@ -98,9 +94,13 @@
             <FloatProp id="water_shader_speed_2" name="Secondary wave speed" default="4.0"    min="0.0"/>
         </BoolProp>
         
-        <!-- Water splash -->
+        <!-- Water bottom -->
         <BoolProp id="water_splash" name="Water bottom" default="false"
                   doc="Apply on the material at the bottom of water to specify what a splash should occur when touching the corresponding water surface"/>
+                  
+        <!-- Watter surface -->
+        <BoolProp id="surface" name="Water surface" default="false"
+                doc="whether this material is the surface of a water area"/>
     </PropGroup>
     <PropGroup id="PropGroup_interaction" name="Interaction">
         
