@@ -54,6 +54,7 @@
                 <FloatProp id="grass_amplitude" name="Grass amplitude" default="0.25" min="0.0" max="1.0"
                         doc="Amplitude for grass movement"/>
             </EnumChoice>
+            <EnumChoice id="spheremap" label="Sphere mapping"/>
             <EnumChoice id="water_shader" label="Water Shader"
                         doc="A shader to simulate light reflexions and moving waves on this surface">
                 <FloatProp id="water_shader_speed_1" name="Main wave speed"      default="6.6667" min="0.0"/>
@@ -74,7 +75,7 @@
         </BoolProp>
         
         <!-- Sphere -->
-        <BoolProp id="sphere" name="Sphere mapping" default="false"
+        <BoolProp id="sphere" name="Sphere mapping (DEPRECATED, USE GFX DROPDOWN)" default="false"
                 doc="use sphere mapping on this object (mainly used to simulate a reflection effect)"/>
         
         <!-- Splatting -->
