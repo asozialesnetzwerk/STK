@@ -116,7 +116,8 @@ def writeMaterialsFile(sPath):
            'splatting_lightmap'    : ("", 'splatting'),
            'water_shader'          : ("N", None),
            'water_shader_speed_1'  : (6.6667, 'water_shader'),
-           'water_shader_speed_2'  : (4.0, 'water_shader')
+           'water_shader_speed_2'  : (4.0, 'water_shader'),
+           'water_splash'          : ("N", None),
     }
 
     lBooleanAttributes = ["clampu","clampv","light","sphere","surface","below_surface",
@@ -141,7 +142,6 @@ def writeMaterialsFile(sPath):
         hasSoundeffect = (convertTextToYN(getIdProperty(i, "use_sfx", "no")) == "Y")
         hasParticle = (convertTextToYN(getIdProperty(i, "particle", "no")) == "Y")
         hasZipper = (convertTextToYN(getIdProperty(i, "zipper", "no")) == "Y")
-        hasGrass = (convertTextToYN(getIdProperty(i, "graphical_effect", "-")) == "grass")
 
         # Create a copy of the list of defaults so that it can be modified. Then add
         # all properties of the current image

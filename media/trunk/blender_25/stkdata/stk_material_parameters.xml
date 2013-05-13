@@ -26,13 +26,21 @@
         <!-- Compositing -->
         <EnumProp id="compositing" name="Compositing Type" default="none" doc="How to composite this texture with what is behind it">
             <EnumChoice id="none" label="None"/>
-            <EnumChoice id="blend" label="Alpha Blend" doc="Use transparency on this texture, using the alpha channel or a specified external mask"/>
-            <EnumChoice id="test" label="Alpha Test" doc="Use fully-opaque-or-fully-transparent transparency on this texture, using the alpha channel or a specified external mask"/>
-            <EnumChoice id="coverage" label="Alpha to Coverage" doc="Like alpha testing but with softer edges"/>
-            <EnumChoice id="additive" label="Additive Blending" doc="Brighten up anything under by adding the current color on top (useful for fire or light)"/>
+            <EnumChoice id="blend" label="Alpha Blend" doc="Use transparency on this texture, using the alpha channel or a specified external mask">
+                <StringProp id="mask" name="Mask image (optional)" default="" doc="Greyscale image containing the alpha channel (transparency) for this image"/>
+            </EnumChoice>
+            <EnumChoice id="test" label="Alpha Test" doc="Use fully-opaque-or-fully-transparent transparency on this texture, using the alpha channel or a specified external mask">
+                <StringProp id="mask" name="Mask image (optional)" default="" doc="Greyscale image containing the alpha channel (transparency) for this image"/>
+            </EnumChoice>
+            <EnumChoice id="coverage" label="Alpha to Coverage" doc="Like alpha testing but with softer edges">
+                <StringProp id="mask" name="Mask image (optional)" default="" doc="Greyscale image containing the alpha channel (transparency) for this image"/>
+            </EnumChoice>
+            <EnumChoice id="additive" label="Additive Blending" doc="Brighten up anything under by adding the current color on top (useful for fire or light)">
+                <StringProp id="mask" name="Mask image (optional)" default="" doc="Greyscale image containing the alpha channel (transparency) for this image"/>
+            </EnumChoice>
         </EnumProp>
         
-        <!-- Disable writing to Z buffer -->
+<!--         <!-- Disable writing to Z buffer --> -->
         <BoolProp id="disable_z_write" name="Disable writing to Z-buffer" default="false"
                 doc="disable writing to the Z buffer (useful for materials with transparency, if irrlicht fails to do proper alpha sorting, in order not to hide what is behind)"/>
                 
@@ -46,31 +54,23 @@
                 <FloatProp id="grass_amplitude" name="Grass amplitude" default="0.25" min="0.0" max="1.0"
                         doc="Amplitude for grass movement"/>
             </EnumChoice>
-            <EnumChoice id="water" label="Water Splash"/>
+            <EnumChoice id="water_shader" label="Water Shader"
+                        doc="A shader to simulate light reflexions and moving waves on this surface">
+                <FloatProp id="water_shader_speed_1" name="Main wave speed"      default="6.6667" min="0.0"/>
+                <FloatProp id="water_shader_speed_2" name="Secondary wave speed" default="4.0"    min="0.0"/>
+            </EnumChoice>
+            <EnumChoice id="water" label="Water Splash (DEPRECATED, USE CHECKBOX)"/>
         </EnumProp>
         
         <!-- Additive lightmap -->
         <BoolProp id="additive_lightmap" name="Lightmap is additive" default="false"
                 doc="Make lightmap additive (only makes sense if this material has a lightmap)"/>
         
-        <!-- Mask -->
-        <StringProp id="mask" name="Mask image" default="" doc="Greyscale image containing the alpha channel (transparency) for this image"/>
-        
         <!-- Normal map -->
         <BoolProp id="use_normal_map" name="Normal Map" default="false"
                 doc="Use normal maps for this material (the model must be exported as tangent for this to work)">
             <StringProp id="normal_map" name="Normal Map Image" default="" doc="Image containing the normal map for this texture"/>
             <StringProp id="normal_light_map" name="Light Map Image" default="" doc="Image containing the lightmap for this texture (optional)"/>
-        </BoolProp>
-        
-        <!-- Particles -->
-        <BoolProp id="particle" name="Particle effect" default="false"
-                doc="Whether to emit particles (e.g. smoke) when driving on this surface">
-            <StringProp id="particle_base" name="Particles file" default="smoke.xml" doc="Name of the XML file containing the description of particles to use on this terrain"/>
-            <CombinableEnumProp id="particle_condition" name="Use particles when..." default="skid" doc="elect a special graphical effect">
-                <EnumChoice id="skid" label="Skid" doc="Use particle when skidding"/>
-                <EnumChoice id="drive" label="Drive" doc="Use particles during regular driving"/>
-            </CombinableEnumProp>
         </BoolProp>
         
         <!-- Sphere -->
@@ -91,12 +91,16 @@
         <BoolProp id="surface" name="Surface" default="false"
                 doc="whether this material is the surface of a water area"/>
         
-        <!-- Water -->
-        <BoolProp id="water_shader" name="Water Shader" default="false"
+        <!-- Water (DEPRECATED) -->
+        <BoolProp id="water_shader" name="Water Shader (DEPRECATED, USE GFX DROPDOWN)" default="false"
                 doc="If checked, a shader will simulate light reflexions and moving waves on this surface">
             <FloatProp id="water_shader_speed_1" name="Main wave speed"      default="6.6667" min="0.0"/>
             <FloatProp id="water_shader_speed_2" name="Secondary wave speed" default="4.0"    min="0.0"/>
         </BoolProp>
+        
+        <!-- Water splash -->
+        <BoolProp id="water_splash" name="Water bottom" default="false"
+                  doc="Apply on the material at the bottom of water to specify what a splash should occur when touching the corresponding water surface"/>
     </PropGroup>
     <PropGroup id="PropGroup_interaction" name="Interaction">
         
@@ -133,6 +137,17 @@
         <!-- Ignore -->
         <BoolProp id="ignore" name="Ignore (ghost material)" default="false"
                 doc="Drive through this texture like it didn't exist (good for smoke, etc.)"/>
+        
+        <!-- Particles -->
+        <BoolProp id="particle" name="Particle effect" default="false"
+                doc="Whether to emit particles (e.g. smoke) when driving on this surface">
+            <StringProp id="particle_base" name="Particles file" default="smoke.xml" doc="Name of the XML file containing the description of particles to use on this terrain"/>
+            <CombinableEnumProp id="particle_condition" name="Use particles when..." default="skid" doc="elect a special graphical effect">
+                <EnumChoice id="skid" label="Skid" doc="Use particle when skidding"/>
+                <EnumChoice id="drive" label="Drive" doc="Use particles during regular driving"/>
+            </CombinableEnumProp>
+        </BoolProp>
+        
         
         <!-- SFX -->
         <BoolProp id="use_sfx" name="Play sound effect" default="false"
