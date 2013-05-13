@@ -95,6 +95,8 @@ def writeMaterialsFile(sPath):
            'disable_z_write'       : ("N", None),
            'falling_effect'        : ("N", None),
            'graphical_effect'      : ('none', None),
+           'grass_speed'           : (0.4, ('graphical_effect','grass')),
+           'grass_amplitude'       : (0.25, ('graphical_effect','grass')),
            'ignore'                : ("N", None),
            'mask'                  : ("", None),
            'normal_map'            : ("", 'use_normal_map'),
@@ -139,6 +141,7 @@ def writeMaterialsFile(sPath):
         hasSoundeffect = (convertTextToYN(getIdProperty(i, "use_sfx", "no")) == "Y")
         hasParticle = (convertTextToYN(getIdProperty(i, "particle", "no")) == "Y")
         hasZipper = (convertTextToYN(getIdProperty(i, "zipper", "no")) == "Y")
+        hasGrass = (convertTextToYN(getIdProperty(i, "graphical_effect", "-")) == "grass")
 
         # Create a copy of the list of defaults so that it can be modified. Then add
         # all properties of the current image
@@ -182,7 +185,17 @@ def writeMaterialsFile(sPath):
                     # if this property is conditional on another
                     cond = lTextureDefaults[prop][1]
                     
-                    if currentValue != lTextureDefaults[prop][0] and (cond is None or (cond in i and i[cond] == "true")):
+                    conditionPassed = False
+                    if cond is None:
+                        conditionPassed = True
+                    elif type(cond) is tuple:
+                        if cond[0] in i and i[cond[0]] == cond[1]:
+                            conditionPassed = True
+                    elif cond in i and i[cond] == "true":
+                        conditionPassed = True
+                        
+                    
+                    if currentValue != lTextureDefaults[prop][0] and conditionPassed:
                         if isinstance(currentValue, float):
                             # In blender, proeprties use '_', but STK still expects '-'
                             sImage = "%s %s=\"%.2f\""%(sImage,AProperty.replace("_","-"),currentValue)

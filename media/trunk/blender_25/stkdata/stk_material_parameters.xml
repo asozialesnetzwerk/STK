@@ -63,7 +63,12 @@
     <EnumProp id="graphical_effect" name="Graphical Effect" default="none" doc="elect a special graphical effect">
         <EnumChoice id="none" label="None"/>
         <EnumChoice id="bubble" label="Bubble (wavy texture)"/>
-        <EnumChoice id="grass" label="Grass"/>
+        <EnumChoice id="grass" label="Grass">
+            <FloatProp id="grass_speed" name="Grass speed" default="1.5" min="0.0" max="5.0"
+                       doc="Speed modifier for grass"/>
+            <FloatProp id="grass_amplitude" name="Grass amplitude" default="0.25" min="0.0" max="1.0"
+                       doc="Amplitude for grass movement"/>
+        </EnumChoice>
         <EnumChoice id="water" label="Water Splash"/>
     </EnumProp>
     
