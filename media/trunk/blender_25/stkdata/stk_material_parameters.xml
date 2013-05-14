@@ -12,10 +12,6 @@
         <!-- Backface culling -->
         <BoolProp id="backface_culling" name="Backface Culling" default="true"
                 doc="If checked, this material will only be visible on the side of the normal"/>
-        
-        <!-- Below shallow water -->
-        <BoolProp id="below_surface" name="Below shallow water" default="false"
-                doc="Used for the terrain under shallow water where you can drive"/>
                 
         <!-- Clamp -->
         <BoolProp id="clampu" name="Clamp texture horizontally" default="false"
@@ -28,22 +24,27 @@
             <EnumChoice id="none" label="None"/>
             <EnumChoice id="blend" label="Alpha Blend" doc="Use transparency on this texture, using the alpha channel or a specified external mask">
                 <StringProp id="mask" name="Mask image (optional)" default="" doc="Greyscale image containing the alpha channel (transparency) for this image"/>
+                <BoolProp id="disable_z_write" name="Disable writing to Z-buffer" default="false"
+                    doc="disable writing to the Z buffer (useful for materials with transparency, if irrlicht fails to do proper alpha sorting, in order not to hide what is behind)"/>
             </EnumChoice>
             <EnumChoice id="test" label="Alpha Test" doc="Use fully-opaque-or-fully-transparent transparency on this texture, using the alpha channel or a specified external mask">
                 <StringProp id="mask" name="Mask image (optional)" default="" doc="Greyscale image containing the alpha channel (transparency) for this image"/>
+                <BoolProp id="disable_z_write" name="Disable writing to Z-buffer" default="false"
+                    doc="disable writing to the Z buffer (useful for materials with transparency, if irrlicht fails to do proper alpha sorting, in order not to hide what is behind)"/>
             </EnumChoice>
             <EnumChoice id="coverage" label="Alpha to Coverage" doc="Like alpha testing but with softer edges">
                 <StringProp id="mask" name="Mask image (optional)" default="" doc="Greyscale image containing the alpha channel (transparency) for this image"/>
+                <BoolProp id="disable_z_write" name="Disable writing to Z-buffer" default="false"
+                    doc="disable writing to the Z buffer (useful for materials with transparency, if irrlicht fails to do proper alpha sorting, in order not to hide what is behind)"/>
             </EnumChoice>
             <EnumChoice id="additive" label="Additive Blending" doc="Brighten up anything under by adding the current color on top (useful for fire or light)">
                 <StringProp id="mask" name="Mask image (optional)" default="" doc="Greyscale image containing the alpha channel (transparency) for this image"/>
+                <BoolProp id="disable_z_write" name="Disable writing to Z-buffer" default="false"
+                    doc="disable writing to the Z buffer (useful for materials with transparency, if irrlicht fails to do proper alpha sorting, in order not to hide what is behind)"/>
             </EnumChoice>
         </EnumProp>
         
-        <!-- Disable writing to Z buffer --> -->
-        <BoolProp id="disable_z_write" name="Disable writing to Z-buffer" default="false"
-                doc="disable writing to the Z buffer (useful for materials with transparency, if irrlicht fails to do proper alpha sorting, in order not to hide what is behind)"/>
-                
+
         <!-- Graphical effect -->
         <EnumProp id="graphical_effect" name="Graphical Effect" default="none" doc="elect a special graphical effect">
             <EnumChoice id="none" label="None"/>
@@ -104,6 +105,10 @@
                 doc="whether this material is the surface of a water area"/>
     </PropGroup>
     <PropGroup id="PropGroup_interaction" name="Interaction">
+        
+        <!-- Below shallow water -->
+        <BoolProp id="below_surface" name="Below shallow water" default="false"
+                doc="Used for the terrain under shallow water where you can drive"/>
         
         <!-- Collision -->
         <BoolProp id="collision_detect" name="Collision action" default="false"
