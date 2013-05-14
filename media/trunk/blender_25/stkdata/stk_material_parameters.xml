@@ -55,6 +55,11 @@
                 <FloatProp id="grass_amplitude" name="Grass amplitude" default="0.25" min="0.0" max="1.0"
                         doc="Amplitude for grass movement"/>
             </EnumChoice>
+            <EnumChoice id="normal_map" label="Normal Map" default="false"
+                    doc="Use normal maps for this material (the model must be exported as tangent for this to work)">
+                <StringProp id="normal_map" name="Normal Map Image" default="" doc="Image containing the normal map for this texture"/>
+                <StringProp id="normal_light_map" name="Light Map Image" default="" doc="Image containing the lightmap for this texture (optional)"/>
+            </EnumChoice>
             <EnumChoice id="spheremap" label="Sphere mapping"/>
             <EnumChoice id="splatting" label="Splatting" default="false"
                         doc="Use splatting (multiple textures with smooth transitions)">
@@ -77,7 +82,7 @@
                 doc="Make lightmap additive (only makes sense if this material has a lightmap)"/>
         
         <!-- Normal map -->
-        <BoolProp id="use_normal_map" name="Normal Map" default="false"
+        <BoolProp id="use_normal_map" name="Normal Map (DEPRECATED, USE GFX DROPDOWN)" default="false"
                 doc="Use normal maps for this material (the model must be exported as tangent for this to work)">
             <StringProp id="normal_map" name="Normal Map Image" default="" doc="Image containing the normal map for this texture"/>
             <StringProp id="normal_light_map" name="Light Map Image" default="" doc="Image containing the lightmap for this texture (optional)"/>
