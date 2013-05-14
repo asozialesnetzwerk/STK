@@ -56,6 +56,14 @@
                         doc="Amplitude for grass movement"/>
             </EnumChoice>
             <EnumChoice id="spheremap" label="Sphere mapping"/>
+            <EnumChoice id="splatting" label="Splatting" default="false"
+                        doc="Use splatting (multiple textures with smooth transitions)">
+                <StringProp id="splatting_texture_1" name="Red Texture"   default=""/>
+                <StringProp id="splatting_texture_2" name="Green Texture" default=""/>
+                <StringProp id="splatting_texture_3" name="Blue Texture"  default=""/>
+                <StringProp id="splatting_texture_4" name="Black Texture" default=""/>
+                <StringProp id="splatting_lightmap" name="Lightmap (optional)" default=""/>
+            </EnumChoice>
             <EnumChoice id="water_shader" label="Water Shader"
                         doc="A shader to simulate light reflexions and moving waves on this surface">
                 <FloatProp id="water_shader_speed_1" name="Main wave speed"      default="6.6667" min="0.0"/>
@@ -78,16 +86,6 @@
         <!-- Sphere -->
         <BoolProp id="sphere" name="Sphere mapping (DEPRECATED, USE GFX DROPDOWN)" default="false"
                 doc="use sphere mapping on this object (mainly used to simulate a reflection effect)"/>
-        
-        <!-- Splatting -->
-        <BoolProp id="splatting" name="Splatting" default="false"
-                    doc="Use splatting (multiple textures with smooth transitions)">
-            <StringProp id="splatting_texture_1" name="Red Texture"   default=""/>
-            <StringProp id="splatting_texture_2" name="Green Texture" default=""/>
-            <StringProp id="splatting_texture_3" name="Blue Texture"  default=""/>
-            <StringProp id="splatting_texture_4" name="Black Texture" default=""/>
-            <StringProp id="splatting_lightmap" name="Lightmap (optional)" default=""/>
-        </BoolProp>
         
         <!-- Water (DEPRECATED) -->
         <BoolProp id="water_shader" name="Water Shader (DEPRECATED, USE GFX DROPDOWN)" default="false"
