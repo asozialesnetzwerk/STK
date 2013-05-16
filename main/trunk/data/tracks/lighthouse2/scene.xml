@@ -19,6 +19,7 @@
     <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-117.71 -6.11 30.54" hpr="0.0 -75.4 0.0" scale="3.17 3.17 3.17"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-97.58 -11.46 36.36" hpr="-0.0 -106.1 -0.0" scale="2.29 2.29 2.29"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-77.01 -11.87 36.36" hpr="-0.0 -106.1 -0.0" scale="2.68 2.68 2.68"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_distance="150.0" lod_group="miniLamp" model="miniLampPost_low.b3d" xyz="-156.19 3.73 -49.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_distance="60.0" lod_group="grass_chunk" model="grass_chunk_hight.b3d" xyz="266.88 -15.84 -24.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_distance="100.0" lod_group="grass_chunk" model="grass_chunk_low.b3d" xyz="266.88 -15.84 -30.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_instance="true" lod_group="grass_chunk" xyz="99.38 -16.17 -18.46" hpr="-0.0 -0.0 6.5" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
@@ -254,7 +255,7 @@
       <p c="84.000 1.000" h1="66.822 1.000" h2="101.178 1.000"/>
     </curve>
   </object>
-  <object type="animation" model="fishing_buoy2.b3d" xyz="37.25 -5.07 13.25" hpr="0.0 25.5 0.0" scale="1.00 1.00 1.00" shape="box" interaction="static">
+  <object type="animation" model="fishing_buoy2.b3d" xyz="37.25 -5.07 13.25" hpr="0.0 25.5 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
     <curve channel="ScaleX" interpolation="bezier" extend="cyclic">
       <p c="1.000 1.000" h1="-14.226 1.000" h2="16.226 1.000"/>
       <p c="40.000 1.000" h1="24.774 1.000" h2="57.178 1.000"/>
@@ -288,15 +289,15 @@
       <p c="84.000 1.000" h1="66.822 1.000" h2="101.178 1.000"/>
     </curve>
   </object>
-  <object type="animation" model="miniLampPost.b3d" xyz="-127.19 3.73 -63.09" hpr="-90.0 0.0 5.0" scale="1.00 1.00 1.00"  interaction="ghost">
+  <object type="animation" xyz="-44.05 -14.11 -163.50" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00"  lod_instance="true" lod_group="miniLamp" interaction="ghost">
   </object>
-  <object type="animation" model="miniLampPost.b3d" xyz="63.04 -9.51 -171.52" hpr="-83.4 -127.1 -8.3" scale="1.00 1.00 1.00"  interaction="ghost">
+  <object type="animation" xyz="74.93 -6.67 -208.19" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00"  lod_instance="true" lod_group="miniLamp" interaction="ghost">
   </object>
-  <object type="animation" model="miniLampPost.b3d" xyz="74.93 -6.67 -208.19" hpr="25.4 -95.5 -115.3" scale="1.00 1.00 1.00"  interaction="ghost">
+  <object type="animation" xyz="29.20 -5.27 9.43" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00"  lod_instance="true" lod_group="miniLamp" interaction="ghost">
   </object>
-  <object type="animation" model="miniLampPost.b3d" xyz="29.20 -5.27 9.43" hpr="25.4 84.5 115.3" scale="1.00 1.00 1.00"  interaction="ghost">
+  <object type="animation" xyz="-127.19 3.73 -63.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"  lod_instance="true" lod_group="miniLamp" interaction="ghost">
   </object>
-  <object type="animation" model="miniLampPost.b3d" xyz="-44.05 -14.11 -163.50" hpr="0.0 -95.0 -90.0" scale="1.00 1.00 1.00"  interaction="ghost">
+  <object type="animation" xyz="63.04 -9.51 -171.52" hpr="-0.0 -130.0 -0.0" scale="1.00 1.00 1.00"  lod_instance="true" lod_group="miniLamp" interaction="ghost">
   </object>
   <sun  fog="true" fog-color="21 43 75" fog-start="20.00" fog-end="160.00"/>
   <sky-color rgb="77 104 255"/>
@@ -306,6 +307,7 @@
   <checks>
     <check-lap kind="lap" same-group="0"  />
   </checks>
+  <water model="seaAnimation.b3d" xyz="0.00 6.60 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="1.00" speed="200.00" length="10.00"/>
   <water model="fishing_net.b3d" xyz="72.02 -14.19 -180.01" hpr="-45.0 0.0 90.0" scale="1.00 1.00 1.00" height="0.10" speed="100.00" length="10.00"/>
   <item x="83.67" y="-16.09" z="0.94" />
   <item x="81.79" y="-16.09" z="-0.97" />

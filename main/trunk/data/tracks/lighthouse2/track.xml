@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev 12731 -->
-<track  name           = "lighthouse"
+<track  name           = "Around the lighthouse"
         version        = "5"
         groups         = "standard"
         designer       = "jean-manuel clemen&#231;on"
-        music          = "kart_grand_prix.music"
+        music          = "OnTheRiver.music"
         screenshot     = "screenshot.jpg"
         smooth-normals = "false"
-        reverse        = "N"
+        reverse        = "Y"
 >
 </track>
