@@ -66,6 +66,11 @@ def convertTextToYN(sText):
 # (remember: Blenders "image" objects are STK's "material" objects)
 # Please use the STKProperty browser!!!
 def writeMaterialsFile(sPath):
+    
+    # Work around the bug in blender where textures keep disappearing, by forcefully pinning all textures.
+    for img in bpy.data.images:
+        img.use_fake_user = True
+    
     # Read & Write the materials to the file
     limage = bpy.data.images
     
@@ -101,9 +106,7 @@ def writeMaterialsFile(sPath):
            'mask'                  : ("", None),
            'normal_map'            : ("", ('graphical_effect','normal_map')),
            'normal_light_map'      : ("", ('graphical_effect','normal_map')),
-           'use_normal_map'        : ("N", None),
            'reset'                 : ("N", None),
-           'sphere'                : ("N", None),
            'surface'               : ("N", None),
            'high_adhesion'         : ('false', None),
            'slowdown_time'         : (1.0, 'use_slowdown'),
@@ -113,16 +116,15 @@ def writeMaterialsFile(sPath):
            'splatting_texture_3'   : ("", ('graphical_effect','splatting')),
            'splatting_texture_4'   : ("", ('graphical_effect','splatting')),
            'splatting_lightmap'    : ("", ('graphical_effect','splatting')),
-           'water_shader'          : ("N", None),
            'water_shader_speed_1'  : (6.6667, ('graphical_effect','water_shader')),
            'water_shader_speed_2'  : (4.0, ('graphical_effect','water_shader')),
            'water_splash'          : ("N", None),
     }
 
-    lBooleanAttributes = ["clampu","clampv","light","sphere","surface","below_surface",
+    lBooleanAttributes = ["clampu","clampv","light","surface","below_surface",
                           "falling_effect", "collision_detect", "fog", "additive_lightmap",
                           "anisotropic","backface_culling","ignore","disable_z_write","reset",
-                          "sfx_positional", "splatting", "use_normal_map", "water_shader"]
+                          "sfx_positional", "water_splash"]
     
     #start_time = bsys.time()
     print("Writing material file --> \t")
