@@ -74,38 +74,11 @@
                 <FloatProp id="water_shader_speed_1" name="Main wave speed"      default="6.6667" min="0.0"/>
                 <FloatProp id="water_shader_speed_2" name="Secondary wave speed" default="4.0"    min="0.0"/>
             </EnumChoice>
-            <EnumChoice id="water" label="Water Splash (DEPRECATED, USE CHECKBOX)"/>
         </EnumProp>
         
         <!-- Additive lightmap -->
         <BoolProp id="additive_lightmap" name="Lightmap is additive" default="false"
                 doc="Make lightmap additive (only makes sense if this material has a lightmap)"/>
-        
-        <!-- Normal map -->
-        <BoolProp id="use_normal_map" name="Normal Map (DEPRECATED, USE GFX DROPDOWN)" default="false"
-                doc="Use normal maps for this material (the model must be exported as tangent for this to work)">
-            <StringProp id="normal_map" name="Normal Map Image" default="" doc="Image containing the normal map for this texture"/>
-            <StringProp id="normal_light_map" name="Light Map Image" default="" doc="Image containing the lightmap for this texture (optional)"/>
-        </BoolProp>
-        
-        <!-- Sphere -->
-        <BoolProp id="sphere" name="Sphere mapping (DEPRECATED, USE GFX DROPDOWN)" default="false"
-                doc="use sphere mapping on this object (mainly used to simulate a reflection effect)"/>
-        
-        <!-- Water (DEPRECATED) -->
-        <BoolProp id="water_shader" name="Water Shader (DEPRECATED, USE GFX DROPDOWN)" default="false"
-                doc="If checked, a shader will simulate light reflexions and moving waves on this surface">
-            <FloatProp id="water_shader_speed_1" name="Main wave speed"      default="6.6667" min="0.0"/>
-            <FloatProp id="water_shader_speed_2" name="Secondary wave speed" default="4.0"    min="0.0"/>
-        </BoolProp>
-        
-        <!-- Water bottom -->
-        <BoolProp id="water_splash" name="Water bottom" default="false"
-                  doc="Apply on the material at the bottom of water to specify what a splash should occur when touching the corresponding water surface"/>
-                  
-        <!-- Watter surface -->
-        <BoolProp id="surface" name="Water surface" default="false"
-                doc="whether this material is the surface of a water area"/>
     </PropGroup>
     <PropGroup id="PropGroup_interaction" name="Interaction">
         
@@ -179,6 +152,14 @@
         <BoolProp id="reset" name="Reset kart (on drive)" default="false"
                 doc="whether to rescue kart if it ends up [driving] on this surface"/>
                 
+        <!-- Water bottom -->
+        <BoolProp id="water_splash" name="Water bottom" default="false"
+                  doc="whether this material is the bottom (seabed) of a water area (used to create a splash effect)"/>
+                  
+        <!-- Watter surface -->
+        <BoolProp id="surface" name="Water surface" default="false"
+                doc="whether this material is the surface of a water area (used to create a splash effect)"/>
+                
         <!-- Zipper -->
         <BoolProp id="zipper" name="Zipper (speed boost)" default="false"
                   doc="Whether to get a speed boost when driving on this surface">
@@ -187,5 +168,6 @@
             <FloatProp id="zipper_fade_out_time"      name="Zipper fade out time"      default="3.0"  min="0.0" max="10.0"/>
             <FloatProp id="zipper_speed_gain"         name="Zipper speed gain"         default="4.5"  min="0.0" max="10.0"/>
         </BoolProp>
+        
     </PropGroup>
 </Properties>
