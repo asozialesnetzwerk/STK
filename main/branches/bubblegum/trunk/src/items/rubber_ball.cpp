@@ -704,11 +704,6 @@ bool RubberBall::hit(AbstractKart* kart, PhysicalObject* object)
             kart->getAttachment()->update(10000);
             return false;
         }
-        /*else if(kart->isShielded())
-        {
-            kart->decreaseShieldTime(0.0f); //decrease the default amount of shield time.
-            return false;
-        }*/
         kart->setSquash(m_st_squash_duration, m_st_squash_slowdown);
         return false;
     }

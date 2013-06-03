@@ -38,7 +38,7 @@ ExplosionAnimation *ExplosionAnimation::create(AbstractKart *kart,
                                                bool direct_hit)
 {
     if(kart->isInvulnerable()) return NULL;
-    /*else if(kart->isShielded()) //Problem here: bouncing ball is not considered properly
+    /*else if(kart->isShielded() && !direct_hit) //How can I test this code ??
     {
         kart->decreaseShieldTime(0.0f); //Decreasing the shield time by the default value.
         Log::verbose("ExlosionAnimation", "Decreasing shield \n");
