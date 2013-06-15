@@ -3,6 +3,9 @@
 <scene>
   <track model="zenGarden_track.b3d" x="0" y="0" z="0">
     <static-object lod_instance="true" lod_group="torii" xyz="1.50 0.00 10.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object model="blueFireflies.b3d" xyz="-151.51 4.87 -24.18" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"> <!-- writeStaticObjects 2 -->
+    <animated-texture name="bugslight.png" dy="0.200" />
+    </static-object>
     <static-object lod_distance="70.0" lod_group="sakuraPine" model="sakuraPine_LOD70.b3d" xyz="-54.59 2.15 147.31" hpr="16.3 -118.9 -16.1" scale="0.92 0.92 0.92"/> <!-- writeStaticObjects 3 -->
     <static-object lod_distance="45.0" lod_group="sakuraPine" model="sakuraPine_LOD45.b3d" xyz="-54.59 2.15 128.00" hpr="16.3 -118.9 -16.1" scale="0.92 0.92 0.92"/> <!-- writeStaticObjects 3 -->
     <static-object lod_distance="100.0" lod_group="sakuraPine" model="sakuraPine_LOD100.b3d" xyz="-57.59 2.15 164.00" hpr="16.3 -118.9 -16.1" scale="0.92 0.92 0.92"/> <!-- writeStaticObjects 3 -->
@@ -10,12 +13,45 @@
     <static-object lod_distance="50.0" lod_group="torii" model="torii_LOD50.b3d" xyz="-16.50 0.00 173.83" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_distance="75.0" lod_group="torii" model="torii_LOD75.b3d" xyz="-16.50 0.00 178.64" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
     <static-object lod_distance="120.0" lod_group="torii" model="torii_LOD120.b3d" xyz="-16.50 0.00 183.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object model="blueFireflies.b3d" xyz="-128.36 8.61 -19.00" hpr="-0.0 97.6 -0.0" scale="1.00 1.00 1.00"> <!-- writeStaticObjects 2 -->
+    <animated-texture name="bugslight.png" dy="0.200" />
+    </static-object>
     <static-object lod_instance="true" lod_group="torii" xyz="-50.43 0.00 -50.65" hpr="-0.0 100.0 -0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object model="blueFireflies.b3d" xyz="-109.45 8.54 -24.80" hpr="-0.0 97.6 -0.0" scale="1.00 1.00 1.00"> <!-- writeStaticObjects 2 -->
+    <animated-texture name="bugslight.png" dy="0.200" />
+    </static-object>
+    <static-object model="blueFireflies.b3d" xyz="-91.40 8.30 -36.35" hpr="-0.0 -130.7 0.0" scale="1.36 1.36 1.36"> <!-- writeStaticObjects 2 -->
+    <animated-texture name="bugslight.png" dy="0.200" />
+    </static-object>
+    <static-object model="blueFireflies.b3d" xyz="-121.94 2.95 -59.89" hpr="-0.0 -140.6 0.0" scale="1.36 1.36 1.36"> <!-- writeStaticObjects 2 -->
+    <animated-texture name="bugslight.png" dy="0.200" />
+    </static-object>
+    <static-object model="blueFireflies.b3d" xyz="-111.24 2.95 -46.27" hpr="0.0 152.4 0.0" scale="1.36 1.36 1.36"> <!-- writeStaticObjects 2 -->
+    <animated-texture name="bugslight.png" dy="0.200" />
+    </static-object>
     <static-object model="skylantern.b3d" xyz="50.27 -77.25 28.24" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"> <!-- writeStaticObjects 2 -->
     <animated-texture name="explode.png" dy="0.500" />
     </static-object>
+    <static-object model="blueFireflies.b3d" xyz="-100.60 1.99 -29.49" hpr="0.0 152.4 0.0" scale="0.82 0.82 0.82"> <!-- writeStaticObjects 2 -->
+    <animated-texture name="bugslight.png" dy="0.200" />
+    </static-object>
     <static-object model="skylantern.b3d" xyz="69.53 -59.99 28.24" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"> <!-- writeStaticObjects 2 -->
     <animated-texture name="explode.png" dy="0.500" />
+    </static-object>
+    <static-object model="blueFireflies.b3d" xyz="-94.99 1.99 -11.77" hpr="0.0 152.4 0.0" scale="1.13 1.13 1.13"> <!-- writeStaticObjects 2 -->
+    <animated-texture name="bugslight.png" dy="0.200" />
+    </static-object>
+    <static-object model="blueFireflies.b3d" xyz="-103.25 1.99 1.57" hpr="-0.0 -126.8 0.0" scale="1.13 1.13 1.13"> <!-- writeStaticObjects 2 -->
+    <animated-texture name="bugslight.png" dy="0.200" />
+    </static-object>
+    <static-object model="blueFireflies.b3d" xyz="-118.73 1.99 7.21" hpr="-0.0 -126.8 0.0" scale="1.13 1.13 1.13"> <!-- writeStaticObjects 2 -->
+    <animated-texture name="bugslight.png" dy="0.200" />
+    </static-object>
+    <static-object model="blueFireflies.b3d" xyz="-133.26 1.99 8.00" hpr="-0.0 102.4 -0.0" scale="1.13 1.13 1.13"> <!-- writeStaticObjects 2 -->
+    <animated-texture name="bugslight.png" dy="0.200" />
+    </static-object>
+    <static-object model="blueFireflies.b3d" xyz="-147.93 1.99 11.29" hpr="-0.0 102.4 -0.0" scale="1.13 1.13 1.13"> <!-- writeStaticObjects 2 -->
+    <animated-texture name="bugslight.png" dy="0.200" />
     </static-object>
     <static-object model="stoneLantern.b3d" xyz="-143.19 0.32 47.99" hpr="-0.0 102.6 -0.0" scale="1.00 1.00 1.00"> <!-- writeStaticObjects 2 -->
     <animated-texture name="explode.png" dx="0.400"  dy="0.100" />
