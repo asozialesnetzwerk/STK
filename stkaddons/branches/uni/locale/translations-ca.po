@@ -1,0 +1,1613 @@
+# Catalan translation for stk
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the stk package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: stk\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-12-12 06:38-0700\n"
+"PO-Revision-Date: 2012-12-23 09:56+0000\n"
+"Last-Translator: Marc Coll Carrillo <Unknown>\n"
+"Language-Team: Catalan <ca@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Launchpad-Export-Date: 2013-01-26 19:48+0000\n"
+"X-Generator: Launchpad (build 16451)\n"
+
+#: ../about.php:35 ../include/Template.class.php:111 ../include/menu.php:79
+msgid "About"
+msgstr "Quant a"
+
+#: ../about.php:35 ../login.php:112 ../manage.php:25 ../password-reset.php:27
+#: ../register.php:24
+msgid "STK Add-ons"
+msgstr "Complements del STK"
+
+#: ../about.php:38
+msgid "About STK Add-Ons"
+msgstr "Quant a la web de complements del STK"
+
+#: ../about.php:42
+msgid ""
+"SuperTuxKart is a Free 3D kart racing game, with many tracks, characters and "
+"items for you to try."
+msgstr ""
+"SuperTuxKart és un joc de carreres de karts en 3D lliure, amb molts "
+"circuits, personatges i elements per provar."
+
+#: ../about.php:43
+msgid ""
+"Since version 0.7.1, SuperTuxKart has had the ability to fetch important "
+"messages from the STKAddons website. Since 0.7.2, the game has included a "
+"built-in add-on manager."
+msgstr ""
+"Des de la versió 0.7.1, SuperTuxKart ha tingut la capacitat d'obtenir "
+"missatges importants des de la web STKAddons. Des de la 0.7.2, el joc inclou "
+"un gestor de complements integrat."
+
+#: ../about.php:44
+#, php-format
+msgid ""
+"SuperTuxKart now has over %d karts, %d tracks, and %d arenas available in-"
+"game thanks to the add-on service."
+msgstr ""
+"SuperTuxKart té ara més de %d karts, %d circuits, i %d arenes disponibles "
+"per jugar gràcies al servei de complements."
+
+#: ../about.php:45
+msgid ""
+"Of course, the artists who create all of this content must be thanked too. "
+"Without them, the add-on website would not be as great as it is today."
+msgstr ""
+"Òbviament, també hem d'agrair als artistes que han creat tot aquest "
+"contingut. Sense ells, la web de complements no seria tan estupenda com és "
+"avui."
+
+#: ../about.php:46 ../about.php:54
+msgid "Donate!"
+msgstr "Doneu!"
+
+#: ../about.php:46 ../about.php:54
+msgid "Website"
+msgstr "Lloc web"
+
+#: ../about.php:52
+msgid ""
+"TuxFamily is a non-profit organization. It provides free services for "
+"projects and contents dealing with the free software philosophy (free as in "
+"free speech, not as in free beer). They accept any project released under a "
+"free license (GPL, BSD, CC-BY-SA, Art Libre...)."
+msgstr ""
+"TuxFamily és una organització sense ànim de lucre. Proveeix serveis gratuïts "
+" a projectes i continguts relacionats amb la filosofia del programari "
+"lliure. Accepten qualsevol projecte publicat sota una llicència lliure (GPL, "
+"BSD, CC-BY-SA, Art Libre...)."
+
+#: ../about.php:53
+msgid ""
+"TuxFamily operates the servers on which STKAddons runs, for free. Because of "
+"them, we can provide the add-on service for SuperTuxKart. Each month, over a "
+"million downloads are made by SuperTuxKart players. We thank them very much "
+"for their generosity to us and to other open source projects."
+msgstr ""
+"TuxFamily opera els servidors on s'executa STKAddons gratuïtament. Gràcies a "
+"ells podem oferir el servei de complements per al SuperTuxKart. Cada mes els "
+"jugadors del SuperTuxKart generen més d'un milió de descàrregues. Els agraïm "
+"molt la seva generositat envers nosaltres i envers altres projectes de codi "
+"obert."
+
+#: ../addons-panel.php:44
+msgid ""
+"This page cannot be loaded because an invalid add-on type was provided."
+msgstr ""
+"No es pot carregar aquesta pàgina perquè s'ha proporcionat un tipus de "
+"complement invàlid."
+
+#: ../addons.php:35
+msgid "Unknown Type"
+msgstr "Tipus desconegut"
+
+#: ../addons.php:39 ../include/Template.class.php:109 ../include/menu.php:49
+#: ../include/menu.php:60 ../index.php:47
+msgid "Tracks"
+msgstr "Circuits"
+
+#: ../addons.php:42 ../include/Template.class.php:108 ../include/menu.php:54
+#: ../include/menu.php:59 ../index.php:44
+msgid "Karts"
+msgstr "Karts"
+
+#: ../addons.php:45 ../include/Template.class.php:110 ../include/menu.php:50
+#: ../include/menu.php:55 ../index.php:50
+msgid "Arenas"
+msgstr "Arenes"
+
+#. I18N: Index page title
+#: ../addons.php:48 ../include/top.php:31 ../index.php:39 ../users.php:38
+msgid "SuperTuxKart Add-ons"
+msgstr "Complements del SuperTuxKart"
+
+#: ../addons.php:74
+msgid "Invalid addon type."
+msgstr "Tipus de complement invàlid."
+
+#: ../addons.php:94
+msgid "Saved properties."
+msgstr "Propietats desades."
+
+#: ../addons.php:104
+msgid "Saved status."
+msgstr "Estat desat."
+
+#: ../addons.php:111
+msgid "Saved notes."
+msgstr "Notes desades."
+
+#: ../addons.php:117
+msgid "Deleted addon."
+msgstr "Complement esborrat."
+
+#: ../addons.php:123
+msgid "Deleted add-on revision."
+msgstr ""
+
+#: ../addons.php:129
+msgid "File updated."
+msgstr "Fitxer actualitzat."
+
+#: ../addons.php:134
+msgid "Set image."
+msgstr "Estableix la imatge."
+
+#: ../addons.php:141
+msgid "Set icon."
+msgstr "Estableix la icona."
+
+#: ../addons.php:146
+msgid "Deleted file."
+msgstr "Fitxer esborrat."
+
+#: ../addons.php:151
+msgid "Marked game versions in which this add-on is included."
+msgstr "Marqueu les versions del joc en les que s'inclou aquest complement."
+
+#: ../disabled.php:40
+msgid "This page is currently disabled."
+msgstr "Aquesta pàgina es troba deshabilitada actualment."
+
+#: ../disabled.php:41 ../include/AccessControl.class.php:91
+msgid "You will be redirected to the home page."
+msgstr "Sereu redirigit a la pàgina d'inici."
+
+#. I18N: Heading for general error page
+#: ../error.php:48
+msgid "An Error Occurred"
+msgstr "S'ha produït un error"
+
+#. I18N: Error message for general error page
+#: ../error.php:50
+msgid "Something broke! We'll try to fix it as soon as we can!"
+msgstr ""
+"Alguna cosa s'ha espatllat. Mirarem d'arreglar-ho tan aviat com sigui "
+"possible."
+
+#. I18N: Heading for HTTP 403 Forbidden error page
+#: ../error.php:54
+msgid "403 - Forbidden"
+msgstr "403 - Prohibit"
+
+#. I18N: Error message for HTTP 403 Forbidden error page
+#: ../error.php:56
+msgid ""
+"You're not supposed to be here. Click one of the links in the menu above to "
+"find some better content."
+msgstr ""
+"No hauríeu de ser aquí. Feu clic en un dels enllaços del menú de dalt per "
+"trobar coses més interessants."
+
+#. I18N: Heading for HTTP 404 Not Found error page
+#: ../error.php:60
+msgid "404 - Not Found"
+msgstr "404 - No s'ha trobat"
+
+#. I18N: Error message for HTTP 404 Not Found error page
+#: ../error.php:62
+msgid ""
+"We can't find what you are looking for. The link you followed may be broken."
+msgstr ""
+"No s'ha trobat el que esteu buscant. L'enllaç que heu seguit podria estar "
+"trencat."
+
+#: ../include/AccessControl.class.php:90
+msgid "You do not have permission to access this page."
+msgstr "No teniu permís per accedir a aquesta pàgina"
+
+#: ../include/Addon.class.php:57
+msgid "The requested add-on does not exist."
+msgstr "El complement demanat no existeix."
+
+#: ../include/Addon.class.php:119 ../include/Addon.class.php:198
+#, php-format
+msgid "Texture not found: %s"
+msgstr "No s'ha trobat la textura: %s"
+
+#: ../include/Addon.class.php:133
+msgid ""
+"An add-on with this ID already exists. Please try to upload your add-on "
+"again later."
+msgstr ""
+"Ja existeix un complement amb aquest ID. Si us plau, proveu de pujar el "
+"vostre complement més tard."
+
+#: ../include/Addon.class.php:139
+msgid "The add-on you are trying to create already exists."
+msgstr "El complement que esteu intentant crear ja existeix."
+
+#: ../include/Addon.class.php:141
+msgid "Creating a new add-on..."
+msgstr "S'està creant un nou complement..."
+
+#: ../include/Addon.class.php:157
+msgid "Your add-on could not be uploaded."
+msgstr "El vostre complement no s'ha pogut pujar."
+
+#: ../include/Addon.class.php:207
+msgid "The file you are trying to create already exists."
+msgstr "El fitxer que esteu intentant crear ja existeix."
+
+#: ../include/Addon.class.php:211 ../include/Addon.class.php:288
+#: ../include/Addon.class.php:339 ../include/Addon.class.php:347
+#: ../include/Upload.class.php:247 ../users.php:58 ../users.php:75
+msgid "You do not have the necessary permissions to perform this action."
+msgstr "No teniu els permisos necessaris per dur a terme aquesta acció."
+
+#: ../include/Addon.class.php:285
+msgid "You must be logged in to perform this action."
+msgstr "Heu d'estar connectat per dur a terme aquesta acció."
+
+#: ../include/Addon.class.php:299
+msgid "Failed to find files associated with this addon."
+msgstr "No s'han pogut trobar els fitxers associats amb aquest complement."
+
+#: ../include/Addon.class.php:306
+msgid "Failed to delete file:"
+msgstr "No s'ha pogut esborrar el fitxer:"
+
+#: ../include/Addon.class.php:314
+msgid "Failed to remove file records for this addon."
+msgstr ""
+"No s'ha pogut eliminar els registres dels fitxers d'aquest complement."
+
+#: ../include/Addon.class.php:319
+msgid "Failed to remove ratings for this add-on."
+msgstr "No s'han pogut eliminar les valoracions d'aquest complement."
+
+#: ../include/Addon.class.php:326
+msgid "Failed to remove add-on revisions."
+msgstr "No s'ha pogut eliminar les revisions d'aquest complement."
+
+#: ../include/Addon.class.php:330
+msgid "Failed to remove addon."
+msgstr "No s'ha pogut eliminar el complement."
+
+#: ../include/Addon.class.php:342
+msgid "Failed to delete file."
+msgstr "No s'ha pogut esborrar el fitxer."
+
+#: ../include/Addon.class.php:350
+msgid "The revision you are trying to delete does not exist."
+msgstr "La revisió que esteu intentant esborrar no existeix."
+
+#: ../include/Addon.class.php:352
+msgid "You cannot delete the last revision of an add-on."
+msgstr "No podeu esborrar la darrera revisió d'un complement."
+
+#: ../include/Addon.class.php:354
+msgid ""
+"You cannot delete the latest revision of an add-on. Please mark a different "
+"revision to be the latest revision first."
+msgstr ""
+"No podeu esborrar la darrera revisió d'un complement. Si us plau, marqueu "
+"abans una altra revisió com la darrera."
+
+#: ../include/Addon.class.php:358
+msgid "The add-on file could not be queued for deletion."
+msgstr ""
+"El fitxer del complement no s'ha pogut enviar a la cua per ser esborrat."
+
+#: ../include/Addon.class.php:366
+msgid "The add-on revision could not be deleted."
+msgstr "La revisió del complement no s'ha pogut esborrar."
+
+#: ../include/Addon.class.php:437 ../include/AddonViewer.class.php:357
+#: ../include/AddonViewer.class.php:539 ../include/AddonViewer.class.php:549
+#: ../include/AddonViewer.class.php:561 ../include/AddonViewer.class.php:564
+msgid "Unknown"
+msgstr "Desconegut"
+
+#: ../include/Addon.class.php:620 ../include/Addon.class.php:641
+#: ../include/Addon.class.php:663 ../include/Addon.class.php:676
+#: ../include/Addon.class.php:711
+msgid "You do not have the neccessary permissions to perform this action."
+msgstr "No teniu els permisos necessaris per dur a terme aquesta acció."
+
+#: ../include/Addon.class.php:628
+msgid "Failed to update the description record for this add-on."
+msgstr ""
+"No s'ha pogut actualitzar el registre de la descripció d'aquest complement."
+
+#: ../include/Addon.class.php:649
+msgid "Failed to update the designer record for this add-on."
+msgstr ""
+"No s'ha pogut actualitzar el registre del dissenyador d'aquest complement."
+
+#: ../include/Addon.class.php:671
+msgid "Failed to update the image record for this add-on."
+msgstr ""
+"No s'ha pogut actualitzar el registre de la imatge d'aquest complement."
+
+#: ../include/Addon.class.php:696
+msgid "Failed to update the license record for this add-on."
+msgstr ""
+"No s'ha pogut actualitzar el registre de la llicència d'aquest complement."
+
+#: ../include/Addon.class.php:704
+msgid "Failed to update the name record for this add-on."
+msgstr "No s'ha pogut actualitzar el registre del nom d'aquest complement."
+
+#: ../include/AddonViewer.class.php:100 ../include/AddonViewer.class.php:214
+msgid "Upload Image"
+msgstr "Puja una imatge"
+
+#: ../include/AddonViewer.class.php:108 ../manage-panel.php:258
+msgid "Type:"
+msgstr "Tipus:"
+
+#: ../include/AddonViewer.class.php:109
+msgid "Arena"
+msgstr "Arena"
+
+#: ../include/AddonViewer.class.php:112 ../include/AddonViewer.class.php:358
+msgid "Designer:"
+msgstr "Dissenyador:"
+
+#: ../include/AddonViewer.class.php:116
+msgid "Upload date:"
+msgstr "Pujat el dia:"
+
+#: ../include/AddonViewer.class.php:120
+msgid "Submitted by:"
+msgstr "Enviat per:"
+
+#: ../include/AddonViewer.class.php:124
+msgid "Revision:"
+msgstr "Revisió:"
+
+#: ../include/AddonViewer.class.php:128
+msgid "Compatible with:"
+msgstr "Compatible amb:"
+
+#: ../include/AddonViewer.class.php:132
+msgid "License"
+msgstr "Llicència"
+
+#: ../include/AddonViewer.class.php:136
+msgid "Permalink"
+msgstr "Enllaç permanent"
+
+#: ../include/AddonViewer.class.php:143
+msgid ""
+"Warning: This addon may not display correctly on some systems. It uses "
+"textures that may not be compatible with all video cards."
+msgstr ""
+"Atenció: aquest complement podria no mostrar-se bé en alguns sistemes. Fa "
+"servir textures que podrien no ser compatibles amb totes les targetes "
+"gràfiques."
+
+#: ../include/AddonViewer.class.php:147
+msgid "Your Rating:"
+msgstr "La vostra valoració:"
+
+#: ../include/AddonViewer.class.php:154
+#, php-format
+msgid "Download %s"
+msgstr "Descarrega %s"
+
+#: ../include/AddonViewer.class.php:161
+msgid "Download this add-on in game!"
+msgstr "Descarregueu-vos aquest complement des del joc!"
+
+#: ../include/AddonViewer.class.php:169
+msgid "Revisions"
+msgstr "Revisions"
+
+#: ../include/AddonViewer.class.php:173
+msgid "Upload Revision"
+msgstr "Puja una revisió"
+
+#: ../include/AddonViewer.class.php:200
+#, php-format
+msgid "Download revision %u"
+msgstr "Descarrega la revisió %u"
+
+#: ../include/AddonViewer.class.php:210
+msgid "Images"
+msgstr "Imatges"
+
+#: ../include/AddonViewer.class.php:217
+msgid "No images have been uploaded for this addon yet."
+msgstr "Encara no s'ha pujat cap imatge per aquest complement."
+
+#: ../include/AddonViewer.class.php:238 ../include/AddonViewer.class.php:303
+msgid "Unapprove"
+msgstr "Rebutja"
+
+#: ../include/AddonViewer.class.php:240 ../include/AddonViewer.class.php:305
+msgid "Approve"
+msgstr "Aprova"
+
+#: ../include/AddonViewer.class.php:246
+msgid "Set Icon"
+msgstr "Estableix la icona"
+
+#: ../include/AddonViewer.class.php:250
+msgid "Set Image"
+msgstr "Estableix la imatge"
+
+#: ../include/AddonViewer.class.php:252 ../include/AddonViewer.class.php:308
+msgid "Delete File"
+msgstr "Esborra el fitxer"
+
+#: ../include/AddonViewer.class.php:272
+msgid "Source Files"
+msgstr "Fitxers font"
+
+#: ../include/AddonViewer.class.php:276
+msgid "Upload Source File"
+msgstr "Puja el fitxer font"
+
+#: ../include/AddonViewer.class.php:279
+msgid "No source files have been uploaded for this addon yet."
+msgstr "Encara no s'ha pujat cap fitxer font per aquest complement."
+
+#: ../include/AddonViewer.class.php:295
+#, php-format
+msgid "Source File %u"
+msgstr "Fitxer font %u"
+
+#: ../include/AddonViewer.class.php:297
+msgid "Not Approved"
+msgstr "No aprovat"
+
+#: ../include/AddonViewer.class.php:298
+msgid "Download"
+msgstr "Descarrega"
+
+#: ../include/AddonViewer.class.php:333 ../include/AddonViewer.class.php:401
+msgid "Featured"
+msgstr "Destacat"
+
+#: ../include/AddonViewer.class.php:335 ../include/AddonViewer.class.php:395
+msgid "Alpha"
+msgstr "Alfa"
+
+#: ../include/AddonViewer.class.php:337 ../include/AddonViewer.class.php:396
+msgid "Beta"
+msgstr "Beta"
+
+#: ../include/AddonViewer.class.php:339 ../include/AddonViewer.class.php:397
+msgid "Release-Candidate"
+msgstr "Versió provisional"
+
+#: ../include/AddonViewer.class.php:341 ../include/AddonViewer.class.php:400
+msgid "DFSG Compliant"
+msgstr "Compleix les DFSG"
+
+#: ../include/AddonViewer.class.php:351
+msgid "You do not have the necessary privileges to perform this action."
+msgstr "No teniu els privilegis necessaris per dur a terme aquesta acció."
+
+#: ../include/AddonViewer.class.php:353
+msgid "Configuration"
+msgstr "Configuració"
+
+#: ../include/AddonViewer.class.php:363
+msgid "Description:"
+msgstr "Descripció:"
+
+#: ../include/AddonViewer.class.php:363
+#, php-format
+msgid "Max %u characters"
+msgstr "Màxim %u caràcters"
+
+#: ../include/AddonViewer.class.php:369
+msgid "Save Properties"
+msgstr "Desa les propietats"
+
+#: ../include/AddonViewer.class.php:375
+msgid "Delete Addon"
+msgstr "Esborra el complement"
+
+#: ../include/AddonViewer.class.php:380
+msgid "Included in Game Versions:"
+msgstr "Inclós en les versions del joc:"
+
+#: ../include/AddonViewer.class.php:382
+msgid "Start:"
+msgstr ""
+
+#: ../include/AddonViewer.class.php:383
+msgid "End:"
+msgstr ""
+
+#: ../include/AddonViewer.class.php:384
+msgid "Save"
+msgstr "Desa"
+
+#: ../include/AddonViewer.class.php:389
+msgid "Status Flags:"
+msgstr "Indicadors d'estat:"
+
+#: ../include/AddonViewer.class.php:393
+msgid "Approved"
+msgstr "Aprovat"
+
+#: ../include/AddonViewer.class.php:394
+msgid "Invisible"
+msgstr "Invisible"
+
+#: ../include/AddonViewer.class.php:398
+msgid "Latest"
+msgstr "Més recent"
+
+#: ../include/AddonViewer.class.php:402
+msgid "Invalid Textures"
+msgstr "Textures invàlides"
+
+#: ../include/AddonViewer.class.php:409 ../include/AddonViewer.class.php:514
+#, php-format
+msgid "Rev %u:"
+msgstr "Rev %u:"
+
+#: ../include/AddonViewer.class.php:498
+#, php-format
+msgid "Delete revision %d"
+msgstr "Esborra la revisió %d"
+
+#: ../include/AddonViewer.class.php:505
+msgid "Save Changes"
+msgstr "Desa els canvis"
+
+#: ../include/AddonViewer.class.php:509
+msgid "Notes from Moderator to Submitter:"
+msgstr "Notes del moderador per a qui l'ha enviat:"
+
+#: ../include/AddonViewer.class.php:526
+msgid "Save Notes"
+msgstr "Desa les notes"
+
+#: ../include/File.class.php:39
+msgid "Insufficient permissions."
+msgstr "Permisos insuficients."
+
+#: ../include/File.class.php:78
+msgid "The file to extract does not exist."
+msgstr "El fitxer a extreure no existeix."
+
+#: ../include/File.class.php:90 ../include/File.class.php:119
+msgid "Could not open archive file. It may be corrupted."
+msgstr "No s'ha pogut obrir l'arxiu. Potser està corromput."
+
+#: ../include/File.class.php:94 ../include/File.class.php:123
+msgid "Failed to extract archive file."
+msgstr "No s'ha pogut extreure l'arxiu."
+
+#: ../include/File.class.php:130
+msgid "Unknown archive type."
+msgstr "Tipus d'arxiu desconegut."
+
+#: ../include/File.class.php:281 ../include/Upload.class.php:400
+msgid "Unknown file upload error."
+msgstr "Error desconegut pujant el fitxer."
+
+#: ../include/File.class.php:285 ../include/File.class.php:287
+#: ../include/Upload.class.php:404 ../include/Upload.class.php:406
+msgid "Uploaded file is too large."
+msgstr "El fitxer pujat és massa gran."
+
+#: ../include/File.class.php:289 ../include/Upload.class.php:408
+msgid "Uploaded file is incomplete."
+msgstr "El fitxer pujat està incomplet."
+
+#: ../include/File.class.php:291 ../include/Upload.class.php:410
+msgid "No file was uploaded."
+msgstr "No s'ha pujat cap fitxer."
+
+#: ../include/File.class.php:293 ../include/Upload.class.php:412
+msgid "There is no TEMP directory to store the uploaded file in."
+msgstr "No hi ha cap directori temporal per desa-hi el fitxer pujat."
+
+#: ../include/File.class.php:295 ../include/Upload.class.php:414
+msgid "Unable to write uploaded file to disk."
+msgstr "No s'ha pogut escriure a disc el fitxer pujat."
+
+#: ../include/File.class.php:310 ../include/Upload.class.php:427
+msgid "Uploaded image files must be either PNG or Jpeg files."
+msgstr "Els fitxers d'imatge pujats han de ser PNG o JPEG."
+
+#: ../include/File.class.php:314 ../include/Upload.class.php:431
+msgid "The file you uploaded was not the correct type."
+msgstr "El fitxer que heu pujat no era del tipus correcte."
+
+#: ../include/File.class.php:489 ../include/Upload.class.php:63
+msgid "Failed to move uploaded file."
+msgstr "No s'ha pogut moure el fitxer pujat."
+
+#: ../include/File.class.php:507
+msgid "The uploaded image file is invalid."
+msgstr "El fitxer d'imatge pujat és invàlid."
+
+#: ../include/File.class.php:531 ../include/Upload.class.php:158
+msgid "Failed to associate image file with addon."
+msgstr "No s'ha pogut associar la imatge amb el complement."
+
+#: ../include/SMail.class.php:96
+msgid "No moderator mailing-list email is set."
+msgstr ""
+"No s'ha establert cap adreça per a la llista de correu dels moderadors."
+
+#: ../include/Template.class.php:101 ../include/menu.php:38
+#, php-format
+msgid "Welcome, %s"
+msgstr "Benvingut/da, %s"
+
+#: ../include/Template.class.php:102 ../include/menu.php:42
+msgid "Home"
+msgstr "Inici"
+
+#: ../include/Template.class.php:103 ../include/menu.php:75 ../login.php:112
+#: ../password-reset.php:228
+msgid "Login"
+msgstr "Inici de sessió"
+
+#: ../include/Template.class.php:104 ../include/menu.php:66
+msgid "Log out"
+msgstr "Tanca la sessió"
+
+#: ../include/Template.class.php:105 ../include/menu.php:67 ../users.php:38
+msgid "Users"
+msgstr "Usuaris"
+
+#: ../include/Template.class.php:106 ../include/menu.php:68
+msgid "Upload"
+msgstr "Puja"
+
+#: ../include/Template.class.php:107 ../include/menu.php:70 ../manage.php:25
+msgid "Manage"
+msgstr "Gestiona"
+
+#: ../include/Template.class.php:112 ../include/menu.php:122
+msgid "STK Homepage"
+msgstr "Web del STK"
+
+#: ../include/Template.class.php:131 ../include/menu.php:85
+msgid "Languages"
+msgstr "Idiomes"
+
+#: ../include/Upload.class.php:96
+msgid ""
+"A valid License.txt file was not found. Please add a License.txt file to "
+"your archive and re-submit it."
+msgstr ""
+"No s'ha trobat cap fitxer License.txt. Si us plau, afegiu un fitxer "
+"License.txt al vostre arxiu i torneu-lo a enviar."
+
+#: ../include/Upload.class.php:193
+msgid "Invalid add-on type."
+msgstr "Tipus de complement invàlid."
+
+#: ../include/Upload.class.php:199
+msgid "Failed to re-pack archive file."
+msgstr "No s'ha pogut reempaquetar l'arxiu."
+
+#: ../include/Upload.class.php:207
+msgid "Failed to associate archive file with addon."
+msgstr "No s'ha pogut associar l'arxiu amb el complement."
+
+#: ../include/Upload.class.php:223
+msgid "Successfully uploaded source archive."
+msgstr "L'arxiu font s'ha pujat correctament."
+
+#: ../include/Upload.class.php:224 ../include/Upload.class.php:271
+msgid "Continue."
+msgstr "Continua."
+
+#: ../include/Upload.class.php:240
+msgid ""
+"You are trying to add a new revision of an add-on that does not exist."
+msgstr ""
+"Esteu intentant afegir una nova revisió d'un complement que no existeix."
+
+#: ../include/Upload.class.php:256
+msgid ""
+"Your add-on was uploaded successfully. It will be reviewed by our moderators "
+"before becoming publicly available."
+msgstr ""
+"El vostre complement ha estat pujat correctament. Serà revisat per els "
+"nostres moderadors abans d'estar disponible públicament."
+
+#: ../include/Upload.class.php:257
+msgid "Click here to upload the sources to your add-on now."
+msgstr "Feu clic aquí per pujar els fitxers font del vostre complement ara."
+
+#: ../include/Upload.class.php:258
+msgid ""
+"(Uploading the sources to your add-on enables others to improve your work "
+"and also ensure your add-on will not be lost in the future if new "
+"SuperTuxKart versions are not compatible with the current format.)"
+msgstr ""
+"(Pujar els fitxers font del vostre complement permet als altres millorar la "
+"vostra feina, i també assegura que el vostre complement no es perdrà en el "
+"futur si les noves versions del SuperTuxKart no són compatibles amb el "
+"format actual)."
+
+#: ../include/Upload.class.php:259
+msgid "Click here to view your add-on."
+msgstr "Feu clic aquí per veure el vostre complement."
+
+#: ../include/Upload.class.php:270
+msgid "Successfully uploaded image."
+msgstr "La imatge s'ha pujat correctament."
+
+#: ../include/Upload.class.php:288
+msgid ""
+"Some invalid files were found in the uploaded add-on. These files have been "
+"removed from the archive:"
+msgstr ""
+"S'han trobat alguns fitxers invàlids en el complement pujat. Aquests fitxers "
+"han estat eliminats de l'arxiu:"
+
+#: ../include/Upload.class.php:367
+msgid ""
+"Some images in this add-on do not have dimensions that are a power of two."
+msgstr ""
+"Algunes imatges d'aquest complement no tenen dimensions que siguin una "
+"potència de dos."
+
+#: ../include/Upload.class.php:368
+msgid "This may cause display errors on some video cards."
+msgstr ""
+"Això podria provocar errors de visualització en algunes targetes gràfiques."
+
+#: ../include/User.class.php:85
+msgid "Failed to log in."
+msgstr "No s'ha pogut connectar."
+
+#: ../include/User.class.php:92
+msgid "Your username or password is incorrect."
+msgstr "El vostre usuari o la vostra contrasenya són incorrectes."
+
+#: ../include/User.class.php:146
+msgid "You must be logged in to change a password."
+msgstr "Cal que esteu connectat per canviar una contrasenya."
+
+#: ../include/User.class.php:153 ../password-reset.php:224
+msgid "Failed to change your password."
+msgstr "No s'ha pogut canviar la vostra contrasenya."
+
+#: ../include/User.class.php:220
+msgid "You must agree to the terms to register."
+msgstr "Heu d'acceptar els termes per poder-vos registrar."
+
+#: ../include/User.class.php:227 ../password-reset.php:104
+msgid "An error occurred trying to validate your username."
+msgstr "S'ha produït un error intentant validar el vostre nom d'usuari."
+
+#: ../include/User.class.php:228 ../include/User.class.php:238
+#: ../include/User.class.php:253 ../include/User.class.php:262
+#: ../password-reset.php:105 ../password-reset.php:121
+#: ../password-reset.php:156 ../password-reset.php:210
+msgid "Please contact a website administrator."
+msgstr "Si us plau, contacteu amb l'administrador de la web."
+
+#: ../include/User.class.php:230
+msgid "Your username has already been used."
+msgstr "El vostre nom d'usuari ja s'ha fet servir."
+
+#: ../include/User.class.php:237
+msgid "An error occurred trying to validate your email address."
+msgstr "S'ha produït un error validant la vostra adreça de correu."
+
+#: ../include/User.class.php:240
+msgid "Your email address has already been used."
+msgstr "La vostra adreça de correu ja s'ha fet servir."
+
+#: ../include/User.class.php:252
+msgid "An error occurred while creating your account."
+msgstr "S'ha produït un error mentre es creava el vostre compte."
+
+#: ../include/User.class.php:299 ../users.php:90
+msgid "Me"
+msgstr "Jo"
+
+#: ../include/Validate.class.php:33
+msgid "You must enter an email address."
+msgstr "Cal que introduïu una adreça de correu electrònic."
+
+#: ../include/Validate.class.php:36
+#, php-format
+msgid "\"%s\" is not a valid email address."
+msgstr "\"%s\" no és una adreça de correu vàlida."
+
+#: ../include/Validate.class.php:48
+msgid "Your username must be at least 4 characters long."
+msgstr "El vostre nom d'usuari ha de tenir com a mínim 4 caràcters."
+
+#: ../include/Validate.class.php:51
+msgid "Your username can only contain alphanumeric characters."
+msgstr "El vostre nom d'usuari només pot contenir caràcters alfanumèrics."
+
+#: ../include/Validate.class.php:59
+msgid "Your password must be at least 6 characters long."
+msgstr "La vostra contrasenya ha de tenir com a mínim 6 caràcters."
+
+#: ../include/Validate.class.php:63
+msgid "Your passwords do not match."
+msgstr "Les vostres contrasenyes no coincideixen."
+
+#: ../include/Validate.class.php:93
+msgid "You must enter a name."
+msgstr "Heu d'introduir un nom."
+
+#: ../include/allow.php:102
+msgid "root"
+msgstr "root"
+
+#: ../include/allow.php:103
+msgid "supAdministrator"
+msgstr "supAdministrator"
+
+#: ../include/allow.php:104
+msgid "administrator"
+msgstr "administrador"
+
+#: ../include/allow.php:105
+msgid "moderator"
+msgstr "moderador"
+
+#: ../include/allow.php:106
+msgid "basicUser"
+msgstr "basicUser"
+
+#: ../include/coreUser.php:87 ../login.php:45 ../password-reset.php:46
+#: ../register.php:35
+msgid "Username:"
+msgstr "Nom d'usuari:"
+
+#: ../include/coreUser.php:88
+msgid "Registration Date:"
+msgstr "data de registre:"
+
+#: ../include/coreUser.php:89
+msgid "Real Name:"
+msgstr "Nom real:"
+
+#: ../include/coreUser.php:90 ../include/coreUser.php:114
+msgid "Role:"
+msgstr "Rol:"
+
+#: ../include/coreUser.php:93 ../include/coreUser.php:110
+msgid "Homepage:"
+msgstr "Pàgina web:"
+
+#: ../include/coreUser.php:131
+msgid "User Activated:"
+msgstr "Usuari activat:"
+
+#: ../include/coreUser.php:139
+msgid "Save Configuration"
+msgstr "Desa la configuració"
+
+#: ../include/coreUser.php:143 ../include/coreUser.php:151
+#: ../password-reset.php:180 ../password-reset.php:252
+msgid "Change Password"
+msgstr "Canvia la contrasenya"
+
+#: ../include/coreUser.php:145
+msgid "Old Password:"
+msgstr "Contrasenya anterior:"
+
+#: ../include/coreUser.php:147 ../password-reset.php:172
+#: ../password-reset.php:244 ../register.php:36 ../register.php:41
+#, php-format
+msgid "Must be at least %d characters long."
+msgstr "Ha de tenir almenys %d caràcters."
+
+#: ../include/coreUser.php:147 ../password-reset.php:171
+#: ../password-reset.php:243
+msgid "New Password:"
+msgstr "Nova contrasenya:"
+
+#: ../include/coreUser.php:149
+msgid "New Password (Confirm):"
+msgstr "Nova contrasenya (confirmar):"
+
+#: ../include/coreUser.php:162
+msgid "User's Tracks"
+msgstr "Circuits de l'usuari"
+
+#: ../include/coreUser.php:163
+msgid "This user has not uploaded any tracks."
+msgstr "Aquest usuari no ha pujat cap circuit."
+
+#: ../include/coreUser.php:167
+msgid "User's Karts"
+msgstr "Karts de l'usuari"
+
+#: ../include/coreUser.php:168
+msgid "This user has not uploaded any karts."
+msgstr "Aquest usuari no ha pujat cap kart."
+
+#: ../include/coreUser.php:172
+msgid "User's Arenas"
+msgstr "Arenes de l'usuari"
+
+#: ../include/coreUser.php:173
+msgid "This user has not uploaded any arenas."
+msgstr "Aquest usuari no ha pujat cap arena."
+
+#: ../include/coreUser.php:215
+msgid "Your old password is not correct."
+msgstr "La vostra contrasenya anterior no és correcta."
+
+#: ../include/xmlWrite.php:138
+msgid "The following file could not be found:"
+msgstr "El següent fitxer no s'ha pogut trobar:"
+
+#. I18N: Website meta description
+#: ../index.php:35
+msgid ""
+"This is the official SuperTuxKart add-on repository. It contains extra karts "
+"and tracks for the SuperTuxKart game."
+msgstr ""
+"Aquest és el dipòsit oficial de complements del SuperTuxKart. Conté karts i "
+"circuits extres per al joc."
+
+#: ../index.php:63
+#, php-format
+msgid "The most downloaded kart is %s."
+msgstr "El kart més descarregat és %s."
+
+#: ../index.php:64
+#, php-format
+msgid "The most downloaded track is %s."
+msgstr "El circuit més descarregat és %s."
+
+#: ../login.php:49 ../register.php:40
+msgid "Password:"
+msgstr "Contrasenya:"
+
+#: ../login.php:52
+msgid "Log In"
+msgstr "Inici de sessió"
+
+#: ../login.php:55
+msgid "Create an account."
+msgstr "Crea un compte."
+
+#: ../login.php:56
+msgid "Forgot password?"
+msgstr "Heu oblidat la contrasenya?"
+
+#: ../login.php:67
+msgid "Failed to logout."
+msgstr "No s'ha pogut desconnectar."
+
+#: ../login.php:70
+msgid "You have been logged out."
+msgstr "Heu estat desconnectat."
+
+#: ../login.php:71 ../login.php:92 ../login.php:104
+#, php-format
+msgid "Click %shere%s if you do not automatically redirect."
+msgstr "Feu clic %saquí%s si no sou redirigit automàticament."
+
+#: ../login.php:91
+#, php-format
+msgid "Welcome, %s!"
+msgstr "Benvingut/da, %s!"
+
+#: ../login.php:103
+msgid "You are already logged in."
+msgstr "Ja esteu connectat."
+
+#: ../manage-panel.php:44
+msgid "Deleted message."
+msgstr "Missatge esborrat."
+
+#: ../manage-panel.php:48
+msgid "Failed to delete message."
+msgstr "No s'ha pogut esborrar el missatge."
+
+#: ../manage-panel.php:63
+msgid "Invalid page. You may have followed a broken link."
+msgstr "Pàgina invàlida. És possible que hagueu seguit un enllaç trencat."
+
+#. I18N: Moderator panel
+#: ../manage-panel.php:67 ../manage.php:38
+msgid "Overview"
+msgstr ""
+
+#. I18N: Moderator panel
+#: ../manage-panel.php:72 ../manage.php:45
+msgid "General Settings"
+msgstr "Opcions generals"
+
+#. I18N: Moderator panel
+#: ../manage-panel.php:77 ../manage.php:51
+msgid "News Messages"
+msgstr "Missatges de notícies"
+
+#: ../manage-panel.php:81 ../manage.php:70
+msgid "Uploaded Files"
+msgstr "Fitxers pujats"
+
+#: ../manage-panel.php:85 ../manage.php:57
+msgid "Client Versions"
+msgstr "Versions de client:"
+
+#: ../manage-panel.php:89 ../manage.php:63
+msgid "Cache Files"
+msgstr ""
+
+#. I18N: Moderator panel
+#: ../manage-panel.php:94 ../manage.php:76
+msgid "Event Logs"
+msgstr "Registres d'events"
+
+#. I18N: Heading in moderator overview panel
+#: ../manage-panel.php:107
+msgid "Unapproved Add-Ons"
+msgstr "Complements no aprovats"
+
+#. I18N: Notice on unapproved add-on list in moderator overview panel
+#: ../manage-panel.php:109
+msgid ""
+"Note that only add-ons where the newest revision is unapproved will appear "
+"here."
+msgstr ""
+"Tingueu en compte que només apareixeran aquí aquells complements dels quals "
+"la seva darrera revisió no estigui aprovada."
+
+#: ../manage-panel.php:131
+msgid "Revisions:"
+msgstr "Revisions:"
+
+#: ../manage-panel.php:136
+msgid "No unapproved add-ons."
+msgstr "No hi ha complements no aprovats."
+
+#: ../manage-panel.php:139
+msgid "Unapproved Files"
+msgstr "Fitxers no aprovats."
+
+#: ../manage-panel.php:140 ../manage-panel.php:153
+msgid "Images:"
+msgstr "Imatges:"
+
+#: ../manage-panel.php:158
+msgid "No unapproved images."
+msgstr "No hi ha imatges no aprovades."
+
+#: ../manage-panel.php:160
+msgid "Source Archives:"
+msgstr "Arxius font:"
+
+#: ../manage-panel.php:173
+#, php-format
+msgid "%d File"
+msgid_plural "%d Files"
+msgstr[0] "%d fitxer"
+msgstr[1] "%d fitxers"
+
+#: ../manage-panel.php:178
+msgid "No unapproved source archives."
+msgstr "No hi ha cap arxiu font no aprovat."
+
+#: ../manage-panel.php:186
+msgid "XML Download Frequency"
+msgstr "Freqüència de descàrrega XML"
+
+#: ../manage-panel.php:187
+msgid "Permitted Addon Filetypes"
+msgstr "Tipus de fitxer permesos en els complements"
+
+#: ../manage-panel.php:188
+msgid "Permitted Source Archive Filetypes"
+msgstr "Tipus de fitxer permesos en els arxius font"
+
+#: ../manage-panel.php:189
+msgid "Administrator Email"
+msgstr "Correu de l'administrador"
+
+#: ../manage-panel.php:190
+msgid "Moderator List Email"
+msgstr "Correu de la llista de moderadors"
+
+#: ../manage-panel.php:192 ../manage-panel.php:194
+msgid "False"
+msgstr "Fals"
+
+#: ../manage-panel.php:192 ../manage-panel.php:194
+msgid "True"
+msgstr "Cert"
+
+#: ../manage-panel.php:195
+msgid "List Invisible Addons in XML"
+msgstr "Mostra els complements invisibles en XML"
+
+#: ../manage-panel.php:196
+msgid "Blog RSS Feed"
+msgstr "Canal RSS del bloc"
+
+#: ../manage-panel.php:197
+msgid "Maximum Uploaded Image Dimension"
+msgstr "Dimensió màxima de les imatges pujades"
+
+#: ../manage-panel.php:198
+msgid "Apache Rewrites"
+msgstr ""
+
+#: ../manage-panel.php:199
+msgid "Save Settings"
+msgstr "Desa la configuració"
+
+#: ../manage-panel.php:207 ../manage-panel.php:229
+msgid "Message:"
+msgstr "Missatge:"
+
+#: ../manage-panel.php:208 ../manage-panel.php:231
+msgid "Condition:"
+msgstr "Condició:"
+
+#: ../manage-panel.php:209
+msgid "Display on Website:"
+msgstr "Mostra a la web:"
+
+#: ../manage-panel.php:210
+msgid "Create Message"
+msgstr "Crea missatge"
+
+#: ../manage-panel.php:223
+msgid "No news messages currently exist."
+msgstr "Actualment no existeixen missatges de notícies."
+
+#: ../manage-panel.php:228
+msgid "Date:"
+msgstr "Data:"
+
+#: ../manage-panel.php:230
+msgid "Author:"
+msgstr "Autor/a:"
+
+#: ../manage-panel.php:232
+msgid "Web:"
+msgstr "Lloc web:"
+
+#: ../manage-panel.php:233
+msgid "Actions:"
+msgstr "Accions:"
+
+#: ../manage-panel.php:253
+msgid "No files have been uploaded."
+msgstr "No s'ha pujat cap fitxer."
+
+#: ../manage-panel.php:257 ../register.php:49
+msgid "Name:"
+msgstr "Nom:"
+
+#: ../manage-panel.php:259
+msgid "References:"
+msgstr ""
+
+#: ../manage-panel.php:343
+msgid "Clients by User-Agent"
+msgstr "Clients per agent d'usuari"
+
+#: ../manage-panel.php:350
+msgid ""
+"There are currently no SuperTuxKart clients recorded. Your download script "
+"may not be configured properly."
+msgstr ""
+"En aquests moments no hi ha cap client de SuperTuxKart registrat. El vostre "
+"script de descàrrega podria no estar ben configurat."
+
+#: ../manage-panel.php:355
+msgid "Game Version:"
+msgstr "Versió del joc:"
+
+#: ../manage-panel.php:355
+msgid "User-Agent String:"
+msgstr "Cadena de l'agent d'usuari:"
+
+#: ../manage-panel.php:375
+msgid "Empty cache"
+msgstr "Buida la memòria cau"
+
+#: ../manage.php:89
+msgid "One or more fields has been left blank. Settings were not saved."
+msgstr "Un o més camps s'han deixat en blanc. La configuració no s'ha desat."
+
+#: ../manage.php:94
+msgid "XML Download Frequency value is invalid."
+msgstr "El valor de la freqüència de descàrrega XML és invàlid."
+
+#: ../manage.php:108
+msgid "Saved settings."
+msgstr "Configuració desada."
+
+#: ../manage.php:126
+msgid "Created message."
+msgstr "Missatge creat."
+
+#: ../manage.php:130
+msgid "Failed to create message."
+msgstr "No s'ha pogut crear el missatge."
+
+#: ../password-reset.php:27 ../password-reset.php:36
+msgid "Reset Password"
+msgstr "Reinicia la contrasenya"
+
+#: ../password-reset.php:44
+msgid ""
+"In order to reset your password, please enter your username and your email "
+"address. A password reset link will be emailed to you. Your old password "
+"will become inactive until your password is reset."
+msgstr ""
+"Per poder reiniciar la vostra contrasenya introduïu el vostre nom d'usuari i "
+"la vostra adreça de correu. Se us enviarà un enllaç per reiniciar la "
+"contrasenya. La vostra contrasenya antiga romandrà inactiva fins que la "
+"reinicieu."
+
+#: ../password-reset.php:50 ../register.php:53
+msgid "Email Address:"
+msgstr "Correu electrònic:"
+
+#: ../password-reset.php:58
+msgid "Send Reset Link"
+msgstr "Envia l'enllaç de reinici"
+
+#: ../password-reset.php:107
+msgid "Username and email address combination not found."
+msgstr "No s'ha trobat la combinació de nom d'usuari i adreça de correu."
+
+#: ../password-reset.php:120 ../password-reset.php:155
+#: ../password-reset.php:209
+msgid "An error occurred while resetting your password."
+msgstr "S'ha produït un error mentre es reiniciava la vostra contrasenya."
+
+#: ../password-reset.php:132
+msgid ""
+"Password reset link sent. Please reset your password using the link emailed "
+"to you."
+msgstr ""
+"L'enllaç per reiniciar la contrasenya ha estat enviat. Reinicieu la vostra "
+"contrasenya fent servir l'enllaç enviat."
+
+#: ../password-reset.php:158
+msgid "Invalid verification code."
+msgstr "Codi de verificació invàlid."
+
+#: ../password-reset.php:169 ../password-reset.php:241
+msgid "Please enter a new password for your account."
+msgstr "Si us plau, introduïu una nova contrasenya per al vostre compte."
+
+#: ../password-reset.php:176 ../password-reset.php:248
+msgid "New Password (confirm):"
+msgstr "Nova contrasenya (confirmar):"
+
+#: ../password-reset.php:186
+msgid "Could not reset your password. The link you followed is not valid."
+msgstr ""
+"No s'ha pogut reiniciar la vostra contrasenya. L'enllaç que heu seguit no és "
+"vàlid."
+
+#: ../password-reset.php:227
+msgid "Changed password."
+msgstr "Contrasenya canviada."
+
+#: ../register.php:24
+msgid "Register"
+msgstr "Registre"
+
+#: ../register.php:29
+msgid "Account Registration"
+msgstr "Registre del compte"
+
+#: ../register.php:45
+msgid "Password (confirm):"
+msgstr "Contrasenya (confirmeu):"
+
+#: ../register.php:57
+msgid "Terms:"
+msgstr "Termes:"
+
+#: ../register.php:59
+msgid "STK Addons Terms and Conditions"
+msgstr "Termes i condicions dels complements del STK"
+
+#: ../register.php:60
+msgid ""
+"You must agree to these terms in order to upload content to the STK Addons "
+"site."
+msgstr ""
+"Heu d'acceptar aquests termes per poder pujar contingut a la web de "
+"complements del STK."
+
+#: ../register.php:61
+msgid ""
+"The STK Addons service is designed to be a repository exclusively for Super\n"
+"Tux Kart addon content. All uploaded content must be intended for this\n"
+"purpose. When you upload your content, it will be available publicly on the\n"
+"internet, and will be made available in-game for download."
+msgstr ""
+"El servei de complements STK està dissenyat per ser un dipòsit exclusivament "
+"per\n"
+"a contingut complementari del SuperTuxKart. Tots els continguts pujats han\n"
+"d'estar pensats per a aquest propòsit. Quan pujeu contingut, estarà "
+"disponible\n"
+"públicament a Internet, i també dins del joc per a ser descarregat."
+
+#: ../register.php:65
+msgid ""
+"Super Tux Kart aims to comply with the Debian Free Software Guidelines "
+"(DFSG).\n"
+"TuxFamily.org also requires that content they host comply with open "
+"licenses.\n"
+"You may not upload content which is locked down with a restrictive license.\n"
+"Licenses such as CC-BY-SA 3.0, or other DFSG-compliant licenses are "
+"required.\n"
+"All content taken from third-party sources must be attributed properly, and "
+"must\n"
+"also be available under an open license. Licenses and attribution should be\n"
+"included in a \"license.txt\" file in each uploaded archive. Uploads "
+"without\n"
+"proper licenses or attribution may be deleted without warning."
+msgstr ""
+"SuperTuxKart aspira a complir amb les directrius de programari lliure de "
+"Debian (DFSG).\n"
+"TuxFamily.org també requereix que el contingut que acull tingui una "
+"llicència lliure.\n"
+"No podeu pujar contingut que es trobi limitat per una llicència "
+"restrictiva.\n"
+"Llicències com ara la CC-BY-SA 3.0, o altres llicències compatibles amb les "
+"DFSG són\n"
+"requerides.\n"
+"Tot el contingut obtingut de terceres parts s'ha d'atribuir adequadament, i "
+"cal que\n"
+"també estigui disponible sota una llicència oberta. Les llicències i "
+"atribucions s'han\n"
+"d'incloure en un fitxer \"License.txt\" en cada arxiu pujat. Els fitxers "
+"sense una llicència\n"
+"o una atribució adequada podran ser esborrats sense previ avís."
+
+#: ../register.php:73
+msgid ""
+"Even with valid licenses and attribution, content may not contain any\n"
+"of the following:"
+msgstr ""
+"Fins i tot amb llicències i atribucions vàlides, el contingut no pot "
+"incloure\n"
+"cap de les següents coses:"
+
+#: ../register.php:75 ../upload.php:272
+msgid "Profanity"
+msgstr "Paraulotes"
+
+#: ../register.php:76 ../upload.php:273
+msgid "Explicit images"
+msgstr "Imatges explícites"
+
+#: ../register.php:77 ../upload.php:274
+msgid "Hateful messages and/or images"
+msgstr "Missatges o imatges que incitin a l'odi"
+
+#: ../register.php:78 ../upload.php:275
+msgid "Any other content that may be unsuitable for children"
+msgstr "Qualsevol altre contingut que pugui resultar inadequat per als nens."
+
+#: ../register.php:79
+msgid ""
+"If any of your uploads are found to contain any of the above, your upload\n"
+"will be removed, your account may be removed, and any other content you "
+"uploaded\n"
+"may be removed."
+msgstr ""
+"Si es descobreix que qualsevol dels vostres fitxers conté alguna de les\n"
+"coses anteriors, les vostres pujades seran eliminades, el vostre compte "
+"podria ser\n"
+"eliminat, i qualsevol altre contingut que hagueu pujat podria ser eliminat."
+
+#: ../register.php:82
+msgid ""
+"By checking the box below, you are confirming that you understand these\n"
+"terms. If you have any questions or comments regarding these terms, one of "
+"the\n"
+"members of the development team would gladly assist you."
+msgstr ""
+"Al marcar la casella inferior confirmeu que enteneu aquests termes. Si\n"
+"Teniu cap dubte o comentari al respecte dels mateixos un dels membres de\n"
+"l'equip de desenvolupament us atendrà gustosament."
+
+#: ../register.php:89
+msgid "I agree to the above terms"
+msgstr "Accepto els termes anteriors"
+
+#: ../register.php:93
+msgid "Register!"
+msgstr "Registra'm!"
+
+#: ../register.php:119
+msgid ""
+"Account creation was successful. Please activate your account using the link "
+"emailed to you."
+msgstr ""
+"El vostre compte s'ha creat correctament. Si us plau, activeu-lo fent servir "
+"l'enllaç que se us ha enviat per correu electrònic."
+
+#: ../register.php:133
+msgid "Your account has been activated."
+msgstr "El vostre compte ha estat activat."
+
+#: ../register.php:137
+msgid "Could not validate your account. The link you followed is not valid."
+msgstr ""
+"No s'ha pogut validar el vostre compte. L'enllaç que heu seguit no és vàlid."
+
+#: ../upload.php:125
+msgid ""
+"Your response to the agreement was unacceptable. You may not upload this "
+"content to the STK Addons website."
+msgstr ""
+"La vostra resposta a l'acord és inacceptable. No podeu pujar aquest "
+"contingut a la web de complements del STK."
+
+#: ../upload.php:175
+msgid "Please upload a new revision of your kart or track."
+msgstr "Si us plau, pugeu una nova revisió del vostre kart o circuit."
+
+#: ../upload.php:179
+msgid "What type of file are you uploading?"
+msgstr "Quin tipus de fitxer esteu pujant?"
+
+#: ../upload.php:181
+msgid "Source Archive"
+msgstr "Arxiu font"
+
+#: ../upload.php:182
+msgid "Image File"
+msgstr "Fitxer d'imatge"
+
+#: ../upload.php:189
+msgid "Please upload a kart or track."
+msgstr "Si us plau, pugeu un kart o circuit."
+
+#: ../upload.php:190
+msgid "Do not use this form if you are updating an existing add-on."
+msgstr ""
+"No feu servir aquest formulari per actualitzar un complement existent."
+
+#: ../upload.php:193
+msgid "File:"
+msgstr "Fitxer:"
+
+#: ../upload.php:194
+msgid "Supported archive types are:"
+msgstr "Els tipus d'arxiu acceptats són:"
+
+#: ../upload.php:195
+msgid "Agreement:"
+msgstr "Acord:"
+
+#: ../upload.php:200
+msgid ""
+"I am the sole author of every file (model, texture, sound effect, etc.) in "
+"this package"
+msgstr ""
+"Sóc l'únic autor/a de cada fitxer (model, textura, efecte de so, etc) "
+"d'aquest paquet."
+
+#: ../upload.php:207
+msgid ""
+"I have included a License.txt file describing the license under which my "
+"work is released, and my name (or nickname) if I want credit."
+msgstr ""
+"He inclòs un fitxer License.txt descrivint la llicència sota la qual es "
+"troba publicada la meva feina, i el meu nom (o sobrenom) si vull "
+"reconeixement."
+
+#: ../upload.php:207 ../upload.php:220 ../upload.php:265 ../upload.php:276
+msgid "Required"
+msgstr "Obligatori"
+
+#: ../upload.php:213
+msgid "I have included open content made by people other than me"
+msgstr "He inclós contingut obert fet per altres persones apart de mi."
+
+#: ../upload.php:220
+msgid ""
+"I have included a License.txt file including the name of every author whose "
+"material is used in this package, along with the license under which their "
+"work is released."
+msgstr ""
+"He inclòs un fitxer License.txt incloent el nom de tots els autors del "
+"material que es fa sevir en aquest paquet, així com la llicència sota la "
+"qual es troba publicada la seva feina."
+
+#: ../upload.php:224
+msgid "Must check at least one"
+msgstr "Cal seleccionar-ne almenys una"
+
+#: ../upload.php:224
+msgid "This package includes files released under:"
+msgstr "Aquest fitxer inclou fitxers sota la llicència:"
+
+#: ../upload.php:229
+msgid "GNU GPL"
+msgstr "GNU GPL"
+
+#: ../upload.php:234
+msgid "Creative Commons BY 3.0"
+msgstr "Creative Commons BY 3.0"
+
+#: ../upload.php:239
+msgid "Creative Commons BY SA 3.0"
+msgstr "Creative Commons BY SA 3.0"
+
+#: ../upload.php:244
+msgid "CC0 (Public Domain)"
+msgstr "CC0 (domini públic)"
+
+#: ../upload.php:249
+msgid "BSD License"
+msgstr "Llicència BSD"
+
+#: ../upload.php:254
+msgid "Other open license"
+msgstr "Una altra llicència oberta"
+
+#: ../upload.php:259
+msgid ""
+"Files released under other licenses will be rejected unless it can be "
+"verified that the license is open."
+msgstr ""
+"Els fitxers publicats sota altres llicències seran rebutjats a menys que es "
+"pugui verificar que la llicència és oberta."
+
+#: ../upload.php:265
+msgid ""
+"I recognize that if my file does not meet the above rules, it may be removed "
+"at any time without prior notice; I also assume the entire responsibility "
+"for any copyright violation that may result from not following the above "
+"rules."
+msgstr ""
+"Reconec que si el meu fitxer no compleix les normes anteriors pot ser "
+"eliminat en qualsevol moment sense previ avís. També assumeixo la plena "
+"responsabilitat de qualsevol violació de copyright que pugui resultar de no "
+"haver seguit les susdites normes."
+
+#: ../upload.php:271
+msgid "My package does not include:"
+msgstr "El meu paquet no inclou:"
+
+#: ../upload.php:283
+msgid "Upload file"
+msgstr "Puja el fitxer"
+
+#: ../users.php:63
+msgid "Your password has been changed successfully."
+msgstr "La vostra contrasenya s'ha canviat correctament."
