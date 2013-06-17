@@ -2337,6 +2337,11 @@ class TrackExport:
             # copied into the main track.
             if stktype=="IGNORE": continue
             
+            # Do not export linked objects; linked objects will be used as
+            # templates to create instances from
+            if obj.library is not None:
+                continue
+            
             
             objectProcessed = False
             for exporter in exporters:
