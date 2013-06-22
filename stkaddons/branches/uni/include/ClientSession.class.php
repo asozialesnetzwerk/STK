@@ -19,7 +19,7 @@
  */
 
 include_once('exceptions.php');
-include_once('sql.php');
+include_once('DBConnection.class.php');
 include_once('Validate.class.php');
 
 class ClientSessionException extends Exception {}
@@ -100,28 +100,23 @@ abstract class ClientSession
     /**
      * Get session object for already created session
      * @param string $session_id session id
-     * @param mixed $user username (string) or numerical user id
+     * @param string $user_name user name
      * @return ClientSessionAnonymous|ClientSessionUser
      * @throws ClientSessionExpiredException when session does not exist
      */
-    public static function get($session_id, $user)
-    {
-        $sql = null;
-        if (ctype_digit("$user") && $user > 0) {
-            $sql = sprintf("SELECT * FROM `%s` WHERE cid = '%s' AND uid = %d",
-                    DB_PREFIX.'client_sessions',
-                    mysql_real_escape_string($session_id),
-                    (int) $user);
-        }
-        else {
-            $sql = sprintf("SELECT * FROM `%s` WHERE cid = '%s' AND name = '%s'",
-                    DB_PREFIX.'client_sessions',
-                    mysql_real_escape_string($session_id),
-                    mysql_real_escape_string($user));
-        }
-
-        $result = sql_query($sql);
-        if (!$result || mysql_num_rows($result) == 0) {
+    public static function get($session_id, $user_name)
+    {  
+        $result = DBConnection::getInstance()->query
+        (
+            "SELECT * FROM `" . DB_PREFIX . "client_sessions` 
+            WHERE cid = :sessionid AND name = :username",
+            array
+            (
+                ':sessionid'   => $session_id,
+                ':username'   => $user_name
+            )
+        );
+        if (count($result) == 0) {
             throw new ClientSessionExpiredException('No session found');
         }
         else {

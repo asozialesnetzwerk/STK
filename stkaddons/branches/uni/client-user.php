@@ -19,13 +19,8 @@
  */
 define('ROOT', './');
 include_once('config.php');
-//include_once('include/ClientSession.class.php');
+include_once('include/ClientSession.class.php');
 include_once('include/User.class.php');
-
-
-ob_start();
-header('Content-type: text/xml');
-echo "<?xml version=\"1.0\"?>\n";
 
 $action = isset($_POST['action']) ? $_POST['action'] : null;
 $user = isset($_POST['user']) ? utf8_encode($_POST['user']) : null;
@@ -35,30 +30,28 @@ try {
     {
         case 'connect':
             try {
-                
                 $password = isset($_POST['password']) ? utf8_encode($_POST['password']) : null;
-                //$session = ClientSession::create($user, $password);
-                $session = "000session000token000";
-                printf('<connection token="%s" user="%s"/>',
-                $session, $user);
+                $session = ClientSession::create($user, $password);
+                returnXML('<connect success="yes" 
+                                    token="'. $session->getSessionId() . '"
+                                    username="' . $session->getName() . '"                                     
+                />');
+                
             }
-            catch (ClientSessionConnectException $e) {
-                sendPlainMessage(403, $e->getMessage());
+            catch(Exception $e){
+                returnXML('<connect success="no" info="' . $e->getMessage() . ' "/>');
             }
 
             break;
 
         case 'disconnect':
             try {
-                $id = isset($_POST['id']) ? $_POST['id'] : null;
-                //ClientSession::destroy($id, $user);
-                sendPlainMessage(200, 'Connection destroyed');
+                $token = isset($_POST['token']) ? $_POST['token'] : null;
+                ClientSession::destroy($token, $user);
+                returnXML('<disconnect success="yes"/>');
             }
-            catch (ClientSessionExpiredException $e)  {
-                sendPlainMessage(403, $e->getMessage());
-            }
-            catch (Exception $e) {
-                sendPlainMessage(500, $e->getMessage());
+            catch(Exception $e){
+                returnXML('<disconnect success="no" info="' . $e->getMessage() . ' "/>');
             }
             break;
 
@@ -66,31 +59,33 @@ try {
             try {
                 $password = isset($_POST['password']) ? utf8_encode($_POST['password']) : null;
                 User::register($user,$password,$password);
-                printf('<registration success="yes"/>');
+                returnXML('<registration success="yes"/>');
             }
-            catch (ClientSessionExpiredException $e)  {
-                sendPlainMessage(403, $e->getMessage());
-            }
-            catch (Exception $e) {
-                sendPlainMessage(500, $e->getMessage() . DB_HOST);
+            catch(Exception $e){
+                returnXML('<registration success="no" info="' . $e->getMessage() . ' "/>');
             }
             break;
 
         default:
-            sendPlainMessage(400, "I don't know what you want from me \n");
+            returnXML('<request success="no" info="' . 
+                htmlspecialchars(_('Invalid action.')) . 
+                '"/>');
             break;
     }
 }
 catch (Exception $e) {
-    sendPlainMessage(500, $e->getMessage());
+    returnXML('<request success="no" info="' . 
+        htmlspecialchars(_('An unexptected error occured.') .' '. _('Please contact a website administrator.')) . 
+        '"/>');
 }
 
-function sendPlainMessage($status, $msg)
+
+function returnXML($xml)
 {
-    ob_clean();
-    header('Content-type: text/plain', true, $status);
-    echo $msg;
+    ob_start();
+    header('Content-type: text/xml');
+    echo '<?xml version="1.0"?>\n';
+    echo $xml;
+    ob_end_flush();
 }
-
-ob_end_flush();
 ?>

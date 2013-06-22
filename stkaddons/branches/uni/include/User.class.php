@@ -225,48 +225,55 @@ class User
 	    //$name = Validate::realname($name);
 	    //$terms = Validate::checkbox($terms,htmlspecialchars(_('You must agree to the terms to register.')));
 	    // Make sure requested username is not taken
-        
-	    try
-        {
-            $instance = DBConnection::getInstance();
-            echo 'check';
-            $result = $instance->query("SELECT `user` FROM `".DB_PREFIX."users` WHERE `user` = :username",
-                array(':username'   => $username)
+        try{
+            $result = DBConnection::get()->query(
+                "SELECT `user` 
+    	        FROM `".DB_PREFIX."users` 
+    	        WHERE `user` = :username",
+                array(
+                    ':username'   => $username
+    	        )	        
             );
-        }
-        catch (Exception $e)
-        {
+        }catch(DBException $e){
             throw new UserException(htmlspecialchars(
-		        _('An error occurred trying to validate your username.')
-		        .' '._('Please contact a website administrator.'))); 
+                _('An error occurred trying to validate your username.') .' '.
+                _('Please contact a website administrator.')
+            ));
         }
-        echo 'check';
-	    if (count($result) !== 0)
-	        throw new UserException(htmlspecialchars(_('Your username has already been used.')));
-
+        if(count($result) !== 0){
+	        throw new UserException(htmlspecialchars(
+	            _('Your username has already been used.')
+            ));
+        }
 	    // Make sure the email address is unique
         // FIXME
 
 	    // No exception occurred - continue with registration
-        
-        try
-        {
-            $result = DBConnection::getInstance()->query
+        try{
+            $result = DBConnection::get()->query
             (
-                "INSERT INTO `".DB_PREFIX."users` (`user`,`pass`) VALUES(:username,:password)",
+                "INSERT INTO `".DB_PREFIX."users` 
+                (`user`,`pass`)
+                VALUES(:username,:password)",
                 array
                 (
                     ':username'   => $username,
                     ':password'   => $password
                 )
             );
-        }
-        catch (Exception $e)
-        {
+        }catch(DBException $e){
             throw new UserException(htmlspecialchars(
-		        _('An error occurred while creating your account.')
-		        .' '._('Please contact a website administrator.')));
+		        _('An error occurred while creating your account.') .' '. 
+		        _('Please contact a website administrator.')
+            ));
         }
+        if($result !== 1){
+            throw new UserException(htmlspecialchars(
+                _('An error occurred during your registration request.') .' '.
+                _('Please contact a website administrator.')
+            ));
+        }
+
 
         /*
 	    // Generate verification code
