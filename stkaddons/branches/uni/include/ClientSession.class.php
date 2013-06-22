@@ -89,7 +89,8 @@ abstract class ClientSession
             throw new InvalidArgumentException('Username required');
         }
         else if (empty($password)) {
-            return ClientSessionAnonymous::create($username);
+            throw new InvalidArgumentException('Password required');
+            //return ClientSessionAnonymous::create($username);
         }
         else {
             return ClientSessionUser::create($username, $password);

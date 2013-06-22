@@ -1,6 +1,6 @@
 <?php
 /**
- * copyright 2013
+ * copyright 2011
  *
  * This file is part of stkaddons
  *
@@ -19,7 +19,7 @@
  */
 define('ROOT', './');
 include_once('config.php');
-//include_once('include/ClientSession.class.php');
+include_once('include/ClientSession.class.php');
 include_once('include/User.class.php');
 
 
@@ -27,20 +27,16 @@ ob_start();
 header('Content-type: text/xml');
 echo "<?xml version=\"1.0\"?>\n";
 
-$action = isset($_POST['action']) ? $_POST['action'] : null;
-$user = isset($_POST['user']) ? utf8_encode($_POST['user']) : null;
-
+$action = isset($_GET['action']) ? $_GET['action'] : null;
 try {
     switch ($action)
     {
         case 'connect':
             try {
-                
-                $password = isset($_POST['password']) ? utf8_encode($_POST['password']) : null;
-                //$session = ClientSession::create($user, $password);
-                $session = "000session000token000";
-                printf('<connection token="%s" user="%s"/>',
-                $session, $user);
+                $user = isset($_GET['user']) ? $_GET['user'] : null;
+                $password = isset($_GET['password']) ? $_GET['password'] : null;
+                $session = ClientSession::create($user, $password);
+                printConnectionXml($session);
             }
             catch (ClientSessionConnectException $e) {
                 sendPlainMessage(403, $e->getMessage());
@@ -50,8 +46,9 @@ try {
 
         case 'disconnect':
             try {
-                $id = isset($_POST['id']) ? $_POST['id'] : null;
-                //ClientSession::destroy($id, $user);
+                $id = isset($_GET['id']) ? $_GET['id'] : null;
+                $user = isset($_GET['user']) ? $_GET['user'] : null;
+                ClientSession::destroy($id, $user);
                 sendPlainMessage(200, 'Connection destroyed');
             }
             catch (ClientSessionExpiredException $e)  {
@@ -62,22 +59,22 @@ try {
             }
             break;
 
-        case 'register':
+        case 'refresh':
             try {
-                $password = isset($_POST['password']) ? utf8_encode($_POST['password']) : null;
-                User::register($user,$password,$password);
-                printf('<registration success="yes"/>');
+                $id = isset($_GET['id']) ? $_GET['id'] : null;
+                $user = isset($_GET['user']) ? $_GET['user'] : null;
+                $session = ClientSession::get($id, $user);
+                $session->regenerate();
+                printConnectionXml($session);
+                break;
             }
-            catch (ClientSessionExpiredException $e)  {
+            catch (ClientSessionExpiredException $e) {
                 sendPlainMessage(403, $e->getMessage());
-            }
-            catch (Exception $e) {
-                sendPlainMessage(500, $e->getMessage() . DB_HOST);
             }
             break;
 
         default:
-            sendPlainMessage(400, "I don't know what you want from me \n");
+            sendPlainMessage(400, "I don't know what you want from me");
             break;
     }
 }
@@ -90,6 +87,18 @@ function sendPlainMessage($status, $msg)
     ob_clean();
     header('Content-type: text/plain', true, $status);
     echo $msg;
+}
+
+function printConnectionXml(ClientSession $session)
+{
+    if ($session instanceof ClientSessionUser) {
+        printf('<connection id="%s" user="%d" rank="%s" registered="true" />',
+                $session->getSessionId(), $session->getUserId(), $session->getRank());
+    }
+    else {
+        printf('<connection id="%s" rank="anon" registered="false" />',
+                $session->getSessionId());
+    }
 }
 
 ob_end_flush();
