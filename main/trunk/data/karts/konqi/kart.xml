@@ -4,8 +4,8 @@
       version           = "2"
       model-file        = "konqi.b3d"
       icon-file         = "konqi_icon.png"
-      minimap-icon-file = "icon.png"
-      shadow-file       = "konqi_shadow.png"
+      minimap-icon-file = "konqi_icon.png"
+      shadow-file       = "konqiV1 shadow.png"
       random-wheel-rot  = "true"
       groups            = "standard"
       rgb               = "0.00 0.59 0.00" >
