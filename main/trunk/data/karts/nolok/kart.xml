@@ -28,4 +28,8 @@
     <rear-right position = "0.302984 0.146000 -0.424683"
                  model    = "wheel-rear-right.b3d"       />
   </wheels>
+  <nitro-emitter>
+    <nitro-emitter-a position = "0.194400 0.489350 -0.326533" />
+    <nitro-emitter-b position = "-0.237400 0.489350 -0.326533" />
+  </nitro-emitter>
 </kart>
