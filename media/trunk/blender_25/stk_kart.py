@@ -88,6 +88,20 @@ def getScriptVersion():
             return str(m.group(0))
     return "0.1"
 
+# ------------------------------------------------------------------------------
+# Save nitro emitter
+def saveNitroEmitter(f, lNitroEmitter, path):
+
+    if len(lNitroEmitter) != 2:
+        log_warning("Warning - %d nitro emitter specified. Only 2 are allowed" % len(lNitroEmitter))
+        return 0
+    
+    f.write('  <nitro-emitter>\n')
+    f.write('    <nitro-emitter-a position = "%f %f %f" />\n' \
+                % (lNitroEmitter[0].location.x, lNitroEmitter[0].location.z, lNitroEmitter[0].location.y))
+    f.write('    <nitro-emitter-b position = "%f %f %f" />\n' \
+                % (lNitroEmitter[1].location.x, lNitroEmitter[1].location.z, lNitroEmitter[1].location.y))
+    f.write('  </nitro-emitter>\n')
 
 # ------------------------------------------------------------------------------
 def saveWheels(f, lWheels, path):
@@ -235,14 +249,17 @@ def exportKart(path):
 
     # Get the kart and all wheels
     # ---------------------------
-    lObj    = bpy.data.objects
-    lWheels = []
-    lKart   = []
+    lObj          = bpy.data.objects
+    lWheels       = []
+    lKart         = []
+    lNitroEmitter = []
     for obj in lObj:
         stktype = getProperty(obj, "type", "").strip().upper()
         name    = obj.name.upper()
         if stktype=="WHEEL":
             lWheels.append(obj)
+        elif stktype=="NITRO-EMITTER":
+            lNitroEmitter.append(obj)
         elif stktype=="IGNORE":
             pass
         # For backward compatibility
@@ -311,6 +328,7 @@ def exportKart(path):
     saveSounds(f, kart_engine_sfx)
     saveAnimations(f)
     saveWheels(f, lWheels, path)
+    saveNitroEmitter(f, lNitroEmitter, path)
     f.write('</kart>\n')
     f.close()
 
