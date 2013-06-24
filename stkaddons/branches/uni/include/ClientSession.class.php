@@ -100,20 +100,20 @@ abstract class ClientSession
     /**
      * Get session object for already created session
      * @param string $session_id session id
-     * @param string $user_name user name
+     * @param numeric $user_id user id
      * @return ClientSessionAnonymous|ClientSessionUser
      * @throws ClientSessionExpiredException when session does not exist
      */
-    public static function get($session_id, $user_name)
+    public static function get($session_id, $user_id)
     {  
         $result = DBConnection::getInstance()->query
         (
             "SELECT * FROM `" . DB_PREFIX . "client_sessions` 
-            WHERE cid = :sessionid AND name = :username",
+            WHERE cid = :sessionid AND uid = :userid",
             array
             (
                 ':sessionid'   => $session_id,
-                ':username'   => $user_name
+                ':userid'   => $user_id
             )
         );
         if (count($result) == 0) {

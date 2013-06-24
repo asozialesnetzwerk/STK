@@ -23,7 +23,6 @@ include_once('include/ClientSession.class.php');
 include_once('include/User.class.php');
 
 $action = isset($_POST['action']) ? $_POST['action'] : null;
-$user = isset($_POST['user']) ? utf8_encode($_POST['user']) : null;
 
 try {
     switch ($action)
@@ -31,10 +30,12 @@ try {
         case 'connect':
             try {
                 $password = isset($_POST['password']) ? utf8_encode($_POST['password']) : null;
+                $username = isset($_POST['username']) ? utf8_encode($_POST['username']) : null;
                 $session = ClientSession::create($user, $password);
                 returnXML('<connect success="yes" 
                                     token="'. $session->getSessionId() . '"
-                                    username="' . $session->getName() . '"                                     
+                                    username="' . $session->getName() . '"
+                                    userid="' . $session->getID() . '"                                     
                 />');
                 
             }
@@ -46,8 +47,9 @@ try {
 
         case 'disconnect':
             try {
+                $userid = isset($_POST['userid']) ? utf8_encode($_POST['userid']) : null;
                 $token = isset($_POST['token']) ? $_POST['token'] : null;
-                ClientSession::destroy($token, $user);
+                ClientSession::destroy($token, $userid);
                 returnXML('<disconnect success="yes"/>');
             }
             catch(Exception $e){
@@ -57,8 +59,11 @@ try {
 
         case 'register':
             try {
+                $username = isset($_POST['username']) ? utf8_encode($_POST['username']) : null;
                 $password = isset($_POST['password']) ? utf8_encode($_POST['password']) : null;
-                User::register($user,$password,$password);
+                User::register( $username,
+                                $password,
+                                $password);
                 returnXML('<registration success="yes"/>');
             }
             catch(Exception $e){
