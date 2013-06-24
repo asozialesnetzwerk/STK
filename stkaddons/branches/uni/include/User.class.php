@@ -229,7 +229,7 @@ class User
             $result = DBConnection::get()->query(
                 "SELECT `user` 
     	        FROM `".DB_PREFIX."users` 
-    	        WHERE `user` = :username",
+    	        WHERE `user` LIKE :username",
                 array(
                     ':username'   => $username
     	        )	        
