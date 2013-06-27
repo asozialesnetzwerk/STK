@@ -1,1 +1,12 @@
 users.reg_date -> timestamped
+users.verify -> deleted
+
+Just Info
+---------
+
+Roles :
+basicUser
+moderator
+administrator
+root
+ADD guest role?

@@ -26,7 +26,7 @@ class User
 {
     public static $logged_in = false;
     public static $user_id = 0;
-
+    /*
     static function init() {
         // Validate user's session on every page
         if (session_id() == "") {
@@ -137,12 +137,12 @@ class User
         session_start();
         User::$user_id = 0;
         User::$logged_in = false;
-    }
+    }*/
     
     /**
      * Change the password of the currently logged in user
      * @param string $new_password Already escaped password
-     */
+     *//*
     static function change_password($new_password) {
         $user_id = User::$user_id;
         
@@ -174,13 +174,14 @@ class User
 	if (mysql_num_rows($handle) === 0)
 	    return false;
 	return true;
-    }
+    }*/
     
     /**
      * Activate a new user
      * @param string $username
      * @param string $ver_code 
      */
+     /*
     static function validate($username, $ver_code) {
         $username = mysql_real_escape_string($username);
         $ver_code = mysql_real_escape_string($ver_code);
@@ -203,7 +204,7 @@ class User
             throw new UserException('Failed to activate user.');
         
         Log::newEvent("New user activated: '$username'");
-    }
+    }*/
 
 
     /**
@@ -242,7 +243,7 @@ class User
         }
         if(count($result) !== 0){
 	        throw new UserException(htmlspecialchars(
-	            _('Your username has already been used.')
+	            _('This username is already taken.')
             ));
         }
 	    // Make sure the email address is unique
@@ -287,13 +288,13 @@ class User
 	        Log::newEvent("Registration email for '$username' failed.");
 	        throw new UserException($e->getMessage().' '._('Please contact a website administrator.'));
 	    }*/
-	    Log::newEvent("Registration submitted for user '$username'");
+	    //Log::newEvent("Registration submitted for user '$username'");
     }
     
     /**
      * Get the role of the current user
      * @return string Role identifier
-     */
+     *//*
     public static function getRole() {
 	    if (!User::$logged_in) {
 	        return 'unregistered';
@@ -307,10 +308,10 @@ class User
 	        $result = mysql_fetch_array($handle);
 	        return $result[0];
         }
-    }
+    }*/
 }
+/*
 User::init();
-
 function loadUsers()
 {
     global $js;
@@ -346,5 +347,5 @@ EOF;
     }
     echo "</ul>";
 
-}
+}*/
 ?>

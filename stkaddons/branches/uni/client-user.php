@@ -1,8 +1,8 @@
 <?php
 /**
- * copyright 2013
+ * copyright 2013 Glenn De Jonghe
  *
- * This file is part of stkaddons
+ * This file is part of SuperTuxKart
  *
  * stkaddons is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -31,11 +31,11 @@ try {
             try {
                 $password = isset($_POST['password']) ? utf8_encode($_POST['password']) : null;
                 $username = isset($_POST['username']) ? utf8_encode($_POST['username']) : null;
-                $session = ClientSession::create($user, $password);
+                $session = ClientSession::create($username, $password);
                 returnXML('<connect success="yes" 
                                     token="'. $session->getSessionId() . '"
-                                    username="' . $session->getName() . '"
-                                    userid="' . $session->getID() . '"                                     
+                                    username="' . $session->getUserName() . '"
+                                    userid="' . $session->getUserID() . '"                                     
                 />');
                 
             }
@@ -49,7 +49,7 @@ try {
             try {
                 $userid = isset($_POST['userid']) ? utf8_encode($_POST['userid']) : null;
                 $token = isset($_POST['token']) ? $_POST['token'] : null;
-                ClientSession::destroy($token, $userid);
+                //ClientSession::destroy($token, $userid); FIXME
                 returnXML('<disconnect success="yes"/>');
             }
             catch(Exception $e){
@@ -64,7 +64,7 @@ try {
                 User::register( $username,
                                 $password,
                                 $password);
-                returnXML('<registration success="yes"/>');
+                returnXML('<registration success="yes" info=""/>');
             }
             catch(Exception $e){
                 returnXML('<registration success="no" info="' . $e->getMessage() . ' "/>');

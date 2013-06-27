@@ -1,8 +1,8 @@
 <?php
 /**
- * copyright 2012
+ * copyright 2013
  *
- * This file is part of stkaddons
+ * This file is part of SuperTuxKart
  *
  * stkaddons is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -31,11 +31,17 @@ class ClientSessionExpiredException extends ClientSessionException {}
  */
 abstract class ClientSession
 {
-    private $session_id;
+    protected $session_id;
+    protected $user_id;
+    protected $user_name;
+    protected $role;
 
-    protected function __construct($sessionid)
+    protected function __construct($session_id, $user_id, $user_name, $user_role)
     {
-        $this->session_id = $sessionid;
+        $this->session_id = $session_id;
+        $this->user_id = $user_id;
+        $this->user_name = $user_name;
+        $this->user_role = $user_role;
     }
 
     /**
@@ -51,30 +57,20 @@ abstract class ClientSession
      * Get user name for this session
      * @return string user name
      */
-    abstract public function getName();
+    public function getUserName()
+    {
+        return $this->$user_name;
+    }
 
     /**
      * Get user id for this session
      * @return int user id
      */
-    abstract public function getUserId();
-
-    /**
-     * Regenerate session with new session id
-     */
-    public function regenerate()
+    public function getUserId()
     {
-        $new_session_id = ClientSession::calcSessionId();
-        $this->updateSessionId($new_session_id);
-        // nothing awful happend while updating database, can change attribute safely
-        $this->session_id = $new_session_id;
+        return $this->$user_id;  
     }
-
-    /**
-     * Update session id in database table
-     * @param string new session id
-     */
-    abstract protected function updateSessionId($session_id);
+    
 
     /**
      * Create new session
@@ -93,7 +89,7 @@ abstract class ClientSession
             //return ClientSessionAnonymous::create($username);
         }
         else {
-            return ClientSessionUser::create($username, $password);
+            return RegisteredClientSession::create($username, $password);
         }
     }
 
@@ -106,7 +102,7 @@ abstract class ClientSession
      */
     public static function get($session_id, $user_id)
     {  
-        $result = DBConnection::getInstance()->query
+        $result = DBConnection::get()->query
         (
             "SELECT * FROM `" . DB_PREFIX . "client_sessions` 
             WHERE cid = :sessionid AND uid = :userid",
@@ -116,29 +112,24 @@ abstract class ClientSession
                 ':userid'   => $user_id
             )
         );
-        if (count($result) == 0) {
+        $size = count($result);
+        if ($size == 0) {
             throw new ClientSessionExpiredException('No session found');
-        }
-        else {
-            $session_row = mysql_fetch_object($result);
-            if ($session_row->uid == 0) {
-                return new ClientSessionAnonymous($session_id, $session_row->name);
-            }
-            else {
-                return new ClientSessionUser($session_id, $session_row->uid, $session_row->name);
-            }
+        }elseif ($size > 1) {
+            throw new ClientSessionExpiredException('Error!');
+        }else {
+            return new ClientSessionUser($result[0]["cid"], $result[0]["uid"], $result[0]["name"]);
         }
     }
 
     /**
      * Destroy session, you could also call it logout
      * @param string $session_id session id
-     * @param mixed $user username (string) or numerical user id
+     * @param int $user_id user id
      * @throws ClientSessionExpiredException when session does not exist
-     */
-    public static function destroy($session_id, $user)
+     *//*
+    public static function destroy($session_id, $user_id)
     {
-        $sql = null;
 
         if (ctype_digit("$user") && $user > 0) {
             $sql = sprintf("DELETE FROM `%s` WHERE cid = '%s' AND uid = %d",
@@ -154,7 +145,7 @@ abstract class ClientSession
 
         if (!sql_query($sql) || mysql_affected_rows() == 0)
             throw new ClientSessionExpiredException('Could not destroy session');
-    }
+    }*/
 
     /**
      * Generate a alphanumerical session id
@@ -170,11 +161,8 @@ abstract class ClientSession
 /**
  * ClientSession implementation for registered users
  */
-class ClientSessionUser extends ClientSession
+class RegisteredClientSession extends ClientSession
 {
-    private $user_id;
-    private $user_name;
-    private $rank;
 
     /**
      * New instance
@@ -182,12 +170,9 @@ class ClientSessionUser extends ClientSession
      * @param int $user_id
      * @param string $user_name
      */
-    protected function __construct($session_id, $user_id, $user_name, $rank)
+    protected function __construct($session_id, $user_id, $user_name, $user_role)
     {
-        parent::__construct($session_id);
-        $this->user_id = $user_id;
-        $this->user_name = $user_name;
-        $this->rank = $rank;
+        parent::__construct($session_id, $user_id, $user_name, $user_role);
     }
 
     /**
@@ -200,146 +185,62 @@ class ClientSessionUser extends ClientSession
     public static function create($username, $password = '')
     {
         $username = Validate::username($username);
-
         // TODO: Share password checking with User class
         // Currently User class is tightly coupled with session handling, so can't use it here yet
-        $sql = sprintf("SELECT `id`, `role` FROM `%s` WHERE `user` = '%s' AND `pass` = '%s'",
-                DB_PREFIX.'users',
-                $username,
-                Validate::password($password, null, $username));
-        $result = sql_query($sql);
-
-        if (!$result) {
-            throw new ClientSessionConnectException('Could not find user.');
+        try{
+            $result = DBConnection::get()->query(
+                "SELECT `id`, `role` FROM `" . DB_PREFIX . "users` 
+                WHERE `user` = :username AND `pass` = :pass",
+                array
+                (
+                    ':username'   => $username,
+                    ':pass'   => Validate::password($password, null, $username)
+                )
+            );
+            $result = DBConnection::get()->query(
+                "SELECT `user`
+    	        FROM `".DB_PREFIX."users`
+    	        WHERE `user` LIKE :username",
+                array(
+                    ':username'   => $username
+                )
+            );
         }
-        elseif ($result && mysql_num_rows($result) == 1) {
+        catch (PDOException $e){
+            echo $e->getMessage();
+        }
+        echo "test";
+        $size = count($result);
+        if ($size == 0) {
+            throw new ClientSessionConnectException('Username and/or password is wrong.');
+        }elseif ($size > 1) {
+            throw new ClientSessionConnectException('Error!');
+        }else{
+            echo "test";
             $session_id = ClientSession::calcSessionId();
-            $user_row = mysql_fetch_row($result);
-            $user_id = (int) $user_row[0];
-            $rank = $user_row[1];
-
-            // if there is already a session, then we update it
-            $sql = sprintf("INSERT INTO `%s` (cid, uid, name) VALUES ('%s', %d, '%s')
-                    ON DUPLICATE KEY UPDATE cid = '%2\$s'",
-                    DB_PREFIX.'client_sessions',
-                    mysql_real_escape_string($session_id),
-                    $user_id,
-                    mysql_real_escape_string($username));
-
-            if (sql_query($sql)) {
-                return new ClientSessionUser($session_id, $user_id, $username, $rank);
-            }
-            else {
+            $user_id = (int) $result[0]["id"];
+            $role = $result[0]["role"];
+            echo "test";
+            $result = DBConnection::get()->query
+            (
+                "INSERT INTO " . DB_PREFIX ."client_sessions (cid, uid, name)
+                VALUES (':session_id', :user_id, ':user_name')",
+                array
+                (
+                    ':session_id'   => $session_id,
+                    ':user_id'   => $user_id,
+                    ':user_name'    => $username
+                )
+            );
+            $size = count($result);
+            if ($size == 0) {
                 throw new ClientSessionConnectException('Could not create new session');
+            }elseif ($size > 1) {
+                throw new ClientSessionConnectException('Error!');
+            }else {
+                return new ClientSessionUser($session_id, $user_id, $username, $role);
             }
         }
-        else {
-            throw new ClientSessionConnectException('Invalid credentials');
-        }
-    }
-
-    /**
-     * Update session id in database
-     * @param string $session_id new session id
-     * @throws ClientSessionExpiredException when session does not exist
-     */
-    protected function updateSessionId($session_id)
-    {
-        $sql = sprintf("UPDATE `%s` SET cid = '%s' WHERE cid = '%s' AND uid = %d",
-            DB_PREFIX.'client_sessions',
-            mysql_real_escape_string($session_id),
-            mysql_real_escape_string($this->getSessionId()),
-            (int) $this->getUserId());
-
-        if (!sql_query($sql) || mysql_affected_rows() == 0)
-            throw new ClientSessionExpiredException('Refreshing user session failed');
-    }
-
-    public function getName()
-    {
-        return $this->user_name;
-    }
-
-    public function getUserId()
-    {
-        return $this->user_id;
-    }
-    
-    public function getRank() {
-        return $this->rank;
-    }
-}
-
-/**
- *ClientSession implementation for unregistered users
- */
-class ClientSessionAnonymous extends ClientSession
-{
-    private $name;
-
-    /**
-     * New instance
-     * @param string $session_id session id
-     * @param string $name temporary nickname
-     */
-    protected function __construct($session_id, $name)
-    {
-        parent::__construct($session_id);
-        $this->name = $name;
-    }
-
-    /**
-     * Create session in database
-     * @param string $name nickname
-     * @param string $password unused, but needed to keep child compatibility
-     * @return ClientSessionAnonymous
-     * @throws ClientSessionConnectException when nickname is already used
-     */
-    public static function create($name, $password='')
-    {
-        $session_id = ClientSession::calcSessionId();
-
-        $name = Validate::username($name);
-        if (sql_exist('client_sessions', 'name', $name) || User::exists($name)) {
-            throw new ClientSessionConnectException("Nickname $name already used");
-        }
-        else {
-            $properties = array('name', 'cid');
-            $values = array($name, $session_id);
-            if (sql_insert('client_sessions', $properties, $values)) {
-                return new ClientSessionAnonymous($session_id, $name);
-            }
-            else {
-                throw new ClientSessionConnectException('Could not create new session');
-            }
-        }
-    }
-
-    /**
-     * Update session id in database
-     * @param string $session_id new session id
-     * @throws ClientSessionExpiredException when session does not exist
-     */
-    protected function updateSessionId($session_id)
-    {
-        $sql = sprintf("UPDATE `%s` SET cid = '%s' WHERE cid = '%s' AND name = '%s'",
-            DB_PREFIX.'client_sessions',
-            mysql_real_escape_string($session_id),
-            mysql_real_escape_string($this->getSessionId()),
-            mysql_real_escape_string($this->getName()));
-
-        if (!sql_query($sql) || mysql_affected_rows() == 0)
-            throw new ClientSessionExpiredException('Refreshing temporary session failed');
-    }
-
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    public function getUserId()
-    {
-        return 0;
     }
 }
 ?>

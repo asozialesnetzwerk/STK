@@ -23,15 +23,20 @@ class DBConnection
     }
 
     public function query($query, $params=NULL) {
+        echo "test3";
         if(!$query) {
 	        return false;
         } else {
+            echo "test1";
 	        $sth = $this->conn->prepare($query);
+	        echo "test2";
 	        if($sth->execute($params) !== false ) {
+	            echo "test4";
 	            if(preg_match("/^(" . implode("|", array("select", "describe", "pragma")) . ") /i", $query))
 	                return $sth->fetchAll(PDO::FETCH_ASSOC);
                 return $sth->rowCount();
 	        } else {
+	            echo "test5";
 	            //Error code for database connection debugging
 	            /*
 		        $err_arr = $sth->errorInfo();

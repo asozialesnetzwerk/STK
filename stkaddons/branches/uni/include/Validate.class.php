@@ -18,6 +18,8 @@
  * along with stkaddons.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+include_once('DBConnection.class.php');
+
 /**
  * Class to contain all string validation functions
  * @author stephenjust
@@ -55,15 +57,14 @@ class Validate {
     
     public static function password($password1, $password2 = NULL, $username = NULL) {
         // Check password properties
-        if (strlen($password1) < 6) {
-            throw new UserException(htmlspecialchars(_('Your password must be at least 6 characters long.')));
+        if (strlen($password1) < 8) {
+            throw new UserException(htmlspecialchars(_('Your password must be at least 8 characters long.')));
         }
         if ($password2 != NULL) {
             if ($password1 !== $password2) {
                 throw new UserException(htmlspecialchars(_('Your passwords do not match.')));
             }
         }
-
         // Salt password
         $salt_length = 32;
         if ($username === NULL)
