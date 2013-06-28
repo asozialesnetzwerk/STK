@@ -106,6 +106,7 @@ abstract class ClientSession
         (
             "SELECT * FROM `" . DB_PREFIX . "client_sessions` 
             WHERE cid = :sessionid AND uid = :userid",
+            DBConnection::FETCH_ALL,
             array
             (
                 ':sessionid'   => $session_id,
@@ -134,6 +135,7 @@ abstract class ClientSession
             $result = DBConnection::get()->query(
                 "DELETE FROM `".DB_PREFIX."client_sessions`
     	        WHERE `cid` = :session_id AND uid = :user_id",
+                DBConnection::ROW_COUNT,
                 array(
                     ':session_id'   => (string) $session_id,
                     ':user_id'    => $user_id
@@ -194,6 +196,7 @@ class RegisteredClientSession extends ClientSession
             $result = DBConnection::get()->query(
                 "SELECT `id`, `role` FROM `" . DB_PREFIX . "users` 
                 WHERE `user` = :username AND `pass` = :pass",
+                DBConnection::FETCH_ALL,
                 array
                 (
                     ':username'   => $username,
@@ -221,6 +224,7 @@ class RegisteredClientSession extends ClientSession
                 "INSERT INTO `" . DB_PREFIX ."client_sessions` (cid, uid, name)
                 VALUES (:session_id, :user_id, :user_name) 
                 ON DUPLICATE KEY UPDATE cid = :session_id",
+                DBConnection::ROW_COUNT,
                 array
                 (
                     ':session_id'   => (string) $session_id,
@@ -228,14 +232,15 @@ class RegisteredClientSession extends ClientSession
                     ':user_name'    => (string) $username
                 )
             );
-            $size = $result;
-            if ($size == 0) {
+            echo $result;
+            if ($result == 0) {
                 throw new ClientSessionConnectException('Could not create new session');
-            }elseif ($size > 1) {
-                throw new ClientSessionConnectException('Error!');
-            }else {
-                return new RegisteredClientSession($session_id, $user_id, $username, $role);
+            }elseif ($result > 2) {
+                throw new ClientSessionConnectException('Error!!!');
+            }elseif ($result == 2) {
+                //FIXME : research this. Apparantly the session was still alive, and got updated.
             }
+            return new RegisteredClientSession($session_id, $user_id, $username, $role);
         }
     }
 }

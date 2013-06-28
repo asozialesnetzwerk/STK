@@ -78,6 +78,7 @@ class Validate {
                     "SELECT `pass` 
         	        FROM `". DB_PREFIX . "users`
         	        WHERE `user` = :username",
+                    DBConnection::FETCH_ALL,
                     array(
                         ':username'   => $username
                     )

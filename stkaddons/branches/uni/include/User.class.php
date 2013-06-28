@@ -231,6 +231,7 @@ class User
                 "SELECT `user` 
     	        FROM `".DB_PREFIX."users` 
     	        WHERE `user` LIKE :username",
+                DBConnection::FETCH_ALL,
                 array(
                     ':username'   => $username
     	        )	        
@@ -256,6 +257,7 @@ class User
                 "INSERT INTO `".DB_PREFIX."users` 
                 (`user`,`pass`)
                 VALUES(:username,:password)",
+                DBConnection::ROW_COUNT,
                 array
                 (
                     ':username'   => $username,

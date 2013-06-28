@@ -8,6 +8,11 @@ class DBConnection
 {
     private $conn;
     private static $instance;
+    
+    //Faking enumeration
+    const ROW_COUNT = 1;
+    const FETCH_ALL = 2;
+    
 
     private function __construct() {
         $this->conn = new PDO('mysql:host='. DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASSWORD);
@@ -22,25 +27,22 @@ class DBConnection
         return self::$instance;
     }
 
-    public function query($query, $params=NULL) {
-        if(!$query) {
-	        return false;
-        } else {
+    public function query($query, $return_type = ROW_COUNT, $params = NULL) {
+        if(!$query)
+	        throw new DBException("Empty Query");     
+        try{
 	        $sth = $this->conn->prepare($query);
-	        if($sth->execute($params) !== false ) {
-	            echo 'jip';
-	            if(preg_match("/^(" . implode("|", array("select", "describe", "pragma")) . ") /i", $query))
-	                return $sth->fetchAll(PDO::FETCH_ASSOC);
-	            echo 'jip';
+	        $sth->execute($params);
+            if($return_type == self::ROW_COUNT)
                 return $sth->rowCount();
-	        } else {
-	            //Error code for database connection debugging
-	            /*
-		        $err_arr = $sth->errorInfo();
-		        $err_msg = sprintf("SQLSTATE ERR: %s<br />\nmySQL ERR: %s<br />\nMessage: %s<br />\n", $err_arr[0], $err_arr[1], $err_arr[2]);
-		        */
-	            throw new DBException();
-	        }
+            if($return_type == self::FETCH_ALL)
+                return $sth->fetchAll(PDO::FETCH_ASSOC);    
+        } catch (PDOException $e){
+            if (DEBUG_MODE){
+                $msg =  sprintf("SQLSTATE ERR: %s<br />\nmySQL ERR: %s<br />\nMessage: %s<br />\n",$e->errorInfo[0], $e->errorInfo[1], $e->errorInfo[2]);
+                throw new DBException($msg);
+            }
+            throw new DBException();
         }
     }
 }
