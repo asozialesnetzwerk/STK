@@ -10,7 +10,8 @@
       groups            = "standard"
       rgb               = "1.00 1.00 1.00" >
   <sounds engine = "large"/>
-  <animations straight = "9"
+  <animations left = "0"
+              straight = "9"
               right = "19"/>
   <wheels>
     <rear-right position = "0.168709 0.011474 -0.591670"
