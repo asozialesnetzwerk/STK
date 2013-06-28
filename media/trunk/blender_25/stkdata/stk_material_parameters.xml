@@ -80,6 +80,10 @@
         <BoolProp id="additive_lightmap" name="Lightmap is additive" default="false"
                 doc="Make lightmap additive (only makes sense if this material has a lightmap)"/>
     </PropGroup>
+    
+    
+    
+    
     <PropGroup id="PropGroup_interaction" name="Interaction">
         
         <!-- Below shallow water -->
@@ -130,6 +134,10 @@
             </CombinableEnumProp>
         </BoolProp>
         
+        <!-- Physical only -->
+        
+        <BoolProp id="physics_only" name="Physics only" default="false"
+                doc="Make this material invisible visually but present in physics"/>
         
         <!-- SFX -->
         <BoolProp id="use_sfx" name="Play sound effect" default="false"
