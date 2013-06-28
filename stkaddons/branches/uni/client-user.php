@@ -17,10 +17,11 @@
  * You should have received a copy of the GNU General Public License
  * along with stkaddons.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 define('ROOT', './');
-include_once('config.php');
-include_once('include/ClientSession.class.php');
-include_once('include/User.class.php');
+require_once('config.php');
+require_once('include/ClientSession.class.php');
+require_once('include/User.class.php');
 
 $action = isset($_POST['action']) ? $_POST['action'] : null;
 
@@ -49,7 +50,7 @@ try {
             try {
                 $userid = isset($_POST['userid']) ? utf8_encode($_POST['userid']) : null;
                 $token = isset($_POST['token']) ? $_POST['token'] : null;
-                //ClientSession::destroy($token, $userid); FIXME
+                ClientSession::destroy($token, $userid);
                 returnXML('<disconnect success="yes"/>');
             }
             catch(Exception $e){

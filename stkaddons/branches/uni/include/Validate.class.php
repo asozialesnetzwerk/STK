@@ -18,7 +18,8 @@
  * along with stkaddons.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-include_once('DBConnection.class.php');
+require_once('DBConnection.class.php');
+require_once('exceptions.php');
 
 /**
  * Class to contain all string validation functions
@@ -71,19 +72,30 @@ class Validate {
             $salt = md5(uniqid(NULL,true));
         else {
             // Get current user password entry to get salt
-            $query = 'SELECT `pass`
-                FROM `'.DB_PREFIX.'users`
-                WHERE `user` = \''.$username.'\'';
-            $handle = sql_query($query);
-            if (mysql_num_rows($handle) === 0)
+            
+            try{
+                $result = DBConnection::get()->query(
+                    "SELECT `pass` 
+        	        FROM `". DB_PREFIX . "users`
+        	        WHERE `user` = :username",
+                    array(
+                        ':username'   => $username
+                    )
+                );
+            }catch(DBException $e){
+                throw new UserException(htmlspecialchars(
+                    _('An error occurred trying to validate your password.') .' '.
+                    _('Please contact a website administrator.')
+                ));
+            }
+            if(count($result) === 0){
                 $salt = md5(uniqid(NULL,true));
-            else {
-                $result = mysql_fetch_array($handle);
-                if (strlen($result[0]) == 64) {
+            }else {
+                if (strlen($result[0]['pass']) == 64) {
                     // Not a salted password
                     return hash('sha256',$password1);
                 }
-                $salt = substr($result[0], 0, $salt_length);
+                $salt = substr($result[0]['pass'], 0, $salt_length);
             }
         }
         return $salt.hash('sha256',$salt.$password1);

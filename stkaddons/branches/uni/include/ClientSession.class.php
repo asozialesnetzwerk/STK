@@ -18,9 +18,9 @@
  * along with stkaddons.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-include_once('exceptions.php');
-include_once('DBConnection.class.php');
-include_once('Validate.class.php');
+require_once('exceptions.php');
+require_once('DBConnection.class.php');
+require_once('Validate.class.php');
 
 class ClientSessionException extends Exception {}
 class ClientSessionConnectException extends ClientSessionException {}
@@ -59,7 +59,7 @@ abstract class ClientSession
      */
     public function getUserName()
     {
-        return $this->$user_name;
+        return $this->user_name;
     }
 
     /**
@@ -68,7 +68,7 @@ abstract class ClientSession
      */
     public function getUserId()
     {
-        return $this->$user_id;  
+        return $this->user_id;  
     }
     
 
@@ -127,25 +127,28 @@ abstract class ClientSession
      * @param string $session_id session id
      * @param int $user_id user id
      * @throws ClientSessionExpiredException when session does not exist
-     *//*
+     */
     public static function destroy($session_id, $user_id)
     {
-
-        if (ctype_digit("$user") && $user > 0) {
-            $sql = sprintf("DELETE FROM `%s` WHERE cid = '%s' AND uid = %d",
-                    DB_PREFIX.'client_sessions',
-                    mysql_real_escape_string($session_id), (int) $user);
+        try{
+            $result = DBConnection::get()->query(
+                "DELETE FROM `".DB_PREFIX."client_sessions`
+    	        WHERE `cid` = :session_id AND uid = :user_id",
+                array(
+                    ':session_id'   => (string) $session_id,
+                    ':user_id'    => $user_id
+                )
+            );
+        }catch(DBException $e){
+            throw new UserException(htmlspecialchars(
+                _('An error occurred while logging out.') .' '.
+                _('Please contact a website administrator.')
+            ));
         }
-        else {
-            $sql = sprintf("DELETE FROM `%s` WHERE cid = '%s' AND name = '%s'",
-                    DB_PREFIX.'client_sessions',
-                    mysql_real_escape_string($session_id),
-                    mysql_real_escape_string($user));
-        }
 
-        if (!sql_query($sql) || mysql_affected_rows() == 0)
-            throw new ClientSessionExpiredException('Could not destroy session');
-    }*/
+        if ($result == 0)
+            throw new ClientSessionExpiredException(_('Could not log out. Perhaps you were already signed out.'));
+    }
 
     /**
      * Generate a alphanumerical session id
@@ -183,11 +186,11 @@ class RegisteredClientSession extends ClientSession
      * @throws ClientSessionConnectException when credentials are wrong
      */
     public static function create($username, $password = '')
-    {
-        $username = Validate::username($username);
+    {        
         // TODO: Share password checking with User class
         // Currently User class is tightly coupled with session handling, so can't use it here yet
         try{
+            $username = Validate::username($username);
             $result = DBConnection::get()->query(
                 "SELECT `id`, `role` FROM `" . DB_PREFIX . "users` 
                 WHERE `user` = :username AND `pass` = :pass",
@@ -197,48 +200,41 @@ class RegisteredClientSession extends ClientSession
                     ':pass'   => Validate::password($password, null, $username)
                 )
             );
-            $result = DBConnection::get()->query(
-                "SELECT `user`
-    	        FROM `".DB_PREFIX."users`
-    	        WHERE `user` LIKE :username",
-                array(
-                    ':username'   => $username
-                )
-            );
+        }
+        catch (UserException $e){
+            throw new ClientSessionConnectException($e->getMessage());
         }
         catch (PDOException $e){
-            echo $e->getMessage();
+            throw new ClientSessionConnectException(_('Error!'));
         }
-        echo "test";
         $size = count($result);
         if ($size == 0) {
-            throw new ClientSessionConnectException('Username and/or password is wrong.');
+            throw new ClientSessionConnectException(_('Username and/or password is wrong.'));
         }elseif ($size > 1) {
-            throw new ClientSessionConnectException('Error!');
+            throw new ClientSessionConnectException(_('Error!2'));
         }else{
-            echo "test";
             $session_id = ClientSession::calcSessionId();
-            $user_id = (int) $result[0]["id"];
+            $user_id = $result[0]["id"];
             $role = $result[0]["role"];
-            echo "test";
             $result = DBConnection::get()->query
             (
-                "INSERT INTO " . DB_PREFIX ."client_sessions (cid, uid, name)
-                VALUES (':session_id', :user_id, ':user_name')",
+                "INSERT INTO `" . DB_PREFIX ."client_sessions` (cid, uid, name)
+                VALUES (:session_id, :user_id, :user_name) 
+                ON DUPLICATE KEY UPDATE cid = :session_id",
                 array
                 (
-                    ':session_id'   => $session_id,
-                    ':user_id'   => $user_id,
-                    ':user_name'    => $username
+                    ':session_id'   => (string) $session_id,
+                    ':user_id'   => (int) $user_id,
+                    ':user_name'    => (string) $username
                 )
             );
-            $size = count($result);
+            $size = $result;
             if ($size == 0) {
                 throw new ClientSessionConnectException('Could not create new session');
             }elseif ($size > 1) {
                 throw new ClientSessionConnectException('Error!');
             }else {
-                return new ClientSessionUser($session_id, $user_id, $username, $role);
+                return new RegisteredClientSession($session_id, $user_id, $username, $role);
             }
         }
     }

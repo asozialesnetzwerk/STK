@@ -1,6 +1,6 @@
 <?php
 
-include_once('config.php');
+require_once('config.php');
 
 class DBException extends Exception {}
 
@@ -11,7 +11,7 @@ class DBConnection
 
     private function __construct() {
         $this->conn = new PDO('mysql:host='. DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASSWORD);
-        //$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+        $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
         
     }
 
@@ -23,20 +23,17 @@ class DBConnection
     }
 
     public function query($query, $params=NULL) {
-        echo "test3";
         if(!$query) {
 	        return false;
         } else {
-            echo "test1";
 	        $sth = $this->conn->prepare($query);
-	        echo "test2";
 	        if($sth->execute($params) !== false ) {
-	            echo "test4";
+	            echo 'jip';
 	            if(preg_match("/^(" . implode("|", array("select", "describe", "pragma")) . ") /i", $query))
 	                return $sth->fetchAll(PDO::FETCH_ASSOC);
+	            echo 'jip';
                 return $sth->rowCount();
 	        } else {
-	            echo "test5";
 	            //Error code for database connection debugging
 	            /*
 		        $err_arr = $sth->errorInfo();

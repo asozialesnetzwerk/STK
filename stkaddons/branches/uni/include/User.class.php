@@ -18,9 +18,9 @@
  * along with stkaddons.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-include_once('Validate.class.php');
-include_once('DBConnection.class.php');
-include_once('exceptions.php');
+require_once('Validate.class.php');
+require_once('DBConnection.class.php');
+require_once('exceptions.php');
 
 class User
 {
