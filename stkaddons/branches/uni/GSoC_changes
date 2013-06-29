@@ -1,6 +1,8 @@
 users.reg_date -> timestamped
 users.verify -> deleted
 
+TODO : remove client_sessions.name
+
 Just Info
 ---------
 

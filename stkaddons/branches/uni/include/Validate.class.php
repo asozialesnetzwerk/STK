@@ -53,7 +53,7 @@ class Validate {
         if (!preg_match('/^[a-z0-9]+$/i',$username)) {
             throw new UserException(htmlspecialchars(_('Your username can only contain alphanumeric characters.')));
         }
-        return mysql_real_escape_string(htmlspecialchars($username));
+        return htmlspecialchars($username);
     }
     
     public static function password($password1, $password2 = NULL, $username = NULL) {
