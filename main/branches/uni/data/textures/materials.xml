@@ -2,18 +2,20 @@
 <materials>
 
   <!-- Particles -->
+  <material name="explode.png"           compositing="additive" ignore="Y"/>
   <material name="flaring-star.png"      compositing="additive" ignore="Y"/>
   <material name="smoke.png"             compositing="blend" light="N" ignore="Y"/>
+  <material name="smoke_nitro.png"       compositing="blend" light="N" ignore="Y" disable-z-write="Y"/>
   <material name="smoke_yellow.png"      compositing="blend" light="N" ignore="Y"/>
   <material name="smoke_brown.png"       compositing="blend" light="N" ignore="Y"/>
   <material name="smoke_red.png"         compositing="blend" light="N" ignore="Y"/>
   <material name="smoke_black.png"       compositing="blend" light="N" ignore="Y"/>
   <material name="snowflake.png"         compositing="blend" light="N" ignore="Y"/>
-  <material name="nitro-particle.png"    additive="Y" light="N" ignore="Y"/>
+  <material name="nitro-particle.png"    compositing="additive" light="N" ignore="Y" disable-z-write="Y"/>
   <material name="skid-particle1.png"    additive="Y" light="N" ignore="Y"/>
   <material name="skid-particle2.png"    additive="Y" light="N" ignore="Y"/>
   <material name="zipper-particle.png"   additive="Y" light="N" ignore="Y"/>
-  <material name="waterparticles.png"    compositing="blend" light="N" ignore="Y"/>
+  <material name="zipper-particle.png"   additive="Y" light="N" ignore="Y"/>
   
   <!-- Textures -->
   <material name="bumpy_surface.png">
@@ -126,7 +128,7 @@
   <material name="snowyrock.png"/>
   <material name="speedback.png"    compositing="test" clampU="Y" clampV="Y" light="N" ignore="Y"/>
   <material name="speedfore.png"    compositing="test" clampU="Y" clampV="Y" light="N" ignore="Y"/>
-  <material name="starparticle.png" compositing="blend" clampU="Y" clampV="Y" ignore="Y" light="N"/>
+  <material name="starparticle.png" disable-z-write="Y" compositing="blend" clampU="Y" clampV="Y" ignore="Y" light="N"/>
   <material name="stonetex.jpg" />
   
   <material name="track.png" anisotropic="Y">
