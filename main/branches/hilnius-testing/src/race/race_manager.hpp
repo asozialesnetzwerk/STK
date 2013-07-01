@@ -295,7 +295,10 @@ private:
 
     /** The minor mode (race, time trial, ftl, battle mode). */
     MinorRaceModeType                m_minor_mode;
-    /** Stores remote kart information about all player karts. */
+    /** Stores remote kart information about all player karts.
+     *  This information is then passed to the KartStatus, and those are no 
+     *  longer used. 
+     */
     std::vector<RemoteKartInfo>      m_player_karts;
     std::vector<RemoteKartInfo>      m_local_player_karts;
     std::vector<std::string>         m_tracks;
@@ -739,6 +742,8 @@ public:
     {
         return m_kart_last_position_on_overworld;
     }
+    
+    void setupPlayerKartInfo();
 
 };   // RaceManager
 

@@ -24,7 +24,6 @@
 #include "input/input_manager.hpp"
 #include "io/file_manager.hpp"
 #include "modes/world.hpp"
-#include "network/network_manager.hpp"
 #include "race/grand_prix_manager.hpp"
 #include "race/race_manager.hpp"
 #include "states_screens/dialogs/select_challenge.hpp"
@@ -198,11 +197,6 @@ GUIEngine::EventPropagation SelectChallengeDialog::processEvent(const std::strin
         // Go straight to the race
         StateManager::get()->enterGameState();
 
-        // Initialise global data - necessary even in local games to avoid
-        // many if tests in other places (e.g. if network_game call
-        // network_manager else call race_manager).
-        network_manager->initCharacterDataStructures();
-
         // Launch challenge
         if (eventSource == "novice")
         {
@@ -228,7 +222,7 @@ GUIEngine::EventPropagation SelectChallengeDialog::processEvent(const std::strin
         }
 
         // Sets up kart info, including random list of kart for AI
-        network_manager->setupPlayerKartInfo();
+        race_manager->setupPlayerKartInfo();
         race_manager->startNew(true);
 
         irr_driver->hidePointer();
