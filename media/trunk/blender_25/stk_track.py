@@ -2129,7 +2129,40 @@ class TrackExport:
         else:
             log_warning("Unknown interaction '%s' - ignored!"%interact)
 
-                
+          
+    # --------------------------------------------------------------------------
+    def writeEasterEggsFile(self, sPath, lEasterEggs):
+        f = open(sPath+"/easter_eggs.xml", "w")
+        f.write("<?xml version=\"1.0\"?>\n")
+        f.write("<!-- Generated with script from SVN rev %s -->\n"%getScriptVersion())
+        f.write("<EasterEggHunt>\n")
+        
+        #print("lEasterEggs : ", len(lEasterEggs), lEasterEggs);
+        
+        f.write("  <easy>\n")
+        for obj in lEasterEggs:
+            #print(getProperty(obj, "easteregg_easy", "false"))
+            if getProperty(obj, "easteregg_easy", "false") == "true":
+                f.write("    <easter-egg %s />\n" % getXYZHString(obj))
+        f.write("  </easy>\n")
+        
+        f.write("  <medium>\n")
+        for obj in lEasterEggs:
+            #print(getProperty(obj, "easteregg_medium", "false"))
+            if getProperty(obj, "easteregg_medium", "false") == "true":
+                f.write("    <easter-egg %s />\n" % getXYZHString(obj))
+        f.write("  </medium>\n")
+        
+        f.write("  <hard>\n")
+        for obj in lEasterEggs:
+            #print(getProperty(obj, "easteregg_hard", "false"))
+            if getProperty(obj, "easteregg_hard", "false") == "true":
+                f.write("    <easter-egg %s />\n" % getXYZHString(obj))
+        f.write("  </hard>\n")
+        
+        f.write("</EasterEggHunt>")
+        
+        
     # --------------------------------------------------------------------------
     # Writes the scene files, which includes all models, animations, and items
     def writeSceneFile(self, sPath, sTrackName, exporters, lTrack, lObjects, lSun):
@@ -2324,6 +2357,7 @@ class TrackExport:
         lCameraCurves        = []                    # Camera curves (unused atm)
         lObjects             = []                    # All special objects
         lSun                 = []
+        lEasterEggs          = []
         
         for obj in lObj:
             # Try to get the supertuxkart type field. If it's not defined,
@@ -2342,7 +2376,10 @@ class TrackExport:
             if obj.library is not None:
                 continue
             
-            
+            if stktype=="EASTEREGG":
+                lEasterEggs.append(obj)
+                continue
+                
             objectProcessed = False
             for exporter in exporters:
                 if exporter.processObject(obj, stktype):
@@ -2424,6 +2461,8 @@ class TrackExport:
         # ----------
 
         self.writeSceneFile(sPath, sTrackName, exporters, lTrack, lObjects, lSun)
+        
+        self.writeEasterEggsFile(sPath, lEasterEggs)
         
         # materials file
         # ----------
