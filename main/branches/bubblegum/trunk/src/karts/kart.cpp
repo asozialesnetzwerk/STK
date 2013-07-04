@@ -1017,6 +1017,9 @@ void Kart::decreaseShieldTime(float t)
         }
 
     }
+    //Let the kart drop a bubble gum, if the shield was not damaged.
+    //TODO: if(!this->isShielded()){ m_bubble_drop = false;}
+
 }
 
 

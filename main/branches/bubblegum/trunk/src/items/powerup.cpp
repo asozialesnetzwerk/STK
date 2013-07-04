@@ -163,7 +163,7 @@ void Powerup::set(PowerupManager::PowerupType type, int n)
             m_sound_use = sfx_manager->createSoundSource("parachute");
             break;
             
-        case PowerupManager::POWERUP_BUBBLEGUM:
+        case PowerupManager::POWERUP_BUBBLEGUM: //TODO: kart looks backward -> goo; kart looks forward: -> new sound
                 m_sound_use = sfx_manager->createSoundSource("goo");
             break ;
             
@@ -274,7 +274,6 @@ void Powerup::use()
                       m_owner->getKartProperties()->getSwatterDuration());
         break;
     case PowerupManager::POWERUP_BUBBLEGUM:
-
         // use the bubble gum the traditional way, if the kart is looking back
         if (m_owner->getControls().m_look_back)
         {

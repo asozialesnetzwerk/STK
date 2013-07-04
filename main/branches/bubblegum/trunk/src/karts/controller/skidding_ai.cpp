@@ -1165,6 +1165,8 @@ void SkiddingAI::handleItems(const float dt)
 
     // Tactic 2: calculate
     // -------------------
+    float min_bubble_time = 2.0f;
+
     switch( m_kart->getPowerup()->getType() )
     {
     case PowerupManager::POWERUP_BUBBLEGUM:
@@ -1180,7 +1182,7 @@ void SkiddingAI::handleItems(const float dt)
         // again.
         m_controls->m_look_back = true; //handle traditinal usage as bubble gum
         m_controls->m_fire = (m_distance_behind < 15.0f &&
-                              m_distance_behind > 3.0f    );
+                              m_distance_behind > 3.0f    );//TODO: is this criteria sufficient to hit another kart with a high probability
 
         m_controls->m_look_back = false;
         //Do not use a shield, when you still have a swatter
@@ -1196,7 +1198,7 @@ void SkiddingAI::handleItems(const float dt)
     case PowerupManager::POWERUP_CAKE:
         {
             // Do not destroy your own shield
-            if(m_kart->getShieldTime() > 2.0f) // if the kart has a shield, do not break it by using a swatter.
+            if(m_kart->getShieldTime() > min_bubble_time) // if the kart has a shield, do not break it by using a swatter.
                 break;
             // Leave some time between shots
             if(m_time_since_last_shot<3.0f) break;
@@ -1219,7 +1221,7 @@ void SkiddingAI::handleItems(const float dt)
     case PowerupManager::POWERUP_BOWLING:
         {
             // Do not destroy your own shield
-            if(m_kart->getShieldTime() > 2.0f) // if the kart has a shield, do not break it by using a swatter.
+            if(m_kart->getShieldTime() > min_bubble_time) // if the kart has a shield, do not break it by using a swatter.
                 break;
             // Leave more time between bowling balls, since they are 
             // slower, so it should take longer to hit something which
@@ -1249,7 +1251,7 @@ void SkiddingAI::handleItems(const float dt)
     case PowerupManager::POWERUP_PLUNGER:
         {
             // Do not destroy your own shield
-            if(m_kart->getShieldTime() > 2.0f) // if the kart has a shield, do not break it by using a swatter.
+            if(m_kart->getShieldTime() > min_bubble_time) // if the kart has a shield, do not break it by using a swatter.
                 break;
 
             // Leave more time after a plunger, since it will take some
@@ -1305,7 +1307,7 @@ void SkiddingAI::handleItems(const float dt)
         {
             // Squared distance for which the swatter works
             float d2 = m_kart->getKartProperties()->getSwatterDistance2();
-            if(m_kart->getShieldTime() > 2.0f) // if the kart has a shield, do not break it by using a swatter.
+            if(m_kart->getShieldTime() > min_bubble_time) // if the kart has a shield, do not break it by using a swatter.
                 break;
             // Fire if the closest kart ahead or to the back is not already 
             // squashed and close enough.
@@ -1322,7 +1324,7 @@ void SkiddingAI::handleItems(const float dt)
         }
     case PowerupManager::POWERUP_RUBBERBALL:
         // Do not destroy your own shield
-        if(m_kart->getShieldTime() > 2.0f) // if the kart has a shield, do not break it by using a swatter.
+        if(m_kart->getShieldTime() > min_bubble_time) // if the kart has a shield, do not break it by using a swatter.
             break;
         // Perhaps some more sophisticated algorithm might be useful.
         // For now: fire if there is a kart ahead (which means that
