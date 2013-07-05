@@ -26,7 +26,7 @@ class User
 {
     public static $logged_in = false;
     public static $user_id = 0;
-    /*
+    
     static function init() {
         // Validate user's session on every page
         if (session_id() == "") {
@@ -47,77 +47,88 @@ class User
             return;
         }
         // Validate session if complete set of variables is available
-        $querySql = 'SELECT `id`,`user`,`pass`,`name`,`role`
-            FROM `'.DB_PREFIX.'users`
-            WHERE `user` = \''.mysql_real_escape_string($_SESSION['user']).'\'
-            AND `pass` = \''.mysql_real_escape_string($_SESSION['pass']).'\'
-            AND `last_login` = \''.mysql_real_escape_string($_SESSION['last_login']).'\'
-            AND `name` = \''.mysql_real_escape_string($_SESSION['real_name']).'\'
-            AND `active` = 1';
-        $reqSql = sql_query($querySql);
-        if (!$reqSql) {
-            User::logout();
-            return false;
+   
+        try{
+            $result = DBConnection::get()->query(
+                "SELECT `id`,`user`,`pass`,`name`,`role`
+    	        FROM `" . DB_PREFIX . "users`
+                WHERE `user` = :username
+                AND `pass` = :pass
+                AND `last_login` = :lastlogin
+                AND `name` = :realname
+                AND `active` = 1",
+                DBConnection::ROW_COUNT,
+                array(
+                    ':username'     => (string) $_SESSION['user'],
+                    ':pass'         => (string) $_SESSION['pass'],
+                    ':lastlogin'    => $_SESSION['last_login'],
+                    ':realname'     => (string) $_SESSION['real_name']
+                )
+            );
+        }catch(DBException $e){
+            throw new UserException(htmlspecialchars(
+                _('An error occurred trying to validate your session.') .' '.
+                _('Please contact a website administrator.')
+            ));
         }
-        $num_rows = mysql_num_rows($reqSql);
-        if($num_rows != 1)
-        {
+        
+        
+        if ($result != 1) {
             User::logout();
             return false;
         }
         User::$user_id = $_SESSION['userid'];
         User::$logged_in = true;
     }
+    
+    static function updateLoginTime($userid)
+    {       
+        $time = date('Y-m-d H:i:s');
+        try{
+            $result = DBConnection::get()->query(
+                "CALL `". DB_PREFIX . "set_logintime`
+                (:userid, :lastlogin)'",
+                DBConnection::ROW_COUNT,
+                array
+                (
+                    ':userid'   => Validate::username($userid),
+                    ':lastlogin'   => /*(string)*/ $time
+                )
+            );
+            return $result;
+        }
+        catch (PDOException $e){
+            User::logout();
+            throw new UserException(htmlspecialchars(
+                _('An error occurred while recording last login time.') .' '.
+                _('Please contact a website administrator.')
+            ));
+        }
+        return $time;
+    }
 
     static function login($username,$password)
     {
-        // Validate parameters
-        $username = Validate::username($username);
-        $orig_pass = $password;
-        $password = Validate::password($password,NULL,$username);
-
-        // Get user record
-        $querySql = 'SELECT `id`, `user`, `pass`, `name`, `role`
-                FROM `'.DB_PREFIX."users`
-                WHERE `user` = '$username'
-                AND `pass` = '$password'
-                AND `active` = 1";
-        $reqSql = sql_query($querySql);
-        if (!$reqSql)
-        {
-            User::logout();
-            throw new UserException(htmlspecialchars(_('Failed to log in.')));
-        }
-        $num_rows = mysql_num_rows($reqSql);
-
+        $result = Validate::credentials($password,$username);
         // Check if the user exists
-        if($num_rows != 1) {
+        if(count($result) != 1) {
             User::logout();
             throw new UserException(htmlspecialchars(_('Your username or password is incorrect.')));
         }
-        $result = mysql_fetch_assoc($reqSql);
 
-        $_SESSION['userid'] = $result['id'];
-        $_SESSION['user'] = $username;
-        $_SESSION['pass'] = $password;
-        $_SESSION['real_name'] = $result['name'];
-        $_SESSION['last_login'] = date('Y-m-d H:i:s');
+        $_SESSION['userid'] = $result[0]["id"];      
+        $_SESSION['user'] = $result[0]["user"];
+        $_SESSION['pass'] = Validate::password($password, null, $username);
+        $_SESSION['real_name'] = $result[0]["name"];
+        $_SESSION['last_login'] = User::updateLoginTime($username);
         include(ROOT.'include/allow.php');
 
-        // Set latest login time
-        $set_logintime_query = 'CALL `'.DB_PREFIX.'set_logintime`
-            ('.$_SESSION['userid'].', \''.$_SESSION['last_login'].'\')';
-        $reqSql = sql_query($set_logintime_query);
-        if (!$reqSql) {
-            User::logout();
-            throw new UserException('Failed to record last login time.');
-        }
-        User::$user_id = $result['id'];
+        User::$user_id = $result[0]['id'];
         User::$logged_in = true;
         
         // Convert unsalted password to a salted one
         if (strlen($password) === 64) {
-            $password = Validate::password($orig_pass);
+            $password = Validate::password($password);
             User::change_password($password);
             Log::newEvent("Converted the password of '$username' to use a password salting algorithm");
         }
@@ -137,7 +148,7 @@ class User
         session_start();
         User::$user_id = 0;
         User::$logged_in = false;
-    }*/
+    }
     
     /**
      * Change the password of the currently logged in user
@@ -158,22 +169,24 @@ class User
         
         $_SESSION['pass'] = $new_password;
     }
-
+    
     static function exists($username) {
-	try { Validate::username($username); }
-	catch (UserException $e) {
-	    return false;
-	}
+	   try { 
+	       Validate::username($username); 
+	   }
+	   catch (UserException $e) {
+	       return false;
+	   }
 	
-	$query = 'SELECT `id`
-                FROM `'.DB_PREFIX."users`
-                WHERE `user` = '$username'";
-	$handle = sql_query($query);
-	if (!$handle)
-	    return false;
-	if (mysql_num_rows($handle) === 0)
-	    return false;
-	return true;
+    	$query = 'SELECT `id`
+                    FROM `'.DB_PREFIX."users`
+                    WHERE `user` = '$username'";
+    	$handle = sql_query($query);
+    	if (!$handle)
+    	    return false;
+    	if (mysql_num_rows($handle) === 0)
+    	    return false;
+    	return true;
     }*/
     
     /**

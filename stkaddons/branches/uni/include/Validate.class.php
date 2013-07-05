@@ -38,7 +38,7 @@ class Validate {
         if (!preg_match('/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i',$email)) {
             throw new UserException(htmlspecialchars(sprintf(_('"%s" is not a valid email address.'),$email)));
         }
-        return mysql_real_escape_string(htmlspecialchars($email));
+        return htmlspecialchars($email);
     }
     
     /**
@@ -106,7 +106,7 @@ class Validate {
         if (strlen(trim($name)) < 2) {
             throw new UserException(htmlspecialchars(_('You must enter a name.')));
         }
-        return mysql_real_escape_string(htmlspecialchars(trim($name)));
+        return htmlspecialchars(trim($name));
     }
     
     public static function checkbox($box, $message) {
@@ -121,6 +121,39 @@ class Validate {
 	    throw new Exception('Invalid version string! Format should be: W.X.Y[-rcZ]');
 	}
 	return true;
+    }
+    
+    /**
+     * Check if the input is a valid alphanumeric username
+     * @param string $username Alphanumeric username
+     * @param string $password unhashed password
+     * @return associative array with user information from the database
+     */
+    public static function credentials($username, $password){
+        try{
+            $result = DBConnection::get()->query(
+                "SELECT `id`,`user`,`pass`,`name`,`role`
+                FROM `" . DB_PREFIX . "users`
+                WHERE `user` = :username AND `pass` = :pass",
+                DBConnection::FETCH_ALL,
+                array
+                (
+                    ':username'   => Validate::username($username),
+                    ':pass'   => Validate::password($password, null, $username)
+                )
+            );
+            return $result;
+        }
+        catch (UserException $e){
+            throw new UserException($e->getMessage());
+        }
+        catch (PDOException $e){
+            throw new UserException(htmlspecialchars(
+                _('An error occurred while signing in.') .' '.
+                _('Please contact a website administrator.')
+            ));
+        }
+    
     }
 }
 ?>

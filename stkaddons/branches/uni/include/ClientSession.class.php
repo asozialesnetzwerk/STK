@@ -142,7 +142,7 @@ abstract class ClientSession
                 )
             );
         }catch(DBException $e){
-            throw new UserException(htmlspecialchars(
+            throw new ClientSessionExpiredException(htmlspecialchars(
                 _('An error occurred while logging out.') .' '.
                 _('Please contact a website administrator.')
             ));
@@ -189,27 +189,8 @@ class RegisteredClientSession extends ClientSession
      */
     public static function create($username, $password = '')
     {        
-        // TODO: Share password checking with User class
-        // Currently User class is tightly coupled with session handling, so can't use it here yet
-        try{
-            $username = Validate::username($username);
-            $result = DBConnection::get()->query(
-                "SELECT `id`, `role` FROM `" . DB_PREFIX . "users` 
-                WHERE `user` = :username AND `pass` = :pass",
-                DBConnection::FETCH_ALL,
-                array
-                (
-                    ':username'   => $username,
-                    ':pass'   => Validate::password($password, null, $username)
-                )
-            );
-        }
-        catch (UserException $e){
-            throw new ClientSessionConnectException($e->getMessage());
-        }
-        catch (PDOException $e){
-            throw new ClientSessionConnectException(_('Error!'));
-        }
+        $result = Validate::credentials($username,$password);
+        User::updateLoginTime($username);
         $size = count($result);
         if ($size == 0) {
             throw new ClientSessionConnectException(_('Username and/or password is wrong.'));
@@ -219,6 +200,7 @@ class RegisteredClientSession extends ClientSession
             $session_id = ClientSession::calcSessionId();
             $user_id = $result[0]["id"];
             $role = $result[0]["role"];
+            $username = $result[0]["user"];
             $result = DBConnection::get()->query
             (
                 "INSERT INTO `" . DB_PREFIX ."client_sessions` (cid, uid, name)
@@ -232,7 +214,6 @@ class RegisteredClientSession extends ClientSession
                     ':user_name'    => (string) $username
                 )
             );
-            echo $result;
             if ($result == 0) {
                 throw new ClientSessionConnectException('Could not create new session');
             }elseif ($result > 2) {
@@ -243,5 +224,7 @@ class RegisteredClientSession extends ClientSession
             return new RegisteredClientSession($session_id, $user_id, $username, $role);
         }
     }
+    
+
 }
 ?>
