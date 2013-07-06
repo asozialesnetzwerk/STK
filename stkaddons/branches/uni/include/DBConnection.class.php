@@ -12,6 +12,7 @@ class DBConnection
     //Faking enumeration
     const ROW_COUNT = 1;
     const FETCH_ALL = 2;
+    const NOTHING = 4;
     
 
     private function __construct() {
@@ -27,12 +28,14 @@ class DBConnection
         return self::$instance;
     }
 
-    public function query($query, $return_type = ROW_COUNT, $params = NULL) {
+    public function query($query, $return_type = DBConnection::NOTHING, $params = NULL) {
         if(!$query)
 	        throw new DBException("Empty Query");     
         try{
 	        $sth = $this->conn->prepare($query);
 	        $sth->execute($params);
+	        if($return_type == self::NOTHING)
+	            return;
             if($return_type == self::ROW_COUNT)
                 return $sth->rowCount();
             if($return_type == self::FETCH_ALL)

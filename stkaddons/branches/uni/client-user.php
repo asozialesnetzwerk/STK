@@ -41,7 +41,7 @@ try {
                 
             }
             catch(Exception $e){
-                returnXML('<connect success="no" info="' . $e->getMessage() . ' "/>');
+                returnXML('<connect success="no" info="' . $e->getMessage() . '"/>');
             }
 
             break;

@@ -36,7 +36,6 @@ class User
         // Check if any session variables are not set
         if (!isset($_SESSION['userid']) ||
                 !isset($_SESSION['user']) ||
-                !isset($_SESSION['pass']) ||
                 !isset($_SESSION['real_name']) ||
                 !isset($_SESSION['last_login']) ||
                 !isset($_SESSION['role']))
@@ -53,14 +52,12 @@ class User
                 "SELECT `id`,`user`,`pass`,`name`,`role`
     	        FROM `" . DB_PREFIX . "users`
                 WHERE `user` = :username
-                AND `pass` = :pass
                 AND `last_login` = :lastlogin
                 AND `name` = :realname
                 AND `active` = 1",
                 DBConnection::ROW_COUNT,
                 array(
                     ':username'     => (string) $_SESSION['user'],
-                    ':pass'         => (string) $_SESSION['pass'],
                     ':lastlogin'    => $_SESSION['last_login'],
                     ':realname'     => (string) $_SESSION['real_name']
                 )
@@ -83,19 +80,31 @@ class User
     
     static function updateLoginTime($userid)
     {       
-        $time = date('Y-m-d H:i:s');
         try{
             $result = DBConnection::get()->query(
-                "CALL `". DB_PREFIX . "set_logintime`
-                (:userid, :lastlogin)'",
-                DBConnection::ROW_COUNT,
+                "UPDATE `v2_users`
+                SET `last_login` = NOW()
+                WHERE `id` = :userid",
+                DBConnection::NOTHING,
                 array
                 (
-                    ':userid'   => Validate::username($userid),
-                    ':lastlogin'   => /*(string)*/ $time
+                    ':userid'   => $userid
                 )
             );
-            return $result;
+            $result = DBConnection::get()->query(
+                "SELECT `last_login`
+                FROM `v2_users`
+                WHERE `id` = :userid",
+                DBConnection::FETCH_ALL,
+                array
+                (
+                    ':userid'   => $userid
+                )
+            );
+            if (count($result) !== 1) {
+                throw new PDOException();
+            }
+            return $result[0]['last_login'];
         }
         catch (PDOException $e){
             User::logout();
@@ -118,13 +127,11 @@ class User
 
         $_SESSION['userid'] = $result[0]["id"];      
         $_SESSION['user'] = $result[0]["user"];
-        $_SESSION['pass'] = Validate::password($password, null, $username);
         $_SESSION['real_name'] = $result[0]["name"];
-        $_SESSION['last_login'] = User::updateLoginTime($username);
-        include(ROOT.'include/allow.php');
-
-        User::$user_id = $result[0]['id'];
+        User::$user_id = $result[0]['id'];  
+        $_SESSION['last_login'] = User::updateLoginTime(User::$user_id);
         User::$logged_in = true;
+        include(ROOT.'include/allow.php');
         
         // Convert unsalted password to a salted one
         if (strlen($password) === 64) {
@@ -140,7 +147,6 @@ class User
     {
         unset($_SESSION['userid']);
         unset($_SESSION['user']);
-        unset($_SESSION['pass']);
         unset($_SESSION['role']);
         unset($_SESSION['real_name']);
         unset($_SESSION['last_login']);
@@ -166,8 +172,6 @@ class User
         $handle = sql_query($query);
         if (!$handle)
             throw new UserException(htmlspecialchars(_('Failed to change your password.')));
-        
-        $_SESSION['pass'] = $new_password;
     }
     
     static function exists($username) {

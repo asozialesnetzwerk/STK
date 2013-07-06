@@ -188,9 +188,9 @@ class RegisteredClientSession extends ClientSession
      * @throws ClientSessionConnectException when credentials are wrong
      */
     public static function create($username, $password = '')
-    {        
+    {      
         $result = Validate::credentials($username,$password);
-        User::updateLoginTime($username);
+        User::updateLoginTime($result[0]['id']);
         $size = count($result);
         if ($size == 0) {
             throw new ClientSessionConnectException(_('Username and/or password is wrong.'));
@@ -203,15 +203,14 @@ class RegisteredClientSession extends ClientSession
             $username = $result[0]["user"];
             $result = DBConnection::get()->query
             (
-                "INSERT INTO `" . DB_PREFIX ."client_sessions` (cid, uid, name)
-                VALUES (:session_id, :user_id, :user_name) 
+                "INSERT INTO `" . DB_PREFIX ."client_sessions` (cid, uid)
+                VALUES (:session_id, :user_id) 
                 ON DUPLICATE KEY UPDATE cid = :session_id",
                 DBConnection::ROW_COUNT,
                 array
                 (
                     ':session_id'   => (string) $session_id,
-                    ':user_id'   => (int) $user_id,
-                    ':user_name'    => (string) $username
+                    ':user_id'   => (int) $user_id
                 )
             );
             if ($result == 0) {
