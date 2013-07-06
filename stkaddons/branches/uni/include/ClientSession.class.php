@@ -101,25 +101,49 @@ abstract class ClientSession
      * @throws ClientSessionExpiredException when session does not exist
      */
     public static function get($session_id, $user_id)
-    {  
-        $result = DBConnection::get()->query
-        (
-            "SELECT * FROM `" . DB_PREFIX . "client_sessions` 
-            WHERE cid = :sessionid AND uid = :userid",
-            DBConnection::FETCH_ALL,
-            array
+    {
+        try{
+            $session_info = DBConnection::get()->query
             (
-                ':sessionid'   => $session_id,
-                ':userid'   => $user_id
-            )
-        );
-        $size = count($result);
-        if ($size == 0) {
-            throw new ClientSessionExpiredException('No session found');
-        }elseif ($size > 1) {
-            throw new ClientSessionExpiredException('Error!');
-        }else {
-            return new ClientSessionUser($result[0]["cid"], $result[0]["uid"], $result[0]["name"]);
+                "SELECT * FROM `" . DB_PREFIX . "client_sessions` 
+                WHERE cid = :sessionid AND uid = :userid",
+                DBConnection::FETCH_ALL,
+                array
+                (
+                    ':sessionid'   => $session_id,
+                    ':userid'   => $user_id
+                )
+            );
+            $size = count($session_info);
+            if ($size == 0) {
+                throw new ClientSessionExpiredException(_('No session found'));
+            }elseif ($size > 1) {
+                throw new ClientSessionExpiredException('Error!'); //FIXME
+            }else {
+                //Valid session found, get more user info
+                $user_info = DBConnection::get()->query
+                (
+                    "SELECT `user`,`role`
+                    FROM `" . DB_PREFIX . "users`
+                    WHERE `id` = :userid",
+                    DBConnection::FETCH_ALL,
+                    array
+                    (
+                        ':userid'   => $user_id
+                    )
+                );
+                // FIXME check the size of $user_info
+                // here an if statement will come for Guest and registered
+                return new RegisteredClientSession( $session_info[0]["cid"], 
+                                                    $session_info[0]["uid"], 
+                                                    $user_info[0]["user"],
+                                                    $user_info[0]["role"]);
+            }
+        }catch (PDOException $e){
+            throw new UserException(htmlspecialchars(
+                _('An error occurred while verifying session.') .' '.
+                _('Please contact a website administrator.')
+            ));
         }
     }
 
@@ -178,6 +202,9 @@ class RegisteredClientSession extends ClientSession
     protected function __construct($session_id, $user_id, $user_name, $user_role)
     {
         parent::__construct($session_id, $user_id, $user_name, $user_role);
+        
+        
+        
     }
 
     /**
