@@ -75,7 +75,7 @@ abstract class ClientSession
      * @return ClientSession object
      * @throws InvalidArgumentException when username is not provided
      */
-    public static function create($username, $password = '')
+    public static function create(&$username, $password = '')
     {
         if (empty($username)) {
             throw new InvalidArgumentException('Username required');
@@ -111,7 +111,7 @@ abstract class ClientSession
                 )
             );
             $size = count($session_info);
-            if ($size != 0) {
+            if ($size != 1) {
                 throw new ClientSessionExpiredException(_('Session not valid. Please sign in.'));
             }else {
                 /*
@@ -286,6 +286,41 @@ abstract class ClientSession
             }else {
                 return $result[0];
             }
+        }catch (PDOException $e){
+            throw new UserException(htmlspecialchars(
+                _('An error occurred while getting a peer\'s ip:port.') .' '.
+                _('Please contact a website administrator.')
+            ));
+        }
+    }
+
+    public function getServerConnectionRequests()
+    {
+        try{
+            //Query the database to set the ip and port
+            $result = DBConnection::get()->query
+            (
+                "SELECT `userid`
+                FROM `" . DB_PREFIX . "server_conn`
+                WHERE `hostid` = :id AND `request` = '1'",
+                DBConnection::FETCH_ALL,
+                array
+                (
+                    ':id'   => $this->user_id,
+                )
+            );
+            $result2 = DBConnection::get()->query
+            (
+                "UPDATE `" . DB_PREFIX . "server_conn`
+                SET `request` = 0 
+                WHERE `hostid` = :id",
+                DBConnection::ROW_COUNT,
+                array
+                (
+                    ':id'   => $this->user_id,
+                )
+            );
+            return $result;
         }catch (PDOException $e){
             throw new UserException(htmlspecialchars(
                 _('An error occurred while getting a peer\'s ip:port.') .' '.
