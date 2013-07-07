@@ -24,19 +24,7 @@ require_once('include/ClientSession.class.php');
 require_once('include/User.class.php');
 
 try {
-    try {
-    $id = isset($_POST['id']) ? utf8_encode($_POST['id']) : null;
-    $token = isset($_POST['token']) ? utf8_encode($_POST['token']) : null;
-    $peer_id = isset($_POST['peer_id']) ? utf8_encode($_POST['peer_id']) : null;
-    $session = ClientSession::get($token, $id);
-    $result = $session->getPeerAddress($peer_id);
-    returnXML('<get-peer-address success="yes" 
-                ip="'.$result['ip'].'" port="'.$result['port'].'" />');
-    }
-    catch(Exception $e){
-        returnXML('<get-peer-address success="no" info="' . $e->getMessage() . 
-                '"/>');
-    }
+    
 }
 catch (Exception $e) {
     returnXML('<get-peer-address success="no" info="' . 

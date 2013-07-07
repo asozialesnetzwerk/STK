@@ -203,6 +203,60 @@ abstract class ClientSession
         }
     }
 
+    public function requestServerConnection($server_id)
+    {
+        try{
+            //Query the database to add the request entry
+            DBConnection::get()->query
+            (
+                "INSERT INTO `" . DB_PREFIX . "server_conn` (hostid, userid, request) 
+                VALUES ( :serverid, :userid, 1)",
+                DBConnection::NOTHING,
+                array
+                (
+                    ':userid'       => $this->user_id,
+                    ':serverid'     => $server_id
+                )
+            );
+        }catch (PDOException $e){
+            throw new UserException(htmlspecialchars(
+                _('An error occurred while setting ip:port.') .' '.
+                _('Please contact a website administrator.')
+            ));
+        }
+    }
+
+    /**
+     * Unsets the public address of a user
+     * @param int $id user id 
+     * @param string $token user token
+     * @throws UserException if the request fails
+     */
+    public static function unsetPublicAddress($id, $token)
+    {
+        try{
+            //Query the database to set the ip and port
+            $count = DBConnection::get()->query
+            (
+                "UPDATE `" . DB_PREFIX . "client_sessions`
+                SET `ip` = '0' , `port` = '0'
+                WHERE `uid` = :userid AND `cid` = :token",
+                DBConnection::ROW_COUNT,
+                array
+                (
+                    ':userid'   => $id,
+                    ':token'    => $token
+                )
+            );
+            return $count;
+        }catch (PDOException $e){
+            throw new UserException(htmlspecialchars(
+                _('An error occurred while setting ip:port.') .' '.
+                _('Please contact a website administrator.')
+            ));
+        }
+    }
+
     /**
      * Get the public address of a player
      * @param int $peer_id id of the peer
