@@ -177,6 +177,78 @@ abstract class ClientSession
     }
 
     /**
+     * Sets the public address of a player
+     * @param int $id user id 
+     * @param string $token user token
+     * @param int $ip user ip
+     * @param int $port user port
+     * @throws UserException if the request fails
+     */
+    public static function setPublicAddress($id, $token, $ip, $port)
+    {
+        try{
+            //Query the database to set the ip and port
+            $count = DBConnection::get()->query
+            (
+                "UPDATE `" . DB_PREFIX . "client_sessions`
+                SET `ip` = :ip , `port` = :port
+                WHERE `uid` = :userid AND `cid` = :token",
+                DBConnection::ROW_COUNT,
+                array
+                (
+                    ':ip'       => $ip,
+                    ':port'     => $port,
+                    ':userid'   => $id,
+                    ':token'    => $token
+                )
+            );
+            return $count;
+        }catch (PDOException $e){
+            throw new UserException(htmlspecialchars(
+                _('An error occurred while setting ip:port.') .' '.
+                _('Please contact a website administrator.')
+            ));
+        }
+    }
+
+    /**
+     * Get the public address of a player
+     * @param int $peer_id id of the peer
+     * @return the ip and port of the player
+     * @throws UserException if the request fails
+     */
+    public function getPeerAddress($peer_id)
+    {
+        try{
+            //Query the database to set the ip and port
+            $result = DBConnection::get()->query
+            (
+                "SELECT `ip`, `port`
+                FROM `" . DB_PREFIX . "client_sessions`
+                WHERE `uid` = :peerid",
+                DBConnection::FETCH_ALL,
+                array
+                (
+                    ':peerid'   => $peer_id
+                )
+            );
+            $size = count($result);
+            if ($size == 0) {
+                throw new UserException(_('Not found'));
+            }elseif ($size > 1) {
+                throw new UserException('Too much users matching the request');
+            }else {
+                return $result[0];
+            }
+        }catch (PDOException $e){
+            throw new UserException(htmlspecialchars(
+                _('An error occurred while getting a peer\'s ip:port.') .' '.
+                _('Please contact a website administrator.')
+            ));
+        }
+    }
+
+    /**
      * Generate a alphanumerical session id
      * @return string session id
      */
