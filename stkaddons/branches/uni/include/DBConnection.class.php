@@ -48,5 +48,9 @@ class DBConnection
             throw new DBException();
         }
     }
+    
+    public function lastInsertId(){
+        return $this->conn->lastInsertId();  
+    }
 }
 ?>

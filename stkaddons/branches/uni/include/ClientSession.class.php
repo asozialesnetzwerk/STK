@@ -33,15 +33,11 @@ abstract class ClientSession
 {
     protected $session_id;
     protected $user_id;
-    protected $user_name;
-    protected $role;
 
-    protected function __construct($session_id, $user_id, $user_name, $user_role)
+    protected function __construct($session_id, $user_id)
     {
         $this->session_id = $session_id;
         $this->user_id = $user_id;
-        $this->user_name = $user_name;
-        $this->user_role = $user_role;
     }
 
     /**
@@ -92,7 +88,7 @@ abstract class ClientSession
             return RegisteredClientSession::create($username, $password);
         }
     }
-
+    
     /**
      * Get session object for already created session
      * @param string $session_id session id
@@ -115,11 +111,10 @@ abstract class ClientSession
                 )
             );
             $size = count($session_info);
-            if ($size == 0) {
-                throw new ClientSessionExpiredException(_('No session found'));
-            }elseif ($size > 1) {
-                throw new ClientSessionExpiredException('Error!'); //FIXME
+            if ($size != 0) {
+                throw new ClientSessionExpiredException(_('Session not valid. Please sign in.'));
             }else {
+                /*
                 //Valid session found, get more user info
                 $user_info = DBConnection::get()->query
                 (
@@ -131,13 +126,10 @@ abstract class ClientSession
                     (
                         ':userid'   => $user_id
                     )
-                );
-                // FIXME check the size of $user_info
+                );*/
                 // here an if statement will come for Guest and registered
                 return new RegisteredClientSession( $session_info[0]["cid"], 
-                                                    $session_info[0]["uid"], 
-                                                    $user_info[0]["user"],
-                                                    $user_info[0]["role"]);
+                                                    $session_info[0]["uid"]);
             }
         }catch (PDOException $e){
             throw new UserException(htmlspecialchars(
@@ -271,9 +263,9 @@ class RegisteredClientSession extends ClientSession
      * @param int $user_id
      * @param string $user_name
      */
-    protected function __construct($session_id, $user_id, $user_name, $user_role)
+    protected function __construct($session_id, $user_id)
     {
-        parent::__construct($session_id, $user_id, $user_name, $user_role);
+        parent::__construct($session_id, $user_id);
         
         
         
@@ -286,7 +278,7 @@ class RegisteredClientSession extends ClientSession
      * @return ClientSessionUser
      * @throws ClientSessionConnectException when credentials are wrong
      */
-    public static function create($username, $password = '')
+    public static function create(&$username, $password = '')
     {      
         $result = Validate::credentials($username,$password);
         User::updateLoginTime($result[0]['id']);
@@ -298,7 +290,7 @@ class RegisteredClientSession extends ClientSession
         }else{
             $session_id = ClientSession::calcSessionId();
             $user_id = $result[0]["id"];
-            $role = $result[0]["role"];
+            //$role = $result[0]["role"];
             $username = $result[0]["user"];
             $result = DBConnection::get()->query
             (
@@ -319,7 +311,7 @@ class RegisteredClientSession extends ClientSession
             }elseif ($result == 2) {
                 //FIXME : research this. Apparantly the session was still alive, and got updated.
             }
-            return new RegisteredClientSession($session_id, $user_id, $username, $role);
+            return new RegisteredClientSession($session_id, $user_id);
         }
     }
     

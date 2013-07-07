@@ -35,7 +35,7 @@ try {
                 $session = ClientSession::create($username, $password);
                 returnXML('<connect success="yes" 
                                     token="'. $session->getSessionId() . '"
-                                    username="' . $session->getUserName() . '"
+                                    username="' . $username . '"
                                     userid="' . $session->getUserID() . '"                                     
                 />');
                 
@@ -48,7 +48,7 @@ try {
 
         case 'disconnect':
             try {
-                $userid = isset($_POST['userid']) ? utf8_encode($_POST['userid']) : null;
+                $userid = isset($_POST['userid']) ? $_POST['userid'] : null;
                 $token = isset($_POST['token']) ? $_POST['token'] : null;
                 ClientSession::destroy($token, $userid);
                 returnXML('<disconnect success="yes"/>');
@@ -69,6 +69,27 @@ try {
             }
             catch(Exception $e){
                 returnXML('<registration success="no" info="' . $e->getMessage() . ' "/>');
+            }
+            break;
+            
+        case 'create_server':
+            try {
+                $userid = isset($_POST['userid']) ? $_POST['userid'] : null;
+                $token = isset($_POST['token']) ? $_POST['token'] : null;
+                $server_name = isset($_POST['name']) ? $_POST['name'] : null;
+                $max_players = isset($_POST['max_players']) ? $_POST['max_players'] : null;
+                $server = Server::create(   $userid,
+                                            $token,
+                                            $server_name,
+                                            $max_players);
+                returnXML('<server_creation success="yes"
+                                            id="'. $server->getId() . '"
+                                            name="' . $server>getName() . '"
+                                            max_players="' . $server->getMaxPlayers() . '"
+                />');
+            }
+            catch(Exception $e){
+                returnXML('<server_creation success="no" info="' . $e->getMessage() . ' "/>');
             }
             break;
 
