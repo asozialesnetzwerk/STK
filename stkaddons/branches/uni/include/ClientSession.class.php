@@ -194,7 +194,10 @@ abstract class ClientSession
                     ':token'    => $token
                 )
             );
-            return $count;
+            // if count = 0 that may be a re-update of an existing key
+            if ($count > 1) {
+                throw new UserException(htmlspecialchars(_('Could not set the ip:port')));
+            }
         }catch (PDOException $e){
             throw new UserException(htmlspecialchars(
                 _('An error occurred while setting ip:port.') .' '.
@@ -207,15 +210,27 @@ abstract class ClientSession
     {
         try{
             //Query the database to add the request entry
+            $result = DBConnection::get()->query
+            (
+                "SELECT id FROM `" . DB_PREFIX . "servers`
+                WHERE `hostid` = :hostid ",
+                DBConnection::FETCH_ALL,
+                array
+                (
+                    ':hostid'       => $server_id
+                )
+            );
+            if (count($result) == 0)
+                throw new UserException(_('No server found'));
             DBConnection::get()->query
             (
-                "INSERT INTO `" . DB_PREFIX . "server_conn` (hostid, userid, request) 
-                VALUES ( :serverid, :userid, 1)",
+                "INSERT INTO `" . DB_PREFIX . "server_conn` (serverid, userid, request) 
+                VALUES ( :serverid, :userid, 1) ON DUPLICATE KEY UPDATE request='1'",
                 DBConnection::NOTHING,
                 array
                 (
                     ':userid'       => $this->user_id,
-                    ':serverid'     => $server_id
+                    ':serverid'     => $result[0]['id']
                 )
             );
         }catch (PDOException $e){
@@ -302,7 +317,7 @@ abstract class ClientSession
             (
                 "SELECT `userid`
                 FROM `" . DB_PREFIX . "server_conn`
-                WHERE `hostid` = :id AND `request` = '1'",
+                WHERE `serverid` = :id AND `request` = '1'",
                 DBConnection::FETCH_ALL,
                 array
                 (
@@ -313,7 +328,7 @@ abstract class ClientSession
             (
                 "UPDATE `" . DB_PREFIX . "server_conn`
                 SET `request` = 0 
-                WHERE `hostid` = :id",
+                WHERE `serverid` = :id",
                 DBConnection::ROW_COUNT,
                 array
                 (
@@ -321,6 +336,73 @@ abstract class ClientSession
                 )
             );
             return $result;
+        }catch (PDOException $e){
+            throw new UserException(htmlspecialchars(
+                _('An error occurred while getting a peer\'s ip:port.') .' '.
+                _('Please contact a website administrator.')
+            ));
+        }
+    }
+
+    public function startServer($ip, $port)
+    {
+        try{
+            //Query the database to set the ip and port
+            ClientSession::setPublicAddress($this->user_id, $this->session_id, $ip, $port);
+            // now setup the serv info
+            $count = DBConnection::get()->query
+            (
+                "SELECT `id` FROM `" . DB_PREFIX . "servers` 
+                WHERE `ip`= :ip AND `port`= :port ",
+                DBConnection::ROW_COUNT,
+                array
+                (
+                    ':ip'   => $ip,
+                    ':port' => $port
+                )
+            );
+            if ($count != 0)
+                throw new UserException(_('This server already exists.'));
+            DBConnection::get()->query
+            (
+                "INSERT INTO `" . DB_PREFIX . "servers` (hostid, name, ip, port, max_players)
+                VALUES  ( :id, :name, :ip, :port, 16) ",
+                DBConnection::NOTHING,
+                array
+                (
+                    ':id'   => $this->user_id,
+                    ':name' => "",
+                    ':ip'   => $ip,
+                    ':port' => $port
+                )
+            );
+        }catch (PDOException $e){
+            throw new UserException(htmlspecialchars(
+                _('An error occurred while getting a peer\'s ip:port.') .' '.
+                _('Please contact a website administrator.')
+            ));
+        }
+    }
+    public function stopServer($ip, $port)
+    {
+        try{
+            // empty the public ip:port
+            ClientSession::setPublicAddress($this->user_id, $this->session_id, 0, 0);
+            // now setup the serv info
+            $count = DBConnection::get()->query
+            (
+                "DELETE FROM `" . DB_PREFIX . "servers` 
+                WHERE `ip`= :ip AND `port`= :port AND `hostid`= :id",
+                DBConnection::ROW_COUNT,
+                array
+                (
+                    ':ip'   => $ip,
+                    ':port' => $port,
+                    ':id'   => $this->user_id
+                )
+            );
+            if ($count != 1)
+                throw new UserException(_('Not the good number of servers deleted.'));
         }catch (PDOException $e){
             throw new UserException(htmlspecialchars(
                 _('An error occurred while getting a peer\'s ip:port.') .' '.

@@ -34,16 +34,37 @@ try {
                 $token = isset($_POST['token']) ? utf8_encode($_POST['token']) : null;
                 $address = isset($_POST['address']) ? utf8_encode($_POST['address']) : null;
                 $port = isset($_POST['port']) ? utf8_encode($_POST['port']) : null;
-                $count = ClientSession::setPublicAddress($id, $token, $address, $port);
-                if ($count == 1) {
-                    returnXML('<address-management success="yes" />');
-                }
-                else if ($count == 0) {
-                    returnXML('<address-management success="no" info="ID:Token must be wrong."/>');
-                }
-                else {
-                    returnXML('<address-management success="no" info="Weird count of updates."/>');
-                }
+                ClientSession::setPublicAddress($id, $token, $address, $port);
+
+                returnXML('<address-management success="yes" />');
+            }
+            catch(Exception $e){
+                returnXML('<address-management success="no" info="' . $e->getMessage() . '"/>');
+            }
+            break;
+        case 'start-server':
+            try {
+                $id = isset($_POST['id']) ? utf8_encode($_POST['id']) : null;
+                $token = isset($_POST['token']) ? utf8_encode($_POST['token']) : null;
+                $address = isset($_POST['address']) ? utf8_encode($_POST['address']) : null;
+                $port = isset($_POST['port']) ? utf8_encode($_POST['port']) : null;
+                ClientSession::get($token, $id)->startServer($address, $port);
+                
+                returnXML('<address-management success="yes" />');
+            }
+            catch(Exception $e){
+                returnXML('<address-management success="no" info="' . $e->getMessage() . '"/>');
+            }
+            break;
+        case 'stop-server':
+            try {
+                $id = isset($_POST['id']) ? utf8_encode($_POST['id']) : null;
+                $token = isset($_POST['token']) ? utf8_encode($_POST['token']) : null;
+                $address = isset($_POST['address']) ? utf8_encode($_POST['address']) : null;
+                $port = isset($_POST['port']) ? utf8_encode($_POST['port']) : null;
+                ClientSession::get($token, $id)->stopServer($address, $port);
+                
+                returnXML('<address-management success="yes" />');
             }
             catch(Exception $e){
                 returnXML('<address-management success="no" info="' . $e->getMessage() . '"/>');
