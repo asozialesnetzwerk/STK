@@ -21,9 +21,13 @@
 define('ROOT', './');
 require_once('config.php');
 require_once('include/ClientSession.class.php');
+require_once('include/Server.class.php');
 require_once('include/User.class.php');
+require_once('include/XMLOutput.class.php');
 
 $action = isset($_POST['action']) ? $_POST['action'] : null;
+$output = new XMLOutput();
+$output->startDocument('1.0','UTF-8');
 
 try {
     switch ($action)
@@ -33,15 +37,23 @@ try {
                 $password = isset($_POST['password']) ? utf8_encode($_POST['password']) : null;
                 $username = isset($_POST['username']) ? utf8_encode($_POST['username']) : null;
                 $session = ClientSession::create($username, $password);
-                returnXML('<connect success="yes" 
-                                    token="'. $session->getSessionId() . '"
-                                    username="' . $username . '"
-                                    userid="' . $session->getUserID() . '"                                     
-                />');
+                $output->startElement('connect');
+                $output->writeAttribute('success','yes');
+                $output->writeAttribute('token', $session->getSessionId());
+                $output->writeAttribute('username', $username);
+                $output->writeAttribute('userid', $session->getUserID());
+                $output->writeAttribute('info','');
+                $output->endElement();
                 
             }
             catch(Exception $e){
-                returnXML('<connect success="no" info="' . $e->getMessage() . '"/>');
+                $output->startElement('connect');
+                    $output->writeAttribute('success','no');
+                    $output->writeAttribute('info',
+                        htmlspecialchars(
+                            $e->getMessage()
+                        ));
+                $output->endElement();
             }
 
             break;
@@ -51,10 +63,19 @@ try {
                 $userid = isset($_POST['userid']) ? $_POST['userid'] : null;
                 $token = isset($_POST['token']) ? $_POST['token'] : null;
                 ClientSession::destroy($token, $userid);
-                returnXML('<disconnect success="yes"/>');
+                $output->startElement('disconnect');
+                    $output->writeAttribute('success','yes');
+                    $output->writeAttribute('info','');
+                $output->endElement();
             }
             catch(Exception $e){
-                returnXML('<disconnect success="no" info="' . $e->getMessage() . ' "/>');
+                $output->startElement('disconnect');
+                    $output->writeAttribute('success','no');
+                    $output->writeAttribute('info',
+                        htmlspecialchars(
+                            $e->getMessage()
+                        ));
+                $output->endElement();
             }
             break;
 
@@ -65,10 +86,19 @@ try {
                 User::register( $username,
                                 $password,
                                 $password);
-                returnXML('<registration success="yes" info=""/>');
+                $output->startElement('registration');
+                    $output->writeAttribute('success','yes');
+                    $output->writeAttribute('info','');
+                $output->endElement();
             }
-            catch(Exception $e){
-                returnXML('<registration success="no" info="' . $e->getMessage() . ' "/>');
+            catch(Exception $e){                                
+                $output->startElement('registration');
+                    $output->writeAttribute('success','no');
+                    $output->writeAttribute('info',
+                        htmlspecialchars(
+                            $e->getMessage()
+                        ));
+                $output->endElement();
             }
             break;
             
@@ -76,43 +106,54 @@ try {
             try {
                 $userid = isset($_POST['userid']) ? $_POST['userid'] : null;
                 $token = isset($_POST['token']) ? $_POST['token'] : null;
-                $server_name = isset($_POST['name']) ? $_POST['name'] : null;
+                $server_name = isset($_POST['name']) ? utf8_encode($_POST['name']) : null;
                 $max_players = isset($_POST['max_players']) ? $_POST['max_players'] : null;
                 $server = Server::create(   $userid,
                                             $token,
                                             $server_name,
-                                            $max_players);
-                returnXML('<server_creation success="yes"
-                                            id="'. $server->getId() . '"
-                                            name="' . $server>getName() . '"
-                                            max_players="' . $server->getMaxPlayers() . '"
-                />');
+                                            $max_players);              
+                $output->startElement('server_creation');
+                    $output->writeAttribute('success','yes');
+                    $output->writeAttribute('id', $server->getId());
+                    $output->writeAttribute('name', $server>getName());
+                    $output->writeAttribute('max_players',$server->getMaxPlayers());
+                    $output->writeAttribute('info','');
+                $output->endElement();
+                
             }
             catch(Exception $e){
-                returnXML('<server_creation success="no" info="' . $e->getMessage() . ' "/>');
+                $output->startElement('server_creation');
+                    $output->writeAttribute('success','no');
+                    $output->writeAttribute('info', 
+                        htmlspecialchars(
+                            $e->getMessage()
+                        ));
+                $output->endElement();
             }
             break;
 
         default:
-            returnXML('<request success="no" info="' . 
-                htmlspecialchars(_('Invalid action.')) . 
-                '"/>');
+            $output->startElement('request');
+                $output->writeAttribute('success','no');
+                $output->writeAttribute('info',
+                    htmlspecialchars(
+                        _('Invalid action.')
+                    ));
+            $output->endElement();
             break;
     }
 }
 catch (Exception $e) {
-    returnXML('<request success="no" info="' . 
-        htmlspecialchars(_('An unexptected error occured.') .' '. _('Please contact a website administrator.')) . 
-        '"/>');
+    $output->startElement('request');
+        $output->writeAttribute('success','no');
+        $output->writeAttribute('info',
+            htmlspecialchars(
+                _('An unexptected error occured.') .' '. 
+                _('Please contact a website administrator.')
+            ));
+    $output->endElement();
 }
 
-
-function returnXML($xml)
-{
-    ob_start();
-    header('Content-type: text/xml');
-    echo '<?xml version="1.0"?>\n';
-    echo $xml;
-    ob_end_flush();
-}
+$output->endDocument();
+$output->printToScreen();
 ?>
