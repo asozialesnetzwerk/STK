@@ -40,7 +40,7 @@ try {
                 $output->startElement('connect');
                 $output->writeAttribute('success','yes');
                 $output->writeAttribute('token', $session->getSessionId());
-                $output->writeAttribute('username', $username);
+                $output->writeAttribute('username', htmlspecialchars($username));
                 $output->writeAttribute('userid', $session->getUserID());
                 $output->writeAttribute('info','');
                 $output->endElement();
@@ -57,7 +57,30 @@ try {
             }
 
             break;
-
+            
+        case 'get_servers':
+            try {
+                $userid = isset($_POST['userid']) ? $_POST['userid'] : null;
+                $token = isset($_POST['token']) ? $_POST['token'] : null;
+                $servers_xml = Server::getServersAsXML($userid,$token);
+                $output->startElement('get_servers');
+                    $output->writeAttribute('success','yes');
+                    $output->writeAttribute('info','');
+                    $output->insert($servers_xml);
+                $output->endElement();          
+            }
+            catch(Exception $e){
+                $output->startElement('servers');
+                $output->writeAttribute('success','no');
+                $output->writeAttribute('info',
+                    htmlspecialchars(
+                        $e->getMessage()
+                    ));
+                $output->endElement();
+            }
+            
+            break;
+            
         case 'disconnect':
             try {
                 $userid = isset($_POST['userid']) ? $_POST['userid'] : null;
@@ -115,8 +138,8 @@ try {
                 $output->startElement('server_creation');
                     $output->writeAttribute('success','yes');
                     $output->writeAttribute('id', $server->getId());
-                    $output->writeAttribute('name', $server>getName());
-                    $output->writeAttribute('max_players',$server->getMaxPlayers());
+                    $output->writeAttribute('name', htmlspecialchars($server->getName()));
+                    $output->writeAttribute('max_players', htmlspecialchars($server->getMaxPlayers()));
                     $output->writeAttribute('info','');
                 $output->endElement();
                 

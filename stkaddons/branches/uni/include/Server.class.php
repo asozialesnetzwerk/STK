@@ -74,6 +74,7 @@ class Server
                                     $server_name,
                                     $max_players)
     {
+        $max_players = (int) $max_players;
         $session = ClientSession::get($token,$userid);
         $result = DBConnection::get()->query
         (
@@ -94,6 +95,27 @@ class Server
                             $session->getUserId(),
                             $server_name, 
                             $max_players);
+    }
+    
+    public static function getServersAsXML()
+    {
+        $servers = DBConnection::get()->query
+        (
+            "SELECT (id, name, max_players, current_players)
+            FROM `" . DB_PREFIX ."servers`",
+            DBConnection::FETCH_ALL
+        );   
+        $partial_output = new XMLOutput();
+        $partial_output->startElement('servers');
+        foreach ($servers as $server)
+        {
+            $partial_output->startElement('server');
+            foreach ($server as $key => $value)
+                $partial_output->writeAttribute(key, value);
+            $partial_output->endElement();
+        }
+        $partial_output->endElement();
+        return $partial_output->asString();
     }
 }
 
