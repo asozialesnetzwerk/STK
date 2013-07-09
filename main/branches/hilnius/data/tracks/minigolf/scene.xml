@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 12720 -->
+<scene>
+  <track model="minigolf_track.b3d" x="0" y="0" z="0"/>
+  <object type="animation" model="windmill_arm1.b3d" xyz="101.51 19.81 -11.43" hpr="0.0 -0.0 0.0" scale="0.92 0.92 0.92"  interaction="ghost">
+    <curve channel="RotX" interpolation="linear" extend="cyclic">
+      <p c="1.000 -0.000"/>
+      <p c="50.000 -0.000"/>
+      <p c="100.000 -0.000"/>
+      <p c="150.000 -0.000"/>
+      <p c="200.000 -0.000"/>
+    </curve>
+    <curve channel="RotZ" interpolation="linear" extend="cyclic">
+      <p c="1.000 -0.000"/>
+      <p c="50.000 90.000"/>
+      <p c="100.000 180.000"/>
+      <p c="150.000 270.000"/>
+      <p c="200.000 360.000"/>
+    </curve>
+    <curve channel="RotY" interpolation="linear" extend="cyclic">
+      <p c="1.000 -0.000"/>
+      <p c="50.000 -0.000"/>
+      <p c="100.000 -0.000"/>
+      <p c="150.000 -0.000"/>
+      <p c="200.000 -0.000"/>
+    </curve>
+  </object>
+  <object type="movable" xyz="75.90 1.57 -52.99" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
+          model="Golfball.b3d" shape="sphere" mass="15.0" tangents="true" />
+  <object type="movable" xyz="77.97 1.57 -51.38" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
+          model="Golfball.b3d" shape="sphere" mass="15.0" tangents="true" />
+  <object type="movable" xyz="79.00 1.57 -54.68" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
+          model="Golfball.b3d" shape="sphere" mass="15.0" tangents="true" />
+  <object type="movable" xyz="73.20 1.57 -51.19" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
+          model="Golfball.b3d" shape="sphere" mass="15.0" tangents="true" />
+  <object type="movable" xyz="153.00 1.10 -110.00" hpr="0.0 -0.0 0.0" scale="1.16 1.16 1.16"
+          model="Golfball.b3d" shape="sphere" mass="15.0"/>
+  <object type="animation" model="duck2.b3d" xyz="14.00 -56.64 -4.42" hpr="0.0 -42.2 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
+    <curve channel="LocY" interpolation="bezier" extend="cyclic">
+      <p c="1.000 -56.645" h1="-5.242 -56.645" h2="7.242 -56.645"/>
+      <p c="17.000 -57.270" h1="10.754 -57.270" h2="36.128 -57.270"/>
+      <p c="66.000 -56.659" h1="46.871 -56.659" h2="85.129 -56.659"/>
+    </curve>
+  </object>
+  <object type="animation" model="duck3.b3d" xyz="59.86 -56.64 -7.97" hpr="-0.0 -141.4 -0.0" scale="1.00 1.00 1.00"  interaction="ghost">
+    <curve channel="LocY" interpolation="bezier" extend="cyclic">
+      <p c="1.000 -56.645" h1="-13.053 -56.645" h2="15.053 -56.645"/>
+      <p c="37.000 -57.270" h1="22.946 -57.270" h2="44.027 -57.270"/>
+      <p c="55.000 -56.659" h1="47.977 -56.659" h2="62.023 -56.659"/>
+    </curve>
+  </object>
+  <object type="animation" model="duck.b3d" xyz="-45.80 -56.64 16.85" hpr="-0.0 -116.1 -0.0" scale="1.00 1.00 1.00"  interaction="ghost">
+    <curve channel="LocY" interpolation="bezier" extend="cyclic">
+      <p c="1.000 -56.645" h1="-13.834 -56.645" h2="15.834 -56.645"/>
+      <p c="39.000 -57.270" h1="24.165 -57.270" h2="46.027 -57.270"/>
+      <p c="57.000 -56.659" h1="49.977 -56.659" h2="64.023 -56.659"/>
+    </curve>
+  </object>
+  <sun  fog="true" fog-color="93 118 153" fog-start="50.00" fog-end="100.00" xyz="4.58 16.67 6.29" sun-specular="255 255 255" sun-diffuse="238 255 151" ambient="45 58 87"/>
+
+  <sky-dome texture="sky3.jpg"
+            horizontal="20" vertical="20" 
+            texture-percent="1.0" sphere-percent="1.3"
+            speed-x="0.009999999776482582" speed-y="0.019999999552965164" />
+  <camera far="1000.0"/>
+  <checks>
+    <check-lap kind="lap" same-group="0" other-ids="1" />
+    <check-line kind="activate" other-ids="0" p1="-5.25 35.80" p2="-5.25 19.00"
+                min-height="-6.10" same-group="1"/>
+  </checks>
+  <end-cameras>
+    <camera type="static_follow_kart" xyz="-31.347261 7.883405 -37.556545" distance="50.0"/> <!-- Camera -->
+    <camera type="static_follow_kart" xyz="-54.303005 0.246248 -30.253376" distance="30.0"/> <!-- Camera.001 -->
+    <camera type="static_follow_kart" xyz="-85.884789 5.406722 -6.234883" distance="30.0"/> <!-- Camera.002 -->
+    <camera type="static_follow_kart" xyz="-119.035538 0.187697 -15.456582" distance="25.0"/> <!-- Camera.003 -->
+    <camera type="static_follow_kart" xyz="-104.210182 -5.452283 29.863569" distance="40.0"/> <!-- Camera.004 -->
+    <camera type="static_follow_kart" xyz="-58.053513 -5.452006 15.696690" distance="30.0"/> <!-- Camera.005 -->
+    <camera type="static_follow_kart" xyz="-18.954487 -5.986171 29.182613" distance="30.0"/> <!-- Camera.006 -->
+    <camera type="static_follow_kart" xyz="22.877390 10.247544 9.278451" distance="40.0"/> <!-- Camera.007 -->
+    <camera type="static_follow_kart" xyz="82.321632 6.061478 11.388822" distance="35.0"/> <!-- Camera.008 -->
+    <camera type="static_follow_kart" xyz="110.024414 16.979927 -14.278487" distance="35.0"/> <!-- Camera.009 -->
+    <camera type="static_follow_kart" xyz="107.827469 2.119936 -54.790871" distance="30.0"/> <!-- Camera.010 -->
+    <camera type="static_follow_kart" xyz="60.935028 37.335701 -51.578594" distance="40.0"/> <!-- Camera.011 -->
+    <camera type="static_follow_kart" xyz="18.901966 6.718008 -57.748661" distance="25.0"/> <!-- Camera.012 -->
+  </end-cameras>
+  <water model="fol1.b3d" xyz="2.84 14.04 -8.20" hpr="0.0 6.2 0.0" scale="1.00 1.00 1.00" height="0.25" speed="200.00" length="10.00"/>
+  <water model="fol2.b3d" xyz="3.51 14.04 -12.86" hpr="0.0 -0.1 0.0" scale="1.00 1.00 1.00" height="0.25" speed="260.00" length="10.00"/>
+  <water model="vlag.b3d" xyz="43.25 -1.92 -39.84" hpr="-8.7 -20.8 -0.2" scale="1.00 1.00 1.00" height="1.00" speed="500.00" length="5.00"/>
+  <water model="Water.b3d" xyz="-42.98 -57.32 2.96" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="0.20" speed="200.00" length="2.00">
+    <animated-texture name="water.png" dx="0.010"  dy="-0.005" />
+  </water>
+  <small-nitro x="-19.02" y="1.20" z="-20.61" />
+  <small-nitro x="-29.14" y="1.20" z="-20.61" />
+  <item x="-63.85" y="1.87" z="-36.48" />
+  <item x="-66.76" y="3.18" z="-25.15" />
+  <item x="-67.26" y="3.41" z="-33.07" />
+  <item x="-63.15" y="1.55" z="-28.26" />
+  <item x="-93.77" y="-7.48" z="21.13" />
+  <item x="-93.68" y="-7.92" z="23.78" />
+  <small-nitro x="-120.42" y="-7.76" z="1.64" />
+  <small-nitro x="-119.98" y="-8.31" z="6.41" />
+  <small-nitro x="-119.26" y="-8.33" z="12.18" />
+  <item x="-28.07" y="1.40" z="-35.62" />
+  <item x="-24.84" y="1.32" z="-41.02" />
+  <item x="-20.76" y="1.23" z="-44.35" />
+  <item x="43.13" y="1.55" z="-26.81" />
+  <item x="43.13" y="1.55" z="-32.95" />
+  <item x="43.37" y="1.55" z="-46.79" />
+  <item x="43.37" y="1.55" z="-53.53" />
+  <small-nitro x="93.49" y="1.20" z="-0.43" />
+  <small-nitro x="96.19" y="1.20" z="-8.13" />
+  <small-nitro x="107.42" y="1.20" z="-0.43" />
+  <small-nitro x="105.34" y="1.20" z="-7.71" />
+  <item x="102.82" y="1.55" z="-51.77" />
+  <item x="96.43" y="2.44" z="-53.81" />
+  <item x="99.07" y="1.55" z="54.09" />
+  <item x="82.02" y="1.55" z="21.23" />
+  <item x="-57.92" y="-7.69" z="55.63" />
+  <item x="-58.48" y="-6.95" z="61.04" />
+  <item x="-53.79" y="-6.75" z="62.69" />
+  <item x="-50.29" y="-7.54" z="57.61" />
+  <item x="-32.89" y="1.55" z="30.18" />
+  <item x="-26.48" y="1.55" z="43.53" />
+  <small-nitro x="1.55" y="-5.22" z="23.34" />
+  <small-nitro x="11.53" y="-6.24" z="23.90" />
+  <small-nitro x="27.91" y="-6.65" z="35.69" />
+  <small-nitro x="38.35" y="-5.19" z="34.95" />
+  <item x="0.57" y="-5.14" z="34.19" />
+  <item x="15.34" y="-3.02" z="34.34" />
+  <item x="26.22" y="-3.58" z="24.67" />
+  <item x="38.46" y="-6.06" z="22.76" />
+  <banana x="-34.03" y="0.21" z="-11.00" />
+  <banana x="92.86" y="0.62" z="-47.69" />
+  <banana x="73.52" y="-2.68" z="36.07" />
+  <banana x="-53.29" y="-8.45" z="33.94" />
+  <banana x="-108.51" y="-6.46" z="-3.40" />
+  <banana x="-113.48" y="-7.93" z="0.46" />
+  <banana x="-108.70" y="-8.69" z="4.58" />
+  <banana x="-116.08" y="-8.19" z="14.18" />
+  <item x="101.24" y="1.20" z="-23.03" />
+  <big-nitro x="-59.80" y="-6.16" z="70.08" />
+  <default-start karts-per-row     ="3"
+                 forwards-distance ="2.00"
+                 sidewards-distance="2.50"
+                 upwards-distance  ="1.10"/>
+</scene>
