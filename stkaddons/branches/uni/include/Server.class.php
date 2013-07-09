@@ -123,17 +123,17 @@ class Server
     {
         $servers = DBConnection::get()->query
         (
-            "SELECT (id, name, max_players, current_players)
+            "SELECT id, name, max_players, current_players
             FROM `" . DB_PREFIX ."servers`",
             DBConnection::FETCH_ALL
-        );   
+        );
         $partial_output = new XMLOutput();
         $partial_output->startElement('servers');
         foreach ($servers as $server)
         {
             $partial_output->startElement('server');
             foreach ($server as $key => $value)
-                $partial_output->writeAttribute(key, value);
+                $partial_output->writeAttribute($key, $value);
             $partial_output->endElement();
         }
         $partial_output->endElement();
