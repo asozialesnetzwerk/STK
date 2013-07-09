@@ -48,7 +48,7 @@ try {
                 $token = isset($_POST['token']) ? utf8_encode($_POST['token']) : null;
                 $address = isset($_POST['address']) ? utf8_encode($_POST['address']) : null;
                 $port = isset($_POST['port']) ? utf8_encode($_POST['port']) : null;
-                ClientSession::get($token, $id)->startServer($address, $port);
+                ClientSession::get($token, $id)->createServer($address, $port, "Temporary name", 3);
                 
                 returnXML('<address-management success="yes" />');
             }

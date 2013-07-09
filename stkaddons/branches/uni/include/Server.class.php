@@ -69,32 +69,54 @@ class Server
      * @return Server
      * @throws 
      */
-    public static function create(  $userid,
-                                    $token,
+    public static function create(  $ip,
+                                    $port,
+                                    $userid,
                                     $server_name,
                                     $max_players)
     {
         $max_players = (int) $max_players;
-        $session = ClientSession::get($token,$userid);
-        $result = DBConnection::get()->query
-        (
-            "INSERT INTO `" . DB_PREFIX ."servers` (hostid, name, max_players)
-            VALUES (:hostid, :name, :max_players)",
-            DBConnection::ROW_COUNT,
-            array
+        try{
+            $count = DBConnection::get()->query
             (
-                ':hostid'       => (string) $session->getUserId(),
-                ':name'         => (string) $server_name,
-                ':max_players'  => (int)    $max_players
-            )
-        );
-        if ($result != 1) {
-            throw new ClientSessionConnectException(_('Could not create server'));
+                "SELECT `id` FROM `" . DB_PREFIX . "servers`
+                    WHERE `ip`= :ip AND `port`= :port ",
+                DBConnection::ROW_COUNT,
+                array
+                (
+                    ':ip'   => $ip,
+                    ':port' => $port
+                )
+            );
+            if ($count != 0)
+                throw new ServerException(_('Specified server already exists.'));
+            $result = DBConnection::get()->query
+            (
+                "INSERT INTO `" . DB_PREFIX ."servers` (hostid, ip, port, name, max_players)
+                VALUES (:hostid, :ip, :port, :name, :max_players)",
+                DBConnection::ROW_COUNT,
+                array
+                (
+                    ':hostid'       => (string) $userid,
+                    ':ip'           => (int) $ip,
+                    ':port'         => (int) $port,
+                    ':name'         => (string) $server_name,
+                    ':max_players'  => (int)    $max_players
+                )
+            );
+            if ($result != 1) {
+                throw new ServerException(_('Could not create server'));
+            }
+            return new Server(  DBConnection::get()->lastInsertId(),
+                                $userid,
+                                $server_name, 
+                                $max_players);
+        }catch(PDOExpcetion $e){
+            throw new ServerException(
+                _('An error occurred while creating server.') .' '.
+                _('Please contact a website administrator.')
+            );
         }
-        return new Server(  DBConnection::get()->lastInsertId(),
-                            $session->getUserId(),
-                            $server_name, 
-                            $max_players);
     }
     
     public static function getServersAsXML()

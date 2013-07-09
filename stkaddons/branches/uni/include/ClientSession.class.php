@@ -20,6 +20,8 @@
 
 require_once('exceptions.php');
 require_once('DBConnection.class.php');
+require_once('User.class.php');
+require_once('Server.class.php');
 require_once('Validate.class.php');
 
 class ClientSessionException extends Exception {}
@@ -50,15 +52,6 @@ abstract class ClientSession
     }
 
     /**
-     * Get user name for this session
-     * @return string user name
-     */
-    public function getUserName()
-    {
-        return $this->user_name;
-    }
-
-    /**
      * Get user id for this session
      * @return int user id
      */
@@ -78,10 +71,10 @@ abstract class ClientSession
     public static function create(&$username, $password = '')
     {
         if (empty($username)) {
-            throw new InvalidArgumentException('Username required');
+            throw new InvalidArgumentException(_('Username required'));
         }
         else if (empty($password)) {
-            throw new InvalidArgumentException('Password required');
+            throw new InvalidArgumentException(_('Password required'));
             //return ClientSessionAnonymous::create($username);
         }
         else {
@@ -132,10 +125,10 @@ abstract class ClientSession
                                                     $session_info[0]["uid"]);
             }
         }catch (PDOException $e){
-            throw new UserException(htmlspecialchars(
+            throw new UserException(
                 _('An error occurred while verifying session.') .' '.
                 _('Please contact a website administrator.')
-            ));
+            );
         }
     }
 
@@ -158,10 +151,10 @@ abstract class ClientSession
                 )
             );
         }catch(DBException $e){
-            throw new ClientSessionExpiredException(htmlspecialchars(
+            throw new ClientSessionExpiredException(
                 _('An error occurred while logging out.') .' '.
                 _('Please contact a website administrator.')
-            ));
+            );
         }
 
         if ($result == 0)
@@ -199,10 +192,10 @@ abstract class ClientSession
                 throw new UserException(htmlspecialchars(_('Could not set the ip:port')));
             }
         }catch (PDOException $e){
-            throw new UserException(htmlspecialchars(
+            throw new UserException(
                 _('An error occurred while setting ip:port.') .' '.
                 _('Please contact a website administrator.')
-            ));
+            );
         }
     }
 
@@ -234,10 +227,10 @@ abstract class ClientSession
                 )
             );
         }catch (PDOException $e){
-            throw new UserException(htmlspecialchars(
+            throw new UserException(
                 _('An error occurred while setting ip:port.') .' '.
                 _('Please contact a website administrator.')
-            ));
+            );
         }
     }
 
@@ -265,10 +258,10 @@ abstract class ClientSession
             );
             return $count;
         }catch (PDOException $e){
-            throw new UserException(htmlspecialchars(
+            throw new UserException(
                 _('An error occurred while setting ip:port.') .' '.
                 _('Please contact a website administrator.')
-            ));
+            );
         }
     }
 
@@ -302,10 +295,10 @@ abstract class ClientSession
                 return $result[0];
             }
         }catch (PDOException $e){
-            throw new UserException(htmlspecialchars(
+            throw new UserException(
                 _('An error occurred while getting a peer\'s ip:port.') .' '.
                 _('Please contact a website administrator.')
-            ));
+            );
         }
     }
 
@@ -337,52 +330,19 @@ abstract class ClientSession
             );
             return $result;
         }catch (PDOException $e){
-            throw new UserException(htmlspecialchars(
+            throw new UserException(
                 _('An error occurred while getting a peer\'s ip:port.') .' '.
                 _('Please contact a website administrator.')
-            ));
+            );
         }
     }
 
-    public function startServer($ip, $port)
+    public function createServer($ip, $port, $server_name, $max_players)
     {
-        try{
-            //Query the database to set the ip and port
-            ClientSession::setPublicAddress($this->user_id, $this->session_id, $ip, $port);
-            // now setup the serv info
-            $count = DBConnection::get()->query
-            (
-                "SELECT `id` FROM `" . DB_PREFIX . "servers` 
-                WHERE `ip`= :ip AND `port`= :port ",
-                DBConnection::ROW_COUNT,
-                array
-                (
-                    ':ip'   => $ip,
-                    ':port' => $port
-                )
-            );
-            if ($count != 0)
-                throw new UserException(_('This server already exists.'));
-            DBConnection::get()->query
-            (
-                "INSERT INTO `" . DB_PREFIX . "servers` (hostid, name, ip, port, max_players)
-                VALUES  ( :id, :name, :ip, :port, 16) ",
-                DBConnection::NOTHING,
-                array
-                (
-                    ':id'   => $this->user_id,
-                    ':name' => "",
-                    ':ip'   => $ip,
-                    ':port' => $port
-                )
-            );
-        }catch (PDOException $e){
-            throw new UserException(htmlspecialchars(
-                _('An error occurred while getting a peer\'s ip:port.') .' '.
-                _('Please contact a website administrator.')
-            ));
-        }
+        ClientSession::setPublicAddress($this->user_id, $this->session_id, $ip, $port);
+        return Server::create($ip, $port, $this->user_id, $server_name, $max_players);
     }
+    
     public function stopServer($ip, $port)
     {
         try{
@@ -404,10 +364,10 @@ abstract class ClientSession
             if ($count != 1)
                 throw new UserException(_('Not the good number of servers deleted.'));
         }catch (PDOException $e){
-            throw new UserException(htmlspecialchars(
+            throw new UserException(
                 _('An error occurred while getting a peer\'s ip:port.') .' '.
                 _('Please contact a website administrator.')
-            ));
+            );
         }
     }
 
