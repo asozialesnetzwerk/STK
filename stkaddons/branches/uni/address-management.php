@@ -196,7 +196,9 @@ try {
             try {
                 $id = isset($_POST['id']) ? utf8_encode($_POST['id']) : null;
                 $token = isset($_POST['token']) ? utf8_encode($_POST['token']) : null;
-                $requests = ClientSession::get($token, $id)->getServerConnectionRequests();
+                $address = isset($_POST['address']) ? utf8_encode($_POST['address']) : null;
+                $port = isset($_POST['port']) ? utf8_encode($_POST['port']) : null;
+                $requests = ClientSession::get($token, $id)->getServerConnectionRequests($address, $port);
                 $output->startElement('poll-connection-requests');
                     $output->writeAttribute('success','yes');
                     $output->writeAttribute('info','');

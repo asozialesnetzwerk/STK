@@ -274,6 +274,41 @@ abstract class ClientSession
         }
     }
 
+    public function requestServerConnection($server_id)
+    {
+        try{
+            //Query the database to add the request entry
+            $result = DBConnection::get()->query
+            (
+                "SELECT id FROM `" . DB_PREFIX . "servers`
+                WHERE `hostid` = :hostid ",
+                DBConnection::FETCH_ALL,
+                array
+                (
+                    ':hostid'       => $server_id
+                )
+            );
+            if (count($result) == 0)
+                throw new UserException(_('No server found'));
+            DBConnection::get()->query
+            (
+                "INSERT INTO `" . DB_PREFIX . "server_conn` (serverid, userid, request) 
+                VALUES ( :serverid, :userid, 1) ON DUPLICATE KEY UPDATE request='1'",
+                DBConnection::NOTHING,
+                array
+                (
+                    ':userid'       => $this->user_id,
+                    ':serverid'     => $result[0]['id']
+                )
+            );
+        }catch (PDOException $e){
+            throw new UserException(
+                _('An error occurred while setting ip:port.') .' '.
+                _('Please contact a website administrator.')
+            );
+        }
+    }
+
     public function quickJoin()
     {
         try{
@@ -309,10 +344,21 @@ abstract class ClientSession
         }
     }
 
-    public function getServerConnectionRequests()
+    public function getServerConnectionRequests($ip, $port)
     {
         try{
-            //Query the database to set the ip and port
+            $serverid = DBConnection::get()->query
+            (
+                "SELECT `id` FROM `" . DB_PREFIX . "servers`
+                WHERE `hostid` = :id AND `ip` = :ip AND `port` = :port LIMIT 1",
+                DBConnection::FETCH_ALL,
+                array
+                (
+                    ':id'   => $this->user_id,
+                    ':ip'   => $ip,
+                    ':port' => $port
+                )
+            );
             $result = DBConnection::get()->query
             (
                 "SELECT `userid`
@@ -321,7 +367,7 @@ abstract class ClientSession
                 DBConnection::FETCH_ALL,
                 array
                 (
-                    ':id'   => $this->user_id,
+                    ':id'   => $serverid[0]['id']
                 )
             );
             $result2 = DBConnection::get()->query
@@ -332,7 +378,7 @@ abstract class ClientSession
                 DBConnection::ROW_COUNT,
                 array
                 (
-                    ':id'   => $this->user_id,
+                    ':id'   => $serverid[0]['id']
                 )
             );
             return $result;
