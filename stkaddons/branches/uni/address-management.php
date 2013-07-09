@@ -21,9 +21,11 @@
 define('ROOT', './');
 require_once('config.php');
 require_once('include/ClientSession.class.php');
-require_once('include/User.class.php');
+require_once('include/XMLOutput.class.php');
 
 $action = isset($_POST['action']) ? $_POST['action'] : null;
+$output = new XMLOutput();
+$output->startDocument('1.0','UTF-8');
 
 try {
     switch ($action)
@@ -35,11 +37,20 @@ try {
                 $address = isset($_POST['address']) ? utf8_encode($_POST['address']) : null;
                 $port = isset($_POST['port']) ? utf8_encode($_POST['port']) : null;
                 ClientSession::setPublicAddress($id, $token, $address, $port);
-
-                returnXML('<address-management success="yes" />');
+                
+                $output->startElement('address-management');
+                    $output->writeAttribute('success','yes');
+                    $output->writeAttribute('info','');
+                $output->endElement();
             }
             catch(Exception $e){
-                returnXML('<address-management success="no" info="' . $e->getMessage() . '"/>');
+                $output->startElement('address-management');
+                    $output->writeAttribute('success','no');
+                    $output->writeAttribute('info',
+                        htmlspecialchars(
+                            $e->getMessage()
+                        ));
+                $output->endElement();
             }
             break;
         case 'start-server':
@@ -50,10 +61,19 @@ try {
                 $port = isset($_POST['port']) ? utf8_encode($_POST['port']) : null;
                 ClientSession::get($token, $id)->createServer($address, $port, "Temporary name", 3);
                 
-                returnXML('<address-management success="yes" />');
+                $output->startElement('start-server');
+                    $output->writeAttribute('success','yes');
+                    $output->writeAttribute('info','');
+                $output->endElement();
             }
             catch(Exception $e){
-                returnXML('<address-management success="no" info="' . $e->getMessage() . '"/>');
+                $output->startElement('start-server');
+                    $output->writeAttribute('success','no');
+                    $output->writeAttribute('info',
+                        htmlspecialchars(
+                            $e->getMessage()
+                        ));
+                $output->endElement();
             }
             break;
         case 'stop-server':
@@ -64,29 +84,40 @@ try {
                 $port = isset($_POST['port']) ? utf8_encode($_POST['port']) : null;
                 ClientSession::get($token, $id)->stopServer($address, $port);
                 
-                returnXML('<address-management success="yes" />');
+                $output->startElement('stop-server');
+                    $output->writeAttribute('success','yes');
+                    $output->writeAttribute('info','');
+                $output->endElement();
             }
             catch(Exception $e){
-                returnXML('<address-management success="no" info="' . $e->getMessage() . '"/>');
+                $output->startElement('stop-server');
+                    $output->writeAttribute('success','no');
+                    $output->writeAttribute('info',
+                        htmlspecialchars(
+                            $e->getMessage()
+                        ));
+                $output->endElement();
             }
             break;
         case 'unset':
             try {
                 $id = isset($_POST['id']) ? utf8_encode($_POST['id']) : null;
                 $token = isset($_POST['token']) ? utf8_encode($_POST['token']) : null;
-                $count = ClientSession::unsetPublicAddress($id, $token);
-                if ($count == 1) {
-                    returnXML('<address-management success="yes" />');
-                }
-                else if ($count == 0) {
-                    returnXML('<address-management success="no" info="ID:Token must be wrong."/>');
-                }
-                else {
-                    returnXML('<address-management success="no" info="Weird count of updates."/>');
-                }
+                ClientSession::unsetPublicAddress($id, $token);
+                
+                $output->startElement('address-management');
+                    $output->writeAttribute('success','yes');
+                    $output->writeAttribute('info','');
+                $output->endElement();
             }
             catch(Exception $e){
-                returnXML('<address-management success="no" info="' . $e->getMessage() . '"/>');
+                $output->startElement('address-management');
+                    $output->writeAttribute('success','no');
+                    $output->writeAttribute('info',
+                        htmlspecialchars(
+                            $e->getMessage()
+                        ));
+                $output->endElement();
             }
             break;
         case 'get':
@@ -96,12 +127,22 @@ try {
                 $peer_id = isset($_POST['peer_id']) ? utf8_encode($_POST['peer_id']) : null;
                 $session = ClientSession::get($token, $id);
                 $result = $session->getPeerAddress($peer_id);
-                returnXML('<address-management success="yes" 
-                            ip="'.$result['ip'].'" port="'.$result['port'].'" />');
+                
+                $output->startElement('get_public_ip');
+                    $output->writeAttribute('success','yes');
+                    $output->writeAttribute('info','');
+                    $output->writeAttribute('ip', $result['ip']);
+                    $output->writeAttribute('port', $result['port']);
+                $output->endElement();
             }
             catch(Exception $e){
-                returnXML('<address-management success="no" info="' . $e->getMessage() . 
-                        '"/>');
+                $output->startElement('get_public_ip');
+                    $output->writeAttribute('success','no');
+                    $output->writeAttribute('info',
+                        htmlspecialchars(
+                            $e->getMessage()
+                        ));
+                $output->endElement();
             }
             break;
         case 'request-connection':
@@ -110,50 +151,69 @@ try {
                 $token = isset($_POST['token']) ? utf8_encode($_POST['token']) : null;
                 $server_id = isset($_POST['server_id']) ? utf8_encode($_POST['server_id']) : null;
                 ClientSession::get($token, $id)->requestServerConnection($server_id);
-                returnXML('<address-management success="yes" />');
+                
+                $output->startElement('request-connection');
+                    $output->writeAttribute('success','yes');
+                    $output->writeAttribute('info','');
+                $output->endElement();
             }
             catch(Exception $e){
-                returnXML('<address-management success="no" info="' . $e->getMessage() . 
-                        '"/>');
+                $output->startElement('request-connection');
+                    $output->writeAttribute('success','no');
+                    $output->writeAttribute('info',
+                        htmlspecialchars(
+                            $e->getMessage()
+                        ));
+                $output->endElement();
             }
             break;
         case 'poll-connection-requests':
             try {
                 $id = isset($_POST['id']) ? utf8_encode($_POST['id']) : null;
                 $token = isset($_POST['token']) ? utf8_encode($_POST['token']) : null;
-                $result = ClientSession::get($token, $id)->getServerConnectionRequests();
-                $ret = "";
-                foreach ($result as $row) {
-                    $ret .= '<user id="'.$row['userid'].'" /> ';
-                } 
-                returnXML("<users> ".$ret." </users>");
+                $requests = ClientSession::get($token, $id)->getServerConnectionRequests();
+                $output->startElement('poll-connection-requests');
+                    $output->writeAttribute('success','yes');
+                    $output->writeAttribute('info','');
+                    $partial_output->startElement('users');
+                        foreach ($requests as $request) {
+                            $partial_output->startElement('user');
+                                $partial_output->writeAttribute("id", $request['userid']);
+                            $partial_output->endElement();
+                        }
+                    $partial_output->endElement();
+                $output->endElement();
             }
             catch(Exception $e){
-                returnXML('<address-management success="no" info="' . $e->getMessage() . 
-                        '"/>');
+                $output->startElement('poll-connection-requests');
+                    $output->writeAttribute('success','no');
+                    $output->writeAttribute('info',
+                        htmlspecialchars(
+                            $e->getMessage()
+                        ));
+                $output->endElement();
             }
             break;
 
         default:
-            returnXML('<address-management success="no" info="' . 
-                htmlspecialchars(_('Invalid action.')) . 
-                '"/>');
+            $output->startElement('request');
+                $output->writeAttribute('success','no');
+                $output->writeAttribute('info',
+                    htmlspecialchars(
+                        _('Invalid action.')
+                    ));
+            $output->endElement();
             break;
     }
 }
 catch (Exception $e) {
-    returnXML('<request success="no" info="' . 
-        htmlspecialchars(_('An unexptected error occured.') .' '. _('Please contact a website administrator.')) . 
-        '"/>');
-}
-
-
-function returnXML($xml)
-{
-    ob_start();
-    header('Content-type: text/xml');
-    echo '<?xml version="1.0"?>\n';
-    echo $xml;
-    ob_end_flush();
+    $output->startElement('request');
+        $output->writeAttribute('success','no');
+        $output->writeAttribute('info',
+            htmlspecialchars(
+                _('An unexptected error occured.') .' '. 
+                _('Please contact a website administrator.')
+            ));
+    $output->endElement();
 }
 ?>

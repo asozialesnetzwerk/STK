@@ -243,7 +243,6 @@ abstract class ClientSession
     public static function unsetPublicAddress($id, $token)
     {
         try{
-            //Query the database to set the ip and port
             $count = DBConnection::get()->query
             (
                 "UPDATE `" . DB_PREFIX . "client_sessions`
@@ -256,10 +255,15 @@ abstract class ClientSession
                     ':token'    => $token
                 )
             );
-            return $count;
+            if ($count == 0) {
+                throw new ClientSessionException(_('ID:Token must be wrong.'));
+            }
+            elseif ($count > 1){
+                throw new ClientSessionException(_('Weird count of updates'));
+            }
         }catch (PDOException $e){
             throw new UserException(
-                _('An error occurred while setting ip:port.') .' '.
+                _('An error occurred while unsetting ip:port.') .' '.
                 _('Please contact a website administrator.')
             );
         }
@@ -274,6 +278,9 @@ abstract class ClientSession
     public function getPeerAddress($peer_id)
     {
         try{
+            //FIXME :   A check should be done that the requester is the host of a server
+            //          the requestee has joined. (Else anybody with an account could call this with the correct POST parameters)
+                  
             //Query the database to set the ip and port
             $result = DBConnection::get()->query
             (
@@ -288,9 +295,9 @@ abstract class ClientSession
             );
             $size = count($result);
             if ($size == 0) {
-                throw new UserException(_('Not found'));
+                throw new UserException(_('That user is not signed in.'));
             }elseif ($size > 1) {
-                throw new UserException('Too much users matching the request');
+                throw new UserException(_('Too much users match the request'));
             }else {
                 return $result[0];
             }
