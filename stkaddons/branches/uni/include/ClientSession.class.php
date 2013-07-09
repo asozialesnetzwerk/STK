@@ -199,41 +199,6 @@ abstract class ClientSession
         }
     }
 
-    public function requestServerConnection($server_id)
-    {
-        try{
-            //Query the database to add the request entry
-            $result = DBConnection::get()->query
-            (
-                "SELECT id FROM `" . DB_PREFIX . "servers`
-                WHERE `hostid` = :hostid ",
-                DBConnection::FETCH_ALL,
-                array
-                (
-                    ':hostid'       => $server_id
-                )
-            );
-            if (count($result) == 0)
-                throw new UserException(_('No server found'));
-            DBConnection::get()->query
-            (
-                "INSERT INTO `" . DB_PREFIX . "server_conn` (serverid, userid, request) 
-                VALUES ( :serverid, :userid, 1) ON DUPLICATE KEY UPDATE request='1'",
-                DBConnection::NOTHING,
-                array
-                (
-                    ':userid'       => $this->user_id,
-                    ':serverid'     => $result[0]['id']
-                )
-            );
-        }catch (PDOException $e){
-            throw new UserException(
-                _('An error occurred while setting ip:port.') .' '.
-                _('Please contact a website administrator.')
-            );
-        }
-    }
-
     /**
      * Unsets the public address of a user
      * @param int $id user id 
@@ -304,6 +269,41 @@ abstract class ClientSession
         }catch (PDOException $e){
             throw new UserException(
                 _('An error occurred while getting a peer\'s ip:port.') .' '.
+                _('Please contact a website administrator.')
+            );
+        }
+    }
+
+    public function quickJoin()
+    {
+        try{
+            //Query the database to add the request entry
+            $result = DBConnection::get()->query
+            (
+                "SELECT `id`, `hostid`, `ip`, `port` FROM `" . DB_PREFIX . "servers`
+                LIMIT 1",
+                DBConnection::FETCH_ALL,
+                array
+                (
+                )
+            );
+            if (count($result) == 0)
+                throw new UserException(_('No server found'));
+            DBConnection::get()->query
+            (
+                "INSERT INTO `" . DB_PREFIX . "server_conn` (serverid, userid, request) 
+                VALUES ( :serverid, :userid, 1) ON DUPLICATE KEY UPDATE request='1'",
+                DBConnection::NOTHING,
+                array
+                (
+                    ':userid'       => $this->user_id,
+                    ':serverid'     => $result[0]['id']
+                )
+            );
+            return $result[0];
+        }catch (PDOException $e){
+            throw new UserException(
+                _('An error occurred while setting ip:port.') .' '.
                 _('Please contact a website administrator.')
             );
         }

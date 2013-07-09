@@ -59,7 +59,8 @@ try {
                 $token = isset($_POST['token']) ? utf8_encode($_POST['token']) : null;
                 $address = isset($_POST['address']) ? utf8_encode($_POST['address']) : null;
                 $port = isset($_POST['port']) ? utf8_encode($_POST['port']) : null;
-                ClientSession::get($token, $id)->createServer($address, $port, "Temporary name", 3);
+                $max_players = isset($_POST['max_players']) ? utf8_encode($_POST['max_players']) : null;
+                ClientSession::get($token, $id)->createServer($address, $port, "Temporary name", $max_players);
                 
                 $output->startElement('start-server');
                     $output->writeAttribute('success','yes');
@@ -128,7 +129,7 @@ try {
                 $session = ClientSession::get($token, $id);
                 $result = $session->getPeerAddress($peer_id);
                 
-                $output->startElement('get_public_ip');
+                $output->startElement('get-public-ip');
                     $output->writeAttribute('success','yes');
                     $output->writeAttribute('info','');
                     $output->writeAttribute('ip', $result['ip']);
@@ -136,7 +137,31 @@ try {
                 $output->endElement();
             }
             catch(Exception $e){
-                $output->startElement('get_public_ip');
+                $output->startElement('get-public-ip');
+                    $output->writeAttribute('success','no');
+                    $output->writeAttribute('info',
+                        htmlspecialchars(
+                            $e->getMessage()
+                        ));
+                $output->endElement();
+            }
+            break;
+        case 'quick-join':
+            try {
+                $id = isset($_POST['id']) ? utf8_encode($_POST['id']) : null;
+                $token = isset($_POST['token']) ? utf8_encode($_POST['token']) : null;
+                $result = ClientSession::get($token, $id)->quickJoin();
+                
+                $output->startElement('quick-join');
+                    $output->writeAttribute('success','yes');
+                    $output->writeAttribute('info','');
+                    $output->writeAttribute('hostid',$result['hostid']);
+                    $output->writeAttribute('ip',$result['ip']);
+                    $output->writeAttribute('port',$result['port']);
+                $output->endElement();
+            }
+            catch(Exception $e){
+                $output->startElement('quick-join');
                     $output->writeAttribute('success','no');
                     $output->writeAttribute('info',
                         htmlspecialchars(
@@ -175,13 +200,13 @@ try {
                 $output->startElement('poll-connection-requests');
                     $output->writeAttribute('success','yes');
                     $output->writeAttribute('info','');
-                    $partial_output->startElement('users');
+                    $output->startElement('users');
                         foreach ($requests as $request) {
-                            $partial_output->startElement('user');
-                                $partial_output->writeAttribute("id", $request['userid']);
-                            $partial_output->endElement();
+                            $output->startElement('user');
+                                $output->writeAttribute("id", $request['userid']);
+                            $output->endElement();
                         }
-                    $partial_output->endElement();
+                    $output->endElement();
                 $output->endElement();
             }
             catch(Exception $e){
@@ -216,4 +241,7 @@ catch (Exception $e) {
             ));
     $output->endElement();
 }
+
+$output->endDocument();
+$output->printToScreen();
 ?>
