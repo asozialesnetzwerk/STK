@@ -275,7 +275,7 @@ def getXYZHString(obj):
     hpr     = obj.rotation_euler
     rad2deg = 180.0/3.1415926535;
     s="x=\"%.2f\" y=\"%.2f\" z=\"%.2f\" h=\"%.2f\"" %\
-       (loc[0], loc[2], loc[1], hpr[2]*rad2deg)
+       (loc[0], loc[2], loc[1], -hpr[2]*rad2deg)
     return s
 
 # ------------------------------------------------------------------------------
