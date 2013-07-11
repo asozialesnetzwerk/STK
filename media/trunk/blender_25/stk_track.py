@@ -2105,7 +2105,7 @@ class TrackExport:
         # Now the object either has an IPO, or is a 'ghost' object.
         # Either can have an IPO. Even if the objects don't move
         # they are saved as animations (with 0 IPOs).
-        elif interact=="ghost" or interact=="none":
+        elif interact=="ghost" or interact=="none" or interact=="static" or interact=="reset" or interact=="explode" or interact=="physicsonly":
             
             ipo      = obj.animation_data
             
@@ -2117,15 +2117,6 @@ class TrackExport:
                     ipo = parent.animation_data
             self.writeAnimationWithIPO(f, b3d_name, obj, ipo)
             
-        elif interact=="static" or interact=="reset" or interact=="explode":      
-            ipo      = obj.animation_data
-            # In objects with skeletal animations the actual armature (which
-            # is a parent) contains the IPO. So check for this:
-            if not ipo or not ipo.action:
-                parent = obj.parent
-                if parent:
-                    ipo = parent.animation_data
-            self.writeAnimationWithIPO(f, b3d_name, obj, ipo)
         else:
             log_warning("Unknown interaction '%s' - ignored!"%interact)
 

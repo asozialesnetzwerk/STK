@@ -134,11 +134,6 @@
             </CombinableEnumProp>
         </BoolProp>
         
-        <!-- Physical only -->
-        
-        <BoolProp id="physics_only" name="Physics only" default="false"
-                doc="Make this material invisible visually but present in physics"/>
-        
         <!-- SFX -->
         <BoolProp id="use_sfx" name="Play sound effect" default="false"
                 doc="Whether to play a sound when driving on this surface">

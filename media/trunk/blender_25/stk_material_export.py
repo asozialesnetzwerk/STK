@@ -106,7 +106,6 @@ def writeMaterialsFile(sPath):
            'mask'                  : ("", None),
            'normal_map'            : ("", ('graphical_effect','normal_map')),
            'normal_light_map'      : ("", ('graphical_effect','normal_map')),
-           'physics_only'          : ("N", None),
            'reset'                 : ("N", None),
            'surface'               : ("N", None),
            'high_adhesion'         : ('false', None),
