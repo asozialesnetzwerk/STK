@@ -123,7 +123,7 @@ class Server
     {
         $servers = DBConnection::get()->query
         (
-            "SELECT id, name, max_players, current_players
+            "SELECT *
             FROM `" . DB_PREFIX ."servers`",
             DBConnection::FETCH_ALL
         );

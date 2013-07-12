@@ -58,11 +58,9 @@ try {
 
             break;
             
-        case 'get_servers':
+        case 'get_server_list':
             try {
-                $userid = isset($_POST['userid']) ? $_POST['userid'] : null;
-                $token = isset($_POST['token']) ? $_POST['token'] : null;
-                $servers_xml = Server::getServersAsXML($userid,$token);
+                $servers_xml = Server::getServersAsXML();
                 $output->startElement('get_servers');
                     $output->writeAttribute('success','yes');
                     $output->writeAttribute('info','');
