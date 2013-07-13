@@ -411,6 +411,9 @@ public:
     /** Set a text that is displayed on top of a kart.
      */
     virtual void setOnScreenText(const wchar_t *text) = 0;
+    /** Whether an unused bubble gum shield becomes a bubble gum on the ground.
+     * */
+    bool         m_bubble_drop;
 };   // AbstractKart
 
 

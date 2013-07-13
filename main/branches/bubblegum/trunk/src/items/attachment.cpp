@@ -424,8 +424,12 @@ void Attachment::update(float dt)
         if(!m_kart->isShielded())
         {
             m_time_left = 0.0f;
-            if (m_bubble_drop)
+            if (m_kart->m_bubble_drop)
+            {
+                Log::verbose("Attachment", "Drop a small bubble gum. \n");;
                 //TODO: drop a bubble gum item on the track
+            }
+
         }
         break;
     }   // switch
