@@ -1018,7 +1018,10 @@ void Kart::decreaseShieldTime(float t)
 
     }
     //Let the kart drop a bubble gum, if the shield was not damaged.
-    //TODO: if(!this->isShielded()){ m_bubble_drop = false;}
+    //This is the default, whenever a powerup is used by a kart.
+    //It is turned off, if the shield was reduced below zero by a hit. (Or by intently damaging the shield.)
+    if(!this->isShielded())
+        m_bubble_drop = false;
 
 }
 
@@ -1302,6 +1305,7 @@ void Kart::onFirePressed()
         // use() needs to be called even if there currently is no collecteable
         // since use() can test if something needs to be switched on/off.
         m_powerup->use() ;
+        m_bubble_drop = true;
     }
 }
 

@@ -143,6 +143,9 @@ private:
     /** The torque to apply after hitting a bubble gum. */
     float        m_bubblegum_torque;
 
+    /** Whether a previous (unused) bubble gum shield becomes a bubble gum on the ground. */
+    bool         m_bubble_drop;
+
     // Bullet physics parameters
     // -------------------------
     btCompoundShape          m_kart_chassis;

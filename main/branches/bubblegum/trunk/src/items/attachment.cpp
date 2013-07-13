@@ -422,7 +422,11 @@ void Attachment::update(float dt)
         break;
     case ATTACH_BUBBLE_GUM_SHIELD:
         if(!m_kart->isShielded())
+        {
             m_time_left = 0.0f;
+            if (m_bubble_drop)
+                //TODO: drop a bubble gum item on the track
+        }
         break;
     }   // switch
 
