@@ -35,18 +35,20 @@ abstract class ClientSession
 {
     protected $session_id;
     protected $user_id;
+    protected $user_name;
 
-    protected function __construct($session_id, $user_id)
+    protected function __construct($session_id, $user_id, $user_name)
     {
         $this->session_id = $session_id;
         $this->user_id = $user_id;
+        $this->user_name = $user_name;
     }
 
     /**
      * Get current session id
      * @return string session id
      */
-    public function getSessionId()
+    public function getSessionID()
     {
         return $this->session_id;
     }
@@ -55,9 +57,18 @@ abstract class ClientSession
      * Get user id for this session
      * @return int user id
      */
-    public function getUserId()
+    public function getUserID()
     {
         return $this->user_id;  
+    }
+    
+    /**
+     * Get user name for this session
+     * @return string user name
+     */
+    public function getUsername()
+    {
+        return $this->user_name;
     }
     
 
@@ -107,7 +118,7 @@ abstract class ClientSession
             if ($size != 1) {
                 throw new ClientSessionExpiredException(_('Session not valid. Please sign in.'));
             }else {
-                /*
+                
                 //Valid session found, get more user info
                 $user_info = DBConnection::get()->query
                 (
@@ -119,10 +130,11 @@ abstract class ClientSession
                     (
                         ':userid'   => $user_id
                     )
-                );*/
+                );
                 // here an if statement will come for Guest and registered
                 return new RegisteredClientSession( $session_info[0]["cid"], 
-                                                    $session_info[0]["uid"]);
+                                                    $session_info[0]["uid"],
+                                                    $user_info[0]["user"]);
             }
         }catch (PDOException $e){
             throw new UserException(
@@ -450,9 +462,9 @@ class RegisteredClientSession extends ClientSession
      * @param int $user_id
      * @param string $user_name
      */
-    protected function __construct($session_id, $user_id)
+    protected function __construct($session_id, $user_id, $user_name)
     {
-        parent::__construct($session_id, $user_id);
+        parent::__construct($session_id, $user_id, $user_name);
         
         
         
@@ -494,7 +506,7 @@ class RegisteredClientSession extends ClientSession
                 );
                 if ($count > 2 || $count < 0)
                     throw new PDOException();
-                return new RegisteredClientSession($session_id, $user_id);
+                return new RegisteredClientSession($session_id, $user_id, $username);
             }
         }catch (PDOException $e){
             throw new ClientSessionConnectException(
@@ -502,7 +514,5 @@ class RegisteredClientSession extends ClientSession
                 _('Please contact a website administrator.'));
         }
     }
-    
-
 }
 ?>

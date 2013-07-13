@@ -39,8 +39,8 @@ try {
                 $session = ClientSession::create($username, $password);
                 $output->startElement('connect');
                 $output->writeAttribute('success','yes');
-                $output->writeAttribute('token', $session->getSessionId());
-                $output->writeAttribute('username', htmlspecialchars($username));
+                $output->writeAttribute('token', $session->getSessionID());
+                $output->writeAttribute('username', htmlspecialchars($session->getUsername()));
                 $output->writeAttribute('userid', $session->getUserID());
                 $output->writeAttribute('info','');
                 $output->endElement();
@@ -48,6 +48,33 @@ try {
             }
             catch(Exception $e){
                 $output->startElement('connect');
+                    $output->writeAttribute('success','no');
+                    $output->writeAttribute('info',
+                        htmlspecialchars(
+                            $e->getMessage()
+                        ));
+                $output->endElement();
+            }
+
+            break;
+            
+        case 'saved-session':
+            try {
+                $userid = isset($_POST['userid']) ? $_POST['userid'] : null;
+                $token = isset($_POST['token']) ? $_POST['token'] : null;
+                $session = ClientSession::get($token, $userid);
+                User::updateLoginTime($session->getUserID());
+                $output->startElement('saved-session');
+                $output->writeAttribute('success','yes');
+                $output->writeAttribute('token', $session->getSessionID());
+                $output->writeAttribute('username', htmlspecialchars($session->getUsername()));
+                $output->writeAttribute('userid', $session->getUserID());
+                $output->writeAttribute('info','');
+                $output->endElement();
+                
+            }
+            catch(Exception $e){
+                $output->startElement('saved-session');
                     $output->writeAttribute('success','no');
                     $output->writeAttribute('info',
                         htmlspecialchars(
