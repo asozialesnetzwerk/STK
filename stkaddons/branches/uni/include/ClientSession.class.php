@@ -277,33 +277,24 @@ abstract class ClientSession
     public function requestServerConnection($server_id)
     {
         try{
-            //Query the database to add the request entry
-            $result = DBConnection::get()->query
-            (
-                "SELECT id FROM `" . DB_PREFIX . "servers`
-                WHERE `hostid` = :hostid ",
-                DBConnection::FETCH_ALL,
-                array
-                (
-                    ':hostid'       => $server_id
-                )
-            );
-            if (count($result) == 0)
-                throw new UserException(_('No server found'));
-            DBConnection::get()->query
+            $count = DBConnection::get()->query
             (
                 "INSERT INTO `" . DB_PREFIX . "server_conn` (serverid, userid, request) 
                 VALUES ( :serverid, :userid, 1) ON DUPLICATE KEY UPDATE request='1'",
-                DBConnection::NOTHING,
+                DBConnection::ROW_COUNT,
                 array
                 (
                     ':userid'       => $this->user_id,
-                    ':serverid'     => $result[0]['id']
+                    ':serverid'     => $server_id
                 )
             );
+            if ($count > 2 || $count < 0) {
+                throw new PDOException();
+            }
+            return $count;
         }catch (PDOException $e){
             throw new UserException(
-                _('An error occurred while setting ip:port.') .' '.
+                _('An error occurred while requesting a server connection.') .' '.
                 _('Please contact a website administrator.')
             );
         }
@@ -338,7 +329,7 @@ abstract class ClientSession
             return $result[0];
         }catch (PDOException $e){
             throw new UserException(
-                _('An error occurred while setting ip:port.') .' '.
+                _('An error occurred while quick joining.') .' '.
                 _('Please contact a website administrator.')
             );
         }
@@ -350,41 +341,51 @@ abstract class ClientSession
             $serverid = DBConnection::get()->query
             (
                 "SELECT `id` FROM `" . DB_PREFIX . "servers`
-                WHERE `hostid` = :id AND `ip` = :ip AND `port` = :port LIMIT 1",
+                WHERE `hostid` = :hostid AND `ip` = :ip AND `port` = :port LIMIT 1",
                 DBConnection::FETCH_ALL,
                 array
                 (
-                    ':id'   => $this->user_id,
+                    ':hostid'   => $this->user_id,
                     ':ip'   => $ip,
                     ':port' => $port
                 )
             );
-            $result = DBConnection::get()->query
+            $connection_requests = DBConnection::get()->query
             (
                 "SELECT `userid`
                 FROM `" . DB_PREFIX . "server_conn`
-                WHERE `serverid` = :id AND `request` = '1'",
+                WHERE `serverid` = :server_id AND `request` = '1'",
                 DBConnection::FETCH_ALL,
                 array
                 (
-                    ':id'   => $serverid[0]['id']
+                    ':server_id'   => $serverid[0]['id']
                 )
             );
-            $result2 = DBConnection::get()->query
-            (
-                "UPDATE `" . DB_PREFIX . "server_conn`
-                SET `request` = 0 
-                WHERE `serverid` = :id",
-                DBConnection::ROW_COUNT,
-                array
+            //Set the request bit to zero for all users we fetch
+            $index = 0;
+            $parameters = array();
+            $query_parts = array();
+            foreach($connection_requests as $user){
+                $parameter = ":userid" . $index;
+                $index++;
+                $query_parts[]= "`userid` = " . $parameter;
+                $parameters[$parameter] = $user['userid'];
+            }
+            if($index > 0){
+                $count = DBConnection::get()->query
                 (
-                    ':id'   => $serverid[0]['id']
-                )
-            );
-            return $result;
+                    "UPDATE `" . DB_PREFIX . "server_conn`
+                        SET `request` = 0
+                        WHERE " . implode(" OR ",$query_parts),
+                    DBConnection::ROW_COUNT,
+                    $parameters
+                );
+                //Perhaps check if $count and $index are equal
+            }
+            return $connection_requests;
         }catch (PDOException $e){
             throw new UserException(
-                _('An error occurred while getting a peer\'s ip:port.') .' '.
+                _('An error occurred while fetching server connection requests.') .' '.
                 _('Please contact a website administrator.')
             );
         }
@@ -418,7 +419,7 @@ abstract class ClientSession
                 throw new UserException(_('Not the good number of servers deleted.'));
         }catch (PDOException $e){
             throw new UserException(
-                _('An error occurred while getting a peer\'s ip:port.') .' '.
+                _('An error occurred while ending a server.') .' '.
                 _('Please contact a website administrator.')
             );
         }
@@ -463,39 +464,40 @@ class RegisteredClientSession extends ClientSession
      * @throws ClientSessionConnectException when credentials are wrong
      */
     public static function create(&$username, $password = '')
-    {      
-        $result = Validate::credentials($username,$password);
-        User::updateLoginTime($result[0]['id']);
-        $size = count($result);
-        if ($size == 0) {
-            throw new ClientSessionConnectException(_('Username and/or password is wrong.'));
-        }elseif ($size > 1) {
-            throw new ClientSessionConnectException(_('Error!2'));
-        }else{
-            $session_id = ClientSession::calcSessionId();
-            $user_id = $result[0]["id"];
-            //$role = $result[0]["role"];
-            $username = $result[0]["user"];
-            $result = DBConnection::get()->query
-            (
-                "INSERT INTO `" . DB_PREFIX ."client_sessions` (cid, uid)
-                VALUES (:session_id, :user_id) 
-                ON DUPLICATE KEY UPDATE cid = :session_id",
-                DBConnection::ROW_COUNT,
-                array
+    {
+        try{      
+            $result = Validate::credentials($username,$password);
+            User::updateLoginTime($result[0]['id']);
+            $size = count($result);
+            if ($size == 0) {
+                throw new ClientSessionConnectException(_('Username and/or password is wrong.'));
+            }elseif ($size > 1) {
+                throw new ClientSessionConnectException(_('Error!2'));
+            }else{
+                $session_id = ClientSession::calcSessionId();
+                $user_id = $result[0]["id"];
+                //$role = $result[0]["role"];
+                $username = $result[0]["user"];
+                $count = DBConnection::get()->query
                 (
-                    ':session_id'   => (string) $session_id,
-                    ':user_id'   => (int) $user_id
-                )
-            );
-            if ($result == 0) {
-                throw new ClientSessionConnectException('Could not create new session');
-            }elseif ($result > 2) {
-                throw new ClientSessionConnectException('Error!!!');
-            }elseif ($result == 2) {
-                //FIXME : research this. Apparantly the session was still alive, and got updated.
+                    "INSERT INTO `" . DB_PREFIX ."client_sessions` (cid, uid)
+                    VALUES (:session_id, :user_id) 
+                    ON DUPLICATE KEY UPDATE cid = :session_id",
+                    DBConnection::ROW_COUNT,
+                    array
+                    (
+                        ':session_id'   => (string) $session_id,
+                        ':user_id'   => (int) $user_id
+                    )
+                );
+                if ($count > 2 || $count < 0)
+                    throw new PDOException();
+                return new RegisteredClientSession($session_id, $user_id);
             }
-            return new RegisteredClientSession($session_id, $user_id);
+        }catch (PDOException $e){
+            throw new ClientSessionConnectException(
+                _('An unexpected error occured while creating your session.') . ' ' .
+                _('Please contact a website administrator.'));
         }
     }
     
