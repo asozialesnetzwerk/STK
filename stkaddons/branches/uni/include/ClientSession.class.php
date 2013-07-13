@@ -280,7 +280,9 @@ abstract class ClientSession
             $count = DBConnection::get()->query
             (
                 "INSERT INTO `" . DB_PREFIX . "server_conn` (serverid, userid, request) 
-                VALUES ( :serverid, :userid, 1) ON DUPLICATE KEY UPDATE request='1'",
+                VALUES ( :serverid, :userid, 1) 
+                ON DUPLICATE KEY 
+                UPDATE request = '1', serverid = :serverid",
                 DBConnection::ROW_COUNT,
                 array
                 (
