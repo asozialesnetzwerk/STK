@@ -902,6 +902,10 @@ class SuperTuxKartObjectPanel(bpy.types.Panel, PanelBase):
         
         obj = context.object
         
+        if obj.proxy is not None:
+            layout.label("Library objects cannot be configured here")
+            return
+        
         if obj is not None:
             if is_track:
                 properties = OrderedDict([])

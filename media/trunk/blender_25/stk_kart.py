@@ -70,17 +70,6 @@ def getProperty(obj, name, default=""):
         return default
 
 # ------------------------------------------------------------------------------
-# Gets an id property of an objects, returning the default if the id property
-# is not set.
-def getIdProperty(obj, name, default=""):
-    try:
-        return obj[name]
-    except:
-        if default != None:
-            obj[name] = default
-    return default
-
-# ------------------------------------------------------------------------------
 # Returns the version of this script
 def getScriptVersion():
     m = re.search('(\d+)', __version__)
