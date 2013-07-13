@@ -469,13 +469,13 @@ class RegisteredClientSession extends ClientSession
     {
         try{      
             $result = Validate::credentials($username,$password);
-            User::updateLoginTime($result[0]['id']);
             $size = count($result);
             if ($size == 0) {
                 throw new ClientSessionConnectException(_('Username and/or password is wrong.'));
             }elseif ($size > 1) {
-                throw new ClientSessionConnectException(_('Error!2'));
+                throw new PDOException();
             }else{
+                User::updateLoginTime($result[0]['id']);
                 $session_id = ClientSession::calcSessionId();
                 $user_id = $result[0]["id"];
                 //$role = $result[0]["role"];
