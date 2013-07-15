@@ -53,6 +53,10 @@ class AbstractKart;
 class Camera;
 class PerCameraNode;
 class PostProcessing;
+class Shaders;
+class Wind;
+class RTT;
+class LightNode;
 
 /**
   * \brief class that creates the irrLicht device and offers higher-level
@@ -74,6 +78,15 @@ private:
     gui::IGUIFont              *m_race_font;
     /** Post-processing. */
     PostProcessing             *m_post_processing;
+    /** Shaders. */
+    Shaders              *m_shaders;
+    /** Wind. */
+    Wind                 *m_wind;
+    /** RTTs. */
+    RTT                *m_rtts;
+
+    /** The main MRT setup. */
+    core::array<video::IRenderTarget> m_mrt;
 
     /** Flag to indicate if a resolution change is pending (which will be
      *  acted upon in the next update). None means no change, yes means
@@ -112,6 +125,20 @@ private:
 
     bool                 m_request_screenshot;
 
+    bool                 m_wireframe;
+    bool                 m_mipviz;
+    bool                 m_normals;
+    u32                  m_renderpass;
+
+    struct glowdata_t {
+        scene::ISceneNode * node;
+        float r, g, b;
+    };
+
+    std::vector<glowdata_t> m_glowing;
+
+    std::vector<LightNode *> m_lights;
+
 #ifdef DEBUG
     /** Used to visualise skeletons. */
     std::vector<irr::scene::IAnimatedMeshSceneNode*> m_debug_meshes;
@@ -121,6 +148,9 @@ private:
                    irr::scene::ISkinnedMesh::SJoint* joint,
                    irr::scene::ISkinnedMesh* mesh, int id);
 #endif
+
+    void renderFixed(float dt);
+    void renderGLSL(float dt);
 
     void doScreenShot();
 public:
@@ -156,6 +186,9 @@ public:
                                   scene::ISceneNode *parent=NULL);
     PerCameraNode        *addPerCameraMesh(scene::IMesh* mesh,
                                            scene::ICameraSceneNode* node,
+                                           scene::ISceneNode *parent = NULL);
+    PerCameraNode        *addPerCameraNode(scene::ISceneNode* node,
+                                           scene::ICameraSceneNode* cam,
                                            scene::ISceneNode *parent = NULL);
     scene::ISceneNode    *addBillboard(const core::dimension2d< f32 > size,
                                        video::ITexture *texture,
@@ -230,9 +263,45 @@ public:
     /** Returns a pointer to the post processing object. */
     inline PostProcessing* getPostProcessing()  {return m_post_processing;}
     // ------------------------------------------------------------------------
-
+    inline Wind* getWind()  {return m_wind;}
+    // ------------------------------------------------------------------------
+    inline Shaders* getShaders()  {return m_shaders;}
+    // ------------------------------------------------------------------------
+    inline RTT* getRTTs()  {return m_rtts;}
+    // ------------------------------------------------------------------------
     inline bool isGLSL() const { return m_glsl; }
     // ------------------------------------------------------------------------
+    void toggleWireframe() { m_wireframe ^= 1; }
+    // ------------------------------------------------------------------------
+    void toggleMipVisualization() { m_mipviz ^= 1; }
+    // ------------------------------------------------------------------------
+    void toggleNormals() { m_normals ^= 1; }
+    // ------------------------------------------------------------------------
+    bool getNormals() { return m_normals; }
+    // ------------------------------------------------------------------------
+    u32 getRenderPass() { return m_renderpass; }
+    // ------------------------------------------------------------------------
+    void addGlowingNode(scene::ISceneNode *n, float r = 1.0f, float g = 1.0f, float b = 1.0f)
+    {
+        glowdata_t dat;
+        dat.node = n;
+        dat.r = r;
+        dat.g = g;
+        dat.b = b;
+
+        m_glowing.push_back(dat);
+    }
+    // ------------------------------------------------------------------------
+    void clearGlowingNodes() { m_glowing.clear(); }
+    // ------------------------------------------------------------------------
+    void applyObjectPassShader();
+    void applyObjectPassShader(scene::ISceneNode * const node, bool rimlit = false);
+    // ------------------------------------------------------------------------
+    scene::ISceneNode *addLight(const core::vector3df &pos, float radius = 1.0f, float r = 1.0f,
+                  float g = 1.0f, float b = 1.0f, bool sun = false);
+    // ------------------------------------------------------------------------
+    void clearLights();
+
 #ifdef DEBUG
     /** Removes debug meshes. */
     void clearDebugMesh() { m_debug_meshes.clear(); }
