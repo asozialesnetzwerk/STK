@@ -2013,16 +2013,21 @@ class TrackExport:
             if getObjectProperty(obj, "tangents", "false") == "true":
                 tangent_string=" tangents=\"true\""
             
+            if interaction == 'physicsonly':
+                physicsonly_string = ' interaction="physics-only"'
+            else:
+                physicsonly_string = ""
+            
             if lAnim:
-                f.write("    <static-object%s%s %s%s%s%s%s> <!-- writeStaticObjects 2 -->\n"% \
+                f.write("    <static-object%s%s %s%s%s%s%s%s> <!-- writeStaticObjects 2 -->\n"% \
                         (lodstring, model_string, getXYZHPRString(obj), reset_string,
-                         condition_if_str, condition_ifnot_str, tangent_string) )
+                         condition_if_str, condition_ifnot_str, tangent_string, physicsonly_string) )
                 writeAnimatedTextures(f, lAnim)
                 f.write("    </static-object>\n")
             else:
-                f.write("    <static-object%s%s %s%s%s%s%s%s/> <!-- writeStaticObjects 3 -->\n"% \
+                f.write("    <static-object%s%s %s%s%s%s%s%s%s/> <!-- writeStaticObjects 3 -->\n"% \
                         (lodstring, model_string, getXYZHPRString(obj), reset_string,
-                         condition_if_str, condition_ifnot_str, challenge_str, tangent_string) )
+                         condition_if_str, condition_ifnot_str, challenge_str, tangent_string, physicsonly_string) )
         writeAnimatedTextures(f, lAnimTextures)
 
     # --------------------------------------------------------------------------
@@ -2182,7 +2187,7 @@ class TrackExport:
             #if type == "lod_instance" or type == "lod_model" or type == "single_lod":
             #    interact = "static"
             
-            if interact=="static" or interact=="reset" or type == "lod_model" or interact=="explode":
+            if interact=="static" or interact=="reset" or type == "lod_model" or interact=="explode" or interact=="physicsonly":
                 
                 ipo      = obj.animation_data
                 if obj.parent is not None and obj.parent.type=="ARMATURE" and obj.parent.animation_data is not None:
