@@ -166,7 +166,7 @@ def saveAnimations(f):
                 if  markerName in \
                    ["straight", "right", "left", "start-winning", "start-winning-loop",
                     "end-winning", "start-losing", "start-losing-loop", "end-losing",
-                    "start-explosion", "end-explosion",
+                    "start-explosion", "end-explosion", "start-jump", "end-jump",
                     "turning-l", "center", "turning-r", "repeat-losing", "repeat-winning"]:
                     if markerName=="turning-l": markerName="left"
                     if markerName=="turning-r": markerName="right"
