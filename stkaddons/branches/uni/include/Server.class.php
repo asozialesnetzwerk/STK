@@ -34,32 +34,43 @@ class Server
     protected $server_name;
     protected $max_players;
 
-    protected function __construct($server_id, $host_id, $name, $max_players)
+    /**
+     * 
+     * @param array $info_array an associative array based on the database
+     */
+    protected function __construct($info_array)
     {
-        $this->server_id = $server_id;
-        $this->host_id = $host_id;
-        $this->server_name = $name;
-        $this->max_players = $max_players;
+		$this->info_array = $info_array;
     }
     
     public function getServerId()
     {
-        return $this->server_id;
+        return $this->info_array['id'];
     }
     
     public function getHostId()
     {
-        return $this->host_id;
+        return $this->info_array['hostid'];
     }
     
     public function getName()
     {
-        return $this->server_name;
+        return $this->info_array['name'];
     }
     
     public function getMaxPlayers()
     {
-        return $this->max_players;
+        return $this->info_array['max_players'];
+    }
+    
+    public function asXML()
+    {
+    	$server_xml = new XMLOutput();
+	    $server_xml->startElement('server');
+	    foreach ($this->info_array as $key => $value)
+	    	$server_xml->writeAttribute($key, $value);
+	    $server_xml->endElement();
+	    return $server_xml->asString();
     }
     
     /**
@@ -97,7 +108,7 @@ class Server
                 DBConnection::ROW_COUNT,
                 array
                 (
-                    ':hostid'       => (string) $userid,
+                    ':hostid'       => (int) $userid,
                     ':ip'           => (int) $ip,
                     ':port'         => (int) $port,
                     ':name'         => (string) $server_name,
@@ -107,16 +118,43 @@ class Server
             if ($result != 1) {
                 throw new ServerException(_('Could not create server'));
             }
-            return new Server(  DBConnection::get()->lastInsertId(),
-                                $userid,
-                                $server_name, 
-                                $max_players);
+            return Server::getServer(DBConnection::get()->lastInsertId());
+
         }catch(PDOExpcetion $e){
             throw new ServerException(
                 _('An error occurred while creating server.') .' '.
                 _('Please contact a website administrator.')
             );
         }
+    }
+    
+    public static function getServer($id)
+    {
+    	try{
+    		$result = DBConnection::get()->query
+    		(
+    				"SELECT * FROM `" . DB_PREFIX . "servers`
+                    WHERE `id`= :id",
+    				DBConnection::FETCH_ALL,
+    				array
+    				(
+    						':id'   => (int) $id
+    				)
+    		);
+    		if (count($result) == 0) 
+    		{
+    			throw new ServerException(_("Server doesn't exist."));
+    		}else if (count($result) > 1)
+    		{
+    			throw new PDOException();
+    		}
+    		return new Server($result[0]);   		
+    	}catch(PDOExpcetion $e){
+    		throw new ServerException(
+    				_('An error occurred while creating server.') .' '.
+    				_('Please contact a website administrator.')
+    		);
+    	}
     }
     
     public static function getServersAsXML()
@@ -129,12 +167,10 @@ class Server
         );
         $partial_output = new XMLOutput();
         $partial_output->startElement('servers');
-        foreach ($servers as $server)
+        foreach ($servers as $server_result)
         {
-            $partial_output->startElement('server');
-            foreach ($server as $key => $value)
-                $partial_output->writeAttribute($key, $value);
-            $partial_output->endElement();
+        	$server = new Server($server_result);
+            $partial_output->insert($server->asXML());
         }
         $partial_output->endElement();
         return $partial_output->asString();

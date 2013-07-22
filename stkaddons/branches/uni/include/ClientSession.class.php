@@ -30,6 +30,9 @@ class ClientSessionExpiredException extends ClientSessionException {}
 
 /**
  * Abstract base class for handling client sessions
+ * @property string $session_id
+ * @property int	$user_id
+ * @property string $user_name
  */
 abstract class ClientSession
 {
@@ -37,6 +40,11 @@ abstract class ClientSession
     protected $user_id;
     protected $user_name;
 
+    /**
+     * @param string $session_id
+     * @param int	 $user_id
+     * @param string $user_name
+     */
     protected function __construct($session_id, $user_id, $user_name)
     {
         $this->session_id = $session_id;
@@ -71,7 +79,6 @@ abstract class ClientSession
         return $this->user_name;
     }
     
-
     /**
      * Create new session
      * @param string $username user name (registered user or temporary nickname)
@@ -349,6 +356,10 @@ abstract class ClientSession
         }
     }
 
+    /*
+     * 
+     * 
+     */
     public function getServerConnectionRequests($ip, $port)
     {
         try{
@@ -405,12 +416,26 @@ abstract class ClientSession
         }
     }
 
+	/**
+	 * 
+	 * @param int $ip
+	 * @param int $port
+	 * @param string $server_name
+	 * @param int $max_players
+	 * @return Server
+	 */
     public function createServer($ip, $port, $server_name, $max_players)
     {
         ClientSession::setPublicAddress($this->user_id, $this->session_id, $ip, $port);
         return Server::create($ip, $port, $this->user_id, $server_name, $max_players);
     }
     
+    /**
+     * 
+     * @param int $ip
+     * @param int $port
+     * @throws UserException
+     */
     public function stopServer($ip, $port)
     {
         try{
@@ -445,7 +470,6 @@ abstract class ClientSession
      */
     protected static function calcSessionId()
     {
-        // TODO: Not sure if this is strong enough, looks quite good for a first trial though
         return substr(md5(uniqid('', true)), 0, 24);
     }
 }
@@ -473,8 +497,8 @@ class RegisteredClientSession extends ClientSession
     /**
      * Create session for registered user
      * @param string $username username
-     * @param type $password password (plain)
-     * @return ClientSessionUser
+     * @param string $password password (plain)
+     * @return RegisterdClientSession
      * @throws ClientSessionConnectException when credentials are wrong
      */
     public static function create(&$username, $password = '')
@@ -483,7 +507,7 @@ class RegisteredClientSession extends ClientSession
             $result = Validate::credentials($username,$password);
             $size = count($result);
             if ($size == 0) {
-                throw new ClientSessionConnectException(_('Username and/or password is wrong.'));
+                throw new ClientSessionConnectException(_('Username and/or password invalid.'));
             }elseif ($size > 1) {
                 throw new PDOException();
             }else{

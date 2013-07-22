@@ -156,16 +156,11 @@ try {
                 $token = isset($_POST['token']) ? $_POST['token'] : null;
                 $server_name = isset($_POST['name']) ? utf8_encode($_POST['name']) : null;
                 $max_players = isset($_POST['max_players']) ? $_POST['max_players'] : null;
-                $server = Server::create(   $userid,
-                                            $token,
-                                            $server_name,
-                                            $max_players);              
+                $server = ClientSession::get($token, $userid)->createServer(0, 0, $server_name, $max_players);           
                 $output->startElement('server_creation');
                     $output->writeAttribute('success','yes');
-                    $output->writeAttribute('id', $server->getId());
-                    $output->writeAttribute('name', htmlspecialchars($server->getName()));
-                    $output->writeAttribute('max_players', htmlspecialchars($server->getMaxPlayers()));
                     $output->writeAttribute('info','');
+                    $output->insert($server->asXML());
                 $output->endElement();
                 
             }
