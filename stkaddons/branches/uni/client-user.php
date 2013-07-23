@@ -25,7 +25,7 @@ require_once('include/Server.class.php');
 require_once('include/User.class.php');
 require_once('include/XMLOutput.class.php');
 
-$action = isset($_POST['action']) ? $_POST['action'] : null;
+$action = isset($_POST['action']) ? $_POST['action'] : "";
 $output = new XMLOutput();
 $output->startDocument('1.0','UTF-8');
 
@@ -34,8 +34,8 @@ try {
     {
         case 'connect':
             try {
-                $password = isset($_POST['password']) ? utf8_encode($_POST['password']) : null;
-                $username = isset($_POST['username']) ? utf8_encode($_POST['username']) : null;
+                $password = isset($_POST['password']) ? utf8_encode($_POST['password']) : "";
+                $username = isset($_POST['username']) ? utf8_encode($_POST['username']) : "";
                 $session = ClientSession::create($username, $password);
                 $output->startElement('connect');
                 $output->writeAttribute('success','yes');
@@ -60,8 +60,8 @@ try {
             
         case 'saved-session':
             try {
-                $userid = isset($_POST['userid']) ? $_POST['userid'] : null;
-                $token = isset($_POST['token']) ? $_POST['token'] : null;
+                $userid = isset($_POST['userid']) ? $_POST['userid'] : "";
+                $token = isset($_POST['token']) ? $_POST['token'] : "";
                 $session = ClientSession::get($token, $userid);
                 User::updateLoginTime($session->getUserID());
                 $output->startElement('saved-session');
@@ -108,8 +108,8 @@ try {
             
         case 'disconnect':
             try {
-                $userid = isset($_POST['userid']) ? $_POST['userid'] : null;
-                $token = isset($_POST['token']) ? $_POST['token'] : null;
+                $userid = isset($_POST['userid']) ? $_POST['userid'] : "";
+                $token = isset($_POST['token']) ? $_POST['token'] : "";
                 ClientSession::destroy($token, $userid);
                 $output->startElement('disconnect');
                     $output->writeAttribute('success','yes');
@@ -129,11 +129,17 @@ try {
 
         case 'register':
             try {
-                $username = isset($_POST['username']) ? utf8_encode($_POST['username']) : null;
-                $password = isset($_POST['password']) ? utf8_encode($_POST['password']) : null;
+                $username           = isset($_POST['username']) ? utf8_encode($_POST['username']) : "";
+                $password           = isset($_POST['password']) ? utf8_encode($_POST['password']) : "";
+                $password_confirm   = isset($_POST['password_confirm']) ? utf8_encode($_POST['password_confirm']) : "";
+                $email              = isset($_POST['email']) ? utf8_encode($_POST['email']) : "";
+                $terms              = isset($_POST['terms']) ? utf8_encode($_POST['terms']) : "";
                 User::register( $username,
                                 $password,
-                                $password);
+                                $password_confirm,
+                                $email,
+                                $username,
+                                $terms);
                 $output->startElement('registration');
                     $output->writeAttribute('success','yes');
                     $output->writeAttribute('info','');
@@ -152,10 +158,10 @@ try {
             
         case 'create_server':
             try {
-                $userid = isset($_POST['userid']) ? $_POST['userid'] : null;
-                $token = isset($_POST['token']) ? $_POST['token'] : null;
-                $server_name = isset($_POST['name']) ? utf8_encode($_POST['name']) : null;
-                $max_players = isset($_POST['max_players']) ? $_POST['max_players'] : null;
+                $userid = isset($_POST['userid']) ? $_POST['userid'] : "";
+                $token = isset($_POST['token']) ? $_POST['token'] : "";
+                $server_name = isset($_POST['name']) ? utf8_encode($_POST['name']) : "";
+                $max_players = isset($_POST['max_players']) ? $_POST['max_players'] : "";
                 $server = ClientSession::get($token, $userid)->createServer(0, 0, $server_name, $max_players);           
                 $output->startElement('server_creation');
                     $output->writeAttribute('success','yes');

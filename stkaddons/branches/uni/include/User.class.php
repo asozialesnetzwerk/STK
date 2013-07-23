@@ -234,14 +234,14 @@ class User
      * @param string $terms
      * @throws UserException 
      */
-    public static function register($username, $password, $password_conf/*, $email, $name, $terms*/)
+    public static function register($username, $password, $password_conf, $email, $name, $terms)
     {
 	    // Sanitize inputs
 	    $username = Validate::username($username);
 	    $password = Validate::password($password, $password_conf);
-	    //$email = Validate::email($email);
-	    //$name = Validate::realname($name);
-	    //$terms = Validate::checkbox($terms,htmlspecialchars(_('You must agree to the terms to register.')));
+	    $email = Validate::email($email);
+	    $name = Validate::realname($name);
+	    $terms = Validate::checkbox($terms,htmlspecialchars(_('You must agree to the terms to register.')));
 	    // Make sure requested username is not taken
         try{
             $result = DBConnection::get()->query(
@@ -265,35 +265,53 @@ class User
             ));
         }
 	    // Make sure the email address is unique
-        // FIXME
+        try{
+            $result = DBConnection::get()->query(
+                "SELECT `email` 
+    	        FROM `".DB_PREFIX."users` 
+    	        WHERE `email` LIKE :email",
+                DBConnection::FETCH_ALL,
+                array(
+                    ':email'   => $email
+    	        )	        
+            );
+        }catch(DBException $e){
+            throw new UserException(htmlspecialchars(
+                _('An error occurred trying to validate your email address.') .' '.
+                _('Please contact a website administrator.')
+            ));
+        }
+        if(count($result) !== 0){
+	        throw new UserException(htmlspecialchars(
+	            _('This email address is already taken.')
+            ));
+        }
 
 	    // No exception occurred - continue with registration
         try{
             $result = DBConnection::get()->query
             (
                 "INSERT INTO `".DB_PREFIX."users` 
-                (`user`,`pass`)
-                VALUES(:username,:password)",
+                (`user`,`pass`,`name`, `email`, `active`, `reg_date`)
+                VALUES(:username, :password, :name, :email, 1, CURRENT_DATE())",
                 DBConnection::ROW_COUNT,
                 array
                 (
-                    ':username'   => $username,
-                    ':password'   => $password
+                    ':username'     => $username,
+                    ':password'     => $password,
+                    ':name'         => $name,
+                    ':email'        => $email                            
                 )
             );
+            if($result !== 1){
+                throw new DBException();
+            }
         }catch(DBException $e){
             throw new UserException(htmlspecialchars(
 		        _('An error occurred while creating your account.') .' '. 
 		        _('Please contact a website administrator.')
             ));
         }
-        if($result !== 1){
-            throw new UserException(htmlspecialchars(
-                _('An error occurred during your registration request.') .' '.
-                _('Please contact a website administrator.')
-            ));
-        }
-
 
         /*
 	    // Generate verification code
