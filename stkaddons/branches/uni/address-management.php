@@ -179,6 +179,7 @@ try {
                 
                 $output->startElement('request-connection');
                     $output->writeAttribute('success','yes');
+                    $output->writeAttribute('serverid', $server_id);
                     $output->writeAttribute('info','');
                 $output->endElement();
             }
