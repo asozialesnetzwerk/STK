@@ -19,6 +19,7 @@
  */
 
 define('ROOT', './');
+define('API', 1);
 require_once('config.php');
 require_once('include/ClientSession.class.php');
 require_once('include/XMLOutput.class.php');

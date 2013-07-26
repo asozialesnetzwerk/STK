@@ -1,7 +1,6 @@
-users.reg_date -> timestamped
-users.verify -> deleted
+users.verify -> deleted -> moved to activation table
 
-TODO : remove client_sessions.name
+the account activation mail doesn't use the username anymore, but instead the user id.
 
 Just Info
 ---------

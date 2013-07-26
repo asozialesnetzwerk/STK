@@ -26,6 +26,38 @@ require_once('exceptions.php');
  * @author stephenjust
  */
 class Validate {
+    
+    /**
+     * Checks a username/email address combination and returns the user id if valid
+     * @param string $username
+     * @param string $email
+     * @throws DBException when something unexpected with the database happened
+     * @throws UserException when username/email combination is invalid
+     */
+    public static function account($username, $email){
+        $result = DBConnection::get()->query(
+            "SELECT `id`
+	        FROM `".DB_PREFIX."users`
+	        WHERE `user` = :username
+            AND `email` = :email
+            AND `active` = 1",
+            DBConnection::FETCH_ALL,
+            array(
+                    ':username'   => $username,
+                    ':email'    => $email
+            )
+        );
+        if(count($result) > 1){
+            throw new DBException();
+        }
+        if(count($result) === 0){
+            throw new UserException(htmlspecialchars(
+                _('Username and email address combination not found.')
+            ));
+        }
+        return $result[0]['id'];
+    }
+    
     /**
      * Check if the input is a valid email address
      * @param string $email Email address

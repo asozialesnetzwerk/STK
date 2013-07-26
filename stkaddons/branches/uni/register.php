@@ -129,7 +129,7 @@ switch ($_GET['action']) {
         try {
             $username = strip_tags($_GET['user']);
             $verification_code = strip_tags($_GET['num']);
-            User::validate($username,$verification_code);
+            User::activate($username,$verification_code);
             echo htmlspecialchars(_('Your account has been activated.')).'<br />';
         }
         catch (UserException $e) {

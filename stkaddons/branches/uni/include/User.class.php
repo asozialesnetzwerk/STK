@@ -1,6 +1,7 @@
 <?php
 /**
  * copyright 2011 Stephen Just <stephenjust@users.sf.net>
+ *           2013 Glenn De Jonghe
  *
  * This file is part of stkaddons
  *
@@ -19,6 +20,7 @@
  */
 
 require_once('Validate.class.php');
+require_once('Verification.class.php');
 require_once('DBConnection.class.php');
 require_once('exceptions.php');
 
@@ -28,6 +30,7 @@ class User
     public static $user_id = 0;
     
     static function init() {
+        if(defined('API')) return;
         // Validate user's session on every page
         if (session_id() == "") {
             session_start();
@@ -82,7 +85,7 @@ class User
     {       
         try{
             $result = DBConnection::get()->query(
-                "UPDATE `v2_users`
+                "UPDATE `".DB_PREFIX."users`
                 SET `last_login` = NOW()
                 WHERE `id` = :userid",
                 DBConnection::NOTHING,
@@ -93,7 +96,7 @@ class User
             );
             $result = DBConnection::get()->query(
                 "SELECT `last_login`
-                FROM `v2_users`
+                FROM `".DB_PREFIX."users`
                 WHERE `id` = :userid",
                 DBConnection::FETCH_ALL,
                 array
@@ -118,7 +121,7 @@ class User
 
     static function login($username,$password)
     {
-        $result = Validate::credentials($password,$username);
+        $result = Validate::credentials($username, $password);
         // Check if the user exists
         if(count($result) != 1) {
             User::logout();
@@ -157,23 +160,39 @@ class User
     }
     
     /**
-     * Change the password of the currently logged in user
-     * @param string $new_password Already escaped password
-     *//*
-    static function change_password($new_password) {
-        $user_id = User::$user_id;
-        
-        if (!User::$logged_in)
-            throw new UserException(htmlspecialchars(_('You must be logged in to change a password.')));
-
-        $query = 'UPDATE `'.DB_PREFIX."users`
-            SET `pass` = '$new_password'
-            WHERE `id` = $user_id";
-        $handle = sql_query($query);
-        if (!$handle)
-            throw new UserException(htmlspecialchars(_('Failed to change your password.')));
+     * Change the password of the supplied user; if none supplied, currently logged in user is used.
+     * @param string $new_password
+     * @param int $userid defaults to currently logged in user.
+     * @throws UserException
+     */
+    static function change_password($new_password, $userid = 0) {
+        if ($userid === 0)
+            if (!User::$logged_in)
+                throw new UserException(htmlspecialchars(_('You must be logged in to change a password.')));
+            else
+                $userid = User::$user_id;
+   
+        try{
+            $count = DBConnection::get()->query(
+                "UPDATE `".DB_PREFIX."users`
+                SET `pass`   = :pass
+    	        WHERE `id` = :userid",
+                DBConnection::ROW_COUNT,
+                array(
+                        ':userid'   => (int) $userid,
+                        ':pass'     => (string) $new_password
+                )
+            );
+            if ($count === 0)
+                throw new DBException();
+        }catch(DBException $e){
+            throw new UserException(htmlspecialchars(
+                _('An error occured while trying to change your password.') .' '.
+                _('Please contact a website administrator.')
+            ));
+        }
     }
-    
+    /*
     static function exists($username) {
 	   try { 
 	       Validate::username($username); 
@@ -195,33 +214,33 @@ class User
     
     /**
      * Activate a new user
-     * @param string $username
+     * @param int $userid
      * @param string $ver_code 
+     * @throws UserException when activation failed
      */
-     /*
-    static function validate($username, $ver_code) {
-        $username = mysql_real_escape_string($username);
-        $ver_code = mysql_real_escape_string($ver_code);
-        $lookup_query = 'SELECT `id` FROM `'.DB_PREFIX."users`
-            WHERE `user` = '$username'
-            AND `verify` = '$ver_code'
-            AND `active` = 0";
-        $lookup_handle = sql_query($lookup_query);
-        if (!$lookup_handle)
-            throw new UserException('Failed to search for the user record to validate.');
-        if (mysql_num_rows($lookup_handle) === 0)
-            throw new UserException('Could not activate this user. Either they do not exist, the account is already active, or the verification code is incorrect.');
-
-        $query = "UPDATE `".DB_PREFIX."users`
-            SET `active` = '1', `verify` = ''
-            WHERE `verify` = '$ver_code'
-            AND `user` = '$username'";
-        $handle = sql_query($query);
-        if (!$handle)
-            throw new UserException('Failed to activate user.');
-        
-        Log::newEvent("New user activated: '$username'");
-    }*/
+    static function activate($userid, $ver_code) {
+        Verification::verify($userid, $ver_code);
+        try{
+            $count = DBConnection::get()->query(
+                "UPDATE `".DB_PREFIX."users` 
+                SET `active` = '1' 
+    	        WHERE `id` = :userid",
+                DBConnection::ROW_COUNT,
+                array(
+                        ':userid'   => $userid
+                )
+            );
+            if ($count === 0)
+                throw new DBException();
+            Verification::delete($userid);
+        }catch(DBException $e){
+            throw new UserException(htmlspecialchars(
+                    _('An error occurred trying to activate your useraccount.') .' '.
+                    _('Please contact a website administrator.')
+            ));
+        }        
+        Log::newEvent("User with ID '{$userid}' activated.");
+    }
 
 
     /**
@@ -293,7 +312,7 @@ class User
             (
                 "INSERT INTO `".DB_PREFIX."users` 
                 (`user`,`pass`,`name`, `email`, `active`, `reg_date`)
-                VALUES(:username, :password, :name, :email, 1, CURRENT_DATE())",
+                VALUES(:username, :password, :name, :email, 0, CURRENT_DATE())",
                 DBConnection::ROW_COUNT,
                 array
                 (
@@ -306,32 +325,31 @@ class User
             if($result !== 1){
                 throw new DBException();
             }
+            $userid = DBConnection::get()->lastInsertId();
+            $verification_code = Verification::generate($userid);
         }catch(DBException $e){
             throw new UserException(htmlspecialchars(
 		        _('An error occurred while creating your account.') .' '. 
 		        _('Please contact a website administrator.')
             ));
         }
-
-        /*
-	    // Generate verification code
-	    $verification_code = cryptUrl(12);
-	    // Send verification email
+        
+	    // Send verification email	    
 	    try {
 	        $mail = new SMail;
-	        $mail->newAccountNotification($email, $username, $verification_code, SITE_ROOT.'register.php');
+	        $mail->newAccountNotification($email, $userid, $username, $verification_code, SITE_ROOT.'register.php');
 	    }
 	    catch (Exception $e) {
-	        Log::newEvent("Registration email for '$username' failed.");
+	        Log::newEvent("Registration email for user '$username' with id '$userid' failed.");
 	        throw new UserException($e->getMessage().' '._('Please contact a website administrator.'));
-	    }*/
-	    //Log::newEvent("Registration submitted for user '$username'");
+	    }
+	    Log::newEvent("Registration submitted for user '$username' with id '$userid'.");
     }
     
     /**
      * Get the role of the current user
      * @return string Role identifier
-     *//*
+     */
     public static function getRole() {
 	    if (!User::$logged_in) {
 	        return 'unregistered';
@@ -345,10 +363,11 @@ class User
 	        $result = mysql_fetch_array($handle);
 	        return $result[0];
         }
-    }*/
+    } // FIXME
 }
-/*
+
 User::init();
+
 function loadUsers()
 {
     global $js;
@@ -384,5 +403,5 @@ EOF;
     }
     echo "</ul>";
 
-}*/
+}
 ?>

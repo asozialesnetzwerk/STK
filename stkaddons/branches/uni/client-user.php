@@ -19,6 +19,7 @@
  */
 
 define('ROOT', './');
+define('API', 1);
 require_once('config.php');
 require_once('include/ClientSession.class.php');
 require_once('include/Server.class.php');
@@ -131,7 +132,7 @@ try {
             try {
                 $username           = isset($_POST['username']) ? utf8_encode($_POST['username']) : "";
                 $password           = isset($_POST['password']) ? utf8_encode($_POST['password']) : "";
-                $password_confirm   = isset($_POST['password_confirm']) ? utf8_encode($_POST['password_confirm']) : "";
+                $password_confirm   = isset($_POST['password_confirm']) ? utf8_encode($_POST['password_confirm']) : "p";
                 $email              = isset($_POST['email']) ? utf8_encode($_POST['email']) : "";
                 $terms              = isset($_POST['terms']) ? utf8_encode($_POST['terms']) : "";
                 User::register( $username,

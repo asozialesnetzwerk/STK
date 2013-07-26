@@ -143,7 +143,7 @@ abstract class ClientSession
                                                     $session_info[0]["uid"],
                                                     $user_info[0]["user"]);
             }
-        }catch (PDOException $e){
+        }catch (DBException $e){
             throw new UserException(
                 _('An error occurred while verifying session.') .' '.
                 _('Please contact a website administrator.')
@@ -210,7 +210,7 @@ abstract class ClientSession
             if ($count > 1) {
                 throw new UserException(htmlspecialchars(_('Could not set the ip:port')));
             }
-        }catch (PDOException $e){
+        }catch (DBException $e){
             throw new UserException(
                 _('An error occurred while setting ip:port.') .' '.
                 _('Please contact a website administrator.')
@@ -245,7 +245,7 @@ abstract class ClientSession
             elseif ($count > 1){
                 throw new ClientSessionException(_('Weird count of updates'));
             }
-        }catch (PDOException $e){
+        }catch (DBException $e){
             throw new UserException(
                 _('An error occurred while unsetting ip:port.') .' '.
                 _('Please contact a website administrator.')
@@ -285,7 +285,7 @@ abstract class ClientSession
             }else {
                 return $result[0];
             }
-        }catch (PDOException $e){
+        }catch (DBException $e){
             throw new UserException(
                 _('An error occurred while getting a peer\'s ip:port.') .' '.
                 _('Please contact a website administrator.')
@@ -310,10 +310,10 @@ abstract class ClientSession
                 )
             );
             if ($count > 2 || $count < 0) {
-                throw new PDOException();
+                throw new DBException();
             }
             return $count;
-        }catch (PDOException $e){
+        }catch (DBException $e){
             throw new UserException(
                 _('An error occurred while requesting a server connection.') .' '.
                 _('Please contact a website administrator.')
@@ -348,7 +348,7 @@ abstract class ClientSession
                 )
             );
             return $result[0];
-        }catch (PDOException $e){
+        }catch (DBException $e){
             throw new UserException(
                 _('An error occurred while quick joining.') .' '.
                 _('Please contact a website administrator.')
@@ -371,8 +371,8 @@ abstract class ClientSession
                 array
                 (
                     ':hostid'   => $this->user_id,
-                    ':ip'   => $ip,
-                    ':port' => $port
+                    ':ip'       => $ip,
+                    ':port'     => $port
                 )
             );
             $connection_requests = DBConnection::get()->query
@@ -408,7 +408,7 @@ abstract class ClientSession
                 //Perhaps check if $count and $index are equal
             }
             return $connection_requests;
-        }catch (PDOException $e){
+        }catch (DBException $e){
             throw new UserException(
                 _('An error occurred while fetching server connection requests.') .' '.
                 _('Please contact a website administrator.')
@@ -456,7 +456,7 @@ abstract class ClientSession
             );
             if ($count != 1)
                 throw new UserException(_('Not the good number of servers deleted.'));
-        }catch (PDOException $e){
+        }catch (DBException $e){
             throw new UserException(
                 _('An error occurred while ending a server.') .' '.
                 _('Please contact a website administrator.')
@@ -509,7 +509,7 @@ class RegisteredClientSession extends ClientSession
             if ($size == 0) {
                 throw new ClientSessionConnectException(_('Username and/or password invalid.'));
             }elseif ($size > 1) {
-                throw new PDOException();
+                throw new DBException();
             }else{
                 User::updateLoginTime($result[0]['id']);
                 $session_id = ClientSession::calcSessionId();
@@ -529,10 +529,10 @@ class RegisteredClientSession extends ClientSession
                     )
                 );
                 if ($count > 2 || $count < 0)
-                    throw new PDOException();
+                    throw new DBException();
                 return new RegisteredClientSession($session_id, $user_id, $username);
             }
-        }catch (PDOException $e){
+        }catch (DBException $e){
             throw new ClientSessionConnectException(
                 _('An unexpected error occured while creating your session.') . ' ' .
                 _('Please contact a website administrator.'));
