@@ -21,6 +21,7 @@
 require_once('Validate.class.php');
 require_once('DBConnection.class.php');
 require_once('exceptions.php');
+require_once('File.class.php');
 
 class Verification
 {
@@ -90,8 +91,8 @@ class Verification
             DBConnection::ROW_COUNT,
             array
             (
-                    ':userid'   => $userid,
-                    ':code'     => $verification_code
+                    ':userid'   => (int) $userid,
+                    ':code'     => (string) $verification_code
             )
         );
         if($count !== 1){

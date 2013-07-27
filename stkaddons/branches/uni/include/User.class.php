@@ -224,6 +224,34 @@ class User
         }        
         Log::newEvent("User with ID '{$userid}' activated.");
     }
+    
+    public static function recover($username, $email)
+    {
+        // Check all form input
+        $username = Validate::username($username);
+        $email = Validate::email($email);       
+        try{
+            $userid = Validate::account($username, $email);
+            $verification_code = Verification::generate($userid);
+            
+            // Send verification email
+            try {
+                $mail = new SMail;
+                $mail->passwordResetNotification($email, $userid, $username, $verification_code, $_SERVER['PHP_SELF']);
+            }
+            catch (Exception $e) {
+                Log::newEvent('Password reset email for "'.$username.'" could not be sent.');
+                throw new UserException($e->getMessage().' '._('Please contact a website administrator.'));
+            }
+            Log::newEvent("Password reset request for user '$username'");
+            
+        }catch(DBException $e){
+            throw new UserException(htmlspecialchars(
+                    _('An error occurred trying to validate your username and email-address for password reset.') .' '.
+                    _('Please contact a website administrator.')
+            ));
+        }
+    }
 
 
     /**
@@ -291,7 +319,7 @@ class User
 
 	    // No exception occurred - continue with registration
         try{
-            $result = DBConnection::get()->query
+            $count = DBConnection::get()->query
             (
                 "INSERT INTO `".DB_PREFIX."users` 
                 (`user`,`pass`,`name`, `role`, `email`, `active`, `reg_date`)
@@ -306,23 +334,24 @@ class User
                     ':email'        => $email                            
                 )
             );
-            if($result !== 1){
+            if($count !== 1){
                 throw new DBException();
             }
             $userid = DBConnection::get()->lastInsertId();
             $verification_code = Verification::generate($userid);
-                    
+            echo "here";
             // Send verification email
             try {
                 $mail = new SMail;
                 $mail->newAccountNotification($email, $userid, $username, $verification_code, SITE_ROOT.'register.php');
+                echo "here2";
             }
             catch (Exception $e) {
                 Log::newEvent("Registration email for user '$username' with id '$userid' failed.");
                 throw new UserException($e->getMessage().' '._('Please contact a website administrator.'));
             }
+            echo "here3";
             Log::newEvent("Registration submitted for user '$username' with id '$userid'.");
-            
         }catch(DBException $e){
             throw new UserException(htmlspecialchars(
 		        _('An error occurred while creating your account.') .' '. 

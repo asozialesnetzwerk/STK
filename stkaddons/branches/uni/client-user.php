@@ -127,35 +127,6 @@ try {
                 $output->endElement();
             }
             break;
-
-        case 'register':
-            try {
-                $username           = isset($_POST['username']) ? utf8_encode($_POST['username']) : "";
-                $password           = isset($_POST['password']) ? utf8_encode($_POST['password']) : "";
-                $password_confirm   = isset($_POST['password_confirm']) ? utf8_encode($_POST['password_confirm']) : "p";
-                $email              = isset($_POST['email']) ? utf8_encode($_POST['email']) : "";
-                $terms              = isset($_POST['terms']) ? utf8_encode($_POST['terms']) : "";
-                User::register( $username,
-                                $password,
-                                $password_confirm,
-                                $email,
-                                $username,
-                                $terms);
-                $output->startElement('registration');
-                    $output->writeAttribute('success','yes');
-                    $output->writeAttribute('info','');
-                $output->endElement();
-            }
-            catch(Exception $e){                                
-                $output->startElement('registration');
-                    $output->writeAttribute('success','no');
-                    $output->writeAttribute('info',
-                        htmlspecialchars(
-                            $e->getMessage()
-                        ));
-                $output->endElement();
-            }
-            break;
             
         case 'create_server':
             try {
@@ -177,6 +148,57 @@ try {
                     $output->writeAttribute('info', 
                         htmlspecialchars(
                             $e->getMessage()
+                        ));
+                $output->endElement();
+            }
+            break;
+            
+        case 'register':
+            try {
+                $username           = isset($_POST['username']) ? utf8_encode($_POST['username']) : "";
+                $password           = isset($_POST['password']) ? utf8_encode($_POST['password']) : "";
+                $password_confirm   = isset($_POST['password_confirm']) ? utf8_encode($_POST['password_confirm']) : "p";
+                $email              = isset($_POST['email']) ? utf8_encode($_POST['email']) : "";
+                $terms              = isset($_POST['terms']) ? utf8_encode($_POST['terms']) : "";
+                User::register( $username,
+                                $password,
+                                $password_confirm,
+                                $email,
+                                $username,
+                                $terms);
+                $output->startElement('registration');
+                    $output->writeAttribute('success','yes');
+                    $output->writeAttribute('info','');
+                $output->endElement();
+            }
+            catch(Exception $e){
+                $output->startElement('registration');
+                    $output->writeAttribute('success','no');
+                    $output->writeAttribute('info',
+                        htmlspecialchars(
+                                $e->getMessage()
+                        ));
+                $output->endElement();
+            }
+            break;
+                
+        case 'recovery':
+            try {
+                $username           = isset($_POST['username']) ? utf8_encode($_POST['username']) : "";
+                $email              = isset($_POST['email']) ? utf8_encode($_POST['email']) : "";
+
+                User::recover( $username, $email);
+                $output->startElement('recovery');
+                $output->writeAttribute('success','yes');
+                $output->writeAttribute('info','');
+                $output->endElement();
+            }
+            catch(Exception $e){
+                $output->startElement('recovery');
+                $output->writeAttribute('success','no');
+                $output->writeAttribute('info',
+                        htmlspecialchars(
+                                $e->getMessage()
                         ));
                 $output->endElement();
             }

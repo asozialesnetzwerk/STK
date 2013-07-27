@@ -87,35 +87,13 @@ switch ($_GET['action']) {
 
             if (!$resp->is_valid) {
             // What happens when the CAPTCHA was entered incorrectly
-            throw new UserException("The reCAPTCHA wasn't entered correctly. Go back and try it again." .
-            "(reCAPTCHA said: " . $resp->error . ")");
+                throw new UserException("The reCAPTCHA wasn't entered correctly. Go back and try it again." .
+                                        "(reCAPTCHA said: " . $resp->error . ")");
             }
 
-            // Check all form input
-            $username = Validate::username($_POST['user']);
-            $email = Validate::email($_POST['mail']);
-
-            try{
-                $userid = Validate::account($username, $email);
-                $verification_code = Verification::generate($userid);
-            }catch(DBException $e){
-                throw new UserException(htmlspecialchars(
-                    _('An error occurred trying to validate your username and email-address for password reset.') .' '.
-                    _('Please contact a website administrator.')
-                ));
-            }
-            
-            // Send verification email
-    	    try {
-        		$mail = new SMail;
-        		$mail->passwordResetNotification($email, $userid, $username, $verification_code, $_SERVER['PHP_SELF']);
-    	    }
-        	catch (Exception $e) {
-        		$pw_res['info'] .= '<span class="error">'.$e->getMessage().'</span><br /><br />';
-        		Log::newEvent('Password reset email for \''.$username.'\' could not be sent.');
-    	    }
+            User::recover($username, $password);
             $pw_res['info'] .= htmlspecialchars(_("Password reset link sent. Please reset your password using the link emailed to you."));
-            Log::newEvent("Password reset request for user '$username'");
+
         }
         catch (UserException $e)
         {
