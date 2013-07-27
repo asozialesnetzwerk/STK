@@ -45,7 +45,6 @@ class User
         {
             // One or more of the session variables was not set - this may
             // be an issue, so force logout
-            echo "Log out1";
             User::logout();
             return;
         }
@@ -75,7 +74,6 @@ class User
         
         
         if ($count !== 1) {
-            echo "Log out2";
             User::logout();
             return false;
         }

@@ -140,7 +140,7 @@ switch ($_GET['action']) {
     		'info' => htmlspecialchars(_('Please enter a new password for your account.')),
     		'new_pass' => array(
     		    'label' => '<label for="reg_pass">'.htmlspecialchars(_('New Password:')).'<br />'.
-    			'<span style="font-size: x-small; color: #666666; font-weight: normal;">('.htmlspecialchars(sprintf(_('Must be at least %d characters long.'),'6')).')</span></label>',
+    			'<span style="font-size: x-small; color: #666666; font-weight: normal;">('.htmlspecialchars(sprintf(_('Must be at least %d characters long.'),'8')).')</span></label>',
     		    'field' => '<input type="password" name="pass1" id="reg_pass" />'
     		),
     		'new_pass2' => array(
@@ -187,7 +187,7 @@ switch ($_GET['action']) {
         		'info' => htmlspecialchars(_('Please enter a new password for your account.')),
         		'new_pass' => array(
         		    'label' => '<label for="reg_pass">'.htmlspecialchars(_('New Password:')).'<br />'.
-        			'<span style="font-size: x-small; color: #666666; font-weight: normal;">('.htmlspecialchars(sprintf(_('Must be at least %d characters long.'),'6')).')</span></label>',
+        			'<span style="font-size: x-small; color: #666666; font-weight: normal;">('.htmlspecialchars(sprintf(_('Must be at least %d characters long.'),'8')).')</span></label>',
         		    'field' => '<input type="password" name="pass1" id="reg_pass" />'
         		),
         		'new_pass2' => array(

@@ -38,7 +38,7 @@ function display_reg_form($user = NULL, $name = NULL, $email = NULL) {
     </tr>
     <tr>
         <td><label for="reg_pass">'.htmlspecialchars(_('Password:')).'<br />
-        <span style="font-size: x-small; color: #666666; font-weight: normal;">('.htmlspecialchars(sprintf(_('Must be at least %d characters long.'),'6')).')</span></label></td>
+        <span style="font-size: x-small; color: #666666; font-weight: normal;">('.htmlspecialchars(sprintf(_('Must be at least %d characters long.'),'8')).')</span></label></td>
         <td><input type="password" name="pass1" id="reg_pass" /></td>
     </tr>
     <tr>
