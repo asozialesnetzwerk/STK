@@ -45,14 +45,15 @@ class User
         {
             // One or more of the session variables was not set - this may
             // be an issue, so force logout
+            echo "Log out1";
             User::logout();
             return;
         }
         // Validate session if complete set of variables is available
    
         try{
-            $result = DBConnection::get()->query(
-                "SELECT `id`,`user`,`pass`,`name`,`role`
+            $count = DBConnection::get()->query(
+                "SELECT `id`,`user`,`name`,`role`
     	        FROM `" . DB_PREFIX . "users`
                 WHERE `user` = :username
                 AND `last_login` = :lastlogin
@@ -73,7 +74,8 @@ class User
         }
         
         
-        if ($result != 1) {
+        if ($count !== 1) {
+            echo "Log out2";
             User::logout();
             return false;
         }
@@ -127,14 +129,16 @@ class User
             User::logout();
             throw new UserException(htmlspecialchars(_('Your username or password is incorrect.')));
         }
-
+    
         $_SESSION['userid'] = $result[0]["id"];      
         $_SESSION['user'] = $result[0]["user"];
         $_SESSION['real_name'] = $result[0]["name"];
-        User::$user_id = $result[0]['id'];  
+        User::$user_id = $result[0]['id'];
+        include(ROOT.'include/allow.php');
+        setPermissions($result[0]['role']);
         $_SESSION['last_login'] = User::updateLoginTime(User::$user_id);
         User::$logged_in = true;
-        include(ROOT.'include/allow.php');
+        
         
         // Convert unsalted password to a salted one
         if (strlen($password) === 64) {
@@ -192,25 +196,6 @@ class User
             ));
         }
     }
-    /*
-    static function exists($username) {
-	   try { 
-	       Validate::username($username); 
-	   }
-	   catch (UserException $e) {
-	       return false;
-	   }
-	
-    	$query = 'SELECT `id`
-                    FROM `'.DB_PREFIX."users`
-                    WHERE `user` = '$username'";
-    	$handle = sql_query($query);
-    	if (!$handle)
-    	    return false;
-    	if (mysql_num_rows($handle) === 0)
-    	    return false;
-    	return true;
-    }*/
     
     /**
      * Activate a new user
@@ -311,14 +296,15 @@ class User
             $result = DBConnection::get()->query
             (
                 "INSERT INTO `".DB_PREFIX."users` 
-                (`user`,`pass`,`name`, `email`, `active`, `reg_date`)
-                VALUES(:username, :password, :name, :email, 0, CURRENT_DATE())",
+                (`user`,`pass`,`name`, `role`, `email`, `active`, `reg_date`)
+                VALUES(:username, :password, :name, :role, :email, 0, CURRENT_DATE())",
                 DBConnection::ROW_COUNT,
                 array
                 (
                     ':username'     => $username,
                     ':password'     => $password,
                     ':name'         => $name,
+                    ':role'         => "basicUser",
                     ':email'        => $email                            
                 )
             );
@@ -327,6 +313,18 @@ class User
             }
             $userid = DBConnection::get()->lastInsertId();
             $verification_code = Verification::generate($userid);
+                    
+            // Send verification email
+            try {
+                $mail = new SMail;
+                $mail->newAccountNotification($email, $userid, $username, $verification_code, SITE_ROOT.'register.php');
+            }
+            catch (Exception $e) {
+                Log::newEvent("Registration email for user '$username' with id '$userid' failed.");
+                throw new UserException($e->getMessage().' '._('Please contact a website administrator.'));
+            }
+            Log::newEvent("Registration submitted for user '$username' with id '$userid'.");
+            
         }catch(DBException $e){
             throw new UserException(htmlspecialchars(
 		        _('An error occurred while creating your account.') .' '. 
@@ -334,16 +332,7 @@ class User
             ));
         }
         
-	    // Send verification email	    
-	    try {
-	        $mail = new SMail;
-	        $mail->newAccountNotification($email, $userid, $username, $verification_code, SITE_ROOT.'register.php');
-	    }
-	    catch (Exception $e) {
-	        Log::newEvent("Registration email for user '$username' with id '$userid' failed.");
-	        throw new UserException($e->getMessage().' '._('Please contact a website administrator.'));
-	    }
-	    Log::newEvent("Registration submitted for user '$username' with id '$userid'.");
+
     }
     
     /**

@@ -42,8 +42,7 @@ class DBConnection
                 return $sth->fetchAll(PDO::FETCH_ASSOC);    
         } catch (PDOException $e){
             if (DEBUG_MODE){
-                $msg =  sprintf("SQLSTATE ERR: %s<br />\nmySQL ERR: %s<br />\nMessage: %s<br />\n",$e->errorInfo[0], $e->errorInfo[1], $e->errorInfo[2]);
-                throw new DBException($msg);
+                printf("SQLSTATE ERR: %s<br />\nmySQL ERR: %s<br />\nMessage: %s<br />\n",$e->errorInfo[0], $e->errorInfo[1], $e->errorInfo[2]);
             }
             throw new DBException();
         }
