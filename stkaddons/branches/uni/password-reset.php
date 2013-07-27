@@ -91,7 +91,7 @@ switch ($_GET['action']) {
                                         "(reCAPTCHA said: " . $resp->error . ")");
             }
 
-            User::recover($username, $password);
+            User::recover($_POST['user'], $_POST['mail']);
             $pw_res['info'] .= htmlspecialchars(_("Password reset link sent. Please reset your password using the link emailed to you."));
 
         }
