@@ -18,8 +18,8 @@
  * along with stkaddons.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-require_once('DBConnection.class.php');
-require_once('User.class.php');
+require_once(ROOT . 'include/DBConnection.class.php');
+require_once(ROOT . 'include/User.class.php');
 
 class Log {
     /**
@@ -46,7 +46,6 @@ class Log {
      * @return array 
      */
     public static function getEvents($number = 25) {
-        /*
         if (!is_int($number))
             throw new Exception('$number must be an integer.');
 
@@ -71,7 +70,7 @@ class Log {
             $entry = mysql_fetch_assoc($handle);
             $entries[] = $entry;
         }
-        return $entries;*/
+        return $entries;
     }
     
     public static function emailUpdates() {

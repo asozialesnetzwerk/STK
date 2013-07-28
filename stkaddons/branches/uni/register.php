@@ -20,7 +20,7 @@
  */
 
 define('ROOT','./');
-include('include.php');
+require_once(ROOT . 'include.php');
 $title = htmlspecialchars(_('STK Add-ons').' | '._('Register'));
 include(ROOT.'include/top.php');
 echo '</head><body>';

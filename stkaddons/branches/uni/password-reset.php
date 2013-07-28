@@ -21,7 +21,7 @@
  */
 
 define('ROOT','./');
-include('include.php');
+include(ROOT. 'include.php');
 
 Template::setFile('password-reset.tpl');
 $tpl = array();

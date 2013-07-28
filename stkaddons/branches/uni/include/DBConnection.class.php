@@ -1,6 +1,6 @@
 <?php
 
-require_once('config.php');
+require_once(ROOT . 'config.php');
 
 class DBException extends Exception {}
 

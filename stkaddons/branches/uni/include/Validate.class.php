@@ -1,6 +1,7 @@
 <?php
 /**
  * copyright 2011 Stephen Just <stephenjust@users.sf.net>
+ *           2013 Glenn De Jonghe
  *
  * This file is part of stkaddons
  *
@@ -18,8 +19,8 @@
  * along with stkaddons.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-require_once('DBConnection.class.php');
-require_once('exceptions.php');
+require_once(ROOT. 'include/DBConnection.class.php');
+require_once(ROOT. 'include/exceptions.php');
 
 /**
  * Class to contain all string validation functions

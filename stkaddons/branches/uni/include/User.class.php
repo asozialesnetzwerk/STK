@@ -19,10 +19,11 @@
  * along with stkaddons.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-require_once('Validate.class.php');
-require_once('Verification.class.php');
-require_once('DBConnection.class.php');
-require_once('exceptions.php');
+require_once(ROOT. 'include/Validate.class.php');
+require_once(ROOT. 'include/Verification.class.php');
+require_once(ROOT. 'include/DBConnection.class.php');
+require_once(ROOT. 'include/exceptions.php');
+require_once(ROOT. 'include/SMail.class.php');
 
 class User
 {
