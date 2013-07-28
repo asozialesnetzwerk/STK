@@ -49,7 +49,7 @@ class SMail {
     
     public function newAccountNotification($email, $userid, $username, $ver_code, $ver_page) {
 	$message = "Thank you for registering an account on the SuperTuxKart Add-Ons Manager.\n".
-		"Please go to $ver_page?action=valid&num=$ver_code&user=$userid to activate your account.\n\n".
+		"Please go to http://{$_SERVER["SERVER_NAME"]}/$ver_page?action=valid&num=$ver_code&user=$userid to activate your account.\n\n".
 		"Username: $username";
         $subject = "New Account at ".$_SERVER["SERVER_NAME"];
 	
@@ -62,7 +62,7 @@ class SMail {
     
     public function passwordResetNotification($email, $userid, $username, $ver_code, $ver_page) {
 	$message = "You have requested to reset your password on the SuperTuxKart Add-Ons Manager.\n".
-		"Please go to http://{$_SERVER["SERVER_NAME"]}$ver_page?action=valid&num=$ver_code&user=$userid to reset your password.\n\n".
+		"Please go to http://{$_SERVER["SERVER_NAME"]}/$ver_page?action=valid&num=$ver_code&user=$userid to reset your password.\n\n".
 		"Username: $username";
         $subject = "Reset Password on ".$_SERVER["SERVER_NAME"];
 	

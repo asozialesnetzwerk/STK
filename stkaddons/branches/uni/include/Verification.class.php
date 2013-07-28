@@ -87,7 +87,8 @@ class Verification
         (
             "INSERT INTO `".DB_PREFIX."verification`
             (`userid`,`code`)
-            VALUES(:userid, :code)",
+            VALUES(:userid, :code)
+            ON DUPLICATE KEY UPDATE code = :code",
             DBConnection::ROW_COUNT,
             array
             (
@@ -95,7 +96,7 @@ class Verification
                     ':code'     => (string) $verification_code
             )
         );
-        if($count !== 1){
+        if($count === 0){
             throw new DBException();
         }
         return $verification_code;

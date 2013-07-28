@@ -238,7 +238,7 @@ class User
             // Send verification email
             try {
                 $mail = new SMail;
-                $mail->passwordResetNotification($email, $userid, $username, $verification_code, $_SERVER['PHP_SELF']);
+                $mail->passwordResetNotification($email, $userid, $username, $verification_code, 'password-reset.php');
             }
             catch (Exception $e) {
                 Log::newEvent('Password reset email for "'.$username.'" could not be sent.');
@@ -344,7 +344,7 @@ class User
             // Send verification email
             try {
                 $mail = new SMail;
-                $mail->newAccountNotification($email, $userid, $username, $verification_code, SITE_ROOT.'register.php');
+                $mail->newAccountNotification($email, $userid, $username, $verification_code, 'register.php');
                 echo "here2";
             }
             catch (Exception $e) {
