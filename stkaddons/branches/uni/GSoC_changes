@@ -1,5 +1,9 @@
 users.verify -> deleted -> moved to activation table
 
+votes.id removed, not needed
+index added on votes.user_id + votes.addon_id
+votes.vote is now float
+
 the account activation mail doesn't use the username anymore, but instead the user id.
 
 Just Info

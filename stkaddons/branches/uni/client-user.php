@@ -61,7 +61,7 @@ try {
             
         case 'saved-session':
             try {
-                $userid = isset($_POST['userid']) ? $_POST['userid'] : "";
+                $userid = isset($_POST['userid']) ? $_POST['userid'] : 0;
                 $token = isset($_POST['token']) ? $_POST['token'] : "";
                 $session = ClientSession::get($token, $userid);
                 User::updateLoginTime($session->getUserID());
@@ -105,6 +105,63 @@ try {
                 $output->endElement();
             }
             
+            break;
+            
+        case 'get-addon-vote':
+            try {
+                $userid = isset($_POST['userid']) ? $_POST['userid'] : 0;
+                $token = isset($_POST['token']) ? $_POST['token'] : "";
+                $addonid = isset($_POST['addonid']) ? $_POST['addonid'] : "";
+                $rating_object = new Ratings($addonid, false);
+                $rating = $rating_object->getUserVote(ClientSession::get($token, $userid));
+                $output->startElement('get-addon-vote');
+                $output->writeAttribute('success','yes');
+                if ($rating === false) {
+                    $output->writeAttribute('voted', "no");
+                    $output->writeAttribute('rating', -1);
+                }else{
+                    $output->writeAttribute('voted', "yes");
+                    $output->writeAttribute('rating', $rating);
+                }
+                $output->writeAttribute('info','');
+                $output->endElement();
+            }
+            catch(Exception $e){
+                $output->startElement('get-addon-vote');
+                $output->writeAttribute('success','no');
+                $output->writeAttribute('info',
+                    htmlspecialchars(
+                        $e->getMessage()
+                    ));
+                $output->endElement();
+            }
+            break;
+            
+        case 'set-addon-vote': //returns -1 if no vote found
+            try {
+                $userid = isset($_POST['userid']) ? $_POST['userid'] : 0;
+                $token = isset($_POST['token']) ? $_POST['token'] : "";
+                $addonid = isset($_POST['addonid']) ? $_POST['addonid'] : "";
+                $rating = isset($_POST['rating']) ? $_POST['rating'] : -1.0;
+                $rating_object = new Ratings($addonid, false);
+                $new_vote = $rating_object->setUserVote($rating, ClientSession::get($token, $userid));
+                $output->startElement('set-addon-vote');
+                $output->writeAttribute('success','yes');
+                $output->writeAttribute('new-vote', ($new_vote ? 'yes' : 'no'));
+                $output->writeAttribute('new-average', $rating_object->getAvgRating());
+                $output->writeAttribute('new-number', $rating_object->getNumRatings());
+                $output->writeAttribute('info','');
+                $output->endElement();
+            }
+            catch(Exception $e){
+                $output->startElement('set-addon-vote');
+                $output->writeAttribute('success','no');
+                $output->writeAttribute('info',
+                    htmlspecialchars(
+                        $e->getMessage()
+                    ));
+                $output->endElement();
+            }
             break;
             
         case 'disconnect':
