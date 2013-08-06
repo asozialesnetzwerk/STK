@@ -57,6 +57,14 @@ class Ratings {
             $this->fetchUserVote();
         }
     }
+    
+    /**
+     * 
+     * @return string
+     */
+    public function getAddonId(){
+        return $this->addon_id;
+    }
 
     /**
      * Delete all ratings for an add-on
@@ -158,18 +166,19 @@ class Ratings {
         		  throw new DBException();
         	    $userid = $_SESSION['userid'];
         	}
+        	
     	
     	    $result = DBConnection::get()->query
     	    (
     	        "SELECT `vote` 
     	        FROM`" . DB_PREFIX ."votes`
                 WHERE `user_id` = :user_id
-    	        AND `addon_id` = :addon_id)",
+    	        AND `addon_id` = :addon_id",
     	        DBConnection::FETCH_ALL,
     	        array
     	        (
     	            ':addon_id'     => (string) $this->addon_id,
-    	            ':user_id'      => (int) $user_id
+    	            ':user_id'      => (int) $userid
     	        )
     	    );
         
@@ -227,7 +236,7 @@ class Ratings {
                 array
                 (
                     ':addon_id'     => (string) $this->addon_id,
-                    ':user_id'      => (int) $user_id,
+                    ':user_id'      => (int) $userid,
                     ':rating'       => (float) $vote
                 )
             );

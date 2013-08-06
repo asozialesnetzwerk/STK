@@ -150,6 +150,7 @@ try {
                 $output->writeAttribute('new-vote', ($new_vote ? 'yes' : 'no'));
                 $output->writeAttribute('new-average', $rating_object->getAvgRating());
                 $output->writeAttribute('new-number', $rating_object->getNumRatings());
+                $output->writeAttribute('addon-id', $rating_object->getAddonId());
                 $output->writeAttribute('info','');
                 $output->endElement();
             }
