@@ -2337,13 +2337,19 @@ class TrackExport:
         sBase = os.path.basename(sFilename)
         sPath = os.path.dirname(sFilename)
         
+        blendfile_dir = os.path.dirname(bpy.data.filepath)
+        
         import shutil
         if exportImages:
             for i,curr in enumerate(bpy.data.images):
                 try:
                     if curr.filepath is None or len(curr.filepath) == 0:
                         continue
-                    shutil.copy(bpy.path.abspath(curr.filepath), sPath)
+                    
+                    abs_texture_path = bpy.path.abspath(curr.filepath)
+                    print('abs_texture_path', abs_texture_path, blendfile_dir)
+                    if bpy.path.is_subdir(abs_texture_path, blendfile_dir):
+                        shutil.copy(abs_texture_path, sPath)
                 except:
                     import traceback
                     traceback.print_exc(file=sys.stdout)
