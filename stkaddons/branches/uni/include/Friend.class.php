@@ -22,17 +22,17 @@ require_once(ROOT . 'include/exceptions.php');
 require_once(ROOT . 'include/DBConnection.class.php');
 
 
-class ServerException extends Exception {}
+class FriendException extends Exception {}
 
 /**
  * Server class
  */
-class Server
+class Friend
 {
-    protected $server_id;
-    protected $host_id;
-    protected $server_name;
-    protected $max_players;
+    protected $is_asker;
+    protected $friend_id;
+    protected $date;
+    protected $is_pending;
 
     /**
      * 
@@ -43,34 +43,34 @@ class Server
 		$this->info_array = $info_array;
     }
     
-    public function getServerId()
+    public function getFriendId()
     {
-        return $this->info_array['id'];
+        return $this->info_array['friend_id'];
     }
     
-    public function getHostId()
+    public function getDate()
     {
-        return $this->info_array['hostid'];
+        return $this->info_array['date'];
     }
     
-    public function getName()
+    public function isPending()
     {
-        return $this->info_array['name'];
+        return $this->info_array['request'] === 1;
     }
     
-    public function getMaxPlayers()
+    public function isAsker()
     {
-        return $this->info_array['max_players'];
+        return $this->info_array['is_asker'] === 1;
     }
     
     public function asXML()
     {
-    	$server_xml = new XMLOutput();
-	    $server_xml->startElement('server');
+    	$friend_xml = new XMLOutput();
+	    $friend_xml->startElement('friend');
 	    foreach ($this->info_array as $key => $value)
-	    	$server_xml->writeAttribute($key, $value);
-	    $server_xml->endElement();
-	    return $server_xml->asString();
+	    	$friend_xml->writeAttribute($key, $value);
+	    $friend_xml->endElement();
+	    return $friend_xml->asString();
     }
     
     /**
@@ -79,7 +79,7 @@ class Server
      * @param 
      * @return Server
      * @throws 
-     */
+     *//*
     public static function create(  $ip,
                                     $port,
                                     $userid,
@@ -126,51 +126,29 @@ class Server
                 _('Please contact a website administrator.')
             );
         }
-    }
+    }*/
     
-    public static function getServer($id)
-    {
-    	try{
-    		$result = DBConnection::get()->query
-    		(
-    				"SELECT * FROM `" . DB_PREFIX . "servers`
-                    WHERE `id`= :id",
-    				DBConnection::FETCH_ALL,
-    				array
-    				(
-    						':id'   => (int) $id
-    				)
-    		);
-    		if (count($result) == 0) 
-    		{
-    			throw new ServerException(_("Server doesn't exist."));
-    		}else if (count($result) > 1)
-    		{
-    			throw new PDOException();
-    		}
-    		return new Server($result[0]);   		
-    	}catch(PDOExpcetion $e){
-    		throw new ServerException(
-    				_('An error occurred while creating server.') .' '.
-    				_('Please contact a website administrator.')
-    		);
-    	}
-    }
-    
-    public static function getServersAsXML()
+    public static function getFriendsAsXML($userid)
     {
         $servers = DBConnection::get()->query
         (
-            "SELECT *
-            FROM `" . DB_PREFIX ."servers`",
-            DBConnection::FETCH_ALL
+            "SELECT date, request, asker_id AS friend_id, 0 AS is_asker FROM `" . DB_PREFIX ."friends` WHERE receiver_id = :userid
+            UNION
+            SELECT date, request, receiver_id AS friend_id, 1 AS is_asker FROM `" . DB_PREFIX ."friends` WHERE asker_id = :userid
+            ORDER BY date DESC",
+            DBConnection::FETCH_ALL,
+            array
+            (
+                ':userid'       => (int) $userid
+            )          
         );
         $partial_output = new XMLOutput();
-        $partial_output->startElement('servers');
+        $partial_output->startElement('friends');
+        $partial_output->writeAttribute("of_user", $userid);
         foreach ($servers as $server_result)
         {
-        	$server = new Server($server_result);
-            $partial_output->insert($server->asXML());
+        	$friend = new Friend($server_result);
+            $partial_output->insert($friend->asXML());
         }
         $partial_output->endElement();
         return $partial_output->asString();
