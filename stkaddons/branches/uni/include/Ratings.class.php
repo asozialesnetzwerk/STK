@@ -29,6 +29,7 @@ require_once(ROOT. 'include/DBConnection.class.php');
 require_once(ROOT. 'include/exceptions.php');
 require_once(ROOT. 'include/XMLOutput.class.php');
 require_once(ROOT. 'include/sql.php'); //FIXME
+require_once(ROOT. 'include/xmlWrite.php');
 
 class RatingsException extends Exception {}
 
@@ -256,6 +257,11 @@ class Ratings {
         $this->fetchAvgRating();
         $this->fetchNumRatings();
         $this->fetchUserVote($session); // FIXME
+
+	// Regenerate the XML files after voting
+	writeAssetXML();
+	writeNewsXML();	
+
         return $new_vote;
     }
     
