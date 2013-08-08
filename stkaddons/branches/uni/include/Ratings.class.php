@@ -27,6 +27,7 @@
 require_once(ROOT. 'include/ClientSession.class.php');
 require_once(ROOT. 'include/DBConnection.class.php');
 require_once(ROOT. 'include/exceptions.php');
+require_once(ROOT. 'include/XMLOutput.class.php');
 require_once(ROOT. 'include/sql.php'); //FIXME
 
 class RatingsException extends Exception {}

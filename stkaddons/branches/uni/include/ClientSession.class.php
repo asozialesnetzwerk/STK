@@ -24,6 +24,7 @@ require_once(ROOT. 'include/Server.class.php');
 require_once(ROOT. 'include/DBConnection.class.php');
 require_once(ROOT. 'include/exceptions.php');
 require_once(ROOT. 'include/User.class.php');
+require_once(ROOT. 'include/Friend.class.php');
 
 class ClientSessionException extends Exception {}
 class ClientSessionConnectException extends ClientSessionException {}
@@ -493,6 +494,16 @@ class RegisteredClientSession extends ClientSession
         
         
         
+    }
+    
+    /**
+     * 
+     * @param int $visiterid
+     * @return string
+     */
+    public function getFriendsOf($visiterid)
+    {
+        return Friend::getFriendsAsXML($visitingid);
     }
 
     /**

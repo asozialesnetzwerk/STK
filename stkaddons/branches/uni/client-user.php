@@ -89,14 +89,14 @@ try {
         case 'get_server_list':
             try {
                 $servers_xml = Server::getServersAsXML();
-                $output->startElement('get_servers');
+                $output->startElement('get_servers_list');
                     $output->writeAttribute('success','yes');
                     $output->writeAttribute('info','');
                     $output->insert($servers_xml);
                 $output->endElement();          
             }
             catch(Exception $e){
-                $output->startElement('servers');
+                $output->startElement('get_servers_list');
                 $output->writeAttribute('success','no');
                 $output->writeAttribute('info',
                     htmlspecialchars(
@@ -105,6 +105,32 @@ try {
                 $output->endElement();
             }
             
+            break;
+            
+        case 'get-friends-list':
+            try {
+                $userid = isset($_POST['userid']) ? $_POST['userid'] : 0;
+                $token = isset($_POST['token']) ? $_POST['token'] : "";
+                $session = ClientSession::get($token, $userid);
+                $visitingid = isset($_POST['visitingid']) ? $_POST['visitingid'] : 0;
+                $friends_xml = $session->getFriendsOf($visitingid);
+                $output->startElement('get-friends-list');
+                $output->writeAttribute('success','yes');
+                $output->writeAttribute('info','');
+                $output->writeAttribute('visitingid', $visitingid);
+                $output->insert($friends_xml);
+                $output->endElement();
+            }
+            catch(Exception $e){
+                $output->startElement('get-friends-list');
+                $output->writeAttribute('success','no');
+                $output->writeAttribute('info',
+                        htmlspecialchars(
+                                $e->getMessage()
+                        ));
+                $output->endElement();
+            }
+        
             break;
             
         case 'get-addon-vote':

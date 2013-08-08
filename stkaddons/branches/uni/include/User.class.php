@@ -254,7 +254,6 @@ class User
         }
     }
 
-
     /**
      * Register a new user account
      * @param string $username Must be unique

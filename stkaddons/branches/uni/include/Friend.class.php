@@ -20,6 +20,7 @@
 
 require_once(ROOT . 'include/exceptions.php');
 require_once(ROOT . 'include/DBConnection.class.php');
+require_once(ROOT. 'include/XMLOutput.class.php');
 
 
 class FriendException extends Exception {}
@@ -128,9 +129,14 @@ class Friend
         }
     }*/
     
+    /**
+     * Returns XML string
+     * @param int $userid
+     * @return string
+     */
     public static function getFriendsAsXML($userid)
     {
-        $servers = DBConnection::get()->query
+        $friends = DBConnection::get()->query
         (
             "SELECT date, request, asker_id AS friend_id, 0 AS is_asker FROM `" . DB_PREFIX ."friends` WHERE receiver_id = :userid
             UNION
@@ -145,9 +151,9 @@ class Friend
         $partial_output = new XMLOutput();
         $partial_output->startElement('friends');
         $partial_output->writeAttribute("of_user", $userid);
-        foreach ($servers as $server_result)
+        foreach ($friends as $friend_result)
         {
-        	$friend = new Friend($server_result);
+        	$friend = new Friend($friend_result);
             $partial_output->insert($friend->asXML());
         }
         $partial_output->endElement();
