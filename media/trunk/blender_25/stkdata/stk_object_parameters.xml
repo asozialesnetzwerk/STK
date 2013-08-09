@@ -180,6 +180,9 @@
                     </EnumProp>
                 </EnumChoice>
             </EnumProp>
+        
+            <BoolProp id="forcedbloom" name="Glow (bloom) (STK 0.8.2)" default="false" doc="Enable a bloom effect on this particular object, making it glow"/>
+            <ColorProp id="outline" name="Glow (outline) (STK 0.8.2)" default="" doc="Enable a glowing outline on this particular object"/>
         </EnumChoice>
         <EnumChoice id="lod_model" label="LOD Model" doc="A LOD (level-of-detail) model (this model will not be visible in game, only LOD instances will)">
             <FloatProp id="lod_distance" name="Distance" default="60.0" min="0.0" max="5000.0"
@@ -258,6 +261,9 @@
                     </EnumProp>
                 </EnumChoice>
             </EnumProp>
+            
+            <BoolProp id="forcedbloom" name="Glow (bloom) (STK 0.8.2)" default="false" doc="Enable a bloom effect on this particular object, making it glow"/>
+            <ColorProp id="outline" name="Glow (outline) (STK 0.8.2)" default="" doc="Enable a glowing outline on this particular object"/>
         </EnumChoice>
         
         <!-- Nitro -->
@@ -334,6 +340,9 @@
             </EnumProp>
             <BoolProp id="tangents" name="Use Tangent Space" default="false" doc="Export object in tangent space, which is required for normal mapping"/>
             <BoolProp id="soccer_ball" name="Is Soccer Ball" default="false" doc="Exported object is a soccer ball (used for soccer mode)"/>
+            
+            <BoolProp id="forcedbloom" name="Glow (bloom) (STK 0.8.2)" default="false" doc="Enable a bloom effect on this particular object, making it glow"/>
+            <ColorProp id="outline" name="Glow (outline) (STK 0.8.2)" default="" doc="Enable a glowing outline on this particular object"/>
         </EnumChoice>
         
         <!-- Particle emitter -->

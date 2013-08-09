@@ -56,6 +56,9 @@
         <EnumChoice id="rain" label="Rain" doc="The weather effect to use in this track"/>
         <EnumChoice id="snow" label="Snow" doc="The weather effect to use in this track"/>
     </EnumProp>
+    <BoolProp id="bloom" name="Bloom (STK 0.8.2)" default="false" doc="Whether this track uses bloom">
+        <FloatProp id="bloom_threshold" name="Bloom threshold" doc="Brightness at which bloom starts being applied" default="0.75" min="0.0" max="1.0"/>
+    </BoolProp>
 </BoolProp>
 
 <!-- ************ KART ************ -->

@@ -1815,11 +1815,12 @@ class TrackExport:
             else:
                 designer="?"
         
-        music       = getSceneProperty(scene, "music", "")
-        screenshot  = getSceneProperty(scene, "screenshot", "")
-
-        smooth_normals = getSceneProperty(scene, "smooth_normals", "false")
-
+        music           = getSceneProperty(scene, "music", "")
+        screenshot      = getSceneProperty(scene, "screenshot", "")
+        smooth_normals  = getSceneProperty(scene, "smooth_normals", "false")
+        has_bloom       = (getSceneProperty(scene, "bloom", "false") == "true")
+        bloom_threshold = getSceneProperty(scene, "bloom_threshold", "0.75")
+        
         # Add default settings for sky-dome so that the user is aware of
         # can be set.
         getSceneProperty(scene, "sky_type", "dome")
@@ -1877,6 +1878,10 @@ class TrackExport:
         else:
             f.write("        reverse        = \"N\"\n")
         
+        if has_bloom:
+            f.write("        bloom          = \"Y\"\n")
+            f.write("        bloom-threshold = \"%s\"\n" % bloom_threshold)
+        
         f.write(">\n")
         f.write("</track>\n")
         f.close()
@@ -1924,15 +1929,23 @@ class TrackExport:
         tangent_string = ""
         if getObjectProperty(obj, "tangents", "false") == "true":
             tangent_string="tangents=\"true\" "
+        
+        bloom_string = ""
+        if getObjectProperty(obj, "forcedbloom", "false") == "true":
+            bloom_string = "forcedbloom=\"true\" "
+        
+        outline_string = ""
+        if len(getObjectProperty(obj, "outline", "")) > 0:
+            outline_string = "glow=\"%s\" "%getObjectProperty(obj, "outline", "")
             
         if parent and parent.type=="ARMATURE":
-            f.write("  <object type=\"%s\" %s%s %s%s%s%s%s%s>\n"% \
+            f.write("  <object type=\"%s\" %s%s %s%s%s%s%s%s%s%s>\n"% \
                     (objectType, model_string, getXYZHPRString(parent), shape_str, looped,
-                        lodstring, reset_string, tangent_string, interaction_string))
+                        lodstring, reset_string, tangent_string, interaction_string, bloom_string, outline_string))
         else:
-            f.write("  <object type=\"%s\" %s%s %s%s%s%s%s%s>\n"% \
+            f.write("  <object type=\"%s\" %s%s %s%s%s%s%s%s%s%s>\n"% \
                     (objectType, model_string, getXYZHPRString(obj), shape_str, looped,
-                        lodstring, reset_string, tangent_string, interaction_string))
+                        lodstring, reset_string, tangent_string, interaction_string, bloom_string, outline_string))
         writeIPO(f, ipo)
         f.write("  </object>\n")
         
@@ -2109,9 +2122,17 @@ class TrackExport:
             if getObjectProperty(obj, "tangents", "false") == "true":
                 tangent_string=" tangents=\"true\" "
             
+            bloom_string = ""
+            if getObjectProperty(obj, "forcedbloom", "false") == "true":
+                bloom_string = " forcedbloom=\"true\" "
+            
+            outline_string = ""
+            if len(getObjectProperty(obj, "outline", "")) > 0:
+                outline_string = " glow=\"%s\" "%getObjectProperty(obj, "outline", "")
+                
             f.write("  <object type=\"movable\" %s\n"%(getXYZHPRString(obj)))
-            f.write("          %sshape=\"%s\" mass=\"%s\"%s%s/>\n"\
-                    % (model_string, shape, mass, lodstring, tangent_string))
+            f.write("          %sshape=\"%s\" mass=\"%s\"%s%s%s%s/>\n"\
+                    % (model_string, shape, mass, lodstring, tangent_string, bloom_string, outline_string))
             
         # Now the object either has an IPO, or is a 'ghost' object.
         # Either can have an IPO. Even if the objects don't move
