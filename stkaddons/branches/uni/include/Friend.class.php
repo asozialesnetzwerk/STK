@@ -137,11 +137,15 @@ class Friend
     public static function getFriendsAsXML($userid)
     {
         $friends = DBConnection::get()->query
-        (
-            "SELECT date, request, asker_id AS friend_id, 0 AS is_asker FROM `" . DB_PREFIX ."friends` WHERE receiver_id = :userid
+        ( 
+            "
+            SELECT " . DB_PREFIX ."friends.date AS date, " . DB_PREFIX ."friends.request AS request, " . DB_PREFIX ."friends.asker_id AS friend_id, " . DB_PREFIX ."users.user AS friend_name, 0 AS is_asker FROM " . DB_PREFIX ."friends, " . DB_PREFIX ."users
+            WHERE " . DB_PREFIX ."friends.receiver_id = :userid AND " . DB_PREFIX ."users.id = " . DB_PREFIX ."friends.asker_id
             UNION
-            SELECT date, request, receiver_id AS friend_id, 1 AS is_asker FROM `" . DB_PREFIX ."friends` WHERE asker_id = :userid
-            ORDER BY date DESC",
+            SELECT " . DB_PREFIX ."friends.date AS date, " . DB_PREFIX ."friends.request AS request, " . DB_PREFIX ."friends.receiver_id AS friend_id, " . DB_PREFIX ."users.user AS friend_name, 1 AS is_asker FROM " . DB_PREFIX ."friends, " . DB_PREFIX ."users 
+            WHERE " . DB_PREFIX ."friends.asker_id = :userid AND " . DB_PREFIX ."users.id = " . DB_PREFIX ."friends.receiver_id
+            ORDER BY date DESC                 
+            ",       
             DBConnection::FETCH_ALL,
             array
             (
