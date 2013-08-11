@@ -30,6 +30,36 @@ class User
     public static $logged_in = false;
     public static $user_id = 0;
     
+    protected $id = 0;
+    protected $user_name = "";
+    
+    public function __construct($user_id, $user_name)
+    {
+        $this->id = $user_id;
+        $this->user_name = $user_name;
+    }
+    
+    public function getUserName()
+    {
+    return $this->user_name;
+    }
+    
+    public function getUserID()
+    {
+    return $this->id;
+    }
+    
+    public function asXML()
+    {
+    $user_xml = new XMLOutput();
+    $user_xml->startElement('user');
+    $user_xml->writeAttribute('id', $this->id);
+    $user_xml->writeAttribute('user_name', $this->user_name);
+    $user_xml->endElement();
+    return $user_xml->asString();
+    }
+    
+    
     static function init() {
         if(defined('API')) return;
         // Validate user's session on every page
@@ -360,6 +390,66 @@ class User
         }
         
 
+    }
+    
+    /**
+     *
+     * @param string $search_string
+     * @throws UserException
+     * @return multitype:User
+     */
+    public static function searchUsers($search_string) {   
+        $terms = preg_split("/[\s,]+/", strip_tags($search_string));
+        $index = 0;
+        $parameters = array();
+        $query_parts = array();
+        foreach($terms as $term){
+            if(strlen($term) > 2){
+                $parameter = ":userid" . $index;
+                $index++;
+                $query_parts[]= "`user` RLIKE " . $parameter;
+                $parameters[$parameter] = $term;
+            }
+        }
+        $matched_users = array();
+        if($index > 0){
+            try{
+                $result = DBConnection::get()->query
+                (
+                    "SELECT id, user
+                    FROM `" . DB_PREFIX . "users`
+                    WHERE " . implode(" OR ",$query_parts),
+                    DBConnection::FETCH_ALL,
+                    $parameters
+                );
+                foreach ($result as $user)
+                {
+                    $matched_users[] = new User($user['id'], $user['user']);
+                }
+            }catch(DBException $e){
+                throw new UserException(htmlspecialchars(
+                    _('An error occurred while performing your search query.') .' '.
+                    _('Please contact a website administrator.')
+                ));
+            }
+        }
+        return $matched_users;
+    }
+    
+    /**
+     *
+     * @param string $search_string
+     * @throws UserException
+     * @return multitype:User
+     */
+    public static function searchUsersAsXML($search_string) {
+        $partial_output = new XMLOutput();
+        $partial_output->startElement('users');
+        foreach (User::searchUsers($search_string) as $user){
+            $partial_output->insert($user->asXML());
+        }
+        $partial_output->endElement();
+        return $partial_output->asString();
     }
     
     /**
