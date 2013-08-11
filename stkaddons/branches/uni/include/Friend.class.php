@@ -150,7 +150,6 @@ class Friend
         );
         $partial_output = new XMLOutput();
         $partial_output->startElement('friends');
-        $partial_output->writeAttribute("of_user", $userid);
         foreach ($friends as $friend_result)
         {
         	$friend = new Friend($friend_result);

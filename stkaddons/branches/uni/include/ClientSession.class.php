@@ -501,7 +501,7 @@ class RegisteredClientSession extends ClientSession
      * @param int $visiterid
      * @return string
      */
-    public function getFriendsOf($visiterid)
+    public function getFriendsOf($visitingid)
     {
         return Friend::getFriendsAsXML($visitingid);
     }
