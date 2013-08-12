@@ -191,6 +191,31 @@ try {
             }
             break;
             
+        case 'user-search':
+            try {
+                $userid = isset($_POST['userid']) ? $_POST['userid'] : 0;
+                $token = isset($_POST['token']) ? $_POST['token'] : "";
+                $session = ClientSession::get($token, $userid);
+                $search_string = isset($_POST['search-string']) ? $_POST['search-string'] : "";
+                $output->startElement('user-search');
+                $output->writeAttribute('success','yes');
+                $output->writeAttribute('info','');
+                $output->writeAttribute('search-string', $search_string);
+                $output->insert(User::searchUsersAsXML($search_string));
+                $output->endElement();
+            }
+            catch(Exception $e){
+                $output->startElement('user-search');
+                $output->writeAttribute('success','no');
+                $output->writeAttribute('info',
+                        htmlspecialchars(
+                                $e->getMessage()
+                        ));
+                $output->endElement();
+            }
+        
+            break;
+            
         case 'disconnect':
             try {
                 $userid = isset($_POST['userid']) ? $_POST['userid'] : "";
