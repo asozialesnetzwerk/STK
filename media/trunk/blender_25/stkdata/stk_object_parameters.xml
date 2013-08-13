@@ -179,6 +179,20 @@
                         <EnumChoice id="exact" label="Exact" />
                     </EnumProp>
                 </EnumChoice>
+                <EnumChoice id="flatten" label="Flatten player" doc="The player will be flattened and drive slowly for a few seconds" >
+                    <EnumProp id="shape" name="Shape" default="box"
+                              doc="Shape to use in the physics engine to represent this object">
+                        <EnumChoice id="coneX" label="Cone (X)" />
+                        <EnumChoice id="coneY" label="Cone (Y)" />
+                        <EnumChoice id="coneZ" label="Cone (Z)" />
+                        <EnumChoice id="cylinderX" label="Cylinder (X)" />
+                        <EnumChoice id="cylinderY" label="Cylinder (Y)" />
+                        <EnumChoice id="cylinderZ" label="Cylinder (Z)" />
+                        <EnumChoice id="box" label="Box" />
+                        <EnumChoice id="sphere" label="Sphere" />
+                        <EnumChoice id="exact" label="Exact" />
+                    </EnumProp>
+                </EnumChoice>
             </EnumProp>
         
             <BoolProp id="forcedbloom" name="Glow (bloom) (STK 0.8.2)" default="false" doc="Enable a bloom effect on this particular object, making it glow"/>
@@ -260,6 +274,20 @@
                         <EnumChoice id="exact" label="Exact" />
                     </EnumProp>
                 </EnumChoice>
+                <EnumChoice id="flatten" label="Flatten player" doc="The player will be flattened and drive slowly for a few seconds" >
+                    <EnumProp id="shape" name="Shape" default="box"
+                              doc="Shape to use in the physics engine to represent this object">
+                        <EnumChoice id="coneX" label="Cone (X)" />
+                        <EnumChoice id="coneY" label="Cone (Y)" />
+                        <EnumChoice id="coneZ" label="Cone (Z)" />
+                        <EnumChoice id="cylinderX" label="Cylinder (X)" />
+                        <EnumChoice id="cylinderY" label="Cylinder (Y)" />
+                        <EnumChoice id="cylinderZ" label="Cylinder (Z)" />
+                        <EnumChoice id="box" label="Box" />
+                        <EnumChoice id="sphere" label="Sphere" />
+                        <EnumChoice id="exact" label="Exact" />
+                    </EnumProp>
+                </EnumChoice>
             </EnumProp>
             
             <BoolProp id="forcedbloom" name="Glow (bloom) (STK 0.8.2)" default="false" doc="Enable a bloom effect on this particular object, making it glow"/>
@@ -322,6 +350,20 @@
                     </EnumProp>
                 </EnumChoice>
                 <EnumChoice id="explode" label="Knock player" doc="The player will jump like they were hit when touching this object" >
+                    <EnumProp id="shape" name="Shape" default="box"
+                              doc="Shape to use in the physics engine to represent this object">
+                        <EnumChoice id="coneX" label="Cone (X)" />
+                        <EnumChoice id="coneY" label="Cone (Y)" />
+                        <EnumChoice id="coneZ" label="Cone (Z)" />
+                        <EnumChoice id="cylinderX" label="Cylinder (X)" />
+                        <EnumChoice id="cylinderY" label="Cylinder (Y)" />
+                        <EnumChoice id="cylinderZ" label="Cylinder (Z)" />
+                        <EnumChoice id="box" label="Box" />
+                        <EnumChoice id="sphere" label="Sphere" />
+                        <EnumChoice id="exact" label="Exact" />
+                    </EnumProp>
+                </EnumChoice>
+                <EnumChoice id="flatten" label="Flatten player" doc="The player will be flattened and drive slowly for a few seconds" >
                     <EnumProp id="shape" name="Shape" default="box"
                               doc="Shape to use in the physics engine to represent this object">
                         <EnumChoice id="coneX" label="Cone (X)" />

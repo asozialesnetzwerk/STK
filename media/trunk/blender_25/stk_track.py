@@ -1921,6 +1921,8 @@ class TrackExport:
             reset_string = " reset=\"y\""
         elif interaction == 'explode':
             reset_string = " explode=\"y\""
+        elif interaction == 'flatten':
+            reset_string = " flatten=\"y\""
         else:
             reset_string = ""
         
@@ -2019,6 +2021,8 @@ class TrackExport:
                 reset_string = " reset=\"y\""
             elif interaction == 'explode':
                 reset_string = " explode=\"y\""
+            elif interaction == 'flatten':
+                reset_string = " flatten=\"y\""
             else:
                 reset_string = ""
             
@@ -2137,7 +2141,7 @@ class TrackExport:
         # Now the object either has an IPO, or is a 'ghost' object.
         # Either can have an IPO. Even if the objects don't move
         # they are saved as animations (with 0 IPOs).
-        elif interact=="ghost" or interact=="none" or interact=="static" or interact=="reset" or interact=="explode" or interact=="physicsonly":
+        elif interact=="ghost" or interact=="none" or interact=="static" or interact=="reset" or interact=="explode" or interact =="flatten" or interact=="physicsonly":
             
             ipo      = obj.animation_data
             
@@ -2208,7 +2212,7 @@ class TrackExport:
             #if type == "lod_instance" or type == "lod_model" or type == "single_lod":
             #    interact = "static"
             
-            if interact=="static" or interact=="reset" or type == "lod_model" or interact=="explode" or interact=="physicsonly":
+            if interact=="static" or interact=="reset" or type == "lod_model" or interact=="explode" or interact=="flatten" or interact=="physicsonly":
                 
                 ipo      = obj.animation_data
                 if obj.parent is not None and obj.parent.type=="ARMATURE" and obj.parent.animation_data is not None:
@@ -2218,7 +2222,7 @@ class TrackExport:
                 # can't be merged with the physics model of the track
                 # BUT 'reset' objects must NOT be static objects otherwise then we can't detect
                 # collisions against it in bullet
-                if (ipo and ipo.action) or interact=="reset" or interact=="explode":
+                if (ipo and ipo.action) or interact=="reset" or interact=="explode" or interact=="flatten":
                     lOtherObjects.append(obj)
                 else:
                     lStaticObjects.append(obj)
