@@ -46,9 +46,9 @@ class Friend
     protected function __construct($info_array, $online = False, $extra_info = False)
     {
         $this->user = new User($info_array['friend_id'], $info_array['friend_name']);
-        $this->online = $online;
         $this->extra_info = $extra_info;
         if($extra_info){
+            $this->online = $online;
     		$this->is_pending = $info_array['request'] === 1;
     		$this->is_asker = $info_array['is_asker'] === 1;		
     		$this->date = $info_array['date'];
@@ -75,8 +75,8 @@ class Friend
     	       $friend_xml->writeAttribute("is_asker", ($this->is_asker ? "yes" : "no"));
     	    }
     	    $friend_xml->writeAttribute("date", $this->date);
-	    }
-	    $friend_xml->writeAttribute("online", ($this->online ? "yes" : "no"));
+    	    $friend_xml->writeAttribute("online", ($this->online ? "yes" : "no"));
+	    } 
 	    $friend_xml->insert($this->user->asXML());
 	    $friend_xml->endElement();
 	    return $friend_xml->asString();
@@ -154,7 +154,7 @@ class Friend
                     UNION
                     SELECT " . DB_PREFIX ."friends.date AS date, " . DB_PREFIX ."friends.request AS request, " . DB_PREFIX ."friends.receiver_id AS friend_id, " . DB_PREFIX ."users.user AS friend_name, 1 AS is_asker FROM " . DB_PREFIX ."friends, " . DB_PREFIX ."users 
                     WHERE " . DB_PREFIX ."friends.asker_id = :userid AND " . DB_PREFIX ."users.id = " . DB_PREFIX ."friends.receiver_id
-                    ORDER BY date DESC                 
+                    ORDER BY friend_name ASC                 
                     ",       
                     DBConnection::FETCH_ALL,
                     array
@@ -171,6 +171,7 @@ class Friend
                     UNION
                     SELECT " . DB_PREFIX ."friends.receiver_id AS friend_id, " . DB_PREFIX ."users.user AS friend_name FROM " . DB_PREFIX ."friends, " . DB_PREFIX ."users
                     WHERE " . DB_PREFIX ."friends.asker_id = :userid AND " . DB_PREFIX ."users.id = " . DB_PREFIX ."friends.receiver_id
+                    ORDER BY friend_name ASC
                     ",
                     DBConnection::FETCH_ALL,
                     array
@@ -183,18 +184,20 @@ class Friend
             throw new FriendException(
                 _('An unexpected error occured while fetching friends.') . ' ' .
                 _('Please contact a website administrator.'));
-        }   
-        $friend_ids = array();
-        foreach ($result as $friend_result)
-        {
-            $friend_ids[] = $friend_result['friend_id'];
         }
-        $online_stati = ClientSession::getOnlineStatus($friend_ids);
+        if($is_self){
+            $friend_ids = array();
+            foreach ($result as $friend_result)
+            {
+                $friend_ids[] = $friend_result['friend_id'];
+            }
+            $online_stati = ClientSession::getOnlineStatus($friend_ids);
+        }
         $partial_output = new XMLOutput();
         $partial_output->startElement('friends');
         foreach ($result as $friend_result)
         {
-            $friend = new Friend($friend_result, $online_stati[$friend_result['friend_id']], $is_self);
+            $friend = new Friend($friend_result, ($is_self ? $online_stati[$friend_result['friend_id']] : False), $is_self);
             $partial_output->insert($friend->asXML());
         }
         $partial_output->endElement();

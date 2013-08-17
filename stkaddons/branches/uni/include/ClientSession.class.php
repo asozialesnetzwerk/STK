@@ -544,7 +544,7 @@ class RegisteredClientSession extends ClientSession
      */
     public function getFriendsOf($visitingid)
     {
-        return Friend::getFriendsAsXML($visitingid, $this->id === $visitingid);
+        return Friend::getFriendsAsXML($visitingid, $this->user_id === $visitingid);
     }
 
     /**
