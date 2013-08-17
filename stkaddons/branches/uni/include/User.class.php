@@ -33,9 +33,9 @@ class User
     protected $id = 0;
     protected $user_name = "";
     
-    public function __construct($user_id, $user_name)
+    public function __construct($id, $user_name)
     {
-        $this->id = $user_id;
+        $this->id = $id;
         $this->user_name = $user_name;
     }
     
@@ -51,12 +51,12 @@ class User
     
     public function asXML()
     {
-    $user_xml = new XMLOutput();
-    $user_xml->startElement('user');
-    $user_xml->writeAttribute('id', $this->id);
-    $user_xml->writeAttribute('user_name', $this->user_name);
-    $user_xml->endElement();
-    return $user_xml->asString();
+        $user_xml = new XMLOutput();
+        $user_xml->startElement('user');
+        $user_xml->writeAttribute('id', $this->id);
+        $user_xml->writeAttribute('user_name', $this->user_name);
+        $user_xml->endElement();
+        return $user_xml->asString();
     }
     
     
@@ -391,7 +391,7 @@ class User
         
 
     }
-    
+        
     /**
      *
      * @param string $search_string

@@ -474,6 +474,47 @@ abstract class ClientSession
     {
         return substr(md5(uniqid('', true)), 0, 24);
     }
+    
+    public static function getOnlineStatus($user_id_list) {
+        $index = 0;
+        $parameters = array();
+        $query_parts = array();
+        foreach($user_id_list as $id){
+            $parameter = ":id" . $index;
+            $index++;
+            $query_parts[]= "`uid` = " . $parameter;
+            $parameters[$parameter] = (int) $id;
+        }
+        $return_array = array();
+        if($index > 0){
+            try{
+                $result = DBConnection::get()->query
+                (
+                    "SELECT uid
+                    FROM `" . DB_PREFIX . "client_sessions`
+                    WHERE " . implode(" OR ",$query_parts),
+                    DBConnection::FETCH_ALL,
+                    $parameters
+                );
+
+                foreach ($result as $user)
+                {
+                    $return_array[$user['uid']] = True;
+                }
+                foreach ($user_id_list as $id)
+                {
+                    if(!isset($return_array[$id]))
+                        $return_array[$id] = False;
+                }
+            }catch(DBException $e){
+                throw new UserException(htmlspecialchars(
+                        _('An error occurred while performing your search query.') .' '.
+                        _('Please contact a website administrator.')
+                ));
+            }
+        }
+        return $return_array;
+    }
 }
 
 /**
@@ -503,7 +544,7 @@ class RegisteredClientSession extends ClientSession
      */
     public function getFriendsOf($visitingid)
     {
-        return Friend::getFriendsAsXML($visitingid);
+        return Friend::getFriendsAsXML($visitingid, $this->id === $visitingid);
     }
 
     /**
