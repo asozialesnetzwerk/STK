@@ -191,6 +191,81 @@ try {
             }
             break;
             
+        case 'friend-request':
+            try {
+                $userid = isset($_POST['userid']) ? $_POST['userid'] : 0;
+                $token = isset($_POST['token']) ? $_POST['token'] : "";
+                $session = ClientSession::get($token, $userid);
+                $friendid = isset($_POST['friendid']) ? $_POST['friendid'] : 0;
+                $friends_xml = $session->friendRequest($friendid);
+                $output->startElement('get-friends-list');
+                $output->writeAttribute('success','yes');
+                $output->writeAttribute('info','');
+                $output->writeAttribute('friendid', $friendid);
+                $output->endElement();
+            }
+            catch(Exception $e){
+                $output->startElement('get-friends-list');
+                $output->writeAttribute('success','no');
+                $output->writeAttribute('info',
+                        htmlspecialchars(
+                                $e->getMessage()
+                        ));
+                $output->endElement();
+            }
+        
+            break;
+            
+        case 'accept-friend-request':
+            try {
+                $userid = isset($_POST['userid']) ? $_POST['userid'] : 0;
+                $token = isset($_POST['token']) ? $_POST['token'] : "";
+                $session = ClientSession::get($token, $userid);
+                $friendid = isset($_POST['friendid']) ? $_POST['friendid'] : 0;
+                $friends_xml = $session->acceptFriendRequest($friendid);
+                $output->startElement('get-friends-list');
+                $output->writeAttribute('success','yes');
+                $output->writeAttribute('info','');
+                $output->writeAttribute('friendid', $friendid);
+                $output->endElement();
+            }
+            catch(Exception $e){
+                $output->startElement('get-friends-list');
+                $output->writeAttribute('success','no');
+                $output->writeAttribute('info',
+                        htmlspecialchars(
+                                $e->getMessage()
+                        ));
+                $output->endElement();
+            }
+        
+            break;
+                
+        case 'decline-friend-request':
+            try {
+                $userid = isset($_POST['userid']) ? $_POST['userid'] : 0;
+                $token = isset($_POST['token']) ? $_POST['token'] : "";
+                $session = ClientSession::get($token, $userid);
+                $friendid = isset($_POST['friendid']) ? $_POST['friendid'] : 0;
+                $friends_xml = $session->declineFriendRequest($friendid);
+                $output->startElement('get-friends-list');
+                $output->writeAttribute('success','yes');
+                $output->writeAttribute('info','');
+                $output->writeAttribute('friendid', $friendid);
+                $output->endElement();
+            }
+            catch(Exception $e){
+                $output->startElement('get-friends-list');
+                $output->writeAttribute('success','no');
+                $output->writeAttribute('info',
+                        htmlspecialchars(
+                                $e->getMessage()
+                        ));
+                $output->endElement();
+            }
+        
+            break;
+            
         case 'user-search':
             try {
                 $userid = isset($_POST['userid']) ? $_POST['userid'] : 0;

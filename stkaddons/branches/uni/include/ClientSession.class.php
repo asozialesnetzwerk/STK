@@ -591,5 +591,71 @@ class RegisteredClientSession extends ClientSession
                 _('Please contact a website administrator.'));
         }
     }
+    
+    
+    public function friendRequest($friendid)
+    {
+        try{
+            $count = DBConnection::get()->query
+            (
+                "INSERT INTO `" . DB_PREFIX ."friends` (asker_id, receiver_id, date)
+                VALUES (:asker, :receiver, CURRENT_DATE())
+                ON DUPLICATE KEY UPDATE asker_id = :asker",
+                DBConnection::ROW_COUNT,
+                array
+                (
+                        ':asker'   => (int) $this->user_id,
+                        ':receiver'   => (int) $friendid
+                )
+            );
+        }catch (DBException $e){
+            throw new FriendException(
+                _('An unexpected error occured while adding your friend request.') . ' ' .
+                _('Please contact a website administrator.'));
+        }    
+    }
+    
+    public function acceptFriendRequest($friendid)
+    {
+        try{
+            $count = DBConnection::get()->query
+            (
+                "UPDATE `" . DB_PREFIX ."friends`
+                SET request = 0
+                WHERE asker_id = :asker AND receiver_id = :receiver",
+                DBConnection::ROW_COUNT,
+                array
+                (
+                        ':asker'   => (int) $this->user_id,
+                        ':receiver'   => (int) $friendid
+                )
+            );
+        }catch (DBException $e){
+            throw new FriendException(
+                    _('An unexpected error occured while adding your friend request.') . ' ' .
+                    _('Please contact a website administrator.'));
+        }
+    }
+    
+    public function declineFriendRequest($friendid)
+    {
+        try{
+            $count = DBConnection::get()->query
+            (
+                "DELETE FROM `" . DB_PREFIX ."friends`
+                WHERE asker_id = :asker AND receiver_id = :receiver",
+                DBConnection::ROW_COUNT,
+                array
+                (
+                        ':asker'   => (int) $this->user_id,
+                        ':receiver'   => (int) $friendid
+                )
+            );
+        }catch (DBException $e){
+            throw new FriendException(
+                    _('An unexpected error occured while adding your friend request.') . ' ' .
+                    _('Please contact a website administrator.'));
+        }
+    }
 }
 ?>
