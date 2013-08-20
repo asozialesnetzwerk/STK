@@ -138,6 +138,42 @@ class Friend
         }
     }*/
     
+    public static function getOnlineFriendsOf($userid)
+    {
+        try{
+            $result = DBConnection::get()->query
+            (
+                "
+                    SELECT " . DB_PREFIX ."friends.asker_id AS friend_id 
+                    FROM " . DB_PREFIX ."friends, " . DB_PREFIX ."client_sessions
+                    WHERE " . DB_PREFIX ."friends.receiver_id = :userid 
+                        AND " . DB_PREFIX ."client_sessions.uid = " . DB_PREFIX ."friends.asker_id 
+                        AND " . DB_PREFIX ."client_sessions.online = 1
+                UNION
+                    SELECT " . DB_PREFIX ."friends.receiver_id AS friend_id 
+                    FROM " . DB_PREFIX ."friends, " . DB_PREFIX ."client_sessions
+                    WHERE " . DB_PREFIX ."friends.asker_id = :userid 
+                        AND " . DB_PREFIX ."client_sessions.uid = " . DB_PREFIX ."friends.receiver_id 
+                        AND " . DB_PREFIX ."client_sessions.online = 1
+                ",
+                DBConnection::FETCH_ALL,
+                array
+                (
+                        ':userid'       => (int) $userid
+                )
+            );
+        }catch (DBException $e){
+            throw new FriendException(
+                    _('An unexpected error occured while fetching online friends.') . ' ' .
+                    _('Please contact a website administrator.'));
+        }
+        $string_list = "";
+        foreach ($result as $r){
+            $string_list .= $r['friend_id'];
+        }
+        return $string_list;
+    }
+    
     /**
      * Returns XML string
      * @param int $userid
@@ -186,19 +222,11 @@ class Friend
                 _('An unexpected error occured while fetching friends.') . ' ' .
                 _('Please contact a website administrator.'));
         }
-        if($is_self){
-            $friend_ids = array();
-            foreach ($result as $friend_result)
-            {
-                $friend_ids[] = $friend_result['friend_id'];
-            }
-            $online_stati = ClientSession::getOnlineStatus($friend_ids);
-        }
         $partial_output = new XMLOutput();
         $partial_output->startElement('friends');
         foreach ($result as $friend_result)
         {
-            $friend = new Friend($friend_result, ($is_self ? $online_stati[$friend_result['friend_id']] : False), $is_self);
+            $friend = new Friend($friend_result, False, $is_self);
             $partial_output->insert($friend->asXML());
         }
         $partial_output->endElement();

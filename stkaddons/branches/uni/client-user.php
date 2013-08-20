@@ -33,6 +33,32 @@ $output->startDocument('1.0','UTF-8');
 try {
     switch ($action)
     {
+        case 'poll':
+            try {
+                $userid = isset($_POST['userid']) ? $_POST['userid'] : 0;
+                $token = isset($_POST['token']) ? $_POST['token'] : "";
+                $session = ClientSession::get($token, $userid);
+                $poll_xml = $session->poll();
+                $output->startElement('poll');
+                $output->writeAttribute('success','yes');
+                $output->writeAttribute('info','');
+                $output->writeAttribute('online', $session->getOnlineFriends());
+                $output->insert($poll_xml);
+                $output->endElement();
+            }
+            catch(Exception $e){
+                $output->startElement('get-friends-list');
+                $output->writeAttribute('success','no');
+                $output->writeAttribute('info',
+                        htmlspecialchars(
+                                $e->getMessage()
+                        ));
+                $output->writeAttribute('friendid', $friendid);
+                $output->endElement();
+            }
+        
+            break;
+            
         case 'connect':
             try {
                 $password = isset($_POST['password']) ? utf8_encode($_POST['password']) : "";
@@ -197,7 +223,7 @@ try {
                 $userid = isset($_POST['userid']) ? $_POST['userid'] : 0;
                 $token = isset($_POST['token']) ? $_POST['token'] : "";
                 $session = ClientSession::get($token, $userid);
-                $friends_xml = $session->friendRequest($friendid);
+                $session->friendRequest($friendid);
                 $output->startElement('get-friends-list');
                 $output->writeAttribute('success','yes');
                 $output->writeAttribute('info','');
@@ -223,7 +249,7 @@ try {
                 $userid = isset($_POST['userid']) ? $_POST['userid'] : 0;
                 $token = isset($_POST['token']) ? $_POST['token'] : "";
                 $session = ClientSession::get($token, $userid);
-                $friends_xml = $session->acceptFriendRequest($friendid);
+                $session->acceptFriendRequest($friendid);
                 $output->startElement('get-friends-list');
                 $output->writeAttribute('success','yes');
                 $output->writeAttribute('info','');
@@ -249,7 +275,7 @@ try {
                 $userid = isset($_POST['userid']) ? $_POST['userid'] : 0;
                 $token = isset($_POST['token']) ? $_POST['token'] : "";
                 $session = ClientSession::get($token, $userid);
-                $friends_xml = $session->declineFriendRequest($friendid);
+                $session->declineFriendRequest($friendid);
                 $output->startElement('decline-friend-request');
                 $output->writeAttribute('success','yes');
                 $output->writeAttribute('info','');
