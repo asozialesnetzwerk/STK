@@ -647,8 +647,8 @@ class RegisteredClientSession extends ClientSession
                 DBConnection::ROW_COUNT,
                 array
                 (
-                        ':asker'   => (int) $this->user_id,
-                        ':receiver'   => (int) $friendid
+                        ':asker'   => (int) $friendid,
+                        ':receiver'   => (int) $this->user_id
                 )
             );
         }catch (DBException $e){

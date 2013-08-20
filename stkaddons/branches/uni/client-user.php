@@ -250,14 +250,14 @@ try {
                 $token = isset($_POST['token']) ? $_POST['token'] : "";
                 $session = ClientSession::get($token, $userid);
                 $friends_xml = $session->declineFriendRequest($friendid);
-                $output->startElement('get-friends-list');
+                $output->startElement('decline-friend-request');
                 $output->writeAttribute('success','yes');
                 $output->writeAttribute('info','');
                 $output->writeAttribute('friendid', $friendid);
                 $output->endElement();
             }
             catch(Exception $e){
-                $output->startElement('get-friends-list');
+                $output->startElement('decline-friend-request');
                 $output->writeAttribute('success','no');
                 $output->writeAttribute('info',
                         htmlspecialchars(
