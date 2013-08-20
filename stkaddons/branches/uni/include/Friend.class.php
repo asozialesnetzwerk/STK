@@ -49,8 +49,8 @@ class Friend
         $this->extra_info = $extra_info;
         if($extra_info){
             $this->online = $online;
-    		$this->is_pending = $info_array['request'] === 1;
-    		$this->is_asker = $info_array['is_asker'] === 1;		
+    		$this->is_pending = $info_array['request'] == 1;
+    		$this->is_asker = $info_array['is_asker'] == 1;		
     		$this->date = $info_array['date'];
         }
     }
@@ -73,9 +73,10 @@ class Friend
     	    $friend_xml->writeAttribute("is_pending", ($this->is_pending ? "yes" : "no"));
     	    if($this->is_pending){
     	       $friend_xml->writeAttribute("is_asker", ($this->is_asker ? "yes" : "no"));
+    	    }else{
+    	       $friend_xml->writeAttribute("online", ($this->online ? "yes" : "no"));
     	    }
-    	    $friend_xml->writeAttribute("date", $this->date);
-    	    $friend_xml->writeAttribute("online", ($this->online ? "yes" : "no"));
+    	    $friend_xml->writeAttribute("date", $this->date);   
 	    } 
 	    $friend_xml->insert($this->user->asXML());
 	    $friend_xml->endElement();
@@ -149,10 +150,10 @@ class Friend
                 $result = DBConnection::get()->query
                 ( 
                     "
-                    SELECT " . DB_PREFIX ."friends.date AS date, " . DB_PREFIX ."friends.request AS request, " . DB_PREFIX ."friends.asker_id AS friend_id, " . DB_PREFIX ."users.user AS friend_name, 0 AS is_asker FROM " . DB_PREFIX ."friends, " . DB_PREFIX ."users
+                    SELECT " . DB_PREFIX ."friends.date AS date, " . DB_PREFIX ."friends.request AS request, " . DB_PREFIX ."friends.asker_id AS friend_id, " . DB_PREFIX ."users.user AS friend_name, 1 AS is_asker FROM " . DB_PREFIX ."friends, " . DB_PREFIX ."users
                     WHERE " . DB_PREFIX ."friends.receiver_id = :userid AND " . DB_PREFIX ."users.id = " . DB_PREFIX ."friends.asker_id
                     UNION
-                    SELECT " . DB_PREFIX ."friends.date AS date, " . DB_PREFIX ."friends.request AS request, " . DB_PREFIX ."friends.receiver_id AS friend_id, " . DB_PREFIX ."users.user AS friend_name, 1 AS is_asker FROM " . DB_PREFIX ."friends, " . DB_PREFIX ."users 
+                    SELECT " . DB_PREFIX ."friends.date AS date, " . DB_PREFIX ."friends.request AS request, " . DB_PREFIX ."friends.receiver_id AS friend_id, " . DB_PREFIX ."users.user AS friend_name, 0 AS is_asker FROM " . DB_PREFIX ."friends, " . DB_PREFIX ."users 
                     WHERE " . DB_PREFIX ."friends.asker_id = :userid AND " . DB_PREFIX ."users.id = " . DB_PREFIX ."friends.receiver_id
                     ORDER BY friend_name ASC                 
                     ",       
