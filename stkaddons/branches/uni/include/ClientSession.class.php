@@ -619,7 +619,7 @@ class RegisteredClientSession extends ClientSession
     }
     
     public function getOnlineFriends(){
-        return Friends::getOnlineFriendsOf($this->user_id);
+        return Friend::getOnlineFriendsOf($this->user_id);
     }
     
     public function poll()
