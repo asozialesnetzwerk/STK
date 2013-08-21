@@ -147,12 +147,14 @@ class Friend
                     SELECT " . DB_PREFIX ."friends.asker_id AS friend_id 
                     FROM " . DB_PREFIX ."friends, " . DB_PREFIX ."client_sessions
                     WHERE " . DB_PREFIX ."friends.receiver_id = :userid 
+                        AND " . DB_PREFIX ."friends.request = 0
                         AND " . DB_PREFIX ."client_sessions.uid = " . DB_PREFIX ."friends.asker_id 
                         AND " . DB_PREFIX ."client_sessions.online = 1
                 UNION
                     SELECT " . DB_PREFIX ."friends.receiver_id AS friend_id 
                     FROM " . DB_PREFIX ."friends, " . DB_PREFIX ."client_sessions
-                    WHERE " . DB_PREFIX ."friends.asker_id = :userid 
+                    WHERE " . DB_PREFIX ."friends.asker_id = :userid
+                        AND " . DB_PREFIX ."friends.request = 0
                         AND " . DB_PREFIX ."client_sessions.uid = " . DB_PREFIX ."friends.receiver_id 
                         AND " . DB_PREFIX ."client_sessions.online = 1
                 ",
