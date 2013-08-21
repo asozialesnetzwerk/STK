@@ -39,12 +39,7 @@ try {
                 $token = isset($_POST['token']) ? $_POST['token'] : "";
                 $session = ClientSession::get($token, $userid);
                 $poll_xml = $session->poll();
-                $output->startElement('poll');
-                $output->writeAttribute('success','yes');
-                $output->writeAttribute('info','');
-                $output->writeAttribute('online', $session->getOnlineFriends());
                 $output->insert($poll_xml);
-                $output->endElement();
             }
             catch(Exception $e){
                 $output->startElement('get-friends-list');

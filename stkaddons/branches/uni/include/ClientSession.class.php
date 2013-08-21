@@ -568,6 +568,19 @@ class RegisteredClientSession extends ClientSession
                         ':receiver'   => (int) $friendid
                 )
             );
+            $count = DBConnection::get()->query
+            (
+                "INSERT INTO `" . DB_PREFIX ."notifications` (to, from, type)
+                VALUES (:to, :from, 'f_request')
+                ON DUPLICATE KEY UPDATE to = to",
+                DBConnection::ROW_COUNT,
+                array
+                (
+                        ':to'   => (int) $friendid,
+                        ':from' => (int) $this->user_id
+                        
+                )
+            );
         }catch (DBException $e){
             throw new FriendException(
                 _('An unexpected error occured while adding your friend request.') . ' ' .
@@ -622,6 +635,42 @@ class RegisteredClientSession extends ClientSession
         return Friend::getOnlineFriendsOf($this->user_id);
     }
     
+    public function getNotifications(){
+        try{
+            $result = DBConnection::get()->query
+            (
+                "SELECT from, type FROM `" . DB_PREFIX ."notifications`
+                WHERE to = :to",
+                DBConnection::FETCH_ALL,
+                array
+                (
+                        ':to'   => (int) $this->user_id
+                )
+            );
+            $count = DBConnection::get()->query
+            (
+                "DELETE FROM `" . DB_PREFIX ."notifications`
+                WHERE to = :to",
+                DBConnection::ROW_COUNT,
+                array
+                (
+                        ':to'   => (int) $this->user_id
+                )
+            );
+            $result_array = array ();
+            $result_array['f_request'] = array();
+            foreach($result as $notification){
+                if($notification['type'] == 'f_request')
+                    $result_array['f_request'][] = $notification['from'];
+            }
+            
+        }catch (DBException $e){
+            throw new FriendException(
+                    _('An unexpected error occured while adding your friend request.') . ' ' .
+                    _('Please contact a website administrator.'));
+        }
+    }
+    
     public function poll()
     {
         try{
@@ -641,9 +690,21 @@ class RegisteredClientSession extends ClientSession
                 _('An unexpected error occured during server polling.') . ' ' .
                 _('Please contact a website administrator.'));
         }
+        $online_friends = getOnlineFriends();
+        $notifications = getNotifications();
         $partial_output = new XMLOutput();
-        /*$partial_output->startElement('online');
-        $partial_output->endElement();*/
+        $output->startElement('poll');
+        $output->writeAttribute('success','yes');
+        $output->writeAttribute('info','');
+        if($online_friends){
+            $output->writeAttribute('online', $online_friends);
+        }
+        if(!empty($notifications['f_request'])){
+            foreach($notifications['f_request'] as $requester_id){
+                $output->insert(User::fetchFromID($requester_id)->asXML('new_friend_request'));
+            }
+        }
+        $output->endElement();
         return $partial_output->asString();
     }
 }

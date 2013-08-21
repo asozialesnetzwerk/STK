@@ -49,10 +49,10 @@ class User
     return $this->id;
     }
     
-    public function asXML()
+    public function asXML($tag = 'user')
     {
         $user_xml = new XMLOutput();
-        $user_xml->startElement('user');
+        $user_xml->startElement($tag);
         $user_xml->writeAttribute('id', $this->id);
         $user_xml->writeAttribute('user_name', $this->user_name);
         $user_xml->endElement();
@@ -392,6 +392,37 @@ class User
 
     }
         
+    
+    public static function fetchFromID($id)
+    {
+        try{
+            $result = DBConnection::get()->query
+            (
+                "SELECT user
+                FROM `" . DB_PREFIX . "users`
+                WHERE id = :id",
+                DBConnection::FETCH_ALL,
+                array
+                (
+                    ':id'     => (int) $id                         
+                )
+            );
+            foreach ($result as $user)
+            {
+                return new User($id, $user['user']);
+            }
+            throw new UserException(htmlspecialchars(
+                _("Tried to fetch an user that doesn't exist.") .' '.
+                _('Please contact a website administrator.')
+            ));
+        }catch(DBException $e){
+            throw new UserException(htmlspecialchars(
+                    _('An error occurred while performing your search query.') .' '.
+                    _('Please contact a website administrator.')
+            ));
+        }    
+    }
+    
     /**
      *
      * @param string $search_string
