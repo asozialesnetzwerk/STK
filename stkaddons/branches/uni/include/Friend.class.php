@@ -172,7 +172,9 @@ class Friend
         $string_list = "";
         foreach ($result as $r){
             $string_list .= $r['friend_id'];
+            $string_list .= ' ';
         }
+        $string_list = trim($string_list);
         return $string_list;
     }
     
