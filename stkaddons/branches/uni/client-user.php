@@ -42,13 +42,12 @@ try {
                 $output->insert($poll_xml);
             }
             catch(Exception $e){
-                $output->startElement('get-friends-list');
+                $output->startElement('poll');
                 $output->writeAttribute('success','no');
                 $output->writeAttribute('info',
                         htmlspecialchars(
                                 $e->getMessage()
                         ));
-                $output->writeAttribute('friendid', $friendid);
                 $output->endElement();
             }
         
@@ -219,14 +218,14 @@ try {
                 $token = isset($_POST['token']) ? $_POST['token'] : "";
                 $session = ClientSession::get($token, $userid);
                 $session->friendRequest($friendid);
-                $output->startElement('get-friends-list');
+                $output->startElement('friend-request');
                 $output->writeAttribute('success','yes');
                 $output->writeAttribute('info','');
                 $output->writeAttribute('friendid', $friendid);
                 $output->endElement();
             }
             catch(Exception $e){
-                $output->startElement('get-friends-list');
+                $output->startElement('friend-request');
                 $output->writeAttribute('success','no');
                 $output->writeAttribute('info',
                         htmlspecialchars(

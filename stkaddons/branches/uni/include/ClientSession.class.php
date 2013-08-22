@@ -570,9 +570,9 @@ class RegisteredClientSession extends ClientSession
             );
             $count = DBConnection::get()->query
             (
-                "INSERT INTO `" . DB_PREFIX ."notifications` (to, from, type)
+                "INSERT INTO `" . DB_PREFIX ."notifications` (`to`, `from`, `type`)
                 VALUES (:to, :from, 'f_request')
-                ON DUPLICATE KEY UPDATE to = to",
+                ON DUPLICATE KEY UPDATE `to` = :to",
                 DBConnection::ROW_COUNT,
                 array
                 (
@@ -639,8 +639,8 @@ class RegisteredClientSession extends ClientSession
         try{
             $result = DBConnection::get()->query
             (
-                "SELECT from, type FROM `" . DB_PREFIX ."notifications`
-                WHERE to = :to",
+                "SELECT `from`, `type` FROM `" . DB_PREFIX ."notifications`
+                WHERE `to` = :to",
                 DBConnection::FETCH_ALL,
                 array
                 (
@@ -650,7 +650,7 @@ class RegisteredClientSession extends ClientSession
             $count = DBConnection::get()->query
             (
                 "DELETE FROM `" . DB_PREFIX ."notifications`
-                WHERE to = :to",
+                WHERE `to` = :to",
                 DBConnection::ROW_COUNT,
                 array
                 (
@@ -690,21 +690,21 @@ class RegisteredClientSession extends ClientSession
                 _('An unexpected error occured during server polling.') . ' ' .
                 _('Please contact a website administrator.'));
         }
-        $online_friends = getOnlineFriends();
-        $notifications = getNotifications();
+        $online_friends = $this->getOnlineFriends();
+        $notifications = $this->getNotifications();
         $partial_output = new XMLOutput();
-        $output->startElement('poll');
-        $output->writeAttribute('success','yes');
-        $output->writeAttribute('info','');
+        $partial_output->startElement('poll');
+        $partial_output->writeAttribute('success','yes');
+        $partial_output->writeAttribute('info','');
         if($online_friends){
-            $output->writeAttribute('online', $online_friends);
+            $partial_output->writeAttribute('online', $online_friends);
         }
         if(!empty($notifications['f_request'])){
             foreach($notifications['f_request'] as $requester_id){
-                $output->insert(User::fetchFromID($requester_id)->asXML('new_friend_request'));
+                $partial_output->insert(User::fetchFromID($requester_id)->asXML('new_friend_request'));
             }
         }
-        $output->endElement();
+        $partial_output->endElement();
         return $partial_output->asString();
     }
 }
