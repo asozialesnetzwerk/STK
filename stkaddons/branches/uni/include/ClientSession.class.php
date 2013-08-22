@@ -555,32 +555,63 @@ class RegisteredClientSession extends ClientSession
     
     public function friendRequest($friendid)
     {
+        if($friendid == $this->user_id)
+            throw new FriendException(
+                _('You cannot ask yourself to be your friend!'));
         try{
-            $count = DBConnection::get()->query
+            DBConnection::get()->beginTransaction();
+            $result = DBConnection::get()->query
             (
-                "INSERT INTO `" . DB_PREFIX ."friends` (asker_id, receiver_id, date)
-                VALUES (:asker, :receiver, CURRENT_DATE())
-                ON DUPLICATE KEY UPDATE asker_id = :asker",
-                DBConnection::ROW_COUNT,
-                array
-                (
-                        ':asker'   => (int) $this->user_id,
-                        ':receiver'   => (int) $friendid
-                )
+                    "SELECT (asker_id, receiver_id) FROM `" . DB_PREFIX ."friends`
+                    WHERE (asker_id = :asker AND receiver_id = :receiver) 
+                        OR (asker_id = :receiver AND receiver_id = :asker)",
+                    DBConnection::FETCH_ALL,
+                    array
+                    (
+                            ':asker'   => (int) $this->user_id,
+                            ':receiver'   => (int) $friendid
+                    )
             );
-            $count = DBConnection::get()->query
-            (
-                "INSERT INTO `" . DB_PREFIX ."notifications` (`to`, `from`, `type`)
-                VALUES (:to, :from, 'f_request')
-                ON DUPLICATE KEY UPDATE `to` = :to",
-                DBConnection::ROW_COUNT,
-                array
+            if(count($result) > 0)
+            {
+                DBConnection::get()->commit();
+                if($result[0]['asker_id'] == $this->user_id){
+                    //The request was already in there, should not be possible normally
+                    //ignore it but log this! FIXME
+                }else{
+                    // The friend already did a friend request! interpret as accepting the friend request!
+                    $this->acceptFriendRequest($friendid);
+                }
+            }
+            else
+            {
+                $count1 = DBConnection::get()->query
                 (
-                        ':to'   => (int) $friendid,
-                        ':from' => (int) $this->user_id
-                        
-                )
-            );
+                    "INSERT INTO `" . DB_PREFIX ."friends` (asker_id, receiver_id, date)
+                    VALUES (:asker, :receiver, CURRENT_DATE())
+                    ON DUPLICATE KEY UPDATE asker_id = :asker",
+                    DBConnection::ROW_COUNT,
+                    array
+                    (
+                            ':asker'   => (int) $this->user_id,
+                            ':receiver'   => (int) $friendid
+                    )
+                );
+                $count2 = DBConnection::get()->query
+                (
+                    "INSERT INTO `" . DB_PREFIX ."notifications` (`to`, `from`, `type`)
+                    VALUES (:to, :from, 'f_request')
+                    ON DUPLICATE KEY UPDATE `to` = :to",
+                    DBConnection::ROW_COUNT,
+                    array
+                    (
+                            ':to'   => (int) $friendid,
+                            ':from' => (int) $this->user_id
+                            
+                    )
+                );
+                DBConnection::get()->commit();
+            }
         }catch (DBException $e){
             throw new FriendException(
                 _('An unexpected error occured while adding your friend request.') . ' ' .
@@ -637,6 +668,7 @@ class RegisteredClientSession extends ClientSession
     
     public function getNotifications(){
         try{
+            DBConnection::get()->beginTransaction();
             $result = DBConnection::get()->query
             (
                 "SELECT `from`, `type` FROM `" . DB_PREFIX ."notifications`
@@ -657,6 +689,7 @@ class RegisteredClientSession extends ClientSession
                         ':to'   => (int) $this->user_id
                 )
             );
+            DBConnection::get()->commit();
             $result_array = array ();
             $result_array['f_request'] = array();
             foreach($result as $notification){
