@@ -302,6 +302,7 @@ class User
 	    $email = Validate::email($email);
 	    $name = Validate::realname($name);
 	    $terms = Validate::checkbox($terms,htmlspecialchars(_('You must agree to the terms to register.')));
+	    DBConnection::get()->beginTransaction();
 	    // Make sure requested username is not taken
         try{
             $result = DBConnection::get()->query(
@@ -364,23 +365,21 @@ class User
                     ':email'        => $email                            
                 )
             );
+            DBConnection::get()->commit();
             if($count !== 1){
                 throw new DBException();
             }
             $userid = DBConnection::get()->lastInsertId();
             $verification_code = Verification::generate($userid);
-            echo "here";
             // Send verification email
             try {
                 $mail = new SMail;
                 $mail->newAccountNotification($email, $userid, $username, $verification_code, 'register.php');
-                echo "here2";
             }
             catch (Exception $e) {
                 Log::newEvent("Registration email for user '$username' with id '$userid' failed.");
                 throw new UserException($e->getMessage().' '._('Please contact a website administrator.'));
             }
-            echo "here3";
             Log::newEvent("Registration submitted for user '$username' with id '$userid'.");
         }catch(DBException $e){
             throw new UserException(htmlspecialchars(
