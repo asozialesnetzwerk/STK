@@ -17,7 +17,8 @@ class DBConnection
 
     private function __construct() {
         $this->conn = new PDO('mysql:host='. DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASSWORD);
-        $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+        $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $this->in_transaction = false;
         
     }
 
@@ -26,6 +27,40 @@ class DBConnection
 	        self::$instance = new DBConnection();
         }
         return self::$instance;
+    }
+    
+    public function beginTransaction()
+    {
+        if(!$this->in_transaction)
+            $this->in_transaction = $this->conn->beginTransaction();
+        return $this->in_transaction;
+        
+    }
+    
+    public function commit()
+    {
+        if($this->in_transaction)
+        {
+            $this->in_transaction = !$this->conn->commit();
+            return !$this->in_transaction;
+        }
+        if (DEBUG_MODE){
+            printf("Did a commit while not having a transaction running!");
+        }
+        return false;
+    }
+    
+    public function rollback()
+    {
+        if($this->in_transaction)
+        {
+            $this->in_transaction = !$this->conn->rollback();
+            return !$this->in_transaction;
+        }
+        if (DEBUG_MODE){
+            printf("Did a rollback while not having a transaction running!");
+        }
+        return false;
     }
 
     public function query($query, $return_type = DBConnection::NOTHING, $params = NULL) {
@@ -41,6 +76,13 @@ class DBConnection
             if($return_type == self::FETCH_ALL)
                 return $sth->fetchAll(PDO::FETCH_ASSOC);    
         } catch (PDOException $e){
+            if($this->in_transaction)
+            {
+                $success = $this->conn->rollback();
+                if (DEBUG_MODE && !success){
+                    printf("A PDO exception occured during during a transaction, but the rollback failed");
+                }
+            }
             if (DEBUG_MODE){
                 printf("SQLSTATE ERR: %s<br />\nmySQL ERR: %s<br />\nMessage: %s<br />\n",$e->errorInfo[0], $e->errorInfo[1], $e->errorInfo[2]);
             }
