@@ -533,7 +533,7 @@ class RegisteredClientSession extends ClientSession
                 (
                     "INSERT INTO `" . DB_PREFIX ."client_sessions` (cid, uid)
                     VALUES (:session_id, :user_id) 
-                    ON DUPLICATE KEY UPDATE cid = :session_id",
+                    ON DUPLICATE KEY UPDATE cid = :session_id, online = 1",
                     DBConnection::ROW_COUNT,
                     array
                     (
@@ -663,6 +663,7 @@ class RegisteredClientSession extends ClientSession
                 if($notification['type'] == 'f_request')
                     $result_array['f_request'][] = $notification['from'];
             }
+            return $result_array;
             
         }catch (DBException $e){
             throw new FriendException(
