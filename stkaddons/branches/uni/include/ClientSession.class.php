@@ -562,7 +562,7 @@ class RegisteredClientSession extends ClientSession
             DBConnection::get()->beginTransaction();
             $result = DBConnection::get()->query
             (
-                    "SELECT (asker_id, receiver_id) FROM `" . DB_PREFIX ."friends`
+                    "SELECT asker_id, receiver_id FROM `" . DB_PREFIX ."friends`
                     WHERE (asker_id = :asker AND receiver_id = :receiver) 
                         OR (asker_id = :receiver AND receiver_id = :asker)",
                     DBConnection::FETCH_ALL,
@@ -636,7 +636,7 @@ class RegisteredClientSession extends ClientSession
             );
         }catch (DBException $e){
             throw new FriendException(
-                    _('An unexpected error occured while adding your friend request.') . ' ' .
+                    _('An unexpected error occured while accepting a friend request.') . ' ' .
                     _('Please contact a website administrator.'));
         }
     }
@@ -657,9 +657,36 @@ class RegisteredClientSession extends ClientSession
             );
         }catch (DBException $e){
             throw new FriendException(
-                    _('An unexpected error occured while adding your friend request.') . ' ' .
+                    _('An unexpected error occured while declining a friend request.') . ' ' .
                     _('Please contact a website administrator.'));
         }
+    }
+    
+    public function cancelFriendRequest($friendid)
+    {
+        try{
+            $count = DBConnection::get()->query
+            (
+                "DELETE FROM `" . DB_PREFIX ."friends`
+                WHERE asker_id = :asker AND receiver_id = :receiver",
+                DBConnection::ROW_COUNT,
+                array
+                (
+                        ':asker'   => (int) $this->user_id,
+                        ':receiver'   => (int) $friendid
+                )
+            );
+        }catch (DBException $e){
+            throw new FriendException(
+                    _('An unexpected error occured while cancelling your friend request.') . ' ' .
+                    _('Please contact a website administrator.'));
+        }
+    }
+    
+    public function removeFriend($friendid)
+    {
+        cancelFriendRequest($friendid);
+        declineFriendRequest($friendid);
     }
     
     public function getOnlineFriends(){
@@ -700,7 +727,7 @@ class RegisteredClientSession extends ClientSession
             
         }catch (DBException $e){
             throw new FriendException(
-                    _('An unexpected error occured while adding your friend request.') . ' ' .
+                    _('An unexpected error occured while fetching new notifications.') . ' ' .
                     _('Please contact a website administrator.'));
         }
     }

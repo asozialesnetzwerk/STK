@@ -79,7 +79,7 @@ class DBConnection
             if($this->in_transaction)
             {
                 $success = $this->conn->rollback();
-                if (DEBUG_MODE && !success){
+                if (DEBUG_MODE && !$success){
                     printf("A PDO exception occured during during a transaction, but the rollback failed");
                 }
             }

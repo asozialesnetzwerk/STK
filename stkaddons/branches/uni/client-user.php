@@ -289,6 +289,58 @@ try {
         
             break;
             
+        case 'cancel-friend-request':
+            $friendid = isset($_POST['friendid']) ? $_POST['friendid'] : 0;
+            try {
+                $userid = isset($_POST['userid']) ? $_POST['userid'] : 0;
+                $token = isset($_POST['token']) ? $_POST['token'] : "";
+                $session = ClientSession::get($token, $userid);
+                $session->cancelFriendRequest($friendid);
+                $output->startElement('cancel-friend-request');
+                $output->writeAttribute('success','yes');
+                $output->writeAttribute('info','');
+                $output->writeAttribute('friendid', $friendid);
+                $output->endElement();
+            }
+            catch(Exception $e){
+                $output->startElement('cancel-friend-request');
+                $output->writeAttribute('success','no');
+                $output->writeAttribute('info',
+                        htmlspecialchars(
+                                $e->getMessage()
+                        ));
+                $output->writeAttribute('friendid', $friendid);
+                $output->endElement();
+            }
+        
+            break;
+            
+        case 'remove-friend':
+            $friendid = isset($_POST['friendid']) ? $_POST['friendid'] : 0;
+            try {
+                $userid = isset($_POST['userid']) ? $_POST['userid'] : 0;
+                $token = isset($_POST['token']) ? $_POST['token'] : "";
+                $session = ClientSession::get($token, $userid);
+                $session->RemoveFriend($friendid);
+                $output->startElement('remove-friend');
+                $output->writeAttribute('success','yes');
+                $output->writeAttribute('info','');
+                $output->writeAttribute('friendid', $friendid);
+                $output->endElement();
+            }
+            catch(Exception $e){
+                $output->startElement('remove-friend');
+                $output->writeAttribute('success','no');
+                $output->writeAttribute('info',
+                        htmlspecialchars(
+                                $e->getMessage()
+                        ));
+                $output->writeAttribute('friendid', $friendid);
+                $output->endElement();
+            }
+        
+            break;
+            
         case 'user-search':
             try {
                 $userid = isset($_POST['userid']) ? $_POST['userid'] : 0;
