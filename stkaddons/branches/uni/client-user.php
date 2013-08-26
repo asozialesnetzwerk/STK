@@ -211,6 +211,32 @@ try {
             }
             break;
             
+        case 'host-vote':
+            try {
+                $userid = isset($_POST['userid']) ? $_POST['userid'] : 0;
+                $token = isset($_POST['token']) ? $_POST['token'] : "";
+                $hostid = isset($_POST['hostid']) ? $_POST['hostid'] : 0;
+                $vote = isset($_POST['vote']) ? $_POST['vote'] : 0;
+                if($vote != 1) $vote = 0;
+                $new_rating = ClientSession::get($token, $userid)->hostVote($hostid, $vote);
+                $output->startElement('host-vote');
+                $output->writeAttribute('success','yes');
+                $output->writeAttribute('new-rating', $new_rating);
+                $output->writeAttribute('hostid', $hostid);
+                $output->writeAttribute('info','');
+                $output->endElement();
+            }
+            catch(Exception $e){
+                $output->startElement('host-vote');
+                $output->writeAttribute('success','no');
+                $output->writeAttribute('info',
+                    htmlspecialchars(
+                            $e->getMessage()
+                    ));
+                $output->endElement();
+            }
+            break;
+            
         case 'friend-request':
             $friendid = isset($_POST['friendid']) ? $_POST['friendid'] : 0;
             try {

@@ -768,5 +768,10 @@ class RegisteredClientSession extends ClientSession
         $partial_output->endElement();
         return $partial_output->asString();
     }
+    
+    public function hostVote($hostid, $vote)
+    {
+        //FIXME
+    }
 }
 ?>
