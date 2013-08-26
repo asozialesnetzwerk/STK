@@ -82,11 +82,9 @@ class Verification
      */
     static function generate($userid){
         $verification_code = cryptUrl(12);
-        
         $count = DBConnection::get()->query
         (
-            "INSERT INTO `".DB_PREFIX."verification`
-            (`userid`,`code`)
+            "INSERT INTO `".DB_PREFIX."verification` (`userid`,`code`)
             VALUES(:userid, :code)
             ON DUPLICATE KEY UPDATE code = :code",
             DBConnection::ROW_COUNT,
@@ -96,7 +94,7 @@ class Verification
                     ':code'     => (string) $verification_code
             )
         );
-        if($count === 0){
+        if($count == 0){
             throw new DBException();
         }
         return $verification_code;

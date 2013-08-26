@@ -365,11 +365,11 @@ class User
                     ':email'        => $email                            
                 )
             );
-            DBConnection::get()->commit();
-            if($count !== 1){
+            if($count != 1){
                 throw new DBException();
             }
             $userid = DBConnection::get()->lastInsertId();
+            DBConnection::get()->commit();
             $verification_code = Verification::generate($userid);
             // Send verification email
             try {
