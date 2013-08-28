@@ -84,6 +84,7 @@ try {
                 $userid = isset($_POST['userid']) ? $_POST['userid'] : 0;
                 $token = isset($_POST['token']) ? $_POST['token'] : "";
                 $session = ClientSession::get($token, $userid);
+                $session->setOnline();
                 User::updateLoginTime($session->getUserID());
                 $output->startElement('saved-session');
                 $output->writeAttribute('success','yes');
@@ -208,6 +209,17 @@ try {
                         $e->getMessage()
                     ));
                 $output->endElement();
+            }
+            break;
+            
+        case 'client-quit':
+            try {
+                $userid = isset($_POST['userid']) ? $_POST['userid'] : 0;
+                $token = isset($_POST['token']) ? $_POST['token'] : "";
+                $new_rating = ClientSession::get($token, $userid)->clientQuit();
+            }
+            catch(Exception $e){
+                //FIXME log?
             }
             break;
             
@@ -395,7 +407,7 @@ try {
             try {
                 $userid = isset($_POST['userid']) ? $_POST['userid'] : "";
                 $token = isset($_POST['token']) ? $_POST['token'] : "";
-                ClientSession::destroy($token, $userid);
+                ClientSession::get($token, $userid)->destroy();
                 $output->startElement('disconnect');
                     $output->writeAttribute('success','yes');
                     $output->writeAttribute('info','');

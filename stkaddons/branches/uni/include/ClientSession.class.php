@@ -119,8 +119,8 @@ abstract class ClientSession
                 DBConnection::FETCH_ALL,
                 array
                 (
-                    ':sessionid'   => $session_id,
-                    ':userid'   => $user_id
+                    ':sessionid'   => (string) $session_id,
+                    ':userid'   => (int) $user_id
                 )
             );
             $size = count($session_info);
@@ -137,7 +137,7 @@ abstract class ClientSession
                     DBConnection::FETCH_ALL,
                     array
                     (
-                        ':userid'   => $user_id
+                        ':userid'   => (int) $user_id
                     )
                 );
                 // here an if statement will come for Guest and registered
@@ -155,31 +155,55 @@ abstract class ClientSession
 
     /**
      * Destroy session, you could also call it logout
-     * @param string $session_id session id
-     * @param int $user_id user id
      * @throws ClientSessionExpiredException when session does not exist
      */
-    public static function destroy($session_id, $user_id)
+    public function destroy()
     {
         try{
-            $result = DBConnection::get()->query(
+            $count = DBConnection::get()->query(
                 "DELETE FROM `".DB_PREFIX."client_sessions`
     	        WHERE `cid` = :session_id AND uid = :user_id",
                 DBConnection::ROW_COUNT,
                 array(
-                    ':session_id'   => (string) $session_id,
-                    ':user_id'    => $user_id
+                    ':user_id'    => (int) $this->user_id
                 )
             );
         }catch(DBException $e){
             throw new ClientSessionExpiredException(
-                _('An error occurred while logging out.') .' '.
+                _('An error occurred while signing out.') .' '.
                 _('Please contact a website administrator.')
             );
         }
-
-        if ($result == 0)
-            throw new ClientSessionExpiredException(_('Could not log out. Perhaps you were already signed out.'));
+    }
+    
+    public function clientQuit()
+    {
+        try{
+            DBConnection::get()->beginTransaction();
+            $result = DBConnection::get()->query(
+                "SELECT `save` FROM `".DB_PREFIX."client_sessions`
+    	        WHERE `cid` = :session_id AND uid = :user_id",
+                DBConnection::FETCH_ALL,
+                array(
+                    ':user_id'    => (int) $this->user_id
+                )
+            );
+            if (count($result) == 1)
+            {
+                if($result[0]['save'] == 1)
+                {
+                    $this->setOnline(false);
+                }
+                else 
+                    $this->destroy();
+            }
+            DBConnection::get()->commit();
+        }catch(DBException $e){
+            throw new ClientSessionExpiredException(
+                    _('An error occurred while logging out.') .' '.
+                    _('Please contact a website administrator.')
+            );
+        }
     }
 
     /**
@@ -358,10 +382,6 @@ abstract class ClientSession
         }
     }
 
-    /*
-     * 
-     * 
-     */
     public function getServerConnectionRequests($ip, $port)
     {
         try{
@@ -418,53 +438,28 @@ abstract class ClientSession
         }
     }
 
-	/**
-	 * 
-	 * @param int $ip
-	 * @param int $port
-	 * @param string $server_name
-	 * @param int $max_players
-	 * @return Server
-	 */
-    public function createServer($ip, $port, $server_name, $max_players)
-    {
-        ClientSession::setPublicAddress($this->user_id, $this->session_id, $ip, $port);
-        return Server::create($ip, $port, $this->user_id, $server_name, $max_players);
-    }
-    
-    /**
-     * 
-     * @param int $ip
-     * @param int $port
-     * @throws UserException
-     */
-    public function stopServer($ip, $port)
+    public function setOnline($online = true)
     {
         try{
-            // empty the public ip:port
-            ClientSession::setPublicAddress($this->user_id, $this->session_id, 0, 0);
-            // now setup the serv info
             $count = DBConnection::get()->query
             (
-                "DELETE FROM `" . DB_PREFIX . "servers` 
-                WHERE `ip`= :ip AND `port`= :port AND `hostid`= :id",
+                "UPDATE `" . DB_PREFIX ."client_sessions`
+                SET online = :online
+                WHERE uid = :id",
                 DBConnection::ROW_COUNT,
                 array
                 (
-                    ':ip'   => $ip,
-                    ':port' => $port,
-                    ':id'   => $this->user_id
+                    ':id'   => (int) $this->user_id,
+                    ':online' => ($online ? 1 : 0)
                 )
             );
-            if ($count != 1)
-                throw new UserException(_('Not the good number of servers deleted.'));
         }catch (DBException $e){
-            throw new UserException(
-                _('An error occurred while ending a server.') .' '.
-                _('Please contact a website administrator.')
-            );
+            throw new FriendException(
+                _('An unexpected error occured while updating your status.') . ' ' .
+                _('Please contact a website administrator.'));
         }
     }
+	
 
     /**
      * Generate a alphanumerical session id
@@ -514,7 +509,7 @@ class RegisteredClientSession extends ClientSession
      * @return RegisterdClientSession
      * @throws ClientSessionConnectException when credentials are wrong
      */
-    public static function create(&$username, $password = '')
+    public static function create($username, $password, $save_session)
     {
         try{      
             $result = Validate::credentials($username,$password);
@@ -531,14 +526,15 @@ class RegisteredClientSession extends ClientSession
                 $username = $result[0]["user"];
                 $count = DBConnection::get()->query
                 (
-                    "INSERT INTO `" . DB_PREFIX ."client_sessions` (cid, uid)
-                    VALUES (:session_id, :user_id) 
+                    "INSERT INTO `" . DB_PREFIX ."client_sessions` (cid, uid, save)
+                    VALUES (:session_id, :user_id, :save) 
                     ON DUPLICATE KEY UPDATE cid = :session_id, online = 1",
                     DBConnection::ROW_COUNT,
                     array
                     (
                         ':session_id'   => (string) $session_id,
-                        ':user_id'   => (int) $user_id
+                        ':user_id'   => (int) $user_id,
+                        ':save'   => ($save_session ? 1 : 0),
                     )
                 );
                 if ($count > 2 || $count < 0)
@@ -549,6 +545,54 @@ class RegisteredClientSession extends ClientSession
             throw new ClientSessionConnectException(
                 _('An unexpected error occured while creating your session.') . ' ' .
                 _('Please contact a website administrator.'));
+        }
+    }
+    
+    /**
+     *
+     * @param int $ip
+     * @param int $port
+     * @param string $server_name
+     * @param int $max_players
+     * @return Server
+     */
+    public function createServer($ip, $port, $server_name, $max_players)
+    {
+        ClientSession::setPublicAddress($this->user_id, $this->session_id, $ip, $port);
+        return Server::create($ip, $port, $this->user_id, $server_name, $max_players);
+    }
+    
+    /**
+     *
+     * @param int $ip
+     * @param int $port
+     * @throws UserException
+     */
+    public function stopServer($ip, $port)
+    {
+        try{
+            // empty the public ip:port
+            ClientSession::setPublicAddress($this->user_id, $this->session_id, 0, 0);
+            // now setup the serv info
+            $count = DBConnection::get()->query
+            (
+                    "DELETE FROM `" . DB_PREFIX . "servers`
+                WHERE `ip`= :ip AND `port`= :port AND `hostid`= :id",
+                    DBConnection::ROW_COUNT,
+                    array
+                    (
+                            ':ip'   => $ip,
+                            ':port' => $port,
+                            ':id'   => $this->user_id
+                    )
+            );
+            if ($count != 1)
+                throw new UserException(_('Not the good number of servers deleted.'));
+        }catch (DBException $e){
+            throw new UserException(
+                    _('An error occurred while ending a server.') .' '.
+                    _('Please contact a website administrator.')
+            );
         }
     }
     
@@ -734,23 +778,7 @@ class RegisteredClientSession extends ClientSession
     
     public function poll()
     {
-        try{
-            $count = DBConnection::get()->query
-            (
-                "UPDATE `" . DB_PREFIX ."client_sessions`
-                SET online = 1
-                WHERE uid = :id",
-                DBConnection::ROW_COUNT,
-                array
-                (
-                    ':id'   => (int) $this->user_id
-                )
-            );
-        }catch (DBException $e){
-            throw new FriendException(
-                _('An unexpected error occured during server polling.') . ' ' .
-                _('Please contact a website administrator.'));
-        }
+        $this->setOnline();
         $online_friends = $this->getOnlineFriends();
         $notifications = $this->getNotifications();
         $partial_output = new XMLOutput();
@@ -771,6 +799,7 @@ class RegisteredClientSession extends ClientSession
     
     public function hostVote($hostid, $vote)
     {
+        $vote = (int) $vote;
         if($vote != 1 || $vote != -1) 
             throw new ClientSessionException(_("Invalid vote. Your rating has to be either -1 or 1."));
         try{
