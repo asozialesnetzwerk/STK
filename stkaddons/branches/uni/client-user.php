@@ -217,7 +217,6 @@ try {
                 $token = isset($_POST['token']) ? $_POST['token'] : "";
                 $hostid = isset($_POST['hostid']) ? $_POST['hostid'] : 0;
                 $vote = isset($_POST['vote']) ? $_POST['vote'] : 0;
-                if($vote != 1) $vote = 0;
                 $new_rating = ClientSession::get($token, $userid)->hostVote($hostid, $vote);
                 $output->startElement('host-vote');
                 $output->writeAttribute('success','yes');

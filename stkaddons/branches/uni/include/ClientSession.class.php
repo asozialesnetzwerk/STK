@@ -771,7 +771,27 @@ class RegisteredClientSession extends ClientSession
     
     public function hostVote($hostid, $vote)
     {
-        //FIXME
+        if($vote != 1 || $vote != -1) 
+            throw new ClientSessionException(_("Invalid vote. Your rating has to be either -1 or 1."));
+        try{
+            $count2 = DBConnection::get()->query
+            (
+                "INSERT INTO `" . DB_PREFIX ."host_votes` (`userid`, `hostid`, `vote`)
+                VALUES (:userid, :hostid, :vote)
+                ON DUPLICATE KEY UPDATE `to` = :to",
+                DBConnection::ROW_COUNT,
+                array
+                (
+                        ':hostid'   => (int) $hostid,
+                        ':userid' => (int) $this->user_id,
+                        ':vote' => (int) $vote    
+                )
+            );
+        }catch (DBException $e){
+            throw new ClientSessionException(
+                    _('An unexpected error occured while casting your host vote.') . ' ' .
+                    _('Please contact a website administrator.'));
+        }
     }
 }
 ?>
