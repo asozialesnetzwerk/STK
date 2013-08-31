@@ -1,0 +1,56 @@
+Race track model by Ville Seppanen, scenery by Marianne Gagnon
+    released under Creative Commons BY-SA 3.0
+    (http://creativecommons.org/licenses/by/3.0/)
+
+Goat skull model and aoMapGoatv3.jpg based on work by brenner,
+    released under CC-BY 3.0
+    with modifications to the model by Marianne Gagnon
+
+Well model and well texture by Sean Greene (Iconoclast)
+    released under public domain
+
+Horse model based on work by Alex (waylow)
+    with modifications by Marianne Gagnon
+    released under CC-BY 3.0 (http://opengameart.org/content/blender-horse-rig-alex)
+
+corn.png
+    based on image by Jonathunder with modifications by Marianne Gagnon
+    CC-BY-SA 3 unported
+
+hay.png
+    based on public domain image by Scott Bauer and TT7001749 from BurningWell,
+    with modifications by Marianne Gagnon, released under CC-BY-SA 3.0+
+
+barn_wall, barn_window, leaf.png, earth.png
+    based on burningwell.org (public domain) images modified by
+    Varivar and Marianne Gagnon, released under CC-BY-SA 3.0+
+
+leave3.png : by Krzysztof P. Jasiutowicz 
+retrieved from http://commons.wikimedia.org/wiki/File:Lisc_lipy.jpg,
+    released under CC-BY-SA 3.0
+
+clouds in skycube by nicubunu, released in public domain
+
+gnarly tools and gnarly tool texture by Clint Bellanger
+    released under CC-BY-SA 3.0
+
+Wheat picture by Tarquin
+    Released under CC-BY-SA 3.0 Unported
+
+tail.png by Marianne Gagnon
+based on picture by "Girls hair"
+released under CC-BY-SA 3.0
+
+horse.png by Marianne Gagnon
+released under CC-BY-SA 3.0
+incorporting elements from pictures
+    WelshPonySectionD.jpg and WelshPonySectonB.jpg
+    by Hü
+    both released under CC-BY-SA 3.0
+
+stable model and mill by samuncle
+released under CC-BY-SA 3.0
+
+skybox.jpg by samuncle
+Based on http://commons.wikimedia.org/wiki/File:Wheat_fields_in_Ukraine-5966-98.jpg
+by Raimond Spekking released under CC-BY-SA 3.0
