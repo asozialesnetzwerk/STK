@@ -220,6 +220,7 @@ try {
             }
             catch(Exception $e){
                 //FIXME log?
+                echo "client-quit error";
             }
             break;
             
@@ -245,6 +246,18 @@ try {
                             $e->getMessage()
                     ));
                 $output->endElement();
+            }
+            break;
+            
+        case 'achieving':
+            try {
+                $userid = isset($_POST['userid']) ? $_POST['userid'] : 0;
+                $token = isset($_POST['token']) ? $_POST['token'] : "";
+                $achievementid = isset($_POST['achievementid']) ? $_POST['achievementid'] : 0;
+                ClientSession::get($token, $userid)->onAchieving($achievementid);
+            }
+            catch(Exception $e){
+                echo "achieving error";
             }
             break;
             

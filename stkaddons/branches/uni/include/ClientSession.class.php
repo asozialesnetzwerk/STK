@@ -822,5 +822,29 @@ class RegisteredClientSession extends ClientSession
                     _('Please contact a website administrator.'));
         }
     }
+    
+    public function onAchieving($achievementid)
+    {
+        if($achievementid < 1 || $achievementid > 10) //FIXME 10
+            throw new ClientSessionException(_("Invalid achievement id."));
+        try{
+            $count2 = DBConnection::get()->query
+            (
+                "INSERT INTO `" . DB_PREFIX ."achieved` (`userid`, `achievementid`)
+                VALUES (:userid, :achievementid)
+                ON DUPLICATE KEY UPDATE `userid` = :userid",
+                DBConnection::ROW_COUNT,
+                array
+                (
+                        ':achievementid'   => (int) $achievementid,
+                        ':userid' => (int) $this->user_id
+                )
+            );
+        }catch (DBException $e){
+            throw new ClientSessionException(
+                    _('An unexpected error occured while confirming your achievement.') . ' ' .
+                    _('Please contact a website administrator.'));
+        }
+    }
 }
 ?>
