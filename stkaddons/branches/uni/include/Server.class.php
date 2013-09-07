@@ -110,7 +110,7 @@ class Server
                 array
                 (
                     ':hostid'       => (int) $userid,
-                    ':ip'           => (int) $ip,
+                    ':ip'           =>       $ip, // do not use (int) or it truncates to 127.255.255.255
                     ':port'         => (int) $port,
                     ':name'         => (string) $server_name,
                     ':max_players'  => (int)    $max_players
