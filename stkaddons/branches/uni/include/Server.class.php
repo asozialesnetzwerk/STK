@@ -83,6 +83,7 @@ class Server
      */
     public static function create(  $ip,
                                     $port,
+                                    $private_port,
                                     $userid,
                                     $server_name,
                                     $max_players)
@@ -104,14 +105,15 @@ class Server
                 throw new ServerException(_('Specified server already exists.'));
             $result = DBConnection::get()->query
             (
-                "INSERT INTO `" . DB_PREFIX ."servers` (hostid, ip, port, name, max_players)
-                VALUES (:hostid, :ip, :port, :name, :max_players)",
+                "INSERT INTO `" . DB_PREFIX ."servers` (hostid, ip, port, private_port, name, max_players)
+                VALUES (:hostid, :ip, :port, :private_port, :name, :max_players)",
                 DBConnection::ROW_COUNT,
                 array
                 (
                     ':hostid'       => (int) $userid,
                     ':ip'           =>       $ip, // do not use (int) or it truncates to 127.255.255.255
                     ':port'         => (int) $port,
+                    ':private_port' => (int) $private_port,
                     ':name'         => (string) $server_name,
                     ':max_players'  => (int)    $max_players
                 )

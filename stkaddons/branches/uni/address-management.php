@@ -36,8 +36,9 @@ try {
                 $id = isset($_POST['id']) ? utf8_encode($_POST['id']) : null;
                 $token = isset($_POST['token']) ? utf8_encode($_POST['token']) : null;
                 $address = isset($_POST['address']) ? utf8_encode($_POST['address']) : null;
+                $private_port = isset($_POST['private_port']) ? utf8_encode($_POST['private_port']) : null;
                 $port = isset($_POST['port']) ? utf8_encode($_POST['port']) : null;
-                ClientSession::setPublicAddress($id, $token, $address, $port);
+                ClientSession::setPublicAddress($id, $token, $address, $port, $private_port);
                 
                 $output->startElement('address-management');
                     $output->writeAttribute('success','yes');
@@ -60,8 +61,9 @@ try {
                 $token = isset($_POST['token']) ? utf8_encode($_POST['token']) : null;
                 $address = isset($_POST['address']) ? utf8_encode($_POST['address']) : null;
                 $port = isset($_POST['port']) ? utf8_encode($_POST['port']) : null;
+                $private_port = isset($_POST['private_port']) ? utf8_encode($_POST['private_port']) : null;
                 $max_players = isset($_POST['max_players']) ? utf8_encode($_POST['max_players']) : null;
-                ClientSession::get($token, $id)->createServer($address, $port, "Temporary name", $max_players);
+                ClientSession::get($token, $id)->createServer($address, $port, $private_port, "Temporary name", $max_players);
                 
                 $output->startElement('start-server');
                     $output->writeAttribute('success','yes');
@@ -135,6 +137,7 @@ try {
                     $output->writeAttribute('info','');
                     $output->writeAttribute('ip', $result['ip']);
                     $output->writeAttribute('port', $result['port']);
+                    $output->writeAttribute('private_port', $result['private_port']);
                 $output->endElement();
             }
             catch(Exception $e){
@@ -159,6 +162,7 @@ try {
                     $output->writeAttribute('hostid',$result['hostid']);
                     $output->writeAttribute('ip',$result['ip']);
                     $output->writeAttribute('port',$result['port']);
+                    $output->writeAttribute('private_port', $result['private_port']);
                 $output->endElement();
             }
             catch(Exception $e){

@@ -212,24 +212,26 @@ abstract class ClientSession
      * @param string $token user token
      * @param int $ip user ip
      * @param int $port user port
+     * @param int $private_port the private port (for LANs and special NATs)
      * @throws UserException if the request fails
      */
-    public static function setPublicAddress($id, $token, $ip, $port)
+    public static function setPublicAddress($id, $token, $ip, $port, $private_port)
     {
         try{
             //Query the database to set the ip and port
             $count = DBConnection::get()->query
             (
                 "UPDATE `" . DB_PREFIX . "client_sessions`
-                SET `ip` = :ip , `port` = :port
+                SET `ip` = :ip , `port` = :port, `private_port` = :private_port
                 WHERE `uid` = :userid AND `cid` = :token",
                 DBConnection::ROW_COUNT,
                 array
                 (
-                    ':ip'       => $ip,
-                    ':port'     => $port,
-                    ':userid'   => $id,
-                    ':token'    => $token
+                    ':ip'           => $ip,
+                    ':port'         => $port,
+                    ':private_port' => $private_port,
+                    ':userid'       => $id,
+                    ':token'        => $token
                 )
             );
             // if count = 0 that may be a re-update of an existing key
@@ -294,7 +296,7 @@ abstract class ClientSession
             //Query the database to set the ip and port
             $result = DBConnection::get()->query
             (
-                "SELECT `ip`, `port`
+                "SELECT `ip`, `port`, `private_port`
                 FROM `" . DB_PREFIX . "client_sessions`
                 WHERE `uid` = :peerid",
                 DBConnection::FETCH_ALL,
@@ -353,7 +355,7 @@ abstract class ClientSession
             //Query the database to add the request entry
             $result = DBConnection::get()->query
             (
-                "SELECT `id`, `hostid`, `ip`, `port` FROM `" . DB_PREFIX . "servers`
+                "SELECT `id`, `hostid`, `ip`, `port`, `private_port` FROM `" . DB_PREFIX . "servers`
                 LIMIT 1",
                 DBConnection::FETCH_ALL,
                 array
@@ -556,10 +558,10 @@ class RegisteredClientSession extends ClientSession
      * @param int $max_players
      * @return Server
      */
-    public function createServer($ip, $port, $server_name, $max_players)
+    public function createServer($ip, $port, $private_port, $server_name, $max_players)
     {
-        ClientSession::setPublicAddress($this->user_id, $this->session_id, $ip, $port);
-        return Server::create($ip, $port, $this->user_id, $server_name, $max_players);
+        ClientSession::setPublicAddress($this->user_id, $this->session_id, $ip, $port, $private_port);
+        return Server::create($ip, $port, $private_port, $this->user_id, $server_name, $max_players);
     }
     
     /**
