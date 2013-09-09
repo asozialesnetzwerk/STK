@@ -301,7 +301,6 @@
   </object>
   <sun  fog="true" fog-color="21 43 75" fog-start="20.00" fog-end="160.00"/>
   <sky-color rgb="77 104 255"/>
-  <weather type="rain" />
   <sky-box texture="sky.jpg sky.jpg sky.jpg sky.jpg sky-m.jpg sky-m.jpg"/>
   <camera far="1000.0"/>
   <checks>
