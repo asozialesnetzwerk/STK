@@ -63,6 +63,9 @@ try {
                 $output->writeAttribute('token', $session->getSessionID());
                 $output->writeAttribute('username', htmlspecialchars($session->getUsername()));
                 $output->writeAttribute('userid', $session->getUserID());
+                $achievements_string = $session->getAchievements();
+                if ($achievements_string != "")
+                    $output->writeAttribute('achieved', $achievements_string);
                 $output->writeAttribute('info','');
                 $output->endElement();
                 
