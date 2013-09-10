@@ -86,10 +86,11 @@ abstract class ClientSession
      * Create new session
      * @param string $username user name (registered user or temporary nickname)
      * @param string $password password of registered user (optional)
+     * @param bool
      * @return ClientSession object
      * @throws InvalidArgumentException when username is not provided
      */
-    public static function create(&$username, $password = '')
+    public static function create($username, $password, $save_session)
     {
         if (empty($username)) {
             throw new InvalidArgumentException(_('Username required'));
@@ -99,7 +100,7 @@ abstract class ClientSession
             //return ClientSessionAnonymous::create($username);
         }
         else {
-            return RegisteredClientSession::create($username, $password);
+            return RegisteredClientSession::create($username, $password, $save_session);
         }
     }
     
@@ -509,6 +510,7 @@ class RegisteredClientSession extends ClientSession
      * Create session for registered user
      * @param string $username username
      * @param string $password password (plain)
+     * @param bool 
      * @return RegisterdClientSession
      * @throws ClientSessionConnectException when credentials are wrong
      */
@@ -833,7 +835,7 @@ class RegisteredClientSession extends ClientSession
     
     public function getAchievements($id = 0)
     {
-        if ($id = 0)
+        if ($id == 0)
             return Achievement::getAchievementsOf($this->user_id);
         else
             return Achievement::getAchievementsOf($id);

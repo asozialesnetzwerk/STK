@@ -37,7 +37,7 @@ class Achievement
             $result = DBConnection::get()->query
             (
                 "SELECT `achievementid` FROM " . DB_PREFIX ."achieved
-                WHERE `userid` = :user",
+                WHERE `userid` = :userid",
                 DBConnection::FETCH_ALL,
                 array
                 (

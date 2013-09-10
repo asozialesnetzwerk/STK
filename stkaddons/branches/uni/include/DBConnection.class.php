@@ -4,7 +4,7 @@ require_once(ROOT . 'config.php');
 
 class DBException extends Exception 
 {
-    private function __construct($error_code = "") {
+    public function __construct($error_code = "") {
         $this->error_code = $error_code;
     }
     
@@ -94,6 +94,7 @@ class DBConnection
                 }
             }
             if (DEBUG_MODE){
+                var_dump($e->errorInfo);
                 printf("SQLSTATE ERR: %s<br />\nmySQL ERR: %s<br />\nMessage: %s<br />\n",$e->errorInfo[0], $e->errorInfo[1], $e->errorInfo[2]);
             }
             throw new DBException($e->errorInfo[0]);

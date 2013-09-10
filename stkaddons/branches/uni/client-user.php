@@ -57,13 +57,13 @@ try {
             try {
                 $password = isset($_POST['password']) ? utf8_encode($_POST['password']) : "";
                 $username = isset($_POST['username']) ? utf8_encode($_POST['username']) : "";
-                $session = ClientSession::create($username, $password);
+                $session = ClientSession::create($username, $password, false); //FIXME 
+                $achievements_string = $session->getAchievements();
                 $output->startElement('connect');
                 $output->writeAttribute('success','yes');
                 $output->writeAttribute('token', $session->getSessionID());
                 $output->writeAttribute('username', htmlspecialchars($session->getUsername()));
                 $output->writeAttribute('userid', $session->getUserID());
-                $achievements_string = $session->getAchievements();
                 if ($achievements_string != "")
                     $output->writeAttribute('achieved', $achievements_string);
                 $output->writeAttribute('info','');
@@ -163,12 +163,11 @@ try {
                 $token = isset($_POST['token']) ? $_POST['token'] : "";
                 $session = ClientSession::get($token, $userid);
                 $visitingid = isset($_POST['visitingid']) ? $_POST['visitingid'] : 0;
-                $friends_xml = $session->getFriendsOf($visitingid);
+                $achievements_string = $session->getAchievements($visitingid);
                 $output->startElement('get-achievements');
                 $output->writeAttribute('success','yes');
                 $output->writeAttribute('info','');
                 $output->writeAttribute('visitingid', $visitingid);
-                $achievements_string = $session->getAchievements();
                 if ($achievements_string != "")
                     $output->writeAttribute('achieved', $achievements_string);
                 $output->endElement();
