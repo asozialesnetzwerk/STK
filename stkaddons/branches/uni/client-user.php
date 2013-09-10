@@ -157,6 +157,34 @@ try {
         
             break;
             
+        case 'get-achievements':
+            try {
+                $userid = isset($_POST['userid']) ? $_POST['userid'] : 0;
+                $token = isset($_POST['token']) ? $_POST['token'] : "";
+                $session = ClientSession::get($token, $userid);
+                $visitingid = isset($_POST['visitingid']) ? $_POST['visitingid'] : 0;
+                $friends_xml = $session->getFriendsOf($visitingid);
+                $output->startElement('get-achievements');
+                $output->writeAttribute('success','yes');
+                $output->writeAttribute('info','');
+                $output->writeAttribute('visitingid', $visitingid);
+                $achievements_string = $session->getAchievements();
+                if ($achievements_string != "")
+                    $output->writeAttribute('achieved', $achievements_string);
+                $output->endElement();
+            }
+            catch(Exception $e){
+                $output->startElement('get-friends-list');
+                $output->writeAttribute('success','no');
+                $output->writeAttribute('info',
+                        htmlspecialchars(
+                                $e->getMessage()
+                        ));
+                $output->endElement();
+            }
+        
+            break;
+            
         case 'get-addon-vote':
             try {
                 $userid = isset($_POST['userid']) ? $_POST['userid'] : 0;

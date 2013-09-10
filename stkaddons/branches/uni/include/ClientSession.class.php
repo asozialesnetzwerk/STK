@@ -831,9 +831,12 @@ class RegisteredClientSession extends ClientSession
         Achievement::achieve($this->user_id, $achievementid);
     }
     
-    public function getAchievements()
+    public function getAchievements($id = 0)
     {
-        return Achievement::getAchievementsOf($this->user_id);
-    }
+        if ($id = 0)
+            return Achievement::getAchievementsOf($this->user_id);
+        else
+            return Achievement::getAchievementsOf($id);
+    }   
 }
 ?>
