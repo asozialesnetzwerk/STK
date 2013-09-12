@@ -248,10 +248,19 @@ try {
                 $userid = isset($_POST['userid']) ? $_POST['userid'] : 0;
                 $token = isset($_POST['token']) ? $_POST['token'] : "";
                 ClientSession::get($token, $userid)->clientQuit();
-                echo "client-quit check";
+                $output->startElement('client-quit');
+                $output->writeAttribute('success','yes');
+                $output->writeAttribute('info','');
+                $output->endElement();
             }
             catch(Exception $e){
-                echo "client-quit error";
+                $output->startElement('client-quit');
+                $output->writeAttribute('success','no');
+                $output->writeAttribute('info',
+                    htmlspecialchars(
+                        $e->getMessage()
+                    ));
+                $output->endElement();
             }
             break;
             
