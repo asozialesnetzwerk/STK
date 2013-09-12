@@ -167,7 +167,8 @@ abstract class ClientSession
     	        WHERE `cid` = :session_id AND uid = :user_id",
                 DBConnection::ROW_COUNT,
                 array(
-                    ':user_id'    => (int) $this->user_id
+                    ':user_id'    => (int) $this->user_id,
+                    ':session_id'   => (string) $this->session_id
                 )
             );
         }catch(DBException $e){

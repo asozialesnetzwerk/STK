@@ -247,10 +247,10 @@ try {
             try {
                 $userid = isset($_POST['userid']) ? $_POST['userid'] : 0;
                 $token = isset($_POST['token']) ? $_POST['token'] : "";
-                $new_rating = ClientSession::get($token, $userid)->clientQuit();
+                ClientSession::get($token, $userid)->clientQuit();
+                echo "client-quit check";
             }
             catch(Exception $e){
-                //FIXME log?
                 echo "client-quit error";
             }
             break;
