@@ -458,7 +458,7 @@ try {
             
         case 'disconnect':
             try {
-                $userid = isset($_POST['userid']) ? $_POST['userid'] : "";
+                $userid = isset($_POST['userid']) ? $_POST['userid'] : 0;
                 $token = isset($_POST['token']) ? $_POST['token'] : "";
                 ClientSession::get($token, $userid)->destroy();
                 $output->startElement('disconnect');
@@ -479,10 +479,10 @@ try {
             
         case 'create_server':
             try {
-                $userid = isset($_POST['userid']) ? $_POST['userid'] : "";
+                $userid = isset($_POST['userid']) ? $_POST['userid'] : 0;
                 $token = isset($_POST['token']) ? $_POST['token'] : "";
                 $server_name = isset($_POST['name']) ? utf8_encode($_POST['name']) : "";
-                $max_players = isset($_POST['max_players']) ? $_POST['max_players'] : "";
+                $max_players = isset($_POST['max_players']) ? $_POST['max_players'] : 0;
                 $server = ClientSession::get($token, $userid)->createServer(0, 0, $server_name, $max_players);           
                 $output->startElement('server_creation');
                     $output->writeAttribute('success','yes');
@@ -552,6 +552,31 @@ try {
                 $output->endElement();
             }
             break;
+            
+        case 'change_password':
+            try {
+                $userid = isset($_POST['userid']) ? $_POST['userid'] : 0;
+                $current = isset($_POST['current']) ? $_POST['current'] : "";
+                $new1 = isset($_POST['new1']) ? $_POST['new1'] : "";
+                $new2 = isset($_POST['new2']) ? $_POST['new2'] : "";
+                verifyAndChangePassword($current, $new1, $new2, $userid);
+                $output->startElement('change_password');
+                    $output->writeAttribute('success','yes');
+                    $output->writeAttribute('info','');
+                $output->endElement();
+        
+            }
+            catch(Exception $e){
+                $output->startElement('change_password');
+                    $output->writeAttribute('success','no');
+                    $output->writeAttribute('info',
+                        htmlspecialchars(
+                                $e->getMessage()
+                        ));
+                $output->endElement();
+            }
+            break;
+            
 
         default:
             $output->startElement('request');
@@ -563,6 +588,7 @@ try {
             $output->endElement();
             break;
     }
+
 }
 catch (Exception $e) {
     $output->startElement('request');

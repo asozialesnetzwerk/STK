@@ -226,6 +226,38 @@ class User
         }
     }
     
+    static function verifyAndChangePassword($current, $new1, $new2, $userid)
+    {
+        try{
+            DBConnection::get()->beginTransaction();
+            $count = DBConnection::get()->query(
+                "SELECT `id`
+                FROM `" . DB_PREFIX . "users`
+                WHERE `id` = :userid AND `pass` = :pass",
+                DBConnection::ROW_COUNT,
+                array
+                (
+                    ':userid'   => Validate::username($username),
+                    ':pass'   => Validate::password($current, null, null, $userid)
+                )
+            );
+
+            if($count < 1)
+                throw new UserException(htmlspecialchars(_('Current password invalid.')));
+                
+            $hashed = Validate::password($new1, $new2);
+            User::change_password($new_hashed, $userid);
+            DBConnection::get()->commit();
+        
+        }catch(DBException $e){
+            throw new UserException(htmlspecialchars(
+                    _('An error occured while trying to change your password.') .' '.
+                    _('Please contact a website administrator.')
+            ));
+        }
+        
+    }
+    
     /**
      * Activate a new user
      * @param int $userid

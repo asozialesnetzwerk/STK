@@ -89,7 +89,7 @@ class Validate {
         return htmlspecialchars($username);
     }
     
-    public static function password($password1, $password2 = NULL, $username = NULL) {
+    public static function password($password1, $password2 = NULL, $username = NULL, $userid = NULL) {
         // Check password properties
         if (strlen($password1) < 8) {
             throw new UserException(htmlspecialchars(_('Your password must be at least 8 characters long.')));
@@ -101,21 +101,34 @@ class Validate {
         }
         // Salt password
         $salt_length = 32;
-        if ($username === NULL)
+        if ($username === NULL && $userid === NULL)
             $salt = md5(uniqid(NULL,true));
         else {
             // Get current user password entry to get salt
             
             try{
-                $result = DBConnection::get()->query(
-                    "SELECT `pass` 
-        	        FROM `". DB_PREFIX . "users`
-        	        WHERE `user` = :username",
-                    DBConnection::FETCH_ALL,
-                    array(
-                        ':username'   => $username
-                    )
-                );
+                if($userid === NULL)
+                {
+                    $result = DBConnection::get()->query(
+                        "SELECT `pass` 
+            	        FROM `". DB_PREFIX . "users`
+            	        WHERE `user` = :username",
+                        DBConnection::FETCH_ALL,
+                        array(
+                            ':username'   => $username
+                        )
+                    );
+                }else{
+                    $result = DBConnection::get()->query(
+                        "SELECT `pass`
+            	        FROM `". DB_PREFIX . "users`
+            	        WHERE `id` = :userid",
+                        DBConnection::FETCH_ALL,
+                        array(
+                            ':userid'   => (int) $userid
+                        )
+                    );
+                }
             }catch(DBException $e){
                 throw new UserException(htmlspecialchars(
                     _('An error occurred trying to validate your password.') .' '.
