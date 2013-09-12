@@ -57,7 +57,8 @@ try {
             try {
                 $password = isset($_POST['password']) ? utf8_encode($_POST['password']) : "";
                 $username = isset($_POST['username']) ? utf8_encode($_POST['username']) : "";
-                $session = ClientSession::create($username, $password, false); //FIXME 
+                $save_session = isset($_POST['save-session']) ? utf8_encode($_POST['save-session']) : "";
+                $session = ClientSession::create($username, $password, $save_session == "true");
                 $achievements_string = $session->getAchievements();
                 $output->startElement('connect');
                 $output->writeAttribute('success','yes');

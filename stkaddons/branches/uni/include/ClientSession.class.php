@@ -524,10 +524,8 @@ class RegisteredClientSession extends ClientSession
             }elseif ($size > 1) {
                 throw new DBException();
             }else{
-                User::updateLoginTime($result[0]['id']);
                 $session_id = ClientSession::calcSessionId();
                 $user_id = $result[0]["id"];
-                //$role = $result[0]["role"];
                 $username = $result[0]["user"];
                 $count = DBConnection::get()->query
                 (
@@ -544,6 +542,7 @@ class RegisteredClientSession extends ClientSession
                 );
                 if ($count > 2 || $count < 0)
                     throw new DBException();
+                User::updateLoginTime($result[0]['id']);
                 return new RegisteredClientSession($session_id, $user_id, $username);
             }
         }catch (DBException $e){
