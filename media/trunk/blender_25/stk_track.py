@@ -2233,7 +2233,20 @@ class TrackExport:
             #if type == "lod_instance" or type == "lod_model" or type == "single_lod":
             #    interact = "static"
             
-            if interact=="static" or interact=="reset" or type == "lod_model" or interact=="explode" or interact=="flatten" or interact=="physicsonly":
+            export_non_static = False
+            if getObjectProperty(obj, "forcedbloom", "false") == "true":
+                export_non_static = True
+            
+            if len(getObjectProperty(obj, "outline", "")) > 0:
+                export_non_static = True
+                
+            if getObjectProperty(obj, "displacing", "false") == "true":
+                export_non_static = True
+                
+            if getObjectProperty(obj, "skyboxobject", "false") == "true":
+               export_non_static = True
+            
+            if not export_non_static and (interact=="static" or interact=="reset" or type == "lod_model" or interact=="explode" or interact=="flatten" or interact=="physicsonly"):
                 
                 ipo      = obj.animation_data
                 if obj.parent is not None and obj.parent.type=="ARMATURE" and obj.parent.animation_data is not None:
