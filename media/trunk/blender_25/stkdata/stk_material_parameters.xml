@@ -46,9 +46,10 @@
         
 
         <!-- Graphical effect -->
-        <EnumProp id="graphical_effect" name="Graphical Effect" default="none" doc="elect a special graphical effect">
+        <EnumProp id="graphical_effect" name="Graphical Effect" default="none" doc="Select a special graphical effect">
             <EnumChoice id="none" label="None"/>
             <EnumChoice id="bubble" label="Bubble (wavy texture)"/>
+            <EnumChoice id="caustics" label="Caustics (STK 0.8.2)" doc="Water bottom light effects"/>
             <EnumChoice id="grass" label="Grass">
                 <FloatProp id="grass_speed" name="Grass speed" default="1.5" min="0.0" max="5.0"
                         doc="Speed modifier for grass"/>

@@ -385,6 +385,7 @@
             
             <BoolProp id="forcedbloom" name="Glow (bloom) (STK 0.8.2)" default="false" doc="Enable a bloom effect on this particular object, making it glow"/>
             <ColorProp id="outline" name="Glow (outline) (STK 0.8.2)" default="" doc="Enable a glowing outline on this particular object"/>
+            <BoolProp id="displacing" name="Refraction/reflection (STK 0.8.2)" default="false" doc="Enable an aquarium type effect on this material, appropriate for glasses behind which there is water"/>
         </EnumChoice>
         
         <!-- Particle emitter -->

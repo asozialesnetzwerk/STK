@@ -1896,58 +1896,53 @@ class TrackExport:
         # are cached so it can be avoided to export two or more identical
         # objects.
         parent = obj.parent
+        
+        flags = []
+        
         # For now: armature animations are assumed to be looped
         if parent and parent.type=="ARMATURE":
-            looped =" looped=\"y\" "
-        else:
-            looped = ""
+            flags.append('looped="y"')
             
         interaction = getObjectProperty(obj, "interaction", 'static')
+        flags.append('interaction="%s"' % interaction)
+        
         shape = getObjectProperty(obj, "shape", "")
-        shape_str = ""
         if shape and interaction != 'ghost':
-            shape_str = "shape=\"%s\""%shape
+            flags.append('shape="%s"'%shape)
+            
         if not ipo: ipo=[]
 
         lodstring = self.getLODString(obj)
+        if len(lodstring) > 0:
+            flags.append(lodstring)
         
         type = getObjectProperty(obj, "type", "")
-        if type == "lod_instance":
-            model_string = ""
-        else:
-            model_string = "model=\"%s\" " % name
+        if type != "lod_instance":
+            flags.append('model="%s"' % name)
         
         if interaction == 'reset':
-            reset_string = " reset=\"y\""
+            flags.append('reset="y"')
         elif interaction == 'explode':
-            reset_string = " explode=\"y\""
+            flags.append('explode="y"')
         elif interaction == 'flatten':
-            reset_string = " flatten=\"y\""
-        else:
-            reset_string = ""
+            flags.append('flatten="y"')
         
-        interaction_string = ' interaction="' + interaction + '"'
-        
-        tangent_string = ""
         if getObjectProperty(obj, "tangents", "false") == "true":
-            tangent_string="tangents=\"true\" "
+            flags.append('tangents="true"')
         
-        bloom_string = ""
         if getObjectProperty(obj, "forcedbloom", "false") == "true":
-            bloom_string = "forcedbloom=\"true\" "
+            flags.append('forcedbloom="true"')
         
-        outline_string = ""
         if len(getObjectProperty(obj, "outline", "")) > 0:
-            outline_string = "glow=\"%s\" "%getObjectProperty(obj, "outline", "")
+            flags.append('glow="%s"'%getObjectProperty(obj, "outline", ""))
+            
+        if getObjectProperty(obj, "displacing", "false") == "true":
+            flags.append('displacing="true"')
             
         if parent and parent.type=="ARMATURE":
-            f.write("  <object type=\"%s\" %s%s %s%s%s%s%s%s%s%s>\n"% \
-                    (objectType, model_string, getXYZHPRString(parent), shape_str, looped,
-                        lodstring, reset_string, tangent_string, interaction_string, bloom_string, outline_string))
+            f.write("  <object type=\"%s\" %s %s>\n"% (objectType, getXYZHPRString(parent), ' '.join(flags)))
         else:
-            f.write("  <object type=\"%s\" %s%s %s%s%s%s%s%s%s%s>\n"% \
-                    (objectType, model_string, getXYZHPRString(obj), shape_str, looped,
-                        lodstring, reset_string, tangent_string, interaction_string, bloom_string, outline_string))
+            f.write("  <object type=\"%s\" %s %s>\n"% (objectType, getXYZHPRString(obj), ' '.join(flags)))
         writeIPO(f, ipo)
         f.write("  </object>\n")
         
@@ -1986,12 +1981,12 @@ class TrackExport:
                     exportedModelfFilename3 = self.exportLocalB3D(obj, sPath, (b3d_name[:-4] + '_mid'), False)
                     model_string3 =  " model=\"%s\""%(b3d_name[:-4] + '_mid')
                     lodstring3 = ' lod_distance="' + str(getObjectProperty(obj, "lod_distance", 60.0)) + '" lod_group="_single_lod_' + name + '"'
-                    f.write("    <static-object%s model=\"%s\" %s interaction=\"%s\"/> <!-- writeStaticObjects -->\n" % (lodstring3, exportedModelfFilename3, getXYZHPRString(obj), getObjectProperty(obj, "interaction", "static")) )
+                    f.write("    <static-object%s model=\"%s\" %s interaction=\"%s\"/>\n" % (lodstring3, exportedModelfFilename3, getXYZHPRString(obj), getObjectProperty(obj, "interaction", "static")) )
  
  
                 model_string2 =  " model=\"%s\""%b3d_name
                 lodstring2 = ' lod_distance="' + loddistance + '" lod_group="_single_lod_' + name + '"'
-                f.write("    <static-object%s%s %s interaction=\"%s\"/> <!-- writeStaticObjects -->\n" % (lodstring2, model_string2, getXYZHPRString(obj), getObjectProperty(obj, "interaction", "static")) )
+                f.write("    <static-object%s%s %s interaction=\"%s\"/>\n" % (lodstring2, model_string2, getXYZHPRString(obj), getObjectProperty(obj, "interaction", "static")) )
                 
                 
                 model_string = ""
@@ -2036,13 +2031,13 @@ class TrackExport:
                 physicsonly_string = ""
             
             if lAnim:
-                f.write("    <static-object%s%s %s%s%s%s%s%s> <!-- writeStaticObjects 2 -->\n"% \
+                f.write("    <static-object%s%s %s%s%s%s%s%s>\n"% \
                         (lodstring, model_string, getXYZHPRString(obj), reset_string,
                          condition_if_str, condition_ifnot_str, tangent_string, physicsonly_string) )
                 writeAnimatedTextures(f, lAnim)
                 f.write("    </static-object>\n")
             else:
-                f.write("    <static-object%s%s %s%s%s%s%s%s%s/> <!-- writeStaticObjects 3 -->\n"% \
+                f.write("    <static-object%s%s %s%s%s%s%s%s%s/>\n"% \
                         (lodstring, model_string, getXYZHPRString(obj), reset_string,
                          condition_if_str, condition_ifnot_str, challenge_str, tangent_string, physicsonly_string) )
         writeAnimatedTextures(f, lAnimTextures)
@@ -2113,30 +2108,32 @@ class TrackExport:
                             % obj.name)
                 shape="box"
             mass  = getObjectProperty(obj, "mass", 10)
+            
+            flags = []
+            
             lodstring = self.getLODString(obj)
+            if len(lodstring) > 0:
+                flags.append(lodstring)
             
             type = getObjectProperty(obj, "type", "?")
             
-            if type == "lod_instance":
-                model_string = ""
-            else:
-                model_string = "model=\"%s\" " % b3d_name
+            if type != "lod_instance":
+                flags.append('model="%s"' % b3d_name)
             
-            tangent_string = ""
             if getObjectProperty(obj, "tangents", "false") == "true":
-                tangent_string=" tangents=\"true\" "
+                flags.append('tangents="true"')
             
-            bloom_string = ""
             if getObjectProperty(obj, "forcedbloom", "false") == "true":
-                bloom_string = " forcedbloom=\"true\" "
+                flags.append('forcedbloom="true"')
             
-            outline_string = ""
             if len(getObjectProperty(obj, "outline", "")) > 0:
-                outline_string = " glow=\"%s\" "%getObjectProperty(obj, "outline", "")
+                flags.append('glow="%s"'%getObjectProperty(obj, "outline", ""))
                 
-            f.write("  <object type=\"movable\" %s\n"%(getXYZHPRString(obj)))
-            f.write("          %sshape=\"%s\" mass=\"%s\"%s%s%s%s/>\n"\
-                    % (model_string, shape, mass, lodstring, tangent_string, bloom_string, outline_string))
+            if getObjectProperty(obj, "displacing", "false") == "true":
+                flags.append('displacing="true"')
+              
+            f.write('  <object type="movable" %s\n'% getXYZHPRString(obj))
+            f.write('          shape="%s" mass="%s" %s/>\n' % (shape, mass, ' '.join(flags)))
             
         # Now the object either has an IPO, or is a 'ghost' object.
         # Either can have an IPO. Even if the objects don't move
