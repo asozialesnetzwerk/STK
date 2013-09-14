@@ -559,7 +559,7 @@ try {
                 $current = isset($_POST['current']) ? $_POST['current'] : "";
                 $new1 = isset($_POST['new1']) ? $_POST['new1'] : "";
                 $new2 = isset($_POST['new2']) ? $_POST['new2'] : "";
-                verifyAndChangePassword($current, $new1, $new2, $userid);
+                User::verifyAndChangePassword($current, $new1, $new2, $userid);
                 $output->startElement('change_password');
                     $output->writeAttribute('success','yes');
                     $output->writeAttribute('info','');

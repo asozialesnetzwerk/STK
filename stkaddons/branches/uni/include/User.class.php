@@ -237,7 +237,7 @@ class User
                 DBConnection::ROW_COUNT,
                 array
                 (
-                    ':userid'   => Validate::username($username),
+                    ':userid'   => (int) $userid,
                     ':pass'   => Validate::password($current, null, null, $userid)
                 )
             );
@@ -245,7 +245,7 @@ class User
             if($count < 1)
                 throw new UserException(htmlspecialchars(_('Current password invalid.')));
                 
-            $hashed = Validate::password($new1, $new2);
+            $new_hashed = Validate::password($new1, $new2);
             User::change_password($new_hashed, $userid);
             DBConnection::get()->commit();
         
