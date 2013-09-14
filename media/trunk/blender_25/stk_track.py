@@ -1820,6 +1820,8 @@ class TrackExport:
         smooth_normals  = getSceneProperty(scene, "smooth_normals", "false")
         has_bloom       = (getSceneProperty(scene, "bloom", "false") == "true")
         bloom_threshold = getSceneProperty(scene, "bloom_threshold", "0.75")
+        has_cloud_shadows = (getSceneProperty(scene, "clouds", "false") == "true")
+        has_lens_flare  = (getSceneProperty(scene, "sunlensflare", "false") == "true")
         
         # Add default settings for sky-dome so that the user is aware of
         # can be set.
@@ -1881,6 +1883,12 @@ class TrackExport:
         if has_bloom:
             f.write("        bloom          = \"Y\"\n")
             f.write("        bloom-threshold = \"%s\"\n" % bloom_threshold)
+        
+        if has_cloud_shadows:
+            f.write("        clouds         = \"Y\"\n")
+        
+        if has_lens_flare:
+            f.write("        lens-flare     = \"Y\"\n")
         
         f.write(">\n")
         f.write("</track>\n")
