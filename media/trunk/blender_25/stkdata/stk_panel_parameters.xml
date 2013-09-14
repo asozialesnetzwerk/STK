@@ -61,7 +61,9 @@
     </BoolProp>
     <BoolProp id="clouds" name="Cloud shadows (STK 0.8.2)" default="false" doc="Whether to add simulated cloud shadows on the ground">
     </BoolProp>
+    <BoolProp id="shadows" name="Dynamic shadows (STK 0.8.2)" default="false" doc="Whether to enable dynamic shadows"/>
     <BoolProp id="sunlensflare" name="Sun lens flare (STK 0.8.2)" default="false" doc="Show lens flare when looking at the sun"/>
+    <BoolProp id="sungodrays" name="Sun god rays (STK 0.8.2)" default="false" doc="Show god rays when looking at the sun"/>
 </BoolProp>
 
 <!-- ************ KART ************ -->

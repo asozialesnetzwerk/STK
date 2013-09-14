@@ -1822,6 +1822,8 @@ class TrackExport:
         bloom_threshold = getSceneProperty(scene, "bloom_threshold", "0.75")
         has_cloud_shadows = (getSceneProperty(scene, "clouds", "false") == "true")
         has_lens_flare  = (getSceneProperty(scene, "sunlensflare", "false") == "true")
+        has_shadows     = (getSceneProperty(scene, "shadows", "false") == "true")
+        has_god_rays    = (getSceneProperty(scene, "sungodrays", "false") == "true")
         
         # Add default settings for sky-dome so that the user is aware of
         # can be set.
@@ -1890,6 +1892,13 @@ class TrackExport:
         if has_lens_flare:
             f.write("        lens-flare     = \"Y\"\n")
         
+        if has_shadows:
+            f.write("        shadows        = \"Y\"\n")
+        
+        if has_god_rays:
+            f.write("        god-rays       = \"Y\"\n")
+        
+        
         f.write(">\n")
         f.write("</track>\n")
         f.close()
@@ -1946,6 +1955,9 @@ class TrackExport:
             
         if getObjectProperty(obj, "displacing", "false") == "true":
             flags.append('displacing="true"')
+            
+        if getObjectProperty(obj, "skyboxobject", "false") == "true":
+            flags.append('renderpass="skybox"')
             
         if parent and parent.type=="ARMATURE":
             f.write("  <object type=\"%s\" %s %s>\n"% (objectType, getXYZHPRString(parent), ' '.join(flags)))
@@ -2139,7 +2151,11 @@ class TrackExport:
                 
             if getObjectProperty(obj, "displacing", "false") == "true":
                 flags.append('displacing="true"')
-              
+            
+            if getObjectProperty(obj, "skyboxobject", "false") == "true":
+                flags.append('renderpass="skybox"')
+            
+            
             f.write('  <object type="movable" %s\n'% getXYZHPRString(obj))
             f.write('          shape="%s" mass="%s" %s/>\n' % (shape, mass, ' '.join(flags)))
             
