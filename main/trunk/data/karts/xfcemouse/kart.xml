@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<kart name="Xfce mouse" version="2" model-file="xfce mouse.b3d" icon-file="xfce_icon64.png" minimap-icon-file="xfce_icon32.png" shadow-file="shadow.png" random-wheel-rot="true" center-shift="0.30" groups="Add-Ons" rgb="0.03 0.40 1.00" revision="2">
+    <sounds engine="large"/>
+    <animations left="19" straight="39" right="59" start-winning="79" start-winning-loop="159" end-winning="189" start-losing="219" start-losing-loop="259" end-losing="289"/>
+    <wheels/>
+</kart>
