@@ -21,6 +21,12 @@
     released under CC-BY 3.0
     Based on work by Daniel Simion and BlastwaveFx
     
+* bubblegum_explode.ogg
+    released under CC-BY 3.0
+    Based on work by Percy Duke and jjhouse4
+    http://www.freesound.org/people/Percy%20Duke/sounds/23297/
+    http://www.freesound.org/people/jjhouse4/sounds/197990/
+    
 * bzzt
     Released under the GNU GPL, coming from original (Super)TuxKart
 
