@@ -2390,7 +2390,7 @@ class TrackExport:
         #print bsys.time()-start_time,"seconds"
 
     
-    def __init__(self, sFilename, exportImages):
+    def __init__(self, sFilename, exportImages, exportDrivelines, exportScene, exportMaterials):
         self.dExportedObjects = {}
         
         sBase = os.path.basename(sFilename)
@@ -2483,7 +2483,8 @@ class TrackExport:
 
         # Now export the different parts: track file
         # ------------------------------------------
-        self.writeTrackFile(sPath, sBase)
+        if exportScene:
+            self.writeTrackFile(sPath, sBase)
     
         # Quads and mapping files
         # -----------------------
@@ -2500,7 +2501,7 @@ class TrackExport:
         is_soccer = not (is_soccer[0]=="n" or is_soccer[0]=="N" or \
                          is_soccer[0]=="f" or is_soccer[0]=="F"     )
                         
-        if not is_arena and not is_soccer and not is_cutscene:
+        if exportDrivelines and not is_arena and not is_soccer and not is_cutscene:
             drivelineExporter.writeQuadAndGraph(sPath)
         #start_time = bsys.time()
 
@@ -2514,9 +2515,10 @@ class TrackExport:
             log_error("Cannot find the B3D exporter, make sure you installed it properly")
             return
         
-        bpy.ops.screen.b3d_export(localsp=False, mipmap=True, lights=False, vcolors=True,
-                                  vnormals=True, cameras=False, filepath=sPath+"/"+sTrackName,
-                                  overwrite_without_asking=True)
+        if exportScene:
+            bpy.ops.screen.b3d_export(localsp=False, mipmap=True, lights=False, vcolors=True,
+                                    vnormals=True, cameras=False, filepath=sPath+"/"+sTrackName,
+                                    overwrite_without_asking=True)
         scene.obj_list = []
         
         #write_b3d_file(sFilename+"_track.b3d")
@@ -2526,10 +2528,9 @@ class TrackExport:
     
         # scene file
         # ----------
-
-        self.writeSceneFile(sPath, sTrackName, exporters, lTrack, lObjects, lSun)
-        
-        self.writeEasterEggsFile(sPath, lEasterEggs)
+        if exportScene:
+            self.writeSceneFile(sPath, sTrackName, exporters, lTrack, lObjects, lSun)
+            self.writeEasterEggsFile(sPath, lEasterEggs)
         
         # materials file
         # ----------
@@ -2537,7 +2538,8 @@ class TrackExport:
             log_error("Cannot find the material exporter, make sure you installed it properly")
             return
         
-        bpy.ops.screen.stk_material_exporter(filepath=sPath)
+        if exportMaterials:
+            bpy.ops.screen.stk_material_exporter(filepath=sPath)
 
         import datetime
         now = datetime.datetime.now()
@@ -2547,11 +2549,11 @@ class TrackExport:
 
         
 # ==============================================================================
-def savescene_callback(sFilename, exportImages):
+def savescene_callback(sFilename, exportImages, exportDrivelines, exportScene, exportMaterials):
     global log
     log = []
     
-    TrackExport(sFilename, exportImages)
+    TrackExport(sFilename, exportImages, exportDrivelines, exportScene, exportMaterials)
 
 thelist = []
 def getlist(self):
@@ -2568,7 +2570,10 @@ class STK_Track_Export_Operator(bpy.types.Operator):
     bl_label = ("SuperTuxKart Track Export")
     filepath = bpy.props.StringProperty(subtype="FILE_PATH")
     exportImages = bpy.props.BoolProperty(name="Copy texture files")
-
+    exportScene = bpy.props.BoolProperty(name="Export scene", default=True)
+    exportDrivelines = bpy.props.BoolProperty(name="Export drivelines", default=True)
+    exportMaterials = bpy.props.BoolProperty(name="Export materials", default=True)
+    
     def invoke(self, context, event):
         if bpy.context.mode != 'OBJECT':
             self.report({'ERROR'}, "You must be in object mode")
@@ -2612,7 +2617,7 @@ class STK_Track_Export_Operator(bpy.types.Operator):
         #        a custom scene property
         bpy.types.Scene.obj_list = property(getlist, setlist)
         
-        savescene_callback(self.filepath, self.exportImages)
+        savescene_callback(self.filepath, self.exportImages, self.exportDrivelines, self.exportScene, self.exportMaterials)
         return {'FINISHED'}
 
 
