@@ -318,6 +318,13 @@ def exportKart(path):
     saveAnimations(f)
     saveWheels(f, lWheels, path)
     saveNitroEmitter(f, lNitroEmitter, path)
+    
+    hat_offset = "0.0 1.0 0.0"
+    if 'hat_offset' in the_scene and len(the_scene['hat_offset']) > 0:
+        hat_offset = the_scene['hat_offset']
+    
+    f.write('     <hat offset="' + hat_offset + '"/>\n')
+    
     f.write('</kart>\n')
     f.close()
 

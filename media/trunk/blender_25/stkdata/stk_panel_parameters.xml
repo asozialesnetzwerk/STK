@@ -81,7 +81,7 @@
         <EnumChoice id="small" label="Small"/>
     </EnumProp>  
     
-    
+    <StringProp id="hat_offset" name="Hat offset" default="0.0 1.0 0.0" doc="Where to place hat relative to bone named Head"/>
     <BoolProp id="random_wheel_rot" name="Randomize wheel rotation" default="true" doc="Randomize the initial rotation of wheels to reduce the feeling that all wheels are identical"/>
 </BoolProp>
 </Properties>
