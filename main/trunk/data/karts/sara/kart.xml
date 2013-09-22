@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 12507 -->
+<!-- Generated with script from SVN rev 13280 -->
 <kart name              = "Princess Sara"
       version           = "2"
       model-file        = "princess sara.b3d"
@@ -10,9 +10,11 @@
       groups            = "standard"
       rgb               = "1.00 1.00 1.00" >
   <sounds engine = "large"/>
-  <animations left = "0"
+  <animations left = "3"
               straight = "9"
-              right = "19"/>
+              right = "29"
+              start-jump = "34"
+              end-jump = "53"/>
   <wheels>
     <rear-right position = "0.168709 0.011474 -0.591670"
                  model    = "wheel-rear-right.b3d"       />
