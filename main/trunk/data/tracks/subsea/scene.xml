@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 13686 -->
+<!-- Generated with script from SVN rev 13687 -->
 <scene>
   <track model="subsea_track.b3d" x="0" y="0" z="0">
     <static-object lod_instance="true" lod_group="chest" xyz="-49.99 -35.13 388.98" hpr="0.0 -38.3 0.0" scale="5.60 2.80 2.80"/>
@@ -10,17 +10,17 @@
     <static-object lod_distance="200.0" lod_group="pillar2" model="pillar2_high.b3d" xyz="-89.43 -18.10 644.62" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_distance="400.0" lod_group="pillar2" model="pillar2_lo.b3d" xyz="-95.06 -18.10 644.62" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_distance="400.0" lod_group="pillar" model="pillar_lo.b3d" xyz="-95.02 -18.10 618.34" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object model="Segment1.b3d" xyz="-186.90 5.03 267.59" hpr="-0.1 2.4 -0.8" scale="229.37 229.37 229.37"/>
-    <static-object model="Segment11.b3d" xyz="8.17 -6.81 191.67" hpr="-0.1 2.4 -0.8" scale="229.37 229.37 229.37"/>
-    <static-object model="Segment2.b3d" xyz="-286.42 6.37 147.58" hpr="-0.1 2.4 -0.8" scale="229.37 229.37 229.37"/>
-    <static-object model="Segment3.b3d" xyz="-342.33 7.18 135.52" hpr="-0.1 2.4 -0.8" scale="229.37 229.37 229.37"/>
-    <static-object model="Segment4.b3d" xyz="-391.78 7.87 0.28" hpr="-0.1 2.4 -0.8" scale="229.37 229.37 229.37"/>
-    <static-object model="Segment5.b3d" xyz="-379.26 22.10 223.44" hpr="-0.1 2.4 -0.8" scale="229.37 229.37 229.37"/>
-    <static-object model="Segment6.b3d" xyz="-440.61 -6.63 239.95" hpr="-0.1 2.4 -0.8" scale="229.37 229.37 229.37"/>
-    <static-object model="Segment7.b3d" xyz="-131.16 4.07 132.49" hpr="-0.1 2.4 -0.8" scale="229.37 229.37 229.37"/>
-    <static-object model="Segment8.b3d" xyz="-84.93 3.35 93.65" hpr="-0.1 2.4 -0.8" scale="229.37 229.37 229.37"/>
-    <static-object model="Segment9.b3d" xyz="-58.54 3.67 -19.98" hpr="-0.1 2.4 -0.8" scale="229.37 229.37 229.37"/>
-    <static-object model="Segment10.b3d" xyz="24.27 15.38 199.19" hpr="-0.1 2.4 -0.8" scale="229.37 229.37 229.37"/>
+    <static-object model="Segment1.b3d" xyz="-186.90 5.03 267.59" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Segment11.b3d" xyz="8.17 -6.81 191.67" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Segment2.b3d" xyz="-286.42 6.37 147.58" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Segment3.b3d" xyz="-342.33 7.18 135.52" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Segment4.b3d" xyz="-391.78 7.87 0.28" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Segment5.b3d" xyz="-379.26 22.10 223.44" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Segment6.b3d" xyz="-440.61 -6.63 239.95" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Segment7.b3d" xyz="-131.16 4.07 132.49" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Segment8.b3d" xyz="-84.93 3.35 93.65" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Segment9.b3d" xyz="-58.54 3.67 -19.98" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Segment10.b3d" xyz="24.27 15.38 199.19" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_distance="150.0" lod_group="submarine" model="submarine_hi.b3d" xyz="-395.69 4.29 -365.18" hpr="-61.1 0.0 90.0" scale="4.66 4.92 4.66"/>
     <static-object lod_instance="true" lod_group="submarine" xyz="-395.69 4.29 -71.50" hpr="-61.1 0.0 90.0" scale="4.66 4.92 4.66"/>
     <static-object lod_distance="400.0" lod_group="submarine" model="submarine_lo.b3d" xyz="-360.90 4.29 -371.98" hpr="-61.1 0.0 90.0" scale="4.66 4.92 4.66"/>
