@@ -1,4 +1,5 @@
 Mouse kart BETA v0.6 by JunglePenguin for SuperTuxKart
+Icon by Totoplus62
 
 Release license : CC-BY-SA 3.0 (see http://creativecommons.org/licenses/by-sa/3.0/)
           Please contact me for any use which is not allowed by this license.
