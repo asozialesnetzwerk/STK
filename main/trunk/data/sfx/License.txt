@@ -11,6 +11,10 @@
     Released under GPL vs2+
     by the Supertux team
 
+* boing
+    Released under the Creative Commons 0 license
+    By vrodge (http://www.freesound.org/people/vrodge/sounds/119518/)
+    
 * bowling_roll
     Released under the CC-BY-SA 3.0 license (sounds originally released under CC-Sampling+, but obtained permission
     from author to release them under CC-By-SA 3.0)
