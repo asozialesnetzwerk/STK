@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 13227 -->
+<!-- Generated with script from SVN rev Unknown -->
 <scene>
   <track model="sandtrack_track.b3d" x="0" y="0" z="0">
     <animated-texture name="water_light.png" dx="0.050" />
@@ -8,9 +8,9 @@
     <animated-texture name="water_light.png" dx="0.075" />
     <animated-texture name="water_light.png" dx="0.020" />
   </track>
-  <object type="animation" model="palm1.b3d" xyz="-71.37 -126.12 -78.55" hpr="0.0 5.6 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
+  <object type="animation" xyz="-71.37 -126.12 -78.55" hpr="0.0 5.6 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="palm1.b3d">
   </object>
-  <object type="animation" model="palm2.b3d" xyz="-79.02 -127.77 -66.33" hpr="0.0 72.6 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
+  <object type="animation" xyz="-79.02 -127.77 -66.33" hpr="0.0 72.6 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="palm2.b3d">
   </object>
   <sky-box texture="skybox3.jpg skybox3.jpg skybox2.jpg skybox2.jpg skybox2.jpg skybox2.jpg"/>
   <camera far="1000.0"/>
@@ -19,7 +19,21 @@
     <check-line kind="activate" other-ids="0" p1="3.66 150.51" p2="-32.56 137.05"
                 min-height="-141.73" same-group="1"/>
   </checks>
-  <particle-emitter kind="waterfall.xml" xyz="-192.84 -166.25 4.00" h="0.00">
+  <particle-emitter kind="waterfall.xml" xyz="-190.61 -168.96 -0.16" h="-2.09">
+  </particle-emitter>
+  <particle-emitter kind="waterfall.xml" xyz="-192.15 -169.23 2.37" h="-2.09">
+  </particle-emitter>
+  <particle-emitter kind="waterfall.xml" xyz="-193.62 -169.50 4.78" h="-2.09">
+  </particle-emitter>
+  <particle-emitter kind="waterfall.xml" xyz="-195.11 -169.77 7.23" h="-2.09">
+  </particle-emitter>
+  <particle-emitter kind="waterfall.xml" xyz="-189.21 -168.70 -2.48" h="-2.09">
+  </particle-emitter>
+  <particle-emitter kind="waterfall.xml" xyz="-196.57 -170.03 9.63" h="-2.09">
+  </particle-emitter>
+  <particle-emitter kind="waterfall.xml" xyz="-198.21 -170.33 12.33" h="-2.09">
+  </particle-emitter>
+  <particle-emitter kind="waterfall.xml" xyz="-188.23 -168.53 -4.07" h="-2.09">
   </particle-emitter>
   <item x="-1.63" y="-132.90" z="15.81" />
   <item x="0.87" y="-132.90" z="15.81" />
