@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 13280 -->
-<kart name              = "Princess Sara"
+<!-- Generated with script from SVN rev 13324 -->
+<kart name              = "Sara"
       version           = "2"
-      model-file        = "princess sara.b3d"
+      model-file        = "sara.b3d"
       icon-file         = "icon-sara.png"
       minimap-icon-file = "icon-sara.png"
       shadow-file       = "sara-shadow.png"
@@ -10,11 +10,9 @@
       groups            = "standard"
       rgb               = "1.00 1.00 1.00" >
   <sounds engine = "large"/>
-  <animations left = "3"
+  <animations left = "0"
               straight = "9"
-              right = "29"
-              start-jump = "34"
-              end-jump = "53"/>
+              right = "19"/>
   <wheels>
     <rear-right position = "0.168709 0.011474 -0.591670"
                  model    = "wheel-rear-right.b3d"       />
@@ -29,5 +27,4 @@
     <nitro-emitter-a position = "0.178296 0.213328 -0.480724" />
     <nitro-emitter-b position = "-0.178441 0.213328 -0.480724" />
   </nitro-emitter>
-  <hat offset = "0.0 0.8 0.03"/>
 </kart>
