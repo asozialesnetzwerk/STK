@@ -7,6 +7,6 @@
         music          = "subsea.music"
         screenshot     = "subsea-sshot.jpg"
         smooth-normals = "true"
-        reverse        = "N"
+        reverse        = "Y"
 >
 </track>
