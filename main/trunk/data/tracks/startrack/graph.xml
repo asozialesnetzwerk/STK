@@ -1,8 +1,24 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 12125 -->
+<!-- Generated with script from SVN rev Unknown -->
 <graph>
   <!-- First define all nodes of the graph, and what quads they represent -->
-  <node-list from-quad="0" to-quad="189"/>  <!-- map each quad to a node  -->
+  <node-list from-quad="0" to-quad="295"/>  <!-- map each quad to a node  -->
   <!-- Define the main loop -->
-  <edge-loop from="0" to="189"/>
+  <edge-loop from="0" to="216"/>
+  <!-- Shortcut add driveline 4 -->
+  <edge from="103" to="217"/>
+  <edge-line from="217" to="240"/>
+  <edge from="240" to="125"/>
+  <!-- Shortcut add driveline 2 -->
+  <edge from="112" to="241"/>
+  <edge-line from="241" to="250"/>
+  <edge from="250" to="231"/>
+  <!-- Shortcut add driveline 3 -->
+  <edge from="20" to="251"/>
+  <edge-line from="251" to="283"/>
+  <edge from="283" to="50"/>
+  <!-- Shortcut add driveline 1 -->
+  <edge from="188" to="284"/>
+  <edge-line from="284" to="295"/>
+  <edge from="295" to="201"/>
 </graph>
