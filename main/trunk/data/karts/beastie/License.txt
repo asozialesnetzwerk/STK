@@ -1,7 +1,7 @@
-Beastie Model : Micket, released under CC0 (public license)
+Beastie Model: Micket, released under CC0 (public license)
 
-Kart model and textures :
-    Copyright 2011 Lionel Fuentes. All rights reserved.
+Kart model and textures + animations:
+    Copyright 2011-2013 Lionel Fuentes. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are
 permitted provided that the following conditions are met:
