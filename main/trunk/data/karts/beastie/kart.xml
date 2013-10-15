@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 12961 -->
+<!-- Generated with script from SVN rev 14120 -->
 <kart name              = "Beastie"
       version           = "2"
       model-file        = "beastie.b3dz"
@@ -33,4 +33,5 @@
     <nitro-emitter-a position = "0.387257 0.615989 -0.635706" />
     <nitro-emitter-b position = "-0.382115 0.615989 -0.635706" />
   </nitro-emitter>
+     <hat offset="0.0 0.25 0.02"/>
 </kart>
