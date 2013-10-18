@@ -780,12 +780,25 @@ for curr in bpy.utils.script_paths():
         break
 
 if datapath is None:
-    print("Make sure the stkdata folder is installed, cannot locate it!!")
+    print("(STK) Make sure the stkdata folder is installed, cannot locate it!!")
 
-SCENE_PROPS = getPropertiesFromXML(os.path.join(datapath, "stk_panel_parameters.xml"), contextLevel=CONTEXT_SCENE)
-STK_PER_OBJECT_TRACK_PROPERTIES = getPropertiesFromXML(os.path.join(datapath, "stk_object_parameters.xml"), contextLevel=CONTEXT_OBJECT)
-STK_PER_OBJECT_KART_PROPERTIES = getPropertiesFromXML(os.path.join(datapath, "stk_kart_object_parameters.xml"), contextLevel=CONTEXT_OBJECT)
-STK_MATERIAL_PROPERTIES = getPropertiesFromXML(os.path.join(datapath, "stk_material_parameters.xml"), contextLevel=CONTEXT_MATERIAL)
+print("(STK) Loading XML files from ", datapath)
+
+panel_params_path = os.path.join(datapath, "stk_panel_parameters.xml")
+print("(STK) Loading scene properties from ", panel_params_path)
+SCENE_PROPS = getPropertiesFromXML(panel_params_path, contextLevel=CONTEXT_SCENE)
+
+object_params_path = os.path.join(datapath, "stk_object_parameters.xml")
+print("(STK) Loading object properties from ", object_params_path)
+STK_PER_OBJECT_TRACK_PROPERTIES = getPropertiesFromXML(object_params_path, contextLevel=CONTEXT_OBJECT)
+
+kart_params_path = os.path.join(datapath, "stk_kart_object_parameters.xml")
+print("(STK) Loading kart properties from ", kart_params_path)
+STK_PER_OBJECT_KART_PROPERTIES = getPropertiesFromXML(kart_params_path, contextLevel=CONTEXT_OBJECT)
+
+material_params_path = os.path.join(datapath, "stk_material_parameters.xml")
+print("(STK) Loading material properties from ", material_params_path)
+STK_MATERIAL_PROPERTIES = getPropertiesFromXML(material_params_path, contextLevel=CONTEXT_MATERIAL)
 
 
 # ==== PANEL BASE ====
