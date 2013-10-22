@@ -157,6 +157,7 @@ def saveAnimations(f):
     
     # search for animation
     lAnims = []
+    lMarkersFound = []
     for i in range(first_frame, last_frame+1):
 
         # Find markers at this frame
@@ -174,7 +175,15 @@ def saveAnimations(f):
                     if markerName=="repeat-losing": markerName="start-losing-loop"
                     if markerName=="repeat-winning": markerName="start-winning-loop"
                     lAnims.append( (markerName, i-1) )
+                    lMarkersFound.append(markerName)
 
+    if (not "straight" in lMarkersFound) or (not "left" in lMarkersFound) or (not "right" in lMarkersFound):
+        log_warning('Could not find markers left/straight/right in frames %i to %i, steering animations may not work' %  (first_frame, last_frame))
+	
+    if (not "start-winning" in lMarkersFound) or (not "start-losing" in lMarkersFound) or (not "end-winning" in lMarkersFound) or (not "end-losing" in lMarkersFound):
+        log_warning('Could not find markers for win/lose animations in frames %i to %i, win/lose animations may not work' %  (first_frame, last_frame))
+        
+    
     if lAnims:
         f.write('  <animations %s = "%s"' % (lAnims[0][0], lAnims[0][1]))
         for (marker, frame) in lAnims[1:]:
