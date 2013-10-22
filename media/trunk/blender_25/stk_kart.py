@@ -93,7 +93,38 @@ def saveNitroEmitter(f, lNitroEmitter, path):
     f.write('  </nitro-emitter>\n')
 
 # ------------------------------------------------------------------------------
+# Save speed weighted
+def saveSpeedWeighted(f, lSpeedWeighted, path):
+    if 'b3d_export' not in dir(bpy.ops.screen):
+        log_error("Cannot find the B3D exporter, make sure you installed it properly")
+        return
+            
+    f.write('  <speed-weighted>\n')
+    for obj in lSpeedWeighted:
+        f.write('    <speed-weighted position = "%f %f %f" model = "%s.b3d"/>\n' \
+                % (obj.location.x, obj.location.z, obj.location.y, obj.name))
+        
+        lOldPos = Vector([obj.location.x, obj.location.y, obj.location.z])
+        obj.location = Vector([0, 0, 0])
+        
+        global the_scene
+        the_scene.obj_list = [obj]
+        
+        bpy.ops.screen.b3d_export(localsp=False, mipmap=True, lights=False, vcolors=True,
+                                  vnormals=True, cameras=False, filepath=path + "/" + obj.name,
+                                  overwrite_without_asking=True)
+        the_scene.obj_list = []
+        
+        obj.location = lOldPos
+        
+    f.write('  </speed-weighted>\n')
+
+# ------------------------------------------------------------------------------
 def saveWheels(f, lWheels, path):
+    if 'b3d_export' not in dir(bpy.ops.screen):
+        log_error("Cannot find the B3D exporter, make sure you installed it properly")
+        return
+        
     if len(lWheels)!=4:
         log_warning("Warning - %d wheels specified" % len(lWheels))
 
@@ -134,10 +165,6 @@ def saveWheels(f, lWheels, path):
         global the_scene
         the_scene.obj_list = [wheel]
         
-        if 'b3d_export' not in dir(bpy.ops.screen):
-            log_error("Cannot find the B3D exporter, make sure you installed it properly")
-            return
-        
         bpy.ops.screen.b3d_export(localsp=False, mipmap=True, lights=False, vcolors=True,
                                   vnormals=True, cameras=False, filepath=path + "/" + lWheelNames[index],
                                   overwrite_without_asking=True)
@@ -168,7 +195,8 @@ def saveAnimations(f):
                    ["straight", "right", "left", "start-winning", "start-winning-loop",
                     "end-winning", "start-losing", "start-losing-loop", "end-losing",
                     "start-explosion", "end-explosion", "start-jump", "start-jump-loop", "end-jump",
-                    "turning-l", "center", "turning-r", "repeat-losing", "repeat-winning"]:
+                    "turning-l", "center", "turning-r", "repeat-losing", "repeat-winning",
+                    "start-speed-weighted", "end-speed-weighted"]:
                     if markerName=="turning-l": markerName="left"
                     if markerName=="turning-r": markerName="right"
                     if markerName=="center": markerName="straight"
@@ -251,6 +279,7 @@ def exportKart(path):
     lWheels       = []
     lKart         = []
     lNitroEmitter = []
+    lSpeedWeighted = []
     for obj in lObj:
         stktype = getProperty(obj, "type", "").strip().upper()
         name    = obj.name.upper()
@@ -258,6 +287,8 @@ def exportKart(path):
             lWheels.append(obj)
         elif stktype=="NITRO-EMITTER":
             lNitroEmitter.append(obj)
+        elif stktype=="SPEED-WEIGHTED":
+            lSpeedWeighted.append(obj)
         elif stktype=="IGNORE":
             pass
         # For backward compatibility
@@ -271,8 +302,7 @@ def exportKart(path):
                 lKart.insert(0, obj)
             else:
                 lKart.append(obj)
-
-
+    
     # Write the xml file
     # ------------------
     kart_shadow = the_scene['shadow']
@@ -327,12 +357,13 @@ def exportKart(path):
     saveAnimations(f)
     saveWheels(f, lWheels, path)
     saveNitroEmitter(f, lNitroEmitter, path)
+    saveSpeedWeighted(f, lSpeedWeighted, path)
     
     hat_offset = "0.0 1.0 0.0"
     if 'hat_offset' in the_scene and len(the_scene['hat_offset']) > 0:
         hat_offset = the_scene['hat_offset']
     
-    f.write('     <hat offset="' + hat_offset + '"/>\n')
+    f.write('  <hat offset="' + hat_offset + '"/>\n')
     
     f.write('</kart>\n')
     f.close()
