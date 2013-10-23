@@ -1,11 +1,15 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev Unknown -->
 <materials>
-  <material name="flaring-star.png" compositing="blend"/>
-  <material name="light1.png" compositing="additive" light="N" disable-z-write="Y" clampu="Y"/>
-  <material name="light2.png" compositing="additive" light="N" disable-z-write="Y" clampu="Y"/>
-  <material name="light3.png" compositing="additive" light="N" disable-z-write="Y" clampu="Y"/>
-  <material name="planet_saturn_rings.png" light="N" compositing="blend"/>
-  <material name="startrack3.png" light="N" compositing="blend"/>
-  <material name="transparence.png" reset="Y" compositing="test"/>
+  <material name="arc1.png" light="N" backface-culling="N" compositing="blend" disable-z-write="Y"/>
+  <material name="arc2.png" light="N" backface-culling="N" compositing="blend" disable-z-write="Y"/>
+  <material name="ceil1_outer.png" compositing="test"/>
+  <material name="drtest.png" ignore="Y"/>
+  <material name="drtest.png" ignore="Y"/>
+  <material name="lightHaloB.png" light="N" compositing="blend"/>
+  <material name="lightHaloY.png" light="N" compositing="blend"/>
+  <material name="pipe1a-core.png" light="N"/>
+  <material name="reset.png" compositing="test" disable-z-write="Y" falling-effect="Y" reset="Y"/>
+  <material name="supp1k.png" light="N" compositing="test"/>
+  <material name="window.png" light="N" compositing="blend" sphere="Y"/>
 </materials>

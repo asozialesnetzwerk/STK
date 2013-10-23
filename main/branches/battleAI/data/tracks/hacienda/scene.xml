@@ -113,4 +113,6 @@
                  forwards-distance ="1.50"
                  sidewards-distance="3.00"
                  upwards-distance  ="0.10"/>
+<start x="1.4" y="0.23" z="-0.4" h="180" />
+
 </scene>

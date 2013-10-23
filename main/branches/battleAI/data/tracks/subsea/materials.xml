@@ -4,7 +4,7 @@
   <material name="diffus-subsea.png" compositing="blend" ignore="Y"/>
   <material name="eggs-subsea.png" compositing="additive"/>
   <material name="fish-filet-subsea.png" compositing="blend" ignore="Y"/>
-  <material name="flaque-subsea.png" compositing="blend" ignore="Y"/>
+  <material name="flaque-subsea.png" compositing="blend" disable-z-write="Y" ignore="Y"/>
   <material name="Flower-subsea.png" compositing="blend" ignore="Y"/>
   <material name="Grate-subsea.png" compositing="test"/>
   <material name="light3-subsea.png" clampu="Y" compositing="additive" disable-z-write="Y" ignore="Y"/>
@@ -34,7 +34,7 @@
   <material name="treasure_map2-subsea.png" compositing="test"/>
   <material name="treasuremap-subsea.png" compositing="test" disable-z-write="Y"/>
   <material name="water_dark-subsea.jpg" ignore="Y"/>
-  <material name="water_dark-transp-subsea.png" compositing="blend" collision-detect="Y" collision-reaction="reset" collision-particles="splash.xml"/>
+  <material name="water_dark-transp-subsea.png" compositing="blend" disable-z-write="Y" collision-detect="Y" collision-reaction="reset" collision-particles="splash.xml"/>
   <material name="waterparticles-subsea.png" compositing="blend" ignore="Y"/>
   <material name="zipper-inverted-subsea.png" light="N" compositing="blend" disable-z-write="Y">
     <zipper duration="3.5" max-speed-increase="15.0" fade-out-time="3.0" speed-gain="4.5"/>

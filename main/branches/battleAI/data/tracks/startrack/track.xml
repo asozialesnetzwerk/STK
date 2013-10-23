@@ -1,12 +1,2 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 12125 -->
-<track  name           = "Star Track"
-        version        = "5"
-        groups         = "standard"
-        designer       = "Ingo Ruhnke, modified by A. Billing"
-        music          = "Ethereal_Spectrum.music"
-        screenshot     = "screenshot-startrack.png"
-        smooth-normals = "false"
-        reverse        = "Y"
->
-</track>
+<track name="STK Enterprise" version="5" groups="Add-Ons" designer="rubberduck" music="xeon.music" screenshot="bild.png" smooth-normals="false" reverse="Y" revision="2"/>

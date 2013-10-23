@@ -1,22 +1,33 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 12720 -->
+<!-- Generated with script from SVN rev 13687 -->
 <scene>
   <track model="subsea_track.b3d" x="0" y="0" z="0">
-    <static-object lod_instance="true" lod_group="chest" xyz="-49.99 -35.13 388.98" hpr="0.0 -38.3 0.0" scale="5.60 2.80 2.80"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_instance="true" lod_group="chest" xyz="-356.43 -30.35 393.42" hpr="0.0 -75.9 0.0" scale="5.60 2.80 2.80"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_distance="100.0" lod_group="chest" model="Cube.012.b3d" xyz="-49.99 -35.13 653.41" hpr="0.0 -38.3 0.0" scale="5.60 2.80 2.80"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_distance="350.0" lod_group="chest" model="Cube.013.b3d" xyz="-49.99 -35.13 670.60" hpr="0.0 -38.3 0.0" scale="5.60 2.80 2.80"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_distance="200.0" lod_group="pillar" model="pillar_high.b3d" xyz="-89.39 -18.10 618.34" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_distance="200.0" lod_group="pillar2" model="pillar2_high.b3d" xyz="-89.43 -18.10 644.62" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_distance="400.0" lod_group="pillar2" model="pillar2_lo.b3d" xyz="-95.06 -18.10 644.62" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_distance="400.0" lod_group="pillar" model="pillar_lo.b3d" xyz="-95.02 -18.10 618.34" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_distance="150.0" lod_group="submarine" model="submarine_hi.b3d" xyz="-395.69 4.29 -365.18" hpr="-61.1 0.0 90.0" scale="4.66 4.92 4.66"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_instance="true" lod_group="submarine" xyz="-395.69 4.29 -71.50" hpr="-61.1 0.0 90.0" scale="4.66 4.92 4.66"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_distance="400.0" lod_group="submarine" model="submarine_lo.b3d" xyz="-360.90 4.29 -371.98" hpr="-61.1 0.0 90.0" scale="4.66 4.92 4.66"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_instance="true" lod_group="chest_mound" xyz="-159.44 -34.41 400.43" hpr="87.9 -70.5 1.1" scale="2.52 2.52 2.52"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_distance="80.0" lod_group="chest_mound" model="chest_mound_hi.b3d" xyz="-159.64 -34.41 665.68" hpr="86.5 -81.3 2.5" scale="2.52 2.52 2.52"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_distance="350.0" lod_group="chest_mound" model="chest_mound_lo.b3d" xyz="-191.53 -34.41 665.68" hpr="86.5 -81.3 2.5" scale="2.52 2.52 2.52"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_instance="true" lod_group="chest_mound" xyz="-298.18 -34.41 371.92" hpr="89.5 -127.4 -0.6" scale="2.52 2.52 2.52"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="chest" xyz="-49.99 -35.13 388.98" hpr="0.0 -38.3 0.0" scale="5.60 2.80 2.80"/>
+    <static-object lod_instance="true" lod_group="chest" xyz="-356.43 -30.35 393.42" hpr="0.0 -75.9 0.0" scale="5.60 2.80 2.80"/>
+    <static-object lod_distance="100.0" lod_group="chest" model="Cube.012.b3d" xyz="-49.99 -35.13 653.41" hpr="0.0 -38.3 0.0" scale="5.60 2.80 2.80"/>
+    <static-object lod_distance="350.0" lod_group="chest" model="Cube.013.b3d" xyz="-49.99 -35.13 670.60" hpr="0.0 -38.3 0.0" scale="5.60 2.80 2.80"/>
+    <static-object lod_distance="200.0" lod_group="pillar" model="pillar_high.b3d" xyz="-89.39 -18.10 618.34" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="200.0" lod_group="pillar2" model="pillar2_high.b3d" xyz="-89.43 -18.10 644.62" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="400.0" lod_group="pillar2" model="pillar2_lo.b3d" xyz="-95.06 -18.10 644.62" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="400.0" lod_group="pillar" model="pillar_lo.b3d" xyz="-95.02 -18.10 618.34" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Segment1.b3d" xyz="-186.90 5.03 267.59" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Segment11.b3d" xyz="8.17 -6.81 191.67" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Segment2.b3d" xyz="-286.42 6.37 147.58" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Segment3.b3d" xyz="-342.33 7.18 135.52" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Segment4.b3d" xyz="-391.78 7.87 0.28" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Segment5.b3d" xyz="-379.26 22.10 223.44" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Segment6.b3d" xyz="-440.61 -6.63 239.95" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Segment7.b3d" xyz="-131.16 4.07 132.49" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Segment8.b3d" xyz="-84.93 3.35 93.65" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Segment9.b3d" xyz="-58.54 3.67 -19.98" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="Segment10.b3d" xyz="24.27 15.38 199.19" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="150.0" lod_group="submarine" model="submarine_hi.b3d" xyz="-395.69 4.29 -365.18" hpr="-61.1 0.0 90.0" scale="4.66 4.92 4.66"/>
+    <static-object lod_instance="true" lod_group="submarine" xyz="-395.69 4.29 -71.50" hpr="-61.1 0.0 90.0" scale="4.66 4.92 4.66"/>
+    <static-object lod_distance="400.0" lod_group="submarine" model="submarine_lo.b3d" xyz="-360.90 4.29 -371.98" hpr="-61.1 0.0 90.0" scale="4.66 4.92 4.66"/>
+    <static-object lod_instance="true" lod_group="chest_mound" xyz="-159.44 -34.41 400.43" hpr="87.9 -70.5 1.1" scale="2.52 2.52 2.52"/>
+    <static-object lod_distance="80.0" lod_group="chest_mound" model="chest_mound_hi.b3d" xyz="-159.64 -34.41 665.68" hpr="86.5 -81.3 2.5" scale="2.52 2.52 2.52"/>
+    <static-object lod_distance="350.0" lod_group="chest_mound" model="chest_mound_lo.b3d" xyz="-191.53 -34.41 665.68" hpr="86.5 -81.3 2.5" scale="2.52 2.52 2.52"/>
+    <static-object lod_instance="true" lod_group="chest_mound" xyz="-298.18 -34.41 371.92" hpr="89.5 -127.4 -0.6" scale="2.52 2.52 2.52"/>
     <animated-texture name="water_dark-transp-subsea.png" dy="-0.100" />
     <animated-texture name="eggs.png" dy="0.500" />
     <animated-texture name="organic-subsea.jpg" dy="0.100" />
@@ -31,18 +42,18 @@
     <animated-texture name="waterparticles-subsea.png" dy="4.000" />
   </track>
   <object type="movable" xyz="-89.39 -18.10 366.08" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
-          shape="cylinder" mass="45.0" lod_instance="true" lod_group="pillar"/>
+          shape="cylinder" mass="45.0"  lod_instance="true" lod_group="pillar"/>
   <object type="movable" xyz="-89.43 -18.10 392.37" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
-          shape="cylinder" mass="45.0" lod_instance="true" lod_group="pillar2"/>
+          shape="cylinder" mass="45.0"  lod_instance="true" lod_group="pillar2"/>
   <object type="movable" xyz="-195.99 -16.73 369.86" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
-          shape="cylinder" mass="45.0" lod_instance="true" lod_group="pillar2"/>
+          shape="cylinder" mass="45.0"  lod_instance="true" lod_group="pillar2"/>
   <object type="movable" xyz="-328.87 -14.97 400.24" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
-          shape="cylinder" mass="45.0" lod_instance="true" lod_group="pillar"/>
+          shape="cylinder" mass="45.0"  lod_instance="true" lod_group="pillar"/>
   <object type="movable" xyz="-196.21 -16.73 395.96" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
-          shape="cylinder" mass="45.0" lod_instance="true" lod_group="pillar"/>
+          shape="cylinder" mass="45.0"  lod_instance="true" lod_group="pillar"/>
   <object type="movable" xyz="-324.97 -14.97 372.69" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
-          shape="cylinder" mass="45.0" lod_instance="true" lod_group="pillar"/>
-  <object type="animation" model="Mouette.002.b3d" xyz="-47.81 61.58 306.81" hpr="0.0 130.8 0.0" scale="6.68 6.68 6.68" shape="box" looped="y"  interaction="static">
+          shape="cylinder" mass="45.0"  lod_instance="true" lod_group="pillar"/>
+  <object type="animation" xyz="-47.81 61.58 306.81" hpr="0.0 130.8 0.0" scale="6.68 6.68 6.68" looped="y" interaction="static" shape="box" model="Mouette.002.b3d">
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
       <p c="1.000 -47.815" h1="0.391 -47.815" h2="1.609 -47.815"/>
       <p c="5.000 -38.367" h1="4.425 -39.820" h2="5.718 -36.552"/>
@@ -243,39 +254,39 @@
     </curve>
   </object>
   <object type="movable" xyz="-342.10 -32.60 394.94" hpr="-5.4 -154.5 13.7" scale="1.20 1.20 1.20"
-          model="Rubis.b3d" shape="cylinder" mass="10.0"/>
+          shape="cylinder" mass="10.0" model="Rubis.b3d"/>
   <object type="movable" xyz="-279.98 -32.60 373.64" hpr="-0.6 5.7 -12.4" scale="1.20 1.20 1.20"
-          model="Rubis.b3d" shape="cylinder" mass="10.0"/>
+          shape="cylinder" mass="10.0" model="Rubis.b3d"/>
   <object type="movable" xyz="-51.12 -37.27 380.71" hpr="-0.8 5.7 -12.4" scale="1.20 1.20 1.20"
-          model="Rubis.b3d" shape="cylinder" mass="10.0"/>
+          shape="cylinder" mass="10.0" model="Rubis.b3d"/>
   <object type="movable" xyz="-178.53 3.70 83.58" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86"
-          model="egg.b3d" shape="sphere" mass="2.0"/>
+          shape="sphere" mass="2.0" model="egg.b3d"/>
   <object type="movable" xyz="-176.74 3.70 80.89" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86"
-          model="egg.b3d" shape="sphere" mass="2.0"/>
+          shape="sphere" mass="2.0" model="egg.b3d"/>
   <object type="movable" xyz="-181.15 3.70 83.78" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86"
-          model="egg.b3d" shape="sphere" mass="2.0"/>
+          shape="sphere" mass="2.0" model="egg.b3d"/>
   <object type="movable" xyz="-174.13 3.70 81.65" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86"
-          model="egg.b3d" shape="sphere" mass="2.0"/>
+          shape="sphere" mass="2.0" model="egg.b3d"/>
   <object type="movable" xyz="-174.37 3.70 77.87" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86"
-          model="egg.b3d" shape="sphere" mass="2.0"/>
+          shape="sphere" mass="2.0" model="egg.b3d"/>
   <object type="movable" xyz="-180.05 3.70 80.34" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86"
-          model="egg.b3d" shape="sphere" mass="2.0"/>
+          shape="sphere" mass="2.0" model="egg.b3d"/>
   <object type="movable" xyz="-182.52 3.70 78.76" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86"
-          model="egg.b3d" shape="sphere" mass="2.0"/>
+          shape="sphere" mass="2.0" model="egg.b3d"/>
   <object type="movable" xyz="-177.50 3.70 77.25" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86"
-          model="egg.b3d" shape="sphere" mass="2.0"/>
+          shape="sphere" mass="2.0" model="egg.b3d"/>
   <object type="movable" xyz="-180.82 3.70 76.10" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86"
-          model="egg.b3d" shape="sphere" mass="2.0"/>
+          shape="sphere" mass="2.0" model="egg.b3d"/>
   <object type="movable" xyz="-175.98 3.70 74.43" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86"
-          model="egg.b3d" shape="sphere" mass="2.0"/>
+          shape="sphere" mass="2.0" model="egg.b3d"/>
   <object type="movable" xyz="-181.72 3.70 72.07" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86"
-          model="egg.b3d" shape="sphere" mass="2.0"/>
+          shape="sphere" mass="2.0" model="egg.b3d"/>
   <object type="movable" xyz="-179.16 3.70 73.25" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86"
-          model="egg.b3d" shape="sphere" mass="2.0"/>
+          shape="sphere" mass="2.0" model="egg.b3d"/>
   <object type="movable" xyz="-177.50 3.70 70.77" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86"
-          model="egg.b3d" shape="sphere" mass="2.0"/>
+          shape="sphere" mass="2.0" model="egg.b3d"/>
   <object type="movable" xyz="-183.54 3.70 74.01" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86"
-          model="egg.b3d" shape="sphere" mass="2.0"/>
+          shape="sphere" mass="2.0" model="egg.b3d"/>
   <sun  fog="true" fog-color="111 135 164" fog-start="30.00" fog-end="450.00"/>
   <sky-color rgb="111 135 164"/>
   <camera far="800"/>

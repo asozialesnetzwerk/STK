@@ -39,6 +39,6 @@
   <material name="waterfall.png" light="N" compositing="blend" disable-z-write="Y"/>
   <material name="waterfall_particle.png" fog="N" light="N" compositing="blend"/>
   <material name="wood_planks1.jpg">
-    <sfx positional="Y" filename="wooden_bridge.ogg"/>
+    <sfx filename="wooden_bridge.ogg" rolloff="0.60" min_speed="9.00" max_speed="22.00" min_pitch="1.00" max_pitch="1.70" positional="Y" volume="1.00"/>
   </material>
 </materials>

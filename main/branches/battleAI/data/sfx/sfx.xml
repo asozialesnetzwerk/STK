@@ -16,7 +16,9 @@
     
    <sfx filename="anvil.ogg"            volume="1.0" positional="true" rolloff="0.5"  />
    <sfx filename="ball_bounce.ogg"      volume="0.5" positional="true" />
+   <sfx filename="boing.ogg"            volume="1.0" positional="true" rolloff="0.5" />
    <sfx filename="bowling_roll.ogg"     volume="1.0" positional="true" rolloff="0.05"  />
+   <sfx filename="bowling_shoot.ogg"     volume="1.0" positional="true" rolloff="0.05"  />
    <sfx filename="bubblegum_explode.ogg" volume="1.0" positional="true" rolloff="0.5" />
    <sfx filename="bzzt.ogg"             volume="1.0" positional="false" />
    <sfx filename="clock.ogg"            volume="1.0" positional="true" rolloff="0.2"  />
