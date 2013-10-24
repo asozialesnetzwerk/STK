@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 13324 -->
+<!-- Generated with script from SVN rev 14302 -->
 <kart name              = "Gnu"
       version           = "2"
       model-file        = "gnu.b3dz"
@@ -18,6 +18,11 @@
               end-winning = "296"
               start-losing = "335"
               start-losing-loop = "473"
-              end-losing = "479"/>
-  <hat offset = "0.0 0.245 0.15"/>
+              end-losing = "479"
+              start-speed-weighted = "481"
+              end-speed-weighted = "501"/>
+  <speed-weighted>
+    <speed-weighted position = "0.000000 0.300000 0.000000" model = "Carpet.b3d"/>
+  </speed-weighted>
+  <hat offset="0.0 0.245 0.15"/>
 </kart>
