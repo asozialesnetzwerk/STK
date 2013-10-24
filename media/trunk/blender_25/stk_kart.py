@@ -80,10 +80,9 @@ def getScriptVersion():
 # ------------------------------------------------------------------------------
 # Save nitro emitter
 def saveNitroEmitter(f, lNitroEmitter, path):
-
     if len(lNitroEmitter) != 2:
         log_warning("Warning - %d nitro emitter specified. Only 2 are allowed" % len(lNitroEmitter))
-        return 0
+        return
     
     f.write('  <nitro-emitter>\n')
     f.write('    <nitro-emitter-a position = "%f %f %f" />\n' \
@@ -95,6 +94,8 @@ def saveNitroEmitter(f, lNitroEmitter, path):
 # ------------------------------------------------------------------------------
 # Save speed weighted
 def saveSpeedWeighted(f, lSpeedWeighted, path):
+    if len(lSpeedWeighted) == 0:
+        return
     if 'b3d_export' not in dir(bpy.ops.screen):
         log_error("Cannot find the B3D exporter, make sure you installed it properly")
         return
@@ -121,6 +122,8 @@ def saveSpeedWeighted(f, lSpeedWeighted, path):
 
 # ------------------------------------------------------------------------------
 def saveWheels(f, lWheels, path):
+    if len(lWheels) == 0:
+        return
     if 'b3d_export' not in dir(bpy.ops.screen):
         log_error("Cannot find the B3D exporter, make sure you installed it properly")
         return
