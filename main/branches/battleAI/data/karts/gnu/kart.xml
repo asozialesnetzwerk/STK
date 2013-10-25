@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 14120 -->
+<!-- Generated with script from SVN rev 14302 -->
 <kart name              = "Gnu"
       version           = "2"
-      model-file        = "gnu.b3d"
+      model-file        = "gnu.b3dz"
       icon-file         = "gnuicon.png"
       minimap-icon-file = "gnuicon.png"
       shadow-file       = "gnushadow.png"
@@ -21,10 +21,8 @@
               end-losing = "479"
               start-speed-weighted = "481"
               end-speed-weighted = "501"/>
-  <wheels>
-  </wheels>
   <speed-weighted>
-    <speed-weighted position = "0.000000 0.300000 0.000000" model = "Plane.b3d"/>
+    <speed-weighted position = "0.000000 0.300000 0.000000" model = "Carpet.b3d"/>
   </speed-weighted>
   <hat offset="0.0 0.245 0.15"/>
 </kart>

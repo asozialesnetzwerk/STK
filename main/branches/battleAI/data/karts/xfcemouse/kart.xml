@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev 0.1 -->
-<kart name              = "Xfce Mouse"
+<kart name              = "Xue"
       version           = "2"
       model-file        = "xfce mouse.b3d"
       icon-file         = "xfce_icon64.png"
@@ -24,5 +24,5 @@
     <nitro-emitter-a position = "0.355961 0.446362 -0.547407" />
     <nitro-emitter-b position = "-0.355961 0.446362 -0.547407" />
   </nitro-emitter>
-     <hat offset="0.0 0.05 0.07"/>
+  <hat offset="0.0 0.05 0.07"/>
 </kart>

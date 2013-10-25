@@ -4,8 +4,6 @@
   <material name="arc1.png" light="N" backface-culling="N" compositing="blend" disable-z-write="Y"/>
   <material name="arc2.png" light="N" backface-culling="N" compositing="blend" disable-z-write="Y"/>
   <material name="ceil1_outer.png" compositing="test"/>
-  <material name="drtest.png" ignore="Y"/>
-  <material name="drtest.png" ignore="Y"/>
   <material name="lightHaloB.png" light="N" compositing="blend"/>
   <material name="lightHaloY.png" light="N" compositing="blend"/>
   <material name="pipe1a-core.png" light="N"/>
