@@ -19,6 +19,8 @@ flaque-subsea.png			by Rudy Phelippeau (STKRudy85) 		CC0 , GPL License
 Grate-subsea.png 			by Dim, 				CCby3.0 			opengameart
 light3-subsea.png 			from supertuxkart 			GPL License
 LilySmall-subsea.png 			by Dim, 				CCby3.0 			opengameart
+meat1                       by Thogru, CC - BY - SA 3.0 (wikimeda commons)
+meat2                       by Petr Kratochvil, public domain (publicdomainpictures.net)
 metall003-new-subsea.jpg 		by p0ss, 				GPLV2. GPLV3. CCby3.0
 Mint-subsea.png				by Dim, 				CCby3.0 			opengameart
 organic_out-subsea.png   		by Crack.com 				CC0 				based on marble_small1.jpg alien_crust2.jpg 
