@@ -265,9 +265,13 @@ def exportKart(path):
         log_error("Incorrect kart color")
         return
     
-    split_color[0] = "%.2f" % (int(split_color[0]) / 255.0)
-    split_color[1] = "%.2f" % (int(split_color[1]) / 255.0)
-    split_color[2] = "%.2f" % (int(split_color[2]) / 255.0)
+    try:
+        split_color[0] = "%.2f" % (int(split_color[0]) / 255.0)
+        split_color[1] = "%.2f" % (int(split_color[1]) / 255.0)
+        split_color[2] = "%.2f" % (int(split_color[2]) / 255.0)
+    except:
+        log_error("Incorrect kart color")
+        return
     
     #b3d_export.b3d_parameters["vertex-normals" ] = 1  # Vertex normals.
     #b3d_export.b3d_parameters["vertex-colors"  ] = 1  # Vertex colors
