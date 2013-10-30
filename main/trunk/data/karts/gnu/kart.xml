@@ -21,8 +21,12 @@
               end-losing = "479"
               start-speed-weighted = "481"
               end-speed-weighted = "501"/>
+  <nitro-emitter>
+    <nitro-emitter-a position = "0.200000 0.200000 0.000000" />
+    <nitro-emitter-b position = "-0.200000 0.200000 0.000000" />
+  </nitro-emitter>
   <speed-weighted>
-    <speed-weighted position = "0.000000 0.300000 0.000000" model = "Carpet.b3d"/>
+    <speed-weighted strength-factor="0.050000" speed-factor="1.000000" position="0.000000 0.300000 0.000000" model="Carpet.b3d"/>
   </speed-weighted>
   <hat offset="0.0 0.245 0.15"/>
 </kart>
