@@ -99,8 +99,8 @@ def saveSpeedWeighted(f, lSpeedWeighted, path):
     if 'b3d_export' not in dir(bpy.ops.screen):
         log_error("Cannot find the B3D exporter, make sure you installed it properly")
         return
-            
-    f.write('  <speed-weighted>\n')
+    
+    f.write('  <speed-weighted-objects>\n')
     for obj in lSpeedWeighted:
         f.write('    <speed-weighted position = "%f %f %f" model = "%s.b3d"/>\n' \
                 % (obj.location.x, obj.location.z, obj.location.y, obj.name))
@@ -118,8 +118,8 @@ def saveSpeedWeighted(f, lSpeedWeighted, path):
         
         obj.location = lOldPos
         
-    f.write('  </speed-weighted>\n')
-
+    f.write('  </speed-weighted-objects>\n')
+    
 # ------------------------------------------------------------------------------
 def saveWheels(f, lWheels, path):
     if len(lWheels) == 0:
