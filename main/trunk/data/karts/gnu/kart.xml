@@ -25,8 +25,8 @@
     <nitro-emitter-a position = "0.200000 0.200000 0.000000" />
     <nitro-emitter-b position = "-0.200000 0.200000 0.000000" />
   </nitro-emitter>
-  <speed-weighted>
-    <speed-weighted strength-factor="0.050000" speed-factor="1.000000" position="0.000000 0.300000 0.000000" model="Carpet.b3d"/>
-  </speed-weighted>
+  <speed-weighted-objects>
+    <speed-weighted position = "0.000000 0.300000 0.000000" model = "Carpet.b3d"/>
+  </speed-weighted-objects>
   <hat offset="0.0 0.245 0.15"/>
 </kart>
