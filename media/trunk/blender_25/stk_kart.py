@@ -102,8 +102,21 @@ def saveSpeedWeighted(f, lSpeedWeighted, path):
     
     f.write('  <speed-weighted-objects>\n')
     for obj in lSpeedWeighted:
-        f.write('    <speed-weighted position = "%f %f %f" model = "%s.b3d"/>\n' \
-                % (obj.location.x, obj.location.z, obj.location.y, obj.name))
+        strengthFactor = float(getProperty(obj, "speed-weighted-strength-factor", -1.0))
+        speedFactor    = float(getProperty(obj, "speed-weighted-speed-factor",    -1.0))
+        textureSpeedX  = float(getProperty(obj, "speed-weighted-texture-speed-x", 0.0))
+        textureSpeedY  = float(getProperty(obj, "speed-weighted-texture-speed-y", 0.0))
+        
+        strAttributes=""
+        if strengthFactor >= 0.0:
+            strAttributes = strAttributes + ' strength-factor="%f"' % strengthFactor
+        if speedFactor >= 0.0:
+            strAttributes = strAttributes + ' speed-factor="%f"' % speedFactor
+        if textureSpeedX != 0.0 or textureSpeedY != 0.0:
+            strAttributes = strAttributes + ' texture-speed-x="%f" texture-speed-y="%f"' % (textureSpeedX, textureSpeedY)
+        
+        f.write('    <speed-weighted position="%f %f %f" model="%s.b3d" %s/>\n' \
+                % (obj.location.x, obj.location.z, obj.location.y, obj.name, strAttributes))
         
         lOldPos = Vector([obj.location.x, obj.location.y, obj.location.z])
         obj.location = Vector([0, 0, 0])
