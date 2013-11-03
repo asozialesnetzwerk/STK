@@ -28,6 +28,12 @@
     <animated-texture name="supp1k.png" dx="0.516" />
     <animated-texture name="planet_earth1.jpg" dx="0.010" />
     <animated-texture name="moon.jpg" dx="0.001" />
+    <animated-texture name="terminal_text.png" dy="0.100" />
+    <animated-texture name="terminal_graphic.png" dx="0.100" />
+    <animated-texture name="terminal_graphic.png" dx="0.100" />
+    <animated-texture name="terminal_text.png" dy="0.100" />
+    <animated-texture name="terminal_graphic.png" dx="0.100" />
+    <animated-texture name="terminal_text.png" dy="0.100" />
   </track>
   <object type="animation" xyz="99.55 11.02 244.15" hpr="-0.0 180.0 -0.0" scale="1.08 1.08 1.08" interaction="ghost" model="window_dor.b3d">
   </object>
@@ -43,6 +49,159 @@
           shape="box" mass="25.0" model="Box.b3d"/>
   <object type="movable" xyz="270.67 10.39 -13.84" hpr="0.0 25.9 0.0" scale="1.23 1.23 1.23"
           shape="box" mass="25.0" model="Box.b3d"/>
+  <object type="animation" xyz="191.21 15.02 -67.92" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="screen_halo.b3d">
+    <curve channel="ScaleX" interpolation="bezier" extend="cyclic">
+      <p c="1.000 1.000" h1="-10.321 1.000" h2="12.321 1.000"/>
+      <p c="30.000 1.452" h1="18.678 1.452" h2="41.712 1.452"/>
+      <p c="60.000 1.000" h1="48.289 1.000" h2="71.711 1.000"/>
+    </curve>
+    <curve channel="ScaleZ" interpolation="bezier" extend="cyclic">
+      <p c="1.000 1.000" h1="-10.321 1.000" h2="12.321 1.000"/>
+      <p c="30.000 1.452" h1="18.678 1.452" h2="41.712 1.452"/>
+      <p c="60.000 1.000" h1="48.289 1.000" h2="71.711 1.000"/>
+    </curve>
+    <curve channel="ScaleY" interpolation="bezier" extend="cyclic">
+      <p c="1.000 1.000" h1="-10.321 1.000" h2="12.321 1.000"/>
+      <p c="30.000 1.452" h1="18.678 1.452" h2="41.712 1.452"/>
+      <p c="60.000 1.000" h1="48.289 1.000" h2="71.711 1.000"/>
+    </curve>
+  </object>
+  <object type="animation" xyz="191.21 15.02 -75.26" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="screen_halo.b3d">
+    <curve channel="ScaleX" interpolation="bezier" extend="cyclic">
+      <p c="1.000 1.000" h1="-10.321 1.000" h2="12.321 1.000"/>
+      <p c="30.000 1.452" h1="18.678 1.452" h2="41.712 1.452"/>
+      <p c="60.000 1.000" h1="48.289 1.000" h2="71.711 1.000"/>
+    </curve>
+    <curve channel="ScaleZ" interpolation="bezier" extend="cyclic">
+      <p c="1.000 1.000" h1="-10.321 1.000" h2="12.321 1.000"/>
+      <p c="30.000 1.452" h1="18.678 1.452" h2="41.712 1.452"/>
+      <p c="60.000 1.000" h1="48.289 1.000" h2="71.711 1.000"/>
+    </curve>
+    <curve channel="ScaleY" interpolation="bezier" extend="cyclic">
+      <p c="1.000 1.000" h1="-10.321 1.000" h2="12.321 1.000"/>
+      <p c="30.000 1.452" h1="18.678 1.452" h2="41.712 1.452"/>
+      <p c="60.000 1.000" h1="48.289 1.000" h2="71.711 1.000"/>
+    </curve>
+  </object>
+  <object type="animation" xyz="54.53 12.80 244.76" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="screen_halo.b3d">
+    <curve channel="ScaleX" interpolation="bezier" extend="cyclic">
+      <p c="1.000 1.000" h1="-10.321 1.000" h2="12.321 1.000"/>
+      <p c="30.000 1.452" h1="18.678 1.452" h2="41.712 1.452"/>
+      <p c="60.000 1.000" h1="48.289 1.000" h2="71.711 1.000"/>
+    </curve>
+    <curve channel="ScaleZ" interpolation="bezier" extend="cyclic">
+      <p c="1.000 1.000" h1="-10.321 1.000" h2="12.321 1.000"/>
+      <p c="30.000 1.452" h1="18.678 1.452" h2="41.712 1.452"/>
+      <p c="60.000 1.000" h1="48.289 1.000" h2="71.711 1.000"/>
+    </curve>
+    <curve channel="ScaleY" interpolation="bezier" extend="cyclic">
+      <p c="1.000 1.000" h1="-10.321 1.000" h2="12.321 1.000"/>
+      <p c="30.000 1.452" h1="18.678 1.452" h2="41.712 1.452"/>
+      <p c="60.000 1.000" h1="48.289 1.000" h2="71.711 1.000"/>
+    </curve>
+  </object>
+  <object type="animation" xyz="47.67 12.72 244.71" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="screen_halo.b3d">
+    <curve channel="ScaleX" interpolation="bezier" extend="cyclic">
+      <p c="1.000 1.000" h1="-10.321 1.000" h2="12.321 1.000"/>
+      <p c="30.000 1.452" h1="18.678 1.452" h2="41.712 1.452"/>
+      <p c="60.000 1.000" h1="48.289 1.000" h2="71.711 1.000"/>
+    </curve>
+    <curve channel="ScaleZ" interpolation="bezier" extend="cyclic">
+      <p c="1.000 1.000" h1="-10.321 1.000" h2="12.321 1.000"/>
+      <p c="30.000 1.452" h1="18.678 1.452" h2="41.712 1.452"/>
+      <p c="60.000 1.000" h1="48.289 1.000" h2="71.711 1.000"/>
+    </curve>
+    <curve channel="ScaleY" interpolation="bezier" extend="cyclic">
+      <p c="1.000 1.000" h1="-10.321 1.000" h2="12.321 1.000"/>
+      <p c="30.000 1.452" h1="18.678 1.452" h2="41.712 1.452"/>
+      <p c="60.000 1.000" h1="48.289 1.000" h2="71.711 1.000"/>
+    </curve>
+  </object>
+  <object type="animation" xyz="40.53 12.80 244.76" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="screen_halo.b3d">
+    <curve channel="ScaleX" interpolation="bezier" extend="cyclic">
+      <p c="1.000 1.000" h1="-10.321 1.000" h2="12.321 1.000"/>
+      <p c="30.000 1.452" h1="18.678 1.452" h2="41.712 1.452"/>
+      <p c="60.000 1.000" h1="48.289 1.000" h2="71.711 1.000"/>
+    </curve>
+    <curve channel="ScaleZ" interpolation="bezier" extend="cyclic">
+      <p c="1.000 1.000" h1="-10.321 1.000" h2="12.321 1.000"/>
+      <p c="30.000 1.452" h1="18.678 1.452" h2="41.712 1.452"/>
+      <p c="60.000 1.000" h1="48.289 1.000" h2="71.711 1.000"/>
+    </curve>
+    <curve channel="ScaleY" interpolation="bezier" extend="cyclic">
+      <p c="1.000 1.000" h1="-10.321 1.000" h2="12.321 1.000"/>
+      <p c="30.000 1.452" h1="18.678 1.452" h2="41.712 1.452"/>
+      <p c="60.000 1.000" h1="48.289 1.000" h2="71.711 1.000"/>
+    </curve>
+  </object>
+  <object type="animation" xyz="224.41 18.33 3.17" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="screen_halo.b3d">
+    <curve channel="ScaleX" interpolation="bezier" extend="cyclic">
+      <p c="1.000 1.000" h1="-10.321 1.000" h2="12.321 1.000"/>
+      <p c="30.000 1.452" h1="18.678 1.452" h2="41.712 1.452"/>
+      <p c="60.000 1.000" h1="48.289 1.000" h2="71.711 1.000"/>
+    </curve>
+    <curve channel="ScaleZ" interpolation="bezier" extend="cyclic">
+      <p c="1.000 1.000" h1="-10.321 1.000" h2="12.321 1.000"/>
+      <p c="30.000 1.452" h1="18.678 1.452" h2="41.712 1.452"/>
+      <p c="60.000 1.000" h1="48.289 1.000" h2="71.711 1.000"/>
+    </curve>
+    <curve channel="ScaleY" interpolation="bezier" extend="cyclic">
+      <p c="1.000 1.000" h1="-10.321 1.000" h2="12.321 1.000"/>
+      <p c="30.000 1.452" h1="18.678 1.452" h2="41.712 1.452"/>
+      <p c="60.000 1.000" h1="48.289 1.000" h2="71.711 1.000"/>
+    </curve>
+  </object>
+  <object type="animation" xyz="292.30 18.33 3.17" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="screen_halo.b3d">
+    <curve channel="ScaleX" interpolation="bezier" extend="cyclic">
+      <p c="1.000 1.000" h1="-10.321 1.000" h2="12.321 1.000"/>
+      <p c="30.000 1.452" h1="18.678 1.452" h2="41.712 1.452"/>
+      <p c="60.000 1.000" h1="48.289 1.000" h2="71.711 1.000"/>
+    </curve>
+    <curve channel="ScaleZ" interpolation="bezier" extend="cyclic">
+      <p c="1.000 1.000" h1="-10.321 1.000" h2="12.321 1.000"/>
+      <p c="30.000 1.452" h1="18.678 1.452" h2="41.712 1.452"/>
+      <p c="60.000 1.000" h1="48.289 1.000" h2="71.711 1.000"/>
+    </curve>
+    <curve channel="ScaleY" interpolation="bezier" extend="cyclic">
+      <p c="1.000 1.000" h1="-10.321 1.000" h2="12.321 1.000"/>
+      <p c="30.000 1.452" h1="18.678 1.452" h2="41.712 1.452"/>
+      <p c="60.000 1.000" h1="48.289 1.000" h2="71.711 1.000"/>
+    </curve>
+  </object>
+  <object type="animation" xyz="272.48 18.33 3.00" hpr="-0.0 180.0 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="screen_halo.b3d">
+    <curve channel="ScaleX" interpolation="bezier" extend="cyclic">
+      <p c="1.000 1.000" h1="-10.321 1.000" h2="12.321 1.000"/>
+      <p c="30.000 1.452" h1="18.678 1.452" h2="41.712 1.452"/>
+      <p c="60.000 1.000" h1="48.289 1.000" h2="71.711 1.000"/>
+    </curve>
+    <curve channel="ScaleZ" interpolation="bezier" extend="cyclic">
+      <p c="1.000 1.000" h1="-10.321 1.000" h2="12.321 1.000"/>
+      <p c="30.000 1.452" h1="18.678 1.452" h2="41.712 1.452"/>
+      <p c="60.000 1.000" h1="48.289 1.000" h2="71.711 1.000"/>
+    </curve>
+    <curve channel="ScaleY" interpolation="bezier" extend="cyclic">
+      <p c="1.000 1.000" h1="-10.321 1.000" h2="12.321 1.000"/>
+      <p c="30.000 1.452" h1="18.678 1.452" h2="41.712 1.452"/>
+      <p c="60.000 1.000" h1="48.289 1.000" h2="71.711 1.000"/>
+    </curve>
+  </object>
+  <object type="animation" xyz="341.16 18.33 3.00" hpr="-0.0 180.0 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="screen_halo.b3d">
+    <curve channel="ScaleX" interpolation="bezier" extend="cyclic">
+      <p c="1.000 1.000" h1="-10.321 1.000" h2="12.321 1.000"/>
+      <p c="30.000 1.452" h1="18.678 1.452" h2="41.712 1.452"/>
+      <p c="60.000 1.000" h1="48.289 1.000" h2="71.711 1.000"/>
+    </curve>
+    <curve channel="ScaleZ" interpolation="bezier" extend="cyclic">
+      <p c="1.000 1.000" h1="-10.321 1.000" h2="12.321 1.000"/>
+      <p c="30.000 1.452" h1="18.678 1.452" h2="41.712 1.452"/>
+      <p c="60.000 1.000" h1="48.289 1.000" h2="71.711 1.000"/>
+    </curve>
+    <curve channel="ScaleY" interpolation="bezier" extend="cyclic">
+      <p c="1.000 1.000" h1="-10.321 1.000" h2="12.321 1.000"/>
+      <p c="30.000 1.452" h1="18.678 1.452" h2="41.712 1.452"/>
+      <p c="60.000 1.000" h1="48.289 1.000" h2="71.711 1.000"/>
+    </curve>
+  </object>
   <object type="animation" xyz="160.94 17.30 -157.13" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="rotating.b3d">
     <curve channel="RotX" interpolation="bezier" extend="cyclic">
       <p c="1.000 -0.000" h1="-8.667 30.000" h2="10.667 -30.000"/>
@@ -235,7 +394,11 @@
     <check-line kind="activate" other-ids="0" p1="326.31 58.82" p2="376.42 58.82"
                 min-height="8.71" same-group="1"/>
   </checks>
-  <object type="sfx-emitter" sound="bzzt2.ogg" rolloff="0.003" volume="1.0" max_dist="2177.4" xyz="209.43 12.03 -64.22" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="20.0">
+  <object type="sfx-emitter" sound="bzzt2.ogg" rolloff="0.003" volume="1.0" max_dist="100.0" xyz="209.43 12.03 -64.22" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="20.0">
+  </object>
+  <object type="sfx-emitter" sound="bzzt2.ogg" rolloff="0.003" volume="1.0" max_dist="100.0" xyz="106.18 3.45 -65.22" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="20.0">
+  </object>
+  <object type="sfx-emitter" sound="bzzt2.ogg" rolloff="0.003" volume="1.0" max_dist="100.0" xyz="51.31 3.45 -65.22" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00" play-when-near="true" distance="20.0">
   </object>
   <banana x="247.50" y="11.00" z="-13.50" h="-90.00" />
   <banana x="317.50" y="11.00" z="-13.50" h="-90.00" />
@@ -627,10 +790,16 @@
   <object type="billboard" texture="lightLenFlareR.png" xyz="157.10 56.55 -115.79" 
              width="7.807" height="3.903" >
   </object>
-  <object type="billboard" texture="lightLenFlareR.png" xyz="97.40 22.83 63.72" 
+  <object type="billboard" texture="lightLenFlareR.png" xyz="96.78 22.83 62.01" 
              width="7.807" height="3.903" >
   </object>
-  <object type="billboard" texture="lightLenFlareR.png" xyz="97.40 29.05 61.59" 
+  <object type="billboard" texture="lightLenFlareR.png" xyz="98.87 29.05 62.08" 
+             width="7.807" height="3.903" >
+  </object>
+  <object type="billboard" texture="lightLenFlareR.png" xyz="153.94 33.94 -199.72" 
+             width="7.807" height="3.903" >
+  </object>
+  <object type="billboard" texture="lightLenFlareR.png" xyz="153.94 40.16 -201.85" 
              width="7.807" height="3.903" >
   </object>
   <object type="billboard" texture="lightHaloY.png" xyz="143.34 3.20 213.39" 
