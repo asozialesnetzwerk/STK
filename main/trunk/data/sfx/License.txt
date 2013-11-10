@@ -80,6 +80,10 @@
     Released under CC-BY 3.0 license
     by Kerri (http://www.freesound.org/people/kerri/sounds/27257/)
 
+* goal_scored
+	Released under CC-BY 3.0
+	by jordiroquer (http://www.freesound.org/people/jordiroquer/sounds/148153/)
+	
 * goo
     based on Squish 1-SoundBible.com-662226724
     by Mike Keonig, released under CC-Attribution 3.0 License
