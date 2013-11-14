@@ -98,6 +98,7 @@
                 <EnumChoice id="none" label="None"/>
                 <EnumChoice id="reset" label="Rescue kart"/>
                 <EnumChoice id="push" label="Push back kart"/>
+                <EnumChoice id="push-soccer" label="Push back soccer ball"/>
             </EnumProp>
             <StringProp id="collision_particles" name="Particles on hit" default=""/>
         </BoolProp>  
