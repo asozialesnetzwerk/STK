@@ -285,7 +285,7 @@ def getXYZHString(obj):
     return s
 
 # ------------------------------------------------------------------------------
-# Returns a string 'x="1" y="2" z="3" h="4"', where 1, 2, ...are the actual
+# Returns a string 'xyz="1 2 3" h="4"', where 1, 2, ...are the actual
 # location and rotation of the given object. The location has a swapped
 # y and z axis (so that the same coordinate system as in-game is used).
 def getNewXYZHString(obj):
