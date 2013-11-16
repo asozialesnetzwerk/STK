@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev Unknown -->
+<materials>
+  <material name="arc1.png" light="N" backface-culling="N" compositing="additive" disable-z-write="Y"/>
+  <material name="arc2.png" light="N" backface-culling="N" compositing="additive" disable-z-write="Y"/>
+  <material name="blueZipper.png" compositing="additive" disable-z-write="Y">
+    <zipper duration="3.5" max-speed-increase="15.0" fade-out-time="3.0" speed-gain="4.5"/>
+  </material>
+  <material name="ceil1_inner.png" compositing="test"/>
+  <material name="ceil1_outer.png" compositing="test"/>
+  <material name="drtest.png" ignore="Y"/>
+  <material name="drtest.png" ignore="Y"/>
+  <material name="earthHalo.png" compositing="additive" disable-z-write="Y"/>
+  <material name="glassWindows.png" backface-culling="N" compositing="blend" disable-z-write="Y"/>
+  <material name="lightHaloB.png" light="N" compositing="additive" disable-z-write="Y"/>
+  <material name="lightHaloG.png" light="N" compositing="additive" disable-z-write="Y"/>
+  <material name="lightHaloY.png" light="N" compositing="additive"/>
+  <material name="lightLenFlareR.png" light="N" compositing="additive" disable-z-write="Y"/>
+  <material name="moonHalo.png" compositing="additive" disable-z-write="Y"/>
+  <material name="pipe1a-core.png" light="N"/>
+  <material name="reset.png" compositing="test" disable-z-write="Y" falling-effect="Y" reset="Y"/>
+  <material name="supp1k.png" light="N" compositing="test" reset="Y"/>
+  <material name="terminal_graphic.png" compositing="additive" disable-z-write="Y"/>
+  <material name="terminal_text.png" compositing="additive" disable-z-write="Y"/>
+  <material name="window.png" light="N" compositing="blend"/>
+</materials>
