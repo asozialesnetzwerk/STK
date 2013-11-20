@@ -41,5 +41,7 @@
     <particles base="smoke_yellow.xml" condition="drive skid"/>
   </material>
   <material name="zipper-effect.png" light="N" compositing="blend" disable-z-write="Y"/>
-  <material name="zipper.png" light="N" compositing="blend" disable-z-write="Y"/>
+  <material name="zipper.png" light="N" compositing="additive" disable-z-write="Y">
+    <zipper duration="1.5" max-speed-increase="5.0" fade-out-time="3.0" speed-gain="4.5"/>
+  </material>
 </materials>
