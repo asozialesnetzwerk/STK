@@ -3,7 +3,7 @@
 <track  name           = "Snow Peak"
         version        = "5"
         groups         = "standard"
-        designer       = "Jean-Manuel Clemencon &amp; Ivar Ten Cate"
+        designer       = "Jean-Manuel Cl&#233;men&#231;on &amp; Ivar Ten Cate"
         music          = "OnTheRiver.music"
         screenshot     = "sshot-snowtuxpeak.jpg"
         smooth-normals = "true"
