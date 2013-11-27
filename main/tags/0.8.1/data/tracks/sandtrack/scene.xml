@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev Unknown -->
+<scene>
+  <track model="sandtrack_track.b3d" x="0" y="0" z="0">
+    <animated-texture name="water_light.png" dx="0.050" />
+    <animated-texture name="water_light.png" dx="0.040" />
+    <animated-texture name="water_light.png" dx="0.020" />
+    <animated-texture name="water_light.png" dx="0.075" />
+    <animated-texture name="water_light.png" dx="0.020" />
+  </track>
+  <object type="animation" xyz="-71.37 -126.12 -78.55" hpr="0.0 5.6 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="palm1.b3d">
+  </object>
+  <object type="animation" xyz="-79.02 -127.77 -66.33" hpr="0.0 72.6 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="palm2.b3d">
+  </object>
+  <sky-box texture="skybox3.jpg skybox3.jpg skybox2.jpg skybox2.jpg skybox2.jpg skybox2.jpg"/>
+  <camera far="1000.0"/>
+  <checks>
+    <check-lap kind="lap" same-group="0" other-ids="1" />
+    <check-line kind="activate" other-ids="0" p1="3.66 150.51" p2="-32.56 137.05"
+                min-height="-141.73" same-group="1"/>
+  </checks>
+  <particle-emitter kind="waterfall.xml" xyz="-189.48 -168.96 0.64" h="-2.09">
+  </particle-emitter>
+  <particle-emitter kind="waterfall.xml" xyz="-191.02 -169.23 3.17" h="-2.09">
+  </particle-emitter>
+  <particle-emitter kind="waterfall.xml" xyz="-192.49 -169.50 5.58" h="-2.09">
+  </particle-emitter>
+  <particle-emitter kind="waterfall.xml" xyz="-193.98 -169.77 8.03" h="-2.09">
+  </particle-emitter>
+  <particle-emitter kind="waterfall.xml" xyz="-188.07 -168.70 -1.68" h="-2.09">
+  </particle-emitter>
+  <particle-emitter kind="waterfall.xml" xyz="-195.44 -170.03 10.43" h="-2.09">
+  </particle-emitter>
+  <particle-emitter kind="waterfall.xml" xyz="-197.08 -170.33 13.13" h="-2.09">
+  </particle-emitter>
+  <particle-emitter kind="waterfall.xml" xyz="-187.10 -168.53 -3.27" h="-2.09">
+  </particle-emitter>
+  <item x="-1.63" y="-132.90" z="15.81" />
+  <item x="0.87" y="-132.90" z="15.81" />
+  <item x="4.00" y="-132.90" z="15.81" />
+  <item x="15.67" y="-132.90" z="-102.33" />
+  <item x="12.55" y="-132.90" z="-102.33" />
+  <item x="10.04" y="-132.90" z="-102.33" />
+  <item x="-291.32" y="-145.48" z="-25.68" h="16.56" />
+  <item x="-288.92" y="-145.48" z="-24.97" h="16.56" />
+  <item x="-285.92" y="-145.48" z="-24.08" h="16.56" />
+  <item x="-150.08" y="-132.90" z="109.46" />
+  <item x="-153.20" y="-132.90" z="109.46" />
+  <item x="-155.71" y="-132.90" z="109.46" />
+  <banana x="-33.98" y="-137.76" z="176.31" h="-41.75" />
+  <banana x="-30.50" y="-137.76" z="178.55" h="-41.75" />
+  <banana x="-28.02" y="-137.76" z="180.54" h="-41.75" />
+  <small-nitro x="-182.99" y="-130.13" z="-174.14" />
+  <small-nitro x="-127.51" y="-134.98" z="-18.98" />
+  <banana x="-225.91" y="-149.65" z="-77.42" />
+  <banana x="-226.47" y="-149.65" z="-80.80" />
+  <banana x="-227.11" y="-149.65" z="-84.92" />
+  <banana x="-205.60" y="-137.76" z="42.20" />
+  <banana x="-214.49" y="-137.76" z="47.53" />
+  <banana x="-225.19" y="-137.76" z="40.97" />
+  <small-nitro x="-224.16" y="-137.52" z="45.89" />
+  <small-nitro x="-214.39" y="-137.52" z="40.94" />
+  <small-nitro x="-205.27" y="-137.52" z="47.71" />
+  <small-nitro x="-116.39" y="-146.89" z="-190.35" />
+  <small-nitro x="-127.15" y="-134.98" z="-15.96" />
+  <small-nitro x="-126.79" y="-134.98" z="-13.08" />
+  <small-nitro x="-67.14" y="-114.42" z="-113.58" />
+  <small-nitro x="-66.75" y="-118.19" z="-125.25" />
+  <small-nitro x="-60.53" y="-118.19" z="-127.97" />
+  <small-nitro x="-58.20" y="-118.19" z="-137.31" />
+  <small-nitro x="-39.91" y="-125.45" z="-148.20" />
+  <small-nitro x="-33.69" y="-125.45" z="-155.98" />
+  <small-nitro x="-22.02" y="-125.45" z="-149.76" />
+  <small-nitro x="-15.40" y="-125.45" z="-150.53" />
+  <default-start karts-per-row     ="3"
+                 forwards-distance ="1.10"
+                 sidewards-distance="2.00"
+                 upwards-distance  ="1.10"/>
+</scene>
