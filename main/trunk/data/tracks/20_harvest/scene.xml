@@ -6,7 +6,7 @@
   </object>
   <object type="animation" xyz="0.00 0.50 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="SomeModel.b3d" renderpass="skybox">
   </object>
-  <sun  xyz="0.00 1274.99 659.82" sun-specular="167 167 167" sun-diffuse="235 180 110" ambient="103 99 86"/>
+  <sun  xyz="0.00 588.80 2784.04" sun-specular="167 167 167" sun-diffuse="235 180 110" ambient="103 99 86"/>
   <sky-color rgb="77 104 255"/>
   <sky-box texture="sky.png sky.png sky.png sky.png sky.png sky.png"/>
   <camera far="500.0"/>
