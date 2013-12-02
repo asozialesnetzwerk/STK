@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 12507 -->
+<!-- Generated with script from SVN rev 14120 -->
 <kart name              = "Beastie"
       version           = "2"
       model-file        = "beastie.b3dz"
       icon-file         = "beastie-icon.png"
       minimap-icon-file = "beastie-icon.png"
       shadow-file       = "beastie-shadow.png"
-      random-wheel-rot  = "false"
+      random-wheel-rot  = "true"
       groups            = "standard"
       rgb               = "0.77 0.00 0.00" >
   <sounds engine = "large"/>
@@ -33,5 +33,5 @@
     <nitro-emitter-a position = "0.387257 0.615989 -0.635706" />
     <nitro-emitter-b position = "-0.382115 0.615989 -0.635706" />
   </nitro-emitter>
-  <hat offset = "0.0 1.0 0.0">
+     <hat offset="0.0 0.24 -0.035"/>
 </kart>

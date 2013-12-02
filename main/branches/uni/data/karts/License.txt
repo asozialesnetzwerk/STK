@@ -59,9 +59,14 @@ Tux :
     released under GNU GPL
     
 Animations :
-    by Rudy85
+    by Rudy85, chronomaster
 
 Cartoonish character icons :
     by Anthony Carré (yekcim), released under GPL 2
     except Beagle icon, by Dakal, released under CC-BY-SA 3.0
     and Beastie icon, by Lionel Fuentes, released under FreeBSD license (see beastie/License.txt)
+    Sara icon, by betharatux1
+    
+Sara:
+    model by samuncle, released under CC-BY-SA 3.0
+    icon by betharatux1

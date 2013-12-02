@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 12507 -->
+<!-- Generated with script from SVN rev 14302 -->
 <kart name              = "Pidgin"
       version           = "2"
       model-file        = "pidgin.b3dz"
       icon-file         = "pidginicon.png"
       minimap-icon-file = "pidginicon.png"
       shadow-file       = "pidginshadow.png"
-      random-wheel-rot  = "false"
+      random-wheel-rot  = "true"
       groups            = "standard"
       rgb               = "0.42 0.25 0.46" >
   <sounds engine = "large"/>
@@ -29,5 +29,4 @@
     <rear-right position = "0.398760 0.170913 -0.438000"
                  model    = "wheel-rear-right.b3d"       />
   </wheels>
-  <hat offset = "0.0 1.0 0.0">
 </kart>
