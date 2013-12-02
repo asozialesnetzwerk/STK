@@ -1,9 +1,11 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 13446 -->
+<!-- Generated with script from SVN rev 14445 -->
 <scene>
   <track model="jungle_track.b3d" x="0" y="0" z="0">
     <animated-texture name="zipper_jungle.png" dy="0.500" />
     <animated-texture name="zipper_jungle.png" dy="0.500" />
+    <animated-texture name="ants.png" dy="0.500" />
+    <animated-texture name="ants.png" dy="0.500" />
     <animated-texture name="water_light.png" dy="0.100" />
     <animated-texture name="water_light.png" dy="0.100" />
   </track>
@@ -12,7 +14,7 @@
   <camera far="1000.0"/>
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
-    <check-line kind="activate" other-ids="0" p1="323.32 -112.02" p2="297.82 -109.41"
+    <check-line kind="activate" other-ids="0" p1="345.37 -112.02" p2="271.36 -109.41"
                 min-height="15.37" same-group="1"/>
   </checks>
   <particle-emitter kind="fire.xml" xyz="-30.40 13.25 -163.04" h="0.00" clip_distance="200">
@@ -21,7 +23,7 @@
   </particle-emitter>
   <particle-emitter kind="fire.xml" xyz="-9.20 13.25 -141.48" h="-8.14" clip_distance="200">
   </particle-emitter>
-  <particle-emitter kind="fire.xml" xyz="-29.62 13.25 -139.22" h="-8.14" clip_distance="200">
+  <particle-emitter kind="fire.xml" xyz="-29.62 12.85 -138.89" h="-8.14" clip_distance="200">
   </particle-emitter>
   <particle-emitter kind="fire.xml" xyz="-27.87 13.25 -182.01" h="4.55" clip_distance="200">
   </particle-emitter>
@@ -32,6 +34,10 @@
   <particle-emitter kind="fire.xml" xyz="-52.80 12.89 -182.66" h="4.55" clip_distance="200">
   </particle-emitter>
   <particle-emitter kind="fire.xml" xyz="-52.61 12.20 -136.07" h="4.55" clip_distance="200">
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" xyz="-52.80 12.53 -162.55" h="4.55" clip_distance="200">
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" xyz="-48.93 12.41 -203.65" h="4.55" clip_distance="200">
   </particle-emitter>
   <banana x="-17.05" y="12.00" z="-297.33" />
   <banana x="139.89" y="14.49" z="-290.34" />

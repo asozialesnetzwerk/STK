@@ -2,7 +2,7 @@
 <!-- Generated with script from SVN rev 12720 -->
 <track  name           = "Battle Island"
         version        = "5"
-        groups         = "Add-Ons"
+        groups         = "standard"
         designer       = "qubodup"
         music          = "kart_grand_prix.music"
         arena          = "Y"

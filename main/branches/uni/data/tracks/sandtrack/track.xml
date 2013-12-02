@@ -4,7 +4,7 @@
         version        = "5"
         groups         = "standard"
         designer       = "ctdabomb"
-        music          = "TheDeadRocks-GreenSecretFromAmazonia.music"
+        music          = "egypt.music"
         screenshot     = "sshot-sandtrack.jpg"
         smooth-normals = "true"
         reverse        = "Y"
