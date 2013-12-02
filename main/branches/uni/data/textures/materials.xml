@@ -15,9 +15,12 @@
   <material name="skid-particle1.png"    additive="Y" light="N" ignore="Y"/>
   <material name="skid-particle2.png"    additive="Y" light="N" ignore="Y"/>
   <material name="zipper-particle.png"   additive="Y" light="N" ignore="Y"/>
-  <material name="zipper-particle.png"   additive="Y" light="N" ignore="Y"/>
+  <material name="waterparticles.png"    compositing="blend" light="N" ignore="Y"/>
   
   <!-- Textures -->
+  
+  <material name="ants.png" compositing="test"/>
+  
   <material name="bumpy_surface.png">
     <particles base="smoke.xml" condition="skid" />
   </material>

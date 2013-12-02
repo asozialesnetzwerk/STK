@@ -11,6 +11,10 @@
     Released under GPL vs2+
     by the Supertux team
 
+* boing
+    Released under the Creative Commons 0 license
+    By vrodge (http://www.freesound.org/people/vrodge/sounds/119518/)
+    
 * bowling_roll
     Released under the CC-BY-SA 3.0 license (sounds originally released under CC-Sampling+, but obtained permission
     from author to release them under CC-By-SA 3.0)
@@ -20,6 +24,12 @@
 * break
     released under CC-BY 3.0
     Based on work by Daniel Simion and BlastwaveFx
+    
+* bubblegum_explode.ogg
+    released under CC-BY 3.0
+    Based on work by Percy Duke and jjhouse4
+    http://www.freesound.org/people/Percy%20Duke/sounds/23297/
+    http://www.freesound.org/people/jjhouse4/sounds/197990/
     
 * bzzt
     Released under the GNU GPL, coming from original (Super)TuxKart
@@ -70,6 +80,10 @@
     Released under CC-BY 3.0 license
     by Kerri (http://www.freesound.org/people/kerri/sounds/27257/)
 
+* goal_scored
+	Released under CC-BY 3.0
+	by jordiroquer (http://www.freesound.org/people/jordiroquer/sounds/148153/)
+	
 * goo
     based on Squish 1-SoundBible.com-662226724
     by Mike Keonig, released under CC-Attribution 3.0 License
