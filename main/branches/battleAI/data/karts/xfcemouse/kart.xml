@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 0.1 -->
+<!-- Generated with script from SVN rev 14302 -->
 <kart name              = "Xue"
       version           = "2"
-      model-file        = "xfce mouse.b3d"
+      model-file        = "xue.b3d"
       icon-file         = "xfce_icon64.png"
       minimap-icon-file = "xfce_icon32.png"
       shadow-file       = "shadow.png"
@@ -19,10 +19,15 @@
               end-winning = "189"
               start-losing = "219"
               start-losing-loop = "259"
-              end-losing = "289"/>
+              end-losing = "289"
+              start-speed-weighted = "299"
+              end-speed-weighted = "329"/>
   <nitro-emitter>
     <nitro-emitter-a position = "0.355961 0.446362 -0.547407" />
     <nitro-emitter-b position = "-0.355961 0.446362 -0.547407" />
   </nitro-emitter>
+  <speed-weighted strength-factor="-1.0" speed-factor="10.0">
+    <speed-weighted position = "0.000000 0.000000 0.000000" model = "hc.propeller.b3d"/>
+  </speed-weighted>
   <hat offset="0.0 0.05 0.07"/>
 </kart>

@@ -28,7 +28,6 @@
     <static-object lod_distance="80.0" lod_group="chest_mound" model="chest_mound_hi.b3d" xyz="-159.64 -34.41 665.68" hpr="86.5 -81.3 2.5" scale="2.52 2.52 2.52"/>
     <static-object lod_distance="350.0" lod_group="chest_mound" model="chest_mound_lo.b3d" xyz="-191.53 -34.41 665.68" hpr="86.5 -81.3 2.5" scale="2.52 2.52 2.52"/>
     <static-object lod_instance="true" lod_group="chest_mound" xyz="-298.18 -34.41 371.92" hpr="89.5 -127.4 -0.6" scale="2.52 2.52 2.52"/>
-    <animated-texture name="water_dark-transp-subsea.png" dy="-0.100" />
     <animated-texture name="eggs.png" dy="0.500" />
     <animated-texture name="organic-subsea.jpg" dy="0.100" />
     <animated-texture name="flaque-subsea.png" dy="0.100" />
@@ -41,6 +40,8 @@
     <animated-texture name="waterparticles-subsea.png" dy="6.000" />
     <animated-texture name="waterparticles-subsea.png" dy="4.000" />
   </track>
+  <object type="animation" xyz="-192.83 819.15 150.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="sea.b3d">
+  </object>
   <object type="movable" xyz="-89.39 -18.10 366.08" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
           shape="cylinder" mass="45.0"  lod_instance="true" lod_group="pillar"/>
   <object type="movable" xyz="-89.43 -18.10 392.37" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"

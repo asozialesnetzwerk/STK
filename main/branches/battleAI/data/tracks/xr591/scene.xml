@@ -1,24 +1,24 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 12720 -->
+<!-- Generated with script from SVN rev 13687 -->
 <scene>
   <track model="xr591_track.b3d" x="0" y="0" z="0">
-    <static-object model="tube 2.b3d" xyz="-18.83 13.31 38.01" hpr="-0.0 -0.0 5.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="tube 1.b3d" xyz="48.17 19.80 12.34" hpr="-0.0 180.0 -5.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="lightBeam.b3d" xyz="146.34 -30.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="lightBeam.b3d" xyz="-0.00 102.36 277.00" hpr="-90.0 -70.0 90.0" scale="1.70 1.70 1.70"/> <!-- writeStaticObjects 3 -->
-    <static-object model="lightBeam.b3d" xyz="-239.89 102.36 138.50" hpr="11.2 -152.0 -22.8" scale="1.70 1.70 1.70"/> <!-- writeStaticObjects 3 -->
-    <static-object model="lightBeam.b3d" xyz="-239.89 102.36 -138.50" hpr="-11.2 152.0 -22.8" scale="1.70 1.70 1.70"/> <!-- writeStaticObjects 3 -->
-    <static-object model="lightBeam.b3d" xyz="239.89 102.36 138.50" hpr="-11.2 -28.0 22.8" scale="1.70 1.70 1.70"/> <!-- writeStaticObjects 3 -->
-    <static-object model="lightBeam.b3d" xyz="239.89 102.36 -138.50" hpr="11.2 28.0 22.8" scale="1.70 1.70 1.70"/> <!-- writeStaticObjects 3 -->
-    <static-object model="lightBeam.b3d" xyz="-0.00 102.36 -277.00" hpr="90.0 70.0 90.0" scale="1.70 1.70 1.70"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_distance="60.0" lod_group="aliens" model="aliens_hi.b3d" xyz="-48.21 7.16 98.45" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_instance="true" lod_group="aliens" xyz="-54.25 10.16 100.87" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_distance="40.0" lod_group="robot1" model="robot_high.b3d" xyz="32.59 -3.73 -203.25" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_distance="200.0" lod_group="robot1" model="robot1_low.b3d" xyz="44.10 -3.73 -201.25" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="curiosity.b3d" xyz="-94.77 6.81 143.51" hpr="-0.0 -105.0 9.2" scale="3.27 3.27 3.27"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_distance="200.0" lod_group="aliens" model="aliens_lo.b3d" xyz="-43.74 6.51 96.24" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="curious.b3d" xyz="-94.29 8.90 142.70" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
-    <static-object model="love.b3d" xyz="-93.47 5.53 159.28" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/> <!-- writeStaticObjects 3 -->
+    <static-object model="tube 2.b3d" xyz="-18.83 13.31 38.01" hpr="-0.0 -0.0 5.0" scale="1.00 1.00 1.00"/>
+    <static-object model="tube 1.b3d" xyz="48.17 19.80 12.34" hpr="-0.0 180.0 -5.0" scale="1.00 1.00 1.00"/>
+    <static-object model="lightBeam.b3d" xyz="146.34 -30.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="lightBeam.b3d" xyz="-0.00 102.36 277.00" hpr="-90.0 -70.0 90.0" scale="1.70 1.70 1.70"/>
+    <static-object model="lightBeam.b3d" xyz="-239.89 102.36 138.50" hpr="11.2 -152.0 -22.8" scale="1.70 1.70 1.70"/>
+    <static-object model="lightBeam.b3d" xyz="-239.89 102.36 -138.50" hpr="-11.2 152.0 -22.8" scale="1.70 1.70 1.70"/>
+    <static-object model="lightBeam.b3d" xyz="239.89 102.36 138.50" hpr="-11.2 -28.0 22.8" scale="1.70 1.70 1.70"/>
+    <static-object model="lightBeam.b3d" xyz="239.89 102.36 -138.50" hpr="11.2 28.0 22.8" scale="1.70 1.70 1.70"/>
+    <static-object model="lightBeam.b3d" xyz="-0.00 102.36 -277.00" hpr="90.0 70.0 90.0" scale="1.70 1.70 1.70"/>
+    <static-object lod_distance="60.0" lod_group="aliens" model="aliens_hi.b3d" xyz="-48.21 7.16 98.45" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="aliens" xyz="-54.25 10.16 100.87" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="40.0" lod_group="robot1" model="robot_high.b3d" xyz="32.59 -3.73 -203.25" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_distance="200.0" lod_group="robot1" model="robot1_low.b3d" xyz="44.10 -3.73 -201.25" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="curiosity.b3d" xyz="-94.77 6.81 143.51" hpr="-0.0 -105.0 9.2" scale="3.27 3.27 3.27"/>
+    <static-object lod_distance="200.0" lod_group="aliens" model="aliens_lo.b3d" xyz="-43.74 6.51 96.24" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="curious.b3d" xyz="-94.29 8.90 142.70" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="love.b3d" xyz="-93.47 5.53 159.28" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <animated-texture name="acid_lake.jpg" dx="0.000"  dy="0.500" />
     <animated-texture name="arc1.png" dx="0.000"  dy="0.100" />
     <animated-texture name="arc1.png" dx="0.000"  dy="0.100" />
@@ -26,14 +26,14 @@
     <animated-texture name="arc1.png" dx="2.000" />
     <animated-texture name="arc2.png" dx="-1.700" />
   </track>
-  <object type="animation" model="monster2.b3d" xyz="-60.00 -13.14 -35.13" hpr="-90.0 0.0 20.0" scale="1.18 1.18 1.18"  interaction="ghost">
+  <object type="animation" xyz="-60.00 -13.14 -35.13" hpr="-90.0 0.0 20.0" scale="1.18 1.18 1.18" interaction="ghost" model="monster2.b3d">
     <curve channel="RotZ" interpolation="bezier" extend="cyclic">
       <p c="1.000 20.000" h1="-18.067 35.565" h2="20.067 4.435"/>
       <p c="50.000 -20.000" h1="30.870 -20.000" h2="69.521 -20.000"/>
       <p c="100.000 20.000" h1="80.542 4.433" h2="119.458 35.567"/>
     </curve>
   </object>
-  <object type="animation" model="monster1.b3d" xyz="37.43 -16.93 137.83" hpr="-95.1 -0.1 -18.7" scale="1.00 1.00 1.00"  interaction="ghost">
+  <object type="animation" xyz="37.43 -16.93 137.83" hpr="-95.1 -0.1 -18.7" scale="1.00 1.00 1.00" interaction="ghost" model="monster1.b3d">
     <curve channel="RotX" interpolation="bezier" extend="cyclic">
       <p c="1.000 -95.079" h1="-18.125 -99.729" h2="20.125 -90.430"/>
       <p c="50.000 -83.167" h1="30.870 -83.167" h2="69.521 -83.167"/>
