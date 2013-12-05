@@ -56,14 +56,27 @@
         <EnumChoice id="rain" label="Rain" doc="The weather effect to use in this track"/>
         <EnumChoice id="snow" label="Snow" doc="The weather effect to use in this track"/>
     </EnumProp>
-    <BoolProp id="bloom" name="Bloom (STK 0.8.2)" default="false" doc="Whether this track uses bloom">
-        <FloatProp id="bloom_threshold" name="Bloom threshold" doc="Brightness at which bloom starts being applied" default="0.75" min="0.0" max="1.0"/>
-    </BoolProp>
     <BoolProp id="clouds" name="Cloud shadows (STK 0.8.2)" default="false" doc="Whether to add simulated cloud shadows on the ground">
     </BoolProp>
     <BoolProp id="shadows" name="Dynamic shadows (STK 0.8.2)" default="false" doc="Whether to enable dynamic shadows"/>
-    <BoolProp id="sunlensflare" name="Sun lens flare (STK 0.8.2)" default="false" doc="Show lens flare when looking at the sun"/>
-    <BoolProp id="sungodrays" name="Sun god rays (STK 0.8.2)" default="false" doc="Show god rays when looking at the sun"/>
+
+    <PropGroup id="PropGroup_postprocessing" name="Post processing (advenced)">
+        <BoolProp id="bloom" name="Bloom (STK 0.8.2)" default="false" doc="Whether this track uses bloom">
+            <FloatProp id="bloom_threshold" name="Bloom threshold" doc="Brightness at which bloom starts being applied" default="0.75" min="0.0" max="1.0"/>
+        </BoolProp>
+        <BoolProp id="sunlensflare" name="Sun lens flare (STK 0.8.2)" default="false" doc="Show lens flare when looking at the sun. Lens flare underscore and maximise the emotional and psychological impact of a scene"/>
+        <BoolProp id="sungodrays" name="Sun god rays (STK 0.8.2)" default="false" doc="Show god rays when looking at the sun"/>
+        
+        <BoolProp id="colorlevel" name="Color correction" default="false" doc="Use color correction to enhance the scene">
+            <FloatProp id="colorlevel_inblack" name="Input black" doc="The black input level" default="0.0" min="0.0" max="255.0"/>
+            <FloatProp id="colorlevel_ingamma" name="Input gamma" doc="The gamma level" default="1.0" min="0.0" max="10.0"/>
+            <FloatProp id="colorlevel_inwhite" name="Input white" doc="The white input level" default="255.0" min="0.0" max="255.0"/>
+
+            <FloatProp id="colorlevel_outblack" name="Output black" doc="The black output level" default="0.0" min="0.0" max="255.0"/>
+            <FloatProp id="colorlevel_outwhite" name="Output white" doc="The white output level" default="255.0" min="0.0" max="255.0"/>
+        </BoolProp>
+    </PropGroup>
+
 </BoolProp>
 
 <!-- ************ KART ************ -->

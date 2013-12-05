@@ -1824,6 +1824,14 @@ class TrackExport:
         has_lens_flare  = (getSceneProperty(scene, "sunlensflare", "false") == "true")
         has_shadows     = (getSceneProperty(scene, "shadows", "false") == "true")
         has_god_rays    = (getSceneProperty(scene, "sungodrays", "false") == "true")
+
+        has_colorlevel  = (getSceneProperty(scene, "colorlevel", "false") == "true")
+        colorlevel_inblack = getSceneProperty(scene, "colorlevel_inblack", "0.0")
+        colorlevel_ingamma = getSceneProperty(scene, "colorlevel_ingamma", "1.0")
+        colorlevel_inwhite = getSceneProperty(scene, "colorlevel_inwhite", "255.0")
+
+        colorlevel_outblack = getSceneProperty(scene, "colorlevel_outblack", "0.0")
+        colorlevel_outwhite = getSceneProperty(scene, "colorlevel_outwhite", "255.0")
         
         # Add default settings for sky-dome so that the user is aware of
         # can be set.
@@ -1885,7 +1893,11 @@ class TrackExport:
         if has_bloom:
             f.write("        bloom          = \"Y\"\n")
             f.write("        bloom-threshold = \"%s\"\n" % bloom_threshold)
-        
+
+        if has_colorlevel:
+            f.write("        color-level-in = \"" + str(colorlevel_inblack) + " " + str(colorlevel_ingamma) + " " + str(colorlevel_inwhite) + "\"\n")
+            f.write("        color-level-out = \"" + str(colorlevel_outblack) + " " + str(colorlevel_outwhite) + "\"\n")
+
         if has_cloud_shadows:
             f.write("        clouds         = \"Y\"\n")
         
