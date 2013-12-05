@@ -67,7 +67,7 @@
         <BoolProp id="sunlensflare" name="Sun lens flare (STK 0.8.2)" default="false" doc="Show lens flare when looking at the sun. Lens flare underscore and maximise the emotional and psychological impact of a scene"/>
         <BoolProp id="sungodrays" name="Sun god rays (STK 0.8.2)" default="false" doc="Show god rays when looking at the sun"/>
         
-        <BoolProp id="colorlevel" name="Color correction" default="false" doc="Use color correction to enhance the scene">
+        <BoolProp id="colorlevel" name="Color correction (STK 0.8.2)" default="false" doc="Color correction can enhance the scene by tweaking the rendered output">
             <FloatProp id="colorlevel_inblack" name="Input black" doc="The black input level" default="0.0" min="0.0" max="255.0"/>
             <FloatProp id="colorlevel_ingamma" name="Input gamma" doc="The gamma level" default="1.0" min="0.0" max="10.0"/>
             <FloatProp id="colorlevel_inwhite" name="Input white" doc="The white input level" default="255.0" min="0.0" max="255.0"/>
