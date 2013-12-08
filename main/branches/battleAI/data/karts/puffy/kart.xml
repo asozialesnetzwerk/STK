@@ -1,13 +1,14 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 0.1 -->
+<!-- Generated with script from SVN rev 14368 -->
 <kart name              = "Puffy"
       version           = "2"
-      model-file        = "puffy.b3dz"
+      model-file        = "puffy.b3d"
       icon-file         = "puffy-icon.png"
       minimap-icon-file = "puffy-icon.png"
       shadow-file       = "puffy-shadow.png"
+      random-wheel-rot  = "true"
       groups            = "standard"
-      rgb               = "0 0.7 0" >
+      rgb               = "0.00 0.53 0.02" >
   <sounds engine = "large"/>
   <animations left = "0"
               straight = "20"
@@ -27,4 +28,5 @@
     <rear-right position = "0.396947 0.221235 -0.471024"
                  model    = "wheel-rear-right.b3d"       />
   </wheels>
+  <hat offset="0.0 1.0 0.0"/>
 </kart>
