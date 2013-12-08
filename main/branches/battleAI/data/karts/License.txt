@@ -59,7 +59,7 @@ Tux :
     released under GNU GPL
     
 Animations :
-    by Rudy85
+    by Rudy85, chronomaster
 
 Cartoonish character icons :
     by Anthony Carré (yekcim), released under GPL 2
