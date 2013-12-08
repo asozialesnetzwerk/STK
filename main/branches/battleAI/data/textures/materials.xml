@@ -18,6 +18,9 @@
   <material name="waterparticles.png"    compositing="blend" light="N" ignore="Y"/>
   
   <!-- Textures -->
+  
+  <material name="ants.png" compositing="test"/>
+  
   <material name="bumpy_surface.png">
     <particles base="smoke.xml" condition="skid" />
   </material>
