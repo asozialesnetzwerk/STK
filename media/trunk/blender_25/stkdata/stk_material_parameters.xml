@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <Properties>
     <PropGroup id="PropGroup_visual" name="Display">
         <!-- Affected by fog -->
@@ -167,6 +167,7 @@
             <FloatProp id="zipper_max_speed_increase" name="Zipper max speed increase" default="15.0" min="0.0" max="25.0"/>
             <FloatProp id="zipper_fade_out_time"      name="Zipper fade out time"      default="3.0"  min="0.0" max="10.0"/>
             <FloatProp id="zipper_speed_gain"         name="Zipper speed gain"         default="4.5"  min="0.0" max="10.0"/>
+            <FloatProp id="zipper_min_speed"          name="Zipper minimum speed"      default="-1.0" min="-1.0" max="99.0"/>
         </BoolProp>
         
     </PropGroup>
