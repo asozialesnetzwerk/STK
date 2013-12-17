@@ -6,7 +6,7 @@
   </object>
   <object type="animation" xyz="0.00 0.50 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="SomeModel.b3d" renderpass="skybox">
   </object>
-  <sun  xyz="0.00 588.80 2784.04" sun-specular="167 167 167" sun-diffuse="70 70 70" ambient="50 50 50"/>
+  <sun  xyz="0.00 473.63 1689.11" sun-specular="167 167 167" sun-diffuse="235 180 110" ambient="103 99 86"/>
   <sky-color rgb="77 104 255"/>
   <sky-box texture="sky.png sky.png sky.png sky.png sky.png sky.png"/>
   <camera far="500.0"/>
@@ -58,12 +58,7 @@
   <small-nitro x="76.36" y="10.20" z="70.93" />
   <small-nitro x="153.65" y="10.20" z="32.20" />
   <small-nitro x="149.03" y="10.20" z="28.48" />
-  <light xyz="-4.00 0.00 0.00" distance="25.00" color="3 0 255"/>
-  <light xyz="5.00 0.00 0.00" distance="25.00" color="255 132 0"/>
-  <light xyz="5.00 0.00 21.00" distance="25.00" color="255 132 0"/>
-  <light xyz="-4.00 0.00 21.00" distance="25.00" color="3 0 255"/>
-  <light xyz="-4.00 0.00 -22.00" distance="25.00" color="3 0 255"/>
-  <light xyz="5.00 0.00 -22.00" distance="25.00" color="255 132 0"/>
+  <light xyz="0.00 0.00 0.00" distance="25.00" color="0 67 255"/>
   <default-start karts-per-row     ="3"
                  forwards-distance ="1.50"
                  sidewards-distance="3.00"
