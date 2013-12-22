@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 13687 -->
+<!-- Generated with script from SVN rev 14634 -->
 <scene>
-  <track model="lighthouse_track.b3d" x="0" y="0" z="0">
+  <track model="lighthouse-terrain_track.b3d" x="0" y="0" z="0">
     <static-object model="vineUnderCave.b3d" xyz="-86.86 -17.34 -87.70" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object model="bigTerrainChunk.b3d" xyz="220.85 16.34 -41.59" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_distance="70.0" lod_group="pine_tree_lod" model="pine_tree_lod_hight.b3d" xyz="270.46 -14.16 -16.96" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38"/>
@@ -302,7 +302,7 @@
   <sun  fog="true" fog-color="21 43 75" fog-start="20.00" fog-end="160.00"/>
   <sky-color rgb="77 104 255"/>
   <weather type="rain" />
-  <sky-box texture="sky_top.jpg sky.jpg sky.jpg sky.jpg sky-m.jpg sky-m.jpg"/>
+  <sky-box texture="sky.jpg sky.jpg sky.jpg sky.jpg sky-m.jpg sky-m.jpg"/>
   <camera far="1000.0"/>
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
