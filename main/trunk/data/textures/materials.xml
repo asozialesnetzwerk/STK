@@ -30,6 +30,7 @@
   </material>
   
   <material name="butterfly.png"         compositing="test" light="N" clampU="Y" clampV="Y" ignore="Y"/>
+  <material name="stk_grassAlpha.png"         compositing="test" graphical-effect="grass" ignore="Y"/>
   
   <material name="chess.png">
     <particles base="smoke.xml" condition="skid" />
