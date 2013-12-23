@@ -8,8 +8,7 @@
         screenshot     = "farm.jpg"
         smooth-normals = "true"
         reverse        = "Y"
-        color-level-in = "0.0 0.6600000262260437 143.0"
-        color-level-out = "0.0 255.0"
+
         lens-flare     = "Y"
         god-rays       = "Y"
 >
