@@ -8,7 +8,6 @@
         screenshot     = "farm.jpg"
         smooth-normals = "true"
         reverse        = "Y"
-
         lens-flare     = "Y"
         god-rays       = "Y"
 >
