@@ -2592,8 +2592,11 @@ class STK_Track_Export_Operator(bpy.types.Operator):
             log_error("You must be in object mode")
             return {'FINISHED'}
         
-        if 'is_stk_track' not in context.scene or context.scene['is_stk_track'] != 'true':
-            log_error("Not a STK track!")
+        isNotATrack = ('is_stk_track' not in context.scene) or (context.scene['is_stk_track'] != 'true')
+        isNotANode = ('is_stk_node' not in context.scene) or (context.scene['is_stk_node'] != 'true')
+        
+        if isNotATrack and isNotANode:
+            log_error("Not a STK library node or a track!")
             return {'FINISHED'}
         
         if 'stk_last_export_path' not in context.scene or context.scene['stk_last_export_path'] is None or not os.path.exists(os.path.split(context.scene['stk_last_export_path'])[0]):
@@ -2616,7 +2619,10 @@ class STK_Track_Export_Operator(bpy.types.Operator):
             self.report({'ERROR'}, "You must be in object mode")
             return {'FINISHED'}
         
-        if self.filepath == "" or 'is_stk_track' not in context.scene or context.scene['is_stk_track'] != 'true':
+        isNotATrack = ('is_stk_track' not in context.scene) or (context.scene['is_stk_track'] != 'true')
+        isNotANode = ('is_stk_node' not in context.scene) or (context.scene['is_stk_node'] != 'true')
+
+        if self.filepath == "" or (isNotATrack and isNotANode):
             return {'FINISHED'}
 
             

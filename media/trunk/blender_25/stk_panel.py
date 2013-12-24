@@ -907,20 +907,21 @@ class SuperTuxKartObjectPanel(bpy.types.Panel, PanelBase):
         layout = self.layout
         
         is_track = ("is_stk_track" in context.scene and context.scene["is_stk_track"] == "true")
+        is_node = ("is_stk_node" in context.scene and context.scene["is_stk_node"] == "true")
         is_kart = ("is_stk_kart" in context.scene and context.scene["is_stk_kart"] == "true")
 
-        if not is_track and not is_kart:
+        if not is_track and not is_kart and not is_node:
             layout.label("(Not a SuperTuxKart scene)")
             return
         
         obj = context.object
         
         if obj.proxy is not None:
-            layout.label("Library objects cannot be configured here")
+            layout.label("Library nodes cannot be configured here")
             return
         
         if obj is not None:
-            if is_track:
+            if is_track or is_node:
                 properties = OrderedDict([])
                 for curr in STK_PER_OBJECT_TRACK_PROPERTIES:
                     properties[curr.id] = curr

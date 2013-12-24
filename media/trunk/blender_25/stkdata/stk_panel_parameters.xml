@@ -1,6 +1,10 @@
 ﻿<?xml version="1.0"?>
 <Properties>
 
+<BoolProp id="is_stk_node" name="Is a SuperTuxKart library node (WIP feature)" default="false" box="false" doc="Check this if this blender file is a SuperTuxKart library node">
+    <StringProp id="name" name="Name" default="My new node" doc="Name of the node"/>
+</BoolProp>                   
+
 <!-- ************ TRACK ************ -->
 <BoolProp id="is_stk_track" name="Is a SuperTuxKart track" default="false" box="false" doc="Check this if this blender file is a SuperTuxKart track">                         
     <StringProp id="name" name="Name" default="My New Track" doc="Name of the track"/>
