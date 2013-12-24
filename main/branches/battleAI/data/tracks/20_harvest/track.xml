@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 14445 -->
+<!-- Generated with script from SVN rev 14634 -->
 <track  name           = "harvest"
         version        = "5"
         groups         = "nextgen"
@@ -8,6 +8,8 @@
         screenshot     = "farm.jpg"
         smooth-normals = "true"
         reverse        = "Y"
+        color-level-in = "0.0 0.6600000262260437 143.0"
+        color-level-out = "0.0 255.0"
         lens-flare     = "Y"
         god-rays       = "Y"
 >
