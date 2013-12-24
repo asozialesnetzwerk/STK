@@ -691,8 +691,8 @@ class LightsExporter:
             colR = int(obj.data.color[0] * 255)
             colG = int(obj.data.color[1] * 255)
             colB = int(obj.data.color[2] * 255)
-            f.write('  <light %s distance="%.2f" color="%i %i %i"/>\n' \
-                    % (getXYZString(obj), obj.data.distance, colR, colG, colB))
+            f.write('  <light %s distance="%.2f" energy="%.2f" color="%i %i %i"/>\n' \
+                    % (getXYZString(obj), obj.data.distance, obj.data.energy, colR, colG, colB))
 
 
 # ------------------------------------------------------------------------------
