@@ -1,0 +1,6 @@
+"Old Mine" track (c) 2008-2010 Ivar ten Cate (varivar@live.nl)
+Track and textures licensed under CC BY-SA 3.0
+http://creativecommons.org/licenses/by-sa/3.0/
+
+wind_mill.png, millstructure.png, Excavator and bucket wheel by samuncle
+licensed under CC BY-SA 3.0
