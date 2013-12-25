@@ -5,6 +5,7 @@
   <material name="blueZipper_effect.png" compositing="blend" light="N"/>
   <material name="icepic.png" compositing="test" backface-culling="N"/>
   <material name="sky.jpg" light="N"/>
+  <material name="smoke.png" backface-culling="N" compositing="blend" disable-z-write="Y"/>
   <material name="snowoodbridge.jpg">
     <sfx filename="wooden_bridge.ogg" min_speed="9.00" max_speed="22.00" min_pitch="1.00" max_pitch="1.70" positional="Y" rolloff="0.60"/>
   </material>
