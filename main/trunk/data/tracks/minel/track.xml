@@ -8,7 +8,7 @@
         screenshot     = "sshot-mines.jpg"
         smooth-normals = "true"
         reverse        = "Y"
-        color-level-in = "0.0 0.7400000095367432 113.0"
+        color-level-in = "0.0 0.75 140.0"
         color-level-out = "0.0 255.0"
 >
 </track>
