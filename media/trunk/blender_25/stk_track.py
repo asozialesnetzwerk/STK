@@ -691,9 +691,11 @@ class LightsExporter:
             colR = int(obj.data.color[0] * 255)
             colG = int(obj.data.color[1] * 255)
             colB = int(obj.data.color[2] * 255)
-            f.write('  <light %s distance="%.2f" energy="%.2f" color="%i %i %i"/>\n' \
+            f.write('  <light %s distance="%.2f" energy="%.2f" color="%i %i %i">\n' \
                     % (getXYZString(obj), obj.data.distance, obj.data.energy, colR, colG, colB))
-
+            if obj.animation_data and obj.animation_data.action and obj.animation_data.action.fcurves and len(obj.animation_data.action.fcurves) > 0:
+                writeIPO(f, obj.animation_data)
+            f.write('  </light>\n')
 
 # ------------------------------------------------------------------------------
 class DrivelineExporter:
