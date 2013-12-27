@@ -8,6 +8,7 @@
   <material name="distord.png" fog="N" light="N" backface-culling="N" compositing="additive" disable-z-write="Y"/>
   <material name="emerald.png" fog="N" light="N" compositing="blend"/>
   <material name="fence_chain.png" compositing="test"/>
+  <material name="GrassTall.png" compositing="test"/>
   <material name="halo_lamp.png" light="N" compositing="additive" disable-z-write="Y"/>
   <material name="lantern_glow.png" fog="N" light="N" compositing="additive" disable-z-write="Y"/>
   <material name="lightHaloG.png" fog="N" light="N" backface-culling="N" compositing="additive"/>
@@ -23,7 +24,7 @@
     <particles base="splash.xml" condition="skid drive"/>
   </material>
   <material name="mine_water_reset.png" compositing="blend" disable-z-write="Y" reset="Y"/>
-  <material name="plants.png" backface-culling="N" compositing="coverage"/>
+  <material name="plants.png" compositing="coverage" graphical-effect="grass" grass-speed="1.50"/>
   <material name="roller.png" backface-culling="N"/>
   <material name="wall_wood1.jpg">
     <particles condition="skid" base="smoke.xml"/>
