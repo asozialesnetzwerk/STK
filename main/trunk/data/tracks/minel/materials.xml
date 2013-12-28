@@ -12,7 +12,7 @@
   <material name="halo_lamp.png" light="N" compositing="additive" disable-z-write="Y"/>
   <material name="lantern_glow.png" fog="N" light="N" compositing="additive" disable-z-write="Y"/>
   <material name="lightHaloG.png" fog="N" light="N" backface-culling="N" compositing="additive"/>
-  <material name="lightHaloR.png" fog="N" light="N" backface-culling="N" compositing="additive"/>
+  <material name="lightHaloR.png" fog="N" light="N" disable-z-write="Y"/>
   <material name="lightHaloY.png" light="N" compositing="additive" disable-z-write="Y" fog="N"/>
   <material name="lightLenFlareY.png" compositing="additive" disable-z-write="Y"/>
   <material name="metal_rusted_lamp.jpg" fog="N" light="N"/>
