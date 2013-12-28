@@ -2231,8 +2231,12 @@ class TrackExport:
 
         #start_time = bsys.time()
         print("Writing scene file --> \t")
-
-        f = open(sPath+"/scene.xml", "w")
+    
+        filename = "scene.xml"
+        if getSceneProperty(bpy.data.scenes[0], 'is_stk_node', 'false') == 'true':
+            filename = "node.xml"
+        
+        f = open(sPath + "/" + filename, "w")
         f.write("<?xml version=\"1.0\"?>\n")
         f.write("<!-- Generated with script from SVN rev %s -->\n"%getScriptVersion())
         f.write("<scene>\n")
