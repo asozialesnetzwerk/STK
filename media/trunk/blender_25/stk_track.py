@@ -735,14 +735,14 @@ class DrivelineExporter:
         if not self.found_main_driveline and not is_arena and not is_soccer and not is_cutscene:
             if len(self.lDrivelines) > 0:
                 log_warning("Main driveline missing, using first driveline as main!")
-            else:
+            elif getSceneProperty(bpy.data.scenes[0], 'is_stk_node', 'false') != 'true':
                 log_error("No driveline found")
         
         if len(self.lDrivelines) == 0:
             self.lDrivelines=[None]
         
         mainDriveline = self.lDrivelines[0]
-        if mainDriveline is None:
+        if mainDriveline is None and getSceneProperty(bpy.data.scenes[0], 'is_stk_node', 'false') != 'true':
             log_error("No main driveline found")
         if self.lChecks or mainDriveline:
             if not self.lChecks:
@@ -2270,7 +2270,7 @@ class TrackExport:
                 # can't be merged with the physics model of the track
                 # BUT 'reset' objects must NOT be static objects otherwise then we can't detect
                 # collisions against it in bullet
-                if (ipo and ipo.action) or interact=="reset" or interact=="explode" or interact=="flatten":
+                if (ipo and ipo.action) or interact=="reset" or interact=="explode" or interact=="flatten" or getSceneProperty(bpy.data.scenes[0], 'is_stk_node', 'false') == 'true':
                     lOtherObjects.append(obj)
                 else:
                     lStaticObjects.append(obj)
@@ -2278,12 +2278,14 @@ class TrackExport:
                 lOtherObjects.append(obj)
                 
         lAnimTextures  = checkForAnimatedTextures(lTrack)
-        if lStaticObjects or lAnimTextures:
-            f.write("  <track model=\"%s\" x=\"0\" y=\"0\" z=\"0\">\n"%sTrackName)
-            self.writeStaticObjects(f, sPath, lStaticObjects, lAnimTextures)
-            f.write("  </track>\n")
-        else:
-            f.write("  <track model=\"%s\" x=\"0\" y=\"0\" z=\"0\"/>\n"%sTrackName)
+        
+        if getSceneProperty(bpy.data.scenes[0], 'is_stk_node', 'false') != 'true':
+            if lStaticObjects or lAnimTextures:
+                f.write("  <track model=\"%s\" x=\"0\" y=\"0\" z=\"0\">\n"%sTrackName)
+                self.writeStaticObjects(f, sPath, lStaticObjects, lAnimTextures)
+                f.write("  </track>\n")
+            else:
+                f.write("  <track model=\"%s\" x=\"0\" y=\"0\" z=\"0\"/>\n"%sTrackName)
         
         for obj in lOtherObjects:
             self.writeObject(f, sPath, obj)
@@ -2497,7 +2499,7 @@ class TrackExport:
 
         # Now export the different parts: track file
         # ------------------------------------------
-        if exportScene:
+        if exportScene and getSceneProperty(bpy.data.scenes[0], 'is_stk_node', 'false') != 'true':
             self.writeTrackFile(sPath, sBase)
     
         # Quads and mapping files
@@ -2544,7 +2546,9 @@ class TrackExport:
         # ----------
         if exportScene:
             self.writeSceneFile(sPath, sTrackName, exporters, lTrack, lObjects, lSun)
-            self.writeEasterEggsFile(sPath, lEasterEggs)
+            
+            if getSceneProperty(scene, 'is_stk_node', 'false') != 'true':
+                self.writeEasterEggsFile(sPath, lEasterEggs)
         
         # materials file
         # ----------
@@ -2567,7 +2571,7 @@ def savescene_callback(sFilename, exportImages, exportDrivelines, exportScene, e
     global log
     log = []
     
-    TrackExport(sFilename, exportImages, exportDrivelines, exportScene, exportMaterials)
+    TrackExport(sFilename, exportImages, exportDrivelines and getSceneProperty(bpy.data.scenes[0], 'is_stk_node', 'false') != 'true', exportScene, exportMaterials)
 
 thelist = []
 def getlist(self):
