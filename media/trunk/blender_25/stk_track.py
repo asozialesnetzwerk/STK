@@ -2117,14 +2117,26 @@ class TrackExport:
             else:
                 b3d_name = self.exportLocalB3D(obj, sPath, name, True)
 
-            
-        # First kind of object: ipo. There is one or
-        # more IPOs define controlling this object.
-        # Second kind of object: no ipo, and no physics.
-        # So it's a visual-only object. This is exported
-        # as an animation object without an IPO attached.
-        # -----------------------------------------------
         interact = getObjectProperty(obj, "interaction", "none")
+        
+        # usually, LOD objects are exported in static objects, but not for library nodes
+        if type == "single_lod" and getSceneProperty(bpy.data.scenes[0], 'is_stk_node', 'false') == 'true':
+            # single_lod is a shortcut that generates both a lod_instance and a lod_model
+            
+            loddistance = str(getObjectProperty(obj, "lod_distance", 60.0))
+            
+            if getObjectProperty(obj, "nomodifierautolod", "false") == "true":
+                loddistance = str(getObjectProperty(obj, "nomodierlod_distance", 30.0))
+                exportedModelfFilename3 = self.exportLocalB3D(obj, sPath, (b3d_name[:-4] + '_mid'), False)
+                model_string3 =  " model=\"%s\""%(b3d_name[:-4] + '_mid')
+                lodstring3 = ' lod_distance="' + str(getObjectProperty(obj, "lod_distance", 60.0)) + '" lod_group="_single_lod_' + name + '"'
+                f.write("  <object%s model=\"%s\" %s interaction=\"%s\"/>\n" % (lodstring3, exportedModelfFilename3, getXYZHPRString(obj), getObjectProperty(obj, "interaction", "static")) )
+
+
+            model_string2 =  " model=\"%s\""%b3d_name
+            lodstring2 = ' lod_distance="' + loddistance + '" lod_group="_single_lod_' + name + '"'
+            f.write("  <object%s%s %s interaction=\"%s\"/>\n" % (lodstring2, model_string2, getXYZHPRString(obj), getObjectProperty(obj, "interaction", "static")) )
+            
         
         if obj.type=="CAMERA":
             ipo  = obj.animation_data
@@ -2132,7 +2144,7 @@ class TrackExport:
         # An object that can be moved by the player. This object
         # can not have an IPO, so no need to test this here.
         elif interact=="move":
-            ipo      = obj.animation_data
+            ipo = obj.animation_data
             if ipo and ipo.action:
                 log_warning("Movable object %s has an ipo - ipo is ignored." \
                             %obj.name)
@@ -2176,9 +2188,9 @@ class TrackExport:
         # Now the object either has an IPO, or is a 'ghost' object.
         # Either can have an IPO. Even if the objects don't move
         # they are saved as animations (with 0 IPOs).
-        elif interact=="ghost" or interact=="none" or interact=="static" or interact=="reset" or interact=="explode" or interact =="flatten" or interact=="physicsonly":
+        elif interact=="ghost" or interact=="none" or interact=="static" or interact=="reset" or interact=="explode" or interact=="flatten" or interact=="physicsonly":
             
-            ipo      = obj.animation_data
+            ipo = obj.animation_data
             
             # In objects with skeletal animations the actual armature (which
             # is a parent) contains the IPO. So check for this:
@@ -2254,27 +2266,26 @@ class TrackExport:
             export_non_static = False
             if getObjectProperty(obj, "forcedbloom", "false") == "true":
                 export_non_static = True
-            
-            if len(getObjectProperty(obj, "outline", "")) > 0:
+            elif len(getObjectProperty(obj, "outline", "")) > 0:
                 export_non_static = True
-                
-            if getObjectProperty(obj, "displacing", "false") == "true":
+            elif getObjectProperty(obj, "displacing", "false") == "true":
                 export_non_static = True
-                
-            if getObjectProperty(obj, "skyboxobject", "false") == "true":
+            elif getObjectProperty(obj, "skyboxobject", "false") == "true":
                export_non_static = True
+            elif getSceneProperty(bpy.data.scenes[0], 'is_stk_node', 'false') == 'true':
+                export_non_static = True
+            elif interact=="reset" or interact=="explode" or interact=="flatten":
+                export_non_static = True
             
-            if not export_non_static and (interact=="static" or interact=="reset" or type == "lod_model" or interact=="explode" or interact=="flatten" or interact=="physicsonly"):
+            if not export_non_static and (interact=="static" or type == "lod_model" or interact=="physicsonly"):
                 
-                ipo      = obj.animation_data
+                ipo = obj.animation_data
                 if obj.parent is not None and obj.parent.type=="ARMATURE" and obj.parent.animation_data is not None:
                     ipo = obj.parent.animation_data
                 
                 # If an static object has an IPO, it will be moved, and
                 # can't be merged with the physics model of the track
-                # BUT 'reset' objects must NOT be static objects otherwise then we can't detect
-                # collisions against it in bullet
-                if (ipo and ipo.action) or interact=="reset" or interact=="explode" or interact=="flatten" or getSceneProperty(bpy.data.scenes[0], 'is_stk_node', 'false') == 'true':
+                if (ipo and ipo.action):
                     lOtherObjects.append(obj)
                 else:
                     lStaticObjects.append(obj)
