@@ -1981,6 +1981,14 @@ class TrackExport:
         f.write("  </object>\n")
         
     # --------------------------------------------------------------------------
+    
+    def writeLODModels(self, f, sPath, lLODModels):
+        for props in lLODModels:
+            obj = props['object']
+            b3d_name = self.exportLocalB3D(obj, sPath, props['filename'], props['modifiers'])
+            f.write("    <static-object lod_distance=\"%i\" lod_group=\"%s\" model=\"%s\" %s interaction=\"%s\"/>\n" % (props['distance'], props['groupname'], b3d_name, getXYZHPRString(obj), getObjectProperty(obj, "interaction", "static")) )
+            
+    # --------------------------------------------------------------------------
     # Write the objects that are part of the track (but not animated or
     # physical).
     def writeStaticObjects(self, f, sPath, lStaticObjects, lAnimTextures):
@@ -2003,26 +2011,7 @@ class TrackExport:
                 b3d_name = self.exportLocalB3D(obj, sPath, name, True)
             kind = getObjectProperty(obj, "kind", "")
             
-            if type == "lod_instance":
-                model_string = ""
-            elif type == "single_lod":
-                # single_lod is a shortcut that generates both a lod_instance and a lod_model
-                
-                loddistance = str(getObjectProperty(obj, "lod_distance", 60.0))
-                
-                if getObjectProperty(obj, "nomodifierautolod", "false") == "true":
-                    loddistance = str(getObjectProperty(obj, "nomodierlod_distance", 30.0))
-                    exportedModelfFilename3 = self.exportLocalB3D(obj, sPath, (b3d_name[:-4] + '_mid'), False)
-                    model_string3 =  " model=\"%s\""%(b3d_name[:-4] + '_mid')
-                    lodstring3 = ' lod_distance="' + str(getObjectProperty(obj, "lod_distance", 60.0)) + '" lod_group="_single_lod_' + name + '"'
-                    f.write("    <static-object%s model=\"%s\" %s interaction=\"%s\"/>\n" % (lodstring3, exportedModelfFilename3, getXYZHPRString(obj), getObjectProperty(obj, "interaction", "static")) )
- 
- 
-                model_string2 =  " model=\"%s\""%b3d_name
-                lodstring2 = ' lod_distance="' + loddistance + '" lod_group="_single_lod_' + name + '"'
-                f.write("    <static-object%s%s %s interaction=\"%s\"/>\n" % (lodstring2, model_string2, getXYZHPRString(obj), getObjectProperty(obj, "interaction", "static")) )
-                
-                
+            if type == "lod_instance" or type == "single_lod":
                 model_string = ""
             else:
                 model_string =  " model=\"%s\""%b3d_name
@@ -2082,13 +2071,14 @@ class TrackExport:
         lodstring = ""
         type = getObjectProperty(obj, "type", "object")
         if type == "lod_model":
-            dist = type = getObjectProperty(obj, "lod_distance", None)
-            if dist is None:
-                log_warning("LOD model " + obj.name + " has no distance property")
-            group = type = getObjectProperty(obj, "lod_name", "")
-            if len(group) == 0:
-                log_warning("LOD model " + obj.name + " has no group property")
-            lodstring = ' lod_distance="' + str(dist) + '" lod_group="' + group + '"'
+            #dist = type = getObjectProperty(obj, "lod_distance", None)
+            #if dist is None:
+            #    log_warning("LOD model " + obj.name + " has no distance property")
+            #group = type = getObjectProperty(obj, "lod_name", "")
+            #if len(group) == 0:
+            #    log_warning("LOD model " + obj.name + " has no group property")
+            #lodstring = ' lod_distance="' + str(dist) + '" lod_group="' + group + '"'
+            pass
         elif type == "lod_instance":
             group = type = getObjectProperty(obj, "lod_name", "")
             if len(group) == 0:
@@ -2118,25 +2108,6 @@ class TrackExport:
                 b3d_name = self.exportLocalB3D(obj, sPath, name, True)
 
         interact = getObjectProperty(obj, "interaction", "none")
-        
-        # usually, LOD objects are exported in static objects, but not for library nodes
-        if type == "single_lod" and getSceneProperty(bpy.data.scenes[0], 'is_stk_node', 'false') == 'true':
-            # single_lod is a shortcut that generates both a lod_instance and a lod_model
-            
-            loddistance = str(getObjectProperty(obj, "lod_distance", 60.0))
-            
-            if getObjectProperty(obj, "nomodifierautolod", "false") == "true":
-                loddistance = str(getObjectProperty(obj, "nomodierlod_distance", 30.0))
-                exportedModelfFilename3 = self.exportLocalB3D(obj, sPath, (b3d_name[:-4] + '_mid'), False)
-                model_string3 =  " model=\"%s\""%(b3d_name[:-4] + '_mid')
-                lodstring3 = ' lod_distance="' + str(getObjectProperty(obj, "lod_distance", 60.0)) + '" lod_group="_single_lod_' + name + '"'
-                f.write("  <object%s model=\"%s\" %s interaction=\"%s\"/>\n" % (lodstring3, exportedModelfFilename3, getXYZHPRString(obj), getObjectProperty(obj, "interaction", "static")) )
-
-
-            model_string2 =  " model=\"%s\""%b3d_name
-            lodstring2 = ' lod_distance="' + loddistance + '" lod_group="_single_lod_' + name + '"'
-            f.write("  <object%s%s %s interaction=\"%s\"/>\n" % (lodstring2, model_string2, getXYZHPRString(obj), getObjectProperty(obj, "interaction", "static")) )
-            
         
         if obj.type=="CAMERA":
             ipo  = obj.animation_data
@@ -2286,15 +2257,36 @@ class TrackExport:
                     continue
                 if group_name not in lLODModels:
                     lLODModels[group_name] = []
-                lLODModels[group_name].append(obj)
-            #elif type == 'single_lod':
-            #    group_name = getObjectProperty(obj, 'lod_name', '')
-            #    if len(group_name) == 0:
-            #        log_warning('Object %s marked as LOD but no LOD name specified' % obj.name)
-            #        continue
-            #    if group_name not in lLODModels:
-            #        lLODModels[group_name] = []
-            #    lLODModels[group_name].append(obj)
+                    
+                lod_model_name = getObjectProperty(obj, "name", obj.name)
+                loddistance = getObjectProperty(obj, "lod_distance", 60.0)
+                if len(lod_model_name) == 0: lod_model_name = obj.name
+                lLODModels[group_name].append({'object': obj, 'groupname': group_name, 'distance': loddistance, 'filename': lod_model_name, 'modifiers': True})
+                
+            elif type == 'single_lod':
+                lod_model_name = getObjectProperty(obj, "name", obj.name)
+                if len(lod_model_name) == 0: lod_model_name = obj.name
+                
+                group_name = "_single_lod_" + lod_model_name
+                if group_name not in lLODModels:
+                    lLODModels[group_name] = []
+                    
+                if getObjectProperty(obj, "nomodifierautolod", "false") == "true":
+                    loddistance = getObjectProperty(obj, "nomodierlod_distance", 30.0)
+                    lLODModels[group_name].append({'object': obj, 'groupname': group_name, 'distance': loddistance, 'filename': lod_model_name, 'modifiers': True})
+                    loddistance = getObjectProperty(obj, "lod_distance", 60.0)
+                    lLODModels[group_name].append({'object': obj, 'groupname': group_name, 'distance': loddistance, 'filename': lod_model_name + "_mid", 'modifiers': False})
+                else:
+                    loddistance = getObjectProperty(obj, "lod_distance", 60.0)
+                    lLODModels[group_name].append({'object': obj, 'groupname': group_name, 'distance': loddistance, 'filename': lod_model_name, 'modifiers': True})
+                
+                
+                # this object is both a model and an instance, so also add it to the list of objects, where it will be exported as a LOD instance
+                if export_non_static:
+                    lOtherObjects.append(obj)
+                else:
+                    lStaticObjects.append(obj)
+                
             elif not export_non_static and (interact=="static" or type == "lod_model" or interact=="physicsonly"):
                 
                 ipo = obj.animation_data
@@ -2315,8 +2307,9 @@ class TrackExport:
         if len(lLODModels.keys()) > 0:
             f.write('  <lod>\n')
             for group_name in lLODModels.keys():
+                lLODModels[group_name].sort(key = lambda a: a['distance'])
                 f.write('   <group name="%s">\n' % group_name)
-                self.writeStaticObjects(f, sPath, lLODModels[group_name], [])
+                self.writeLODModels(f, sPath, lLODModels[group_name])
                 f.write('   </group>\n')
             f.write('  </lod>\n')
         
