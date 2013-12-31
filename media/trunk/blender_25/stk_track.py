@@ -2253,10 +2253,12 @@ class TrackExport:
         f.write("<!-- Generated with script from SVN rev %s -->\n"%getScriptVersion())
         f.write("<scene>\n")
 
-        # Extract all static objects (which will be merged into one
-        # bullet objects in stk):
+        # Extract all static objects (which will be merged into one bullet object in stk):
         lStaticObjects = []
+        # Include LOD models (i.e. the definition of a LOD group. Does not include LOD instances)
+        lLODModels = {}
         lOtherObjects  = []
+        
         for obj in lObjects:
             type = getObjectProperty(obj, "type", "??")
             interact = getObjectProperty(obj, "interaction", "static")
@@ -2277,7 +2279,23 @@ class TrackExport:
             elif interact=="reset" or interact=="explode" or interact=="flatten":
                 export_non_static = True
             
-            if not export_non_static and (interact=="static" or type == "lod_model" or interact=="physicsonly"):
+            if type == 'lod_model':
+                group_name = getObjectProperty(obj, 'lod_name', '')
+                if len(group_name) == 0:
+                    log_warning('Object %s marked as LOD but no LOD name specified' % obj.name)
+                    continue
+                if group_name not in lLODModels:
+                    lLODModels[group_name] = []
+                lLODModels[group_name].append(obj)
+            #elif type == 'single_lod':
+            #    group_name = getObjectProperty(obj, 'lod_name', '')
+            #    if len(group_name) == 0:
+            #        log_warning('Object %s marked as LOD but no LOD name specified' % obj.name)
+            #        continue
+            #    if group_name not in lLODModels:
+            #        lLODModels[group_name] = []
+            #    lLODModels[group_name].append(obj)
+            elif not export_non_static and (interact=="static" or type == "lod_model" or interact=="physicsonly"):
                 
                 ipo = obj.animation_data
                 if obj.parent is not None and obj.parent.type=="ARMATURE" and obj.parent.animation_data is not None:
@@ -2293,6 +2311,14 @@ class TrackExport:
                 lOtherObjects.append(obj)
                 
         lAnimTextures  = checkForAnimatedTextures(lTrack)
+        
+        if len(lLODModels.keys()) > 0:
+            f.write('  <lod>\n')
+            for group_name in lLODModels.keys():
+                f.write('   <group name="%s">\n' % group_name)
+                self.writeStaticObjects(f, sPath, lLODModels[group_name], [])
+                f.write('   </group>\n')
+            f.write('  </lod>\n')
         
         if getSceneProperty(bpy.data.scenes[0], 'is_stk_node', 'false') != 'true':
             if lStaticObjects or lAnimTextures:
