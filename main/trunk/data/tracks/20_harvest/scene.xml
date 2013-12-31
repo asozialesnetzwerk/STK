@@ -1,10 +1,12 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 14634 -->
+<!-- Generated with script from SVN rev 14820 -->
 <scene>
   <track model="farm_track.b3d" x="0" y="0" z="0"/>
   <object type="animation" xyz="11.00 1.61 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" shape="box" model="SomeModel.b3d" displacing="true">
   </object>
   <object type="animation" xyz="0.00 0.50 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="SomeModel.b3d" renderpass="skybox">
+  </object>
+  <object type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="skybox_test.b3d">
   </object>
   <sun  xyz="0.00 473.63 1689.11" sun-specular="167 167 167" sun-diffuse="235 180 110" ambient="103 99 86"/>
   <sky-color rgb="77 104 255"/>
@@ -58,7 +60,10 @@
   <small-nitro x="76.36" y="10.20" z="70.93" />
   <small-nitro x="153.65" y="10.20" z="32.20" />
   <small-nitro x="149.03" y="10.20" z="28.48" />
-  <light xyz="0.00 0.00 0.00" distance="25.00" color="0 67 255"/>
+  <light xyz="0.00 0.00 -100.00" distance="25.00" energy="5.00" color="255 0 28">
+  </light>
+  <light xyz="0.00 0.00 -92.07" distance="25.00" energy="5.00" color="255 0 28">
+  </light>
   <default-start karts-per-row     ="3"
                  forwards-distance ="1.50"
                  sidewards-distance="3.00"
