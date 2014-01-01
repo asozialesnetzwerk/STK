@@ -1,15 +1,30 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 14634 -->
+<!-- Generated with script from SVN rev 14858 -->
 <scene>
+  <lod>
+   <group name="death_grass_chunk">
+    <static-object lod_distance="60" lod_group="death_grass_chunk" model="death_grass_chunk_hight.b3d" xyz="274.55 -15.84 -24.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+    <static-object lod_distance="100" lod_group="death_grass_chunk" model="death_grass_chunk_low.b3d" xyz="274.55 -15.84 -30.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
+   <group name="grass_chunk">
+    <static-object lod_distance="60" lod_group="grass_chunk" model="grass_chunk_hight.b3d" xyz="266.88 -15.84 -24.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+    <static-object lod_distance="100" lod_group="grass_chunk" model="grass_chunk_low.b3d" xyz="266.88 -15.84 -30.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
+   <group name="pine_tree_lod">
+    <static-object lod_distance="70" lod_group="pine_tree_lod" model="pine_tree_lod_hight.b3d" xyz="270.46 -14.16 -16.96" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38" interaction="static"/>
+    <static-object lod_distance="150" lod_group="pine_tree_lod" model="pine_tree_lod_medium.b3d" xyz="293.33 -14.16 -16.96" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38" interaction="static"/>
+    <static-object lod_distance="300" lod_group="pine_tree_lod" model="pine_tree_lod_low.b3d" xyz="309.45 -14.16 -16.96" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38" interaction="static"/>
+   </group>
+   <group name="miniLamp">
+    <static-object lod_distance="150" lod_group="miniLamp" model="miniLampPost_low.b3d" xyz="-156.19 3.73 -49.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"/>
+   </group>
+  </lod>
   <track model="lighthouse-terrain_track.b3d" x="0" y="0" z="0">
     <static-object model="vineUnderCave.b3d" xyz="-86.86 -17.34 -87.70" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object model="bigTerrainChunk.b3d" xyz="220.85 16.34 -41.59" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_distance="70.0" lod_group="pine_tree_lod" model="pine_tree_lod_hight.b3d" xyz="270.46 -14.16 -16.96" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38"/>
     <static-object model="lightWindows.b3d" xyz="-158.20 55.48 -63.22" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="102.39 -11.20 -15.52" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38"/>
     <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-96.85 -8.65 -29.26" hpr="0.0 -0.0 0.0" scale="2.71 2.71 2.71"/>
-    <static-object lod_distance="150.0" lod_group="pine_tree_lod" model="pine_tree_lod_medium.b3d" xyz="293.33 -14.16 -16.96" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38"/>
-    <static-object lod_distance="300.0" lod_group="pine_tree_lod" model="pine_tree_lod_low.b3d" xyz="309.45 -14.16 -16.96" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38"/>
     <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-47.61 -12.51 33.26" hpr="0.0 -0.0 0.0" scale="2.29 2.29 2.29"/>
     <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-139.12 -8.10 -4.66" hpr="0.0 -0.0 0.0" scale="2.29 2.29 2.29"/>
     <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-139.12 -6.11 16.29" hpr="0.0 30.7 0.0" scale="3.17 3.17 3.17"/>
@@ -19,9 +34,6 @@
     <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-117.71 -6.11 30.54" hpr="0.0 -75.4 0.0" scale="3.17 3.17 3.17"/>
     <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-97.58 -11.46 36.36" hpr="-0.0 -106.1 -0.0" scale="2.29 2.29 2.29"/>
     <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-77.01 -11.87 36.36" hpr="-0.0 -106.1 -0.0" scale="2.68 2.68 2.68"/>
-    <static-object lod_distance="150.0" lod_group="miniLamp" model="miniLampPost_low.b3d" xyz="-156.19 3.73 -49.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_distance="60.0" lod_group="grass_chunk" model="grass_chunk_hight.b3d" xyz="266.88 -15.84 -24.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_distance="100.0" lod_group="grass_chunk" model="grass_chunk_low.b3d" xyz="266.88 -15.84 -30.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="grass_chunk" xyz="99.38 -16.17 -18.46" hpr="-0.0 -0.0 6.5" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="grass_chunk" xyz="106.39 -15.64 -18.46" hpr="-0.0 -0.0 0.5" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="grass_chunk" xyz="102.42 -16.06 -12.81" hpr="-0.0 -0.0 6.5" scale="1.00 1.00 1.00"/>
@@ -84,8 +96,6 @@
     <static-object lod_instance="true" lod_group="grass_chunk" xyz="-80.17 -17.10 25.87" hpr="5.4 -66.7 -9.0" scale="0.85 0.85 0.85"/>
     <static-object lod_instance="true" lod_group="grass_chunk" xyz="-83.43 -17.10 21.68" hpr="5.4 -66.7 -9.0" scale="0.85 0.85 0.85"/>
     <static-object lod_instance="true" lod_group="grass_chunk" xyz="-87.82 -17.10 20.63" hpr="-3.6 11.1 -3.6" scale="0.85 0.85 0.85"/>
-    <static-object lod_distance="100.0" lod_group="death_grass_chunk" model="death_grass_chunk_low.b3d" xyz="274.55 -15.84 -30.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_distance="60.0" lod_group="death_grass_chunk" model="death_grass_chunk_hight.b3d" xyz="274.55 -15.84 -24.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="death_grass_chunk" xyz="-6.19 -22.85 -153.19" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="death_grass_chunk" xyz="-11.07 -22.85 -153.19" hpr="0.0 -37.3 0.0" scale="1.16 1.16 1.16"/>
     <static-object lod_instance="true" lod_group="death_grass_chunk" xyz="-17.97 -23.13 -147.41" hpr="1.0 -37.8 6.0" scale="1.16 1.16 1.16"/>
