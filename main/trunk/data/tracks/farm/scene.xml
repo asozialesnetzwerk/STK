@@ -1,22 +1,32 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 12720 -->
+<!-- Generated with script from SVN rev 14858 -->
 <scene>
+  <lod>
+   <group name="skull">
+    <static-object lod_distance="120" lod_group="skull" model="skull.b3d" xyz="-109.41 9.55 -2.36" hpr="-52.6 -0.0 -0.0" scale="0.49 0.49 0.49" interaction="static"/>
+   </group>
+   <group name="cow">
+    <static-object lod_distance="130" lod_group="cow" model="cow.b3d" xyz="-145.89 13.10 -125.68" hpr="-0.0 -90.0 0.0" scale="0.52 0.36 0.52" interaction="static"/>
+   </group>
+   <group name="well">
+    <static-object lod_distance="60" lod_group="well" model="well60.b3d" xyz="-143.85 6.00 -89.63" hpr="0.0 64.7 0.0" scale="1.91 1.91 1.91" interaction="static"/>
+   </group>
+   <group name="horse">
+    <static-object lod_distance="100" lod_group="horse" model="horse.b3d" xyz="72.30 6.51 155.27" hpr="0.1 -19.4 -0.6" scale="0.75 0.75 0.75" interaction="static"/>
+   </group>
+  </lod>
   <track model="farm_track.b3d" x="0" y="0" z="0">
-    <static-object lod_instance="true" lod_group="skull" xyz="0.86 9.55 -2.36" hpr="-52.6 -0.0 -0.0" scale="0.49 0.49 0.49"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_distance="120.0" lod_group="skull" model="skull.b3d" xyz="-109.41 9.55 -2.36" hpr="-52.6 -0.0 -0.0" scale="0.49 0.49 0.49"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_instance="true" lod_group="horse" xyz="68.93 4.59 85.82" hpr="0.1 -19.4 -0.6" scale="0.75 0.75 0.75"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_instance="true" lod_group="horse" xyz="73.80 4.43 85.90" hpr="0.1 5.8 -0.6" scale="0.75 0.75 0.75"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_instance="true" lod_group="horse" xyz="78.26 3.96 85.97" hpr="0.1 11.1 -0.6" scale="0.55 0.55 0.55"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_instance="true" lod_group="horse" xyz="83.34 4.29 84.75" hpr="0.1 30.9 -0.5" scale="0.75 0.75 0.75"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_distance="100.0" lod_group="horse" model="horse.b3d" xyz="72.30 6.51 155.27" hpr="0.1 -19.4 -0.6" scale="0.75 0.75 0.75"/> <!-- writeStaticObjects 3 -->
-    <static-object model="silo.b3d" xyz="34.83 15.14 -105.46" hpr="0.0 -0.0 0.0" scale="4.99 4.99 4.99"/> <!-- writeStaticObjects 3 -->
-    <static-object model="silo.b3d" xyz="-182.36 13.13 6.81" hpr="0.0 -0.0 0.0" scale="4.99 4.99 4.99"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_instance="true" lod_group="cow" xyz="-59.26 8.47 -125.68" hpr="-0.0 -90.0 0.0" scale="0.52 0.36 0.52"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_distance="130.0" lod_group="cow" model="cow.b3d" xyz="-145.89 13.10 -125.68" hpr="-0.0 -90.0 0.0" scale="0.52 0.36 0.52"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_instance="true" lod_group="well" xyz="-50.31 6.00 -89.63" hpr="0.0 64.7 0.0" scale="1.91 1.91 1.91"/> <!-- writeStaticObjects 3 -->
-    <static-object lod_distance="60.0" lod_group="well" model="well60.b3d" xyz="-143.85 6.00 -89.63" hpr="0.0 64.7 0.0" scale="1.91 1.91 1.91"/> <!-- writeStaticObjects 3 -->
+    <static-object lod_instance="true" lod_group="skull" xyz="0.86 9.55 -2.36" hpr="-52.6 -0.0 -0.0" scale="0.49 0.49 0.49"/>
+    <static-object lod_instance="true" lod_group="horse" xyz="68.93 4.59 85.82" hpr="0.1 -19.4 -0.6" scale="0.75 0.75 0.75"/>
+    <static-object lod_instance="true" lod_group="horse" xyz="73.80 4.43 85.90" hpr="0.1 5.8 -0.6" scale="0.75 0.75 0.75"/>
+    <static-object lod_instance="true" lod_group="horse" xyz="78.26 3.96 85.97" hpr="0.1 11.1 -0.6" scale="0.55 0.55 0.55"/>
+    <static-object lod_instance="true" lod_group="horse" xyz="83.34 4.29 84.75" hpr="0.1 30.9 -0.5" scale="0.75 0.75 0.75"/>
+    <static-object model="silo.b3d" xyz="34.83 15.14 -105.46" hpr="0.0 -0.0 0.0" scale="4.99 4.99 4.99"/>
+    <static-object model="silo.b3d" xyz="-182.36 13.13 6.81" hpr="0.0 -0.0 0.0" scale="4.99 4.99 4.99"/>
+    <static-object lod_instance="true" lod_group="cow" xyz="-59.26 8.47 -125.68" hpr="-0.0 -90.0 0.0" scale="0.52 0.36 0.52"/>
+    <static-object lod_instance="true" lod_group="well" xyz="-50.31 6.00 -89.63" hpr="0.0 64.7 0.0" scale="1.91 1.91 1.91"/>
   </track>
-  <object type="animation" model="hayBail.b3d" xyz="69.97 8.08 -107.84" hpr="-83.2 1.1 97.7" scale="1.00 1.00 1.00" shape="box" flatten="y" interaction="explode">
+  <object type="animation" xyz="69.97 8.08 -107.84" hpr="-83.2 1.1 97.7" scale="1.00 1.00 1.00" interaction="flatten" shape="cylinderY" model="hayBail.b3d" flatten="y">
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
       <p c="60.000 115.124" h1="58.438 115.124" h2="61.562 115.124"/>
       <p c="64.000 115.124" h1="62.439 115.124" h2="64.390 115.124"/>
@@ -1163,7 +1173,7 @@
       <p c="310.000 -124.904" h1="309.610 -124.904" h2="310.390 -124.904"/>
     </curve>
   </object>
-  <object type="animation" model="mill.001.b3d" xyz="-82.57 39.38 -132.05" hpr="-0.0 -113.9 -0.0" scale="1.00 1.00 1.00"  interaction="none">
+  <object type="animation" xyz="-82.57 39.38 -132.05" hpr="-0.0 -113.9 -0.0" scale="1.00 1.00 1.00" interaction="none" model="mill.001.b3d">
     <curve channel="RotZ" interpolation="linear" extend="cyclic">
       <p c="1.000 -0.000"/>
       <p c="46.000 -360.000"/>

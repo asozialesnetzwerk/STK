@@ -1,9 +1,35 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 14124 -->
+<!-- Generated with script from SVN rev 14858 -->
 <scene>
+  <lod>
+   <group name="pumpkin">
+    <static-object lod_distance="20" lod_group="pumpkin" model="Circle.023.b3d" xyz="68.27 0.08 11.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+    <static-object lod_distance="40" lod_group="pumpkin" model="Circle.024.b3d" xyz="68.27 0.08 14.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+    <static-object lod_distance="80" lod_group="pumpkin" model="Circle.025.b3d" xyz="68.27 0.08 17.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
+   <group name="tombStone">
+    <static-object lod_distance="70" lod_group="tombStone" model="BezierCurve.002.b3d" xyz="43.50 -3.04 -2.68" hpr="0.0 -87.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
+   <group name="lantern">
+    <static-object lod_distance="20" lod_group="lantern" model="Mesh.002.b3d" xyz="64.24 2.78 41.08" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+    <static-object lod_distance="50" lod_group="lantern" model="Mesh.001.b3d" xyz="64.24 2.78 37.09" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
+   <group name="dead_tree">
+    <static-object lod_distance="40" lod_group="dead_tree" model="Mesh.012.b3d" xyz="73.39 1.70 43.07" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+    <static-object lod_distance="75" lod_group="dead_tree" model="Mesh.015.b3d" xyz="73.39 1.70 26.07" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+    <static-object lod_distance="200" lod_group="dead_tree" model="Mesh.016.b3d" xyz="73.39 1.70 35.07" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
+   <group name="old_barrier">
+    <static-object lod_distance="60" lod_group="old_barrier" model="metal_barrier.b3d" xyz="58.15 4.09 41.48" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
+   <group name="jackOlantern">
+    <static-object lod_distance="20" lod_group="jackOlantern" model="Circle.026.b3d" xyz="73.20 0.15 11.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+    <static-object lod_distance="40" lod_group="jackOlantern" model="Circle.028.b3d" xyz="73.27 0.08 14.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+    <static-object lod_distance="80" lod_group="jackOlantern" model="Circle.027.b3d" xyz="73.27 0.08 17.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
+  </lod>
   <track model="mansion_track.b3d" x="0" y="0" z="0">
     <static-object lod_instance="true" lod_group="tombStone" xyz="-91.29 -1.13 -84.42" hpr="0.0 -87.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_distance="70.0" lod_group="tombStone" model="BezierCurve.002.b3d" xyz="43.50 -3.04 -2.68" hpr="0.0 -87.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="tombStone" xyz="-73.38 -0.41 -66.52" hpr="15.1 -29.9 -8.3" scale="0.84 0.84 0.84"/>
     <static-object model="tracks.b3d" xyz="-77.55 0.78 -8.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="tombStone" xyz="-119.16 -0.99 -48.89" hpr="13.0 -26.8 -0.0" scale="1.35 1.35 1.35"/>
@@ -51,19 +77,9 @@
     </static-object>
     <static-object lod_instance="true" lod_group="pumpkin" xyz="7.89 0.08 7.93" hpr="-0.0 -134.5 -0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="jackOlantern" xyz="10.20 0.15 7.93" hpr="0.0 -0.0 0.0" scale="1.62 1.62 1.62"/>
-    <static-object lod_distance="20.0" lod_group="pumpkin" model="Circle.023.b3d" xyz="68.27 0.08 11.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_distance="40.0" lod_group="pumpkin" model="Circle.024.b3d" xyz="68.27 0.08 14.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_distance="80.0" lod_group="pumpkin" model="Circle.025.b3d" xyz="68.27 0.08 17.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_distance="20.0" lod_group="jackOlantern" model="Circle.026.b3d" xyz="73.20 0.15 11.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_distance="80.0" lod_group="jackOlantern" model="Circle.027.b3d" xyz="73.27 0.08 17.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_distance="40.0" lod_group="jackOlantern" model="Circle.028.b3d" xyz="73.27 0.08 14.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="jackOlantern" xyz="-111.74 -3.52 -67.92" hpr="-0.0 80.1 -0.0" scale="1.62 1.62 1.62"/>
     <static-object lod_instance="true" lod_group="jackOlantern" xyz="-111.74 -3.52 -64.66" hpr="-0.0 112.2 -0.0" scale="0.92 0.92 0.92"/>
     <static-object lod_instance="true" lod_group="lantern" xyz="-0.78 2.78 38.08" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_distance="50.0" lod_group="lantern" model="Mesh.001.b3d" xyz="64.24 2.78 37.09" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_distance="20.0" lod_group="lantern" model="Mesh.002.b3d" xyz="64.24 2.78 41.08" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00">
-    <animated-texture name="bugslight.png" dy="1.000" />
-    </static-object>
     <static-object lod_instance="true" lod_group="lantern" xyz="2.68 1.63 68.97" hpr="-90.0 177.1 -0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="lantern" xyz="-47.60 0.58 89.62" hpr="-90.0 -127.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="lantern" xyz="-76.28 -0.20 64.30" hpr="-90.0 -145.8 -0.0" scale="1.00 1.00 1.00"/>
@@ -73,11 +89,8 @@
     <static-object lod_instance="true" lod_group="lantern" xyz="-91.92 -1.03 -31.13" hpr="-90.0 34.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="lantern" xyz="-91.92 -1.03 -31.13" hpr="-90.0 34.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="lantern" xyz="-68.08 4.57 -81.79" hpr="-18.4 -89.6 -69.1" scale="1.00 1.00 1.00"/>
-    <static-object lod_distance="40.0" lod_group="dead_tree" model="Mesh.012.b3d" xyz="73.39 1.70 43.07" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="lantern" xyz="-8.10 0.58 91.36" hpr="-90.0 86.5 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="lantern" xyz="-97.41 1.36 -62.24" hpr="-90.0 162.8 0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_distance="75.0" lod_group="dead_tree" model="Mesh.015.b3d" xyz="73.39 1.70 26.07" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_distance="200.0" lod_group="dead_tree" model="Mesh.016.b3d" xyz="73.39 1.70 35.07" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="dead_tree" xyz="4.45 -3.93 90.58" hpr="-85.3 138.4 -1.7" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="dead_tree" xyz="-45.73 -4.27 87.81" hpr="-82.7 48.3 2.0" scale="0.88 0.88 0.88"/>
     <static-object lod_instance="true" lod_group="dead_tree" xyz="-80.55 -8.05 -4.51" hpr="-82.7 48.3 2.0" scale="1.46 1.46 1.46"/>
@@ -113,7 +126,6 @@
     <static-object lod_instance="true" lod_group="old_barrier" xyz="-24.32 -0.09 4.10" hpr="-4.0 4.2 -6.3" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="old_barrier" xyz="-80.91 -3.47 43.17" hpr="-17.8 177.2 2.8" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="old_barrier" xyz="-91.66 -3.47 37.74" hpr="-17.5 -24.4 -0.7" scale="1.00 1.00 1.00"/>
-    <static-object lod_distance="60.0" lod_group="old_barrier" model="metal_barrier.b3d" xyz="58.15 4.09 41.48" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object model="dead_tree_low.b3d" xyz="36.86 -3.53 109.96" hpr="0.0 143.8 0.0" scale="0.73 0.73 0.73"/>
     <static-object lod_instance="true" lod_group="old_barrier" xyz="13.98 3.23 5.66" hpr="-44.3 175.6 -0.7" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="old_barrier" xyz="18.81 2.67 5.66" hpr="-14.2 175.8 1.6" scale="1.00 1.00 1.00"/>

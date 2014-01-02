@@ -1,10 +1,14 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 14445 -->
+<!-- Generated with script from SVN rev 14858 -->
 <scene>
+  <lod>
+   <group name="lavaspike">
+    <static-object lod_distance="70" lod_group="lavaspike" model="lavaspike.002.b3d" xyz="-176.73 72.28 7.05" hpr="-0.0 -180.0 -0.0" scale="1.00 1.00 1.00" interaction="static"/>
+    <static-object lod_distance="150" lod_group="lavaspike" model="lavaspike.003.b3d" xyz="-180.73 72.28 7.05" hpr="-0.0 -180.0 -0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
+  </lod>
   <track model="FortMagma_track.b3d" x="0" y="0" z="0">
     <static-object lod_instance="true" lod_group="lavaspike" xyz="-153.73 10.28 7.05" hpr="-0.0 -180.0 -0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_distance="70.0" lod_group="lavaspike" model="lavaspike.002.b3d" xyz="-176.73 72.28 7.05" hpr="-0.0 -180.0 -0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_distance="150.0" lod_group="lavaspike" model="lavaspike.003.b3d" xyz="-180.73 72.28 7.05" hpr="-0.0 -180.0 -0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="lavaspike" xyz="-155.14 34.75 -42.49" hpr="-0.0 -180.0 -0.0" scale="3.20 3.20 3.20"/>
     <static-object lod_instance="true" lod_group="lavaspike" xyz="-139.53 21.64 -28.23" hpr="-0.0 -180.0 -0.0" scale="1.36 1.36 1.36"/>
     <static-object lod_instance="true" lod_group="lavaspike" xyz="-94.17 57.89 -110.78" hpr="-0.0 -180.0 -0.0" scale="4.90 4.90 4.90"/>

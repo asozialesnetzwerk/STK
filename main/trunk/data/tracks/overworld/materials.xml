@@ -30,7 +30,7 @@
   <material name="Mushroom 3.png" light="N" backface-culling="N" compositing="coverage" ignore="Y"/>
   <material name="Mushroom 7 side.png" light="N" backface-culling="N" compositing="coverage" ignore="Y"/>
   <material name="Mushroom 7.png" light="N" backface-culling="N" compositing="coverage" ignore="Y"/>
-  <material name="palm_b.png" compositing="coverage" backface-culling="N" />
+  <material name="palm_b.png" compositing="coverage" backface-culling="N"/>
   <material name="palm_tree_leaf.png" compositing="coverage"/>
   <material name="city_grass.png" backface-culling="N" compositing="coverage" ignore="Y"/>
   <material name="rock_brown.jpg" fog="N"/>

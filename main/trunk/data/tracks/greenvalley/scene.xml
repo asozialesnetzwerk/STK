@@ -1,8 +1,35 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 14445 -->
+<!-- Generated with script from SVN rev 14858 -->
 <scene>
+  <lod>
+   <group name="WaterPlant1">
+    <static-object lod_distance="100" lod_group="WaterPlant1" model="TyphaLatifolia.b3d" xyz="13.43 0.00 -7.80" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="none"/>
+    <static-object lod_distance="300" lod_group="WaterPlant1" model="WaterPlant1.lod.low.b3d" xyz="16.32 0.94 -7.10" hpr="-90.0 -0.0 0.0" scale="0.86 0.86 0.86" interaction="static"/>
+   </group>
+   <group name="forestPlant1">
+    <static-object lod_distance="100" lod_group="forestPlant1" model="OsmundaCinnamoneaS.005.b3d" xyz="13.64 -0.18 -10.82" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
+   <group name="plant1">
+    <static-object lod_distance="150" lod_group="plant1" model="ArctinumMinus.b3d" xyz="15.35 -0.41 -11.70" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
+   <group name="flower4">
+    <static-object lod_distance="100" lod_group="flower4" model="RudbeckiaHirta.b3d" xyz="10.63 0.00 -12.20" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
+   <group name="flower2">
+    <static-object lod_distance="100" lod_group="flower2" model="MyasotisScorpioides.b3d" xyz="6.75 0.00 -5.47" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
+   <group name="flower3">
+    <static-object lod_distance="100" lod_group="flower3" model="Eupatorium.b3d" xyz="8.65 -0.15 -12.02" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
+   <group name="sheep">
+    <static-object lod_distance="55" lod_group="sheep" model="sheep_55.b3d" xyz="19.20 0.20 1.51" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"/>
+    <static-object lod_distance="10000" lod_group="sheep" model="sheep_LOD10000.b3d" xyz="22.63 2.01 -3.53" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
+   <group name="flower1">
+    <static-object lod_distance="100" lod_group="flower1" model="ClethraAlnifolia.b3d" xyz="9.36 0.25 -4.45" hpr="0.0 -0.0 0.0" scale="0.46 0.46 0.46" interaction="static"/>
+   </group>
+  </lod>
   <track model="greenvalley_track.b3d" x="0" y="0" z="0">
-    <static-object lod_distance="150.0" lod_group="plant1" model="ArctinumMinus.b3d" xyz="15.35 -0.41 -11.70" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="plant1" xyz="-14.97 1.11 21.26" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="plant1" xyz="233.42 2.77 42.49" hpr="-12.2 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="plant1" xyz="239.22 3.55 48.46" hpr="-12.2 -9.0 0.0" scale="1.00 1.00 1.00"/>
@@ -28,7 +55,6 @@
     <static-object lod_instance="true" lod_group="plant1" xyz="78.23 36.66 206.65" hpr="-33.6 113.5 -31.4" scale="1.41 1.41 1.41"/>
     <static-object lod_instance="true" lod_group="plant1" xyz="140.32 35.28 78.37" hpr="-0.0 104.4 -0.0" scale="1.13 1.13 1.13"/>
     <static-object lod_instance="true" lod_group="plant1" xyz="16.14 30.05 142.60" hpr="14.3 117.3 31.9" scale="1.41 1.41 1.41"/>
-    <static-object lod_distance="100.0" lod_group="flower1" model="ClethraAlnifolia.b3d" xyz="9.36 0.25 -4.45" hpr="0.0 -0.0 0.0" scale="0.46 0.46 0.46"/>
     <static-object lod_instance="true" lod_group="flower1" xyz="-5.17 0.37 0.37" hpr="0.0 -0.0 0.0" scale="0.62 0.62 0.62"/>
     <static-object lod_instance="true" lod_group="flower1" xyz="-17.70 1.27 28.54" hpr="0.0 -0.0 0.0" scale="0.71 0.71 0.71"/>
     <static-object lod_instance="true" lod_group="flower1" xyz="-20.28 1.51 35.42" hpr="-0.0 99.4 -0.0" scale="0.71 0.71 0.71"/>
@@ -46,7 +72,6 @@
     <static-object lod_instance="true" lod_group="flower1" xyz="258.59 -2.24 -95.35" hpr="0.0 20.1 0.0" scale="0.71 0.71 0.71"/>
     <static-object lod_instance="true" lod_group="flower1" xyz="258.84 -5.77 -111.76" hpr="-0.0 -5.0 0.0" scale="0.71 0.71 0.71"/>
     <static-object lod_instance="true" lod_group="flower1" xyz="280.08 0.68 -92.80" hpr="-0.0 145.7 -0.0" scale="0.71 0.71 0.71"/>
-    <static-object lod_distance="100.0" lod_group="flower3" model="Eupatorium.b3d" xyz="8.65 -0.15 -12.02" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="flower3" xyz="6.90 -0.86 0.75" hpr="0.0 -0.0 0.0" scale="0.92 0.92 0.92"/>
     <static-object lod_instance="true" lod_group="flower3" xyz="-15.31 1.23 30.21" hpr="0.0 -0.0 0.0" scale="0.76 0.76 0.76"/>
     <static-object lod_instance="true" lod_group="flower3" xyz="-16.53 1.23 27.59" hpr="0.0 -0.0 0.0" scale="0.76 0.76 0.76"/>
@@ -85,7 +110,6 @@
     <static-object lod_instance="true" lod_group="flower3" xyz="238.68 -6.38 -104.17" hpr="-0.0 40.7 -0.0" scale="0.76 0.76 0.76"/>
     <static-object lod_instance="true" lod_group="flower3" xyz="261.07 -5.81 -109.89" hpr="-0.0 -5.0 0.0" scale="0.76 0.76 0.76"/>
     <static-object lod_instance="true" lod_group="flower3" xyz="279.05 0.64 -95.53" hpr="-0.0 145.7 -0.0" scale="0.76 0.76 0.76"/>
-    <static-object lod_distance="100.0" lod_group="flower2" model="MyasotisScorpioides.b3d" xyz="6.75 0.00 -5.47" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="flower2" xyz="4.93 0.66 2.02" hpr="0.0 -0.0 0.0" scale="0.92 0.92 0.92"/>
     <static-object lod_instance="true" lod_group="flower2" xyz="-16.18 1.33 29.23" hpr="0.0 -0.0 0.0" scale="1.05 1.05 1.05"/>
     <static-object lod_instance="true" lod_group="flower2" xyz="-19.84 1.57 33.81" hpr="-0.0 99.4 -0.0" scale="1.05 1.05 1.05"/>
@@ -164,7 +188,6 @@
     <static-object lod_instance="true" lod_group="forestPlant1" xyz="-26.50 2.84 -200.28" hpr="0.0 -0.0 0.0" scale="2.98 2.98 2.98"/>
     <static-object lod_instance="true" lod_group="forestPlant1" xyz="2.34 1.41 -197.54" hpr="0.0 -0.0 0.0" scale="3.87 2.82 3.87"/>
     <static-object lod_instance="true" lod_group="forestPlant1" xyz="-85.72 4.99 -142.84" hpr="0.0 -0.0 0.0" scale="2.98 2.98 2.98"/>
-    <static-object lod_distance="100.0" lod_group="forestPlant1" model="OsmundaCinnamoneaS.005.b3d" xyz="13.64 -0.18 -10.82" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="forestPlant1" xyz="-75.96 5.52 -134.03" hpr="0.0 -0.0 0.0" scale="2.34 2.34 2.34"/>
     <static-object lod_instance="true" lod_group="forestPlant1" xyz="-71.58 5.35 -129.56" hpr="0.0 37.2 0.0" scale="2.34 2.34 2.34"/>
     <static-object lod_instance="true" lod_group="forestPlant1" xyz="-20.45 0.77 11.19" hpr="0.0 -0.0 0.0" scale="2.97 2.97 2.97"/>
@@ -184,7 +207,6 @@
     <static-object lod_instance="true" lod_group="forestPlant1" xyz="167.81 25.62 99.38" hpr="80.0 51.5 64.6" scale="4.13 2.86 4.13"/>
     <static-object model="Plane.003.b3d" xyz="126.49 10.24 -2.12" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object model="water_road_splash_layer.b3d" xyz="214.49 -12.12 -117.21" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_distance="100.0" lod_group="flower4" model="RudbeckiaHirta.b3d" xyz="10.63 0.00 -12.20" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="flower4" xyz="3.63 0.95 11.20" hpr="0.0 -0.0 0.0" scale="0.92 0.92 0.92"/>
     <static-object lod_instance="true" lod_group="flower4" xyz="-17.01 1.37 31.21" hpr="0.0 -0.0 0.0" scale="1.05 1.05 1.05"/>
     <static-object lod_instance="true" lod_group="flower4" xyz="-15.19 1.32 28.07" hpr="-0.0 114.6 -0.0" scale="1.05 1.05 1.05"/>
@@ -221,9 +243,7 @@
     <static-object lod_instance="true" lod_group="flower4" xyz="260.16 -1.17 -93.08" hpr="0.0 20.1 0.0" scale="1.05 1.05 1.05"/>
     <static-object lod_instance="true" lod_group="flower4" xyz="260.78 -2.27 -96.65" hpr="-0.0 134.7 -0.0" scale="1.05 1.05 1.05"/>
     <static-object lod_instance="true" lod_group="flower4" xyz="261.38 -5.72 -112.01" hpr="-0.0 109.6 -0.0" scale="1.05 1.05 1.05"/>
-    <static-object lod_distance="55.0" lod_group="sheep" model="sheep_55.b3d" xyz="19.20 0.20 1.51" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="sheep" xyz="-12.76 1.21 9.55" hpr="-0.0 -143.7 0.0" scale="0.89 0.89 0.89"/>
-    <static-object lod_distance="10000" lod_group="sheep" model="sheep_LOD10000.b3d" xyz="22.63 2.01 -3.53" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="sheep" xyz="-11.92 1.19 11.67" hpr="0.0 9.7 0.0" scale="0.61 0.61 0.61"/>
     <static-object lod_instance="true" lod_group="sheep" xyz="334.68 5.24 12.95" hpr="0.0 163.4 0.0" scale="0.84 0.84 0.84"/>
     <static-object lod_instance="true" lod_group="sheep" xyz="-10.36 1.37 14.34" hpr="0.0 39.6 0.0" scale="0.73 0.73 0.73"/>
@@ -262,7 +282,6 @@
     <static-object lod_instance="true" lod_group="sheep" xyz="333.73 2.06 -1.71" hpr="0.0 116.4 0.0" scale="0.83 0.83 0.83"/>
     <static-object lod_instance="true" lod_group="sheep" xyz="332.66 2.75 0.87" hpr="0.0 -50.5 -0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="sheep" xyz="334.68 5.02 4.12" hpr="0.0 163.4 0.0" scale="0.84 0.84 0.84"/>
-    <static-object lod_distance="100.0" lod_group="WaterPlant1" model="TyphaLatifolia.b3d" xyz="13.43 0.00 -7.80" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="WaterPlant1" xyz="230.92 -13.25 -131.01" hpr="0.0 27.6 0.0" scale="1.26 1.26 1.26"/>
     <static-object lod_instance="true" lod_group="WaterPlant1" xyz="229.78 -13.25 -129.86" hpr="0.0 27.6 0.0" scale="1.26 1.26 1.26"/>
     <static-object lod_instance="true" lod_group="WaterPlant1" xyz="231.81 -14.61 -134.95" hpr="0.0 27.6 0.0" scale="1.26 1.26 1.26"/>
@@ -289,7 +308,6 @@
     <static-object lod_instance="true" lod_group="WaterPlant1" xyz="177.77 -15.55 -182.01" hpr="-0.0 -43.0 0.0" scale="1.51 1.51 1.51"/>
     <static-object lod_instance="true" lod_group="WaterPlant1" xyz="-31.43 -13.60 -18.53" hpr="-0.0 -13.1 0.0" scale="1.85 1.85 1.85"/>
     <static-object lod_instance="true" lod_group="WaterPlant1" xyz="-22.32 -12.64 -15.79" hpr="-0.0 -13.1 0.0" scale="1.85 1.85 1.85"/>
-    <static-object lod_distance="300.0" lod_group="WaterPlant1" model="WaterPlant1.lod.low.b3d" xyz="16.32 0.94 -7.10" hpr="-90.0 -0.0 0.0" scale="0.86 0.86 0.86"/>
     <animated-texture name="waterfall.png" dy="1.000" />
     <animated-texture name="mine_water_alpha.png" dy="1.000" />
     <animated-texture name="ants.png" dy="0.500" />

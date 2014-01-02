@@ -1,9 +1,13 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 14445 -->
+<!-- Generated with script from SVN rev 14858 -->
 <scene>
+  <lod>
+   <group name="lantern">
+    <static-object lod_distance="50" lod_group="lantern" model="Mesh.b3d" xyz="-14.00 3.85 0.00" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+    <static-object lod_distance="225" lod_group="lantern" model="Mesh.001.b3d" xyz="-14.00 3.85 -3.00" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
+  </lod>
   <track model="hacienda_track.b3d" x="0" y="0" z="0">
-    <static-object lod_distance="50.0" lod_group="lantern" model="Mesh.b3d" xyz="-14.00 3.85 0.00" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_distance="225.0" lod_group="lantern" model="Mesh.001.b3d" xyz="-14.00 3.85 -3.00" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="lantern" xyz="10.14 6.63 0.06" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="lantern" xyz="22.17 7.75 -34.18" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="lantern" xyz="11.09 7.33 39.96" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>

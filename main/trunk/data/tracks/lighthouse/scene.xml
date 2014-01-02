@@ -2,21 +2,21 @@
 <!-- Generated with script from SVN rev 14858 -->
 <scene>
   <lod>
+   <group name="miniLamp">
+    <static-object lod_distance="150" lod_group="miniLamp" model="miniLampPost_low.b3d" xyz="-156.19 3.73 -49.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"/>
+   </group>
    <group name="death_grass_chunk">
     <static-object lod_distance="60" lod_group="death_grass_chunk" model="death_grass_chunk_hight.b3d" xyz="274.55 -15.84 -24.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
     <static-object lod_distance="100" lod_group="death_grass_chunk" model="death_grass_chunk_low.b3d" xyz="274.55 -15.84 -30.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-   </group>
-   <group name="grass_chunk">
-    <static-object lod_distance="60" lod_group="grass_chunk" model="grass_chunk_hight.b3d" xyz="266.88 -15.84 -24.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-    <static-object lod_distance="100" lod_group="grass_chunk" model="grass_chunk_low.b3d" xyz="266.88 -15.84 -30.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
    </group>
    <group name="pine_tree_lod">
     <static-object lod_distance="70" lod_group="pine_tree_lod" model="pine_tree_lod_hight.b3d" xyz="270.46 -14.16 -16.96" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38" interaction="static"/>
     <static-object lod_distance="150" lod_group="pine_tree_lod" model="pine_tree_lod_medium.b3d" xyz="293.33 -14.16 -16.96" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38" interaction="static"/>
     <static-object lod_distance="300" lod_group="pine_tree_lod" model="pine_tree_lod_low.b3d" xyz="309.45 -14.16 -16.96" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38" interaction="static"/>
    </group>
-   <group name="miniLamp">
-    <static-object lod_distance="150" lod_group="miniLamp" model="miniLampPost_low.b3d" xyz="-156.19 3.73 -49.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"/>
+   <group name="grass_chunk">
+    <static-object lod_distance="60" lod_group="grass_chunk" model="grass_chunk_hight.b3d" xyz="266.88 -15.84 -24.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+    <static-object lod_distance="100" lod_group="grass_chunk" model="grass_chunk_low.b3d" xyz="266.88 -15.84 -30.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
    </group>
   </lod>
   <track model="lighthouse-terrain_track.b3d" x="0" y="0" z="0">

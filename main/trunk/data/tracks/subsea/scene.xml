@@ -1,15 +1,31 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 13687 -->
+<!-- Generated with script from SVN rev 14858 -->
 <scene>
+  <lod>
+   <group name="chest_mound">
+    <static-object lod_distance="80" lod_group="chest_mound" model="chest_mound_hi.b3d" xyz="-159.64 -34.41 665.68" hpr="86.5 -81.3 2.5" scale="2.52 2.52 2.52" interaction="static"/>
+    <static-object lod_distance="350" lod_group="chest_mound" model="chest_mound_lo.b3d" xyz="-191.53 -34.41 665.68" hpr="86.5 -81.3 2.5" scale="2.52 2.52 2.52" interaction="static"/>
+   </group>
+   <group name="pillar">
+    <static-object lod_distance="200" lod_group="pillar" model="pillar_high.b3d" xyz="-89.39 -18.10 618.34" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="move"/>
+    <static-object lod_distance="400" lod_group="pillar" model="pillar_lo.b3d" xyz="-95.02 -18.10 618.34" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="move"/>
+   </group>
+   <group name="submarine">
+    <static-object lod_distance="150" lod_group="submarine" model="submarine_hi.b3d" xyz="-395.69 4.29 -365.18" hpr="-61.1 0.0 90.0" scale="4.66 4.92 4.66" interaction="static"/>
+    <static-object lod_distance="400" lod_group="submarine" model="submarine_lo.b3d" xyz="-360.90 4.29 -371.98" hpr="-61.1 0.0 90.0" scale="4.66 4.92 4.66" interaction="static"/>
+   </group>
+   <group name="chest">
+    <static-object lod_distance="100" lod_group="chest" model="Cube.012.b3d" xyz="-49.99 -35.13 653.41" hpr="0.0 -38.3 0.0" scale="5.60 2.80 2.80" interaction="static"/>
+    <static-object lod_distance="350" lod_group="chest" model="Cube.013.b3d" xyz="-49.99 -35.13 670.60" hpr="0.0 -38.3 0.0" scale="5.60 2.80 2.80" interaction="static"/>
+   </group>
+   <group name="pillar2">
+    <static-object lod_distance="200" lod_group="pillar2" model="pillar2_high.b3d" xyz="-89.43 -18.10 644.62" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="move"/>
+    <static-object lod_distance="400" lod_group="pillar2" model="pillar2_lo.b3d" xyz="-95.06 -18.10 644.62" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="move"/>
+   </group>
+  </lod>
   <track model="subsea_track.b3d" x="0" y="0" z="0">
     <static-object lod_instance="true" lod_group="chest" xyz="-49.99 -35.13 388.98" hpr="0.0 -38.3 0.0" scale="5.60 2.80 2.80"/>
     <static-object lod_instance="true" lod_group="chest" xyz="-356.43 -30.35 393.42" hpr="0.0 -75.9 0.0" scale="5.60 2.80 2.80"/>
-    <static-object lod_distance="100.0" lod_group="chest" model="Cube.012.b3d" xyz="-49.99 -35.13 653.41" hpr="0.0 -38.3 0.0" scale="5.60 2.80 2.80"/>
-    <static-object lod_distance="350.0" lod_group="chest" model="Cube.013.b3d" xyz="-49.99 -35.13 670.60" hpr="0.0 -38.3 0.0" scale="5.60 2.80 2.80"/>
-    <static-object lod_distance="200.0" lod_group="pillar" model="pillar_high.b3d" xyz="-89.39 -18.10 618.34" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_distance="200.0" lod_group="pillar2" model="pillar2_high.b3d" xyz="-89.43 -18.10 644.62" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_distance="400.0" lod_group="pillar2" model="pillar2_lo.b3d" xyz="-95.06 -18.10 644.62" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_distance="400.0" lod_group="pillar" model="pillar_lo.b3d" xyz="-95.02 -18.10 618.34" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object model="Segment1.b3d" xyz="-186.90 5.03 267.59" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object model="Segment11.b3d" xyz="8.17 -6.81 191.67" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object model="Segment2.b3d" xyz="-286.42 6.37 147.58" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
@@ -21,12 +37,8 @@
     <static-object model="Segment8.b3d" xyz="-84.93 3.35 93.65" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object model="Segment9.b3d" xyz="-58.54 3.67 -19.98" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object model="Segment10.b3d" xyz="24.27 15.38 199.19" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_distance="150.0" lod_group="submarine" model="submarine_hi.b3d" xyz="-395.69 4.29 -365.18" hpr="-61.1 0.0 90.0" scale="4.66 4.92 4.66"/>
     <static-object lod_instance="true" lod_group="submarine" xyz="-395.69 4.29 -71.50" hpr="-61.1 0.0 90.0" scale="4.66 4.92 4.66"/>
-    <static-object lod_distance="400.0" lod_group="submarine" model="submarine_lo.b3d" xyz="-360.90 4.29 -371.98" hpr="-61.1 0.0 90.0" scale="4.66 4.92 4.66"/>
     <static-object lod_instance="true" lod_group="chest_mound" xyz="-159.44 -34.41 400.43" hpr="87.9 -70.5 1.1" scale="2.52 2.52 2.52"/>
-    <static-object lod_distance="80.0" lod_group="chest_mound" model="chest_mound_hi.b3d" xyz="-159.64 -34.41 665.68" hpr="86.5 -81.3 2.5" scale="2.52 2.52 2.52"/>
-    <static-object lod_distance="350.0" lod_group="chest_mound" model="chest_mound_lo.b3d" xyz="-191.53 -34.41 665.68" hpr="86.5 -81.3 2.5" scale="2.52 2.52 2.52"/>
     <static-object lod_instance="true" lod_group="chest_mound" xyz="-298.18 -34.41 371.92" hpr="89.5 -127.4 -0.6" scale="2.52 2.52 2.52"/>
     <animated-texture name="eggs.png" dy="0.500" />
     <animated-texture name="organic-subsea.jpg" dy="0.100" />
