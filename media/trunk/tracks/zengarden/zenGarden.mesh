@@ -1,0 +1,12 @@
+<Maratis>
+
+<Mesh>
+
+<BoundingBox minx="-507.874084" miny="-510.100067" minz="-425.099915" maxx="507.874207" maxy="510.100067" maxz="291.192352" />
+
+<SubMeshs num="1">
+</SubMeshs>
+
+</Mesh>
+
+</Maratis>
