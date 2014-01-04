@@ -598,6 +598,34 @@ class StartPositionExporter:
             f.write("  <start %s/>\n"%getXYZHString(dId2Obj[i]))
 
             
+# ------------------------------------------------------------------------------
+class LibraryNodeExporter:
+    
+    def __init__(self):
+        self.m_objects = []
+    
+    def processObject(self, object, stktype):
+        
+        if object.proxy is not None and object.proxy.library is not None:
+            self.m_objects.append(object)
+            return True
+        else:
+            return False
+            
+    def export(self, f):
+        import re
+        for obj in self.m_objects:
+            try:
+                path_parts = re.split("/|\\\\", obj.proxy.library.filepath)
+                lib_name = path_parts[-2]
+
+                # origin
+                originXYZ = getXYZHPRString(obj)
+                
+                f.write('  <library name="%s" %s/>\n' % (lib_name, originXYZ))
+            except:
+                log_error("Invalid linked object <" + getObjectProperty(obj, "name", obj.name) + "> ")
+
                 
 # ------------------------------------------------------------------------------
 class BillboardExporter:
@@ -2465,7 +2493,7 @@ class TrackExport:
                     log_warning('Failed to copy texture ' + curr.filepath)
         
         drivelineExporter = DrivelineExporter()
-        exporters = [drivelineExporter, WaterExporter(self, sPath), ParticleEmitterExporter(), SoundEmitterExporter(), ActionTriggerExporter(), ItemsExporter(), BillboardExporter(), LightsExporter(), StartPositionExporter()]
+        exporters = [drivelineExporter, WaterExporter(self, sPath), ParticleEmitterExporter(), SoundEmitterExporter(), ActionTriggerExporter(), ItemsExporter(), BillboardExporter(), LightsExporter(), StartPositionExporter(), LibraryNodeExporter()]
         
         # Collect the different kind of meshes this exporter handles
         # ----------------------------------------------------------
