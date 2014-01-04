@@ -696,8 +696,8 @@ class BillboardExporter:
                     writeIPO(f, obj.animation_data)
                 f.write('  </object>\n')
 
-            except ValueError:
-                log_error("Invalid value for billboard <" + getObjectProperty(obj, "name", obj.name) + "> ")
+            except:
+                log_error("Invalid billboard <" + getObjectProperty(obj, "name", obj.name) + "> ")
                 
 
 # ------------------------------------------------------------------------------
