@@ -1,8 +1,19 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 14820 -->
+<!-- Generated with script from SVN rev 14899 -->
 <scene>
+  <lod>
+   <group name="transfo">
+    <static-object lod_distance="70" lod_group="transfo" model="Circle.036_Circle.000.b3d" xyz="-17.36 2.09 -22.06" hpr="-90.0 115.4 -0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
+   <group name="lantern">
+    <static-object lod_distance="20" lod_group="lantern" model="lantern_LOD20.b3d" xyz="-9.20 3.95 -21.28" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+    <static-object lod_distance="80" lod_group="lantern" model="lantern_LOD50.b3d" xyz="-10.20 3.95 -21.28" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
+   <group name="lamp2">
+    <static-object lod_distance="60" lod_group="lamp2" model="lamp_2.b3d" xyz="-15.48 12.01 -18.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
+  </lod>
   <track model="mines_track.b3d" x="0" y="0" z="0">
-    <static-object lod_distance="70.0" lod_group="transfo" model="Circle.036_Circle.000.b3d" xyz="-17.36 2.09 -22.06" hpr="-90.0 115.4 -0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="transfo" xyz="167.38 2.09 -91.75" hpr="-90.0 115.4 -0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="lamp2" xyz="143.33 14.06 12.37" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="lamp2" xyz="-13.76 9.71 -36.87" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
@@ -25,7 +36,6 @@
     <static-object lod_instance="true" lod_group="lamp2" xyz="24.55 6.17 -235.37" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="lamp2" xyz="-5.76 5.27 -232.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="lamp2" xyz="-14.38 11.32 -65.48" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_distance="60.0" lod_group="lamp2" model="lamp_2.b3d" xyz="-15.48 12.01 -18.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="lamp2" xyz="73.48 13.11 48.16" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="lamp2" xyz="104.96 13.11 4.66" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="lamp2" xyz="157.56 13.11 -16.79" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
@@ -45,8 +55,6 @@
     <static-object lod_instance="true" lod_group="lantern" xyz="-18.61 2.07 -98.72" hpr="-90.0 -20.0 -0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="lantern" xyz="-9.08 0.47 -115.58" hpr="-90.0 -35.0 -0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="lantern" xyz="0.53 2.12 -129.46" hpr="-90.0 -35.0 -0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_distance="80" lod_group="lantern" model="lantern_LOD50.b3d" xyz="-10.20 3.95 -21.28" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_distance="20" lod_group="lantern" model="lantern_LOD20.b3d" xyz="-9.20 3.95 -21.28" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="lantern" xyz="11.90 3.26 -143.19" hpr="-90.0 -35.0 -0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="lantern" xyz="21.93 3.47 -156.58" hpr="-90.0 -27.4 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="lantern" xyz="167.23 7.35 -38.28" hpr="-90.0 172.9 -0.0" scale="1.00 1.00 1.00"/>
@@ -303,7 +311,7 @@
       <p c="155.000 -4.595" h1="133.527 -4.595" h2="176.473 -4.595"/>
     </curve>
   </object>
-  <object type="animation" xyz="-24.10 -0.72 -88.27" hpr="0.0 -17.9 0.0" scale="0.00 0.00 0.00" interaction="ghost" model="warning_sign2.b3d">
+  <object type="animation" xyz="-24.10 -0.72 -88.27" hpr="0.0 -17.9 0.0" scale="0.00 0.00 0.00" interaction="ghost" model="warning_sign2.b3d" forcedbloom="true">
     <curve channel="ScaleX" interpolation="bezier" extend="cyclic">
       <p c="1.000 0.000" h1="0.724 0.000" h2="1.276 0.000"/>
       <p c="2.000 1.000" h1="1.651 1.000" h2="3.746 1.000"/>
@@ -1319,4 +1327,5 @@
                  forwards-distance ="1.50"
                  sidewards-distance="3.00"
                  upwards-distance  ="0.10"/>
+  <library name="stklib_oldLantern_a" xyz="-0.33 5.56 -7.14" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
 </scene>
