@@ -574,11 +574,12 @@ class StartPositionExporter:
         distance_forwards  = float(getSceneProperty(scene, "start_forwards_distance",  1.5))
         distance_sidewards = float(getSceneProperty(scene, "start_sidewards_distance", 3.0))
         distance_upwards   = float(getSceneProperty(scene, "start_upwards_distance",   0.1))
-        f.write("  <default-start karts-per-row     =\"%i\"\n"%karts_per_row     )
-        f.write("                 forwards-distance =\"%.2f\"\n"%distance_forwards )
-        f.write("                 sidewards-distance=\"%.2f\"\n"%distance_sidewards)
-        f.write("                 upwards-distance  =\"%.2f\"/>\n"%distance_upwards)
-
+        if getSceneProperty(bpy.data.scenes[0], 'is_stk_node', 'false') != 'true':
+            f.write("  <default-start karts-per-row     =\"%i\"\n"%karts_per_row     )
+            f.write("                 forwards-distance =\"%.2f\"\n"%distance_forwards )
+            f.write("                 sidewards-distance=\"%.2f\"\n"%distance_sidewards)
+            f.write("                 upwards-distance  =\"%.2f\"/>\n"%distance_upwards)
+        
         dId2Obj = {}
         count = 1
         for obj in self.m_objects:
