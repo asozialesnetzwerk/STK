@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 14820 -->
+<!-- Generated with script from SVN rev 14899 -->
 <scene>
   <track model="farm_track.b3d" x="0" y="0" z="0"/>
   <object type="animation" xyz="11.00 1.61 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" shape="box" model="SomeModel.b3d" displacing="true">
@@ -68,4 +68,5 @@
                  forwards-distance ="1.50"
                  sidewards-distance="3.00"
                  upwards-distance  ="0.10"/>
+  
 </scene>
