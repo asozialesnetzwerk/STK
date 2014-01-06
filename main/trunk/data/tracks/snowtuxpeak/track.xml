@@ -4,7 +4,7 @@
         version        = "5"
         groups         = "standard"
         designer       = "Jean-Manuel Clemencon &amp; Ivar Ten Cate"
-        music          = "OnTheRiver.music"
+        music          = "snowmountain.music"
         screenshot     = "sshot-snowtuxpeak.jpg"
         smooth-normals = "true"
         reverse        = "Y"
