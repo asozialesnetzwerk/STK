@@ -2,25 +2,25 @@
 <!-- Generated with script from SVN rev 14949 -->
 <scene>
   <lod>
-   <group name="adScreen">
-    <static-object lod_distance="75" lod_group="adScreen" model="adScreen_LOD50.b3d" xyz="-128.48 3.00 50.30" hpr="0.0 -45.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-    <static-object lod_distance="160" lod_group="adScreen" model="adScreen_LOD160.b3d" xyz="-126.45 2.00 50.23" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   <group name="treeMod1">
+    <static-object lod_distance="160" lod_group="treeMod1" model="treeMod1_LOD80.b3d" xyz="-157.94 0.00 52.24" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+    <static-object lod_distance="300" lod_group="treeMod1" model="treeMod1_LOD170.b3d" xyz="-157.94 0.00 42.24" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
+   <group name="pillard">
+    <static-object lod_distance="120" lod_group="pillard" model="pillard_LOD70.b3d" xyz="-109.17 7.97 55.92" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+    <static-object lod_distance="180" lod_group="pillard" model="pillard_LOD180.b3d" xyz="-109.53 7.97 48.99" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
    </group>
    <group name="pipe">
     <static-object lod_distance="50" lod_group="pipe" model="pipe_LOD50.b3d" xyz="-176.78 -0.95 43.93" hpr="0.0 -22.9 0.0" scale="0.72 0.72 0.72" interaction="static"/>
     <static-object lod_distance="170" lod_group="pipe" model="pipe_LOD170.b3d" xyz="-179.46 -3.37 47.90" hpr="-0.0 -173.3 -0.0" scale="0.72 0.72 0.72" interaction="static"/>
    </group>
-   <group name="treeMod1">
-    <static-object lod_distance="160" lod_group="treeMod1" model="treeMod1_LOD80.b3d" xyz="-157.94 0.00 52.24" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-    <static-object lod_distance="300" lod_group="treeMod1" model="treeMod1_LOD170.b3d" xyz="-157.94 0.00 42.24" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-   </group>
    <group name="wpill">
     <static-object lod_distance="120" lod_group="wpill" model="wpill_LOD50.b3d" xyz="-143.11 5.74 44.54" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
     <static-object lod_distance="250" lod_group="wpill" model="wpill_LOD150.b3d" xyz="-143.41 6.07 46.51" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
    </group>
-   <group name="pillard">
-    <static-object lod_distance="120" lod_group="pillard" model="pillard_LOD70.b3d" xyz="-109.17 7.97 55.92" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-    <static-object lod_distance="180" lod_group="pillard" model="pillard_LOD180.b3d" xyz="-109.53 7.97 48.99" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   <group name="adScreen">
+    <static-object lod_distance="75" lod_group="adScreen" model="adScreen_LOD50.b3d" xyz="-128.48 3.00 50.30" hpr="0.0 -45.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+    <static-object lod_distance="160" lod_group="adScreen" model="adScreen_LOD160.b3d" xyz="-126.45 2.00 50.23" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
    </group>
   </lod>
   <track model="snowtuxpeak_track.b3d" x="0" y="0" z="0">
