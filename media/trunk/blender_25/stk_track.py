@@ -1882,7 +1882,7 @@ class TrackExport:
         f.write("<?xml version=\"1.0\"?>\n")
         f.write("<!-- Generated with script from SVN rev %s -->\n"%getScriptVersion())
         f.write("<track  name           = \"%s\"\n"%name)
-        f.write("        version        = \"5\"\n")
+        f.write("        version        = \"6\"\n")
         f.write("        groups         = \"%s\"\n"%groups)
         f.write("        designer       = \"%s\"\n"%designer)
         if music:
