@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 14858 -->
+<!-- Generated with script from SVN rev 14949 -->
 <track  name           = "Snow Peak"
-        version        = "5"
+        version        = "6"
         groups         = "standard"
         designer       = "Jean-Manuel Clemencon &amp; Ivar Ten Cate"
         music          = "snowmountain.music"
