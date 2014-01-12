@@ -10,7 +10,6 @@ klabauter_dance.ogg         by Chris Leutwyler (Krobonil), license: GPL
 Lava.ogg                    by Kalsan, license: CC-BY-SA 3.0
 lose_theme.off              by Weirwood, license: CC-BY-SA v3.0
 menutheme.ogg               by Claude Werner (bollen), license: CC-BY-SA 3.0
-OnTheRiver.ogg              by Bluepiano (http://www.jamendo.com/en/album/50394) with modifications by Magne Djupvik, license : CC-BY-SA 3.0
 Origin.ogg                  by Jahzzar, license: CC-BY-SA 3.0
 overworld.ogg               by 0zone0ne, license: CC-BY-SA 3.0
 penguin_party.ogg           by Magne Djupvik, license: CC-BY-SA 3.0+
