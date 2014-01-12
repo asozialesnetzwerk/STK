@@ -50,16 +50,7 @@
     <static-object lod_instance="true" lod_group="lamp2" xyz="24.55 -39.38 -235.37" hpr="180.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object model="lamp1.b3d" xyz="109.25 9.69 -190.29" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object model="water_visual.b3d" xyz="-9.86 -5.76 -45.45" hpr="-0.0 -166.3 -0.0" scale="15.14 15.14 15.14"/>
-    <static-object lod_instance="true" lod_group="lantern" xyz="-18.61 2.07 -98.72" hpr="-90.0 -20.0 -0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_instance="true" lod_group="lantern" xyz="-9.08 0.47 -115.58" hpr="-90.0 -35.0 -0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_instance="true" lod_group="lantern" xyz="0.53 2.12 -129.46" hpr="-90.0 -35.0 -0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_instance="true" lod_group="lantern" xyz="11.90 3.26 -143.19" hpr="-90.0 -35.0 -0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_instance="true" lod_group="lantern" xyz="21.93 3.47 -156.58" hpr="-90.0 -27.4 0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_instance="true" lod_group="lantern" xyz="-32.87 -3.02 -237.71" hpr="-90.0 37.2 -0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_instance="true" lod_group="lantern" xyz="26.35 0.25 -180.78" hpr="-90.0 2.6 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="lantern" xyz="90.41 -22.56 -273.02" hpr="90.0 -22.8 0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_instance="true" lod_group="lantern" xyz="43.27 -24.13 -258.61" hpr="90.0 -22.8 0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_instance="true" lod_group="lantern" xyz="34.34 -25.98 -230.52" hpr="90.0 17.2 0.0" scale="1.00 1.00 1.00"/>
     <animated-texture name="mine_water_alpha.png" dy="0.500" />
     <animated-texture name="mine_water_alpha.png" dy="0.500" />
     <animated-texture name="roller.png" dy="0.500" />
@@ -483,25 +474,7 @@
       <p c="155.000 -4.595"/>
     </curve>
   </object>
-  <object type="animation" xyz="-18.61 2.07 -98.72" hpr="-90.0 -20.0 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="glow_lantern.b3d" forcedbloom="true">
-  </object>
-  <object type="animation" xyz="-9.08 0.47 -115.58" hpr="-90.0 -35.0 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="glow_lantern.b3d" forcedbloom="true">
-  </object>
-  <object type="animation" xyz="0.53 2.12 -129.46" hpr="-90.0 -35.0 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="glow_lantern.b3d" forcedbloom="true">
-  </object>
-  <object type="animation" xyz="11.90 3.26 -143.19" hpr="-90.0 -35.0 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="glow_lantern.b3d" forcedbloom="true">
-  </object>
-  <object type="animation" xyz="21.93 3.47 -156.58" hpr="-90.0 -27.4 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="glow_lantern.b3d" forcedbloom="true">
-  </object>
-  <object type="animation" xyz="26.35 0.25 -180.78" hpr="-90.0 2.6 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="glow_lantern.b3d" forcedbloom="true">
-  </object>
-  <object type="animation" xyz="-32.87 -3.02 -237.71" hpr="-90.0 37.2 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="glow_lantern.b3d" forcedbloom="true">
-  </object>
   <object type="animation" xyz="90.41 -22.56 -273.02" hpr="90.0 -22.8 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="glow_lantern.b3d" forcedbloom="true">
-  </object>
-  <object type="animation" xyz="43.27 -24.13 -258.61" hpr="90.0 -22.8 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="glow_lantern.b3d" forcedbloom="true">
-  </object>
-  <object type="animation" xyz="34.34 -25.98 -230.52" hpr="90.0 17.2 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="glow_lantern.b3d" forcedbloom="true">
   </object>
   <object type="animation" xyz="116.50 -5.92 -144.59" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="crystal_glow.b3d" forcedbloom="true">
   </object>
@@ -645,27 +618,6 @@
   <small-nitro x="1.85" y="-5.58" z="-239.46" h="-106.30" />
   <object type="billboard" texture="lightHaloY.png" xyz="63.97 1.33 -286.94" 
              width="1.164" height="1.164" >
-  </object>
-  <object type="billboard" texture="lightLenFlareY.png" xyz="-32.82 -3.84 -237.71" 
-             width="5.113" height="5.113" fadeout="true" start="5.00" end="15.00">
-  </object>
-  <object type="billboard" texture="lightLenFlareY.png" xyz="26.39 -0.57 -180.79" 
-             width="5.113" height="5.113" fadeout="true" start="5.00" end="15.00">
-  </object>
-  <object type="billboard" texture="lightLenFlareY.png" xyz="21.98 2.66 -156.58" 
-             width="5.113" height="5.113" fadeout="true" start="5.00" end="15.00">
-  </object>
-  <object type="billboard" texture="lightLenFlareY.png" xyz="11.95 2.44 -143.20" 
-             width="5.113" height="5.113" fadeout="true" start="5.00" end="15.00">
-  </object>
-  <object type="billboard" texture="lightLenFlareY.png" xyz="-9.03 -0.35 -115.59" 
-             width="5.113" height="5.113" fadeout="true" start="5.00" end="15.00">
-  </object>
-  <object type="billboard" texture="lightLenFlareY.png" xyz="-18.56 1.25 -98.72" 
-             width="5.113" height="5.113" fadeout="true" start="5.00" end="15.00">
-  </object>
-  <object type="billboard" texture="lightLenFlareY.png" xyz="0.58 1.30 -129.47" 
-             width="5.113" height="5.113" fadeout="true" start="5.00" end="15.00">
   </object>
   <object type="billboard" texture="halo_lamp.png" xyz="73.43 2.74 48.18" 
              width="7.160" height="9.356" fadeout="true" start="5.00" end="20.00">
@@ -1033,12 +985,6 @@
   <object type="billboard" texture="lightLenFlareY.png" xyz="90.46 -21.97 -273.03" 
              width="5.113" height="5.113" fadeout="true" start="5.00" end="15.00">
   </object>
-  <object type="billboard" texture="lightLenFlareY.png" xyz="43.31 -23.80 -258.61" 
-             width="5.113" height="5.113" fadeout="true" start="5.00" end="15.00">
-  </object>
-  <object type="billboard" texture="lightLenFlareY.png" xyz="34.38 -25.32 -230.52" 
-             width="5.113" height="5.113" fadeout="true" start="5.00" end="15.00">
-  </object>
   <object type="billboard" texture="halo_lamp.png" xyz="74.60 -28.36 -236.25" 
              width="15.560" height="20.331" fadeout="true" start="1.00" end="15.00">
   </object>
@@ -1114,13 +1060,7 @@
   </light>
   <light xyz="92.86 -1.71 -166.18" distance="25.00" energy="6.00" color="92 255 98">
   </light>
-  <light xyz="-18.59 1.13 -98.72" distance="13.00" energy="1.00" color="255 224 151">
-  </light>
-  <light xyz="-9.06 -0.46 -115.58" distance="13.00" energy="1.00" color="255 224 151">
-  </light>
   <light xyz="108.11 -4.30 -180.14" distance="25.00" energy="6.00" color="92 255 98">
-  </light>
-  <light xyz="0.55 1.18 -129.46" distance="13.00" energy="1.00" color="255 224 151">
   </light>
   <light xyz="85.48 -2.69 -198.61" distance="25.00" energy="6.00" color="92 255 98">
   </light>
@@ -1195,15 +1135,7 @@
   </light>
   <light xyz="-35.19 -6.43 -263.71" distance="13.00" energy="1.00" color="255 224 151">
   </light>
-  <light xyz="-32.87 -3.95 -237.72" distance="13.00" energy="1.00" color="255 224 151">
-  </light>
   <light xyz="-5.74 -11.39 -231.94" distance="13.00" energy="1.00" color="255 224 151">
-  </light>
-  <light xyz="26.35 -0.57 -180.80" distance="13.00" energy="1.00" color="255 224 151">
-  </light>
-  <light xyz="21.94 2.64 -156.59" distance="13.00" energy="1.00" color="255 224 151">
-  </light>
-  <light xyz="11.92 2.64 -143.21" distance="13.00" energy="1.00" color="255 224 151">
   </light>
   <light xyz="139.12 0.44 -2.21" distance="5.00" energy="1.00" color="0 16 255">
   </light>
@@ -1225,7 +1157,7 @@
   <library name="stklib_oldLantern_a" xyz="0.53 4.83 21.81" hpr="0.0 7.9 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_oldLantern_a" xyz="6.34 4.57 37.46" hpr="0.0 34.5 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_oldLantern_a" xyz="19.70 3.45 47.99" hpr="0.0 -27.5 0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_oldLantern_a" xyz="39.40 3.45 48.14" hpr="0.0 11.1 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_oldLantern_a" xyz="39.38 3.45 48.14" hpr="0.0 11.1 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_oldLantern_a" xyz="167.07 7.37 -38.37" hpr="0.0 82.7 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_oldLantern_a" xyz="134.28 -1.58 -203.28" hpr="-0.0 105.8 -0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_oldLantern_a" xyz="-0.33 5.56 -7.14" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
@@ -1236,4 +1168,13 @@
   <library name="stklib_oldLantern_a" xyz="43.20 -6.32 -258.73" hpr="-0.0 157.2 -0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_oldLantern_a" xyz="34.07 -4.65 -230.85" hpr="-0.0 -167.3 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_oldLantern_a" xyz="15.07 -0.27 -214.71" hpr="0.0 -159.8 -0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_oldLantern_a" xyz="-32.95 -3.04 -237.78" hpr="0.0 130.5 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_oldLantern_a" xyz="26.35 0.25 -180.78" hpr="0.0 -177.8 -0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_oldLantern_a" xyz="22.06 3.47 -156.68" hpr="0.0 152.1 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_oldLantern_a" xyz="11.90 3.26 -143.19" hpr="0.0 152.1 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_oldLantern_a" xyz="0.53 2.00 -129.46" hpr="0.0 152.1 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_oldLantern_a" xyz="-9.08 0.47 -115.58" hpr="-0.0 62.4 -0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_oldLantern_a" xyz="-18.58 2.07 -98.77" hpr="0.0 69.9 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_oldLantern_a" xyz="43.27 -24.13 -258.61" hpr="-0.0 23.0 180.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_oldLantern_a" xyz="34.11 -25.96 -230.73" hpr="-0.0 23.0 180.0" scale="1.00 1.00 1.00"/>
 </scene>
