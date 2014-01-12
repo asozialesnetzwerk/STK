@@ -5,12 +5,12 @@
    <group name="transfo">
     <static-object lod_distance="70" lod_group="transfo" model="Circle.036_Circle.000.b3d" xyz="-17.36 2.09 -22.06" hpr="-90.0 115.4 -0.0" scale="1.00 1.00 1.00" interaction="static"/>
    </group>
+   <group name="lamp2">
+    <static-object lod_distance="60" lod_group="lamp2" model="lamp_2.b3d" xyz="-15.48 12.01 -18.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
    <group name="lantern">
     <static-object lod_distance="20" lod_group="lantern" model="lantern_LOD20.b3d" xyz="-9.20 3.95 -21.28" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
     <static-object lod_distance="80" lod_group="lantern" model="lantern_LOD50.b3d" xyz="-10.20 3.95 -21.28" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-   </group>
-   <group name="lamp2">
-    <static-object lod_distance="60" lod_group="lamp2" model="lamp_2.b3d" xyz="-15.48 12.01 -18.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
    </group>
   </lod>
   <track model="mines_track.b3d" x="0" y="0" z="0">
@@ -1165,10 +1165,10 @@
   <library name="stklib_oldLantern_a" xyz="150.53 -1.45 -213.39" hpr="0.0 140.8 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_oldLantern_a" xyz="154.86 -1.45 -231.68" hpr="-0.0 -169.2 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_oldLantern_a" xyz="90.41 -7.24 -273.01" hpr="-0.0 157.2 -0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_oldLantern_a" xyz="43.20 -6.32 -258.73" hpr="-0.0 157.2 -0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_oldLantern_a" xyz="42.95 -8.43 -258.85" hpr="-0.0 157.2 -0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_oldLantern_a" xyz="34.07 -4.65 -230.85" hpr="-0.0 -167.3 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_oldLantern_a" xyz="15.07 -0.27 -214.71" hpr="0.0 -159.8 -0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_oldLantern_a" xyz="-32.95 -3.04 -237.78" hpr="0.0 130.5 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_oldLantern_a" xyz="-32.95 -4.97 -237.78" hpr="0.0 130.5 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_oldLantern_a" xyz="26.35 0.25 -180.78" hpr="0.0 -177.8 -0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_oldLantern_a" xyz="22.06 3.47 -156.68" hpr="0.0 152.1 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_oldLantern_a" xyz="11.90 3.26 -143.19" hpr="0.0 152.1 0.0" scale="1.00 1.00 1.00"/>
@@ -1177,4 +1177,6 @@
   <library name="stklib_oldLantern_a" xyz="-18.58 2.07 -98.77" hpr="0.0 69.9 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_oldLantern_a" xyz="43.27 -24.13 -258.61" hpr="-0.0 23.0 180.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_oldLantern_a" xyz="34.11 -25.96 -230.73" hpr="-0.0 23.0 180.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_woodPostLamp_a" xyz="44.44 -13.19 -258.16" hpr="0.0 -25.0 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_woodPostLamp_a" xyz="-31.76 -9.76 -238.81" hpr="0.0 40.0 0.0" scale="1.00 1.00 1.00"/>
 </scene>
