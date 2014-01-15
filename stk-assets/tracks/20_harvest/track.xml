@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 14899 -->
+<track  name           = "harvest"
+        version        = "5"
+        groups         = "nextgen"
+        designer       = "Jean-manuel Clemen&#231;on"
+        music          = "TheDeadRocks-EasyJob.music"
+        screenshot     = "farm.jpg"
+        smooth-normals = "true"
+        reverse        = "Y"
+        color-level-in = "0.0 0.800000011920929 140.0"
+        color-level-out = "0.0 255.0"
+        clouds         = "Y"
+        lens-flare     = "Y"
+        god-rays       = "Y"
+>
+</track>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 14858 -->
+<track  name           = "Around the lighthouse"
+        version        = "5"
+        groups         = "standard"
+        designer       = "jean-manuel clemen&#231;on"
+        music          = "klabauter_dance.music"
+        screenshot     = "screenshot.jpg"
+        smooth-normals = "false"
+        reverse        = "Y"
+>
+</track>

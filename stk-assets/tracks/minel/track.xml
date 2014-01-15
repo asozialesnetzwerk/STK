@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 14899 -->
+<track  name           = "Old Mine light test"
+        version        = "5"
+        groups         = "nextgen"
+        designer       = "Jean-manuel Clemen&#231;on and Ivar ten cate"
+        music          = "West.music"
+        screenshot     = "sshot-mines.jpg"
+        smooth-normals = "true"
+        reverse        = "Y"
+        color-level-in = "0.0 0.8999999761581421 140.0"
+        color-level-out = "0.0 255.0"
+>
+</track>

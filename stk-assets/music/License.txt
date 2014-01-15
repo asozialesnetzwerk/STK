@@ -1,0 +1,23 @@
+bay.ogg                     by 0zone0ne, license: CC-SA v3.0
+Boom_boom_boom.ogg          by Matt Thomas, license: GNU GPL v3 (or later)
+dance_cleopatra.ogg         by ZamalSka, license: CC-BY-SA v3.0
+Demonhill.ogg               by 0zone0ne, license: CC-SA v3.0
+egypt.ogg                   by 0zone0ne, license: CC-SA v3.0
+garden.ogg                  by DJHelium, license: CC-BY-SA 3.0
+hacienda.ogg                by Claude Werner (bollen), license: CC-BY-SA 3.0
+kart_grand_prix.ogg         by Weirwood, license: CC-BY-SA v3.0
+klabauter_dance.ogg         by Chris Leutwyler (Krobonil), license: GPL
+Lava.ogg                    by Kalsan, license: CC-BY-SA 3.0
+lose_theme.off              by Weirwood, license: CC-BY-SA v3.0
+menutheme.ogg               by Claude Werner (bollen), license: CC-BY-SA 3.0
+Origin.ogg                  by Jahzzar, license: CC-BY-SA 3.0
+overworld.ogg               by 0zone0ne, license: CC-BY-SA 3.0
+penguin_party.ogg           by Magne Djupvik, license: CC-BY-SA 3.0+
+race summary.ogg            by Dundersylt, license: CC-BY-SA 3.0+
+SkyVibe-HighFrequency.ogg   by Speedsound (modified by Constantin Pelikan), license: CC-BY-SA v3.0  
+Snowmountain.ogg            by 0zone0ne, license: CC-SA v3.0
+Snowy.ogg                   by Chris Leutwyler (Krobonil), license: CC-SA. (Creative Commons - Share Alike)
+subsea.ogg                  by Claude Werner (bollen), license: CC-BY-SA 3.0
+TheDeadRocks-EasyJob.ogg    by The Dead Rocks, license: CC-BY-SA v3.0
+Valley                      by DJHelium, license: CC-BY-SA 3.0
+win_theme.ogg               by Claude Werner (bollen), license: CC-BY-SA 3.0
