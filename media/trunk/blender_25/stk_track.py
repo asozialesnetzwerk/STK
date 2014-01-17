@@ -2015,7 +2015,12 @@ class TrackExport:
         for props in lLODModels:
             obj = props['object']
             b3d_name = self.exportLocalB3D(obj, sPath, props['filename'], props['modifiers'])
-            f.write("    <static-object lod_distance=\"%i\" lod_group=\"%s\" model=\"%s\" %s interaction=\"%s\"/>\n" % (props['distance'], props['groupname'], b3d_name, getXYZHPRString(obj), getObjectProperty(obj, "interaction", "static")) )
+            
+            tangents_str = ""
+            if getObjectProperty(obj, "tangents", "false") == "true":
+                tangents_str = ' tangents="true" '
+            
+            f.write("    <static-object lod_distance=\"%i\" lod_group=\"%s\" model=\"%s\" %s interaction=\"%s\"%s/>\n" % (props['distance'], props['groupname'], b3d_name, getXYZHPRString(obj), getObjectProperty(obj, "interaction", "static"), tangents_str) )
             
     # --------------------------------------------------------------------------
     # Write the objects that are part of the track (but not animated or
