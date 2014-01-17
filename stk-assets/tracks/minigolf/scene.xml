@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 12720 -->
+<!-- Generated with script from SVN rev 15081 -->
 <scene>
   <track model="minigolf_track.b3d" x="0" y="0" z="0"/>
-  <object type="animation" model="windmill_arm1.b3d" xyz="101.51 19.81 -11.43" hpr="0.0 -0.0 0.0" scale="0.92 0.92 0.92"  interaction="ghost">
+  <object type="animation" xyz="101.51 19.81 -11.43" hpr="0.0 -0.0 0.0" scale="0.92 0.92 0.92" interaction="ghost" model="windmill_arm1.b3d">
     <curve channel="RotX" interpolation="linear" extend="cyclic">
       <p c="1.000 -0.000"/>
       <p c="50.000 -0.000"/>
@@ -26,30 +26,30 @@
     </curve>
   </object>
   <object type="movable" xyz="75.90 1.57 -52.99" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
-          model="Golfball.b3d" shape="sphere" mass="15.0" tangents="true" />
+          shape="sphere" mass="15.0" model="Golfball.b3d" tangents="true" skeletal-animation="false"/>
   <object type="movable" xyz="77.97 1.57 -51.38" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
-          model="Golfball.b3d" shape="sphere" mass="15.0" tangents="true" />
+          shape="sphere" mass="15.0" model="Golfball.b3d" tangents="true" skeletal-animation="false"/>
   <object type="movable" xyz="79.00 1.57 -54.68" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
-          model="Golfball.b3d" shape="sphere" mass="15.0" tangents="true" />
+          shape="sphere" mass="15.0" model="Golfball.b3d" tangents="true" skeletal-animation="false"/>
   <object type="movable" xyz="73.20 1.57 -51.19" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
-          model="Golfball.b3d" shape="sphere" mass="15.0" tangents="true" />
+          shape="sphere" mass="15.0" model="Golfball.b3d" tangents="true" skeletal-animation="false"/>
   <object type="movable" xyz="153.00 1.10 -110.00" hpr="0.0 -0.0 0.0" scale="1.16 1.16 1.16"
-          model="Golfball.b3d" shape="sphere" mass="15.0"/>
-  <object type="animation" model="duck2.b3d" xyz="14.00 -56.64 -4.42" hpr="0.0 -42.2 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
+          shape="sphere" mass="15.0" model="Golfball.b3d" skeletal-animation="false"/>
+  <object type="animation" xyz="14.00 -56.64 -4.42" hpr="0.0 -42.2 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="duck2.b3d">
     <curve channel="LocY" interpolation="bezier" extend="cyclic">
       <p c="1.000 -56.645" h1="-5.242 -56.645" h2="7.242 -56.645"/>
       <p c="17.000 -57.270" h1="10.754 -57.270" h2="36.128 -57.270"/>
       <p c="66.000 -56.659" h1="46.871 -56.659" h2="85.129 -56.659"/>
     </curve>
   </object>
-  <object type="animation" model="duck3.b3d" xyz="59.86 -56.64 -7.97" hpr="-0.0 -141.4 -0.0" scale="1.00 1.00 1.00"  interaction="ghost">
+  <object type="animation" xyz="59.86 -56.64 -7.97" hpr="-0.0 -141.4 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="duck3.b3d">
     <curve channel="LocY" interpolation="bezier" extend="cyclic">
       <p c="1.000 -56.645" h1="-13.053 -56.645" h2="15.053 -56.645"/>
       <p c="37.000 -57.270" h1="22.946 -57.270" h2="44.027 -57.270"/>
       <p c="55.000 -56.659" h1="47.977 -56.659" h2="62.023 -56.659"/>
     </curve>
   </object>
-  <object type="animation" model="duck.b3d" xyz="-45.80 -56.64 16.85" hpr="-0.0 -116.1 -0.0" scale="1.00 1.00 1.00"  interaction="ghost">
+  <object type="animation" xyz="-45.80 -56.64 16.85" hpr="-0.0 -116.1 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="duck.b3d">
     <curve channel="LocY" interpolation="bezier" extend="cyclic">
       <p c="1.000 -56.645" h1="-13.834 -56.645" h2="15.834 -56.645"/>
       <p c="39.000 -57.270" h1="24.165 -57.270" h2="46.027 -57.270"/>

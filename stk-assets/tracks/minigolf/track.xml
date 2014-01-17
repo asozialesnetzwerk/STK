@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 12720 -->
+<!-- Generated with script from SVN rev 15081 -->
 <track  name           = "Minigolf Mischief"
-        version        = "5"
+        version        = "6"
         groups         = "standard"
         designer       = "Mac"
         music          = "bay.music"
