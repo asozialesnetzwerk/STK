@@ -2186,7 +2186,23 @@ class TrackExport:
             if getObjectProperty(obj, "skyboxobject", "false") == "true":
                 flags.append('renderpass="skybox"')
             
+            uses_skeletal_animation = False
             
+            # check if this object has an armature modifier
+            for curr_mod in obj.modifiers:
+                if curr_mod.type == 'ARMATURE':
+                    uses_skeletal_animation = True
+
+            # check if this object has an armature parent (second way to do armature animations in blender)
+            if obj.parent:
+                if obj.parent.type == "ARMATURE":
+                    uses_skeletal_animation = True
+            
+            if uses_skeletal_animation:
+                flags.append('skeletal-animation="true"')
+            else:
+                flags.append('skeletal-animation="false"')
+                
             f.write('  <object type="movable" %s\n'% getXYZHPRString(obj))
             f.write('          shape="%s" mass="%s" %s/>\n' % (shape, mass, ' '.join(flags)))
             
