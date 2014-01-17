@@ -1,80 +1,64 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 14858 -->
+<!-- Generated with script from SVN rev 14949 -->
 <scene>
   <lod>
-   <group name="bubble_gp1">
-    <static-object lod_distance="100" lod_group="bubble_gp1" model="bubble_gp1.b3d" xyz="-1.83 20.59 129.23" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   <group name="bubble_gp3">
+    <static-object lod_distance="100" lod_group="bubble_gp3" model="bubble_gp3.b3d" xyz="45.77 20.59 318.30" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
    </group>
    <group name="bubble_gp2">
     <static-object lod_distance="100" lod_group="bubble_gp2" model="bubble_gp2.b3d" xyz="47.01 20.59 112.24" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
    </group>
-   <group name="bubble_gp3">
-    <static-object lod_distance="100" lod_group="bubble_gp3" model="bubble_gp3.b3d" xyz="45.77 20.59 318.30" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-   </group>
-   <group name="bubble_forest2">
-    <static-object lod_distance="100" lod_group="bubble_forest2" model="bubble_forest2.b3d" xyz="-4.99 0.93 226.77" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-   </group>
-   <group name="bubble_forest3">
-    <static-object lod_distance="100" lod_group="bubble_forest3" model="bubble_forest3.b3d" xyz="-17.05 0.93 250.54" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-   </group>
-   <group name="bubble_techno1">
-    <static-object lod_distance="100" lod_group="bubble_techno1" model="bubble_techno1.b3d" xyz="-4.16 -5.42 413.63" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-   </group>
-   <group name="bubble_techno2">
-    <static-object lod_distance="100" lod_group="bubble_techno2" model="bubble_techno2.b3d" xyz="72.52 -10.87 430.88" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-   </group>
-   <group name="bubble_sea4">
-    <static-object lod_distance="100" lod_group="bubble_sea4" model="bubble_sea4.b3d" xyz="159.61 -8.40 277.44" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-   </group>
-   <group name="bubble_sea3">
-    <static-object lod_distance="100" lod_group="bubble_sea3" model="bubble_sea3.b3d" xyz="164.11 -8.40 244.05" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-   </group>
-   <group name="bubble_sea2">
-    <static-object lod_distance="100" lod_group="bubble_sea2" model="bubble_sea2.b3d" xyz="96.36 7.09 259.51" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-   </group>
-   <group name="bubble_sea1">
-    <static-object lod_distance="100" lod_group="bubble_sea1" model="bubble_sea1.b3d" xyz="92.89 6.34 235.85" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   <group name="bubble_gp1">
+    <static-object lod_distance="100" lod_group="bubble_gp1" model="bubble_gp1.b3d" xyz="-1.83 20.59 129.23" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
    </group>
    <group name="bubble_desert2">
     <static-object lod_distance="100" lod_group="bubble_desert2" model="bubble_desert2.b3d" xyz="-194.10 6.89 206.32" hpr="3.9 -15.9 -2.7" scale="8.70 8.70 8.70" interaction="static"/>
    </group>
-   <group name="bubble_desert3">
-    <static-object lod_distance="100" lod_group="bubble_desert3" model="bubble_desert3.b3d" xyz="-187.52 7.14 309.36" hpr="2.6 12.0 -2.6" scale="8.70 8.70 8.70" interaction="static"/>
+   <group name="bubble_gp4">
+    <static-object lod_distance="100" lod_group="bubble_gp4" model="bubble_gp4.b3d" xyz="3.22 6.21 319.90" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
    </group>
-   <group name="bubble_desert1">
-    <static-object lod_distance="100" lod_group="bubble_desert1" model="bubble_desert1.b3d" xyz="-198.93 6.26 262.04" hpr="0.5 -12.5 3.4" scale="9.38 9.38 9.38" interaction="static"/>
+   <group name="pineLow">
+    <static-object lod_distance="100" lod_group="pineLow" model="pineLow_LOD100.b3d" xyz="137.80 6.97 -30.23" hpr="-81.5 -45.3 -5.4" scale="0.78 0.78 0.78" interaction="static"/>
    </group>
-   <group name="bubble_village1">
-    <static-object lod_distance="100" lod_group="bubble_village1" model="bubble_village1.b3d" xyz="35.81 -0.34 35.39" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   <group name="bubble_sea4">
+    <static-object lod_distance="100" lod_group="bubble_sea4" model="bubble_sea4.b3d" xyz="159.61 -8.40 277.44" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
    </group>
-   <group name="bubble_village2">
-    <static-object lod_distance="100" lod_group="bubble_village2" model="bubble_village2.b3d" xyz="7.21 -0.54 60.99" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   <group name="bubble_rocket">
+    <static-object lod_distance="100" lod_group="bubble_rocket" model="bubble_rocket.b3d" xyz="54.49 -21.17 463.01" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
    </group>
    <group name="bubble_fortmagma">
     <static-object lod_distance="100" lod_group="bubble_fortmagma" model="bubble_fortmagma.b3d" xyz="62.84 -8.40 517.98" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
    </group>
-   <group name="bubble_village3">
-    <static-object lod_distance="100" lod_group="bubble_village3" model="bubble_village3.b3d" xyz="-12.07 2.96 15.13" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   <group name="bubble_forest3">
+    <static-object lod_distance="100" lod_group="bubble_forest3" model="bubble_forest3.b3d" xyz="-17.05 0.93 250.54" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
    </group>
-   <group name="bubble_gp4">
-    <static-object lod_distance="100" lod_group="bubble_gp4" model="bubble_gp4.b3d" xyz="3.22 6.21 319.90" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   <group name="bubble_forest2">
+    <static-object lod_distance="100" lod_group="bubble_forest2" model="bubble_forest2.b3d" xyz="-4.99 0.93 226.77" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
+   <group name="bubble_sea2">
+    <static-object lod_distance="100" lod_group="bubble_sea2" model="bubble_sea2.b3d" xyz="96.36 7.09 259.51" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
+   <group name="bubble_sea3">
+    <static-object lod_distance="100" lod_group="bubble_sea3" model="bubble_sea3.b3d" xyz="164.11 -8.40 244.05" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
+   <group name="bubble_sea1">
+    <static-object lod_distance="100" lod_group="bubble_sea1" model="bubble_sea1.b3d" xyz="92.89 6.34 235.85" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
+   <group name="bubble_desert1">
+    <static-object lod_distance="100" lod_group="bubble_desert1" model="bubble_desert1.b3d" xyz="-198.93 6.26 262.04" hpr="0.5 -12.5 3.4" scale="9.38 9.38 9.38" interaction="static"/>
+   </group>
+   <group name="bubble_desert3">
+    <static-object lod_distance="100" lod_group="bubble_desert3" model="bubble_desert3.b3d" xyz="-187.52 7.14 309.36" hpr="2.6 12.0 -2.6" scale="8.70 8.70 8.70" interaction="static"/>
    </group>
    <group name="rocket">
     <static-object lod_distance="80" lod_group="rocket" model="rocket_hi.b3d" xyz="263.24 -14.36 459.51" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
     <static-object lod_distance="350" lod_group="rocket" model="rocket_lo.b3d" xyz="279.62 -14.36 459.51" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
    </group>
-   <group name="bubble_forest">
-    <static-object lod_distance="100" lod_group="bubble_forest" model="bubble_forest.b3d" xyz="59.75 0.93 234.51" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   <group name="bubble_techno2">
+    <static-object lod_distance="100" lod_group="bubble_techno2" model="bubble_techno2.b3d" xyz="72.52 -10.87 430.88" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
    </group>
-   <group name="pedestral">
-    <static-object lod_distance="35" lod_group="pedestral" model="pedestral_hi.b3d" xyz="-158.38 -6.10 26.64" hpr="0.0 -0.0 0.0" scale="0.71 0.71 0.71" interaction="static"/>
-    <static-object lod_distance="70" lod_group="pedestral" model="pedestral_lo.b3d" xyz="-158.38 -6.11 28.10" hpr="0.0 -0.0 0.0" scale="0.71 0.71 0.71" interaction="static"/>
-   </group>
-   <group name="pineLow">
-    <static-object lod_distance="100" lod_group="pineLow" model="pineLow_LOD100.b3d" xyz="137.80 6.97 -30.23" hpr="-81.5 -45.3 -5.4" scale="0.78 0.78 0.78" interaction="static"/>
-   </group>
-   <group name="_single_lod_bubble_tuto">
-    <static-object lod_distance="100" lod_group="_single_lod_bubble_tuto" model="bubble_tuto.b3d" xyz="13.74 -3.04 31.77" hpr="-5.7 49.6 -5.0" scale="1.00 1.00 1.00" interaction="static"/>
+   <group name="bubble_techno1">
+    <static-object lod_distance="100" lod_group="bubble_techno1" model="bubble_techno1.b3d" xyz="-4.16 -5.42 413.63" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
    </group>
    <group name="bubble_mountain">
     <static-object lod_distance="100" lod_group="bubble_mountain" model="bubble_mountain.b3d" xyz="84.75 0.35 36.07" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
@@ -84,8 +68,24 @@
     <static-object lod_distance="150" lod_group="tree_2" model="tree_2_LOD150.b3d" xyz="276.62 -17.97 641.81" hpr="0.0 -180.0 -0.0" scale="1.20 1.20 1.20" interaction="static"/>
     <static-object lod_distance="500" lod_group="tree_2" model="tree_2_LOD500.b3d" xyz="260.91 -17.97 641.81" hpr="0.0 -180.0 -0.0" scale="1.20 1.20 1.20" interaction="static"/>
    </group>
-   <group name="bubble_rocket">
-    <static-object lod_distance="100" lod_group="bubble_rocket" model="bubble_rocket.b3d" xyz="54.49 -21.17 463.01" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   <group name="bubble_village1">
+    <static-object lod_distance="100" lod_group="bubble_village1" model="bubble_village1.b3d" xyz="35.81 -0.34 35.39" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
+   <group name="bubble_village3">
+    <static-object lod_distance="100" lod_group="bubble_village3" model="bubble_village3.b3d" xyz="-12.07 2.96 15.13" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
+   <group name="bubble_village2">
+    <static-object lod_distance="100" lod_group="bubble_village2" model="bubble_village2.b3d" xyz="7.21 -0.54 60.99" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
+   <group name="bubble_forest">
+    <static-object lod_distance="100" lod_group="bubble_forest" model="bubble_forest.b3d" xyz="59.75 0.93 234.51" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
+   <group name="_single_lod_bubble_tuto">
+    <static-object lod_distance="100" lod_group="_single_lod_bubble_tuto" model="bubble_tuto.b3d" xyz="13.74 -3.04 31.77" hpr="-5.7 49.6 -5.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
+   <group name="pedestral">
+    <static-object lod_distance="35" lod_group="pedestral" model="pedestral_hi.b3d" xyz="-158.38 -6.10 26.64" hpr="0.0 -0.0 0.0" scale="0.71 0.71 0.71" interaction="static" tangents="true" />
+    <static-object lod_distance="70" lod_group="pedestral" model="pedestral_lo.b3d" xyz="-158.38 -6.11 28.10" hpr="0.0 -0.0 0.0" scale="0.71 0.71 0.71" interaction="static" tangents="true" />
    </group>
   </lod>
   <track model="overworld_track.b3d" x="0" y="0" z="0">
