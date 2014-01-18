@@ -10,7 +10,7 @@
         reverse        = "Y"
         color-level-in = "0.0 0.800000011920929 140.0"
         color-level-out = "0.0 255.0"
-        clouds         = "N"
+        clouds         = "Y"
         lens-flare     = "Y"
         god-rays       = "Y"
 >
