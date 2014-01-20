@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 14899 -->
+<!-- Generated with script from SVN rev 15081 -->
 <track  name           = "Old Mine light test"
-        version        = "5"
+        version        = "6"
         groups         = "nextgen"
         designer       = "Jean-manuel Clemen&#231;on and Ivar ten cate"
         music          = "West.music"
