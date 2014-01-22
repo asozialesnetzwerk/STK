@@ -2615,7 +2615,7 @@ class TrackExport:
             log_error("Cannot find the B3D exporter, make sure you installed it properly")
             return
         
-        if exportScene:
+        if exportScene and getSceneProperty(bpy.data.scenes[0], 'is_stk_node', 'false') != 'true':
             bpy.ops.screen.b3d_export(localsp=False, mipmap=True, lights=False, vcolors=True,
                                     vnormals=True, cameras=False, filepath=sPath+"/"+sTrackName,
                                     overwrite_without_asking=True)
