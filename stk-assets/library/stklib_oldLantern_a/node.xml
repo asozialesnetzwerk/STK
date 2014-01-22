@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 14899 -->
+<!-- Generated with script from SVN rev 15092 -->
 <scene>
   <object type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" shape="box" model="stklib_oldLantern_a_main.b3d">
   </object>
@@ -10,8 +10,4 @@
   </object>
   <light xyz="0.00 -0.85 0.00" distance="13.00" energy="2.00" color="255 190 78">
   </light>
-  <default-start karts-per-row     ="2"
-                 forwards-distance ="1.50"
-                 sidewards-distance="3.00"
-                 upwards-distance  ="0.10"/>
 </scene>
