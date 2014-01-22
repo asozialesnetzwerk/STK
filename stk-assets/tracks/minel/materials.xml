@@ -7,7 +7,7 @@
   <material name="clip.png" compositing="test"/>
   <material name="crystal_halo.png" light="N" compositing="additive" disable-z-write="Y"/>
   <material name="distord.png" fog="N" light="N" backface-culling="N" compositing="additive" disable-z-write="Y"/>
-  <material name="emerald.png" fog="N" light="N" />
+  <material name="emerald.png" fog="N" light="N" compositing="blend"/>
   <material name="fence_chain.png" compositing="test"/>
   <material name="GrassTall.png" compositing="test"/>
   <material name="halo_lamp.png" light="N" compositing="additive" disable-z-write="Y"/>
