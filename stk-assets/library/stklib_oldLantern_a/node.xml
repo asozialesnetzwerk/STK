@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev 15092 -->
 <scene>
-  <object type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" shape="box" model="stklib_oldLantern_a_main.b3d">
+  <object type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" shape="box" model="stklib_oldLantern_a_main.b3d" skeletal-animation="false">
   </object>
-  <object type="animation" xyz="0.00 -0.10 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="stklib_oldLantern_glow_a.b3d" forcedbloom="true">
+  <object type="animation" xyz="0.00 -0.10 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="stklib_oldLantern_glow_a.b3d" forcedbloom="true" skeletal-animation="false">
   </object>
   <object type="billboard" texture="stklib_oldLantern_lensFlare_a.png" xyz="-0.00 -0.85 0.00" 
              width="5.110" height="5.113" fadeout="true" start="5.00" end="15.00">
