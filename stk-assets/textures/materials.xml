@@ -19,7 +19,8 @@
   
   <!-- Textures -->
   
-  <material name="ants.png" compositing="test"/>
+  <material name="ants.png" compositing="test"/> 
+  <material name="stktex_hayFiber_a.png" compositing="test"/>
   
   <material name="bumpy_surface.png">
     <particles base="smoke.xml" condition="skid" />
