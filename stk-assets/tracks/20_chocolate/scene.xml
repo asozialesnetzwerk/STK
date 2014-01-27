@@ -3,7 +3,6 @@
 <scene>
   <track model="jungle_track.b3d" x="0" y="0" z="0">
     <animated-texture name="zipper_jungle.png" dy="0.500" />
-    <animated-texture name="zipper_jungle.png" dy="0.500" />
     <animated-texture name="ants.png" dy="0.500" />
     <animated-texture name="ants.png" dy="0.500" />
     <animated-texture name="water_light.png" dy="0.100" />
@@ -29,9 +28,7 @@
   <sky-box texture="skybox5.jpg skybox5.jpg skybox4.jpg skybox2.jpg skybox3.jpg skybox1.jpg"/>
   <camera far="1000.0"/>
   <checks>
-    <check-lap kind="lap" same-group="0" other-ids="1" />
-    <check-line kind="activate" other-ids="0" p1="345.37 -112.02" p2="271.36 -109.41"
-                min-height="15.37" same-group="1"/>
+    <check-lap kind="lap" same-group="0"  />
   </checks>
   <particle-emitter kind="fire.xml" xyz="-30.40 13.25 -163.04" h="0.00" clip_distance="200">
   </particle-emitter>
