@@ -23,7 +23,7 @@
   </object>
   <object type="animation" xyz="236.24 0.98 121.65" hpr="0.0 133.2 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="waterfall.b3d" skeletal-animation="false">
   </object>
-  <sun  xyz="-206.72 242.50 -98.96" sun-specular="0 255 227" sun-diffuse="224 226 164" ambient="74 121 51"/>
+  <sun  xyz="-206.72 242.50 -98.96" sun-specular="0 255 227" sun-diffuse="255 249 208" ambient="61 121 54"/>
   <sky-color rgb="77 104 255"/>
   <sky-box texture="skybox5.jpg skybox5.jpg skybox4.jpg skybox2.jpg skybox3.jpg skybox1.jpg"/>
   <camera far="1000.0"/>
