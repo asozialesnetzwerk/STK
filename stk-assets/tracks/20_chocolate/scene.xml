@@ -101,4 +101,5 @@
   <library name="stklib_aztecFountain_a" xyz="200.97 2.23 147.42" hpr="0.0 102.4 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_aztecFountain_a" xyz="222.59 2.23 138.33" hpr="0.0 120.6 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_aztecFountain_a" xyz="238.34 2.23 123.07" hpr="0.0 145.5 0.0" scale="1.00 1.00 1.00"/>
+  <start x="75.9" y="3.95" z="14.5" h="180"/>
 </scene>
