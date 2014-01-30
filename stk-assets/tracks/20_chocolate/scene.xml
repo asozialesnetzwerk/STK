@@ -30,6 +30,8 @@
   <checks>
     <check-lap kind="lap" same-group="0"  />
   </checks>
+  <particle-emitter kind="splash.xml" xyz="139.89 -3.09 120.54" h="0.00">
+  </particle-emitter>
   <particle-emitter kind="fire.xml" xyz="-30.40 13.25 -163.04" h="0.00" clip_distance="200">
   </particle-emitter>
   <particle-emitter kind="fire.xml" xyz="-9.87 13.25 -162.39" h="0.00" clip_distance="200">
