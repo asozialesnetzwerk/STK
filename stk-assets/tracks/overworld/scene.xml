@@ -316,6 +316,7 @@
   <object type="sfx-emitter" sound="portal.ogg" rolloff="0.100" volume="1.0" max_dist="500.0" xyz="11.00 -6.47 317.78" hpr="-1.8 169.5 -10.7" scale="1.00 1.00 1.00" play-when-near="true" distance="1.7">
   </object>
   <object type="action-trigger" action="garage" distance="6.0" xyz="2.65 -0.24 -24.03" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+  <object type="action-trigger" action="big_door" distance="30.0" xyz="30.16 -19.97 506.10" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
   <object type="billboard" texture="crystal_ball_halo.png" xyz="-4.97 -3.45 52.45" 
              width="1.560" height="1.562" >
   </object>
