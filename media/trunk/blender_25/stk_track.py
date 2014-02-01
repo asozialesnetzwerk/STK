@@ -2776,12 +2776,18 @@ class STK_Track_Exporter_Panel(bpy.types.Panel):
         global the_scene
         the_scene = context.scene
         
+        isNotANode = ('is_stk_node' not in context.scene) or (context.scene['is_stk_node'] != 'true')
+        if isNotANode:
+            self.bl_label = "Track Exporter"
+        else:
+            self.bl_label = "Library Node Exporter"
+        
         layout = self.layout
         
         # ==== Types group ====
         row = layout.row()
         
-        row.operator("screen.stk_track_export", "Export", icon='BLENDER')
+        row.operator("screen.stk_track_export", "Export track" if isNotANode else "Export library node", icon='BLENDER')
         
         if bpy.context.mode != 'OBJECT':
             row.enabled = False
