@@ -23,6 +23,8 @@
   </object>
   <object type="animation" xyz="236.24 0.98 121.65" hpr="0.0 133.2 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="waterfall.b3d" skeletal-animation="false">
   </object>
+  <object type="animation" xyz="172.03 -1.58 -18.35" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_river.b3d" displacing="true" skeletal-animation="false">
+  </object>
   <sun  xyz="-206.72 242.50 -98.96" sun-specular="0 255 227" sun-diffuse="255 249 208" ambient="61 121 54"/>
   <sky-color rgb="77 104 255"/>
   <sky-box texture="skybox5.jpg skybox5.jpg skybox4.jpg skybox2.jpg skybox3.jpg skybox1.jpg"/>
@@ -101,5 +103,4 @@
   <library name="stklib_aztecFountain_a" xyz="200.97 2.23 147.42" hpr="0.0 102.4 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_aztecFountain_a" xyz="222.59 2.23 138.33" hpr="0.0 120.6 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_aztecFountain_a" xyz="238.34 2.23 123.07" hpr="0.0 145.5 0.0" scale="1.00 1.00 1.00"/>
-  <start x="75.9" y="3.95" z="14.5" h="180"/>
 </scene>
