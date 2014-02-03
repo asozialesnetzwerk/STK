@@ -110,8 +110,15 @@
   <library name="stklib_woodLittleBridge_a" xyz="246.44 11.86 -8.77" hpr="5.9 -4.2 4.4" scale="1.00 1.00 1.00"/>
   <library name="stklib_woodLittleBridge_a" xyz="247.28 12.86 -15.97" hpr="7.1 -16.1 2.5" scale="1.00 1.00 1.00"/>
   <library name="stklib_woodLittleBridge_a" xyz="249.48 14.05 -23.26" hpr="7.2 -22.1 1.5" scale="1.00 1.00 1.00"/>
-  <library name="stklib_woodLittleBridge_a" xyz="252.20 15.26 -29.42" hpr="9.0 -33.2 -0.3" scale="1.00 1.00 1.00"/>
-  <library name="stklib_woodLittleBridge_a" xyz="255.95 16.27 -34.59" hpr="9.6 -43.1 -2.7" scale="1.00 1.00 1.00"/>
-  <library name="stklib_woodLittleBridge_a" xyz="261.96 17.22 -40.36" hpr="7.4 -46.9 -2.5" scale="1.00 1.00 1.00"/>
-  <library name="stklib_woodLittleBridge_a" xyz="268.27 17.93 -45.36" hpr="6.3 -50.7 -4.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_woodLittleBridge_a" xyz="252.21 15.13 -29.44" hpr="9.0 -33.2 -0.3" scale="1.00 1.00 1.00"/>
+  <library name="stklib_woodLittleBridge_a" xyz="255.96 16.18 -34.60" hpr="9.6 -43.1 -2.7" scale="1.00 1.00 1.00"/>
+  <library name="stklib_woodLittleBridge_a" xyz="261.96 17.16 -40.36" hpr="7.4 -46.9 -2.5" scale="1.00 1.00 1.00"/>
+  <library name="stklib_woodLittleBridge_a" xyz="268.27 17.74 -45.37" hpr="6.3 -50.7 -4.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_woodLittleBridge_a" xyz="230.13 7.15 20.13" hpr="10.0 -1.2 3.8" scale="0.65 0.65 0.65"/>
+  <library name="stklib_woodLittleBridge_a" xyz="230.46 8.25 14.98" hpr="10.7 -9.7 2.4" scale="0.65 0.65 0.65"/>
+  <library name="stklib_woodLittleBridge_a" xyz="231.56 9.04 10.55" hpr="8.2 -20.8 1.4" scale="0.65 0.65 0.65"/>
+  <library name="stklib_woodLittleBridge_a" xyz="233.31 9.68 5.94" hpr="4.8 -28.4 0.5" scale="0.65 0.65 0.65"/>
+  <library name="stklib_woodLittleBridge_a" xyz="236.14 10.01 1.04" hpr="3.7 -28.5 1.9" scale="0.65 0.65 0.65"/>
+  <library name="stklib_woodLittleBridge_a" xyz="239.15 10.55 -3.86" hpr="6.5 -28.7 2.7" scale="0.65 0.65 0.65"/>
+  <library name="stklib_woodLittleBridge_a" xyz="241.80 11.33 -8.62" hpr="6.5 -28.7 2.7" scale="0.65 0.65 0.65"/>
 </scene>
