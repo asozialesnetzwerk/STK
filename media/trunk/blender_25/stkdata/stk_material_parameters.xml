@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <Properties>
-    <PropGroup id="PropGroup_visual" name="Display">
+    <PropGroup id="propgroup_visual" name="Display">
         <!-- Affected by fog -->
         <BoolProp id="fog" name="Affected by fog (if any)" default="true"
                 doc="Whether this material is affected by fog (if there is fog in this track)"/>
@@ -80,7 +80,7 @@
     
     
     
-    <PropGroup id="PropGroup_interaction" name="Interaction">
+    <PropGroup id="propgroup_interaction" name="Interaction">
         
         <!-- Below shallow water -->
         <BoolProp id="below_surface" name="Below shallow water" default="false"

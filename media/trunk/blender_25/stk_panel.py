@@ -54,7 +54,7 @@ def createProperties(object, props):
         
     for p in props.keys():
         
-        if isinstance(props[p], StkPropertyGroup):
+        if isinstance(props[p], StkProperyGroup):
             createProperties(object, props[p].subproperties)
             
         elif not p in object:
@@ -288,6 +288,7 @@ class StkEnumProperty(StkProperty):
                 # Set the property
                 object = getObject(context, self.m_context_type)
                 if object is None:
+
                     return
                 
                 object[self.m_property_id] = self.value
@@ -405,15 +406,11 @@ class StkIntProperty(StkProperty):
         self.max = max
     
 # ------------------------------------------------------------------------------
-
-class StkPropertyGroup(StkProperty):
-    
-    # (self, id, name, values, default):
-    box = True
+class StkProperyGroup(StkProperty):
     
     #! A floating-point property
-    def __init__(self, id, name, contextLevel, subproperties=[], fullid=""):
-        super(StkPropertyGroup, self).__init__(id=id, name=name, default=None, fullid=fullid)
+    def __init__(self, id, name, contextLevel, default="false", subproperties=[], fullid="", doc="(No documentation defined for this element)"):
+        super(StkProperyGroup, self).__init__(id=id, name=name, default=default, fullid=fullid)
         
         self.contextLevel = contextLevel
         
@@ -421,6 +418,50 @@ class StkPropertyGroup(StkProperty):
         for curr in subproperties:
             self.subproperties[curr.id] = curr
         
+        self.doc = doc
+        super_self = self
+        
+        # Create operator for this bool
+        class STK_TogglePropGroupValue(bpy.types.Operator):
+        
+            bl_idname = generateOpName("screen.stk_tglbool_", fullid, id)
+            bl_label  = ("SuperTuxKart toggle " + id)
+            __doc__ = doc
+            
+            m_context_level = contextLevel
+            m_property_id = id
+            m_super_self = super_self
+            
+            def execute(self, context):
+                
+                # Set the property
+                
+                object = bpy.data.scenes[0]
+                if object is None:
+                    return
+                
+                curr_val = True
+                if self.m_property_id in object:
+                    curr_val = (object[self.m_property_id] == "true")
+                    
+                new_val = not curr_val
+                
+                if curr_val :
+                    object[self.m_property_id] = "false"
+                else:
+                    object[self.m_property_id] = "true"
+                
+                propobject = getObject(context, self.m_context_level)
+                if propobject is None:
+                    return
+                    
+                # If sub-properties are needed, create them
+                if object[self.m_property_id] == "true":
+                    createProperties(propobject, self.m_super_self.subproperties)
+                
+                return {'FINISHED'}
+        
+        bpy.utils.register_class(STK_TogglePropGroupValue)
         
 # ------------------------------------------------------------------------------
 #! A boolean property (appears as a checkbox)
@@ -492,7 +533,7 @@ class StkBoolProperty(StkProperty):
         
         bpy.utils.register_class(STK_ToggleBoolValue)
 
-
+        
 # ------------------------------------------------------------------------------
 #! A color property
 #!
@@ -707,7 +748,8 @@ def parseProperties(node, contextLevel, idprefix):
             args["name"] = e.getAttribute("name")
             args["subproperties"] = parseProperties(e, contextLevel, args["fullid"])
             args["contextLevel"] = contextLevel
-            props.append(StkPropertyGroup(**args))
+            p = StkProperyGroup(**args)
+            props.append(p)
             
         elif e.localName == "BoolProp":
         
@@ -811,12 +853,25 @@ class PanelBase:
             
             row = layout.row()
             
-            if isinstance(curr, StkPropertyGroup):
-                split = row.split(0.8)
-                split.label(text=curr.name)
-                if len(curr.subproperties) > 0:
-                    box = layout.box()
-                    self.recursivelyAddProperties(curr.subproperties, box, obj, contextLevel)
+            if isinstance(curr, StkProperyGroup):
+            
+                state = "true"
+                icon = 'TRIA_DOWN'
+                if id in bpy.data.scenes[0]:
+                    state = bpy.data.scenes[0][id]
+                    print(" state", state)
+                    if state == "true":
+                        icon = 'TRIA_DOWN'
+                    else:
+                        icon = 'TRIA_RIGHT'
+                
+                row.operator(generateOpName("screen.stk_tglbool_", curr.fullid, curr.id), text=curr.name, icon=icon, emboss=False)
+                row.label(" ") # force the operator to not maximize
+                if state == "true":
+                    if len(curr.subproperties) > 0:
+                        box = layout.box()
+                        self.recursivelyAddProperties(curr.subproperties, box, obj, contextLevel)
+                           
             elif isinstance(curr, StkBoolProperty):
                 
                  split = row.split(0.8)
