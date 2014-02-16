@@ -112,11 +112,14 @@
         <BoolProp id="falling_effect" name="Falling Effect" default="false"
                 doc="Whether this material is the bottom of a pit (then camera will look down at kart falling when over it)"/>
         
-                
         <!-- High tire adhesion -->
         <BoolProp id="high_adhesion" name="High tires adhesion" default="false"
                 doc="If checked, karts will have good grip on this surface and not slip, even at angles"/>
 
+        <!-- Affect gravity -->
+        <BoolProp id="has_gravity" name="Affect gravity" default="false"
+                doc="If checked, karts will be fall towards this surface like it was the ground, no matter its angle"/>
+        
         <!-- Ignore -->
         <BoolProp id="ignore" name="Ignore (ghost material)" default="false"
                 doc="Drive through this texture like it didn't exist (good for smoke, etc.)"/>

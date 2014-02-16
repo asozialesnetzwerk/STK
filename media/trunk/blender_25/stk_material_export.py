@@ -109,6 +109,7 @@ def writeMaterialsFile(sPath):
            'reset'                 : ("N", None),
            'surface'               : ("N", None),
            'high_adhesion'         : ('false', None),
+           'has_gravity'           : ("N", None),
            'slowdown_time'         : (1.0, 'use_slowdown'),
            'max_speed'             : (1.0, 'use_slowdown'),
            'splatting_texture_1'   : ("", ('graphical_effect','splatting')),
@@ -121,7 +122,7 @@ def writeMaterialsFile(sPath):
            'water_splash'          : ("N", None),
     }
 
-    lBooleanAttributes = ["clampu","clampv","light","surface","below_surface",
+    lBooleanAttributes = ["clampu","clampv","light","surface","below_surface", "has_gravity",
                           "falling_effect", "collision_detect", "fog", "additive_lightmap",
                           "anisotropic","backface_culling","ignore","disable_z_write","reset",
                           "sfx_positional", "water_splash"]
