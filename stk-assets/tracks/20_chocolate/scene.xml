@@ -7,7 +7,7 @@
     <animated-texture name="ants.png" dy="0.500" />
     <animated-texture name="water_light.png" dy="0.100" />
   </track>
-  <object type="animation" xyz="172.03 -1.58 123.80" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_pound.b3d" displacing="true" skeletal-animation="false">
+  <object type="animation" xyz="172.03 -1.58 123.80" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="reset" shape="box" model="water_pound.b3d" reset="y" displacing="true" skeletal-animation="false">
   </object>
   <object type="animation" xyz="128.79 0.98 98.14" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="waterfall.b3d" skeletal-animation="false">
   </object>
