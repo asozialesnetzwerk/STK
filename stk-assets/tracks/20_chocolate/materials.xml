@@ -6,7 +6,7 @@
   <material name="city_fern.png" compositing="test" ignore="Y"/>
   <material name="city_grass.png" backface-culling="N" compositing="coverage" ignore="Y"/>
   <material name="glow_border.png" light="N"/>
-  <material name="grass2.jpg" max-speed="0.50"/>
+  <material name="grass2.jpg" max-speed="0.50" has-gravity="Y"/>
   <material name="grass2dirt.png" clampu="Y"/>
   <material name="GrassTall.png" light="N" backface-culling="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
   <material name="jungleWater.png" compositing="blend" disable-z-write="Y"/>
@@ -18,11 +18,12 @@
   </material>
   <material name="plants.jpg" compositing="blend" mask="plants_alpha.jpg"/>
   <material name="pot.jpg" backface-culling="N"/>
-  <material name="road_dirt.jpg" high-adhesion="true">
+  <material name="road_dirt.jpg" has-gravity="Y">
     <particles base="smoke_brown.xml" condition="skid"/>
   </material>
   <material name="roof.png" backface-culling="N"/>
   <material name="seabed.jpg" falling-effect="Y" water-splash="Y"/>
+  <material name="stktex_generic_aztekWall_a.png" has-gravity="Y"/>
   <material name="transparence.png" fog="N" compositing="test" disable-z-write="Y"/>
   <material name="wall.png" backface-culling="N"/>
   <material name="water_light.png" compositing="blend" ignore="Y" surface="Y" disable-z-write="Y">
@@ -32,4 +33,5 @@
   <material name="zipper_jungle.png" backface-culling="N" compositing="blend" disable-z-write="Y">
     <zipper duration="5.5" max-speed-increase="5.0" fade-out-time="5.0" speed-gain="2.0"/>
   </material>
+  <material name="stktex_generic_concreteA.png" has-gravity="Y"/>
 </materials>

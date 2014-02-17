@@ -9,7 +9,7 @@
   </track>
   <object type="animation" xyz="172.03 -1.58 123.80" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_pound.b3d" displacing="true" skeletal-animation="false">
   </object>
-  <object type="animation" xyz="122.12 0.98 99.17" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="waterfall.b3d" skeletal-animation="false">
+  <object type="animation" xyz="128.79 0.98 98.14" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="waterfall.b3d" skeletal-animation="false">
   </object>
   <object type="animation" xyz="138.58 0.98 121.46" hpr="0.0 22.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="waterfall.b3d" skeletal-animation="false">
   </object>
@@ -25,7 +25,7 @@
   </object>
   <object type="animation" xyz="172.03 -1.58 -18.35" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_river.b3d" displacing="true" skeletal-animation="false">
   </object>
-  <sun  xyz="-206.72 242.50 -98.96" sun-specular="0 255 227" sun-diffuse="255 249 208" ambient="61 121 54"/>
+  <sun  xyz="-101.79 1233.72 -177.03" sun-specular="103 99 86" sun-diffuse="211 235 110" ambient="91 103 86"/>
   <sky-color rgb="77 104 255"/>
   <sky-box texture="skybox5.jpg skybox5.jpg skybox4.jpg skybox2.jpg skybox3.jpg skybox1.jpg"/>
   <camera far="1000.0"/>
@@ -98,7 +98,7 @@
                  upwards-distance  ="0.00"/>
   <library name="stklib_aztecFountain_a" xyz="136.39 2.23 122.87" hpr="0.0 33.6 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_aztecFountain_a" xyz="153.62 2.23 139.04" hpr="0.0 55.9 0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_aztecFountain_a" xyz="119.61 2.23 99.58" hpr="0.0 11.0 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_aztecFountain_a" xyz="126.28 2.23 98.55" hpr="0.0 11.0 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_aztecFountain_a" xyz="175.85 2.23 147.86" hpr="0.0 78.5 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_aztecFountain_a" xyz="200.97 2.23 147.42" hpr="0.0 102.4 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_aztecFountain_a" xyz="222.59 2.23 138.33" hpr="0.0 120.6 0.0" scale="1.00 1.00 1.00"/>
