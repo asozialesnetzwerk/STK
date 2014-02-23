@@ -16,7 +16,8 @@
   <material name="Paving_stones_2.jpg" has-gravity="Y">
     <particles base="smoke.xml" condition="skid"/>
   </material>
-  <material name="plants.jpg" compositing="blend" mask="plants_alpha.jpg"/>
+  <material name="plants.jpg" compositing="test" mask="plants_alpha.jpg"/>
+  <material name="plants.png" compositing="test" ignore="Y"/>
   <material name="pot.jpg" backface-culling="N"/>
   <material name="road_dirt.jpg" has-gravity="Y">
     <particles base="smoke_brown.xml" condition="skid"/>
