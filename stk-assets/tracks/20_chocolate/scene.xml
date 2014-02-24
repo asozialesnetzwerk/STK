@@ -120,6 +120,8 @@
   <library name="stklib_cliffGrassEarth_a" xyz="225.36 17.12 -162.72" hpr="-5.0 18.3 0.2" scale="1.59 1.66 1.56"/>
   <library name="stklib_cliffGrassEarth_a" xyz="220.25 19.38 -169.22" hpr="-6.4 97.5 -1.3" scale="2.87 2.98 2.80"/>
   <library name="stklib_cliffGrassEarth_a" xyz="220.49 16.44 -176.93" hpr="-6.6 96.3 -1.6" scale="1.59 1.66 1.56"/>
+  <library name="stklib_cliffGrassEarth_a" xyz="212.54 20.58 -178.10" hpr="-5.2 133.4 -0.3" scale="2.87 2.98 2.80"/>
+  <library name="stklib_cliffGrassEarth_a" xyz="189.96 18.10 -182.27" hpr="-5.2 129.7 -0.3" scale="2.21 2.30 2.16"/>
   <library name="stklib_metalSupportBeam_a" xyz="239.19 14.38 109.71" hpr="0.0 50.0 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_metalSupportBeam_a" xyz="231.53 14.38 103.29" hpr="0.0 50.0 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_metalSupportBeam_a" xyz="246.85 14.38 116.14" hpr="0.0 50.0 0.0" scale="1.00 1.00 1.00"/>
