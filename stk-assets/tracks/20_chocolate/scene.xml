@@ -2,6 +2,9 @@
 <!-- Generated with script from SVN rev 15125 -->
 <scene>
   <track model="jungle_track.b3d" x="0" y="0" z="0">
+    <static-object model="stklib_metalSupportBeam_a_main.b3d" xyz="231.53 14.38 103.29" hpr="0.0 50.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="stklib_metalSupportBeam_a_main.b3d" xyz="246.85 14.38 116.14" hpr="0.0 50.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="stklib_metalSupportBeam_a_main.b3d" xyz="223.87 14.38 96.86" hpr="0.0 50.0 0.0" scale="1.00 1.00 1.00"/>
     <animated-texture name="zipper_jungle.png" dy="0.500" />
     <animated-texture name="ants.png" dy="0.500" />
     <animated-texture name="ants.png" dy="0.500" />
@@ -122,10 +125,6 @@
   <library name="stklib_cliffGrassEarth_a" xyz="220.49 16.44 -176.93" hpr="-6.6 96.3 -1.6" scale="1.59 1.66 1.56"/>
   <library name="stklib_cliffGrassEarth_a" xyz="212.54 20.58 -178.10" hpr="-5.2 133.4 -0.3" scale="2.87 2.98 2.80"/>
   <library name="stklib_cliffGrassEarth_a" xyz="189.96 18.10 -182.27" hpr="-5.2 129.7 -0.3" scale="2.21 2.30 2.16"/>
-  <library name="stklib_metalSupportBeam_a" xyz="239.19 14.38 109.71" hpr="0.0 50.0 0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_metalSupportBeam_a" xyz="231.53 14.38 103.29" hpr="0.0 50.0 0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_metalSupportBeam_a" xyz="246.85 14.38 116.14" hpr="0.0 50.0 0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_metalSupportBeam_a" xyz="223.87 14.38 96.86" hpr="0.0 50.0 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_woodLittleBridge_a" xyz="249.03 9.83 25.01" hpr="0.0 8.6 5.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_woodLittleBridge_a" xyz="247.78 10.03 16.31" hpr="2.0 5.9 5.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_woodLittleBridge_a" xyz="246.60 10.42 7.74" hpr="3.2 3.9 5.0" scale="1.00 1.00 1.00"/>
