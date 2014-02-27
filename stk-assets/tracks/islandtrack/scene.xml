@@ -1,12 +1,8 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 13206 -->
+<!-- Generated with script from SVN rev 15103 -->
 <scene>
   <track model="islandtrack_track.b3d" x="0" y="0" z="0"/>
-
-  <sky-dome texture="sky2.jpg"
-            horizontal="16" vertical="16" 
-            texture-percent="1.0" sphere-percent="2.0"
-            speed-x="0.0" speed-y="0.0" />
+  <sky-box texture="genericskybox_top.jpg genericskybox_bottom.jpg genericskybox_east.jpg genericskybox_west.jpg genericskybox_south.jpg genericskybox_north.jpg"/>
   <camera far="1000.0"/>
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />

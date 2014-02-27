@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 13206 -->
+<!-- Generated with script from SVN rev 15103 -->
 <track  name           = "The Island"
-        version        = "5"
+        version        = "6"
         groups         = "standard"
         designer       = "Johannes Sjolund"
         music          = "dance_cleopatra.music"
