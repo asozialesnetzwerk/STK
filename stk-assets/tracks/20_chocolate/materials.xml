@@ -22,7 +22,7 @@
   <material name="road_dirt.jpg" has-gravity="Y">
     <particles base="smoke_brown.xml" condition="skid"/>
   </material>
-  <material name="roof.png" backface-culling="N"/>
+  <material name="roof.png" backface-culling="N" graphical-effect="caustics"/>
   <material name="seabed.jpg" falling-effect="Y" water-splash="Y"/>
   <material name="stktex_generic_aztekWall_a.png" has-gravity="Y"/>
   <material name="transparence.png" fog="N" compositing="test" disable-z-write="Y"/>
