@@ -13,7 +13,6 @@
     <static-object lod_instance="true" lod_group="lantern" xyz="11.09 7.33 39.96" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="lantern" xyz="13.06 7.33 77.28" hpr="-90.0 14.6 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="lantern" xyz="46.18 5.93 109.09" hpr="-90.0 -83.7 -0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_instance="true" lod_group="lantern" xyz="92.75 6.03 99.83" hpr="-90.0 -12.5 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="lantern" xyz="225.33 7.74 98.55" hpr="-90.0 -12.5 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="lantern" xyz="230.10 15.52 104.96" hpr="-90.0 -12.5 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="lantern" xyz="142.94 -11.38 -81.16" hpr="-90.0 -12.5 0.0" scale="1.00 1.00 1.00"/>
@@ -75,6 +74,7 @@
           shape="cylinderY" mass="15.0" model="pot.b3d" skeletal-animation="false"/>
   <object type="movable" xyz="103.95 0.07 100.65" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
           shape="cylinderY" mass="15.0" model="pot.b3d" skeletal-animation="false"/>
+  <sun  xyz="195.75 343.26 138.14" sun-diffuse="147 144 118" ambient="111 113 120"/>
   <sky-box texture="genericskybox_top.jpg genericskybox_bottom.jpg genericskybox_east.jpg genericskybox_west.jpg genericskybox_south.jpg genericskybox_north.jpg"/>
   <camera far="1000.0"/>
   <checks>
@@ -115,6 +115,9 @@
   <item x="3.61" y="-0.04" z="47.00" />
   <item x="96.33" y="-2.90" z="-133.49" h="-86.48" />
   <item x="96.64" y="-2.90" z="-138.48" h="-86.48" />
+  <object type="billboard" texture="halo.png" xyz="92.75 4.86 99.77" 
+             width="3.188" height="3.188" >
+  </object>
   <light xyz="92.59 3.52 99.85" distance="25.00" energy="2.00" color="255 163 59">
   </light>
   <light xyz="302.65 7.01 124.59" distance="25.00" energy="1.50" color="255 163 59">
@@ -124,8 +127,6 @@
   <light xyz="146.11 -9.82 -11.80" distance="25.00" energy="2.00" color="255 163 59">
   </light>
   <light xyz="153.18 -9.82 -10.44" distance="25.00" energy="2.00" color="255 163 59">
-  </light>
-  <light xyz="143.04 -16.38 -80.10" distance="25.00" energy="1.00" color="255 163 59">
   </light>
   <light xyz="36.93 -2.31 -72.32" distance="25.00" energy="1.30" color="255 163 59">
   </light>

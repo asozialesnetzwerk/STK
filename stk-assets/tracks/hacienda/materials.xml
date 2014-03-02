@@ -14,7 +14,9 @@
   <material name="hacienda_groundTodark.jpg">
     <particles base="smoke.xml" condition="skid"/>
   </material>
+  <material name="halo.png" compositing="additive" disable-z-write="Y"/>
   <material name="l_lampsglass0.png" compositing="blend" disable-z-write="Y"/>
+  <material name="l_lampsglass0_lit.png" light="N"/>
   <material name="mill.png" ignore="Y" compositing="blend" disable-z-write="Y"/>
   <material name="millstructure.png" ignore="Y" compositing="test"/>
   <material name="palm_b.png" compositing="blend" backface-culling="N" disable-z-write="Y"/>
