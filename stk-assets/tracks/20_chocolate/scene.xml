@@ -62,8 +62,6 @@
   <banana x="-17.05" y="12.00" z="-297.33" />
   <banana x="100.92" y="6.10" z="-224.72" />
   <banana x="197.06" y="13.10" z="-266.43" />
-  <banana x="210.61" y="12.73" z="-246.42" />
-  <banana x="222.23" y="12.29" z="-243.02" />
   <banana x="234.97" y="12.29" z="-233.35" />
   <banana x="270.36" y="11.03" z="-202.58" />
   <item x="298.70" y="12.55" z="-178.22" />
@@ -74,7 +72,6 @@
   <item x="212.06" y="9.04" z="-207.01" h="-58.96" />
   <item x="209.99" y="9.04" z="-204.80" h="-58.96" />
   <item x="214.73" y="9.04" z="-209.35" h="-58.96" />
-  <item x="176.13" y="8.61" z="-221.63" />
   <item x="117.97" y="9.83" z="43.01" />
   <item x="121.52" y="9.83" z="39.95" />
   <small-nitro x="240.95" y="12.78" z="-1.86" />
@@ -118,6 +115,9 @@
   <library name="stklib_cliffGrassEarth_a" xyz="220.49 16.44 -176.93" hpr="-6.6 96.3 -1.6" scale="1.59 1.66 1.56"/>
   <library name="stklib_cliffGrassEarth_a" xyz="212.54 20.58 -178.10" hpr="-5.2 133.4 -0.3" scale="2.87 2.98 2.80"/>
   <library name="stklib_cliffGrassEarth_a" xyz="189.96 18.10 -182.27" hpr="-5.2 129.7 -0.3" scale="2.21 2.30 2.16"/>
+  <library name="stklib_oldLantern_a" xyz="306.53 20.01 -191.53" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_oldLantern_a" xyz="318.64 26.01 -162.22" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_oldLantern_a" xyz="258.64 15.06 -197.48" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_woodLittleBridge_a" xyz="249.03 9.83 25.01" hpr="0.0 8.6 5.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_woodLittleBridge_a" xyz="247.78 10.03 16.31" hpr="2.0 5.9 5.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_woodLittleBridge_a" xyz="246.60 10.42 7.74" hpr="3.2 3.9 5.0" scale="1.00 1.00 1.00"/>
