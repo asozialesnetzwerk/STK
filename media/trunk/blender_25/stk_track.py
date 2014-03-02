@@ -214,20 +214,26 @@ def checkForAnimatedTextures(lObjects):
         
         dx = getObjectProperty(obj, "anim_dx", 0)
         dy = getObjectProperty(obj, "anim_dy", 0)
-        lAnimTextures.append( (anim_texture, dx, dy) )
+        dt = getObjectProperty(obj, "anim_dt", 0)
+        
+        use_anim_texture_by_step = getObjectProperty(obj, "enable_anim_by_step", "false")
+        
+        lAnimTextures.append( (anim_texture, dx, dy, dt, use_anim_texture_by_step) )
     return lAnimTextures
 
 # ------------------------------------------------------------------------------
 def writeAnimatedTextures(f, lAnimTextures):
-    for (name, dx, dy) in lAnimTextures:
+    for (name, dx, dy, dt, use_anime_texture_by_step) in lAnimTextures:
         sdx=""
         if dx: sdx = " dx=\"%.3f\" "%float(dx)
         sdy=""
         if dy: sdy = " dy=\"%.3f\" "%float(dy)
+        sdt=""
+        if use_anime_texture_by_step == "true": sdt = ' animByStep="true" dt="%.3f" '%float(dt)
         
         if name is None or len(name) == 0:
             continue
-        f.write("    <animated-texture name=\"%s\"%s%s/>\n"%(name, sdx, sdy) )
+        f.write("    <animated-texture name=\"%s\"%s%s%s/>\n"%(name, sdx, sdy, sdt) )
             
 # ------------------------------------------------------------------------------
 def Round(f):
