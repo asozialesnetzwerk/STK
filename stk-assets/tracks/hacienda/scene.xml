@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 14858 -->
+<!-- Generated with script from SVN rev 15103 -->
 <scene>
   <lod>
    <group name="lantern">
@@ -55,26 +55,27 @@
     <animated-texture name="zipper.png" dy="1.500" />
     </static-object>
   </track>
-  <object type="animation" xyz="113.41 1.08 103.22" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="mini_pillar.b3d">
+  <object type="animation" xyz="113.41 1.08 103.22" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="mini_pillar.b3d" skeletal-animation="false">
   </object>
-  <object type="animation" xyz="246.51 39.38 -153.97" hpr="-0.0 146.1 -0.0" scale="1.00 1.00 1.00" interaction="none" model="mill.b3d">
+  <object type="animation" xyz="246.51 39.38 -153.97" hpr="-0.0 146.1 -0.0" scale="1.00 1.00 1.00" interaction="none" model="mill.b3d" skeletal-animation="false">
     <curve channel="RotZ" interpolation="linear" extend="cyclic">
       <p c="1.000 -0.000"/>
       <p c="100.000 -360.000"/>
     </curve>
   </object>
-  <object type="animation" xyz="310.57 54.23 -218.05" hpr="-0.0 146.1 -0.0" scale="1.00 1.00 1.00" interaction="none" model="mill.001.b3d">
+  <object type="animation" xyz="310.57 54.23 -218.05" hpr="-0.0 146.1 -0.0" scale="1.00 1.00 1.00" interaction="none" model="mill.001.b3d" skeletal-animation="false">
     <curve channel="RotZ" interpolation="linear" extend="cyclic">
       <p c="1.000 -0.000"/>
       <p c="100.000 -360.000"/>
     </curve>
   </object>
-  <object type="animation" xyz="222.11 39.54 -252.99" hpr="-0.0 146.1 -0.0" scale="1.00 1.00 1.00" interaction="none" model="mill.002.b3d">
+  <object type="animation" xyz="222.11 39.54 -252.99" hpr="-0.0 146.1 -0.0" scale="1.00 1.00 1.00" interaction="none" model="mill.002.b3d" skeletal-animation="false">
   </object>
   <object type="movable" xyz="79.53 0.07 97.13" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
-          shape="cylinderY" mass="15.0" model="pot.b3d"/>
+          shape="cylinderY" mass="15.0" model="pot.b3d" skeletal-animation="false"/>
   <object type="movable" xyz="103.95 0.07 100.65" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
-          shape="cylinderY" mass="15.0" model="pot.b3d"/>
+          shape="cylinderY" mass="15.0" model="pot.b3d" skeletal-animation="false"/>
+  <sky-box texture="genericskybox_top.jpg genericskybox_bottom.jpg genericskybox_east.jpg genericskybox_west.jpg genericskybox_south.jpg genericskybox_north.jpg"/>
   <camera far="1000.0"/>
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
@@ -114,6 +115,22 @@
   <item x="3.61" y="-0.04" z="47.00" />
   <item x="96.33" y="-2.90" z="-133.49" h="-86.48" />
   <item x="96.64" y="-2.90" z="-138.48" h="-86.48" />
+  <light xyz="92.59 3.52 99.85" distance="25.00" energy="2.00" color="255 163 59">
+  </light>
+  <light xyz="302.65 7.01 124.59" distance="25.00" energy="1.50" color="255 163 59">
+  </light>
+  <light xyz="299.73 7.01 115.97" distance="25.00" energy="1.50" color="255 163 59">
+  </light>
+  <light xyz="146.11 -9.82 -11.80" distance="25.00" energy="2.00" color="255 163 59">
+  </light>
+  <light xyz="153.18 -9.82 -10.44" distance="25.00" energy="2.00" color="255 163 59">
+  </light>
+  <light xyz="143.04 -16.38 -80.10" distance="25.00" energy="1.00" color="255 163 59">
+  </light>
+  <light xyz="36.93 -2.31 -72.32" distance="25.00" energy="1.30" color="255 163 59">
+  </light>
+  <light xyz="44.16 -2.31 -74.28" distance="25.00" energy="1.30" color="255 163 59">
+  </light>
   <default-start karts-per-row     ="2"
                  forwards-distance ="1.50"
                  sidewards-distance="3.00"
