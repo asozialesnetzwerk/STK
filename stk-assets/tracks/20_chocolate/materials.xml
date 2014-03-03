@@ -13,7 +13,7 @@
   <material name="mossy_stone.png" high-adhesion="true"/>
   <material name="movie_test.png" light="N" compositing="additive" disable-z-write="Y"/>
   <material name="palm_tree_leaf.png" compositing="coverage"/>
-  <material name="palmtree3.jpg" compositing="test" mask="palmtree3_alpha.jpg"/>
+  <material name="palmtree3.jpg" compositing="test" graphical-effect="grass" mask="palmtree3_alpha.jpg" grass-speed="1.50"/>
   <material name="Paving_stones_2.jpg" has-gravity="Y">
     <particles base="smoke.xml" condition="skid"/>
   </material>
