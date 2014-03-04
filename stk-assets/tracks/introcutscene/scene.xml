@@ -1335,7 +1335,7 @@
       <p c="1469.000 0.037" h1="1465.486 0.037" h2="1472.514 0.037"/>
     </curve>
   </object>
-  <object type="animation" model="Gnu.b3d" xyz="-98.65 1.82 50.86" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"  looped="y"  interaction="ghost">
+  <object type="animation" model="Gnu_intro.b3d" xyz="-98.65 1.82 50.86" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"  looped="y"  interaction="ghost">
   </object>
   <object type="animation" model="tree1.b3d" xyz="-123.55 3.17 45.41" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
   </object>
@@ -1377,7 +1377,7 @@
   </object>
   <object type="animation" model="pagoda.b3d" xyz="-102.80 6.92 36.30" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
   </object>
-  <object type="animation" model="Nolok.b3d" xyz="-93.38 0.89 26.45" hpr="-5.1 37.4 26.8" scale="1.00 1.00 1.00"  looped="y"  interaction="ghost">
+  <object type="animation" model="Nolok_intro.b3d" xyz="-93.38 0.89 26.45" hpr="-5.1 37.4 26.8" scale="1.00 1.00 1.00"  looped="y"  interaction="ghost">
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="1.000 -93.382" h1="-131.932 -93.382" h2="133.932 -93.382"/>
       <p c="341.491 -93.382" h1="294.645 -93.382" h2="350.860 -93.382"/>
