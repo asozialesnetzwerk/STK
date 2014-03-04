@@ -14,7 +14,6 @@
     <static-object model="stklib_metalSupportBeam_a_main.b3d" xyz="231.53 14.38 103.29" hpr="0.0 50.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object model="stklib_metalSupportBeam_a_main.b3d" xyz="246.85 14.38 116.14" hpr="0.0 50.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object model="stklib_metalSupportBeam_a_main.b3d" xyz="223.87 14.38 96.86" hpr="0.0 50.0 0.0" scale="1.00 1.00 1.00"/>
-    <animated-texture name="zipper_jungle.png" dy="0.5000" />
     <animated-texture name="ants.png" dy="0.5000" />
     <animated-texture name="ants.png" dy="0.5000" />
   </track>
@@ -263,13 +262,7 @@
   </particle-emitter>
   <particle-emitter kind="fire.xml" xyz="-9.20 13.25 -141.48" h="-8.14" clip_distance="200">
   </particle-emitter>
-  <particle-emitter kind="fire.xml" xyz="-27.87 13.25 -182.01" h="4.55" clip_distance="200">
-  </particle-emitter>
   <particle-emitter kind="fire.xml" xyz="-7.45 13.25 -179.73" h="4.55" clip_distance="200">
-  </particle-emitter>
-  <particle-emitter kind="fire.xml" xyz="-43.61 13.25 -223.75" h="4.55" clip_distance="200">
-  </particle-emitter>
-  <particle-emitter kind="fire.xml" xyz="-48.93 12.41 -203.65" h="4.55" clip_distance="200">
   </particle-emitter>
   <banana x="-17.05" y="12.00" z="-297.33" />
   <banana x="100.92" y="6.10" z="-224.72" />
@@ -303,6 +296,7 @@
                  forwards-distance ="1.50"
                  sidewards-distance="3.00"
                  upwards-distance  ="0.00"/>
+  <start x="-41.79" y="22.40" z="-251.60" h="-0.00"/>
   <library name="stklib_aztecFountain_a" xyz="136.39 2.23 122.87" hpr="0.0 33.6 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_aztecFountain_a" xyz="153.62 2.23 139.04" hpr="0.0 55.9 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_aztecFountain_a" xyz="126.28 2.23 98.55" hpr="0.0 11.0 0.0" scale="1.00 1.00 1.00"/>
