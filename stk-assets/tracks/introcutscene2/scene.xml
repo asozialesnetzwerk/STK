@@ -521,7 +521,7 @@
   </object>
   <object type="animation" model="vegetation.b3d" xyz="-115.73 -0.02 40.52" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00"  interaction="ghost">
   </object>
-  <object type="animation" model="Nolok.b3d" xyz="-11.50 9.20 42.68" hpr="-14.9 19.8 -7.2" scale="1.00 1.00 1.00"  looped="y"  interaction="ghost">
+  <object type="animation" model="Nolok_intro.b3d" xyz="-11.50 9.20 42.68" hpr="-14.9 19.8 -7.2" scale="1.00 1.00 1.00"  looped="y"  interaction="ghost">
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="1.000 -11.499" h1="-44.370 -11.499" h2="46.370 -11.499"/>
       <p c="149.000 -128.216" h1="94.690 -128.216" h2="162.211 -128.216"/>
