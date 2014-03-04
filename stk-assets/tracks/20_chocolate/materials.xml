@@ -8,7 +8,7 @@
   <material name="glow_border.png" light="N"/>
   <material name="grass2.jpg" max-speed="0.50" has-gravity="Y"/>
   <material name="grass2dirt.png" clampu="Y"/>
-  <material name="GrassTall.png" light="N" backface-culling="N" compositing="blend" disable-z-write="Y" ignore="Y"/>
+  <material name="GrassTall.png" light="N" backface-culling="N" compositing="test" ignore="Y"/>
   <material name="jungleWater.png" compositing="blend" disable-z-write="Y"/>
   <material name="mossy_stone.png" high-adhesion="true"/>
   <material name="movie_test.png" light="N" compositing="additive" disable-z-write="Y"/>
