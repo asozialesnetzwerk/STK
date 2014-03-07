@@ -10,6 +10,7 @@
   <material name="grass2dirt.png" clampu="Y"/>
   <material name="GrassTall.png" light="N" backface-culling="N" compositing="test" ignore="Y"/>
   <material name="jungleWater.png" compositing="blend" disable-z-write="Y"/>
+  <material name="monumentWater3.png" compositing="blend" disable-z-write="Y"/>
   <material name="mossy_stone.png" high-adhesion="true"/>
   <material name="movie_test.png" light="N" compositing="additive" disable-z-write="Y"/>
   <material name="palm_tree_leaf.png" compositing="coverage"/>
@@ -18,7 +19,7 @@
     <particles base="smoke.xml" condition="skid"/>
   </material>
   <material name="plants.jpg" compositing="test" mask="plants_alpha.jpg"/>
-  <material name="plants.png" compositing="test" ignore="Y"/>
+  <material name="plants.png" compositing="test" graphical-effect="grass" ignore="Y" grass-speed="1.50"/>
   <material name="pot.jpg" backface-culling="N"/>
   <material name="road_dirt.jpg" has-gravity="Y">
     <particles base="smoke_brown.xml" condition="skid"/>
