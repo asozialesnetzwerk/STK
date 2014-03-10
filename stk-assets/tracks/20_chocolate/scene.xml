@@ -2,21 +2,12 @@
 <!-- Generated with script from SVN rev 15125 -->
 <scene>
   <lod>
-   <group name="_single_lod_chunk_grass_1">
-    <static-object lod_distance="200" lod_group="_single_lod_chunk_grass_1" model="chunk_grass_1.b3d" xyz="92.97 3.42 81.61" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-    <static-object lod_distance="500" lod_group="_single_lod_chunk_grass_1" model="chunk_grass_1_mid.b3d" xyz="92.97 3.42 81.61" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-   </group>
    <group name="palmTree">
     <static-object lod_distance="20" lod_group="palmTree" model="palm_tree_0.b3d" xyz="94.83 38.91 -25.57" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"/>
     <static-object lod_distance="500" lod_group="palmTree" model="palm_tree_1.b3d" xyz="70.83 38.91 -25.57" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"/>
    </group>
-   <group name="_single_lod_chunk_grass">
-    <static-object lod_distance="100" lod_group="_single_lod_chunk_grass" model="chunk_grass.b3d" xyz="264.27 11.41 53.38" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-    <static-object lod_distance="500" lod_group="_single_lod_chunk_grass" model="chunk_grass_mid.b3d" xyz="264.27 11.41 53.38" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-   </group>
   </lod>
   <track model="jungle_track.b3d" x="0" y="0" z="0">
-    <static-object lod_instance="true" lod_group="_single_lod_chunk_grass" xyz="264.27 11.41 53.38" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object model="torch_test.b3d" xyz="-67.88 13.39 -162.95" hpr="0.0 -0.0 0.0" scale="0.35 0.35 0.35">
     <animated-texture name="movie_test.png" dy="0.0625"  animByStep="true" dt="0.050" />
     </static-object>
@@ -29,7 +20,6 @@
     <static-object model="torch_test.b3d" xyz="266.21 29.60 -58.28" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
     <animated-texture name="movie_test.png" dy="0.0625"  animByStep="true" dt="0.050" />
     </static-object>
-    <static-object lod_instance="true" lod_group="_single_lod_chunk_grass_1" xyz="92.97 3.42 81.61" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object model="waterfall_test.b3d" xyz="158.79 74.13 -352.63" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
     <animated-texture name="monumentWater3.png" dy="-0.5000" />
     </static-object>
