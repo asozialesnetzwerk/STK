@@ -274,6 +274,134 @@
   </object>
   <object type="animation" xyz="168.56 127.53 -324.15" hpr="34.6 42.4 44.6" scale="0.63 0.63 0.63" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
   </object>
+  <object type="animation" xyz="206.32 22.68 -254.37" hpr="-22.4 -115.0 7.5" scale="0.72 0.72 0.72" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="190.19 26.81 -263.51" hpr="-16.5 -163.4 3.3" scale="0.76 0.76 0.76" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="196.03 26.81 -281.44" hpr="-11.0 125.0 5.5" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="202.86 26.81 -301.52" hpr="-11.0 125.0 5.5" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="210.02 26.81 -327.84" hpr="-14.9 168.6 3.2" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="216.99 24.31 -287.61" hpr="-14.9 168.6 3.2" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="237.60 23.77 -267.00" hpr="-28.5 76.1 -13.3" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="253.38 21.07 -248.70" hpr="-17.5 146.5 -9.7" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="257.55 21.07 -268.73" hpr="-17.5 146.5 -9.7" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="275.55 21.07 -234.45" hpr="-17.5 146.5 -9.7" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="286.58 21.07 -216.13" hpr="-17.5 146.5 -9.7" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="283.98 21.07 -256.21" hpr="-17.5 146.5 -9.7" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="309.80 21.07 -237.20" hpr="-17.5 146.5 -9.7" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="330.66 21.07 -222.67" hpr="-17.5 146.5 -9.7" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="351.99 21.07 -240.44" hpr="-17.5 146.5 -9.7" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="268.37 21.07 -290.06" hpr="-17.5 146.5 -9.7" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="299.59 21.07 -288.82" hpr="-17.5 146.5 -9.7" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="265.10 22.70 -324.62" hpr="-17.5 146.5 -9.7" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="115.87 19.69 -280.39" hpr="-17.5 146.5 -9.7" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="114.80 19.69 -301.14" hpr="-11.9 -178.2 -8.1" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="112.56 19.69 -321.89" hpr="-11.9 -178.2 -8.1" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="95.12 19.69 -313.66" hpr="-11.9 -178.2 -8.1" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="96.19 19.69 -296.93" hpr="-3.3 -132.9 -12.0" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="74.37 19.69 -314.91" hpr="-3.3 -132.9 -12.0" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="52.28 18.71 -329.36" hpr="-18.4 -134.6 1.2" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="74.25 17.29 -345.01" hpr="-2.1 -132.6 -3.8" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="97.98 18.87 -341.48" hpr="-2.7 -133.0 0.1" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="29.97 18.71 -337.05" hpr="-18.4 -134.6 1.2" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="8.96 25.84 -344.52" hpr="-23.4 -98.0 5.9" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="48.21 18.18 -357.35" hpr="-23.4 -98.0 5.9" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="15.97 25.84 -368.46" hpr="-23.4 -98.0 5.9" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="-7.00 30.21 -368.57" hpr="-23.4 -98.0 5.9" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="127.41 18.59 -260.06" hpr="10.5 149.7 -7.5" scale="0.71 0.71 0.71" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="143.63 19.69 -245.50" hpr="12.3 143.8 -0.1" scale="0.62 0.62 0.62" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="170.43 20.63 -243.37" hpr="6.7 158.5 9.5" scale="0.59 0.59 0.59" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="186.02 22.43 -253.47" hpr="5.5 134.6 3.1" scale="0.61 0.61 0.61" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="241.66 20.63 -191.21" hpr="-2.0 157.8 -0.5" scale="0.69 0.69 0.69" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="226.85 22.10 -211.11" hpr="6.7 158.5 9.5" scale="0.63 0.63 0.63" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="198.46 24.92 -218.73" hpr="6.7 158.5 9.5" scale="0.65 0.65 0.65" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="168.37 20.63 -214.26" hpr="6.7 158.5 9.5" scale="0.69 0.69 0.69" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="138.74 20.63 -219.03" hpr="6.7 158.5 9.5" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="108.77 17.71 -226.89" hpr="-11.9 158.1 6.5" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="82.17 16.36 -217.39" hpr="-11.9 158.1 6.5" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="62.48 16.82 -195.43" hpr="-11.9 158.1 6.5" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="54.33 16.75 -161.10" hpr="-11.9 158.1 6.5" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="55.40 17.71 -222.82" hpr="-11.9 158.1 6.5" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="65.25 15.41 -246.00" hpr="-11.9 158.1 6.5" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="38.54 11.25 -263.84" hpr="-11.9 158.1 6.5" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="51.26 16.75 -181.97" hpr="-11.9 158.1 6.5" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="12.72 15.47 -261.40" hpr="-10.5 163.7 -13.8" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="-12.46 20.06 -254.31" hpr="-12.9 157.5 -6.1" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="-3.62 22.09 -269.30" hpr="-12.9 157.5 -6.1" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="-0.77 22.57 -286.71" hpr="-5.8 165.2 -22.2" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="21.67 14.46 -281.69" hpr="-5.8 165.2 -22.2" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="-14.32 34.92 -349.64" hpr="-23.4 -98.0 5.9" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="-38.92 36.50 -352.81" hpr="-23.4 -98.0 5.9" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="-38.67 37.49 -330.28" hpr="-23.4 -98.0 5.9" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="-52.27 40.26 -314.23" hpr="-23.4 -98.0 5.9" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="-65.89 36.59 -290.92" hpr="5.2 -45.5 -12.1" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="-72.83 31.98 -264.70" hpr="5.2 -45.5 -12.1" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="-97.10 31.98 -272.11" hpr="5.2 -45.5 -12.1" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="-90.16 36.59 -298.32" hpr="5.2 -45.5 -12.1" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="-79.00 40.26 -326.18" hpr="-23.4 -98.0 5.9" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="-65.40 37.49 -342.23" hpr="-23.4 -98.0 5.9" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="palmTree" skeletal-animation="false">
+  </object>
   <object type="animation" xyz="172.03 -1.58 123.80" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="reset" shape="box" model="water_pound.b3d" reset="y" displacing="true" skeletal-animation="false">
   </object>
   <object type="animation" xyz="128.79 0.98 98.14" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="waterfall.b3d" skeletal-animation="false">
@@ -365,6 +493,7 @@
   <library name="stklib_aztecFountain_a" xyz="200.97 2.23 147.42" hpr="0.0 102.4 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_aztecFountain_a" xyz="222.59 2.23 138.33" hpr="0.0 120.6 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_aztecFountain_a" xyz="238.34 2.23 123.07" hpr="0.0 145.5 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_aztecHouse_a" xyz="205.19 19.07 -115.85" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_cliffGrassEarth_a" xyz="129.23 7.28 33.98" hpr="0.0 -49.0 0.0" scale="2.13 2.13 2.13"/>
   <library name="stklib_cliffGrassEarth_a" xyz="142.42 2.04 47.03" hpr="55.2 -79.7 -60.4" scale="1.48 1.77 1.48"/>
   <library name="stklib_cliffGrassEarth_a" xyz="144.48 4.29 52.59" hpr="-6.0 -58.3 6.5" scale="1.53 1.53 1.53"/>
