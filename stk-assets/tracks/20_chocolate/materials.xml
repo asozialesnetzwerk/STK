@@ -5,6 +5,7 @@
   <material name="city_checker.png" clampu="Y"/>
   <material name="city_fern.png" compositing="test" ignore="Y"/>
   <material name="city_grass.png" backface-culling="N" compositing="coverage" ignore="Y"/>
+  <material name="dirt_details.png" compositing="test" ignore="Y"/>
   <material name="glow_border.png" light="N"/>
   <material name="grass2.jpg" max-speed="0.50" has-gravity="Y"/>
   <material name="grass2dirt.png" clampu="Y"/>
@@ -15,9 +16,6 @@
   <material name="movie_test.png" light="N" compositing="additive" disable-z-write="Y"/>
   <material name="palm_tree_leaf.png" compositing="coverage"/>
   <material name="palmtree3.jpg" compositing="test" graphical-effect="grass" mask="palmtree3_alpha.jpg" grass-speed="1.50"/>
-  <material name="Paving_stones_2.jpg" has-gravity="Y">
-    <particles base="smoke.xml" condition="skid"/>
-  </material>
   <material name="plants.jpg" compositing="test" mask="plants_alpha.jpg"/>
   <material name="plants.png" compositing="test" graphical-effect="grass" ignore="Y" grass-speed="1.50"/>
   <material name="pot.jpg" backface-culling="N"/>
