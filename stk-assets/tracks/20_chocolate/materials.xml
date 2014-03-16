@@ -23,10 +23,13 @@
     <particles base="smoke_brown.xml" condition="skid"/>
   </material>
   <material name="roof.png" backface-culling="N"/>
-  <material name="sand2.jpg" graphical-effect="caustics"/>
   <material name="seabed.jpg" falling-effect="Y" water-splash="Y"/>
+  <material name="stk_branch.png" compositing="test"/>
+  <material name="stk_sagebrush.png" compositing="test"/>
+  <material name="stk_sagebrush_2.png" compositing="test"/>
   <material name="stktex_generic_aztekWall_a.png" has-gravity="Y"/>
   <material name="transparence.png" fog="N" compositing="test" disable-z-write="Y"/>
+  <material name="underwater_test.png" clampv="Y"/>
   <material name="wall.png" backface-culling="N"/>
   <material name="water_light.png" compositing="blend" ignore="Y" surface="Y" disable-z-write="Y">
     <sfx filename="splash.ogg" rolloff="0.10" min_speed="0.00" max_speed="30.00" min_pitch="1.00" max_pitch="1.00" positional="N"/>
