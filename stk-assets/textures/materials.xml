@@ -3,6 +3,7 @@
 
   <!-- Particles -->
   <material name="explode.png"           compositing="additive" ignore="Y"/>
+  <material name="explode_spark.png"           compositing="additive" ignore="Y"/>
   <material name="flaring-star.png"      compositing="additive" ignore="Y"/>
   <material name="smoke.png"             compositing="blend" light="N" ignore="Y"/>
   <material name="smoke_nitro.png"       compositing="blend" light="N" ignore="Y" disable-z-write="Y"/>
@@ -15,7 +16,8 @@
   <material name="skid-particle1.png"    additive="Y" light="N" ignore="Y"/>
   <material name="skid-particle2.png"    additive="Y" light="N" ignore="Y"/>
   <material name="zipper-particle.png"   additive="Y" light="N" ignore="Y"/>
-  <material name="waterparticles.png"    compositing="blend" light="N" ignore="Y"/>
+  <material name="waterparticles.png"    compositing="blend" ignore="Y"/>
+  <material name="particle_water.png"    compositing="blend" ignore="Y"/>
   
   <!-- Textures -->
   
