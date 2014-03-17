@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 14858 -->
+<!-- Generated with script from SVN rev 15103 -->
 <track  name           = "Tutorial"
-        version        = "5"
+        version        = "6"
         groups         = "standard"
         designer       = "Jean-Manuel Cl&#233;men&#231;on"
         music          = "hacienda.music"
