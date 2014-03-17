@@ -16,7 +16,6 @@
     <static-object lod_instance="true" lod_group="lantern" xyz="225.33 7.74 98.55" hpr="-90.0 -12.5 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="lantern" xyz="230.10 15.52 104.96" hpr="-90.0 -12.5 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="lantern" xyz="142.94 -11.38 -81.16" hpr="-90.0 -12.5 0.0" scale="1.00 1.00 1.00"/>
-    <static-object model="Plane.002.b3d" xyz="309.95 6.82 191.00" hpr="-90.0 45.0 -0.0" scale="1.00 1.00 1.00"/>
     <static-object model="Plane.009.b3d" xyz="-10.54 3.53 104.22" hpr="-90.0 114.4 0.0" scale="1.00 1.00 1.00"/>
     <static-object model="Plane.010.b3d" xyz="-16.84 3.61 84.85" hpr="-90.0 90.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object model="InvisibleWalls.b3d" xyz="-10.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
@@ -39,7 +38,6 @@
     <static-object model="Plane.045.b3d" xyz="388.00 1.69 -116.02" hpr="0.0 32.7 0.0" scale="3.76 3.76 3.76"/>
     <static-object model="Plane.046.b3d" xyz="311.03 4.97 68.85" hpr="0.0 56.7 0.0" scale="2.88 2.88 2.88"/>
     <static-object model="Plane.047.b3d" xyz="309.84 -3.36 13.81" hpr="0.0 56.7 0.0" scale="2.88 2.88 2.88"/>
-    <static-object model="Plane.049.b3d" xyz="384.46 7.75 112.15" hpr="-90.0 45.0 -0.0" scale="1.00 1.00 1.00"/>
     <static-object model="Plane.050.b3d" xyz="384.46 -7.07 -25.18" hpr="-90.0 45.0 -0.0" scale="1.00 1.00 1.00"/>
     <static-object model="arrow2.b3d" xyz="150.00 -10.92 -5.08" hpr="-0.0 83.1 -0.0" scale="1.00 1.00 1.00">
     <animated-texture name="zipper-effect.png" dy="0.100" />
@@ -136,4 +134,27 @@
                  forwards-distance ="1.50"
                  sidewards-distance="3.00"
                  upwards-distance  ="0.10"/>
+  <library name="stklib_sagebrush_a" xyz="305.02 5.65 178.71" hpr="0.0 126.5 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_sagebrush_a" xyz="305.02 6.09 188.77" hpr="0.0 126.5 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_sagebrush_a" xyz="300.55 6.08 190.83" hpr="0.0 126.5 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_sagebrush_a" xyz="309.25 6.92 189.96" hpr="0.0 126.5 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_sagebrush_a" xyz="139.54 1.84 -2.71" hpr="-3.9 12.3 0.3" scale="1.59 1.59 1.59"/>
+  <library name="stklib_sagebrush_a" xyz="134.90 1.19 -6.75" hpr="-2.2 17.2 0.1" scale="1.59 1.59 1.59"/>
+  <library name="stklib_sagebrush_a" xyz="128.87 0.39 -10.68" hpr="-7.7 2.0 0.3" scale="1.59 1.59 1.59"/>
+  <library name="stklib_sagebrush_a" xyz="-13.79 -0.58 89.52" hpr="-2.1 41.6 0.1" scale="0.79 0.79 0.79"/>
+  <library name="stklib_sagebrush_a" xyz="7.04 -0.58 105.65" hpr="-1.9 79.0 0.3" scale="0.79 0.79 0.79"/>
+  <library name="stklib_sagebrush_a" xyz="8.53 -0.58 106.43" hpr="-2.2 8.9 0.1" scale="0.79 0.79 0.79"/>
+  <library name="stklib_sagebrush_a" xyz="-12.87 -0.58 90.92" hpr="-2.2 -20.2 0.1" scale="0.79 0.79 0.79"/>
+  <library name="stklib_sagebrush_a" xyz="375.99 5.65 111.94" hpr="0.0 161.1 0.0" scale="1.51 1.51 1.51"/>
+  <library name="stklib_sagebrush_a" xyz="381.87 5.65 116.65" hpr="0.0 179.4 0.0" scale="1.51 1.51 1.51"/>
+  <library name="stklib_sagebrush_a" xyz="380.62 5.65 105.55" hpr="0.0 141.3 0.0" scale="1.51 1.51 1.51"/>
+  <library name="stklib_sagebrush_a" xyz="375.48 5.65 94.90" hpr="0.0 178.4 0.0" scale="1.51 1.51 1.51"/>
+  <library name="stklib_sagebrush_a" xyz="194.12 -0.43 117.27" hpr="0.0 108.4 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_sagebrush_a" xyz="196.14 -0.43 117.08" hpr="-0.0 24.8 -0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_sagebrush_a" xyz="168.01 -0.14 79.61" hpr="0.0 -70.3 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_sagebrush_a" xyz="166.04 -0.14 79.86" hpr="-0.0 -158.7 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_sagebrush_a" xyz="153.68 -0.14 120.06" hpr="0.0 115.5 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_sagebrush_a" xyz="155.82 -0.14 119.96" hpr="-0.0 18.6 -0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_sagebrush_a" xyz="26.33 -0.58 105.57" hpr="-2.2 26.6 0.1" scale="0.79 0.79 0.79"/>
+  <library name="stklib_sagebrush_a" xyz="24.67 -0.58 105.28" hpr="-2.7 96.7 -0.5" scale="0.79 0.79 0.79"/>
 </scene>
