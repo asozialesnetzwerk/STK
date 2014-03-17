@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 15125 -->
+<scene>
+  <object type="animation" xyz="-9.51 28.61 -1.58" hpr="0.0 80.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="stk_plants_test.b3d" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="-6.91 28.61 7.15" hpr="0.0 170.0 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="stk_plants_test.b3d" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="-0.10 28.61 -11.89" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="stk_plants_test.b3d" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="5.81 28.61 -0.00" hpr="0.0 -100.0 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="stk_plants_test.b3d" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="stklib_jungleTree_a.b3d" skeletal-animation="false">
+  </object>
+</scene>
