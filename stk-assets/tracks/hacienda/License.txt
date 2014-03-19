@@ -29,9 +29,13 @@ sageBrush.png, drysageBrush.png
     Released CC-BY-SA 3
 
 hair
-    basedo n work by Clark Thames (http://www.tutorialsforblender3d.com/Models/Trees/PalmTree_1.html)
+    based on work by Clark Thames (http://www.tutorialsforblender3d.com/Models/Trees/PalmTree_1.html)
     released under Creative Commons Attribution 3.0 Unported License
 
+sky texture
+    based on work by DR04 (http://commons.wikimedia.org/wiki/File:02162008_Interstate80NWUtah.JPG)
+    released under CC-BY-SA 3.0
+    
 palmacacia.png
     by Yorik
     from http://yorik.uncreated.net/greenhouse.html
@@ -40,3 +44,9 @@ palmacacia.png
 lanternDetail.png, light.png, pix.png, wire.png, grass.png and all other models
     by Jean-Manuel Clemençon (Samuncle; http://samuncle.toile-libre.org/)
     released under CC-BY-SA 3.0
+
+    
+Sky
+    DR04
+    CC-BY-SA 3.0
+    http://commons.wikimedia.org/wiki/File:02162008_Interstate80NWUtah.JPG

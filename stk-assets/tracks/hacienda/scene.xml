@@ -73,7 +73,7 @@
   <object type="movable" xyz="103.95 0.07 100.65" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
           shape="cylinderY" mass="15.0" model="pot.b3d" skeletal-animation="false"/>
   <sun  xyz="195.75 343.26 138.14" sun-diffuse="147 144 118" ambient="111 113 120"/>
-  <sky-box texture="genericskybox_top.jpg genericskybox_bottom.jpg genericskybox_east.jpg genericskybox_west.jpg genericskybox_south.jpg genericskybox_north.jpg"/>
+  <sky-box texture="sky_top.jpg sky_top.jpg sky_east.jpg sky_west.jpg sky_south.jpg sky_north.jpg"/>
   <camera far="1000.0"/>
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
