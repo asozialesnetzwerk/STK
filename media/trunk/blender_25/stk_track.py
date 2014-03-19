@@ -224,12 +224,16 @@ def checkForAnimatedTextures(lObjects):
 # ------------------------------------------------------------------------------
 def writeAnimatedTextures(f, lAnimTextures):
     for (name, dx, dy, dt, use_anime_texture_by_step) in lAnimTextures:
+        
+        sdt=""
+        if use_anime_texture_by_step == "true":
+            sdt = ' animByStep="true" dt="%.3f" '%float(dt)
+            dy = 1.0/dy
+        
         sdx=""
         if dx: sdx = " dx=\"%.3f\" "%float(dx)
         sdy=""
-        if dy: sdy = " dy=\"%.3f\" "%float(dy)
-        sdt=""
-        if use_anime_texture_by_step == "true": sdt = ' animByStep="true" dt="%.3f" '%float(dt)
+        if dy: sdy = " dy=\"%.4f\" "%float(dy)
         
         if name is None or len(name) == 0:
             continue
