@@ -16,8 +16,6 @@
   <material name="movie_test.png" light="N" compositing="additive" disable-z-write="Y"/>
   <material name="palm_tree_leaf.png" compositing="coverage"/>
   <material name="palmtree3.jpg" compositing="test" graphical-effect="grass" mask="palmtree3_alpha.jpg" grass-speed="1.50"/>
-  <material name="plants.jpg" compositing="test" mask="plants_alpha.jpg"/>
-  <material name="plants.png" compositing="test" graphical-effect="grass" ignore="Y" grass-speed="1.50"/>
   <material name="pot.jpg" backface-culling="N"/>
   <material name="road_dirt.jpg" has-gravity="Y">
     <particles base="smoke_brown.xml" condition="skid"/>
@@ -28,6 +26,7 @@
   <material name="stk_sagebrush.png" compositing="test"/>
   <material name="stk_sagebrush_2.png" compositing="test"/>
   <material name="stktex_generic_aztekWall_a.png" has-gravity="Y"/>
+  <material name="textRoad.png" compositing="test" disable-z-write="Y"/>
   <material name="transparence.png" fog="N" compositing="test" disable-z-write="Y"/>
   <material name="underwater_test.png" clampv="Y"/>
   <material name="wall.png" backface-culling="N"/>
@@ -38,6 +37,4 @@
   <material name="zipper_jungle.png" backface-culling="N" compositing="blend" disable-z-write="Y" has-gravity="Y">
     <zipper duration="5.5" max-speed-increase="5.0" fade-out-time="5.0" speed-gain="2.0" min-speed="2.0"/>
   </material>
-  <material name="stktex_palmLeaf_a.png" compositing="test" ignore="Y" disable-z-write="Y"/>
-  <material name="stktex_palmLeafDry_a.png" compositing="test" ignore="Y" disable-z-write="Y"/>
 </materials>
