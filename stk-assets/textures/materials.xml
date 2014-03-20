@@ -23,9 +23,16 @@
   
   <material name="ants.png" compositing="test"/>
   <material name="stktex_jungleLeaf_a.png" compositing="test"/>
+  <material name="stktex_usSignAtlas_a.png" compositing="test"/>
+  <material name="stktex_palmLeaf_a.png" compositing="test" ignore="Y" graphical-effect="grass"/>
+  <material name="stktex_palmLeafDry_a.png" compositing="test" ignore="Y" />
+  <material name="stktex_jungleLiana_a.png" compositing="test" ignore="Y" />
+  
+  
 
   <material name="stktex_hayFiber_a.png" compositing="test" graphical-effect="grass" ignore="Y"/>
-  <material name="stktex_palmTreeBark_a.png" />
+  
+  <material name="stktex_palmTreeBark_a.png"  />
   
   <material name="bumpy_surface.png">
     <particles base="smoke.xml" condition="skid" />
