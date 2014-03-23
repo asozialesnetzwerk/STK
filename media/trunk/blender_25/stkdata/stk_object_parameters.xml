@@ -385,6 +385,7 @@
             </EnumProp>
             <BoolProp id="tangents" name="Use Tangent Space" default="false" doc="Export object in tangent space, which is required for normal mapping"/>
             <BoolProp id="soccer_ball" name="Is Soccer Ball" default="false" doc="Exported object is a soccer ball (used for soccer mode)"/>
+            <BoolProp id="instancing" name="Instancing (STK 0.8.2, with library)" default="false" doc="An instancing should be specified in a lubrary, then imported in tracks where each instancing will use hardware instancing"/>
             
             <BoolProp id="forcedbloom" name="Glow (bloom) (STK 0.8.2)" default="false" doc="Enable a bloom effect on this particular object, making it glow"/>
             <ColorProp id="outline" name="Glow (outline) (STK 0.8.2)" default="" doc="Enable a glowing outline on this particular object"/>
