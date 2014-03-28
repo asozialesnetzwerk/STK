@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15103 -->
+<!-- Generated with script from SVN rev 15125 -->
 <scene>
   <lod>
    <group name="lantern">
@@ -20,10 +20,10 @@
     <static-object model="Plane.010.b3d" xyz="-16.84 3.61 84.85" hpr="-90.0 90.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object model="InvisibleWalls.b3d" xyz="-10.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
     <static-object model="arrow.b3d" xyz="305.46 5.51 116.76" hpr="-0.0 -157.4 0.0" scale="1.00 1.00 1.00">
-    <animated-texture name="zipper.png" dy="1.500" />
+    <animated-texture name="zipper.png" dy="1.5000" />
     </static-object>
     <static-object model="arrow2.b3d" xyz="305.57 5.51 116.71" hpr="-0.0 -157.4 0.0" scale="1.00 1.00 1.00">
-    <animated-texture name="zipper-effect.png" dy="0.100" />
+    <animated-texture name="zipper-effect.png" dy="0.1000" />
     </static-object>
     <static-object model="Plane.021.b3d" xyz="93.92 5.44 103.47" hpr="0.0 -0.0 -100.0" scale="1.40 1.40 1.40"/>
     <static-object model="Plane.023.b3d" xyz="93.92 5.24 96.52" hpr="0.0 -0.0 -100.0" scale="1.98 1.98 1.98"/>
@@ -31,7 +31,7 @@
     <static-object model="Plane.025.b3d" xyz="73.05 5.24 95.99" hpr="-2.4 -0.1 -91.5" scale="2.35 2.35 2.35"/>
     <static-object model="Plane.026.b3d" xyz="107.74 5.24 98.91" hpr="0.0 -0.0 -100.0" scale="1.98 1.98 1.98"/>
     <static-object model="boost_arrows.b3d" xyz="90.97 5.51 105.53" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
-    <animated-texture name="zipper.png" dy="1.500" />
+    <animated-texture name="zipper.png" dy="1.5000" />
     </static-object>
     <static-object model="Plane.043.b3d" xyz="388.00 4.05 13.78" hpr="0.0 86.7 0.0" scale="2.51 2.51 2.51"/>
     <static-object model="Plane.044.b3d" xyz="388.00 11.03 153.43" hpr="0.0 56.7 0.0" scale="2.88 2.88 2.88"/>
@@ -40,16 +40,16 @@
     <static-object model="Plane.047.b3d" xyz="309.84 -3.36 13.81" hpr="0.0 56.7 0.0" scale="2.88 2.88 2.88"/>
     <static-object model="Plane.050.b3d" xyz="384.46 -7.07 -25.18" hpr="-90.0 45.0 -0.0" scale="1.00 1.00 1.00"/>
     <static-object model="arrow2.b3d" xyz="150.00 -10.92 -5.08" hpr="-0.0 83.1 -0.0" scale="1.00 1.00 1.00">
-    <animated-texture name="zipper-effect.png" dy="0.100" />
+    <animated-texture name="zipper-effect.png" dy="0.1000" />
     </static-object>
     <static-object model="arrow.b3d" xyz="150.02 -10.92 -5.21" hpr="-0.0 83.1 -0.0" scale="1.00 1.00 1.00">
-    <animated-texture name="zipper.png" dy="1.500" />
+    <animated-texture name="zipper.png" dy="1.5000" />
     </static-object>
     <static-object model="arrow2.b3d" xyz="44.49 -3.15 -69.72" hpr="0.0 105.2 0.0" scale="1.00 1.00 1.00">
-    <animated-texture name="zipper-effect.png" dy="0.100" />
+    <animated-texture name="zipper-effect.png" dy="0.1000" />
     </static-object>
     <static-object model="arrow.b3d" xyz="44.46 -3.15 -69.84" hpr="0.0 105.2 0.0" scale="1.00 1.00 1.00">
-    <animated-texture name="zipper.png" dy="1.500" />
+    <animated-texture name="zipper.png" dy="1.5000" />
     </static-object>
   </track>
   <object type="animation" xyz="113.41 1.08 103.22" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="mini_pillar.b3d" skeletal-animation="false">

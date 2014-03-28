@@ -28,6 +28,8 @@
   <material name="stktex_palmLeafDry_a.png" compositing="test" ignore="Y" />
   <material name="stktex_jungleLiana_a.png" compositing="test" ignore="Y" />
   
+  <material name="stktex_generic_cobbleStoneA.png" has-gravity="Y" />
+  
   
 
   <material name="stktex_hayFiber_a.png" compositing="test" graphical-effect="grass" ignore="Y"/>
