@@ -1053,6 +1053,8 @@ class ImagePickerMenu(bpy.types.Menu):
 
         for i,curr in enumerate(bpy.data.images):
             
+            if (curr.library is not None): continue
+            
             if (i % 20 == 0):
                 col = row.column()
             
