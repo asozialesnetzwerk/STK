@@ -2740,12 +2740,22 @@ class STK_Track_Export_Operator(bpy.types.Operator):
             log_error("You must be in object mode")
             return {'FINISHED'}
         
-        isNotATrack = ('is_stk_track' not in context.scene) or (context.scene['is_stk_track'] != 'true')
-        isNotANode = ('is_stk_node' not in context.scene) or (context.scene['is_stk_node'] != 'true')
+        isATrack = ('is_stk_track' in context.scene) and (context.scene['is_stk_track'] == 'true')
+        isANode = ('is_stk_node' in context.scene) and (context.scene['is_stk_node'] == 'true')
         
-        if isNotATrack and isNotANode:
+        if not isATrack and not isANode:
             log_error("Not a STK library node or a track!")
             return {'FINISHED'}
+        
+        if isANode and 'libraryrootpath' in context.scene and context.scene['libraryrootpath'] is not None and len(context.scene['libraryrootpath']) > 0:
+            folder = os.path.join(context.scene['libraryrootpath'], context.scene['name'])
+            
+            if not os.path.exists(folder):
+                os.makedirs(folder)
+            
+            self.filepath = os.path.join(folder, context.scene['name'])
+            
+            return self.execute(context)
         
         if 'stk_last_export_path' not in context.scene or context.scene['stk_last_export_path'] is None or not os.path.exists(os.path.split(context.scene['stk_last_export_path'])[0]):
             blend_filepath = os.path.splitext(context.blend_data.filepath)[0]
@@ -2806,6 +2816,36 @@ class STK_Clean_Log_Operator(bpy.types.Operator):
         print("Log cleaned")
         return {'FINISHED'}
 
+class STK_Create_LibPath_Operator(bpy.types.Operator):
+    bl_idname = ("screen.stk_create_lib_path_var")
+    bl_label = ("Select library path...")
+
+    def execute(self, context):
+        context.scene["libraryrootpath"] = ""
+        return {'FINISHED'}
+        
+class STK_FolderPicker_Operator(bpy.types.Operator):
+    """Test exporter which just writes hello world"""
+    bl_idname = "screen.stk_pick_lib_path"
+    bl_label = "Select the library folder"
+
+    filepath = bpy.props.StringProperty(subtype="DIR_PATH")
+
+    @classmethod
+    def poll(cls, context):
+        return True
+
+    def execute(self, context):
+        import bpy.path
+        import os.path
+        context.scene['libraryrootpath'] = os.path.dirname(bpy.path.abspath(self.filepath))
+        return {'FINISHED'}
+
+    def invoke(self, context, event):
+        context.window_manager.fileselect_add(self)
+        return {'RUNNING_MODAL'}
+        
+        
 # ==== PANEL ====
 class STK_Track_Exporter_Panel(bpy.types.Panel):
     bl_label = "Track Exporter"
@@ -2828,7 +2868,17 @@ class STK_Track_Exporter_Panel(bpy.types.Panel):
         # ==== Types group ====
         row = layout.row()
         
-        row.operator("screen.stk_track_export", "Export track" if isNotANode else "Export library node", icon='BLENDER')
+        if isNotANode:
+            row.operator("screen.stk_track_export", "Export track", icon='BLENDER')
+        else:
+            if "libraryrootpath" in the_scene:
+                row.prop(the_scene, '["libraryrootpath"]', text='Library path')
+                row.operator('screen.stk_pick_lib_path', icon='FILESEL', text='')
+            else:
+                #row.operator("screen.stk_create_lib_path_var")
+                row.operator('screen.stk_pick_lib_path', icon='FILESEL')
+            row = layout.row()
+            row.operator("screen.stk_track_export", "Export library node", icon='BLENDER')
         
         if bpy.context.mode != 'OBJECT':
             row.enabled = False
@@ -2859,17 +2909,17 @@ class STK_Track_Exporter_Panel(bpy.types.Panel):
 
 
 # Add to a menu
-def menu_func_export(self, context):
+def menu_func_export_stktrack(self, context):
     global the_scene
     the_scene = context.scene
     self.layout.operator(STK_Track_Export_Operator.bl_idname, text="STK Track")
 
 def register():
-    bpy.types.INFO_MT_file_export.append(menu_func_export)
+    bpy.types.INFO_MT_file_export.append(menu_func_export_stktrack)
     bpy.utils.register_module(__name__)
 
 def unregister():
-    bpy.types.INFO_MT_file_export.remove(menu_func_export)
+    bpy.types.INFO_MT_file_export.remove(menu_func_export_stktrack)
 
 if __name__ == "__main__":
     register()
