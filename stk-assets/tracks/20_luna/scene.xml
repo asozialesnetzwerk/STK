@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15125 -->
+<!--  Generated with script from SVN rev 15125 -->
 <scene>
   <track model="luna_01_track.b3d" x="0" y="0" z="0"/>
   <object type="animation" xyz="-156.30 -19.86 117.24" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="Circle.001.b3d" skeletal-animation="false">
