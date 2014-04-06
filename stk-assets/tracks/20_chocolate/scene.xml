@@ -60,7 +60,7 @@
   </object>
   <object type="animation" xyz="172.03 -1.58 -18.35" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_river.b3d" displacing="true" skeletal-animation="false">
   </object>
-  <sun  fog="true" fog-color="75 99 74" fog-start="50.00" fog-end="500.00" xyz="-101.79 1233.72 -177.03" sun-specular="103 99 86" sun-diffuse="211 235 110" ambient="91 103 86"/>
+  <sun  fog="true" fog-color="75 99 74" fog-start="50.00" fog-end="500.00" xyz="-1981.83 277.70 -177.03" sun-specular="103 99 86" sun-diffuse="211 235 110" ambient="91 103 86"/>
   <sky-color rgb="77 104 255"/>
   <sky-box texture="skybox5.jpg skybox6.png skybox4.jpg skybox2.jpg skybox3.jpg skybox1.jpg"/>
   <camera far="15000.0"/>
