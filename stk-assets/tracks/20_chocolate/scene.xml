@@ -3,6 +3,7 @@
 <scene>
   <track model="rock_fountain_0.b3d_track.b3d" x="0" y="0" z="0">
     <static-object model="choco_part_0.b3d" xyz="273.30 18.21 -46.18" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" tangents="true"/>
+    <static-object model="choco_part_1.b3d" xyz="110.57 23.10 -246.92" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" tangents="true"/>
     <static-object model="torch_test.b3d" xyz="-67.88 13.39 -162.95" hpr="0.0 -0.0 0.0" scale="0.35 0.35 0.35">
     <animated-texture name="movie_test.png" dy="0.0625"  animByStep="true" dt="0.050" />
     </static-object>
