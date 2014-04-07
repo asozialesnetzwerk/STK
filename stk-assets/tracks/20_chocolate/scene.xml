@@ -17,10 +17,10 @@
     <animated-texture name="movie_test.png" dy="0.0625"  animByStep="true" dt="0.050" />
     </static-object>
     <static-object model="waterfall_test.b3d" xyz="158.79 74.13 -352.63" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
-    <animated-texture name="monumentWater3.png" dy="-0.5000" />
+    <animated-texture name="monumentWater3.png" dy="-1.0000" />
     </static-object>
     <static-object model="waterfall_test.b3d" xyz="154.81 142.63 -369.86" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
-    <animated-texture name="monumentWater3.png" dy="-0.5000" />
+    <animated-texture name="monumentWater3.png" dy="-1.0000" />
     </static-object>
     <static-object model="stklib_metalSupportBeam_a_main.b3d" xyz="231.53 14.38 103.29" hpr="0.0 50.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object model="stklib_metalSupportBeam_a_main.b3d" xyz="246.85 14.38 116.14" hpr="0.0 50.0 0.0" scale="1.00 1.00 1.00"/>
@@ -60,7 +60,7 @@
   </object>
   <object type="animation" xyz="172.03 -1.58 -18.35" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_river.b3d" displacing="true" skeletal-animation="false">
   </object>
-  <sun  fog="true" fog-color="75 99 74" fog-start="50.00" fog-end="500.00" xyz="-1981.83 277.70 -177.03" sun-specular="103 99 86" sun-diffuse="211 235 110" ambient="91 103 86"/>
+  <sun  fog="true" fog-color="75 99 74" fog-start="50.00" fog-end="500.00" xyz="1395.19 277.70 -177.03" sun-specular="103 99 86" sun-diffuse="211 235 110" ambient="91 103 86"/>
   <sky-color rgb="77 104 255"/>
   <sky-box texture="skybox5.jpg skybox6.png skybox4.jpg skybox2.jpg skybox3.jpg skybox1.jpg"/>
   <camera far="15000.0"/>
