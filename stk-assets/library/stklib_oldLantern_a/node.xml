@@ -8,6 +8,6 @@
   <object type="billboard" texture="stklib_oldLantern_lensFlare_a.png" xyz="-0.00 -0.85 0.00" 
              width="5.110" height="5.113" fadeout="true" start="5.00" end="15.00">
   </object>
-  <light xyz="0.00 -0.85 0.00" distance="13.00" energy="2.00" color="255 190 78">
+  <light xyz="0.00 -1.35 0.00" distance="13.00" energy="1.00" color="255 190 78">
   </light>
 </scene>
