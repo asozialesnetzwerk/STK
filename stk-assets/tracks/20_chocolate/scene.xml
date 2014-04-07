@@ -19,7 +19,7 @@
     <static-object model="waterfall_test.b3d" xyz="158.79 74.13 -352.63" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
     <animated-texture name="monumentWater3.png" dy="-0.5000" />
     </static-object>
-    <static-object model="waterfall_test.b3d" xyz="158.82 136.34 -369.35" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+    <static-object model="waterfall_test.b3d" xyz="154.81 142.63 -369.86" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
     <animated-texture name="monumentWater3.png" dy="-0.5000" />
     </static-object>
     <static-object model="stklib_metalSupportBeam_a_main.b3d" xyz="231.53 14.38 103.29" hpr="0.0 50.0 0.0" scale="1.00 1.00 1.00"/>
