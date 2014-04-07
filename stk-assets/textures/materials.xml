@@ -19,7 +19,7 @@
   <material name="waterparticles.png"    compositing="blend" ignore="Y"/>
   <material name="particle_water.png"    compositing="blend" ignore="Y"/>
   
-  <!-- Textures graphical-effect="normal_map" normal-map="stktex_generic_cobbleStoneA_nm.png"-->
+  <!-- Textures graphical-effect="normal_map" normal-map="stktex_generic_cobbleStoneA_nm.png" graphical-effect="grass"-->
   
   <material name="ants.png" compositing="test"/>
   <material name="stktex_jungleLeaf_a.png" compositing="test" graphical-effect="grass"/>
@@ -45,7 +45,7 @@
   </material>
   
   <material name="butterfly.png"         compositing="test" light="N" clampU="Y" clampV="Y" ignore="Y"/>
-  <material name="stk_grassAlpha.png"         compositing="test" graphical-effect="grass" ignore="Y"/>
+  <material name="stk_grassAlpha.png"         compositing="test"  ignore="Y"/>
   
   <material name="chess.png">
     <particles base="smoke.xml" condition="skid" />
