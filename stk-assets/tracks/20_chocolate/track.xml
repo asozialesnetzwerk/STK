@@ -10,5 +10,6 @@
         reverse        = "Y"
         color-level-in = "0.0 0.7200000286102295 180.0"
         color-level-out = "0.0 255.0"
+        god-rays       = "Y"
 >
 </track>
