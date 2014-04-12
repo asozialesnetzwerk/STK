@@ -26,7 +26,9 @@
   <material name="stktex_usSignAtlas_a.png" compositing="test"/>
   <material name="stktex_palmLeaf_a.png" compositing="test" ignore="Y" graphical-effect="grass"/>
   <material name="stktex_palmLeafDry_a.png" compositing="test" ignore="Y" graphical-effect="grass"/>
-  <material name="stktex_jungleLiana_a.png" compositing="test" ignore="Y" />
+  <material name="stktex_jungleLiana_a.png" compositing="test" ignore="Y" graphical-effect="grass"/>
+
+  <material name="stktex_jungleLeaf_b.png" compositing="test" ignore="Y" graphical-effect="grass"/>
   
   <material name="stktex_generic_cobbleStoneA.png" has-gravity="Y" graphical-effect="normal_map" normal-map="stktex_generic_cobbleStoneA_nm.png"/>
   
