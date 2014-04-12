@@ -11,6 +11,8 @@
   <material name="grass2dirt.png" clampu="Y"/>
   <material name="GrassTall.png" light="N" backface-culling="N" compositing="test" ignore="Y"/>
   <material name="jungleWater.png" compositing="blend" disable-z-write="Y"/>
+  <material name="stklib_liana_diff_a.png" compositing="test"/>
+  <material name="stklib_liana_diff_a.png" compositing="test"/>
   <material name="monumentWater3.png" compositing="blend" disable-z-write="Y"/>
   <material name="mossy_stone.png" high-adhesion="true"/>
   <material name="movie_test.png" light="N" compositing="additive" disable-z-write="Y"/>
@@ -37,4 +39,5 @@
   <material name="zipper_jungle.png" backface-culling="N" compositing="blend" disable-z-write="Y" has-gravity="Y">
     <zipper duration="5.5" max-speed-increase="5.0" fade-out-time="5.0" speed-gain="2.0" min-speed="2.0"/>
   </material>
+  <material name="stklib_liana_diff_a.png" compositing="test"/>
 </materials>
