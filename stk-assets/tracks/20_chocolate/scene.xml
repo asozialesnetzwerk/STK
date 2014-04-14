@@ -4,9 +4,6 @@
   <track model="rock_fountain_0.b3d_track.b3d" x="0" y="0" z="0">
     <static-object model="choco_part_0.b3d" xyz="273.30 18.21 -46.18" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" tangents="true"/>
     <static-object model="choco_part_1.b3d" xyz="110.57 23.10 -246.92" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" tangents="true"/>
-    <static-object model="torch_test.b3d" xyz="-55.34 9.78 -164.20" hpr="0.0 -0.0 0.0" scale="0.35 0.35 0.35">
-    <animated-texture name="movie_test.png" dy="0.0625"  animByStep="true" dt="0.050" />
-    </static-object>
     <static-object model="torch_test.b3d" xyz="-67.88 13.39 -162.95" hpr="0.0 -0.0 0.0" scale="0.35 0.35 0.35">
     <animated-texture name="movie_test.png" dy="0.0625"  animByStep="true" dt="0.050" />
     </static-object>
@@ -90,10 +87,6 @@
   </particle-emitter>
   <particle-emitter kind="droplet.xml" xyz="170.73 101.72 -322.41" h="0.00">
   </particle-emitter>
-  <particle-emitter kind="black_smoke.xml" xyz="-55.29 9.55 -163.95" h="0.00">
-  </particle-emitter>
-  <particle-emitter kind="fire.xml" xyz="-55.35 8.48 -163.88" h="0.00" clip_distance="200">
-  </particle-emitter>
   <particle-emitter kind="fire.xml" xyz="-67.89 12.08 -162.64" h="0.00" clip_distance="200">
   </particle-emitter>
   <particle-emitter kind="fire.xml" xyz="-9.20 13.25 -141.48" h="-8.14" clip_distance="200">
@@ -129,7 +122,9 @@
   </object>
   <light xyz="-67.90 13.06 -162.67" distance="25.00" energy="1.00" color="255 135 76">
   </light>
-  <light xyz="-55.38 9.05 -163.94" distance="25.00" energy="1.00" color="255 135 76">
+  <light xyz="-55.38 9.05 -163.94" distance="25.00" energy="0.10" color="255 135 76">
+  </light>
+  <light xyz="-55.22 9.05 -191.68" distance="25.00" energy="1.00" color="255 135 76">
   </light>
   <default-start karts-per-row     ="2"
                  forwards-distance ="1.50"
