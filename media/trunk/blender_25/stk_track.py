@@ -2462,8 +2462,8 @@ class TrackExport:
             sSky="%s fog=\"true\""%sSky
             s=getSceneProperty(scene, "fog_color", 0)
             if s: sSky="%s fog-color=\"%s\""%(sSky, s)
-            s=getSceneProperty(scene, "fog_density", 0)
-            if s: sSky="%s fog-density=\"%s\""%(sSky, s)
+            s=float(getSceneProperty(scene, "fog_max", 0))
+            if s: sSky="%s fog-max=\"%s\""%(sSky, s)
             s=float(getSceneProperty(scene, "fog_start", 0))
             if s: sSky="%s fog-start=\"%.2f\""%(sSky, s)
             s=float(getSceneProperty(scene, "fog_end", 0))
