@@ -22,6 +22,7 @@
   </material>
   <material name="roof.png" backface-culling="N"/>
   <material name="seabed.jpg" falling-effect="Y" water-splash="Y"/>
+  <material name="sky_gradient_test.png" fog="N" light="N"/>
   <material name="skybox_mountain.png" compositing="test" disable-z-write="Y"/>
   <material name="stk_branch.png" compositing="test"/>
   <material name="stktex_generic_aztekWall_a.png" has-gravity="Y"/>
