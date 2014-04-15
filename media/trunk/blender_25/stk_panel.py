@@ -1045,19 +1045,25 @@ class ImagePickerMenu(bpy.types.Menu):
     bl_label  = "SuperTuxKart Image Menu"
     
     def draw(self, context):
+        import bpy.path
+    
         objects = context.scene.objects
         
         layout = self.layout
         row = layout.row()
         col = row.column()
 
-        for i,curr in enumerate(bpy.data.images):
+        blend_path = bpy.path.abspath("//")
+        
+        i = 0
+        for curr in bpy.data.images:
             
             if (curr.library is not None): continue
+            if (not bpy.path.abspath(curr.filepath).startswith(blend_path)): continue
             
             if (i % 20 == 0):
                 col = row.column()
-            
+            i += 1
             col.operator("scene.stk_select_image", text=curr.name).name=curr.name
 
 bpy.utils.register_class(ImagePickerMenu)
