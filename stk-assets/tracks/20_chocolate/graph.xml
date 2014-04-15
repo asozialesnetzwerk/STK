@@ -6,7 +6,7 @@
   <!-- Define the main loop -->
   <edge-loop from="0" to="227"/>
   <!-- Shortcut BezierCurve.024 -->
-  <edge from="181" to="228"/>
+  <edge from="18" to="228"/>
   <edge-line from="228" to="339"/>
-  <edge from="339" to="225"/>
+  <edge from="339" to="62"/>
 </graph>
