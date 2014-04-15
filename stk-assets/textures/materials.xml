@@ -21,7 +21,11 @@
   
   <!-- Textures graphical-effect="normal_map" normal-map="stktex_generic_cobbleStoneA_nm.png" graphical-effect="grass"-->
   
+  
+  
   <material name="ants.png" compositing="test"/>
+  <material name="stktex_branches_diff_a.png" compositing="test" graphical-effect="grass"/>
+  
   <material name="stktex_jungleLeaf_a.png" compositing="test" graphical-effect="grass"/>
   <material name="stktex_usSignAtlas_a.png" compositing="test"/>
   <material name="stktex_palmLeaf_a.png" compositing="test" ignore="Y" graphical-effect="grass"/>
