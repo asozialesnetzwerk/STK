@@ -59,7 +59,7 @@
   </object>
   <object type="animation" xyz="172.03 -1.58 -18.35" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_river.b3d" displacing="true" skeletal-animation="false">
   </object>
-  <sun  fog="true" fog-color="57 97 125" fog-max="0.10000000149011612" fog-start="50.00" fog-end="1000.00" xyz="2586.94 932.82 -177.03" sun-specular="103 99 86" sun-diffuse="211 235 110" ambient="91 103 86"/>
+  <sun  fog="true" fog-color="57 97 125" fog-max="0.10000000149011612" fog-start="50.00" fog-end="1000.00" xyz="-1524.99 932.82 -177.03" sun-specular="103 99 86" sun-diffuse="211 235 110" ambient="91 103 86"/>
   <sky-color rgb="77 104 255"/>
   <weather type="rain" />
   <sky-box texture="skybox5.jpg skybox6.png skybox4.jpg skybox2.jpg skybox3.jpg skybox1.jpg"/>
