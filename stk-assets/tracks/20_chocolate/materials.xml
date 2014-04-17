@@ -41,4 +41,5 @@
   <material name="stktex_redFlower_a.png" compositing="test" graphical-effect="grass" disable-z-write="Y" grass-speed="1.50"/>
   <material name="stktex_branches_diff_a.png" compositing="test" graphical-effect="grass" ignore="Y" grass-speed="1.50"/>
   <material name="stktex_greenBrush_a.png" compositing="test" graphical-effect="grass" disable-z-write="Y" grass-speed="1.50"/>
+  <material name="stktex_fern_diff_a.png" compositing="test" graphical-effect="grass" grass-speed="1.50"/>
 </materials>
