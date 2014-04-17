@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 15230 -->
+<scene>
+  <object type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="stklib_fern_a.b3d" skeletal-animation="false">
+  </object>
+</scene>
