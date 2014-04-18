@@ -1,7 +1,10 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15103 -->
+<!-- Generated with script from SVN rev 15227 -->
 <scene>
-  <track model="islandtrack_track.b3d" x="0" y="0" z="0"/>
+  <track model="islandtrack_track.b3d" x="0" y="0" z="0">
+    <static-object model="Water.b3d" xyz="10.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+  </track>
+  <sun  fog="true" fog-color="113 202 234" fog-start="50.00" fog-end="750.00"/>
   <sky-box texture="genericskybox_top.jpg genericskybox_bottom.jpg genericskybox_east.jpg genericskybox_west.jpg genericskybox_south.jpg genericskybox_north.jpg"/>
   <camera far="1000.0"/>
   <checks>
@@ -25,7 +28,6 @@
     <camera type="static_follow_kart" xyz="-24.391632 7.255007 -65.730881" distance="35.0"/> <!-- EndCam9 -->
     <camera type="ahead_of_kart" xyz="28.764820 7.255023 -91.457855" distance="35.0"/> <!-- EndCam10 -->
   </end-cameras>
-  <water model="Water.b3d" xyz="10.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="0.60" speed="300.00" length="10.00"/>
   <banana x="-67.24" y="-1.30" z="-85.76" />
   <item x="-10.77" y="0.90" z="57.93" />
   <item x="-44.49" y="25.00" z="27.90" />
