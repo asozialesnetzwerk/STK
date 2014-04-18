@@ -2012,6 +2012,9 @@ class TrackExport:
         if getObjectProperty(obj, "skyboxobject", "false") == "true":
             flags.append('renderpass="skybox"')
             
+        if getObjectProperty(obj, "soccer_ball", "false") == "true":
+            flags.append('soccer_ball="true"')
+            
         uses_skeletal_animation = False
             
         # check if this object has an armature modifier
@@ -2222,6 +2225,9 @@ class TrackExport:
             
             if getObjectProperty(obj, "skyboxobject", "false") == "true":
                 flags.append('renderpass="skybox"')
+                
+            if getObjectProperty(obj, "soccer_ball", "false") == "true":
+                flags.append('soccer_ball="true"')
             
             uses_skeletal_animation = False
             
@@ -2334,6 +2340,8 @@ class TrackExport:
             elif getObjectProperty(obj, "displacing", "false") == "true":
                 export_non_static = True
             elif getObjectProperty(obj, "skyboxobject", "false") == "true":
+               export_non_static = True
+            elif getObjectProperty(obj, "soccer_ball", "false") == "true":
                export_non_static = True
             elif is_lib_node:
                 export_non_static = True
