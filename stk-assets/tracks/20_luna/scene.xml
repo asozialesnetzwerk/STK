@@ -1,29 +1,22 @@
 <?xml version="1.0"?>
-<!--  Generated with script from SVN rev 15125 -->
+<!-- Generated with script from SVN rev 15230 -->
 <scene>
   <track model="luna_01_track.b3d" x="0" y="0" z="0"/>
-  <object type="animation" xyz="-156.30 -19.86 117.24" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="Circle.001.b3d" skeletal-animation="false">
-    <curve channel="LocX" interpolation="bezier" extend="const">
-      <p c="0.000 -156.298" h1="-195.206 -156.298" h2="195.206 -156.298"/>
-      <p c="500.000 -156.298" h1="304.794 -156.298" h2="695.206 -156.298"/>
-      <p c="1000.000 -156.298" h1="804.794 -156.298" h2="1195.206 -156.298"/>
-    </curve>
-    <curve channel="LocZ" interpolation="bezier" extend="const">
-      <p c="0.000 117.238" h1="-195.206 117.238" h2="195.206 117.238"/>
-      <p c="500.000 117.238" h1="304.794 117.238" h2="695.206 117.238"/>
-      <p c="1000.000 117.238" h1="804.794 117.238" h2="1195.206 117.238"/>
-    </curve>
-    <curve channel="LocY" interpolation="bezier" extend="const">
-      <p c="0.000 -19.864" h1="-195.196 -19.864" h2="195.196 -19.864"/>
-      <p c="500.000 -14.864" h1="304.794 -14.864" h2="695.206 -14.864"/>
-      <p c="1000.000 -19.864" h1="804.804 -19.864" h2="1195.196 -19.864"/>
-    </curve>
+  <object type="animation" xyz="-156.30 -19.86 164.24" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="Circle.001.b3d" skeletal-animation="false">
   </object>
   <sun  xyz="0.00 174.65 761.34" sun-diffuse="255 109 77" ambient="120 120 120"/>
   <sky-box texture="sky.png sky.png sky.png sky.png sky.png sky.png"/>
   <camera far="8000.0"/>
   <checks>
     <check-lap kind="lap" same-group="0"  />
+    <cannon p1="-190.64 15.51 -243.26" p2="-165.17 15.51 -243.26" target-p1="-169.84 13.16 71.41" target-p2="-151.35 13.05 75.43">
+    <curve channel="LocXYZ" speed="100.00" curvetype="bezier" extend="const">
+      <point c="-180.335190 16.566523 -242.263840" h1="-180.581558 6.476151 -255.035538" h2="-179.819977 37.666534 -215.556900" />
+      <point c="-177.453888 139.690109 -128.240616" h1="-175.939133 146.251022 -200.372604" h2="-178.211273 136.409653 -92.174637" />
+      <point c="-181.955597 130.306808 13.652954" h1="-185.866425 145.009277 -39.283615" h2="-178.044785 115.604340 66.589523" />
+      <point c="-162.935394 12.320139 71.098984" h1="-174.816910 11.565032 -0.647362" h2="-159.197723 12.557680 93.668869" />
+    </curve>
+    </cannon>
   </checks>
   <default-start karts-per-row     ="2"
                  forwards-distance ="1.50"

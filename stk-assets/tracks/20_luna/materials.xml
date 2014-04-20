@@ -3,4 +3,8 @@
 <materials>
   <material name="city_fern.png" light="N" compositing="blend"/>
   <material name="pavements0.png" has-gravity="Y"/>
+  <material name="portal.png" compositing="test" disable-z-write="Y"/>
+  <material name="zipper_jungle.png" compositing="additive" disable-z-write="Y">
+    <zipper duration="5.5" max-speed-increase="5.0" fade-out-time="5.0" speed-gain="2.0" min-speed="2.0"/>
+  </material>
 </materials>
