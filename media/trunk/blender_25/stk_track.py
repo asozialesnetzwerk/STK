@@ -2512,6 +2512,27 @@ class TrackExport:
         
         scene   = the_scene
         sky     = getSceneProperty(scene, "sky_type", None)
+        
+        sphericalHarmonicsStr = ""
+        if getSceneProperty(scene, "ambientmap", "false") == "true":
+            sphericalHarmonicsTextures = []
+            s = getSceneProperty(scene, "ambientmap_texture2", "")
+            if len(s) > 0: sphericalHarmonicsTextures.append(s)
+            s = getSceneProperty(scene, "ambientmap_texture3", "")
+            if len(s) > 0: sphericalHarmonicsTextures.append(s)
+            s = getSceneProperty(scene, "ambientmap_texture4", "")
+            if len(s) > 0: sphericalHarmonicsTextures.append(s)
+            s = getSceneProperty(scene, "ambientmap_texture5", "")
+            if len(s) > 0: sphericalHarmonicsTextures.append(s)
+            s = getSceneProperty(scene, "ambientmap_texture6", "")
+            if len(s) > 0: sphericalHarmonicsTextures.append(s)
+            s = getSceneProperty(scene, "ambientmap_texture1", "")
+            if len(s) > 0: sphericalHarmonicsTextures.append(s)
+            if len(sphericalHarmonicsTextures) == 6:
+                sphericalHarmonicsStr = 'sh-texture="' + " ".join(sphericalHarmonicsTextures) + '"'
+            else:
+                log_warning('Invalid ambient map textures')
+        
         # Note that there is a limit to the length of id properties,
         # which can easily be exceeded by 6 sky textures for a full sky box.
         # Therefore also check for sky-texture1 and sky-texture2.
@@ -2529,11 +2550,11 @@ class TrackExport:
                 speed_x        = getSceneProperty(scene, "sky_speed_x",         0.0)
                 speed_y        = getSceneProperty(scene, "sky_speed_y",         0.0)
                 f.write("""
-  <sky-dome texture=\"%s\"
+  <sky-dome texture=\"%s\" %s
             horizontal=\"%s\" vertical=\"%s\" 
             texture-percent=\"%s\" sphere-percent=\"%s\"
             speed-x=\"%s\" speed-y=\"%s\" />
-""" %(texture, hori, verti, tex_percent, sphere_percent, speed_x, speed_y))
+""" %(texture, sphericalHarmonicsStr, hori, verti, tex_percent, sphere_percent, speed_x, speed_y))
             elif sky=="box":
                 lTextures = [getSceneProperty(scene, "sky_texture2", ""),
                              getSceneProperty(scene, "sky_texture3", ""),
@@ -2541,8 +2562,7 @@ class TrackExport:
                              getSceneProperty(scene, "sky_texture5", ""),
                              getSceneProperty(scene, "sky_texture6", ""),
                              getSceneProperty(scene, "sky_texture1", "")]
-                f.write("  <sky-box texture=\"%s\"/>\n" % \
-                            " ".join(lTextures))
+                f.write("  <sky-box texture=\"%s\" %s/>\n" % (" ".join(lTextures), sphericalHarmonicsStr))
                 
         camera_far  = getSceneProperty(scene, "camera_far", ""             )
         if camera_far:            

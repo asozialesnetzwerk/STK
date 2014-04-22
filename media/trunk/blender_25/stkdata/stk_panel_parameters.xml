@@ -40,6 +40,14 @@
             <ColorProp id="sky_color" name="Sky Color" default="77 104 255" doc="Click here to select the color of the sky"/>
         </EnumChoice>
     </EnumProp>
+    <BoolProp id="ambientmap" name="Ambient light map" default="false" doc="(Spherical harmonics lighting) Cube map used to provide less flat ambient lighting">
+        <StringProp id="ambientmap_texture2" name="Ambient map, Top" default=""/>
+        <StringProp id="ambientmap_texture3" name="Ambient map, Bottom" default=""/>
+        <StringProp id="ambientmap_texture4" name="Ambient map, East" default=""/>
+        <StringProp id="ambientmap_texture5" name="Ambient map, West" default=""/>
+        <StringProp id="ambientmap_texture1" name="Ambient map, North" default=""/>
+        <StringProp id="ambientmap_texture6" name="Ambient map, South" default=""/>
+    </BoolProp>
     <BoolProp id="arena" name="Battle Arena" default="false" doc="Whether this scene is a battle arena"/>
     <BoolProp id="fog" name="Fog" default="false" doc="Whether to enable fog in the track">
         <ColorProp id="fog_color" name="Fog Color" default="0 0 0" doc="Click here to pick the color of the fog"/>

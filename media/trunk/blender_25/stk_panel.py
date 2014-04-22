@@ -859,7 +859,6 @@ class PanelBase:
                 icon = 'TRIA_DOWN'
                 if id in bpy.data.scenes[0]:
                     state = bpy.data.scenes[0][id]
-                    print(" state", state)
                     if state == "true":
                         icon = 'TRIA_DOWN'
                     else:
@@ -1053,13 +1052,13 @@ class ImagePickerMenu(bpy.types.Menu):
         row = layout.row()
         col = row.column()
 
-        blend_path = bpy.path.abspath("//")
+        blend_path = os.path.abspath(bpy.path.abspath("//"))
         
         i = 0
         for curr in bpy.data.images:
             
             if (curr.library is not None): continue
-            if (not bpy.path.abspath(curr.filepath).startswith(blend_path)): continue
+            if (not os.path.abspath(bpy.path.abspath(curr.filepath)).startswith(blend_path)): continue
             
             if (i % 20 == 0):
                 col = row.column()
