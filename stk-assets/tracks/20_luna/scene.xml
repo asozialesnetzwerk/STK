@@ -24,10 +24,7 @@
                  forwards-distance ="1.50"
                  sidewards-distance="3.00"
                  upwards-distance  ="0.10"/>
-  <library name="stklib_balcony_a" xyz="10.11 5.08 -184.73" hpr="-0.0 -90.0 0.0" scale="2.90 2.90 1.74"/>
-  <library name="stklib_balcony_a" xyz="-39.33 68.08 -180.73" hpr="-0.0 -90.0 0.0" scale="2.90 2.90 2.90"/>
-  <library name="stklib_balcony_a" xyz="-138.33 22.08 -39.92" hpr="0.0 -0.0 0.0" scale="2.90 2.90 2.90"/>
-  <library name="stklib_balcony_a" xyz="-86.12 5.08 -185.26" hpr="-0.0 -90.0 0.0" scale="2.90 2.90 1.74"/>
+  <library name="stklib_balcony_a" xyz="-38.05 69.08 -180.73" hpr="-0.0 -90.0 0.0" scale="2.90 2.90 2.90"/>
   <library name="stklib_loveAlcove_a" xyz="-11.23 1.51 -306.11" hpr="-0.0 -157.1 -0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_loveAlcove_a" xyz="-7.50 1.51 -217.54" hpr="-0.0 170.0 -0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_loveAlcove_a" xyz="-2.44 1.51 -262.16" hpr="-0.0 178.3 -0.0" scale="1.00 1.00 1.00"/>
@@ -41,5 +38,5 @@
   <library name="stklib_loveLantern_a" xyz="-70.84 24.56 -339.28" hpr="0.0 177.2 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_loveLantern_a" xyz="-13.84 24.56 -196.27" hpr="-0.0 81.8 -0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_loveLantern_a" xyz="-24.03 27.68 -286.26" hpr="0.0 -5.2 -0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_pinkRibbon_a" xyz="-38.00 54.55 -182.44" hpr="90.0 0.0 -180.0" scale="4.80 4.80 4.80"/>
+  <library name="stklib_pinkRibbon_a" xyz="-38.00 52.91 -181.34" hpr="90.0 0.0 -180.0" scale="4.80 4.80 4.80"/>
 </scene>
