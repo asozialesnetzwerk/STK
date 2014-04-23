@@ -1934,6 +1934,8 @@ class TrackExport:
         if has_bloom:
             f.write("        bloom          = \"Y\"\n")
             f.write("        bloom-threshold = \"%s\"\n" % bloom_threshold)
+        else:
+            f.write("        bloom          = \"N\"\n")
 
         if has_colorlevel:
             f.write("        color-level-in = \"" + str(colorlevel_inblack) + " " + str(colorlevel_ingamma) + " " + str(colorlevel_inwhite) + "\"\n")
@@ -1941,15 +1943,23 @@ class TrackExport:
 
         if has_cloud_shadows:
             f.write("        clouds         = \"Y\"\n")
+        else:
+            f.write("        clouds         = \"N\"\n")
         
         if has_lens_flare:
             f.write("        lens-flare     = \"Y\"\n")
+        else:
+            f.write("        lens-flare     = \"N\"\n")
         
         if has_shadows:
             f.write("        shadows        = \"Y\"\n")
+        else:
+            f.write("        shadows        = \"N\"\n")
         
         if has_god_rays:
             f.write("        god-rays       = \"Y\"\n")
+        else:
+            f.write("        god-rays       = \"N\"\n")
         
         
         f.write(">\n")
