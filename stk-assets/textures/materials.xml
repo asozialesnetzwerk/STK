@@ -34,7 +34,9 @@
 
   <material name="stktex_jungleLeaf_b.png" compositing="test" ignore="Y" graphical-effect="grass"/>
   
+  <!-- Normal map -->
   <material name="stktex_generic_cobbleStoneA.png" has-gravity="Y" graphical-effect="normal_map" normal-map="stktex_generic_cobbleStoneA_nm.png"/>
+  <material name="stk_generic_ironA.png" has-gravity="Y" graphical-effect="normal_map" normal-map="stk_generic_ironA_nm.png"/>
   
   
 
