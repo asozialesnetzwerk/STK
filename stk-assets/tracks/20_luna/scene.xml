@@ -26,6 +26,7 @@
                  upwards-distance  ="0.10"/>
   <library name="stklib_balcony_a" xyz="-38.05 69.08 -180.73" hpr="-0.0 -90.0 0.0" scale="2.90 2.90 2.90"/>
   <library name="stklib_chimney_a" xyz="-14.10 16.68 -71.80" hpr="-0.0 -90.0 0.0" scale="3.96 3.96 3.96"/>
+  <library name="stklib_chimney_a" xyz="-85.10 16.68 -57.80" hpr="0.0 -0.0 0.0" scale="3.96 3.96 3.96"/>
   <library name="stklib_loveAlcove_a" xyz="-11.23 1.51 -306.11" hpr="-0.0 -157.1 -0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_loveAlcove_a" xyz="-7.50 1.51 -217.54" hpr="-0.0 170.0 -0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_loveAlcove_a" xyz="-2.44 1.51 -262.16" hpr="-0.0 178.3 -0.0" scale="1.00 1.00 1.00"/>
