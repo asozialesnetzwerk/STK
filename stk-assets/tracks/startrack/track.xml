@@ -1,12 +1,18 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 14634 -->
+<!-- Generated with script from SVN rev 15295 -->
 <track  name           = "STK Enterprise"
-        version        = "5"
+        version        = "6"
         groups         = "standard"
         designer       = "rubberduck &amp; Jean-manuel Clemen&#231;on"
         music          = "xeon.music"
         screenshot     = "bild.png"
         smooth-normals = "false"
         reverse        = "Y"
+        bloom          = "Y"
+        bloom-threshold = "0.75"
+        clouds         = "N"
+        lens-flare     = "N"
+        shadows        = "N"
+        god-rays       = "N"
 >
 </track>
