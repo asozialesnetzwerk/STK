@@ -17,10 +17,9 @@
   <material name="lightHaloY.png" light="N" compositing="additive"/>
   <material name="lightLenFlareR.png" light="N" compositing="additive" disable-z-write="Y"/>
   <material name="moonHalo.png" compositing="additive" disable-z-write="Y"/>
-  <material name="pipe1a-core.png" light="N"/>
   <material name="reset.png" compositing="test" disable-z-write="Y" falling-effect="Y" reset="Y"/>
   <material name="supp1k.png" light="N" compositing="test" reset="Y"/>
   <material name="terminal_graphic.png" compositing="additive" disable-z-write="Y"/>
   <material name="terminal_text.png" compositing="additive" disable-z-write="Y"/>
-  <material name="window.png" light="N" compositing="blend"/>
+  <material name="window.png" compositing="blend"/>
 </materials>
