@@ -18,6 +18,7 @@
   <material name="lightLenFlareR.png" light="N" compositing="additive" disable-z-write="Y"/>
   <material name="moonHalo.png" compositing="additive" disable-z-write="Y"/>
   <material name="reset.png" compositing="test" disable-z-write="Y" falling-effect="Y" reset="Y"/>
+  <material name="spaceship_startline.png" compositing="additive" ignore="Y" disable-z-write="Y"/>
   <material name="supp1k.png" light="N" compositing="test" reset="Y"/>
   <material name="terminal_graphic.png" compositing="additive" disable-z-write="Y"/>
   <material name="terminal_text.png" compositing="additive" disable-z-write="Y"/>
