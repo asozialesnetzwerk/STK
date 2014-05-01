@@ -22,5 +22,8 @@
   <material name="supp1k.png" light="N" compositing="test" reset="Y"/>
   <material name="terminal_graphic.png" compositing="additive" disable-z-write="Y"/>
   <material name="terminal_text.png" compositing="additive" disable-z-write="Y"/>
+  <material name="trak3_light1a.png" light="N"/>
+  <material name="trak3_light1a.png" light="N"/>
+  <material name="trak3_light1b.png" light="N"/>
   <material name="window.png" compositing="blend"/>
 </materials>
