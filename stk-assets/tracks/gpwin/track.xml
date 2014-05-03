@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 15295 -->
+<track  name           = "gpwin"
+        version        = "6"
+        groups         = "standard"
+        designer       = "mmg"
+        music          = "kart_grand_prix.music"
+        cutscene       = "Y"
+        internal       = "Y"
+        screenshot     = "screenshot.jpg"
+        smooth-normals = "false"
+        reverse        = "N"
+        bloom          = "Y"
+        bloom-threshold = "0.75"
+        clouds         = "N"
+        lens-flare     = "N"
+        shadows        = "Y"
+        god-rays       = "N"
+>
+</track>

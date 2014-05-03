@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 15295 -->
+<scene>
+  <track model="gpwin_track.b3d" x="0" y="0" z="0"/>
+  <object type="cutscene_camera" xyz="1.43 2.66 -6.45" hpr="-71.5 -12.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="-0.65 -0.89 1.15" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="gpwin_podium1.b3d" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="0.18 -0.89 1.15" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="gpwin_podium2.b3d" skeletal-animation="false">
+  </object>
+  <object type="animation" xyz="1.00 -0.89 1.15" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="gpwin_podium3.b3d" skeletal-animation="false">
+  </object>
+  <sun  xyz="-8.90 12.71 -21.35" ambient="90 90 90"/>
+  <sky-box texture="genericskybox_top.jpg genericskybox_bottom.jpg genericskybox_east.jpg genericskybox_west.jpg genericskybox_south.jpg genericskybox_north.jpg" />
+  <camera far="1000.0"/>
+  <default-start karts-per-row     ="2"
+                 forwards-distance ="1.10"
+                 sidewards-distance="1.10"
+                 upwards-distance  ="1.10"/>
+  <library name="stklib_animGrass_a" xyz="-1.51 -0.60 0.84" hpr="0.0 -0.0 0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="4.10 -0.60 0.47" hpr="-0.0 -93.2 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="-3.03 -0.60 -0.59" hpr="-0.0 -107.8 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="-2.00 -0.60 -2.33" hpr="-0.0 -109.9 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="-1.59 -0.60 -1.13" hpr="-0.0 -130.3 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="-2.42 -0.60 -1.20" hpr="-0.0 167.6 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="0.96 -0.60 2.42" hpr="-0.0 -107.8 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="1.77 -0.60 2.36" hpr="-0.0 -168.3 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="1.57 -0.60 3.08" hpr="-0.0 -91.4 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="-2.11 -0.60 2.68" hpr="-0.0 -178.0 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="-2.06 -0.60 3.48" hpr="-0.0 91.7 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="-2.89 -0.60 3.38" hpr="-0.0 164.5 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="3.69 -0.60 1.37" hpr="-0.0 110.5 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="3.52 -0.60 2.62" hpr="-0.0 154.0 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="3.12 -0.60 3.67" hpr="-0.0 99.3 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="-4.25 -0.60 0.55" hpr="0.0 43.1 0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="-3.37 -0.60 0.87" hpr="0.0 -30.3 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="-3.34 -0.60 0.09" hpr="0.0 -63.0 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="-3.90 -0.60 1.29" hpr="0.0 -2.4 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="3.31 -0.60 -2.25" hpr="-0.0 154.9 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="4.33 -0.60 -1.34" hpr="-0.0 -129.8 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="2.77 -0.60 -1.11" hpr="-0.0 144.3 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="-2.44 -0.60 -3.07" hpr="-0.0 91.7 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="-2.64 -0.60 -1.96" hpr="-0.0 147.2 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="1.39 -0.12 5.29" hpr="-0.0 -168.3 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="2.40 -0.32 5.04" hpr="-0.9 -167.7 -14.4" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="0.05 -0.25 5.98" hpr="-13.7 127.9 4.1" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="3.27 -0.46 5.83" hpr="-0.0 120.4 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="4.32 -0.43 5.48" hpr="0.0 52.2 0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="4.92 -0.49 6.17" hpr="0.0 -2.6 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="5.73 -0.26 5.42" hpr="0.0 -2.6 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="-1.98 -0.34 5.49" hpr="-0.0 93.3 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="-3.10 -0.31 5.73" hpr="0.0 7.8 0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="2.79 -0.60 2.98" hpr="-0.0 119.3 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="2.53 -0.60 1.27" hpr="0.0 56.8 0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="3.08 -0.60 -0.02" hpr="0.0 -43.6 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="1.14 -0.60 3.65" hpr="-0.0 155.3 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="2.27 -0.60 3.65" hpr="-0.0 155.3 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="-3.86 -0.60 2.28" hpr="-0.0 -122.7 0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="-3.68 -0.49 3.09" hpr="0.0 -48.6 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="0.18 -0.60 3.88" hpr="-0.0 -107.8 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="-1.35 -0.60 3.54" hpr="-0.0 -107.8 -0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_animGrass_a" xyz="0.80 -0.39 4.65" hpr="-0.0 -107.8 -0.0" scale="0.44 0.44 0.44"/>
+</scene>
