@@ -2,7 +2,43 @@
 <!-- Generated with script from SVN rev 15295 -->
 <scene>
   <track model="gpwin_track.b3d" x="0" y="0" z="0"/>
-  <object type="cutscene_camera" xyz="1.43 2.66 -6.45" hpr="-71.5 -12.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="" skeletal-animation="false">
+  <object type="cutscene_camera" xyz="1.43 2.66 -8.04" hpr="-71.5 -12.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="" skeletal-animation="false">
+    <curve channel="LocX" interpolation="bezier" extend="const">
+      <p c="1.000 1.434" h1="-76.692 1.434" h2="78.692 1.434"/>
+      <p c="200.000 0.795" h1="122.308 0.795" h2="277.692 0.795"/>
+    </curve>
+    <curve channel="LocZ" interpolation="bezier" extend="const">
+      <p c="1.000 -8.036" h1="-76.692 -8.036" h2="78.692 -8.036"/>
+      <p c="200.000 -3.517" h1="122.308 -3.517" h2="277.692 -3.517"/>
+    </curve>
+    <curve channel="LocY" interpolation="bezier" extend="const">
+      <p c="1.000 2.663" h1="-76.692 2.663" h2="78.692 2.663"/>
+      <p c="200.000 2.004" h1="122.308 2.004" h2="277.692 2.004"/>
+    </curve>
+    <curve channel="RotX" interpolation="bezier" extend="const">
+      <p c="1.000 -71.471" h1="-37.651 -71.471" h2="39.651 -71.471"/>
+      <p c="100.000 -71.471" h1="61.349 -71.471" h2="138.651 -71.471"/>
+    </curve>
+    <curve channel="RotZ" interpolation="bezier" extend="const">
+      <p c="1.000 0.000" h1="-76.692 0.000" h2="78.692 0.000"/>
+      <p c="200.000 0.000" h1="122.308 0.000" h2="277.692 0.000"/>
+    </curve>
+    <curve channel="RotY" interpolation="bezier" extend="const">
+      <p c="1.000 -12.032" h1="-76.692 -12.032" h2="78.692 -12.032"/>
+      <p c="200.000 -8.162" h1="122.308 -8.162" h2="277.692 -8.162"/>
+    </curve>
+    <curve channel="ScaleX" interpolation="bezier" extend="const">
+      <p c="1.000 1.000" h1="-76.692 1.000" h2="78.692 1.000"/>
+      <p c="200.000 1.000" h1="122.308 1.000" h2="277.692 1.000"/>
+    </curve>
+    <curve channel="ScaleZ" interpolation="bezier" extend="const">
+      <p c="1.000 1.000" h1="-76.692 1.000" h2="78.692 1.000"/>
+      <p c="200.000 1.000" h1="122.308 1.000" h2="277.692 1.000"/>
+    </curve>
+    <curve channel="ScaleY" interpolation="bezier" extend="const">
+      <p c="1.000 1.000" h1="-76.692 1.000" h2="78.692 1.000"/>
+      <p c="200.000 1.000" h1="122.308 1.000" h2="277.692 1.000"/>
+    </curve>
   </object>
   <object type="animation" xyz="-0.65 -0.89 1.15" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="gpwin_podium1.b3d" skeletal-animation="false">
   </object>

@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15295 -->
-<track  name           = "gpwin"
+<!-- Generated with script from SVN rev 15299 -->
+<track  name           = "gplose"
         version        = "6"
         groups         = "standard"
         designer       = "mmg"
-        music          = "win_theme.music"
+        music          = "lose_theme.music"
         cutscene       = "Y"
         internal       = "Y"
         screenshot     = "screenshot.jpg"
