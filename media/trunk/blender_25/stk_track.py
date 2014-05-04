@@ -1981,7 +1981,18 @@ class TrackExport:
         
         # For now: armature animations are assumed to be looped
         if parent and parent.type=="ARMATURE":
-            flags.append('looped="y"')
+            is_cyclic = False
+            if parent.animation_data is not None and parent.animation_data.action is not None and \
+               parent.animation_data.action.fcurves is not None:
+                for curve in parent.animation_data.action.fcurves:
+                    for modifier in curve.modifiers:
+                        if modifier.type == 'CYCLES':
+                            is_cyclic = True
+                            break
+                    if is_cyclic:
+                        break
+            if is_cyclic:
+                flags.append('looped="y"')
             
         interaction = getObjectProperty(obj, "interaction", 'static')
         flags.append('interaction="%s"' % interaction)
