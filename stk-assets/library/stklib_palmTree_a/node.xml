@@ -1,11 +1,6 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15230 -->
+<!-- Generated with script from SVN rev 15125 -->
 <scene>
-  <instancing>
-   <group name="stklib_palmTree_a">
-    <static-object model="stklib_palmTree_a.b3d" lod_group="stklib_palmTree_a" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"/>
-   </group>
-  </instancing>
-  <object type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"  instancing="true" instancing_model="stklib_palmTree_a" model="stklib_palmTree_a.b3d" skeletal-animation="false">
+  <object type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="stklib_palmTree_a.b3d" skeletal-animation="false">
   </object>
 </scene>
