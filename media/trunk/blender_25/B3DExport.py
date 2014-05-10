@@ -573,7 +573,7 @@ def write_node(objects=[]):
         
         if PROGRESS:
             progress += 1
-            print("NODE:",progress,"/",len(exp_obj))
+            print("NODE:",progress,"/",len(exp_obj),obj.name)
         
         if obj.type == "MESH":
             
@@ -1068,8 +1068,57 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
         mesh_matrix = obj.matrix_world.copy()
     
     #import time
+    
+    uvdata = getUVTextures(data)
+    uv_layers_count = len(uvdata)
+    uv_textures = {}
+    weldable_vertices = {}
+    vertex_id_mapping = {}
+    for face in getFaces(data):
+        for vertex_index,vert in enumerate(face.vertices):
+            #for id,vert in enumerate(data.vertices):
+            
+            if vert not in uv_textures:
+                uv_textures[vert] = {}
+            if face not in uv_textures[vert]:
+                uv_textures[vert][face] = {}
+            
+            for iuvlayer in range(uv_layers_count):
+                if vertex_index == 0:
+                    uv_textures[vert][face][iuvlayer] = uvdata[iuvlayer].data[face.index].uv1
+                elif vertex_index == 1:
+                    uv_textures[vert][face][iuvlayer] = uvdata[iuvlayer].data[face.index].uv2
+                elif vertex_index == 2:
+                    uv_textures[vert][face][iuvlayer] = uvdata[iuvlayer].data[face.index].uv3
+                elif vertex_index == 3:
+                    uv_textures[vert][face][iuvlayer] = uvdata[iuvlayer].data[face.index].uv4
+    
+    for idVertex, vertexFaces in uv_textures.items():
+        is_weldable = True
         
-    uv_layers_count = len(getUVTextures(data))
+        for iuvlayer in range(uv_layers_count):
+            u = None
+            v = None
+            for idFace, face in vertexFaces.items():
+                if iuvlayer not in face:
+                    continue
+                faceuvlayer = face[iuvlayer]
+                if u is None:
+                    u = round(faceuvlayer[0]*1000)
+                    v = round(faceuvlayer[1]*1000)
+                else:
+                    if round(faceuvlayer[0] * 1000) != u or round(faceuvlayer[1]*1000) != v:
+                        is_weldable = False
+                        break
+            if not is_weldable:
+                break
+
+        weldable_vertices[idVertex] = is_weldable
+        
+    
+    #print('uv_textures', uv_textures)
+    #print('weldable_vertices', weldable_vertices)
+    
     for face in getFaces(data):
         
         if DEBUG: print("        <!-- Face",face.index,"-->")
@@ -1082,12 +1131,16 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
         
         for vertex_id,vert in enumerate(face.vertices):
             
+            #if vertex_id in weldable_vertices and weldable_vertices[vertex_id] and vertex_id in vertex_id_mapping:
+            #    per_face_vertices[face.index].append(vertex_id_mapping[vertex_id])
+            #    continue
+            
             ivert += 1
-                        
+            vertex_id_mapping[vertex_id] = ivert    
             per_face_vertices[face.index].append(ivert)
             
             #a = time.time()
-                            
+            
             if arm_action:
                 v = mesh_matrix * data.vertices[vert].co
                 vert_matrix = mathutils.Matrix.Translation(v)
@@ -1159,27 +1212,19 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
             #e = time.time()
             #time_in_b2 += e - d
             
-            # ==== !!bottleneck here!! (40% of the function)
-            if vertex_id == 0:
-                for iuvlayer in range(uv_layers_count):
-                    uv = getUVTextures(data)[iuvlayer].data[face.index].uv1
-                    temp_buf.append(write_float_couple(uv[0], 1-uv[1]) ) # U, V
-            elif vertex_id == 1:
-                for iuvlayer in range(uv_layers_count):
-                    uv = getUVTextures(data)[iuvlayer].data[face.index].uv2
-                    temp_buf.append(write_float_couple(uv[0], 1-uv[1]) ) # U, V
-            elif vertex_id == 2:
-                for iuvlayer in range(uv_layers_count):
-                    uv = getUVTextures(data)[iuvlayer].data[face.index].uv3
-                    temp_buf.append(write_float_couple(uv[0], 1-uv[1]) ) # U, V
-            elif vertex_id == 3:
-                for iuvlayer in range(uv_layers_count):
-                    uv = getUVTextures(data)[iuvlayer].data[face.index].uv4
-                    temp_buf.append(write_float_couple(uv[0], 1-uv[1]) ) # U, V
-
-            #f = time.time()
-            #time_in_b3 += f - e
-            # =====================
+            for iuvlayer in range(uv_layers_count):
+                uv = [10, 10]
+                if vert in uv_textures:
+                    vertex_uv = uv_textures[vert]
+                    
+                    if face in vertex_uv:
+                        vertex_face_uv = vertex_uv[face]
+                        
+                        if iuvlayer in vertex_face_uv:
+                            uv = vertex_face_uv[iuvlayer]
+                
+                temp_buf.append(write_float_couple(uv[0], 1-uv[1]) ) # U, V
+            
 
     
     if DEBUG: print("")
