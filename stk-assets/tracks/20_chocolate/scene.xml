@@ -613,6 +613,9 @@
   <library name="stklib_fern_a" xyz="168.26 41.37 -306.74" hpr="21.2 45.4 -17.8" scale="2.50 2.50 2.50"/>
   <library name="stklib_fern_a" xyz="173.14 39.33 -304.64" hpr="42.4 43.6 8.6" scale="2.50 2.50 2.50"/>
   <library name="stklib_fern_a" xyz="159.29 6.93 -305.88" hpr="47.2 -1.7 21.8" scale="2.50 2.50 2.50"/>
+  <library name="stklib_fern_a" xyz="175.67 21.72 -241.26" hpr="-22.4 135.7 -27.8" scale="1.27 1.27 1.27"/>
+  <library name="stklib_fern_a" xyz="185.61 22.91 -246.40" hpr="-22.4 135.7 -27.8" scale="2.07 2.07 2.07"/>
+  <library name="stklib_fern_a" xyz="147.14 18.58 -238.54" hpr="-18.7 -168.4 10.6" scale="1.27 1.27 1.27"/>
   <library name="stklib_fitchBarrel_a" xyz="98.44 -1.46 45.06" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_fitchBarrel_a" xyz="292.64 18.84 -78.68" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_fitchBarrel_a" xyz="100.74 -1.06 45.64" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
@@ -1006,6 +1009,7 @@
   <library name="stklib_palmTree_a" xyz="-29.66 -1.11 30.46" hpr="9.5 -44.0 7.9" scale="0.40 0.40 0.40"/>
   <library name="stklib_palmTree_a" xyz="-37.05 -0.97 21.92" hpr="7.2 -53.7 9.6" scale="0.32 0.32 0.32"/>
   <library name="stklib_palmTree_a" xyz="-32.79 -1.22 26.58" hpr="-11.9 167.4 13.5" scale="0.46 0.46 0.46"/>
+  <library name="stklib_palmTree_a" xyz="125.37 16.88 -256.43" hpr="37.7 -104.4 -56.5" scale="0.52 0.52 0.52"/>
   <library name="stklib_redFlowerBush_a" xyz="213.26 19.88 -103.84" hpr="6.3 -15.0 -1.1" scale="2.78 2.78 2.78"/>
   <library name="stklib_redFlowerBush_a" xyz="220.23 18.85 -87.14" hpr="2.3 29.6 -2.0" scale="2.88 2.88 2.88"/>
   <library name="stklib_redFlowerBush_a" xyz="246.20 20.09 -64.57" hpr="-3.3 57.7 2.6" scale="2.88 2.88 2.88"/>
