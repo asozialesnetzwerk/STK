@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15295 -->
+<!-- Generated with script from SVN rev 15299 -->
 <scene>
   <object type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" shape="box" model="stklib_oldLantern_a_main.b3d" tangents="true" skeletal-animation="false">
   </object>
   <object type="animation" xyz="0.00 -0.10 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="stklib_oldLantern_glow_a.b3d" skeletal-animation="false">
   </object>
-  <light xyz="0.00 -0.85 0.00" distance="13.00" energy="1.00" color="255 190 78">
+  <light xyz="0.00 -0.85 0.00" distance="13.00" energy="2.40" color="255 190 78">
   </light>
 </scene>
