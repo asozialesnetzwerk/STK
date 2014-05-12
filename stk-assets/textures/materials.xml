@@ -33,10 +33,11 @@
   <material name="stktex_jungleLiana_a.png" compositing="test" ignore="Y" graphical-effect="grass"/>
 
   <material name="stktex_jungleLeaf_b.png" compositing="test" ignore="Y" graphical-effect="grass"/>
+  <material name="stk_grassAlpha.png"  graphical-effect="grass"       compositing="test"  ignore="Y"/>
   
   <!-- Normal map -->
   <material name="stktex_generic_cobbleStoneA.png" has-gravity="Y" graphical-effect="normal_map" normal-map="stktex_generic_cobbleStoneA_nm.png"/>
-  <material name="stk_generic_ironA.png" has-gravity="Y" graphical-effect="normal_map" normal-map="stk_generic_ironA_nm.png"/>
+  <material name="stk_generic_ironA.png" has-gravity="Y" />
   
   
 
@@ -53,7 +54,7 @@
   </material>
   
   <material name="butterfly.png"         compositing="test" light="N" clampU="Y" clampV="Y" ignore="Y"/>
-  <material name="stk_grassAlpha.png"         compositing="test"  ignore="Y"/>
+  
   
   <material name="chess.png">
     <particles base="smoke.xml" condition="skid" />
