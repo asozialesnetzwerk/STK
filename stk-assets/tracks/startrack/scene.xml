@@ -748,21 +748,23 @@
   <object type="billboard" texture="lightHaloY.png" xyz="143.34 3.20 213.39" 
              width="13.867" height="6.933" >
   </object>
-  <light xyz="247.35 15.70 -13.22" distance="18.13" energy="2.50" color="255 241 163">
+  <light xyz="247.35 15.70 -13.22" distance="18.13" energy="3.00" color="255 241 163">
   </light>
   <light xyz="356.87 13.11 -2.57" distance="18.13" energy="4.00" color="160 255 153">
   </light>
-  <light xyz="247.15 14.58 19.04" distance="18.13" energy="2.50" color="255 241 163">
+  <light xyz="247.15 14.58 19.04" distance="18.13" energy="3.00" color="255 241 163">
   </light>
-  <light xyz="318.27 16.65 19.04" distance="18.13" energy="2.50" color="255 241 163">
+  <light xyz="318.27 16.65 19.04" distance="18.13" energy="3.00" color="255 241 163">
   </light>
-  <light xyz="317.67 16.33 -12.82" distance="18.13" energy="2.50" color="255 241 163">
+  <light xyz="317.67 16.33 -12.82" distance="18.13" energy="3.00" color="255 241 163">
   </light>
   <light xyz="356.87 13.11 9.72" distance="18.13" energy="4.00" color="160 255 153">
   </light>
   <light xyz="211.72 13.11 -2.57" distance="18.13" energy="4.00" color="160 255 153">
   </light>
   <light xyz="211.72 13.11 9.72" distance="18.13" energy="4.00" color="160 255 153">
+  </light>
+  <light xyz="282.24 14.58 2.92" distance="18.13" energy="3.00" color="255 241 163">
   </light>
   <light xyz="-7.50 12.15 46.80" distance="13.40" energy="1.00" color="50 238 255">
   </light>
@@ -829,6 +831,10 @@
   <light xyz="78.37 24.89 -64.98" distance="25.00" energy="0.12" color="168 190 255">
   </light>
   <light xyz="169.73 16.79 -90.09" distance="22.12" energy="4.00" color="190 223 242">
+  </light>
+  <light xyz="133.99 17.50 119.81" distance="2.15" energy="3.00" color="162 151 74">
+  </light>
+  <light xyz="123.05 17.50 119.81" distance="2.15" energy="3.00" color="162 151 74">
   </light>
   <light xyz="169.73 18.65 -150.09" distance="22.12" energy="4.00" color="190 223 242">
   </light>
