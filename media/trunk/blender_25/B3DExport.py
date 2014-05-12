@@ -1131,12 +1131,12 @@ def write_node_mesh_vrts(obj, data, obj_count, arm_action, exp_root):
         
         for vertex_id,vert in enumerate(face.vertices):
             
-            #if vertex_id in weldable_vertices and weldable_vertices[vertex_id] and vertex_id in vertex_id_mapping:
-            #    per_face_vertices[face.index].append(vertex_id_mapping[vertex_id])
-            #    continue
+            if vert in weldable_vertices and weldable_vertices[vert] and vert in vertex_id_mapping:
+                per_face_vertices[face.index].append(vertex_id_mapping[vert])
+                continue
             
             ivert += 1
-            vertex_id_mapping[vertex_id] = ivert    
+            vertex_id_mapping[vert] = ivert    
             per_face_vertices[face.index].append(ivert)
             
             #a = time.time()
