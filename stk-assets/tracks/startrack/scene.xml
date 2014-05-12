@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15295 -->
+<!-- Generated with script from SVN rev 15299 -->
 <scene>
   <track model="spaceship_track.b3d" x="0" y="0" z="0">
     <static-object model="window_doors.b3d" xyz="78.67 10.20 -118.25" hpr="0.0 -0.0 0.0" scale="1.08 1.08 1.08"/>
@@ -382,7 +382,7 @@
       <p c="120.000 90.000" h1="108.288 90.000" h2="131.712 90.000"/>
     </curve>
   </object>
-  <sun  xyz="275.30 143.66 12.20" sun-diffuse="0 0 0" ambient="90 90 105"/>
+  <sun  xyz="275.30 143.66 12.20" sun-diffuse="0 0 0" ambient="110 110 125"/>
   <sky-color rgb="3 4 10"/>
   <sky-box texture="star-back.png star-back.png star-back.png star-back.png star-back.png star-back.png" />
   <camera far="1000.0"/>
@@ -631,18 +631,6 @@
   <object type="billboard" texture="lightHaloB.png" xyz="234.05 26.55 -60.08" 
              width="16.511" height="16.511" >
   </object>
-  <object type="billboard" texture="lightHaloY.png" xyz="248.62 25.70 -13.04" 
-             width="14.443" height="14.443" >
-  </object>
-  <object type="billboard" texture="lightHaloY.png" xyz="316.60 25.70 -12.74" 
-             width="14.443" height="14.443" >
-  </object>
-  <object type="billboard" texture="lightHaloY.png" xyz="317.20 25.70 18.82" 
-             width="14.443" height="14.443" >
-  </object>
-  <object type="billboard" texture="lightHaloY.png" xyz="248.62 25.70 19.43" 
-             width="14.443" height="14.443" >
-  </object>
   <object type="billboard" texture="lightHaloB.png" xyz="130.38 23.74 195.09" 
              width="14.252" height="14.252" >
   </object>
@@ -760,17 +748,21 @@
   <object type="billboard" texture="lightHaloY.png" xyz="143.34 3.20 213.39" 
              width="13.867" height="6.933" >
   </object>
-  <light xyz="247.35 19.58 -13.22" distance="18.13" energy="1.16" color="255 241 163">
+  <light xyz="247.35 15.70 -13.22" distance="18.13" energy="2.50" color="255 241 163">
   </light>
   <light xyz="356.87 13.11 -2.57" distance="18.13" energy="4.00" color="160 255 153">
   </light>
-  <light xyz="247.15 19.58 19.04" distance="18.13" energy="1.16" color="255 241 163">
+  <light xyz="247.15 14.58 19.04" distance="18.13" energy="2.50" color="255 241 163">
   </light>
-  <light xyz="318.27 19.58 19.04" distance="18.13" energy="1.16" color="255 241 163">
+  <light xyz="318.27 16.65 19.04" distance="18.13" energy="2.50" color="255 241 163">
   </light>
-  <light xyz="317.67 19.58 -12.82" distance="18.13" energy="1.16" color="255 241 163">
+  <light xyz="317.67 16.33 -12.82" distance="18.13" energy="2.50" color="255 241 163">
   </light>
   <light xyz="356.87 13.11 9.72" distance="18.13" energy="4.00" color="160 255 153">
+  </light>
+  <light xyz="211.72 13.11 -2.57" distance="18.13" energy="4.00" color="160 255 153">
+  </light>
+  <light xyz="211.72 13.11 9.72" distance="18.13" energy="4.00" color="160 255 153">
   </light>
   <light xyz="-7.50 12.15 46.80" distance="13.40" energy="1.00" color="50 238 255">
   </light>
@@ -795,30 +787,6 @@
   <light xyz="240.60 17.17 -159.85" distance="7.60" energy="1.00" color="235 255 150">
   </light>
   <light xyz="240.72 17.17 -169.97" distance="7.60" energy="1.00" color="235 255 150">
-  </light>
-  <light xyz="241.39 17.17 -22.16" distance="7.60" energy="1.00" color="235 255 150">
-  </light>
-  <light xyz="251.36 17.17 -21.92" distance="7.60" energy="1.00" color="235 255 150">
-  </light>
-  <light xyz="271.30 17.17 -21.92" distance="7.60" energy="1.00" color="235 255 150">
-  </light>
-  <light xyz="281.39 17.17 -21.92" distance="7.60" energy="1.00" color="235 255 150">
-  </light>
-  <light xyz="331.25 17.17 -21.79" distance="7.60" energy="1.00" color="235 255 150">
-  </light>
-  <light xyz="341.22 17.17 -21.92" distance="7.60" energy="1.00" color="235 255 150">
-  </light>
-  <light xyz="321.48 17.17 28.46" distance="7.60" energy="1.00" color="235 255 150">
-  </light>
-  <light xyz="311.56 17.17 28.55" distance="7.60" energy="1.00" color="235 255 150">
-  </light>
-  <light xyz="291.47 17.17 28.80" distance="7.60" energy="1.00" color="235 255 150">
-  </light>
-  <light xyz="281.64 17.17 28.80" distance="7.60" energy="1.00" color="235 255 150">
-  </light>
-  <light xyz="231.79 17.17 28.60" distance="7.60" energy="1.00" color="235 255 150">
-  </light>
-  <light xyz="221.43 17.17 29.01" distance="7.60" energy="1.00" color="235 255 150">
   </light>
   <light xyz="189.81 18.16 81.65" distance="7.60" energy="1.50" color="235 255 150">
   </light>
