@@ -748,23 +748,23 @@
   <object type="billboard" texture="lightHaloY.png" xyz="143.34 3.20 213.39" 
              width="13.867" height="6.933" >
   </object>
-  <light xyz="247.35 15.70 -13.22" distance="18.13" energy="3.00" color="255 241 163">
+  <light xyz="247.35 15.70 -13.22" distance="20.00" energy="3.00" color="255 241 163">
   </light>
-  <light xyz="356.87 13.11 -2.57" distance="18.13" energy="4.00" color="160 255 153">
+  <light xyz="356.87 13.11 -2.57" distance="20.00" energy="4.00" color="160 255 153">
   </light>
-  <light xyz="247.15 14.58 19.04" distance="18.13" energy="3.00" color="255 241 163">
+  <light xyz="247.15 14.58 19.04" distance="20.00" energy="3.00" color="255 241 163">
   </light>
-  <light xyz="318.27 16.65 19.04" distance="18.13" energy="3.00" color="255 241 163">
+  <light xyz="318.27 16.65 19.04" distance="20.00" energy="3.00" color="255 241 163">
   </light>
-  <light xyz="317.67 16.33 -12.82" distance="18.13" energy="3.00" color="255 241 163">
+  <light xyz="317.67 16.33 -12.82" distance="20.00" energy="3.00" color="255 241 163">
   </light>
-  <light xyz="356.87 13.11 9.72" distance="18.13" energy="4.00" color="160 255 153">
+  <light xyz="356.87 13.11 9.72" distance="20.00" energy="4.00" color="160 255 153">
   </light>
-  <light xyz="211.72 13.11 -2.57" distance="18.13" energy="4.00" color="160 255 153">
+  <light xyz="211.72 13.11 -2.57" distance="20.00" energy="4.00" color="160 255 153">
   </light>
-  <light xyz="211.72 13.11 9.72" distance="18.13" energy="4.00" color="160 255 153">
+  <light xyz="211.72 13.11 9.72" distance="20.00" energy="4.00" color="160 255 153">
   </light>
-  <light xyz="282.24 14.58 2.92" distance="18.13" energy="3.00" color="255 241 163">
+  <light xyz="282.24 14.58 2.92" distance="20.00" energy="3.00" color="255 241 163">
   </light>
   <light xyz="-7.50 12.15 46.80" distance="13.40" energy="1.00" color="50 238 255">
   </light>
@@ -798,11 +798,11 @@
   </light>
   <light xyz="259.38 18.16 82.18" distance="7.60" energy="1.50" color="235 255 150">
   </light>
-  <light xyz="238.95 18.16 91.33" distance="7.60" energy="3.50" color="118 129 255">
+  <light xyz="238.95 18.16 91.33" distance="15.00" energy="3.50" color="118 129 255">
   </light>
-  <light xyz="211.24 18.16 91.33" distance="7.60" energy="3.50" color="118 129 255">
+  <light xyz="211.24 18.16 91.33" distance="15.00" energy="3.50" color="118 129 255">
   </light>
-  <light xyz="224.24 18.16 91.33" distance="7.60" energy="3.50" color="118 129 255">
+  <light xyz="224.24 18.16 91.33" distance="15.00" energy="3.50" color="118 129 255">
   </light>
   <light xyz="130.39 17.73 220.27" distance="22.12" energy="5.00" color="157 181 242">
   </light>
@@ -828,13 +828,11 @@
   </light>
   <light xyz="-14.61 13.38 215.27" distance="22.12" energy="5.00" color="157 181 242">
   </light>
-  <light xyz="78.37 24.89 -64.98" distance="25.00" energy="0.12" color="168 190 255">
-  </light>
   <light xyz="169.73 16.79 -90.09" distance="22.12" energy="4.00" color="190 223 242">
   </light>
-  <light xyz="133.99 17.50 119.81" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="133.99 17.50 119.81" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="123.05 17.50 119.81" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="123.05 17.50 119.81" distance="9.00" energy="3.00" color="162 151 74">
   </light>
   <light xyz="169.73 18.65 -150.09" distance="22.12" energy="4.00" color="190 223 242">
   </light>
@@ -852,67 +850,65 @@
   </light>
   <light xyz="105.39 15.45 207.27" distance="22.12" energy="5.00" color="157 181 242">
   </light>
-  <light xyz="156.52 20.50 85.19" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="156.52 20.50 85.19" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="156.52 20.50 96.14" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="156.52 20.50 96.14" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="170.52 20.50 96.14" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="170.52 20.50 96.14" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="170.52 20.50 85.19" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="170.52 20.50 85.19" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="123.05 17.50 167.66" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="123.05 17.50 167.66" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="133.99 17.50 167.66" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="133.99 17.50 167.66" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="274.52 20.50 85.19" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="274.52 20.50 85.19" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="274.52 20.50 96.14" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="274.52 20.50 96.14" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="290.52 20.50 96.14" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="290.52 20.50 96.14" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="290.52 20.50 85.19" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="290.52 20.50 85.19" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="306.52 20.50 85.19" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="306.52 20.50 85.19" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="306.52 20.50 96.14" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="306.52 20.50 96.14" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="323.52 20.50 96.14" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="323.52 20.50 96.14" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="323.52 20.50 85.19" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="323.52 20.50 85.19" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="347.05 20.50 59.66" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="347.05 20.50 59.66" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="357.99 20.50 59.66" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="357.99 20.50 59.66" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="357.99 20.50 42.66" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="357.99 20.50 42.66" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="347.05 20.50 42.66" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="347.05 20.50 42.66" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="208.55 20.50 -33.34" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="208.55 20.50 -33.34" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="219.49 20.50 -33.34" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="219.49 20.50 -33.34" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="146.02 14.50 -70.81" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="146.02 14.50 -70.81" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="146.02 14.50 -59.86" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="146.02 14.50 -59.86" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="20.02 14.50 -59.86" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="20.02 14.50 -59.86" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="20.02 14.50 -70.81" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="20.02 14.50 -70.81" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="-12.45 10.50 6.86" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="-12.45 10.50 6.86" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="-1.51 10.50 6.86" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="-1.51 10.50 6.86" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="-1.51 10.50 101.86" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="-1.51 10.50 101.86" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="-12.45 10.50 101.86" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="-12.45 10.50 101.86" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="-12.45 14.50 167.86" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="-12.45 14.50 167.86" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="-1.51 14.50 167.86" distance="2.15" energy="3.00" color="162 151 74">
-  </light>
-  <light xyz="95.91 7.08 -44.33" distance="22.82" energy="0.60" color="190 223 242">
+  <light xyz="-1.51 14.50 167.86" distance="9.00" energy="3.00" color="162 151 74">
   </light>
   <light xyz="233.28 18.66 -90.09" distance="22.12" energy="4.00" color="190 223 242">
   </light>
@@ -920,29 +916,23 @@
   </light>
   <light xyz="225.75 16.00 -119.88" distance="22.12" energy="4.00" color="190 223 242">
   </light>
-  <light xyz="60.32 7.08 -42.89" distance="22.82" energy="0.60" color="190 223 242">
-  </light>
-  <light xyz="59.87 7.08 -81.35" distance="22.82" energy="0.60" color="190 223 242">
-  </light>
-  <light xyz="96.55 7.08 -82.24" distance="22.82" energy="0.60" color="190 223 242">
-  </light>
   <light xyz="172.00 82.00 -230.00" distance="300.00" energy="100.00" color="255 255 255">
   </light>
-  <light xyz="96.55 14.38 -82.24" distance="22.82" energy="30.00" color="0 99 242">
+  <light xyz="102.04 14.38 -86.54" distance="40.00" energy="30.00" color="0 99 242">
   </light>
-  <light xyz="59.87 14.38 -81.35" distance="22.82" energy="30.00" color="0 99 242">
+  <light xyz="51.28 14.38 -88.05" distance="40.00" energy="30.00" color="0 99 242">
   </light>
-  <light xyz="60.32 14.38 -42.89" distance="22.82" energy="30.00" color="0 99 242">
+  <light xyz="51.90 14.38 -36.53" distance="40.00" energy="30.00" color="0 99 242">
   </light>
-  <light xyz="95.91 14.38 -44.33" distance="22.82" energy="30.00" color="0 99 242">
+  <light xyz="102.09 14.38 -37.97" distance="40.00" energy="30.00" color="0 99 242">
   </light>
-  <light xyz="-2.30 14.78 -27.10" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="-2.30 14.78 -27.10" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="-12.44 14.78 -27.10" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="-12.44 14.78 -27.10" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="-5.71 11.41 -63.03" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="-5.71 11.41 -63.03" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="2.48 11.41 -54.68" distance="2.15" energy="3.00" color="162 151 74">
+  <light xyz="2.48 11.41 -54.68" distance="9.00" energy="3.00" color="162 151 74">
   </light>
   <default-start karts-per-row     ="2"
                  forwards-distance ="1.50"
