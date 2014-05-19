@@ -19,7 +19,7 @@
     <static-object model="waterfall_test.b3d" xyz="158.79 74.13 -352.63" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
     <animated-texture name="monumentWater3.png" dy="-1.0000" />
     </static-object>
-    <static-object model="waterfall_test.b3d" xyz="154.81 142.63 -369.86" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+    <static-object model="waterfall_test.b3d" xyz="154.81 139.76 -369.86" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
     <animated-texture name="monumentWater3.png" dy="-1.0000" />
     </static-object>
     <animated-texture name="ants.png" dy="0.5000" />
@@ -130,7 +130,6 @@
                  forwards-distance ="1.50"
                  sidewards-distance="3.00"
                  upwards-distance  ="0.00"/>
-  <start x="157.94" y="6.75" z="-276.52" h="-0.00"/>
   <library name="stklib_animGrass_a" xyz="272.46 20.06 -63.18" hpr="0.0 -0.0 -11.7" scale="2.27 2.27 2.27"/>
   <library name="stklib_animGrass_a" xyz="268.05 20.14 -63.77" hpr="0.0 -0.0 -1.1" scale="3.54 3.54 3.54"/>
   <library name="stklib_animGrass_a" xyz="260.71 20.43 -62.34" hpr="0.0 -0.0 -1.1" scale="3.54 3.54 3.54"/>
@@ -169,6 +168,7 @@
   <library name="stklib_animGrass_a" xyz="181.63 6.12 -204.02" hpr="-6.8 14.4 -2.7" scale="3.54 3.54 3.54"/>
   <library name="stklib_animGrass_a" xyz="163.96 5.01 -205.37" hpr="-16.2 42.0 -9.2" scale="3.54 3.54 3.54"/>
   <library name="stklib_animGrass_a" xyz="165.41 5.93 -199.27" hpr="-9.2 43.6 -7.8" scale="4.56 4.56 4.56"/>
+  <library name="stklib_animGrass_a" xyz="45.47 -0.39 36.96" hpr="43.5 -40.4 -24.5" scale="1.37 1.37 1.37"/>
   <library name="stklib_animGrass_a" xyz="155.62 5.03 -202.85" hpr="-16.2 42.0 -9.2" scale="2.99 2.99 2.99"/>
   <library name="stklib_animGrass_a" xyz="147.18 4.61 -202.45" hpr="-20.3 42.9 -14.7" scale="3.54 3.54 3.54"/>
   <library name="stklib_animGrass_a" xyz="147.35 6.14 -196.58" hpr="-9.2 43.6 -7.8" scale="4.56 4.56 4.56"/>
@@ -412,24 +412,15 @@
   <library name="stklib_animGrass_a" xyz="239.85 19.31 90.94" hpr="28.5 -63.2 -16.0" scale="3.54 3.54 3.54"/>
   <library name="stklib_animGrass_a" xyz="224.57 17.52 87.84" hpr="21.6 -47.3 -19.5" scale="3.54 3.54 3.54"/>
   <library name="stklib_animGrass_a" xyz="210.72 16.62 94.90" hpr="21.6 -47.3 -19.5" scale="3.54 3.54 3.54"/>
-  <library name="stklib_animGrass_a" xyz="203.58 17.69 96.95" hpr="17.5 -36.6 -20.2" scale="4.00 4.00 4.00"/>
   <library name="stklib_animGrass_a" xyz="196.42 17.92 98.18" hpr="9.5 -37.5 2.8" scale="3.54 3.54 3.54"/>
   <library name="stklib_animGrass_a" xyz="180.53 17.22 98.62" hpr="14.9 -9.2 -8.4" scale="3.54 3.54 3.54"/>
-  <library name="stklib_animGrass_a" xyz="173.39 17.20 98.07" hpr="14.6 -31.5 7.2" scale="2.83 2.83 2.83"/>
-  <library name="stklib_animGrass_a" xyz="190.00 17.14 99.07" hpr="15.1 -6.3 -1.1" scale="3.16 3.16 3.16"/>
-  <library name="stklib_animGrass_a" xyz="217.35 17.40 91.94" hpr="21.6 -47.3 -19.5" scale="2.93 2.93 2.93"/>
   <library name="stklib_animGrass_a" xyz="233.10 19.36 86.95" hpr="28.5 -63.2 -16.0" scale="3.54 3.54 3.54"/>
   <library name="stklib_animGrass_a" xyz="246.74 18.95 94.62" hpr="28.5 -63.2 -16.0" scale="3.54 3.54 3.54"/>
   <library name="stklib_animGrass_a" xyz="249.09 18.95 104.02" hpr="28.5 -63.2 -16.0" scale="3.54 3.54 3.54"/>
-  <library name="stklib_animGrass_a" xyz="247.37 18.95 110.52" hpr="28.5 -63.2 -16.0" scale="3.54 3.54 3.54"/>
-  <library name="stklib_animGrass_a" xyz="245.57 18.95 116.46" hpr="-5.3 -64.3 7.8" scale="3.54 3.54 3.54"/>
-  <library name="stklib_animGrass_a" xyz="241.07 18.95 122.27" hpr="6.3 -64.6 -0.4" scale="3.54 3.54 3.54"/>
-  <library name="stklib_animGrass_a" xyz="226.75 17.69 138.33" hpr="7.8 -85.0 -1.9" scale="3.54 3.54 3.54"/>
-  <library name="stklib_animGrass_a" xyz="232.98 17.69 134.45" hpr="-31.5 -83.9 33.5" scale="3.54 3.54 3.54"/>
-  <library name="stklib_animGrass_a" xyz="236.73 17.69 129.50" hpr="65.9 -80.9 -52.2" scale="3.54 3.54 3.54"/>
-  <library name="stklib_animGrass_a" xyz="222.53 16.63 141.07" hpr="-49.5 -99.8 66.2" scale="3.54 3.54 3.54"/>
-  <library name="stklib_animGrass_a" xyz="217.99 16.33 145.30" hpr="21.6 -95.1 -17.7" scale="3.54 3.54 3.54"/>
-  <library name="stklib_animGrass_a" xyz="211.19 15.97 148.05" hpr="-14.3 -95.2 22.5" scale="3.54 3.54 3.54"/>
+  <library name="stklib_animGrass_a" xyz="245.57 18.95 116.46" hpr="-5.3 -64.3 7.8" scale="5.09 5.09 5.09"/>
+  <library name="stklib_animGrass_a" xyz="226.75 17.69 138.33" hpr="7.8 -85.0 -1.9" scale="5.09 5.09 5.09"/>
+  <library name="stklib_animGrass_a" xyz="236.73 17.69 129.50" hpr="65.9 -80.9 -52.2" scale="5.09 5.09 5.09"/>
+  <library name="stklib_animGrass_a" xyz="217.99 16.33 145.30" hpr="21.6 -95.1 -17.7" scale="5.09 5.09 5.09"/>
   <library name="stklib_animGrass_a" xyz="273.04 13.42 28.71" hpr="4.9 -44.7 7.1" scale="3.54 3.54 3.54"/>
   <library name="stklib_animGrass_a" xyz="278.21 14.71 28.64" hpr="4.9 -44.7 7.1" scale="3.54 3.54 3.54"/>
   <library name="stklib_animGrass_a" xyz="284.03 15.44 28.11" hpr="-6.4 -68.8 6.9" scale="3.54 3.54 3.54"/>
@@ -450,30 +441,19 @@
   <library name="stklib_animGrass_a" xyz="205.16 6.79 6.24" hpr="-50.8 68.5 -51.7" scale="3.54 3.54 3.54"/>
   <library name="stklib_animGrass_a" xyz="235.64 13.04 31.81" hpr="-3.2 44.2 -16.7" scale="3.00 3.00 3.00"/>
   <library name="stklib_animGrass_a" xyz="288.34 15.82 27.73" hpr="-6.4 -68.8 6.9" scale="2.38 2.38 2.38"/>
-  <library name="stklib_animGrass_a" xyz="165.85 14.68 92.47" hpr="14.6 -31.5 7.2" scale="2.83 2.83 2.83"/>
   <library name="stklib_animGrass_a" xyz="162.28 14.77 89.97" hpr="13.9 0.3 -4.7" scale="2.83 2.83 2.83"/>
   <library name="stklib_animGrass_a" xyz="170.74 15.96 95.99" hpr="14.6 -31.5 7.2" scale="2.83 2.83 2.83"/>
-  <library name="stklib_animGrass_a" xyz="205.77 15.49 149.79" hpr="-14.3 -95.2 22.5" scale="3.54 3.54 3.54"/>
-  <library name="stklib_animGrass_a" xyz="199.80 14.82 150.31" hpr="-14.3 -95.2 22.5" scale="2.27 2.27 2.27"/>
-  <library name="stklib_animGrass_a" xyz="195.82 14.98 150.75" hpr="-14.3 -95.2 22.5" scale="3.15 3.15 3.15"/>
-  <library name="stklib_animGrass_a" xyz="188.20 14.39 151.50" hpr="-14.3 -95.2 22.5" scale="3.15 3.15 3.15"/>
-  <library name="stklib_animGrass_a" xyz="181.63 14.32 150.83" hpr="34.0 -119.1 -22.7" scale="2.44 2.44 2.44"/>
-  <library name="stklib_animGrass_a" xyz="177.45 14.05 151.45" hpr="34.0 -119.1 -22.7" scale="2.89 2.89 2.89"/>
-  <library name="stklib_animGrass_a" xyz="167.13 12.89 148.54" hpr="24.2 -137.8 -10.8" scale="2.89 2.89 2.89"/>
-  <library name="stklib_animGrass_a" xyz="171.24 13.46 149.35" hpr="24.2 -137.8 -10.8" scale="2.44 2.44 2.44"/>
-  <library name="stklib_animGrass_a" xyz="158.99 12.34 145.91" hpr="14.5 -151.9 -6.3" scale="2.44 2.44 2.44"/>
-  <library name="stklib_animGrass_a" xyz="155.23 11.98 144.01" hpr="14.5 -151.9 -6.3" scale="2.89 2.89 2.89"/>
-  <library name="stklib_animGrass_a" xyz="146.93 10.94 138.92" hpr="5.9 -155.4 2.2" scale="2.89 2.89 2.89"/>
-  <library name="stklib_animGrass_a" xyz="150.53 11.32 141.12" hpr="5.9 -155.4 2.2" scale="2.44 2.44 2.44"/>
-  <library name="stklib_animGrass_a" xyz="143.15 10.17 133.93" hpr="6.3 -166.5 2.1" scale="2.44 2.44 2.44"/>
-  <library name="stklib_animGrass_a" xyz="140.03 9.78 131.09" hpr="6.3 -166.5 2.1" scale="2.89 2.89 2.89"/>
-  <library name="stklib_animGrass_a" xyz="129.74 8.51 118.23" hpr="6.6 -173.9 2.0" scale="2.89 2.89 2.89"/>
-  <library name="stklib_animGrass_a" xyz="132.47 8.90 121.45" hpr="6.6 -173.9 2.0" scale="2.44 2.44 2.44"/>
-  <library name="stklib_animGrass_a" xyz="135.57 9.67 126.88" hpr="6.2 -162.8 2.1" scale="2.89 2.89 2.89"/>
-  <library name="stklib_animGrass_a" xyz="127.42 8.64 111.96" hpr="3.3 -166.4 -4.1" scale="2.89 2.89 2.89"/>
-  <library name="stklib_animGrass_a" xyz="124.62 8.50 106.31" hpr="3.8 -177.5 -4.8" scale="2.44 2.44 2.44"/>
-  <library name="stklib_animGrass_a" xyz="122.97 8.59 102.91" hpr="2.2 -174.7 -3.0" scale="2.89 2.89 2.89"/>
-  <library name="stklib_animGrass_a" xyz="121.89 8.96 97.26" hpr="-13.8 149.2 -17.1" scale="2.89 2.89 2.89"/>
+  <library name="stklib_animGrass_a" xyz="205.77 15.49 149.79" hpr="-14.3 -95.2 22.5" scale="5.09 5.09 5.09"/>
+  <library name="stklib_animGrass_a" xyz="195.82 14.98 150.75" hpr="-14.3 -95.2 22.5" scale="4.52 4.52 4.52"/>
+  <library name="stklib_animGrass_a" xyz="181.63 14.32 150.83" hpr="34.0 -119.1 -22.7" scale="3.51 3.51 3.51"/>
+  <library name="stklib_animGrass_a" xyz="171.24 13.46 149.35" hpr="24.2 -137.8 -10.8" scale="3.51 3.51 3.51"/>
+  <library name="stklib_animGrass_a" xyz="158.99 12.34 145.91" hpr="14.5 -151.9 -6.3" scale="3.51 3.51 3.51"/>
+  <library name="stklib_animGrass_a" xyz="150.53 11.32 141.12" hpr="5.9 -155.4 2.2" scale="3.51 3.51 3.51"/>
+  <library name="stklib_animGrass_a" xyz="143.15 10.17 133.93" hpr="6.3 -166.5 2.1" scale="3.51 3.51 3.51"/>
+  <library name="stklib_animGrass_a" xyz="132.47 8.90 121.45" hpr="6.6 -173.9 2.0" scale="3.51 3.51 3.51"/>
+  <library name="stklib_animGrass_a" xyz="135.57 9.67 126.88" hpr="6.2 -162.8 2.1" scale="4.15 4.15 4.15"/>
+  <library name="stklib_animGrass_a" xyz="127.42 8.64 111.96" hpr="3.3 -166.4 -4.1" scale="4.15 4.15 4.15"/>
+  <library name="stklib_animGrass_a" xyz="122.97 8.59 102.91" hpr="2.2 -174.7 -3.0" scale="4.15 4.15 4.15"/>
   <library name="stklib_animGrass_a" xyz="123.43 10.39 90.14" hpr="-18.4 146.1 -50.4" scale="2.89 2.89 2.89"/>
   <library name="stklib_animGrass_a" xyz="122.05 9.14 93.92" hpr="-13.9 122.7 -38.3" scale="2.89 2.89 2.89"/>
   <library name="stklib_animGrass_a" xyz="125.54 11.00 82.85" hpr="1.5 155.0 -32.6" scale="2.89 2.89 2.89"/>
@@ -483,9 +463,7 @@
   <library name="stklib_animGrass_a" xyz="121.74 9.95 63.03" hpr="9.3 -148.0 -19.4" scale="2.89 2.89 2.89"/>
   <library name="stklib_animGrass_a" xyz="118.69 9.85 59.33" hpr="9.3 -148.0 -19.4" scale="2.89 2.89 2.89"/>
   <library name="stklib_animGrass_a" xyz="117.03 9.72 56.81" hpr="9.3 -148.0 -19.4" scale="2.89 2.89 2.89"/>
-  <library name="stklib_animGrass_a" xyz="160.63 16.66 86.76" hpr="13.9 0.3 -4.7" scale="2.83 2.83 2.83"/>
   <library name="stklib_animGrass_a" xyz="154.45 15.75 77.20" hpr="20.4 38.3 23.1" scale="2.83 2.83 2.83"/>
-  <library name="stklib_animGrass_a" xyz="152.91 16.45 73.80" hpr="20.4 38.3 23.1" scale="2.83 2.83 2.83"/>
   <library name="stklib_animGrass_a" xyz="150.33 17.67 68.18" hpr="20.4 38.3 23.1" scale="2.83 2.83 2.83"/>
   <library name="stklib_animGrass_a" xyz="148.50 17.66 65.83" hpr="9.3 45.8 28.0" scale="2.83 2.83 2.83"/>
   <library name="stklib_animGrass_a" xyz="146.87 16.72 60.83" hpr="-4.7 30.6 21.1" scale="2.83 2.83 2.83"/>
@@ -559,6 +537,122 @@
   <library name="stklib_animGrass_a" xyz="54.91 -0.39 38.48" hpr="36.9 -33.1 -31.0" scale="1.35 1.35 1.35"/>
   <library name="stklib_animGrass_a" xyz="50.59 -0.48 37.92" hpr="57.5 -44.8 -41.5" scale="1.21 1.21 1.21"/>
   <library name="stklib_animGrass_a" xyz="52.74 -0.39 38.51" hpr="43.5 -40.4 -24.5" scale="1.37 1.37 1.37"/>
+  <library name="stklib_animGrass_a" xyz="43.32 -0.48 36.38" hpr="57.5 -44.8 -41.5" scale="1.21 1.21 1.21"/>
+  <library name="stklib_animGrass_a" xyz="47.64 -0.39 36.93" hpr="36.9 -33.1 -31.0" scale="1.35 1.35 1.35"/>
+  <library name="stklib_animGrass_a" xyz="40.95 -0.65 35.88" hpr="36.9 -33.1 -31.0" scale="1.35 1.35 1.35"/>
+  <library name="stklib_animGrass_a" xyz="36.62 -0.75 35.32" hpr="57.5 -44.8 -41.5" scale="1.21 1.21 1.21"/>
+  <library name="stklib_animGrass_a" xyz="38.78 -0.65 35.91" hpr="43.5 -40.4 -24.5" scale="1.37 1.37 1.37"/>
+  <library name="stklib_animGrass_a" xyz="30.69 -0.62 34.38" hpr="45.2 -40.2 -24.9" scale="1.37 1.37 1.37"/>
+  <library name="stklib_animGrass_a" xyz="28.55 -0.73 33.77" hpr="59.2 -44.3 -42.0" scale="1.21 1.21 1.21"/>
+  <library name="stklib_animGrass_a" xyz="32.87 -0.59 34.36" hpr="38.4 -32.9 -31.1" scale="1.35 1.35 1.35"/>
+  <library name="stklib_animGrass_a" xyz="35.23 -0.41 34.88" hpr="59.2 -44.3 -42.0" scale="1.21 1.21 1.21"/>
+  <library name="stklib_animGrass_a" xyz="26.23 -0.31 33.22" hpr="59.2 -44.3 -42.0" scale="1.21 1.21 1.21"/>
+  <library name="stklib_animGrass_a" xyz="23.87 -0.50 32.70" hpr="38.4 -32.9 -31.1" scale="1.35 1.35 1.35"/>
+  <library name="stklib_animGrass_a" xyz="19.55 -0.64 32.11" hpr="59.2 -44.3 -42.0" scale="1.21 1.21 1.21"/>
+  <library name="stklib_animGrass_a" xyz="21.69 -0.52 32.71" hpr="45.2 -40.2 -24.9" scale="1.37 1.37 1.37"/>
+  <library name="stklib_animGrass_a" xyz="18.21 -0.43 30.38" hpr="16.0 -45.1 -9.9" scale="2.28 2.28 2.28"/>
+  <library name="stklib_animGrass_a" xyz="35.35 0.04 33.66" hpr="33.0 -59.2 -27.0" scale="1.21 1.21 1.21"/>
+  <library name="stklib_animGrass_a" xyz="24.56 -0.51 31.55" hpr="33.0 -59.2 -27.0" scale="1.78 1.78 1.78"/>
+  <library name="stklib_animGrass_a" xyz="41.72 -0.30 34.49" hpr="15.2 -45.2 -22.2" scale="2.06 2.06 2.06"/>
+  <library name="stklib_animGrass_a" xyz="48.15 0.07 35.76" hpr="18.1 -50.1 -11.9" scale="1.90 1.90 1.90"/>
+  <library name="stklib_animGrass_a" xyz="54.76 -0.11 36.05" hpr="18.8 -48.7 -7.8" scale="1.79 1.79 1.79"/>
+  <library name="stklib_animGrass_a" xyz="56.93 -0.13 36.14" hpr="16.3 -44.0 -18.8" scale="1.35 1.35 1.35"/>
+  <library name="stklib_animGrass_a" xyz="59.28 0.18 36.68" hpr="34.3 -57.9 -24.0" scale="1.21 1.21 1.21"/>
+  <library name="stklib_animGrass_a" xyz="63.42 0.11 36.48" hpr="9.2 -21.0 -2.7" scale="1.37 1.37 1.37"/>
+  <library name="stklib_animGrass_a" xyz="68.48 0.12 35.11" hpr="7.6 -21.3 -5.0" scale="1.72 1.72 1.72"/>
+  <library name="stklib_animGrass_a" xyz="72.76 0.07 33.52" hpr="13.6 -32.8 -12.5" scale="1.21 1.21 1.21"/>
+  <library name="stklib_animGrass_a" xyz="13.29 -0.20 30.16" hpr="5.3 -40.1 -4.8" scale="2.28 2.28 2.28"/>
+  <library name="stklib_animGrass_a" xyz="12.78 -0.52 31.85" hpr="33.8 -37.5 -19.9" scale="1.37 1.37 1.37"/>
+  <library name="stklib_animGrass_a" xyz="10.59 -0.61 31.48" hpr="46.2 -44.2 -35.1" scale="1.21 1.21 1.21"/>
+  <library name="stklib_animGrass_a" xyz="14.95 -0.59 31.62" hpr="27.7 -31.2 -27.5" scale="1.35 1.35 1.35"/>
+  <library name="stklib_animGrass_a" xyz="17.35 -0.44 31.87" hpr="46.2 -44.2 -35.1" scale="1.21 1.21 1.21"/>
+  <library name="stklib_animGrass_a" xyz="8.30 -0.51 31.99" hpr="43.0 -32.0 -33.6" scale="1.21 1.21 1.21"/>
+  <library name="stklib_animGrass_a" xyz="5.89 -0.63 32.21" hpr="26.4 -18.8 -27.6" scale="1.35 1.35 1.35"/>
+  <library name="stklib_animGrass_a" xyz="1.59 -0.63 32.95" hpr="43.0 -32.0 -33.6" scale="1.21 1.21 1.21"/>
+  <library name="stklib_animGrass_a" xyz="3.82 -0.58 32.88" hpr="34.3 -25.1 -20.7" scale="1.37 1.37 1.37"/>
+  <library name="stklib_animGrass_a" xyz="3.98 -0.13 31.15" hpr="9.4 -28.2 -7.7" scale="2.28 2.28 2.28"/>
+  <library name="stklib_animGrass_a" xyz="-4.53 -0.07 32.94" hpr="9.4 -28.2 -7.7" scale="2.28 2.28 2.28"/>
+  <library name="stklib_animGrass_a" xyz="-4.69 -0.52 34.66" hpr="34.3 -25.1 -20.7" scale="1.37 1.37 1.37"/>
+  <library name="stklib_animGrass_a" xyz="-6.92 -0.57 34.74" hpr="43.0 -32.0 -33.6" scale="1.21 1.21 1.21"/>
+  <library name="stklib_animGrass_a" xyz="-2.62 -0.57 34.00" hpr="26.4 -18.8 -27.6" scale="1.35 1.35 1.35"/>
+  <library name="stklib_animGrass_a" xyz="-0.21 -0.45 33.78" hpr="43.0 -32.0 -33.6" scale="1.21 1.21 1.21"/>
+  <library name="stklib_animGrass_a" xyz="-9.84 -0.37 36.37" hpr="26.4 -18.8 -27.6" scale="1.35 1.35 1.35"/>
+  <library name="stklib_animGrass_a" xyz="-14.14 -0.37 37.11" hpr="43.0 -32.0 -33.6" scale="1.21 1.21 1.21"/>
+  <library name="stklib_animGrass_a" xyz="-11.91 -0.31 37.04" hpr="34.3 -25.1 -20.7" scale="1.37 1.37 1.37"/>
+  <library name="stklib_animGrass_a" xyz="-11.75 0.14 35.31" hpr="9.4 -28.2 -7.7" scale="2.28 2.28 2.28"/>
+  <library name="stklib_animGrass_a" xyz="-15.89 -0.36 35.40" hpr="12.7 -45.3 -9.7" scale="2.28 2.28 2.28"/>
+  <library name="stklib_animGrass_a" xyz="-18.82 -0.54 37.25" hpr="42.4 -41.1 -25.1" scale="1.37 1.37 1.37"/>
+  <library name="stklib_animGrass_a" xyz="-20.97 -0.60 36.65" hpr="56.7 -45.8 -42.3" scale="1.21 1.21 1.21"/>
+  <library name="stklib_animGrass_a" xyz="-16.65 -0.59 37.23" hpr="36.0 -34.0 -31.9" scale="1.35 1.35 1.35"/>
+  <library name="stklib_animGrass_a" xyz="-23.36 -0.56 36.21" hpr="54.0 -51.1 -44.2" scale="1.35 1.35 1.35"/>
+  <library name="stklib_animGrass_a" xyz="-27.17 -0.57 34.08" hpr="85.2 -58.9 -65.2" scale="1.21 1.21 1.21"/>
+  <library name="stklib_animGrass_a" xyz="-25.39 -0.51 35.43" hpr="60.3 -59.5 -39.2" scale="1.37 1.37 1.37"/>
+  <library name="stklib_animGrass_a" xyz="-21.91 -0.33 33.94" hpr="21.6 -66.3 -17.1" scale="2.28 2.28 2.28"/>
+  <library name="stklib_animGrass_a" xyz="-27.99 -0.04 32.44" hpr="41.6 -78.5 -36.4" scale="2.28 2.28 2.28"/>
+  <library name="stklib_animGrass_a" xyz="-31.22 -0.51 31.76" hpr="83.7 -68.4 -60.4" scale="1.37 1.37 1.37"/>
+  <library name="stklib_animGrass_a" xyz="-32.64 -0.57 30.03" hpr="111.9 -62.0 -88.6" scale="1.21 1.21 1.21"/>
+  <library name="stklib_animGrass_a" xyz="-29.43 -0.56 32.99" hpr="72.6 -59.5 -59.6" scale="1.35 1.35 1.35"/>
+  <library name="stklib_animGrass_a" xyz="-33.23 -0.77 29.18" hpr="72.6 -59.5 -59.6" scale="1.35 1.35 1.35"/>
+  <library name="stklib_animGrass_a" xyz="-36.44 -0.77 26.23" hpr="111.9 -62.0 -88.6" scale="1.21 1.21 1.21"/>
+  <library name="stklib_animGrass_a" xyz="-35.02 -0.72 27.95" hpr="83.7 -68.4 -60.4" scale="1.37 1.37 1.37"/>
+  <library name="stklib_animGrass_a" xyz="-31.79 -0.25 28.64" hpr="41.6 -78.5 -36.4" scale="2.28 2.28 2.28"/>
+  <library name="stklib_animGrass_a" xyz="-36.28 -1.03 24.29" hpr="46.8 -83.2 -46.6" scale="2.28 2.28 2.28"/>
+  <library name="stklib_animGrass_a" xyz="-39.48 -1.25 23.39" hpr="91.9 -72.3 -73.2" scale="1.37 1.37 1.37"/>
+  <library name="stklib_animGrass_a" xyz="-40.78 -1.26 21.57" hpr="-58.6 -115.9 77.9" scale="1.21 1.21 1.21"/>
+  <library name="stklib_animGrass_a" xyz="-37.79 -1.40 24.75" hpr="78.0 -63.5 -69.4" scale="1.35 1.35 1.35"/>
+  <library name="stklib_animGrass_a" xyz="-37.24 -1.20 25.63" hpr="-58.6 -115.9 77.9" scale="1.21 1.21 1.21"/>
+  <library name="stklib_animGrass_a" xyz="30.19 0.05 32.54" hpr="33.0 -59.2 -27.0" scale="1.78 1.78 1.78"/>
+  <library name="stklib_animGrass_a" xyz="5.58 -1.21 52.45" hpr="-27.3 -58.8 31.4" scale="1.92 1.92 1.92"/>
+  <library name="stklib_animGrass_a" xyz="10.18 -1.15 51.81" hpr="-28.4 -59.8 32.2" scale="1.92 1.92 1.92"/>
+  <library name="stklib_animGrass_a" xyz="7.78 -1.28 52.24" hpr="29.5 -111.6 -22.2" scale="1.86 1.86 1.86"/>
+  <library name="stklib_animGrass_a" xyz="13.32 -0.90 51.48" hpr="29.5 -111.6 -22.2" scale="1.86 1.86 1.86"/>
+  <library name="stklib_animGrass_a" xyz="5.39 -1.20 53.66" hpr="-60.3 -80.1 65.8" scale="1.86 1.86 1.86"/>
+  <library name="stklib_animGrass_a" xyz="0.61 -1.23 56.59" hpr="-60.3 -80.1 65.8" scale="1.86 1.86 1.86"/>
+  <library name="stklib_animGrass_a" xyz="2.63 -1.25 55.23" hpr="-14.0 -38.0 17.4" scale="1.92 1.92 1.92"/>
+  <library name="stklib_animGrass_a" xyz="-1.32 -1.02 57.66" hpr="-13.5 -36.9 17.2" scale="1.92 1.92 1.92"/>
+  <library name="stklib_animGrass_a" xyz="-10.38 -0.84 62.06" hpr="-17.6 -46.1 19.9" scale="1.92 1.92 1.92"/>
+  <library name="stklib_animGrass_a" xyz="-6.08 -1.08 60.33" hpr="-18.3 -47.1 20.3" scale="1.92 1.92 1.92"/>
+  <library name="stklib_animGrass_a" xyz="-8.30 -1.05 61.33" hpr="63.1 -100.6 -58.5" scale="1.86 1.86 1.86"/>
+  <library name="stklib_animGrass_a" xyz="-3.09 -1.03 59.24" hpr="63.1 -100.6 -58.5" scale="1.86 1.86 1.86"/>
+  <library name="stklib_animGrass_a" xyz="-13.04 -1.11 63.07" hpr="37.9 -106.4 -33.8" scale="1.86 1.86 1.86"/>
+  <library name="stklib_animGrass_a" xyz="-18.49 -1.14 64.40" hpr="37.9 -106.4 -33.8" scale="1.86 1.86 1.86"/>
+  <library name="stklib_animGrass_a" xyz="-16.14 -1.16 63.72" hpr="-23.1 -54.7 24.1" scale="1.92 1.92 1.92"/>
+  <library name="stklib_animGrass_a" xyz="-20.65 -0.93 64.83" hpr="-22.3 -53.6 23.5" scale="1.92 1.92 1.92"/>
+  <library name="stklib_animGrass_a" xyz="-32.08 -0.86 64.39" hpr="-40.8 -68.4 39.9" scale="1.92 1.92 1.92"/>
+  <library name="stklib_animGrass_a" xyz="-27.45 -1.09 64.66" hpr="-42.9 -69.2 41.7" scale="1.92 1.92 1.92"/>
+  <library name="stklib_animGrass_a" xyz="-29.89 -1.07 64.62" hpr="19.9 -122.0 -17.2" scale="1.86 1.86 1.86"/>
+  <library name="stklib_animGrass_a" xyz="-24.29 -1.04 64.95" hpr="19.9 -122.0 -17.2" scale="1.86 1.86 1.86"/>
+  <library name="stklib_animGrass_a" xyz="-34.67 -0.92 64.20" hpr="12.3 -141.8 -11.5" scale="1.86 1.86 1.86"/>
+  <library name="stklib_animGrass_a" xyz="-39.80 -0.95 61.94" hpr="12.3 -141.8 -11.5" scale="1.86 1.86 1.86"/>
+  <library name="stklib_animGrass_a" xyz="-37.53 -0.97 62.83" hpr="68.1 -104.4 -71.8" scale="1.92 1.92 1.92"/>
+  <library name="stklib_animGrass_a" xyz="-41.78 -0.74 60.97" hpr="72.6 -104.1 -76.0" scale="1.92 1.92 1.92"/>
+  <library name="stklib_animGrass_a" xyz="-50.99 -0.64 56.12" hpr="41.7 -109.1 -46.3" scale="1.92 1.92 1.92"/>
+  <library name="stklib_animGrass_a" xyz="-47.13 -0.88 58.70" hpr="39.1 -109.8 -44.0" scale="1.92 1.92 1.92"/>
+  <library name="stklib_animGrass_a" xyz="-49.21 -0.85 57.43" hpr="10.1 -151.6 -10.3" scale="1.86 1.86 1.86"/>
+  <library name="stklib_animGrass_a" xyz="-44.55 -0.83 60.54" hpr="10.1 -151.6 -10.3" scale="1.86 1.86 1.86"/>
+  <library name="stklib_animGrass_a" xyz="-53.15 -0.96 54.62" hpr="8.0 -162.2 -9.5" scale="1.86 1.86 1.86"/>
+  <library name="stklib_animGrass_a" xyz="-57.15 -0.99 50.69" hpr="8.0 -162.2 -9.5" scale="1.86 1.86 1.86"/>
+  <library name="stklib_animGrass_a" xyz="-55.34 -1.01 52.32" hpr="23.4 -118.5 -29.6" scale="1.92 1.92 1.92"/>
+  <library name="stklib_animGrass_a" xyz="-58.65 -0.78 49.07" hpr="24.8 -117.6 -30.7" scale="1.92 1.92 1.92"/>
+  <library name="stklib_animGrass_a" xyz="-57.23 -0.21 53.91" hpr="23.4 -118.5 -29.6" scale="1.92 1.92 1.92"/>
+  <library name="stklib_animGrass_a" xyz="-52.17 0.02 58.06" hpr="41.7 -109.1 -46.3" scale="1.92 1.92 1.92"/>
+  <library name="stklib_animGrass_a" xyz="-47.00 -0.07 61.19" hpr="10.1 -151.6 -10.3" scale="1.86 1.86 1.86"/>
+  <library name="stklib_animGrass_a" xyz="-42.02 -0.05 63.39" hpr="10.1 -151.6 -10.3" scale="1.86 1.86 1.86"/>
+  <library name="stklib_animGrass_a" xyz="-36.59 0.13 66.35" hpr="68.1 -104.4 -71.8" scale="1.92 1.92 1.92"/>
+  <library name="stklib_animGrass_a" xyz="-32.46 0.10 67.87" hpr="-40.8 -68.4 39.9" scale="1.92 1.92 1.92"/>
+  <library name="stklib_animGrass_a" xyz="-62.57 -0.49 48.95" hpr="23.3 -126.6 -30.6" scale="1.92 1.92 1.92"/>
+  <library name="stklib_animGrass_a" xyz="-63.42 -1.37 44.02" hpr="24.4 -125.7 -31.4" scale="1.92 1.92 1.92"/>
+  <library name="stklib_animGrass_a" xyz="-60.53 -1.42 47.66" hpr="23.3 -126.6 -30.6" scale="1.92 1.92 1.92"/>
+  <library name="stklib_animGrass_a" xyz="-62.12 -1.49 45.82" hpr="10.8 -169.8 -11.2" scale="1.86 1.86 1.86"/>
+  <library name="stklib_animGrass_a" xyz="-67.42 -1.21 37.26" hpr="8.3 177.2 -11.0" scale="1.86 1.86 1.86"/>
+  <library name="stklib_animGrass_a" xyz="-66.28 -1.15 39.42" hpr="14.4 -138.4 -23.9" scale="1.92 1.92 1.92"/>
+  <library name="stklib_animGrass_a" xyz="-68.26 -1.10 35.22" hpr="15.1 -137.4 -24.4" scale="1.92 1.92 1.92"/>
+  <library name="stklib_animGrass_a" xyz="-68.57 -0.21 40.21" hpr="14.4 -138.4 -23.9" scale="1.92 1.92 1.92"/>
+  <library name="stklib_animGrass_a" xyz="-72.46 0.25 29.79" hpr="6.8 -154.3 -19.7" scale="1.92 1.92 1.92"/>
+  <library name="stklib_animGrass_a" xyz="-70.70 -0.63 25.11" hpr="7.3 -153.2 -19.9" scale="1.92 1.92 1.92"/>
+  <library name="stklib_animGrass_a" xyz="-70.04 -0.68 29.71" hpr="6.8 -154.3 -19.7" scale="1.92 1.92 1.92"/>
+  <library name="stklib_animGrass_a" xyz="-70.49 -0.75 27.32" hpr="4.9 160.5 -11.7" scale="1.86 1.86 1.86"/>
+  <library name="stklib_animGrass_a" xyz="-69.01 -0.90 32.61" hpr="6.8 -154.3 -19.7" scale="1.92 1.92 1.92"/>
   <library name="stklib_aztecFountain_a" xyz="136.39 2.23 122.87" hpr="0.0 33.6 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_aztecFountain_a" xyz="153.62 2.23 139.04" hpr="0.0 55.9 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_aztecFountain_a" xyz="126.28 2.23 98.55" hpr="0.0 11.0 0.0" scale="1.00 1.00 1.00"/>
@@ -572,6 +666,7 @@
   <library name="stklib_aztecHouse_a" xyz="288.77 18.69 -214.57" hpr="-4.5 -114.0 7.1" scale="0.87 0.87 0.87"/>
   <library name="stklib_aztecHouse_a" xyz="326.86 18.78 -71.09" hpr="-0.0 169.8 -0.0" scale="0.74 0.74 0.74"/>
   <library name="stklib_aztecHouse_a" xyz="349.40 18.78 -89.99" hpr="0.0 -51.2 0.0" scale="0.74 0.74 0.74"/>
+  <library name="stklib_aztecHouse_a" xyz="121.87 131.51 -352.82" hpr="5.8 128.0 4.7" scale="0.87 0.87 0.87"/>
   <library name="stklib_cliffGrassEarth_a" xyz="129.23 7.28 33.98" hpr="0.0 -49.0 0.0" scale="2.13 2.13 2.13"/>
   <library name="stklib_cliffGrassEarth_a" xyz="142.42 2.04 47.03" hpr="55.2 -79.7 -60.4" scale="1.48 1.77 1.48"/>
   <library name="stklib_cliffGrassEarth_a" xyz="144.48 4.29 52.59" hpr="-6.0 -58.3 6.5" scale="1.53 1.53 1.53"/>
@@ -594,6 +689,10 @@
   <library name="stklib_cliffGrassEarth_a" xyz="270.52 22.20 -136.41" hpr="-1.8 156.1 8.3" scale="1.58 1.65 1.55"/>
   <library name="stklib_cliffGrassEarth_a" xyz="167.96 37.91 -308.49" hpr="-0.2 -171.5 -7.8" scale="3.26 3.39 3.18"/>
   <library name="stklib_cliffGrassEarth_a" xyz="136.34 66.44 -329.69" hpr="-1.2 -176.2 17.9" scale="6.49 6.76 6.35"/>
+  <library name="stklib_cliffGrassEarth_a" xyz="184.55 99.97 -313.41" hpr="-2.0 -154.3 -0.8" scale="5.38 5.60 5.26"/>
+  <library name="stklib_cliffGrassEarth_a" xyz="152.65 139.33 -342.17" hpr="-70.3 -88.9 72.6" scale="6.49 6.76 6.35"/>
+  <library name="stklib_cliffGrassEarth_a" xyz="130.64 127.56 -350.27" hpr="2.0 -13.1 1.1" scale="6.49 6.76 6.35"/>
+  <library name="stklib_cliffGrassEarth_a" xyz="182.43 163.38 -337.13" hpr="-70.3 -88.9 72.6" scale="6.49 6.76 6.35"/>
   <library name="stklib_fern_a" xyz="16.34 -0.77 52.41" hpr="-28.7 5.8 6.0" scale="1.61 1.61 1.61"/>
   <library name="stklib_fern_a" xyz="100.46 -0.24 27.17" hpr="-34.5 -125.6 29.0" scale="1.61 1.61 1.61"/>
   <library name="stklib_fern_a" xyz="94.04 0.15 27.72" hpr="24.8 -26.1 -9.7" scale="1.61 1.61 1.61"/>
@@ -601,21 +700,56 @@
   <library name="stklib_fern_a" xyz="183.13 9.35 103.37" hpr="63.0 -23.1 -0.4" scale="1.61 1.61 1.61"/>
   <library name="stklib_fern_a" xyz="202.61 5.88 104.21" hpr="55.0 -24.6 -19.0" scale="1.27 1.27 1.27"/>
   <library name="stklib_fern_a" xyz="209.06 11.06 103.18" hpr="30.7 -5.9 -20.2" scale="1.27 1.27 1.27"/>
-  <library name="stklib_fern_a" xyz="230.24 18.25 -164.03" hpr="-30.5 66.9 -61.0" scale="1.27 1.27 1.27"/>
+  <library name="stklib_fern_a" xyz="228.14 18.28 -165.73" hpr="-30.5 66.9 -61.0" scale="1.27 1.27 1.27"/>
   <library name="stklib_fern_a" xyz="221.87 17.45 -180.35" hpr="-30.5 66.9 -61.0" scale="1.27 1.27 1.27"/>
   <library name="stklib_fern_a" xyz="174.14 5.62 -204.94" hpr="61.5 109.8 59.8" scale="2.50 2.50 2.50"/>
-  <library name="stklib_fern_a" xyz="151.66 19.01 -238.42" hpr="-84.5 99.2 -78.1" scale="1.27 1.27 1.27"/>
-  <library name="stklib_fern_a" xyz="137.53 17.50 -219.96" hpr="29.3 111.1 20.0" scale="1.27 1.27 1.27"/>
-  <library name="stklib_fern_a" xyz="144.92 17.89 -219.30" hpr="29.3 111.1 20.0" scale="1.27 1.27 1.27"/>
-  <library name="stklib_fern_a" xyz="169.30 20.61 -238.79" hpr="-67.3 110.0 -52.2" scale="1.27 1.27 1.27"/>
+  <library name="stklib_fern_a" xyz="262.55 10.30 59.48" hpr="3.6 2.5 11.9" scale="1.27 1.27 1.27"/>
+  <library name="stklib_fern_a" xyz="141.63 4.71 -202.91" hpr="15.1 147.9 8.3" scale="1.98 1.98 1.98"/>
+  <library name="stklib_fern_a" xyz="158.81 4.86 -205.91" hpr="22.4 135.6 10.1" scale="1.93 1.93 1.93"/>
+  <library name="stklib_fern_a" xyz="182.30 5.80 -206.96" hpr="41.5 108.8 38.1" scale="1.27 1.27 1.27"/>
   <library name="stklib_fern_a" xyz="167.09 9.49 -308.50" hpr="15.1 43.5 -8.0" scale="2.50 2.50 2.50"/>
   <library name="stklib_fern_a" xyz="184.75 7.38 -301.77" hpr="86.2 43.5 44.0" scale="2.50 2.50 2.50"/>
   <library name="stklib_fern_a" xyz="168.26 41.37 -306.74" hpr="21.2 45.4 -17.8" scale="2.50 2.50 2.50"/>
   <library name="stklib_fern_a" xyz="173.14 39.33 -304.64" hpr="42.4 43.6 8.6" scale="2.50 2.50 2.50"/>
   <library name="stklib_fern_a" xyz="159.29 6.93 -305.88" hpr="47.2 -1.7 21.8" scale="2.50 2.50 2.50"/>
-  <library name="stklib_fern_a" xyz="175.67 21.72 -241.26" hpr="-22.4 135.7 -27.8" scale="1.27 1.27 1.27"/>
-  <library name="stklib_fern_a" xyz="185.61 22.91 -246.40" hpr="-22.4 135.7 -27.8" scale="2.07 2.07 2.07"/>
-  <library name="stklib_fern_a" xyz="147.14 18.58 -238.54" hpr="-18.7 -168.4 10.6" scale="1.27 1.27 1.27"/>
+  <library name="stklib_fern_a" xyz="189.21 6.36 -207.08" hpr="71.4 102.0 59.3" scale="1.27 1.27 1.27"/>
+  <library name="stklib_fern_a" xyz="191.91 7.26 -203.75" hpr="-72.6 -71.0 70.4" scale="2.07 2.07 2.07"/>
+  <library name="stklib_fern_a" xyz="262.48 10.63 54.95" hpr="-14.4 103.9 6.9" scale="1.27 1.27 1.27"/>
+  <library name="stklib_fern_a" xyz="261.34 10.15 60.93" hpr="19.7 -10.5 28.8" scale="0.84 0.84 0.84"/>
+  <library name="stklib_fern_a" xyz="261.54 10.27 59.25" hpr="0.1 -36.6 28.3" scale="0.84 0.84 0.84"/>
+  <library name="stklib_fern_a" xyz="261.62 10.48 56.38" hpr="12.2 -25.6 28.8" scale="0.84 0.84 0.84"/>
+  <library name="stklib_fern_a" xyz="262.21 10.78 52.90" hpr="-20.1 -58.5 46.2" scale="0.84 0.84 0.84"/>
+  <library name="stklib_fern_a" xyz="180.56 5.64 -207.07" hpr="25.0 144.1 34.9" scale="0.86 0.86 0.86"/>
+  <library name="stklib_fern_a" xyz="184.51 6.04 -206.63" hpr="22.0 151.1 2.9" scale="0.86 0.86 0.86"/>
+  <library name="stklib_fern_a" xyz="195.97 6.93 -206.31" hpr="18.7 -171.7 -0.6" scale="0.86 0.86 0.86"/>
+  <library name="stklib_fern_a" xyz="194.34 8.84 -202.75" hpr="6.1 -164.3 -11.8" scale="0.69 0.69 0.69"/>
+  <library name="stklib_fern_a" xyz="192.92 6.76 -207.26" hpr="28.3 -180.0 10.1" scale="0.86 0.86 0.86"/>
+  <library name="stklib_fern_a" xyz="161.85 5.14 -206.56" hpr="-75.8 49.1 -60.9" scale="1.00 1.00 1.00"/>
+  <library name="stklib_fern_a" xyz="156.96 4.83 -205.56" hpr="-110.6 60.8 -86.1" scale="1.00 1.00 1.00"/>
+  <library name="stklib_fern_a" xyz="143.41 4.66 -204.17" hpr="-83.3 54.6 -63.6" scale="1.02 1.02 1.02"/>
+  <library name="stklib_fern_a" xyz="139.61 4.65 -203.08" hpr="-115.1 52.4 -92.3" scale="1.02 1.02 1.02"/>
+  <library name="stklib_fern_a" xyz="171.79 5.68 -205.84" hpr="27.6 163.1 20.5" scale="1.30 1.30 1.30"/>
+  <library name="stklib_fern_a" xyz="177.60 5.63 -207.16" hpr="24.7 165.1 1.6" scale="1.30 1.30 1.30"/>
+  <library name="stklib_fern_a" xyz="174.49 5.45 -207.64" hpr="-95.4 62.7 -97.0" scale="1.30 1.30 1.30"/>
+  <library name="stklib_fern_a" xyz="229.74 18.35 -163.00" hpr="3.1 163.9 -10.6" scale="1.27 1.27 1.27"/>
+  <library name="stklib_fern_a" xyz="203.62 5.93 104.05" hpr="47.6 4.9 -15.6" scale="0.83 0.83 0.83"/>
+  <library name="stklib_fern_a" xyz="211.06 10.41 102.71" hpr="33.6 36.8 -5.4" scale="1.01 1.01 1.01"/>
+  <library name="stklib_fern_a" xyz="184.99 9.50 103.84" hpr="98.1 -18.0 -82.4" scale="0.90 0.90 0.90"/>
+  <library name="stklib_fern_a" xyz="88.09 -0.29 30.12" hpr="-46.1 141.8 -38.1" scale="0.93 0.93 0.93"/>
+  <library name="stklib_fern_a" xyz="92.23 -0.36 29.49" hpr="33.6 -26.6 -25.2" scale="0.97 0.97 0.97"/>
+  <library name="stklib_fern_a" xyz="97.49 -0.48 28.91" hpr="33.6 -26.6 -25.2" scale="0.97 0.97 0.97"/>
+  <library name="stklib_fern_a" xyz="21.24 -0.77 52.41" hpr="-24.0 0.2 -5.1" scale="1.61 1.61 1.61"/>
+  <library name="stklib_fern_a" xyz="24.96 -0.87 52.10" hpr="-24.0 0.2 -5.1" scale="1.30 1.30 1.30"/>
+  <library name="stklib_fern_a" xyz="147.54 10.65 137.25" hpr="-5.5 -52.6 -5.3" scale="4.09 4.09 4.09"/>
+  <library name="stklib_fern_a" xyz="156.14 12.24 143.24" hpr="-60.3 -53.1 47.8" scale="4.09 4.09 4.09"/>
+  <library name="stklib_fern_a" xyz="166.15 12.97 147.66" hpr="-31.9 -48.2 30.7" scale="3.20 3.20 3.20"/>
+  <library name="stklib_fern_a" xyz="177.84 14.32 149.48" hpr="-19.0 -48.5 19.2" scale="3.37 3.37 3.37"/>
+  <library name="stklib_fern_a" xyz="188.78 14.94 151.35" hpr="-41.4 -39.0 42.9" scale="5.20 5.20 5.20"/>
+  <library name="stklib_fern_a" xyz="199.81 15.40 148.22" hpr="-26.6 -45.6 27.6" scale="3.37 3.37 3.37"/>
+  <library name="stklib_fern_a" xyz="211.72 16.18 145.23" hpr="-31.0 -41.8 42.3" scale="4.38 4.38 4.38"/>
+  <library name="stklib_fern_a" xyz="222.23 17.40 139.59" hpr="-13.3 -47.7 22.0" scale="4.38 4.38 4.38"/>
+  <library name="stklib_fern_a" xyz="230.15 18.02 132.68" hpr="-37.8 -33.3 39.0" scale="4.38 4.38 4.38"/>
+  <library name="stklib_fern_a" xyz="239.09 19.06 121.30" hpr="-36.4 -24.4 50.6" scale="4.38 4.38 4.38"/>
   <library name="stklib_fitchBarrel_a" xyz="98.44 -1.46 45.06" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_fitchBarrel_a" xyz="292.64 18.84 -78.68" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_fitchBarrel_a" xyz="100.74 -1.06 45.64" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
@@ -700,6 +834,8 @@
   <library name="stklib_liana_a" xyz="138.55 13.89 -251.07" hpr="-17.7 41.0 11.1" scale="0.62 0.62 0.62"/>
   <library name="stklib_liana_a" xyz="128.86 13.10 -262.20" hpr="24.7 41.0 11.1" scale="0.62 0.62 0.62"/>
   <library name="stklib_liana_a" xyz="-24.14 1.75 66.64" hpr="26.9 103.0 25.1" scale="0.50 0.50 0.50"/>
+  <library name="stklib_liana_a" xyz="-34.28 2.47 65.72" hpr="-7.8 61.7 -11.6" scale="0.38 0.38 0.38"/>
+  <library name="stklib_liana_a" xyz="-72.60 4.54 38.75" hpr="58.4 109.4 26.7" scale="0.38 0.38 0.38"/>
   <library name="stklib_oldLantern_a" xyz="306.53 20.01 -191.53" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_oldLantern_a" xyz="318.64 26.01 -162.22" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_oldLantern_a" xyz="258.64 15.06 -197.48" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
@@ -990,7 +1126,7 @@
   <library name="stklib_palmTree_a" xyz="-68.48 -0.68 37.63" hpr="-1.2 128.3 -5.5" scale="0.43 0.43 0.43"/>
   <library name="stklib_palmTree_a" xyz="-70.97 -0.59 33.08" hpr="-14.0 -16.1 -11.7" scale="0.56 0.56 0.56"/>
   <library name="stklib_palmTree_a" xyz="-71.01 -1.02 22.75" hpr="-8.3 -38.2 -14.4" scale="0.34 0.34 0.34"/>
-  <library name="stklib_palmTree_a" xyz="-70.48 -1.11 27.91" hpr="-9.0 105.8 -12.6" scale="0.43 0.43 0.43"/>
+  <library name="stklib_palmTree_a" xyz="-73.18 -0.36 27.91" hpr="-9.0 105.8 -12.6" scale="0.43 0.43 0.43"/>
   <library name="stklib_palmTree_a" xyz="-71.28 -1.27 18.33" hpr="-29.7 96.2 -33.0" scale="0.43 0.43 0.43"/>
   <library name="stklib_palmTree_a" xyz="-70.89 -1.18 13.16" hpr="-4.5 -48.0 -16.9" scale="0.34 0.34 0.34"/>
   <library name="stklib_palmTree_a" xyz="-70.02 -1.08 4.23" hpr="-12.3 -48.3 -12.1" scale="0.34 0.34 0.34"/>
@@ -1023,6 +1159,11 @@
   <library name="stklib_redFlowerBush_a" xyz="22.87 -0.61 56.56" hpr="-4.6 53.6 -0.9" scale="1.58 1.58 1.58"/>
   <library name="stklib_redFlowerBush_a" xyz="59.26 -0.27 37.36" hpr="-10.0 -111.3 10.4" scale="1.33 1.33 1.33"/>
   <library name="stklib_redFlowerBush_a" xyz="74.59 -0.45 33.67" hpr="-26.2 -134.6 -4.6" scale="0.93 0.93 0.93"/>
+  <library name="stklib_redFlowerBush_a" xyz="202.01 23.28 -218.67" hpr="-35.4 67.8 -34.5" scale="2.88 2.88 2.88"/>
+  <library name="stklib_redFlowerBush_a" xyz="164.46 20.06 -214.73" hpr="-35.4 67.8 -34.5" scale="1.93 1.93 1.93"/>
+  <library name="stklib_redFlowerBush_a" xyz="156.44 19.84 -237.60" hpr="23.1 -73.5 -20.0" scale="1.93 1.93 1.93"/>
+  <library name="stklib_redFlowerBush_a" xyz="144.27 18.00 -240.82" hpr="-5.9 -152.1 3.7" scale="1.93 1.93 1.93"/>
+  <library name="stklib_redFlowerBush_a" xyz="129.45 18.00 -249.99" hpr="-5.9 -152.1 3.7" scale="1.48 1.48 1.48"/>
   <library name="stklib_woodLittleBridge_a" xyz="249.03 9.83 25.01" hpr="0.0 8.6 5.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_woodLittleBridge_a" xyz="247.78 10.03 16.31" hpr="2.0 5.9 5.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_woodLittleBridge_a" xyz="246.60 10.42 7.74" hpr="3.2 3.9 5.0" scale="1.00 1.00 1.00"/>
