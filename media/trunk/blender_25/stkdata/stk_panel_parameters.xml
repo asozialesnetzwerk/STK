@@ -71,8 +71,10 @@
         <EnumChoice id="rain" label="Rain" doc="The weather effect to use in this track"/>
         <EnumChoice id="snow" label="Snow" doc="The weather effect to use in this track"/>
     </EnumProp>
+    <!--
     <BoolProp id="clouds" name="Cloud shadows (STK 0.8.2)" default="false" doc="Whether to add simulated cloud shadows on the ground">
     </BoolProp>
+    -->
     <BoolProp id="shadows" name="Dynamic shadows (STK 0.8.2)" default="true" doc="Whether to enable dynamic shadows"/>
 
     <PropGroup id="propgroup_postpro" name="Post processing (advanced)">

@@ -82,50 +82,40 @@ def writeMaterialsFile(sPath):
     if not materfound:
         print("No Materials defined.")
         return
-
-
-    # the values are of format (default value, parent property if any)
-    lTextureDefaults = {
-           'light'                 : ("Y", None),
-           'additive_lightmap'     : ("N", None),
-           'fog'                   : ("Y", None),
-           'backface_culling'      : ("Y", None),
-           'below_surface'         : ("N", None),
-           'compositing'           : ('none', None),
-           'collision_detect'      : ("N", None),
-           'collision_particles'   : ("", 'collision_detect'),
-           'collision_reaction'    : ("none", 'collision_detect'),
-           'clampu'                : ("N", None),
-           'clampv'                : ("N", None),
-           'disable_z_write'       : ("N", None),
-           'falling_effect'        : ("N", None),
-           'graphical_effect'      : ('none', None),
-           'grass_speed'           : (0.4, ('graphical_effect','grass')),
-           'grass_amplitude'       : (0.25, ('graphical_effect','grass')),
-           'ignore'                : ("N", None),
-           'mask'                  : ("", None),
-           'normal_map'            : ("", ('graphical_effect','normal_map')),
-           'normal_light_map'      : ("", ('graphical_effect','normal_map')),
-           'reset'                 : ("N", None),
-           'surface'               : ("N", None),
-           'high_adhesion'         : ('false', None),
-           'has_gravity'           : ("N", None),
-           'slowdown_time'         : (1.0, 'use_slowdown'),
-           'max_speed'             : (1.0, 'use_slowdown'),
-           'splatting_texture_1'   : ("", ('graphical_effect','splatting')),
-           'splatting_texture_2'   : ("", ('graphical_effect','splatting')),
-           'splatting_texture_3'   : ("", ('graphical_effect','splatting')),
-           'splatting_texture_4'   : ("", ('graphical_effect','splatting')),
-           'splatting_lightmap'    : ("", ('graphical_effect','splatting')),
-           'water_shader_speed_1'  : (6.6667, ('graphical_effect','water_shader')),
-           'water_shader_speed_2'  : (4.0, ('graphical_effect','water_shader')),
-           'water_splash'          : ("N", None),
+    
+    lMaterialProperties = {
+           'fog'                   : {'default': "Y", 'parent': None, 'type': 'bool'},
+           'backface_culling'      : {'default': "Y", 'parent': None, 'type': 'bool'},
+           'below_surface'         : {'default': "N", 'parent': None, 'type': 'bool'},
+           'collision_detect'      : {'default': "N", 'parent': None, 'type': 'bool'},
+           'collision_particles'   : {'default': "", 'parent': 'collision_detect', 'type': 'string'},
+           'collision_reaction'    : {'default': "none", 'parent': 'collision_detect', 'type': 'string'},
+           'clampu'                : {'default': "N", 'parent': None, 'type': 'bool'},
+           'clampv'                : {'default': "N", 'parent': None, 'type': 'bool'},
+           'disable_z_write'       : {'default': "N", 'parent': None, 'type': 'bool'},
+           'falling_effect'        : {'default': "N", 'parent': None, 'type': 'bool'},
+           'gloss_map'             : {'default': "", 'parent': None, 'type': 'string'},
+           'grass_speed'           : {'default': 0.4, 'parent': ('graphical_effect','grass'), 'type': 'number'},
+           'grass_amplitude'       : {'default': 0.25, 'parent': ('graphical_effect','grass'), 'type': 'number'},
+           'ignore'                : {'default': "N", 'parent': None, 'type': 'bool'},
+           'mask'                  : {'default': "", 'parent': None, 'type': 'string'},
+           'normal_map'            : {'default': "", 'parent': ('graphical_effect','normal_map'), 'type': 'string'},
+           'reset'                 : {'default': "N", 'parent': None, 'type': 'bool'},
+           'surface'               : {'default': "N", 'parent': None, 'type': 'bool'},
+           'high_adhesion'         : {'default': "N", 'parent': None, 'type': 'bool'},
+           'has_gravity'           : {'default': "N", 'parent': None, 'type': 'bool'},
+           'slowdown_time'         : {'default': 1.0, 'parent': 'use_slowdown', 'type': 'number'},
+           'max_speed'             : {'default': 1.0, 'parent': 'use_slowdown', 'type': 'number'},
+           'shader'                : {'default': 'solid', 'parent': None, 'type': 'string'},
+           'splatting_texture_1'   : {'default': "", 'parent': ('graphical_effect','splatting'), 'type': 'string'},
+           'splatting_texture_2'   : {'default': "", 'parent': ('graphical_effect','splatting'), 'type': 'string'},
+           'splatting_texture_3'   : {'default': "", 'parent': ('graphical_effect','splatting'), 'type': 'string'},
+           'splatting_texture_4'   : {'default': "", 'parent': ('graphical_effect','splatting'), 'type': 'string'},
+           'splatting_lightmap'    : {'default': "", 'parent': ('graphical_effect','splatting'), 'type': 'string'},
+           'water_shader_speed_1'  : {'default': 6.6667, 'parent': ('graphical_effect','water_shader'), 'type': 'number'},
+           'water_shader_speed_2'  : {'default': 4.0, 'parent': ('graphical_effect','water_shader'), 'type': 'number'},
+           'water_splash'          : {'default': "N", 'parent': None, 'type': 'bool'}
     }
-
-    lBooleanAttributes = ["clampu","clampv","light","surface","below_surface", "has_gravity",
-                          "falling_effect", "collision_detect", "fog", "additive_lightmap",
-                          "anisotropic","backface_culling","ignore","disable_z_write","reset",
-                          "sfx_positional", "water_splash"]
     
     #start_time = bsys.time()
     print("Writing material file --> \t")
@@ -154,10 +144,10 @@ def writeMaterialsFile(sPath):
         
         for AProperty,ADefault in l:
             # Don't add the (default) values to the property list
-            currentValue = getIdProperty(i, AProperty, ADefault,
-                                         set_value_if_undefined=0)
+            currentValue = getIdProperty(i, AProperty, ADefault, set_value_if_undefined=0)
+            
             #Correct for all the ways booleans can be represented (true/false;yes/no;zero/not_zero) 
-            if AProperty in lBooleanAttributes:
+            if AProperty in lMaterialProperties and lMaterialProperties[AProperty]['type'] == 'bool':
                 currentValue = convertTextToYN(currentValue)
             
             #These items pertain to the soundeffects (starting with sfx_)
@@ -182,10 +172,10 @@ def writeMaterialsFile(sPath):
                 #These items are standard items
                 prop = AProperty.strip()#.lower()
                 
-                if prop in lTextureDefaults.keys():
+                if prop in lMaterialProperties.keys():
                     
                     # if this property is conditional on another
-                    cond = lTextureDefaults[prop][1]
+                    cond = lMaterialProperties[prop]['parent']
                     
                     conditionPassed = False
                     if cond is None:
@@ -197,7 +187,7 @@ def writeMaterialsFile(sPath):
                         conditionPassed = True
                         
                     
-                    if currentValue != lTextureDefaults[prop][0] and conditionPassed:
+                    if currentValue != lMaterialProperties[prop]['default'] and conditionPassed:
                         if isinstance(currentValue, float):
                             # In blender, proeprties use '_', but STK still expects '-'
                             sImage = "%s %s=\"%.2f\""%(sImage,AProperty.replace("_","-"),currentValue)

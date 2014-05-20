@@ -1,13 +1,89 @@
 <?xml version="1.0"?>
 <Properties>
     <PropGroup id="propgroup_visual" name="Display">
+        <!-- Shader -->
+        <EnumProp id="shader" name="Shader" default="solid" doc="Select the shader that should be used to render this material">
+            
+            <!-- Generic solid -->
+            <EnumChoice id="solid" label="Generic (solid)">
+                <LabelProp id="solid_help" name="Uses UV layer 0"/>
+                <StringProp id="gloss_map (TODO)" name="Gloss map"  default=""/>
+                <StringProp id="normal_map" name="Normal map"  default="" doc="Use normal maps for this material (the model must be exported as tangent for this to work)"/>
+                <StringProp id="mask" name="Mask image (optional)" default="" doc="Greyscale image containing the alpha channel (transparency) for this image"/>
+                <!--<StringProp id="light_map" name="Light map"  default=""/>-->
+            </EnumChoice>
+            
+            <!-- Alpha testing -->
+            <EnumChoice id="alphatest" label="Cutout transparency (alpha test)">
+                <LabelProp id="alphatest_help" name="Uses UV layer 0"/>
+                <StringProp id="mask" name="Mask image (optional)" default="" doc="Greyscale image containing the alpha channel (transparency) for this image"/>
+                <!--
+                <StringProp id="gloss_map" name="Gloss map"  default=""/>
+                <StringProp id="normal_map" name="Normal map"  default="" doc="Use normal maps for this material (the model must be exported as tangent for this to work)"/>
+                -->
+            </EnumChoice>
+            
+            <!-- Alpha blending -->
+            <EnumChoice id="alphablend" label="Transparent (alpha blend)">
+                <LabelProp id="alphablend_help" name="Uses UV layer 0"/>
+                <StringProp id="mask" name="Mask image (optional)" default="" doc="Greyscale image containing the alpha channel (transparency) for this image"/>
+                <!--
+                <StringProp id="gloss_map" name="Gloss map"  default=""/>
+                <StringProp id="normal_map" name="Normal map"  default="" doc="Use normal maps for this material (the model must be exported as tangent for this to work)"/>
+                -->
+                <BoolProp id="disable_z_write" name="Disable writing to Z-buffer (recommended)" default="true"
+                    doc="disable writing to the Z buffer (useful for materials with transparency, if irrlicht fails to do proper alpha sorting, in order not to hide what is behind)"/>
+            </EnumChoice>
+            
+            <!-- Additive -->
+            <EnumChoice id="additive" label="Additive">
+                <LabelProp id="additive_help" name="Uses UV layer 0"/>
+                <BoolProp id="disable_z_write" name="Disable writing to Z-buffer (recommended)" default="true"
+                    doc="disable writing to the Z buffer (useful for materials with transparency, if irrlicht fails to do proper alpha sorting, in order not to hide what is behind)"/>
+            </EnumChoice>
+            
+            <!-- solid unlit -->
+            <EnumChoice id="unlit" label="Unlit (solid)">
+                <LabelProp id="unlit_help" name="This material will ignore lights/shadows and always be at full brightness. Uses UV layer 0"/>
+            </EnumChoice>
+            
+            <!-- Vegetation -->
+            <EnumChoice id="grass" label="Vegetation" doc="Shader that makes something wave as if under the wind, usually used for vegetation">
+                <LabelProp id="grass_help" name="Use vertex painting and paint in black the vertices that"/>
+                <LabelProp id="grass_help2" name="should remain static. Other parts will wave in the wind."/>
+                <LabelProp id="grass_help3" name="Use tones of grey to make vertices move more softly."/>
+                <FloatProp id="grass_speed" name="Waving speed" default="1.5" min="0.0" max="5.0" doc="Speed modifier for grass"/>
+                <FloatProp id="grass_amplitude" name="Waving amplitude" default="0.25" min="0.0" max="1.0" doc="Amplitude for grass movement"/>
+            </EnumChoice>
+            
+            <!-- Water -->
+            <EnumChoice id="water_shader" label="Water Shader"
+                        doc="A shader to simulate light reflexions and moving waves on this surface">
+                <FloatProp id="water_shader_speed_1" name="Main wave speed"      default="6.6667" min="0.0"/>
+                <FloatProp id="water_shader_speed_2" name="Secondary wave speed" default="4.0"    min="0.0"/>
+            </EnumChoice>
+            
+            <!-- Sphere map -->
+            <EnumChoice id="spheremap" label="Reflection (Sphere mapping)"/>
+            
+            <!-- Splatting -->
+            <EnumChoice id="splatting" label="Splatting" default="false"
+                        doc="Use splatting (multiple textures with smooth transitions)">
+                <StringProp id="splatting_texture_1" name="Red Texture"   default=""/>
+                <StringProp id="splatting_texture_2" name="Green Texture" default=""/>
+                <StringProp id="splatting_texture_3" name="Blue Texture"  default=""/>
+                <StringProp id="splatting_texture_4" name="Black Texture" default=""/>
+                <StringProp id="splatting_lightmap" name="Lightmap (optional)" default=""/>
+            </EnumChoice>
+            
+            <!-- Bubble -->
+            <EnumChoice id="bubble" label="Bubble (wavy texture)"/>
+            
+        </EnumProp>
+    
         <!-- Affected by fog -->
         <BoolProp id="fog" name="Affected by fog (if any)" default="true"
                 doc="Whether this material is affected by fog (if there is fog in this track)"/>
-                
-        <!-- Affected by lights -->
-        <BoolProp id="light" name="Affected by lights" default="true"
-                doc="Whether this material is affected by lights and shadows"/>
         
         <!-- Backface culling -->
         <BoolProp id="backface_culling" name="Backface Culling" default="true"
@@ -20,6 +96,7 @@
                 doc="if checked, this texture will not be repeated vertically (if the UV texturing goes beyond the texture bounds)"/>
 
         <!-- Compositing -->
+        <!--
         <EnumProp id="compositing" name="Compositing Type" default="none" doc="How to composite this texture with what is behind it">
             <EnumChoice id="none" label="None"/>
             <EnumChoice id="blend" label="Alpha Blend" doc="Use transparency on this texture, using the alpha channel or a specified external mask">
@@ -38,43 +115,13 @@
                     doc="disable writing to the Z buffer (useful for materials with transparency, if irrlicht fails to do proper alpha sorting, in order not to hide what is behind)"/>
             </EnumChoice>
         </EnumProp>
-        
-
-        <!-- Graphical effect -->
-        <EnumProp id="graphical_effect" name="Graphical Effect" default="none" doc="Select a special graphical effect">
-            <EnumChoice id="none" label="None"/>
-            <EnumChoice id="bubble" label="Bubble (wavy texture)"/>
-            <EnumChoice id="caustics" label="Caustics (STK 0.8.2)" doc="Water bottom light effects"/>
-            <EnumChoice id="grass" label="Grass">
-                <FloatProp id="grass_speed" name="Grass speed" default="1.5" min="0.0" max="5.0"
-                        doc="Speed modifier for grass"/>
-                <FloatProp id="grass_amplitude" name="Grass amplitude" default="0.25" min="0.0" max="1.0"
-                        doc="Amplitude for grass movement"/>
-            </EnumChoice>
-            <EnumChoice id="normal_map" label="Normal Map" default="false"
-                    doc="Use normal maps for this material (the model must be exported as tangent for this to work)">
-                <StringProp id="normal_map" name="Normal Map Image" default="" doc="Image containing the normal map for this texture"/>
-                <StringProp id="normal_light_map" name="Light Map Image" default="" doc="Image containing the lightmap for this texture (optional)"/>
-            </EnumChoice>
-            <EnumChoice id="spheremap" label="Sphere mapping"/>
-            <EnumChoice id="splatting" label="Splatting" default="false"
-                        doc="Use splatting (multiple textures with smooth transitions)">
-                <StringProp id="splatting_texture_1" name="Red Texture"   default=""/>
-                <StringProp id="splatting_texture_2" name="Green Texture" default=""/>
-                <StringProp id="splatting_texture_3" name="Blue Texture"  default=""/>
-                <StringProp id="splatting_texture_4" name="Black Texture" default=""/>
-                <StringProp id="splatting_lightmap" name="Lightmap (optional)" default=""/>
-            </EnumChoice>
-            <EnumChoice id="water_shader" label="Water Shader"
-                        doc="A shader to simulate light reflexions and moving waves on this surface">
-                <FloatProp id="water_shader_speed_1" name="Main wave speed"      default="6.6667" min="0.0"/>
-                <FloatProp id="water_shader_speed_2" name="Secondary wave speed" default="4.0"    min="0.0"/>
-            </EnumChoice>
-        </EnumProp>
+        -->
         
         <!-- Additive lightmap -->
+        <!--
         <BoolProp id="additive_lightmap" name="Lightmap is additive" default="false"
                 doc="Make lightmap additive (only makes sense if this material has a lightmap)"/>
+        -->
     </PropGroup>
     
     

@@ -54,7 +54,10 @@ def createProperties(object, props):
         
     for p in props.keys():
         
-        if isinstance(props[p], StkProperyGroup):
+        if isinstance(props[p], StkLabelPseudoProperty):
+            continue
+        
+        elif isinstance(props[p], StkProperyGroup):
             createProperties(object, props[p].subproperties)
             
         elif not p in object:
@@ -225,8 +228,9 @@ class StkEnumChoice:
     #! @param name          User-visible name for this property
     #! @param subproperties A list of StkProperty's. Contains the properties
     #                       that are to be shown when this enum item is selected
-    def __init__(self, name, subproperties, fullid, doc="(No documentation was defined for this item)"):
+    def __init__(self, name, subproperties, id, fullid, doc="(No documentation was defined for this item)"):
         self.name = name
+        self.id = id
         self.fullid = fullid
         
         self.subproperties = OrderedDict([])
@@ -266,7 +270,8 @@ class StkEnumProperty(StkProperty):
                 curr_obj = values[curr_val]
                 values_for_blender_unsorted.append( (curr_val, curr_obj.name, curr_obj.name) )
         
-        values_for_blender = sorted(values_for_blender_unsorted, key=lambda k: k[1])
+        #values_for_blender = sorted(values_for_blender_unsorted, key=lambda k: k[1])
+        values_for_blender = values_for_blender_unsorted
         
         # Create operator for this combo
         class STK_SetComboValue(bpy.types.Operator):
@@ -367,6 +372,16 @@ class StkCombinableEnumProperty(StkProperty):
             bpy.utils.register_class(STK_SetEnumComboValue)
 
 
+# ------------------------------------------------------------------------------
+#! A pseudo-property that only displays some text
+class StkLabelPseudoProperty(StkProperty):
+    
+    def __init__(self, id, name, default=0.0, doc="(No documentation defined for this element)", fullid="", min = None, max = None):
+        super(StkLabelPseudoProperty, self).__init__(id=id, name=name, default=default, fullid=fullid)
+        self.default
+        self.doc = doc
+
+        
 # ------------------------------------------------------------------------------
 #! A floating-point property
 #!
@@ -629,13 +644,15 @@ class StkColorProperty(StkProperty):
 import xml.dom.minidom
 
 def readEnumValues(valueNodes, contextLevel, idprefix):
-    out = {}
+    import collections
+    out = collections.OrderedDict()
     
     for node in valueNodes:
         if node.localName == None:
             continue
         elif node.localName == "EnumChoice":
             args = dict()
+            args["id"] = node.getAttribute("id")
             args["fullid"] = idprefix + '_' + node.getAttribute("id")
             args["name"] = node.getAttribute("label")
             args["subproperties"] = parseProperties(node, contextLevel, idprefix + '_' + node.getAttribute("id"))
@@ -729,6 +746,18 @@ def parseProperties(node, contextLevel, idprefix):
                 args["max"] = float(e.getAttribute("max"))
             
             props.append(StkFloatProperty(**args))
+        
+        elif e.localName == "LabelProp":
+            args = dict()
+            args["id"] = e.getAttribute("id")
+            args["fullid"] = idprefix + '_' + e.getAttribute("id")
+            args["name"] = e.getAttribute("name")
+            args["default"] = None
+            
+            if e.hasAttribute("doc"):
+                args["doc"] = e.getAttribute("doc")
+            
+            props.append(StkLabelPseudoProperty(**args))
         
         elif e.localName == "ColorProp":
             if e.hasAttribute("doc"):
@@ -912,6 +941,9 @@ class PanelBase:
                             icon = 'CHECKBOX_HLT'
                         row.operator(generateOpName("screen.stk_set_", curr.fullid, curr.id + "_" + value_id), text=curr.values[value_id].name, icon=icon)
                 
+            elif isinstance(curr, StkLabelPseudoProperty):
+                row.label(text=curr.name)
+                
             elif isinstance(curr, StkEnumProperty):
                 
                 row.label(text=curr.name)
@@ -1053,12 +1085,13 @@ class ImagePickerMenu(bpy.types.Menu):
         col = row.column()
 
         blend_path = os.path.abspath(bpy.path.abspath("//"))
+        is_lib_node = ('is_stk_node' in context.scene and context.scene['is_stk_node'] == 'true')
         
         i = 0
         for curr in bpy.data.images:
             
             if (curr.library is not None): continue
-            if (not os.path.abspath(bpy.path.abspath(curr.filepath)).startswith(blend_path)): continue
+            if (not is_lib_node and not os.path.abspath(bpy.path.abspath(curr.filepath)).startswith(blend_path)): continue
             
             if (i % 20 == 0):
                 col = row.column()
