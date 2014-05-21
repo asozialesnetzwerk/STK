@@ -68,13 +68,15 @@
   </checks>
   <particle-emitter kind="splash.xml" xyz="139.89 -3.09 120.54" h="0.00">
   </particle-emitter>
-  <particle-emitter kind="waterfall.xml" xyz="162.34 -3.69 -301.36" h="0.00">
+  <particle-emitter kind="waterfall.xml" xyz="162.34 -3.69 -301.36" h="0.00" clip_distance="150">
   </particle-emitter>
   <particle-emitter kind="black_smoke.xml" xyz="-67.83 13.16 -162.70" h="0.00">
   </particle-emitter>
+  <particle-emitter kind="gfx_fallingLeaf_a.xml" xyz="110.59 11.31 35.08" h="0.00" clip_distance="150">
+  </particle-emitter>
   <particle-emitter kind="black_smoke.xml" xyz="-22.90 14.06 -162.67" h="0.00">
   </particle-emitter>
-  <particle-emitter kind="droplet.xml" xyz="162.34 -0.17 -301.36" h="0.00">
+  <particle-emitter kind="droplet.xml" xyz="162.34 -0.17 -301.36" h="0.00" clip_distance="150">
   </particle-emitter>
   <particle-emitter kind="droplet.xml" xyz="167.22 37.59 -303.15" h="0.00">
   </particle-emitter>
@@ -85,6 +87,12 @@
   <particle-emitter kind="droplet.xml" xyz="157.72 77.53 -319.34" h="0.00">
   </particle-emitter>
   <particle-emitter kind="droplet.xml" xyz="170.73 101.72 -322.41" h="0.00">
+  </particle-emitter>
+  <particle-emitter kind="gfx_fallingLeaf_a.xml" xyz="240.91 26.74 48.66" h="0.00" clip_distance="150">
+  </particle-emitter>
+  <particle-emitter kind="gfx_fallingLeaf_a.xml" xyz="209.17 25.39 -193.97" h="0.00" clip_distance="150">
+  </particle-emitter>
+  <particle-emitter kind="gfx_fallingLeaf_a.xml" xyz="322.35 32.97 -88.03" h="0.00" clip_distance="150">
   </particle-emitter>
   <particle-emitter kind="fire.xml" xyz="-67.89 12.08 -162.64" h="0.00" clip_distance="200">
   </particle-emitter>
