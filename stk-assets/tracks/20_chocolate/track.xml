@@ -8,12 +8,13 @@
         screenshot     = "sshot-jungle.jpg"
         smooth-normals = "true"
         reverse        = "Y"
-        bloom          = "N"
+        bloom          = "Y"
+        bloom-threshold = "0.75"
         color-level-in = "0.0 0.7200000286102295 180.0"
         color-level-out = "0.0 255.0"
         clouds         = "N"
-        lens-flare     = "N"
-        shadows        = "N"
+        lens-flare     = "Y"
+        shadows        = "Y"
         god-rays       = "Y"
 >
 </track>
