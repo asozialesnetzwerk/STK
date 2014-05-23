@@ -822,6 +822,20 @@
   <library name="stklib_liana_a" xyz="-24.14 1.75 66.64" hpr="26.9 103.0 25.1" scale="0.50 0.50 0.50"/>
   <library name="stklib_liana_a" xyz="-34.28 2.47 65.72" hpr="-7.8 61.7 -11.6" scale="0.38 0.38 0.38"/>
   <library name="stklib_liana_a" xyz="-72.60 4.54 38.75" hpr="58.4 109.4 26.7" scale="0.38 0.38 0.38"/>
+  <library name="stklib_lowRockBarrier_a" xyz="0.00 0.00 149.98" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_lowRockBarrier_a" xyz="-133.22 3.55 110.27" hpr="0.0 -46.8 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_lowRockBarrier_a" xyz="131.92 16.76 234.76" hpr="1.9 -5.1 5.5" scale="1.00 1.00 1.00"/>
+  <library name="stklib_lowRockBarrier_a" xyz="271.49 25.34 273.15" hpr="-10.2 -14.5 1.5" scale="1.00 1.00 1.00"/>
+  <library name="stklib_lowRockBarrier_a" xyz="384.99 29.72 230.19" hpr="-8.8 36.4 1.8" scale="1.00 1.00 1.00"/>
+  <library name="stklib_lowRockBarrier_a" xyz="427.48 23.09 110.10" hpr="3.1 83.5 13.1" scale="1.00 1.00 1.00"/>
+  <library name="stklib_lowRockBarrier_a" xyz="489.75 23.07 -108.62" hpr="3.1 83.5 13.1" scale="1.00 1.00 1.00"/>
+  <library name="stklib_lowRockBarrier_a" xyz="447.04 23.07 -252.55" hpr="-12.8 116.7 -3.3" scale="1.00 1.00 1.00"/>
+  <library name="stklib_lowRockBarrier_a" xyz="339.31 23.07 -396.72" hpr="-11.4 132.9 -2.1" scale="1.31 1.31 1.31"/>
+  <library name="stklib_lowRockBarrier_a" xyz="199.43 16.56 -400.47" hpr="-10.9 -148.5 2.4" scale="1.31 1.31 1.31"/>
+  <library name="stklib_lowRockBarrier_a" xyz="27.84 35.43 -474.27" hpr="-17.8 141.7 -12.9" scale="1.13 1.13 1.13"/>
+  <library name="stklib_lowRockBarrier_a" xyz="-225.15 61.58 -281.78" hpr="-78.6 -96.9 79.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_lowRockBarrier_a" xyz="-191.88 50.96 -400.42" hpr="-10.1 -123.4 12.4" scale="1.00 1.00 1.00"/>
+  <library name="stklib_lowRockBarrier_a" xyz="-94.95 50.96 -473.75" hpr="2.6 -168.6 -5.4" scale="1.00 1.00 1.00"/>
   <library name="stklib_oldLantern_a" xyz="306.53 20.01 -191.53" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_oldLantern_a" xyz="318.64 26.01 -162.22" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_oldLantern_a" xyz="258.64 15.06 -197.48" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
