@@ -406,8 +406,8 @@ class ItemsExporter:
         rad2deg = 180.0/3.1415926535
         
         for obj in self.m_objects:
-            name = getObjectProperty(obj, "type", "").lower()
-            if name=="":
+            item_type = getObjectProperty(obj, "type", "").lower()
+            if item_type=="":
                 # If the type is not specified in the property,
                 # assume it's an old style item, which means the
                 # blender object name is to be used
@@ -415,26 +415,26 @@ class ItemsExporter:
                 if len(l)!=1:
                     if l[-1].isdigit():   # Remove number appended by blender
                         l = l[:-1]
-                    name = ".".join(l)
+                    item_type = ".".join(l)
                 else:
-                    name = obj.name
+                    item_type = obj.name
                 # Portability for old models:
-                g=re.match("(.*) *{(.*)}", name)
+                g=re.match("(.*) *{(.*)}", item_type)
                 if g:
-                    name  = g.group(1)
+                    item_type = g.group(1)
                     specs = g.group(2).lower()
                     if specs.find("z")>=0: z=None
                     if specs.find("p")>=0: p=None
                     if specs.find("r")>=0: r=None
-                if name=="GHERRING": name="banana"
-                if name=="RHERRING": name="item"
-                if name=="YHERRING": name="big-nitro"
-                if name=="SHERRING": name="small-nitro"
+                if item_type=="GHERRING": item_type="banana"
+                if item_type=="RHERRING": item_type="item"
+                if item_type=="YHERRING": item_type="big-nitro"
+                if item_type=="SHERRING": item_type="small-nitro"
             else:
-                if name=="nitro-big": name="big-nitro"
-                if name=="nitro_big": name="big-nitro"
-                if name=="nitro-small": name="small-nitro"
-                if name=="nitro_small": name="small-nitro"
+                if item_type=="nitro-big": item_type="big-nitro"
+                if item_type=="nitro_big": item_type="big-nitro"
+                if item_type=="nitro-small": item_type="small-nitro"
+                if item_type=="nitro_small": item_type="small-nitro"
 
             # Get the position of the item - first check if the item should
             # be dropped on the track, or stay at the position indicated.
@@ -443,7 +443,7 @@ class ItemsExporter:
             x,y,z    = map(lambda i: "%.2f"%i, obj.location)
             drop     = getObjectProperty(obj, "drop", "y").lower()
             # Swap y and z axis to have the same coordinate system used in game.
-            s        = "%s x=\"%s\" y=\"%s\" z=\"%s\"" % (name, x, z, y)
+            s        = "%s id=\"%s\" x=\"%s\" y=\"%s\" z=\"%s\"" % (item_type, obj.name, x, z, y)
             if h and h!="0.00": s = "%s h=\"%s\""%(s, h)
             if drop=="n":
                 # Pitch and roll will be set automatically if dropped
@@ -478,11 +478,11 @@ class ParticleEmitterExporter:
                     condition_str = ' conditions="' + getObjectProperty(obj, "particle_condition", "") + '"'
                 
                 if getObjectProperty(obj, "clip_distance", 0) > 0 :
-                    f.write('  <particle-emitter kind="%s" %s clip_distance="%i"%s>\n' %\
-                            (getObjectProperty(obj, "kind", 0), originXYZ, getObjectProperty(obj, "clip_distance", 0), condition_str))
+                    f.write('  <particle-emitter kind="%s id=\"%s\" %s clip_distance="%i"%s>\n' %\
+                            (getObjectProperty(obj, "kind", 0), obj.name, originXYZ, getObjectProperty(obj, "clip_distance", 0), condition_str))
                 else:
-                    f.write('  <particle-emitter kind="%s" %s%s>\n' %\
-                        (getObjectProperty(obj, "kind", 0), originXYZ, condition_str))
+                    f.write('  <particle-emitter kind="%s" id=\"%s\" %s%s>\n' %\
+                        (getObjectProperty(obj, "kind", 0), obj.name, originXYZ, condition_str))
                 
                 if obj.animation_data and obj.animation_data.action and obj.animation_data.action.fcurves and len(obj.animation_data.action.fcurves) > 0:
                     writeIPO(f, obj.animation_data)
@@ -522,8 +522,9 @@ class SoundEmitterExporter:
                     conditions_string = ' conditions="' + getObjectProperty(obj, "sfx_conditions", "") + '"'
                 
                 
-                f.write('  <object type="sfx-emitter" sound="%s" rolloff="%.3f" volume="%s" max_dist="%.1f" %s%s%s>\n' %\
-                        (getObjectProperty(obj, "sfx_filename", "some_sound.ogg"),
+                f.write('  <object type="sfx-emitter" id=\"%s\" sound="%s" rolloff="%.3f" volume="%s" max_dist="%.1f" %s%s%s>\n' %\
+                        (obj.name,
+                         getObjectProperty(obj, "sfx_filename", "some_sound.ogg"),
                          getObjectProperty(obj, "sfx_rolloff", 0.05),
                          getObjectProperty(obj, "sfx_volume", 0),
                          getObjectProperty(obj, "sfx_max_dist", 500.0), originXYZ, play_near_string, conditions_string))
@@ -556,8 +557,9 @@ class ActionTriggerExporter:
                 # origin
                 originXYZ = getXYZHPRString(obj)
                 
-                f.write('  <object type="action-trigger" action="%s" distance="%s" %s/>\n' %\
-                        (getObjectProperty(obj, "action", ""),
+                f.write('  <object type="action-trigger" id=\"%s\" action="%s" distance="%s" %s/>\n' %\
+                        (obj.name,
+                         getObjectProperty(obj, "action", ""),
                          getObjectProperty(obj, "trigger_distance", 5.0),
                          originXYZ))
             except:
@@ -633,7 +635,7 @@ class LibraryNodeExporter:
                 # origin
                 originXYZ = getXYZHPRString(obj)
                 
-                f.write('  <library name="%s" %s/>\n' % (lib_name, originXYZ))
+                f.write('  <library name="%s" id=\"%s\" %s/>\n' % (lib_name, obj.name, originXYZ))
             except:
                 log_error("Invalid linked object <" + getObjectProperty(obj, "name", obj.name) + "> ")
 
@@ -699,8 +701,8 @@ class BillboardExporter:
                     fadeout_str = "fadeout=\"true\" start=\"%.2f\" end=\"%.2f\""%(start,end)
                 
                 uv = track_getUVTextures(data)
-                f.write('  <object type="billboard" texture="%s" xyz="%.2f %.2f %.2f" \n'%
-                        (os.path.basename(uv[0].data[0].image.filepath),
+                f.write('  <object type="billboard" id=\"%s\" texture="%s" xyz="%.2f %.2f %.2f" \n'%
+                        (obj.name, os.path.basename(uv[0].data[0].image.filepath),
                         obj.location[0], obj.location[2], obj.location[1]) )
                 f.write('             width="%.3f" height="%.3f" %s>\n' %(max(x_max-x_min, z_max-z_min), y_max-y_min, fadeout_str) )
                 if obj.animation_data and obj.animation_data.action and obj.animation_data.action.fcurves and len(obj.animation_data.action.fcurves) > 0:
@@ -730,8 +732,8 @@ class LightsExporter:
             colR = int(obj.data.color[0] * 255)
             colG = int(obj.data.color[1] * 255)
             colB = int(obj.data.color[2] * 255)
-            f.write('  <light %s distance="%.2f" energy="%.2f" color="%i %i %i">\n' \
-                    % (getXYZString(obj), obj.data.distance, obj.data.energy, colR, colG, colB))
+            f.write('  <light %s id=\"%s\" distance="%.2f" energy="%.2f" color="%i %i %i">\n' \
+                    % (getXYZString(obj), obj.name, obj.data.distance, obj.data.energy, colR, colG, colB))
             if obj.animation_data and obj.animation_data.action and obj.animation_data.action.fcurves and len(obj.animation_data.action.fcurves) > 0:
                 writeIPO(f, obj.animation_data)
             f.write('  </light>\n')
@@ -2054,9 +2056,9 @@ class TrackExport:
             flags.append('skeletal-animation="false"')
             
         if parent and parent.type=="ARMATURE":
-            f.write("  <object type=\"%s\" %s %s>\n"% (objectType, getXYZHPRString(parent), ' '.join(flags)))
+            f.write("  <object id=\"%s\" type=\"%s\" %s %s>\n"% (obj.name, objectType, getXYZHPRString(parent), ' '.join(flags)))
         else:
-            f.write("  <object type=\"%s\" %s %s>\n"% (objectType, getXYZHPRString(obj), ' '.join(flags)))
+            f.write("  <object id=\"%s\" type=\"%s\" %s %s>\n"% (obj.name, objectType, getXYZHPRString(obj), ' '.join(flags)))
         writeIPO(f, ipo)
         f.write("  </object>\n")
         
@@ -2267,7 +2269,7 @@ class TrackExport:
             else:
                 flags.append('skeletal-animation="false"')
                 
-            f.write('  <object type="movable" %s\n'% getXYZHPRString(obj))
+            f.write('  <object type="movable" id=\"%s\" %s\n'% (obj.name, getXYZHPRString(obj)))
             f.write('          shape="%s" mass="%s" %s/>\n' % (shape, mass, ' '.join(flags)))
             
         # Now the object either has an IPO, or is a 'ghost' object.

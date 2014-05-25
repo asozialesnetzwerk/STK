@@ -74,7 +74,7 @@
         </EnumChoice>
         
         <!-- Goal -->
-        <EnumChoice id="goal" label="Goal line" doc="A point is scored when a soccer ball crosses this line" >
+        <EnumChoice id="goal" label="Goal line (soccer mode)" doc="A point is scored when a soccer ball crosses this line" >
             <BoolProp id="first_goal" name="First goal" default="true" doc="Checked=first goal, unchecked=second goal"/>
         </EnumChoice>
 
@@ -95,7 +95,7 @@
         <EnumChoice id="item" label="Item (Gift Box)" doc="A gift box containing a random collectible (apply to an Empty)"/>
         
         <!-- Easter egg -->
-        <EnumChoice id="easteregg" label="Easter Egg" doc="A hidden item (apply to an Empty)">
+        <EnumChoice id="easteregg" label="Easter Egg (Egg hunt mode)" doc="A hidden item (apply to an Empty)">
             <BoolProp id="easteregg_easy" name="Easy" default="true" doc="Visible in easy difficulty"/>
             <BoolProp id="easteregg_medium" name="Intermediate" default="true" doc="Visible in intermediate difficulty"/>
             <BoolProp id="easteregg_hard" name="Hard" default="true" doc="Visible in hard difficulty"/>
@@ -384,7 +384,7 @@
                 </EnumChoice>
             </EnumProp>
             <BoolProp id="tangents" name="Use Tangent Space" default="false" doc="Export object in tangent space, which is required for normal mapping"/>
-            <BoolProp id="soccer_ball" name="Is Soccer Ball" default="false" doc="Exported object is a soccer ball (used for soccer mode)"/>
+            <BoolProp id="soccer_ball" name="Is Soccer Ball (Soccer mode)" default="false" doc="Exported object is a soccer ball (used for soccer mode)"/>
             <BoolProp id="instancing" name="Instancing (STK 0.8.2, with library)" default="false" doc="An instancing should be specified in a lubrary, then imported in tracks where each instancing will use hardware instancing"/>
             
             <BoolProp id="forcedbloom" name="Glow (bloom) (STK 0.8.2)" default="false" doc="Enable a bloom effect on this particular object, making it glow"/>
@@ -400,7 +400,7 @@
         </EnumChoice>
         
         <!-- Start positions -->
-        <EnumChoice id="start" label="Start position" doc="A start position for karts in battle mode (only useful if this track is an arena)">
+        <EnumChoice id="start" label="Start position (battle mode)" doc="A start position for karts in battle mode (only useful if this track is an arena)">
             <IntProp id="start_index" name="Start Index" default="1" doc="Start position index for battle mode"/>
         </EnumChoice>
         
@@ -429,11 +429,13 @@
         </EnumChoice>
         
         <!-- Water -->
+        <!--
         <EnumChoice id="water" label="Water" doc="Animate the mesh with waves">
             <StringProp id="name" name="Name" default="" doc="Name of the model to export"/>
             <FloatProp id="height" name="Waves Height" default="1.0" min="0.0" doc="Height of the waves"/>
             <FloatProp id="speed" name="Waves Speed" default="200.0" min="0.0" max="500.0" doc="Speed of the waves"/>
             <FloatProp id="length" name="Waves Length" default="10.0" min="0.0" doc="Length of the waves"/>
         </EnumChoice>
+        -->
     </EnumProp>
 </Properties>
