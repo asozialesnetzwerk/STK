@@ -478,7 +478,7 @@ class ParticleEmitterExporter:
                     condition_str = ' conditions="' + getObjectProperty(obj, "particle_condition", "") + '"'
                 
                 if getObjectProperty(obj, "clip_distance", 0) > 0 :
-                    f.write('  <particle-emitter kind="%s id=\"%s\" %s clip_distance="%i"%s>\n' %\
+                    f.write('  <particle-emitter kind="%s" id=\"%s\" %s clip_distance="%i"%s>\n' %\
                             (getObjectProperty(obj, "kind", 0), obj.name, originXYZ, getObjectProperty(obj, "clip_distance", 0), condition_str))
                 else:
                     f.write('  <particle-emitter kind="%s" id=\"%s\" %s%s>\n' %\
