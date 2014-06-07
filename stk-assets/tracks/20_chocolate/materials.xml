@@ -6,14 +6,13 @@
   <material name="city_fern.png" ignore="Y"/>
   <material name="city_grass.png" backface-culling="N" ignore="Y"/>
   <material name="dirt_details.png" ignore="Y" shader="alphatest"/>
-  <material name="glow_border.png" light="N"/>
   <material name="grass2.jpg" max-speed="0.50" has-gravity="Y"/>
   <material name="grass2dirt.png" clampu="Y"/>
-  <material name="GrassTall.png" light="N" backface-culling="N" ignore="Y"/>
+  <material name="GrassTall.png" backface-culling="N" ignore="Y"/>
   <material name="jungleWater.png" disable-z-write="Y"/>
   <material name="monumentWater3.png" disable-z-write="Y"/>
   <material name="mossy_stone.png" high-adhesion="Y"/>
-  <material name="movie_test.png" light="N" disable-z-write="Y"/>
+  <material name="movie_test.png" disable-z-write="Y"/>
   <material name="palmtree3.jpg" mask="palmtree3_alpha.jpg" grass-speed="1.50"/>
   <material name="pot.jpg" backface-culling="N"/>
   <material name="road_dirt.jpg" has-gravity="Y">
@@ -21,7 +20,7 @@
   </material>
   <material name="roof.png" backface-culling="N"/>
   <material name="seabed.jpg" falling-effect="Y" water-splash="Y"/>
-  <material name="sky_gradient_test.png" fog="N" light="N"/>
+  <material name="sky_gradient_test.png" fog="N"/>
   <material name="skybox_mountain.png" disable-z-write="Y" shader="alphatest"/>
   <material name="stktex_generic_aztekWall_a.png" has-gravity="Y"/>
   <material name="textRoad.png" disable-z-write="Y"/>
