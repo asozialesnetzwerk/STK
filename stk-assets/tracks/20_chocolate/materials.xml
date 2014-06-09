@@ -9,10 +9,9 @@
   <material name="grass2.jpg" max-speed="0.50" has-gravity="Y"/>
   <material name="grass2dirt.png" clampu="Y"/>
   <material name="GrassTall.png" backface-culling="N" ignore="Y"/>
-  <material name="jungleWater.png" disable-z-write="Y"/>
+  <material name="jungleWater.png" disable-z-write="Y" shader="alphablend"/>
   <material name="monumentWater3.png" disable-z-write="Y"/>
   <material name="mossy_stone.png" high-adhesion="Y"/>
-  <material name="movie_test.png" disable-z-write="Y"/>
   <material name="palmtree3.jpg" mask="palmtree3_alpha.jpg" grass-speed="1.50"/>
   <material name="pot.jpg" backface-culling="N"/>
   <material name="road_dirt.jpg" has-gravity="Y">
@@ -23,7 +22,7 @@
   <material name="sky_gradient_test.png" fog="N"/>
   <material name="skybox_mountain.png" disable-z-write="Y" shader="alphatest"/>
   <material name="stktex_generic_aztekWall_a.png" has-gravity="Y"/>
-  <material name="textRoad.png" disable-z-write="Y"/>
+  <material name="textRoad.png" disable-z-write="Y" shader="alphatest"/>
   <material name="transparence.png" fog="N" disable-z-write="Y"/>
   <material name="underwater_test.png" clampv="Y"/>
   <material name="valVerdeFlag.png" shader="grass"/>
