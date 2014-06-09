@@ -26,6 +26,7 @@
   <material name="textRoad.png" disable-z-write="Y"/>
   <material name="transparence.png" fog="N" disable-z-write="Y"/>
   <material name="underwater_test.png" clampv="Y"/>
+  <material name="valVerdeFlag.png" shader="grass"/>
   <material name="wall.png" backface-culling="N"/>
   <material name="water_light.png" ignore="Y" surface="Y" disable-z-write="Y">
     <sfx filename="splash.ogg" rolloff="0.10" min_speed="0.00" max_speed="30.00" min_pitch="1.00" max_pitch="1.00" positional="no"/>
