@@ -7,7 +7,7 @@
             <!-- Generic solid -->
             <EnumChoice id="solid" label="Generic (solid)">
                 <LabelProp id="solid_help" name="Uses UV layer 0"/>
-                <StringProp id="gloss_map (TODO)" name="Gloss map"  default=""/>
+                <StringProp id="gloss_map" name="Gloss map"  default=""/>
                 <StringProp id="normal_map" name="Normal map"  default="" doc="Use normal maps for this material (the model must be exported as tangent for this to work)"/>
                 <StringProp id="mask" name="Mask image (optional)" default="" doc="Greyscale image containing the alpha channel (transparency) for this image"/>
                 <!--<StringProp id="light_map" name="Light map"  default=""/>-->

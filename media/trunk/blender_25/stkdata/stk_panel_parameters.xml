@@ -23,6 +23,7 @@
             <StringProp id="sky_texture1" name="Sky Texture North" default=""/>
             <StringProp id="sky_texture6" name="Sky Texture South" default=""/>
         </EnumChoice>
+        <!--
         <EnumChoice id="dome" label="Dome">
             <StringProp id="sky_texture" name="Sky Texture" default=""/>
             <IntProp id="sky_horizontal" name="Horizontal Definition" default="20"/>
@@ -36,6 +37,7 @@
             <FloatProp id="sky_speed_y" name="Sky Speed Y" default="0.0" min="0.0" max="10.0"
                        doc="Speed at which the sky moves vertically"/>
         </EnumChoice>
+        -->
         <EnumChoice id="simple" label="Plain color" doc="A plain-color sky">
             <ColorProp id="sky_color" name="Sky Color" default="77 104 255" doc="Click here to select the color of the sky"/>
         </EnumChoice>
