@@ -312,7 +312,6 @@
   <library name="stklib_aztecHouse_a" id="stklib_aztecHouse_a_main_proxy.007" xyz="281.82 28.19 -115.33" hpr="-0.0 90.0 0.0" scale="0.57 0.57 0.57"/>
   <library name="stklib_aztecHouse_a" id="stklib_aztecHouse_a_main_proxy.008" xyz="280.68 20.97 -123.24" hpr="-0.0 90.0 0.0" scale="0.55 0.60 0.55"/>
   <library name="stklib_aztecHouse_a" id="stklib_aztecHouse_a_main_proxy.009" xyz="322.69 19.52 -60.65" hpr="0.0 -101.4 -0.0" scale="0.74 1.04 0.74"/>
-  <library name="stklib_aztecHouse_a" id="stklib_aztecHouse_a_main_proxy.010" xyz="335.31 27.81 -71.22" hpr="0.0 103.6 0.0" scale="0.60 0.85 0.60"/>
   <library name="stklib_aztecHouse_a" id="stklib_aztecHouse_a_main_proxy.011" xyz="316.20 20.40 -42.92" hpr="0.0 163.5 0.0" scale="0.74 1.04 0.74"/>
   <library name="stklib_aztecHouse_b" id="stklib_aztecHouse_b_main_proxy" xyz="346.06 31.25 -114.67" hpr="0.0 -75.0 0.0" scale="0.88 0.88 0.88"/>
   <library name="stklib_aztecHouse_b" id="stklib_aztecHouse_b_main_proxy.001" xyz="328.97 31.19 -57.35" hpr="0.0 -65.8 0.0" scale="0.88 0.88 0.88"/>
