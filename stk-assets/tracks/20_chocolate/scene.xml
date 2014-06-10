@@ -12,9 +12,6 @@
     <static-object model="torch_test.b3d" xyz="-67.88 13.39 -162.45" hpr="0.0 -0.0 0.0" scale="0.35 0.35 0.35">
     <animated-texture name="movie_test.png" dy="0.0625"  animByStep="true" dt="0.050" />
     </static-object>
-    <static-object model="torch_test.b3d" xyz="33.86 4.04 42.31" hpr="0.0 82.7 0.0" scale="1.00 1.00 1.00">
-    <animated-texture name="movie_test.png" dy="0.0625"  animByStep="true" dt="0.050" />
-    </static-object>
     <static-object model="waterfall_test.b3d" xyz="158.79 74.13 -352.63" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
     <animated-texture name="monumentWater3.png" dy="-1.0000" />
     </static-object>
@@ -155,7 +152,6 @@
   <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy.013" xyz="294.43 19.60 -92.70" hpr="0.2 172.5 -8.0" scale="3.54 3.54 3.54"/>
   <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy.014" xyz="296.67 19.48 -105.17" hpr="2.1 -177.7 -15.9" scale="3.54 3.54 3.54"/>
   <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy.015" xyz="292.88 19.53 -116.95" hpr="11.1 -149.4 -18.5" scale="3.54 3.54 3.54"/>
-  <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy.017" xyz="283.10 19.30 -126.25" hpr="-2.9 -98.1 4.5" scale="3.54 3.54 3.54"/>
   <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy.018" xyz="276.41 22.64 -134.26" hpr="-12.7 -113.0 16.5" scale="3.54 3.54 3.54"/>
   <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy.019" xyz="218.74 12.32 -66.59" hpr="67.2 55.5 86.8" scale="2.27 2.27 2.27"/>
   <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy.020" xyz="260.33 8.65 85.71" hpr="9.6 -57.4 3.4" scale="1.34 1.34 1.63"/>
@@ -191,22 +187,6 @@
   <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy.068" xyz="233.67 19.43 -203.71" hpr="-21.9 44.5 -33.1" scale="3.98 3.98 3.98"/>
   <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy.071" xyz="243.18 19.95 -188.06" hpr="-9.5 19.7 -14.9" scale="3.98 3.98 3.98"/>
   <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy.075" xyz="267.52 19.61 -125.74" hpr="-1.8 -17.5 16.1" scale="3.54 3.54 3.54"/>
-  <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy.079" xyz="316.43 19.30 -69.02" hpr="-2.8 -3.1 8.4" scale="3.66 3.66 3.66"/>
-  <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy.081" xyz="318.17 19.09 -75.63" hpr="-3.0 -3.0 2.2" scale="2.23 2.23 2.23"/>
-  <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy.082" xyz="318.05 19.30 -57.63" hpr="-3.0 -3.0 2.2" scale="4.30 4.30 4.30"/>
-  <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy.083" xyz="313.24 19.24 -55.70" hpr="-3.0 -3.0 2.2" scale="4.30 4.30 4.30"/>
-  <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy.086" xyz="334.72 19.10 -82.13" hpr="-3.0 -3.0 2.2" scale="4.30 4.30 4.30"/>
-  <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy.087" xyz="326.82 19.10 -89.69" hpr="-3.0 -3.0 2.2" scale="3.81 3.81 3.81"/>
-  <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy.088" xyz="324.14 19.10 -82.22" hpr="-2.8 -3.1 8.4" scale="3.66 3.66 3.66"/>
-  <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy.089" xyz="334.21 19.31 -97.65" hpr="1.8 26.2 9.3" scale="3.66 3.66 3.66"/>
-  <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy.090" xyz="328.94 19.31 -95.95" hpr="-1.8 26.6 2.5" scale="3.81 3.81 3.81"/>
-  <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy.091" xyz="335.39 19.31 -90.55" hpr="-1.8 26.6 2.5" scale="4.30 4.30 4.30"/>
-  <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy.095" xyz="326.93 19.66 -118.08" hpr="-2.9 30.8 0.3" scale="3.81 3.81 3.81"/>
-  <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy.096" xyz="327.47 19.75 -112.45" hpr="1.3 30.5 7.5" scale="3.66 3.66 3.66"/>
-  <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy.097" xyz="325.76 19.86 -126.01" hpr="1.3 30.5 7.5" scale="3.66 3.66 3.66"/>
-  <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy.098" xyz="325.22 19.77 -140.59" hpr="-2.9 30.8 0.3" scale="3.81 3.81 3.81"/>
-  <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy.099" xyz="331.38 19.52 -135.77" hpr="-2.9 30.8 0.3" scale="4.30 4.30 4.30"/>
-  <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy.100" xyz="333.31 19.64 -126.65" hpr="1.3 30.5 7.5" scale="4.30 4.30 4.30"/>
   <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy.106" xyz="284.51 18.95 -191.91" hpr="-0.6 -1.0 13.3" scale="4.55 4.55 7.98"/>
   <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy.112" xyz="286.93 23.16 -170.73" hpr="-18.6 46.5 1.6" scale="2.97 2.97 2.97"/>
   <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy.114" xyz="296.82 29.81 -172.77" hpr="-17.3 -10.0 3.1" scale="4.55 4.55 4.55"/>
@@ -322,13 +302,21 @@
   <library name="stklib_aztecFountain_a" id="stklib_aztecFountain_a_main_proxy.004" xyz="200.97 2.23 147.42" hpr="0.0 102.4 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_aztecFountain_a" id="stklib_aztecFountain_a_main_proxy.005" xyz="222.59 2.23 138.33" hpr="0.0 120.6 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_aztecFountain_a" id="stklib_aztecFountain_a_main_proxy.006" xyz="238.34 2.23 123.07" hpr="0.0 145.5 0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_aztecHouse_a" id="stklib_aztecHouse_a_main_proxy" xyz="205.69 19.07 -121.07" hpr="0.0 -41.5 0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_aztecHouse_a" id="stklib_aztecHouse_a_main_proxy.001" xyz="280.68 19.07 -112.98" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_aztecHouse_a" id="stklib_aztecHouse_a_main_proxy.002" xyz="337.21 19.26 -109.35" hpr="-0.0 -128.3 -0.0" scale="0.87 0.87 0.87"/>
+  <library name="stklib_aztecHouse_a" id="stklib_aztecHouse_a_main_proxy" xyz="210.09 19.07 -125.56" hpr="0.0 59.0 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_aztecHouse_a" id="stklib_aztecHouse_a_main_proxy.001" xyz="280.68 20.07 -107.68" hpr="0.0 -0.0 0.0" scale="0.70 0.70 0.70"/>
+  <library name="stklib_aztecHouse_a" id="stklib_aztecHouse_a_main_proxy.002" xyz="337.21 19.94 -127.55" hpr="0.0 -86.5 0.0" scale="0.87 0.87 0.87"/>
   <library name="stklib_aztecHouse_a" id="stklib_aztecHouse_a_main_proxy.003" xyz="288.44 18.59 -218.14" hpr="2.0 26.0 3.9" scale="0.63 0.75 0.63"/>
-  <library name="stklib_aztecHouse_a" id="stklib_aztecHouse_a_main_proxy.004" xyz="326.86 18.78 -71.09" hpr="-0.0 169.8 -0.0" scale="0.74 0.74 0.74"/>
-  <library name="stklib_aztecHouse_a" id="stklib_aztecHouse_a_main_proxy.005" xyz="349.40 18.78 -89.99" hpr="0.0 -51.2 0.0" scale="0.74 0.74 0.74"/>
+  <library name="stklib_aztecHouse_a" id="stklib_aztecHouse_a_main_proxy.004" xyz="334.04 19.52 -80.34" hpr="0.0 49.5 0.0" scale="0.74 0.74 0.74"/>
+  <library name="stklib_aztecHouse_a" id="stklib_aztecHouse_a_main_proxy.005" xyz="343.49 20.42 -104.09" hpr="0.0 -169.4 -0.0" scale="0.74 0.91 0.74"/>
   <library name="stklib_aztecHouse_a" id="stklib_aztecHouse_a_main_proxy.006" xyz="121.87 131.51 -352.82" hpr="5.8 128.0 4.7" scale="0.87 0.87 0.87"/>
+  <library name="stklib_aztecHouse_a" id="stklib_aztecHouse_a_main_proxy.007" xyz="281.82 28.19 -115.33" hpr="-0.0 90.0 0.0" scale="0.57 0.57 0.57"/>
+  <library name="stklib_aztecHouse_a" id="stklib_aztecHouse_a_main_proxy.008" xyz="280.68 20.97 -123.24" hpr="-0.0 90.0 0.0" scale="0.55 0.60 0.55"/>
+  <library name="stklib_aztecHouse_a" id="stklib_aztecHouse_a_main_proxy.009" xyz="322.69 19.52 -60.65" hpr="0.0 -101.4 -0.0" scale="0.74 1.04 0.74"/>
+  <library name="stklib_aztecHouse_a" id="stklib_aztecHouse_a_main_proxy.010" xyz="335.31 27.81 -71.22" hpr="0.0 103.6 0.0" scale="0.60 0.85 0.60"/>
+  <library name="stklib_aztecHouse_a" id="stklib_aztecHouse_a_main_proxy.011" xyz="316.20 20.40 -42.92" hpr="0.0 163.5 0.0" scale="0.74 1.04 0.74"/>
+  <library name="stklib_aztecHouse_b" id="stklib_aztecHouse_b_main_proxy" xyz="346.06 31.25 -114.67" hpr="0.0 -75.0 0.0" scale="0.88 0.88 0.88"/>
+  <library name="stklib_aztecHouse_b" id="stklib_aztecHouse_b_main_proxy.001" xyz="328.97 31.19 -57.35" hpr="0.0 -65.8 0.0" scale="0.88 0.88 0.88"/>
+  <library name="stklib_aztecHouse_b" id="stklib_aztecHouse_b_main_proxy.002" xyz="281.83 34.63 -111.13" hpr="0.0 85.2 0.0" scale="0.47 0.47 0.47"/>
   <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy" xyz="29.07 4.46 53.30" hpr="0.0 180.0 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.001" xyz="31.87 0.73 35.79" hpr="0.0 180.0 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.002" xyz="124.72 0.89 98.83" hpr="0.0 -170.0 -0.0" scale="1.00 1.00 1.00"/>
@@ -455,7 +443,7 @@
   <library name="stklib_jungleTree_b" id="stklib_jungleTree_b_main_proxy.002" xyz="195.00 22.25 -282.57" hpr="-0.0 108.5 -0.0" scale="6.79 6.79 6.79"/>
   <library name="stklib_jungleTree_b" id="stklib_jungleTree_b_main_proxy.003" xyz="266.39 15.34 -231.06" hpr="-0.0 108.5 -0.0" scale="8.11 8.11 8.11"/>
   <library name="stklib_jungleTree_b" id="stklib_jungleTree_b_main_proxy.004" xyz="302.43 31.04 -162.53" hpr="-29.3 113.1 -17.7" scale="6.79 6.79 6.79"/>
-  <library name="stklib_jungleTree_b" id="stklib_jungleTree_b_main_proxy.005" xyz="330.98 18.08 -84.78" hpr="3.4 -139.2 21.8" scale="6.79 6.79 6.79"/>
+  <library name="stklib_jungleTree_b" id="stklib_jungleTree_b_main_proxy.005" xyz="359.49 18.08 -84.78" hpr="3.4 -139.2 21.8" scale="6.79 6.79 6.79"/>
   <library name="stklib_jungleTree_b" id="stklib_jungleTree_b_main_proxy.006" xyz="324.55 16.50 -28.16" hpr="55.2 -76.5 -50.0" scale="6.79 6.79 6.79"/>
   <library name="stklib_jungleTree_b" id="stklib_jungleTree_b_main_proxy.007" xyz="303.87 18.98 -34.28" hpr="15.6 -2.5 9.1" scale="6.79 6.79 6.79"/>
   <library name="stklib_jungleTree_b" id="stklib_jungleTree_b_main_proxy.008" xyz="293.28 32.75 -161.60" hpr="-5.1 -173.0 14.3" scale="4.83 4.83 4.83"/>
@@ -582,23 +570,16 @@
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.049" xyz="144.84 11.80 -81.07" hpr="-67.8 102.4 -76.2" scale="0.83 0.83 0.83"/>
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.050" xyz="-22.18 33.58 -278.17" hpr="18.8 132.3 41.4" scale="0.59 0.59 0.59"/>
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.051" xyz="294.86 18.73 -46.73" hpr="-13.3 122.8 -9.4" scale="1.10 1.10 1.10"/>
-  <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.052" xyz="300.78 18.85 -50.87" hpr="16.4 107.8 20.3" scale="0.93 0.93 0.93"/>
-  <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.053" xyz="296.73 19.45 -40.58" hpr="51.9 72.9 45.0" scale="0.92 0.92 0.92"/>
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.054" xyz="202.04 14.81 149.23" hpr="47.0 147.9 59.7" scale="0.57 0.57 0.57"/>
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.055" xyz="310.48 19.73 -31.88" hpr="25.2 -81.1 -37.4" scale="0.83 0.83 0.83"/>
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.056" xyz="332.47 19.73 -29.46" hpr="-14.2 -156.1 5.9" scale="1.20 1.20 1.20"/>
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.057" xyz="184.57 14.03 151.98" hpr="-105.1 50.9 -108.4" scale="0.79 0.79 0.79"/>
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.058" xyz="174.42 12.62 150.76" hpr="-93.5 32.1 -106.3" scale="1.01 1.01 1.01"/>
-  <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.059" xyz="316.16 18.89 -62.34" hpr="-52.3 109.6 -48.8" scale="0.89 0.89 0.89"/>
-  <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.060" xyz="316.32 18.89 -62.57" hpr="0.0 55.3 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.061" xyz="148.07 10.16 140.46" hpr="-74.4 74.2 -72.9" scale="0.79 0.79 0.79"/>
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.062" xyz="157.32 11.75 144.76" hpr="-77.3 53.1 -74.7" scale="0.56 0.56 0.56"/>
-  <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.063" xyz="306.80 18.63 -55.38" hpr="16.4 107.8 20.3" scale="0.80 0.80 0.80"/>
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.066" xyz="340.24 18.93 -93.16" hpr="-10.5 145.0 2.6" scale="0.84 0.84 0.84"/>
-  <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.067" xyz="353.21 19.58 -112.57" hpr="-2.0 -9.1 -6.1" scale="1.03 1.03 1.03"/>
-  <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.068" xyz="329.26 18.96 -120.06" hpr="2.7 136.9 8.3" scale="1.03 1.03 1.03"/>
-  <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.069" xyz="327.88 19.55 -129.29" hpr="-0.9 161.1 6.4" scale="0.83 0.83 0.83"/>
-  <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.070" xyz="328.02 19.84 -136.32" hpr="-20.4 70.4 -18.3" scale="0.90 0.90 0.90"/>
+  <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.067" xyz="360.11 28.32 -112.57" hpr="-2.0 -9.1 -6.1" scale="1.03 1.03 1.03"/>
+  <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.069" xyz="354.21 19.55 -136.46" hpr="-0.9 161.1 6.4" scale="0.83 0.83 0.83"/>
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.071" xyz="323.63 31.99 -147.02" hpr="-2.1 171.1 6.1" scale="0.90 0.90 0.90"/>
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.072" xyz="314.75 31.16 -150.17" hpr="-10.0 -131.1 9.3" scale="0.66 0.66 0.66"/>
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.073" xyz="307.60 30.08 -153.44" hpr="-10.5 -129.3 9.6" scale="0.81 0.81 0.81"/>
@@ -826,9 +807,7 @@
   <library name="stklib_redFlowerBush_a" id="stklib_redFlowerBush_a_main_proxy.001" xyz="219.42 19.07 -91.94" hpr="2.0 1.9 -3.1" scale="2.00 2.00 2.00"/>
   <library name="stklib_redFlowerBush_a" id="stklib_redFlowerBush_a_main_proxy.002" xyz="246.20 20.09 -64.57" hpr="-3.3 57.7 2.6" scale="2.88 2.88 2.88"/>
   <library name="stklib_redFlowerBush_a" id="stklib_redFlowerBush_a_main_proxy.003" xyz="259.62 19.41 -62.92" hpr="-5.4 59.7 -1.9" scale="2.88 2.88 2.88"/>
-  <library name="stklib_redFlowerBush_a" id="stklib_redFlowerBush_a_main_proxy.004" xyz="303.86 18.85 -55.45" hpr="4.6 126.3 6.5" scale="2.12 2.12 2.12"/>
   <library name="stklib_redFlowerBush_a" id="stklib_redFlowerBush_a_main_proxy.005" xyz="294.79 20.10 -36.51" hpr="2.9 -160.1 1.8" scale="2.12 2.12 2.12"/>
-  <library name="stklib_redFlowerBush_a" id="stklib_redFlowerBush_a_main_proxy.006" xyz="311.28 18.90 -57.28" hpr="11.2 104.2 13.7" scale="2.87 2.87 2.87"/>
   <library name="stklib_redFlowerBush_a" id="stklib_redFlowerBush_a_main_proxy.007" xyz="58.87 -1.31 59.63" hpr="23.0 97.0 25.6" scale="2.12 2.12 2.12"/>
   <library name="stklib_redFlowerBush_a" id="stklib_redFlowerBush_a_main_proxy.008" xyz="73.38 -0.68 57.98" hpr="-4.5 52.3 -0.8" scale="2.12 2.12 2.12"/>
   <library name="stklib_redFlowerBush_a" id="stklib_redFlowerBush_a_main_proxy.009" xyz="42.19 -1.18 57.22" hpr="85.2 104.3 79.6" scale="1.58 1.58 1.58"/>
@@ -859,10 +838,10 @@
   <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.016" xyz="239.15 10.55 -3.86" hpr="6.5 -28.7 2.7" scale="0.65 0.65 0.65"/>
   <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.017" xyz="241.80 11.33 -8.62" hpr="6.5 -28.7 2.7" scale="0.65 0.65 0.65"/>
   <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.018" xyz="274.71 18.01 -49.77" hpr="6.3 -50.7 -4.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.019" xyz="316.18 21.42 -65.21" hpr="-90.0 25.7 0.0" scale="0.35 0.35 0.35"/>
-  <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.020" xyz="308.97 68.98 -189.31" hpr="25.4 19.8 1.9" scale="0.62 0.62 0.62"/>
+  <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.019" xyz="313.83 28.67 -67.71" hpr="-14.0 77.6 7.0" scale="0.58 0.58 0.58"/>
+  <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.020" xyz="331.59 29.59 -120.15" hpr="-25.5 93.9 -0.7" scale="0.82 0.55 0.55"/>
   <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.021" xyz="259.24 10.28 87.20" hpr="-86.0 32.2 15.4" scale="1.10 0.35 0.35"/>
-  <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.022" xyz="221.42 21.93 -127.72" hpr="94.2 54.7 1.4" scale="1.15 0.35 0.35"/>
+  <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.022" xyz="325.13 27.70 -82.34" hpr="-19.2 49.7 -0.3" scale="0.58 0.58 0.58"/>
   <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.023" xyz="270.22 13.11 74.31" hpr="-81.8 76.2 10.9" scale="1.00 0.35 0.35"/>
   <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.024" xyz="216.13 21.31 -107.27" hpr="58.1 94.6 -33.9" scale="1.15 0.35 0.35"/>
   <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.025" xyz="271.99 13.20 57.26" hpr="-75.6 88.4 17.2" scale="1.30 0.35 0.35"/>
@@ -878,4 +857,5 @@
   <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.035" xyz="-54.86 1.09 53.91" hpr="-90.9 139.6 -1.3" scale="1.14 0.35 0.35"/>
   <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.036" xyz="-39.81 0.99 63.98" hpr="-89.6 154.0 -0.4" scale="1.14 0.35 0.35"/>
   <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.037" xyz="-21.94 0.79 64.81" hpr="-89.3 -161.0 -3.2" scale="1.14 0.35 0.35"/>
+  <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.038" xyz="336.76 30.13 -109.82" hpr="6.9 101.9 19.9" scale="0.51 0.51 0.51"/>
 </scene>
