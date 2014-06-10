@@ -36,6 +36,7 @@
 
   <material name="stktex_jungleLeaf_b.png" compositing="test" ignore="Y" graphical-effect="grass"/>
   <material name="stk_grassAlpha.png"  graphical-effect="grass"       compositing="test"  ignore="Y"/>
+  <material name="stk_generic_colorfabricA.png"  graphical-effect="grass"       compositing="test"  ignore="Y"/>
   <material name="gfx_leaf_a.png" compositing="blend"/>
   <material name="gfx_sparkFire_a.png" compositing="additive"/>
   
