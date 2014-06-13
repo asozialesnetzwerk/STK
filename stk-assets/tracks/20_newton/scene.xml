@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 15369 -->
+<scene>
+  <track model="newton_track.b3d" x="0" y="0" z="0"/>
+  <sun  xyz="0.00 278.07 119.60" sun-diffuse="255 250 186" ambient="120 120 120"/>
+  <sky-box texture="sky2.jpg sky2.jpg sky2.jpg sky2.jpg sky2.jpg sky2.jpg" sh-texture="sky2.jpg sky2.jpg sky2.jpg sky2.jpg sky2.jpg sky2.jpg"/>
+  <camera far="1000.0"/>
+  <checks>
+    <check-lap kind="lap" same-group="0"  />
+  </checks>
+  <default-start karts-per-row     ="2"
+                 forwards-distance ="1.10"
+                 sidewards-distance="1.10"
+                 upwards-distance  ="1.10"/>
+</scene>

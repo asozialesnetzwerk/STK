@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 15369 -->
+<track  name           = "newton"
+        version        = "6"
+        groups         = "nextgen"
+        designer       = "sam"
+        music          = "kart_grand_prix.music"
+        screenshot     = "screenshot.jpg"
+        smooth-normals = "false"
+        reverse        = "N"
+        bloom          = "Y"
+        bloom-threshold = "0.75"
+        clouds         = "N"
+        lens-flare     = "Y"
+        shadows        = "Y"
+        god-rays       = "Y"
+>
+</track>
