@@ -27,6 +27,10 @@
   
   <material name="ants.png" compositing="test"/>
   <material name="stktex_branches_diff_a.png" compositing="test" graphical-effect="grass"/>
+  <material name="stktex_lowPalmTree_a.png" compositing="test" />
+  <material name="stktex_lowPalmLeaf_a.png" compositing="test" graphical-effect="grass"/>
+  
+  
   
   <material name="stktex_jungleLeaf_a.png" compositing="test" graphical-effect="grass"/>
   <material name="stktex_usSignAtlas_a.png" compositing="test"/>
