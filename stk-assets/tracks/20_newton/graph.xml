@@ -2,7 +2,7 @@
 <!-- Generated with script from SVN rev 15369 -->
 <graph>
   <!-- First define all nodes of the graph, and what quads they represent -->
-  <node-list from-quad="0" to-quad="228"/>  <!-- map each quad to a node  -->
+  <node-list from-quad="0" to-quad="240"/>  <!-- map each quad to a node  -->
   <!-- Define the main loop -->
-  <edge-loop from="0" to="228"/>
+  <edge-loop from="0" to="240"/>
 </graph>
