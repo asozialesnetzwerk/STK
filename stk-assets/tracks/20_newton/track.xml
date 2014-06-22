@@ -6,7 +6,7 @@
         designer       = "sam"
         music          = "kart_grand_prix.music"
         screenshot     = "screenshot.jpg"
-        smooth-normals = "false"
+        smooth-normals = "true"
         reverse        = "N"
         bloom          = "Y"
         bloom-threshold = "0.75"
