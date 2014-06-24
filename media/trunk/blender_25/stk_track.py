@@ -2055,10 +2055,16 @@ class TrackExport:
         else:
             flags.append('skeletal-animation="false"')
             
+        lAnim = checkForAnimatedTextures([obj])
+                
         if parent and parent.type=="ARMATURE":
             f.write("  <object id=\"%s\" type=\"%s\" %s %s>\n"% (obj.name, objectType, getXYZHPRString(parent), ' '.join(flags)))
         else:
             f.write("  <object id=\"%s\" type=\"%s\" %s %s>\n"% (obj.name, objectType, getXYZHPRString(obj), ' '.join(flags)))
+            
+        if lAnim:
+            writeAnimatedTextures(f, lAnim)
+        
         writeIPO(f, ipo)
         f.write("  </object>\n")
         
