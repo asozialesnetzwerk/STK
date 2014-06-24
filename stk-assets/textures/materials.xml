@@ -22,12 +22,13 @@
   <!-- Textures graphical-effect="normal_map" normal-map="stktex_generic_cobbleStoneA_nm.png" graphical-effect="grass"-->
   <material name="stktex_animatedFire_a.png" disable-z-write="Y" shader="additive"/>
   
-  
+  <material name="gfx_distord_AlphaTested.png" compositing="test"/>
   
   
   <material name="ants.png" compositing="test"/>
   <material name="stktex_branches_diff_a.png" compositing="test" graphical-effect="grass"/>
   <material name="stktex_lowPalmTree_a.png" compositing="test" />
+  <material name="stk_generic_gridA.png" compositing="test" has-gravity="Y"/>
   <material name="stktex_lowPalmLeaf_a.png" compositing="test" graphical-effect="grass"/>
   
   
