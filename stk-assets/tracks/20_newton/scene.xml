@@ -1,7 +1,9 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15369 -->
+<!-- Generated with script from SVN rev 15417 -->
 <scene>
   <track model="newton_track.b3d" x="0" y="0" z="0"/>
+  <object id="Plane.048" type="animation" xyz="-0.00 1.97 -32.42" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="displacement_test.b3d" displacing="true" skeletal-animation="false">
+  </object>
   <sun  xyz="0.00 278.07 119.60" sun-diffuse="255 250 186" ambient="120 120 120"/>
   <sky-box texture="sky2.jpg sky2.jpg sky2.jpg sky2.jpg sky2.jpg sky2.jpg" sh-texture="sky2.jpg sky2.jpg sky2.jpg sky2.jpg sky2.jpg sky2.jpg"/>
   <camera far="1000.0"/>
