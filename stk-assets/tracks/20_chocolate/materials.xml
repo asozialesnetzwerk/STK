@@ -37,4 +37,5 @@
   <material name="stktex_redFlower_a.png" disable-z-write="Y" grass-speed="1.50"/>
   <material name="stktex_greenBrush_a.png" disable-z-write="Y" grass-speed="1.50"/>
   <material name="stktex_fern_diff_a.png" grass-speed="1.50"/>
+  <material name="stktex_tropicalPlant_a.png" shader="grass"/>
 </materials>
