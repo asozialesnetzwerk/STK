@@ -2,11 +2,11 @@
 <!-- Generated with script from SVN rev 15417 -->
 <graph>
   <!-- First define all nodes of the graph, and what quads they represent -->
-  <node-list from-quad="0" to-quad="339"/>  <!-- map each quad to a node  -->
+  <node-list from-quad="0" to-quad="343"/>  <!-- map each quad to a node  -->
   <!-- Define the main loop -->
   <edge-loop from="0" to="227"/>
   <!-- Shortcut BezierCurve.024 -->
-  <edge from="18" to="228"/>
-  <edge-line from="228" to="339"/>
-  <edge from="339" to="62"/>
+  <edge from="12" to="228"/>
+  <edge-line from="228" to="343"/>
+  <edge from="343" to="62"/>
 </graph>
