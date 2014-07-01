@@ -351,7 +351,10 @@ def exportKart(path):
     if not random_wheel_rot or len(random_wheel_rot) == 0:
         random_wheel_rot = 'false'
     
-        
+    kart_type = 'medium'
+    if 'karttype' in the_scene:
+        kart_type = the_scene['karttype']
+    
     f = open(path + "/kart.xml", 'w', encoding="utf-8")    
     f.write('<?xml version="1.0"?>\n')
     f.write('<!-- Generated with script from SVN rev %s -->\n'\
@@ -365,6 +368,7 @@ def exportKart(path):
     f.write('      minimap-icon-file = "%s"\n' % kart_map_icon)
     f.write('      shadow-file       = "%s"\n' % kart_shadow)
     f.write('      random-wheel-rot  = "%s"\n' % random_wheel_rot)
+    f.write('      type              = "%s"\n' % kart_type)
     
     center_shift = the_scene['center_shift']
     if center_shift and center_shift != 0:
