@@ -1,12 +1,13 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 12507 -->
+<!-- Generated with script from SVN rev 15441 -->
 <kart name              = "Beagle"
       version           = "2"
       model-file        = "beagle.b3dz"
       icon-file         = "beagle_icon.png"
       minimap-icon-file = "beagle_icon.png"
       shadow-file       = "beagle_shadow.png"
-      random-wheel-rot  = "false"
+      random-wheel-rot  = "true"
+      type              = "heavy"
       groups            = "standard"
       rgb               = "0.70 0.00 0.00" >
   <sounds engine = "large"/>
@@ -33,5 +34,5 @@
     <nitro-emitter-a position = "0.163643 0.267224 -0.698970" />
     <nitro-emitter-b position = "-0.162629 0.267224 -0.698970" />
   </nitro-emitter>
-  <hat offset = "0.0 0.12 0.01"/>
+  <hat offset="0.0 0.12 0.01"/>
 </kart>

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 14302 -->
+<!-- Generated with script from SVN rev 15441 -->
 <kart name              = "Xue"
       version           = "2"
       model-file        = "xue.b3d"
@@ -7,6 +7,7 @@
       minimap-icon-file = "xfce_icon32.png"
       shadow-file       = "shadow.png"
       random-wheel-rot  = "false"
+      type              = "light"
       center-shift      = "0.30"
       groups            = "standard"
       rgb               = "0.03 0.40 1.00" >
@@ -27,7 +28,7 @@
     <nitro-emitter-b position = "-0.355961 0.446362 -0.547407" />
   </nitro-emitter>
   <speed-weighted-objects strength-factor="-1.0" speed-factor="10.0">
-    <speed-weighted position = "0.000000 0.000000 0.000000" model = "hc.propeller.b3d"/>
+    <speed-weighted position="0.000000 0.000000 0.000000" model="hc.propeller.b3d" />
   </speed-weighted-objects>
   <hat offset="0.0 0.05 0.07"/>
 </kart>

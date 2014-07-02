@@ -1,12 +1,13 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 0.1 -->
+<!-- Generated with script from SVN rev 15441 -->
 <kart name              = "Emule"
       version           = "2"
       model-file        = "emule.b3dz"
       icon-file         = "emule_icon128.png"
       minimap-icon-file = "emule_icon32.png"
       shadow-file       = "emule_shadow.png"
-      random-wheel-rot  = "false"
+      random-wheel-rot  = "true"
+      type              = "medium"
       center-shift      = "0.00"
       groups            = "standard"
       rgb               = "1.00 0.00 0.00" >
@@ -34,5 +35,5 @@
     <nitro-emitter-a position = "0.255852 0.362264 -0.586941" />
     <nitro-emitter-b position = "-0.250476 0.362264 -0.586941" />
   </nitro-emitter>
-     <hat offset="0.0 0.205 0.075"/>
+  <hat offset="0.0 0.205 0.075"/>
 </kart>

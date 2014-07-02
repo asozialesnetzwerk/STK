@@ -1,11 +1,13 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 10384 -->
+<!-- Generated with script from SVN rev 15441 -->
 <kart name              = "Wilber"
       version           = "2"
       model-file        = "wilber.b3dz"
       icon-file         = "wilbericon.png"
       minimap-icon-file = "wilbericon.png"
       shadow-file       = "wilbershadow.png"
+      random-wheel-rot  = "true"
+      type              = "light"
       groups            = "standard"
       rgb               = "1.00 0.42 0.00" >
   <sounds engine = "small"/>
@@ -28,5 +30,5 @@
     <rear-right position = "0.390992 0.133159 -0.318699"
                  model    = "wheel-rear-right.b3d"       />
   </wheels>
-  <hat offset = "0.0 0.21 0.04"/>
+  <hat offset="0.0 0.21 0.04"/>
 </kart>

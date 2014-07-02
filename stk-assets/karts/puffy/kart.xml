@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 14368 -->
+<!-- Generated with script from SVN rev 15441 -->
 <kart name              = "Puffy"
       version           = "2"
       model-file        = "puffy.b3d"
@@ -7,6 +7,7 @@
       minimap-icon-file = "puffy-icon.png"
       shadow-file       = "puffy-shadow.png"
       random-wheel-rot  = "true"
+      type              = "heavy"
       groups            = "standard"
       rgb               = "0.00 0.53 0.02" >
   <sounds engine = "large"/>

@@ -1,13 +1,16 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 0.1 -->
+<!-- Generated with script from SVN rev 15441 -->
 <kart name              = "Hexley"
       version           = "2"
       model-file        = "hexley.b3dz"
       icon-file         = "hexleyicon.png"
       minimap-icon-file = "hexleyicon.png"
       shadow-file       = "hexley2shadow.png"
+      random-wheel-rot  = "true"
+      type              = "light"
       groups            = "standard"
       rgb               = "0.78 0.23 0.23" >
+  <sounds engine = "small"/>
   <animations left = "0"
               straight = "20"
               right = "40"
@@ -25,5 +28,5 @@
     <rear-right position = "0.340563 0.116514 -0.323795"
                  model    = "wheel-rear-right.b3d"       />
   </wheels>
-  <hat offset = "0.0 0.3 -0.13"/>
+  <hat offset="0.0 0.3 -0.13"/>
 </kart>

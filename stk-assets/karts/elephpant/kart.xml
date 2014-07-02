@@ -1,13 +1,16 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 0.1 -->
+<!-- Generated with script from SVN rev 15441 -->
 <kart name              = "Elephpant"
       version           = "2"
       model-file        = "elephpant.b3dz"
       icon-file         = "elephpanticon.png"
       minimap-icon-file = "elephpanticon.png"
       shadow-file       = "elephpantshadow.png"
+      random-wheel-rot  = "true"
+      type              = "heavy"
       groups            = "standard"
-      rgb               = "0.463 0.713 0.0235" >
+      rgb               = "0.46 0.71 0.02" >
+  <sounds engine = "large"/>
   <animations left = "0"
               straight = "20"
               right = "40"
@@ -26,5 +29,5 @@
     <rear-right position = "0.377162 0.139018 -0.470212"
                  model    = "wheel-rear-right.b3d"       />
   </wheels>
-  <hat offset = "0.0 0.13 0.2"/>
+  <hat offset="0.0 0.13 0.2"/>
 </kart>

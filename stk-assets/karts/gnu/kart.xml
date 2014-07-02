@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 14120 -->
+<!-- Generated with script from SVN rev 15441 -->
 <kart name              = "Gnu"
       version           = "2"
       model-file        = "gnu.b3dz"
@@ -7,6 +7,7 @@
       minimap-icon-file = "gnuicon.png"
       shadow-file       = "gnushadow.png"
       random-wheel-rot  = "true"
+      type              = "medium"
       center-shift      = "0.70"
       groups            = "standard"
       rgb               = "1.00 0.70 0.00" >
@@ -26,7 +27,7 @@
     <nitro-emitter-b position = "-0.308955 0.122335 -0.360474" />
   </nitro-emitter>
   <speed-weighted-objects>
-    <speed-weighted position = "0.000000 0.300000 0.000000" model = "Carpet.b3d"/>
+    <speed-weighted position="0.000000 0.300000 0.000000" model="Carpet.b3d" />
   </speed-weighted-objects>
   <hat offset="0.0 0.245 0.15"/>
 </kart>
