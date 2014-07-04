@@ -136,5 +136,5 @@
                  forwards-distance ="1.50"
                  sidewards-distance="3.00"
                  upwards-distance  ="0.10"/>
-  <library name="stklib_fitchBarrelScriptTest_a" id="stklib_fitchBarrel_a_main_proxy" xyz="8.34 -0.44 23.32" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_fitchBarrelTest_a" id="stklib_fitchBarreltest_a_main_proxy" xyz="8.00 0.00 26.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
 </scene>
