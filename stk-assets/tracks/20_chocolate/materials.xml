@@ -10,6 +10,7 @@
   <material name="grass2dirt.png" clampu="Y"/>
   <material name="GrassTall.png" backface-culling="N" ignore="Y"/>
   <material name="jungleWater.png" disable-z-write="Y" shader="alphablend"/>
+  <material name="moon.jpg" shader="unlit"/>
   <material name="mossy_stone.png" high-adhesion="Y"/>
   <material name="palmtree3.jpg" mask="palmtree3_alpha.jpg" grass-speed="1.50"/>
   <material name="pot.jpg" backface-culling="N"/>
