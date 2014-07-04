@@ -1,11 +1,16 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15295 -->
+<!-- Generated with script from SVN rev 15417 -->
 <scene>
   <instancing>
-   <group name="stklib_palmTree_a">
-    <static-object model="stklib_palmTree_a.b3d" lod_group="stklib_palmTree_a" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"/>
+   <group name="stklib_palmTree_a_leaf">
+    <static-object model="stklib_palmTree_a_leaf.b3d" lod_group="stklib_palmTree_a_leaf" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"/>
+   </group>
+   <group name="stklib_palmTree_a_main">
+    <static-object model="stklib_palmTree_a_main.b3d" lod_group="stklib_palmTree_a_main" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"/>
    </group>
   </instancing>
-  <object type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"  instancing="true" instancing_model="stklib_palmTree_a" model="stklib_palmTree_a.b3d" skeletal-animation="false">
+  <object id="stklib_palmTree_a_leaf.001" type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"  instancing="true" instancing_model="stklib_palmTree_a_leaf" model="stklib_palmTree_a_leaf.b3d" skeletal-animation="false">
+  </object>
+  <object id="stklib_palmTree_a_main" type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"  instancing="true" instancing_model="stklib_palmTree_a_main" model="stklib_palmTree_a_main.b3d" skeletal-animation="false">
   </object>
 </scene>
