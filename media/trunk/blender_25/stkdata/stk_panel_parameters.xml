@@ -13,7 +13,7 @@
     <StringProp id="music" name="Music" default="kart_grand_prix.music" doc="Music played in this track"/>
     <StringProp id="screenshot" name="Screenshot" default="screenshot.jpg" doc="Name of the file that contains a screenshot of this track"/>
     <BoolProp id="reverse" name="Can be driven in reverse" default="false" doc="Whether this track can be driven in reverse mode"/>
-    <EnumProp id="sky_type" name="Sky Type" default="dome" doc="The type of sky">
+    <EnumProp id="sky_type" name="Sky Type" default="box" doc="The type of sky">
         <EnumChoice id="none" label="None" doc="No sky (useful for indoor scenes)"/>
         <EnumChoice id="box" label="Box">
             <StringProp id="sky_texture2" name="Sky Texture Top" default=""/>
