@@ -19,7 +19,7 @@
   <material name="mill.png" ignore="Y" disable-z-write="Y" shader="alphatest"/>
   <material name="millstructure.png" ignore="Y" shader="alphatest"/>
   <material name="palm_b.png" backface-culling="N" disable-z-write="Y"/>
-  <material name="palmacacia.jpg" ignore="Y" disable-z-write="Y" mask="palmacacia_alpha.jpg"/>
+  <material name="palmacacia.jpg" ignore="Y" disable-z-write="Y" mask="palmacacia_alpha.jpg" shader="alphatest"/>
   <material name="pix.png" reset="Y"/>
   <material name="sageBrush.jpg" ignore="Y" mask="sageBrush_alpha.jpg"/>
   <material name="tail.png" ignore="Y" disable-z-write="Y" backface-culling="N"/>
