@@ -9,8 +9,6 @@
         smooth-normals = "true"
         reverse        = "Y"
         bloom          = "N"
-        color-level-in = "0.0 0.800000011920929 210.0"
-        color-level-out = "0.0 255.0"
         clouds         = "N"
         lens-flare     = "N"
         shadows        = "N"
