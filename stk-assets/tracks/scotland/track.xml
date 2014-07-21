@@ -1,12 +1,17 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 12720 -->
+<!-- Generated with script from SVN rev 15417 -->
 <track  name           = "Scotland"
-        version        = "5"
+        version        = "6"
         groups         = "standard"
         designer       = "Canis Lupus"
         music          = "Origin.music"
         screenshot     = "sshot-scotland.jpg"
         smooth-normals = "true"
         reverse        = "Y"
+        bloom          = "N"
+        clouds         = "N"
+        lens-flare     = "N"
+        shadows        = "Y"
+        god-rays       = "N"
 >
 </track>
