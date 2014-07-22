@@ -16,12 +16,12 @@
     <EnumProp id="sky_type" name="Sky Type" default="box" doc="The type of sky">
         <EnumChoice id="none" label="None" doc="No sky (useful for indoor scenes)"/>
         <EnumChoice id="box" label="Box">
-            <StringProp id="sky_texture2" name="Sky Texture Top" default=""/>
-            <StringProp id="sky_texture3" name="Sky Texture Bottom" default=""/>
-            <StringProp id="sky_texture4" name="Sky Texture East" default=""/>
-            <StringProp id="sky_texture5" name="Sky Texture West" default=""/>
-            <StringProp id="sky_texture1" name="Sky Texture North" default=""/>
-            <StringProp id="sky_texture6" name="Sky Texture South" default=""/>
+            <StringProp id="sky_texture2" name="Sky Texture Top" default="genericskybox_top.jpg"/>
+            <StringProp id="sky_texture3" name="Sky Texture Bottom" default="genericskybox_bottom.jpg"/>
+            <StringProp id="sky_texture4" name="Sky Texture East" default="genericskybox_east.jpg"/>
+            <StringProp id="sky_texture5" name="Sky Texture West" default="genericskybox_west.jpg"/>
+            <StringProp id="sky_texture1" name="Sky Texture North" default="genericskybox_north.jpg"/>
+            <StringProp id="sky_texture6" name="Sky Texture South" default="genericskybox_south.jpg"/>
         </EnumChoice>
         <!--
         <EnumChoice id="dome" label="Dome">
