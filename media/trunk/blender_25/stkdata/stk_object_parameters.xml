@@ -24,7 +24,9 @@
         </EnumChoice>
         
         <!-- Banana -->
-        <EnumChoice id="banana" label="Banana" doc="A banana object that needs to be avoided (apply to an Empty)" />
+        <EnumChoice id="banana" label="Banana" doc="A banana object that needs to be avoided (apply to an Empty)">
+            <BoolProp id="dropitem" name="Drop to ground" default="true" doc="If checked, the item will be snapped to the ground"/>
+        </EnumChoice>
         
         <!-- Billboard -->
         <EnumChoice id="billboard" label="Billboard" doc="A flat quad that will always face the camera" >
@@ -92,7 +94,9 @@
         <EnumChoice id="ignore" label="Ignore" doc="An object that is not exported and will not appear in-game"/>
         
         <!-- Item (gift box) -->
-        <EnumChoice id="item" label="Item (Gift Box)" doc="A gift box containing a random collectible (apply to an Empty)"/>
+        <EnumChoice id="item" label="Item (Gift Box)" doc="A gift box containing a random collectible (apply to an Empty)">
+            <BoolProp id="dropitem" name="Drop to ground" default="true" doc="If checked, the item will be snapped to the ground"/>
+        </EnumChoice>
         
         <!-- Easter egg -->
         <EnumChoice id="easteregg" label="Easter Egg (Egg hunt mode)" doc="A hidden item (apply to an Empty)">
@@ -298,8 +302,13 @@
         </EnumChoice>
         
         <!-- Nitro -->
-        <EnumChoice id="nitro_big" label="Nitro (big)" doc="A big nitro collectible (apply to an Empty)" />
-        <EnumChoice id="nitro_small" label="Nitro (small)" doc="A small nitro collectible (apply to an Empty)" />
+        <EnumChoice id="nitro_big" label="Nitro (big)" doc="A big nitro collectible (apply to an Empty)">
+            <BoolProp id="dropitem" name="Drop to ground" default="true" doc="If checked, the item will be snapped to the ground"/>
+        </EnumChoice>
+        
+        <EnumChoice id="nitro_small" label="Nitro (small)" doc="A small nitro collectible (apply to an Empty)">
+            <BoolProp id="dropitem" name="Drop to ground" default="true" doc="If checked, the item will be snapped to the ground"/>
+        </EnumChoice>
         
         <!-- ======== Object ======== -->
         <EnumChoice id="object" label="Object" doc="An (animatable) object that is exported to a separate model file">

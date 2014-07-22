@@ -441,16 +441,16 @@ class ItemsExporter:
             rx,ry,rz = map(lambda x: rad2deg*x, obj.rotation_euler)
             h,p,r    = map(lambda i: "%.2f"%i, [rz,rx,ry])
             x,y,z    = map(lambda i: "%.2f"%i, obj.location)
-            drop     = getObjectProperty(obj, "drop", "y").lower()
+            drop     = getObjectProperty(obj, "dropitem", "true").lower()
             # Swap y and z axis to have the same coordinate system used in game.
             s        = "%s id=\"%s\" x=\"%s\" y=\"%s\" z=\"%s\"" % (item_type, obj.name, x, z, y)
             if h and h!="0.00": s = "%s h=\"%s\""%(s, h)
-            if drop=="n":
+            if drop=="false":
                 # Pitch and roll will be set automatically if dropped
                 if p and p!="0.00": s="%s p=\"%s\""%(s, p)
                 if r and r!="0.00": s="%s r=\"%s\""%(s, r)
-                s="%s drop=\"n\""%s
-
+                s="%s drop=\"false\""%s
+            
             f.write("  <%s />\n"%s)
 
 

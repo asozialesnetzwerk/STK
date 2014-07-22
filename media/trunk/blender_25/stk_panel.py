@@ -42,6 +42,57 @@ class STK_TypeUnset(bpy.types.Operator):
         obj["type"] = ""
         return {'FINISHED'}
 
+class STK_MissingProps_Object(bpy.types.Operator):
+    bl_idname = ("screen.stk_missing_props_" + str(CONTEXT_OBJECT))
+    bl_label = ("Create missing properties")
+    
+    def execute(self, context):
+    
+        is_track = ("is_stk_track" in context.scene and context.scene["is_stk_track"] == "true")
+        is_node = ("is_stk_node" in context.scene and context.scene["is_stk_node"] == "true")
+        is_kart = ("is_stk_kart" in context.scene and context.scene["is_stk_kart"] == "true")
+        
+        obj = context.object
+        
+        if is_kart:
+            properties = OrderedDict([])
+            for curr in STK_PER_OBJECT_KART_PROPERTIES:
+                properties[curr.id] = curr
+            createProperties(obj, properties)
+        elif is_track or is_node:
+            properties = OrderedDict([])
+            for curr in STK_PER_OBJECT_TRACK_PROPERTIES:
+                properties[curr.id] = curr
+            print('creating', properties, 'on', obj.name)
+            createProperties(obj, properties)
+            
+        return {'FINISHED'}
+        
+class STK_MissingProps_Scene(bpy.types.Operator):
+    bl_idname = ("screen.stk_missing_props_" + str(CONTEXT_SCENE))
+    bl_label = ("Create missing properties")
+    
+    def execute(self, context):
+        scene = context.scene
+        properties = OrderedDict([])
+        for curr in SCENE_PROPS:
+            properties[curr.id] = curr
+        createProperties(scene, properties)
+        return {'FINISHED'}
+        
+class STK_MissingProps_Material(bpy.types.Operator):
+    bl_idname = ("screen.stk_missing_props_" + str(CONTEXT_MATERIAL))
+    bl_label = ("Create missing properties")
+    
+    def execute(self, context):
+        material = getObject(context, CONTEXT_MATERIAL)
+        properties = OrderedDict([])
+        for curr in STK_MATERIAL_PROPERTIES:
+            properties[curr.id] = curr
+        createProperties(material, properties)
+        return {'FINISHED'}
+
+        
 # ------------------------------------------------------------------------------
 #! Utility function, creates all properties in a given object
 #!
@@ -61,7 +112,7 @@ def createProperties(object, props):
             createProperties(object, props[p].subproperties)
             
         elif not p in object:
-            
+                        
             # create property by setting default value
             v = props[p].default
             object[p] = v
@@ -69,6 +120,9 @@ def createProperties(object, props):
             if isinstance(props[p], StkEnumProperty):
                 if v in props[p].values:
                     createProperties(object, props[p].values[v].subproperties)
+            elif isinstance(props[p], StkBoolProperty):
+                if v == "true":
+                    createProperties(object, props[p].subproperties)
         
         # check the property has the right type
         elif isinstance(props[p], StkFloatProperty) :
@@ -93,6 +147,8 @@ def createProperties(object, props):
             except:
                 object[p] = props[p].default
 
+            
+                
 
         rna_ui_dict = {}
         try:
@@ -115,6 +171,13 @@ def createProperties(object, props):
             pass
         
         object["_RNA_UI"][p] = rna_ui_dict
+        
+        if isinstance(props[p], StkEnumProperty):
+            if object[p] in props[p].values:
+                createProperties(object, props[p].values[object[p]].subproperties)
+        elif isinstance(props[p], StkBoolProperty):
+            if object[p] == "true":
+                createProperties(object, props[p].subproperties)
 
 
 def simpleHash(x):
@@ -899,34 +962,38 @@ class PanelBase:
                     if len(curr.subproperties) > 0:
                         box = layout.box()
                         self.recursivelyAddProperties(curr.subproperties, box, obj, contextLevel)
-                           
+            
             elif isinstance(curr, StkBoolProperty):
+
+                state = "false"
+                icon = 'CHECKBOX_DEHLT'
+                if id in obj:
+                    split = row.split(0.8)
+                    split.label(text=curr.name)
+                    state = obj[id]
+                    if state == "true":
+                       icon = 'CHECKBOX_HLT'
+                    split.operator(generateOpName("screen.stk_tglbool_", curr.fullid, curr.id), text="                ", icon=icon, emboss=False)
+                else:
+                    split = row.split(0.5)
+                    split.label(text=curr.name)
+                    split.operator('screen.stk_missing_props_' + str(contextLevel))
                 
-                 split = row.split(0.8)
+                if state == "true":
+                    if len(curr.subproperties) > 0:
+                        if curr.box:
+                            box = layout.box()
+                            self.recursivelyAddProperties(curr.subproperties, box, obj, contextLevel)
+                        else:
+                            self.recursivelyAddProperties(curr.subproperties, layout, obj, contextLevel)
                 
-                 split.label(text=curr.name)
-                 
-                 state = "false"
-                 icon = 'CHECKBOX_DEHLT'
-                 if id in obj:
-                     state = obj[id]
-                     if state == "true":
-                         icon = 'CHECKBOX_HLT'
-                 split.operator(generateOpName("screen.stk_tglbool_", curr.fullid, curr.id), text="                ", icon=icon, emboss=False)
-                 
-                 if state == "true":
-                     if len(curr.subproperties) > 0:
-                         if curr.box:
-                             box = layout.box()
-                             self.recursivelyAddProperties(curr.subproperties, box, obj, contextLevel)
-                         else:
-                             self.recursivelyAddProperties(curr.subproperties, layout, obj, contextLevel)
-                 
             elif isinstance(curr, StkColorProperty):
                 row.label(text=curr.name)
                 if curr.id in obj:
                     row.prop(obj, '["' + curr.id + '"]', text="")
                     row.operator(generateOpName("screen.apply_color_", curr.fullid, curr.id), text="", icon='COLOR')
+                else:
+                    row.operator('screen.stk_missing_props_' + str(contextLevel))
             
             elif isinstance(curr, StkCombinableEnumProperty):
                 
@@ -940,6 +1007,8 @@ class PanelBase:
                         if value_id in curr_val:
                             icon = 'CHECKBOX_HLT'
                         row.operator(generateOpName("screen.stk_set_", curr.fullid, curr.id + "_" + value_id), text=curr.values[value_id].name, icon=icon)
+                else:
+                    row.operator('screen.stk_missing_props_' + str(contextLevel))
                 
             elif isinstance(curr, StkLabelPseudoProperty):
                 row.label(text=curr.name)
@@ -950,18 +1019,18 @@ class PanelBase:
                 
                 if id in obj:
                     curr_value = obj[id]
+                
+                    label = curr_value
+                    if curr_value in curr.values:
+                        label = curr.values[curr_value].name
+                    
+                    row.operator_menu_enum(curr.getOperatorName(), property="value", text=label)
+                    
+                    if curr_value in curr.values and len(curr.values[curr_value].subproperties) > 0:
+                        box = layout.box()
+                        self.recursivelyAddProperties(curr.values[curr_value].subproperties, box, obj, contextLevel)
                 else:
-                    curr_value = ""
-                
-                label = curr_value
-                if curr_value in curr.values:
-                    label = curr.values[curr_value].name
-                
-                row.operator_menu_enum(curr.getOperatorName(), property="value", text=label)
-                
-                if curr_value in curr.values and len(curr.values[curr_value].subproperties) > 0:
-                    box = layout.box()
-                    self.recursivelyAddProperties(curr.values[curr_value].subproperties, box, obj, contextLevel)
+                    row.operator('screen.stk_missing_props_' + str(contextLevel))
             
             elif isinstance(curr, StkObjectReferenceProperty):
                 
@@ -970,6 +1039,8 @@ class PanelBase:
                 if curr.id in obj:
                     row.prop(obj, '["' + curr.id + '"]', text="")
                     row.menu(generateOpName("screen.stk_object_menu_", curr.fullid, curr.id), text="", icon='TRIA_DOWN')
+                else:
+                    row.operator('screen.stk_missing_props_' + str(contextLevel))
               
             else:
                 row.label(text=curr.name)
@@ -980,6 +1051,8 @@ class PanelBase:
                         row.prop(obj, '["' + curr.id + '"]', text="", slider=True)
                     else:
                         row.prop(obj, '["' + curr.id + '"]', text="")
+                else:
+                    row.operator('screen.stk_missing_props_' + str(contextLevel))
 
 # ==== OBJECT PANEL ====
 class SuperTuxKartObjectPanel(bpy.types.Panel, PanelBase):
