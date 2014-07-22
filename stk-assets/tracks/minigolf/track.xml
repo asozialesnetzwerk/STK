@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15081 -->
+<!-- Generated with script from SVN rev Unknown -->
 <track  name           = "Minigolf Mischief"
         version        = "6"
         groups         = "standard"
@@ -8,5 +8,10 @@
         screenshot     = "minigolf.jpg"
         smooth-normals = "false"
         reverse        = "Y"
+        bloom          = "N"
+        clouds         = "N"
+        lens-flare     = "N"
+        shadows        = "Y"
+        god-rays       = "N"
 >
 </track>
