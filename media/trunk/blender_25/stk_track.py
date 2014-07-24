@@ -1937,7 +1937,8 @@ class TrackExport:
         #getSceneProperty(scene, "sky-vertical", "")
         #getSceneProperty(scene, "sky-texture-percent","")
         #getSceneProperty(scene, "sky-sphere-percent", "")
-        
+        default_num_laps = int(getSceneProperty(scene, "default_num_laps",3))
+
         f = open(sPath+"/track.xml", mode='w', encoding='utf-8')
         f.write("<?xml version=\"1.0\"?>\n")
         f.write("<!-- Generated with script from SVN rev %s -->\n"%getScriptVersion())
@@ -1974,6 +1975,7 @@ class TrackExport:
             log_warning("No screenshot defined")
 
         f.write("        smooth-normals = \"%s\"\n" % smooth_normals)
+        f.write("        default-number-of-laps = \"%d\"\n" % default_num_laps)
         
         reverse = getSceneProperty(scene, "reverse", "false")
         if reverse == "true":
