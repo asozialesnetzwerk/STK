@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 12720 -->
+<!-- Generated with script from SVN rev 15417 -->
 <scene>
   <track model="olivermath_track.b3d" x="0" y="0" z="0"/>
   <camera far="1000.0"/>
@@ -8,36 +8,36 @@
     <check-line kind="activate" other-ids="0" p1="-9.19 30.86" p2="-9.31 90.36"
                 min-height="0.60" same-group="1"/>
   </checks>
-  <banana x="30.00" y="1.00" z="60.00" />
-  <item x="39.76" y="1.00" z="33.96" />
-  <item x="2.79" y="1.00" z="68.64" />
-  <item x="45.61" y="1.00" z="34.65" />
-  <item x="8.47" y="1.00" z="77.82" />
-  <item x="15.46" y="1.00" z="4.25" />
-  <item x="12.17" y="1.00" z="4.30" />
-  <item x="35.00" y="1.00" z="62.00" />
-  <item x="5.41" y="1.00" z="73.34" />
-  <item x="-42.60" y="1.00" z="53.63" />
-  <item x="-49.41" y="1.00" z="53.57" />
-  <item x="43.15" y="1.00" z="-20.27" />
-  <item x="18.49" y="1.00" z="4.25" />
-  <item x="42.99" y="1.00" z="34.49" />
-  <item x="-45.96" y="1.00" z="53.63" />
-  <small-nitro x="-8.09" y="2.50" z="15.35" />
-  <small-nitro x="-12.69" y="2.50" z="16.84" />
-  <small-nitro x="-4.80" y="2.50" z="13.88" />
-  <big-nitro x="-39.65" y="4.31" z="5.91" />
-  <big-nitro x="-38.49" y="4.31" z="8.79" />
-  <small-nitro x="-19.55" y="1.00" z="76.49" />
-  <small-nitro x="-19.66" y="1.00" z="78.92" />
-  <small-nitro x="-19.55" y="1.00" z="81.76" />
-  <small-nitro x="-39.39" y="1.00" z="-12.22" />
-  <small-nitro x="-37.05" y="1.00" z="-10.29" />
-  <small-nitro x="31.80" y="2.88" z="20.03" />
-  <small-nitro x="31.80" y="2.88" z="22.91" />
-  <small-nitro x="31.80" y="2.88" z="17.26" />
-  <small-nitro x="-41.42" y="1.00" z="-14.26" />
-  <small-nitro x="-43.96" y="1.00" z="-17.00" />
+  <banana id="eBanana.001" x="30.00" y="1.00" z="60.00" />
+  <item id="eItem" x="39.76" y="1.00" z="33.96" />
+  <item id="eItem.001" x="2.79" y="1.00" z="68.64" />
+  <item id="eItem.002" x="45.61" y="1.00" z="34.65" />
+  <item id="eItem.003" x="8.47" y="1.00" z="77.82" />
+  <item id="eItem.005" x="15.46" y="1.00" z="4.25" />
+  <item id="eItem.006" x="12.17" y="1.00" z="4.30" />
+  <item id="eItem.007" x="35.00" y="1.00" z="62.00" />
+  <item id="eItem.008" x="5.41" y="1.00" z="73.34" />
+  <item id="eItem.009" x="-42.60" y="1.00" z="53.63" />
+  <item id="eItem.010" x="-49.41" y="1.00" z="53.57" />
+  <item id="eItem.011" x="43.15" y="1.00" z="-20.27" />
+  <item id="eItem.012" x="18.49" y="1.00" z="4.25" />
+  <item id="eItem.013" x="42.99" y="1.00" z="34.49" />
+  <item id="eItem.014" x="-45.96" y="1.00" z="53.63" />
+  <small-nitro id="eNitroBig" x="-8.09" y="2.50" z="15.35" />
+  <small-nitro id="eNitroBig.001" x="-12.69" y="2.50" z="16.84" />
+  <small-nitro id="eNitroBig.002" x="-4.80" y="2.50" z="13.88" />
+  <big-nitro id="eNitroBig.003" x="-39.65" y="4.31" z="5.91" />
+  <big-nitro id="eNitroBig.004" x="-38.49" y="4.31" z="8.79" />
+  <small-nitro id="eNitroSmall" x="-19.55" y="1.00" z="76.49" />
+  <small-nitro id="eNitroSmall.001" x="-19.66" y="1.00" z="78.92" />
+  <small-nitro id="eNitroSmall.002" x="-19.55" y="1.00" z="81.76" />
+  <small-nitro id="eNitroSmall.003" x="-39.39" y="1.00" z="-12.22" />
+  <small-nitro id="eNitroSmall.004" x="-37.05" y="1.00" z="-10.29" />
+  <small-nitro id="eNitroSmall.005" x="31.80" y="2.88" z="20.03" />
+  <small-nitro id="eNitroSmall.006" x="31.80" y="2.88" z="22.91" />
+  <small-nitro id="eNitroSmall.007" x="31.80" y="2.88" z="17.26" />
+  <small-nitro id="eNitroSmall.008" x="-41.42" y="1.00" z="-14.26" />
+  <small-nitro id="eNitroSmall.009" x="-43.96" y="1.00" z="-17.00" />
   <default-start karts-per-row     ="3"
                  forwards-distance ="1.50"
                  sidewards-distance="3.00"
