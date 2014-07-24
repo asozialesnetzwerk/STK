@@ -791,14 +791,18 @@ class DrivelineExporter:
     
     def __init__(self):
         self.lChecks = []
+        self.lCannons = []
         self.lDrivelines = []
         self.found_main_driveline = False
         self.lEndCameras = []
     
     def processObject(self, obj, stktype):
         
-        if stktype=="CHECK" or stktype=="LAP" or stktype=="CANNONSTART" or stktype=="GOAL":
+        if stktype=="CHECK" or stktype=="LAP" or stktype=="GOAL":
             self.lChecks.append(obj)
+            return True
+        if stktype=="CANNONSTART":
+            self.lCannons.append(obj)
             return True
         # Check for new drivelines
         elif stktype=="MAIN-DRIVELINE" or \
@@ -833,11 +837,14 @@ class DrivelineExporter:
         mainDriveline = self.lDrivelines[0]
         if mainDriveline is None and getSceneProperty(bpy.data.scenes[0], 'is_stk_node', 'false') != 'true':
             log_error("No main driveline found")
+        
+        self.lChecks = self.lChecks + self.lCannons # cannons at the end, see #1386
+        
         if self.lChecks or mainDriveline:
             if not self.lChecks:
                 log_warning("No check defined, lap counting will not work properly!")
             self.writeChecks(f, self.lChecks, mainDriveline)
-
+            
         if self.lEndCameras:
             f.write("  <end-cameras>\n")
             for i in self.lEndCameras:
