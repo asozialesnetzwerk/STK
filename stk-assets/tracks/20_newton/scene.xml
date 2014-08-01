@@ -14,11 +14,11 @@
     <check-line kind="activate" other-ids="0" p1="-49.21 175.66" p2="-38.15 175.66"
                 min-height="-41.74" same-group="2"/>
   </checks>
-  <banana id="Empty" x="86.54" y="-2.84" z="107.05" />
-  <banana id="Empty.001" x="86.54" y="-10.68" z="107.05" />
-  <item id="Empty.002" x="86.54" y="-6.76" z="107.05" />
-  <big-nitro id="Empty.003" x="86.54" y="-6.76" z="225.16" />
-  <big-nitro id="Empty.004" x="89.06" y="-18.72" z="335.43" />
+  <banana id="Empty" x="86.54" y="-2.84" z="107.05" drop="false" />
+  <banana id="Empty.001" x="86.54" y="-10.68" z="107.05" drop="false" />
+  <item id="Empty.002" x="86.54" y="-6.76" z="107.05" drop="false" />
+  <big-nitro id="Empty.003" x="86.54" y="-6.76" z="225.16" drop="false" />
+  <big-nitro id="Empty.004" x="89.06" y="-17.76" z="335.43" drop="false" />
   <default-start karts-per-row     ="2"
                  forwards-distance ="1.10"
                  sidewards-distance="1.10"
