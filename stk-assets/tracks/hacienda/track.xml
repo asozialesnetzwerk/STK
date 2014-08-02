@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15417 -->
+<!-- Generated with script from SVN rev 15475 -->
 <track  name           = "Hacienda"
         version        = "6"
         groups         = "standard"
@@ -11,7 +11,7 @@
         bloom          = "N"
         clouds         = "N"
         lens-flare     = "N"
-        shadows        = "N"
+        shadows        = "Y"
         god-rays       = "N"
 >
 </track>
