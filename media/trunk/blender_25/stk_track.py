@@ -523,7 +523,8 @@ class BlenderHairExporter:
             for particle in obj.particle_systems[0].particles:
                 loc = particle.location
                 hpr = particle.rotation.to_euler('XYZ')
-                si = particle.size / duplicated_obj.dimensions[2]
+                print (particle.size)
+                si = particle.size #/ duplicated_obj.dimensions[2]
                 loc_rot_scale_str = "xyz=\"%.2f %.2f %.2f\" hpr=\"%.1f %.1f %.1f\" scale=\"%.2f %.2f %.2f\"" %\
                    (loc[0], loc[2], loc[1], -hpr[0]*rad2deg, -hpr[2]*rad2deg,
                     -hpr[1]*rad2deg, si, si, si)
