@@ -49,8 +49,15 @@
   
   <!-- Normal map -->
   <material name="stktex_generic_cobbleStoneA.png" has-gravity="Y" graphical-effect="normal_map" normal-map="stktex_generic_cobbleStoneA_nm.png"/>
+  <material name="stk_generic_dirtRoad_a.png" has-gravity="Y" graphical-effect="normal_map" normal-map="stk_generic_dirtRoad_a_nm.png"/>
+  
+  <material name="stktex_generic_rockA.png"        graphical-effect="normal_map" normal-map="stktex_generic_rockA_nm.png"/>
+  <material name="stktex_generic_aztekWall_a.png"  graphical-effect="normal_map" normal-map="stktex_generic_aztekWall_a_nm.png"/>
+  <material name="stk_generic_grassB.png"          graphical-effect="normal_map" normal-map="stk_generic_grassB_nm.png"/>
+  <material name="stktex_generic_WoodB.png"        graphical-effect="normal_map" normal-map="stktex_generic_WoodB_nm.png"/>
+  
+  
   <material name="stk_generic_ironA.png" has-gravity="Y" />
-  <material name="stk_generic_dirtRoad_a.png" has-gravity="Y"/>
   
   
    <material name="gfx_bubble_a.png"  compositing="blend"  light="N"/>
