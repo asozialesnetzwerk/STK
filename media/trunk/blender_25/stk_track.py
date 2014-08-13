@@ -500,7 +500,7 @@ class BlenderHairExporter:
     
     def processObject(self, object, stktype):
         
-        if object.particle_systems is not None and len(object.particle_systems) == 1 and \
+        if object.particle_systems is not None and len(object.particle_systems) >= 1 and \
            object.particle_systems[0].settings.type == 'EMITTER':
             if object.particle_systems[0].settings.dupli_object is not None and \
                getObjectProperty(object.particle_systems[0].settings.dupli_object, "type", "") == "object":
@@ -514,30 +514,34 @@ class BlenderHairExporter:
         rad2deg = 180.0/3.1415926535;
         
         for obj in self.m_objects:
-            f.write('  <!-- Hair system %s, contains %i particles -->\n' % (obj.name, len(obj.particle_systems[0].particles)))
-            duplicated_obj = obj.particle_systems[0].settings.dupli_object
-            
-            if obj.particle_systems[0].settings.hair_length > 0:
-                log_warning("Hair system must have hair_length = 0, will export incorrectly otherwise")
-            
-            for particle in obj.particle_systems[0].particles:
-                loc = particle.location
-                hpr = particle.rotation.to_euler('XYZ')
-                print (particle.size)
-                si = particle.size #/ duplicated_obj.dimensions[2]
-                loc_rot_scale_str = "xyz=\"%.2f %.2f %.2f\" hpr=\"%.1f %.1f %.1f\" scale=\"%.2f %.2f %.2f\"" %\
-                   (loc[0], loc[2], loc[1], -hpr[0]*rad2deg, -hpr[2]*rad2deg,
-                    -hpr[1]*rad2deg, si, si, si)
+        
+            for particleSystem in obj.particle_systems:
+        
+                f.write('  <!-- Hair system %s, contains %i particles -->\n' % (obj.name, len(particleSystem.particles)))
+                duplicated_obj = particleSystem.settings.dupli_object
                 
-                if duplicated_obj.proxy is not None and duplicated_obj.proxy.library is not None:
-                    path_parts = re.split("/|\\\\", duplicated_obj.proxy.library.filepath)
-                    lib_name = path_parts[-2]
-                    f.write('  <library name="%s" id=\"%s\" %s/>\n' % (lib_name, duplicated_obj.name, loc_rot_scale_str))
-                else:
-                    name     = getObjectProperty(duplicated_obj, "name",   duplicated_obj.name )
-                    if len(name) == 0:
-                        name = duplicated_obj.name
-                    f.write('  <object type="animation" %s interaction="ghost" model="%s.b3d" skeletal-animation="false"></object>\n' % (loc_rot_scale_str, name))
+                if particleSystem.settings.hair_length > 0:
+                    log_warning("Hair system must have hair_length = 0, will export incorrectly otherwise")
+                
+                for particle in particleSystem.particles:
+                    loc = particle.location
+                    hpr = particle.rotation.to_euler('XYZ')
+                    print (particle.size)
+                    si = particle.size #/ duplicated_obj.dimensions[2]
+                    loc_rot_scale_str = "xyz=\"%.2f %.2f %.2f\" hpr=\"%.1f %.1f %.1f\" scale=\"%.2f %.2f %.2f\"" %\
+                       (loc[0], loc[2], loc[1], -hpr[0]*rad2deg, -hpr[2]*rad2deg,
+                        -hpr[1]*rad2deg, si, si, si)
+                    
+                    if duplicated_obj.proxy is not None and duplicated_obj.proxy.library is not None:
+                        path_parts = re.split("/|\\\\", duplicated_obj.proxy.library.filepath)
+                        lib_name = path_parts[-2]
+                        f.write('  <library name="%s" id=\"%s\" %s/>\n' % (lib_name, duplicated_obj.name, loc_rot_scale_str))
+                    else:
+                        name     = getObjectProperty(duplicated_obj, "name",   duplicated_obj.name )
+                        if len(name) == 0:
+                            name = duplicated_obj.name
+                        f.write('  <object type="animation" %s interaction="ghost" model="%s.b3d" skeletal-animation="false"></object>\n' % (loc_rot_scale_str, name))
+                    
             f.write('  <!-- END Hair system %s -->\n\n' % obj.name)
         
     
@@ -2587,12 +2591,9 @@ class TrackExport:
 
         weather = getSceneProperty(scene, "weather", None)
         if weather and weather != "none":
-            if weather=="rain":
-                f.write("  <weather type=\"rain\" />\n")
-            else:
-                if weather[:4]!=".xml":
-                    weather=weather+".xml"
-                f.write("  <weather particles=\"%s\" />\n"%weather)
+            if weather[:4]!=".xml":
+                weather=weather+".xml"
+            f.write("  <weather particles=\"%s\" />\n"%weather)
         
         rad2deg = 180.0/3.1415926
 
