@@ -3,6 +3,7 @@
 <materials>
   <material name="clouds.png" shader="alphablend"/>
   <material name="jungleWater.png" shader="alphablend" reset="Y" disable-z-write="Y"/>
+  <material name="lightHaloR.png" shader="additive" disable-z-write="Y"/>
   <material name="sky_gradient_test.png" shader="alphablend" disable-z-write="Y"/>
   <material name="splatting_test.png" shader="splatting"/>
   <material name="zipper_jungle.png">
