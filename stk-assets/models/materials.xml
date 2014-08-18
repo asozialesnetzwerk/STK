@@ -11,9 +11,7 @@
   <material name="stk_mod_nitroBottle.png" />
   <material name="stk_mod_nitroLogo.png" shader="additive" disable-z-write="Y" />
 
-  <material name="traffic_light_green.jpg" shader="unlit"/>
-  <material name="traffic_light_yellow.jpg" shader="unlit"/>
-  <material name="traffic_light_red.jpg" shader="unlit"/>
+  <material name="traffic_light.png" shader="unlit"/>
   
   <material name="bubblegum_shield.png" shader="alphablend" disable-z-write="Y"/>
   <material name="bubblegum_shield_nolok.png" shader="alphablend" disable-z-write="Y"/>
