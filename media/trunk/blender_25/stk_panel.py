@@ -967,17 +967,13 @@ class PanelBase:
 
                 state = "false"
                 icon = 'CHECKBOX_DEHLT'
+                split = row.split(0.8)
+                split.label(text=curr.name)
                 if id in obj:
-                    split = row.split(0.8)
-                    split.label(text=curr.name)
                     state = obj[id]
                     if state == "true":
                        icon = 'CHECKBOX_HLT'
-                    split.operator(generateOpName("screen.stk_tglbool_", curr.fullid, curr.id), text="                ", icon=icon, emboss=False)
-                else:
-                    split = row.split(0.5)
-                    split.label(text=curr.name)
-                    split.operator('screen.stk_missing_props_' + str(contextLevel))
+                split.operator(generateOpName("screen.stk_tglbool_", curr.fullid, curr.id), text="                ", icon=icon, emboss=False)
                 
                 if state == "true":
                     if len(curr.subproperties) > 0:
@@ -1019,18 +1015,18 @@ class PanelBase:
                 
                 if id in obj:
                     curr_value = obj[id]
-                
-                    label = curr_value
-                    if curr_value in curr.values:
-                        label = curr.values[curr_value].name
-                    
-                    row.operator_menu_enum(curr.getOperatorName(), property="value", text=label)
-                    
-                    if curr_value in curr.values and len(curr.values[curr_value].subproperties) > 0:
-                        box = layout.box()
-                        self.recursivelyAddProperties(curr.values[curr_value].subproperties, box, obj, contextLevel)
                 else:
-                    row.operator('screen.stk_missing_props_' + str(contextLevel))
+                    curr_value = ""
+            
+                label = curr_value
+                if curr_value in curr.values:
+                    label = curr.values[curr_value].name
+                
+                row.operator_menu_enum(curr.getOperatorName(), property="value", text=label)
+                
+                if curr_value in curr.values and len(curr.values[curr_value].subproperties) > 0:
+                    box = layout.box()
+                    self.recursivelyAddProperties(curr.values[curr_value].subproperties, box, obj, contextLevel)
             
             elif isinstance(curr, StkObjectReferenceProperty):
                 
