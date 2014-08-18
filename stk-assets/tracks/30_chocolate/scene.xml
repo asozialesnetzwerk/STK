@@ -7,6 +7,20 @@
   <object id="Plane.005" type="animation" xyz="249.73 13.10 -11.95" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_river_distord.b3d" skeletal-animation="false">
     <animated-texture name="jungleWater.png" dx="0.100" />
   </object>
+  <object id="road_b.002" type="animation" xyz="-54.24 -1.92 -117.82" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="cocoa_shredder.b3d" skeletal-animation="false">
+    <curve channel="RotX" interpolation="linear" extend="cyclic">
+      <p c="1.000 270.000"/>
+      <p c="250.000 -90.000"/>
+    </curve>
+    <curve channel="RotZ" interpolation="linear" extend="const">
+      <p c="1.000 0.000"/>
+      <p c="250.000 0.000"/>
+    </curve>
+    <curve channel="RotY" interpolation="linear" extend="const">
+      <p c="1.000 -0.000"/>
+      <p c="250.000 -0.000"/>
+    </curve>
+  </object>
   <sun  fog="true" fog-color="9 30 24" fog-max="0.5" fog-start="10.00" fog-end="500.00" xyz="-1346.40 559.38 -219.26" sun-specular="211 235 110" sun-diffuse="211 235 110" ambient="120 120 120"/>
   <weather particles="rain.xml" />
   <sky-box texture="skybox5.jpg skybox6.png skybox3.jpg skybox3.jpg skybox3.jpg skybox3.jpg" sh-texture="skybox5.jpg skybox6.png skybox3.jpg skybox3.jpg skybox3.jpg skybox3.jpg"/>
@@ -562,6 +576,8 @@
   <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.004" xyz="206.79 104.70 856.31" hpr="-0.0 -90.0 0.0" scale="15.12 15.12 15.12"/>
   <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.005" xyz="1008.46 104.70 -142.14" hpr="-0.0 -90.0 0.0" scale="15.12 15.12 15.12"/>
   <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.006" xyz="-574.95 104.70 -143.27" hpr="-0.0 -90.0 0.0" scale="15.12 15.12 15.12"/>
+  <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.007" xyz="270.18 23.75 -57.64" hpr="-0.0 -145.0 -0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.008" xyz="281.08 23.75 -42.07" hpr="-0.0 -145.0 -0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy" xyz="136.02 -1.54 46.87" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.001" xyz="305.75 18.63 -62.56" hpr="0.0 -55.4 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_jungleTree_a" id="stklib_jungleTree_a_main_proxy" xyz="195.99 14.74 62.06" hpr="0.0 -0.0 0.0" scale="2.78 2.78 2.78"/>
