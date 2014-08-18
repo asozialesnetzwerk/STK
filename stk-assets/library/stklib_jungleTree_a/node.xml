@@ -2,9 +2,6 @@
 <!-- Generated with script from SVN rev 15482 -->
 <scene>
   <instancing>
-   <group name="stklib_jungleTree_a">
-    <static-object model="stklib_jungleTree_a.b3d" lod_group="stklib_jungleTree_a" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" tangents="true" />
-   </group>
    <group name="stk_plants_test">
     <static-object model="stk_plants_test.b3d" lod_group="stk_plants_test" xyz="5.81 28.61 -0.00" hpr="0.0 -100.0 -0.0" scale="1.00 1.00 1.00" interaction="ghost"/>
    </group>
@@ -17,6 +14,6 @@
   </object>
   <object id="Plane.004" type="animation" xyz="5.81 28.61 -0.00" hpr="0.0 -100.0 -0.0" scale="1.00 1.00 1.00" interaction="ghost"  instancing="true" instancing_model="stk_plants_test" model="stk_plants_test.b3d" skeletal-animation="false">
   </object>
-  <object id="stklib_jungleTree_a_main" type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"  instancing="true" instancing_model="stklib_jungleTree_a" model="stklib_jungleTree_a.b3d" tangents="true" skeletal-animation="false">
+  <object id="stklib_jungleTree_a_main" type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="stklib_jungleTree_a.b3d" tangents="true" skeletal-animation="false">
   </object>
 </scene>
