@@ -7,6 +7,9 @@
   <object id="Plane.005" type="animation" xyz="249.73 13.10 -11.95" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_river_distord.b3d" skeletal-animation="false">
     <animated-texture name="jungleWater.png" dx="0.100" />
   </object>
+  <object id="Plane.044" type="animation" xyz="-54.24 -1.92 -117.82" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="hotChocolate.b3d" skeletal-animation="false">
+    <animated-texture name="stktex_generic_chocolateChunk_a.png" dx="1.000" />
+  </object>
   <object id="road_b.002" type="animation" xyz="-54.24 -1.92 -117.82" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="cocoa_shredder.b3d" skeletal-animation="false">
     <curve channel="RotX" interpolation="linear" extend="cyclic">
       <p c="1.000 270.000"/>
@@ -559,16 +562,54 @@
   <library name="stklib_redFlowerBush_a" id="stklib_redFlowerBush_a_main_proxy" xyz="-15.10 -1.26 35.80" hpr="-5.7 -1.3 0.2" scale="1.38 1.38 1.38"/>
   <!-- END Hair system Plane.001 -->
 
-  <object type="billboard" id="Plane.042" texture="lightHaloR.png" xyz="0.00 58.19 18.00" 
-             width="12.865" height="12.865" >
-  </object>
   <default-start karts-per-row     ="2"
                  forwards-distance ="1.10"
                  sidewards-distance="1.10"
                  upwards-distance  ="1.10"/>
   <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy" xyz="-75.04 0.52 6.16" hpr="0.1 4.2 -7.1" scale="1.28 1.28 1.28"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy" xyz="265.28 19.31 -70.14" hpr="0.0 -11.6 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.001" xyz="255.85 19.76 -73.56" hpr="0.0 79.8 0.0" scale="1.17 1.17 1.17"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.002" xyz="248.11 20.05 -76.90" hpr="-0.0 145.0 -0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.003" xyz="240.84 18.73 -82.66" hpr="-0.0 -80.9 0.0" scale="1.17 1.17 1.17"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.004" xyz="287.54 18.43 -44.89" hpr="0.0 32.0 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.005" xyz="293.84 18.65 -52.34" hpr="0.0 -61.6 0.0" scale="1.12 1.12 1.12"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.006" xyz="299.26 18.65 -58.40" hpr="-0.0 -136.6 -0.0" scale="0.97 0.97 0.97"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.007" xyz="304.95 18.65 -64.87" hpr="0.0 0.7 0.0" scale="1.08 1.08 1.08"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.008" xyz="310.43 18.60 -72.69" hpr="-0.0 86.7 -0.0" scale="1.26 1.26 1.26"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.009" xyz="310.83 20.43 -58.44" hpr="0.0 50.5 0.0" scale="1.26 1.26 1.26"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.010" xyz="299.48 20.16 -43.58" hpr="0.0 102.8 0.0" scale="1.26 1.26 1.26"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.011" xyz="262.26 18.20 -85.41" hpr="0.0 156.8 0.0" scale="1.17 1.17 1.17"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.012" xyz="283.48 18.49 -84.73" hpr="-0.0 137.6 -0.0" scale="1.17 1.17 1.17"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.013" xyz="274.84 18.74 -91.25" hpr="-0.0 84.0 -0.0" scale="1.17 1.17 1.17"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.014" xyz="264.56 18.59 -97.11" hpr="-0.0 139.6 -0.0" scale="1.17 1.17 1.17"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.015" xyz="256.86 18.66 -105.22" hpr="0.0 91.7 0.0" scale="1.17 1.17 1.17"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.016" xyz="234.61 18.20 -89.86" hpr="-0.0 72.3 -0.0" scale="1.17 1.17 1.17"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.017" xyz="292.23 18.49 -80.03" hpr="-0.0 -166.1 0.0" scale="1.17 1.17 1.17"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.018" xyz="274.93 19.31 -67.20" hpr="0.0 -42.3 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.019" xyz="255.62 18.62 -115.24" hpr="-0.0 162.5 -0.0" scale="1.17 1.17 1.17"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.020" xyz="260.11 18.56 -125.17" hpr="-0.0 61.9 -0.0" scale="1.17 1.17 1.17"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.021" xyz="233.67 19.76 -138.72" hpr="-0.0 61.9 -0.0" scale="1.17 1.17 1.17"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.022" xyz="229.47 19.76 -128.51" hpr="0.0 -37.3 0.0" scale="1.17 1.17 1.17"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.023" xyz="226.23 19.76 -119.92" hpr="0.0 81.0 0.0" scale="1.17 1.17 1.17"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.024" xyz="226.99 19.76 -110.09" hpr="0.0 -170.8 -0.0" scale="1.17 1.17 1.17"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.025" xyz="227.83 18.20 -102.46" hpr="-0.0 101.6 -0.0" scale="0.90 0.90 0.90"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.026" xyz="228.21 18.20 -94.73" hpr="0.0 21.9 0.0" scale="1.17 1.17 1.17"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.027" xyz="254.31 18.20 -89.32" hpr="-0.0 -128.2 0.0" scale="1.17 1.17 1.17"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.028" xyz="300.59 18.60 -89.47" hpr="-0.0 86.7 -0.0" scale="1.26 1.26 1.26"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.029" xyz="316.66 18.60 -83.24" hpr="0.0 30.9 0.0" scale="1.26 1.26 1.26"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.030" xyz="319.58 18.60 -93.49" hpr="0.0 68.8 0.0" scale="1.26 1.26 1.26"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.031" xyz="320.38 18.25 -103.64" hpr="-0.0 170.5 -0.0" scale="1.26 1.26 1.26"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.032" xyz="320.38 18.60 -112.98" hpr="0.0 101.5 0.0" scale="1.26 1.26 1.26"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.033" xyz="319.17 18.60 -124.83" hpr="0.0 32.7 0.0" scale="1.26 1.26 1.26"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.034" xyz="319.37 18.60 -136.69" hpr="-0.0 61.6 -0.0" scale="1.26 1.26 1.26"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.035" xyz="308.40 18.20 -118.73" hpr="-0.0 101.6 -0.0" scale="0.90 0.90 0.90"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.036" xyz="301.09 18.60 -99.42" hpr="0.0 59.6 0.0" scale="1.26 1.26 1.26"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.037" xyz="301.49 18.12 -110.77" hpr="0.0 -68.8 0.0" scale="1.26 1.26 1.26"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.038" xyz="297.98 18.10 -121.82" hpr="0.0 -45.6 0.0" scale="1.26 1.26 1.26"/>
+  <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.039" xyz="291.34 17.90 -130.06" hpr="0.0 -30.3 0.0" scale="1.26 1.26 1.26"/>
   <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy" xyz="135.45 -1.46 45.29" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.001" xyz="306.73 18.71 -63.93" hpr="0.0 -55.4 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.002" xyz="294.95 18.62 -53.16" hpr="-0.0 -113.2 -0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy" xyz="-44.47 12.21 -56.02" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.001" xyz="-63.47 12.21 -56.02" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.002" xyz="-50.56 104.70 -143.27" hpr="-0.0 -90.0 0.0" scale="15.12 15.12 15.12"/>
@@ -578,6 +619,14 @@
   <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.006" xyz="-574.95 104.70 -143.27" hpr="-0.0 -90.0 0.0" scale="15.12 15.12 15.12"/>
   <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.007" xyz="270.18 23.75 -57.64" hpr="-0.0 -145.0 -0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.008" xyz="281.08 23.75 -42.07" hpr="-0.0 -145.0 -0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.009" xyz="30.43 4.66 32.52" hpr="-0.0 170.0 -0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.010" xyz="27.13 4.66 51.23" hpr="-0.0 170.0 -0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_bambooTorch_a" id="stklib_bambooTorch_a_main_proxy" xyz="-44.47 -1.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_bambooTorch_a" id="stklib_bambooTorch_a_main_proxy.001" xyz="-61.70 -1.00 39.71" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_bambooTorch_a" id="stklib_bambooTorch_a_main_proxy.002" xyz="-1.89 -1.00 34.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_bambooTorch_a" id="stklib_bambooTorch_a_main_proxy.003" xyz="58.44 -1.00 56.62" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_bambooTorch_a" id="stklib_bambooTorch_a_main_proxy.004" xyz="257.58 20.93 -56.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_bambooTorch_a" id="stklib_bambooTorch_a_main_proxy.005" xyz="289.31 20.68 -36.26" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy" xyz="136.02 -1.54 46.87" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.001" xyz="305.75 18.63 -62.56" hpr="0.0 -55.4 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_jungleTree_a" id="stklib_jungleTree_a_main_proxy" xyz="195.99 14.74 62.06" hpr="0.0 -0.0 0.0" scale="2.78 2.78 2.78"/>
