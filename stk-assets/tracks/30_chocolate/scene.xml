@@ -10,6 +10,9 @@
   <object id="Plane.044" type="animation" xyz="-54.24 -1.92 -117.82" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="hotChocolate.b3d" skeletal-animation="false">
     <animated-texture name="stktex_generic_chocolateChunk_a.png" dx="1.000" />
   </object>
+  <object id="Plane.074" type="animation" xyz="-54.26 0.97 -169.38" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="cocoa_snake.b3d" skeletal-animation="false">
+    <animated-texture name="stktex_generic_bambooB.png" dx="0.100" />
+  </object>
   <object id="road_b.002" type="animation" xyz="-54.24 -1.92 -117.82" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="cocoa_shredder.b3d" skeletal-animation="false">
     <curve channel="RotX" interpolation="linear" extend="cyclic">
       <p c="1.000 270.000"/>
@@ -568,6 +571,7 @@
                  upwards-distance  ="1.10"/>
   <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy" xyz="-75.04 0.52 6.16" hpr="0.1 4.2 -7.1" scale="1.28 1.28 1.28"/>
   <library name="stklib_armchair_a" id="stklib_armchair_a_main_proxy" xyz="252.19 19.92 -77.73" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_aztecFountain_a" id="stklib_aztecFountain_a_main_proxy" xyz="-46.47 6.03 -168.54" hpr="0.0 -0.0 -50.0" scale="2.40 2.40 2.40"/>
   <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy" xyz="265.28 19.31 -70.14" hpr="0.0 -11.6 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.001" xyz="255.85 19.76 -73.56" hpr="0.0 79.8 0.0" scale="1.17 1.17 1.17"/>
   <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.002" xyz="248.11 20.05 -76.90" hpr="-0.0 145.0 -0.0" scale="1.00 1.00 1.00"/>
