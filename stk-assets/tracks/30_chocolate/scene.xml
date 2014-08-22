@@ -567,6 +567,7 @@
                  sidewards-distance="1.10"
                  upwards-distance  ="1.10"/>
   <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy" xyz="-75.04 0.52 6.16" hpr="0.1 4.2 -7.1" scale="1.28 1.28 1.28"/>
+  <library name="stklib_armchair_a" id="stklib_armchair_a_main_proxy" xyz="252.19 19.92 -77.73" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy" xyz="265.28 19.31 -70.14" hpr="0.0 -11.6 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.001" xyz="255.85 19.76 -73.56" hpr="0.0 79.8 0.0" scale="1.17 1.17 1.17"/>
   <library name="stklib_aztecHut_a" id="stklib_aztecHut_a_main_proxy.002" xyz="248.11 20.05 -76.90" hpr="-0.0 145.0 -0.0" scale="1.00 1.00 1.00"/>
@@ -617,8 +618,8 @@
   <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.004" xyz="206.79 104.70 856.31" hpr="-0.0 -90.0 0.0" scale="15.12 15.12 15.12"/>
   <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.005" xyz="1008.46 104.70 -142.14" hpr="-0.0 -90.0 0.0" scale="15.12 15.12 15.12"/>
   <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.006" xyz="-574.95 104.70 -143.27" hpr="-0.0 -90.0 0.0" scale="15.12 15.12 15.12"/>
-  <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.007" xyz="270.18 23.75 -57.64" hpr="-0.0 -145.0 -0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.008" xyz="281.08 23.75 -42.07" hpr="-0.0 -145.0 -0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.007" xyz="270.18 22.75 -57.64" hpr="-0.0 -145.0 -0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.008" xyz="281.08 22.75 -42.07" hpr="-0.0 -145.0 -0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.009" xyz="30.43 4.66 32.52" hpr="-0.0 170.0 -0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.010" xyz="27.13 4.66 51.23" hpr="-0.0 170.0 -0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_bambooTorch_a" id="stklib_bambooTorch_a_main_proxy" xyz="-44.47 -1.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
