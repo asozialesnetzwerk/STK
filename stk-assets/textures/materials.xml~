@@ -28,6 +28,7 @@
   
   
   <material name="ants.png" compositing="test"/>
+  <material name="stktex_valVerdeLocationAtlas_a.png" compositing="test"/>
   <material name="stktex_branches_diff_a.png" compositing="test" graphical-effect="grass"/>
   <material name="stktex_lowPalmTree_a.png" compositing="test" />
   <material name="stk_generic_gridA.png" compositing="test" has-gravity="Y"/>
@@ -36,6 +37,8 @@
   
   
   <material name="stktex_jungleLeaf_a.png" compositing="test" graphical-effect="grass"/>
+  <material name="stktex_cattail_diff_a.png" compositing="test" graphical-effect="grass"/>
+  
   <material name="stktex_usSignAtlas_a.png" compositing="test"/>
   <material name="stktex_palmLeaf_a.png" compositing="test" ignore="Y" graphical-effect="grass"/>
   <material name="stktex_palmLeafDry_a.png" compositing="test" ignore="Y" graphical-effect="grass"/>
@@ -54,7 +57,7 @@
   <material name="stktex_generic_rockA.png"        graphical-effect="normal_map" normal-map="stktex_generic_rockA_nm.png"/>
   <material name="stktex_generic_aztekWall_a.png"  graphical-effect="normal_map" normal-map="stktex_generic_aztekWall_a_nm.png"/>
   <material name="stk_generic_grassB.png"          graphical-effect="normal_map" normal-map="stk_generic_grassB_nm.png"/>
-  <material name="stktex_generic_WoodB.png"          graphical-effect="normal_map" normal-map="stktex_generic_WoodB_nm.png"/>
+  <material name="stktex_generic_WoodB.png"        graphical-effect="normal_map" normal-map="stktex_generic_WoodB_nm.png"/>
   
   
   <material name="stk_generic_ironA.png" has-gravity="Y" />

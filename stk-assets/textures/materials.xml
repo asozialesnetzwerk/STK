@@ -28,7 +28,10 @@
   
   
   <material name="ants.png" compositing="test"/>
+  <material name="stktex_valVerdeLocationAtlas_a.png" compositing="test"/>
   <material name="stktex_branches_diff_a.png" compositing="test" graphical-effect="grass"/>
+  <material name="stkflag_valverdeVertical_a.png" compositing="test" graphical-effect="grass"/>
+  
   <material name="stktex_lowPalmTree_a.png" compositing="test" />
   <material name="stk_generic_gridA.png" compositing="test" has-gravity="Y"/>
   <material name="stktex_lowPalmLeaf_a.png" compositing="test" graphical-effect="grass"/>
@@ -36,6 +39,8 @@
   
   
   <material name="stktex_jungleLeaf_a.png" compositing="test" graphical-effect="grass"/>
+  <material name="stktex_cattail_diff_a.png" compositing="test" graphical-effect="grass"/>
+  
   <material name="stktex_usSignAtlas_a.png" compositing="test"/>
   <material name="stktex_palmLeaf_a.png" compositing="test" ignore="Y" graphical-effect="grass"/>
   <material name="stktex_palmLeafDry_a.png" compositing="test" ignore="Y" graphical-effect="grass"/>
