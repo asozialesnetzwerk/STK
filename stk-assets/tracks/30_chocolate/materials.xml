@@ -6,7 +6,6 @@
   <material name="lightHaloR.png" shader="additive" disable-z-write="Y"/>
   <material name="sky_gradient_test.png" shader="alphablend" disable-z-write="Y"/>
   <material name="splatting_test.png" shader="splatting"/>
-  <material name="start_line.png" shader="alphablend" disable-z-write="Y"/>
   <material name="start_text.png" shader="alphatest" disable-z-write="Y"/>
   <material name="zipper_jungle.png">
     <zipper duration="3.5" max-speed-increase="15.0" fade-out-time="3.0" speed-gain="4.5" min-speed="-1.0"/>
@@ -16,4 +15,5 @@
   <material name="stktex_redFlower_a.png" disable-z-write="Y" grass-speed="1.50"/>
   <material name="stktex_branches_diff_a.png" ignore="Y" grass-speed="1.50"/>
   <material name="stktex_greenBrush_a.png" disable-z-write="Y" grass-speed="1.50"/>
+  <material name="stktex_redParrot_a.png" shader="alphatest" disable-z-write="Y"/>
 </materials>
