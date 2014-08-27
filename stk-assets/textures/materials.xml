@@ -1,5 +1,10 @@
 <?xml version="1.0"?>
 <materials>
+  <!-- flags -->
+  <material name="stkflag_valverdeVertical_a.png" compositing="test" graphical-effect="grass"/>
+  <material name="stkflag_stkVertical_a.png" compositing="test" graphical-effect="grass"/>
+  <material name="stkflag_saraVertical_a.png" compositing="test" graphical-effect="grass"/>
+  <material name="stkflag_goldCupVertical_a.png" compositing="test" graphical-effect="grass"/>
 
   <!-- Particles -->
   <material name="explode.png"           compositing="additive" ignore="Y"/>
