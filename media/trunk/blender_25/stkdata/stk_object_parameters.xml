@@ -113,7 +113,13 @@
         </EnumChoice>
         
         <!-- Light -->
-        <EnumChoice id="light" label="Light" doc="A dynamic light emitter">
+        <EnumChoice id="light" label="Light" doc="A dynamic light emitter (STK 0.8.2)">
+        </EnumChoice>
+        
+        <!-- Light shaft -->
+        <EnumChoice id="lightshaft_emitter" label="Light shaft (god rays) emitter (STK 0.8.2)">
+            <FloatProp id="lightshaft_opacity" name="Strength (opacity)" default="0.7"/>
+            <ColorProp id="lightshaft_color" name="Color" default="255 255 255"/>
         </EnumChoice>
         
         <!-- LOD -->
@@ -431,7 +437,7 @@
         </EnumChoice>
         
         <!-- Sun -->
-        <EnumChoice id="sun" label="Sun" doc="Set on a sun; used to specify intensity, direction and color of the ambient light in the track">
+        <EnumChoice id="sun" label="Sun (for light and shadows)" doc="Set on a sun; used to specify intensity, direction and color of the ambient light in the track">
             <ColorProp id="ambient" name="Ambient Color" default="120 120 120" doc="Click here to pick an ambient color"/>
             <ColorProp id="diffuse" name="Diffuse Color" default="" doc="Click here to pick a diffuse color"/>
             <ColorProp id="specular" name="Specular Color" default="" doc="Click here to pick a specular color"/>

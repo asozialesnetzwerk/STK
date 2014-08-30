@@ -792,6 +792,25 @@ class LightsExporter:
             f.write('  </light>\n')
 
 # ------------------------------------------------------------------------------
+class LightShaftExporter:
+    
+    def __init__(self):
+        self.m_objects = []
+    
+    def processObject(self, object, stktype):
+        
+        if object.type=="LAMP" and stktype == "LIGHTSHAFT_EMITTER":
+            self.m_objects.append(object)
+            return True
+        else:
+            return False
+            
+    def export(self, f):
+        for obj in self.m_objects:
+            f.write('  <lightshaft %s id=\"%s\" opacity="%.2f" color="%s"/>\n' \
+                    % (getXYZString(obj), obj.name, getObjectProperty(obj, "lightshaft_opacity", 0.7), getObjectProperty(obj, "lightshaft_color", "255 255 255")))
+            
+# ------------------------------------------------------------------------------
 class DrivelineExporter:
     
     def __init__(self):
@@ -1926,8 +1945,7 @@ class TrackExport:
         has_cloud_shadows = (getSceneProperty(scene, "clouds", "false") == "true")
         has_lens_flare  = (getSceneProperty(scene, "sunlensflare", "false") == "true")
         has_shadows     = (getSceneProperty(scene, "shadows", "false") == "true")
-        has_god_rays    = (getSceneProperty(scene, "sungodrays", "false") == "true")
-
+        
         has_colorlevel  = (getSceneProperty(scene, "colorlevel", "false") == "true")
         colorlevel_inblack = getSceneProperty(scene, "colorlevel_inblack", "0.0")
         colorlevel_ingamma = getSceneProperty(scene, "colorlevel_ingamma", "1.0")
@@ -2019,11 +2037,6 @@ class TrackExport:
             f.write("        shadows        = \"Y\"\n")
         else:
             f.write("        shadows        = \"N\"\n")
-        
-        if has_god_rays:
-            f.write("        god-rays       = \"Y\"\n")
-        else:
-            f.write("        god-rays       = \"N\"\n")
         
         
         f.write(">\n")
@@ -2689,7 +2702,9 @@ class TrackExport:
                     log_warning('Failed to copy texture ' + curr.filepath)
         
         drivelineExporter = DrivelineExporter()
-        exporters = [drivelineExporter, WaterExporter(self, sPath), ParticleEmitterExporter(), BlenderHairExporter(), SoundEmitterExporter(), ActionTriggerExporter(), ItemsExporter(), BillboardExporter(), LightsExporter(), StartPositionExporter(), LibraryNodeExporter()]
+        exporters = [drivelineExporter, WaterExporter(self, sPath), ParticleEmitterExporter(), BlenderHairExporter(), SoundEmitterExporter(),
+                     ActionTriggerExporter(), ItemsExporter(), BillboardExporter(), LightsExporter(), LightShaftExporter(),
+                     StartPositionExporter(), LibraryNodeExporter()]
         
         # Collect the different kind of meshes this exporter handles
         # ----------------------------------------------------------
