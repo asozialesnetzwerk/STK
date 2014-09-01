@@ -307,7 +307,7 @@
   </object>
   <sun  xyz="-16.36 340.01 -1657.64" sun-diffuse="6 7 9" ambient="122 139 171"/>
   <sky-color rgb="77 104 255"/>
-  <weather particles="rain.xml" />
+  <weather particles="rain.xml" lightning="true" sound="rain"/>
   <sky-box texture="sky.jpg sky.jpg sky.jpg sky.jpg sky-m.jpg sky-m.jpg" sh-texture="sky_ibl.jpg sky_ibl.jpg sky_ibl.jpg sky_ibl.jpg sky_ibl.jpg sky_ibl.jpg"/>
   <camera far="5000.0"/>
   <checks>

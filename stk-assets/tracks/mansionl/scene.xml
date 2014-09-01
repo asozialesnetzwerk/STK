@@ -174,6 +174,7 @@
   </object>
   <sun  fog="true" fog-color="2 5 12" fog-start="10.00" fog-end="160.00" xyz="206.09 129.01 -272.04" sun-specular="69 69 103" sun-diffuse="50 82 153" ambient="5 8 28"/>
   <sky-color rgb="7 7 11"/>
+  <weather lightning="true"/>
   <sky-box texture="SKY0006.png SKY0001.png SKY0003.png SKY0002.png SKY0005.png SKY0004.png"/>
   <camera far="2000.0"/>
   <checks>
