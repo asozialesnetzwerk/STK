@@ -2602,11 +2602,23 @@ class TrackExport:
         if sky_color:
             f.write("  <sky-color rgb=\"%s\"/>\n"%sky_color)
 
-        weather = getSceneProperty(scene, "weather", None)
-        if weather and weather != "none":
-            if weather[:4]!=".xml":
-                weather=weather+".xml"
-            f.write("  <weather particles=\"%s\" />\n"%weather)
+        weather = ""
+        weather_type = getSceneProperty(scene, "weather_type", "none")
+        if weather_type != "none":
+            if weather_type[:4] != ".xml":
+                weather_type = weather_type + ".xml"
+            weather = " particles=" + weather_type
+                
+        lightning = getSceneProperty(scene, "weather_lightning", "false")
+        if lightning == "true":
+            weather = weather + " lightning=\"true\""
+        
+        weather_sound = getSceneProperty(scene, "weather_sound", "")
+        if weather_sound != "":
+            weather = weather + " sound=\"" + weather_sound + "\""
+        
+        if weather != "":
+            f.write("  <weather%s/>\n"%weather)
         
         rad2deg = 180.0/3.1415926
 

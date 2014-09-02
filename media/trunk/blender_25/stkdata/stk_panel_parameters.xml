@@ -69,16 +69,20 @@
     <FloatProp id="start_sidewards_distance" name="Start Sidewards Distance" default="1.1"/>
     <FloatProp id="start_upwards_distance" name="Start upwards distance" default="1.1"/>
     <BoolProp id="smooth_normals" name="Smooth Normals" default="false" doc="Whether to interpolate the normals (gives smoother driving but requires that floors and walls be split)"/>
-    <EnumProp id="weather" name="Weather" default="none" doc="The weather effect to use in this track">
-        <EnumChoice id="none" label="None" doc="The weather effect to use in this track"/>
-        <EnumChoice id="rain" label="Rain" doc="The weather effect to use in this track"/>
-        <EnumChoice id="snow" label="Snow" doc="The weather effect to use in this track"/>
-    </EnumProp>
+    <BoolProp id="shadows" name="Dynamic shadows (STK 0.8.2)" default="true" doc="Whether to enable dynamic shadows"/>
+    <PropGroup id="weather" name="Weather">
+        <EnumProp id="weather_type" name="Weather type" default="none" doc="The weather effect to use in this track">
+            <EnumChoice id="none" label="None" doc="The weather effect to use in this track"/>
+            <EnumChoice id="rain" label="Rain" doc="The weather effect to use in this track"/>
+            <EnumChoice id="snow" label="Snow" doc="The weather effect to use in this track"/>
+        </EnumProp>
+        <BoolProp id="weather_lightning" name="Lightning" default="false" doc="The weather effect to use in this track"/>
+        <StringProp id="weather_sound" name="Weather sound" default=""/>
+    </PropGroup>
     <!--
     <BoolProp id="clouds" name="Cloud shadows (STK 0.8.2)" default="false" doc="Whether to add simulated cloud shadows on the ground">
     </BoolProp>
     -->
-    <BoolProp id="shadows" name="Dynamic shadows (STK 0.8.2)" default="true" doc="Whether to enable dynamic shadows"/>
 
     <PropGroup id="propgroup_postpro" name="Post processing (advanced)">
         <BoolProp id="bloom" name="Bloom (STK 0.8.2)" default="true" doc="Whether this track uses bloom">
