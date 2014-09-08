@@ -2,7 +2,7 @@
 <!-- Generated with script from SVN rev 15482 -->
 <graph>
   <!-- First define all nodes of the graph, and what quads they represent -->
-  <node-list from-quad="0" to-quad="268"/>  <!-- map each quad to a node  -->
+  <node-list from-quad="0" to-quad="273"/>  <!-- map each quad to a node  -->
   <!-- Define the main loop -->
   <edge-loop from="0" to="223"/>
   <!-- Shortcut driveline_main.001 -->
@@ -11,6 +11,10 @@
   <edge from="233" to="181"/>
   <!-- Shortcut driveline_main.002 -->
   <edge from="77" to="234"/>
-  <edge-line from="234" to="268"/>
-  <edge from="268" to="133"/>
+  <edge-line from="234" to="269"/>
+  <edge from="269" to="133"/>
+  <!-- Shortcut driveline_main.003 -->
+  <edge from="237" to="270"/>
+  <edge-line from="270" to="273"/>
+  <edge from="273" to="245"/>
 </graph>
