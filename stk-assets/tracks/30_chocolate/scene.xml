@@ -875,12 +875,12 @@
   <library name="stklib_tropicalPlant_a" id="stklib_tropicalPlant_a_main_proxy" xyz="0.00 0.00 58.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy" xyz="265.61 20.86 -226.66" hpr="90.0 -57.1 -0.0" scale="0.67 0.19 0.19"/>
   <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.001" xyz="259.67 20.82 -235.18" hpr="90.0 -51.0 -0.0" scale="0.67 0.19 0.19"/>
-  <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.002" xyz="231.54 9.31 11.21" hpr="9.0 -16.1 1.1" scale="0.54 0.19 0.46"/>
-  <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.003" xyz="232.77 9.89 7.38" hpr="7.3 -18.0 1.1" scale="0.54 0.19 0.46"/>
-  <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.004" xyz="234.41 10.26 3.83" hpr="5.0 -27.3 -0.5" scale="0.54 0.19 0.46"/>
-  <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.005" xyz="236.26 10.58 0.28" hpr="5.8 -26.9 -2.1" scale="0.54 0.19 0.46"/>
+  <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.002" xyz="231.54 9.31 11.21" hpr="9.0 -16.1 1.1" scale="0.54 0.61 0.46"/>
+  <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.003" xyz="232.77 9.89 7.38" hpr="7.3 -18.0 1.1" scale="0.54 0.58 0.46"/>
+  <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.004" xyz="234.41 10.26 3.83" hpr="5.0 -27.3 -0.5" scale="0.54 0.58 0.46"/>
+  <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.005" xyz="236.26 10.58 0.28" hpr="5.8 -26.9 -2.1" scale="0.54 0.56 0.46"/>
   <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.006" xyz="237.36 11.32 -6.29" hpr="-13.3 -121.7 10.2" scale="0.54 0.19 0.46"/>
-  <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.007" xyz="230.51 8.52 15.15" hpr="9.0 -11.9 1.1" scale="0.54 0.19 0.46"/>
-  <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.008" xyz="229.70 7.69 19.27" hpr="9.1 -7.2 1.1" scale="0.54 0.19 0.46"/>
-  <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.009" xyz="229.46 6.89 23.49" hpr="9.3 0.1 1.1" scale="0.54 0.19 0.46"/>
+  <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.007" xyz="230.51 8.52 15.15" hpr="9.0 -11.9 1.1" scale="0.54 0.50 0.46"/>
+  <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.008" xyz="229.70 7.69 19.27" hpr="9.1 -7.2 1.1" scale="0.54 0.50 0.46"/>
+  <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.009" xyz="229.46 6.89 23.49" hpr="9.3 0.1 1.1" scale="0.54 0.35 0.46"/>
 </scene>
