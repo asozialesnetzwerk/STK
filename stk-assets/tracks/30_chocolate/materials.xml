@@ -17,4 +17,5 @@
   <material name="stktex_greenBrush_a.png" disable-z-write="Y" grass-speed="1.50"/>
   <material name="stktex_redParrot_a.png" shader="alphatest" disable-z-write="Y"/>
   <material name="stktex_fern_diff_a.png" grass-speed="1.50" shader="grass"/>
+  <material name="stklib_liana_diff_a.png" shader="alphatest"/>
 </materials>
