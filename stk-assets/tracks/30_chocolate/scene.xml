@@ -654,6 +654,40 @@
   <library name="stklib_fern_a" id="stklib_fern_a_main_proxy" xyz="157.58 4.84 -238.59" hpr="73.9 124.3 0.0" scale="1.48 1.48 1.48"/>
   <!-- END Hair system Plane.134 -->
 
+  <item id="Empty.000" x="287.95" y="20.77" z="-141.84" h="29.51" />
+  <small-nitro id="Empty.001" x="233.70" y="8.17" z="25.35" />
+  <small-nitro id="Empty.002" x="232.12" y="10.62" z="9.88" />
+  <small-nitro id="Empty.003" x="236.65" y="12.59" z="-6.04" />
+  <small-nitro id="Empty.004" x="245.20" y="14.67" z="-20.46" />
+  <small-nitro id="Empty.005" x="256.74" y="17.94" z="-33.22" />
+  <small-nitro id="Empty.006" x="268.13" y="19.03" z="-41.37" />
+  <item id="Empty.007" x="190.46" y="-0.73" z="112.83" />
+  <item id="Empty.008" x="190.46" y="-0.73" z="121.73" />
+  <banana id="Empty.009" x="190.46" y="-0.73" z="117.12" />
+  <item id="Empty.010" x="292.33" y="20.77" z="-149.58" h="29.51" />
+  <banana id="Empty.011" x="290.27" y="21.44" z="-145.75" />
+  <item id="Empty.012" x="67.21" y="-0.73" z="46.82" h="-18.69" />
+  <banana id="Empty.013" x="242.38" y="20.35" z="-119.39" h="77.08" />
+  <item id="Empty.014" x="246.57" y="19.68" z="-118.24" h="106.59" />
+  <item id="Empty.015" x="238.05" y="19.68" z="-120.78" h="106.59" />
+  <banana id="Empty.016" x="194.06" y="7.53" z="-217.01" h="-20.52" />
+  <item id="Empty.017" x="206.44" y="20.77" z="-247.31" h="-171.01" />
+  <item id="Empty.018" x="193.25" y="6.86" z="-212.54" h="8.99" />
+  <banana id="Empty.019" x="205.63" y="21.44" z="-242.84" h="-200.52" />
+  <item id="Empty.020" x="-24.67" y="20.77" z="-264.08" h="8.99" />
+  <item id="Empty.021" x="-29.01" y="20.77" z="-268.06" h="8.99" />
+  <item id="Empty.022" x="-33.75" y="20.77" z="-272.38" h="8.99" />
+  <small-nitro id="Empty.023" x="262.56" y="19.03" z="-91.31" />
+  <item id="Empty.024" x="255.92" y="19.68" z="-79.96" h="106.59" />
+  <banana id="Empty.025" x="245.58" y="11.70" z="26.05" />
+  <banana id="Empty.026" x="253.41" y="11.70" z="25.03" />
+  <banana id="Empty.027" x="-64.63" y="1.86" z="-100.20" h="-115.52" />
+  <small-nitro id="Empty.028" x="151.72" y="13.20" z="-231.74" />
+  <small-nitro id="Empty.029" x="121.05" y="7.60" z="-236.84" />
+  <small-nitro id="Empty.030" x="102.95" y="3.62" z="-255.63" />
+  <item id="Empty.031" x="-43.60" y="3.18" z="-99.79" h="-86.01" />
+  <item id="Empty.032" x="-63.29" y="-2.79" z="-138.11" h="-266.01" />
+  <banana id="Empty.033" x="-43.69" y="-2.64" z="-137.70" h="-295.52" />
   <light xyz="-67.00 0.97 -190.30" id="Lamp" distance="25.00" energy="2.50" color="255 101 45">
   </light>
   <light xyz="-66.19 0.97 -204.98" id="Lamp.001" distance="25.00" energy="2.50" color="255 101 45">
@@ -792,6 +826,7 @@
   <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.018" xyz="265.46 19.69 -223.51" hpr="-3.1 168.1 4.2" scale="1.00 1.00 1.00"/>
   <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.019" xyz="265.13 19.57 -221.93" hpr="-3.1 168.3 4.9" scale="1.00 1.00 1.00"/>
   <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.020" xyz="266.91 19.69 -222.75" hpr="0.0 167.2 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.021" xyz="308.59 18.73 -145.09" hpr="0.0 -55.4 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_jungleTree_a" id="stklib_jungleTree_a_main_proxy" xyz="195.99 14.74 62.06" hpr="0.0 -0.0 0.0" scale="2.78 2.78 2.78"/>
   <library name="stklib_jungleTree_a" id="stklib_jungleTree_a_main_proxy.001" xyz="305.58 20.52 -189.78" hpr="0.0 -0.0 0.0" scale="2.98 2.98 2.98"/>
   <library name="stklib_jungleTree_a" id="stklib_jungleTree_a_main_proxy.002" xyz="373.81 18.49 -80.97" hpr="0.0 24.6 0.0" scale="2.78 2.78 2.78"/>
