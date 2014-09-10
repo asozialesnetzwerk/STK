@@ -2160,14 +2160,14 @@ class TrackExport:
             
     # --------------------------------------------------------------------------
     
-    def writeInstancingModel(self, f, sPath, name, obj):
-        b3d_name = self.exportLocalB3D(obj, sPath, name, True)
-        
-        tangents_str = ""
-        if getObjectProperty(obj, "tangents", "false") == "true":
-            tangents_str = ' tangents="true" '
-        
-        f.write("    <static-object model=\"%s\" lod_group=\"%s\" %s interaction=\"%s\"%s/>\n" % (b3d_name, name, getXYZHPRString(obj), getObjectProperty(obj, "interaction", "static"), tangents_str) )
+    #def writeInstancingModel(self, f, sPath, name, obj):
+    #    b3d_name = self.exportLocalB3D(obj, sPath, name, True)
+    #    
+    #    tangents_str = ""
+    #    if getObjectProperty(obj, "tangents", "false") == "true":
+    #        tangents_str = ' tangents="true" '
+    #    
+    #    f.write("    <static-object model=\"%s\" lod_group=\"%s\" %s interaction=\"%s\"%s/>\n" % (b3d_name, name, getXYZHPRString(obj), getObjectProperty(obj, "interaction", "static"), tangents_str) )
 
             
     # --------------------------------------------------------------------------
@@ -2254,11 +2254,11 @@ class TrackExport:
         type = getObjectProperty(obj, "type", "object")
         if type == "lod_model":
             pass
-        elif type == "object" and getObjectProperty(obj, "instancing", "false") == "true":
-            group = type = getObjectProperty(obj, "name", "")
-            if len(group) == 0:
-                log_warning("Instancing object " + obj.name + " has no name property")
-            lodstring = ' instancing="true" instancing_model="' + group + '"'
+        #elif type == "object" and getObjectProperty(obj, "instancing", "false") == "true":
+        #    group = type = getObjectProperty(obj, "name", "")
+        #    if len(group) == 0:
+        #        log_warning("Instancing object " + obj.name + " has no name property")
+        #    lodstring = ' instancing="true" instancing_model="' + group + '"'
         elif type == "lod_instance":
             group = type = getObjectProperty(obj, "lod_name", "")
             if len(group) == 0:
@@ -2429,7 +2429,7 @@ class TrackExport:
         lStaticObjects = []
         # Include LOD models (i.e. the definition of a LOD group. Does not include LOD instances)
         lLODModels = {}
-        lInstancingModels = {}
+        #lInstancingModels = {}
         lOtherObjects  = []
         
         for obj in lObjects:
@@ -2454,17 +2454,18 @@ class TrackExport:
             elif interact=="reset" or interact=="explode" or interact=="flatten":
                 export_non_static = True
             
-            if type == "object" and getObjectProperty(obj, "instancing", "false") == "true":
-                if is_lib_node:
-                    instancing_name = getObjectProperty(obj, 'name', '')
-                    if len(instancing_name) == 0:
-                        log_warning('Object %s marked as instancing has no name' % obj.name)
-                        continue
-                    lInstancingModels[instancing_name] = obj
-                    lOtherObjects.append(obj)
-                else:
-                    log_warning('Object %s marked as instancing. Instancing only works with library nodes.' % obj.name)
-            elif type == 'lod_model':
+            #if type == "object" and getObjectProperty(obj, "instancing", "false") == "true":
+            #    if is_lib_node:
+            #        instancing_name = getObjectProperty(obj, 'name', '')
+            #        if len(instancing_name) == 0:
+            #            log_warning('Object %s marked as instancing has no name' % obj.name)
+            #            continue
+            #        lInstancingModels[instancing_name] = obj
+            #        lOtherObjects.append(obj)
+            #    else:
+            #        log_warning('Object %s marked as instancing. Instancing only works with library nodes.' % obj.name)
+            #elif
+            if type == 'lod_model':
                 group_name = getObjectProperty(obj, 'lod_name', '')
                 if len(group_name) == 0:
                     log_warning('Object %s marked as LOD but no LOD name specified' % obj.name)
@@ -2527,13 +2528,13 @@ class TrackExport:
                 f.write('   </group>\n')
             f.write('  </lod>\n')
         
-        if len(lInstancingModels.keys()) > 0:
-            f.write('  <instancing>\n')
-            for instancing_name in lInstancingModels.keys():
-                f.write('   <group name="%s">\n' % instancing_name)
-                self.writeInstancingModel(f, sPath, instancing_name, lInstancingModels[instancing_name])
-                f.write('   </group>\n')
-            f.write('  </instancing>\n')
+        #if len(lInstancingModels.keys()) > 0:
+        #    f.write('  <instancing>\n')
+        #    for instancing_name in lInstancingModels.keys():
+        #        f.write('   <group name="%s">\n' % instancing_name)
+        #        self.writeInstancingModel(f, sPath, instancing_name, lInstancingModels[instancing_name])
+        #        f.write('   </group>\n')
+        #    f.write('  </instancing>\n')
         
         if getSceneProperty(bpy.data.scenes[0], 'is_stk_node', 'false') != 'true':
             if lStaticObjects or lAnimTextures:
