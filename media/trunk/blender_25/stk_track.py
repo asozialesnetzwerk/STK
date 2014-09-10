@@ -1918,6 +1918,8 @@ class TrackExport:
         is_cutscene = getSceneProperty(scene, "cutscene",  "false") == "true"
         is_internal = getSceneProperty(scene, "internal",   "n"            )
         is_internal = (is_internal == "true")
+        if is_cutscene:
+            is_internal = True
         
         push_back   = getSceneProperty(scene, "pushback",   "true"         )
         push_back   = (push_back != "false")

@@ -99,7 +99,9 @@
             <FloatProp id="colorlevel_outwhite" name="Output white" doc="The white output level" default="255.0" min="0.0" max="255.0"/>
         </BoolProp>
     </PropGroup>
-
+    
+    <BoolProp id="cutscene" name="Is a cutscene" default="false" box="false" doc="Check this if this blender file is a SuperTuxKart cutscene">  
+    </BoolProp>
 </BoolProp>
 
 <!-- ************ KART ************ -->
@@ -127,4 +129,6 @@
         <EnumChoice id="heavy" label="Heavy" />
     </EnumProp>
 </BoolProp>
+
+
 </Properties>
