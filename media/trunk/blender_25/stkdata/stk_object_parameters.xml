@@ -403,6 +403,7 @@
                 </EnumChoice>
             </EnumProp>
             <BoolProp id="tangents" name="Use Tangent Space" default="false" doc="Export object in tangent space, which is required for normal mapping"/>
+            <BoolProp id="driveable" name="Driveable (STK 0.8.2)" default="false" doc="Karts can drive on this object."/>
             <BoolProp id="soccer_ball" name="Is Soccer Ball (Soccer mode)" default="false" doc="Exported object is a soccer ball (used for soccer mode)"/>
             <BoolProp id="instancing" name="Instancing (STK 0.8.2, with library)" default="false" doc="An instancing should be specified in a lubrary, then imported in tracks where each instancing will use hardware instancing"/>
             

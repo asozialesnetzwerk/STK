@@ -2097,6 +2097,9 @@ class TrackExport:
         elif interaction == 'flatten':
             flags.append('flatten="y"')
         
+        if getObjectProperty(obj, "driveable", "false") == "true":
+            flags.append('driveable="true"')
+
         if getObjectProperty(obj, "tangents", "false") == "true":
             flags.append('tangents="true"')
         
