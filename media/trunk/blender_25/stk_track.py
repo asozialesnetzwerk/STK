@@ -2613,7 +2613,7 @@ class TrackExport:
         if weather_type != "none":
             if weather_type[:4] != ".xml":
                 weather_type = weather_type + ".xml"
-            weather = " particles=" + weather_type
+            weather = " particles=\"" + weather_type + "\""
                 
         lightning = getSceneProperty(scene, "weather_lightning", "false")
         if lightning == "true":
