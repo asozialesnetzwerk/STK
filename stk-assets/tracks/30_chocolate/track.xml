@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15482 -->
+<!-- Generated with script from SVN rev 15570 -->
 <track  name           = "30_chocolate"
         version        = "6"
         groups         = "nextgen"
@@ -14,6 +14,5 @@
         clouds         = "N"
         lens-flare     = "Y"
         shadows        = "Y"
-        god-rays       = "Y"
 >
 </track>
