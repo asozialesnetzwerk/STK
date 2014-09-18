@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15299 -->
+<!-- Generated with script from SVN rev 15570 -->
 <track  name           = "STK Enterprise"
         version        = "6"
         groups         = "standard"
@@ -7,12 +7,12 @@
         music          = "xeon.music"
         screenshot     = "bild.png"
         smooth-normals = "false"
+        default-number-of-laps = "3"
         reverse        = "Y"
         bloom          = "Y"
         bloom-threshold = "0.75"
         clouds         = "N"
         lens-flare     = "N"
         shadows        = "N"
-        god-rays       = "N"
 >
 </track>

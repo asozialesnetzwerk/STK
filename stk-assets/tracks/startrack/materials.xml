@@ -1,29 +1,25 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev Unknown -->
 <materials>
-  <material name="arc1.png" light="N" backface-culling="N" compositing="additive" disable-z-write="Y"/>
-  <material name="arc2.png" light="N" backface-culling="N" compositing="additive" disable-z-write="Y"/>
-  <material name="blueZipper.png" compositing="additive" disable-z-write="Y">
+  <material name="arc1.png" backface-culling="N" disable-z-write="Y" shader="alphablend"/>
+  <material name="arc2.png" backface-culling="N" disable-z-write="Y" shader="alphablend"/>
+  <material name="blueZipper.png" disable-z-write="Y" shader="alphablend">
     <zipper duration="3.5" max-speed-increase="15.0" fade-out-time="3.0" speed-gain="4.5" min-speed="31.0"/>
   </material>
-  <material name="ceil1_inner.png" compositing="test"/>
-  <material name="ceil1_outer.png" compositing="test"/>
   <material name="drtest.png" ignore="Y"/>
   <material name="drtest.png" ignore="Y"/>
-  <material name="earthHalo.png" compositing="additive" disable-z-write="Y"/>
-  <material name="glassWindows.png" backface-culling="N" compositing="blend" disable-z-write="Y"/>
-  <material name="lightHaloB.png" light="N" compositing="additive" disable-z-write="Y"/>
-  <material name="lightHaloG.png" light="N" compositing="additive" disable-z-write="Y"/>
-  <material name="lightHaloY.png" light="N" compositing="additive"/>
-  <material name="lightLenFlareR.png" light="N" compositing="additive" disable-z-write="Y"/>
-  <material name="moonHalo.png" compositing="additive" disable-z-write="Y"/>
-  <material name="reset.png" compositing="test" disable-z-write="Y" falling-effect="Y" reset="Y"/>
-  <material name="spaceship_startline.png" compositing="additive" ignore="Y" disable-z-write="Y"/>
-  <material name="supp1k.png" light="N" compositing="test" reset="Y"/>
-  <material name="terminal_graphic.png" compositing="additive" disable-z-write="Y"/>
-  <material name="terminal_text.png" compositing="additive" disable-z-write="Y"/>
-  <material name="trak3_light1a.png" light="N"/>
-  <material name="trak3_light1a.png" light="N"/>
-  <material name="trak3_light1b.png" light="N"/>
-  <material name="window.png" compositing="blend"/>
+  <material name="earthHalo.png" disable-z-write="Y" shader="alphablend"/>
+  <material name="glassWindows.png" backface-culling="N" disable-z-write="Y" shader="alphablend"/>
+  <material name="lightHaloB.png" disable-z-write="Y" shader="alphablend"/>
+  <material name="lightHaloG.png" disable-z-write="Y" shader="alphablend"/>
+  <material name="lightHaloY.png" shader="alphablend"/>
+  <material name="lightLenFlareR.png" disable-z-write="Y" shader="alphablend"/>
+  <material name="moonHalo.png" disable-z-write="Y" shader="alphablend"/>
+  <material name="reset.png" disable-z-write="Y" falling-effect="Y" reset="Y"/>
+  <material name="spaceship_startline.png" ignore="Y" disable-z-write="Y"/>
+  <material name="supp1k.png" reset="Y"/>
+  <material name="terminal_graphic.png" disable-z-write="Y"/>
+  <material name="terminal_text.png" disable-z-write="Y"/>
+  <material name="trak2_holes1a.png" gloss-map="trak2_holes1a_gloss.png"/>
+  <material name="trak3_light1a.png" shader="alphablend" disable-z-write="Y"/>
 </materials>
