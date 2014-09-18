@@ -688,7 +688,10 @@ class LibraryNodeExporter:
                 # origin
                 originXYZ = getXYZHPRString(obj)
                 
-                f.write('  <library name="%s" id=\"%s\" %s/>\n' % (lib_name, obj.name, originXYZ))
+                f.write('  <library name="%s" id=\"%s\" %s>\n' % (lib_name, obj.name, originXYZ))
+                if obj.animation_data and obj.animation_data.action and obj.animation_data.action.fcurves and len(obj.animation_data.action.fcurves) > 0:
+                    writeIPO(f, obj.animation_data)
+                f.write('  </library>\n')
             except:
                 log_error("Invalid linked object <" + getObjectProperty(obj, "name", obj.name) + "> ")
 
