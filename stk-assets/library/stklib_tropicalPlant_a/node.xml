@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15482 -->
+<!-- Generated with script from SVN rev 15570 -->
 <scene>
   <lod>
-   <group name="_single_lod_stklib_tropicalPlant_a_main">
-    <static-object lod_distance="70" lod_group="_single_lod_stklib_tropicalPlant_a_main" model="stklib_tropicalPlant_a_main.b3d" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"/>
+   <group name="tropicalPlant_a">
+    <static-object lod_distance="70" lod_group="tropicalPlant_a" model="stklib_tropicalPlant_a_main_a.b3d" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"/>
+    <static-object lod_distance="120" lod_group="tropicalPlant_a" model="stklib_tropicalPlant_a_main_b.b3d" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"/>
    </group>
   </lod>
-  <object id="stklib_tropicalPlant_a_main" type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="_single_lod_stklib_tropicalPlant_a_main" model="stklib_tropicalPlant_a_main.b3d" skeletal-animation="false">
+  <object id="stklib_tropicalPlant_a_main" type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="tropicalPlant_a" skeletal-animation="false">
   </object>
 </scene>

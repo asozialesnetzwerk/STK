@@ -4,6 +4,7 @@
   <lod>
    <group name="palmTree">
     <static-object lod_distance="85" lod_group="palmTree" model="stklib_palmTree_a_LOD_a.b3d" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"/>
+    <static-object lod_distance="130" lod_group="palmTree" model="stklib_palmTree_a_LOD_c.b3d" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"/>
     <static-object lod_distance="200" lod_group="palmTree" model="stklib_palmTree_a_LOD_b.b3d" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
    </group>
   </lod>
