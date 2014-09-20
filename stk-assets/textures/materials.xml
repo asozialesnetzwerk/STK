@@ -26,13 +26,18 @@
   
   <material name="stktex_waterfall_a.png"    compositing="blend" ignore="Y"/>
   
+  <material name="stk_generic_borderA.png" max-speed="0.4" slowdown-time="2.0" anisotropic="Y">
+    <particles base="smoke.xml" condition="skid drive" />
+  </material>
+  
   <!-- Textures graphical-effect="normal_map" normal-map="stktex_generic_cobbleStoneA_nm.png" graphical-effect="grass"-->
   <material name="stktex_animatedFire_a.png" disable-z-write="Y" shader="additive"/>
   
   <material name="gfx_distord_AlphaTested.png" compositing="test"/>
+  <material name="stktex_generic_WoodA.png" glossmap="stktex_generic_WoodA_spec.png"/>
   
   
-  <material name="ants.png" compositing="test"/>
+  <material name="stktex_ants_a.png" compositing="test"/>
   <material name="stktex_valVerdeLocationAtlas_a.png" compositing="test"/>
   <material name="stktex_branches_diff_a.png" compositing="test" graphical-effect="grass"/>
   <material name="stkflag_valverdeVertical_a.png" compositing="test" graphical-effect="grass"/>
