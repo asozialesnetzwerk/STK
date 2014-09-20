@@ -13,6 +13,8 @@
 
   <material name="traffic_light.png" shader="unlit"/>
   
+  <material name="bowling.png" glossmap="bowling_spec.png"/>
+  
   <material name="bubblegum_shield.png" shader="alphablend" disable-z-write="Y"/>
   <material name="bubblegum_shield_nolok.png" shader="alphablend" disable-z-write="Y"/>
   <material name="parachute.png" backface-culling="n" ignore="Y"/>
