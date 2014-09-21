@@ -34,7 +34,7 @@
   <material name="stktex_animatedFire_a.png" disable-z-write="Y" shader="additive"/>
   
   <material name="gfx_distord_AlphaTested.png" compositing="test"/>
-  <material name="stktex_generic_WoodA.png" glossmap="stktex_generic_WoodA_spec.png"/>
+  <material name="stktex_generic_WoodA.png" gloss-map="stktex_generic_WoodA_spec.png"/>
   
   
   <material name="stktex_ants_a.png" compositing="test"/>
