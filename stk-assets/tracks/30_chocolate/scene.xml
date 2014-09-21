@@ -807,6 +807,7 @@
   <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.013" xyz="155.14 1.99 137.41" hpr="-0.0 155.0 -0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.014" xyz="185.14 3.77 146.33" hpr="-0.0 -175.0 -0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.015" xyz="214.87 6.13 140.06" hpr="-0.0 -145.0 -0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.016" xyz="255.71 17.64 -33.13" hpr="-0.0 -145.0 -0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_bambooTorch_a" id="stklib_bambooTorch_a_main_proxy" xyz="-44.47 -1.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_bambooTorch_a" id="stklib_bambooTorch_a_main_proxy.001" xyz="-61.70 -1.00 39.71" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_bambooTorch_a" id="stklib_bambooTorch_a_main_proxy.002" xyz="-1.89 -1.00 34.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
