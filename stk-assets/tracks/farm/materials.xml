@@ -1,17 +1,14 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev Unknown -->
 <materials>
-  <material name="corn.png" light="N"/>
   <material name="earth.jpg" slowdown-time="2.00" max-speed="0.70">
     <particles base="smoke_brown.xml" condition="skid drive"/>
   </material>
   <material name="grass2.jpg" slowdown-time="2.00" max-speed="0.70"/>
-  <material name="horse.jpg" light="N"/>
-  <material name="leaf.png" light="N"/>
-  <material name="leave3.png" light="N" ignore="Y" compositing="test" backface-culling="N"/>
-  <material name="mill.png" compositing="test"/>
-  <material name="millstructure.png" compositing="test" ignore="Y"/>
-  <material name="skybox.jpg" fog="N" light="N"/>
+  <material name="leave3.png" ignore="Y" backface-culling="N" shader="alphatest"/>
+  <material name="mill.png" shader="alphatest"/>
+  <material name="millstructure.png" ignore="Y" shader="alphatest"/>
+  <material name="skybox.jpg" fog="N" shader="unlit"/>
   <material name="trail.jpg">
     <particles base="smoke_brown.xml" condition="skid"/>
   </material>
@@ -22,7 +19,7 @@
     <particles condition="skid drive" base="smoke_brown.xml"/>
   </material>
   <material name="trail2grass.jpg" clampu="Y"/>
-  <material name="wheat.png" light="N" compositing="test"/>
+  <material name="wheat.png" shader="alphatest"/>
   <material name="yellow_dirt.jpg" max-speed="0.70" slowdown-time="2.00">
     <particles base="smoke_yellow.xml" condition="skid drive"/>
   </material>
