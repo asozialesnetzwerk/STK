@@ -1948,13 +1948,13 @@ class TrackExport:
         has_bloom       = (getSceneProperty(scene, "bloom", "false") == "true")
         bloom_threshold = getSceneProperty(scene, "bloom_threshold", "0.75")
         has_cloud_shadows = (getSceneProperty(scene, "clouds", "false") == "true")
-        has_lens_flare  = (getSceneProperty(scene, "sunlensflare", "false") == "true")
+        #has_lens_flare  = (getSceneProperty(scene, "sunlensflare", "false") == "true")
         has_shadows     = (getSceneProperty(scene, "shadows", "false") == "true")
         
-        has_colorlevel  = (getSceneProperty(scene, "colorlevel", "false") == "true")
-        colorlevel_inblack = getSceneProperty(scene, "colorlevel_inblack", "0.0")
-        colorlevel_ingamma = getSceneProperty(scene, "colorlevel_ingamma", "1.0")
-        colorlevel_inwhite = getSceneProperty(scene, "colorlevel_inwhite", "255.0")
+        #has_colorlevel  = (getSceneProperty(scene, "colorlevel", "false") == "true")
+        #colorlevel_inblack = getSceneProperty(scene, "colorlevel_inblack", "0.0")
+        #colorlevel_ingamma = getSceneProperty(scene, "colorlevel_ingamma", "1.0")
+        #colorlevel_inwhite = getSceneProperty(scene, "colorlevel_inwhite", "255.0")
 
         colorlevel_outblack = getSceneProperty(scene, "colorlevel_outblack", "0.0")
         colorlevel_outwhite = getSceneProperty(scene, "colorlevel_outwhite", "255.0")
@@ -2024,19 +2024,19 @@ class TrackExport:
         else:
             f.write("        bloom          = \"N\"\n")
 
-        if has_colorlevel:
-            f.write("        color-level-in = \"" + str(colorlevel_inblack) + " " + str(colorlevel_ingamma) + " " + str(colorlevel_inwhite) + "\"\n")
-            f.write("        color-level-out = \"" + str(colorlevel_outblack) + " " + str(colorlevel_outwhite) + "\"\n")
+        #if has_colorlevel:
+        #    f.write("        color-level-in = \"" + str(colorlevel_inblack) + " " + str(colorlevel_ingamma) + " " + str(colorlevel_inwhite) + "\"\n")
+        #    f.write("        color-level-out = \"" + str(colorlevel_outblack) + " " + str(colorlevel_outwhite) + "\"\n")
 
         if has_cloud_shadows:
             f.write("        clouds         = \"Y\"\n")
         else:
             f.write("        clouds         = \"N\"\n")
         
-        if has_lens_flare:
-            f.write("        lens-flare     = \"Y\"\n")
-        else:
-            f.write("        lens-flare     = \"N\"\n")
+        #if has_lens_flare:
+        #    f.write("        lens-flare     = \"Y\"\n")
+        #else:
+        #    f.write("        lens-flare     = \"N\"\n")
         
         if has_shadows:
             f.write("        shadows        = \"Y\"\n")
@@ -2115,8 +2115,8 @@ class TrackExport:
         if getObjectProperty(obj, "displacing", "false") == "true":
             flags.append('displacing="true"')
             
-        if getObjectProperty(obj, "skyboxobject", "false") == "true":
-            flags.append('renderpass="skybox"')
+        #if getObjectProperty(obj, "skyboxobject", "false") == "true":
+        #    flags.append('renderpass="skybox"')
             
         if getObjectProperty(obj, "soccer_ball", "false") == "true":
             flags.append('soccer_ball="true"')
@@ -2335,8 +2335,8 @@ class TrackExport:
             if getObjectProperty(obj, "displacing", "false") == "true":
                 flags.append('displacing="true"')
             
-            if getObjectProperty(obj, "skyboxobject", "false") == "true":
-                flags.append('renderpass="skybox"')
+            #if getObjectProperty(obj, "skyboxobject", "false") == "true":
+            #    flags.append('renderpass="skybox"')
                 
             if getObjectProperty(obj, "soccer_ball", "false") == "true":
                 flags.append('soccer_ball="true"')
@@ -2451,8 +2451,8 @@ class TrackExport:
                 export_non_static = True
             elif getObjectProperty(obj, "displacing", "false") == "true":
                 export_non_static = True
-            elif getObjectProperty(obj, "skyboxobject", "false") == "true":
-               export_non_static = True
+            #elif getObjectProperty(obj, "skyboxobject", "false") == "true":
+            #   export_non_static = True
             elif getObjectProperty(obj, "soccer_ball", "false") == "true":
                export_non_static = True
             elif is_lib_node:
