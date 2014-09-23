@@ -6,6 +6,7 @@
   <material name="stkflag_saraVertical_a.png" compositing="test" graphical-effect="grass"/>
   <material name="stkflag_goldCupVertical_a.png" compositing="test" graphical-effect="grass"/>
   <material name="stkflag_orangeStartingLine_a.png" shader="alphatest" disable-z-write="Y"/>
+  <material name="stkflag_orangeBooster_a.png" shader="alphatest" disable-z-write="Y" has-gravity="Y"/>
 
   <!-- Particles -->
   <material name="explode.png"           compositing="additive" ignore="Y"/>
@@ -44,6 +45,8 @@
   <material name="stkflag_valverdeVertical_a.png" compositing="test" graphical-effect="grass"/>
   
   <material name="stktex_lowPalmTree_a.png" compositing="test" />
+  <material name="stktex_boxGrid_a.png" compositing="test" />
+  
   <material name="stk_generic_gridA.png" compositing="test" has-gravity="Y"/>
   <material name="stktex_lowPalmLeaf_a.png" compositing="test" graphical-effect="grass"/>
   
