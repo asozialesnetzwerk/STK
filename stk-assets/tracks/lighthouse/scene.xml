@@ -2,21 +2,21 @@
 <!-- Generated with script from SVN rev 15578 -->
 <scene>
   <lod>
+   <group name="grass_chunk">
+    <static-object lod_distance="60" lod_group="grass_chunk" model="grass_chunk_hight.b3d" xyz="266.88 -15.84 -24.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+    <static-object lod_distance="100" lod_group="grass_chunk" model="grass_chunk_low.b3d" xyz="266.88 -15.84 -30.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
    <group name="death_grass_chunk">
     <static-object lod_distance="60" lod_group="death_grass_chunk" model="death_grass_chunk_hight.b3d" xyz="274.55 -15.84 -24.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
     <static-object lod_distance="100" lod_group="death_grass_chunk" model="death_grass_chunk_low.b3d" xyz="274.55 -15.84 -30.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
    </group>
-   <group name="grass_chunk">
-    <static-object lod_distance="60" lod_group="grass_chunk" model="grass_chunk_hight.b3d" xyz="266.88 -15.84 -24.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-    <static-object lod_distance="100" lod_group="grass_chunk" model="grass_chunk_low.b3d" xyz="266.88 -15.84 -30.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   <group name="miniLamp">
+    <static-object lod_distance="150" lod_group="miniLamp" model="miniLampPost_low.b3d" xyz="-156.19 3.73 -49.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"/>
    </group>
    <group name="pine_tree_lod">
     <static-object lod_distance="70" lod_group="pine_tree_lod" model="pine_tree_lod_hight.b3d" xyz="270.46 -14.16 -16.96" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38" interaction="static"/>
     <static-object lod_distance="150" lod_group="pine_tree_lod" model="pine_tree_lod_medium.b3d" xyz="293.33 -14.16 -16.96" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38" interaction="static"/>
     <static-object lod_distance="300" lod_group="pine_tree_lod" model="pine_tree_lod_low.b3d" xyz="309.45 -14.16 -16.96" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38" interaction="static"/>
-   </group>
-   <group name="miniLamp">
-    <static-object lod_distance="150" lod_group="miniLamp" model="miniLampPost_low.b3d" xyz="-156.19 3.73 -49.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"/>
    </group>
   </lod>
   <track model="lighthouse_track.b3d" x="0" y="0" z="0">
@@ -312,8 +312,9 @@
   </object>
   <object id="Cylinder.021_Cylinder.006" type="animation" xyz="63.04 -9.51 -171.52" hpr="-0.0 -130.0 -0.0" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="miniLamp" skeletal-animation="false">
   </object>
-  <sun  fog="true" fog-color="21 43 75" fog-max="0.5" fog-start="20.00" fog-end="160.00"/>
+  <sun  fog="true" fog-color="21 43 75" fog-max="0.5" fog-start="20.00" fog-end="160.00" xyz="-89.21 179.38 96.03" sun-diffuse="57 59 93" ambient="57 59 93"/>
   <sky-color rgb="77 104 255"/>
+  <weather particles="rain.xml"/>
   <sky-box texture="sky.jpg sky.jpg sky.jpg sky.jpg sky-m.jpg sky-m.jpg" />
   <camera far="1000.0"/>
   <checks>
