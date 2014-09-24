@@ -1,13 +1,10 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15482 -->
+<!-- Generated with script from SVN rev 15578 -->
 <scene>
   <lod>
    <group name="death_grass_chunk">
     <static-object lod_distance="60" lod_group="death_grass_chunk" model="death_grass_chunk_hight.b3d" xyz="274.55 -15.84 -24.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
     <static-object lod_distance="100" lod_group="death_grass_chunk" model="death_grass_chunk_low.b3d" xyz="274.55 -15.84 -30.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-   </group>
-   <group name="miniLamp">
-    <static-object lod_distance="150" lod_group="miniLamp" model="miniLampPost_low.b3d" xyz="-156.19 3.73 -49.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"/>
    </group>
    <group name="grass_chunk">
     <static-object lod_distance="60" lod_group="grass_chunk" model="grass_chunk_hight.b3d" xyz="266.88 -15.84 -24.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
@@ -18,10 +15,14 @@
     <static-object lod_distance="150" lod_group="pine_tree_lod" model="pine_tree_lod_medium.b3d" xyz="293.33 -14.16 -16.96" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38" interaction="static"/>
     <static-object lod_distance="300" lod_group="pine_tree_lod" model="pine_tree_lod_low.b3d" xyz="309.45 -14.16 -16.96" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38" interaction="static"/>
    </group>
+   <group name="miniLamp">
+    <static-object lod_distance="150" lod_group="miniLamp" model="miniLampPost_low.b3d" xyz="-156.19 3.73 -49.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"/>
+   </group>
   </lod>
-  <track model="lighthouse-terrain_track.b3d" x="0" y="0" z="0">
+  <track model="lighthouse_track.b3d" x="0" y="0" z="0">
     <static-object model="vineUnderCave.b3d" xyz="-86.86 -17.34 -87.70" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object model="bigTerrainChunk.b3d" xyz="220.85 16.34 -41.59" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="lightWindows.b3d" xyz="-158.20 55.48 -63.22" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="102.39 -11.20 -15.52" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38"/>
     <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-96.85 -8.65 -29.26" hpr="0.0 -0.0 0.0" scale="2.71 2.71 2.71"/>
     <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-47.61 -12.51 33.26" hpr="0.0 -0.0 0.0" scale="2.29 2.29 2.29"/>
@@ -34,6 +35,9 @@
     <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-97.58 -11.46 36.36" hpr="-0.0 -106.1 -0.0" scale="2.29 2.29 2.29"/>
     <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-77.01 -11.87 36.36" hpr="-0.0 -106.1 -0.0" scale="2.68 2.68 2.68"/>
     <static-object lod_instance="true" lod_group="grass_chunk" xyz="99.38 -16.17 -18.46" hpr="-0.0 -0.0 6.5" scale="1.00 1.00 1.00"/>
+    <static-object model="seaAnimation.b3d" xyz="0.00 6.60 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+    <animated-texture name="sea.png" dx="0.020"  dy="0.0400" />
+    </static-object>
     <static-object lod_instance="true" lod_group="grass_chunk" xyz="106.39 -15.64 -18.46" hpr="-0.0 -0.0 0.5" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="grass_chunk" xyz="102.42 -16.06 -12.81" hpr="-0.0 -0.0 6.5" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="grass_chunk" xyz="-93.30 -14.44 -25.77" hpr="19.0 -0.6 1.9" scale="1.00 1.00 1.00"/>
@@ -43,6 +47,9 @@
     <static-object lod_instance="true" lod_group="grass_chunk" xyz="-44.92 -17.10 28.91" hpr="-2.8 -2.3 -3.6" scale="0.85 0.85 0.85"/>
     <static-object lod_instance="true" lod_group="grass_chunk" xyz="-52.93 -17.10 33.59" hpr="-16.7 75.4 -14.2" scale="0.85 0.85 0.85"/>
     <static-object lod_instance="true" lod_group="grass_chunk" xyz="-43.30 -17.10 33.77" hpr="-2.8 -2.3 -3.6" scale="1.07 1.07 1.07"/>
+    <static-object model="dynamicSky.b3d" xyz="-45.36 251.46 102.38" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+    <animated-texture name="dynamic_clouds.png" dx="0.050"  dy="0.0100" />
+    </static-object>
     <static-object lod_instance="true" lod_group="grass_chunk" xyz="2.54 -17.10 3.24" hpr="-2.8 -2.3 -3.6" scale="0.85 0.85 0.85"/>
     <static-object lod_instance="true" lod_group="grass_chunk" xyz="2.54 -17.10 -6.38" hpr="-2.8 -2.3 -3.6" scale="0.98 0.98 0.98"/>
     <static-object lod_instance="true" lod_group="grass_chunk" xyz="9.45 -17.10 -4.78" hpr="-2.8 -2.3 -3.6" scale="0.98 0.98 0.98"/>
@@ -305,11 +312,10 @@
   </object>
   <object id="Cylinder.021_Cylinder.006" type="animation" xyz="63.04 -9.51 -171.52" hpr="-0.0 -130.0 -0.0" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="miniLamp" skeletal-animation="false">
   </object>
-  <sun  xyz="-16.36 340.01 -1657.64" sun-diffuse="6 7 9" ambient="122 139 171"/>
+  <sun  fog="true" fog-color="21 43 75" fog-max="0.5" fog-start="20.00" fog-end="160.00"/>
   <sky-color rgb="77 104 255"/>
-  <weather particles="rain.xml" lightning="true" sound="rain"/>
-  <sky-box texture="sky.jpg sky.jpg sky.jpg sky.jpg sky-m.jpg sky-m.jpg" sh-texture="sky_ibl.jpg sky_ibl.jpg sky_ibl.jpg sky_ibl.jpg sky_ibl.jpg sky_ibl.jpg"/>
-  <camera far="5000.0"/>
+  <sky-box texture="sky.jpg sky.jpg sky.jpg sky.jpg sky-m.jpg sky-m.jpg" />
+  <camera far="1000.0"/>
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
     <check-line kind="activate" other-ids="2" p1="-70.77 -90.29" p2="-101.92 -90.29"
@@ -317,7 +323,6 @@
     <check-line kind="activate" other-ids="0" p1="-28.25 -73.00" p2="-59.39 -73.00"
                 min-height="-11.37" same-group="2"/>
   </checks>
-  <water model="seaAnimation.b3d" xyz="0.00 6.60 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="1.00" speed="200.00" length="10.00"/>
   <water model="fishing_net.b3d" xyz="72.02 -14.19 -180.01" hpr="-45.0 0.0 90.0" scale="1.00 1.00 1.00" height="0.10" speed="100.00" length="10.00"/>
   <item id="Empty" x="83.67" y="-16.09" z="0.94" />
   <item id="Empty.001" x="81.79" y="-16.09" z="-0.97" />
@@ -346,6 +351,15 @@
   <item id="Empty.024" x="13.94" y="-14.56" z="-105.53" h="29.69" />
   <small-nitro id="Empty.025" x="13.39" y="-14.56" z="-108.32" h="29.69" />
   <small-nitro id="Empty.026" x="14.88" y="-14.56" z="-99.49" h="29.69" />
+  <object type="billboard" id="Circle.010" texture="lightHaloY.png" xyz="-148.23 56.18 -62.26" 
+             width="19.870" height="19.870" >
+  </object>
+  <object type="billboard" id="Circle.012" texture="lightHaloY.png" xyz="-147.36 56.18 -63.68" 
+             width="19.870" height="19.870" >
+  </object>
+  <object type="billboard" id="Circle.013" texture="lightHaloY.png" xyz="-149.02 56.18 -63.72" 
+             width="19.870" height="19.870" >
+  </object>
   <object type="billboard" id="Circle.024" texture="lightHaloY.png" xyz="-125.30 2.02 -63.09" 
              width="5.205" height="5.205" >
   </object>
@@ -361,8 +375,6 @@
   <object type="billboard" id="Circle.031" texture="lightHaloY.png" xyz="29.13 -6.98 7.54" 
              width="5.205" height="5.205" >
   </object>
-  <light xyz="-147.95 56.15 -63.18" id="Lamp" distance="20.00" energy="20.00" color="243 255 54">
-  </light>
   <default-start karts-per-row     ="2"
                  forwards-distance ="1.50"
                  sidewards-distance="3.00"
