@@ -7,9 +7,10 @@
     <animated-texture name="stktex_animatedFire_a.png" dy="0.0625"  animByStep="true" dt="0.050" />
     <animated-texture name="clouds.png" dy="-0.5000" />
     <animated-texture name="clouds.png" dy="-0.5000" />
-    <animated-texture name="clouds.png" dy="-0.5000" />
     <animated-texture name="stkflag_greenCheckBorard_a.png" dy="0.8000" />
     <animated-texture name="stkflag_orangeBooster_a.png" dy="0.8000" />
+    <animated-texture name="stkflag_orangeBooster_a.png" dy="0.8000" />
+    <animated-texture name="stkflag_greenCheckBorard_a.png" dy="0.8000" />
     <animated-texture name="stkflag_greenCheckBorard_a.png" dx="0.080"  dy="0.2000" />
     <animated-texture name="stktex_ants_a.png" dy="0.5000" />
     <animated-texture name="stktex_ants_a.png" dy="0.5000" />
@@ -19,9 +20,6 @@
     <animated-texture name="stktex_waterfall_a.png" dy="-0.5000" />
   </track>
   <object id="Circle.002" type="animation" xyz="-54.26 0.97 -169.38" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="roaster_displacement.b3d" displacing="true" skeletal-animation="false">
-  </object>
-  <object id="Cube.032" type="animation" xyz="95.82 0.39 40.47" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="displacement_bug_test.b3d" displacing="true" skeletal-animation="false">
-    <animated-texture name="clouds.png" dx="0.100" />
   </object>
   <object id="Plane.005" type="animation" xyz="249.73 13.10 -11.95" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_river_distord.b3d" displacing="true" skeletal-animation="false">
     <animated-texture name="jungleWater.png" dx="0.100" />
@@ -81,9 +79,9 @@
   </particle-emitter>
   <particle-emitter kind="droplet.xml" id="Empty.040" xyz="140.81 67.83 -330.87" h="0.00">
   </particle-emitter>
-  <particle-emitter kind="droplet.xml" id="Empty.041" xyz="111.65 -6.13 -334.42" h="0.00">
+  <particle-emitter kind="droplet.xml" id="Empty.041" xyz="111.65 -6.13 -331.92" h="0.00">
   </particle-emitter>
-  <particle-emitter kind="droplet.xml" id="Empty.042" xyz="120.97 11.18 -340.71" h="0.00">
+  <particle-emitter kind="droplet.xml" id="Empty.042" xyz="115.64 8.88 -338.15" h="0.00">
   </particle-emitter>
   <!-- Hair system BezierCurve.015, contains 50 particles -->
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy" xyz="209.49 23.75 -300.29" hpr="-9.8 5.6 4.3" scale="0.64 0.64 0.64"/>
@@ -352,11 +350,11 @@
   <library name="stklib_fern_a" id="stklib_fern_a_main_proxy" xyz="95.89 26.71 -348.36" hpr="73.2 -5.4 0.0" scale="2.61 2.61 2.61"/>
   <library name="stklib_fern_a" id="stklib_fern_a_main_proxy" xyz="126.66 108.87 -335.57" hpr="73.1 -37.6 0.0" scale="3.10 3.10 3.10"/>
   <library name="stklib_fern_a" id="stklib_fern_a_main_proxy" xyz="116.24 29.73 -343.91" hpr="73.2 -35.6 0.0" scale="3.35 3.35 3.35"/>
-  <library name="stklib_fern_a" id="stklib_fern_a_main_proxy" xyz="156.01 45.54 -306.32" hpr="73.1 -20.9 0.0" scale="2.24 2.24 2.24"/>
-  <library name="stklib_fern_a" id="stklib_fern_a_main_proxy" xyz="155.91 60.29 -307.04" hpr="72.2 -42.2 -0.0" scale="2.86 2.86 2.86"/>
+  <library name="stklib_fern_a" id="stklib_fern_a_main_proxy" xyz="157.18 45.54 -307.63" hpr="73.1 -46.4 0.0" scale="2.24 2.24 2.24"/>
+  <library name="stklib_fern_a" id="stklib_fern_a_main_proxy" xyz="155.91 60.29 -307.04" hpr="72.6 -45.8 0.0" scale="2.86 2.86 2.86"/>
   <library name="stklib_fern_a" id="stklib_fern_a_main_proxy" xyz="131.24 4.54 -319.39" hpr="72.9 -21.6 -0.0" scale="3.01 3.01 3.01"/>
   <library name="stklib_fern_a" id="stklib_fern_a_main_proxy" xyz="84.46 34.35 -357.86" hpr="73.2 -73.4 -0.0" scale="3.05 3.05 3.05"/>
-  <library name="stklib_fern_a" id="stklib_fern_a_main_proxy" xyz="152.02 42.59 -309.65" hpr="72.7 -54.3 0.0" scale="2.11 2.11 2.11"/>
+  <library name="stklib_fern_a" id="stklib_fern_a_main_proxy" xyz="154.95 42.61 -311.98" hpr="72.9 -67.0 0.0" scale="2.11 2.11 2.11"/>
   <library name="stklib_fern_a" id="stklib_fern_a_main_proxy" xyz="193.56 131.28 -327.61" hpr="73.3 59.7 -0.0" scale="2.97 2.97 2.97"/>
   <library name="stklib_fern_a" id="stklib_fern_a_main_proxy" xyz="152.57 102.91 -323.81" hpr="73.3 -26.3 -0.0" scale="3.22 3.22 3.22"/>
   <library name="stklib_fern_a" id="stklib_fern_a_main_proxy" xyz="191.44 38.32 -309.62" hpr="72.8 54.9 0.0" scale="2.38 2.38 2.38"/>
@@ -380,7 +378,7 @@
   <library name="stklib_fern_a" id="stklib_fern_a_main_proxy" xyz="190.75 35.05 -307.90" hpr="72.7 44.6 0.0" scale="2.68 2.68 2.68"/>
   <library name="stklib_fern_a" id="stklib_fern_a_main_proxy" xyz="181.82 40.67 -304.84" hpr="72.9 1.0 0.0" scale="2.52 2.52 2.52"/>
   <library name="stklib_fern_a" id="stklib_fern_a_main_proxy" xyz="179.65 10.49 -303.05" hpr="72.5 -6.3 0.0" scale="2.63 2.63 2.63"/>
-  <library name="stklib_fern_a" id="stklib_fern_a_main_proxy" xyz="152.20 50.70 -309.68" hpr="72.6 -55.8 -0.0" scale="2.69 2.69 2.69"/>
+  <library name="stklib_fern_a" id="stklib_fern_a_main_proxy" xyz="154.77 50.46 -312.91" hpr="73.4 -70.2 0.0" scale="2.69 2.69 2.69"/>
   <library name="stklib_fern_a" id="stklib_fern_a_main_proxy" xyz="181.41 137.29 -319.35" hpr="73.2 -0.5 0.0" scale="3.08 3.08 3.08"/>
   <library name="stklib_fern_a" id="stklib_fern_a_main_proxy" xyz="129.06 81.76 -336.43" hpr="73.2 -30.8 0.0" scale="2.90 2.90 2.90"/>
   <library name="stklib_fern_a" id="stklib_fern_a_main_proxy" xyz="93.23 29.97 -348.89" hpr="73.2 -14.6 0.0" scale="2.41 2.41 2.41"/>
@@ -1006,6 +1004,15 @@
   </light>
   <light xyz="185.95 -1.36 153.31" id="Lamp.026" distance="5.00" energy="1.50" color="248 255 154">
   </light>
+  <light xyz="-56.12 7.71 -57.13" id="Lamp.027" distance="5.00" energy="1.50" color="248 255 154">
+  </light>
+  <light xyz="-52.32 7.71 -57.13" id="Lamp.028" distance="5.00" energy="1.50" color="248 255 154">
+  </light>
+  <light xyz="-59.82 7.71 -57.13" id="Lamp.029" distance="5.00" energy="1.50" color="248 255 154">
+  </light>
+  <light xyz="-48.72 7.71 -57.13" id="Lamp.030" distance="5.00" energy="1.50" color="248 255 154">
+  </light>
+  <lightshaft xyz="-1346.40 668.83 -219.26" id="Sun.001" opacity="0.70" color="255 255 255"/>
   <default-start karts-per-row     ="2"
                  forwards-distance ="1.10"
                  sidewards-distance="1.10"
@@ -1211,9 +1218,9 @@
   <library name="stklib_redParrot_a" id="stklib_redParrot_a_main_proxy.004" xyz="298.74 28.26 -59.64" hpr="43.0 -11.4 4.5" scale="5.05 5.05 5.05"/>
   <library name="stklib_redParrot_a" id="stklib_redParrot_a_main_proxy.005" xyz="233.61 19.41 -129.67" hpr="16.0 4.2 2.8" scale="5.05 5.05 5.05"/>
   <library name="stklib_ReedBoat_a" id="stklib_ReedBoat_a_main_proxy" xyz="96.61 -4.02 -296.73" hpr="0.0 -55.0 0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_ReedBoat_a" id="stklib_ReedBoat_a_main_proxy.001" xyz="-7.09 -4.02 -254.86" hpr="0.0 -55.0 0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_ReedBoat_a" id="stklib_ReedBoat_a_main_proxy.002" xyz="3.87 -4.02 -254.86" hpr="0.0 20.0 0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_ReedBoat_a" id="stklib_ReedBoat_a_main_proxy.003" xyz="28.30 -4.02 -251.29" hpr="0.0 20.0 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_ReedBoat_a" id="stklib_ReedBoat_a_main_proxy.001" xyz="-13.48 -4.02 -252.63" hpr="0.0 -55.0 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_ReedBoat_a" id="stklib_ReedBoat_a_main_proxy.002" xyz="13.84 -4.02 -250.27" hpr="0.0 20.0 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_ReedBoat_a" id="stklib_ReedBoat_a_main_proxy.003" xyz="34.46 -4.02 -251.18" hpr="0.0 20.0 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_roots_a" id="stklib_roots_a_main_proxy" xyz="138.90 12.80 64.85" hpr="-26.1 -62.6 2.3" scale="1.61 1.61 1.61"/>
   <library name="stklib_roots_a" id="stklib_roots_a_main_proxy.001" xyz="132.92 12.98 68.72" hpr="18.0 -62.9 -10.1" scale="1.45 1.45 1.45"/>
   <library name="stklib_roots_a" id="stklib_roots_a_main_proxy.002" xyz="130.58 8.79 99.20" hpr="-7.9 -133.8 -0.2" scale="1.00 1.00 1.00"/>
