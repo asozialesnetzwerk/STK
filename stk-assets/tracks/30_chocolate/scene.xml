@@ -21,7 +21,7 @@
   </track>
   <object id="Circle.002" type="animation" xyz="-54.26 0.97 -169.38" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="roaster_displacement.b3d" displacing="true" skeletal-animation="false">
   </object>
-  <object id="Plane.005" type="animation" xyz="249.73 13.10 -11.95" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_river_distord.b3d" displacing="true" skeletal-animation="false">
+  <object id="Plane.005" type="animation" xyz="141.10 -24.72 746.19" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_river_distord.b3d" displacing="true" skeletal-animation="false">
     <animated-texture name="jungleWater.png" dx="0.100" />
   </object>
   <object id="Plane.044" type="animation" xyz="-54.24 -1.92 -117.82" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="hotChocolate.b3d" skeletal-animation="false">
@@ -79,9 +79,9 @@
   </particle-emitter>
   <particle-emitter kind="droplet.xml" id="Empty.040" xyz="140.81 67.83 -330.87" h="0.00">
   </particle-emitter>
-  <particle-emitter kind="droplet.xml" id="Empty.041" xyz="111.65 -6.13 -331.92" h="0.00">
+  <particle-emitter kind="droplet.xml" id="Empty.041" xyz="116.04 -3.52 -335.74" h="0.00">
   </particle-emitter>
-  <particle-emitter kind="droplet.xml" id="Empty.042" xyz="115.64 8.88 -338.15" h="0.00">
+  <particle-emitter kind="droplet.xml" id="Empty.042" xyz="118.63 8.77 -339.31" h="0.00">
   </particle-emitter>
   <!-- Hair system BezierCurve.015, contains 50 particles -->
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy" xyz="209.49 23.75 -300.29" hpr="-9.8 5.6 4.3" scale="0.64 0.64 0.64"/>
@@ -771,28 +771,28 @@
   <!-- Hair system Plane.005, contains 25 particles -->
   <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="40.35 -4.31 -200.14" hpr="-0.0 -0.0 0.0" scale="0.99 0.99 0.99"/>
   <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="29.12 -4.31 -247.07" hpr="-0.0 -0.0 0.0" scale="1.49 1.49 1.49"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="47.62 -4.31 -224.06" hpr="-0.0 -0.0 0.0" scale="1.49 1.49 1.49"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="189.60 -4.31 -268.60" hpr="-0.0 -0.0 0.0" scale="1.37 1.37 1.37"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="59.28 -4.31 -213.84" hpr="-0.0 -0.0 0.0" scale="1.78 1.78 1.78"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="182.66 -4.31 -272.32" hpr="-0.0 -0.0 0.0" scale="1.77 1.77 1.77"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="99.22 -4.31 -329.08" hpr="-0.0 -0.0 0.0" scale="1.64 1.64 1.64"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="88.38 -4.31 -317.33" hpr="-0.0 -0.0 0.0" scale="1.84 1.84 1.84"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="11.30 -4.31 -260.08" hpr="-0.0 -0.0 0.0" scale="1.54 1.54 1.54"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="162.89 -4.31 -269.37" hpr="-0.0 -0.0 0.0" scale="1.89 1.89 1.89"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="-8.56 -4.31 -258.40" hpr="-0.0 -0.0 0.0" scale="1.44 1.44 1.44"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="86.39 -4.31 -339.79" hpr="-0.0 -0.0 0.0" scale="1.19 1.19 1.19"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="40.88 -4.31 -207.44" hpr="-0.0 -0.0 0.0" scale="1.49 1.49 1.49"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="200.54 -4.31 -259.65" hpr="-0.0 -0.0 0.0" scale="1.37 1.37 1.37"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="25.85 -4.31 -235.57" hpr="-0.0 -0.0 0.0" scale="1.78 1.78 1.78"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="134.89 -4.31 -266.46" hpr="-0.0 -0.0 0.0" scale="1.77 1.77 1.77"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="95.95 -4.31 -322.48" hpr="-0.0 -0.0 0.0" scale="1.64 1.64 1.64"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="77.76 -4.31 -315.05" hpr="-0.0 -0.0 0.0" scale="1.84 1.84 1.84"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="29.00 -4.31 -265.05" hpr="-0.0 -0.0 0.0" scale="1.54 1.54 1.54"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="141.73 -4.31 -273.74" hpr="-0.0 -0.0 0.0" scale="1.89 1.89 1.89"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="-7.41 -4.31 -266.22" hpr="-0.0 -0.0 0.0" scale="1.44 1.44 1.44"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="82.16 -4.31 -331.39" hpr="-0.0 -0.0 0.0" scale="1.19 1.19 1.19"/>
   <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="5.39 -4.31 -250.86" hpr="-0.0 -0.0 0.0" scale="1.78 1.78 1.78"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="-10.24 -4.31 -263.80" hpr="-0.0 -0.0 0.0" scale="1.37 1.37 1.37"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="8.33 -4.31 -234.47" hpr="-0.0 -0.0 0.0" scale="1.82 1.82 1.82"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="11.38 -4.31 -230.65" hpr="-0.0 -0.0 0.0" scale="1.37 1.37 1.37"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="-2.29 -4.31 -236.48" hpr="-0.0 -0.0 0.0" scale="1.82 1.82 1.82"/>
   <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="114.60 -4.31 -293.62" hpr="-0.0 -0.0 0.0" scale="1.82 1.82 1.82"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="151.32 -4.31 -266.52" hpr="-0.0 -0.0 0.0" scale="1.13 1.13 1.13"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="175.89 -4.31 -273.45" hpr="-0.0 -0.0 0.0" scale="1.13 1.13 1.13"/>
   <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="66.03 -4.31 -237.22" hpr="-0.0 -0.0 0.0" scale="1.55 1.55 1.55"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="21.64 -4.31 -230.93" hpr="-0.0 -0.0 0.0" scale="1.17 1.17 1.17"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="90.59 -4.31 -312.60" hpr="-0.0 -0.0 0.0" scale="1.69 1.69 1.69"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="-21.90 -4.31 -242.81" hpr="-0.0 -0.0 0.0" scale="1.79 1.79 1.79"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="5.72 -4.31 -236.57" hpr="-0.0 -0.0 0.0" scale="1.17 1.17 1.17"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="80.66 -4.31 -309.71" hpr="-0.0 -0.0 0.0" scale="1.69 1.69 1.69"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="-13.87 -4.31 -259.28" hpr="-0.0 -0.0 0.0" scale="1.79 1.79 1.79"/>
   <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="55.46 -4.31 -235.05" hpr="-0.0 -0.0 0.0" scale="1.34 1.34 1.34"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="47.07 -4.31 -219.24" hpr="-0.0 -0.0 0.0" scale="1.85 1.85 1.85"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="185.25 -4.31 -248.81" hpr="-0.0 -0.0 0.0" scale="1.76 1.76 1.76"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="40.48 -4.31 -199.27" hpr="-0.0 -0.0 0.0" scale="1.85 1.85 1.85"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="185.25 -4.31 -241.11" hpr="-0.0 -0.0 0.0" scale="1.76 1.76 1.76"/>
   <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="58.68 -4.31 -222.81" hpr="-0.0 -0.0 0.0" scale="1.87 1.87 1.87"/>
   <!-- END Hair system Plane.005 -->
 
@@ -972,13 +972,13 @@
   </light>
   <light xyz="24.45 12.34 40.31" id="Lamp.010" distance="25.00" energy="2.00" color="248 255 154">
   </light>
-  <light xyz="255.52 20.43 -135.06" id="Lamp.011" distance="5.00" energy="1.50" color="248 255 154">
+  <light xyz="246.79 20.26 -142.82" id="Lamp.011" distance="5.00" energy="1.50" color="248 255 154">
   </light>
-  <light xyz="244.42 20.43 -135.06" id="Lamp.012" distance="5.00" energy="1.50" color="248 255 154">
+  <light xyz="256.40 20.26 -137.27" id="Lamp.012" distance="5.00" energy="1.50" color="248 255 154">
   </light>
-  <light xyz="248.02 20.43 -135.06" id="Lamp.013" distance="5.00" energy="1.50" color="248 255 154">
+  <light xyz="249.90 20.26 -141.02" id="Lamp.013" distance="5.00" energy="1.50" color="248 255 154">
   </light>
-  <light xyz="251.82 20.43 -135.06" id="Lamp.014" distance="5.00" energy="1.50" color="248 255 154">
+  <light xyz="253.20 20.26 -139.12" id="Lamp.014" distance="5.00" energy="1.50" color="248 255 154">
   </light>
   <light xyz="153.78 -1.36 144.57" id="Lamp.015" distance="5.00" energy="1.50" color="248 255 154">
   </light>
