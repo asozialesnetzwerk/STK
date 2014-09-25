@@ -1,5 +1,10 @@
 <?xml version="1.0"?>
 <materials>
+  <!-- Booster -->
+  <material name="gfx_booster_AlphaTest.png" shader="alphatest" >
+    <zipper duration="3.5" max-speed-increase="15.0" fade-out-time="3.0" speed-gain="4.5" min-speed="-1.0"/>
+  </material>
+
   <!-- flags -->
   <material name="stkflag_valverdeVertical_a.png" compositing="test" graphical-effect="grass"/>
   <material name="stkflag_stkVertical_a.png" compositing="test" graphical-effect="grass"/>
