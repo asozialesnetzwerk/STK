@@ -37,3 +37,10 @@ postTooth.jpg, blackrock_lava.jpg, lava_1.jpg, zipper_effect.png,
 lightHaloY.png and all other models
     by Jean-Manuel Clemençon (Samuncle; http://samuncle.toile-libre.org/)
     released under CC-BY-SA 3.0
+
+    
+Sky released under CC_BY-SA 3.0
+    based on http://www.publicdomainpictures.net/view-image.php?image=30370&picture=beauty-of-mount-mayon (public domain)
+    http://commons.wikimedia.org/wiki/File:Augustine_Volcano_Jan_12_2006.jpg (public domain)
+    http://commons.wikimedia.org/wiki/File:Mahameru-volcano.jpeg (CC-BY-SA 3.0 by Jurema Oliveira)
+    modified by Marianne Gagnon
