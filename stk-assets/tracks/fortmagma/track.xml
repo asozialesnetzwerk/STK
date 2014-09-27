@@ -1,12 +1,17 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 14858 -->
+<!-- Generated with script from SVN rev 15578 -->
 <track  name           = "Fort Magma"
-        version        = "5"
+        version        = "6"
         groups         = "standard"
         designer       = "Jean-Manuel Clemencon"
         music          = "lava.music"
         screenshot     = "sshot.jpg"
         smooth-normals = "false"
+        default-number-of-laps = "3"
         reverse        = "Y"
+        bloom          = "Y"
+        bloom-threshold = "0.75"
+        clouds         = "N"
+        shadows        = "Y"
 >
 </track>
