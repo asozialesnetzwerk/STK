@@ -35,6 +35,9 @@
   <object id="Plane.074" type="animation" xyz="-54.26 0.97 -169.38" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="cocoa_snake.b3d" skeletal-animation="false">
     <animated-texture name="stktex_generic_bambooB.png" dx="0.300" />
   </object>
+  <object id="Plane.186" type="animation" xyz="141.10 -24.72 746.19" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_pond.b3d" displacing="true" skeletal-animation="false">
+    <animated-texture name="jungleWater.png" dx="0.100" />
+  </object>
   <object id="road_b.002" type="animation" xyz="-54.24 -1.92 -117.82" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="cocoa_shredder.b3d" skeletal-animation="false">
     <curve channel="RotX" interpolation="linear" extend="cyclic">
       <p c="1.000 270.000"/>
@@ -66,7 +69,7 @@
       <p c="77.000 1.000" h1="62.164 1.000" h2="91.836 1.000"/>
     </curve>
   </object>
-  <sun  fog="true" fog-color="9 30 24" fog-max="0.5" fog-start="10.00" fog-end="500.00" xyz="-1346.40 1559.38 -219.26" sun-specular="211 235 110" sun-diffuse="211 235 110" ambient="120 120 120"/>
+  <sun  fog="true" fog-color="37 74 64" fog-max="0.20000000298023224" fog-start="15.00" fog-end="750.00" xyz="-1346.40 1559.38 -219.26" sun-specular="211 235 110" sun-diffuse="211 235 110" ambient="120 120 120"/>
   <sky-box texture="skybox5.jpg skybox6.png skybox3.jpg skybox3.jpg skybox3.jpg skybox3.jpg" sh-texture="skybox5.jpg skybox6.png skybox3.jpg skybox3.jpg skybox3.jpg skybox3.jpg"/>
   <camera far="5000.0"/>
   <checks>
@@ -672,133 +675,40 @@
   <library name="stklib_redFlowerBush_a" id="stklib_redFlowerBush_a_main_proxy" xyz="-15.10 -1.26 35.80" hpr="-5.7 -1.3 0.2" scale="1.38 1.38 1.38"/>
   <!-- END Hair system Plane.001 -->
 
-  <!-- Hair system Plane.005, contains 100 particles -->
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="-18.87 -4.31 -250.33" hpr="-5.3 4.3 7.6" scale="0.82 0.82 0.82"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="180.37 -4.31 -229.57" hpr="-1.7 -12.4 -1.1" scale="0.53 0.53 0.53"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="95.30 -4.31 -304.84" hpr="1.6 -1.7 -3.3" scale="0.92 0.92 0.92"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="111.28 -4.31 -284.23" hpr="-5.3 3.7 -8.6" scale="0.62 0.62 0.62"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="65.84 -4.31 -306.89" hpr="12.2 0.4 10.2" scale="0.89 0.89 0.89"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="59.02 -4.31 -227.07" hpr="-6.9 -13.8 -2.7" scale="0.95 0.95 0.95"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="100.51 -4.31 -285.49" hpr="-9.2 -0.8 -4.9" scale="0.65 0.65 0.65"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="142.24 -4.31 -267.34" hpr="-6.8 4.5 7.6" scale="0.66 0.66 0.66"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="130.93 -4.31 -272.15" hpr="-16.6 -12.0 2.9" scale="0.67 0.67 0.67"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="-14.18 -4.31 -249.88" hpr="-12.6 -5.8 -0.3" scale="0.85 0.85 0.85"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="117.47 -4.31 -280.94" hpr="-0.2 -2.3 -6.9" scale="0.95 0.95 0.95"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="176.93 -4.31 -241.04" hpr="-2.2 4.7 7.5" scale="0.54 0.54 0.54"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="187.54 -4.31 -241.39" hpr="11.0 -5.9 -10.7" scale="0.77 0.77 0.77"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="88.19 -4.31 -306.70" hpr="-14.4 6.6 3.3" scale="0.82 0.82 0.82"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="101.30 -4.31 -299.60" hpr="-8.7 -7.6 5.5" scale="0.84 0.84 0.84"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="177.46 -4.31 -240.43" hpr="-8.1 -10.0 4.6" scale="0.49 0.49 0.49"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="17.19 -4.31 -246.62" hpr="5.9 -5.8 8.4" scale="0.81 0.81 0.81"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="74.21 -4.31 -316.49" hpr="-4.5 -11.0 5.7" scale="0.90 0.90 0.90"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="61.85 -4.31 -226.12" hpr="-8.3 -8.2 -1.0" scale="0.59 0.59 0.59"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="190.01 -4.31 -231.03" hpr="-5.7 -1.3 0.2" scale="0.69 0.69 0.69"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="78.15 -4.31 -317.16" hpr="-4.4 -3.5 -11.1" scale="0.75 0.75 0.75"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="194.13 -4.31 -255.96" hpr="4.4 4.6 7.4" scale="0.80 0.80 0.80"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="75.10 -4.31 -344.34" hpr="0.4 -11.6 4.2" scale="0.69 0.69 0.69"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="157.38 -4.31 -267.47" hpr="-10.6 -6.9 3.6" scale="0.97 0.97 0.97"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="14.14 -4.31 -272.31" hpr="6.1 -7.9 -6.4" scale="0.66 0.66 0.66"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="73.64 -4.31 -313.43" hpr="13.4 4.5 2.4" scale="0.63 0.63 0.63"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="42.35 -4.31 -257.81" hpr="-6.5 -6.8 7.6" scale="0.67 0.67 0.67"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="72.24 -4.31 -340.56" hpr="10.1 -11.1 4.8" scale="0.51 0.51 0.51"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="73.52 -4.31 -320.78" hpr="-15.4 -7.3 2.9" scale="0.57 0.57 0.57"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="200.39 -4.31 -259.69" hpr="-14.0 -6.1 -8.1" scale="0.77 0.77 0.77"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="135.79 -4.31 -268.17" hpr="-3.3 6.0 -3.4" scale="0.74 0.74 0.74"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="103.96 -4.31 -285.21" hpr="0.8 -1.0 9.5" scale="0.95 0.95 0.95"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="62.34 -4.31 -255.87" hpr="-13.4 -11.3 -7.5" scale="0.54 0.54 0.54"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="129.47 -4.31 -297.44" hpr="6.4 1.3 -8.0" scale="0.64 0.64 0.64"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="79.79 -4.31 -314.20" hpr="-13.4 6.7 2.9" scale="0.64 0.64 0.64"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="79.67 -4.31 -317.00" hpr="5.6 -6.6 -7.7" scale="0.87 0.87 0.87"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="71.49 -4.31 -230.61" hpr="13.7 3.7 7.4" scale="0.70 0.70 0.70"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="194.39 -4.31 -233.22" hpr="9.3 -11.0 6.5" scale="0.64 0.64 0.64"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="169.66 -4.31 -235.60" hpr="6.6 -9.1 0.6" scale="0.68 0.68 0.68"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="202.30 -4.31 -242.41" hpr="11.8 -3.7 -2.0" scale="0.70 0.70 0.70"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="62.83 -4.31 -237.65" hpr="-17.3 -0.7 10.1" scale="0.85 0.85 0.85"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="-18.48 -4.31 -246.56" hpr="1.0 -12.1 -6.4" scale="0.78 0.78 0.78"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="129.04 -4.31 -277.79" hpr="0.3 1.6 6.0" scale="0.60 0.60 0.60"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="157.59 -4.31 -253.56" hpr="-5.3 -12.0 -5.7" scale="0.88 0.88 0.88"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="2.28 -4.31 -247.54" hpr="1.8 0.7 -7.5" scale="0.99 0.99 0.99"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="51.85 -4.31 -247.05" hpr="11.7 5.5 -6.4" scale="0.67 0.67 0.67"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="184.97 -4.31 -232.13" hpr="6.8 3.1 -5.3" scale="0.94 0.94 0.94"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="180.86 -4.31 -228.80" hpr="-6.0 1.7 -8.6" scale="0.53 0.53 0.53"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="69.03 -4.31 -310.76" hpr="10.4 3.8 7.9" scale="0.55 0.55 0.55"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="124.43 -4.31 -277.47" hpr="11.2 -12.6 -1.8" scale="0.72 0.72 0.72"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="110.28 -4.31 -284.06" hpr="-17.3 -1.0 -1.4" scale="0.79 0.79 0.79"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="145.26 -4.31 -280.50" hpr="10.4 2.0 8.2" scale="0.56 0.56 0.56"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="161.31 -4.31 -268.40" hpr="9.7 -10.6 -7.9" scale="0.88 0.88 0.88"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="-18.12 -4.31 -251.51" hpr="2.9 -0.4 -9.8" scale="0.56 0.56 0.56"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="93.33 -4.31 -304.35" hpr="1.2 6.0 -6.0" scale="0.87 0.87 0.87"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="200.28 -4.31 -230.69" hpr="12.0 3.0 3.1" scale="1.00 1.00 1.00"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="180.01 -4.31 -243.33" hpr="5.5 -6.8 -9.6" scale="0.93 0.93 0.93"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="21.27 -4.31 -255.60" hpr="-5.4 3.9 -7.5" scale="0.88 0.88 0.88"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="85.04 -4.31 -307.89" hpr="-1.0 3.2 7.7" scale="0.97 0.97 0.97"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="104.53 -4.31 -285.12" hpr="-12.8 -11.3 -6.3" scale="0.50 0.50 0.50"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="43.86 -4.31 -255.12" hpr="-12.5 2.4 -5.0" scale="0.79 0.79 0.79"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="110.48 -4.31 -289.83" hpr="1.7 4.6 -3.6" scale="0.78 0.78 0.78"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="12.16 -4.31 -256.88" hpr="-11.6 1.1 -3.3" scale="0.69 0.69 0.69"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="40.83 -4.31 -257.39" hpr="8.7 -1.0 -10.8" scale="0.80 0.80 0.80"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="79.90 -4.31 -346.21" hpr="5.7 6.5 -5.3" scale="0.96 0.96 0.96"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="82.72 -4.31 -348.14" hpr="-3.3 2.2 2.7" scale="0.89 0.89 0.89"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="-5.86 -4.31 -251.05" hpr="11.9 -9.3 -1.6" scale="0.68 0.68 0.68"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="3.14 -4.31 -264.66" hpr="-16.9 -2.2 9.6" scale="0.94 0.94 0.94"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="78.71 -4.31 -338.11" hpr="10.6 -11.0 7.4" scale="0.96 0.96 0.96"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="72.40 -4.31 -357.94" hpr="-11.2 -9.3 -2.3" scale="0.50 0.50 0.50"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="174.17 -4.31 -243.13" hpr="-15.7 -0.5 6.2" scale="0.94 0.94 0.94"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="69.45 -4.31 -209.78" hpr="10.3 -10.7 -8.1" scale="0.93 0.93 0.93"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="182.03 -4.31 -244.84" hpr="-3.3 3.5 -4.7" scale="0.82 0.82 0.82"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="14.98 -4.31 -262.60" hpr="8.9 3.8 1.3" scale="0.79 0.79 0.79"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="79.13 -4.31 -317.89" hpr="-13.9 -4.6 -10.5" scale="0.97 0.97 0.97"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="-4.83 -4.31 -260.15" hpr="-16.5 4.1 7.7" scale="0.87 0.87 0.87"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="33.58 -4.31 -257.59" hpr="2.4 -11.1 -6.4" scale="0.69 0.69 0.69"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="48.49 -4.31 -234.90" hpr="0.6 2.8 4.0" scale="0.76 0.76 0.76"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="138.01 -4.31 -284.85" hpr="8.7 -9.0 7.9" scale="0.57 0.57 0.57"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="201.09 -4.31 -231.98" hpr="-12.7 -9.6 -5.9" scale="0.57 0.57 0.57"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="186.77 -4.31 -237.94" hpr="12.7 3.5 0.6" scale="0.80 0.80 0.80"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="189.31 -4.31 -231.23" hpr="-0.6 -4.8 -8.5" scale="0.59 0.59 0.59"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="36.05 -4.31 -256.54" hpr="-4.5 4.0 7.8" scale="0.92 0.92 0.92"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="189.33 -4.31 -240.58" hpr="-14.0 -10.0 7.8" scale="0.87 0.87 0.87"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="7.45 -4.31 -244.84" hpr="0.4 -10.1 -2.2" scale="0.72 0.72 0.72"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="41.00 -4.31 -247.69" hpr="-1.8 -0.1 -1.6" scale="0.97 0.97 0.97"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="65.26 -4.31 -246.34" hpr="8.7 -0.9 -10.6" scale="0.50 0.50 0.50"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="94.20 -4.31 -308.84" hpr="-5.6 4.5 7.7" scale="0.95 0.95 0.95"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="84.09 -4.31 -307.51" hpr="-11.1 -9.6 -8.3" scale="0.59 0.59 0.59"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="142.64 -4.31 -282.74" hpr="10.7 5.0 -0.8" scale="0.52 0.52 0.52"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="81.06 -4.31 -338.72" hpr="6.5 -2.7 2.2" scale="0.94 0.94 0.94"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="102.86 -4.31 -305.43" hpr="-15.2 -5.6 10.5" scale="0.72 0.72 0.72"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="-1.43 -4.31 -256.27" hpr="10.2 -12.9 -2.0" scale="0.92 0.92 0.92"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="65.39 -4.31 -213.17" hpr="-6.4 -0.9 -0.2" scale="0.55 0.55 0.55"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="83.35 -4.31 -344.34" hpr="13.2 -3.2 -11.1" scale="0.51 0.51 0.51"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="185.08 -4.31 -238.68" hpr="3.5 7.1 3.5" scale="0.81 0.81 0.81"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="200.00 -4.31 -251.78" hpr="0.3 -6.9 7.8" scale="0.79 0.79 0.79"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="23.29 -4.31 -253.75" hpr="-8.1 -9.0 -8.2" scale="0.92 0.92 0.92"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="17.40 -4.31 -268.19" hpr="10.2 4.2 -4.8" scale="0.57 0.57 0.57"/>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="81.61 -4.31 -357.72" hpr="-16.3 1.6 8.0" scale="0.98 0.98 0.98"/>
   <!-- Hair system Plane.005, contains 25 particles -->
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="40.35 -4.31 -200.14" hpr="-0.0 -0.0 0.0" scale="0.99 0.99 0.99"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="29.12 -4.31 -247.07" hpr="-0.0 -0.0 0.0" scale="1.49 1.49 1.49"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="40.88 -4.31 -207.44" hpr="-0.0 -0.0 0.0" scale="1.49 1.49 1.49"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="200.54 -4.31 -259.65" hpr="-0.0 -0.0 0.0" scale="1.37 1.37 1.37"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="25.85 -4.31 -235.57" hpr="-0.0 -0.0 0.0" scale="1.78 1.78 1.78"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="134.89 -4.31 -266.46" hpr="-0.0 -0.0 0.0" scale="1.77 1.77 1.77"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="95.95 -4.31 -322.48" hpr="-0.0 -0.0 0.0" scale="1.64 1.64 1.64"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="77.76 -4.31 -315.05" hpr="-0.0 -0.0 0.0" scale="1.84 1.84 1.84"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="29.00 -4.31 -265.05" hpr="-0.0 -0.0 0.0" scale="1.54 1.54 1.54"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="141.73 -4.31 -273.74" hpr="-0.0 -0.0 0.0" scale="1.89 1.89 1.89"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="-7.41 -4.31 -266.22" hpr="-0.0 -0.0 0.0" scale="1.44 1.44 1.44"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="82.16 -4.31 -331.39" hpr="-0.0 -0.0 0.0" scale="1.19 1.19 1.19"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="5.39 -4.31 -250.86" hpr="-0.0 -0.0 0.0" scale="1.78 1.78 1.78"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="11.38 -4.31 -230.65" hpr="-0.0 -0.0 0.0" scale="1.37 1.37 1.37"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="-2.29 -4.31 -236.48" hpr="-0.0 -0.0 0.0" scale="1.82 1.82 1.82"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="114.60 -4.31 -293.62" hpr="-0.0 -0.0 0.0" scale="1.82 1.82 1.82"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="175.89 -4.31 -273.45" hpr="-0.0 -0.0 0.0" scale="1.13 1.13 1.13"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="66.03 -4.31 -237.22" hpr="-0.0 -0.0 0.0" scale="1.55 1.55 1.55"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="5.72 -4.31 -236.57" hpr="-0.0 -0.0 0.0" scale="1.17 1.17 1.17"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="80.66 -4.31 -309.71" hpr="-0.0 -0.0 0.0" scale="1.69 1.69 1.69"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="-13.87 -4.31 -259.28" hpr="-0.0 -0.0 0.0" scale="1.79 1.79 1.79"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="55.46 -4.31 -235.05" hpr="-0.0 -0.0 0.0" scale="1.34 1.34 1.34"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="40.48 -4.31 -199.27" hpr="-0.0 -0.0 0.0" scale="1.85 1.85 1.85"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="185.25 -4.31 -241.11" hpr="-0.0 -0.0 0.0" scale="1.76 1.76 1.76"/>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="58.68 -4.31 -222.81" hpr="-0.0 -0.0 0.0" scale="1.87 1.87 1.87"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="347.45 4.53 -9.75" hpr="13.7 -10.4 -2.8" scale="0.69 0.69 0.69"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="237.00 4.53 -39.14" hpr="-8.1 0.1 -3.9" scale="0.64 0.64 0.64"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="167.46 -3.07 134.61" hpr="-16.9 4.2 7.0" scale="0.61 0.61 0.61"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="306.98 4.53 -4.36" hpr="-2.8 -12.0 1.8" scale="0.88 0.88 0.88"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="311.39 4.53 9.85" hpr="4.8 -4.2 7.9" scale="1.00 1.00 1.00"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="273.47 4.53 -10.91" hpr="-4.8 -12.3 4.5" scale="0.93 0.93 0.93"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="276.65 4.53 4.31" hpr="-0.2 -6.7 -3.4" scale="0.89 0.89 0.89"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="174.32 -3.07 129.39" hpr="-15.3 -0.3 9.2" scale="0.92 0.92 0.92"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="319.24 4.53 -12.36" hpr="-9.5 -10.7 -8.1" scale="0.72 0.72 0.72"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="211.30 4.53 -16.72" hpr="-14.1 4.0 2.6" scale="0.56 0.56 0.56"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="350.86 4.53 7.06" hpr="-16.6 -7.1 8.1" scale="0.50 0.50 0.50"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="183.59 -3.07 129.08" hpr="-10.2 -12.2 0.5" scale="0.83 0.83 0.83"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="344.49 4.53 14.89" hpr="10.9 -3.2 -3.8" scale="0.86 0.86 0.86"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="283.84 4.53 6.34" hpr="-6.4 6.5 4.1" scale="0.64 0.64 0.64"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="224.52 4.53 -6.24" hpr="-14.1 -8.9 -3.0" scale="0.72 0.72 0.72"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="319.43 4.53 -11.24" hpr="11.2 -1.8 10.0" scale="0.58 0.58 0.58"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="173.72 -3.07 129.75" hpr="-10.6 -12.7 5.2" scale="0.66 0.66 0.66"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="161.74 -3.07 122.46" hpr="-7.0 -6.5 5.8" scale="0.81 0.81 0.81"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="324.35 4.53 -10.86" hpr="-9.2 -8.9 7.1" scale="0.51 0.51 0.51"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="322.75 4.53 16.88" hpr="-8.4 -9.7 3.8" scale="1.00 1.00 1.00"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="205.80 4.53 -31.01" hpr="3.1 -6.6 -5.8" scale="0.64 0.64 0.64"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="147.55 -3.07 124.58" hpr="-11.6 5.1 2.7" scale="0.50 0.50 0.50"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="229.43 -3.07 134.07" hpr="-6.0 -6.7 8.2" scale="0.73 0.73 0.73"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="136.71 -3.07 111.66" hpr="-13.3 -9.8 -7.4" scale="0.85 0.85 0.85"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="289.78 4.53 4.79" hpr="-9.8 3.6 4.1" scale="0.70 0.70 0.70"/>
+  <!-- Hair system Plane.005, contains 7 particles -->
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="229.37 4.53 -25.51" hpr="-0.0 -0.0 0.0" scale="0.97 0.97 0.97"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="266.93 4.53 14.47" hpr="-0.0 -0.0 0.0" scale="1.41 1.41 1.41"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="233.34 4.53 -66.46" hpr="-0.0 -0.0 0.0" scale="1.49 1.49 1.49"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="220.94 4.53 -12.90" hpr="-0.0 -0.0 0.0" scale="1.60 1.60 1.60"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="259.72 4.53 -0.45" hpr="-0.0 -0.0 0.0" scale="1.83 1.83 1.83"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="268.31 4.53 -9.12" hpr="-0.0 -0.0 0.0" scale="1.61 1.61 1.61"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="271.46 4.53 -21.96" hpr="-0.0 -0.0 0.0" scale="0.94 0.94 0.94"/>
   <!-- END Hair system Plane.005 -->
 
   <!-- Hair system Plane.021, contains 20 particles -->
@@ -916,6 +826,87 @@
   <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy" xyz="89.93 65.79 -361.51" hpr="11.2 -12.6 -1.8" scale="0.72 0.72 0.72"/>
   <!-- END Hair system Plane.181 -->
 
+  <!-- Hair system Plane.186, contains 50 particles -->
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="-25.17 -4.31 -241.74" hpr="-5.3 4.3 7.6" scale="0.82 0.82 0.82"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="194.56 -4.31 -228.58" hpr="-1.7 -12.4 -1.1" scale="0.53 0.53 0.53"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="95.30 -4.31 -304.84" hpr="1.6 -1.7 -3.3" scale="0.92 0.92 0.92"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="111.28 -4.31 -284.23" hpr="-5.3 3.7 -8.6" scale="0.62 0.62 0.62"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="65.84 -4.31 -306.89" hpr="12.2 0.4 10.2" scale="0.89 0.89 0.89"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="59.02 -4.31 -227.07" hpr="-6.9 -13.8 -2.7" scale="0.95 0.95 0.95"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="156.89 -4.31 -251.34" hpr="-9.2 -0.8 -4.9" scale="0.65 0.65 0.65"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="142.24 -4.31 -267.34" hpr="-6.8 4.5 7.6" scale="0.66 0.66 0.66"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="130.93 -4.31 -272.15" hpr="-16.6 -12.0 2.9" scale="0.67 0.67 0.67"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="-14.18 -4.31 -249.88" hpr="-12.6 -5.8 -0.3" scale="0.85 0.85 0.85"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="117.47 -4.31 -280.94" hpr="-0.2 -2.3 -6.9" scale="0.95 0.95 0.95"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="176.93 -4.31 -241.04" hpr="-2.2 4.7 7.5" scale="0.54 0.54 0.54"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="187.54 -4.31 -241.39" hpr="11.0 -5.9 -10.7" scale="0.77 0.77 0.77"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="81.07 -4.31 -313.10" hpr="-14.4 6.6 3.3" scale="0.82 0.82 0.82"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="101.30 -4.31 -299.60" hpr="-8.7 -7.6 5.5" scale="0.84 0.84 0.84"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="184.83 -4.31 -248.10" hpr="-8.1 -10.0 4.6" scale="0.49 0.49 0.49"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="17.19 -4.31 -246.62" hpr="5.9 -5.8 8.4" scale="0.81 0.81 0.81"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="74.21 -4.31 -316.49" hpr="-4.5 -11.0 5.7" scale="0.90 0.90 0.90"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="61.85 -4.31 -226.12" hpr="-8.3 -8.2 -1.0" scale="0.59 0.59 0.59"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="203.16 -4.31 -229.37" hpr="-5.7 -1.3 0.2" scale="0.69 0.69 0.69"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="78.15 -4.31 -317.16" hpr="-4.4 -3.5 -11.1" scale="0.75 0.75 0.75"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="194.13 -4.31 -255.96" hpr="4.4 4.6 7.4" scale="0.80 0.80 0.80"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="75.10 -4.31 -344.34" hpr="0.4 -11.6 4.2" scale="0.69 0.69 0.69"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="149.87 -4.31 -278.11" hpr="-10.6 -6.9 3.6" scale="0.97 0.97 0.97"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="14.14 -4.31 -272.31" hpr="6.1 -7.9 -6.4" scale="0.66 0.66 0.66"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="73.64 -4.31 -313.43" hpr="13.4 4.5 2.4" scale="0.63 0.63 0.63"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="42.35 -4.31 -257.81" hpr="-6.5 -6.8 7.6" scale="0.67 0.67 0.67"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="72.24 -4.31 -340.56" hpr="10.1 -11.1 4.8" scale="0.51 0.51 0.51"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="73.52 -4.31 -320.78" hpr="-15.4 -7.3 2.9" scale="0.57 0.57 0.57"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="150.50 -4.31 -269.92" hpr="-14.0 -6.1 -8.1" scale="0.77 0.77 0.77"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="154.17 -4.31 -271.41" hpr="-3.3 6.0 -3.4" scale="0.74 0.74 0.74"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="164.65 -4.31 -245.94" hpr="0.8 -1.0 9.5" scale="0.95 0.95 0.95"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="62.34 -4.31 -255.87" hpr="-13.4 -11.3 -7.5" scale="0.54 0.54 0.54"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="129.47 -4.31 -297.44" hpr="6.4 1.3 -8.0" scale="0.64 0.64 0.64"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="79.79 -4.31 -314.20" hpr="-13.4 6.7 2.9" scale="0.64 0.64 0.64"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="65.02 -4.31 -320.11" hpr="5.6 -6.6 -7.7" scale="0.87 0.87 0.87"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="71.49 -4.31 -230.61" hpr="13.7 3.7 7.4" scale="0.70 0.70 0.70"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="170.18 -4.31 -233.56" hpr="9.3 -11.0 6.5" scale="0.64 0.64 0.64"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="174.48 -4.31 -231.93" hpr="6.6 -9.1 0.6" scale="0.68 0.68 0.68"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="202.30 -4.31 -242.41" hpr="11.8 -3.7 -2.0" scale="0.70 0.70 0.70"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="62.83 -4.31 -237.65" hpr="-17.3 -0.7 10.1" scale="0.85 0.85 0.85"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="-6.02 -4.31 -234.36" hpr="1.0 -12.1 -6.4" scale="0.78 0.78 0.78"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="129.04 -4.31 -277.79" hpr="0.3 1.6 6.0" scale="0.60 0.60 0.60"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="167.02 -4.31 -241.02" hpr="-5.3 -12.0 -5.7" scale="0.88 0.88 0.88"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="2.28 -4.31 -247.54" hpr="1.8 0.7 -7.5" scale="0.99 0.99 0.99"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="51.85 -4.31 -247.05" hpr="11.7 5.5 -6.4" scale="0.67 0.67 0.67"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="184.97 -4.31 -232.13" hpr="6.8 3.1 -5.3" scale="0.94 0.94 0.94"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="180.86 -4.31 -228.80" hpr="-6.0 1.7 -8.6" scale="0.53 0.53 0.53"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="69.03 -4.31 -310.76" hpr="10.4 3.8 7.9" scale="0.55 0.55 0.55"/>
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="124.43 -4.31 -277.47" hpr="11.2 -12.6 -1.8" scale="0.72 0.72 0.72"/>
+  <!-- Hair system Plane.186, contains 25 particles -->
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="40.35 -4.31 -200.14" hpr="-0.0 -0.0 0.0" scale="0.99 0.99 0.99"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="29.12 -4.31 -247.07" hpr="-0.0 -0.0 0.0" scale="1.49 1.49 1.49"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="40.88 -4.31 -207.44" hpr="-0.0 -0.0 0.0" scale="1.49 1.49 1.49"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="200.54 -4.31 -259.65" hpr="-0.0 -0.0 0.0" scale="1.37 1.37 1.37"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="25.85 -4.31 -235.57" hpr="-0.0 -0.0 0.0" scale="1.78 1.78 1.78"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="134.89 -4.31 -266.46" hpr="-0.0 -0.0 0.0" scale="1.77 1.77 1.77"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="95.95 -4.31 -322.48" hpr="-0.0 -0.0 0.0" scale="1.64 1.64 1.64"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="77.76 -4.31 -315.05" hpr="-0.0 -0.0 0.0" scale="1.84 1.84 1.84"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="29.00 -4.31 -265.05" hpr="-0.0 -0.0 0.0" scale="1.54 1.54 1.54"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="141.73 -4.31 -273.74" hpr="-0.0 -0.0 0.0" scale="1.89 1.89 1.89"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="-7.41 -4.31 -266.22" hpr="-0.0 -0.0 0.0" scale="1.44 1.44 1.44"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="82.16 -4.31 -331.39" hpr="-0.0 -0.0 0.0" scale="1.19 1.19 1.19"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="5.39 -4.31 -250.86" hpr="-0.0 -0.0 0.0" scale="1.78 1.78 1.78"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="11.38 -4.31 -230.65" hpr="-0.0 -0.0 0.0" scale="1.37 1.37 1.37"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="-2.29 -4.31 -236.48" hpr="-0.0 -0.0 0.0" scale="1.82 1.82 1.82"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="114.60 -4.31 -293.62" hpr="-0.0 -0.0 0.0" scale="1.82 1.82 1.82"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="175.89 -4.31 -273.45" hpr="-0.0 -0.0 0.0" scale="1.13 1.13 1.13"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="66.03 -4.31 -237.22" hpr="-0.0 -0.0 0.0" scale="1.55 1.55 1.55"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="5.72 -4.31 -236.57" hpr="-0.0 -0.0 0.0" scale="1.17 1.17 1.17"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="80.66 -4.31 -309.71" hpr="-0.0 -0.0 0.0" scale="1.69 1.69 1.69"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="-13.87 -4.31 -259.28" hpr="-0.0 -0.0 0.0" scale="1.79 1.79 1.79"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="55.46 -4.31 -235.05" hpr="-0.0 -0.0 0.0" scale="1.34 1.34 1.34"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="40.48 -4.31 -199.27" hpr="-0.0 -0.0 0.0" scale="1.85 1.85 1.85"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="185.25 -4.31 -241.11" hpr="-0.0 -0.0 0.0" scale="1.76 1.76 1.76"/>
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="58.68 -4.31 -222.81" hpr="-0.0 -0.0 0.0" scale="1.87 1.87 1.87"/>
+  <!-- END Hair system Plane.186 -->
+
+  <object type="sfx-emitter" id="Empty.044" sound="waterfall_loop_2.ogg" rolloff="0.050" volume="1.0" max_dist="130.0" xyz="127.47 -2.53 -317.12" hpr="0.0 -0.0 0.0" scale="127.61 127.61 127.61">
+  </object>
   <item id="Empty.000" x="287.95" y="20.77" z="-141.84" h="29.51" />
   <small-nitro id="Empty.001" x="233.70" y="8.17" z="25.35" />
   <small-nitro id="Empty.002" x="232.12" y="10.62" z="9.88" />
@@ -955,19 +946,19 @@
   <object type="billboard" id="Plane.048" texture="lightHaloR.png" xyz="222.45 79.08 -149.52" 
              width="12.865" height="12.865" >
   </object>
-  <light xyz="-67.00 0.97 -190.30" id="Lamp" distance="25.00" energy="2.50" color="255 101 45">
+  <light xyz="-67.00 0.97 -190.30" id="Lamp" distance="25.00" energy="5.00" color="255 80 25">
   </light>
-  <light xyz="-66.19 0.97 -204.98" id="Lamp.001" distance="25.00" energy="2.50" color="255 101 45">
+  <light xyz="-66.19 0.97 -204.98" id="Lamp.001" distance="25.00" energy="5.00" color="255 80 25">
   </light>
-  <light xyz="-40.36 0.97 -207.81" id="Lamp.002" distance="25.00" energy="2.50" color="255 101 45">
+  <light xyz="-40.36 0.97 -207.81" id="Lamp.002" distance="25.00" energy="5.00" color="255 80 25">
   </light>
-  <light xyz="-42.12 0.97 -195.62" id="Lamp.003" distance="25.00" energy="2.50" color="255 101 45">
+  <light xyz="-42.12 0.97 -195.62" id="Lamp.003" distance="25.00" energy="5.00" color="255 80 25">
   </light>
-  <light xyz="-43.93 0.97 -182.53" id="Lamp.004" distance="25.00" energy="2.50" color="255 101 45">
+  <light xyz="-43.93 0.97 -182.53" id="Lamp.004" distance="25.00" energy="5.00" color="255 80 25">
   </light>
-  <light xyz="-48.24 3.08 -117.82" id="Lamp.005" distance="25.00" energy="2.50" color="255 101 45">
+  <light xyz="-48.24 3.08 -117.82" id="Lamp.005" distance="25.00" energy="5.00" color="255 80 25">
   </light>
-  <light xyz="-60.24 3.08 -117.82" id="Lamp.006" distance="25.00" energy="2.50" color="255 101 45">
+  <light xyz="-60.24 3.08 -117.82" id="Lamp.006" distance="25.00" energy="5.00" color="255 80 25">
   </light>
   <light xyz="-73.98 14.64 -53.29" id="Lamp.007" distance="25.00" energy="1.00" color="255 255 255">
   </light>
@@ -1019,7 +1010,11 @@
   </light>
   <light xyz="-48.62 -0.86 -124.43" id="Lamp.031" distance="5.00" energy="1.50" color="248 255 154">
   </light>
+  <light xyz="-53.44 3.08 -147.42" id="Lamp.032" distance="25.00" energy="5.00" color="255 80 25">
+  </light>
   <light xyz="5.83 3.17 -309.11" id="Lamp.033" distance="5.00" energy="1.50" color="248 255 154">
+  </light>
+  <light xyz="-53.44 3.08 -85.53" id="Lamp.034" distance="25.00" energy="5.00" color="255 80 25">
   </light>
   <lightshaft xyz="-1406.06 496.57 -237.14" id="Sun.001" opacity="0.80" color="217 255 93"/>
   <default-start karts-per-row     ="2"
