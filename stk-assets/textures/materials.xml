@@ -240,7 +240,7 @@
   </material>
   
   <material name="transparence.png" compositing="test" />
-
+  <material name="unlit.png" shader="unlit"/>
   <material name="water_light.png" light="N" reset="Y"/>
   <material name="water-splash.png" compositing="blend" light="N" ignore="Y"/>
 
