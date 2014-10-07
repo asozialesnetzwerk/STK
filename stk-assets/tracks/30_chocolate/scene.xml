@@ -2,6 +2,7 @@
 <!-- Generated with script from SVN rev 15570 -->
 <scene>
   <track model="chocolate_01_track.b3d" x="0" y="0" z="0">
+    <static-object model="boundaries.b3d" xyz="8.70 2.58 -313.78" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
     <static-object model="wooden_bridge.b3d" xyz="249.73 13.10 -11.95" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
     <animated-texture name="stktex_animatedFire_a.png" dy="0.0625"  animByStep="true" dt="0.050" />
     <animated-texture name="stktex_animatedFire_a.png" dy="0.0625"  animByStep="true" dt="0.050" />
@@ -70,7 +71,7 @@
     </curve>
   </object>
   <sun  fog="true" fog-color="37 74 64" fog-max="0.20000000298023224" fog-start="15.00" fog-end="750.00" xyz="-1346.40 1559.38 -219.26" sun-specular="211 235 110" sun-diffuse="211 235 110" ambient="120 120 120"/>
-  <sky-box texture="skybox5.jpg skybox6.png skybox3.jpg skybox3.jpg skybox3.jpg skybox3.jpg" sh-texture="skybox5.jpg skybox6.png skybox3.jpg skybox3.jpg skybox3.jpg skybox3.jpg"/>
+  <sky-box texture="skybox3-top.jpg skybox6.png skybox3.jpg skybox3.jpg skybox3.jpg skybox3.jpg" sh-texture="skybox5.jpg skybox6.png skybox3.jpg skybox3.jpg skybox3.jpg skybox3.jpg"/>
   <camera far="5000.0"/>
   <checks>
     <check-lap kind="lap" same-group="0"  />
@@ -966,9 +967,6 @@
   <item id="Empty.053" x="205.39" y="22.23" z="-239.90" h="-168.27" />
   <big-nitro id="Empty.055" x="300.36" y="14.40" z="-196.30" />
   <item id="Empty.057" x="301.96" y="16.41" z="-200.95" />
-  <object type="billboard" id="Plane.048" texture="lightHaloR.png" xyz="222.45 79.08 -149.52" 
-             width="12.865" height="12.865" >
-  </object>
   <light xyz="-67.00 0.97 -190.30" id="Lamp" distance="25.00" energy="5.00" color="255 80 25">
   </light>
   <light xyz="-66.19 0.97 -204.98" id="Lamp.001" distance="25.00" energy="5.00" color="255 80 25">
@@ -1158,7 +1156,7 @@
   <library name="stklib_boxGrid_a" id="stklib_boxGrid_a_main_proxy" xyz="255.24 18.80 -102.74" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_boxGrid_a" id="stklib_boxGrid_a_main_proxy.001" xyz="233.76 18.80 -129.87" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_boxGrid_a" id="stklib_boxGrid_a_main_proxy.002" xyz="245.22 18.82 -78.58" hpr="0.0 43.3 0.0" scale="0.81 0.81 0.81"/>
-  <library name="stklib_boxGrid_a" id="stklib_boxGrid_a_main_proxy.003" xyz="234.73 18.80 -131.92" hpr="0.0 -0.0 0.0" scale="0.74 0.74 0.74"/>
+  <library name="stklib_boxGrid_a" id="stklib_boxGrid_a_main_proxy.003" xyz="234.41 18.80 -133.02" hpr="0.0 -31.0 0.0" scale="0.74 0.74 0.74"/>
   <library name="stklib_boxGrid_a" id="stklib_boxGrid_a_main_proxy.004" xyz="256.55 18.80 -122.36" hpr="0.0 -0.0 0.0" scale="0.72 0.72 0.72"/>
   <library name="stklib_boxGrid_a" id="stklib_boxGrid_a_main_proxy.005" xyz="256.38 18.82 -74.59" hpr="0.0 85.6 0.0" scale="0.61 0.61 0.61"/>
   <library name="stklib_boxGrid_a" id="stklib_boxGrid_a_main_proxy.006" xyz="243.58 18.82 -79.58" hpr="0.0 85.6 0.0" scale="0.61 0.61 0.61"/>
@@ -1196,6 +1194,8 @@
   <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.019" xyz="265.13 19.57 -221.93" hpr="-3.1 168.3 4.9" scale="1.00 1.00 1.00"/>
   <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.020" xyz="266.91 19.69 -222.75" hpr="0.0 167.2 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.021" xyz="308.59 18.73 -145.09" hpr="0.0 -55.4 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_greenRadioTower_a" id="stklib_greenRadioTower_a_main_proxy" xyz="0.00 0.57 18.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_greenRadioTower_a" id="stklib_greenRadioTower_a_main_proxy.001" xyz="227.56 18.99 -135.16" hpr="0.0 -16.4 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_jungleTree_a" id="stklib_jungleTree_a_main_proxy" xyz="195.99 14.74 62.06" hpr="0.0 -0.0 0.0" scale="2.78 2.78 2.78"/>
   <library name="stklib_jungleTree_a" id="stklib_jungleTree_a_main_proxy.001" xyz="305.58 20.52 -189.78" hpr="0.0 -0.0 0.0" scale="2.98 2.98 2.98"/>
   <library name="stklib_jungleTree_a" id="stklib_jungleTree_a_main_proxy.002" xyz="373.81 18.49 -80.97" hpr="0.0 24.6 0.0" scale="2.78 2.78 2.78"/>
@@ -1343,7 +1343,7 @@
   <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.038" xyz="229.85 19.63 -98.89" hpr="90.8 111.4 -0.8" scale="0.18 0.19 0.19"/>
   <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.039" xyz="228.12 19.60 -114.83" hpr="90.5 120.9 -1.0" scale="0.31 0.19 0.19"/>
   <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.040" xyz="228.97 19.53 -124.16" hpr="89.5 54.7 -1.9" scale="0.31 0.19 0.19"/>
-  <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.041" xyz="233.14 19.59 -133.10" hpr="89.5 56.9 -1.9" scale="0.29 0.19 0.19"/>
+  <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.041" xyz="238.07 19.59 -143.99" hpr="72.7 86.7 -18.5" scale="0.36 0.19 0.19"/>
   <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.042" xyz="278.46 19.63 -64.45" hpr="90.0 95.4 -0.0" scale="0.30 0.19 0.19"/>
   <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.043" xyz="275.39 19.63 -60.14" hpr="90.0 33.4 0.0" scale="0.51 0.19 0.19"/>
 </scene>
