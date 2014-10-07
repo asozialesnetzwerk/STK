@@ -42,7 +42,7 @@
   <material name="stktex_animatedFire_a.png" disable-z-write="Y" shader="additive"/>
   
   <material name="gfx_distord_AlphaTested.png" compositing="test"/>
-  <material name="stktex_generic_WoodA.png" gloss-map="stktex_generic_WoodA_spec.png">
+  <material name="stktex_generic_WoodA.png" >
     <sfx filename="wooden_bridge.ogg" rolloff="0.60" min_speed="9.00" max_speed="22.00" min_pitch="1.00" max_pitch="1.70" positional="Y" volume="1.00"/>
   </material>
   
@@ -55,7 +55,10 @@
   
     
   <material name="stktex_lowPalmTree_a.png" compositing="test" />
+  <material name="stk_generic_grid_b.png" compositing="test" />
   <material name="stktex_boxGrid_a.png" compositing="test" />
+  
+  <material name="stk_metalDoor_a.png" gloss-map="stk_metalDoor_a_gloss.png" />
   
   <material name="stk_generic_gridA.png" compositing="test" has-gravity="Y"/>
   <material name="stktex_lowPalmLeaf_a.png" compositing="test" graphical-effect="grass"/>
