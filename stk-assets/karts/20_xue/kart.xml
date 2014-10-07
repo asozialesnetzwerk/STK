@@ -23,7 +23,8 @@
               end-losing = "289"
               start-speed-weighted = "299"
               end-speed-weighted = "329"
-              start-jump = "339"/>
+              start-jump = "339"
+              end-jump = "359"/>
   <nitro-emitter>
     <nitro-emitter-a position = "0.342230 0.484809 -0.547407" />
     <nitro-emitter-b position = "-0.342230 0.487429 -0.547407" />
