@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15417 -->
+<!-- Generated with script from SVN rev 15595 -->
 <track  name           = "Oliver's Math Class"
         version        = "6"
         groups         = "standard"
@@ -7,12 +7,10 @@
         music          = "Boom_boom_boom.music"
         screenshot     = "mathclass.jpg"
         smooth-normals = "false"
-        default-number-of-laps = "4"
+        default-number-of-laps = "6"
         reverse        = "Y"
         bloom          = "N"
         clouds         = "N"
-        lens-flare     = "N"
         shadows        = "N"
-        god-rays       = "N"
 >
 </track>
