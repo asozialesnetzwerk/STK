@@ -236,8 +236,9 @@ class StkObjectReferenceProperty(StkProperty):
         if filter is None:
             raise Exception("Filter may not be None")
         
+        select_op_name = generateOpName("screen.stk_select_object_", fullid, id)
         class SelectObjectOperator(bpy.types.Operator):
-            bl_idname = generateOpName("scene.stk_select_object_", fullid, id)
+            bl_idname = select_op_name
             bl_label = "Select Object Operator"
             __doc__ = doc
 
@@ -254,12 +255,14 @@ class StkObjectReferenceProperty(StkProperty):
 
         bpy.utils.register_class(SelectObjectOperator)
         
+        op_name = generateOpName("screen.stk_object_menu_", fullid, id)
         class ObjectPickerMenu(bpy.types.Menu):
             m_filter = filter
             m_obj_identifier = obj_identifier
             m_obj_text = obj_text
             m_static_objects = static_objects
-            bl_idname = generateOpName("screen.stk_object_menu_", fullid, id)
+            m_fullid = fullid
+            bl_idname = op_name
             bl_label  = ("SuperTuxKart Object Picker Menu (" + id + ")")
             m_property_id = id
             
@@ -275,7 +278,7 @@ class StkObjectReferenceProperty(StkProperty):
                         object_id = self.m_obj_identifier(object)
                         
                         if object_id is not None and object_id not in seen_objs:
-                            layout.operator("scene.stk_select_object_"+self.m_property_id, text=text).name = object_id
+                            layout.operator(select_op_name, text=text).name = object_id
                             seen_objs[object_id] = True
 
                 for curr in self.m_static_objects:
@@ -283,6 +286,7 @@ class StkObjectReferenceProperty(StkProperty):
 
         
         bpy.utils.register_class(ObjectPickerMenu)
+
 
 # ------------------------------------------------------------------------------
 #! One entry in a StkEnumProperty
