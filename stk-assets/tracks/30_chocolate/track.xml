@@ -4,7 +4,7 @@
         version        = "6"
         groups         = "standard"
         designer       = "jean-manuel cl&#233;men&#231;on"
-        music          = "amazon_jungle.music"
+        music          = "cocoa_river.music"
         screenshot     = "test_track_postcard.png"
         smooth-normals = "false"
         default-number-of-laps = "3"
