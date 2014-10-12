@@ -13,6 +13,7 @@
   <material name="stkflag_goldCupVertical_a.png" compositing="test" graphical-effect="grass"/>
   <material name="stkflag_orangeStartingLine_a.png" shader="alphatest" disable-z-write="Y"/>
   <material name="stkflag_orangeBooster_a.png" shader="alphatest" disable-z-write="Y" has-gravity="Y"/>
+  <material name="stkflag_blueStartingLine_a.png" shader="alphatest" disable-z-write="Y"/>
 
   <!-- Particles -->
   <material name="explode.png"           compositing="additive" ignore="Y"/>

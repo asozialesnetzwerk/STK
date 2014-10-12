@@ -15,6 +15,7 @@
   
   <material name="bowling.png" gloss-map="bowling_spec.png"/>
   
+  <material name="thunderbird.png" shader="alphatest"/>
   <material name="bubblegum_shield.png" shader="alphablend" disable-z-write="Y"/>
   <material name="bubblegum_shield_nolok.png" shader="alphablend" disable-z-write="Y"/>
   <material name="parachute.png" backface-culling="n" ignore="Y"/>

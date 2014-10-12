@@ -255,7 +255,7 @@
           shape="box" mass="100.0" model="skull.b3d" skeletal-animation="false"/>
   <object id="Light" type="animation" xyz="206.91 -7.93 298.80" hpr="0.0 -0.0 0.0" scale="0.47 0.47 0.47" interaction="ghost" model="Light.b3d" skeletal-animation="false">
   </object>
-  <sun  fog="false" fog-color="112 142 162" fog-max="0.5" fog-start="200.00" fog-end="500.00"/>
+  <sun  fog="true" fog-color="112 142 162" fog-max="0.5" fog-start="100.00" fog-end="500.00"/>
   <sky-box texture="genericskybox_top.jpg genericskybox_bottom.jpg genericskybox_east.jpg genericskybox_west.jpg genericskybox_south.jpg genericskybox_north.jpg" />
   <camera far="1000.0"/>
   <checks>
