@@ -76,9 +76,9 @@
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
     <check-line kind="activate" other-ids="2" p1="281.82 -42.82" p2="270.62 -58.40"
-                min-height="19.69" same-group="1"/>
+                min-height="17.95" same-group="1"/>
     <check-line kind="activate" other-ids="0" p1="-38.02 -222.26" p2="-61.97 -228.00"
-                min-height="-0.81" same-group="2"/>
+                min-height="-1.96" same-group="2"/>
   </checks>
   <particle-emitter kind="gfx_fallingLeaf_a.xml" id="Empty" xyz="106.02 13.14 34.32" h="0.00">
   </particle-emitter>
@@ -973,6 +973,7 @@
   <big-nitro id="Empty.055" x="300.36" y="14.40" z="-196.30" />
   <item id="Empty.057" x="301.96" y="16.41" z="-200.95" />
   <item id="Empty.058" x="194.34" y="6.86" z="-218.20" h="8.99" />
+  <big-nitro id="Empty.059" x="24.03" y="-2.15" z="-311.81" />
   <light xyz="-67.00 0.97 -190.30" id="Lamp" distance="25.00" energy="5.00" color="255 80 25">
   </light>
   <light xyz="-66.19 0.97 -204.98" id="Lamp.001" distance="25.00" energy="5.00" color="255 80 25">
