@@ -2,5 +2,7 @@
 <music title    = "Cocoa River"
        composer = "Ozoneone"
        file     = "cocoa_river.ogg"
+       fast     = "true"
+       fast-filename = "cocoa_river_fast.ogg"
        gain     = "0.75"/>
 
