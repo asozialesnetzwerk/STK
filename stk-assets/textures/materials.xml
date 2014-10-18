@@ -54,6 +54,10 @@
   <material name="stkflag_valverdeVertical_a.png" compositing="test" graphical-effect="grass"/>
   <material name="stktex_cocoaTreeLeaf_a.png" compositing="test" graphical-effect="grass"/>
   
+  <material name="stktex_coralBump_a.png" compositing="test" graphical-effect="grass"/>
+  <material name="stktex_seaFlower_a.png" compositing="test" graphical-effect="grass"/>
+  <material name="stktex_coralDisk_a.png" compositing="test" graphical-effect="grass"/>
+  
     
   <material name="stktex_lowPalmTree_a.png" compositing="test" />
   <material name="stk_generic_grid_b.png" compositing="test" />
