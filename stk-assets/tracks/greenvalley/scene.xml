@@ -6,27 +6,27 @@
     <static-object lod_distance="55" lod_group="sheep" model="sheep_55.b3d" xyz="19.20 0.20 1.51" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"/>
     <static-object lod_distance="10000" lod_group="sheep" model="sheep_LOD10000.b3d" xyz="22.63 2.01 -3.53" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
    </group>
-   <group name="flower4">
-    <static-object lod_distance="100" lod_group="flower4" model="RudbeckiaHirta.b3d" xyz="10.63 0.00 -12.20" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-   </group>
-   <group name="flower2">
-    <static-object lod_distance="100" lod_group="flower2" model="MyasotisScorpioides.b3d" xyz="6.75 0.00 -5.47" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-   </group>
-   <group name="forestPlant1">
-    <static-object lod_distance="100" lod_group="forestPlant1" model="OsmundaCinnamoneaS.005.b3d" xyz="13.64 -0.18 -10.82" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   <group name="WaterPlant1">
+    <static-object lod_distance="100" lod_group="WaterPlant1" model="TyphaLatifolia.b3d" xyz="13.43 0.00 -7.80" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="none"/>
+    <static-object lod_distance="300" lod_group="WaterPlant1" model="WaterPlant1.lod.low.b3d" xyz="16.32 0.94 -7.10" hpr="-90.0 -0.0 0.0" scale="0.86 0.86 0.86" interaction="static"/>
    </group>
    <group name="plant1">
     <static-object lod_distance="150" lod_group="plant1" model="ArctinumMinus.b3d" xyz="15.35 -0.41 -11.70" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
    </group>
-   <group name="flower3">
-    <static-object lod_distance="100" lod_group="flower3" model="Eupatorium.b3d" xyz="8.65 -0.15 -12.02" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   <group name="flower2">
+    <static-object lod_distance="100" lod_group="flower2" model="MyasotisScorpioides.b3d" xyz="6.75 0.00 -5.47" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
+   <group name="flower4">
+    <static-object lod_distance="100" lod_group="flower4" model="RudbeckiaHirta.b3d" xyz="10.63 0.00 -12.20" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
+   <group name="forestPlant1">
+    <static-object lod_distance="100" lod_group="forestPlant1" model="OsmundaCinnamoneaS.005.b3d" xyz="13.64 -0.18 -10.82" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
    </group>
    <group name="flower1">
     <static-object lod_distance="100" lod_group="flower1" model="ClethraAlnifolia.b3d" xyz="9.36 0.25 -4.45" hpr="0.0 -0.0 0.0" scale="0.46 0.46 0.46" interaction="static"/>
    </group>
-   <group name="WaterPlant1">
-    <static-object lod_distance="100" lod_group="WaterPlant1" model="TyphaLatifolia.b3d" xyz="13.43 0.00 -7.80" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="none"/>
-    <static-object lod_distance="300" lod_group="WaterPlant1" model="WaterPlant1.lod.low.b3d" xyz="16.32 0.94 -7.10" hpr="-90.0 -0.0 0.0" scale="0.86 0.86 0.86" interaction="static"/>
+   <group name="flower3">
+    <static-object lod_distance="100" lod_group="flower3" model="Eupatorium.b3d" xyz="8.65 -0.15 -12.02" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
    </group>
   </lod>
   <track model="greenvalley_track.b3d" x="0" y="0" z="0">
@@ -207,6 +207,7 @@
     <static-object lod_instance="true" lod_group="forestPlant1" xyz="167.81 25.62 99.38" hpr="80.0 51.5 64.6" scale="4.13 2.86 4.13"/>
     <static-object model="Plane.003.b3d" xyz="126.49 10.24 -2.12" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object model="water_road_splash_layer.b3d" xyz="214.49 -12.12 -117.21" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="rescue_plane.b3d" xyz="-0.16 -3.99 -7.45" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
     <static-object lod_instance="true" lod_group="flower4" xyz="3.63 0.95 11.20" hpr="0.0 -0.0 0.0" scale="0.92 0.92 0.92"/>
     <static-object lod_instance="true" lod_group="flower4" xyz="-17.01 1.37 31.21" hpr="0.0 -0.0 0.0" scale="1.05 1.05 1.05"/>
     <static-object lod_instance="true" lod_group="flower4" xyz="-15.19 1.32 28.07" hpr="-0.0 114.6 -0.0" scale="1.05 1.05 1.05"/>
@@ -324,7 +325,8 @@
   </object>
   <object id="Sheep.003" type="animation" xyz="-8.74 0.50 9.44" hpr="-0.0 -93.9 -0.0" scale="0.23 0.23 0.23" interaction="ghost" model="anim_sheep2.b3d" skeletal-animation="true">
   </object>
-  <sky-box texture="w_sky_6.jpg grass2.jpg w_sky_2.jpg w_sky_4.jpg w_sky_3.jpg w_sky_1.jpg" />
+  <sun  xyz="314.42 251.81 -195.27" sun-color="255 255 255" sun-specular="255 255 255" sun-diffuse="255 255 255" ambient="108 120 112"/>
+  <sky-box texture="w_sky_6.jpg grass2.jpg w_sky_2.jpg w_sky_4.jpg w_sky_3.jpg w_sky_1.jpg" sh-texture="w_sky_6.jpg grass2.jpg w_sky_2.jpg w_sky_4.jpg w_sky_3.jpg w_sky_1.jpg"/>
   <camera far="5000.0"/>
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
