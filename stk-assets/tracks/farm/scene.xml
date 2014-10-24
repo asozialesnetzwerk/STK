@@ -22,10 +22,10 @@
     <static-object lod_instance="true" lod_group="horse" xyz="78.26 3.96 85.97" hpr="0.1 11.1 -0.6" scale="0.55 0.55 0.55"/>
     <static-object lod_instance="true" lod_group="horse" xyz="83.34 4.29 84.75" hpr="0.1 30.9 -0.5" scale="0.75 0.75 0.75"/>
     <static-object model="silo.b3d" xyz="34.83 15.14 -105.46" hpr="0.0 -0.0 0.0" scale="4.99 4.99 4.99"/>
-    <static-object model="silo.b3d" xyz="-97.77 13.13 6.81" hpr="0.0 -0.0 0.0" scale="3.41 3.41 3.41"/>
-    <static-object model="silo.b3d" xyz="194.27 17.88 -200.40" hpr="0.0 -0.0 0.0" scale="3.98 3.98 3.98"/>
-    <static-object model="silo.b3d" xyz="189.95 15.40 127.05" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object model="silo.b3d" xyz="217.89 22.45 -188.24" hpr="0.0 -0.0 0.0" scale="4.99 4.99 4.99"/>
+    <static-object model="silo2.b3d" xyz="-97.77 13.13 6.81" hpr="0.0 -0.0 0.0" scale="3.41 3.41 3.41"/>
+    <static-object model="silo5.b3d" xyz="194.27 17.88 -200.40" hpr="0.0 -0.0 0.0" scale="3.98 3.98 3.98"/>
+    <static-object model="silo3.b3d" xyz="189.95 15.40 127.05" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="silo4.b3d" xyz="217.89 22.45 -188.24" hpr="0.0 -0.0 0.0" scale="4.99 4.99 4.99"/>
     <static-object lod_instance="true" lod_group="cow" xyz="-59.26 8.47 -125.68" hpr="-0.0 -90.0 0.0" scale="0.52 0.36 0.52"/>
     <static-object lod_instance="true" lod_group="well" xyz="-50.31 6.00 -89.63" hpr="-0.0 64.7 -0.0" scale="1.91 1.91 1.91"/>
   </track>

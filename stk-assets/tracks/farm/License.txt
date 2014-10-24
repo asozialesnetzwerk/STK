@@ -28,7 +28,7 @@ mill.png, millstructure.png, wind_mill.png
     by Samuncle, based on pictures from Burningwell
     released under public domain
 
-clouds in skycube by nicubunu, released in public domain
+skycube based on http://www.publicdomainpictures.net/view-image.php?image=51774&picture=wheat-field-landscape , public domain
 
 gnarly tools and gnarly tool texture by Clint Bellanger
     released under CC-BY-SA 3.0
