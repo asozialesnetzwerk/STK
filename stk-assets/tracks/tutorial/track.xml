@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15322 -->
+<!-- Generated with script from SVN rev 15595 -->
 <track  name           = "Tutorial"
         version        = "6"
         groups         = "standard"
@@ -8,11 +8,11 @@
         internal       = "Y"
         screenshot     = "sshot-hacienda.jpg"
         smooth-normals = "true"
+        default-number-of-laps = "1"
         reverse        = "Y"
-        bloom          = "N"
+        bloom          = "Y"
+        bloom-threshold = "0.75"
         clouds         = "N"
-        lens-flare     = "N"
-        shadows        = "N"
-        god-rays       = "N"
+        shadows        = "Y"
 >
 </track>

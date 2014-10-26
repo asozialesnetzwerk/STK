@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15322 -->
+<!-- Generated with script from SVN rev 15595 -->
 <scene>
   <lod>
    <group name="lantern">
@@ -33,11 +33,11 @@
     <static-object model="Plane.024.b3d" xyz="82.68 5.24 102.69" hpr="-2.4 -0.1 -91.5" scale="1.98 1.98 1.98"/>
     <static-object model="Plane.025.b3d" xyz="73.05 5.24 95.99" hpr="-2.4 -0.1 -91.5" scale="2.35 2.35 2.35"/>
     <static-object model="Plane.026.b3d" xyz="107.74 5.24 98.91" hpr="0.0 -0.0 -100.0" scale="1.98 1.98 1.98"/>
-    <static-object model="Plane.043.b3d" xyz="388.00 4.05 13.78" hpr="0.0 86.7 0.0" scale="2.51 2.51 2.51"/>
-    <static-object model="Plane.044.b3d" xyz="388.00 11.03 153.43" hpr="0.0 56.7 0.0" scale="2.88 2.88 2.88"/>
-    <static-object model="Plane.045.b3d" xyz="388.00 1.69 -116.02" hpr="0.0 32.7 0.0" scale="3.76 3.76 3.76"/>
-    <static-object model="Plane.046.b3d" xyz="311.03 4.97 68.85" hpr="0.0 56.7 0.0" scale="2.88 2.88 2.88"/>
-    <static-object model="Plane.047.b3d" xyz="309.84 -3.36 13.81" hpr="0.0 56.7 0.0" scale="2.88 2.88 2.88"/>
+    <static-object model="Plane.043.b3d" xyz="388.00 4.05 13.78" hpr="-0.0 86.7 -0.0" scale="2.51 2.51 2.51"/>
+    <static-object model="Plane.044.b3d" xyz="388.00 11.03 153.43" hpr="-0.0 56.7 -0.0" scale="2.88 2.88 2.88"/>
+    <static-object model="Plane.045.b3d" xyz="388.00 1.69 -116.02" hpr="-0.0 32.7 -0.0" scale="3.76 3.76 3.76"/>
+    <static-object model="Plane.046.b3d" xyz="311.03 4.97 68.85" hpr="-0.0 56.7 -0.0" scale="2.88 2.88 2.88"/>
+    <static-object model="Plane.047.b3d" xyz="309.84 -3.36 13.81" hpr="-0.0 56.7 -0.0" scale="2.88 2.88 2.88"/>
     <static-object model="Plane.049.b3d" xyz="384.46 7.75 112.15" hpr="-90.0 45.0 -0.0" scale="1.00 1.00 1.00"/>
     <static-object model="Plane.050.b3d" xyz="384.46 -7.07 -25.18" hpr="-90.0 45.0 -0.0" scale="1.00 1.00 1.00"/>
     <static-object model="arrow2.b3d" xyz="150.00 -10.92 -5.08" hpr="-0.0 83.1 -0.0" scale="1.00 1.00 1.00">
@@ -77,6 +77,8 @@
   </object>
   <object id="mill.002" type="animation" xyz="222.11 39.54 -252.99" hpr="-0.0 146.1 -0.0" scale="1.00 1.00 1.00" interaction="none" model="mill.002.b3d" skeletal-animation="false">
   </object>
+  <sun  xyz="193.18 204.52 138.56" sun-diffuse="147 144 118" ambient="111 113 120"/>
+  <sky-box texture="sky_top.jpg sky_top.jpg sky_east.jpg sky_west.jpg sky_south.jpg sky_north.jpg" />
   <camera far="1000.0"/>
   <checks>
     <check-lap kind="lap" same-group="0"  />

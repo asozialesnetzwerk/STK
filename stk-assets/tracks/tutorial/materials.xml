@@ -2,9 +2,9 @@
 <!-- Generated with script from SVN rev Unknown -->
 <materials>
   <material name="bigFork.png" ignore="Y" shader="alphatest"/>
-  <material name="cactus.png" light="N" backface-culling="N" disable-z-write="Y" shader="alphablend"/>
-  <material name="sageBrush.jpg" light="N" ignore="Y" backface-culling="N" disable-z-write="Y" mask="sageBrush_alpha.jpg" shader="alphablend"/>
-  <material name="grass.png" ignore="Y" backface-culling="N" disable-z-write="Y" shader="alphablend"/>
+  <material name="cactus.png" backface-culling="N" disable-z-write="Y" shader="alphatest"/>
+  <material name="sageBrush.jpg" ignore="Y" backface-culling="N" disable-z-write="Y" mask="sageBrush_alpha.jpg" shader="alphatest"/>
+  <material name="grass.png" ignore="Y" backface-culling="N" disable-z-write="Y" shader="alphatest"/>
   <material name="hacienda_ground.jpg">
     <particles base="smoke.xml" condition="skid"/>
   </material>
@@ -17,13 +17,12 @@
   <material name="l_lampsglass0.png" disable-z-write="Y" shader="alphablend"/>
   <material name="mill.png" ignore="Y" disable-z-write="Y" shader="alphablend"/>
   <material name="millstructure.png" ignore="Y" shader="alphatest"/>
-  <material name="palm_b.png" backface-culling="N" disable-z-write="Y" shader="alphablend"/>
-  <material name="palmacacia.jpg" light="N" ignore="Y" disable-z-write="Y" mask="palmacacia_alpha.jpg" shader="alphablend"/>
+  <material name="palm_b.png" backface-culling="N" disable-z-write="Y" shader="alphatest"/>
+  <material name="palmacacia.jpg" ignore="Y" disable-z-write="Y" mask="palmacacia_alpha.jpg" shader="alphatest"/>
   <material name="pix.png" reset="Y" shader="alphatest"/>
   <material name="pix_2.png" shader="alphatest"/>
-  <material name="sageBrush.jpg" light="N" ignore="Y" mask="sageBrush_alpha.jpg" shader="alphatest"/>
-  <material name="sky.jpg" light="N"/>
-  <material name="tail.png" ignore="Y" disable-z-write="Y" backface-culling="N" shader="alphablend"/>
+  <material name="sageBrush.jpg" ignore="Y" mask="sageBrush_alpha.jpg" shader="alphatest"/>
+  <material name="tail.png" ignore="Y" disable-z-write="Y" backface-culling="N" shader="alphatest"/>
   <material name="traildust.jpg">
     <particles base="smoke_brown.xml" condition="skid"/>
   </material>
@@ -40,6 +39,6 @@
   <material name="yellow_dirt.jpg" slowdown-time="2.00" max-speed="0.70">
     <particles base="smoke_yellow.xml" condition="drive skid"/>
   </material>
-  <material name="zipper-effect.png" light="N" disable-z-write="Y" shader="unlit"/>
-  <material name="zipper.png" light="N" disable-z-write="Y" shader="unlit"/>
+  <material name="zipper-effect.png" disable-z-write="Y" shader="alphablend"/>
+  <material name="zipper.png" disable-z-write="Y" shader="alphablend"/>
 </materials>
