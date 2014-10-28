@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 14949 -->
+<!-- Generated with script from SVN rev 15595 -->
 <track  name           = "Snow Peak"
         version        = "6"
         groups         = "standard"
@@ -7,6 +7,11 @@
         music          = "snowmountain.music"
         screenshot     = "sshot-snowtuxpeak.jpg"
         smooth-normals = "true"
+        default-number-of-laps = "3"
         reverse        = "Y"
+        bloom          = "Y"
+        bloom-threshold = "0.75"
+        clouds         = "N"
+        shadows        = "Y"
 >
 </track>
