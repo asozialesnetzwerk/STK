@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15417 -->
+<!-- Generated with script from SVN rev 15595 -->
 <track  name           = "featunlocked"
         version        = "6"
         groups         = "standard"
@@ -9,12 +9,11 @@
         internal       = "Y"
         screenshot     = "screenshot.jpg"
         smooth-normals = "false"
+        default-number-of-laps = "3"
         reverse        = "N"
         bloom          = "Y"
         bloom-threshold = "0.75"
         clouds         = "N"
-        lens-flare     = "N"
         shadows        = "Y"
-        god-rays       = "N"
 >
 </track>

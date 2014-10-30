@@ -4,4 +4,5 @@
   <material name="sand2.jpg" max-speed="0.60">
     <particles base="smoke_yellow.xml" condition="skid drive"/>
   </material>
+  <material name="seagloss.png" shader="alphablend" disable-z-write="Y"/>
 </materials>
