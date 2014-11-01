@@ -502,8 +502,7 @@ class BlenderHairExporter:
         
         if object.particle_systems is not None and len(object.particle_systems) >= 1 and \
            object.particle_systems[0].settings.type == 'EMITTER':
-            if object.particle_systems[0].settings.dupli_object is not None and \
-               getObjectProperty(object.particle_systems[0].settings.dupli_object, "type", "") == "object":
+            if object.particle_systems[0].settings.dupli_object is not None: #and getObjectProperty(object.particle_systems[0].settings.dupli_object, "type", "") == "object":
                 self.m_objects.append(object)
             else:
                 log_warning("Ignoring invalid hair system <%s>" % object.name)
@@ -526,7 +525,12 @@ class BlenderHairExporter:
                 for particle in particleSystem.particles:
                     loc = particle.location
                     hpr = particle.rotation.to_euler('XYZ')
-                    print (particle.size)
+                    
+                    # hack to get proper orientation
+                    if (particleSystem.settings.normal_factor >= 0.5):
+                        hpr.rotate_axis("Z", -1.57079633)
+
+                    #print (particle.size)
                     si = particle.size #/ duplicated_obj.dimensions[2]
                     loc_rot_scale_str = "xyz=\"%.2f %.2f %.2f\" hpr=\"%.1f %.1f %.1f\" scale=\"%.2f %.2f %.2f\"" %\
                        (loc[0], loc[2], loc[1], -hpr[0]*rad2deg, -hpr[2]*rad2deg,
