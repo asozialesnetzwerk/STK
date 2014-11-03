@@ -99,7 +99,7 @@ def writeMaterialsFile(sPath):
            'grass_amplitude'       : {'default': 0.25, 'parent': ('graphical_effect','grass'), 'type': 'number'},
            'ignore'                : {'default': "N", 'parent': None, 'type': 'bool'},
            'mask'                  : {'default': "", 'parent': None, 'type': 'string'},
-           'normal_map'            : {'default': "", 'parent': ('graphical_effect','normal_map'), 'type': 'string'},
+           'normal_map'            : {'default': "", 'parent': None, 'type': 'string'},
            'reset'                 : {'default': "N", 'parent': None, 'type': 'bool'},
            'surface'               : {'default': "N", 'parent': None, 'type': 'bool'},
            'high_adhesion'         : {'default': "N", 'parent': None, 'type': 'bool'},
