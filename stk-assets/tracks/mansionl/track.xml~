@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 15295 -->
+<track  name           = "Blackhill Mansion"
+        version        = "6"
+        groups         = "nextgen"
+        designer       = "Jean-Manuel Cl&#233;men&#231;on"
+        music          = "demonhill.music"
+        screenshot     = "screenshot.jpg"
+        smooth-normals = "false"
+        reverse        = "Y"
+        color-level-in = "0.0 1.0 255.0"
+        color-level-out = "0.0 255.0"
+        god-rays       = "Y"
+>
+</track>
