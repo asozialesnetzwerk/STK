@@ -82,8 +82,10 @@
         </EnumProp>
     
         <!-- Affected by fog -->
+        <!--
         <BoolProp id="fog" name="Affected by fog (if any)" default="true"
                 doc="Whether this material is affected by fog (if there is fog in this track)"/>
+        -->
         
         <!-- Backface culling -->
         <BoolProp id="backface_culling" name="Backface Culling" default="true"
