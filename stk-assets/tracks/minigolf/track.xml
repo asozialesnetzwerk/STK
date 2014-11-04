@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev Unknown -->
-<track  name           = "Minigolf Mischief"
+<!-- Generated with script from SVN rev 15595 -->
+<track  name           = "Minigolf"
         version        = "6"
         groups         = "standard"
-        designer       = "Mac"
-        music          = "bay.music"
+        designer       = "Mac &amp;&amp; Rubberduck"
+        music          = "Boom_boom_boom.music"
         screenshot     = "minigolf.jpg"
         smooth-normals = "false"
+        default-number-of-laps = "3"
         reverse        = "Y"
-        bloom          = "N"
+        bloom          = "Y"
+        bloom-threshold = "0.75"
         clouds         = "N"
-        lens-flare     = "N"
         shadows        = "Y"
-        god-rays       = "N"
 >
 </track>
