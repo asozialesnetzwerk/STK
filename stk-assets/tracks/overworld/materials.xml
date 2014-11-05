@@ -2,7 +2,7 @@
 <!-- Generated with script from SVN rev Unknown -->
 <materials>
   <material name="aoMapGoatv3.jpg" backface-culling="N"/>
-  <material name="bubble.png" fog="N" backface-culling="N" ignore="Y" shader="alphablend"/>
+  <material name="bubble.png" fog="N" backface-culling="N" disable-z-write="Y" ignore="Y" shader="alphablend"/>
   <material name="bubble_solid_texture.png" collision-detect="Y" collision-reaction="push" collision-particles="sparks.xml" shader="alphatest"/>
   <material name="BurdockLeaf.png" backface-culling="N" ignore="Y" shader="alphatest"/>
   <material name="castelwall.jpg" backface-culling="N"/>
@@ -17,10 +17,11 @@
   <material name="FieldPlant2.png" backface-culling="N" disable-z-write="Y" ignore="Y" shader="alphatest"/>
   <material name="grass.jpg" slowdown-time="0.80" max-speed="0.50"/>
   <material name="grass2.jpg" fog="N"/>
-  <material name="GrassTall.png" backface-culling="N" disable-z-write="Y" ignore="Y" shader="alphablend"/>
+  <material name="GrassTall.png" backface-culling="N" disable-z-write="Y" ignore="Y" shader="alphatest"/>
   <material name="GroundCover.png" backface-culling="N" ignore="Y" shader="alphatest"/>
   <material name="Jackinthepulpit.png" backface-culling="N" ignore="Y" shader="alphatest"/>
   <material name="light.png" ignore="Y" clampu="Y" disable-z-write="Y" backface-culling="N" fog="N" shader="alphablend"/>
+  <material name="marble.jpg" normal-map="column_normal_map.png"/>
   <material name="Metal-plate.png" backface-culling="N"/>
   <material name="Mint.png" backface-culling="N" disable-z-write="Y" ignore="Y" shader="alphatest"/>
   <material name="Mushroom 2 side.png" backface-culling="N" ignore="Y" shader="unlit"/>
