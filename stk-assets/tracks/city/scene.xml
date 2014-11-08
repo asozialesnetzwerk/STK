@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15595 -->
+<!-- Generated with script from SVN rev 15738 -->
 <scene>
   <lod>
-   <group name="tree_2">
-    <static-object lod_distance="50" lod_group="tree_2" model="tree_2_LOD50.b3d" xyz="78.00 -0.20 385.94" hpr="-0.0 -180.0 0.0" scale="1.20 1.20 1.20" interaction="static"/>
-    <static-object lod_distance="150" lod_group="tree_2" model="tree_2_LOD150.b3d" xyz="60.89 -0.20 385.94" hpr="-0.0 -180.0 0.0" scale="1.20 1.20 1.20" interaction="static"/>
-    <static-object lod_distance="500" lod_group="tree_2" model="tree_2_LOD500.b3d" xyz="45.18 -0.20 385.94" hpr="-0.0 -180.0 0.0" scale="1.20 1.20 1.20" interaction="static"/>
-   </group>
    <group name="tree_1">
     <static-object lod_distance="50" lod_group="tree_1" model="tree_1_LOD50.b3d" xyz="-16.00 -0.20 377.86" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
     <static-object lod_distance="150" lod_group="tree_1" model="tree_1_LOD150.b3d" xyz="-33.71 -0.20 377.86" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
     <static-object lod_distance="550" lod_group="tree_1" model="tree_1_LOD550.b3d" xyz="-50.30 -0.20 377.86" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   </group>
+   <group name="tree_2">
+    <static-object lod_distance="50" lod_group="tree_2" model="tree_2_LOD50.b3d" xyz="78.00 -0.20 385.94" hpr="-0.0 -180.0 0.0" scale="1.20 1.20 1.20" interaction="static"/>
+    <static-object lod_distance="150" lod_group="tree_2" model="tree_2_LOD150.b3d" xyz="60.89 -0.20 385.94" hpr="-0.0 -180.0 0.0" scale="1.20 1.20 1.20" interaction="static"/>
+    <static-object lod_distance="500" lod_group="tree_2" model="tree_2_LOD500.b3d" xyz="45.18 -0.20 385.94" hpr="-0.0 -180.0 0.0" scale="1.20 1.20 1.20" interaction="static"/>
    </group>
   </lod>
   <track model="city_track.b3d" x="0" y="0" z="0">
@@ -89,6 +89,7 @@
           shape="box" mass="100.0" model="crate.b3d" skeletal-animation="false"/>
   <object type="movable" id="crate.005" xyz="177.60 40.70 62.90" hpr="-0.0 25.0 -0.0" scale="1.00 1.00 1.00"
           shape="box" mass="100.0" model="crate.b3d" skeletal-animation="false"/>
+  <sun  fog="true" fog-color="200 200 250" fog-max="0.6000000238418579" fog-start="300.00" fog-end="600.00" xyz="-91.67 233.03 278.73" sun-diffuse="110 115 110" ambient="110 115 110"/>
   <sky-box texture="summersky_t.jpg summersky_b.jpg summersky_e.jpg summersky_w.jpg summersky_s.jpg summersky_n.jpg" />
   <camera far="1000.0"/>
   <checks>
@@ -146,6 +147,8 @@
   <small-nitro id="nitro-small.013" x="-7.93" y="45.82" z="116.83" />
   <small-nitro id="nitro-small.014" x="-12.21" y="45.82" z="125.87" />
   <small-nitro id="nitro-small.015" x="-10.18" y="45.82" z="120.71" />
+  <light xyz="-9.03 3.43 -10.55" id="Point" distance="25.00" energy="1.00" color="255 255 255">
+  </light>
   <default-start karts-per-row     ="3"
                  forwards-distance ="2.00"
                  sidewards-distance="2.50"
