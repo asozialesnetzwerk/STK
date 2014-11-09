@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<library name="metalSupportBeam_a" category="city">
+      <img path="stklib_metalSupportBeam_a.png">
+      <model path="stklib_metalSupportBeam_a/stklib_metalSupportBeam_a_main.b3d">
+      <tag name="beam">
+      <tag name="building">
+</library>

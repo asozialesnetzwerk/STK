@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<library name="jungleTreeA" category="tree">
+      <img path="stklib_jungleTree_a.png">
+      <model path="stklib_jungleTree_a/stklib_jungleTree_a.b3d">
+      <tag name="jungle">
+      <tag name="tree">
+      <tag name="plant">
+      <tag name="nature">
+</library>

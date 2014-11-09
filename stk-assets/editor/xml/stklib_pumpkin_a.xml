@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<library name="pumpkin_a" category="plant">
+      <img path="stklib_pumpkin_a.png">
+      <model path="stklib_pumpkin_a/stklib_pumpkin_a_main.b3d">
+      <tag name="vegetable">
+      <tag name="pumpkin">
+      <tag name="palm">
+</library>
