@@ -31,6 +31,7 @@
   <material name="skid-particle2.png"    additive="Y" light="N" ignore="Y"/>
   <material name="zipper-particle.png"   additive="Y" light="N" ignore="Y"/>
   <material name="waterparticles.png"    compositing="blend" ignore="Y"/>
+  <material name="gfx_mud_a.png"    compositing="blend" ignore="Y"/>
   <material name="particle_water.png"    compositing="blend" ignore="Y"/>
   
   <material name="stktex_waterfall_a.png"    compositing="blend" ignore="Y"/>
@@ -50,9 +51,13 @@
   
   <material name="stktex_ants_a.png" compositing="test"/>
   <material name="stktex_valVerdeLocationAtlas_a.png" compositing="test"/>
+  <material name="stktex_granParadisoLocation_a.png" compositing="test"/>
+  
   <material name="stktex_branches_diff_a.png" compositing="test" graphical-effect="grass"/>
   <material name="stkflag_valverdeVertical_a.png" compositing="test" graphical-effect="grass"/>
   <material name="stktex_cocoaTreeLeaf_a.png" compositing="test" graphical-effect="grass"/>
+  
+  <material name="stktex_deadTree_a.png" compositing="test"/>
   
   <material name="stktex_coralBump_a.png" compositing="test" graphical-effect="grass"/>
   <material name="stktex_seaFlower_a.png" compositing="test" graphical-effect="grass"/>
@@ -64,6 +69,8 @@
   <material name="stktex_boxGrid_a.png" compositing="test" />
   
   <material name="stk_metalDoor_a.png" gloss-map="stk_metalDoor_a_gloss.png" />
+  
+  <material name="stk_mudpot_a.png" gloss-map="stk_mudpot_a_gloss.png" />
   
   <material name="stk_generic_gridA.png" compositing="test" has-gravity="Y"/>
   <material name="stktex_lowPalmLeaf_a.png" compositing="test" graphical-effect="grass"/>
@@ -77,6 +84,8 @@
   <material name="stktex_palmLeaf_a.png" compositing="test" ignore="Y" graphical-effect="grass"/>
   <material name="stktex_palmLeafDry_a.png" compositing="test" ignore="Y" graphical-effect="grass"/>
   <material name="stktex_jungleLiana_a.png" compositing="test" ignore="Y" graphical-effect="grass"/>
+  
+  <material name="stk_grasscliff_a.png" compositing="test" ignore="Y" />
 
   <material name="stktex_jungleLeaf_b.png" compositing="test" ignore="Y" graphical-effect="grass"/>
   <material name="stktex_waterLily_a.png" compositing="test" ignore="Y" graphical-effect="grass"/>
@@ -89,10 +98,11 @@
   <material name="stktex_generic_cobbleStoneA.png" has-gravity="Y" graphical-effect="normal_map" normal-map="stktex_generic_cobbleStoneA_nm.png"/>
   <material name="stk_generic_dirtRoad_a.png" has-gravity="Y" graphical-effect="normal_map" normal-map="stk_generic_dirtRoad_a_nm.png"/>
   
-  <material name="stktex_generic_rockA.png"        graphical-effect="normal_map" normal-map="stktex_generic_rockA_nm.png"/>
+  <material name="stktex_generic_rockA.png"        graphical-effect="normal_map" normal-map="stktex_generic_rockA_nm.png" gloss-map="stktex_generic_rockA_gloss.png"/>
+  <material name="stktex_generic_waterRockA.png"        graphical-effect="normal_map" normal-map="stktex_generic_rockA_nm.png" gloss-map="stktex_generic_rockA_gloss.png"/>
   <material name="stktex_generic_aztekWall_a.png"  graphical-effect="normal_map" normal-map="stktex_generic_aztekWall_a_nm.png"/>
   <material name="stk_generic_grassB.png"          graphical-effect="normal_map" normal-map="stk_generic_grassB_nm.png"/>
-  <material name="stktex_generic_WoodB.png"        graphical-effect="normal_map" normal-map="stktex_generic_WoodB_nm.png"/>
+  <material name="stktex_generic_WoodB.png"        graphical-effect="normal_map" normal-map="stktex_generic_WoodB_nm.png" gloss-map="stktex_generic_WoodB_gloss.png"/>
   
   
   <material name="stk_generic_ironA.png" has-gravity="Y" />
