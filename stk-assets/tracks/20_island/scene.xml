@@ -58,6 +58,8 @@
       <p c="399.000 14.265" h1="266.333 14.265" h2="531.667 14.265"/>
     </curve>
   </object>
+  <object id="Plane.009" type="animation" xyz="-21.02 -5.46 0.68" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_ocean_test.b3d" skeletal-animation="false">
+  </object>
   <object id="Sphere" type="animation" xyz="35.45 6.80 163.87" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="beachball_play.b3d" skeletal-animation="false">
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
       <p c="1.000 35.450" h1="-4.662 35.450" h2="7.362 35.450"/>
