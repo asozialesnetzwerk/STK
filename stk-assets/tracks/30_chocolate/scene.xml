@@ -1244,7 +1244,7 @@
   <library name="stklib_lowRockBarrier_a" id="stklib_lowRockBarrier_a_main_proxy.005" xyz="483.91 41.20 1.61" hpr="-0.0 92.3 -0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_lowRockBarrier_a" id="stklib_lowRockBarrier_a_main_proxy.006" xyz="350.90 47.38 209.92" hpr="0.0 46.4 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_lowRockBarrier_a" id="stklib_lowRockBarrier_a_main_proxy.007" xyz="242.62 39.24 255.63" hpr="1.9 0.1 6.3" scale="1.00 1.00 1.00"/>
-  <library name="stklib_monkeyCheering_a" id="stklib_monkeyCheering_a_main_proxy" xyz="0.00 -0.91 34.04" hpr="0.0 -0.0 0.0" scale="1.80 1.80 1.80"/>
+  <library name="stklib_monkeyCheering_a" id="stklib_monkeyCheering_a_main_proxy" xyz="29.09 -0.91 32.70" hpr="0.0 -6.8 0.0" scale="1.80 1.80 1.80"/>
   <library name="stklib_monkeyCheering_a" id="stklib_monkeyCheering_a_main_proxy.001" xyz="279.75 19.14 -64.72" hpr="0.0 68.2 0.0" scale="1.80 1.80 1.80"/>
   <library name="stklib_monkeyCheering_a" id="stklib_monkeyCheering_a_main_proxy.002" xyz="286.33 19.14 -79.85" hpr="0.0 6.4 0.0" scale="1.80 1.80 1.80"/>
   <library name="stklib_monkeyCheering_a" id="stklib_monkeyCheering_a_main_proxy.003" xyz="267.71 19.14 -92.01" hpr="0.0 -19.5 0.0" scale="1.80 1.80 1.80"/>
@@ -1254,6 +1254,7 @@
   <library name="stklib_monkeyCheering_a" id="stklib_monkeyCheering_a_main_proxy.007" xyz="266.57 21.60 -226.91" hpr="0.0 -32.4 0.0" scale="2.09 2.09 2.09"/>
   <library name="stklib_monkeyCheering_a" id="stklib_monkeyCheering_a_main_proxy.008" xyz="261.45 21.69 -234.14" hpr="0.0 -67.0 0.0" scale="2.09 2.09 2.09"/>
   <library name="stklib_monkeyCheering_a" id="stklib_monkeyCheering_a_main_proxy.009" xyz="309.01 18.84 -77.59" hpr="0.0 -91.8 -0.0" scale="1.80 1.80 1.80"/>
+  <library name="stklib_monkeyCheering_a" id="stklib_monkeyCheering_a_main_proxy.010" xyz="25.01 -0.91 49.59" hpr="-0.0 175.0 -0.0" scale="1.80 1.80 1.80"/>
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy" xyz="-33.00 0.00 22.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
   <library name="stklib_redFlowerBush_a" id="stklib_redFlowerBush_a_main_proxy" xyz="36.47 -0.58 32.16" hpr="-0.0 -105.1 -0.0" scale="2.54 2.54 2.54"/>
   <library name="stklib_redParrot_a" id="stklib_redParrot_a_main_proxy" xyz="29.06 15.06 37.66" hpr="-0.0 -95.0 -0.0" scale="5.05 5.05 5.05"/>
