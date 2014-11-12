@@ -110,7 +110,7 @@
       <p c="134.000 -0.000" h1="105.890 -0.000" h2="162.110 -0.000"/>
     </curve>
   </object>
-  <sun  fog="true" fog-color="19 84 86" fog-max="0.20000000298023224" fog-start="15.00" fog-end="750.00" xyz="143.83 732.16 1358.93" sun-diffuse="255 166 71" ambient="120 120 120"/>
+  <sun  fog="true" fog-color="19 84 86" fog-max="0.5" fog-start="15.00" fog-end="750.00" xyz="143.83 732.16 1358.93" sun-diffuse="255 166 71" ambient="120 120 120"/>
   <sky-box texture="skybox_side.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png" sh-texture="skybox_side.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png"/>
   <camera far="5000.0"/>
   <checks>
