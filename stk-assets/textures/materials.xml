@@ -13,6 +13,7 @@
   <material name="stkflag_goldCupVertical_a.png" compositing="test" graphical-effect="grass"/>
   <material name="stkflag_orangeStartingLine_a.png" shader="alphatest" disable-z-write="Y"/>
   <material name="stkflag_orangeBooster_a.png" shader="alphatest" disable-z-write="Y" has-gravity="Y"/>
+  <material name="stkflag_blueBooster_a.png" shader="alphatest" disable-z-write="Y" has-gravity="Y"/>
   <material name="stkflag_blueStartingLine_a.png" shader="alphatest" disable-z-write="Y"/>
 
   <!-- Particles -->
@@ -70,6 +71,7 @@
   <material name="stktex_boxGrid_a.png" compositing="test" />
   
   <material name="stk_metalDoor_a.png" gloss-map="stk_metalDoor_a_gloss.png" />
+  <material name="stk_solarPanel_a.png" gloss-map="stk_solarPanel_gloss.png" graphical-effect="normal_map" normal-map="stk_solarPanel_a_nm.png" ignore="y"/>
   
   <material name="stk_mudpot_a.png" gloss-map="stk_mudpot_a_gloss.png" />
   
@@ -82,6 +84,7 @@
   <material name="stktex_cattail_diff_a.png" compositing="test" graphical-effect="grass"/>
   
   <material name="stktex_usSignAtlas_a.png" compositing="test"/>
+  <material name="stk_terminalHappy_face_a.png" compositing="test"/>
   <material name="stktex_palmLeaf_a.png" compositing="test" ignore="Y" graphical-effect="grass"/>
   <material name="stktex_palmLeafDry_a.png" compositing="test" ignore="Y" graphical-effect="grass"/>
   <material name="stktex_jungleLiana_a.png" compositing="test" ignore="Y" graphical-effect="grass"/>
@@ -100,6 +103,13 @@
   <material name="stk_generic_dirtRoad_a.png" has-gravity="Y" graphical-effect="normal_map" normal-map="stk_generic_dirtRoad_a_nm.png"/>
   
   <material name="stktex_generic_rockA.png"        graphical-effect="normal_map" normal-map="stktex_generic_rockA_nm.png" gloss-map="stktex_generic_rockA_gloss.png"/>
+  <material name="stk_greyMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png"/>
+  <material name="stk_lightGrayMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_lightGreyMetal_a_gloss.png"/>
+  <material name="stk_blueMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_lightGreyMetal_a_gloss.png"/>
+  <material name="stk_darkGrayMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_lightGreyMetal_a_gloss.png"/> 
+  
+  <material name="stk_generic_bedRock_a.png"        graphical-effect="normal_map" normal-map="stk_generic_bedRock_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png"/> 
+  
   <material name="stktex_generic_waterRockA.png"        graphical-effect="normal_map" normal-map="stktex_generic_rockA_nm.png" gloss-map="stktex_generic_rockA_gloss.png"/>
   <material name="stktex_generic_aztekWall_a.png"  graphical-effect="normal_map" normal-map="stktex_generic_aztekWall_a_nm.png"/>
   <material name="stk_generic_grassB.png"          graphical-effect="normal_map" normal-map="stk_generic_grassB_nm.png"/>
@@ -107,9 +117,11 @@
   
   
   <material name="stk_generic_ironA.png" has-gravity="Y" />
+  <material name="stktex_generic_concreteA.png" has-gravity="Y" />
   
   
-   <material name="gfx_bubble_a.png"  compositing="blend"  light="N"/>
+   <material name="gfx_bubble_a.png"  compositing="blend"  light="N"/> 
+   <material name="stkflag_saraAgency_a.png"  compositing="blend"/> 
   
   
 
