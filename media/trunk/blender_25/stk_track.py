@@ -340,6 +340,7 @@ def convertTextToYN(sText):
         return "Y"
 
 # ------------------------------------------------------------------------------
+# OBSOLETE
 class WaterExporter:
     
     def __init__(self, parentTrackExporter, sPath):
@@ -349,6 +350,7 @@ class WaterExporter:
     
     def processObject(self, object, stktype):
         if stktype=="WATER":
+            log_warning("Water object type is obsolete and should not be used : <%s>" % object.name)
             self.m_objects.append(object)
             return True
         else:
@@ -719,7 +721,12 @@ class BillboardExporter:
             data = obj.data
             
             # check the face
-            if len(track_getFaces(data)) > 1:
+            face_len = len(track_getFaces(data))
+            if face_len == 0:
+                log_error("Billboard <" + getObjectProperty(obj, "name", obj.name) \
+                    + "> must have at least one face")
+                return
+            if face_len > 1:
                 log_error("Billboard <" + getObjectProperty(obj, "name", obj.name) \
                     + "> has more than ONE face")
                 return
