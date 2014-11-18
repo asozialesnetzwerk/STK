@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15595 -->
+<!-- Generated with script from SVN rev 15738 -->
 <track  name           = "Subsea"
         version        = "6"
         groups         = "standard"
@@ -9,7 +9,8 @@
         smooth-normals = "true"
         default-number-of-laps = "2"
         reverse        = "Y"
-        bloom          = "N"
+        bloom          = "Y"
+        bloom-threshold = "0.75"
         clouds         = "N"
         shadows        = "N"
 >
