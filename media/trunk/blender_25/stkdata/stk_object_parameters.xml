@@ -450,7 +450,7 @@
         
         <!-- Sun -->
         <EnumChoice id="sun" label="Sun (for light and shadows)" doc="Set on a sun; used to specify intensity, direction and color of the ambient light in the track">
-            <ColorProp id="ambient" name="Ambient Color" default="120 120 120" doc="Click here to pick an ambient color"/>
+            <ColorProp id="ambient" name="Ambient Color" default="75 75 75" doc="Click here to pick an ambient color"/>
             <ColorProp id="diffuse" name="Diffuse Color" default="" doc="Click here to pick a diffuse color"/>
             <ColorProp id="specular" name="Specular Color" default="" doc="Click here to pick a specular color"/>
         </EnumChoice>
