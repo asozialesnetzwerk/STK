@@ -5,7 +5,7 @@ if [ "$os_name" = "Cygwin" ]; then
     curr_dir=$(/bin/pwd)
     curr_dir_win=$(/bin/cygpath -w "$curr_dir")
 
-    for blend in $(/bin/find . -name "*.blend"); do  
+    for blend in $(/bin/find . -name "stklib*.blend"); do  
         echo "$blend"
         blend2=$(/bin/cygpath -w "$blend")
         echo "$blend2"
@@ -16,7 +16,7 @@ else
 
     curr_dir=$(/bin/pwd)
 
-    for blend in $(/bin/find . -name "*.blend"); do  
+    for blend in $(/bin/find . -name "stklib*.blend"); do  
         echo "$blend"
         "$blender_path" -P "$curr_dir/editor_library_generate.py" "$curr_dir/$blend"
     done

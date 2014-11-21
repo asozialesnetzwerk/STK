@@ -36,7 +36,10 @@ def on_load(arg):
     #bpy.ops.view3d.localview()
     
     name = bpy.path.basename(bpy.context.blend_data.filepath)
-    image_file_name = name + ".png"
+    if name.endswith('.blend'):
+        image_file_name = name[:-6] + ".png"
+    else:
+        image_file_name = name + ".png"
     bpy.data.scenes[0].render.filepath = img_path + image_file_name
     
     bpy.ops.render.opengl(write_still=True)
