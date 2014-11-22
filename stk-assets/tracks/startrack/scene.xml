@@ -402,8 +402,8 @@
   </object>
   <sun  fog="true" fog-color="45 37 81" fog-max="0.20000000298023224" fog-start="30.00" fog-end="350.00" xyz="275.30 143.66 12.20" sun-diffuse="74 110 180" ambient="91 91 103"/>
   <sky-color rgb="3 4 10"/>
-  <sky-box texture="star-back.png star-back.png star-back.png star-back.png star-back.png star-back.png" sh-texture="ibl_skybox.png ibl_skybox.png ibl_skybox.png ibl_skybox.png ibl_skybox.png ibl_skybox.png"/>
-  <camera far="1000.0"/>
+  <sky-box texture="star-back.png star-back.png star-back.png star-back.png sky.jpg sky.jpg" sh-texture="ibl_skybox.png ibl_skybox.png ibl_skybox.png ibl_skybox.png ibl_skybox.png ibl_skybox.png"/>
+  <camera far="5000.0"/>
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
     <check-line kind="activate" other-ids="0" p1="326.31 58.82" p2="376.42 58.82"
@@ -512,15 +512,6 @@
              width="13.867" height="6.933" >
   </object>
   <object type="billboard" id="halo.008" texture="lightHaloY.png" xyz="-20.40 -1.11 78.48" 
-             width="13.867" height="6.933" >
-  </object>
-  <object type="billboard" id="halo.010" texture="lightHaloY.png" xyz="0.60 13.04 6.70" 
-             width="13.867" height="6.933" >
-  </object>
-  <object type="billboard" id="halo.011" texture="lightHaloY.png" xyz="0.60 13.04 101.70" 
-             width="13.867" height="6.933" >
-  </object>
-  <object type="billboard" id="halo.012" texture="lightHaloY.png" xyz="-15.49 13.04 101.70" 
              width="13.867" height="6.933" >
   </object>
   <object type="billboard" id="halo.013" texture="lightHaloY.png" xyz="-15.49 18.04 167.66" 
@@ -646,30 +637,6 @@
   <object type="billboard" id="halo.065" texture="lightHaloB.png" xyz="234.05 26.55 -60.08" 
              width="16.511" height="16.511" >
   </object>
-  <object type="billboard" id="halo.070" texture="lightHaloB.png" xyz="130.38 23.74 195.09" 
-             width="14.252" height="14.252" >
-  </object>
-  <object type="billboard" id="halo.071" texture="lightHaloB.png" xyz="130.38 23.74 220.27" 
-             width="14.252" height="14.252" >
-  </object>
-  <object type="billboard" id="halo.072" texture="lightHaloB.png" xyz="105.50 23.74 207.23" 
-             width="14.252" height="14.252" >
-  </object>
-  <object type="billboard" id="halo.073" texture="lightHaloB.png" xyz="105.50 23.74 234.84" 
-             width="14.252" height="14.252" >
-  </object>
-  <object type="billboard" id="halo.074" texture="lightHaloB.png" xyz="75.29 23.74 235.27" 
-             width="14.252" height="14.252" >
-  </object>
-  <object type="billboard" id="halo.075" texture="lightHaloB.png" xyz="75.59 23.74 207.36" 
-             width="14.252" height="14.252" >
-  </object>
-  <object type="billboard" id="halo.076" texture="lightHaloB.png" xyz="45.55 23.74 207.36" 
-             width="14.252" height="14.252" >
-  </object>
-  <object type="billboard" id="halo.077" texture="lightHaloB.png" xyz="46.16 23.74 234.97" 
-             width="14.252" height="14.252" >
-  </object>
   <object type="billboard" id="halo.078" texture="lightHaloB.png" xyz="-14.82 23.74 215.24" 
              width="14.252" height="14.252" >
   </object>
@@ -789,8 +756,6 @@
   </light>
   <light xyz="-7.58 12.15 30.02" id="Point.003" distance="13.40" energy="1.00" color="50 238 255">
   </light>
-  <light xyz="130.39 17.58 194.79" id="Point.004" distance="22.12" energy="5.00" color="157 181 242">
-  </light>
   <light xyz="-19.03 -0.08 77.61" id="Point.004 gelb" distance="7.60" energy="1.00" color="235 255 150">
   </light>
   <light xyz="240.77 17.17 -70.05" id="Point.004 gelb.001" distance="7.60" energy="1.00" color="235 255 150">
@@ -819,15 +784,9 @@
   </light>
   <light xyz="224.24 18.16 91.33" id="Point.004 gelb.026" distance="15.00" energy="3.50" color="118 129 255">
   </light>
-  <light xyz="130.39 17.73 220.27" id="Point.005" distance="22.12" energy="5.00" color="157 181 242">
-  </light>
   <light xyz="3.66 -0.08 77.61" id="Point.005 gelb" distance="7.60" energy="1.00" color="235 255 150">
   </light>
-  <light xyz="105.39 20.54 235.27" id="Point.006" distance="22.12" energy="5.00" color="157 181 242">
-  </light>
   <light xyz="3.66 -0.08 32.72" id="Point.006 gelb" distance="7.60" energy="1.00" color="235 255 150">
-  </light>
-  <light xyz="75.39 12.46 235.27" id="Point.007" distance="22.12" energy="5.00" color="157 181 242">
   </light>
   <light xyz="-19.03 -0.08 32.72" id="Point.007 gelb" distance="7.60" energy="1.00" color="235 255 150">
   </light>
@@ -835,13 +794,9 @@
   </light>
   <light xyz="140.97 4.92 195.72" id="Point.007 gelb.002" distance="7.60" energy="1.02" color="235 255 150">
   </light>
-  <light xyz="27.65 12.19 240.02" id="Point.007 gelb.008" distance="7.60" energy="2.00" color="235 255 150">
+  <light xyz="47.66 12.73 242.31" id="Point.007 gelb.008" distance="7.60" energy="2.00" color="255 136 33">
   </light>
-  <light xyz="72.05 12.19 240.02" id="Point.007 gelb.011" distance="7.60" energy="2.00" color="235 255 150">
-  </light>
-  <light xyz="45.39 13.98 235.27" id="Point.008" distance="22.12" energy="5.00" color="157 181 242">
-  </light>
-  <light xyz="-14.61 13.38 215.27" id="Point.009" distance="22.12" energy="5.00" color="157 181 242">
+  <light xyz="72.05 12.19 240.02" id="Point.007 gelb.011" distance="7.60" energy="2.00" color="255 136 33">
   </light>
   <light xyz="169.73 16.79 -90.09" id="Point.011" distance="22.12" energy="4.00" color="190 223 242">
   </light>
@@ -856,14 +811,6 @@
   <light xyz="199.73 23.27 -180.09" id="Point.022" distance="22.12" energy="4.00" color="190 223 242">
   </light>
   <light xyz="235.37 20.05 -150.09" id="Point.023" distance="22.12" energy="4.00" color="190 223 242">
-  </light>
-  <light xyz="-14.61 13.44 192.03" id="Point.024" distance="22.12" energy="5.00" color="157 181 242">
-  </light>
-  <light xyz="45.39 13.39 207.27" id="Point.025" distance="22.12" energy="5.00" color="157 181 242">
-  </light>
-  <light xyz="75.39 13.99 207.27" id="Point.026" distance="22.12" energy="5.00" color="157 181 242">
-  </light>
-  <light xyz="105.39 15.45 207.27" id="Point.027" distance="22.12" energy="5.00" color="157 181 242">
   </light>
   <light xyz="156.52 20.50 85.19" id="Point.028" distance="9.00" energy="3.00" color="162 151 74">
   </light>
@@ -951,4 +898,20 @@
                  forwards-distance ="1.50"
                  sidewards-distance="3.00"
                  upwards-distance  ="0.10"/>
+  <library name="stklib_bigBlueFutureLight_a" id="stklib_bigBlueFutureLight_a_main_proxy" xyz="75.33 23.91 207.26" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_bigBlueFutureLight_a" id="stklib_bigBlueFutureLight_a_main_proxy.001" xyz="105.55 23.91 207.26" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_bigBlueFutureLight_a" id="stklib_bigBlueFutureLight_a_main_proxy.002" xyz="130.32 23.91 194.88" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_bigBlueFutureLight_a" id="stklib_bigBlueFutureLight_a_main_proxy.003" xyz="130.32 23.91 220.50" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_bigBlueFutureLight_a" id="stklib_bigBlueFutureLight_a_main_proxy.004" xyz="105.27 23.91 235.70" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_bigBlueFutureLight_a" id="stklib_bigBlueFutureLight_a_main_proxy.005" xyz="45.21 23.91 235.32" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_bigBlueFutureLight_a" id="stklib_bigBlueFutureLight_a_main_proxy.006" xyz="-14.66 23.91 215.52" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_bigBlueFutureLight_a" id="stklib_bigBlueFutureLight_a_main_proxy.007" xyz="-14.76 23.91 192.06" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
 </scene>

@@ -22,4 +22,5 @@
   <material name="terminal_text.png" disable-z-write="Y"/>
   <material name="trak2_holes1a.png" gloss-map="trak2_holes1a_gloss.png"/>
   <material name="trak3_light1a.png" shader="alphablend" disable-z-write="Y"/>
+  <material name="stone.jpg" gloss-map="stone-gloss.jpg" />
 </materials>
