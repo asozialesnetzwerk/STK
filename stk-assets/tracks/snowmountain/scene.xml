@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15595 -->
+<!-- Generated with script from SVN rev 15738 -->
 <scene>
   <track model="snowmountain_track.b3d" x="0" y="0" z="0"/>
   <object id="Balloon" type="animation" xyz="-39.99 39.72 -180.02" hpr="-63.4 89.6 3.0" scale="7.33 7.33 7.33" interaction="none" model="Balloon.b3d" skeletal-animation="false">
@@ -31,9 +31,9 @@
       <p c="471.148 39.712" h1="287.546 39.712" h2="654.751 39.712"/>
     </curve>
   </object>
-  <sun  xyz="80.19 140.59 130.05" sun-diffuse="102 99 114" ambient="85 85 85"/>
+  <sun  xyz="-25.97 140.59 407.38" sun-diffuse="127 135 92" ambient="85 85 85"/>
   <weather particles="snow.xml"/>
-  <sky-box texture="winter_sky_6.jpg winter_sky_5.jpg winter_sky_2.jpg winter_sky_4.jpg winter_sky_3.jpg winter_sky_1.jpg" />
+  <sky-box texture="winter_sky_6.jpg winter_sky_5.jpg winter_sky_2.jpg winter_sky_4.jpg winter_sky_3.jpg winter_sky_1.jpg" sh-texture="winter_sky_6_top.jpg winter_sky_ibl_bot.jpg winter_sky_ibl_side.jpg winter_sky_ibl_side.jpg winter_sky_ibl_side.jpg winter_sky_ibl_side.jpg"/>
   <camera far="1000.0"/>
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
