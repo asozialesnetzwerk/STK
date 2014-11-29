@@ -3,9 +3,9 @@
   <material name="banana.png"/>
   <material name="gift-box.png"/>
   <material name="gift-loop.png" gloss-map="gift-loop-gloss.png"/>
-  <material name="gold.png"  light="Y" shader="spheremap"/>
-  <material name="silver.png"  light="Y" shader="spheremap"/>
-  <material name="bronze.png"  light="Y" shader="spheremap"/>
+  <material name="gold.png" gloss-map="trophy_glossmap.png"/>
+  <material name="silver.png" gloss-map="trophy_glossmap.png"/>
+  <material name="bronze.png" gloss-map="trophy_glossmap.png"/>
 
   <material name="stk_mod_nitroBarrel.png" /> 
   <material name="stk_mod_nitroBottle.png" />

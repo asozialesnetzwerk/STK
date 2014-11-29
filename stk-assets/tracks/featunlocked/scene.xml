@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15595 -->
+<!-- Generated with script from SVN rev 15738 -->
 <scene>
   <track model="featunlocked_track.b3d" x="0" y="0" z="0"/>
   <object id="Camera.001" type="cutscene_camera" xyz="-24.93 18.63 -43.60" hpr="-72.0 26.2 -0.0" scale="1.00 1.00 1.00" interaction="static" model="" skeletal-animation="false">
@@ -305,7 +305,7 @@
   <object id="Plane.002" type="animation" xyz="-10.39 -7.46 70.80" hpr="0.0 -0.0 0.0" scale="187.74 187.74 187.74" interaction="ghost" model="land.b3d" skeletal-animation="false">
     <animated-texture name="seagloss.png" dx="-0.050"  dy="-0.1000" />
   </object>
-  <sun  fog="true" fog-color="194 210 234" fog-max="0.5" fog-start="150.00" fog-end="200.00" xyz="-53.34 133.41 162.45" ambient="120 120 120"/>
+  <sun  fog="true" fog-color="194 210 234" fog-max="0.5" fog-start="150.00" fog-end="200.00" xyz="42.75 133.41 -128.47" ambient="87 94 84"/>
   <sky-box texture="genericskybox_top.jpg genericskybox_bottom.jpg genericskybox_east.jpg genericskybox_west.jpg genericskybox_south.jpg genericskybox_north.jpg" />
   <camera far="1000.0"/>
   <light xyz="-0.19 -31.59 0.45" id="Point" distance="35.00" energy="2.00" color="255 208 209">
