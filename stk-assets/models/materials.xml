@@ -2,7 +2,7 @@
 <materials>
   <material name="banana.png"/>
   <material name="gift-box.png"/>
-  <material name="gift-loop.png"  shader="spheremap"/>
+  <material name="gift-loop.png" gloss-map="gift-loop-gloss.png"/>
   <material name="gold.png"  light="Y" shader="spheremap"/>
   <material name="silver.png"  light="Y" shader="spheremap"/>
   <material name="bronze.png"  light="Y" shader="spheremap"/>
