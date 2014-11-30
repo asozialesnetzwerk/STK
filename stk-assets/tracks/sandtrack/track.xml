@@ -4,7 +4,7 @@
         version        = "6"
         groups         = "standard"
         designer       = "ctdabomb"
-        music          = "egypt.ogg"
+        music          = "egypt.music"
         screenshot     = "sshot-sandtrack.jpg"
         smooth-normals = "true"
         default-number-of-laps = "3"
