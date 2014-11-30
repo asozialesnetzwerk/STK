@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15595 -->
+<!-- Generated with script from SVN rev 15738 -->
 <track  name           = "Battle Island"
         version        = "6"
         groups         = "standard"
@@ -10,8 +10,9 @@
         smooth-normals = "false"
         default-number-of-laps = "3"
         reverse        = "N"
-        bloom          = "N"
+        bloom          = "Y"
+        bloom-threshold = "0.75"
         clouds         = "N"
-        shadows        = "N"
+        shadows        = "Y"
 >
 </track>
