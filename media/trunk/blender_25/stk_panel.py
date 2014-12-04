@@ -328,6 +328,7 @@ class StkEnumProperty(StkProperty):
         self.values = values
         self.fullid = fullid
         self.operator_name = generateOpName("screen.stk_set_", fullid, id)
+        self.menu_operator_name = generateOpName("screen.stkmenu_set_", fullid, id)
         self.doc = doc
         default_value = default
         
@@ -335,10 +336,31 @@ class StkEnumProperty(StkProperty):
         for curr_val in values.keys():
             if len(curr_val) > 0:
                 curr_obj = values[curr_val]
-                values_for_blender_unsorted.append( (curr_val, curr_obj.name, curr_obj.name) )
+                values_for_blender_unsorted.append( (curr_val, curr_obj.name, curr_obj.name + " : " + curr_obj.doc) )
         
         #values_for_blender = sorted(values_for_blender_unsorted, key=lambda k: k[1])
         values_for_blender = values_for_blender_unsorted
+        
+        class STK_CustomMenu(bpy.types.Menu):    
+            bl_idname = generateOpName("screen.stkmenu_set_", fullid, id)
+            bl_label  = ("SuperTuxKart set " + id)
+            __doc__ = doc
+           
+            def draw(self, context):
+                import bpy.path
+                
+                layout = self.layout
+                row = layout.row()
+                col = row.column()
+                
+                for curr in values_for_blender_unsorted:
+                    if curr[0].startswith('__category__'):
+                        col.label(text = curr[1])
+                    elif curr[0].startswith('__column_break__'):
+                        col = row.column()
+                    else:
+                        col.operator(generateOpName("screen.stk_set_", fullid, id), text=curr[1]).value=curr[0]
+        bpy.utils.register_class(STK_CustomMenu)
         
         # Create operator for this combo
         class STK_SetComboValue(bpy.types.Operator):
@@ -1026,7 +1048,8 @@ class PanelBase:
                 if curr_value in curr.values:
                     label = curr.values[curr_value].name
                 
-                row.operator_menu_enum(curr.getOperatorName(), property="value", text=label)
+                row.menu(curr.menu_operator_name, text=label)
+                #row.operator_menu_enum(curr.getOperatorName(), property="value", text=label)
                 
                 if curr_value in curr.values and len(curr.values[curr_value].subproperties) > 0:
                     box = layout.box()
