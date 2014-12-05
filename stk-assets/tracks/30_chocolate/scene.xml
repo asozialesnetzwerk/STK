@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15738 -->
+<!-- Generated with script from SVN rev 15787 -->
 <scene>
   <track model="chocolate_01_track.b3d" x="0" y="0" z="0">
     <static-object model="wooden_bridge.b3d" xyz="249.73 13.10 -11.95" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
@@ -1044,9 +1044,9 @@
   <light xyz="-53.44 11.99 -85.53" id="Lamp.034" distance="25.00" energy="5.00" color="255 80 25">
   </light>
   <lightshaft xyz="-1406.06 496.57 -237.14" id="Sun.001" opacity="0.80" color="217 255 93"/>
-  <default-start karts-per-row     ="2"
+  <default-start karts-per-row     ="3"
                  forwards-distance ="1.10"
-                 sidewards-distance="1.10"
+                 sidewards-distance="1.50"
                  upwards-distance  ="1.10"/>
   <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy" xyz="-75.04 0.52 6.16" hpr="0.1 4.2 -7.1" scale="1.28 1.28 1.28">
   </library>
@@ -1227,6 +1227,22 @@
   <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.015" xyz="214.87 6.13 140.06" hpr="-0.0 -145.0 -0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.016" xyz="309.95 15.59 -183.70" hpr="0.0 35.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.017" xyz="-45.37 10.21 -83.19" hpr="-0.0 161.8 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.018" xyz="-38.24 8.53 -103.98" hpr="-0.0 168.1 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.019" xyz="-36.48 5.79 -125.22" hpr="-0.0 -175.2 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.020" xyz="-42.73 2.63 -148.47" hpr="-0.0 -161.6 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.021" xyz="-65.72 2.63 -148.47" hpr="0.0 -20.2 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.022" xyz="-72.05 5.79 -125.22" hpr="-0.0 -4.8 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.023" xyz="-70.19 8.53 -104.01" hpr="-0.0 13.9 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.024" xyz="-62.93 10.21 -83.22" hpr="0.0 17.3 0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_aztekVase_a" id="stklib_aztekVase_a_main_proxy" xyz="284.28 18.80 -80.47" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>

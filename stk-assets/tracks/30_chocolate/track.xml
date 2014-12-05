@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15738 -->
+<!-- Generated with script from SVN rev 15787 -->
 <track  name           = "Cocoa Temple"
         version        = "6"
         groups         = "standard"
         designer       = "jean-manuel cl&#233;men&#231;on"
         music          = "cocoa_river.music"
         screenshot     = "test_track_postcard.png"
-        smooth-normals = "false"
+        smooth-normals = "true"
         default-number-of-laps = "3"
         reverse        = "N"
         bloom          = "Y"
