@@ -2,6 +2,7 @@
 <!-- Generated with script from SVN rev 15787 -->
 <scene>
   <track model="chocolate_01_track.b3d" x="0" y="0" z="0">
+    <static-object model="boundaries.b3d" xyz="8.70 2.58 -313.78" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
     <static-object model="wooden_bridge.b3d" xyz="249.73 13.10 -11.95" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
     <animated-texture name="stktex_animatedFire_a.png" dy="0.0625"  animByStep="true" dt="0.050" />
     <animated-texture name="stktex_animatedFire_a.png" dy="0.0625"  animByStep="true" dt="0.050" />
@@ -1589,6 +1590,36 @@
   <library name="stklib_roots_a" id="stklib_roots_a_main_proxy.039" xyz="214.60 15.59 -286.36" hpr="-5.7 2.3 -6.4" scale="1.98 1.98 1.98">
   </library>
   <library name="stklib_roots_a" id="stklib_roots_a_main_proxy.040" xyz="214.14 15.05 -266.44" hpr="0.9 -4.6 -0.5" scale="1.98 1.98 1.98">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy" xyz="26.49 10.14 51.12" hpr="0.0 -100.0 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.001" xyz="29.35 10.14 34.91" hpr="0.0 -100.0 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.002" xyz="298.85 33.84 -82.10" hpr="-0.0 -35.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.003" xyz="302.99 33.93 -105.24" hpr="-0.0 -2.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.004" xyz="291.06 33.88 -131.32" hpr="0.0 39.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.005" xyz="275.03 33.88 -180.43" hpr="0.0 4.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.006" xyz="264.50 33.86 -218.42" hpr="0.0 29.5 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.007" xyz="243.12 33.88 -241.15" hpr="0.0 54.5 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.008" xyz="214.56 33.86 -253.69" hpr="0.0 77.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.009" xyz="154.04 26.90 -229.20" hpr="-0.0 99.4 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.010" xyz="120.31 18.92 -228.78" hpr="0.0 76.9 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.011" xyz="92.99 12.86 -247.65" hpr="0.0 31.2 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.012" xyz="45.97 12.85 -296.73" hpr="0.0 89.7 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.013" xyz="-17.36 12.88 -287.79" hpr="-0.0 116.3 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.014" xyz="-47.38 12.80 -252.77" hpr="-0.0 154.6 -0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_tropicalPlant_a" id="stklib_tropicalPlant_a_main_proxy" xyz="0.00 0.00 58.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
