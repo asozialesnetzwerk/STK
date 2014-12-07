@@ -2169,11 +2169,26 @@ class TrackExport:
             obj = props['object']
             b3d_name = self.exportLocalB3D(obj, sPath, props['filename'], props['modifiers'])
             
-            tangents_str = ""
-            if getObjectProperty(obj, "tangents", "false") == "true":
-                tangents_str = ' tangents="true" '
+            skeletal_anim_str = ""
+            uses_skeletal_animation = False
             
-            f.write("    <static-object lod_distance=\"%i\" lod_group=\"%s\" model=\"%s\" %s interaction=\"%s\"%s/>\n" % (props['distance'], props['groupname'], b3d_name, getXYZHPRString(obj), getObjectProperty(obj, "interaction", "static"), tangents_str) )
+            # check if this object has an armature modifier
+            for curr_mod in obj.modifiers:
+                if curr_mod.type == 'ARMATURE':
+                    uses_skeletal_animation = True
+
+            # check if this object has an armature parent (second way to do armature animations in blender)
+            if obj.parent:
+                if obj.parent.type == "ARMATURE":
+                    uses_skeletal_animation = True
+                    
+            if uses_skeletal_animation:
+                skeletal_anim_str = ' skeletal-animation="true"'
+            else:
+                skeletal_anim_str = ' skeletal-animation="false"'
+                
+            
+            f.write("    <static-object lod_distance=\"%i\" lod_group=\"%s\" model=\"%s\" %s interaction=\"%s\"%s/>\n" % (props['distance'], props['groupname'], b3d_name, getXYZHPRString(obj), getObjectProperty(obj, "interaction", "static"), skeletal_anim_str) )
             
     # --------------------------------------------------------------------------
     
