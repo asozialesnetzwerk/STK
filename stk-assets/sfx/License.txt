@@ -1,3 +1,6 @@
+* airplane_jetEngine
+    By Fritz Schlüter (Own work) [CC-BY-SA-3.0 (http://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons
+    http://commons.wikimedia.org/wiki/File:2011-06-05_19-32_Berlin_TXL_Airplane_Flyover_plus_Wingtip_Vortex.ogg
 
 * anvil
     Released under the GPL
