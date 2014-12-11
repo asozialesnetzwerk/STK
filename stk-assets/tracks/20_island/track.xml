@@ -4,7 +4,7 @@
         version        = "6"
         groups         = "nextgen"
         designer       = "Jean-Manuel Cl&#233;men&#231;on"
-        music          = "kart_grand_prix.music"
+        music          = "landing_in_gran_paradiso.music"
         screenshot     = "screenshot.jpg"
         smooth-normals = "false"
         default-number-of-laps = "3"
