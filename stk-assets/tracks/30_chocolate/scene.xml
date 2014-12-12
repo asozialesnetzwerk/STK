@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15787 -->
+<!-- Generated with script from SVN rev 15850 -->
 <scene>
   <track model="chocolate_01_track.b3d" x="0" y="0" z="0">
     <static-object model="boundaries.b3d" xyz="8.70 2.58 -313.78" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
@@ -1187,13 +1187,17 @@
   </library>
   <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.002" xyz="294.95 18.62 -53.16" hpr="-0.0 -113.2 -0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.003" xyz="252.04 18.90 -75.89" hpr="-0.0 140.0 -0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.003" xyz="252.04 18.79 -75.89" hpr="-0.0 140.0 -0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.004" xyz="234.66 20.27 -132.46" hpr="0.0 25.5 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.005" xyz="304.44 18.56 -109.38" hpr="0.0 39.2 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.005" xyz="304.44 18.57 -109.38" hpr="0.0 39.2 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.006" xyz="31.58 -1.31 33.32" hpr="0.0 -62.8 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.006" xyz="31.58 -1.27 33.32" hpr="0.0 -62.8 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.007" xyz="-34.89 0.03 -130.60" hpr="-0.0 -113.3 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.008" xyz="-69.65 5.30 -90.31" hpr="-0.0 161.2 -0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy" xyz="-44.21 10.21 -55.42" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
   </library>
