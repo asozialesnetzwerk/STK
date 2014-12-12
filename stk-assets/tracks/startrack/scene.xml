@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15738 -->
+<!-- Generated with script from SVN rev 15850 -->
 <scene>
   <track model="spaceship_track.b3d_track.b3d" x="0" y="0" z="0">
     <static-object model="window_doors.b3d" xyz="78.67 10.20 -118.25" hpr="0.0 -0.0 0.0" scale="1.08 1.08 1.08"/>
@@ -496,18 +496,6 @@
   <small-nitro id="nitro_s.032" x="207.50" y="11.00" z="-115.50" h="-90.00" />
   <small-nitro id="nitro_s" x="194.50" y="11.00" z="-184.50" h="-90.00" />
   <small-nitro id="nitro_s.033" x="188.50" y="11.00" z="-183.50" h="-90.00" />
-  <object type="billboard" id="halo.002" texture="lightHaloB.png" xyz="-7.50 15.59 30.11" 
-             width="10.400" height="10.400" >
-  </object>
-  <object type="billboard" id="halo.003" texture="lightHaloB.png" xyz="-7.50 15.59 63.35" 
-             width="10.400" height="10.400" >
-  </object>
-  <object type="billboard" id="halo.004" texture="lightHaloB.png" xyz="-7.50 15.59 79.83" 
-             width="10.400" height="10.400" >
-  </object>
-  <object type="billboard" id="halo.006" texture="lightHaloB.png" xyz="-7.50 15.59 46.90" 
-             width="10.400" height="10.400" >
-  </object>
   <object type="billboard" id="halo.007" texture="lightHaloY.png" xyz="5.48 -1.11 78.36" 
              width="13.867" height="6.933" >
   </object>
@@ -612,36 +600,6 @@
   </object>
   <object type="billboard" id="halo.057" texture="lightHaloB.png" xyz="170.04 26.55 -90.02" 
              width="16.511" height="16.511" >
-  </object>
-  <object type="billboard" id="halo.058" texture="lightHaloB.png" xyz="233.08 26.55 -90.12" 
-             width="16.511" height="16.511" >
-  </object>
-  <object type="billboard" id="halo.059" texture="lightHaloB.png" xyz="235.10 26.55 -150.07" 
-             width="16.511" height="16.511" >
-  </object>
-  <object type="billboard" id="halo.060" texture="lightHaloB.png" xyz="199.64 26.55 -180.37" 
-             width="16.511" height="16.511" >
-  </object>
-  <object type="billboard" id="halo.061" texture="lightHaloB.png" xyz="169.54 26.55 -180.12" 
-             width="16.511" height="16.511" >
-  </object>
-  <object type="billboard" id="halo.062" texture="lightHaloB.png" xyz="169.79 26.55 -150.02" 
-             width="16.511" height="16.511" >
-  </object>
-  <object type="billboard" id="halo.063" texture="lightHaloB.png" xyz="188.00 24.19 -120.43" 
-             width="16.511" height="16.511" >
-  </object>
-  <object type="billboard" id="halo.064" texture="lightHaloB.png" xyz="225.94 24.19 -119.90" 
-             width="16.511" height="16.511" >
-  </object>
-  <object type="billboard" id="halo.065" texture="lightHaloB.png" xyz="234.05 26.55 -60.08" 
-             width="16.511" height="16.511" >
-  </object>
-  <object type="billboard" id="halo.078" texture="lightHaloB.png" xyz="-14.82 23.74 215.24" 
-             width="14.252" height="14.252" >
-  </object>
-  <object type="billboard" id="halo.079" texture="lightHaloB.png" xyz="-14.52 23.74 192.19" 
-             width="14.252" height="14.252" >
   </object>
   <object type="billboard" id="halo.080" texture="lightHaloY.png" xyz="143.34 3.20 195.47" 
              width="13.867" height="6.933" >
@@ -748,14 +706,6 @@
   </light>
   <light xyz="282.24 14.58 2.92" id="Area.008" distance="20.00" energy="3.00" color="255 241 163">
   </light>
-  <light xyz="-7.50 12.15 46.80" id="Point" distance="13.40" energy="1.00" color="50 238 255">
-  </light>
-  <light xyz="-7.50 12.15 63.40" id="Point.001" distance="13.40" energy="1.00" color="50 238 255">
-  </light>
-  <light xyz="-7.50 12.15 79.71" id="Point.002" distance="13.40" energy="1.00" color="50 238 255">
-  </light>
-  <light xyz="-7.58 12.15 30.02" id="Point.003" distance="13.40" energy="1.00" color="50 238 255">
-  </light>
   <light xyz="-19.03 -0.08 77.61" id="Point.004 gelb" distance="7.60" energy="1.00" color="235 255 150">
   </light>
   <light xyz="240.77 17.17 -70.05" id="Point.004 gelb.001" distance="7.60" energy="1.00" color="235 255 150">
@@ -803,14 +753,6 @@
   <light xyz="133.99 17.50 119.81" id="Point.012" distance="9.00" energy="3.00" color="162 151 74">
   </light>
   <light xyz="123.05 17.50 119.81" id="Point.013" distance="9.00" energy="3.00" color="162 151 74">
-  </light>
-  <light xyz="169.73 18.65 -150.09" id="Point.020" distance="22.12" energy="4.00" color="190 223 242">
-  </light>
-  <light xyz="169.73 23.27 -180.09" id="Point.021" distance="22.12" energy="4.00" color="190 223 242">
-  </light>
-  <light xyz="199.73 23.27 -180.09" id="Point.022" distance="22.12" energy="4.00" color="190 223 242">
-  </light>
-  <light xyz="235.37 20.05 -150.09" id="Point.023" distance="22.12" energy="4.00" color="190 223 242">
   </light>
   <light xyz="156.52 20.50 85.19" id="Point.028" distance="9.00" energy="3.00" color="162 151 74">
   </light>
@@ -872,12 +814,6 @@
   </light>
   <light xyz="-1.51 14.50 167.86" id="Point.057" distance="9.00" energy="3.00" color="162 151 74">
   </light>
-  <light xyz="233.28 18.66 -90.09" id="Point.059" distance="22.12" energy="4.00" color="190 223 242">
-  </light>
-  <light xyz="233.28 18.89 -60.09" id="Point.060" distance="22.12" energy="4.00" color="190 223 242">
-  </light>
-  <light xyz="225.75 16.00 -119.88" id="Point.074" distance="22.12" energy="4.00" color="190 223 242">
-  </light>
   <light xyz="102.04 14.38 -86.54" id="Point.079" distance="40.00" energy="30.00" color="0 99 242">
   </light>
   <light xyz="51.28 14.38 -88.05" id="Point.080" distance="40.00" energy="30.00" color="0 99 242">
@@ -913,5 +849,25 @@
   <library name="stklib_bigBlueFutureLight_a" id="stklib_bigBlueFutureLight_a_main_proxy.006" xyz="-14.66 23.91 215.52" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_bigBlueFutureLight_a" id="stklib_bigBlueFutureLight_a_main_proxy.007" xyz="-14.76 23.91 192.06" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_bigBlueFutureLight_a" id="stklib_bigBlueFutureLight_a_main_proxy.008" xyz="-7.23 16.34 71.36" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_bigBlueFutureLight_a" id="stklib_bigBlueFutureLight_a_main_proxy.009" xyz="-7.23 16.34 38.38" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_bigBlueFutureLight_a" id="stklib_bigBlueFutureLight_a_main_proxy.010" xyz="169.75 26.47 -150.11" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_bigBlueFutureLight_a" id="stklib_bigBlueFutureLight_a_main_proxy.011" xyz="169.75 26.47 -180.29" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_bigBlueFutureLight_a" id="stklib_bigBlueFutureLight_a_main_proxy.012" xyz="199.65 26.47 -180.29" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_bigBlueFutureLight_a" id="stklib_bigBlueFutureLight_a_main_proxy.013" xyz="235.33 26.47 -150.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_bigBlueFutureLight_a" id="stklib_bigBlueFutureLight_a_main_proxy.014" xyz="233.05 26.47 -89.78" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_bigBlueFutureLight_a" id="stklib_bigBlueFutureLight_a_main_proxy.015" xyz="233.25 26.47 -60.11" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_bigBlueFutureLight_a" id="stklib_bigBlueFutureLight_a_main_proxy.016" xyz="187.69 23.51 -119.97" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_bigBlueFutureLight_a" id="stklib_bigBlueFutureLight_a_main_proxy.017" xyz="225.87 24.20 -120.02" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
 </scene>
