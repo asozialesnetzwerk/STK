@@ -1,31 +1,31 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15570 -->
+<!-- Generated with script from SVN rev 15850 -->
 <scene>
   <lod>
-   <group name="tombStone">
-    <static-object lod_distance="70" lod_group="tombStone" model="BezierCurve.002.b3d" xyz="43.50 -3.04 -2.68" hpr="0.0 -87.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-   </group>
-   <group name="old_barrier">
-    <static-object lod_distance="60" lod_group="old_barrier" model="metal_barrier.b3d" xyz="58.15 4.09 41.48" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-   </group>
-   <group name="pumpkin">
-    <static-object lod_distance="20" lod_group="pumpkin" model="Circle.023.b3d" xyz="68.27 0.08 11.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-    <static-object lod_distance="40" lod_group="pumpkin" model="Circle.024.b3d" xyz="68.27 0.08 14.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-    <static-object lod_distance="80" lod_group="pumpkin" model="Circle.025.b3d" xyz="68.27 0.08 17.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-   </group>
    <group name="dead_tree">
-    <static-object lod_distance="150" lod_group="dead_tree" model="Mesh.012.b3d" xyz="73.39 1.70 43.07" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-    <static-object lod_distance="175" lod_group="dead_tree" model="Mesh.015.b3d" xyz="73.39 1.70 26.07" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-    <static-object lod_distance="200" lod_group="dead_tree" model="Mesh.016.b3d" xyz="73.39 1.70 35.07" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+    <static-object lod_distance="150" lod_group="dead_tree" model="Mesh.012.b3d" xyz="73.39 1.70 43.07" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="175" lod_group="dead_tree" model="Mesh.015.b3d" xyz="73.39 1.70 26.07" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="200" lod_group="dead_tree" model="Mesh.016.b3d" xyz="73.39 1.70 35.07" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
    </group>
    <group name="jackOlantern">
-    <static-object lod_distance="200" lod_group="jackOlantern" model="Circle.026.b3d" xyz="73.20 0.15 11.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-    <static-object lod_distance="400" lod_group="jackOlantern" model="Circle.028.b3d" xyz="73.27 0.08 14.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-    <static-object lod_distance="500" lod_group="jackOlantern" model="Circle.027.b3d" xyz="73.27 0.08 17.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+    <static-object lod_distance="200" lod_group="jackOlantern" model="Circle.026.b3d" xyz="73.20 0.15 11.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="400" lod_group="jackOlantern" model="Circle.028.b3d" xyz="73.27 0.08 14.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="500" lod_group="jackOlantern" model="Circle.027.b3d" xyz="73.27 0.08 17.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+   </group>
+   <group name="old_barrier">
+    <static-object lod_distance="60" lod_group="old_barrier" model="metal_barrier.b3d" xyz="58.15 4.09 41.48" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+   </group>
+   <group name="pumpkin">
+    <static-object lod_distance="20" lod_group="pumpkin" model="Circle.023.b3d" xyz="68.27 0.08 11.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="40" lod_group="pumpkin" model="Circle.024.b3d" xyz="68.27 0.08 14.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="80" lod_group="pumpkin" model="Circle.025.b3d" xyz="68.27 0.08 17.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
    </group>
    <group name="lantern">
-    <static-object lod_distance="20" lod_group="lantern" model="Mesh.002.b3d" xyz="64.24 2.78 41.08" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-    <static-object lod_distance="50" lod_group="lantern" model="Mesh.001.b3d" xyz="64.24 2.78 37.09" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+    <static-object lod_distance="20" lod_group="lantern" model="Mesh.002.b3d" xyz="64.24 2.78 41.08" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="50" lod_group="lantern" model="Mesh.001.b3d" xyz="64.24 2.78 37.09" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+   </group>
+   <group name="tombStone">
+    <static-object lod_distance="70" lod_group="tombStone" model="BezierCurve.002.b3d" xyz="43.50 -3.04 -2.68" hpr="0.0 -87.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
    </group>
   </lod>
   <track model="mansion_track.b3d" x="0" y="0" z="0">
@@ -337,34 +337,58 @@
   </light>
   <light xyz="-29.22 -3.73 107.75" id="Lamp.016" distance="25.00" energy="2.00" color="255 74 0">
   </light>
-  <light xyz="-0.45 2.47 9.86" id="Lamp.017" distance="2.00" energy="1.00" color="255 38 59">
+  <light xyz="0.11 10.58 5.63" id="Lamp.017" distance="2.00" energy="1.00" color="255 38 59">
   </light>
   <light xyz="-5.21 0.75 7.75" id="Lamp.018" distance="12.00" energy="1.00" color="255 13 5">
+  </light>
+  <light xyz="2.17 0.64 6.76" id="Lamp.019" distance="25.00" energy="1.00" color="255 74 0">
   </light>
   <default-start karts-per-row     ="3"
                  forwards-distance ="1.10"
                  sidewards-distance="1.10"
                  upwards-distance  ="1.10"/>
-  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy" xyz="5.65 1.97 38.08" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.001" xyz="3.04 1.93 68.87" hpr="0.0 79.1 0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.002" xyz="-8.05 0.92 91.50" hpr="0.0 -3.5 0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.003" xyz="-86.90 -1.67 34.25" hpr="-0.0 -113.5 -0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.004" xyz="-77.35 -2.46 26.14" hpr="0.0 56.5 0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.005" xyz="-61.18 -2.29 -6.41" hpr="0.0 104.7 0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.006" xyz="-76.58 0.14 64.48" hpr="-0.0 -113.5 -0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.007" xyz="-47.67 0.81 89.95" hpr="-0.0 -96.7 -0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.008" xyz="-92.22 -0.23 -31.13" hpr="0.0 -45.0 0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.009" xyz="-97.09 1.56 -62.24" hpr="0.0 70.0 0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.010" xyz="-68.17 5.10 -82.24" hpr="-0.0 -180.0 0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.011" xyz="-23.46 11.35 -77.87" hpr="-0.0 -180.0 0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.012" xyz="-7.58 12.35 -79.58" hpr="-0.0 -180.0 0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy" xyz="6.85 -1.36 38.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy.001" xyz="4.64 -2.84 69.24" hpr="-0.0 -10.9 0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy.002" xyz="-8.22 -3.85 93.14" hpr="0.0 -93.5 -0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy.003" xyz="-88.39 -6.44 33.53" hpr="-0.0 156.5 -0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy.004" xyz="-76.01 -7.23 27.11" hpr="0.0 -33.5 -0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy.005" xyz="-59.57 -7.06 -6.77" hpr="0.0 14.7 0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy.006" xyz="-93.42 -5.01 -30.00" hpr="0.0 -135.0 -0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy.007" xyz="-95.56 -3.21 -61.62" hpr="-0.0 -20.0 0.0" scale="1.00 1.00 1.00"/>
-  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy.008" xyz="-68.11 0.33 -83.89" hpr="-0.0 90.0 -0.0" scale="1.00 1.00 1.00"/>
+  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy" xyz="5.65 1.97 38.08" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.001" xyz="3.04 1.93 68.87" hpr="0.0 79.1 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.002" xyz="-8.05 0.92 91.50" hpr="0.0 -3.5 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.003" xyz="-86.90 -1.67 34.25" hpr="-0.0 -113.5 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.004" xyz="-77.35 -2.46 26.14" hpr="0.0 56.5 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.005" xyz="-61.18 -2.29 -6.41" hpr="0.0 104.7 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.006" xyz="-76.58 0.14 64.48" hpr="-0.0 -113.5 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.007" xyz="-47.67 0.81 89.95" hpr="-0.0 -96.7 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.008" xyz="-92.22 -0.23 -31.13" hpr="0.0 -45.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.009" xyz="-97.09 1.56 -62.24" hpr="0.0 70.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.010" xyz="-68.17 5.10 -82.24" hpr="-0.0 -180.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.011" xyz="-23.46 11.35 -77.87" hpr="-0.0 -180.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.012" xyz="-7.58 12.35 -79.58" hpr="-0.0 -180.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy" xyz="6.85 -1.36 38.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy.001" xyz="4.64 -2.84 69.24" hpr="-0.0 -10.9 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy.002" xyz="-8.22 -3.85 93.14" hpr="0.0 -93.5 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy.003" xyz="-88.39 -6.44 33.53" hpr="-0.0 156.5 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy.004" xyz="-76.01 -7.23 27.11" hpr="0.0 -33.5 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy.005" xyz="-59.57 -7.06 -6.77" hpr="0.0 14.7 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy.006" xyz="-93.42 -5.01 -30.00" hpr="0.0 -135.0 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy.007" xyz="-95.56 -3.21 -61.62" hpr="-0.0 -20.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy.008" xyz="-68.11 0.33 -83.89" hpr="-0.0 90.0 -0.0" scale="1.00 1.00 1.00">
+  </library>
 </scene>
