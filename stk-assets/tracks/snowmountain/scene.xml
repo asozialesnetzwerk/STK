@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15738 -->
+<!-- Generated with script from SVN rev 15850 -->
 <scene>
   <track model="snowmountain_track.b3d" x="0" y="0" z="0"/>
   <object id="Balloon" type="animation" xyz="-39.99 39.72 -180.02" hpr="-63.4 89.6 3.0" scale="7.33 7.33 7.33" interaction="none" model="Balloon.b3d" skeletal-animation="false">
@@ -31,10 +31,10 @@
       <p c="471.148 39.712" h1="287.546 39.712" h2="654.751 39.712"/>
     </curve>
   </object>
-  <sun  xyz="-25.97 140.59 407.38" sun-diffuse="127 135 92" ambient="85 85 85"/>
+  <sun  xyz="218.97 337.60 661.02" sun-diffuse="33 50 70" ambient="85 85 85"/>
   <weather particles="snow.xml"/>
   <sky-box texture="winter_sky_6.jpg winter_sky_5.jpg winter_sky_2.jpg winter_sky_4.jpg winter_sky_3.jpg winter_sky_1.jpg" sh-texture="winter_sky_6_top.jpg winter_sky_ibl_bot.jpg winter_sky_ibl_side.jpg winter_sky_ibl_side.jpg winter_sky_ibl_side.jpg winter_sky_ibl_side.jpg"/>
-  <camera far="1000.0"/>
+  <camera far="1500.0"/>
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
     <check-line kind="activate" other-ids="2" p1="-38.92 66.44" p2="-36.26 87.42"
@@ -87,6 +87,7 @@
   <small-nitro id="nitro-small.004" x="27.64" y="9.62" z="-2.85" />
   <small-nitro id="nitro-small.005" x="62.16" y="-0.35" z="-34.83" />
   <small-nitro id="nitro-small.006" x="-1.41" y="-3.76" z="-38.04" />
+  <lightshaft xyz="436.35 143.24 1151.53" id="Sun.001" opacity="0.50" color="60 130 255"/>
   <default-start karts-per-row     ="2"
                  forwards-distance ="1.50"
                  sidewards-distance="3.00"
@@ -96,5 +97,9 @@
   <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.001" xyz="27.56 17.46 -4.23" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.002" xyz="26.04 15.97 18.82" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.003" xyz="-81.10 9.02 0.81" hpr="0.0 -0.0 0.0" scale="1.48 1.48 1.48">
+  </library>
+  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.004" xyz="-74.17 7.65 30.27" hpr="0.0 -0.0 0.0" scale="1.48 1.48 1.48">
   </library>
 </scene>
