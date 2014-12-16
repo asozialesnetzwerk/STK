@@ -5,6 +5,10 @@
     <static-object model="baggage_belt.b3d" xyz="101.06 25.86 -62.07" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
     <animated-texture name="stktex_generic_bambooB.png" dx="-0.500" />
     </static-object>
+    <static-object model="baggage_belt.b3d" xyz="81.06 25.86 -62.07" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+    <animated-texture name="stktex_generic_bambooB.png" dx="-0.500" />
+    </static-object>
+    <static-object model="limits.b3d" xyz="-86.60 4.32 128.13" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
     <animated-texture name="stkflag_greenCheckBorard_a.png" dx="0.080"  dy="0.2000" />
   </track>
   <object id="Cylinder.001" type="animation" xyz="-28.45 14.26 954.80" hpr="-89.5 -21.6 -0.1" scale="1.00 1.00 1.00" interaction="ghost" model="aircraft_747.b3d" skeletal-animation="false">
@@ -43,6 +47,8 @@
     </curve>
   </object>
   <object id="Plane.003" type="animation" xyz="-21.02 -5.46 0.68" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_ocean.b3d" displacing="true" skeletal-animation="false">
+  </object>
+  <object id="Plane.005" type="animation" xyz="-30.34 6.46 11.28" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="runway_mark.b3d" skeletal-animation="false">
   </object>
   <object id="Plane.007" type="animation" xyz="-28.45 14.26 954.80" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="airplane_contrail.b3d" skeletal-animation="false">
     <animated-texture name="clouds.png" dx="-0.800" />
@@ -113,7 +119,11 @@
   <sky-box texture="skybox_side.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png" sh-texture="skybox_side.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png"/>
   <camera far="3000.0"/>
   <checks>
-    <check-lap kind="lap" same-group="0"  />
+    <check-lap kind="lap" same-group="0" other-ids="1" />
+    <check-line kind="activate" other-ids="2" p1="-97.20 115.17" p2="-99.68 140.46"
+                min-height="4.56" same-group="1"/>
+    <check-line kind="activate" other-ids="0" p1="76.02 -16.41" p2="79.94 8.70"
+                min-height="14.39" same-group="2"/>
   </checks>
   <!-- Hair system BezierCurve.003, contains 25 particles -->
   <library name="stklib_redSeaweed_a" id="stklib_redSeaweed_a_main_proxy" xyz="138.54 -48.01 262.53" hpr="-0.0 -0.0 0.0" scale="1.03 1.03 1.03"/>
@@ -456,6 +466,42 @@
       <p c="399.000 6.443" h1="266.333 6.443" h2="531.667 6.443"/>
     </curve>
   </object>
+  <small-nitro id="Empty" x="-123.19" y="5.35" z="120.31" />
+  <small-nitro id="Empty.001" x="-124.75" y="5.35" z="123.10" />
+  <small-nitro id="Empty.003" x="-121.68" y="5.35" z="116.87" />
+  <item id="Empty.004" x="-151.58" y="11.81" z="60.84" />
+  <item id="Empty.005" x="-147.54" y="11.81" z="62.97" />
+  <item id="Empty.006" x="-154.84" y="11.81" z="58.96" />
+  <item id="Empty.007" x="-132.80" y="10.20" z="72.12" />
+  <item id="Empty.008" x="-123.16" y="10.20" z="73.91" />
+  <banana id="Empty.009" x="-127.98" y="10.20" z="73.01" />
+  <small-nitro id="Empty.010" x="-25.54" y="-2.98" z="25.71" h="-180.00" />
+  <item id="Empty.011" x="-25.44" y="-2.98" z="21.06" h="-181.26" />
+  <small-nitro id="Empty.012" x="-25.54" y="-2.98" z="16.92" h="-180.00" />
+  <small-nitro id="Empty.013" x="115.39" y="8.91" z="11.09" h="-218.01" />
+  <small-nitro id="Empty.014" x="111.14" y="8.91" z="5.81" h="-218.01" />
+  <banana id="Empty.015" x="113.26" y="8.91" z="8.45" />
+  <item id="Empty.016" x="89.84" y="26.90" z="-50.62" />
+  <item id="Empty.017" x="89.84" y="26.90" z="-55.45" />
+  <item id="Empty.018" x="89.84" y="26.90" z="-45.97" />
+  <item id="Empty.019" x="78.58" y="6.82" z="154.71" h="-21.27" />
+  <small-nitro id="Empty.020" x="79.95" y="7.05" z="158.27" h="-21.27" />
+  <small-nitro id="Empty.021" x="83.17" y="7.05" z="166.32" h="-21.27" />
+  <item id="Empty.022" x="81.88" y="6.82" z="163.16" h="-21.27" />
+  <small-nitro id="Empty.023" x="76.54" y="7.05" z="150.10" h="-21.27" />
+  <item id="Empty.024" x="30.75" y="6.82" z="151.81" h="27.28" />
+  <item id="Empty.025" x="17.94" y="6.82" z="130.63" h="25.18" />
+  <banana id="Empty.026" x="32.82" y="6.82" z="147.78" h="2.11" />
+  <banana id="Empty.027" x="20.27" y="6.82" z="125.26" h="2.11" />
+  <banana id="Empty.028" x="55.27" y="20.41" z="-15.22" h="2.11" />
+  <item id="Empty.029" x="52.56" y="20.41" z="-13.30" />
+  <item id="Empty.030" x="58.15" y="20.41" z="-17.36" />
+  <banana id="Empty.031" x="83.06" y="15.74" z="31.53" />
+  <small-nitro id="Empty.032" x="79.26" y="15.00" z="31.57" />
+  <small-nitro id="Empty.033" x="86.49" y="15.00" z="29.72" />
+  <item id="Empty.034" x="167.44" y="6.46" z="14.07" />
+  <item id="Empty.035" x="166.49" y="6.46" z="19.11" />
+  <item id="Empty.036" x="165.05" y="6.46" z="24.31" />
   <light xyz="91.11 34.39 -98.06" id="Lamp" distance="35.00" energy="2.00" color="255 175 73">
   </light>
   <light xyz="91.11 34.39 -158.64" id="Lamp.001" distance="35.00" energy="2.00" color="255 175 73">
@@ -475,15 +521,9 @@
   </library>
   <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.002" xyz="51.37 4.41 133.11" hpr="0.0 -30.1 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_bambooTorch_a" id="stklib_bambooTorch_a_main_proxy.003" xyz="101.03 23.53 -85.13" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_bambooTorch_a" id="stklib_bambooTorch_a_main_proxy.006" xyz="69.84 12.47 -76.62" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_bambooTorch_a" id="stklib_bambooTorch_a_main_proxy.004" xyz="101.03 23.53 -74.13" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
-  </library>
-  <library name="stklib_bambooTorch_a" id="stklib_bambooTorch_a_main_proxy.005" xyz="101.03 23.53 -63.43" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
-  </library>
-  <library name="stklib_bambooTorch_a" id="stklib_bambooTorch_a_main_proxy.006" xyz="69.84 13.98 -76.62" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
-  </library>
-  <library name="stklib_bambooTorch_a" id="stklib_bambooTorch_a_main_proxy.007" xyz="107.29 13.52 -78.21" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_bambooTorch_a" id="stklib_bambooTorch_a_main_proxy.007" xyz="107.29 12.01 -78.21" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_beachWomen_a" id="stklib_beachWomen_a_main_proxy" xyz="35.49 4.33 164.03" hpr="-0.0 165.0 -0.0" scale="1.00 1.00 1.00">
   </library>
@@ -579,6 +619,14 @@
   </library>
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.039" xyz="310.90 9.37 21.59" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
+  <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.040" xyz="146.32 9.37 -36.25" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.041" xyz="141.77 10.91 -68.69" hpr="0.0 -23.9 0.0" scale="0.79 0.79 0.79">
+  </library>
+  <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.042" xyz="126.74 9.37 -78.23" hpr="0.0 -37.6 0.0" scale="0.67 0.67 0.67">
+  </library>
+  <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.043" xyz="131.48 11.16 -72.26" hpr="-0.0 -145.6 -0.0" scale="0.79 0.79 0.79">
+  </library>
   <library name="stklib_redSeaweed_a" id="stklib_redSeaweed_a_main_proxy" xyz="10.64 -22.65 245.60" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_reef_a" id="stklib_reef_a_main_proxy.000" xyz="200.26 -31.38 231.59" hpr="0.0 -0.0 0.0" scale="7.19 7.19 7.19">
@@ -620,6 +668,12 @@
   <library name="stklib_saraVertical_a" id="stklib_saraVertical_a_main_proxy.004" xyz="41.00 24.27 -35.56" hpr="-0.0 -87.5 0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_saraVertical_a" id="stklib_saraVertical_a_main_proxy.005" xyz="46.51 24.27 -54.29" hpr="0.0 -120.8 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_saraVertical_a" id="stklib_saraVertical_a_main_proxy.006" xyz="-145.18 15.64 111.84" hpr="0.0 -40.9 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_saraVertical_a" id="stklib_saraVertical_a_main_proxy.007" xyz="-160.08 16.75 85.98" hpr="0.0 -72.3 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_saraVertical_a" id="stklib_saraVertical_a_main_proxy.008" xyz="-125.86 15.64 125.92" hpr="0.0 -26.2 0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy" xyz="132.71 16.64 98.28" hpr="0.0 -45.9 0.0" scale="1.00 1.00 1.00">
   </library>
