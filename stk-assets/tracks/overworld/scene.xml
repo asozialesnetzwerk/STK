@@ -110,7 +110,7 @@
     <static-object model="crystal_ball.b3d" xyz="-19.64 -2.87 30.22" hpr="-6.1 -178.5 -1.2" scale="0.86 0.78 0.86" challenge="olivermath"/>
     <static-object model="crystal_ball.b3d" xyz="39.98 0.97 17.58" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="farm"/>
     <static-object model="crystal_ball.b3d" xyz="-4.97 -3.47 52.44" hpr="-0.0 -142.4 -0.0" scale="0.86 0.78 0.86" challenge="city"/>
-    <static-object model="crystal_ball.b3d" xyz="150.83 -11.09 240.54" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="20_island"/>
+    <static-object model="crystal_ball.b3d" xyz="150.83 -11.09 240.54" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="islandtrack"/>
     <static-object model="crystal_ball.b3d" xyz="145.33 -10.84 275.78" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="lighthouse"/>
     <static-object model="crystal_ball.b3d" xyz="88.73 -10.82 257.88" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="scotland"/>
     <static-object model="crystal_ball.b3d" xyz="89.19 -10.51 235.20" hpr="0.0 36.6 0.0" scale="0.86 0.78 0.86" challenge="subsea"/>
