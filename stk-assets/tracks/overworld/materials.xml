@@ -21,7 +21,7 @@
   <material name="GroundCover.png" backface-culling="N" ignore="Y" shader="alphatest"/>
   <material name="Jackinthepulpit.png" backface-culling="N" ignore="Y" shader="alphatest"/>
   <material name="light.png" ignore="Y" clampu="Y" disable-z-write="Y" backface-culling="N" fog="N" shader="alphablend"/>
-  <material name="marble.jpg" normal-map="column_normal_map.png"/>
+  <material name="marble_column.jpg" normal-map="column_normal_map.png"/>
   <material name="Metal-plate.png" backface-culling="N"/>
   <material name="Mint.png" backface-culling="N" disable-z-write="Y" ignore="Y" shader="alphatest"/>
   <material name="Mushroom 2 side.png" backface-culling="N" ignore="Y" shader="unlit"/>
