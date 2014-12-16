@@ -9,4 +9,7 @@
   <material name="windows_reflection.png" gloss-map="windows_reflection_gloss.png"/>
   <material name="stktex_fern_diff_a.png" grass-speed="1.50" shader="grass"/>
   <material name="stktex_tropicalPlant_a.png" shader="grass" grass-speed="1.50" grass-amplitude="0.15"/>
+  <material name="stktex_redFlower_a.png" disable-z-write="Y"/>
+  <material name="stktex_branches_diff_a.png" ignore="Y"/>
+  <material name="stktex_greenBrush_a.png" disable-z-write="Y"/>
 </materials>
