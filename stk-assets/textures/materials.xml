@@ -69,6 +69,7 @@
   <material name="stktex_lowPalmTree_a.png" compositing="test" />
   <material name="stk_generic_grid_b.png" compositing="test" />
   <material name="stktex_boxGrid_a.png" compositing="test" />
+  <material name="stkcrowd_lowPoly_a.png" compositing="test" />
   
   <material name="stk_metalDoor_a.png" gloss-map="stk_metalDoor_a_gloss.png" />
   <material name="stk_solarPanel_a.png" gloss-map="stk_solarPanel_gloss.png" graphical-effect="normal_map" normal-map="stk_solarPanel_a_nm.png" ignore="y"/>
