@@ -99,6 +99,18 @@
   </light>
   <light xyz="5.36 2.58 11.77" id="Lamp.007" distance="5.00" energy="0.50" color="255 101 226">
   </light>
+  <light xyz="-96.59 11.53 -13.61" id="Lamp.008" distance="5.00" energy="0.50" color="255 101 226">
+  </light>
+  <light xyz="-97.03 12.03 -9.82" id="Lamp.009" distance="5.00" energy="0.50" color="255 101 226">
+  </light>
+  <light xyz="-97.44 12.75 -6.21" id="Lamp.010" distance="5.00" energy="0.50" color="255 101 226">
+  </light>
+  <light xyz="-96.17 11.32 -17.26" id="Lamp.011" distance="5.00" energy="0.50" color="255 101 226">
+  </light>
+  <light xyz="-95.75 11.59 -20.93" id="Lamp.012" distance="5.00" energy="0.50" color="255 101 226">
+  </light>
+  <light xyz="-95.32 12.12 -24.72" id="Lamp.013" distance="5.00" energy="0.50" color="255 101 226">
+  </light>
   <lightshaft xyz="436.35 143.24 1151.53" id="Sun.001" opacity="0.50" color="60 130 255"/>
   <default-start karts-per-row     ="2"
                  forwards-distance ="1.50"
