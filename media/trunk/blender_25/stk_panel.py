@@ -15,6 +15,8 @@ bl_info = {
 import bpy
 from collections import OrderedDict
 import getpass
+from bpy.types import Operator, AddonPreferences
+from bpy.props import StringProperty, IntProperty, BoolProperty
 
 CONTEXT_OBJECT = 0
 CONTEXT_SCENE  = 1
@@ -1124,8 +1126,7 @@ class SuperTuxKartScenePanel(bpy.types.Panel, PanelBase):
     bl_context = "scene"
                                         
     def draw(self, context):
-        layout = self.layout
-        
+        layout = self.layout   
         obj = context.scene
         
         if obj is not None:
@@ -1338,9 +1339,44 @@ bpy.utils.register_class(STK_AddObject)
 def menu_func_add_banana(self, context):
     self.layout.operator_menu_enum("scene.stk_add_object", property="value", text="STK", icon='AUTO')
     
+    
+# ======== PREFERENCES ========
+class StkPanelAddonPreferences(AddonPreferences):
+    bl_idname = 'stk_track'
+
+    stk_assets_path = StringProperty(
+            name="Supertuxkart assets (data) folder",
+            #subtype='DIR_PATH',
+            )
+
+    def draw(self, context):
+        layout = self.layout
+        layout.label(text="The data folder contains folders named 'karts', 'tracks', 'textures', etc. Please enter an absolute path.")
+        layout.prop(self, "stk_assets_path")
+
+
+#class stkpanel_set_user_preferences(Operator):
+#    bl_idname = "object.stkpanel_set_user_preferences"
+#    bl_label = "Addon Preferences Example"
+#    bl_options = {'REGISTER', 'UNDO'}
+#
+#    def execute(self, context):
+#        user_preferences = context.user_preferences
+#        addon_prefs = user_preferences.addons['stk_track'].preferences
+#
+#        info = ("Path: %s, Number: %d, Boolean %r" %
+#                (addon_prefs.filepath, addon_prefs.number, addon_prefs.boolean))
+#
+#        self.report({'INFO'}, info)
+#        print(info)
+#
+#        return {'FINISHED'}
+    
 def register():
     bpy.types.INFO_MT_add.append(menu_func_add_banana)
     bpy.utils.register_module(__name__)
+    #bpy.utils.register_class(stkpanel_set_user_preferences)
+    #bpy.utils.register_class(StkPanelAddonPreferences)
 
 def unregister():
     pass

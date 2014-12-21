@@ -2,12 +2,14 @@
 <Properties>
 
 <BoolProp id="is_stk_node" name="Is a SuperTuxKart library node (WIP feature)" default="false" box="false" doc="Check this if this blender file is a SuperTuxKart library node">
-    <StringProp id="name" name="Name" default="My new node" doc="Name of the node"/>
+    <StringProp id="name" name="Code (folder name)" default="myNewNode" doc="Name of the node"/>
 </BoolProp>                   
 
 <!-- ************ TRACK ************ -->
 <BoolProp id="is_stk_track" name="Is a SuperTuxKart track" default="false" box="false" doc="Check this if this blender file is a SuperTuxKart track">                         
     <StringProp id="name" name="Name" default="My New Track" doc="Name of the track"/>
+    <StringProp id="code" name="Code (folder name)" default="myNewTrack" doc="The code is an internal identifier, will also be the name of the folder"/>
+    <BoolProp id="is_wip_track" name="Is work-in-progress track" doc="If checked, the track will be categorized as a work-in-progress (beta) track"/>
     <StringProp id="groups" name="Groups" default="standard" doc="Tabs in track selection screen this track appears under"/>
     <StringProp id="designer" name="Designer" default="$user" doc="Name of the person that made this track"/>
     <StringProp id="music" name="Music" default="kart_grand_prix.music" doc="Music played in this track"/>

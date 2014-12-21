@@ -1915,8 +1915,11 @@ class TrackExport:
 
         #start_time  = bsys.time()
         scene       = the_scene
-        name        = getSceneProperty(scene, "name",       "Name of Track")
-        groups      = getSceneProperty(scene, "groups",     "standard"     )
+        name        = getSceneProperty(scene, "name",   "Name of Track")
+        groups      = getSceneProperty(scene, "groups", "standard"     )
+        if 'is_wip_track' in the_scene and the_scene['is_wip_track'] == 'true':
+            groups = 'wip-track'
+            
         is_arena    = getSceneProperty(scene, "arena",      "n"            )
         if not is_arena:
             is_arena="n"
@@ -2925,30 +2928,50 @@ class STK_Track_Export_Operator(bpy.types.Operator):
             log_error("Not a STK library node or a track!")
             return {'FINISHED'}
         
-        if isANode and 'libraryrootpath' in context.scene and context.scene['libraryrootpath'] is not None and len(context.scene['libraryrootpath']) > 0:
-            folder = os.path.join(context.scene['libraryrootpath'], context.scene['name'])
-            
-            if not os.path.exists(folder):
-                os.makedirs(folder)
-            
-            self.filepath = os.path.join(folder, context.scene['name'])
-            
-            return self.execute(context)
-        
-        if 'stk_last_export_path' not in context.scene or context.scene['stk_last_export_path'] is None or not os.path.exists(os.path.split(context.scene['stk_last_export_path'])[0]):
-            blend_filepath = os.path.splitext(context.blend_data.filepath)[0]
+        # FIXME: in library nodes it's "name", in tracks it's "code"
+        if isANode:
+            if 'name' not in context.scene or len(context.scene['name']) == 0:
+                self.report({'ERROR'}, "Please specify a name")
+                log_error("Please specify a name")
+                return {'FINISHED'}
+            code = context.scene['name']
         else:
-            blend_filepath = context.scene['stk_last_export_path']
-        #if not blend_filepath:
-        #    blend_filepath = "Untitled"
+            if 'code' not in context.scene or len(context.scene['code']) == 0:
+                self.report({'ERROR'}, "Please specify a code")
+                log_error("Please specify a code")
+                return {'FINISHED'}
+            code = context.scene['code']
+        
+        if isANode:
+            folder = os.path.join(bpy.context.user_preferences.addons['stk_track'].preferences.stk_assets_path, 'library', code)
+        else:
+            # TODO: tracks vs tracks_wip
+            if 'is_wip_track' in context.scene and context.scene['is_wip_track'] == 'true':
+                folder = os.path.join(bpy.context.user_preferences.addons['stk_track'].preferences.stk_assets_path, 'wip-tracks', code)
+            else:
+                folder = os.path.join(bpy.context.user_preferences.addons['stk_track'].preferences.stk_assets_path, 'tracks', code)
+            
+        if not os.path.exists(folder):
+            os.makedirs(folder)
+        self.filepath = os.path.join(folder, code)
+        return self.execute(context)
+        
+        #if isANode:
+        #    # library node
+        #    folder = os.path.join(bpy.context.user_preferences.addons['stk_track'].preferences.stk_assets_path, 'library', context.scene['code'])
+        #    
+        #    if not os.path.exists(folder):
+        #        os.makedirs(folder)
+        #    
+        #    self.filepath = os.path.join(folder, context.scene['code'])
+        #    
+        #    return self.execute(context)
         #else:
-        #    import os
-        #    blend_filepath = os.path.splitext(blend_filepath)[0]
-        
-        self.filepath = blend_filepath
-        
-        context.window_manager.fileselect_add(self)
-        return {'RUNNING_MODAL'}
+        #    # track
+        #    self.filepath = os.path.join(bpy.context.user_preferences.addons['stk_track'].preferences.stk_assets_path, 'tracks')
+        #    
+        #    context.window_manager.fileselect_add(self)
+        #    return {'RUNNING_MODAL'}
 
     def execute(self, context):
         if bpy.context.mode != 'OBJECT':
@@ -2960,9 +2983,6 @@ class STK_Track_Export_Operator(bpy.types.Operator):
 
         if self.filepath == "" or (isNotATrack and isNotANode):
             return {'FINISHED'}
-
-            
-        context.scene['stk_last_export_path'] = self.filepath
         
         global operator
         operator = self
@@ -2994,18 +3014,9 @@ class STK_Clean_Log_Operator(bpy.types.Operator):
         print("Log cleaned")
         return {'FINISHED'}
 
-class STK_Create_LibPath_Operator(bpy.types.Operator):
-    bl_idname = ("screen.stk_create_lib_path_var")
-    bl_label = ("Select library path...")
-
-    def execute(self, context):
-        context.scene["libraryrootpath"] = ""
-        return {'FINISHED'}
-        
 class STK_FolderPicker_Operator(bpy.types.Operator):
-    """Test exporter which just writes hello world"""
-    bl_idname = "screen.stk_pick_lib_path"
-    bl_label = "Select the library folder"
+    bl_idname = "screen.stk_pick_assets_path"
+    bl_label = "Select the SuperTuxKart assets (data) folder"
 
     filepath = bpy.props.StringProperty(subtype="DIR_PATH")
 
@@ -3016,7 +3027,10 @@ class STK_FolderPicker_Operator(bpy.types.Operator):
     def execute(self, context):
         import bpy.path
         import os.path
-        context.scene['libraryrootpath'] = os.path.dirname(bpy.path.abspath(self.filepath))
+        user_preferences = context.user_preferences
+        addon_prefs = user_preferences.addons['stk_track'].preferences
+        addon_prefs.stk_assets_path = os.path.dirname(bpy.path.abspath(self.filepath))
+        bpy.ops.wm.save_userpref()
         return {'FINISHED'}
 
     def invoke(self, context, event):
@@ -3024,7 +3038,7 @@ class STK_FolderPicker_Operator(bpy.types.Operator):
         return {'RUNNING_MODAL'}
         
         
-# ==== PANEL ====
+# ==== TRACK EXPORT PANEL ====
 class STK_Track_Exporter_Panel(bpy.types.Panel):
     bl_label = "Track Exporter"
     bl_space_type = "PROPERTIES"
@@ -3046,16 +3060,26 @@ class STK_Track_Exporter_Panel(bpy.types.Panel):
         # ==== Types group ====
         row = layout.row()
         
+        assets_path = ""
+        try:
+            assets_path = bpy.context.user_preferences.addons['stk_track'].preferences.stk_assets_path
+        except:
+            pass
+            
+        if assets_path is not None and len(assets_path) > 0:
+            row.label('Assets path: ' + assets_path)
+        else:
+            row.label('Assets path: [please select path]') 
+        row.operator('screen.stk_pick_assets_path', icon='FILESEL', text='')
+        
+        if assets_path is None or len(assets_path) == 0:
+            return
+        
+        row = layout.row()
+        
         if isNotANode:
             row.operator("screen.stk_track_export", "Export track", icon='BLENDER')
         else:
-            if "libraryrootpath" in the_scene:
-                row.prop(the_scene, '["libraryrootpath"]', text='Library path')
-                row.operator('screen.stk_pick_lib_path', icon='FILESEL', text='')
-            else:
-                #row.operator("screen.stk_create_lib_path_var")
-                row.operator('screen.stk_pick_lib_path', icon='FILESEL')
-            row = layout.row()
             row.operator("screen.stk_track_export", "Export library node", icon='BLENDER')
         
         if bpy.context.mode != 'OBJECT':
