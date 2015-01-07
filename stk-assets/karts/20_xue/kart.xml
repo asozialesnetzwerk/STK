@@ -17,6 +17,7 @@
               straight = "39"
               right = "59"
               start-winning = "79"
+              start-winning-loop = "159"
               end-winning = "189"
               start-losing = "219"
               start-losing-loop = "259"
