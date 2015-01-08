@@ -767,8 +767,8 @@ def write_node(objects=[]):
                     
                     transform = mathutils.Matrix([[-1,0,0,0],[0,0,1,0],[0,1,0,0],[0,0,0,1]])
                     arm_matrix = transform*arm_matrix
-					arm_quat = arm_matrix.to_quaternion()
-					arm_quat.normalize()
+                    arm_quat = arm_matrix.to_quaternion()
+                    arm_quat.normalize()
 
                     for bone_name in arm.data.bones.keys():
                         #bone_matrix = mathutils.Matrix(arm_pose.bones[bone_name].poseMatrix)
