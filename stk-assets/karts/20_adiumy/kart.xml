@@ -15,12 +15,13 @@
               straight = "19"
               right = "29"
               start-winning = "59"
-              end-winning = "199"
-              start-losing = "244"
-              start-losing-loop = "308"
-              end-losing = "314"
-              start-speed-weighted = "319"
-              end-speed-weighted = "329"/>
+              start-winning-loop = "119"
+              end-winning = "149"
+              start-losing = "159"
+              start-losing-loop = "189"
+              end-losing = "199"
+              start-speed-weighted = "219"
+              end-speed-weighted = "229"/>
   <wheels>
     <front-left position = "-0.397559 0.161885 0.255742"
                  model    = "wheel-front-left.b3d"       />
