@@ -16,7 +16,7 @@ __bpydoc__ = """\
 # Copyright (C) 2009 by Diego "GaNDaLDF" Parisi  -  www.gandaldf.com
 # Lightmap issue fixed by Capricorn 76 Pty. Ltd. - www.capricorn76.com
 # Blender 2.63 compatiblity based on work by MTLZ, www.is06.com
-# With changes by Marianne Gagnon and Joerg Henrichs, supertuxkart.sf.net (Copyright (C) 2011-2012)
+# With changes by Marianne Gagnon, Joerg Henrichs and Vincent Lejeune, supertuxkart.sf.net (Copyright (C) 2011-2012)
 #
 # LICENSE:
 # This program is free software; you can redistribute it and/or modify
@@ -36,7 +36,7 @@ __bpydoc__ = """\
 bl_info = {
     "name": "B3D (BLITZ3D) Model Exporter",
     "description": "Exports a blender scene or object to the B3D (BLITZ3D) format",
-    "author": "Diego 'GaNDaLDF' Parisi, MTLZ (is06), Joerg Henrichs, Marianne Gagnon",
+    "author": "Diego 'GaNDaLDF' Parisi, MTLZ (is06), Joerg Henrichs, Marianne Gagnon, Vincent Lejeune",
     "version": (3,1),
     "blender": (2, 5, 9),
     "api": 31236,
