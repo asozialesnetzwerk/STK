@@ -850,15 +850,14 @@ def write_node(objects=[]):
                                     bone_rot = bone_matrix.to_quaternion()
                                     bone_rot.normalize()
 
-								# Sometimes to_quaternion exhibits precision issue with parent bone
-								# Use quaternion product instead of getting quaternion from the product.
+                                # Sometimes to_quaternion exhibits precision issue with parent bone
+                                # Use quaternion product instead of getting quaternion from the product.
                                 if not bone[BONE_PARENT]:
-                                     #print("local ", arm_pose.bones[bone_name].rotation_quaternion * arm_quat)
-                                     bone_rot = arm_pose.bones[bone_name].rotation_quaternion * arm_quat
-                                     bone_rot.y = -bone_rot.y
-                                     tmp = bone_rot.w
-                                     bone_rot.w = bone_rot.x
-                                     bone_rot.x = tmp
+                                     bone_rot =  arm_pose.bones[bone_name].matrix.to_quaternion() *  arm_quat
+                                     bone_rot.x = -bone_rot.x
+                                     tmp = bone_rot.z
+                                     bone_rot.z = bone_rot.y
+                                     bone_rot.y = tmp
 
                                 keys_stack.append([frame_count - first_frame+1, bone_name, bone_loc, bone_sca, bone_rot])
                                 if DEBUG: print("                <loc>", bone_loc, "</loc>")
