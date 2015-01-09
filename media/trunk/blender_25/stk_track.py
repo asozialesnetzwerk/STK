@@ -2399,7 +2399,7 @@ class TrackExport:
             
             # In objects with skeletal animations the actual armature (which
             # is a parent) contains the IPO. So check for this:
-            if not ipo or not ipo.action:
+            if not ipo or not ipo.action or not ipo.action.fcurves or len(ipo.action.fcurves) == 0:
                 parent = obj.parent
                 if parent:
                     ipo = parent.animation_data
