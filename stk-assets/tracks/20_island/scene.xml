@@ -514,6 +514,10 @@
   </light>
   <light xyz="86.16 17.99 -82.67" id="Lamp.005" distance="15.00" energy="2.00" color="153 193 255">
   </light>
+  <light xyz="96.10 29.39 -78.05" id="Lamp.006" distance="15.00" energy="2.00" color="153 193 255">
+  </light>
+  <light xyz="96.10 29.39 -65.93" id="Lamp.007" distance="15.00" energy="2.00" color="153 193 255">
+  </light>
   <lightshaft xyz="143.83 246.05 1358.93" id="Sun.001" opacity="0.70" color="255 158 34"/>
   <default-start karts-per-row     ="2"
                  forwards-distance ="1.10"
@@ -521,9 +525,11 @@
                  upwards-distance  ="1.10"/>
   <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.000" xyz="105.55 13.36 -85.05" hpr="-0.0 151.3 -0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.001" xyz="100.54 25.22 -56.68" hpr="-0.0 151.3 -0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.001" xyz="100.54 25.22 -56.68" hpr="0.0 -14.0 0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.002" xyz="51.37 4.41 133.11" hpr="0.0 -30.1 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.003" xyz="96.66 25.39 -66.95" hpr="-0.0 104.7 -0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_bambooTorch_a" id="stklib_bambooTorch_a_main_proxy.006" xyz="69.84 12.47 -76.62" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
@@ -532,6 +538,8 @@
   <library name="stklib_beachWomen_a" id="stklib_beachWomen_a_main_proxy" xyz="35.49 4.33 164.03" hpr="-0.0 165.0 -0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_beachWomen_a" id="stklib_beachWomen_a_main_proxy.001" xyz="-100.35 4.54 141.56" hpr="-0.0 165.0 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_beachWomen_a" id="stklib_beachWomen_a_main_proxy.002" xyz="104.56 24.60 -55.39" hpr="0.0 -19.8 0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_fern_a" id="stklib_fern_a_main_proxy" xyz="28.69 17.15 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
@@ -635,13 +643,15 @@
   </library>
   <library name="stklib_redFlowerBush_a" id="stklib_redFlowerBush_a_main_proxy.001" xyz="101.37 27.26 -67.07" hpr="-0.0 -94.9 -0.0" scale="0.75 0.75 0.75">
   </library>
-  <library name="stklib_redFlowerBush_a" id="stklib_redFlowerBush_a_main_proxy.002" xyz="101.37 27.26 -78.71" hpr="0.0 -87.3 0.0" scale="0.94 0.94 0.94">
+  <library name="stklib_redFlowerBush_a" id="stklib_redFlowerBush_a_main_proxy.002" xyz="101.95 27.15 -76.61" hpr="0.0 4.0 0.0" scale="0.43 0.43 0.43">
   </library>
   <library name="stklib_redFlowerBush_a" id="stklib_redFlowerBush_a_main_proxy.003" xyz="81.37 27.26 -78.71" hpr="-0.0 -135.2 -0.0" scale="0.94 0.94 0.94">
   </library>
   <library name="stklib_redFlowerBush_a" id="stklib_redFlowerBush_a_main_proxy.004" xyz="81.37 27.26 -67.07" hpr="-0.0 -128.3 -0.0" scale="0.75 0.75 0.75">
   </library>
   <library name="stklib_redFlowerBush_a" id="stklib_redFlowerBush_a_main_proxy.005" xyz="81.38 27.19 -64.43" hpr="-0.0 -130.1 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_redFlowerBush_a" id="stklib_redFlowerBush_a_main_proxy.006" xyz="101.37 27.26 -80.03" hpr="0.0 -7.5 0.0" scale="0.26 0.26 0.26">
   </library>
   <library name="stklib_redSeaweed_a" id="stklib_redSeaweed_a_main_proxy" xyz="10.64 -22.65 245.60" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
@@ -729,7 +739,7 @@
   </library>
   <library name="stklib_tetrapodUnderwater_a" id="stklib_tetrapodUnderwater_a_main_proxy.016" xyz="-135.29 -18.30 8.79" hpr="42.2 55.4 80.7" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_trijet_a" id="stklib_trijet_a_main_proxy.005" xyz="35.06 11.57 -107.47" hpr="0.0 -35.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_trijet_a" id="stklib_trijet_a_main_proxy.005" xyz="28.56 11.57 -104.05" hpr="0.0 -29.3 0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_tropicalPlant_a" id="stklib_tropicalPlant_a_main_proxy" xyz="17.13 6.08 89.97" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
@@ -758,6 +768,8 @@
   <library name="stklib_umbrellaBeach_a" id="stklib_umbrellaBeach_a_main_proxy.011" xyz="70.70 5.17 129.52" hpr="2.3 -43.7 -2.9" scale="1.56 1.07 1.56">
   </library>
   <library name="stklib_umbrellaBeach_a" id="stklib_umbrellaBeach_a_main_proxy.012" xyz="-101.31 3.01 142.89" hpr="0.0 -0.0 0.0" scale="1.78 1.25 1.78">
+  </library>
+  <library name="stklib_umbrellaBeach_a" id="stklib_umbrellaBeach_a_main_proxy.013" xyz="65.66 61.28 -128.38" hpr="0.0 -0.0 0.0" scale="5.21 3.65 5.21">
   </library>
   <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.000" xyz="108.04 25.59 -72.62" hpr="90.0 90.0 0.0" scale="0.72 0.21 0.21">
   </library>
