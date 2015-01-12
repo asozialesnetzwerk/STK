@@ -78,7 +78,7 @@
 
   <material name="stk_generic_snow_a.png" max-speed="0.70" gloss-map="stk_generic_snow_a_gloss.png" normal-map="stk_generic_snow_a_nm.png"/>
   
-  <material name="stktex_generic_roadSnow_a.png" gloss-map="stk_generic_snow_a_gloss.png" normal-map="stktex_generic_roadSnow_a_gloss.png"/>
+  <material name="stktex_generic_roadSnow_a.png" gloss-map="stktex_generic_roadSnow_a_gloss.png" normal-map="stktex_generic_roadSnow_a_nm.png"/>
 
   <material name="stkflag_asianPaperLantern_a.png" gloss-map="stkflag_asianPaperLantern_a_gloss.png"/>  
 
