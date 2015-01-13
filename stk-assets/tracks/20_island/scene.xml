@@ -11,58 +11,98 @@
     <static-object model="limits.b3d" xyz="-86.60 4.32 128.13" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
     <animated-texture name="stkflag_greenCheckBorard_a.png" dx="0.080"  dy="0.2000" />
   </track>
-  <object id="Cylinder.001" type="animation" xyz="-28.45 14.26 954.80" hpr="-89.5 -21.6 -0.1" scale="1.00 1.00 1.00" interaction="ghost" model="aircraft_747.b3d" skeletal-animation="false">
+  <object id="Cube.025" type="animation" xyz="-28.66 14.03 -207.65" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="airbing_512.b3d" skeletal-animation="false">
+    <curve channel="LocX" interpolation="linear" extend="cyclic">
+      <p c="1.000 -28.656"/>
+      <p c="400.000 -28.454"/>
+      <p c="401.000 -28.454"/>
+      <p c="796.000 -28.651"/>
+    </curve>
+    <curve channel="LocZ" interpolation="linear" extend="cyclic">
+      <p c="1.000 -207.652"/>
+      <p c="400.000 -1289.248"/>
+      <p c="401.000 954.802"/>
+      <p c="796.000 -207.652"/>
+    </curve>
+    <curve channel="LocY" interpolation="linear" extend="cyclic">
+      <p c="1.000 14.026"/>
+      <p c="400.000 15.887"/>
+      <p c="401.000 15.887"/>
+      <p c="796.000 14.071"/>
+    </curve>
+  </object>
+  <object id="Cube.026" type="animation" xyz="-28.66 14.03 -207.65" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="airplane_minii_contrail.b3d" skeletal-animation="false">
+    <curve channel="LocX" interpolation="linear" extend="cyclic">
+      <p c="1.000 -28.656"/>
+      <p c="400.000 -28.454"/>
+      <p c="401.000 -28.454"/>
+      <p c="796.000 -28.651"/>
+    </curve>
+    <curve channel="LocZ" interpolation="linear" extend="cyclic">
+      <p c="1.000 -207.652"/>
+      <p c="400.000 -1289.248"/>
+      <p c="401.000 954.802"/>
+      <p c="796.000 -207.652"/>
+    </curve>
+    <curve channel="LocY" interpolation="linear" extend="cyclic">
+      <p c="1.000 14.026"/>
+      <p c="400.000 15.887"/>
+      <p c="401.000 15.887"/>
+      <p c="796.000 14.071"/>
+    </curve>
+  </object>
+  <object id="Cylinder.001" type="animation" xyz="-28.45 15.89 954.80" hpr="-89.5 -21.6 -0.1" scale="1.00 1.00 1.00" interaction="ghost" model="airbing_behemoth.b3d" skeletal-animation="true">
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
-      <p c="1.000 -28.454" h1="-154.384 -28.454" h2="156.384 -28.454"/>
-      <p c="399.000 -28.454" h1="243.616 -28.454" h2="554.384 -28.454"/>
+      <p c="1.000 -28.454" h1="-309.377 -28.454" h2="311.377 -28.454"/>
+      <p c="796.000 -28.454" h1="485.623 -28.454" h2="1106.377 -28.454"/>
     </curve>
     <curve channel="LocZ" interpolation="bezier" extend="cyclic">
-      <p c="1.000 954.802" h1="-154.384 1830.905" h2="156.384 78.699"/>
-      <p c="399.000 -1289.248" h1="243.616 -413.145" h2="554.384 -2165.350"/>
+      <p c="1.000 954.802" h1="-309.377 1830.905" h2="311.377 78.700"/>
+      <p c="796.000 -1289.248" h1="485.623 -413.145" h2="1106.377 -2165.350"/>
     </curve>
     <curve channel="LocY" interpolation="bezier" extend="cyclic">
-      <p c="1.000 14.265" h1="-154.384 14.265" h2="156.384 14.265"/>
-      <p c="399.000 14.265" h1="243.616 14.265" h2="554.384 14.265"/>
+      <p c="1.000 15.887" h1="-309.377 15.887" h2="311.377 15.887"/>
+      <p c="796.000 15.887" h1="485.623 15.887" h2="1106.377 15.887"/>
     </curve>
     <curve channel="RotX" interpolation="bezier" extend="cyclic">
-      <p c="1.000 -89.509" h1="-30.623 -89.509" h2="32.623 -89.509"/>
-      <p c="82.000 -89.509" h1="50.377 -89.509" h2="94.103 -89.509"/>
-      <p c="113.000 -80.195" h1="100.897 -80.195" h2="157.117 -80.195"/>
-      <p c="226.000 -89.509" h1="181.883 -89.509" h2="293.541 -89.509"/>
-      <p c="399.000 -89.509" h1="331.459 -89.509" h2="466.541 -89.509"/>
+      <p c="1.000 -89.509" h1="-66.932 -89.509" h2="68.932 -89.509"/>
+      <p c="175.000 -89.509" h1="53.472 -89.509" h2="198.706 -89.509"/>
+      <p c="237.000 -80.195" h1="212.294 -80.195" h2="357.528 -80.195"/>
+      <p c="623.000 -89.509" h1="472.301 -89.509" h2="690.541 -89.509"/>
+      <p c="796.000 -89.509" h1="728.459 -89.509" h2="863.541 -89.509"/>
     </curve>
     <curve channel="RotZ" interpolation="bezier" extend="cyclic">
-      <p c="1.000 -0.076" h1="-30.623 -0.076" h2="32.623 -0.076"/>
-      <p c="82.000 -0.076" h1="50.377 -0.076" h2="94.103 -0.076"/>
-      <p c="113.000 -3.733" h1="100.897 -3.733" h2="157.117 -3.733"/>
-      <p c="226.000 -0.076" h1="181.883 -0.076" h2="293.541 -0.076"/>
-      <p c="399.000 -0.076" h1="331.459 -0.076" h2="466.541 -0.076"/>
+      <p c="1.000 -0.076" h1="-66.932 -0.076" h2="68.932 -0.076"/>
+      <p c="175.000 -0.076" h1="53.472 -0.076" h2="198.706 -0.076"/>
+      <p c="237.000 -3.733" h1="212.294 -3.733" h2="357.528 -3.733"/>
+      <p c="623.000 -0.076" h1="472.301 -0.076" h2="690.541 -0.076"/>
+      <p c="796.000 -0.076" h1="728.459 -0.076" h2="863.541 -0.076"/>
     </curve>
     <curve channel="RotY" interpolation="bezier" extend="cyclic">
-      <p c="1.000 -21.558" h1="-30.623 -21.558" h2="32.623 -21.558"/>
-      <p c="82.000 -21.558" h1="50.377 -21.558" h2="94.103 -21.558"/>
-      <p c="113.000 -21.247" h1="100.897 -21.247" h2="157.117 -21.247"/>
-      <p c="226.000 -21.558" h1="181.883 -21.558" h2="293.541 -21.558"/>
-      <p c="399.000 -21.558" h1="331.459 -21.558" h2="466.541 -21.558"/>
+      <p c="1.000 -21.558" h1="-66.932 -21.558" h2="68.932 -21.558"/>
+      <p c="175.000 -21.558" h1="53.472 -21.558" h2="198.706 -21.558"/>
+      <p c="237.000 -21.247" h1="212.294 -21.247" h2="357.528 -21.247"/>
+      <p c="623.000 -21.558" h1="472.301 -21.558" h2="690.541 -21.558"/>
+      <p c="796.000 -21.558" h1="728.459 -21.558" h2="863.541 -21.558"/>
     </curve>
   </object>
   <object id="Plane.003" type="animation" xyz="-21.02 -5.46 0.68" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_ocean.b3d" displacing="true" skeletal-animation="false">
   </object>
   <object id="Plane.005" type="animation" xyz="-30.34 6.46 11.28" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="runway_mark.b3d" skeletal-animation="false">
   </object>
-  <object id="Plane.007" type="animation" xyz="-28.45 14.26 954.80" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="airplane_contrail.b3d" skeletal-animation="false">
-    <animated-texture name="clouds.png" dx="-0.800" />
+  <object id="Plane.007" type="animation" xyz="-28.45 15.89 954.80" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="airplane_contrail.b3d" skeletal-animation="false">
+    <animated-texture name="clouds.png" dx="-0.450" />
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
-      <p c="1.000 -28.454" h1="-131.667 -28.454" h2="133.667 -28.454"/>
-      <p c="399.000 -28.454" h1="266.333 -28.454" h2="531.667 -28.454"/>
+      <p c="1.000 -28.454" h1="-264.000 -28.454" h2="266.000 -28.454"/>
+      <p c="796.000 -28.454" h1="531.000 -28.454" h2="1061.000 -28.454"/>
     </curve>
     <curve channel="LocZ" interpolation="bezier" extend="cyclic">
-      <p c="1.000 954.802" h1="-131.667 1702.819" h2="133.667 206.786"/>
-      <p c="399.000 -1289.248" h1="266.333 -541.231" h2="531.667 -2037.264"/>
+      <p c="1.000 954.802" h1="-264.000 1702.819" h2="266.000 206.786"/>
+      <p c="796.000 -1289.248" h1="531.000 -541.231" h2="1061.000 -2037.264"/>
     </curve>
     <curve channel="LocY" interpolation="bezier" extend="cyclic">
-      <p c="1.000 14.265" h1="-131.667 14.265" h2="133.667 14.265"/>
-      <p c="399.000 14.265" h1="266.333 14.265" h2="531.667 14.265"/>
+      <p c="1.000 15.887" h1="-264.000 15.887" h2="266.000 15.887"/>
+      <p c="796.000 15.887" h1="531.000 15.887" h2="1061.000 15.887"/>
     </curve>
   </object>
   <object id="Sphere" type="animation" xyz="35.45 6.80 163.87" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="beachball_play.b3d" skeletal-animation="false">
@@ -454,16 +494,16 @@
 
   <object type="sfx-emitter" id="Empty.002" sound="airplane_jetEngine.ogg" rolloff="0.030" volume="1.0" max_dist="250.0" xyz="-28.45 6.44 974.80" hpr="0.0 -0.0 0.0" scale="37.90 37.90 37.90">
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
-      <p c="1.000 -28.454" h1="-131.667 -28.454" h2="133.667 -28.454"/>
-      <p c="399.000 -28.454" h1="266.333 -28.454" h2="531.667 -28.454"/>
+      <p c="1.000 -28.454" h1="-203.667 -28.454" h2="205.667 -28.454"/>
+      <p c="615.000 -28.454" h1="410.333 -28.454" h2="819.667 -28.454"/>
     </curve>
     <curve channel="LocZ" interpolation="bezier" extend="cyclic">
-      <p c="1.000 974.802" h1="-131.667 1722.819" h2="133.667 226.786"/>
-      <p c="399.000 -1269.248" h1="266.333 -521.231" h2="531.667 -2017.264"/>
+      <p c="1.000 974.802" h1="-264.000 1722.819" h2="266.000 226.786"/>
+      <p c="796.000 -1269.248" h1="531.000 -521.231" h2="1061.000 -2017.264"/>
     </curve>
     <curve channel="LocY" interpolation="bezier" extend="cyclic">
-      <p c="1.000 6.443" h1="-131.667 6.443" h2="133.667 6.443"/>
-      <p c="399.000 6.443" h1="266.333 6.443" h2="531.667 6.443"/>
+      <p c="1.000 6.443" h1="-203.667 6.443" h2="205.667 6.443"/>
+      <p c="615.000 6.443" h1="410.333 6.443" h2="819.667 6.443"/>
     </curve>
   </object>
   <small-nitro id="Empty" x="-123.19" y="5.35" z="120.31" />
@@ -564,6 +604,8 @@
   <library name="stklib_fern_a" id="stklib_fern_a_main_proxy" xyz="52.02 16.89 -1.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_greenRadioTower_a" id="stklib_greenRadioTower_a_main_proxy" xyz="16.73 8.43 2.46" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_hexajet_a" id="stklib_hexajet_a_main_proxy" xyz="30.57 11.67 -168.34" hpr="0.0 -35.0 0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_jetBlast_a" id="stklib_jetBlast_a_main_proxy" xyz="16.27 3.55 107.20" hpr="0.0 50.5 0.0" scale="1.00 1.00 1.00">
   </library>
