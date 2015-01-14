@@ -23,6 +23,10 @@
   <material name="smoke.png"             compositing="blend" light="N" ignore="Y"/>
   <material name="smoke_nitro.png"       compositing="blend" light="N" ignore="Y" disable-z-write="Y"/>
   <material name="smoke_yellow.png"      compositing="blend" light="N" ignore="Y"/>
+
+<material name="gfx_sandJetblast_a.png"      compositing="blend" ignore="Y"/> 
+<material name="gfx_earthJetblast_a.png"      compositing="blend" ignore="Y"/> 
+
   <material name="smoke_brown.png"       compositing="blend" light="N" ignore="Y"/>
   <material name="smoke_red.png"         compositing="blend" light="N" ignore="Y"/>
   <material name="smoke_black.png"       compositing="blend" light="N" ignore="Y"/>
@@ -72,6 +76,7 @@
   <material name="stkcrowd_lowPoly_a.png" compositing="test" />
   <material name="stktex_flightList_a.png" compositing="test" /> 
   <material name="stkflag_cupcakeAirwayLogo_a.png" compositing="test" /> 
+  <material name="stkflag_TCPLogo_a.png" compositing="test" /> 
   
   <material name="stk_metalDoor_a.png" gloss-map="stk_metalDoor_a_gloss.png" />
   <material name="motif.png" gloss-map="motif_gloss.png" />
@@ -118,7 +123,8 @@
   <material name="stk_lightGrayMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_lightGreyMetal_a_gloss.png"/>
   <material name="stk_blueMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_lightGreyMetal_a_gloss.png"/>
   <material name="stk_darkGrayMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_lightGreyMetal_a_gloss.png"/> 
-<material name="stktex_hexaJetRCAlivery_a.png"         gloss-map="stk_lightGreyMetal_a_gloss.png"/> 
+<material name="stktex_hexaJetRCAlivery_a.png"         gloss-map="stk_lightGreyMetal_a_gloss.png"/>
+<material name="stktex_trijetTCPlivery_a.png"         gloss-map="stk_lightGreyMetal_a_gloss.png"/> 
   
   <material name="stk_generic_bedRock_a.png"        graphical-effect="normal_map" normal-map="stk_generic_bedRock_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png"/> 
   <material name="stk_generic_pinkcrystal_a.png"        graphical-effect="normal_map" normal-map="stk_generic_bedRock_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png"/> 
