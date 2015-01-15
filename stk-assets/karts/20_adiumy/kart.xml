@@ -16,10 +16,10 @@
               right = "29"
               start-winning = "59"
               start-winning-loop = "119"
-              end-winning = "149"
-              start-losing = "159"
-              start-losing-loop = "189"
-              end-losing = "199"
+              end-winning = "159"
+              start-losing = "169"
+              start-losing-loop = "199"
+              end-losing = "209"
               start-speed-weighted = "219"
               end-speed-weighted = "239"/>
   <wheels>
