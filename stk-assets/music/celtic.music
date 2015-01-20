@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <music title    = "Scottish bagpipes"
-       composer = "Ozoneone"
+       composer = "Ozoneone and Krobonil"
        file     = "celtic.ogg"
        fast     = "true"
        fast-filename = "celtic_fast.ogg"
