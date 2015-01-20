@@ -7,6 +7,7 @@ garden.ogg                  by DJHelium, license: CC-BY-SA 3.0
 hacienda.ogg                by Claude Werner (bollen), license: CC-BY-SA 3.0
 kart_grand_prix.ogg         by Weirwood, license: CC-BY-SA v3.0
 klabauter_dance.ogg         by Chris Leutwyler (Krobonil), license: GPL
+landing_in_gran_paradiso    by Ozoneone & Krobonil, license: CC-BY-SA 3.0
 Lava.ogg                    by Kalsan, license: CC-BY-SA 3.0
 lose_theme.off              by Weirwood, license: CC-BY-SA v3.0
 menutheme.ogg               by Claude Werner (bollen), license: CC-BY-SA 3.0
