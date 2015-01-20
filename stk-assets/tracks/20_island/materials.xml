@@ -12,4 +12,5 @@
   <material name="stktex_redFlower_a.png" disable-z-write="Y"/>
   <material name="stktex_branches_diff_a.png" ignore="Y"/>
   <material name="stktex_greenBrush_a.png" disable-z-write="Y"/>
+  <material name="stktex_redParrot_a.png" shader="alphatest" disable-z-write="Y"/>
 </materials>
