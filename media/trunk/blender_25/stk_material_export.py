@@ -125,7 +125,18 @@ def writeMaterialsFile(sPath):
     f.write("<!-- Generated with script from SVN rev %s -->\n"%getScriptVersion())
     f.write("<materials>\n")
 
+    blendfile_dir = os.path.dirname(bpy.data.filepath)
     for i in limage:
+    
+        # Do not export materials from libraries
+        if i.library is not None:
+            continue
+    
+        # Only export materials from the same directory as the blend file
+        abs_texture_path = bpy.path.abspath(i.filepath)
+        if not bpy.path.is_subdir(abs_texture_path, blendfile_dir):
+            continue
+    
         #iterate through material definitions and collect data
         sImage = ""
         sSFX = ""
