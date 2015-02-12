@@ -57,9 +57,9 @@
     </PropGroup>
     
     <PropGroup id="propgroup_kartstart" name="Start line positions">
-        <IntProp id="start_karts_per_row" name="Karts per row on start" default="2" doc="How many karts are being placed in one row. The more karts, the wider the track must be (since each kart in a row will have a distance of start-sidewards-distance)."/>
-        <FloatProp id="start_forwards_distance" name="Start Forwards Distance" default="1.1" doc="How far a kart is in front of the next kart at start."/>
-        <FloatProp id="start_sidewards_distance" name="Start Sidewards Distance" default="1.1" doc="How much distance to the right/left of each kart in one row"/>
+        <IntProp id="start_karts_per_row" name="Karts per row on start" default="3" doc="How many karts are being placed in one row. The more karts, the wider the track must be (since each kart in a row will have a distance of start-sidewards-distance)."/>
+        <FloatProp id="start_forwards_distance" name="Start Forwards Distance" default="1.5" doc="How far a kart is in front of the next kart at start."/>
+        <FloatProp id="start_sidewards_distance" name="Start Sidewards Distance" default="1.8" doc="How much distance to the right/left of each kart in one row"/>
         <FloatProp id="start_upwards_distance" name="Start upwards distance" default="1.1" doc="Sometimes drivelines are too low and will be under the actual mesh. This is a simple vertical offset added to each start positions to make sure that karts start on top of the track (and not under it). Generally the drivelines should be fixed, but this allows a quick solution for existing tracks."/>
     </PropGroup>
     
