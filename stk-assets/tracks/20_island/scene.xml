@@ -11,9 +11,9 @@
     <static-object model="limits.b3d" xyz="-86.60 4.32 128.13" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
     <animated-texture name="stkflag_greenCheckBorard_a.png" dx="0.080"  dy="0.2000" />
   </track>
-  <object type="movable" id="Cube.022" xyz="91.21 16.21 -74.57" hpr="0.0 -35.5 0.0" scale="0.40 0.40 0.40"
+  <object type="movable" id="Cube.022" xyz="85.01 17.27 -75.01" hpr="0.0 -35.5 0.0" scale="0.40 0.40 0.40"
           shape="sphere" mass="20.0" model="beachball_playable_a.b3d" skeletal-animation="false"/>
-  <object type="movable" id="Cube.023" xyz="91.39 17.08 -69.65" hpr="0.0 -35.5 0.0" scale="0.40 0.40 0.40"
+  <object type="movable" id="Cube.023" xyz="85.20 17.08 -67.43" hpr="0.0 -35.5 0.0" scale="0.40 0.40 0.40"
           shape="sphere" mass="20.0" model="beachball_playable_b.b3d" skeletal-animation="false"/>
   <object id="Cube.025" type="animation" xyz="-28.66 14.03 -207.65" hpr="10.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="airbing_512.b3d" skeletal-animation="false">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
@@ -110,8 +110,40 @@
           shape="sphere" mass="20.0" model="beachball_playable_b.b3d" skeletal-animation="false"/>
   <object type="movable" id="Cube.032" xyz="-87.19 7.70 124.80" hpr="0.0 -35.5 0.0" scale="0.40 0.40 0.40"
           shape="sphere" mass="20.0" model="beachball_playable_b.b3d" skeletal-animation="false"/>
-  <object type="movable" id="Cube.033" xyz="85.10 16.01 -72.74" hpr="0.0 -35.5 0.0" scale="0.40 0.40 0.40"
+  <object type="movable" id="Cube.033" xyz="85.10 17.35 -71.49" hpr="0.0 -35.5 0.0" scale="0.40 0.40 0.40"
           shape="sphere" mass="20.0" model="beachball_playable_c.b3d" skeletal-animation="false"/>
+  <object id="Cube.034" type="animation" xyz="-30.00 3.42 100.22" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" shape="box" model="blast_object.b3d" skeletal-animation="false">
+    <curve channel="LocX" interpolation="bezier" extend="cyclic">
+      <p c="1.000 -30.000" h1="-114.171 -30.000" h2="116.171 -30.000"/>
+      <p c="296.000 -30.000" h1="217.918 -30.000" h2="311.616 -30.000"/>
+      <p c="336.000 -30.000" h1="328.192 -30.000" h2="337.562 -30.000"/>
+      <p c="340.000 -30.000" h1="338.438 -30.000" h2="347.808 -30.000"/>
+      <p c="686.000 -30.000" h1="607.918 -30.000" h2="701.616 -30.000"/>
+      <p c="726.000 -30.000" h1="718.192 -30.000" h2="727.562 -30.000"/>
+      <p c="730.000 -30.000" h1="728.438 -30.000" h2="737.808 -30.000"/>
+      <p c="796.000 -30.000" h1="770.233 -30.000" h2="821.767 -30.000"/>
+    </curve>
+    <curve channel="LocZ" interpolation="bezier" extend="cyclic">
+      <p c="1.000 100.218" h1="-114.171 100.218" h2="116.171 100.218"/>
+      <p c="296.000 100.218" h1="217.918 100.218" h2="311.616 100.218"/>
+      <p c="336.000 100.218" h1="328.192 100.218" h2="337.562 100.218"/>
+      <p c="340.000 100.218" h1="338.438 100.218" h2="347.808 100.218"/>
+      <p c="686.000 100.218" h1="607.918 100.218" h2="701.616 100.218"/>
+      <p c="726.000 100.218" h1="718.192 100.218" h2="727.562 100.218"/>
+      <p c="730.000 100.218" h1="728.438 100.218" h2="737.808 100.218"/>
+      <p c="796.000 100.218" h1="770.233 100.218" h2="821.767 100.218"/>
+    </curve>
+    <curve channel="LocY" interpolation="bezier" extend="cyclic">
+      <p c="1.000 3.419" h1="-114.171 3.419" h2="116.171 3.419"/>
+      <p c="296.000 3.419" h1="217.918 3.419" h2="311.616 3.419"/>
+      <p c="336.000 15.265" h1="328.192 15.265" h2="337.562 15.265"/>
+      <p c="340.000 3.419" h1="338.438 3.419" h2="347.808 3.419"/>
+      <p c="686.000 3.419" h1="607.918 3.419" h2="701.616 3.419"/>
+      <p c="726.000 15.265" h1="718.192 15.265" h2="727.562 15.265"/>
+      <p c="730.000 3.419" h1="728.438 3.419" h2="737.808 3.419"/>
+      <p c="796.000 3.419" h1="770.233 3.419" h2="821.767 3.419"/>
+    </curve>
+  </object>
   <object id="Cylinder.001" type="animation" xyz="-28.45 15.89 954.80" hpr="-89.5 -21.6 -0.1" scale="1.00 1.00 1.00" interaction="ghost" model="airbing_behemoth.b3d" skeletal-animation="true">
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
       <p c="1.000 -28.454" h1="-309.377 -28.454" h2="311.377 -28.454"/>
@@ -720,6 +752,14 @@
   </library>
   <library name="stklib_electricalFence_a" id="stklib_electricalFence_a_main_proxy" xyz="0.00 5.59 98.80" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
   </library>
+  <library name="stklib_electricalFencePost_a" id="stklib_electricalFencePost_a_main_proxy.001" xyz="20.00 5.60 98.78" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_electricalFencePost_a" id="stklib_electricalFencePost_a_main_proxy.004" xyz="-20.00 5.60 98.78" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_electricalFencePost_a" id="stklib_electricalFencePost_a_main_proxy.006" xyz="-40.00 5.60 98.78" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_electricalFencePost_a" id="stklib_electricalFencePost_a_main_proxy.008" xyz="-60.00 5.60 98.78" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
+  </library>
   <library name="stklib_fern_a" id="stklib_fern_a_main_proxy" xyz="52.02 16.89 -1.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_gnuMeditation_a" id="stklib_gnuMeditation_a_main_proxy" xyz="-104.55 4.50 138.33" hpr="-0.0 145.0 -0.0" scale="1.36 1.36 1.36">
@@ -739,6 +779,16 @@
   <library name="stklib_jetBlast_a" id="stklib_jetBlast_a_main_proxy" xyz="16.27 3.55 107.20" hpr="0.0 50.5 0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_jetBlast_a" id="stklib_jetBlast_a_main_proxy.001" xyz="-64.40 4.96 105.88" hpr="-0.0 140.7 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_jungleTree_b" id="stklib_jungleTree_b_main_proxy" xyz="92.06 19.12 93.99" hpr="0.3 38.7 -19.9" scale="5.30 5.30 5.30">
+  </library>
+  <library name="stklib_jungleTree_b" id="stklib_jungleTree_b_main_proxy.001" xyz="196.51 8.20 33.23" hpr="-8.0 109.8 2.3" scale="5.71 5.71 5.71">
+  </library>
+  <library name="stklib_jungleTree_b" id="stklib_jungleTree_b_main_proxy.002" xyz="40.15 11.72 -0.72" hpr="-73.8 -116.7 72.4" scale="5.71 5.71 5.71">
+  </library>
+  <library name="stklib_jungleTree_b" id="stklib_jungleTree_b_main_proxy.003" xyz="-206.99 10.46 67.90" hpr="-10.9 -59.8 -13.5" scale="5.71 5.71 5.71">
+  </library>
+  <library name="stklib_jungleTree_b" id="stklib_jungleTree_b_main_proxy.004" xyz="-107.86 20.35 74.48" hpr="-55.5 -104.3 57.2" scale="4.69 4.69 4.69">
   </library>
   <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy" xyz="-87.81 1.69 351.65" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
@@ -835,6 +885,10 @@
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.045" xyz="95.02 11.61 177.49" hpr="0.0 -0.0 0.0" scale="0.59 0.59 0.59">
   </library>
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.046" xyz="72.65 11.24 191.89" hpr="0.0 -0.0 0.0" scale="0.59 0.59 0.59">
+  </library>
+  <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.047" xyz="-108.25 23.34 71.02" hpr="0.0 -0.0 0.0" scale="0.42 0.42 0.42">
+  </library>
+  <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.048" xyz="-102.71 23.81 67.64" hpr="7.8 3.8 -11.1" scale="0.42 0.42 0.42">
   </library>
   <library name="stklib_princessSaraDepartureAirport_a" id="stklib_princessSaraDepartureAirport_a_main_proxy" xyz="90.09 15.57 -63.58" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00">
   </library>
