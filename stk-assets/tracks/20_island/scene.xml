@@ -11,6 +11,10 @@
     <static-object model="limits.b3d" xyz="-86.60 4.32 128.13" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
     <animated-texture name="stkflag_greenCheckBorard_a.png" dx="0.080"  dy="0.2000" />
   </track>
+  <object type="movable" id="Cube.022" xyz="91.21 16.21 -74.57" hpr="0.0 -35.5 0.0" scale="0.40 0.40 0.40"
+          shape="sphere" mass="20.0" model="beachball_playable_a.b3d" skeletal-animation="false"/>
+  <object type="movable" id="Cube.023" xyz="91.39 17.08 -69.65" hpr="0.0 -35.5 0.0" scale="0.40 0.40 0.40"
+          shape="sphere" mass="20.0" model="beachball_playable_b.b3d" skeletal-animation="false"/>
   <object id="Cube.025" type="animation" xyz="-28.66 14.03 -207.65" hpr="10.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="airbing_512.b3d" skeletal-animation="false">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -28.656"/>
@@ -58,6 +62,56 @@
       <p c="796.000 14.071"/>
     </curve>
   </object>
+  <object type="movable" id="Cube.027" xyz="-87.03 7.70 129.18" hpr="0.0 -35.5 0.0" scale="0.40 0.40 0.40"
+          shape="sphere" mass="20.0" model="beachball_playable_c.b3d" skeletal-animation="false"/>
+  <object type="movable" id="Cube.028" xyz="53.79 5.15 152.89" hpr="0.0 -35.5 0.0" scale="0.40 0.40 0.40"
+          shape="sphere" mass="20.0" model="beachball_playable_a.b3d" skeletal-animation="false"/>
+  <object id="Cube.029" type="animation" xyz="49.06 6.39 131.32" hpr="0.0 -35.5 0.0" scale="0.40 0.40 0.40" interaction="ghost" model="beachball_play_2.b3d" skeletal-animation="false">
+    <curve channel="LocX" interpolation="bezier" extend="cyclic">
+      <p c="1.000 49.056" h1="-9.932 49.056" h2="11.932 49.056"/>
+      <p c="29.000 42.011" h1="18.068 45.073" h2="41.884 38.403"/>
+      <p c="62.000 31.828" h1="49.116 31.828" h2="75.664 31.828"/>
+      <p c="97.000 42.011" h1="83.336 38.305" h2="107.932 44.977"/>
+      <p c="125.000 49.056" h1="114.068 49.056" h2="135.932 49.056"/>
+    </curve>
+    <curve channel="LocZ" interpolation="bezier" extend="cyclic">
+      <p c="1.000 131.325" h1="-9.932 131.325" h2="11.932 131.325"/>
+      <p c="29.000 148.538" h1="18.068 142.980" h2="41.884 155.089"/>
+      <p c="62.000 161.812" h1="49.116 161.812" h2="75.664 161.812"/>
+      <p c="97.000 148.538" h1="83.336 155.329" h2="107.932 143.105"/>
+      <p c="125.000 131.325" h1="114.068 131.325" h2="135.932 131.325"/>
+    </curve>
+    <curve channel="LocY" interpolation="bezier" extend="cyclic">
+      <p c="1.000 6.390" h1="-9.932 6.390" h2="11.932 6.390"/>
+      <p c="29.000 13.990" h1="18.068 13.990" h2="41.884 13.990"/>
+      <p c="62.000 6.196" h1="49.116 6.196" h2="75.664 6.196"/>
+      <p c="97.000 13.990" h1="83.336 13.990" h2="107.932 13.990"/>
+      <p c="125.000 6.390" h1="114.068 6.390" h2="135.932 6.390"/>
+    </curve>
+    <curve channel="RotX" interpolation="bezier" extend="cyclic">
+      <p c="1.000 -0.000" h1="-22.815 -0.000" h2="24.815 -0.000"/>
+      <p c="62.000 -203.741" h1="38.185 -203.741" h2="83.473 -203.741"/>
+      <p c="117.000 -0.000" h1="95.527 -0.000" h2="138.473 -0.000"/>
+    </curve>
+    <curve channel="RotZ" interpolation="bezier" extend="cyclic">
+      <p c="1.000 0.000" h1="-22.815 0.000" h2="24.815 0.000"/>
+      <p c="62.000 -8.773" h1="38.185 -8.773" h2="83.473 -8.773"/>
+      <p c="117.000 -0.000" h1="95.527 -0.000" h2="138.473 -0.000"/>
+    </curve>
+    <curve channel="RotY" interpolation="bezier" extend="cyclic">
+      <p c="1.000 -35.518" h1="-22.815 -35.518" h2="24.815 -35.518"/>
+      <p c="62.000 -151.461" h1="38.185 -151.461" h2="83.473 -151.461"/>
+      <p c="117.000 -35.518" h1="95.527 -35.518" h2="138.473 -35.518"/>
+    </curve>
+  </object>
+  <object type="movable" id="Cube.030" xyz="-86.83 7.27 133.25" hpr="0.0 -35.5 0.0" scale="0.40 0.40 0.40"
+          shape="sphere" mass="20.0" model="beachball_playable_a.b3d" skeletal-animation="false"/>
+  <object type="movable" id="Cube.031" xyz="31.41 7.70 140.25" hpr="0.0 -35.5 0.0" scale="0.40 0.40 0.40"
+          shape="sphere" mass="20.0" model="beachball_playable_b.b3d" skeletal-animation="false"/>
+  <object type="movable" id="Cube.032" xyz="-87.19 7.70 124.80" hpr="0.0 -35.5 0.0" scale="0.40 0.40 0.40"
+          shape="sphere" mass="20.0" model="beachball_playable_b.b3d" skeletal-animation="false"/>
+  <object type="movable" id="Cube.033" xyz="85.10 16.01 -72.74" hpr="0.0 -35.5 0.0" scale="0.40 0.40 0.40"
+          shape="sphere" mass="20.0" model="beachball_playable_c.b3d" skeletal-animation="false"/>
   <object id="Cylinder.001" type="animation" xyz="-28.45 15.89 954.80" hpr="-89.5 -21.6 -0.1" scale="1.00 1.00 1.00" interaction="ghost" model="airbing_behemoth.b3d" skeletal-animation="true">
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
       <p c="1.000 -28.454" h1="-309.377 -28.454" h2="311.377 -28.454"/>
@@ -642,8 +696,6 @@
   </library>
   <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.001" xyz="100.54 25.22 -56.68" hpr="0.0 -14.0 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.002" xyz="51.37 4.41 133.11" hpr="0.0 -30.1 0.0" scale="1.00 1.00 1.00">
-  </library>
   <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.003" xyz="96.66 25.39 -66.95" hpr="-0.0 104.7 -0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_bambooTorch_a" id="stklib_bambooTorch_a_main_proxy.006" xyz="69.84 13.87 -76.62" hpr="0.0 -0.0 0.0" scale="0.60 0.60 0.60">
@@ -660,9 +712,25 @@
   </library>
   <library name="stklib_beachWomen_a" id="stklib_beachWomen_a_main_proxy.002" xyz="104.56 24.60 -55.39" hpr="0.0 -19.8 0.0" scale="1.00 1.00 1.00">
   </library>
+  <library name="stklib_beachWomen_a" id="stklib_beachWomen_a_main_proxy.003" xyz="48.94 4.08 151.01" hpr="-0.0 165.0 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_beachWomen_a" id="stklib_beachWomen_a_main_proxy.004" xyz="36.38 3.53 143.52" hpr="0.0 -25.0 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_beachWomen_a" id="stklib_beachWomen_a_main_proxy.005" xyz="49.10 4.16 131.19" hpr="0.0 -30.0 -0.0" scale="1.00 1.00 1.00">
+  </library>
   <library name="stklib_electricalFence_a" id="stklib_electricalFence_a_main_proxy" xyz="0.00 5.59 98.80" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_fern_a" id="stklib_fern_a_main_proxy" xyz="52.02 16.89 -1.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_gnuMeditation_a" id="stklib_gnuMeditation_a_main_proxy" xyz="-104.55 4.50 138.33" hpr="-0.0 145.0 -0.0" scale="1.36 1.36 1.36">
+  </library>
+  <library name="stklib_gnuMeditation_a" id="stklib_gnuMeditation_a_main_proxy.001" xyz="103.74 5.55 167.43" hpr="-0.0 -155.0 0.0" scale="1.36 1.36 1.36">
+  </library>
+  <library name="stklib_gnuMeditation_a" id="stklib_gnuMeditation_a_main_proxy.002" xyz="76.68 5.51 135.73" hpr="0.0 50.5 0.0" scale="1.36 1.36 1.36">
+  </library>
+  <library name="stklib_gnuMeditation_a" id="stklib_gnuMeditation_a_main_proxy.003" xyz="51.87 4.13 132.42" hpr="-0.0 -34.5 0.0" scale="1.36 1.36 1.36">
+  </library>
+  <library name="stklib_gnuMeditation_a" id="stklib_gnuMeditation_a_main_proxy.004" xyz="31.66 3.92 162.18" hpr="-0.0 145.5 -0.0" scale="1.36 1.36 1.36">
   </library>
   <library name="stklib_greenRadioTower_a" id="stklib_greenRadioTower_a_main_proxy" xyz="16.73 8.43 2.46" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
   </library>
