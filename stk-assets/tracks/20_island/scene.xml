@@ -631,8 +631,8 @@
   </light>
   <lightshaft xyz="143.83 246.05 1358.93" id="Sun.001" opacity="0.70" color="255 158 34"/>
   <default-start karts-per-row     ="2"
-                 forwards-distance ="1.10"
-                 sidewards-distance="1.10"
+                 forwards-distance ="2.00"
+                 sidewards-distance="3.00"
                  upwards-distance  ="1.10"/>
   <library name="gfx_jetblastGround_a" id="gfx_jetblastGround_a_main_proxy" xyz="-30.00 -20.00 140.00" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00">
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
