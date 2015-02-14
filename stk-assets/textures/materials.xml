@@ -75,6 +75,8 @@
   <material name="stktex_boxGrid_a.png" compositing="test" />
   <material name="stkcrowd_lowPoly_a.png" compositing="test" />
   <material name="stktex_flightList_a.png" compositing="test" /> 
+  <material name="stkspon_japimpactDonator_a.png" compositing="test" /> 
+  
   <material name="stkflag_cupcakeAirwayLogo_a.png" compositing="test" /> 
   <material name="stkflag_TCPLogo_a.png" compositing="test" /> 
   
