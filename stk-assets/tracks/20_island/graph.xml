@@ -2,7 +2,15 @@
 <!-- Generated with script from SVN rev 15850 -->
 <graph>
   <!-- First define all nodes of the graph, and what quads they represent -->
-  <node-list from-quad="0" to-quad="265"/>  <!-- map each quad to a node  -->
+  <node-list from-quad="0" to-quad="274"/>  <!-- map each quad to a node  -->
   <!-- Define the main loop -->
   <edge-loop from="0" to="265"/>
+  <!-- Shortcut Circle.025 -->
+  <edge from="20" to="266"/>
+  <edge-line from="266" to="270"/>
+  <edge from="270" to="27"/>
+  <!-- Shortcut Circle.026 -->
+  <edge from="30" to="271"/>
+  <edge-line from="271" to="274"/>
+  <edge from="274" to="35"/>
 </graph>
