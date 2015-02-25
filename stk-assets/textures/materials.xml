@@ -7,14 +7,14 @@
   </material>
 
   <!-- flags -->
-  <material name="stkflag_valverdeVertical_a.png" shader="alphatest" graphical-effect="grass"/>
-  <material name="stkflag_stkVertical_a.png" shader="alphatest" graphical-effect="grass"/>
-  <material name="stkflag_saraVertical_a.png" shader="alphatest" graphical-effect="grass"/>
-  <material name="stkflag_goldCupVertical_a.png" shader="alphatest" graphical-effect="grass"/>
+  <material name="stkflag_valverdeVertical_a.png"   shader="grass" />
+  <material name="stkflag_stkVertical_a.png"        shader="grass" />
+  <material name="stkflag_saraVertical_a.png"       shader="grass" />
+  <material name="stkflag_goldCupVertical_a.png"    shader="grass" />
   <material name="stkflag_orangeStartingLine_a.png" shader="alphatest" disable-z-write="Y"/>
-  <material name="stkflag_orangeBooster_a.png" shader="alphatest" disable-z-write="Y" has-gravity="Y"/>
-  <material name="stkflag_blueBooster_a.png" shader="alphatest" disable-z-write="Y" has-gravity="Y"/>
-  <material name="stkflag_blueStartingLine_a.png" shader="alphatest" disable-z-write="Y"/>
+  <material name="stkflag_orangeBooster_a.png"      shader="alphatest" disable-z-write="Y" has-gravity="Y"/>
+  <material name="stkflag_blueBooster_a.png"        shader="alphatest" disable-z-write="Y" has-gravity="Y"/>
+  <material name="stkflag_blueStartingLine_a.png"   shader="alphatest" disable-z-write="Y"/>
 
   <!-- Particles -->
   <material name="explode.png"           shader="additive" ignore="Y"/>
@@ -46,7 +46,7 @@
     <particles base="smoke.xml" condition="skid drive" />
   </material>
   
-  <!-- Textures graphical-effect="normal_map" normal-map="stktex_generic_cobbleStoneA_nm.png" graphical-effect="grass"-->
+  <!-- Textures graphical-effect="normal_map" normal-map="stktex_generic_cobbleStoneA_nm.png" -->
   <material name="stktex_animatedFire_a.png" disable-z-write="Y" shader="additive"/>
   
   <material name="gfx_distord_AlphaTested.png" shader="alphatest"/>
@@ -59,15 +59,15 @@
   <material name="stktex_valVerdeLocationAtlas_a.png" shader="alphatest"/>
   <material name="stktex_granParadisoLocation_a.png" shader="alphatest"/>
   
-  <material name="stktex_branches_diff_a.png" shader="alphatest" graphical-effect="grass"/>
-  <material name="stkflag_valverdeVertical_a.png" shader="alphatest" graphical-effect="grass"/>
-  <material name="stktex_cocoaTreeLeaf_a.png" shader="alphatest" graphical-effect="grass"/>
+  <material name="stktex_branches_diff_a.png" shader="grass" />
+  <material name="stkflag_valverdeVertical_a.png" shader="grass" />
+  <material name="stktex_cocoaTreeLeaf_a.png" shader="grass" />
   
   <material name="stktex_deadTree_a.png" shader="alphatest" ignore="Y" />
   
-  <material name="stktex_coralBump_a.png" shader="alphatest" graphical-effect="grass"/>
-  <material name="stktex_seaFlower_a.png" shader="alphatest" graphical-effect="grass"/>
-  <material name="stktex_coralDisk_a.png" shader="alphatest" graphical-effect="grass"/>
+  <material name="stktex_coralBump_a.png" shader="grass" />
+  <material name="stktex_seaFlower_a.png" shader="grass" />
+  <material name="stktex_coralDisk_a.png" shader="grass" />
   
     
   <material name="stktex_lowPalmTree_a.png" shader="alphatest" />
@@ -95,25 +95,25 @@
   <material name="stk_mudpot_a.png" gloss-map="stk_mudpot_a_gloss.png" />
   
   <material name="stk_generic_gridA.png" shader="alphatest" has-gravity="Y"/>
-  <material name="stktex_lowPalmLeaf_a.png" shader="alphatest" graphical-effect="grass"/>
+  <material name="stktex_lowPalmLeaf_a.png" shader="grass"/>
   
   
   
-  <material name="stktex_jungleLeaf_a.png" shader="alphatest" graphical-effect="grass"/>
-  <material name="stktex_cattail_diff_a.png" shader="alphatest" graphical-effect="grass"/>
+  <material name="stktex_jungleLeaf_a.png" shader="grass" />
+  <material name="stktex_cattail_diff_a.png" shader="grass" />
   
   <material name="stktex_usSignAtlas_a.png" shader="alphatest"/>
   <material name="stk_terminalHappy_face_a.png" shader="alphatest"/>
-  <material name="stktex_palmLeaf_a.png" shader="alphatest" ignore="Y" graphical-effect="grass"/>
-  <material name="stktex_palmLeafDry_a.png" shader="alphatest" ignore="Y" graphical-effect="grass"/>
-  <material name="stktex_jungleLiana_a.png" shader="alphatest" ignore="Y" graphical-effect="grass"/>
+  <material name="stktex_palmLeaf_a.png" shader="grass" ignore="Y" />
+  <material name="stktex_palmLeafDry_a.png" shader="grass" ignore="Y" />
+  <material name="stktex_jungleLiana_a.png" shader="grass" ignore="Y" />
   
-  <material name="stk_grasscliff_a.png" shader="alphatest" ignore="Y" />
+  <material name="stk_grasscliff_a.png" shader="grass"/>
 
-  <material name="stktex_jungleLeaf_b.png" shader="alphatest" ignore="Y" graphical-effect="grass"/>
-  <material name="stktex_waterLily_a.png" shader="alphatest" ignore="Y" graphical-effect="grass"/>
-  <material name="stk_grassAlpha.png"  graphical-effect="grass"       shader="alphatest"  ignore="Y"/>
-  <material name="stk_generic_colorfabricA.png"  graphical-effect="grass"       shader="alphatest"  ignore="Y"/>
+  <material name="stktex_jungleLeaf_b.png" shader="grass" ignore="Y" />
+  <material name="stktex_waterLily_a.png" shader="grass" ignore="Y" />
+  <material name="stk_grassAlpha.png"         shader="grass"  ignore="Y"/>
+  <material name="stk_generic_colorfabricA.png"         shader="grass"  ignore="Y"/>
   <material name="gfx_leaf_a.png" compositing="additive"/>
   <material name="gfx_sparkFire_a.png" compositing="additive"/>
   
@@ -123,6 +123,8 @@
   
   <material name="stktex_generic_rockA.png"        graphical-effect="normal_map" normal-map="stktex_generic_rockA_nm.png" gloss-map="stktex_generic_rockA_gloss.png"/>
   <material name="stk_greyMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png"/>
+  <material name="stk_goldMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png"/>
+  
   <material name="stk_lightGrayMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_lightGreyMetal_a_gloss.png"/>
   <material name="stk_blueMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_lightGreyMetal_a_gloss.png"/>
   <material name="stk_darkGrayMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_lightGreyMetal_a_gloss.png"/> 
@@ -147,7 +149,7 @@
   
   
 
-  <material name="stktex_hayFiber_a.png" shader="alphatest" graphical-effect="grass" ignore="Y"/>
+  <material name="stktex_hayFiber_a.png" shader="grass"  ignore="Y"/>
   
   <material name="stktex_palmTreeBark_a.png"  />
   
