@@ -1,14 +1,9 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev 15850 -->
 <scene>
-  <lod>
-   <group name="_single_lod_treeGiantRoots_a">
-    <static-object lod_distance="200" lod_group="_single_lod_treeGiantRoots_a" model="treeGiantRoots_a.b3d" xyz="141.04 11.13 68.74" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" skeletal-animation="false"/>
-   </group>
-  </lod>
   <track model="chocolate_01_track.b3d" x="0" y="0" z="0">
+    <static-object model="boundaries.b3d" xyz="8.70 2.58 -313.78" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
     <static-object model="wooden_bridge.b3d" xyz="249.73 13.10 -11.95" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
-    <static-object lod_instance="true" lod_group="_single_lod_treeGiantRoots_a" xyz="141.04 11.13 68.74" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <animated-texture name="stktex_animatedFire_a.png" dy="0.0625"  animByStep="true" dt="0.050" />
     <animated-texture name="stktex_animatedFire_a.png" dy="0.0625"  animByStep="true" dt="0.050" />
     <animated-texture name="clouds.png" dy="-0.5000" />
@@ -31,8 +26,6 @@
     <animated-texture name="stktex_waterfall_a.png" dy="-0.5000" />
   </track>
   <object id="Circle.002" type="animation" xyz="-54.26 0.97 -169.38" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="roaster_displacement.b3d" displacing="true" skeletal-animation="false">
-  </object>
-  <object id="Plane.001" type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="north_culling.b3d" skeletal-animation="false">
   </object>
   <object id="Plane.005" type="animation" xyz="141.10 -24.72 746.19" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_river_distord.b3d" displacing="true" skeletal-animation="false">
     <animated-texture name="jungleWater.png" dx="0.100" />
@@ -1051,9 +1044,11 @@
   </light>
   <light xyz="-53.44 11.99 -85.53" id="Lamp.034" distance="25.00" energy="5.00" color="255 80 25">
   </light>
+  <light xyz="-64.98 0.26 -176.39" id="Lamp.035" distance="25.00" energy="5.00" color="255 80 25">
+  </light>
   <lightshaft xyz="-1406.06 496.57 -237.14" id="Sun.001" opacity="0.80" color="217 255 93"/>
   <default-start karts-per-row     ="3"
-                 forwards-distance ="1.50"
+                 forwards-distance ="2.00"
                  sidewards-distance="2.00"
                  upwards-distance  ="1.10"/>
   <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy" xyz="-75.04 0.52 6.16" hpr="0.1 4.2 -7.1" scale="1.28 1.28 1.28">
@@ -1194,13 +1189,17 @@
   </library>
   <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.002" xyz="294.95 18.62 -53.16" hpr="-0.0 -113.2 -0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.003" xyz="252.04 18.90 -75.89" hpr="-0.0 140.0 -0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.003" xyz="252.04 18.79 -75.89" hpr="-0.0 140.0 -0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.004" xyz="234.66 20.27 -132.46" hpr="0.0 25.5 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.005" xyz="304.44 18.56 -109.38" hpr="0.0 39.2 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.005" xyz="304.44 18.57 -109.38" hpr="0.0 39.2 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.006" xyz="31.58 -1.31 33.32" hpr="0.0 -62.8 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.006" xyz="31.58 -1.27 33.32" hpr="0.0 -62.8 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.007" xyz="-34.89 0.03 -130.60" hpr="-0.0 -113.3 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.008" xyz="-69.65 5.30 -90.31" hpr="-0.0 161.2 -0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy" xyz="-44.21 10.21 -55.42" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
   </library>
@@ -1236,9 +1235,9 @@
   </library>
   <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.016" xyz="309.95 15.59 -183.70" hpr="0.0 35.0 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.017" xyz="-44.23 10.21 -82.82" hpr="-0.0 161.8 -0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.017" xyz="-45.37 10.21 -83.19" hpr="-0.0 161.8 -0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.018" xyz="-37.62 8.53 -103.85" hpr="-0.0 168.1 -0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.018" xyz="-38.24 8.53 -103.98" hpr="-0.0 168.1 -0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.019" xyz="-36.48 5.79 -125.22" hpr="-0.0 -175.2 -0.0" scale="1.00 1.00 1.00">
   </library>
@@ -1248,9 +1247,9 @@
   </library>
   <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.022" xyz="-72.05 5.79 -125.22" hpr="-0.0 -4.8 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.023" xyz="-70.84 8.53 -103.85" hpr="-0.0 13.9 -0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.023" xyz="-70.19 8.53 -104.01" hpr="-0.0 13.9 -0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.024" xyz="-64.23 10.21 -82.82" hpr="0.0 17.3 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.024" xyz="-62.93 10.21 -83.22" hpr="0.0 17.3 0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_aztekVase_a" id="stklib_aztekVase_a_main_proxy" xyz="284.28 18.80 -80.47" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
@@ -1597,6 +1596,36 @@
   <library name="stklib_roots_a" id="stklib_roots_a_main_proxy.039" xyz="214.60 15.59 -286.36" hpr="-5.7 2.3 -6.4" scale="1.98 1.98 1.98">
   </library>
   <library name="stklib_roots_a" id="stklib_roots_a_main_proxy.040" xyz="214.14 15.05 -266.44" hpr="0.9 -4.6 -0.5" scale="1.98 1.98 1.98">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy" xyz="26.49 10.14 51.12" hpr="0.0 -100.0 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.001" xyz="29.35 10.14 34.91" hpr="0.0 -100.0 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.002" xyz="298.85 33.84 -82.10" hpr="-0.0 -35.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.003" xyz="302.99 33.93 -105.24" hpr="-0.0 -2.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.004" xyz="291.06 33.88 -131.32" hpr="0.0 39.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.005" xyz="275.03 33.88 -180.43" hpr="0.0 4.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.006" xyz="264.50 33.86 -218.42" hpr="0.0 29.5 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.007" xyz="243.12 33.88 -241.15" hpr="0.0 54.5 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.008" xyz="214.56 33.86 -253.69" hpr="0.0 77.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.009" xyz="154.04 26.90 -229.20" hpr="-0.0 99.4 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.010" xyz="120.31 18.92 -228.78" hpr="0.0 76.9 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.011" xyz="92.99 12.86 -247.65" hpr="0.0 31.2 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.012" xyz="45.97 12.85 -296.73" hpr="0.0 89.7 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.013" xyz="-17.36 12.88 -287.79" hpr="-0.0 116.3 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.014" xyz="-47.38 12.80 -252.77" hpr="-0.0 154.6 -0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_tropicalPlant_a" id="stklib_tropicalPlant_a_main_proxy" xyz="0.00 0.00 58.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
