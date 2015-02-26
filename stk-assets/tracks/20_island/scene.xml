@@ -251,7 +251,7 @@
   </object>
   <sun  fog="true" fog-color="19 84 86" fog-max="0.20000000298023224" fog-start="15.00" fog-end="750.00" xyz="143.83 732.16 1358.93" sun-diffuse="255 166 71" ambient="120 120 120"/>
   <sky-box texture="skybox_side.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png" sh-texture="skybox_side.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png"/>
-  <camera far="3000.0"/>
+  <camera far="2500.0"/>
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
     <check-line kind="activate" other-ids="2" p1="-97.20 115.17" p2="-99.68 140.46"
@@ -292,6 +292,32 @@
   <library name="stklib_redSeaweed_a" id="stklib_redSeaweed_a_main_proxy" xyz="98.87 -12.75 232.21" hpr="-0.0 -0.0 0.0" scale="0.91 0.91 0.91"/>
   <library name="stklib_redSeaweed_a" id="stklib_redSeaweed_a_main_proxy" xyz="-184.10 -23.42 176.93" hpr="-0.0 -0.0 0.0" scale="1.18 1.18 1.18"/>
   <library name="stklib_redSeaweed_a" id="stklib_redSeaweed_a_main_proxy" xyz="-33.36 -20.17 217.42" hpr="-0.0 -0.0 0.0" scale="0.88 0.88 0.88"/>
+  <!-- Hair system BezierCurve.003, contains 25 particles -->
+  <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy" xyz="78.93 5.51 174.97" hpr="-0.0 -0.0 0.0" scale="1.71 1.71 1.71"/>
+  <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy" xyz="28.11 3.72 102.89" hpr="-0.0 -0.0 0.0" scale="1.26 1.26 1.26"/>
+  <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy" xyz="199.39 6.62 64.47" hpr="-0.0 -0.0 0.0" scale="1.88 1.88 1.88"/>
+  <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy" xyz="199.06 7.22 53.55" hpr="-0.0 -0.0 0.0" scale="1.41 1.41 1.41"/>
+  <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy" xyz="195.36 7.63 40.69" hpr="-0.0 -0.0 0.0" scale="1.82 1.82 1.82"/>
+  <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy" xyz="69.71 5.39 173.44" hpr="-0.0 -0.0 0.0" scale="1.92 1.92 1.92"/>
+  <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy" xyz="28.58 3.71 109.41" hpr="-0.0 -0.0 0.0" scale="1.45 1.45 1.45"/>
+  <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy" xyz="86.69 5.58 125.37" hpr="-0.0 -0.0 0.0" scale="1.47 1.47 1.47"/>
+  <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy" xyz="200.47 6.86 54.30" hpr="-0.0 -0.0 0.0" scale="1.49 1.49 1.49"/>
+  <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy" xyz="104.42 5.58 165.32" hpr="-0.0 -0.0 0.0" scale="1.77 1.77 1.77"/>
+  <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy" xyz="138.17 5.58 112.15" hpr="-0.0 -0.0 0.0" scale="1.92 1.92 1.92"/>
+  <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy" xyz="-84.12 4.36 114.76" hpr="-0.0 -0.0 0.0" scale="1.28 1.28 1.28"/>
+  <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy" xyz="-78.95 4.32 109.94" hpr="-0.0 -0.0 0.0" scale="1.64 1.64 1.64"/>
+  <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy" xyz="216.90 3.09 44.14" hpr="-0.0 -0.0 0.0" scale="1.72 1.72 1.72"/>
+  <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy" xyz="149.07 3.97 109.87" hpr="-0.0 -0.0 0.0" scale="1.74 1.74 1.74"/>
+  <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy" xyz="-84.66 4.36 113.30" hpr="-0.0 -0.0 0.0" scale="1.20 1.20 1.20"/>
+  <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy" xyz="140.52 7.44 66.69" hpr="-0.0 -0.0 0.0" scale="1.70 1.70 1.70"/>
+  <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy" xyz="119.27 6.02 77.79" hpr="-0.0 -0.0 0.0" scale="1.84 1.84 1.84"/>
+  <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy" xyz="-72.09 4.24 116.66" hpr="-0.0 -0.0 0.0" scale="1.36 1.36 1.36"/>
+  <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy" xyz="17.07 3.74 96.56" hpr="-0.0 -0.0 0.0" scale="1.51 1.51 1.51"/>
+  <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy" xyz="127.73 6.80 67.79" hpr="-0.0 -0.0 0.0" scale="1.61 1.61 1.61"/>
+  <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy" xyz="98.30 5.58 90.83" hpr="-0.0 -0.0 0.0" scale="1.69 1.69 1.69"/>
+  <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy" xyz="201.54 6.46 39.62" hpr="-0.0 -0.0 0.0" scale="1.51 1.51 1.51"/>
+  <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy" xyz="91.88 5.58 109.27" hpr="-0.0 -0.0 0.0" scale="1.96 1.96 1.96"/>
+  <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy" xyz="95.85 5.55 107.03" hpr="-0.0 -0.0 0.0" scale="1.47 1.47 1.47"/>
   <!-- END Hair system BezierCurve.003 -->
 
   <!-- Hair system Plane.006, contains 25 particles -->
@@ -720,6 +746,8 @@
       <p c="796.000 -20.000" h1="775.699 -20.000" h2="816.301 -20.000"/>
     </curve>
   </library>
+  <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy" xyz="140.11 4.99 108.93" hpr="3.4 -30.5 -9.4" scale="2.46 2.46 2.46">
+  </library>
   <library name="stklib_armchair_a" id="stklib_armchair_a_main_proxy" xyz="-94.55 4.79 146.77" hpr="4.5 7.0 -1.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_armchair_a" id="stklib_armchair_a_main_proxy.001" xyz="-91.74 4.57 146.53" hpr="-12.1 131.4 -17.9" scale="1.00 1.00 1.00">
@@ -812,7 +840,39 @@
   </library>
   <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.002" xyz="186.53 5.69 83.34" hpr="0.0 44.5 0.0" scale="0.88 1.00 1.00">
   </library>
-  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy" xyz="-87.81 1.69 351.65" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy" xyz="-253.84 4.06 342.13" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.001" xyz="244.77 8.66 354.97" hpr="0.0 -0.0 0.0" scale="1.21 1.21 1.21">
+  </library>
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.002" xyz="256.53 4.84 341.34" hpr="0.0 -0.0 0.0" scale="0.81 0.81 0.81">
+  </library>
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.003" xyz="277.13 6.95 336.84" hpr="0.0 -0.0 0.0" scale="1.10 1.10 1.10">
+  </library>
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.004" xyz="244.33 9.06 374.61" hpr="-5.7 -0.3 1.7" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.005" xyz="260.30 7.28 359.40" hpr="0.0 -120.7 -0.0" scale="1.10 1.10 1.10">
+  </library>
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.006" xyz="266.93 5.16 339.38" hpr="0.0 -120.7 -0.0" scale="0.81 0.81 0.81">
+  </library>
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.007" xyz="251.88 8.79 362.67" hpr="-5.1 -160.0 -1.8" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.008" xyz="258.29 8.39 381.23" hpr="0.0 -159.7 -0.0" scale="1.21 1.21 1.21">
+  </library>
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.009" xyz="-257.13 4.68 319.65" hpr="0.0 84.2 0.0" scale="1.21 1.21 1.21">
+  </library>
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.010" xyz="-237.64 5.08 322.08" hpr="9.7 83.7 15.4" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.011" xyz="-223.37 1.45 345.85" hpr="0.0 123.2 0.0" scale="0.81 0.81 0.81">
+  </library>
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.012" xyz="-238.42 3.56 331.08" hpr="0.0 123.2 0.0" scale="1.10 1.10 1.10">
+  </library>
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.013" xyz="-245.03 5.35 310.04" hpr="-2.3 -116.5 -3.8" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.014" xyz="-225.58 3.24 356.12" hpr="-0.0 -116.1 -0.0" scale="1.10 1.10 1.10">
+  </library>
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.015" xyz="-220.55 1.12 335.64" hpr="-0.0 -116.1 -0.0" scale="0.81 0.81 0.81">
+  </library>
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.016" xyz="-227.60 4.95 319.09" hpr="-0.0 -116.1 -0.0" scale="1.21 1.21 1.21">
   </library>
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy" xyz="151.68 9.37 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
