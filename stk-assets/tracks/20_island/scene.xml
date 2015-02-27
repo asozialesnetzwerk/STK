@@ -318,6 +318,42 @@
   <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy" xyz="201.54 6.46 39.62" hpr="-0.0 -0.0 0.0" scale="1.51 1.51 1.51"/>
   <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy" xyz="91.88 5.58 109.27" hpr="-0.0 -0.0 0.0" scale="1.96 1.96 1.96"/>
   <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy" xyz="95.85 5.55 107.03" hpr="-0.0 -0.0 0.0" scale="1.47 1.47 1.47"/>
+  <!-- Hair system BezierCurve.003, contains 35 particles -->
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="-48.64 3.30 139.26" hpr="-0.0 -0.0 0.0" scale="0.43 0.43 0.43"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="151.52 6.48 96.88" hpr="-0.0 -0.0 0.0" scale="0.31 0.31 0.31"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="183.34 6.87 80.86" hpr="-0.0 -0.0 0.0" scale="0.47 0.47 0.47"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="167.07 7.21 87.45" hpr="-0.0 -0.0 0.0" scale="0.35 0.35 0.35"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="116.68 3.68 165.81" hpr="-0.0 -0.0 0.0" scale="0.46 0.46 0.46"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="-50.46 5.06 130.76" hpr="-0.0 -0.0 0.0" scale="0.48 0.48 0.48"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="116.22 5.58 146.84" hpr="-0.0 -0.0 0.0" scale="0.36 0.36 0.36"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="138.97 5.43 112.03" hpr="-0.0 -0.0 0.0" scale="0.37 0.37 0.37"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="182.04 7.38 79.52" hpr="-0.0 -0.0 0.0" scale="0.37 0.37 0.37"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="-50.08 3.70 137.79" hpr="-0.0 -0.0 0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="168.51 8.26 82.69" hpr="-0.0 -0.0 0.0" scale="0.48 0.48 0.48"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="153.49 7.31 88.96" hpr="-0.0 -0.0 0.0" scale="0.32 0.32 0.32"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="179.44 8.51 73.42" hpr="-0.0 -0.0 0.0" scale="0.41 0.41 0.41"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="134.82 2.84 141.89" hpr="-0.0 -0.0 0.0" scale="0.43 0.43 0.43"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="193.88 7.01 71.10" hpr="-0.0 -0.0 0.0" scale="0.44 0.44 0.44"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="157.82 7.57 87.95" hpr="-0.0 -0.0 0.0" scale="0.30 0.30 0.30"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="20.23 2.64 161.27" hpr="-0.0 -0.0 0.0" scale="0.42 0.42 0.42"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="125.52 5.55 138.76" hpr="-0.0 -0.0 0.0" scale="0.46 0.46 0.46"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="-54.64 4.95 131.22" hpr="-0.0 -0.0 0.0" scale="0.34 0.34 0.34"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="141.47 5.90 102.26" hpr="-0.0 -0.0 0.0" scale="0.38 0.38 0.38"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="132.03 4.36 132.94" hpr="-0.0 -0.0 0.0" scale="0.40 0.40 0.40"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="127.41 2.89 156.24" hpr="-0.0 -0.0 0.0" scale="0.42 0.42 0.42"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="137.37 4.05 123.92" hpr="-0.0 -0.0 0.0" scale="0.38 0.38 0.38"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="124.27 4.63 148.78" hpr="-0.0 -0.0 0.0" scale="0.49 0.49 0.49"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="123.45 5.58 128.53" hpr="-0.0 -0.0 0.0" scale="0.37 0.37 0.37"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="129.61 4.21 141.69" hpr="-0.0 -0.0 0.0" scale="0.35 0.35 0.35"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="24.54 2.10 168.04" hpr="-0.0 -0.0 0.0" scale="0.37 0.37 0.37"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="160.36 2.95 104.63" hpr="-0.0 -0.0 0.0" scale="0.31 0.31 0.31"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="136.86 2.56 139.45" hpr="-0.0 -0.0 0.0" scale="0.33 0.33 0.33"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="139.95 4.21 118.56" hpr="-0.0 -0.0 0.0" scale="0.41 0.41 0.41"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="136.93 5.58 113.72" hpr="-0.0 -0.0 0.0" scale="0.40 0.40 0.40"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="119.21 5.58 144.70" hpr="-0.0 -0.0 0.0" scale="0.48 0.48 0.48"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="183.78 5.79 85.21" hpr="-0.0 -0.0 0.0" scale="0.32 0.32 0.32"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="176.59 6.93 84.23" hpr="-0.0 -0.0 0.0" scale="0.36 0.36 0.36"/>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="137.13 2.39 140.47" hpr="-0.0 -0.0 0.0" scale="0.36 0.36 0.36"/>
   <!-- END Hair system BezierCurve.003 -->
 
   <!-- Hair system Plane.006, contains 25 particles -->
@@ -748,6 +784,24 @@
   </library>
   <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy" xyz="140.11 4.99 108.93" hpr="3.4 -30.5 -9.4" scale="2.46 2.46 2.46">
   </library>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="124.81 4.74 145.98" hpr="25.4 62.0 11.5" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy.001" xyz="48.33 3.92 150.75" hpr="5.0 33.0 -0.3" scale="0.30 0.30 0.30">
+  </library>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy.002" xyz="37.32 3.47 145.00" hpr="5.0 33.0 -0.3" scale="0.30 0.30 0.30">
+  </library>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy.003" xyz="37.41 3.44 143.11" hpr="5.0 33.0 -0.3" scale="0.30 0.30 0.30">
+  </library>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy.004" xyz="32.07 3.71 120.75" hpr="-0.2 12.5 1.0" scale="0.40 0.40 0.40">
+  </library>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy.005" xyz="45.75 3.79 124.06" hpr="-0.2 12.5 1.0" scale="0.83 0.83 0.83">
+  </library>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy.006" xyz="-10.16 4.48 125.43" hpr="5.0 33.0 -0.3" scale="0.30 0.30 0.30">
+  </library>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy.007" xyz="-17.94 4.50 123.17" hpr="5.0 33.0 -0.3" scale="0.30 0.30 0.30">
+  </library>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy.008" xyz="-12.82 4.48 124.21" hpr="1.5 7.9 6.0" scale="0.30 0.30 0.30">
+  </library>
   <library name="stklib_armchair_a" id="stklib_armchair_a_main_proxy" xyz="-94.55 4.79 146.77" hpr="4.5 7.0 -1.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_armchair_a" id="stklib_armchair_a_main_proxy.001" xyz="-91.74 4.57 146.53" hpr="-12.1 131.4 -17.9" scale="1.00 1.00 1.00">
@@ -793,6 +847,10 @@
   <library name="stklib_beachWomen_a" id="stklib_beachWomen_a_main_proxy.004" xyz="36.38 3.53 143.52" hpr="0.0 -25.0 -0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_beachWomen_a" id="stklib_beachWomen_a_main_proxy.005" xyz="49.10 4.16 131.19" hpr="0.0 -30.0 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_beachWomen_a" id="stklib_beachWomen_a_main_proxy.006" xyz="-21.83 4.66 122.29" hpr="-0.0 -9.3 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_beachWomen_a" id="stklib_beachWomen_a_main_proxy.007" xyz="-7.72 4.50 126.10" hpr="-0.0 -179.3 0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_electricalFence_a" id="stklib_electricalFence_a_main_proxy" xyz="0.00 5.59 98.80" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
   </library>
@@ -1000,6 +1058,12 @@
   </library>
   <library name="stklib_redFlowerBush_a" id="stklib_redFlowerBush_a_main_proxy.006" xyz="101.37 27.26 -80.03" hpr="0.0 -7.5 0.0" scale="0.26 0.26 0.26">
   </library>
+  <library name="stklib_redFlowerBush_a" id="stklib_redFlowerBush_a_main_proxy.007" xyz="34.92 12.65 -22.27" hpr="0.0 -18.1 -0.0" scale="1.48 1.48 1.48">
+  </library>
+  <library name="stklib_redFlowerBush_a" id="stklib_redFlowerBush_a_main_proxy.008" xyz="138.98 10.47 -59.32" hpr="0.0 -158.2 0.0" scale="1.48 1.48 1.48">
+  </library>
+  <library name="stklib_redFlowerBush_a" id="stklib_redFlowerBush_a_main_proxy.009" xyz="146.49 11.15 -12.06" hpr="0.0 -158.2 0.0" scale="1.48 1.48 1.48">
+  </library>
   <library name="stklib_redParrot_a" id="stklib_redParrot_a_main_proxy" xyz="127.69 10.52 7.30" hpr="0.0 -87.7 0.0" scale="5.68 5.68 5.68">
   </library>
   <library name="stklib_redParrot_a" id="stklib_redParrot_a_main_proxy.001" xyz="91.39 34.17 -59.53" hpr="-0.0 84.8 -34.1" scale="5.12 5.12 5.12">
@@ -1035,6 +1099,18 @@
   <library name="stklib_reef_a" id="stklib_reef_a_main_proxy.012" xyz="-103.40 -66.61 -75.35" hpr="0.2 1.2 22.7" scale="6.74 6.74 6.74">
   </library>
   <library name="stklib_reef_a" id="stklib_reef_a_main_proxy.013" xyz="-197.67 -66.61 -115.23" hpr="23.2 9.1 -0.5" scale="6.74 6.74 6.74">
+  </library>
+  <library name="stklib_sagebrush_a" id="stklib_sagebrush_a_main_proxy" xyz="63.55 4.28 179.83" hpr="0.0 99.9 0.0" scale="1.79 1.79 1.79">
+  </library>
+  <library name="stklib_sagebrush_a" id="stklib_sagebrush_a_main_proxy.001" xyz="94.87 5.45 168.95" hpr="0.0 99.9 0.0" scale="1.79 1.79 1.79">
+  </library>
+  <library name="stklib_sagebrush_a" id="stklib_sagebrush_a_main_proxy.002" xyz="145.96 5.68 102.48" hpr="-0.0 57.2 -0.0" scale="1.79 1.79 1.79">
+  </library>
+  <library name="stklib_sagebrush_a" id="stklib_sagebrush_a_main_proxy.003" xyz="144.70 3.00 120.78" hpr="-9.6 -130.4 -1.2" scale="1.79 1.79 1.79">
+  </library>
+  <library name="stklib_sagebrush_a" id="stklib_sagebrush_a_main_proxy.004" xyz="-114.34 4.29 135.34" hpr="0.0 -3.8 0.0" scale="1.37 1.37 1.37">
+  </library>
+  <library name="stklib_sagebrush_a" id="stklib_sagebrush_a_main_proxy.005" xyz="-85.66 2.45 149.32" hpr="9.8 -14.1 -2.8" scale="1.37 1.37 1.37">
   </library>
   <library name="stklib_saraVertical_a" id="stklib_saraVertical_a_main_proxy" xyz="128.88 21.98 -62.08" hpr="-0.0 130.7 -0.0" scale="1.00 1.00 1.00">
   </library>
