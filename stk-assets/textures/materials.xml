@@ -108,6 +108,7 @@
   <material name="stktex_palmLeafDry_a.png" shader="grass" ignore="Y" />
   <material name="stktex_jungleLiana_a.png" shader="grass" ignore="Y" />
   <material name="stk_accacia_a.png" shader="grass" ignore="Y" />
+  <material name="stktex_agave_a.png" shader="grass" ignore="Y" />
   
   <material name="stk_grasscliff_a.png" shader="grass"/>
 
