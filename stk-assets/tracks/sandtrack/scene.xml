@@ -103,6 +103,36 @@
   </library>
   <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy.013" xyz="-31.09 -142.78 150.79" hpr="4.7 -0.6 2.5" scale="2.00 2.00 2.00">
   </library>
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy" xyz="-21.77 -141.84 96.22" hpr="-0.5 3.4 5.5" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.001" xyz="19.75 -142.58 114.44" hpr="-0.5 3.4 5.5" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.002" xyz="-39.54 -143.19 154.64" hpr="-0.5 3.4 5.5" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.003" xyz="-7.29 -141.58 172.41" hpr="-0.5 3.4 5.5" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.004" xyz="-138.38 -139.75 141.98" hpr="-0.5 3.4 5.5" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.005" xyz="-96.17 -143.02 181.21" hpr="-0.5 3.4 5.5" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.006" xyz="-264.62 -157.94 -34.74" hpr="2.2 1.7 -1.3" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.007" xyz="-270.96 -157.58 -19.68" hpr="2.2 1.7 -1.3" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.008" xyz="-309.09 -150.21 -33.19" hpr="2.2 1.7 -1.3" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.009" xyz="-304.59 -147.93 -48.33" hpr="2.2 1.7 -1.3" scale="0.69 0.69 0.69">
+  </library>
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.010" xyz="-313.87 -149.79 -18.80" hpr="2.2 1.7 -1.3" scale="0.73 0.73 0.73">
+  </library>
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.011" xyz="-105.71 -136.55 -68.54" hpr="-5.0 5.1 11.8" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.012" xyz="-100.86 -135.60 -88.16" hpr="-5.0 5.1 11.8" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.013" xyz="-67.58 -135.95 -80.57" hpr="0.0 -0.2 -11.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.014" xyz="-74.47 -136.24 -61.56" hpr="0.0 -0.2 -11.0" scale="1.00 1.00 1.00">
+  </library>
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy" xyz="9.81 -142.64 110.47" hpr="-0.0 154.5 -0.0" scale="0.77 0.77 0.77">
   </library>
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.001" xyz="-11.10 -142.77 102.79" hpr="0.0 -0.0 0.0" scale="1.10 1.10 1.10">
@@ -144,12 +174,6 @@
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.019" xyz="-287.66 -157.53 -47.80" hpr="0.0 -41.0 0.0" scale="1.21 1.21 1.21">
   </library>
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.020" xyz="-297.10 -157.53 -25.46" hpr="0.0 -14.0 0.0" scale="0.97 0.97 0.97">
-  </library>
-  <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.021" xyz="-304.17 -149.72 -40.84" hpr="5.0 -9.0 -10.9" scale="0.80 0.80 0.80">
-  </library>
-  <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.022" xyz="-308.76 -157.53 -23.39" hpr="0.0 -14.0 0.0" scale="1.21 1.21 1.21">
-  </library>
-  <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.023" xyz="-312.40 -146.01 -50.69" hpr="0.0 -14.0 0.0" scale="0.75 0.75 0.75">
   </library>
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.024" xyz="-144.76 -141.24 143.28" hpr="0.6 -158.3 4.8" scale="1.10 1.10 1.10">
   </library>
