@@ -166,6 +166,10 @@
   </library>
   <library name="stklib_agave_a" id="stklib_agave_a_main_proxy.021" xyz="211.47 -0.30 89.83" hpr="8.5 13.6 7.4" scale="2.22 2.22 2.22">
   </library>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy.022" xyz="230.57 -4.20 -4.43" hpr="-5.0 17.3 5.1" scale="2.22 2.22 2.22">
+  </library>
+  <library name="stklib_agave_a" id="stklib_agave_a_main_proxy.023" xyz="221.14 -6.82 -17.72" hpr="-5.0 17.3 5.1" scale="2.22 2.22 2.22">
+  </library>
   <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy" xyz="-0.75 -1.06 87.83" hpr="0.0 -42.5 0.0" scale="0.75 0.75 0.75">
   </library>
   <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.001" xyz="141.18 -1.18 109.83" hpr="0.0 0.5 0.0" scale="0.75 0.75 0.75">
