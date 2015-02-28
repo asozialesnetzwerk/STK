@@ -824,6 +824,10 @@
   </library>
   <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy" xyz="140.11 4.99 108.93" hpr="3.4 -30.5 -9.4" scale="2.46 2.46 2.46">
   </library>
+  <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy.001" xyz="12.61 5.51 87.84" hpr="3.9 -16.9 -3.4" scale="3.65 3.65 3.65">
+  </library>
+  <library name="stklib_accacia_a" id="stklib_accacia_a_main_proxy.002" xyz="-64.47 5.90 87.94" hpr="7.5 -29.3 -10.8" scale="1.97 1.97 1.97">
+  </library>
   <library name="stklib_agave_a" id="stklib_agave_a_main_proxy" xyz="124.81 4.74 145.98" hpr="25.4 62.0 11.5" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_agave_a" id="stklib_agave_a_main_proxy.001" xyz="48.33 3.92 150.75" hpr="5.0 33.0 -0.3" scale="0.30 0.30 0.30">
@@ -862,11 +866,17 @@
   </library>
   <library name="stklib_armchair_a" id="stklib_armchair_a_main_proxy.009" xyz="68.62 5.93 130.07" hpr="0.6 -36.8 -0.7" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.000" xyz="105.55 13.36 -85.05" hpr="-0.0 151.3 -0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.000" xyz="98.24 13.75 -78.99" hpr="0.0 -8.8 -0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.001" xyz="100.54 25.22 -56.68" hpr="0.0 -14.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.001" xyz="100.63 25.10 -56.93" hpr="0.0 -14.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.002" xyz="73.42 14.09 -76.13" hpr="0.0 30.4 0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_aztekGirlCheering_a" id="stklib_aztekGirlCheering_a_main_proxy.003" xyz="96.66 25.39 -66.95" hpr="-0.0 104.7 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_aztekVase_a" id="stklib_aztekVase_a_main_proxy" xyz="93.85 25.38 -61.75" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_aztekVase_a" id="stklib_aztekVase_a_main_proxy.001" xyz="94.74 25.33 -63.03" hpr="0.0 -0.0 0.0" scale="0.62 0.62 0.62">
   </library>
   <library name="stklib_bambooTorch_a" id="stklib_bambooTorch_a_main_proxy.006" xyz="69.84 13.87 -76.62" hpr="0.0 -0.0 0.0" scale="0.60 0.60 0.60">
   </library>
@@ -996,6 +1006,10 @@
   </library>
   <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.022" xyz="143.62 11.34 -78.97" hpr="0.0 84.4 0.0" scale="0.85 0.85 0.85">
   </library>
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.023" xyz="-69.84 5.68 4.11" hpr="-10.0 -116.1 24.5" scale="0.88 0.88 0.88">
+  </library>
+  <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.024" xyz="-69.93 5.48 26.03" hpr="-10.0 -116.1 24.5" scale="0.94 0.94 0.94">
+  </library>
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy" xyz="151.68 9.37 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.001" xyz="130.41 7.84 23.32" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
@@ -1093,6 +1107,12 @@
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.047" xyz="-108.25 23.34 71.02" hpr="0.0 -0.0 0.0" scale="0.42 0.42 0.42">
   </library>
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.048" xyz="-102.71 23.81 67.64" hpr="7.8 3.8 -11.1" scale="0.42 0.42 0.42">
+  </library>
+  <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.049" xyz="-70.60 6.55 39.68" hpr="-0.0 -147.5 0.0" scale="0.56 0.56 0.56">
+  </library>
+  <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.050" xyz="-71.13 5.76 15.15" hpr="-0.0 -152.0 -0.0" scale="0.72 0.72 0.72">
+  </library>
+  <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.051" xyz="-70.69 5.71 -2.95" hpr="-0.0 -152.0 -0.0" scale="0.53 0.53 0.53">
   </library>
   <library name="stklib_princessSaraDepartureAirport_a" id="stklib_princessSaraDepartureAirport_a_main_proxy" xyz="90.09 15.57 -63.58" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00">
   </library>
