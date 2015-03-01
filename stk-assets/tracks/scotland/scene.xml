@@ -56,7 +56,7 @@
       <p c="198.081 0.019" h1="144.783 0.019" h2="251.379 0.019"/>
     </curve>
   </object>
-  <sun  xyz="206.52 166.15 -90.10" sun-specular="255 255 255" sun-diffuse="255 162 135" ambient="120 120 120"/>
+  <sun  fog="true" fog-color="107 113 97" fog-max="0.20000000298023224" fog-start="15.00" fog-end="500.00" xyz="206.52 166.15 -90.10" sun-specular="255 255 255" sun-diffuse="255 162 135" ambient="120 120 120"/>
   <sky-box texture="genericskybox_top.jpg genericskybox_bottom.jpg genericskybox_east.jpg genericskybox_west.jpg genericskybox_south.jpg genericskybox_north.jpg" sh-texture="skybox_side.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png"/>
   <camera far="1000.0"/>
   <checks>
