@@ -50,13 +50,13 @@
     </static-object>
   </track>
   <object id="Sphere.099" type="animation" xyz="148.61 0.00 -181.44" hpr="0.0 -0.0 0.0" scale="0.13 0.13 0.13" interaction="none" model="nessy.b3d" skeletal-animation="false">
-    <curve channel="LocY" interpolation="bezier" extend="const">
+    <curve channel="LocY" interpolation="bezier" extend="cyclic">
       <p c="-0.014 0.002" h1="-23.979 0.002" h2="23.952 0.002"/>
       <p c="61.504 4.044" h1="37.491 4.044" h2="114.816 4.044"/>
       <p c="198.081 0.019" h1="144.783 0.019" h2="251.379 0.019"/>
     </curve>
   </object>
-  <sun  fog="true" fog-color="107 113 97" fog-max="0.20000000298023224" fog-start="15.00" fog-end="500.00" xyz="206.52 166.15 -90.10" sun-specular="255 255 255" sun-diffuse="255 162 135" ambient="120 120 120"/>
+  <sun  fog="true" fog-color="107 113 97" fog-max="0.20000000298023224" fog-start="25.00" fog-end="500.00" xyz="206.52 166.15 -90.10" sun-specular="255 255 255" sun-diffuse="255 162 135" ambient="120 120 120"/>
   <sky-box texture="genericskybox_top.jpg genericskybox_bottom.jpg genericskybox_east.jpg genericskybox_west.jpg genericskybox_south.jpg genericskybox_north.jpg" sh-texture="skybox_side.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png"/>
   <camera far="1000.0"/>
   <checks>
