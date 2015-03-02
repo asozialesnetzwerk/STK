@@ -2,10 +2,8 @@
 <!-- Generated with script from SVN rev 15850 -->
 <scene>
   <lod>
-   <group name="pine_tree_lod">
-    <static-object lod_distance="70" lod_group="pine_tree_lod" model="pine_tree_lod_hight.b3d" xyz="270.46 -14.16 -16.96" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38" interaction="static" skeletal-animation="false"/>
-    <static-object lod_distance="150" lod_group="pine_tree_lod" model="pine_tree_lod_medium.b3d" xyz="293.33 -14.16 -16.96" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38" interaction="static" skeletal-animation="false"/>
-    <static-object lod_distance="300" lod_group="pine_tree_lod" model="pine_tree_lod_low.b3d" xyz="309.45 -14.16 -16.96" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38" interaction="static" skeletal-animation="false"/>
+   <group name="miniLamp">
+    <static-object lod_distance="150" lod_group="miniLamp" model="miniLampPost_low.b3d" xyz="-156.19 3.73 -49.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" skeletal-animation="false"/>
    </group>
    <group name="death_grass_chunk">
     <static-object lod_distance="60" lod_group="death_grass_chunk" model="death_grass_chunk_hight.b3d" xyz="274.55 -15.84 -24.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
@@ -15,22 +13,12 @@
     <static-object lod_distance="60" lod_group="grass_chunk" model="grass_chunk_hight.b3d" xyz="266.88 -15.84 -24.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
     <static-object lod_distance="100" lod_group="grass_chunk" model="grass_chunk_low.b3d" xyz="266.88 -15.84 -30.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
    </group>
-   <group name="miniLamp">
-    <static-object lod_distance="150" lod_group="miniLamp" model="miniLampPost_low.b3d" xyz="-156.19 3.73 -49.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" skeletal-animation="false"/>
-   </group>
   </lod>
   <track model="lighthouse-terrain_track.b3d" x="0" y="0" z="0">
     <static-object model="vineUnderCave.b3d" xyz="-86.86 -17.34 -87.70" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object model="bigTerrainChunk.b3d" xyz="220.85 16.34 -41.59" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object model="limi_bound.b3d" xyz="53.87 -26.94 -158.96" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
     <static-object model="lightWindows.b3d" xyz="-158.20 55.48 -63.22" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="102.39 -11.20 -15.52" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38"/>
-    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-139.12 -8.10 -4.66" hpr="0.0 -0.0 0.0" scale="2.29 2.29 2.29"/>
-    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-139.12 -6.11 16.29" hpr="0.0 30.7 0.0" scale="3.17 3.17 3.17"/>
-    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="66.09 -11.20 -92.83" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38"/>
-    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="116.99 -11.20 -5.45" hpr="0.0 21.7 0.0" scale="1.81 1.81 1.81"/>
-    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="117.67 -11.20 -33.35" hpr="0.0 -77.7 0.0" scale="2.38 2.38 2.38"/>
-    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-117.71 -6.11 30.54" hpr="0.0 -75.4 0.0" scale="3.17 3.17 3.17"/>
-    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-97.58 -11.46 36.36" hpr="-0.0 -106.1 -0.0" scale="2.29 2.29 2.29"/>
     <static-object lod_instance="true" lod_group="grass_chunk" xyz="99.38 -16.17 -18.46" hpr="-0.0 -0.0 6.5" scale="1.00 1.00 1.00"/>
     <static-object model="seaAnimation.b3d" xyz="0.00 6.60 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
     <animated-texture name="sea.png" dx="0.020"  dy="0.0400" />
@@ -108,6 +96,13 @@
     <static-object lod_instance="true" lod_group="death_grass_chunk" xyz="-69.33 -29.25 -117.00" hpr="0.0 -13.7 0.0" scale="1.16 1.16 1.16"/>
     <static-object lod_instance="true" lod_group="death_grass_chunk" xyz="-73.34 -29.53 -108.94" hpr="3.5 -14.3 4.9" scale="1.16 1.16 1.16"/>
     <static-object lod_instance="true" lod_group="death_grass_chunk" xyz="-68.86 -29.25 -110.89" hpr="0.0 23.6 0.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="grass_chunk" xyz="189.84 9.09 -87.23" hpr="-2.7 17.7 -1.9" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="grass_chunk" xyz="186.22 9.95 -81.37" hpr="-2.7 17.7 -1.9" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="grass_chunk" xyz="191.52 8.94 -93.74" hpr="-2.7 17.7 -1.9" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="grass_chunk" xyz="204.78 8.77 -94.25" hpr="-2.7 17.7 -1.9" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="grass_chunk" xyz="207.95 9.68 -88.52" hpr="-2.7 17.7 -1.9" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="grass_chunk" xyz="208.58 10.08 -83.66" hpr="-2.7 17.7 -1.9" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="grass_chunk" xyz="208.42 10.99 -78.16" hpr="-7.4 -3.6 -3.0" scale="1.00 1.00 1.00"/>
   </track>
   <object id="Circle" type="animation" xyz="-148.25 18.15 -63.18" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="lightBeam.b3d" skeletal-animation="false">
     <curve channel="RotX" interpolation="linear" extend="cyclic">
@@ -142,40 +137,6 @@
       <p c="129.000 -0.000" h1="106.000 -0.000" h2="151.600 -0.000"/>
     </curve>
   </object>
-  <object id="Circle.004" type="animation" xyz="-157.68 -47.34 -253.80" hpr="0.0 -0.0 -3.7" scale="1.00 1.00 1.00" interaction="ghost" model="buoy_halo.b3d" skeletal-animation="false">
-    <curve channel="RotX" interpolation="bezier" extend="cyclic">
-      <p c="15.000 0.000" h1="-6.351 0.000" h2="36.751 0.000"/>
-      <p c="70.000 0.000" h1="48.849 0.000" h2="93.200 0.000"/>
-      <p c="129.000 0.000" h1="106.000 0.000" h2="151.600 0.000"/>
-    </curve>
-    <curve channel="RotZ" interpolation="bezier" extend="cyclic">
-      <p c="15.000 -5.000" h1="-6.351 -5.000" h2="36.751 -5.000"/>
-      <p c="70.000 5.000" h1="48.849 5.000" h2="93.200 5.000"/>
-      <p c="129.000 -5.000" h1="106.000 -5.000" h2="151.600 -5.000"/>
-    </curve>
-    <curve channel="RotY" interpolation="bezier" extend="cyclic">
-      <p c="15.000 -0.000" h1="-6.351 -0.000" h2="36.751 -0.000"/>
-      <p c="70.000 -0.000" h1="48.849 -0.000" h2="93.200 -0.000"/>
-      <p c="129.000 -0.000" h1="106.000 -0.000" h2="151.600 -0.000"/>
-    </curve>
-  </object>
-  <object id="Circle.005" type="animation" xyz="-112.65 -47.34 -339.07" hpr="0.0 -0.0 -3.7" scale="1.00 1.00 1.00" interaction="ghost" model="buoy_halo.b3d" skeletal-animation="false">
-    <curve channel="RotX" interpolation="bezier" extend="cyclic">
-      <p c="15.000 0.000" h1="-6.351 0.000" h2="36.751 0.000"/>
-      <p c="70.000 0.000" h1="48.849 0.000" h2="93.200 0.000"/>
-      <p c="129.000 0.000" h1="106.000 0.000" h2="151.600 0.000"/>
-    </curve>
-    <curve channel="RotZ" interpolation="bezier" extend="cyclic">
-      <p c="15.000 -5.000" h1="-6.351 -5.000" h2="36.751 -5.000"/>
-      <p c="70.000 5.000" h1="48.849 5.000" h2="93.200 5.000"/>
-      <p c="129.000 -5.000" h1="106.000 -5.000" h2="151.600 -5.000"/>
-    </curve>
-    <curve channel="RotY" interpolation="bezier" extend="cyclic">
-      <p c="15.000 -0.000" h1="-6.351 -0.000" h2="36.751 -0.000"/>
-      <p c="70.000 -0.000" h1="48.849 -0.000" h2="93.200 -0.000"/>
-      <p c="129.000 -0.000" h1="106.000 -0.000" h2="151.600 -0.000"/>
-    </curve>
-  </object>
   <object id="Circle.007" type="animation" xyz="-112.65 -47.34 -339.07" hpr="0.0 -0.0 -3.7" scale="1.00 1.00 1.00" interaction="ghost" model="buoy.b3d" skeletal-animation="false">
     <curve channel="RotX" interpolation="bezier" extend="cyclic">
       <p c="15.000 0.000" h1="-6.351 0.000" h2="36.751 0.000"/>
@@ -194,23 +155,6 @@
     </curve>
   </object>
   <object id="Circle.011" type="animation" xyz="-74.45 -47.34 -410.02" hpr="0.0 -0.0 -3.7" scale="1.00 1.00 1.00" interaction="ghost" model="buoy.b3d" skeletal-animation="false">
-    <curve channel="RotX" interpolation="bezier" extend="cyclic">
-      <p c="15.000 0.000" h1="-6.351 0.000" h2="36.751 0.000"/>
-      <p c="70.000 0.000" h1="48.849 0.000" h2="93.200 0.000"/>
-      <p c="129.000 0.000" h1="106.000 0.000" h2="151.600 0.000"/>
-    </curve>
-    <curve channel="RotZ" interpolation="bezier" extend="cyclic">
-      <p c="15.000 -5.000" h1="-6.351 -5.000" h2="36.751 -5.000"/>
-      <p c="70.000 5.000" h1="48.849 5.000" h2="93.200 5.000"/>
-      <p c="129.000 -5.000" h1="106.000 -5.000" h2="151.600 -5.000"/>
-    </curve>
-    <curve channel="RotY" interpolation="bezier" extend="cyclic">
-      <p c="15.000 -0.000" h1="-6.351 -0.000" h2="36.751 -0.000"/>
-      <p c="70.000 -0.000" h1="48.849 -0.000" h2="93.200 -0.000"/>
-      <p c="129.000 -0.000" h1="106.000 -0.000" h2="151.600 -0.000"/>
-    </curve>
-  </object>
-  <object id="Circle.014" type="animation" xyz="-74.45 -47.34 -410.02" hpr="0.0 -0.0 -3.7" scale="1.00 1.00 1.00" interaction="ghost" model="buoy_halo.b3d" skeletal-animation="false">
     <curve channel="RotX" interpolation="bezier" extend="cyclic">
       <p c="15.000 0.000" h1="-6.351 0.000" h2="36.751 0.000"/>
       <p c="70.000 0.000" h1="48.849 0.000" h2="93.200 0.000"/>
@@ -302,7 +246,7 @@
   <sun  fog="true" fog-color="21 43 75" fog-max="0.5" fog-start="20.00" fog-end="160.00" xyz="-89.21 179.38 96.03" sun-diffuse="57 59 93" ambient="57 59 93"/>
   <sky-color rgb="77 104 255"/>
   <weather particles="rain.xml" lightning="true" sound="rain"/>
-  <sky-box texture="sky.jpg sky.jpg sky.jpg sky.jpg sky-m.jpg sky-m.jpg" />
+  <sky-box texture="sky.jpg sky.jpg sky.jpg sky.jpg sky-m.jpg sky-m.jpg" sh-texture="sky.jpg sky.jpg sky.jpg sky.jpg sky.jpg sky.jpg"/>
   <camera far="1000.0"/>
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
@@ -343,6 +287,94 @@
                  forwards-distance ="1.50"
                  sidewards-distance="3.00"
                  upwards-distance  ="0.10"/>
+  <library name="stklib_candle_a" id="stklib_candle_a_main_proxy" xyz="201.34 10.19 -92.58" hpr="0.0 -69.1 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy" xyz="164.77 8.21 -13.21" hpr="6.9 30.8 13.3" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.001" xyz="177.88 11.46 -20.96" hpr="0.0 82.8 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.002" xyz="179.97 12.22 -37.19" hpr="-19.6 82.4 -19.8" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.003" xyz="182.15 12.38 -53.31" hpr="68.7 92.7 68.4" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.004" xyz="182.00 11.62 -69.66" hpr="-92.8 82.0 -90.9" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.005" xyz="213.51 12.76 -70.77" hpr="42.5 108.5 48.2" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.006" xyz="217.21 15.16 -55.01" hpr="29.0 106.0 31.7" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.007" xyz="218.65 16.53 -38.86" hpr="52.8 99.7 56.1" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.008" xyz="63.62 -16.97 12.77" hpr="-0.1 8.9 -0.7" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.009" xyz="79.76 -16.97 10.31" hpr="-0.7 46.1 -1.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.010" xyz="87.85 -16.53 -34.80" hpr="1.1 123.4 1.3" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.011" xyz="78.87 -16.58 -48.74" hpr="-1.3 151.1 -2.6" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.012" xyz="64.93 -16.12 -56.72" hpr="-0.1 176.4 -2.3" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.013" xyz="50.18 -15.61 -27.38" hpr="-0.3 177.2 0.1" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.014" xyz="33.13 -15.79 -29.43" hpr="-0.3 177.2 0.1" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.015" xyz="16.72 -16.05 -30.43" hpr="-0.3 -171.2 0.2" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.016" xyz="-26.73 -13.12 -95.54" hpr="-0.3 -175.1 0.2" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.017" xyz="-43.52 -13.12 -94.24" hpr="-0.4 -141.5 0.2" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.018" xyz="-54.53 -13.12 -54.20" hpr="-0.1 -38.0 -0.2" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.019" xyz="-59.69 -13.12 -70.23" hpr="0.2 -71.7 -0.5" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy" xyz="163.43 10.62 -66.55" hpr="0.0 -26.4 0.0" scale="3.06 3.06 3.06">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.001" xyz="164.96 9.94 -82.98" hpr="0.0 -89.4 0.0" scale="2.19 2.19 2.19">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.002" xyz="166.47 10.80 -48.06" hpr="0.0 -0.0 0.0" scale="2.19 2.19 2.19">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.003" xyz="145.68 8.67 -93.13" hpr="0.0 -41.5 0.0" scale="2.90 2.90 2.90">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.004" xyz="115.95 -14.04 -29.68" hpr="0.0 26.8 0.0" scale="1.98 1.98 1.98">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.005" xyz="117.11 -14.51 -6.84" hpr="0.0 129.0 0.0" scale="1.98 1.98 1.98">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.006" xyz="75.95 -16.88 -90.49" hpr="0.0 26.8 0.0" scale="1.98 1.98 1.98">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.007" xyz="-63.97 -14.44 48.76" hpr="0.0 26.8 0.0" scale="1.98 1.98 1.98">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.008" xyz="-96.83 -14.93 33.21" hpr="0.0 -37.2 0.0" scale="1.98 1.98 1.98">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.009" xyz="-121.43 -11.55 13.74" hpr="0.0 -14.7 0.0" scale="2.27 2.27 2.27">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.010" xyz="-129.51 -11.89 -4.79" hpr="0.0 -51.5 0.0" scale="1.78 1.78 1.78">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.011" xyz="241.83 17.60 -29.56" hpr="0.0 -0.0 0.0" scale="2.19 2.19 2.19">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.012" xyz="240.32 16.74 -64.48" hpr="0.0 -89.4 0.0" scale="2.19 2.19 2.19">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.013" xyz="238.78 17.42 -48.05" hpr="0.0 -26.4 0.0" scale="3.06 3.06 3.06">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.014" xyz="232.99 17.20 -5.85" hpr="0.0 -26.4 0.0" scale="3.06 3.06 3.06">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.015" xyz="210.80 19.65 69.93" hpr="0.0 -26.4 0.0" scale="3.06 3.06 3.06">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.016" xyz="110.63 5.76 99.94" hpr="0.0 -53.0 0.0" scale="3.06 3.06 3.06">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.017" xyz="24.90 -7.03 98.43" hpr="0.0 -26.4 0.0" scale="3.06 3.06 3.06">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.018" xyz="64.99 -0.58 101.48" hpr="0.0 -71.5 0.0" scale="1.73 1.73 1.73">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.019" xyz="88.80 5.77 109.13" hpr="0.0 -26.4 0.0" scale="2.43 2.43 2.43">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.020" xyz="-44.04 -10.72 72.16" hpr="0.0 26.8 0.0" scale="1.98 1.98 1.98">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.021" xyz="-22.08 -5.56 93.12" hpr="0.0 -63.1 0.0" scale="1.45 1.45 1.45">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.022" xyz="-79.96 -13.07 -31.64" hpr="0.0 -37.2 0.0" scale="1.98 1.98 1.98">
+  </library>
   <library name="stklib_oldschoolLamp_a" id="stklib_oldschoolLamp_a_main_proxy" xyz="-124.94 2.13 -63.05" hpr="-0.0 -179.1 0.0" scale="1.68 1.68 1.68">
   </library>
   <library name="stklib_oldschoolLamp_a" id="stklib_oldschoolLamp_a_main_proxy.001" xyz="-42.54 -17.80 -161.91" hpr="-0.0 130.8 -0.0" scale="1.68 1.68 1.68">
@@ -353,12 +385,32 @@
   </library>
   <library name="stklib_oldschoolLamp_a" id="stklib_oldschoolLamp_a_main_proxy.004" xyz="29.29 -7.17 6.84" hpr="-0.0 -93.8 -0.0" scale="1.68 1.68 1.68">
   </library>
+  <library name="stklib_oldschoolLamp_a" id="stklib_oldschoolLamp_a_main_proxy.005" xyz="63.73 -9.51 12.09" hpr="-0.0 -140.3 -0.0" scale="1.68 1.68 1.68">
+  </library>
   <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy" xyz="-48.28 -18.60 33.01" hpr="0.0 -0.0 0.0" scale="2.20 2.20 2.20">
   </library>
   <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.001" xyz="-74.64 -19.75 31.72" hpr="0.0 -0.0 0.0" scale="1.86 1.86 1.86">
   </library>
-  <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.002" xyz="-95.74 -16.39 16.53" hpr="0.0 -58.4 0.0" scale="1.43 1.43 1.43">
+  <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.002" xyz="-95.74 -16.39 16.53" hpr="0.0 -58.4 0.0" scale="1.15 1.15 1.15">
   </library>
   <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.003" xyz="-97.27 -14.71 -29.31" hpr="-6.4 -55.0 17.4" scale="1.43 1.43 1.43">
+  </library>
+  <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.004" xyz="64.32 -16.59 -95.89" hpr="0.0 -0.0 0.0" scale="1.59 1.59 1.59">
+  </library>
+  <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.005" xyz="98.93 -16.09 -16.33" hpr="0.0 -0.0 0.0" scale="1.59 1.59 1.59">
+  </library>
+  <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.006" xyz="179.09 12.47 -67.77" hpr="0.0 -0.0 0.0" scale="1.59 1.59 1.59">
+  </library>
+  <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.007" xyz="175.58 7.49 -92.21" hpr="-0.0 -132.0 -0.0" scale="1.36 1.36 1.36">
+  </library>
+  <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.008" xyz="65.43 -14.81 -81.41" hpr="0.0 -0.0 0.0" scale="1.05 1.05 1.05">
+  </library>
+  <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.009" xyz="-103.56 -14.17 4.25" hpr="0.0 -58.4 0.0" scale="1.15 1.15 1.15">
+  </library>
+  <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.010" xyz="171.88 10.00 -30.57" hpr="-0.0 110.8 -0.0" scale="1.59 1.59 1.59">
+  </library>
+  <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.011" xyz="220.97 13.08 -59.59" hpr="0.0 -0.0 0.0" scale="1.28 1.28 1.28">
+  </library>
+  <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.012" xyz="215.77 11.51 -82.47" hpr="0.0 -0.0 0.0" scale="0.99 0.99 0.99">
   </library>
 </scene>
