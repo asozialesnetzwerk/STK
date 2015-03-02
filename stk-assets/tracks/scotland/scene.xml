@@ -2,29 +2,6 @@
 <!-- Generated with script from SVN rev 15850 -->
 <scene>
   <track model="scotland_track.b3d" x="0" y="0" z="0">
-    <static-object model="pinetree.b3d" xyz="-8.72 -0.31 -169.29" hpr="0.0 -0.0 0.0" scale="1.57 1.57 1.57"/>
-    <static-object model="pinetree.b3d" xyz="-6.20 -0.31 -187.98" hpr="0.0 -64.7 0.0" scale="2.45 2.45 2.45"/>
-    <static-object model="pinetree.b3d" xyz="-36.26 -0.31 -174.29" hpr="-0.0 -92.0 -0.0" scale="2.45 2.45 2.45"/>
-    <static-object model="pinetree.b3d" xyz="-55.10 -0.31 -168.96" hpr="0.0 -0.0 0.0" scale="1.90 1.90 1.90"/>
-    <static-object model="pinetree.b3d" xyz="14.01 -0.31 -194.22" hpr="-0.0 -92.0 -0.0" scale="2.45 2.45 2.45"/>
-    <static-object model="pinetree.b3d" xyz="43.39 -0.31 -194.22" hpr="0.0 -64.7 0.0" scale="2.45 2.45 2.45"/>
-    <static-object model="pinetree.b3d" xyz="88.19 -0.31 -173.20" hpr="0.0 -58.9 0.0" scale="3.06 3.06 3.06"/>
-    <static-object model="pinetree.b3d" xyz="63.78 -0.31 -173.20" hpr="0.0 -50.9 0.0" scale="2.45 2.45 2.45"/>
-    <static-object model="pinetree.b3d" xyz="59.51 -0.31 -157.19" hpr="0.0 -15.9 0.0" scale="1.23 1.23 1.23"/>
-    <static-object model="pinetree.b3d" xyz="108.33 -0.31 -147.50" hpr="0.0 -64.7 0.0" scale="2.45 2.45 2.45"/>
-    <static-object model="pinetree.b3d" xyz="-47.98 0.20 -107.26" hpr="0.0 9.4 0.0" scale="1.68 1.68 1.68"/>
-    <static-object model="pinetree.b3d" xyz="-66.17 0.20 -107.26" hpr="0.0 9.4 0.0" scale="2.60 2.60 2.60"/>
-    <static-object model="pinetree.b3d" xyz="-63.80 -0.37 -92.00" hpr="0.0 -82.7 0.0" scale="3.65 3.65 3.65"/>
-    <static-object model="pinetree.b3d" xyz="-61.67 -0.37 -78.31" hpr="-0.0 57.7 -0.0" scale="2.63 2.63 2.63"/>
-    <static-object model="pinetree.b3d" xyz="-49.85 -0.37 -122.27" hpr="-0.0 -159.8 -0.0" scale="3.65 3.65 3.65"/>
-    <static-object model="pinetree.b3d" xyz="10.78 1.71 -100.72" hpr="-0.0 -150.1 -0.0" scale="2.38 2.38 2.38"/>
-    <static-object model="pinetree.b3d" xyz="5.67 1.71 -100.72" hpr="-0.0 175.7 -0.0" scale="1.77 1.77 1.77"/>
-    <static-object model="pinetree.b3d" xyz="58.79 1.71 -105.31" hpr="0.0 -32.1 0.0" scale="1.77 1.77 1.77"/>
-    <static-object model="pinetree.b3d" xyz="54.26 1.71 -107.69" hpr="0.0 57.1 0.0" scale="2.60 2.60 2.60"/>
-    <static-object model="pinetree.b3d" xyz="10.78 1.71 -95.09" hpr="-0.0 98.3 -0.0" scale="1.91 1.91 1.91"/>
-    <static-object model="pinetree.b3d" xyz="-45.61 -0.37 -60.79" hpr="0.0 9.4 0.0" scale="2.35 2.35 2.35"/>
-    <static-object model="pinetree.b3d" xyz="-43.48 -0.37 -47.10" hpr="-0.0 106.8 -0.0" scale="1.69 1.69 1.69"/>
-    <static-object model="pinetree.b3d" xyz="29.21 -3.12 187.62" hpr="0.0 -179.5 -0.1" scale="2.35 2.35 2.35"/>
     <static-object model="water.b3d" xyz="85.81 -7.30 35.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
     <animated-texture name="water_light.png" dx="-0.010"  dy="-0.0200" />
     </static-object>
@@ -98,6 +75,54 @@
   </library>
   <library name="stklib_chimney_b" id="stklib_chimney_b_main_proxy.001" xyz="-20.45 13.46 73.57" hpr="0.0 -15.0 0.0" scale="1.00 1.00 1.00">
   </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy" xyz="-21.02 1.82 -3.70" hpr="0.0 -0.0 0.0" scale="1.53 1.53 1.53">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.001" xyz="-26.62 0.86 -15.10" hpr="0.0 70.4 0.0" scale="1.53 1.53 1.53">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.002" xyz="-27.81 1.32 -24.63" hpr="0.0 70.4 0.0" scale="1.17 1.17 1.17">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.003" xyz="-40.53 1.57 -47.52" hpr="0.0 70.4 0.0" scale="1.17 1.17 1.17">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.004" xyz="-42.21 1.59 -58.87" hpr="0.0 24.5 0.0" scale="1.47 1.47 1.47">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.005" xyz="-61.15 1.30 -77.19" hpr="0.0 24.5 0.0" scale="1.47 1.47 1.47">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.006" xyz="-58.16 1.56 -84.12" hpr="0.0 -1.2 0.0" scale="1.81 1.81 1.81">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.007" xyz="-49.45 0.75 -104.56" hpr="0.0 -1.2 0.0" scale="1.09 1.09 1.09">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.008" xyz="-64.29 1.70 -103.15" hpr="0.0 -1.2 0.0" scale="1.36 1.36 1.36">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.009" xyz="-47.95 1.75 -117.22" hpr="0.0 -1.2 0.0" scale="1.64 1.64 1.64">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.010" xyz="-36.02 1.98 -173.57" hpr="0.0 -1.2 0.0" scale="1.41 1.41 1.41">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.011" xyz="-49.77 2.04 -166.96" hpr="0.0 -51.4 0.0" scale="1.41 1.41 1.41">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.012" xyz="12.96 2.81 -100.33" hpr="0.0 -51.4 0.0" scale="1.41 1.41 1.41">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.013" xyz="10.86 2.04 -94.83" hpr="15.5 -53.5 -6.2" scale="1.41 1.41 1.41">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.014" xyz="49.46 1.19 -106.85" hpr="0.0 -51.4 0.0" scale="1.41 1.41 1.41">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.015" xyz="58.74 1.59 -103.79" hpr="0.0 -51.4 0.0" scale="1.41 1.41 1.41">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.016" xyz="105.20 1.69 -149.55" hpr="0.0 -51.4 0.0" scale="1.41 1.41 1.41">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.017" xyz="88.67 1.70 -159.89" hpr="0.0 -51.4 0.0" scale="1.41 1.41 1.41">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.018" xyz="40.29 0.05 -184.80" hpr="0.0 -51.4 0.0" scale="1.41 1.41 1.41">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.019" xyz="-5.76 1.34 -173.26" hpr="0.0 -1.2 0.0" scale="1.08 1.08 1.08">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.020" xyz="-10.52 2.23 -193.54" hpr="0.0 -1.2 0.0" scale="1.36 1.36 1.36">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.021" xyz="26.49 -2.60 186.95" hpr="0.0 24.5 0.0" scale="1.47 1.47 1.47">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.022" xyz="22.89 0.95 -31.89" hpr="0.0 70.4 0.0" scale="1.53 1.53 1.53">
+  </library>
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.023" xyz="24.89 1.02 -11.15" hpr="0.0 70.4 0.0" scale="1.53 1.53 1.53">
+  </library>
   <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy" xyz="-12.34 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.001" xyz="-43.65 -0.53 -79.40" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
@@ -137,5 +162,11 @@
   <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.018" xyz="115.90 -0.22 -35.56" hpr="-0.0 156.4 -0.0" scale="0.73 0.73 0.73">
   </library>
   <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.019" xyz="125.50 -0.09 -25.26" hpr="-0.0 156.4 -0.0" scale="0.73 0.73 0.73">
+  </library>
+  <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.020" xyz="4.23 1.41 -101.95" hpr="-0.0 123.2 -0.0" scale="0.66 0.66 0.66">
+  </library>
+  <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.021" xyz="58.68 0.06 -155.47" hpr="-0.0 123.2 -0.0" scale="0.73 0.73 0.73">
+  </library>
+  <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.022" xyz="60.37 0.43 -111.82" hpr="-0.0 123.2 -0.0" scale="0.66 0.66 0.66">
   </library>
 </scene>
