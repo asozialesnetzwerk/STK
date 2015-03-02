@@ -1,31 +1,29 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15578 -->
+<!-- Generated with script from SVN rev 15850 -->
 <scene>
   <lod>
-   <group name="grass_chunk">
-    <static-object lod_distance="60" lod_group="grass_chunk" model="grass_chunk_hight.b3d" xyz="266.88 -15.84 -24.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-    <static-object lod_distance="100" lod_group="grass_chunk" model="grass_chunk_low.b3d" xyz="266.88 -15.84 -30.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+   <group name="pine_tree_lod">
+    <static-object lod_distance="70" lod_group="pine_tree_lod" model="pine_tree_lod_hight.b3d" xyz="270.46 -14.16 -16.96" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="150" lod_group="pine_tree_lod" model="pine_tree_lod_medium.b3d" xyz="293.33 -14.16 -16.96" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="300" lod_group="pine_tree_lod" model="pine_tree_lod_low.b3d" xyz="309.45 -14.16 -16.96" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38" interaction="static" skeletal-animation="false"/>
    </group>
    <group name="death_grass_chunk">
-    <static-object lod_distance="60" lod_group="death_grass_chunk" model="death_grass_chunk_hight.b3d" xyz="274.55 -15.84 -24.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
-    <static-object lod_distance="100" lod_group="death_grass_chunk" model="death_grass_chunk_low.b3d" xyz="274.55 -15.84 -30.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static"/>
+    <static-object lod_distance="60" lod_group="death_grass_chunk" model="death_grass_chunk_hight.b3d" xyz="274.55 -15.84 -24.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="100" lod_group="death_grass_chunk" model="death_grass_chunk_low.b3d" xyz="274.55 -15.84 -30.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+   </group>
+   <group name="grass_chunk">
+    <static-object lod_distance="60" lod_group="grass_chunk" model="grass_chunk_hight.b3d" xyz="266.88 -15.84 -24.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="100" lod_group="grass_chunk" model="grass_chunk_low.b3d" xyz="266.88 -15.84 -30.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
    </group>
    <group name="miniLamp">
-    <static-object lod_distance="150" lod_group="miniLamp" model="miniLampPost_low.b3d" xyz="-156.19 3.73 -49.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"/>
-   </group>
-   <group name="pine_tree_lod">
-    <static-object lod_distance="70" lod_group="pine_tree_lod" model="pine_tree_lod_hight.b3d" xyz="270.46 -14.16 -16.96" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38" interaction="static"/>
-    <static-object lod_distance="150" lod_group="pine_tree_lod" model="pine_tree_lod_medium.b3d" xyz="293.33 -14.16 -16.96" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38" interaction="static"/>
-    <static-object lod_distance="300" lod_group="pine_tree_lod" model="pine_tree_lod_low.b3d" xyz="309.45 -14.16 -16.96" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38" interaction="static"/>
+    <static-object lod_distance="150" lod_group="miniLamp" model="miniLampPost_low.b3d" xyz="-156.19 3.73 -49.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" skeletal-animation="false"/>
    </group>
   </lod>
-  <track model="lighthouse_track.b3d" x="0" y="0" z="0">
+  <track model="lighthouse-terrain_track.b3d" x="0" y="0" z="0">
     <static-object model="vineUnderCave.b3d" xyz="-86.86 -17.34 -87.70" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object model="bigTerrainChunk.b3d" xyz="220.85 16.34 -41.59" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object model="lightWindows.b3d" xyz="-158.20 55.48 -63.22" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="102.39 -11.20 -15.52" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38"/>
-    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-96.85 -8.65 -29.26" hpr="0.0 -0.0 0.0" scale="2.71 2.71 2.71"/>
-    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-47.61 -12.51 33.26" hpr="0.0 -0.0 0.0" scale="2.29 2.29 2.29"/>
     <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-139.12 -8.10 -4.66" hpr="0.0 -0.0 0.0" scale="2.29 2.29 2.29"/>
     <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-139.12 -6.11 16.29" hpr="0.0 30.7 0.0" scale="3.17 3.17 3.17"/>
     <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="66.09 -11.20 -92.83" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38"/>
@@ -33,7 +31,6 @@
     <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="117.67 -11.20 -33.35" hpr="0.0 -77.7 0.0" scale="2.38 2.38 2.38"/>
     <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-117.71 -6.11 30.54" hpr="0.0 -75.4 0.0" scale="3.17 3.17 3.17"/>
     <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-97.58 -11.46 36.36" hpr="-0.0 -106.1 -0.0" scale="2.29 2.29 2.29"/>
-    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-77.01 -11.87 36.36" hpr="-0.0 -106.1 -0.0" scale="2.68 2.68 2.68"/>
     <static-object lod_instance="true" lod_group="grass_chunk" xyz="99.38 -16.17 -18.46" hpr="-0.0 -0.0 6.5" scale="1.00 1.00 1.00"/>
     <static-object model="seaAnimation.b3d" xyz="0.00 6.60 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
     <animated-texture name="sea.png" dx="0.020"  dy="0.0400" />
@@ -302,16 +299,6 @@
       <p c="84.000 1.000" h1="66.822 1.000" h2="101.178 1.000"/>
     </curve>
   </object>
-  <object id="Cylinder.021_Cylinder.000" type="animation" xyz="-44.05 -14.11 -163.50" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="miniLamp" skeletal-animation="false">
-  </object>
-  <object id="Cylinder.021_Cylinder.001" type="animation" xyz="74.93 -6.67 -208.19" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="miniLamp" skeletal-animation="false">
-  </object>
-  <object id="Cylinder.021_Cylinder.002" type="animation" xyz="29.20 -5.27 9.43" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="miniLamp" skeletal-animation="false">
-  </object>
-  <object id="Cylinder.021_Cylinder.005" type="animation" xyz="-127.19 3.73 -63.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="miniLamp" skeletal-animation="false">
-  </object>
-  <object id="Cylinder.021_Cylinder.006" type="animation" xyz="63.04 -9.51 -171.52" hpr="-0.0 -130.0 -0.0" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="miniLamp" skeletal-animation="false">
-  </object>
   <sun  fog="true" fog-color="21 43 75" fog-max="0.5" fog-start="20.00" fog-end="160.00" xyz="-89.21 179.38 96.03" sun-diffuse="57 59 93" ambient="57 59 93"/>
   <sky-color rgb="77 104 255"/>
   <weather particles="rain.xml" lightning="true" sound="rain"/>
@@ -352,32 +339,26 @@
   <item id="Empty.024" x="13.94" y="-14.56" z="-105.53" h="29.69" />
   <small-nitro id="Empty.025" x="13.39" y="-14.56" z="-108.32" h="29.69" />
   <small-nitro id="Empty.026" x="14.88" y="-14.56" z="-99.49" h="29.69" />
-  <object type="billboard" id="Circle.010" texture="lightHaloY.png" xyz="-148.23 56.18 -62.26" 
-             width="19.870" height="19.870" >
-  </object>
-  <object type="billboard" id="Circle.012" texture="lightHaloY.png" xyz="-147.36 56.18 -63.68" 
-             width="19.870" height="19.870" >
-  </object>
-  <object type="billboard" id="Circle.013" texture="lightHaloY.png" xyz="-149.02 56.18 -63.72" 
-             width="19.870" height="19.870" >
-  </object>
-  <object type="billboard" id="Circle.024" texture="lightHaloY.png" xyz="-125.30 2.02 -63.09" 
-             width="5.205" height="5.205" >
-  </object>
-  <object type="billboard" id="Circle.025" texture="lightHaloY.png" xyz="-44.05 -15.82 -161.61" 
-             width="5.205" height="5.205" >
-  </object>
-  <object type="billboard" id="Circle.026" texture="lightHaloY.png" xyz="75.00 -8.38 -206.30" 
-             width="5.205" height="5.205" >
-  </object>
-  <object type="billboard" id="Circle.027" texture="lightHaloY.png" xyz="61.91 -11.21 -170.00" 
-             width="5.205" height="5.205" >
-  </object>
-  <object type="billboard" id="Circle.031" texture="lightHaloY.png" xyz="29.13 -6.98 7.54" 
-             width="5.205" height="5.205" >
-  </object>
   <default-start karts-per-row     ="2"
                  forwards-distance ="1.50"
                  sidewards-distance="3.00"
                  upwards-distance  ="0.10"/>
+  <library name="stklib_oldschoolLamp_a" id="stklib_oldschoolLamp_a_main_proxy" xyz="-124.94 2.13 -63.05" hpr="-0.0 -179.1 0.0" scale="1.68 1.68 1.68">
+  </library>
+  <library name="stklib_oldschoolLamp_a" id="stklib_oldschoolLamp_a_main_proxy.001" xyz="-42.54 -17.80 -161.91" hpr="-0.0 130.8 -0.0" scale="1.68 1.68 1.68">
+  </library>
+  <library name="stklib_oldschoolLamp_a" id="stklib_oldschoolLamp_a_main_proxy.002" xyz="61.70 -11.58 -169.43" hpr="0.0 60.8 0.0" scale="1.68 1.68 1.68">
+  </library>
+  <library name="stklib_oldschoolLamp_a" id="stklib_oldschoolLamp_a_main_proxy.003" xyz="74.83 -12.04 -205.64" hpr="0.0 86.7 0.0" scale="1.68 1.68 1.68">
+  </library>
+  <library name="stklib_oldschoolLamp_a" id="stklib_oldschoolLamp_a_main_proxy.004" xyz="29.29 -7.17 6.84" hpr="-0.0 -93.8 -0.0" scale="1.68 1.68 1.68">
+  </library>
+  <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy" xyz="-48.28 -18.60 33.01" hpr="0.0 -0.0 0.0" scale="2.20 2.20 2.20">
+  </library>
+  <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.001" xyz="-74.64 -19.75 31.72" hpr="0.0 -0.0 0.0" scale="1.86 1.86 1.86">
+  </library>
+  <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.002" xyz="-95.74 -16.39 16.53" hpr="0.0 -58.4 0.0" scale="1.43 1.43 1.43">
+  </library>
+  <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.003" xyz="-97.27 -14.71 -29.31" hpr="-6.4 -55.0 17.4" scale="1.43 1.43 1.43">
+  </library>
 </scene>
