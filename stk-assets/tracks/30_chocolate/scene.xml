@@ -1341,11 +1341,11 @@
   </library>
   <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy" xyz="95.82 -1.74 44.20" hpr="8.7 1.1 0.9" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.001" xyz="255.73 19.71 -235.01" hpr="4.5 -1.3 8.1" scale="1.00 1.00 1.00">
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.001" xyz="255.73 19.71 -235.01" hpr="4.5 -1.3 8.1" scale="1.30 1.30 1.30">
   </library>
-  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.002" xyz="68.71 -0.27 -264.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.002" xyz="68.71 -0.27 -264.76" hpr="0.0 -0.0 0.0" scale="1.30 1.30 1.30">
   </library>
-  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.003" xyz="69.80 -0.27 -266.01" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.003" xyz="69.80 -0.27 -266.01" hpr="0.0 -0.0 0.0" scale="1.30 1.30 1.30">
   </library>
   <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.004" xyz="68.11 -0.36 -266.40" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
@@ -1353,35 +1353,43 @@
   </library>
   <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.006" xyz="97.64 -1.65 45.06" hpr="5.9 -1.6 12.4" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.007" xyz="267.15 18.39 -83.57" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.007" xyz="267.15 18.39 -83.57" hpr="0.0 -0.0 0.0" scale="1.30 1.30 1.30">
   </library>
-  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.008" xyz="266.27 18.39 -81.79" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.008" xyz="266.27 18.39 -81.79" hpr="0.0 -0.0 0.0" scale="1.30 1.30 1.30">
   </library>
   <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.009" xyz="267.97 18.39 -82.11" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.010" xyz="249.41 18.32 -91.97" hpr="0.0 169.3 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.011" xyz="251.14 18.32 -91.96" hpr="0.0 169.3 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.011" xyz="251.14 18.32 -91.96" hpr="0.0 169.3 0.0" scale="1.30 1.30 1.30">
   </library>
-  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.012" xyz="249.94 18.32 -90.38" hpr="0.0 169.3 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.012" xyz="249.94 18.32 -90.38" hpr="0.0 169.3 0.0" scale="1.30 1.30 1.30">
   </library>
   <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.013" xyz="292.10 18.39 -73.60" hpr="0.0 -55.4 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.014" xyz="290.87 18.39 -74.81" hpr="0.0 -55.4 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.014" xyz="290.87 18.39 -74.81" hpr="0.0 -55.4 0.0" scale="1.30 1.30 1.30">
   </library>
-  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.015" xyz="292.83 18.39 -75.10" hpr="0.0 -55.4 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.015" xyz="292.83 18.39 -75.10" hpr="0.0 -55.4 0.0" scale="1.30 1.30 1.30">
   </library>
-  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.016" xyz="257.28 19.84 -236.21" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.016" xyz="257.28 19.84 -236.21" hpr="0.0 -0.0 0.0" scale="1.30 1.30 1.30">
   </library>
   <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.017" xyz="257.31 19.84 -234.60" hpr="-11.0 139.9 -4.1" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.018" xyz="265.46 19.69 -223.51" hpr="-3.1 168.1 4.2" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.019" xyz="265.13 19.57 -221.93" hpr="-3.1 168.3 4.9" scale="1.00 1.00 1.00">
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.019" xyz="265.13 19.57 -221.93" hpr="-3.1 168.3 4.9" scale="1.30 1.30 1.30">
   </library>
-  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.020" xyz="266.91 19.69 -222.75" hpr="0.0 167.2 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.020" xyz="266.91 19.69 -222.75" hpr="0.0 167.2 0.0" scale="1.30 1.30 1.30">
   </library>
   <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.021" xyz="308.59 18.73 -145.09" hpr="0.0 -55.4 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.022" xyz="85.70 0.77 -242.11" hpr="-2.3 0.4 1.3" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.023" xyz="84.47 0.68 -244.12" hpr="-2.3 0.4 1.3" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.024" xyz="119.49 2.54 -219.77" hpr="0.9 0.4 2.1" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.025" xyz="116.97 2.46 -220.24" hpr="0.9 0.4 2.1" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_greenRadioTower_a" id="stklib_greenRadioTower_a_main_proxy" xyz="0.00 0.57 18.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
