@@ -90,7 +90,10 @@
   
   <material name="stktex_generic_roadSnow_a.png" gloss-map="stktex_generic_roadSnow_a_gloss.png" normal-map="stktex_generic_roadSnow_a_nm.png"/>
 
-  <material name="stkflag_asianPaperLantern_a.png" gloss-map="stkflag_asianPaperLantern_a_gloss.png"/>  
+  <material name="stkflag_asianPaperLantern_a.png" gloss-map="stkflag_asianPaperLantern_a_gloss.png"/>
+  
+  <!-- Generic glow texture -->
+  <material name="gfxGlow_yellow_a.png" gloss-map="gfxGlow_generic_a_gloss.png"/>  
 
   <material name="stk_mudpot_a.png" gloss-map="stk_mudpot_a_gloss.png" />
   
