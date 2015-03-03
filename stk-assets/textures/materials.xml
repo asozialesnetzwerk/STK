@@ -93,7 +93,9 @@
   <material name="stkflag_asianPaperLantern_a.png" gloss-map="stkflag_asianPaperLantern_a_gloss.png"/>
   
   <!-- Generic glow texture -->
-  <material name="gfxGlow_yellow_a.png" gloss-map="gfxGlow_generic_a_gloss.png"/>  
+  <material name="gfxGlow_yellow_a.png" gloss-map="gfxGlow_generic_a_gloss.png"/>
+  <material name="gfxGlow_White_a.png" gloss-map="gfxGlow_generic_a_gloss.png"/>
+  <material name="gfxGlow_red_a.png" gloss-map="gfxGlow_generic_a_gloss.png"/>  
 
   <material name="stk_mudpot_a.png" gloss-map="stk_mudpot_a_gloss.png" />
   
