@@ -1,0 +1,4 @@
+notification_backgrounds.xcf - Licensed under CC-BY-SA 3.0 by Magne Djupvik, based on
+    cup_gold.png licensed under CC-BY-SA 3+ from Open Game Art (art by onyum.com, comissionned by Bart Kelsey)
+    glass_section.png licensed under CC-BY-SA 3.0 Unported and
+    main_about.png licensed under Creative-Commons BY-SA 3, By yeKcim (Anthony Carré)
