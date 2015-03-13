@@ -13,7 +13,6 @@
       rgb               = "0.03 0.40 1.00" >
   <sounds engine = "large"/>
   <animations left = "19"
-              left = "19"
               straight = "39"
               right = "59"
               start-winning = "79"
