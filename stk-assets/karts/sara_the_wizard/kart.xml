@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev 15441 -->
-<kart name              = "Sara the wizard"
+<kart name              = "Sara the Wizard"
       version           = "2"
       model-file        = "sara the wizard.b3d"
       icon-file         = "icon-sara.png"
@@ -33,5 +33,5 @@
   <speed-weighted-objects>
     <speed-weighted position="0.000000 0.000000 0.000000" model="Circle.003_Circle.002.b3d"  texture-speed-x="0.000000" texture-speed-y="1.500000"/>
   </speed-weighted-objects>
-  <hat offset="0.0 1.0 0.0"/>
+  <hat offset="0.0 0.2 0.0"/>
 </kart>
