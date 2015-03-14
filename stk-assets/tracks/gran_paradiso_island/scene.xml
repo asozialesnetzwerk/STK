@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15850 -->
+<!-- Generated with script from SVN rev 15937 -->
 <scene>
-  <track model="Island_5_track.b3d" x="0" y="0" z="0">
+  <track model="gran_paradiso_island_track.b3d" x="0" y="0" z="0">
     <static-object model="baggage_belt.b3d" xyz="101.06 25.86 -62.07" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
     <animated-texture name="stktex_generic_bambooB.png" dx="-0.200" />
     </static-object>
@@ -925,21 +925,13 @@
   </library>
   <library name="stklib_beachWomen_a" id="stklib_beachWomen_a_main_proxy.007" xyz="-7.72 4.50 126.10" hpr="-0.0 -179.3 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_bigBlueFutureLight_a" id="stklib_bigBlueFutureLight_a_main_proxy" xyz="-0.36 0.09 12.80" hpr="-90.0 -0.0 0.0" scale="0.28 0.28 0.28">
-  </library>
-  <library name="stklib_bigBlueFutureLight_a" id="stklib_bigBlueFutureLight_a_main_proxy.001" xyz="-20.36 0.09 12.80" hpr="-90.0 -0.0 0.0" scale="0.28 0.28 0.28">
-  </library>
-  <library name="stklib_bigBlueFutureLight_a" id="stklib_bigBlueFutureLight_a_main_proxy.002" xyz="-60.36 0.09 12.80" hpr="-90.0 -0.0 0.0" scale="0.28 0.28 0.28">
-  </library>
-  <library name="stklib_bigBlueFutureLight_a" id="stklib_bigBlueFutureLight_a_main_proxy.003" xyz="-40.36 0.09 12.80" hpr="-90.0 -0.0 0.0" scale="0.28 0.28 0.28">
-  </library>
   <library name="stklib_electricalFence_a" id="stklib_electricalFence_a_main_proxy" xyz="-60.00 5.59 98.80" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_electricalFence_a" id="stklib_electricalFence_a_main_proxy.001" xyz="-70.00 6.59 4.80" hpr="-0.0 -177.6 -0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_electricalFenceGate_a" id="stklib_electricalFenceGate_a_main_proxy" xyz="-69.43 6.07 13.11" hpr="0.0 -0.3 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_electricalFencePost_a" id="stklib_electricalFencePost_a_main_proxy.000" xyz="-70.00 6.60 21.78" hpr="-0.0 178.9 -0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_electricalFencePost_a" id="stklib_electricalFencePost_a_main_proxy.000" xyz="-70.00 6.60 24.38" hpr="-0.0 178.9 -0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_electricalFencePost_a" id="stklib_electricalFencePost_a_main_proxy.001" xyz="20.00 5.60 98.78" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
   </library>
@@ -1086,6 +1078,14 @@
   <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.024" xyz="-70.31 6.74 34.75" hpr="2.5 -129.2 9.8" scale="0.94 0.94 0.94">
   </library>
   <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.025" xyz="15.40 5.13 55.80" hpr="40.7 102.0 31.2" scale="0.94 0.94 0.94">
+  </library>
+  <library name="stklib_oldschoolLamp_a" id="stklib_oldschoolLamp_a_main_proxy" xyz="-0.39 0.12 14.21" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_oldschoolLamp_a" id="stklib_oldschoolLamp_a_main_proxy.001" xyz="-20.39 0.12 14.21" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_oldschoolLamp_a" id="stklib_oldschoolLamp_a_main_proxy.002" xyz="-40.39 0.12 14.21" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_oldschoolLamp_a" id="stklib_oldschoolLamp_a_main_proxy.003" xyz="-60.39 0.12 14.21" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy" xyz="151.68 9.37 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
@@ -1305,9 +1305,9 @@
   </library>
   <library name="stklib_saraVertical_a" id="stklib_saraVertical_a_main_proxy.012" xyz="-83.31 18.22 4.68" hpr="-0.0 144.1 -0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_spiralBlueShell_a" id="stklib_spiralBlueShell_a_main_proxy" xyz="187.21 14.68 83.00" hpr="76.2 37.3 -8.6" scale="0.48 0.48 0.48">
+  <library name="stklib_spiralBlueShell_a" id="stklib_spiralBlueShell_a_main_proxy" xyz="187.21 13.68 83.00" hpr="76.2 37.3 -8.6" scale="0.48 0.48 0.48">
   </library>
-  <library name="stklib_spiralBlueShell_a" id="stklib_spiralBlueShell_a_main_proxy.001" xyz="196.00 14.67 74.51" hpr="74.1 -142.4 8.6" scale="0.50 0.50 0.50">
+  <library name="stklib_spiralBlueShell_a" id="stklib_spiralBlueShell_a_main_proxy.001" xyz="196.00 13.67 74.51" hpr="74.1 -142.4 8.6" scale="0.50 0.50 0.50">
   </library>
   <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy" xyz="132.71 16.64 98.28" hpr="0.0 -45.9 0.0" scale="1.00 1.00 1.00">
   </library>
