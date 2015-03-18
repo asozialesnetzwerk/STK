@@ -1251,33 +1251,27 @@
   </library>
   <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.024" xyz="-62.93 10.21 -83.22" hpr="0.0 17.3 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_aztekVase_a" id="stklib_aztekVase_a_main_proxy" xyz="284.28 18.80 -80.47" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_aztekVase_a" id="stklib_aztekVase_a_main_proxy" xyz="282.85 18.55 -78.32" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_aztekVase_a" id="stklib_aztekVase_a_main_proxy.001" xyz="239.80 18.79 -86.30" hpr="0.0 -0.0 0.0" scale="0.50 0.50 0.50">
+  <library name="stklib_aztekVase_a" id="stklib_aztekVase_a_main_proxy.001" xyz="242.37 18.51 -87.30" hpr="0.0 -0.0 0.0" scale="0.50 0.50 0.50">
   </library>
-  <library name="stklib_aztekVase_a" id="stklib_aztekVase_a_main_proxy.002" xyz="230.14 19.11 -99.33" hpr="0.0 -0.0 -61.8" scale="0.59 0.59 0.59">
+  <library name="stklib_aztekVase_a" id="stklib_aztekVase_a_main_proxy.003" xyz="233.44 18.45 -98.10" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86">
   </library>
-  <library name="stklib_aztekVase_a" id="stklib_aztekVase_a_main_proxy.003" xyz="231.29 18.79 -98.09" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86">
+  <library name="stklib_aztekVase_a" id="stklib_aztekVase_a_main_proxy.005" xyz="250.59 18.48 -118.08" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86">
   </library>
-  <library name="stklib_aztekVase_a" id="stklib_aztekVase_a_main_proxy.004" xyz="232.07 18.80 -96.76" hpr="-0.0 131.6 -0.0" scale="0.55 0.55 0.55">
+  <library name="stklib_aztekVase_a" id="stklib_aztekVase_a_main_proxy.006" xyz="234.49 18.45 -123.69" hpr="0.0 27.0 0.0" scale="0.86 0.86 0.86">
   </library>
-  <library name="stklib_aztekVase_a" id="stklib_aztekVase_a_main_proxy.005" xyz="253.26 18.79 -117.96" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86">
+  <library name="stklib_aztekVase_a" id="stklib_aztekVase_a_main_proxy.007" xyz="235.16 18.45 -122.37" hpr="0.0 27.0 0.0" scale="0.58 0.58 0.58">
   </library>
-  <library name="stklib_aztekVase_a" id="stklib_aztekVase_a_main_proxy.006" xyz="231.19 18.80 -124.27" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86">
+  <library name="stklib_aztekVase_a" id="stklib_aztekVase_a_main_proxy.008" xyz="233.72 18.45 -121.65" hpr="-0.0 -97.8 -0.0" scale="0.98 0.98 0.98">
   </library>
-  <library name="stklib_aztekVase_a" id="stklib_aztekVase_a_main_proxy.007" xyz="231.19 18.80 -122.79" hpr="0.0 -0.0 0.0" scale="0.58 0.58 0.58">
+  <library name="stklib_aztekVase_a" id="stklib_aztekVase_a_main_proxy.010" xyz="250.69 18.48 -109.09" hpr="0.0 -0.0 0.0" scale="0.56 0.56 0.56">
   </library>
-  <library name="stklib_aztekVase_a" id="stklib_aztekVase_a_main_proxy.008" xyz="229.57 18.80 -122.80" hpr="-0.0 -124.8 -0.0" scale="0.98 0.98 0.98">
+  <library name="stklib_aztekVase_a" id="stklib_aztekVase_a_main_proxy.011" xyz="264.94 18.51 -92.14" hpr="0.0 -0.0 0.0" scale="0.61 0.61 0.61">
   </library>
-  <library name="stklib_aztekVase_a" id="stklib_aztekVase_a_main_proxy.009" xyz="278.97 18.80 -67.01" hpr="0.0 -0.0 0.0" scale="0.50 0.50 0.50">
+  <library name="stklib_aztekVase_a" id="stklib_aztekVase_a_main_proxy.012" xyz="253.63 18.51 -99.76" hpr="0.0 -0.0 0.0" scale="1.04 1.04 1.04">
   </library>
-  <library name="stklib_aztekVase_a" id="stklib_aztekVase_a_main_proxy.010" xyz="252.37 18.79 -109.51" hpr="0.0 -0.0 0.0" scale="0.56 0.56 0.56">
-  </library>
-  <library name="stklib_aztekVase_a" id="stklib_aztekVase_a_main_proxy.011" xyz="266.32 18.80 -93.26" hpr="0.0 -0.0 0.0" scale="0.61 0.61 0.61">
-  </library>
-  <library name="stklib_aztekVase_a" id="stklib_aztekVase_a_main_proxy.012" xyz="255.86 18.80 -100.64" hpr="0.0 -0.0 0.0" scale="1.04 1.04 1.04">
-  </library>
-  <library name="stklib_aztekVase_a" id="stklib_aztekVase_a_main_proxy.013" xyz="278.97 18.80 -65.93" hpr="0.0 -0.0 0.0" scale="0.70 0.70 0.70">
+  <library name="stklib_aztekVase_a" id="stklib_aztekVase_a_main_proxy.013" xyz="279.96 18.66 -68.43" hpr="0.0 -0.0 0.0" scale="0.70 0.70 0.70">
   </library>
   <library name="stklib_bambooTorch_a" id="stklib_bambooTorch_a_main_proxy" xyz="-44.47 -1.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
