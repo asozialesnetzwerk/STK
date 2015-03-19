@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15850 -->
+<!-- Generated with script from SVN rev 15937 -->
 <scene>
   <object id="Plane" type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="gfx_aztekTorchDistord.b3d" displacing="true" skeletal-animation="false">
   </object>
@@ -9,5 +9,20 @@
   <particle-emitter kind="gfx_sparkFire_a.xml" id="Empty" xyz="0.00 0.42 0.50" h="0.00">
   </particle-emitter>
   <light xyz="0.00 0.69 0.00" id="Lamp" distance="25.00" energy="0.80" color="255 135 52">
+    <curve channel="LocX" interpolation="bezier" extend="cyclic">
+      <p c="1.000 0.000" h1="-9.932 0.000" h2="11.932 0.000"/>
+      <p c="29.000 0.000" h1="18.068 0.000" h2="37.589 0.000"/>
+      <p c="51.000 0.000" h1="42.411 0.000" h2="59.589 0.000"/>
+    </curve>
+    <curve channel="LocZ" interpolation="bezier" extend="cyclic">
+      <p c="1.000 0.000" h1="-9.932 0.000" h2="11.932 0.000"/>
+      <p c="29.000 0.567" h1="18.068 0.567" h2="37.589 0.567"/>
+      <p c="51.000 -0.308" h1="42.411 -0.308" h2="59.589 -0.308"/>
+    </curve>
+    <curve channel="LocY" interpolation="bezier" extend="cyclic">
+      <p c="1.000 0.693" h1="-9.932 0.693" h2="11.932 0.693"/>
+      <p c="29.000 0.693" h1="18.068 0.693" h2="37.589 0.693"/>
+      <p c="51.000 0.693" h1="42.411 0.693" h2="59.589 0.693"/>
+    </curve>
   </light>
 </scene>
