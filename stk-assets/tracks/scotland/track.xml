@@ -4,7 +4,7 @@
         version        = "6"
         groups         = "standard"
         designer       = "Canis Lupus"
-        music          = "Origin.music"
+        music          = "celtic.music"
         screenshot     = "sshot-scotland.jpg"
         smooth-normals = "true"
         default-number-of-laps = "3"
