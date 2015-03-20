@@ -102,6 +102,7 @@
   <material name="stk_generic_gridA.png" shader="alphatest" has-gravity="Y"/>
   <material name="stktex_lowPalmLeaf_a.png" shader="grass"/>
   <material name="stklib_conifer_a_low.png" shader="grass"/>
+  <material name="stktex_seaweed_a.png" shader="grass"/>
   
   
   
@@ -123,8 +124,9 @@
   <material name="stktex_waterLily_a.png" shader="grass" ignore="Y" />
   <material name="stk_grassAlpha.png"         shader="grass"  ignore="Y"/>
   <material name="stk_generic_colorfabricA.png"         shader="grass"  ignore="Y"/>
-  <material name="gfx_leaf_a.png" compositing="additive"/>
+  <material name="gfx_leaf_a.png" compositing="blend"/>
   <material name="gfx_sparkFire_a.png" compositing="additive"/>
+  <material name="gfx_electricArc_a.png" compositing="additive"/>
   
   <!-- Normal map -->
   <material name="stktex_generic_cobbleStoneA.png" has-gravity="Y" graphical-effect="normal_map" normal-map="stktex_generic_cobbleStoneA_nm.png"/>
