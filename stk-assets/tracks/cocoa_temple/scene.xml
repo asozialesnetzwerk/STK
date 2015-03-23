@@ -24,6 +24,7 @@
     <animated-texture name="stktex_waterfall_a.png" dy="-0.5000" />
     <animated-texture name="stktex_waterfall_a.png" dy="-0.5000" />
     <animated-texture name="stktex_waterfall_a.png" dy="-0.5000" />
+    <animated-texture name="stkflag_greenCheckBorard_a.png" dx="0.080"  dy="0.2000" />
   </track>
   <object id="Circle.002" type="animation" xyz="-54.26 0.97 -169.38" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="roaster_displacement.b3d" displacing="true" skeletal-animation="false">
   </object>
@@ -54,6 +55,23 @@
     </curve>
   </object>
   <object id="Text" type="animation" xyz="27.05 12.34 42.80" hpr="0.0 -10.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="start_text.b3d" skeletal-animation="false">
+    <curve channel="ScaleX" interpolation="bezier" extend="cyclic">
+      <p c="1.000 1.000" h1="-19.692 1.000" h2="21.692 1.000"/>
+      <p c="54.000 1.200" h1="33.308 1.200" h2="62.979 1.200"/>
+      <p c="77.000 1.000" h1="68.021 1.000" h2="85.979 1.000"/>
+    </curve>
+    <curve channel="ScaleZ" interpolation="bezier" extend="cyclic">
+      <p c="1.000 1.000" h1="-7.979 1.000" h2="9.979 1.000"/>
+      <p c="24.000 1.200" h1="15.021 1.200" h2="44.692 1.200"/>
+      <p c="77.000 1.000" h1="56.308 1.000" h2="97.692 1.000"/>
+    </curve>
+    <curve channel="ScaleY" interpolation="bezier" extend="cyclic">
+      <p c="1.000 1.000" h1="-13.836 1.000" h2="15.836 1.000"/>
+      <p c="39.000 1.200" h1="24.164 1.200" h2="53.836 1.200"/>
+      <p c="77.000 1.000" h1="62.164 1.000" h2="91.836 1.000"/>
+    </curve>
+  </object>
+  <object id="Text.002" type="animation" xyz="-46.03 18.50 -232.32" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="welcome_text.b3d" skeletal-animation="false">
     <curve channel="ScaleX" interpolation="bezier" extend="cyclic">
       <p c="1.000 1.000" h1="-19.692 1.000" h2="21.692 1.000"/>
       <p c="54.000 1.200" h1="33.308 1.200" h2="62.979 1.200"/>
@@ -1046,6 +1064,12 @@
   </light>
   <light xyz="-64.98 0.26 -176.39" id="Lamp.035" distance="25.00" energy="5.00" color="255 80 25">
   </light>
+  <light xyz="-46.49 18.35 -235.47" id="Lamp.036" distance="25.00" energy="2.00" color="248 255 154">
+  </light>
+  <light xyz="-50.49 18.35 -235.47" id="Lamp.037" distance="25.00" energy="2.00" color="248 255 154">
+  </light>
+  <light xyz="-42.49 18.35 -235.47" id="Lamp.038" distance="25.00" energy="2.00" color="248 255 154">
+  </light>
   <lightshaft xyz="-1406.06 496.57 -237.14" id="Sun.001" opacity="0.80" color="217 255 93"/>
   <default-start karts-per-row     ="3"
                  forwards-distance ="2.00"
@@ -1084,6 +1108,8 @@
   <library name="stklib_aztecFountain_a" id="stklib_aztecFountain_a_main_proxy.008" xyz="186.64 6.12 144.28" hpr="44.9 82.9 45.1" scale="1.68 2.02 1.68">
   </library>
   <library name="stklib_aztecFountain_a" id="stklib_aztecFountain_a_main_proxy.009" xyz="215.03 8.12 137.11" hpr="-10.6 115.5 -11.7" scale="1.68 2.02 1.68">
+  </library>
+  <library name="stklib_aztecFountain_a" id="stklib_aztecFountain_a_main_proxy.011" xyz="-26.28 19.53 -230.86" hpr="0.0 -180.0 -5.0" scale="2.52 3.02 2.52">
   </library>
   <library name="stklib_aztecHouse_a" id="stklib_aztecHouse_a_main_proxy" xyz="257.62 18.82 -105.22" hpr="0.0 -77.5 0.0" scale="1.00 1.00 1.00">
   </library>
@@ -1250,6 +1276,8 @@
   <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.023" xyz="-70.19 8.53 -104.01" hpr="-0.0 13.9 -0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.024" xyz="-62.93 10.21 -83.22" hpr="0.0 17.3 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_aztekTorch_a" id="stklib_aztekTorch_a_main_proxy.025" xyz="-24.40 8.48 -233.79" hpr="-0.0 90.0 0.0" scale="1.50 1.50 1.50">
   </library>
   <library name="stklib_aztekVase_a" id="stklib_aztekVase_a_main_proxy" xyz="282.85 18.55 -78.32" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
@@ -1630,6 +1658,10 @@
   <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.013" xyz="-17.36 12.88 -287.79" hpr="-0.0 116.3 -0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.014" xyz="-47.38 12.80 -252.77" hpr="-0.0 154.6 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.015" xyz="-33.77 16.69 -230.99" hpr="0.0 -180.0 -0.0" scale="1.50 1.50 1.50">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.016" xyz="-58.46 16.69 -230.99" hpr="0.0 -180.0 -0.0" scale="1.50 1.50 1.50">
   </library>
   <library name="stklib_tropicalPlant_a" id="stklib_tropicalPlant_a_main_proxy" xyz="0.00 0.00 58.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
