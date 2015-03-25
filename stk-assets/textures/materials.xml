@@ -95,9 +95,11 @@
   <!-- Generic glow texture -->
   <material name="gfxGlow_yellow_a.png" gloss-map="gfxGlow_generic_a_gloss.png"/>
   <material name="gfxGlow_White_a.png" gloss-map="gfxGlow_generic_a_gloss.png"/>
-  <material name="gfxGlow_red_a.png" gloss-map="gfxGlow_generic_a_gloss.png"/>  
+  <material name="gfxGlow_red_a.png" gloss-map="gfxGlow_generic_a_gloss.png"/>
+  <material name="gfxGlow_blue_a.png" gloss-map="gfxGlow_generic_a_gloss.png"/>  
 
   <material name="stk_mudpot_a.png" gloss-map="stk_mudpot_a_gloss.png" />
+  <material name="stkflag_latexBluePinkPattern_a.png" gloss-map="stkflag_latexBluePinkPattern_a_gloss.png"/>
   
   <material name="stk_generic_gridA.png" shader="alphatest" has-gravity="Y"/>
   <material name="stktex_lowPalmLeaf_a.png" shader="grass"/>
@@ -149,6 +151,10 @@
   <material name="stktex_generic_aztekWall_a.png"  graphical-effect="normal_map" normal-map="stktex_generic_aztekWall_a_nm.png"/>
   <material name="stk_generic_grassB.png"          graphical-effect="normal_map" normal-map="stk_generic_grassB_nm.png"/>
   <material name="stktex_generic_WoodB.png"        graphical-effect="normal_map" normal-map="stktex_generic_WoodB_nm.png" gloss-map="stktex_generic_WoodB_gloss.png"/>
+  
+
+  
+  
   
   
   <material name="stk_generic_ironA.png" has-gravity="Y" />
