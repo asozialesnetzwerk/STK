@@ -164,6 +164,7 @@
    <material name="gfx_bubble_a.png"  shader="alphablend"  light="N"/> 
    <material name="stkflag_saraAgency_a.png"  shader="alphablend"/> 
    
+   <material name="gfx_cloudAnimated_a.png"  shader="alphablend"/> 
    <material name="gfx_sandAnimated_a.png"  shader="alphablend"/> 
   
   
