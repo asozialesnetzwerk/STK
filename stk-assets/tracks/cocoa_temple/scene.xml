@@ -90,7 +90,7 @@
   </object>
   <sun  fog="true" fog-color="37 74 64" fog-max="0.20000000298023224" fog-start="15.00" fog-end="750.00" xyz="-642.22 673.75 -219.26" sun-specular="211 235 110" sun-diffuse="211 235 110" ambient="120 120 120"/>
   <sky-box texture="SKY0005.png SKY0006.png skybox_aa.jpg skybox_aa.jpg skybox_aa.jpg skybox_aa.jpg" sh-texture="skybox5.jpg skybox6.png skybox_ibl.jpg skybox_ibl.jpg skybox_ibl.jpg skybox_ibl.jpg"/>
-  <camera far="5000.0"/>
+  <camera far="2000.0"/>
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
     <check-line kind="activate" other-ids="2" p1="281.82 -42.82" p2="270.62 -58.40"
