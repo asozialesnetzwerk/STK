@@ -129,6 +129,7 @@
   <material name="stk_grassAlpha.png"         shader="grass"  ignore="Y"/>
   <material name="stk_generic_colorfabricA.png"         shader="grass"  ignore="Y"/>
   <material name="gfx_leaf_a.png" compositing="blend"/>
+  <material name="stk_darkSkidMark_a.png" compositing="blend"/>
   <material name="gfx_sparkFire_a.png" compositing="additive"/>
   <material name="gfx_electricArc_a.png" compositing="additive"/>
   <material name="gfx_yellowBeam_a.png" compositing="additive"/>
