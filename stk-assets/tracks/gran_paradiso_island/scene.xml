@@ -202,6 +202,8 @@
   <object id="Plane.029" type="animation" xyz="64.16 8.62 52.81" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="waterfall-lagoon.b3d" skeletal-animation="false">
     <animated-texture name="stktex_waterfall_a.png" dy="-0.5000" />
   </object>
+  <object id="Plane.084" type="animation" xyz="-30.34 6.46 11.28" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="runway_skidway.b3d" skeletal-animation="false">
+  </object>
   <object id="Sphere" type="animation" xyz="35.45 6.80 163.87" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="beachball_play.b3d" skeletal-animation="false">
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
       <p c="1.000 35.450" h1="-4.662 35.450" h2="7.362 35.450"/>
