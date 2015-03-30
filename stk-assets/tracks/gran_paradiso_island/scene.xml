@@ -255,7 +255,7 @@
     </curve>
   </object>
   <sun  fog="true" fog-color="19 84 86" fog-max="0.20000000298023224" fog-start="15.00" fog-end="750.00" xyz="143.83 732.16 1358.93" sun-diffuse="255 166 71" ambient="120 120 120"/>
-  <sky-box texture="skybox_side.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png" sh-texture="skybox_side.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png"/>
+  <sky-box texture="skybox-top.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png" sh-texture="skybox-top.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png"/>
   <camera far="2500.0"/>
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
@@ -1362,6 +1362,10 @@
   <library name="stklib_trijet_a" id="stklib_trijet_a_main_proxy" xyz="26.84 13.32 -106.11" hpr="0.0 -35.0 0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_tropicalPlant_a" id="stklib_tropicalPlant_a_main_proxy" xyz="17.13 6.08 89.97" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_tropicalPlant_a" id="stklib_tropicalPlant_a_main_proxy.001" xyz="7.43 6.76 -10.07" hpr="0.0 -0.0 0.0" scale="1.30 1.30 1.30">
+  </library>
+  <library name="stklib_tropicalPlant_a" id="stklib_tropicalPlant_a_main_proxy.002" xyz="3.79 6.48 -84.06" hpr="0.0 65.9 0.0" scale="1.30 1.30 1.30">
   </library>
   <library name="stklib_umbrellaBeach_a" id="stklib_umbrellaBeach_a_main_proxy" xyz="44.44 3.52 173.41" hpr="7.8 -0.1 6.5" scale="1.00 1.00 1.00">
   </library>
