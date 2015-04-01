@@ -2,11 +2,11 @@
 <!-- Generated with script from SVN rev 15937 -->
 <scene>
   <lod>
-   <group name="_single_lod_gfx_fireworkTube_a_flame">
-    <static-object lod_distance="100" lod_group="_single_lod_gfx_fireworkTube_a_flame" model="gfx_fireworkTube_a_flame.b3d" xyz="-0.00 1.60 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
-   </group>
    <group name="_single_lod_gfx_fireworkTube_a_flame_2">
     <static-object lod_distance="100" lod_group="_single_lod_gfx_fireworkTube_a_flame_2" model="gfx_fireworkTube_a_flame_2.b3d" xyz="-0.00 1.60 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" skeletal-animation="false"/>
+   </group>
+   <group name="_single_lod_gfx_fireworkTube_a_flame">
+    <static-object lod_distance="100" lod_group="_single_lod_gfx_fireworkTube_a_flame" model="gfx_fireworkTube_a_flame.b3d" xyz="-0.00 1.60 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
    </group>
   </lod>
   <object id="Circle" type="animation" xyz="-0.00 1.60 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" shape="box"  lod_instance="true" lod_group="_single_lod_gfx_fireworkTube_a_flame" model="gfx_fireworkTube_a_flame.b3d" skeletal-animation="false">
@@ -112,7 +112,7 @@
       <p c="15.000 9.527" h1="13.438 9.527" h2="16.562 9.527"/>
     </curve>
   </particle-emitter>
-  <light xyz="0.00 2.41 0.00" id="Lamp" distance="5.00" energy="1.00" color="255 208 61">
+  <light xyz="0.00 2.41 0.00" id="Lamp" distance="5.00" energy="1.00" color="255 100 24">
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
       <p c="1.000 0.000" h1="-2.904 0.000" h2="4.904 0.000"/>
       <p c="11.000 0.000" h1="7.096 0.000" h2="12.562 0.000"/>
