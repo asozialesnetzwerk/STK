@@ -48,6 +48,7 @@
   
   <!-- Textures graphical-effect="normal_map" normal-map="stktex_generic_cobbleStoneA_nm.png" -->
   <material name="stktex_animatedFire_a.png" disable-z-write="Y" shader="additive"/>
+  <material name="stktex_animatedPinkFire_a.png" disable-z-write="Y" shader="additive"/>
   
   <material name="gfx_distord_AlphaTested.png" shader="alphatest"/>
   <material name="stktex_generic_WoodA.png" >
@@ -130,7 +131,8 @@
   <material name="stk_generic_colorfabricA.png"         shader="grass"  ignore="Y"/>
   <material name="gfx_leaf_a.png" compositing="blend"/>
   <material name="stk_darkSkidMark_a.png" compositing="blend"/>
-  <material name="gfx_sparkFire_a.png" compositing="additive"/>
+  <material name="gfx_sparkFire_a.png" compositing="additive"/> 
+  <material name="gfx_sparkBlue_a.png" compositing="additive"/>
   <material name="gfx_electricArc_a.png" compositing="additive"/>
   <material name="gfx_yellowBeam_a.png" compositing="additive"/>
   
@@ -141,6 +143,8 @@
   <material name="stktex_generic_rockA.png"        graphical-effect="normal_map" normal-map="stktex_generic_rockA_nm.png" gloss-map="stktex_generic_rockA_gloss.png"/>
   <material name="stk_greyMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png"/>
   <material name="stk_goldMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png"/>
+  
+  <material name="stk_metalRustedBlue_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png"/> 
   
   <material name="stk_lightGrayMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_lightGreyMetal_a_gloss.png"/>
   <material name="stk_blueMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_lightGreyMetal_a_gloss.png"/>
