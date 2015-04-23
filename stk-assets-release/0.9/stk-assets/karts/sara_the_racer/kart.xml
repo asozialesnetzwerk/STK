@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 15441 -->
+<kart name              = "Sara the Racer"
+      version           = "2"
+      model-file        = "sara the racer.b3d"
+      icon-file         = "icon-sara.png"
+      minimap-icon-file = "icon-sara.png"
+      shadow-file       = "turbinia_shadow.png"
+      random-wheel-rot  = "true"
+      type              = "light"
+      groups            = "standard"
+      rgb               = "1.00 1.00 1.00" >
+  <sounds engine = "large"/>
+  <animations left = "9"
+              straight = "29"
+              right = "49"
+              start-jump = "59"
+              end-jump = "79"/>
+  <wheels>
+    <rear-left position = "-0.143815 0.109919 -0.403447"
+                 model    = "wheel-rear-left.b3d"       />
+    <rear-right position = "0.143815 0.109919 -0.403447"
+                 model    = "wheel-rear-right.b3d"       />
+    <front-right position = "0.000000 0.097489 0.481675"
+                 model    = "wheel-front-right.b3d"       />
+  </wheels>
+  <nitro-emitter>
+    <nitro-emitter-a position = "0.015415 0.294082 -0.508180" />
+    <nitro-emitter-b position = "-0.015024 0.294082 -0.508180" />
+  </nitro-emitter>
+  <speed-weighted-objects>
+    <speed-weighted position="-0.000000 0.269588 -0.364707" model="Plane.001.b3d"  texture-speed-x="0.500000" texture-speed-y="0.000000"/>
+  </speed-weighted-objects>
+  <hat offset="0.0 0.2 0.0"/>
+</kart>

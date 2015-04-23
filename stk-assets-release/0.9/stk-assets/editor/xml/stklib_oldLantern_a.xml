@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<library name="oldLantern_a" category="city">
+      <img path="stklib_oldLantern_a.png">
+      <model path="stklib_oldLantern_a/stklib_oldLantern_a_main.b3d">
+      <tag name="lantern">
+      <tag name="light">
+      <tag name="fire">
+</library>

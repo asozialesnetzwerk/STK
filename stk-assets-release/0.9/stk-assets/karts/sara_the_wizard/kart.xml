@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 15441 -->
+<kart name              = "Sara the Wizard"
+      version           = "2"
+      model-file        = "sara the wizard.b3d"
+      icon-file         = "icon-sara.png"
+      minimap-icon-file = "icon-sara.png"
+      shadow-file       = "sara-shadow.png"
+      random-wheel-rot  = "true"
+      type              = "medium"
+      groups            = "standard"
+      rgb               = "1.00 1.00 1.00" >
+  <sounds engine = "large"/>
+  <animations left = "19"
+              straight = "39"
+              right = "59"
+              start-jump = "99"
+              end-jump = "129"/>
+  <wheels>
+    <rear-right position = "0.062147 0.069841 -0.593046"
+                 model    = "wheel-rear-right.b3d"       />
+    <rear-left position = "-0.062147 0.069841 -0.593046"
+                 model    = "wheel-rear-left.b3d"       />
+    <front-left position = "-0.193361 0.135471 0.448042"
+                 model    = "wheel-front-left.b3d"       />
+    <front-right position = "0.192284 0.135471 0.448042"
+                 model    = "wheel-front-right.b3d"       />
+  </wheels>
+  <nitro-emitter>
+    <nitro-emitter-a position = "-0.178905 0.268604 -0.499154" />
+    <nitro-emitter-b position = "0.171986 0.268604 -0.499154" />
+  </nitro-emitter>
+  <speed-weighted-objects>
+    <speed-weighted position="0.000000 0.000000 0.000000" model="Circle.003_Circle.002.b3d"  texture-speed-x="0.000000" texture-speed-y="1.500000"/>
+  </speed-weighted-objects>
+  <hat offset="0.0 0.2 0.0"/>
+</kart>

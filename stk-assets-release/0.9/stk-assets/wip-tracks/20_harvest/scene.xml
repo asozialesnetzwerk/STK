@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 14899 -->
+<scene>
+  <track model="farm_track.b3d" x="0" y="0" z="0"/>
+  <object type="animation" xyz="11.00 1.61 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" shape="box" model="SomeModel.b3d" displacing="true">
+  </object>
+  <object type="animation" xyz="0.00 0.50 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="SomeModel.b3d" renderpass="skybox">
+  </object>
+  <object type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="skybox_test.b3d">
+  </object>
+  <sun  xyz="0.00 473.63 1689.11" sun-specular="167 167 167" sun-diffuse="235 180 110" ambient="103 99 86"/>
+  <sky-color rgb="77 104 255"/>
+  <sky-box texture="sky.png sky.png sky.png sky.png sky.png sky.png"/>
+  <camera far="500.0"/>
+  <checks>
+    <check-lap kind="lap" same-group="0" other-ids="1" />
+    <check-line kind="activate" other-ids="2" p1="123.17 48.42" p2="167.90 93.77"
+                min-height="1.52" same-group="1"/>
+    <check-line kind="activate" other-ids="0" p1="65.87 -162.54" p2="49.31 -122.74"
+                min-height="6.84" same-group="2"/>
+  </checks>
+  <particle-emitter kind="fire.xml" xyz="11.04 1.61 -0.06" h="0.00">
+  </particle-emitter>
+  <particle-emitter kind="black_smoke.xml" xyz="11.05 1.62 0.03" h="0.00">
+  </particle-emitter>
+  <banana x="55.81" y="10.20" z="-53.41" />
+  <banana x="-60.66" y="10.20" z="-80.51" />
+  <banana x="-55.32" y="10.20" z="-84.30" />
+  <banana x="-1.21" y="10.20" z="-45.36" />
+  <banana x="2.47" y="10.20" z="-45.36" />
+  <banana x="40.14" y="10.20" z="54.01" />
+  <banana x="139.86" y="10.20" z="80.94" />
+  <banana x="138.79" y="10.20" z="75.93" />
+  <banana x="100.36" y="10.20" z="-21.73" />
+  <banana x="100.72" y="10.20" z="-26.22" />
+  <big-nitro x="56.82" y="10.20" z="-51.14" />
+  <big-nitro x="-1.36" y="10.20" z="-42.19" />
+  <big-nitro x="2.42" y="10.20" z="-42.19" />
+  <item x="70.35" y="10.20" z="-123.05" />
+  <item x="73.61" y="10.20" z="-123.57" />
+  <item x="76.56" y="10.20" z="-123.83" />
+  <item x="-7.86" y="10.20" z="-118.80" />
+  <item x="-7.27" y="10.20" z="-124.22" />
+  <item x="-21.41" y="10.20" z="-69.16" />
+  <item x="-2.50" y="10.20" z="30.10" />
+  <item x="3.18" y="10.20" z="30.10" />
+  <item x="149.47" y="10.20" z="32.85" />
+  <item x="154.46" y="10.20" z="28.84" />
+  <small-nitro x="53.31" y="10.20" z="-51.03" />
+  <small-nitro x="59.09" y="10.20" z="-53.71" />
+  <small-nitro x="-7.86" y="10.20" z="-121.90" />
+  <small-nitro x="-59.76" y="10.20" z="-107.65" />
+  <small-nitro x="-56.86" y="10.20" z="-106.38" />
+  <small-nitro x="-54.41" y="10.20" z="-105.11" />
+  <small-nitro x="-22.07" y="10.20" z="-66.41" />
+  <small-nitro x="-21.12" y="10.20" z="-72.65" />
+  <small-nitro x="0.21" y="10.20" z="29.59" />
+  <small-nitro x="73.96" y="10.20" z="75.46" />
+  <small-nitro x="74.92" y="10.20" z="73.25" />
+  <small-nitro x="76.36" y="10.20" z="70.93" />
+  <small-nitro x="153.65" y="10.20" z="32.20" />
+  <small-nitro x="149.03" y="10.20" z="28.48" />
+  <light xyz="0.00 0.00 -100.00" distance="25.00" energy="5.00" color="255 0 28">
+  </light>
+  <light xyz="0.00 0.00 -92.07" distance="25.00" energy="5.00" color="255 0 28">
+  </light>
+  <default-start karts-per-row     ="3"
+                 forwards-distance ="1.50"
+                 sidewards-distance="3.00"
+                 upwards-distance  ="0.10"/>
+  
+</scene>

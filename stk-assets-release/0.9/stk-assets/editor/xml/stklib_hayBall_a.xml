@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<library name="stklib_hayBall_a" category="farm">
+      <img path="stklib_hayBall_a.png">
+      <model path="stklib_hayBall_a/stklib_hayBall_a_main.b3d">
+      <tag name="hayball">
+      <tag name="hay">
+      <tag name="farm">
+      <tag name="village">
+</library>

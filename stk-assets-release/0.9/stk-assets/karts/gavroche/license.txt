@@ -1,0 +1,38 @@
+Gavroche (MediaGoblin) Kart by Julian Schönbächler for SuperTuxKart
+Last edited on 01.01.2015
+
+Please contact me for any use which is not allowed by this license.
+	Julian Schönbächler
+	http://creative-forge.ch/
+	info@creative-forge.ch
+
+
+Character information:
+----------------------------------------------------------------------------
+Gavroche is the main figurehead of MediaGoblin. MediaGoblin is a free
+software media publishing platform that anyone can run.
+
+http://mediagoblin.org/
+
+
+License information:
+----------------------------------------------------------------------------
+- Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
+	Visit the following link for detailed informations:
+	http://creativecommons.org/licenses/by-sa/3.0/
+
+- GNU General Public License (GPL)
+	Visit following the link for detailed informations:
+	http://www.gnu.org/licenses/gpl
+
+
+Licensing of this work
+----------------------------------------------------------------------------
+Gavroche 2dVector icon: "gavroche_icon.png"
+	- CC BY-SA 3.0 / Author: Julian Schönbächler
+
+Gavroche textures
+	- CC BY-SA 3.0 / Author: Julian Schönbächler
+
+Gavroche all other kart Files
+	- CC BY-SA 3.0 / Author: Julian Schönbächler

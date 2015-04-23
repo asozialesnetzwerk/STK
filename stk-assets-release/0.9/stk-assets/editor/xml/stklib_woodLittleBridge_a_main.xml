@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<library name="littleBridge" category="city">
+      <img path="stklib_woodLittleBridge_a.png">
+      <model path="stklib_woodLittleBridge_a/stklib_woodLittleBridge_a_main.b3d">
+      <tag name="wood">
+      <tag name="bridge">
+</library>

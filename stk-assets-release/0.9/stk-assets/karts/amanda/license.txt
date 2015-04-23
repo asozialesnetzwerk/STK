@@ -1,0 +1,43 @@
+Amanda (Window Maker) Kart by Julian Schönbächler for SuperTuxKart
+Last edited on 06.01.2015
+
+Please contact me for any use which is not allowed by this license.
+	Julian Schönbächler
+	http://creative-forge.ch/
+	info@creative-forge.ch
+
+
+Character information:
+----------------------------------------------------------------------------
+Amanda is the mascot of Window Maker. Window Maker is an X11 window manager
+originally designed to provide integration support for theGNUstep Desktop
+Environment.
+
+http://windowmaker.org/
+
+
+License information:
+----------------------------------------------------------------------------
+- Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
+	Visit following the link for detailed informations:
+	http://creativecommons.org/licenses/by-sa/3.0/
+
+- GNU General Public License (GPL)
+	Visit following the link for detailed informations:
+	http://www.gnu.org/licenses/gpl
+
+
+Licensing of this work
+----------------------------------------------------------------------------
+Amanda 2dVector icon: "amanda_icon.png"
+	- GPL / Author: Betharatux1 (Indro)
+
+Amanda textures
+	- CC BY-SA 3.0 / Author: Julian Schönbächler
+
+Amanda all other kart Files
+	- CC BY-SA 3.0 / Author: Julian Schönbächler
+
+Window Maker Font: FreeMono
+	- GPL / Author: GNU FreeFont Authors
+	  http://savannah.gnu.org/projects/freefont/

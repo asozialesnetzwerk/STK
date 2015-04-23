@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 15482 -->
+<scene>
+  <instancing>
+   <group name="stklib_cattail_a_main">
+    <static-object model="stklib_cattail_a_main.b3d" lod_group="stklib_cattail_a_main" xyz="0.00 0.00 0.00" hpr="-0.0 122.3 -0.0" scale="1.00 1.00 1.00" interaction="ghost"/>
+   </group>
+  </instancing>
+  <object id="stklib_cattail_a_main" type="animation" xyz="0.00 0.00 0.00" hpr="-0.0 122.3 -0.0" scale="1.00 1.00 1.00" interaction="ghost"  instancing="true" instancing_model="stklib_cattail_a_main" model="stklib_cattail_a_main.b3d" skeletal-animation="false">
+  </object>
+</scene>
