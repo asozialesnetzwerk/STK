@@ -15,6 +15,15 @@
   <material name="stkflag_orangeBooster_a.png"      shader="alphatest" disable-z-write="Y" has-gravity="Y"/>
   <material name="stkflag_blueBooster_a.png"        shader="alphatest" disable-z-write="Y" has-gravity="Y"/>
   <material name="stkflag_blueStartingLine_a.png"   shader="alphatest" disable-z-write="Y"/>
+  <material name="stk_grainElevatorLogoA.png" shader="alphatest" disable-z-write="Y"/>
+  
+    <material name="engine.png" gloss-map="engine_gloss.png"/>
+  <material name="tux_body.png" gloss-map="tux_body_gloss.png"/>
+  <material name="tuxkart.png" gloss-map="tuxkart_gloss.png"/>
+  <material name="wheel.png" gloss-map="wheel_gloss.png"/>
+  
+  <material name="stktex_beachWomenRed_a.png" gloss-map="stktex_beachWomenBody_a_gloss.png"/> 
+  
 
   <!-- Particles -->
   <material name="explode.png"           shader="additive" ignore="Y"/>
@@ -31,6 +40,7 @@
   <material name="smoke_red.png"         shader="alphablend" ignore="Y"/>
   <material name="smoke_black.png"       shader="alphablend" ignore="Y"/>
   <material name="snowflake.png"         shader="alphablend" ignore="Y"/>
+  <material name="confetti.png"         shader="alphablend" ignore="Y"/>
   <material name="nitro-particle.png"    shader="additive" ignore="Y" disable-z-write="Y"/>
   <material name="skid-particle1.png"    shader="additive" ignore="Y"/>
   <material name="skid-particle2.png"    shader="additive" ignore="Y"/>
@@ -46,6 +56,8 @@
     <particles base="smoke.xml" condition="skid drive" />
   </material>
   
+  <material name="stk_glassOrangeCocktail_a.png"       shader="alphablend" ignore="Y"/>
+  
   <!-- Textures graphical-effect="normal_map" normal-map="stktex_generic_cobbleStoneA_nm.png" -->
   <material name="stktex_animatedFire_a.png" disable-z-write="Y" shader="additive"/>
   <material name="stktex_animatedPinkFire_a.png" disable-z-write="Y" shader="additive"/>
@@ -59,6 +71,7 @@
   <material name="stktex_ants_a.png" shader="alphatest"/>
   <material name="stktex_valVerdeLocationAtlas_a.png" shader="alphatest"/>
   <material name="stktex_granParadisoLocation_a.png" shader="alphatest"/>
+  <material name="stktex_aztekFeather_a.png" shader="alphatest"/>
   
   <material name="stktex_branches_diff_a.png" shader="grass" />
   <material name="stkflag_valverdeVertical_a.png" shader="grass" />
@@ -143,7 +156,8 @@
   <material name="stktex_generic_rockA.png"        graphical-effect="normal_map" normal-map="stktex_generic_rockA_nm.png" gloss-map="stktex_generic_rockA_gloss.png"/>
   <material name="stk_greyMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png"/>
   <material name="stk_goldMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png"/>
-  
+  <material name="stk_redMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stkflag_latexBluePinkPattern_a_gloss.png"/>
+    
   <material name="stk_metalRustedBlue_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png"/> 
   
   <material name="stk_lightGrayMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_lightGreyMetal_a_gloss.png"/>
@@ -157,7 +171,7 @@
   
   <material name="stktex_generic_waterRockA.png"        graphical-effect="normal_map" normal-map="stktex_generic_rockA_nm.png" gloss-map="stktex_generic_rockA_gloss.png"/>
   <material name="stktex_generic_aztekWall_a.png"  graphical-effect="normal_map" normal-map="stktex_generic_aztekWall_a_nm.png"/>
-  <material name="stk_generic_grassB.png"          graphical-effect="normal_map" normal-map="stk_generic_grassB_nm.png"/>
+  <material name="stk_generic_grassB.png"          graphical-effect="normal_map" normal-map="stk_generic_grassB_nm.png"/> 
   <material name="stktex_generic_WoodB.png"        graphical-effect="normal_map" normal-map="stktex_generic_WoodB_nm.png" gloss-map="stktex_generic_WoodB_gloss.png"/>
   
 
@@ -178,6 +192,8 @@
   
 
   <material name="stktex_hayFiber_a.png" shader="grass"  ignore="Y"/>
+  <material name="stk_wheatA.png" shader="grass"  ignore="Y"/>
+  
   
   <material name="stktex_palmTreeBark_a.png"  />
   
