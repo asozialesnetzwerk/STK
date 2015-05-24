@@ -19,3 +19,12 @@ void garage(int idKart)
 {
     Track::pauseRace();
 }
+
+// TODO: rename this predicate, the name is misleading
+bool allchallenges()
+{
+    int unlocked_challenges = Challenges::getCompletedChallengesCount();
+    int challenges = Challenges::getChallengeCount();
+    // allow ONE unsolved challenge : the last one
+    return unlocked_challenges >= challenges - 1;
+}
