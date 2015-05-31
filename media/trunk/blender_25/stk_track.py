@@ -2152,6 +2152,10 @@ class TrackExport:
         else:
             flags.append('skeletal-animation="false"')
             
+        on_kart_collision = getObjectProperty(obj, "on_kart_collision", "")
+        if len(on_kart_collision) > 0:
+            flags.append("on-kart-collision=\"%s\""%on_kart_collision)
+            
         lAnim = checkForAnimatedTextures([obj])
                 
         if parent and parent.type=="ARMATURE":
@@ -2228,58 +2232,46 @@ class TrackExport:
                 b3d_name = self.exportLocalB3D(obj, sPath, name, True)
             kind = getObjectProperty(obj, "kind", "")
             
-            if type == "lod_instance" or type == "single_lod":
-                model_string = ""
-            else:
-                model_string =  " model=\"%s\""%b3d_name
+            attributes = []
+            attributes.append(lodstring)
+            
+            if type != "lod_instance" and type != "single_lod":
+                attributes.append("model=\"%s\""%b3d_name)
 
+            attributes.append(getXYZHPRString(obj))
+                
             condition_if = getObjectProperty(obj, "if", "")
             if len(condition_if) > 0:
-                condition_if_str = " if=\"%s\""%condition_if
-            else:
-                condition_if_str = ""
+                attributes.append("if=\"%s\""%condition_if)
             
             condition_ifnot = getObjectProperty(obj, "ifnot", "")
             if len(condition_ifnot) > 0:
-                condition_ifnot_str = " ifnot=\"%s\""%condition_ifnot
-            else:
-                condition_ifnot_str = ""
+                attributes.append("ifnot=\"%s\""%condition_ifnot)
             
             challenge_val = getObjectProperty(obj, "challenge", "")
             if len(challenge_val) > 0:
-                challenge_str = " challenge=\"%s\""% challenge_val
-            else:
-                challenge_str = ""
+                attributes.append("challenge=\"%s\""% challenge_val)
                 
             interaction = getObjectProperty(obj, "interaction", '??')
             if interaction == 'reset':
-                reset_string = " reset=\"y\""
+                attributes.append("reset=\"y\"")
             elif interaction == 'explode':
-                reset_string = " explode=\"y\""
+                attributes.append("explode=\"y\"")
             elif interaction == 'flatten':
-                reset_string = " flatten=\"y\""
-            else:
-                reset_string = ""
+                attributes.append("flatten=\"y\"")
             
-            tangent_string = ""
             if getObjectProperty(obj, "tangents", "false") == "true":
-                tangent_string=" tangents=\"true\""
+                attributes.append("tangents=\"true\"")
             
             if interaction == 'physicsonly':
-                physicsonly_string = ' interaction="physics-only"'
-            else:
-                physicsonly_string = ""
+                attributes.append('interaction="physics-only"')
             
             if lAnim:
-                f.write("    <static-object%s%s %s%s%s%s%s%s>\n"% \
-                        (lodstring, model_string, getXYZHPRString(obj), reset_string,
-                         condition_if_str, condition_ifnot_str, tangent_string, physicsonly_string) )
+                f.write("    <static-object%s>\n" % ' '.join(attributes))
                 writeAnimatedTextures(f, lAnim)
                 f.write("    </static-object>\n")
             else:
-                f.write("    <static-object%s%s %s%s%s%s%s%s%s/>\n"% \
-                        (lodstring, model_string, getXYZHPRString(obj), reset_string,
-                         condition_if_str, condition_ifnot_str, challenge_str, tangent_string, physicsonly_string) )
+                f.write("    <static-object%s %s%s%s%s%s%s%s%s/>\n" % ' '.join(attributes))
         writeAnimatedTextures(f, lAnimTextures)
 
     # --------------------------------------------------------------------------
@@ -2487,6 +2479,8 @@ class TrackExport:
             elif is_lib_node:
                 export_non_static = True
             elif interact=="reset" or interact=="explode" or interact=="flatten":
+                export_non_static = True
+            elif len(getObjectProperty(obj, "on_kart_collision", "")) > 0:
                 export_non_static = True
             
             #if type == "object" and getObjectProperty(obj, "instancing", "false") == "true":

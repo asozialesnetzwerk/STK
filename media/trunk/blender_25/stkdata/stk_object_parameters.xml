@@ -32,8 +32,9 @@
                         obj_identifier="lambda self, o : o['lod_name']"
                         obj_text="lambda self, o : o['lod_name']"
                         doc="Name of the LOD group this object is an instance of"/>
-            <StringProp id="if" name="Visible if..." default="" doc="Make this object conditionally visible"/>
-            <StringProp id="ifnot" name="Visible if not..." default="" doc="Make this object conditionally visible"/>
+            <StringProp id="if" name="Visible if..." default="" doc="Make this object conditionally visible based on a scripting function returning bool"/>
+            <StringProp id="ifnot" name="Visible if not..." default="" doc="Make this object conditionally visible based on a scripting function returning bool"/>
+            <StringProp id="on_kart_collision" name="Kart collision callback" default="" doc="Scripting function to call when a kart hits this object"/>
             <!-- Interaction -->
             <EnumProp id="interaction" name="Interaction" default="static" doc="How this object should interact with other objects in the physics engine">
                 <EnumChoice id="ghost" label="Ghost" doc="This object will be non-physical (player can drive through it)" />
@@ -50,8 +51,8 @@
                         <EnumChoice id="sphere" label="Sphere" />
                         <EnumChoice id="exact" label="Exact" />
                     </EnumProp>
-                    <StringProp id="if" name="Visible if..." default="" doc="Make this object conditionally visible"/>
-                    <StringProp id="ifnot" name="Visible if not..." default="" doc="Make this object conditionally visible"/>
+                    <StringProp id="if" name="Visible if..." default="" doc="Make this object conditionally visible based on a scripting function returning bool"/>
+                    <StringProp id="ifnot" name="Visible if not..." default="" doc="Make this object conditionally visible based on a scripting function returning bool"/>
                 </EnumChoice>
                 <EnumChoice id="move" label="Movable by player" doc="The player will be able to move this object around by pushing it" >
                     <FloatProp id="mass" name="Mass (kg)" default="100.0" min="0.0" doc="How heavy the object is"/>
@@ -131,6 +132,7 @@
                 <FloatProp id="nomodierlod_distance" name="Modifiers enabled distance" default="30.0" min="0.0" max="5000.0"
                        doc="Distance from the camera at which the model is seen with modifiers. Should be smaller than 'Visibility distance'."/>
             </BoolProp>
+            <StringProp id="on_kart_collision" name="Kart collision callback" default="" doc="Scripting function to call when a kart hits this object"/>
             <!-- Interaction -->
             <EnumProp id="interaction" name="Interaction" default="static" doc="How this object should interact with other objects in the physics engine">
                 <EnumChoice id="ghost" label="Ghost" doc="This object will be non-physical (player can drive through it)" />
@@ -147,8 +149,8 @@
                         <EnumChoice id="sphere" label="Sphere" />
                         <EnumChoice id="exact" label="Exact" />
                     </EnumProp>
-                    <StringProp id="if" name="Visible if..." default="" doc="Make this object conditionally visible"/>
-                    <StringProp id="ifnot" name="Visible if not..." default="" doc="Make this object conditionally visible"/>
+                    <StringProp id="if" name="Visible if..." default="" doc="Make this object conditionally visible based on a scripting function returning bool"/>
+                    <StringProp id="ifnot" name="Visible if not..." default="" doc="Make this object conditionally visible based on a scripting function returning bool"/>
                 </EnumChoice>
                 <EnumChoice id="move" label="Movable by player" doc="The player will be able to move this object around by pushing it" >
                     <FloatProp id="mass" name="Mass (kg)" default="100.0" min="0.0" doc="How heavy the object is"/>
@@ -232,8 +234,8 @@
                         <EnumChoice id="sphere" label="Sphere" />
                         <EnumChoice id="exact" label="Exact" />
                     </EnumProp>
-                    <StringProp id="if" name="Visible if..." default="" doc="Make this object conditionally visible"/>
-                    <StringProp id="ifnot" name="Visible if not..." default="" doc="Make this object conditionally visible"/>
+                    <StringProp id="if" name="Visible if..." default="" doc="Make this object conditionally visible based on a scripting function returning bool"/>
+                    <StringProp id="ifnot" name="Visible if not..." default="" doc="Make this object conditionally visible based on a scripting function returning bool"/>
                 </EnumChoice>
                 <EnumChoice id="move" label="Movable by player" doc="The player will be able to move this object around by pushing it" >
                     <FloatProp id="mass" name="Mass (kg)" default="100.0" min="0.0" doc="How heavy the object is"/>
@@ -308,6 +310,7 @@
             <!--
             <BoolProp id="skyboxobject" name="Skybox object (STK 0.8.2)" default="false" doc="If enabled, object will be displayed enlarged as part of the skybox"/>
             -->
+            <StringProp id="on_kart_collision" name="Kart collision callback" default="" doc="Scripting function to call when a kart hits this object"/>
         </EnumChoice>
 
         
