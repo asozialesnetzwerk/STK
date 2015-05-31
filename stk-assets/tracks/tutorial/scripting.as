@@ -1,24 +1,18 @@
 void onStart()
 {
-    Utils::logWarning("ScriptingCallback: onStart");
+    Utils::logInfo("ScriptingCallback: onStart");
 }
 
-void onKartObjectCollision(int idKart)
+void onBoxHitByItem(int itemType, int idKart, const string objID)
 {
     // Test
-    Utils::logWarning("ScriptingCallback: onKartObjectCollision, idKart = " + idKart);
-}
-
-void onItemObjectCollision()
-{
-    // Test
-    Utils::logWarning("ScriptingCallback: onItemObjectCollision");
+    Utils::logInfo("ScriptingCallback: onBoxHitByItem. Item = " + itemType + "; idKart = " + idKart + "; objID = " + objID);
 }
 
 void onKartKartCollision(int idKart1, int idKart2)
 {
     // Test
-    Utils::logWarning("ScriptingCallback: onKartKartCollision: " + idKart1 + " - " + idKart2);
+    Utils::logInfo("ScriptingCallback: onKartKartCollision: " + idKart1 + " - " + idKart2);
 }
 
 void tutorial_drive(int idKart)
@@ -98,14 +92,14 @@ void tutorial_exit(int idKart)
 void debug_squash()
 {
     int idKart = 0;
-    Utils::logWarning("Testing squash");
+    Utils::logInfo("Testing squash");
     Kart::squash(idKart, 5.0);
 }
 
 void debug_set_velocity()
 {
     int idKart = 0;
-    Utils::logWarning("Testing setVelocity");
+    Utils::logInfo("Testing setVelocity");
     Kart::setVelocity(idKart, Vec3(0, 10, 0));
 }
 
@@ -113,8 +107,8 @@ void debug_set_velocity()
 void debug_teleport()
 {
     int idKart = 0;
-    Utils::logWarning("Testing getLocation + teleport");
+    Utils::logInfo("Testing getLocation + teleport");
     Vec3 loc = Kart::getLocation(idKart);
-    Utils::logWarning(Utils::insertValues("Kart %s location : %s %s %s", idKart + "", loc.getX() + "", loc.getY() + "", loc.getZ() + ""));
+    Utils::logInfo(Utils::insertValues("Kart %s location : %s %s %s", idKart + "", loc.getX() + "", loc.getY() + "", loc.getZ() + ""));
     Kart::teleport(idKart, Vec3(loc.getX() - 3, loc.getY(), loc.getZ() - 3));
 }

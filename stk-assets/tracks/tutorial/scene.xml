@@ -54,15 +54,15 @@
     </static-object>
   </track>
   <object type="movable" id="Cube.010" xyz="212.34 0.38 102.80" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
-          shape="box" mass="10.0" model="WoodenBox.b3d" skeletal-animation="false"/>
+          shape="box" mass="10.0" model="WoodenBox.b3d" skeletal-animation="false" on-item-collision="onBoxHitByItem"/>
   <object type="movable" id="Cube.011" xyz="212.34 0.38 100.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
-          shape="box" mass="10.0" model="WoodenBox.b3d" skeletal-animation="false"/>
+          shape="box" mass="10.0" model="WoodenBox.b3d" skeletal-animation="false" on-item-collision="onBoxHitByItem"/>
   <object type="movable" id="Cube.013" xyz="212.34 0.38 97.02" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
-          shape="box" mass="10.0" model="WoodenBox.b3d" skeletal-animation="false"/>
+          shape="box" mass="10.0" model="WoodenBox.b3d" skeletal-animation="false" on-item-collision="onBoxHitByItem"/>
   <object type="movable" id="Cube.014" xyz="212.34 2.61 101.36" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
-          shape="box" mass="10.0" model="WoodenBox.b3d" skeletal-animation="false"/>
+          shape="box" mass="10.0" model="WoodenBox.b3d" skeletal-animation="false" on-item-collision="onBoxHitByItem"/>
   <object type="movable" id="Cube.015" xyz="212.34 2.61 98.42" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
-          shape="box" mass="10.0" model="WoodenBox.b3d" skeletal-animation="false"/>
+          shape="box" mass="10.0" model="WoodenBox.b3d" skeletal-animation="false on-item-collision="onBoxHitByItem""/>
   <object id="mill" type="animation" xyz="246.51 39.38 -153.97" hpr="-0.0 146.1 -0.0" scale="1.00 1.00 1.00" interaction="none" model="mill.b3d" skeletal-animation="false">
     <curve channel="RotZ" interpolation="linear" extend="cyclic">
       <p c="1.000 -0.000"/>
