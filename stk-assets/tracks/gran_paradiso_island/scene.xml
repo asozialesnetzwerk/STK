@@ -911,6 +911,10 @@
   </library>
   <library name="stklib_beachBarMenu_a" id="stklib_beachBarMenu_a_main_proxy.001" xyz="-110.97 4.23 136.41" hpr="0.0 -2.9 -0.0" scale="1.00 1.00 1.00">
   </library>
+  <library name="stklib_beachGuy_a" id="stklib_beachGuy_a_main_proxy" xyz="-21.79 4.61 122.46" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_beachGuy_a" id="stklib_beachGuy_a_main_proxy.001" xyz="7.90 4.36 111.57" hpr="-0.0 157.1 -0.0" scale="1.00 1.00 1.00">
+  </library>
   <library name="stklib_beachWomen_a" id="stklib_beachWomen_a_main_proxy" xyz="35.49 4.33 164.03" hpr="-0.0 165.0 -0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_beachWomen_a" id="stklib_beachWomen_a_main_proxy.001" xyz="-99.66 4.70 140.52" hpr="-0.0 165.0 -0.0" scale="1.00 1.00 1.00">
