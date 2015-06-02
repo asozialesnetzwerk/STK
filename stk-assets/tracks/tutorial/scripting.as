@@ -18,7 +18,7 @@ void onKartKartCollision(int idKart1, int idKart2)
 void tutorial_drive(int idKart)
 {
     GUI::displayMessage(
-        GUI::translate("Accelerate with <%s> and steer with <%s> and <%s>",
+        GUI::translate("Accelerate with <%s>, and steer with <%s> and <%s>.",
             GUI::getKeyBinding(GUI::PlayerAction::ACCEL),
             GUI::getKeyBinding(GUI::PlayerAction::STEER_LEFT),
             GUI::getKeyBinding(GUI::PlayerAction::STEER_RIGHT)
@@ -55,12 +55,12 @@ void tutorial_nitro_use(int idKart)
 
 void tutorial_nitro_collect(int idKart)
 {
-    GUI::displayMessage(GUI::translate("Collect nitro bottles (we will use them after the curve)"));
+    GUI::displayMessage(GUI::translate("Collect nitro bottles (we will use them after the curve)."));
 }
 
 void tutorial_rescue(int idKart)
 {
-    GUI::displayMessage(GUI::translate("Oops! When you're in trouble, press <%s> to be rescued", GUI::getKeyBinding(GUI::PlayerAction::RESCUE)));
+    GUI::displayMessage(GUI::translate("Oops! When you're in trouble, press <%s> to be rescued.", GUI::getKeyBinding(GUI::PlayerAction::RESCUE)));
 }
 
 void tutorial_skidding(int idKart)
