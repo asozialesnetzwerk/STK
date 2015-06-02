@@ -782,18 +782,6 @@
   </light>
   <light xyz="85.39 29.39 -78.05" id="Lamp.011" distance="15.00" energy="2.00" color="153 193 255">
   </light>
-  <light xyz="5.22 8.96 11.77" id="Lamp.012" distance="5.00" energy="1.00" color="255 10 5">
-  </light>
-  <light xyz="1.22 8.96 11.77" id="Lamp.013" distance="5.00" energy="1.00" color="255 10 5">
-  </light>
-  <light xyz="9.22 8.96 11.77" id="Lamp.014" distance="5.00" energy="1.00" color="255 10 5">
-  </light>
-  <light xyz="9.22 12.96 11.77" id="Lamp.015" distance="5.00" energy="1.00" color="255 255 255">
-  </light>
-  <light xyz="1.22 12.96 11.77" id="Lamp.016" distance="5.00" energy="1.00" color="255 255 255">
-  </light>
-  <light xyz="5.22 12.96 11.77" id="Lamp.017" distance="5.00" energy="1.00" color="255 255 255">
-  </light>
   <light xyz="131.60 9.73 13.90" id="Point" distance="5.00" energy="1.50" color="248 255 153">
   </light>
   <light xyz="6.89 8.34 25.38" id="Point.001" distance="5.00" energy="1.50" color="248 255 153">
@@ -1290,6 +1278,60 @@
   <library name="stklib_reef_a" id="stklib_reef_a_main_proxy.012" xyz="-103.40 -66.61 -75.35" hpr="0.2 1.2 22.7" scale="6.74 6.74 6.74">
   </library>
   <library name="stklib_reef_a" id="stklib_reef_a_main_proxy.013" xyz="-197.67 -66.61 -115.23" hpr="23.2 9.1 -0.5" scale="6.74 6.74 6.74">
+  </library>
+  <library name="stklib_runwayBeacon_a" id="stklib_runwayBeacon_a_main_proxy" xyz="1.00 6.10 32.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_runwayBeacon_a" id="stklib_runwayBeacon_a_main_proxy.001" xyz="1.00 6.10 52.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_runwayBeacon_a" id="stklib_runwayBeacon_a_main_proxy.002" xyz="1.00 6.10 72.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_runwayBeacon_a" id="stklib_runwayBeacon_a_main_proxy.003" xyz="1.00 6.30 12.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_runwayBeacon_a" id="stklib_runwayBeacon_a_main_proxy.004" xyz="1.00 6.10 92.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_runwayBeacon_a" id="stklib_runwayBeacon_a_main_proxy.005" xyz="-62.00 6.10 32.00" hpr="-0.0 180.0 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_runwayBeacon_a" id="stklib_runwayBeacon_a_main_proxy.006" xyz="-62.00 6.10 52.00" hpr="-0.0 180.0 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_runwayBeacon_a" id="stklib_runwayBeacon_a_main_proxy.007" xyz="-62.00 6.10 72.00" hpr="-0.0 180.0 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_runwayBeacon_a" id="stklib_runwayBeacon_a_main_proxy.008" xyz="-62.00 6.10 92.00" hpr="-0.0 180.0 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_runwayBeacon_a" id="stklib_runwayBeacon_a_main_proxy.009" xyz="1.00 6.30 -8.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_runwayBeacon_a" id="stklib_runwayBeacon_a_main_proxy.010" xyz="-62.00 6.10 -8.00" hpr="-0.0 180.0 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_runwayBeacon_a" id="stklib_runwayBeacon_a_main_proxy.011" xyz="-30.40 6.10 35.00" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_runwayBeacon_a" id="stklib_runwayBeacon_a_main_proxy.012" xyz="-62.00 6.10 -28.00" hpr="-0.0 180.0 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_runwayBeacon_a" id="stklib_runwayBeacon_a_main_proxy.013" xyz="-62.00 6.10 -48.00" hpr="-0.0 180.0 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_runwayBeacon_a" id="stklib_runwayBeacon_a_main_proxy.014" xyz="-38.40 6.10 35.00" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_runwayBeacon_a" id="stklib_runwayBeacon_a_main_proxy.015" xyz="-22.40 6.10 35.00" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_runwayBeacon_a" id="stklib_runwayBeacon_a_main_proxy.016" xyz="-62.00 6.10 -68.00" hpr="-0.0 180.0 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_runwayBeacon_a" id="stklib_runwayBeacon_a_main_proxy.017" xyz="-14.40 6.10 35.00" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_runwayBeacon_a" id="stklib_runwayBeacon_a_main_proxy.018" xyz="-46.40 6.10 35.00" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_runwayBeacon_a" id="stklib_runwayBeacon_a_main_proxy.019" xyz="-22.40 6.10 89.00" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_runwayBeacon_a" id="stklib_runwayBeacon_a_main_proxy.020" xyz="-38.40 6.10 89.00" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_runwayBeacon_a" id="stklib_runwayBeacon_a_main_proxy.021" xyz="-30.40 6.10 89.00" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_runwayBeacon_a" id="stklib_runwayBeacon_a_main_proxy.022" xyz="-14.40 6.10 4.50" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_runwayBeacon_a" id="stklib_runwayBeacon_a_main_proxy.023" xyz="-46.40 6.10 4.50" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_runwayBeacon_a" id="stklib_runwayBeacon_a_main_proxy.024" xyz="-38.40 6.10 4.50" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_runwayBeacon_a" id="stklib_runwayBeacon_a_main_proxy.025" xyz="-22.40 6.10 4.50" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_runwayBeacon_a" id="stklib_runwayBeacon_a_main_proxy.026" xyz="-30.40 6.10 4.50" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_sagebrush_a" id="stklib_sagebrush_a_main_proxy" xyz="63.55 4.28 179.83" hpr="0.0 99.9 0.0" scale="1.79 1.79 1.79">
   </library>
