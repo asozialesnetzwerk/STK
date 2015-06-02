@@ -17,13 +17,16 @@
   <material name="stkflag_blueStartingLine_a.png"   shader="alphatest" disable-z-write="Y"/>
   <material name="stk_grainElevatorLogoA.png" shader="alphatest" disable-z-write="Y"/>
   
+  
+  <!-- texture used for the 0.9 trailer
     <material name="engine.png" gloss-map="engine_gloss.png"/>
   <material name="tux_body.png" gloss-map="tux_body_gloss.png"/>
   <material name="tuxkart.png" gloss-map="tuxkart_gloss.png"/>
   <material name="wheel.png" gloss-map="wheel_gloss.png"/>
   
-  <material name="stktex_beachWomenRed_a.png" gloss-map="stktex_beachWomenBody_a_gloss.png"/> 
-  
+  <material name="stktex_beachWomenRed_a.png" gloss-map="stktex_beachWomenBody_a_gloss.png"/>
+  <material name="confetti.png"         shader="alphablend" ignore="Y"/>
+  -->
 
   <!-- Particles -->
   <material name="explode.png"           shader="additive" ignore="Y"/>
@@ -40,7 +43,6 @@
   <material name="smoke_red.png"         shader="alphablend" ignore="Y"/>
   <material name="smoke_black.png"       shader="alphablend" ignore="Y"/>
   <material name="snowflake.png"         shader="alphablend" ignore="Y"/>
-  <material name="confetti.png"         shader="alphablend" ignore="Y"/>
   <material name="nitro-particle.png"    shader="additive" ignore="Y" disable-z-write="Y"/>
   <material name="skid-particle1.png"    shader="additive" ignore="Y"/>
   <material name="skid-particle2.png"    shader="additive" ignore="Y"/>
@@ -110,7 +112,8 @@
   <material name="gfxGlow_yellow_a.png" gloss-map="gfxGlow_generic_a_gloss.png"/>
   <material name="gfxGlow_White_a.png" gloss-map="gfxGlow_generic_a_gloss.png"/>
   <material name="gfxGlow_red_a.png" gloss-map="gfxGlow_generic_a_gloss.png"/>
-  <material name="gfxGlow_blue_a.png" gloss-map="gfxGlow_generic_a_gloss.png"/>  
+  <material name="gfxGlow_blue_a.png" gloss-map="gfxGlow_generic_a_gloss.png"/>
+  <material name="gfxGlow_green_a.png" gloss-map="gfxGlow_generic_a_gloss.png"/>
 
   <material name="stk_mudpot_a.png" gloss-map="stk_mudpot_a_gloss.png" />
   <material name="stkflag_latexBluePinkPattern_a.png" gloss-map="stkflag_latexBluePinkPattern_a_gloss.png"/>
