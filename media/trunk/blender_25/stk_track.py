@@ -2267,11 +2267,11 @@ class TrackExport:
                 attributes.append('interaction="physics-only"')
             
             if lAnim:
-                f.write("    <static-object%s>\n" % ' '.join(attributes))
+                f.write("    <static-object %s>\n" % ' '.join(attributes))
                 writeAnimatedTextures(f, lAnim)
                 f.write("    </static-object>\n")
             else:
-                f.write("    <static-object%s %s%s%s%s%s%s%s%s/>\n" % ' '.join(attributes))
+                f.write("    <static-object %s/>\n" % ' '.join(attributes))
         writeAnimatedTextures(f, lAnimTextures)
 
     # --------------------------------------------------------------------------
