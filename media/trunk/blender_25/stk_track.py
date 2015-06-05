@@ -2361,6 +2361,10 @@ class TrackExport:
                 
             if getObjectProperty(obj, "soccer_ball", "false") == "true":
                 flags.append('soccer_ball="true"')
+                
+            on_kart_collision = getObjectProperty(obj, "on_kart_collision", "")
+            if len(on_kart_collision) > 0:
+                flags.append("on-kart-collision=\"%s\""%on_kart_collision)
             
             uses_skeletal_animation = False
             
