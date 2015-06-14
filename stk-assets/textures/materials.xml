@@ -155,6 +155,8 @@
   
   <!-- Normal map -->
   <material name="stk_generic_rock_a.png" graphical-effect="normal_map" normal-map="stk_generic_rock_a_nm.png" gloss-map="stk_generic_rock_a_gloss.png"/>
+  <material name="stk_generic_ice_a.png" graphical-effect="normal_map" normal-map="stk_generic_ice_a_nm.png" gloss-map="stk_generic_ice_a_gloss.png"/>
+  <material name="stk_generic_ice_alpha.png"  shader="alphablend"/> 
   
   <material name="stk_generic_brickA.png" graphical-effect="normal_map" normal-map="stk_generic_brickA_nm.png" gloss-map="stk_generic_brickA_gloss.png"/>
   
@@ -196,6 +198,7 @@
    
    <material name="gfx_cloudAnimated_a.png"  shader="alphablend"/> 
    <material name="gfx_sandAnimated_a.png"  shader="alphablend"/> 
+   <material name="gfx_snowStormAnimated_a.png"  shader="alphablend"/> 
   
   
 
