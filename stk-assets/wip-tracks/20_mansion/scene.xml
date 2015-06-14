@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15787 -->
+<!-- Generated with script from SVN rev 15937 -->
 <scene>
-  <track model="mansion_2_track.b3d" x="0" y="0" z="0">
+  <track model="20_mansion_track.b3d" x="0" y="0" z="0">
     <static-object model="limit.b3d" xyz="188.58 -13.75 -49.08" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
     <animated-texture name="stk_mudpot_a.png" dx="0.050" />
   </track>
@@ -22,7 +22,7 @@
       <p c="799.000 67.925" h1="533.000 67.925" h2="1065.000 67.925"/>
     </curve>
   </object>
-  <sun  fog="true" fog-color="4 14 40" fog-max="0.5" fog-start="10.00" fog-end="100.00" xyz="296.24 303.55 -696.37" sun-diffuse="54 93 255" ambient="120 120 120"/>
+  <sun  fog="true" fog-color="4 14 40" fog-max="0.5" fog-start="5.00" fog-end="100.00" xyz="296.24 303.55 -696.37" sun-diffuse="54 93 255" ambient="120 120 120"/>
   <weather particles="rain.xml" lightning="true"/>
   <sky-box texture="skybox_side.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png" sh-texture="skybox_ibl_top.png skybox_ibl.png skybox_ibl.png skybox_ibl.png skybox_ibl.png skybox_ibl.png"/>
   <camera far="2000.0"/>
@@ -189,22 +189,6 @@
   <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="233.94 -19.01 -213.60" hpr="-0.0 -0.0 0.0" scale="0.85 0.85 0.85"/>
   <!-- END Hair system Plane.003 -->
 
-  <light xyz="25.61 89.53 -265.88" id="Lamp" distance="5.00" energy="1.00" color="255 222 129">
-  </light>
-  <light xyz="44.85 58.22 -264.06" id="Lamp.001" distance="5.00" energy="1.00" color="255 222 129">
-  </light>
-  <light xyz="59.62 58.22 -264.06" id="Lamp.002" distance="5.00" energy="1.00" color="255 222 129">
-  </light>
-  <light xyz="73.99 58.22 -264.06" id="Lamp.003" distance="5.00" energy="1.00" color="255 222 129">
-  </light>
-  <light xyz="-10.79 79.82 -263.18" id="Lamp.004" distance="5.00" energy="1.00" color="255 222 129">
-  </light>
-  <light xyz="-27.87 58.14 -244.93" id="Lamp.005" distance="5.00" energy="1.00" color="255 222 129">
-  </light>
-  <light xyz="-43.32 58.14 -244.93" id="Lamp.006" distance="5.00" energy="1.00" color="255 222 129">
-  </light>
-  <light xyz="-58.83 58.14 -244.93" id="Lamp.007" distance="5.00" energy="1.00" color="255 222 129">
-  </light>
   <light xyz="115.90 -2.27 -114.82" id="Lamp.008" distance="20.00" energy="1.00" color="49 255 42">
   </light>
   <light xyz="201.22 -13.30 -238.23" id="Lamp.009" distance="20.00" energy="1.00" color="49 255 42">
@@ -258,8 +242,6 @@
   </library>
   <library name="stklib_deadTree_a" id="stklib_deadTree_a_main_proxy.016" xyz="190.05 -12.19 23.08" hpr="-10.3 -35.8 10.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_deadTree_a" id="stklib_deadTree_a_main_proxy.017" xyz="98.36 -13.89 13.36" hpr="-17.6 121.9 -15.4" scale="0.86 0.86 0.86">
-  </library>
   <library name="stklib_deadTree_a" id="stklib_deadTree_a_main_proxy.018" xyz="129.20 -15.82 -2.57" hpr="-2.9 -168.8 -8.2" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_deadTree_a" id="stklib_deadTree_a_main_proxy.019" xyz="100.87 -16.17 -29.91" hpr="1.2 -145.1 -9.8" scale="1.11 1.11 1.11">
@@ -288,6 +270,8 @@
   </library>
   <library name="stklib_deadTree_a" id="stklib_deadTree_a_main_proxy.031" xyz="-37.93 -1.12 -110.50" hpr="-6.3 -162.8 0.7" scale="0.85 0.85 0.85">
   </library>
+  <library name="stklib_jungleTree_a" id="stklib_jungleTree_a_main_proxy" xyz="88.83 -13.05 10.19" hpr="0.0 -0.0 0.0" scale="2.50 2.50 2.50">
+  </library>
   <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy" xyz="196.97 -17.56 -222.27" hpr="-4.3 62.2 -4.4" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.001" xyz="204.87 -18.21 -237.07" hpr="-7.1 73.5 -7.4" scale="1.00 1.00 1.00">
@@ -302,11 +286,9 @@
   </library>
   <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.006" xyz="155.82 -14.37 -151.09" hpr="9.3 102.1 9.9" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.007" xyz="192.35 -9.31 10.98" hpr="-2.7 47.7 -3.1" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.008" xyz="181.47 -10.05 20.84" hpr="-1.1 42.8 -1.0" scale="0.90 0.90 0.90">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.008" xyz="180.17 -10.05 21.75" hpr="-1.1 42.8 -1.0" scale="1.00 1.00 1.00">
-  </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.009" xyz="167.75 -11.13 32.24" hpr="-0.4 40.7 1.0" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.009" xyz="171.22 -11.13 29.58" hpr="-0.4 40.7 1.0" scale="0.90 0.90 0.90">
   </library>
   <library name="stklib_mudpot_a" id="stklib_mudpot_a_main_proxy.000" xyz="106.74 -15.00 26.11" hpr="-0.0 -40.4 0.0" scale="1.34 1.34 1.34">
   </library>
@@ -318,11 +300,9 @@
   </library>
   <library name="stklib_mudpot_a" id="stklib_mudpot_a_main_proxy.004" xyz="142.12 -15.43 -282.96" hpr="-0.0 176.6 -0.0" scale="1.69 1.69 1.69">
   </library>
-  <library name="stklib_mushroom_a" id="stklib_mushroom_a_main_proxy" xyz="196.96 -6.11 -40.77" hpr="-0.0 -98.6 -0.0" scale="1.29 1.29 1.29">
+  <library name="stklib_mushroom_a" id="stklib_mushroom_a_main_proxy" xyz="196.70 -6.12 -40.68" hpr="-0.0 -98.6 -0.0" scale="1.90 1.90 1.90">
   </library>
-  <library name="stklib_mushroom_a" id="stklib_mushroom_a_main_proxy.001" xyz="196.70 -5.44 -39.36" hpr="-0.0 -98.6 -0.0" scale="1.04 1.04 1.04">
-  </library>
-  <library name="stklib_mushroom_a" id="stklib_mushroom_a_main_proxy.002" xyz="196.88 -5.96 -45.47" hpr="0.0 -37.0 0.0" scale="1.07 1.07 1.07">
+  <library name="stklib_mushroom_a" id="stklib_mushroom_a_main_proxy.002" xyz="196.88 -5.96 -45.47" hpr="0.0 -37.0 0.0" scale="1.32 1.32 1.32">
   </library>
   <library name="stklib_mushroom_a" id="stklib_mushroom_a_main_proxy.003" xyz="143.79 -11.66 -125.48" hpr="0.0 -31.1 0.0" scale="2.64 2.64 2.64">
   </library>
@@ -335,6 +315,30 @@
   <library name="stklib_mushroom_a" id="stklib_mushroom_a_main_proxy.007" xyz="124.54 -6.75 -150.30" hpr="42.9 -95.4 -47.6" scale="1.34 1.34 1.34">
   </library>
   <library name="stklib_mushroom_a" id="stklib_mushroom_a_main_proxy.008" xyz="188.53 -6.27 20.26" hpr="25.8 43.7 31.3" scale="2.21 2.21 2.21">
+  </library>
+  <library name="stklib_mushroom_a" id="stklib_mushroom_a_main_proxy.009" xyz="82.16 -7.49 62.84" hpr="-26.5 -30.3 6.7" scale="1.39 1.39 1.39">
+  </library>
+  <library name="stklib_mushroom_b" id="stklib_mushroom_b_main_proxy" xyz="6.17 -6.38 -2.79" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_mushroom_b" id="stklib_mushroom_b_main_proxy.001" xyz="50.97 -9.05 29.14" hpr="0.0 -0.0 0.0" scale="1.55 1.55 1.55">
+  </library>
+  <library name="stklib_mushroom_b" id="stklib_mushroom_b_main_proxy.002" xyz="86.13 -11.08 63.73" hpr="0.0 -0.0 0.0" scale="1.11 1.11 1.11">
+  </library>
+  <library name="stklib_mushroom_b" id="stklib_mushroom_b_main_proxy.003" xyz="86.91 -11.02 64.02" hpr="0.0 -0.0 0.0" scale="1.82 1.82 1.82">
+  </library>
+  <library name="stklib_mushroom_b" id="stklib_mushroom_b_main_proxy.004" xyz="132.92 -14.87 3.47" hpr="0.0 -0.0 -0.0" scale="2.61 2.61 2.61">
+  </library>
+  <library name="stklib_mushroom_b" id="stklib_mushroom_b_main_proxy.005" xyz="134.91 -15.11 1.16" hpr="-70.5 -84.2 62.0" scale="1.69 1.69 1.69">
+  </library>
+  <library name="stklib_mushroom_b" id="stklib_mushroom_b_main_proxy.006" xyz="224.18 -7.50 -37.37" hpr="0.0 -0.0 -0.0" scale="1.37 1.37 1.37">
+  </library>
+  <library name="stklib_mushroom_b" id="stklib_mushroom_b_main_proxy.007" xyz="165.14 -11.47 -87.76" hpr="-9.7 114.3 -29.9" scale="2.16 2.16 2.16">
+  </library>
+  <library name="stklib_mushroom_b" id="stklib_mushroom_b_main_proxy.008" xyz="162.97 -11.57 -99.79" hpr="-5.1 11.8 -10.9" scale="2.16 2.16 2.16">
+  </library>
+  <library name="stklib_mushroom_b" id="stklib_mushroom_b_main_proxy.009" xyz="152.56 -12.70 -234.35" hpr="7.3 -164.8 -9.8" scale="2.16 2.16 2.16">
+  </library>
+  <library name="stklib_mushroom_b" id="stklib_mushroom_b_main_proxy.010" xyz="149.34 -12.51 -225.74" hpr="74.0 79.9 69.6" scale="2.16 2.16 2.16">
   </library>
   <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy" xyz="-49.83 7.00 -70.11" hpr="0.0 -0.0 0.0" scale="3.40 3.40 3.40">
   </library>
@@ -381,6 +385,10 @@
   <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.024" xyz="-14.30 31.34 -209.11" hpr="-0.0 -86.5 0.0" scale="2.50 2.50 2.50">
   </library>
   <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.026" xyz="5.72 -1.04 26.03" hpr="-0.0 -130.0 -0.0" scale="2.50 2.50 2.50">
+  </library>
+  <library name="stklib_pumpkin_a" id="stklib_pumpkin_a_main_proxy" xyz="8.13 -5.55 0.76" hpr="0.0 -0.0 0.0" scale="2.77 2.77 2.77">
+  </library>
+  <library name="stklib_pumpkin_a" id="stklib_pumpkin_a_main_proxy.001" xyz="3.94 -5.71 -1.17" hpr="0.0 86.3 0.0" scale="1.87 1.87 1.87">
   </library>
   <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="154.58 -19.02 -27.14" hpr="0.0 -0.0 0.0" scale="1.58 1.58 1.58">
   </library>
