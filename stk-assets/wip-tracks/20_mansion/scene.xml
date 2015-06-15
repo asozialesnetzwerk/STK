@@ -300,6 +300,14 @@
   </library>
   <library name="stklib_mudpot_a" id="stklib_mudpot_a_main_proxy.004" xyz="142.12 -15.43 -282.96" hpr="-0.0 176.6 -0.0" scale="1.69 1.69 1.69">
   </library>
+  <library name="stklib_mudpot_a" id="stklib_mudpot_a_main_proxy.005" xyz="191.29 -19.37 -267.71" hpr="0.0 -109.5 -0.0" scale="1.41 1.41 1.41">
+  </library>
+  <library name="stklib_mudpot_a" id="stklib_mudpot_a_main_proxy.006" xyz="191.96 -20.03 -253.74" hpr="0.0 -124.3 -0.0" scale="1.74 1.74 1.74">
+  </library>
+  <library name="stklib_mudpot_a" id="stklib_mudpot_a_main_proxy.007" xyz="187.04 -19.98 -238.57" hpr="0.0 -147.5 -0.0" scale="1.50 1.50 1.50">
+  </library>
+  <library name="stklib_mudpot_a" id="stklib_mudpot_a_main_proxy.008" xyz="180.17 -20.15 -227.89" hpr="0.0 -147.5 -0.0" scale="1.50 1.50 1.50">
+  </library>
   <library name="stklib_mushroom_a" id="stklib_mushroom_a_main_proxy" xyz="196.70 -6.12 -40.68" hpr="-0.0 -98.6 -0.0" scale="1.90 1.90 1.90">
   </library>
   <library name="stklib_mushroom_a" id="stklib_mushroom_a_main_proxy.002" xyz="196.88 -5.96 -45.47" hpr="0.0 -37.0 0.0" scale="1.32 1.32 1.32">
@@ -389,6 +397,10 @@
   <library name="stklib_pumpkin_a" id="stklib_pumpkin_a_main_proxy" xyz="8.13 -5.55 0.76" hpr="0.0 -0.0 0.0" scale="2.77 2.77 2.77">
   </library>
   <library name="stklib_pumpkin_a" id="stklib_pumpkin_a_main_proxy.001" xyz="3.94 -5.71 -1.17" hpr="0.0 86.3 0.0" scale="1.87 1.87 1.87">
+  </library>
+  <library name="stklib_pumpkin_a" id="stklib_pumpkin_a_main_proxy.002" xyz="-18.97 0.45 -64.06" hpr="0.0 -176.0 -0.0" scale="1.87 1.87 1.87">
+  </library>
+  <library name="stklib_pumpkin_a" id="stklib_pumpkin_a_main_proxy.003" xyz="-17.62 0.61 -68.47" hpr="-0.0 97.7 -0.0" scale="2.77 2.77 2.77">
   </library>
   <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="154.58 -19.02 -27.14" hpr="0.0 -0.0 0.0" scale="1.58 1.58 1.58">
   </library>
