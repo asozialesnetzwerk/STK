@@ -22,7 +22,7 @@
       <p c="799.000 67.925" h1="533.000 67.925" h2="1065.000 67.925"/>
     </curve>
   </object>
-  <sun  fog="true" fog-color="4 14 40" fog-max="0.5" fog-start="5.00" fog-end="100.00" xyz="296.24 303.55 -696.37" sun-diffuse="54 93 255" ambient="120 120 120"/>
+  <sun  fog="true" fog-color="4 14 40" fog-max="0.5" fog-start="5.00" fog-end="100.00" xyz="296.24 373.55 -696.37" sun-diffuse="54 93 255" ambient="120 120 120"/>
   <weather particles="rain.xml" lightning="true"/>
   <sky-box texture="skybox_side.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png" sh-texture="skybox_ibl_top.png skybox_ibl.png skybox_ibl.png skybox_ibl.png skybox_ibl.png skybox_ibl.png"/>
   <camera far="2000.0"/>
