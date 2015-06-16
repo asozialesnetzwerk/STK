@@ -300,13 +300,13 @@
   </library>
   <library name="stklib_mudpot_a" id="stklib_mudpot_a_main_proxy.004" xyz="142.12 -15.43 -282.96" hpr="-0.0 176.6 -0.0" scale="1.69 1.69 1.69">
   </library>
-  <library name="stklib_mudpot_a" id="stklib_mudpot_a_main_proxy.005" xyz="191.29 -19.37 -267.71" hpr="0.0 -109.5 -0.0" scale="1.41 1.41 1.41">
+  <library name="stklib_mudpot_a" id="stklib_mudpot_a_main_proxy.005" xyz="191.29 -19.84 -267.71" hpr="0.0 -109.5 -0.0" scale="1.41 1.41 1.41">
   </library>
-  <library name="stklib_mudpot_a" id="stklib_mudpot_a_main_proxy.006" xyz="191.96 -20.03 -253.74" hpr="0.0 -124.3 -0.0" scale="1.74 1.74 1.74">
+  <library name="stklib_mudpot_a" id="stklib_mudpot_a_main_proxy.006" xyz="192.12 -19.79 -244.09" hpr="0.0 83.8 0.0" scale="0.95 0.95 0.95">
   </library>
-  <library name="stklib_mudpot_a" id="stklib_mudpot_a_main_proxy.007" xyz="187.04 -19.98 -238.57" hpr="0.0 -147.5 -0.0" scale="1.50 1.50 1.50">
+  <library name="stklib_mudpot_a" id="stklib_mudpot_a_main_proxy.007" xyz="185.12 -19.79 -236.13" hpr="-0.0 -17.4 0.0" scale="0.95 0.95 0.95">
   </library>
-  <library name="stklib_mudpot_a" id="stklib_mudpot_a_main_proxy.008" xyz="180.17 -20.15 -227.89" hpr="0.0 -147.5 -0.0" scale="1.50 1.50 1.50">
+  <library name="stklib_mudpot_a" id="stklib_mudpot_a_main_proxy.008" xyz="180.17 -18.67 -227.89" hpr="0.0 -147.5 -0.0" scale="1.50 1.50 1.50">
   </library>
   <library name="stklib_mushroom_a" id="stklib_mushroom_a_main_proxy" xyz="196.70 -6.12 -40.68" hpr="-0.0 -98.6 -0.0" scale="1.90 1.90 1.90">
   </library>
