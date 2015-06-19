@@ -310,6 +310,7 @@
             <!--
             <BoolProp id="skyboxobject" name="Skybox object (STK 0.8.2)" default="false" doc="If enabled, object will be displayed enlarged as part of the skybox"/>
             -->
+            <StringProp id="if" name="Visible if..." default="" doc="Make this object conditionally visible based on a scripting function returning bool"/>
             <StringProp id="on_kart_collision" name="Kart collision callback" default="" doc="Scripting function to call when a kart hits this object"/>
         </EnumChoice>
 

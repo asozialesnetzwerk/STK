@@ -2156,6 +2156,10 @@ class TrackExport:
         if len(on_kart_collision) > 0:
             flags.append("on-kart-collision=\"%s\""%on_kart_collision)
             
+        if_condition = getObjectProperty(obj, "if", "")
+        if len(if_condition) > 0:
+            flags.append("if=\"%s\""%if_condition)
+            
         lAnim = checkForAnimatedTextures([obj])
                 
         if parent and parent.type=="ARMATURE":
@@ -2366,6 +2370,10 @@ class TrackExport:
             if len(on_kart_collision) > 0:
                 flags.append("on-kart-collision=\"%s\""%on_kart_collision)
             
+            if_condition = getObjectProperty(obj, "if", "")
+            if len(if_condition) > 0:
+                flags.append("if=\"%s\""%if_condition)
+            
             uses_skeletal_animation = False
             
             # check if this object has an armature modifier
@@ -2485,6 +2493,8 @@ class TrackExport:
             elif interact=="reset" or interact=="explode" or interact=="flatten":
                 export_non_static = True
             elif len(getObjectProperty(obj, "on_kart_collision", "")) > 0:
+                export_non_static = True
+            elif len(getObjectProperty(obj, "if", "")) > 0:
                 export_non_static = True
             
             #if type == "object" and getObjectProperty(obj, "instancing", "false") == "true":
