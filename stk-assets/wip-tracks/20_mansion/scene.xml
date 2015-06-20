@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15937 -->
+<!-- Generated with script from SVN rev 16337 -->
 <scene>
   <track model="20_mansion_track.b3d" x="0" y="0" z="0">
-    <static-object model="limit.b3d" xyz="188.58 -13.75 -49.08" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
+    <static-object  model="limit.b3d" xyz="188.58 -13.75 -49.08" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
     <animated-texture name="stk_mudpot_a.png" dx="0.050" />
   </track>
   <object id="Plane.003" type="animation" xyz="171.94 -14.78 -182.84" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="swamp_water.b3d" displacing="true" skeletal-animation="false">
@@ -189,6 +189,10 @@
   <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="233.94 -19.01 -213.60" hpr="-0.0 -0.0 0.0" scale="0.85 0.85 0.85"/>
   <!-- END Hair system Plane.003 -->
 
+  <light xyz="25.87 96.97 -225.65" id="Lamp" distance="10.00" energy="2.00" color="255 105 47">
+  </light>
+  <light xyz="60.01 62.48 -235.09" id="Lamp.001" distance="10.00" energy="2.00" color="255 105 47">
+  </light>
   <light xyz="115.90 -2.27 -114.82" id="Lamp.008" distance="20.00" energy="1.00" color="49 255 42">
   </light>
   <light xyz="201.22 -13.30 -238.23" id="Lamp.009" distance="20.00" energy="1.00" color="49 255 42">
