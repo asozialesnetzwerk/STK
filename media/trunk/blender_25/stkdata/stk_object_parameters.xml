@@ -406,6 +406,7 @@
         <EnumChoice id="particle_emitter" label="Particle Emitter" doc="To be applied to an empty; particles will be emitted from this point">
             <StringProp id="kind" name="Particle File" default="smoke.xml" />
             <IntProp id="clip_distance" name="Clip Distance" default="0" doc="If non-zero, the camera distance at which particles are hidden (for performance reasons)"/>
+            <BoolProp id="auto_emit" name="Enable emission" default="true" doc="Whether the emitter will automatically start emitting (if initially disabled, can be started with scripting)"/>
         </EnumChoice>
         
         <!-- SFX Emitter -->

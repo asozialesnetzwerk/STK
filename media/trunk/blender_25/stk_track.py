@@ -475,16 +475,18 @@ class ParticleEmitterExporter:
             try:
                 originXYZ = getNewXYZHString(obj)
                 
-                condition_str = ""
+                flags = []
                 if len(getObjectProperty(obj, "particle_condition", "")) > 0:
-                    condition_str = ' conditions="' + getObjectProperty(obj, "particle_condition", "") + '"'
+                    flags.append('conditions="' + getObjectProperty(obj, "particle_condition", "") + '"')
                 
                 if getObjectProperty(obj, "clip_distance", 0) > 0 :
-                    f.write('  <particle-emitter kind="%s" id=\"%s\" %s clip_distance="%i"%s>\n' %\
-                            (getObjectProperty(obj, "kind", 0), obj.name, originXYZ, getObjectProperty(obj, "clip_distance", 0), condition_str))
-                else:
-                    f.write('  <particle-emitter kind="%s" id=\"%s\" %s%s>\n' %\
-                        (getObjectProperty(obj, "kind", 0), obj.name, originXYZ, condition_str))
+                    flags.append('clip_distance="%i"' % getObjectProperty(obj, "clip_distance", 0))
+                    
+                if getObjectProperty(obj, "auto_emit", 'true') == 'false':
+                    flags.append('auto_emit="%s"' % getObjectProperty(obj, "auto_emit", 'true'))
+                
+                f.write('  <particle-emitter kind="%s" id=\"%s\" %s %s>\n' %\
+                        (getObjectProperty(obj, "kind", 0), obj.name, originXYZ, ' '.join(flags)))
                 
                 if obj.animation_data and obj.animation_data.action and obj.animation_data.action.fcurves and len(obj.animation_data.action.fcurves) > 0:
                     writeIPO(f, obj.animation_data)
