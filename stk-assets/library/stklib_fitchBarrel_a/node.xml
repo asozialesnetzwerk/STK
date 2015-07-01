@@ -1,6 +1,10 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15850 -->
+<!-- Generated with script from SVN rev 16343 -->
 <scene>
-  <object type="movable" id="stklib_fitchBarrel_a_main" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
-          shape="cylinderY" mass="100.0" model="stklib_fitchBarrel_a_main.b3d" skeletal-animation="false"/>
+  <object type="movable" id="stklib_fitchBarrel_a_bodyPartA" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
+          shape="cylinderY" mass="100.0" model="stklib_fitchBarrel_a_bodyPartA.b3d" if="false" skeletal-animation="false"/>
+  <object type="movable" id="stklib_fitchBarrel_a_cover" xyz="-0.00 1.45 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
+          shape="cylinderY" mass="100.0" model="stklib_fitchBarrel_a_cover.b3d" if="false" skeletal-animation="false"/>
+  <object id="stklib_fitchBarrel_a_main" type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" shape="cylinderY" model="stklib_fitchBarrel_a_main.b3d" skeletal-animation="false" on-kart-collision="onFitchBarrelCollision">
+  </object>
 </scene>
