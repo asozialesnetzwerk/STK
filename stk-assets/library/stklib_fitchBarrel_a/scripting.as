@@ -20,12 +20,21 @@ void blowUpFitchBarrel(string instID)
     
     Track::TrackObject@ part4 = Track::getTrackObject(instID, "stklib_fitchBarrel_a_bodyPartC");
     part4.setEnabled(true);
+    
+    Track::TrackObject@ part5 = Track::getTrackObject(instID, "stklib_fitchBarrel_a_bodyPartD");
+    part5.setEnabled(true);
+    
+    Track::TrackObject@ part6 = Track::getTrackObject(instID, "stklib_fitchBarrel_a_bodyPartE");
+    part6.setEnabled(true);
+    
+    Track::TrackObject@ part7 = Track::getTrackObject(instID, "stklib_fitchBarrel_a_bottom");
+    part7.setEnabled(true);
+    
+    Track::TrackObject@ obj = Track::getTrackObject(instID, "stklib_fitchBarrel_a_sandExplosion");
+    Track::ParticleEmitter@ emitter = obj.getParticleEmitter();
+    emitter.setEmissionRate(1.0);
+    emitter.stopIn(0.1);
 }
 
-/*
-<Auria>     Track::TrackObject@ obj = Track::getTrackObject("", "TestEmitter");
-<Auria>     Track::ParticleEmitter@ emitter = obj.getParticleEmitter();
-<Auria>     emitter.setEmissionRate(1.0);
-<Auria>     emitter.stopIn(3.0);
 
 
