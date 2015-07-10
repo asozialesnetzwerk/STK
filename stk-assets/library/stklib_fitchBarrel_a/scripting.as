@@ -1,7 +1,10 @@
 void onFitchBarrelCollision(int idKart, const string libraryInstance, const string objID)
 {
     //Utils::logInfo("Wall Collision! Kart " + idKart + " with obj " + objID + " from " + libraryInstance);
-    blowUpFitchBarrel(libraryInstance);
+    Vec3 velocity = Kart::getVelocity(idKart);
+    //Utils::logInfo("Kart velocity : " + velocity.getLength());
+    if (velocity.getLength() > 2.5)
+        blowUpFitchBarrel(libraryInstance);
 }
 
 void blowUpFitchBarrel(string instID)
