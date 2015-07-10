@@ -23,3 +23,17 @@ void testBlowUpWall()
     blowUpWall("Wall_proxy");
 }
 
+void testMove()
+{
+    Track::TrackObject@ obj = Track::getTrackObject("", "LibInst3");
+    Vec3 coord(0,0,0);
+    obj.moveTo(coord, true);
+}
+
+void testParticlesRate()
+{
+    Track::TrackObject@ obj = Track::getTrackObject("", "TestEmitter");
+    Track::ParticleEmitter@ emitter = obj.getParticleEmitter();
+    emitter.setEmissionRate(1.0);
+    emitter.stopIn(3.0);
+}
