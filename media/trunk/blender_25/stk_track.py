@@ -606,7 +606,7 @@ class ActionTriggerExporter:
     
     def processObject(self, object, stktype):
         
-        if object.type=="EMPTY" and stktype=="ACTION_TRIGGER":
+        if stktype=="ACTION_TRIGGER":
             self.m_objects.append(object)
             return True
         else:
@@ -617,12 +617,22 @@ class ActionTriggerExporter:
             try:
                 # origin
                 originXYZ = getXYZHPRString(obj)
+                trigger_type = getObjectProperty(obj, "trigger_type", "point")
                 
-                f.write('  <object type="action-trigger" id=\"%s\" action="%s" distance="%s" %s/>\n' %\
+                #if trigger_type == "sphere":
+                #    radius = (obj.dimensions.x + obj.dimensions.y + obj.dimensions.z)/6 # divide by 3 to get average size, divide by 2 to get radius from diameter
+                #    f.write("    <check-sphere xyz=\"%.2f %.2f %.2f\" radius=\"%.2f\"/>\n" % \
+                #            (obj.location[0], obj.location[2], obj.location[1], radius) )
+                if trigger_type == "point":
+                    f.write('  <object type="action-trigger" trigger-type="point" id=\"%s\" action="%s" distance="%s" %s/>\n' %\
                         (obj.name,
                          getObjectProperty(obj, "action", ""),
                          getObjectProperty(obj, "trigger_distance", 5.0),
                          originXYZ))
+                elif trigger_type == "cylinder":
+                    radius = (obj.dimensions.x + obj.dimensions.y)/4 # divide by 2 to get average size, divide by 2 to get radius from diameter
+                    f.write("  <object type=\"action-trigger\" trigger-type=\"cylinder\" action=\"%s\" xyz=\"%.2f %.2f %.2f\" radius=\"%.2f\" height=\"%.2f\"/>\n" % \
+                            (getObjectProperty(obj, "action", ""), obj.location[0], obj.location[2], obj.location[1], radius, obj.dimensions.z) )
             except:
                 log_error("Invalid action <" + getObjectProperty(obj, "name", obj.name) + "> ")
 

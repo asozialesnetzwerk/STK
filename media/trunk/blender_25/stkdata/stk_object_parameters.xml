@@ -435,6 +435,10 @@
         <EnumChoice id="action_trigger" label="Action trigger" doc="Make something happen when driving there (FOR INTERNAL USE ONLY AT THIS TIME)">
             <StringProp id="action" name="Action" default="" doc="Name of the action to trigger"/>
             <FloatProp id="trigger_distance" name="Trigger Distance" default="5.0" doc="Distance at which this action is triggered"/>
+            <EnumProp id="trigger_type" name="Trigger type" default="point">
+                <EnumChoice id="point" label="Point"/>
+                <EnumChoice id="cylinder" label="Cylinder"/>
+            </EnumProp>
         </EnumChoice>
         
         <!-- Cannon -->
