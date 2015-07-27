@@ -8,6 +8,8 @@
 
   <!-- flags -->
   <material name="stkflag_valverdeVertical_a.png"   shader="grass" />
+  <material name="stklib_prayerFlags_a.png"   shader="grass" />
+  
   <material name="stkflag_stkVertical_a.png"        shader="grass" />
   <material name="stkflag_saraVertical_a.png"       shader="grass" />
   <material name="stkflag_goldCupVertical_a.png"    shader="grass" />
@@ -107,13 +109,17 @@
   <material name="stktex_generic_roadSnow_a.png" gloss-map="stktex_generic_roadSnow_a_gloss.png" normal-map="stktex_generic_roadSnow_a_nm.png"/>
 
   <material name="stkflag_asianPaperLantern_a.png" gloss-map="stkflag_asianPaperLantern_a_gloss.png"/>
-  
+
+  <material name="stktex_planetEarth_a.png" gloss-map="stktex_planetEarth_a_gloss.png"/>
+
   <!-- Generic glow texture -->
   <material name="gfxGlow_yellow_a.png" gloss-map="gfxGlow_generic_a_gloss.png"/>
   <material name="gfxGlow_White_a.png" gloss-map="gfxGlow_generic_a_gloss.png"/>
   <material name="gfxGlow_red_a.png" gloss-map="gfxGlow_generic_a_gloss.png"/>
   <material name="gfxGlow_blue_a.png" gloss-map="gfxGlow_generic_a_gloss.png"/>
   <material name="gfxGlow_green_a.png" gloss-map="gfxGlow_generic_a_gloss.png"/>
+  
+  <material name="stktex_generic_lavaA.png" gloss-map="stktex_generic_lava_gloss.png"  />
 
   <material name="stk_mudpot_a.png" gloss-map="stk_mudpot_a_gloss.png" />
   <material name="stkflag_latexBluePinkPattern_a.png" gloss-map="stkflag_latexBluePinkPattern_a_gloss.png"/>
@@ -129,6 +135,9 @@
   <material name="stktex_cattail_diff_a.png" shader="grass" />
   
   <material name="stktex_usSignAtlas_a.png" shader="alphatest"/>
+  <material name="stk_generic_bedRockLava_a.png" shader="alphatest"/>
+  
+  
   <material name="stk_terminalHappy_face_a.png" shader="alphatest"/>
   <material name="stktex_palmLeaf_a.png" shader="grass" ignore="Y" />
   <material name="stktex_palmLeafDry_a.png" shader="grass" ignore="Y" />
@@ -168,7 +177,9 @@
   <material name="stk_goldMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png"/>
   <material name="stk_redMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stkflag_latexBluePinkPattern_a_gloss.png"/>
     
-  <material name="stk_metalRustedBlue_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png"/> 
+  <material name="stk_metalRustedBlue_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png"/>
+
+<material name="stk_electronicalPattern_a.png" shader="additive" disable-z-write="Y"/> 
   
   <material name="stk_lightGrayMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_lightGreyMetal_a_gloss.png"/>
   <material name="stk_blueMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_lightGreyMetal_a_gloss.png"/>
@@ -176,7 +187,7 @@
 <material name="stktex_hexaJetRCAlivery_a.png"         gloss-map="stk_lightGreyMetal_a_gloss.png"/>
 <material name="stktex_trijetTCPlivery_a.png"         gloss-map="stk_lightGreyMetal_a_gloss.png"/> 
   
-  <material name="stk_generic_bedRock_a.png"        graphical-effect="normal_map" normal-map="stk_generic_bedRock_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png"/> 
+  <material name="stk_generic_bedRock_a.png"        graphical-effect="normal_map" normal-map="stk_generic_bedRock_a_nm.png" gloss-map="stk_generic_rock_a_gloss.png"/> 
   <material name="stk_generic_pinkcrystal_a.png"        graphical-effect="normal_map" normal-map="stk_generic_bedRock_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png"/> 
   
   <material name="stktex_generic_waterRockA.png"        graphical-effect="normal_map" normal-map="stktex_generic_rockA_nm.png" gloss-map="stktex_generic_rockA_gloss.png"/>
@@ -199,8 +210,13 @@
    <material name="gfx_cloudAnimated_a.png"  shader="alphablend"/> 
    <material name="gfx_sandAnimated_a.png"  shader="alphablend"/> 
    <material name="gfx_snowStormAnimated_a.png"  shader="alphablend"/> 
-  
-  
+   
+   <material name="stktex_blueNebula_a.png" shader="additive" disable-z-write="Y"/>
+   <material name="stktex_purpleNebula_b.png" shader="additive" disable-z-write="Y"/>
+   <material name="stktex_blueNebula_b.png" shader="additive" disable-z-write="Y"/>
+   <material name="stktex_nebulaCloud_a.png" shader="additive" disable-z-write="Y"/>
+   <material name="stktex_yellowNebulaCloud_a.png" shader="additive" disable-z-write="Y"/>
+   <material name="stktex_yellowNebula_a.png" shader="additive" disable-z-write="Y"/> 
 
   <material name="stktex_hayFiber_a.png" shader="grass"  ignore="Y"/>
   <material name="stk_wheatA.png" shader="grass"  ignore="Y"/>
