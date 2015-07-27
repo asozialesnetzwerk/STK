@@ -344,12 +344,6 @@ def exportKart(path):
     kart_engine_sfx = the_scene['engine_sfx']
     if not kart_engine_sfx or len(kart_engine_sfx) == 0:
         kart_engine_sfx = "small"
-        
-    random_wheel_rot = 'false'
-    if 'random_wheel_rot' in the_scene:
-        random_wheel_rot = the_scene['random_wheel_rot']
-    if not random_wheel_rot or len(random_wheel_rot) == 0:
-        random_wheel_rot = 'false'
     
     kart_type = 'medium'
     if 'karttype' in the_scene:
@@ -367,7 +361,6 @@ def exportKart(path):
     f.write('      icon-file         = "%s"\n' % kart_icon)
     f.write('      minimap-icon-file = "%s"\n' % kart_map_icon)
     f.write('      shadow-file       = "%s"\n' % kart_shadow)
-    f.write('      random-wheel-rot  = "%s"\n' % random_wheel_rot)
     f.write('      type              = "%s"\n' % kart_type)
     
     center_shift = the_scene['center_shift']
