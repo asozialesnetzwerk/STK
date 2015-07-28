@@ -72,6 +72,8 @@
       <p c="77.000 40.999" h1="52.014 40.999" h2="101.986 40.999"/>
     </curve>
   </object>
+  <object id="Circle.064" type="animation" xyz="-54.80 6.40 66.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="gothic_door.b3d" skeletal-animation="false">
+  </object>
   <object id="Cube" type="animation" xyz="-152.41 2.47 2.31" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="TunnelDisplace.b3d" displacing="true" skeletal-animation="false">
   </object>
   <object type="movable" id="Gem.002" xyz="-103.69 32.51 -35.42" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
