@@ -529,9 +529,9 @@
   </object>
   <object id="Plane.085" type="animation" xyz="-68.32 -14.82 98.16" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="lava_rocks.b3d" displacing="true" skeletal-animation="false">
   </object>
-  <sun  fog="true" fog-color="15 6 6" fog-max="0.20000000298023224" fog-start="15.00" fog-end="500.00" xyz="-212.32 481.07 757.93" sun-diffuse="219 138 89" ambient="120 102 97"/>
-  <sky-box texture="magma_sky_t.jpg magma_sky_bottom.jpg magma_sky_e.jpg magma_sky_w.jpg magma_sky_s.jpg magma_sky_n.jpg" sh-texture="magma_sky_t.jpg magma_sky_bottom.jpg magma_sky_e.jpg magma_sky_w.jpg magma_sky_s.jpg magma_sky_n.jpg"/>
-  <camera far="1000.0"/>
+  <sun  fog="true" fog-color="15 6 6" fog-max="0.20000000298023224" fog-start="15.00" fog-end="500.00" xyz="-212.32 481.07 757.93" sun-diffuse="219 86 53" ambient="120 102 97"/>
+  <sky-box texture="magma_sky_t.jpg magma_sky_bottom.jpg magma_sky_e.jpg magma_sky_w.jpg magma_sky_s.jpg magma_sky_n.jpg" sh-texture="ibl.jpg ibl.jpg ibl.jpg ibl.jpg ibl.jpg ibl.jpg"/>
+  <camera far="2000.0"/>
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
     <check-line kind="activate" other-ids="0" p1="60.91 -78.95" p2="85.86 -79.09"
@@ -620,9 +620,41 @@
   </light>
   <light xyz="-71.80 34.19 26.40" id="Point.002" distance="15.00" energy="1.00" color="255 225 163">
   </light>
-  <lightshaft xyz="-163.04 119.52 620.67" id="Lamp" opacity="0.70" color="255 103 56"/>
+  <lightshaft xyz="-163.04 119.52 620.67" id="Lamp" opacity="0.70" color="255 179 80"/>
   <default-start karts-per-row     ="3"
                  forwards-distance ="1.10"
                  sidewards-distance="2.00"
                  upwards-distance  ="1.10"/>
+  <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.000" xyz="-166.36 128.22 620.09" hpr="5.4 -28.0 -9.4" scale="2.75 2.75 2.75">
+  </library>
+  <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.001" xyz="-166.36 128.22 620.09" hpr="55.7 -79.9 -55.1" scale="2.75 2.75 2.75">
+  </library>
+  <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.002" xyz="-166.36 128.22 620.09" hpr="0.0 -55.9 0.0" scale="2.75 2.75 2.75">
+  </library>
+  <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.003" xyz="-166.36 128.22 620.09" hpr="-0.0 -95.2 -0.0" scale="2.04 2.04 2.04">
+  </library>
+  <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.004" xyz="-166.36 128.22 620.09" hpr="-11.3 -124.4 14.8" scale="2.04 2.04 2.04">
+  </library>
+  <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.005" xyz="-166.36 128.22 620.09" hpr="0.9 -179.6 8.3" scale="2.72 2.72 2.72">
+  </library>
+  <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.006" xyz="-166.36 128.22 620.09" hpr="-0.0 -151.3 -0.0" scale="2.72 2.72 2.72">
+  </library>
+  <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.007" xyz="-166.36 128.22 620.09" hpr="0.0 -0.0 0.0" scale="2.75 2.75 2.75">
+  </library>
+  <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.008" xyz="-166.36 6.13 620.09" hpr="-0.0 -136.9 -0.0" scale="1.89 1.89 1.89">
+  </library>
+  <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.009" xyz="-166.36 6.13 620.09" hpr="-1.2 -165.4 8.6" scale="1.89 1.89 1.89">
+  </library>
+  <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.010" xyz="-166.36 6.13 620.09" hpr="-21.7 -110.8 24.0" scale="1.42 1.42 1.42">
+  </library>
+  <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.011" xyz="-166.36 6.13 620.09" hpr="0.0 -80.8 0.0" scale="1.42 1.42 1.42">
+  </library>
+  <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.012" xyz="-166.36 6.13 620.09" hpr="0.0 -41.5 0.0" scale="1.90 1.90 1.90">
+  </library>
+  <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.013" xyz="-166.36 6.13 620.09" hpr="22.4 -68.2 -22.9" scale="1.90 1.90 1.90">
+  </library>
+  <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.014" xyz="-166.36 6.13 620.09" hpr="3.0 -13.8 -8.6" scale="1.90 1.90 1.90">
+  </library>
+  <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.015" xyz="-166.36 6.13 620.09" hpr="0.0 14.4 0.0" scale="1.90 1.90 1.90">
+  </library>
 </scene>
