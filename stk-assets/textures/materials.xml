@@ -79,6 +79,8 @@
   
   <material name="stktex_branches_diff_a.png" shader="grass" />
   <material name="stkflag_valverdeVertical_a.png" shader="grass" />
+  <material name="stkflag_nolok_a.png" shader="grass" />
+  
   <material name="stktex_cocoaTreeLeaf_a.png" shader="grass" />
   
   <material name="stktex_deadTree_a.png" shader="alphatest" ignore="Y" />

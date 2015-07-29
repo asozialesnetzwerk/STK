@@ -30,8 +30,6 @@
     <static-object  model="Plane.035.b3d" xyz="-107.47 12.36 -68.42" hpr="-0.0 -180.0 -0.0" scale="1.00 1.00 1.00"/>
     <static-object  model="Plane.036.b3d" xyz="-51.49 51.13 -107.15" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object  model="Plane.037.b3d" xyz="-92.12 33.44 -125.21" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object  model="Plane.038.b3d" xyz="-152.08 6.00 19.05" hpr="-0.0 -180.0 -0.0" scale="1.00 1.00 1.00"/>
-    <static-object  model="Plane.039.b3d" xyz="-75.78 -21.83 226.36" hpr="-0.0 -101.7 -0.0" scale="1.00 1.00 1.00"/>
     <static-object  model="backRoom.b3d" xyz="-388.85 -120.41 -70.56" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
     <animated-texture name="backeffect.jpg" dx="0.254"  dy="0.1695" />
     </static-object>
@@ -42,10 +40,6 @@
     <animated-texture name="zipper.png" dy="1.5000" />
     </static-object>
     <static-object  model="Plane.062.b3d" xyz="-131.58 39.59 -76.19" hpr="-0.0 139.4 -0.0" scale="1.00 1.00 1.00"/>
-    <animated-texture name="lava.png" dy="-0.1000" />
-    <animated-texture name="lava.png" dy="-0.1000" />
-    <animated-texture name="lava.png" dy="-0.1000" />
-    <animated-texture name="lava.png" dy="-0.1000" />
     <animated-texture name="lava.png" dy="-0.1000" />
     <animated-texture name="lava.png" dy="-0.1000" />
     <animated-texture name="zipper.png" dy="1.5000" />
@@ -71,8 +65,6 @@
       <p c="13.000 40.999" h1="7.925 40.999" h2="37.986 40.999"/>
       <p c="77.000 40.999" h1="52.014 40.999" h2="101.986 40.999"/>
     </curve>
-  </object>
-  <object id="Circle.064" type="animation" xyz="-54.80 6.40 66.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="gothic_door.b3d" skeletal-animation="false">
   </object>
   <object id="Cube" type="animation" xyz="-152.41 2.47 2.31" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="TunnelDisplace.b3d" displacing="true" skeletal-animation="false">
   </object>
@@ -616,6 +608,14 @@
   <item id="Empty.046" x="-180.19" y="12.66" z="-78.21" h="90.00" />
   <light xyz="-79.00 -3.10 130.59" id="Lamp.002" distance="25.00" energy="1.00" color="255 100 11">
   </light>
+  <light xyz="19.00 46.91 -17.50" id="Lamp.003" distance="25.00" energy="1.00" color="255 207 129">
+  </light>
+  <light xyz="19.00 46.91 -56.50" id="Lamp.004" distance="25.00" energy="1.00" color="255 207 129">
+  </light>
+  <light xyz="-15.00 53.91 -54.50" id="Lamp.005" distance="25.00" energy="1.00" color="255 207 129">
+  </light>
+  <light xyz="-15.00 53.91 -21.00" id="Lamp.006" distance="25.00" energy="1.00" color="255 207 129">
+  </light>
   <light xyz="-109.42 42.44 -26.70" id="Point" distance="15.00" energy="1.00" color="255 225 163">
   </light>
   <light xyz="-109.42 42.44 -51.41" id="Point.001" distance="15.00" energy="1.00" color="255 225 163">
@@ -658,5 +658,13 @@
   <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.014" xyz="-166.36 6.13 620.09" hpr="3.0 -13.8 -8.6" scale="1.90 1.90 1.90">
   </library>
   <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.015" xyz="-166.36 6.13 620.09" hpr="0.0 14.4 0.0" scale="1.90 1.90 1.90">
+  </library>
+  <library name="stklib_nolokFlags_a" id="stklib_nolok_a_main_proxy" xyz="14.00 55.91 -17.50" hpr="-0.0 90.0 0.0" scale="2.00 2.00 2.00">
+  </library>
+  <library name="stklib_nolokFlags_a" id="stklib_nolok_a_main_proxy.001" xyz="14.00 55.91 -56.50" hpr="-0.0 90.0 0.0" scale="2.00 2.00 2.00">
+  </library>
+  <library name="stklib_nolokFlags_a" id="stklib_nolok_a_main_proxy.002" xyz="-20.00 62.91 -54.50" hpr="-0.0 90.0 0.0" scale="2.00 2.00 2.00">
+  </library>
+  <library name="stklib_nolokFlags_a" id="stklib_nolok_a_main_proxy.003" xyz="-20.00 62.91 -20.89" hpr="-0.0 90.0 0.0" scale="2.00 2.00 2.00">
   </library>
 </scene>
