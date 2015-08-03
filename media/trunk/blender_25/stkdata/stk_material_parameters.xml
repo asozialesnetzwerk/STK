@@ -99,6 +99,13 @@
         <BoolProp id="clampv" name="Clamp texture vertically" default="false"
                 doc="if checked, this texture will not be repeated vertically (if the UV texturing goes beyond the texture bounds)"/>
 
+        <!-- Flip when reverse -->
+        <EnumProp id="mirror_axis" name="Mirror in reversed races" default="none" doc="When the race is played in the opposite direction, indicates whether to flip this texture">
+            <EnumChoice id="none" label="None"/>
+            <EnumChoice id="U" label="U (horizontally)"/>
+            <EnumChoice id="V" label="V (vertically)"/>
+        </EnumProp>
+        
         <!-- Compositing -->
         <!--
         <EnumProp id="compositing" name="Compositing Type" default="none" doc="How to composite this texture with what is behind it">

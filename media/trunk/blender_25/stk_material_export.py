@@ -99,6 +99,7 @@ def writeMaterialsFile(sPath):
            'grass_amplitude'       : {'default': 0.25, 'parent': ('shader','grass'), 'type': 'number'},
            'ignore'                : {'default': "N", 'parent': None, 'type': 'bool'},
            'mask'                  : {'default': "", 'parent': None, 'type': 'string'},
+           'mirror_axis'           : {'default': "none", 'parent': None, 'type': 'string'},
            'normal_map'            : {'default': "", 'parent': None, 'type': 'string'},
            'reset'                 : {'default': "N", 'parent': None, 'type': 'bool'},
            'surface'               : {'default': "N", 'parent': None, 'type': 'bool'},
@@ -204,7 +205,7 @@ def writeMaterialsFile(sPath):
                             sImage = "%s %s=\"%.2f\""%(sImage,AProperty.replace("_","-"),currentValue)
                         else:
                             # In blender, proeprties use '_', but STK still expects '-'
-                            sImage = "%s %s=\"%s\""%(sImage,AProperty.replace("_","-"),currentValue)
+                            sImage = "%s %s=\"%s\""%(sImage,AProperty.replace("_","-"),(currentValue+'').strip())
 
         # Now write the main content of the materials.xml file
         if sImage or hasSoundeffect or hasParticle or hasZipper:
