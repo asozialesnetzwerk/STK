@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev Unknown -->
 <materials>
-  <material name="blueZipper.png" shader="alphablend" disable-z-write="Y"/>
+  <material name="blueZipper.png" shader="alphablend" disable-z-write="Y" mirror-axis="V"/>
   <material name="blueZipper_effect.png" shader="alphablend" disable-z-write="Y"/>
   <material name="icepic.png" backface-culling="N" shader="alphatest"/>
   <material name="smoke.png" backface-culling="N" disable-z-write="Y" shader="alphablend"/>
