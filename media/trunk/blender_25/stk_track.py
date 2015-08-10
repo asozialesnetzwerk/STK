@@ -2172,6 +2172,10 @@ class TrackExport:
         if len(if_condition) > 0:
             flags.append("if=\"%s\""%if_condition)
             
+        if_not_condition = getObjectProperty(obj, "ifnot", "")
+        if len(if_not_condition) > 0:
+            flags.append("ifnot=\"%s\""%if_not_condition)
+            
         lAnim = checkForAnimatedTextures([obj])
                 
         if parent and parent.type=="ARMATURE":
@@ -2386,6 +2390,10 @@ class TrackExport:
             if len(if_condition) > 0:
                 flags.append("if=\"%s\""%if_condition)
             
+            if_not_condition = getObjectProperty(obj, "ifnot", "")
+            if len(if_not_condition) > 0:
+                flags.append("ifnot=\"%s\""%if_not_condition)
+            
             uses_skeletal_animation = False
             
             # check if this object has an armature modifier
@@ -2489,6 +2497,8 @@ class TrackExport:
             #if type == "lod_instance" or type == "lod_model" or type == "single_lod":
             #    interact = "static"
             
+            # TODO: remove this fuzzy logic and let the artist clearly decide what is exported in the
+            # track main model and what is exporter separately
             export_non_static = False
             if getObjectProperty(obj, "forcedbloom", "false") == "true":
                 export_non_static = True
@@ -2506,7 +2516,9 @@ class TrackExport:
                 export_non_static = True
             elif len(getObjectProperty(obj, "on_kart_collision", "")) > 0:
                 export_non_static = True
-            elif len(getObjectProperty(obj, "if", "")) > 0:
+            elif len(getObjectProperty(obj, "if", "")):
+                export_non_static = True
+            elif len(getObjectProperty(obj, "ifnot", "")) > 0:
                 export_non_static = True
             
             #if type == "object" and getObjectProperty(obj, "instancing", "false") == "true":
