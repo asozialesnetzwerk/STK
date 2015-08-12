@@ -2969,19 +2969,29 @@ class STK_Track_Export_Operator(bpy.types.Operator):
             code = context.scene['name']
         else:
             if 'code' not in context.scene or len(context.scene['code']) == 0:
-                self.report({'ERROR'}, "Please specify a code")
-                log_error("Please specify a code")
+                self.report({'ERROR'}, "Please specify a code name (folder name)")
+                log_error("Please specify a code name (folder name)")
                 return {'FINISHED'}
             code = context.scene['code']
         
+        assets_path = ""
+        try:
+            assets_path = bpy.context.user_preferences.addons['stk_track'].preferences.stk_assets_path
+        except:
+            pass
+            
+        if assets_path is None or len(assets_path) == 0:
+            self.report({'ERROR'}, "Please select the export path in the export panel")
+            log_error("Please select the export path in the export panel")
+            return {'FINISHED'}
+        
         if isANode:
-            folder = os.path.join(bpy.context.user_preferences.addons['stk_track'].preferences.stk_assets_path, 'library', code)
+            folder = os.path.join(assets_path, 'library', code)
         else:
-            # TODO: tracks vs tracks_wip
             if 'is_wip_track' in context.scene and context.scene['is_wip_track'] == 'true':
-                folder = os.path.join(bpy.context.user_preferences.addons['stk_track'].preferences.stk_assets_path, 'wip-tracks', code)
+                folder = os.path.join(assets_path, 'wip-tracks', code)
             else:
-                folder = os.path.join(bpy.context.user_preferences.addons['stk_track'].preferences.stk_assets_path, 'tracks', code)
+                folder = os.path.join(assets_path, 'tracks', code)
             
         if not os.path.exists(folder):
             os.makedirs(folder)
