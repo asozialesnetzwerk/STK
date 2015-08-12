@@ -1,33 +1,33 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15595 -->
+<!-- Generated with script from SVN rev 16349 -->
 <scene>
   <lod>
-   <group name="cow">
-    <static-object lod_distance="130" lod_group="cow" model="cow.b3d" xyz="-145.89 13.10 -125.68" hpr="-0.0 -90.0 0.0" scale="0.52 0.36 0.52" interaction="static"/>
-   </group>
    <group name="well">
-    <static-object lod_distance="60" lod_group="well" model="well60.b3d" xyz="-143.85 6.00 -89.63" hpr="-0.0 64.7 -0.0" scale="1.91 1.91 1.91" interaction="static"/>
-   </group>
-   <group name="horse">
-    <static-object lod_distance="100" lod_group="horse" model="horse.b3d" xyz="72.30 6.51 155.27" hpr="0.1 -19.4 -0.6" scale="0.75 0.75 0.75" interaction="static"/>
+    <static-object lod_distance="60" lod_group="well" model="well60.b3d" xyz="-143.85 6.00 -89.63" hpr="-0.0 64.7 -0.0" scale="1.91 1.91 1.91" interaction="static" skeletal-animation="false"/>
    </group>
    <group name="skull">
-    <static-object lod_distance="120" lod_group="skull" model="skull.b3d" xyz="-109.41 9.55 -2.36" hpr="-52.6 -0.0 -0.0" scale="0.49 0.49 0.49" interaction="static"/>
+    <static-object lod_distance="120" lod_group="skull" model="skull.b3d" xyz="-109.41 9.55 -2.36" hpr="-52.6 -0.0 -0.0" scale="0.49 0.49 0.49" interaction="static" skeletal-animation="false"/>
+   </group>
+   <group name="cow">
+    <static-object lod_distance="130" lod_group="cow" model="cow.b3d" xyz="-145.89 13.10 -125.68" hpr="-0.0 -90.0 0.0" scale="0.52 0.36 0.52" interaction="static" skeletal-animation="false"/>
+   </group>
+   <group name="horse">
+    <static-object lod_distance="100" lod_group="horse" model="horse.b3d" xyz="72.30 6.51 155.27" hpr="0.1 -19.4 -0.6" scale="0.75 0.75 0.75" interaction="static" skeletal-animation="false"/>
    </group>
   </lod>
   <track model="farm_track.b3d" x="0" y="0" z="0">
-    <static-object lod_instance="true" lod_group="skull" xyz="0.86 9.55 -2.36" hpr="-52.6 -0.0 -0.0" scale="0.49 0.49 0.49"/>
-    <static-object lod_instance="true" lod_group="horse" xyz="68.93 4.59 85.82" hpr="0.1 -19.4 -0.6" scale="0.75 0.75 0.75"/>
-    <static-object lod_instance="true" lod_group="horse" xyz="73.80 4.43 85.90" hpr="0.1 5.8 -0.6" scale="0.75 0.75 0.75"/>
-    <static-object lod_instance="true" lod_group="horse" xyz="78.26 3.96 85.97" hpr="0.1 11.1 -0.6" scale="0.55 0.55 0.55"/>
-    <static-object lod_instance="true" lod_group="horse" xyz="83.34 4.29 84.75" hpr="0.1 30.9 -0.5" scale="0.75 0.75 0.75"/>
-    <static-object model="silo.b3d" xyz="34.83 15.14 -105.46" hpr="0.0 -0.0 0.0" scale="4.99 4.99 4.99"/>
-    <static-object model="silo2.b3d" xyz="-97.77 13.13 6.81" hpr="0.0 -0.0 0.0" scale="3.41 3.41 3.41"/>
-    <static-object model="silo5.b3d" xyz="194.27 17.88 -200.40" hpr="0.0 -0.0 0.0" scale="3.98 3.98 3.98"/>
-    <static-object model="silo3.b3d" xyz="189.95 15.40 127.05" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object model="silo4.b3d" xyz="217.89 22.45 -188.24" hpr="0.0 -0.0 0.0" scale="4.99 4.99 4.99"/>
-    <static-object lod_instance="true" lod_group="cow" xyz="-59.26 8.47 -125.68" hpr="-0.0 -90.0 0.0" scale="0.52 0.36 0.52"/>
-    <static-object lod_instance="true" lod_group="well" xyz="-50.31 6.00 -89.63" hpr="-0.0 64.7 -0.0" scale="1.91 1.91 1.91"/>
+    <static-object  lod_instance="true" lod_group="skull" xyz="0.86 9.55 -2.36" hpr="-52.6 -0.0 -0.0" scale="0.49 0.49 0.49"/>
+    <static-object  lod_instance="true" lod_group="horse" xyz="68.93 4.59 85.82" hpr="0.1 -19.4 -0.6" scale="0.75 0.75 0.75"/>
+    <static-object  lod_instance="true" lod_group="horse" xyz="73.80 4.43 85.90" hpr="0.1 5.8 -0.6" scale="0.75 0.75 0.75"/>
+    <static-object  lod_instance="true" lod_group="horse" xyz="78.26 3.96 85.97" hpr="0.1 11.1 -0.6" scale="0.55 0.55 0.55"/>
+    <static-object  lod_instance="true" lod_group="horse" xyz="83.34 4.29 84.75" hpr="0.1 30.9 -0.5" scale="0.75 0.75 0.75"/>
+    <static-object  model="silo.b3d" xyz="34.83 15.14 -105.46" hpr="0.0 -0.0 0.0" scale="4.99 4.99 4.99"/>
+    <static-object  model="silo2.b3d" xyz="-97.77 13.13 6.81" hpr="0.0 -0.0 0.0" scale="3.41 3.41 3.41"/>
+    <static-object  model="silo5.b3d" xyz="194.27 17.88 -200.40" hpr="0.0 -0.0 0.0" scale="3.98 3.98 3.98"/>
+    <static-object  model="silo3.b3d" xyz="189.95 15.40 127.05" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="silo4.b3d" xyz="217.89 22.45 -188.24" hpr="0.0 -0.0 0.0" scale="4.99 4.99 4.99"/>
+    <static-object  lod_instance="true" lod_group="cow" xyz="-59.26 8.47 -125.68" hpr="-0.0 -90.0 0.0" scale="0.52 0.36 0.52"/>
+    <static-object  lod_instance="true" lod_group="well" xyz="-50.31 6.00 -89.63" hpr="-0.0 64.7 -0.0" scale="1.91 1.91 1.91"/>
   </track>
   <object id="hayroll.002" type="animation" xyz="69.97 8.08 -107.84" hpr="-83.2 1.1 97.7" scale="1.00 1.00 1.00" interaction="flatten" shape="cylinderY" model="hayBail.b3d" flatten="y" skeletal-animation="false">
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
@@ -1196,10 +1196,10 @@
     <check-lap kind="lap" same-group="0" other-ids="1" />
     <check-line kind="activate" other-ids="2" p1="123.17 48.42" p2="167.90 93.77"
                 min-height="1.52" same-group="1"/>
-    <check-line kind="activate" other-ids="0" p1="65.87 -162.54" p2="49.31 -122.74"
+    <check-line kind="activate" other-ids="0" p1="65.87 -162.54" p2="55.31 -126.90"
                 min-height="6.84" same-group="2"/>
   </checks>
-  <particle-emitter kind="smoke.xml" id="Empty.001" xyz="173.61 13.57 48.27" h="0.00">
+  <particle-emitter kind="smoke.xml" id="Empty.001" xyz="173.61 13.57 48.27" h="0.00" >
   </particle-emitter>
   <object type="sfx-emitter" id="Empty" sound="cow.ogg" rolloff="0.100" volume="1.0" max_dist="500.0" xyz="-54.27 9.67 -126.15" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </object>
@@ -1246,5 +1246,7 @@
                  sidewards-distance="3.00"
                  upwards-distance  ="0.10"/>
   <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy.007" xyz="-33.96 2.53 -55.72" hpr="-24.1 -101.8 25.9" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy" xyz="55.60 8.68 -127.38" hpr="-57.5 -80.5 57.8" scale="0.56 0.56 0.56">
   </library>
 </scene>
