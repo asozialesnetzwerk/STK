@@ -139,6 +139,10 @@
     based on public domain sound by dADDoiT and CC-BY 3.0 sounds by Mike Koenig
     released under CC-BY 3.0
 
+* nitro
+    based on CC0 sound by Nic3_one
+    http://www.freesound.org/people/Nic3_one/sounds/166542/
+    
 * parachute
     based on Public Domain Sounds from either pdsounds or ghb_pd
     Modifications (c) 2009 Christoph Egger <debian@christoph-egger.org>.
