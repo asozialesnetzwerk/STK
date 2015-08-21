@@ -86,11 +86,11 @@
             <StringProp id="ambientmap_texture1" name="Ambient map, North" default=""/>
             <StringProp id="ambientmap_texture6" name="Ambient map, South" default=""/>
         </BoolProp>
-        <BoolProp id="bloom" name="Bloom (STK 0.8.2)" default="true" doc="Whether this track uses bloom">
         <!--
+        <BoolProp id="bloom" name="Bloom (STK 0.8.2)" default="true" doc="Whether this track uses bloom">
             <FloatProp id="bloom_threshold" name="Bloom threshold" doc="Brightness at which bloom starts being applied" default="0.75" min="0.0" max="1.0"/>
-            -->
         </BoolProp>
+        -->
         <!--
         <BoolProp id="sunlensflare" name="Sun lens flare (STK 0.8.2)" default="false" doc="Show lens flare when looking at the sun. Lens flare underscore and maximise the emotional and psychological impact of a scene"/>
         -->

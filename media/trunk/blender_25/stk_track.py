@@ -1971,7 +1971,7 @@ class TrackExport:
         music           = getSceneProperty(scene, "music", "")
         screenshot      = getSceneProperty(scene, "screenshot", "")
         smooth_normals  = getSceneProperty(scene, "smooth_normals", "false")
-        has_bloom       = (getSceneProperty(scene, "bloom", "false") == "true")
+        #has_bloom       = (getSceneProperty(scene, "bloom", "false") == "true")
         bloom_threshold = getSceneProperty(scene, "bloom_threshold", "0.75")
         has_cloud_shadows = (getSceneProperty(scene, "clouds", "false") == "true")
         #has_lens_flare  = (getSceneProperty(scene, "sunlensflare", "false") == "true")
@@ -2044,11 +2044,11 @@ class TrackExport:
         else:
             f.write("        reverse        = \"N\"\n")
         
-        if has_bloom:
-            f.write("        bloom          = \"Y\"\n")
-            f.write("        bloom-threshold = \"%s\"\n" % bloom_threshold)
-        else:
-            f.write("        bloom          = \"N\"\n")
+        #if has_bloom:
+        #    f.write("        bloom          = \"Y\"\n")
+        #    f.write("        bloom-threshold = \"%s\"\n" % bloom_threshold)
+        #else:
+        #    f.write("        bloom          = \"N\"\n")
 
         #if has_colorlevel:
         #    f.write("        color-level-in = \"" + str(colorlevel_inblack) + " " + str(colorlevel_ingamma) + " " + str(colorlevel_inwhite) + "\"\n")
