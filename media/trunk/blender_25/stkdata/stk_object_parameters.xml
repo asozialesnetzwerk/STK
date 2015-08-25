@@ -294,6 +294,18 @@
                     </EnumProp>
                 </EnumChoice>
                 <EnumChoice id="physicsonly" label="Physics only" doc="Make this material invisible visually but present in physics">
+                    <FloatProp id="mass" name="Mass (kg)" default="100.0" min="0.0" doc="How heavy the object is"/>
+                    <EnumProp id="shape" name="Shape" default="box"
+                              doc="Shape to use in the physics engine to represent this object">
+                        <EnumChoice id="coneX" label="Cone (X)" />
+                        <EnumChoice id="coneY" label="Cone (Y)" />
+                        <EnumChoice id="coneZ" label="Cone (Z)" />
+                        <EnumChoice id="cylinderX" label="Cylinder (X)" />
+                        <EnumChoice id="cylinderY" label="Cylinder (Y)" />
+                        <EnumChoice id="cylinderZ" label="Cylinder (Z)" />
+                        <EnumChoice id="box" label="Box" />
+                        <EnumChoice id="sphere" label="Sphere" />
+                    </EnumProp>
                 </EnumChoice>
             </EnumProp>
             <!--
