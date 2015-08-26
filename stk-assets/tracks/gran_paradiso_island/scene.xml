@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15937 -->
+<!-- Generated with script from SVN rev 16343 -->
 <scene>
   <track model="gran_paradiso_island_track.b3d" x="0" y="0" z="0">
-    <static-object model="baggage_belt.b3d" xyz="101.06 25.86 -62.07" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+    <static-object  model="baggage_belt.b3d" xyz="101.06 25.86 -62.07" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
     <animated-texture name="stktex_generic_bambooB.png" dx="-0.200" />
     </static-object>
-    <static-object model="baggage_belt.b3d" xyz="81.06 25.86 -62.07" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+    <static-object  model="baggage_belt.b3d" xyz="81.06 25.86 -62.07" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
     <animated-texture name="stktex_generic_bambooB.png" dx="-0.200" />
     </static-object>
-    <static-object model="limits.b3d" xyz="-86.60 4.32 128.13" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
+    <static-object  model="limits.b3d" xyz="-86.60 4.32 128.13" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
     <animated-texture name="stkflag_orangeBooster_a.png" dy="0.5000" />
     <animated-texture name="stkflag_greenCheckBorard_a.png" dx="0.080"  dy="0.2000" />
   </track>
@@ -305,7 +305,7 @@
     </curve>
     </cannon>
   </checks>
-  <particle-emitter kind="droplet.xml" id="Empty.044" xyz="60.18 -11.91 51.03" h="0.00">
+  <particle-emitter kind="droplet.xml" id="Empty.044" xyz="60.18 -11.91 51.03" h="0.00" >
   </particle-emitter>
   <!-- Hair system BezierCurve.003, contains 25 particles -->
   <library name="stklib_redSeaweed_a" id="stklib_redSeaweed_a_main_proxy" xyz="138.54 -48.01 262.53" hpr="-0.0 -0.0 0.0" scale="1.03 1.03 1.03"/>
@@ -1064,6 +1064,10 @@
   <library name="stklib_jungleTree_b" id="stklib_jungleTree_b_main_proxy.004" xyz="-107.86 20.35 74.48" hpr="-55.5 -104.3 57.2" scale="4.69 4.69 4.69">
   </library>
   <library name="stklib_jungleTree_b" id="stklib_jungleTree_b_main_proxy.005" xyz="46.98 20.11 83.31" hpr="-4.8 51.6 1.5" scale="5.30 5.30 5.30">
+  </library>
+  <library name="stklib_loudspeaker_a" id="stklib_loudspeaker_a_main_proxy.000" xyz="-66.80 6.33 5.27" hpr="-0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_loudspeaker_a" id="stklib_loudspeaker_a_main_proxy.002" xyz="6.81 8.12 33.55" hpr="-0.0 180.0 -0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy" xyz="-253.84 4.06 342.13" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
