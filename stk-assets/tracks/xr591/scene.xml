@@ -257,4 +257,6 @@
                  forwards-distance ="1.50"
                  sidewards-distance="3.00"
                  upwards-distance  ="0.10"/>
+  <library name="gfx_solarCore_a" id="gfx_solarCore_a_main_proxy" xyz="859.82 75.08 24.36" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
 </scene>
