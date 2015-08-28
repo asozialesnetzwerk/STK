@@ -5,9 +5,6 @@
   <material name="cactus.png" backface-culling="N" disable-z-write="Y" shader="alphatest"/>
   <material name="sageBrush.jpg" ignore="Y" backface-culling="N" disable-z-write="Y" mask="sageBrush_alpha.jpg" shader="alphatest"/>
   <material name="grass.png" ignore="Y" backface-culling="N" disable-z-write="Y" shader="alphatest"/>
-  <material name="hacienda_ground.jpg">
-    <particles base="smoke.xml" condition="skid"/>
-  </material>
   <material name="hacienda_ground_dark.jpg">
     <particles base="smoke.xml" condition="skid"/>
   </material>
@@ -15,12 +12,9 @@
     <particles base="smoke.xml" condition="skid"/>
   </material>
   <material name="l_lampsglass0.png" disable-z-write="Y" shader="alphablend"/>
-  <material name="mill.png" ignore="Y" disable-z-write="Y" shader="alphablend"/>
+  <material name="mill.png" ignore="Y" disable-z-write="Y" shader="alphatest"/>
   <material name="millstructure.png" ignore="Y" shader="alphatest"/>
-  <material name="palm_b.png" backface-culling="N" disable-z-write="Y" shader="alphatest"/>
   <material name="palmacacia.jpg" ignore="Y" disable-z-write="Y" mask="palmacacia_alpha.jpg" shader="alphatest"/>
-  <material name="pix.png" reset="Y" shader="alphatest"/>
-  <material name="pix_2.png" shader="alphatest"/>
   <material name="sageBrush.jpg" ignore="Y" mask="sageBrush_alpha.jpg" shader="alphatest"/>
   <material name="tail.png" ignore="Y" disable-z-write="Y" backface-culling="N" shader="alphatest"/>
   <material name="traildust.jpg">
@@ -32,13 +26,8 @@
   <material name="trailrock2dust.jpg">
     <particles base="smoke_brown.xml" condition="skid"/>
   </material>
+  <material name="wind_mill.png" shader="alphatest"/>
   <material name="windmill_palm_detail.png" shader="alphatest"/>
-  <material name="woodBridge.jpg">
-    <sfx filename="wooden_bridge.ogg" rolloff="0.60" min_speed="9.00" max_speed="22.00" min_pitch="1.00" max_pitch="1.70" positional="true" volume="1.00"/>
-  </material>
-  <material name="yellow_dirt.jpg" slowdown-time="2.00" max-speed="0.70">
-    <particles base="smoke_yellow.xml" condition="drive skid"/>
-  </material>
   <material name="zipper-effect.png" disable-z-write="Y" shader="alphablend"/>
   <material name="zipper.png" disable-z-write="Y" shader="alphablend"/>
 </materials>
