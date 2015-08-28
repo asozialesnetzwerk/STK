@@ -21,13 +21,20 @@ void garage(int idKart)
     Track::pauseRace();
 }
 
-// TODO: rename this predicate, the name is misleading
-bool allchallenges(Track::TrackObject@ obj)
+bool showDoorOpen(Track::TrackObject@ obj)
 {
     int unlocked_challenges = Challenges::getCompletedChallengesCount();
     int challenges = Challenges::getChallengeCount();
+    
+    Utils::logInfo("allchallenges: unlocked_challenges=" + unlocked_challenges + ", challenges=" + challenges);
+    
     // allow ONE unsolved challenge : the last one
     return unlocked_challenges >= challenges - 1;
+}
+
+bool showDoorClosed(Track::TrackObject@ obj)
+{
+    return !showDoorOpen(obj);
 }
 
 /** Visibility callback run for each challenge at startup, determines if it's visible or not */
