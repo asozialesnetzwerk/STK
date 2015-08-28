@@ -4,7 +4,7 @@
   <track model="stk_enterprise_track.b3d" x="0" y="0" z="0">
     <static-object  model="window_doors.b3d" xyz="78.67 10.20 -118.25" hpr="0.0 -0.0 0.0" scale="1.08 1.08 1.08"/>
     <static-object  model="window_doors.b3d" xyz="78.67 10.20 -12.75" hpr="0.0 180.0 0.0" scale="1.08 1.08 1.08"/>
-    <static-object  model="invisible_walls.b3d" xyz="203.57 25.94 -108.29" hpr="0.0 -0.0 0.0" scale="50.25 50.25 94.18" interaction="physics-only"/>
+    <static-object  model="invisible_walls.b3d" xyz="60.50 13.50 211.05" hpr="0.0 -0.0 0.0" scale="1.08 1.08 1.08" interaction="physics-only"/>
     <animated-texture name="blueZipper.png" dy="0.8000" />
     <animated-texture name="blueZipper.png" dy="0.8000" />
     <animated-texture name="arc1.png" dx="2.000" />
