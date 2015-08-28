@@ -1,45 +1,45 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15738 -->
+<!-- Generated with script from SVN rev 16343 -->
 <scene>
   <lod>
-   <group name="pillar2">
-    <static-object lod_distance="200" lod_group="pillar2" model="pillar2_high.b3d" xyz="-89.43 -18.10 644.62" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="move"/>
-    <static-object lod_distance="400" lod_group="pillar2" model="pillar2_lo.b3d" xyz="-95.06 -18.10 644.62" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="move"/>
-   </group>
    <group name="chest_mound">
-    <static-object lod_distance="80" lod_group="chest_mound" model="chest_mound_hi.b3d" xyz="-159.64 -34.41 665.68" hpr="86.5 -81.3 2.5" scale="2.52 2.52 2.52" interaction="static"/>
-    <static-object lod_distance="350" lod_group="chest_mound" model="chest_mound_lo.b3d" xyz="-191.53 -34.41 665.68" hpr="86.5 -81.3 2.5" scale="2.52 2.52 2.52" interaction="static"/>
+    <static-object lod_distance="80" lod_group="chest_mound" model="chest_mound_hi.b3d" xyz="-159.64 -34.41 665.68" hpr="86.5 -81.3 2.5" scale="2.52 2.52 2.52" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="350" lod_group="chest_mound" model="chest_mound_lo.b3d" xyz="-191.53 -34.41 665.68" hpr="86.5 -81.3 2.5" scale="2.52 2.52 2.52" interaction="static" skeletal-animation="false"/>
    </group>
-   <group name="submarine">
-    <static-object lod_distance="150" lod_group="submarine" model="submarine_hi.b3d" xyz="-395.69 4.29 -365.18" hpr="-61.1 0.0 90.0" scale="4.66 4.92 4.66" interaction="static"/>
-    <static-object lod_distance="400" lod_group="submarine" model="submarine_lo.b3d" xyz="-360.90 4.29 -371.98" hpr="-61.1 0.0 90.0" scale="4.66 4.92 4.66" interaction="static"/>
+   <group name="pillar2">
+    <static-object lod_distance="200" lod_group="pillar2" model="pillar2_high.b3d" xyz="-89.43 -18.10 644.62" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="move" skeletal-animation="false"/>
+    <static-object lod_distance="400" lod_group="pillar2" model="pillar2_lo.b3d" xyz="-95.06 -18.10 644.62" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="move" skeletal-animation="false"/>
    </group>
    <group name="chest">
-    <static-object lod_distance="100" lod_group="chest" model="Cube.012.b3d" xyz="-49.99 -35.13 653.41" hpr="0.0 -38.3 0.0" scale="5.60 2.80 2.80" interaction="static"/>
-    <static-object lod_distance="350" lod_group="chest" model="Cube.013.b3d" xyz="-49.99 -35.13 670.60" hpr="0.0 -38.3 0.0" scale="5.60 2.80 2.80" interaction="static"/>
+    <static-object lod_distance="100" lod_group="chest" model="Cube.012.b3d" xyz="-49.99 -35.13 653.41" hpr="0.0 -38.3 0.0" scale="5.60 2.80 2.80" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="350" lod_group="chest" model="Cube.013.b3d" xyz="-49.99 -35.13 670.60" hpr="0.0 -38.3 0.0" scale="5.60 2.80 2.80" interaction="static" skeletal-animation="false"/>
+   </group>
+   <group name="submarine">
+    <static-object lod_distance="150" lod_group="submarine" model="submarine_hi.b3d" xyz="-395.69 4.29 -365.18" hpr="-61.1 0.0 90.0" scale="4.66 4.92 4.66" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="400" lod_group="submarine" model="submarine_lo.b3d" xyz="-360.90 4.29 -371.98" hpr="-61.1 0.0 90.0" scale="4.66 4.92 4.66" interaction="static" skeletal-animation="false"/>
    </group>
    <group name="pillar">
-    <static-object lod_distance="200" lod_group="pillar" model="pillar_high.b3d" xyz="-89.39 -18.10 618.34" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="move"/>
-    <static-object lod_distance="400" lod_group="pillar" model="pillar_lo.b3d" xyz="-95.02 -18.10 618.34" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="move"/>
+    <static-object lod_distance="200" lod_group="pillar" model="pillar_high.b3d" xyz="-89.39 -18.10 618.34" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="move" skeletal-animation="false"/>
+    <static-object lod_distance="400" lod_group="pillar" model="pillar_lo.b3d" xyz="-95.02 -18.10 618.34" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="move" skeletal-animation="false"/>
    </group>
   </lod>
   <track model="subsea_track.b3d" x="0" y="0" z="0">
-    <static-object lod_instance="true" lod_group="chest" xyz="-49.99 -35.13 388.98" hpr="0.0 -38.3 0.0" scale="5.60 2.80 2.80"/>
-    <static-object lod_instance="true" lod_group="chest" xyz="-356.43 -30.35 393.42" hpr="0.0 -75.9 0.0" scale="5.60 2.80 2.80"/>
-    <static-object model="Segment1.b3d" xyz="-186.90 5.03 267.59" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object model="Segment11.b3d" xyz="8.17 -6.81 191.67" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object model="Segment2.b3d" xyz="-286.42 6.37 147.58" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object model="Segment3.b3d" xyz="-342.33 7.18 135.52" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object model="Segment4.b3d" xyz="-391.78 7.87 0.28" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object model="Segment5.b3d" xyz="-379.26 22.10 223.44" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object model="Segment6.b3d" xyz="-440.61 -6.63 239.95" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object model="Segment7.b3d" xyz="-131.16 4.07 132.49" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object model="Segment8.b3d" xyz="-84.93 3.35 93.65" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object model="Segment9.b3d" xyz="-58.54 3.67 -19.98" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object model="Segment10.b3d" xyz="24.27 15.38 199.19" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_instance="true" lod_group="submarine" xyz="-395.69 4.29 -71.50" hpr="-61.1 0.0 90.0" scale="4.66 4.92 4.66"/>
-    <static-object lod_instance="true" lod_group="chest_mound" xyz="-159.44 -34.41 400.43" hpr="87.9 -70.5 1.1" scale="2.52 2.52 2.52"/>
-    <static-object lod_instance="true" lod_group="chest_mound" xyz="-298.18 -34.41 371.92" hpr="89.5 -127.4 -0.6" scale="2.52 2.52 2.52"/>
+    <static-object  lod_instance="true" lod_group="chest" xyz="-49.99 -35.13 388.98" hpr="0.0 -38.3 0.0" scale="5.60 2.80 2.80"/>
+    <static-object  lod_instance="true" lod_group="chest" xyz="-356.43 -30.35 393.42" hpr="0.0 -75.9 0.0" scale="5.60 2.80 2.80"/>
+    <static-object  model="Segment1.b3d" xyz="-186.90 5.03 267.59" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="Segment11.b3d" xyz="8.17 -6.81 191.67" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="Segment2.b3d" xyz="-286.42 6.37 147.58" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="Segment3.b3d" xyz="-342.33 7.18 135.52" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="Segment4.b3d" xyz="-391.78 7.87 0.28" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="Segment5.b3d" xyz="-379.26 22.10 223.44" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="Segment6.b3d" xyz="-440.61 -6.63 239.95" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="Segment7.b3d" xyz="-131.16 4.07 132.49" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="Segment8.b3d" xyz="-84.93 3.35 93.65" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="Segment9.b3d" xyz="-58.54 3.67 -19.98" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="Segment10.b3d" xyz="24.27 15.38 199.19" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="submarine" xyz="-395.69 4.29 -71.50" hpr="-61.1 0.0 90.0" scale="4.66 4.92 4.66"/>
+    <static-object  lod_instance="true" lod_group="chest_mound" xyz="-159.44 -34.41 400.43" hpr="87.9 -70.5 1.1" scale="2.52 2.52 2.52"/>
+    <static-object  lod_instance="true" lod_group="chest_mound" xyz="-298.18 -34.41 371.92" hpr="89.5 -127.4 -0.6" scale="2.52 2.52 2.52"/>
     <animated-texture name="eggs.png" dy="0.5000" />
     <animated-texture name="organic-subsea.jpg" dy="0.1000" />
     <animated-texture name="flaque-subsea.png" dy="0.1000" />
@@ -303,19 +303,20 @@
           shape="sphere" mass="2.0" model="egg.b3d" skeletal-animation="false"/>
   <object type="movable" id="Sphere.014" xyz="-183.54 3.70 74.01" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86"
           shape="sphere" mass="2.0" model="egg.b3d" skeletal-animation="false"/>
-  <sun  fog="true" fog-color="72 123 162" fog-start="30.00" fog-end="450.00" xyz="-341.79 222.19 -97.61" ambient="88 99 119"/>
+  <sun  fog="true" fog-color="1 32 73" fog-max="0.30000001192092896" fog-start="10.00" fog-end="300.00" xyz="-323.36 158.48 -298.91" sun-diffuse="71 97 169" ambient="88 99 119"/>
   <sky-color rgb="111 135 164"/>
-  <camera far="800"/>
+  <sky-box texture="sky1-ibl.jpg sky2.jpg sky2.jpg sky2.jpg sky2.jpg sky2.jpg" sh-texture="sky1-ibl.jpg sky1-ibl.jpg sky1-ibl.jpg sky1-ibl.jpg sky1-ibl.jpg sky1-ibl.jpg"/>
+  <camera far="800.0"/>
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
     <check-line kind="activate" other-ids="0" p1="-465.70 41.72" p2="-450.40 40.59"
                 min-height="6.72" same-group="1"/>
   </checks>
-  <particle-emitter kind="fuite.xml" id="Empty.036" xyz="-276.47 4.77 289.39" h="13.54">
+  <particle-emitter kind="fuite.xml" id="Empty.036" xyz="-276.47 4.77 289.39" h="13.54" >
   </particle-emitter>
-  <particle-emitter kind="fuite0.xml" id="Empty.037" xyz="-216.50 4.13 292.31" h="13.54">
+  <particle-emitter kind="fuite0.xml" id="Empty.037" xyz="-216.50 4.13 292.31" h="13.54" >
   </particle-emitter>
-  <particle-emitter kind="fuite1.xml" id="Empty.038" xyz="-102.33 1.93 253.33" h="13.54">
+  <particle-emitter kind="fuite1.xml" id="Empty.038" xyz="-102.33 1.93 253.33" h="13.54" >
   </particle-emitter>
   <big-nitro id="Empty" x="-318.03" y="5.07" z="57.00" />
   <big-nitro id="Empty.001" x="-320.43" y="5.07" z="54.60" />
@@ -414,6 +415,7 @@
   <item id="Empty.105" x="-445.50" y="5.19" z="-41.47" h="-352.62" />
   <item id="Empty.106" x="-449.64" y="5.19" z="-46.85" h="-352.62" />
   <item id="Empty.107" x="-447.57" y="5.19" z="-44.16" h="-352.62" />
+  <lightshaft xyz="-323.36 86.06 -298.91" id="Sun.001" opacity="0.70" color="19 112 255"/>
   <default-start karts-per-row     ="2"
                  forwards-distance ="1.50"
                  sidewards-distance="3.00"
