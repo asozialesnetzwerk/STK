@@ -2172,10 +2172,6 @@ class TrackExport:
         if len(if_condition) > 0:
             flags.append("if=\"%s\""%if_condition)
             
-        if_not_condition = getObjectProperty(obj, "ifnot", "")
-        if len(if_not_condition) > 0:
-            flags.append("ifnot=\"%s\""%if_not_condition)
-            
         lAnim = checkForAnimatedTextures([obj])
                 
         if parent and parent.type=="ARMATURE":
@@ -2263,10 +2259,6 @@ class TrackExport:
             condition_if = getObjectProperty(obj, "if", "")
             if len(condition_if) > 0:
                 attributes.append("if=\"%s\""%condition_if)
-            
-            condition_ifnot = getObjectProperty(obj, "ifnot", "")
-            if len(condition_ifnot) > 0:
-                attributes.append("ifnot=\"%s\""%condition_ifnot)
             
             challenge_val = getObjectProperty(obj, "challenge", "")
             if len(challenge_val) > 0:
@@ -2389,10 +2381,6 @@ class TrackExport:
             if_condition = getObjectProperty(obj, "if", "")
             if len(if_condition) > 0:
                 flags.append("if=\"%s\""%if_condition)
-            
-            if_not_condition = getObjectProperty(obj, "ifnot", "")
-            if len(if_not_condition) > 0:
-                flags.append("ifnot=\"%s\""%if_not_condition)
             
             uses_skeletal_animation = False
             
@@ -2517,8 +2505,6 @@ class TrackExport:
             elif len(getObjectProperty(obj, "on_kart_collision", "")) > 0:
                 export_non_static = True
             elif len(getObjectProperty(obj, "if", "")):
-                export_non_static = True
-            elif len(getObjectProperty(obj, "ifnot", "")) > 0:
                 export_non_static = True
             
             #if type == "object" and getObjectProperty(obj, "instancing", "false") == "true":
