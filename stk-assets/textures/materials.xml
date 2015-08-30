@@ -16,8 +16,9 @@
   <material name="stkflag_orangeStartingLine_a.png" shader="alphatest" disable-z-write="Y"/>
   <material name="stkflag_orangeBooster_a.png"      shader="alphatest" disable-z-write="Y" has-gravity="Y"/>
   <material name="stkflag_blueBooster_a.png"        shader="alphatest" disable-z-write="Y" has-gravity="Y"/>
-  <material name="stkflag_blueStartingLine_a.png"   shader="alphatest" disable-z-write="Y"/>
-    <material name="stkflag_albikStartingLine_a.png"   shader="alphatest" />
+  <material name="stkflag_blueStartingLine_a.png"   shader="alphatest" />
+  <material name="stkflag_albikStartingLine_a.png"   shader="alphatest" />
+  <material name="stkflag_pinkStartingLine_a.png"   shader="alphatest" />
   
   <material name="stk_grainElevatorLogoA.png" shader="alphatest" disable-z-write="Y"/>
   
