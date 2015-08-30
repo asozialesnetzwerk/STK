@@ -6,11 +6,11 @@
   <!-- Define the main loop -->
   <edge-loop from="0" to="264"/>
   <!-- Shortcut CurveCircle.007 -->
-  <edge from="1" to="265"/>
+  <edge from="25" to="265"/>
   <edge-line from="265" to="341"/>
-  <edge from="341" to="114"/>
+  <edge from="341" to="138"/>
   <!-- Shortcut CurveCircle.006 -->
-  <edge from="141" to="342"/>
+  <edge from="165" to="342"/>
   <edge-line from="342" to="437"/>
-  <edge from="437" to="236"/>
+  <edge from="437" to="260"/>
 </graph>

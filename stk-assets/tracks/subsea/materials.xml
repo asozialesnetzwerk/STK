@@ -8,6 +8,7 @@
   <material name="flaque-subsea.png" disable-z-write="Y" ignore="Y" shader="alphablend"/>
   <material name="Flower-subsea.png" ignore="Y" shader="alphatest"/>
   <material name="Grate-subsea.png" shader="alphatest"/>
+  <material name="jungleWater.png" shader="alphablend" disable-z-write="Y"/>
   <material name="light3-subsea.png" clampu="Y" disable-z-write="Y" ignore="Y" shader="additive"/>
   <material name="LilySmall-subsea.png" ignore="Y" shader="alphatest"/>
   <material name="organic_out-subsea.png" ignore="Y" shader="alphablend"/>

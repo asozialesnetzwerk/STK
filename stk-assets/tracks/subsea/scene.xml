@@ -6,10 +6,6 @@
     <static-object lod_distance="80" lod_group="chest_mound" model="chest_mound_hi.b3d" xyz="-159.64 -34.41 665.68" hpr="86.5 -81.3 2.5" scale="2.52 2.52 2.52" interaction="static" skeletal-animation="false"/>
     <static-object lod_distance="350" lod_group="chest_mound" model="chest_mound_lo.b3d" xyz="-191.53 -34.41 665.68" hpr="86.5 -81.3 2.5" scale="2.52 2.52 2.52" interaction="static" skeletal-animation="false"/>
    </group>
-   <group name="pillar2">
-    <static-object lod_distance="200" lod_group="pillar2" model="pillar2_high.b3d" xyz="-89.43 -18.10 644.62" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="move" skeletal-animation="false"/>
-    <static-object lod_distance="400" lod_group="pillar2" model="pillar2_lo.b3d" xyz="-95.06 -18.10 644.62" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="move" skeletal-animation="false"/>
-   </group>
    <group name="chest">
     <static-object lod_distance="100" lod_group="chest" model="Cube.012.b3d" xyz="-49.99 -35.13 653.41" hpr="0.0 -38.3 0.0" scale="5.60 2.80 2.80" interaction="static" skeletal-animation="false"/>
     <static-object lod_distance="350" lod_group="chest" model="Cube.013.b3d" xyz="-49.99 -35.13 670.60" hpr="0.0 -38.3 0.0" scale="5.60 2.80 2.80" interaction="static" skeletal-animation="false"/>
@@ -17,6 +13,10 @@
    <group name="submarine">
     <static-object lod_distance="150" lod_group="submarine" model="submarine_hi.b3d" xyz="-395.69 4.29 -365.18" hpr="-61.1 0.0 90.0" scale="4.66 4.92 4.66" interaction="static" skeletal-animation="false"/>
     <static-object lod_distance="400" lod_group="submarine" model="submarine_lo.b3d" xyz="-360.90 4.29 -371.98" hpr="-61.1 0.0 90.0" scale="4.66 4.92 4.66" interaction="static" skeletal-animation="false"/>
+   </group>
+   <group name="pillar2">
+    <static-object lod_distance="200" lod_group="pillar2" model="pillar2_high.b3d" xyz="-89.43 -18.10 644.62" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="move" skeletal-animation="false"/>
+    <static-object lod_distance="400" lod_group="pillar2" model="pillar2_lo.b3d" xyz="-95.06 -18.10 644.62" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="move" skeletal-animation="false"/>
    </group>
    <group name="pillar">
     <static-object lod_distance="200" lod_group="pillar" model="pillar_high.b3d" xyz="-89.39 -18.10 618.34" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="move" skeletal-animation="false"/>
@@ -275,6 +275,8 @@
           shape="cylinder" mass="10.0" model="Rubis.b3d" skeletal-animation="false"/>
   <object type="movable" id="Plane.007" xyz="-51.12 -37.27 380.71" hpr="-0.8 5.7 -12.4" scale="1.20 1.20 1.20"
           shape="cylinder" mass="10.0" model="Rubis.b3d" skeletal-animation="false"/>
+  <object id="Plane.015" type="animation" xyz="-156.62 2.05 -55.04" hpr="-0.0 -0.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_distortion.b3d" displacing="true" skeletal-animation="false">
+  </object>
   <object type="movable" id="Sphere" xyz="-178.53 3.70 83.58" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86"
           shape="sphere" mass="2.0" model="egg.b3d" skeletal-animation="false"/>
   <object type="movable" id="Sphere.001" xyz="-176.74 3.70 80.89" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86"
@@ -415,9 +417,55 @@
   <item id="Empty.105" x="-445.50" y="5.19" z="-41.47" h="-352.62" />
   <item id="Empty.106" x="-449.64" y="5.19" z="-46.85" h="-352.62" />
   <item id="Empty.107" x="-447.57" y="5.19" z="-44.16" h="-352.62" />
-  <lightshaft xyz="-323.36 86.06 -298.91" id="Sun.001" opacity="0.70" color="19 112 255"/>
+  <lightshaft xyz="-323.36 86.06 -298.91" id="Sun.001" opacity="0.50" color="19 112 255"/>
   <default-start karts-per-row     ="2"
                  forwards-distance ="1.50"
                  sidewards-distance="3.00"
                  upwards-distance  ="0.10"/>
+  <library name="stklib_redSeaweed_a" id="stklib_redSeaweed_a_main_proxy" xyz="-27.87 1.34 -122.22" hpr="0.0 -0.0 0.0" scale="1.01 1.01 1.01">
+  </library>
+  <library name="stklib_redSeaweed_a" id="stklib_redSeaweed_a_main_proxy.001" xyz="-14.31 2.05 -118.14" hpr="0.0 -36.4 0.0" scale="1.14 1.14 1.14">
+  </library>
+  <library name="stklib_redSeaweed_a" id="stklib_redSeaweed_a_main_proxy.002" xyz="0.09 2.04 -108.84" hpr="0.0 -179.7 -0.0" scale="1.01 1.01 1.01">
+  </library>
+  <library name="stklib_redSeaweed_a" id="stklib_redSeaweed_a_main_proxy.003" xyz="7.79 2.05 -103.84" hpr="-0.0 112.0 -0.0" scale="1.58 1.58 1.58">
+  </library>
+  <library name="stklib_redSeaweed_a" id="stklib_redSeaweed_a_main_proxy.004" xyz="24.94 1.14 -33.19" hpr="-0.0 112.0 -0.0" scale="1.58 1.58 1.58">
+  </library>
+  <library name="stklib_redSeaweed_a" id="stklib_redSeaweed_a_main_proxy.005" xyz="36.88 -0.29 5.28" hpr="-0.0 112.0 -0.0" scale="1.58 1.58 1.58">
+  </library>
+  <library name="stklib_redSeaweed_a" id="stklib_redSeaweed_a_main_proxy.006" xyz="-153.97 1.39 -127.20" hpr="0.0 -36.4 0.0" scale="1.14 1.14 1.14">
+  </library>
+  <library name="stklib_redSeaweed_a" id="stklib_redSeaweed_a_main_proxy.007" xyz="-167.54 0.67 -131.28" hpr="0.0 -0.0 0.0" scale="1.01 1.01 1.01">
+  </library>
+  <library name="stklib_reef_a" id="stklib_reef_a_main_proxy" xyz="26.13 0.32 -3.81" hpr="0.0 -0.0 0.0" scale="2.41 2.41 2.41">
+  </library>
+  <library name="stklib_reef_a" id="stklib_reef_a_main_proxy.001" xyz="-173.22 2.00 -99.56" hpr="0.0 -0.0 0.0" scale="2.41 2.41 2.41">
+  </library>
+  <library name="stklib_reef_a" id="stklib_reef_a_main_proxy.002" xyz="-134.41 2.00 -138.61" hpr="13.4 3.2 -2.4" scale="2.41 2.41 2.41">
+  </library>
+  <library name="stklib_reef_a" id="stklib_reef_a_main_proxy.003" xyz="-80.66 2.26 -140.87" hpr="3.1 -0.6 6.8" scale="3.16 3.16 3.16">
+  </library>
+  <library name="stklib_reef_a" id="stklib_reef_a_main_proxy.004" xyz="-58.68 0.76 -144.48" hpr="3.1 -0.6 6.8" scale="2.55 2.55 2.55">
+  </library>
+  <library name="stklib_seaLantern_a" id="stklib_seaLantern_a_main_proxy" xyz="-168.25 6.63 -116.47" hpr="-0.0 -140.3 -0.0" scale="1.30 1.30 1.30">
+  </library>
+  <library name="stklib_seaLantern_a" id="stklib_seaLantern_a_main_proxy.001" xyz="-70.21 6.63 -72.83" hpr="-0.0 168.5 -0.0" scale="1.30 1.30 1.30">
+  </library>
+  <library name="stklib_seaLantern_a" id="stklib_seaLantern_a_main_proxy.002" xyz="30.04 6.60 9.34" hpr="0.0 88.0 0.0" scale="1.30 1.30 1.30">
+  </library>
+  <library name="stklib_seaLantern_a" id="stklib_seaLantern_a_main_proxy.003" xyz="-60.37 6.63 -72.01" hpr="0.0 -11.5 -0.0" scale="1.30 1.30 1.30">
+  </library>
+  <library name="stklib_seaLantern_a" id="stklib_seaLantern_a_main_proxy.004" xyz="30.85 6.60 19.18" hpr="-0.0 -92.0 -0.0" scale="1.30 1.30 1.30">
+  </library>
+  <library name="stklib_seaLantern_a" id="stklib_seaLantern_a_main_proxy.005" xyz="-161.45 6.63 -123.62" hpr="0.0 39.7 0.0" scale="1.30 1.30 1.30">
+  </library>
+  <library name="stklib_seaweed_a" id="stklib_seaweed_a_main_proxy" xyz="27.95 -0.59 -31.06" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_seaweed_a" id="stklib_seaweed_a_main_proxy.001" xyz="-124.23 -0.59 -146.57" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_seaweed_a" id="stklib_seaweed_a_main_proxy.002" xyz="-80.65 0.50 -154.51" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_seaweed_a" id="stklib_seaweed_a_main_proxy.003" xyz="-48.73 -0.38 -145.57" hpr="0.0 -0.0 0.0" scale="0.77 0.77 0.77">
+  </library>
 </scene>
