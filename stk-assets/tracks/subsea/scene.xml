@@ -310,7 +310,7 @@
           shape="sphere" mass="2.0" model="egg.b3d" skeletal-animation="false"/>
   <object type="movable" id="Sphere.014" xyz="-183.54 3.70 74.01" hpr="0.0 -0.0 0.0" scale="0.86 0.86 0.86"
           shape="sphere" mass="2.0" model="egg.b3d" skeletal-animation="false"/>
-  <sun  fog="true" fog-color="1 32 73" fog-max="0.30000001192092896" fog-start="10.00" fog-end="300.00" xyz="-323.36 158.48 -298.91" sun-diffuse="71 97 169" ambient="88 99 119"/>
+  <sun  fog="true" fog-color="1 32 73" fog-max="0.30000001192092896" fog-start="10.00" fog-end="300.00" xyz="-286.62 167.04 -260.58" sun-diffuse="71 97 169" ambient="88 99 119"/>
   <sky-color rgb="111 135 164"/>
   <sky-box texture="sky1-ibl.jpg sky2.jpg sky2.jpg sky2.jpg sky2.jpg sky2.jpg" sh-texture="sky1-ibl.jpg sky1-ibl.jpg sky1-ibl.jpg sky1-ibl.jpg sky1-ibl.jpg sky1-ibl.jpg"/>
   <camera far="800.0"/>
@@ -422,27 +422,27 @@
   <item id="Empty.105" x="-445.50" y="5.19" z="-41.47" h="-352.62" />
   <item id="Empty.106" x="-449.64" y="5.19" z="-46.85" h="-352.62" />
   <item id="Empty.107" x="-447.57" y="5.19" z="-44.16" h="-352.62" />
-  <light xyz="-146.54 11.65 -97.24" id="Lamp" distance="25.00" energy="1.00" color="255 255 255">
+  <light xyz="-146.54 11.65 -97.24" id="Lamp" distance="25.00" energy="1.00" color="255 115 222">
   </light>
-  <light xyz="-149.86 11.65 -99.48" id="Lamp.001" distance="25.00" energy="1.00" color="255 255 255">
+  <light xyz="-149.86 11.65 -99.48" id="Lamp.001" distance="25.00" energy="1.00" color="255 115 222">
   </light>
-  <light xyz="-112.66 11.44 -119.02" id="Lamp.002" distance="25.00" energy="1.00" color="255 255 255">
+  <light xyz="-112.66 11.44 -119.02" id="Lamp.002" distance="25.00" energy="1.00" color="255 115 222">
   </light>
-  <light xyz="-112.55 11.44 -115.02" id="Lamp.003" distance="25.00" energy="1.00" color="255 255 255">
+  <light xyz="-112.55 11.44 -115.02" id="Lamp.003" distance="25.00" energy="1.00" color="255 115 222">
   </light>
-  <light xyz="-45.22 11.96 -100.17" id="Lamp.004" distance="25.00" energy="1.00" color="255 255 255">
+  <light xyz="-45.22 11.96 -100.17" id="Lamp.004" distance="25.00" energy="1.00" color="255 115 222">
   </light>
-  <light xyz="-43.77 11.96 -103.90" id="Lamp.005" distance="25.00" energy="1.00" color="255 255 255">
+  <light xyz="-43.77 11.96 -103.90" id="Lamp.005" distance="25.00" energy="1.00" color="255 115 222">
   </light>
-  <light xyz="-10.91 11.87 -77.81" id="Lamp.006" distance="25.00" energy="1.00" color="255 255 255">
+  <light xyz="-10.91 11.87 -77.81" id="Lamp.006" distance="25.00" energy="1.00" color="255 115 222">
   </light>
-  <light xyz="-14.62 11.87 -76.32" id="Lamp.007" distance="25.00" energy="1.00" color="255 255 255">
+  <light xyz="-14.62 11.87 -76.32" id="Lamp.007" distance="25.00" energy="1.00" color="255 115 222">
   </light>
-  <light xyz="-4.97 11.05 -35.82" id="Lamp.008" distance="25.00" energy="1.00" color="255 255 255">
+  <light xyz="-4.97 11.05 -35.82" id="Lamp.008" distance="25.00" energy="1.00" color="255 115 222">
   </light>
-  <light xyz="-1.02 11.05 -36.44" id="Lamp.009" distance="25.00" energy="1.00" color="255 255 255">
+  <light xyz="-1.02 11.05 -36.44" id="Lamp.009" distance="25.00" energy="1.00" color="255 115 222">
   </light>
-  <lightshaft xyz="-323.36 86.06 -298.91" id="Sun.001" opacity="0.50" color="19 112 255"/>
+  <lightshaft xyz="-664.99 81.64 281.44" id="Sun.001" opacity="0.50" color="19 112 255"/>
   <default-start karts-per-row     ="2"
                  forwards-distance ="1.50"
                  sidewards-distance="3.00"
