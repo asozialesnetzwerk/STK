@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15595 -->
+<!-- Generated with script from SVN rev 16343 -->
 <track  name           = "Oliver's Math Class"
         version        = "6"
         groups         = "standard"
@@ -9,8 +9,9 @@
         smooth-normals = "false"
         default-number-of-laps = "6"
         reverse        = "Y"
-        bloom          = "N"
+        bloom          = "Y"
+        bloom-threshold = "0.75"
         clouds         = "N"
-        shadows        = "N"
+        shadows        = "Y"
 >
 </track>
