@@ -4,7 +4,7 @@
   <track model="olivermath_track.b3d" x="0" y="0" z="0">
     <static-object  model="limits.b3d" xyz="-20.67 0.66 25.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
   </track>
-  <sun  fog="true" fog-color="35 28 21" fog-max="0.20000000298023224" fog-start="15.00" fog-end="150.00" xyz="242.08 81.47 -12.69" sun-diffuse="255 251 176" ambient="85 85 85"/>
+  <sun  fog="true" fog-color="35 28 21" fog-max="0.20000000298023224" fog-start="15.00" fog-end="150.00" xyz="242.08 164.69 -12.69" sun-diffuse="255 251 176" ambient="85 85 85"/>
   <sky-box texture="mathclassceiling.png mathclassceiling.png mathclassceiling.png mathclassceiling.png mathclassceiling.png mathclassceiling.png" sh-texture="mathclassceiling_ibl.png mathclassceiling_ibl.png mathclassceiling_ibl.png mathclassceiling_ibl.png mathclassceiling_ibl.png mathclassceiling_ibl.png"/>
   <camera far="1200.0"/>
   <checks>
