@@ -1,9 +1,13 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15570 -->
+<!-- Generated with script from SVN rev 16343 -->
 <scene>
-  <object id="bump.142" type="animation" xyz="0.18 2.19 -1.21" hpr="-76.3 42.5 -78.0" scale="0.72 0.69 0.60" interaction="ghost" model="stklib_reef_a_bump.b3d" skeletal-animation="false">
-  </object>
-  <object id="disk.005" type="animation" xyz="-1.65 1.96 0.24" hpr="-0.0 -170.5 -0.0" scale="1.11 0.99 0.92" interaction="ghost" model="stklib_reef_a_disk.b3d" skeletal-animation="false">
+  <lod>
+   <group name="reef_detail">
+    <static-object lod_distance="80" lod_group="reef_detail" model="stklib_reef_a_disk_high.b3d" xyz="-1.65 1.96 0.24" hpr="-0.0 -170.5 -0.0" scale="1.11 0.99 0.92" interaction="ghost" skeletal-animation="false"/>
+    <static-object lod_distance="160" lod_group="reef_detail" model="stklib_reef_a_disk_low.b3d" xyz="-1.65 1.96 0.24" hpr="-0.0 -170.5 -0.0" scale="1.11 0.99 0.92" interaction="ghost" skeletal-animation="false"/>
+   </group>
+  </lod>
+  <object id="disk.005" type="animation" xyz="-1.65 1.96 0.24" hpr="-0.0 -170.5 -0.0" scale="1.11 0.99 0.92" interaction="ghost"  lod_instance="true" lod_group="reef_detail" skeletal-animation="false">
   </object>
   <object id="stklib_reef_a_main" type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="stklib_reef_a_main.b3d" skeletal-animation="false">
   </object>
