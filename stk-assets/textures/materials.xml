@@ -68,6 +68,7 @@
   </material>
   
   <material name="stk_glassOrangeCocktail_a.png"       shader="alphablend" ignore="Y"/>
+  <material name="stk_glassPanel_a.png"       shader="alphablend" ignore="Y"/>
   
   <!-- Textures graphical-effect="normal_map" normal-map="stktex_generic_cobbleStoneA_nm.png" -->
   <material name="stktex_animatedFire_a.png" disable-z-write="Y" shader="additive"/>
@@ -82,6 +83,7 @@
   <material name="stktex_ants_a.png" shader="alphatest"/>
   <material name="stktex_valVerdeLocationAtlas_a.png" shader="alphatest"/>
   <material name="stktex_granParadisoLocation_a.png" shader="alphatest"/>
+  <material name="stktex_silviaLocationAtlas_a.png" shader="alphatest"/>
 
   
   <material name="stktex_branches_diff_a.png" shader="grass" />
@@ -99,6 +101,8 @@
     
   <material name="stktex_lowPalmTree_a.png" shader="alphatest" />
   <material name="stk_generic_grid_b.png" shader="alphatest" />
+  <material name="stk_metalTriangleStructure_a.png" shader="alphatest" />
+  
   <material name="stktex_boxGrid_a.png" shader="alphatest" />
   <material name="stkcrowd_lowPoly_a.png" shader="alphatest" />
   <material name="stktex_flightList_a.png" shader="alphatest" /> 
