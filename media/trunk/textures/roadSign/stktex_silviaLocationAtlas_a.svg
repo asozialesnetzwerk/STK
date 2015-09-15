@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1024"
+   height="1024"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="stktex_silviaLocationAtlas_a.svg"
+   inkscape:export-filename="/home/jmclemencon/MyProjects/supertuxkart_media_repo/textures/roadSign/stktex_silviaLocationAtlas_a.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3796">
+      <stop
+         style="stop-color:#0b516a;stop-opacity:1;"
+         offset="0"
+         id="stop3798" />
+      <stop
+         style="stop-color:#0b516a;stop-opacity:0;"
+         offset="1"
+         id="stop3800" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3796"
+       id="linearGradient3802"
+       x1="220"
+       y1="292.36218"
+       x2="220"
+       y2="352.36218"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.70000001"
+     inkscape:cx="283.40868"
+     inkscape:cy="472.40467"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1031"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid3755"
+       empspacing="5"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-28.362183)">
+    <rect
+       style="fill:#dddf9c;fill-opacity:1;stroke:none"
+       id="rect3026"
+       width="410"
+       height="60"
+       x="0"
+       y="244"
+       transform="translate(0,28.362183)" />
+    <rect
+       style="fill:#004ba0;fill-opacity:1;stroke:none"
+       id="rect2985"
+       width="1000"
+       height="230"
+       x="0"
+       y="32.362183" />
+    <rect
+       style="fill:none;stroke:#ffffff;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect2985-3"
+       width="220"
+       height="95"
+       x="10"
+       y="42.362183"
+       rx="10"
+       ry="10" />
+    <text
+       xml:space="preserve"
+       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Sans Narrow;-inkscape-font-specification:Liberation Sans Narrow Bold Condensed"
+       x="120"
+       y="77.362183"
+       id="text3777"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3779"
+         x="120"
+         y="77.362183">Blvd</tspan><tspan
+         sodipodi:role="line"
+         x="120"
+         y="122.36218"
+         id="tspan3781">Elysia</tspan></text>
+    <rect
+       style="fill:none;stroke:#ffffff;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect2985-3-3"
+       width="220"
+       height="95"
+       x="250"
+       y="42.362183"
+       rx="10"
+       ry="10" />
+    <text
+       xml:space="preserve"
+       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Sans Narrow;-inkscape-font-specification:Liberation Sans Narrow Bold Condensed"
+       x="360"
+       y="77.362183"
+       id="text3777-2"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3779-1"
+         x="360"
+         y="77.362183">Blvd</tspan><tspan
+         sodipodi:role="line"
+         x="360"
+         y="122.36218"
+         id="tspan3781-9">Marianne</tspan></text>
+    <rect
+       style="fill:none;stroke:#ffffff;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect2985-3-3-7"
+       width="260"
+       height="95"
+       x="10"
+       y="157.36218"
+       rx="10"
+       ry="10" />
+    <text
+       xml:space="preserve"
+       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Sans Narrow;-inkscape-font-specification:Liberation Sans Narrow Bold Condensed"
+       x="140"
+       y="192.36218"
+       id="text3777-2-3"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="140"
+         y="192.36218"
+         id="tspan3781-9-9">Rue</tspan><tspan
+         sodipodi:role="line"
+         x="140"
+         y="237.36218"
+         id="tspan3941">Jean-Manuel</tspan></text>
+    <rect
+       style="fill:none;stroke:#ffffff;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect2985-3-3-7-2"
+       width="180"
+       height="95"
+       x="490"
+       y="42.362183"
+       rx="10"
+       ry="10" />
+    <text
+       xml:space="preserve"
+       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Sans Narrow;-inkscape-font-specification:Liberation Sans Narrow Bold Condensed"
+       x="575"
+       y="77.362183"
+       id="text3777-2-3-3"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="575"
+         y="77.362183"
+         id="tspan3781-9-9-8">Blvd</tspan><tspan
+         sodipodi:role="line"
+         x="575"
+         y="122.36218"
+         id="tspan3941-1">Joerg</tspan></text>
+    <rect
+       style="fill:none;stroke:#ffffff;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect2985-3-3-7-3"
+       width="260"
+       height="95"
+       x="290"
+       y="157.36218"
+       rx="10"
+       ry="10" />
+    <text
+       xml:space="preserve"
+       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Sans Narrow;-inkscape-font-specification:Liberation Sans Narrow Bold Condensed"
+       x="420"
+       y="192.36218"
+       id="text3777-2-3-9"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="420"
+         y="192.36218"
+         id="tspan3781-9-9-0">Rue</tspan><tspan
+         sodipodi:role="line"
+         x="420"
+         y="237.36218"
+         id="tspan3941-8">Christophe</tspan></text>
+    <rect
+       style="fill:none;stroke:#ffffff;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect2985-3-3-7-3-1"
+       width="220"
+       height="95"
+       x="570"
+       y="157.36218"
+       rx="10"
+       ry="10" />
+    <text
+       xml:space="preserve"
+       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Sans Narrow;-inkscape-font-specification:Liberation Sans Narrow Bold Condensed"
+       x="680"
+       y="192.36218"
+       id="text3777-2-3-9-2"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="680"
+         y="192.36218"
+         id="tspan3781-9-9-0-2">Rue</tspan><tspan
+         sodipodi:role="line"
+         x="680"
+         y="237.36218"
+         id="tspan3941-8-9">Daniel</tspan></text>
+    <rect
+       style="fill:none;stroke:#ffffff;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect2985-3-3-7-2-2"
+       width="220"
+       height="95"
+       x="690"
+       y="42.362183"
+       rx="10"
+       ry="10" />
+    <text
+       xml:space="preserve"
+       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:LKLUG;-inkscape-font-specification:LKLUG Bold"
+       x="800"
+       y="77.362183"
+       id="text3777-2-3-3-6"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="800"
+         y="77.362183"
+         id="tspan3781-9-9-8-8">Rue</tspan><tspan
+         sodipodi:role="line"
+         x="800"
+         y="122.36218"
+         id="tspan3941-1-8">10¹⁰⁰</tspan></text>
+    <rect
+       style="fill:none;stroke:#ffffff;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect2985-3-3-7-2-6"
+       width="180"
+       height="95"
+       x="810"
+       y="157.36218"
+       rx="10"
+       ry="10" />
+    <text
+       xml:space="preserve"
+       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Sans Narrow;-inkscape-font-specification:Liberation Sans Narrow Bold Condensed"
+       x="895"
+       y="192.36218"
+       id="text3777-2-3-3-5"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="895"
+         y="192.36218"
+         id="tspan3781-9-9-8-7">Ruelle</tspan><tspan
+         sodipodi:role="line"
+         x="895"
+         y="237.36218"
+         id="tspan3941-1-4">Aude</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#0b516a;fill-opacity:1;stroke:none;font-family:GFS Jackson;-inkscape-font-specification:GFS Jackson"
+       x="200"
+       y="312.36218"
+       id="text3777-3"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="200"
+         y="312.36218"
+         id="tspan3781-92"
+         style="fill-opacity:1;fill:#0b516a">METROPOLITAIN</tspan></text>
+  </g>
+</svg>
