@@ -75,6 +75,8 @@
   <material name="stktex_animatedPinkFire_a.png" disable-z-write="Y" shader="additive"/>
   
   <material name="gfx_distord_AlphaTested.png" shader="alphatest"/>
+  <material name="gfx_lightBlinker_a.png" shader="alphatest"/>
+  
   <material name="stktex_generic_WoodA.png" >
     <sfx filename="wooden_bridge.ogg" rolloff="0.60" min_speed="9.00" max_speed="22.00" min_pitch="1.00" max_pitch="1.70" positional="Y" volume="1.00"/>
   </material>
