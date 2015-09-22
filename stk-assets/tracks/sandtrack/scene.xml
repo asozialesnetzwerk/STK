@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16343 -->
+<!-- Generated with script from SVN rev 16387 -->
 <scene>
   <track model="sandtrack_track.b3d" x="0" y="0" z="0">
     <static-object  model="sand-clouds.b3d" xyz="-60.82 -129.98 280.19" hpr="-90.0 131.4 -0.0" scale="0.50 0.50 0.50">
@@ -56,9 +56,9 @@
   </particle-emitter>
   <particle-emitter kind="waterfall.xml" id="Empty.046" xyz="-187.10 -168.53 -3.27" h="-2.09" >
   </particle-emitter>
-  <item id="Empty" x="-1.63" y="-132.90" z="15.81" />
-  <item id="Empty.001" x="0.87" y="-132.90" z="15.81" />
-  <item id="Empty.002" x="4.00" y="-132.90" z="15.81" />
+  <item id="Empty" x="-2.06" y="-140.47" z="66.37" />
+  <item id="Empty.001" x="0.68" y="-140.47" z="66.37" />
+  <item id="Empty.002" x="3.57" y="-140.47" z="66.37" />
   <item id="Empty.003" x="15.67" y="-132.90" z="-102.33" />
   <item id="Empty.004" x="12.55" y="-132.90" z="-102.33" />
   <item id="Empty.005" x="10.04" y="-132.90" z="-102.33" />
@@ -242,7 +242,7 @@
   </library>
   <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.014" xyz="-74.47 -136.24 -61.56" hpr="0.0 -0.2 -11.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy" xyz="9.81 -142.64 110.47" hpr="-0.0 154.5 -0.0" scale="0.77 0.77 0.77">
+  <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy" xyz="9.81 -142.64 110.47" hpr="0.0 154.5 0.0" scale="0.77 0.77 0.77">
   </library>
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.001" xyz="-11.10 -142.77 102.79" hpr="0.0 -0.0 0.0" scale="1.10 1.10 1.10">
   </library>
