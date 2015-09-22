@@ -150,9 +150,11 @@
   
   
   <material name="stktex_jungleLeaf_a.png" shader="grass" />
-  <material name="stktex_cattail_diff_a.png" shader="grass" />
+  <material name="stktex_cattail_diff_a.png" shader="grass" /> 
   
   <material name="stktex_usSignAtlas_a.png" shader="alphatest"/>
+  <material name="stk_metalGlobe_a.png" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png" shader="alphatest"/>
+  
   <material name="stk_generic_bedRockLava_a.png" shader="alphatest"/>
   <material name="stktex_churchRosette_a.png" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png" shader="alphatest"/>
   <material name="stktex_churchRosetteGlass_a.png" shader="alphablend"/>
