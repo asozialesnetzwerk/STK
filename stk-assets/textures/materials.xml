@@ -154,7 +154,10 @@
   
   <material name="stktex_usSignAtlas_a.png" shader="alphatest"/>
   <material name="stk_generic_bedRockLava_a.png" shader="alphatest"/>
+  <material name="stktex_churchRosette_a.png" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png" shader="alphatest"/>
+  <material name="stktex_churchRosetteGlass_a.png" shader="alphablend"/>
   
+
   
   <material name="stk_terminalHappy_face_a.png" shader="alphatest"/>
   <material name="stktex_palmLeaf_a.png" shader="grass" ignore="Y" />
