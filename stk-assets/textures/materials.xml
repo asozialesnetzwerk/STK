@@ -155,9 +155,14 @@
   <material name="stktex_usSignAtlas_a.png" shader="alphatest"/>
   
   <material name="stk_lowPolyCars_a.png" shader="alphatest" gloss-map="gfxGlow_generic_a_gloss.png"/> 
+  <material name="stk_lowPolyFish_a.png" shader="alphatest"/> 
+  
   <material name="stk_lowPolyBuilding_a.png" shader="alphatest" /> 
   
   <material name="stk_metalGlobe_a.png" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png" shader="alphatest"/>
+  
+  
+  <material name="stktex_windowsSet_a.png" normal-map="stktex_windowsSet_a_nm.png" gloss-map="stktex_windowsSet_a_gloss.png" />
   
   <material name="stk_generic_bedRockLava_a.png" shader="alphatest"/>
   <material name="stktex_churchRosette_a.png" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png" shader="alphatest"/>
