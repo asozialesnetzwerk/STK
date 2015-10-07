@@ -11,6 +11,13 @@
     <check-lap kind="lap" same-group="0" other-ids="1" />
     <check-line kind="activate" other-ids="0" p1="-9.19 30.86" p2="-9.31 90.36"
                 min-height="0.60" same-group="1"/>
+    <cannon p1="33.41 2.24 61.39" p2="38.16 2.24 61.39" target-p1="31.67 10.82 72.72" target-p2="31.67 10.82 67.97">
+    <curve channel="LocXYZ" speed="25.00" curvetype="bezier" extend="const">
+      <point c="35.789127 2.244259 61.423374" h1="35.789127 2.244259 59.005764" h2="35.789127 2.244259 62.632179" />
+      <point c="35.158051 6.328218 67.583740" h1="35.718410 4.142953 65.259056" h2="34.597694 8.513483 69.908417" />
+      <point c="31.589127 10.985319 70.360573" h1="33.547691 10.985319 70.360573" h2="27.671995 10.985319 70.360573" />
+    </curve>
+    </cannon>
   </checks>
   <banana id="eBanana.001" x="30.00" y="1.00" z="60.00" />
   <item id="eItem" x="39.76" y="1.00" z="33.96" />
@@ -32,6 +39,8 @@
   <small-nitro id="eNitroBig.002" x="-4.80" y="2.50" z="13.88" />
   <big-nitro id="eNitroBig.003" x="-39.65" y="4.31" z="5.91" />
   <big-nitro id="eNitroBig.004" x="-38.49" y="4.31" z="8.79" />
+  <big-nitro id="eNitroBig.005" x="-51.95" y="4.31" z="-65.38" h="103.27" />
+  <big-nitro id="eNitroBig.006" x="-48.89" y="4.31" z="-65.85" h="103.27" />
   <small-nitro id="eNitroSmall" x="-19.55" y="1.00" z="76.49" />
   <small-nitro id="eNitroSmall.001" x="-19.66" y="1.00" z="78.92" />
   <small-nitro id="eNitroSmall.002" x="-19.55" y="1.00" z="81.76" />
@@ -71,6 +80,8 @@
   </library>
   <library name="stklib_classchair_a" id="stklib_classchair_a_main_proxy.009" xyz="-76.88 3.38 -11.79" hpr="0.0 47.3 0.0" scale="1.00 1.00 1.00">
   </library>
+  <library name="stklib_computer_a" id="stklib_computer_a_main_proxy" xyz="27.00 -0.16 76.34" hpr="0.0 -0.0 0.0" scale="2.80 2.80 2.80">
+  </library>
   <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy" xyz="125.24 6.65 -4.47" hpr="0.0 -0.0 0.0" scale="2.56 2.56 2.56">
   </library>
   <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.001" xyz="127.15 6.65 22.36" hpr="0.0 -0.0 0.0" scale="2.24 2.24 2.24">
@@ -100,6 +111,8 @@
   <library name="stklib_pencilPaint_a" id="stklib_pencilPaint_a_main_proxy.004" xyz="-3.89 6.25 -57.92" hpr="26.5 0.0 90.0" scale="0.64 0.64 0.64">
   </library>
   <library name="stklib_pencilPaint_a" id="stklib_pencilPaint_a_main_proxy.005" xyz="-13.07 6.25 -68.00" hpr="61.8 0.0 90.0" scale="0.64 0.64 0.64">
+  </library>
+  <library name="stklib_pencilPaint_a" id="stklib_pencilPaint_a_main_proxy.006" xyz="26.51 10.91 61.23" hpr="0.0 -0.0 0.0" scale="0.42 0.42 0.42">
   </library>
   <library name="stklib_pencilPaint_a" id="stklib_pencilPaint_a_main_proxy.007" xyz="-14.46 0.31 28.64" hpr="0.0 -15.8 0.0" scale="0.61 0.61 0.61">
   </library>
