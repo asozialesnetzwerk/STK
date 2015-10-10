@@ -2,7 +2,7 @@
 <!-- Generated with script from SVN rev 15937 -->
 <track  name           = "Temple"
         version        = "6"
-        groups         = "wip-track"
+        groups         = "standard"
         designer       = "Anon"
         music          = "kart_grand_prix.music"
         arena          = "Y"
