@@ -39,6 +39,8 @@
 
   <!-- Particles -->
   <material name="explode.png"           shader="additive" ignore="Y"/>
+  <material name="confetti.png"           shader="additive" ignore="Y"/>
+
   <material name="explode_spark.png"     shader="additive" ignore="Y"/>
   <material name="flaring-star.png"      shader="additive" ignore="Y"/>
   <material name="smoke.png"             shader="alphablend" ignore="Y"/>
@@ -153,6 +155,9 @@
   <material name="stktex_cattail_diff_a.png" shader="grass" /> 
   
   <material name="stktex_usSignAtlas_a.png" shader="alphatest"/>
+  <material name="stk_blueTurbine_a.png" shader="alphatest"/>
+  
+  <material name="stkflag_computerSpam_a.png" shader="alphatest"/>
   
   <material name="stk_lowPolyCars_a.png" shader="alphatest" gloss-map="gfxGlow_generic_a_gloss.png"/> 
   <material name="stk_lowPolyFish_a.png" shader="alphatest"/> 
@@ -175,6 +180,9 @@
   <material name="stktex_palmLeafDry_a.png" shader="grass" ignore="Y" />
   <material name="stktex_jungleLiana_a.png" shader="grass" ignore="Y" />
   <material name="stktex_jungleLiana_b.png" shader="grass" ignore="Y" />
+  
+  <material name="stktex_ivyVines_a.png" shader="grass" ignore="Y" />
+  
   <material name="stk_accacia_a.png" shader="grass" ignore="Y" />
   <material name="stktex_agave_a.png" shader="grass" ignore="Y" />
   <material name="stk_pineBranch_a.png" shader="grass" ignore="Y" />
