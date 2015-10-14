@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16343 -->
+<!-- Generated with script from SVN rev 16387 -->
 <scene>
   <lod>
    <group name="lavaspike">
@@ -30,6 +30,8 @@
     <static-object  model="Plane.035.b3d" xyz="-107.47 12.36 -68.42" hpr="-0.0 -180.0 -0.0" scale="1.00 1.00 1.00"/>
     <static-object  model="Plane.036.b3d" xyz="-51.49 51.13 -107.15" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object  model="Plane.037.b3d" xyz="-92.12 33.44 -125.21" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="Plane.038.b3d" xyz="-152.08 6.00 19.05" hpr="-0.0 -180.0 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="Plane.039.b3d" xyz="-75.78 -21.83 226.36" hpr="-0.0 -101.7 -0.0" scale="1.00 1.00 1.00"/>
     <static-object  model="backRoom.b3d" xyz="-388.85 -120.41 -70.56" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
     <animated-texture name="backeffect.jpg" dx="0.254"  dy="0.1695" />
     </static-object>
@@ -42,10 +44,11 @@
     <static-object  model="Plane.062.b3d" xyz="-131.58 39.59 -76.19" hpr="-0.0 139.4 -0.0" scale="1.00 1.00 1.00"/>
     <animated-texture name="lava.png" dy="-0.1000" />
     <animated-texture name="lava.png" dy="-0.1000" />
+    <animated-texture name="lava.png" dy="-0.1000" />
+    <animated-texture name="lava.png" dy="-0.1000" />
+    <animated-texture name="lava.png" dy="-0.1000" />
+    <animated-texture name="lava.png" dy="-0.1000" />
     <animated-texture name="zipper.png" dy="1.5000" />
-    <animated-texture name="stktex_generic_lavaA.png" dy="-0.1000" />
-    <animated-texture name="stktex_generic_lavaA.png" dy="-0.1000" />
-    <animated-texture name="stk_generic_bedRockLava_a.png" dy="-0.1000" />
   </track>
   <object id="BezierCurve.003" type="animation" xyz="-161.72 0.64 -33.25" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="roadpart.b3d" skeletal-animation="false">
   </object>
@@ -521,11 +524,9 @@
   </object>
   <object id="Plane.029" type="animation" xyz="-114.89 2.26 -38.64" hpr="0.0 -0.0 0.0" scale="1.00 1.18 1.00" interaction="ghost" model="windows.b3d" skeletal-animation="false">
   </object>
-  <object id="Plane.085" type="animation" xyz="-68.32 -14.82 98.16" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="lava_rocks.b3d" displacing="true" skeletal-animation="false">
-  </object>
-  <sun  fog="true" fog-color="15 6 6" fog-max="0.20000000298023224" fog-start="15.00" fog-end="500.00" xyz="-212.32 481.07 757.93" sun-diffuse="219 86 53" ambient="120 102 97"/>
+  <sun  fog="true" fog-color="15 6 6" fog-max="0.20000000298023224" fog-start="15.00" fog-end="500.00" xyz="-208.69 481.00 513.94" sun-diffuse="120 102 97" ambient="120 102 97"/>
   <sky-box texture="magma_sky_t.jpg magma_sky_bottom.jpg magma_sky_e.jpg magma_sky_w.jpg magma_sky_s.jpg magma_sky_n.jpg" sh-texture="ibl.jpg ibl.jpg ibl.jpg ibl.jpg ibl.jpg ibl.jpg"/>
-  <camera far="2000.0"/>
+  <camera far="1000.0"/>
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
     <check-line kind="activate" other-ids="0" p1="60.91 -78.95" p2="85.86 -79.09"
@@ -606,65 +607,14 @@
   <item id="Empty.044" x="-164.50" y="20.92" z="-108.31" h="90.00" />
   <item id="Empty.045" x="-164.50" y="20.92" z="-105.37" h="90.00" />
   <item id="Empty.046" x="-180.19" y="12.66" z="-78.21" h="90.00" />
-  <light xyz="-79.00 -3.10 130.59" id="Lamp.002" distance="25.00" energy="1.00" color="255 100 11">
-  </light>
-  <light xyz="19.00 46.91 -17.50" id="Lamp.003" distance="25.00" energy="1.00" color="255 207 129">
-  </light>
-  <light xyz="19.00 46.91 -56.50" id="Lamp.004" distance="25.00" energy="1.00" color="255 207 129">
-  </light>
-  <light xyz="-15.00 53.91 -54.50" id="Lamp.005" distance="25.00" energy="1.00" color="255 207 129">
-  </light>
-  <light xyz="-15.00 53.91 -21.00" id="Lamp.006" distance="25.00" energy="1.00" color="255 207 129">
-  </light>
   <light xyz="-109.42 42.44 -26.70" id="Point" distance="15.00" energy="1.00" color="255 225 163">
   </light>
   <light xyz="-109.42 42.44 -51.41" id="Point.001" distance="15.00" energy="1.00" color="255 225 163">
   </light>
   <light xyz="-71.80 34.19 26.40" id="Point.002" distance="15.00" energy="1.00" color="255 225 163">
   </light>
-  <lightshaft xyz="-163.04 119.52 620.67" id="Lamp" opacity="0.70" color="255 179 80"/>
   <default-start karts-per-row     ="3"
                  forwards-distance ="1.10"
                  sidewards-distance="2.00"
                  upwards-distance  ="1.10"/>
-  <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.000" xyz="-166.36 128.22 620.09" hpr="5.4 -28.0 -9.4" scale="2.75 2.75 2.75">
-  </library>
-  <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.001" xyz="-166.36 128.22 620.09" hpr="55.7 -79.9 -55.1" scale="2.75 2.75 2.75">
-  </library>
-  <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.002" xyz="-166.36 128.22 620.09" hpr="0.0 -55.9 0.0" scale="2.75 2.75 2.75">
-  </library>
-  <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.003" xyz="-166.36 128.22 620.09" hpr="-0.0 -95.2 -0.0" scale="2.04 2.04 2.04">
-  </library>
-  <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.004" xyz="-166.36 128.22 620.09" hpr="-11.3 -124.4 14.8" scale="2.04 2.04 2.04">
-  </library>
-  <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.005" xyz="-166.36 128.22 620.09" hpr="0.9 -179.6 8.3" scale="2.72 2.72 2.72">
-  </library>
-  <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.006" xyz="-166.36 128.22 620.09" hpr="-0.0 -151.3 -0.0" scale="2.72 2.72 2.72">
-  </library>
-  <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.007" xyz="-166.36 128.22 620.09" hpr="0.0 -0.0 0.0" scale="2.75 2.75 2.75">
-  </library>
-  <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.008" xyz="-166.36 6.13 620.09" hpr="-0.0 -136.9 -0.0" scale="1.89 1.89 1.89">
-  </library>
-  <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.009" xyz="-166.36 6.13 620.09" hpr="-1.2 -165.4 8.6" scale="1.89 1.89 1.89">
-  </library>
-  <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.010" xyz="-166.36 6.13 620.09" hpr="-21.7 -110.8 24.0" scale="1.42 1.42 1.42">
-  </library>
-  <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.011" xyz="-166.36 6.13 620.09" hpr="0.0 -80.8 0.0" scale="1.42 1.42 1.42">
-  </library>
-  <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.012" xyz="-166.36 6.13 620.09" hpr="0.0 -41.5 0.0" scale="1.90 1.90 1.90">
-  </library>
-  <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.013" xyz="-166.36 6.13 620.09" hpr="22.4 -68.2 -22.9" scale="1.90 1.90 1.90">
-  </library>
-  <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.014" xyz="-166.36 6.13 620.09" hpr="3.0 -13.8 -8.6" scale="1.90 1.90 1.90">
-  </library>
-  <library name="gfx_meteorit_a" id="gfx_meteorit_a_main_proxy.015" xyz="-166.36 6.13 620.09" hpr="0.0 14.4 0.0" scale="1.90 1.90 1.90">
-  </library>
-  <library name="stklib_nolokFlags_a" id="stklib_nolok_a_main_proxy" xyz="14.00 55.91 -17.50" hpr="-0.0 90.0 0.0" scale="2.00 2.00 2.00">
-  </library>
-  <library name="stklib_nolokFlags_a" id="stklib_nolok_a_main_proxy.001" xyz="14.00 55.91 -56.50" hpr="-0.0 90.0 0.0" scale="2.00 2.00 2.00">
-  </library>
-  <library name="stklib_nolokFlags_a" id="stklib_nolok_a_main_proxy.002" xyz="-20.00 62.91 -54.50" hpr="-0.0 90.0 0.0" scale="2.00 2.00 2.00">
-  </library>
-  <library name="stklib_nolokFlags_a" id="stklib_nolok_a_main_proxy.003" xyz="-20.00 62.91 -20.89" hpr="-0.0 90.0 0.0" scale="2.00 2.00 2.00">
-  </library>
 </scene>
