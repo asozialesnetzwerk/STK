@@ -199,6 +199,7 @@
   <material name="stk_darkSkidMark_a.png" compositing="blend"/>
   <material name="gfx_sparkFire_a.png" compositing="additive"/> 
   <material name="gfx_sparkBlue_a.png" compositing="additive"/>
+  <material name="gfx_sparkGreen_a.png" compositing="additive"/> 
   <material name="gfx_electricArc_a.png" compositing="additive"/>
   <material name="gfx_yellowBeam_a.png" compositing="additive"/>
   
