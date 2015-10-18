@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev Unknown -->
+<materials>
+  <material name="canyon_water.png" surface="Y" shader="water_shader">
+    <sfx filename="splash.ogg"/>
+    <particles base="splash.xml" condition="skid drive"/>
+  </material>
+  <material name="city_asphalt_1.jpg">
+    <particles base="smoke.xml" condition="skid"/>
+  </material>
+  <material name="city_asphalt_2.jpg">
+    <particles base="smoke.xml" condition="skid"/>
+  </material>
+  <material name="city_checker.png">
+    <particles base="smoke.xml" condition="skid"/>
+  </material>
+  <material name="city_fern.png" shader="alphablend"/>
+  <material name="city_grass.png" shader="alphablend"/>
+  <material name="city_metal.png" backface-culling="N"/>
+  <material name="city_reflection.png" gloss-map="city_reflection_gloss.png"/>
+  <material name="city_tree_leaves.jpg" ignore="Y" backface-culling="N" mask="city_tree_leaves_alpha.jpg" shader="alphatest"/>
+  <material name="canyon_conveyor_belt.png">
+    <zipper/>
+  </material>
+  <material name="canyon_dirt_road.jpg">
+    <particles base="smoke_brown.xml" condition="skid"/>
+  </material>
+  <material name="seabed.jpg" falling-effect="Y" water-splash="Y"/>
+</materials>

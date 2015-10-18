@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<object name="horse" category="animal">
+      <img path="horse.png">
+      <model path="horse.b3d">
+      <tag name="mount">
+      <tag name="farm">
+</object>

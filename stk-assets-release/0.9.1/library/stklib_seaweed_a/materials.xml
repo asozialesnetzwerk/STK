@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev Unknown -->
+<materials>
+  <material name="stktex_kelpMain_a.png" shader="grass" backface-culling="N" grass-speed="1.50" grass-amplitude="1.00"/>
+  <material name="stktex_kelpRoot_a.png" shader="grass" backface-culling="N" grass-speed="1.50" grass-amplitude="1.00"/>
+  <material name="stktex_kelpBlendUp_a.png" shader="grass" backface-culling="N" grass-speed="1.50" grass-amplitude="1.00"/>
+  <material name="stktex_kelpBlendDown_a.png" shader="grass" backface-culling="N" grass-speed="1.50" grass-amplitude="1.00"/>
+  <material name="stktex_kelpLight_a.png" shader="grass" backface-culling="N" grass-speed="1.50" grass-amplitude="1.00"/>
+</materials>

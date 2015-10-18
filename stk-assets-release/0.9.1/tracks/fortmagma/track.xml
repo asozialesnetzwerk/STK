@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 16387 -->
+<track  name           = "Fort Magma"
+        version        = "6"
+        groups         = "standard"
+        designer       = "Jean-Manuel Clemencon"
+        music          = "lava.music"
+        screenshot     = "sshot.jpg"
+        smooth-normals = "false"
+        default-number-of-laps = "3"
+        reverse        = "Y"
+        clouds         = "N"
+        shadows        = "Y"
+>
+</track>

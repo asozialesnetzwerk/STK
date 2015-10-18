@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 15441 -->
+<kart name              = "Gavroche"
+      version           = "2"
+      model-file        = "gavroche.b3d"
+      icon-file         = "gavroche_icon.png"
+      minimap-icon-file = "gavroche_icon.png"
+      shadow-file       = "gavroche_shadow.png"
+      random-wheel-rot  = "true"
+      type              = "medium"
+      groups            = "standard"
+      rgb               = "1.00 1.00 1.00" >
+  <sounds engine = "small"/>
+  <animations left = "0"
+              straight = "20"
+              right = "40"
+              start-winning = "50"
+              start-winning-loop = "60"
+              end-winning = "150"
+              start-losing = "160"
+              start-losing-loop = "180"
+              end-losing = "255"
+              start-jump = "270"
+              start-jump-loop = "290"/>
+  <wheels>
+    <front-left position = "-0.300000 0.127000 0.370000"
+                 model    = "wheel-front-left.b3d"       />
+    <front-right position = "0.300000 0.127000 0.370000"
+                 model    = "wheel-front-right.b3d"       />
+    <rear-left position = "-0.300000 0.127000 -0.430000"
+                 model    = "wheel-rear-left.b3d"       />
+    <rear-right position = "0.300000 0.127000 -0.430000"
+                 model    = "wheel-rear-right.b3d"       />
+  </wheels>
+  <nitro-emitter>
+    <nitro-emitter-a position = "0.000000 0.240000 -0.580000" />
+    <nitro-emitter-b position = "0.000000 0.240000 -0.580000" />
+  </nitro-emitter>
+  <hat offset="0.0 0.172 0.0"/>
+</kart>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 16387 -->
+<track  name           = "Tutorial"
+        version        = "6"
+        groups         = "standard"
+        designer       = "Jean-Manuel Cl&#233;men&#231;on"
+        music          = "hacienda.music"
+        internal       = "Y"
+        screenshot     = "sshot-hacienda.jpg"
+        smooth-normals = "true"
+        default-number-of-laps = "1"
+        reverse        = "Y"
+        clouds         = "N"
+        shadows        = "Y"
+>
+</track>

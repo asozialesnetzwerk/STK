@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev Unknown -->
+<materials>
+  <material name="gfx_lavaGlow_a.png" shader="additive" ignore="Y" disable-z-write="Y"/>
+  <material name="gfx_lightning_a.png" shader="additive" disable-z-write="Y"/>
+  <material name="gfx_lightningGlow_a.png" shader="additive" fog="N" disable-z-write="Y"/>
+  <material name="stk_generic_dirtRoad_a.png" water-splash="Y"/>
+  <material name="stktex_generic_lavaA.png" shader="unlit" collision-detect="Y" falling-effect="Y" reset="Y" collision-reaction="reset"/>
+  <material name="stktex_generic_waterWhite.png" shader="alphablend" backface-culling="N" surface="Y" disable-z-write="Y">
+    <particles base="splash.xml" condition="skid drive"/>
+  </material>
+  <material name="stktex_jungleVines_a.png" shader="grass" clampv="Y" ignore="Y" grass-speed="5.00" grass-amplitude="1.00"/>
+  <material name="stktex_temple_floodWarning_a.png" shader="alphablend" disable-z-write="Y"/>
+  <material name="transparence.png" shader="alphatest"/>
+  <material name="transparence2.png" shader="alphatest" collision-detect="Y" falling-effect="Y" reset="Y" collision-reaction="reset"/>
+  <material name="stktex_generic_concreteA.png"/>
+  <material name="stktex_fern_diff_a.png" grass-speed="1.50" shader="grass"/>
+  <material name="stktex_redFlower_a.png" disable-z-write="Y"/>
+  <material name="stktex_branches_diff_a.png" ignore="Y"/>
+  <material name="stktex_greenBrush_a.png" disable-z-write="Y"/>
+  <material name="stktex_flowerSageBrush_diff_a.png" ignore="Y"/>
+  <material name="stktex_branches_diff_a.png" ignore="Y"/>
+  <material name="stktex_bushSageBrush_diff_a.png" ignore="Y"/>
+  <material name="stktex_tropicalPlant_a.png" shader="grass" grass-speed="1.50" grass-amplitude="0.15"/>
+  <material name="stktex_animatedFire_a.png" shader="additive" fog="N" disable-z-write="Y"/>
+  <material name="stklib_liana_diff_a.png" shader="alphatest"/>
+</materials>

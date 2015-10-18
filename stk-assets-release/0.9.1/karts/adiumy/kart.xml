@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 15441 -->
+<kart name              = "Adiumy"
+      version           = "2"
+      model-file        = "adiumy.b3d"
+      icon-file         = "adiumyicon.png"
+      minimap-icon-file = "adiumyicon.png"
+      shadow-file       = "adiumyshadow.png"
+      random-wheel-rot  = "true"
+      type              = "medium"
+      groups            = "standard"
+      rgb               = "0.00 0.70 0.00" >
+  <sounds engine = "small"/>
+  <animations left = "9"
+              straight = "19"
+              right = "29"
+              start-winning = "59"
+              start-winning-loop = "119"
+              end-winning = "159"
+              start-losing = "169"
+              start-losing-loop = "199"
+              end-losing = "209"
+              start-speed-weighted = "219"
+              end-speed-weighted = "239"/>
+  <wheels>
+    <front-left position = "-0.397559 0.161885 0.255742"
+                 model    = "wheel-front-left.b3d"       />
+    <front-right position = "0.402441 0.161885 0.255742"
+                 model    = "wheel-front-right.b3d"       />
+    <rear-left position = "-0.029767 0.076657 -0.284847"
+                 model    = "wheel-rear-left.b3d"       />
+    <rear-right position = "0.031076 0.076657 -0.284847"
+                 model    = "wheel-rear-right.b3d"       />
+  </wheels>
+  <nitro-emitter>
+    <nitro-emitter-a position = "0.203126 0.391161 -0.397603" />
+    <nitro-emitter-b position = "-0.226106 0.391161 -0.397603" />
+  </nitro-emitter>
+  <speed-weighted-objects>
+    <speed-weighted position="0.000000 0.000000 0.000000" model="hc.propeller.b3d"  speed-factor="1.000000"/>
+  </speed-weighted-objects>
+  <hat offset="0.0 0.32 -0.05"/>
+</kart>

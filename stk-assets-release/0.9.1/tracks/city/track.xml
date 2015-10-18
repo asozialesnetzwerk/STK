@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 16343 -->
+<track  name           = "Shiny Suburbs"
+        version        = "6"
+        groups         = "standard"
+        designer       = "Thomas Oppl"
+        music          = "kart_grand_prix.music"
+        screenshot     = "city_screenshot.jpg"
+        smooth-normals = "false"
+        default-number-of-laps = "2"
+        reverse        = "Y"
+        bloom          = "Y"
+        bloom-threshold = "0.75"
+        clouds         = "N"
+        shadows        = "Y"
+>
+</track>
