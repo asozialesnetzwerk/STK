@@ -1349,10 +1349,17 @@ class StkPanelAddonPreferences(AddonPreferences):
             #subtype='DIR_PATH',
             )
 
+    stk_delete_old_files_on_export = BoolProperty(
+            name="Delete all old files when exporting a track in a folder (*.b3d)",
+            #subtype='DIR_PATH',
+            )
+            
     def draw(self, context):
         layout = self.layout
         layout.label(text="The data folder contains folders named 'karts', 'tracks', 'textures', etc. Please enter an absolute path.")
         layout.prop(self, "stk_assets_path")
+        
+        layout.prop(self, "stk_delete_old_files_on_export")
 
 
 #class stkpanel_set_user_preferences(Operator):
