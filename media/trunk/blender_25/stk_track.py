@@ -2757,11 +2757,9 @@ class TrackExport:
         except:
             pass
             
-        print("********** stk_delete_old_files_on_export = ", stk_delete_old_files_on_export)
         if stk_delete_old_files_on_export:
             os.chdir(sPath)
             old_model_files = [ f for f in os.listdir(sPath) if f.endswith(".b3d") ]
-            print("************* old_model_files = ", old_model_files)
             for f in old_model_files:
                 print("Deleting ", f)
                 os.remove(f)
