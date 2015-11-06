@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1024"
+   height="512"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="stkflag_mandaravaMotors_a.svg"
+   inkscape:export-filename="/home/jmclemencon/MyProjects/supertuxkart_media_repo/textures/flags/stkflag_mandaravaMotors_a.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="770.93569"
+     inkscape:cy="247.40284"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1031"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid2993" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-540.36218)">
+    <rect
+       style="fill:#23aea0;fill-opacity:1;stroke:none"
+       id="rect3856"
+       width="1024"
+       height="512"
+       x="0"
+       y="540.36218" />
+    <g
+       transform="matrix(5.1553182,0,0,5.1553182,350.59079,-4516.7198)"
+       id="g5702"
+       inkscape:export-filename="D:\work\pioneer\graphics_design\icons\shipyard_logos.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         sodipodi:end="6.6887897"
+         sodipodi:start="2.6819936"
+         transform="matrix(0.95343754,0,0,0.95343754,1.4941473,983.90241)"
+         d="M 9.2706659,53.990338 C 3.0343064,41.390346 8.1930494,26.120467 20.793041,19.884107 c 12.599991,-6.236359 27.869871,-1.077616 34.10623,11.522375 3.308362,6.684241 3.518961,14.483101 0.576159,21.336147 L 32.084969,42.69841 z"
+         sodipodi:ry="25.455845"
+         sodipodi:rx="25.455845"
+         sodipodi:cy="42.69841"
+         sodipodi:cx="32.084969"
+         id="path5546"
+         style="fill:#f4ff80;fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+      <g
+         style="fill:#3dbb8d;fill-opacity:1;stroke:#45a180;stroke-opacity:1"
+         transform="matrix(1.0730098,0,0,1.0730098,-2.0766088,-72.335969)"
+         id="g5539">
+        <path
+           style="fill:#90d0a3;fill-opacity:1;stroke:#90d0a3;stroke-width:0.9319579;stroke-opacity:1"
+           d="m 52.725237,1037.7907 c -2.240964,1.1498 -4.989992,0.2654 -6.139968,-1.9757 -1.149975,-2.241 -0.265426,-4.99 1.97559,-6.14 3.429705,-1.7599 8.825041,-1.9744 10.981325,1.925 -4.709055,1.5194 -4.575826,5.0406 -6.816947,6.1907 z"
+           id="path5527"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ssscs"
+           inkscape:transform-center-y="-0.65073783"
+           inkscape:transform-center-x="-2.7598337" />
+        <path
+           inkscape:transform-center-x="-2.3022496"
+           inkscape:transform-center-y="-2.8017315"
+           sodipodi:nodetypes="ssscs"
+           inkscape:connector-curvature="0"
+           id="path5529"
+           d="m 52.875671,1032.4685 c -2.189191,3.3116 -6.649288,4.222 -9.961853,2.0334 -3.312565,-2.1886 -4.223174,-6.6475 -2.033992,-9.9592 3.350396,-5.0683 10.595842,-9.5338 16.573099,-5.8457 -5.293793,5.727 -2.388006,10.4597 -4.577254,13.7715 z"
+           style="fill:#42ac61;fill-opacity:1;stroke:#42ac61;stroke-width:0.9319579;stroke-opacity:1" />
+        <path
+           style="fill:#2f8a4a;fill-opacity:1;stroke:#2f8a4a;stroke-width:0.9319579;stroke-opacity:1"
+           d="m 46.988844,1028.3074 c -1.622951,4.0484 -6.229173,6.0147 -10.288218,4.3915 -4.059067,-1.6231 -6.033885,-6.221 -4.410945,-10.2695 2.48383,-6.1961 9.301582,-12.6047 16.567681,-9.9567 -4.432527,7.3345 -0.245527,11.786 -1.868518,15.8347 z"
+           id="path5531"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ssscs"
+           inkscape:transform-center-y="-3.8064488"
+           inkscape:transform-center-x="-1.0666721" />
+      </g>
+      <use
+         transform="matrix(-1,0,0,1,63.749999,0)"
+         height="64"
+         width="64"
+         inkscape:transform-center-y="-4.4290738"
+         inkscape:transform-center-x="16.322571"
+         id="use5544"
+         xlink:href="#g5539"
+         y="0"
+         x="0" />
+    </g>
+    <path
+       id="path3821-8"
+       style="fill:#045d51;fill-opacity:1;stroke:none"
+       d="m 680.53116,860.90502 -108.2617,-36.08724 20.62128,-61.86381 -46.39786,-14.17714 -30.93192,-145.63773 -30.93189,145.63773 -46.39787,14.17714 20.62126,61.86381 -108.26167,36.08724 329.94037,0"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccccccc" />
+    <text
+       xml:space="preserve"
+       style="font-size:92.79572296px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#3f3f3f;fill-opacity:1;stroke:none;font-family:Trebuchet MS;-inkscape-font-specification:Trebuchet MS Bold"
+       x="515.80536"
+       y="982.35968"
+       id="text3852"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="515.80536"
+         y="982.35968"
+         id="tspan3864">MANDARAVA MOTORS</tspan></text>
+  </g>
+</svg>
