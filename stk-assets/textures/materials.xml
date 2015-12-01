@@ -105,6 +105,9 @@
   
     
   <material name="stktex_lowPalmTree_a.png" shader="alphatest" />
+  <material name="stklama_gravelRoad_a.png" shader="alphatest" ignore="Y" />
+  <material name="stklama_roadSeparator_a.png" shader="alphatest" ignore="Y" />
+  
   <material name="stk_generic_grid_b.png" shader="alphatest" />
   <material name="stk_metalTriangleStructure_a.png" shader="alphatest" />
   
