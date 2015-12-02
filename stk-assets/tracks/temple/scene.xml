@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15937 -->
+<!-- Generated with script from SVN rev 16407 -->
 <scene>
   <track model="temple_track.b3d" x="0" y="0" z="0"/>
-  <object id="lava" type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="reset" shape="exact" model="lava.b3d" reset="y" forcedbloom="true" glow="255 23 3" skeletal-animation="false">
+  <object id="lava" type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="reset" shape="box" model="lava.b3d" reset="y" forcedbloom="true" glow="255 23 3" skeletal-animation="false">
   </object>
   <object id="lightning1" type="animation" xyz="-24.98 153.07 -358.09" hpr="-90.0 -176.9 -0.0" scale="0.01 0.01 0.01" interaction="ghost" model="lightning1.b3d" forcedbloom="true" skeletal-animation="false">
     <curve channel="ScaleX" interpolation="linear" extend="cyclic">
@@ -625,7 +625,7 @@
       <p c="4500.000 1.000"/>
     </curve>
   </object>
-  <sun  fog="true" fog-color="7 8 15" fog-max="1.0" fog-start="10.00" fog-end="750.00" xyz="-126.80 136.24 -73.21" sun-specular="8 8 8" sun-diffuse="8 8 8" ambient="255 255 255"/>
+  <sun  fog="true" fog-color="7 8 15" fog-max="1.0" fog-start="10.00" fog-end="750.00" xyz="-126.80 136.24 -73.21" sun-specular="32 22 16" sun-diffuse="24 29 30" ambient="255 255 255"/>
   <weather particles="rain.xml" sound="rain.ogg"/>
   <sky-box texture="skybox_top.png skybox_bottom.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png" sh-texture="lightbox_top.png skybox_bottom.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png"/>
   <camera far="1500.0"/>
@@ -4673,6 +4673,34 @@
   <small-nitro id="Empty.017" x="-17.50" y="16.00" z="-27.50" h="-450.00" />
   <item id="Empty.018" x="-27.50" y="16.00" z="-27.50" h="-450.00" />
   <item id="Empty.019" x="-17.50" y="16.00" z="-17.50" h="-450.00" />
+  <item id="Empty.032" x="87.58" y="2.99" z="-50.62" />
+  <item id="Empty.033" x="102.88" y="2.99" z="-50.86" />
+  <item id="Empty.034" x="102.63" y="4.12" z="41.65" />
+  <item id="Empty.035" x="87.33" y="4.12" z="41.90" />
+  <item id="Empty.036" x="-102.64" y="4.41" z="41.90" />
+  <item id="Empty.037" x="-87.34" y="4.41" z="41.65" />
+  <item id="Empty.038" x="-86.85" y="4.58" z="-41.00" />
+  <item id="Empty.039" x="-102.15" y="4.58" z="-40.75" />
+  <small-nitro id="Empty.040" x="-39.97" y="1.91" z="-147.82" />
+  <small-nitro id="Empty.041" x="-39.97" y="1.91" z="-155.72" />
+  <small-nitro id="Empty.042" x="-39.74" y="1.91" z="-162.79" />
+  <small-nitro id="Empty.043" x="34.50" y="2.30" z="-162.79" />
+  <small-nitro id="Empty.044" x="34.27" y="2.30" z="-155.72" />
+  <small-nitro id="Empty.045" x="34.27" y="2.30" z="-147.82" />
+  <small-nitro id="Empty.046" x="34.27" y="2.46" z="163.52" />
+  <small-nitro id="Empty.047" x="34.27" y="2.46" z="155.63" />
+  <small-nitro id="Empty.048" x="34.50" y="2.46" z="148.56" />
+  <small-nitro id="Empty.049" x="-37.04" y="4.05" z="148.56" />
+  <small-nitro id="Empty.050" x="-37.28" y="4.05" z="155.63" />
+  <small-nitro id="Empty.051" x="-37.28" y="4.05" z="163.52" />
+  <item id="Empty.052" x="-5.44" y="16.00" z="110.49" />
+  <item id="Empty.053" x="5.80" y="16.00" z="110.49" />
+  <item id="Empty.054" x="5.80" y="16.00" z="-115.51" />
+  <item id="Empty.055" x="-5.44" y="16.00" z="-115.51" />
+  <item id="Empty.056" x="59.09" y="1.74" z="-156.96" />
+  <item id="Empty.057" x="-94.36" y="3.17" z="-124.89" />
+  <item id="Empty.058" x="-57.06" y="4.84" z="157.88" />
+  <item id="Empty.059" x="95.34" y="3.90" z="126.27" />
   <light xyz="22.50 0.00 -22.50" id="Point" distance="90.00" energy="30.00" color="255 38 5">
   </light>
   <light xyz="-22.50 0.00 22.50" id="Point.001" distance="90.00" energy="30.00" color="255 38 5">
@@ -4881,10 +4909,22 @@
                  forwards-distance ="1.10"
                  sidewards-distance="1.10"
                  upwards-distance  ="1.10"/>
-  <start x="22.50" y="16.00" z="-22.50" h="-0.00"/>
-  <start x="-22.50" y="16.00" z="22.50" h="180.00"/>
-  <start x="-22.50" y="16.00" z="-22.50" h="360.00"/>
-  <start x="22.50" y="16.00" z="22.50" h="180.00"/>
+  <start x="85.33" y="2.63" z="-151.23" h="-0.00"/>
+  <start x="-88.31" y="1.10" z="149.59" h="180.00"/>
+  <start x="-87.17" y="2.43" z="-149.35" h="360.00"/>
+  <start x="87.07" y="1.31" z="152.05" h="180.00"/>
+  <start x="93.35" y="4.41" z="0.73" h="-0.00"/>
+  <start x="-94.24" y="1.86" z="0.73" h="-0.00"/>
+  <start x="-0.45" y="4.54" z="158.06" h="-0.00"/>
+  <start x="-0.45" y="3.88" z="-154.88" h="-0.00"/>
+  <start x="-22.95" y="16.00" z="-22.84" h="-0.00"/>
+  <start x="23.11" y="16.00" z="21.98" h="-0.00"/>
+  <start x="-23.56" y="16.00" z="22.19" h="-0.00"/>
+  <start x="23.11" y="16.00" z="-22.84" h="-0.00"/>
+  <start x="-93.42" y="5.21" z="71.31" h="-0.00"/>
+  <start x="94.52" y="1.72" z="72.73" h="-0.00"/>
+  <start x="-95.91" y="5.15" z="-80.04" h="-0.00"/>
+  <start x="95.23" y="4.27" z="-81.46" h="-0.00"/>
   <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy.000" xyz="-25.87 0.81 137.67" hpr="91.2 75.6 91.1" scale="1.51 1.51 1.51">
   </library>
   <library name="stklib_animGrass_a" id="stklib_animGrass_a_main_proxy.001" xyz="-39.19 0.81 137.67" hpr="94.5 -75.6 -94.3" scale="1.54 1.54 1.54">
