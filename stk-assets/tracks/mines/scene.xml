@@ -6,11 +6,11 @@
     <static-object lod_distance="20" lod_group="lantern" model="lantern_LOD20.b3d" xyz="-9.20 3.95 -21.28" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
     <static-object lod_distance="80" lod_group="lantern" model="lantern_LOD50.b3d" xyz="-10.20 3.95 -21.28" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
    </group>
-   <group name="lamp2">
-    <static-object lod_distance="60" lod_group="lamp2" model="lamp_2.b3d" xyz="-15.48 12.01 -18.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
-   </group>
    <group name="transfo">
     <static-object lod_distance="70" lod_group="transfo" model="Circle.036_Circle.000.b3d" xyz="-17.36 2.09 -22.06" hpr="-90.0 115.4 -0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+   </group>
+   <group name="lamp2">
+    <static-object lod_distance="60" lod_group="lamp2" model="lamp_2.b3d" xyz="-15.48 12.01 -18.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
    </group>
   </lod>
   <track model="mines_track.b3d" x="0" y="0" z="0">
@@ -999,8 +999,8 @@
   </library>
   <library name="stklib_oldschoolLampVerticalSupport_a" id="stklib_oldschoolLampVerticalSupport_a_main_proxy.030" xyz="-15.21 4.28 -36.55" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy" xyz="44.44 -13.19 -258.16" hpr="0.0 -25.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_oldschoolLampVerticalSupport_a" id="stklib_oldschoolLampVerticalSupport_a_main_proxy.031" xyz="44.42 21.46 -258.14" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy.001" xyz="-31.76 -10.01 -238.81" hpr="0.0 40.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_oldschoolLampVerticalSupport_a" id="stklib_oldschoolLampVerticalSupport_a_main_proxy.032" xyz="-31.80 0.80 -238.71" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
 </scene>
