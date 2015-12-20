@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15738 -->
+<!-- Generated with script from SVN rev 16506 -->
 <track  name           = "Battle Island"
         version        = "6"
         groups         = "standard"
         designer       = "qubodup"
         music          = "kart_grand_prix.music"
         arena          = "Y"
+        max-arena-players = "6"
         screenshot     = "battleisland_screenshot.jpg"
         smooth-normals = "false"
         default-number-of-laps = "3"

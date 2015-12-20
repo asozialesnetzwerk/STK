@@ -6,6 +6,7 @@
         designer       = "MacIO (shape) MiniBjorn (new textures and plants)"
         music          = "Penguin_Party.music"
         arena          = "Y"
+        max-arena-players = "4"
         screenshot     = "sshot-cave.png"
         smooth-normals = "false"
         default-number-of-laps = "3"
