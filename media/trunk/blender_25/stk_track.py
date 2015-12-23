@@ -885,7 +885,7 @@ class DrivelineExporter:
             self.lDrivelines=[None]
         
         mainDriveline = self.lDrivelines[0]
-        if mainDriveline is None and getSceneProperty(bpy.data.scenes[0], 'is_stk_node', 'false') != 'true':
+        if mainDriveline is None and getSceneProperty(bpy.data.scenes[0], 'is_stk_node', 'false') != 'true' and not (is_arena or is_soccer):
             log_error("No main driveline found")
         
         self.lChecks = self.lChecks + self.lCannons # cannons at the end, see #1386
@@ -2014,7 +2014,15 @@ class TrackExport:
         
         if is_arena:
             f.write("        arena          = \"Y\"\n")
-            
+
+            max_arena_players = 0
+            for obj in bpy.data.objects:
+                stktype = getObjectProperty(obj, "type", "").strip().upper()
+                if obj.type=="EMPTY" and stktype[:5]=="START":
+                    max_arena_players += 1
+
+            f.write("        max-arena-players = \"%d\"\n" % max_arena_players)
+
         if is_soccer:
             f.write("        soccer         = \"Y\"\n")
 
