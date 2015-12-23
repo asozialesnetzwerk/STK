@@ -2014,21 +2014,21 @@ class TrackExport:
         
         if is_arena:
             f.write("        arena          = \"Y\"\n")
-
+            
             max_arena_players = 0
             for obj in bpy.data.objects:
                 stktype = getObjectProperty(obj, "type", "").strip().upper()
                 if obj.type=="EMPTY" and stktype[:5]=="START":
                     max_arena_players += 1
-
+            
             f.write("        max-arena-players = \"%d\"\n" % max_arena_players)
-
+        
         if is_soccer:
             f.write("        soccer         = \"Y\"\n")
-
+        
         if is_cutscene:
             f.write("        cutscene       = \"Y\"\n")
-
+        
         if is_internal:
             f.write("        internal       = \"Y\"\n")
         
