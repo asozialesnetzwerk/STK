@@ -481,6 +481,8 @@
                         filter="lambda self, o : 'type' in o and o['type'] == 'check'"
                         doc="Which check structure to activate when crossing the lap line"/>
         </EnumChoice>
+        <EnumChoice id="navmesh" label="Navmesh" doc="Navmesh (for battle arenas)" >
+        </EnumChoice>
         
         <!-- Goal -->
         <EnumChoice id="goal" label="Goal line (soccer mode)" doc="A point is scored when a soccer ball crosses this line" >

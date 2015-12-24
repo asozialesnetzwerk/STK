@@ -835,7 +835,77 @@ class LightShaftExporter:
         for obj in self.m_objects:
             f.write('  <lightshaft %s id=\"%s\" opacity="%.2f" color="%s"/>\n' \
                     % (getXYZString(obj), obj.name, getObjectProperty(obj, "lightshaft_opacity", 0.7), getObjectProperty(obj, "lightshaft_color", "255 255 255")))
+           
+# ------------------------------------------------------------------------------
+class NavmeshExporter:
+    
+    def __init__(self):
+        self.m_objects = []
+    
+    def processObject(self, object, stktype):
+        
+        if stktype=="NAVMESH":
+            is_arena = getSceneProperty(bpy.data.scenes[0], "arena", "false") == "true"
+            if is_arena:
+                self.m_objects.append(object)
+            else:
+                log_warning("Navmesh may only be used in battle arenas")
+                
+            if len(self.m_objects) > 1:
+                log_warning("Cannot have more than 1 navmesh")
+                
+            print("exportNavmesh 1")
+            return True
+        else:
+            return False
             
+    def export(self, f):
+        return None
+        
+    def exportNavmesh(self, sPath):
+        print("exportNavmesh 2")
+        import bmesh
+        if len(self.m_objects) > 0:
+            print("exportNavmesh 3")
+            with open(sPath+"/navmesh.xml", "w") as navmeshfile:
+                navmesh_obj = self.m_objects[0]
+                bm = bmesh.new()
+                bm.from_mesh(navmesh_obj.data)
+                om = navmesh_obj.matrix_world
+                
+                navmeshfile.write('<?xml version="1.0"?>')
+                navmeshfile.write('<navmesh>\n')
+                navmeshfile.write('<MaxVertsPerPoly nvp="4" />\n')
+                navmeshfile.write('<vertices>\n')
+                
+                for vert in bm.verts:
+                    navmeshfile.write('<vertex x="%f" y="%f" z="%f" />\n' % ((om*vert.co).x, (om*vert.co).z, (om*vert.co).y))
+                
+                navmeshfile.write('</vertices>\n')
+                navmeshfile.write('<faces>\n')
+                
+                for face in bm.faces:
+                    navmeshfile.write('<face indices="')
+                    for vert in face.verts:
+                        navmeshfile.write('%d ' % vert.index)
+                    
+                    list_face = []
+                    unique_face = []
+                    for edge in face.edges:
+                        for l_face in edge.link_faces:
+                            list_face.append(l_face.index)
+                    
+                    [unique_face.append(item) for item in list_face if item not in unique_face]
+                    unique_face.remove(face.index) #remove current face index
+                    
+                    navmeshfile.write('" adjacents="')
+                    for num in unique_face:
+                        navmeshfile.write('%d ' % num)
+                    navmeshfile.write('" />\n')
+                
+                navmeshfile.write('</faces>\n')
+                navmeshfile.write('</navmesh>\n')
+                
 # ------------------------------------------------------------------------------
 class DrivelineExporter:
     
@@ -2791,9 +2861,10 @@ class TrackExport:
                     log_warning('Failed to copy texture ' + curr.filepath)
         
         drivelineExporter = DrivelineExporter()
+        navmeshExporter = NavmeshExporter()
         exporters = [drivelineExporter, WaterExporter(self, sPath), ParticleEmitterExporter(), BlenderHairExporter(), SoundEmitterExporter(),
                      ActionTriggerExporter(), ItemsExporter(), BillboardExporter(), LightsExporter(), LightShaftExporter(),
-                     StartPositionExporter(), LibraryNodeExporter()]
+                     StartPositionExporter(), LibraryNodeExporter(), navmeshExporter]
         
         # Collect the different kind of meshes this exporter handles
         # ----------------------------------------------------------
@@ -2881,6 +2952,9 @@ class TrackExport:
                         
         if exportDrivelines and not is_arena and not is_soccer and not is_cutscene:
             drivelineExporter.writeQuadAndGraph(sPath)
+        if is_arena:
+            navmeshExporter.exportNavmesh(sPath)
+            
         #start_time = bsys.time()
 
         sTrackName = sBase+"_track.b3d"
