@@ -7,6 +7,41 @@ void onFitchBarrelCollision(int idKart, const string libraryInstance, const stri
         blowUpFitchBarrel(libraryInstance);
 }
 
+class FitchBarrelTimeout
+{
+    string instID;
+    
+    FitchBarrelTimeout(string instID)
+    {
+        this.instID = instID;
+    }
+    
+    void onTimerComplete()
+    {
+        Track::TrackObject@ part = Track::getTrackObject(this.instID, "stklib_fitchBarrel_a_cover");
+        part.setEnabled(false);
+        
+        Track::TrackObject@ part2 = Track::getTrackObject(this.instID, "stklib_fitchBarrel_a_bodyPartA");
+        part2.setEnabled(false);
+        
+        Track::TrackObject@ part3 = Track::getTrackObject(this.instID, "stklib_fitchBarrel_a_bodyPartB");
+        part3.setEnabled(false);
+        
+        Track::TrackObject@ part4 = Track::getTrackObject(this.instID, "stklib_fitchBarrel_a_bodyPartC");
+        part4.setEnabled(false);
+        
+        Track::TrackObject@ part5 = Track::getTrackObject(this.instID, "stklib_fitchBarrel_a_bodyPartD");
+        part5.setEnabled(false);
+        
+        Track::TrackObject@ part6 = Track::getTrackObject(this.instID, "stklib_fitchBarrel_a_bodyPartE");
+        part6.setEnabled(false);
+        
+        Track::TrackObject@ part7 = Track::getTrackObject(this.instID, "stklib_fitchBarrel_a_bottom");
+        part7.setEnabled(false);
+    }
+}
+
+
 void blowUpFitchBarrel(string instID)
 {
     Track::TrackObject@ wall = Track::getTrackObject(instID, "stklib_fitchBarrel_a_main");
@@ -37,6 +72,10 @@ void blowUpFitchBarrel(string instID)
     Track::ParticleEmitter@ emitter = obj.getParticleEmitter();
     emitter.setEmissionRate(1.0);
     emitter.stopIn(0.1);
+    
+    FitchBarrelTimeout@ timeout = FitchBarrelTimeout(instID);
+    Utils::TimeoutCallback@ timerDelegate = Utils::TimeoutCallback(timeout.onTimerComplete);
+    Utils::setTimeoutDelegate(timerDelegate, 20.0);
 }
 
 
