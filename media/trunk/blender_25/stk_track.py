@@ -846,10 +846,11 @@ class NavmeshExporter:
         
         if stktype=="NAVMESH":
             is_arena = getSceneProperty(bpy.data.scenes[0], "arena", "false") == "true"
-            if is_arena:
+            is_soccer = getSceneProperty(bpy.data.scenes[0], "soccer", "false") == "true"
+            if (is_arena or is_soccer):
                 self.m_objects.append(object)
             else:
-                log_warning("Navmesh may only be used in battle arenas")
+                log_warning("Navmesh may only be used in battle arenas or soccer field")
                 
             if len(self.m_objects) > 1:
                 log_warning("Cannot have more than 1 navmesh")
@@ -2952,7 +2953,7 @@ class TrackExport:
                         
         if exportDrivelines and not is_arena and not is_soccer and not is_cutscene:
             drivelineExporter.writeQuadAndGraph(sPath)
-        if is_arena:
+        if (is_arena or is_soccer):
             navmeshExporter.exportNavmesh(sPath)
             
         #start_time = bsys.time()
