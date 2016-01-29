@@ -181,6 +181,10 @@
   
   <material name="stk_terminalHappy_face_a.png" shader="alphatest"/>
   <material name="stktex_iceEdges_a.png"   shader="alphablend"/>
+  <material name="stk_snowMountain_a.png"   shader="alphatest"/>
+  <material name="stk_flyingPath_a.png"   shader="alphatest"/>
+  <material name="stkflag_welcome_a.png"   shader="alphatest"/>
+  
   <material name="stktex_stalactic_a.png" gloss-map="stk_generic_snow_a_gloss.png"  shader="alphatest"/>
 
   <material name="stktex_palmLeaf_a.png" shader="grass" ignore="Y" />
@@ -255,7 +259,9 @@
   <material name="stktex_generic_concreteA.png" has-gravity="Y" />
   
   
-   <material name="gfx_bubble_a.png"  shader="alphablend"  light="N"/> 
+   <material name="gfx_bubble_a.png"  shader="alphablend"  light="N"/>
+   <material name="stktex_clouds_a.png"  shader="additive"  light="N"/> 
+   
    <material name="stkflag_saraAgency_a.png"  shader="alphablend"/> 
    
    <material name="gfx_cloudAnimated_a.png"  shader="alphablend"/> 
