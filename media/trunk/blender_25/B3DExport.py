@@ -767,8 +767,8 @@ def write_node(objects=[]):
                     
                     transform = mathutils.Matrix([[-1,0,0,0],[0,0,1,0],[0,1,0,0],[0,0,0,1]])
                     arm_matrix = transform*arm_matrix
-                    arm_quat = arm_matrix.to_quaternion()
-                    arm_quat.normalize()
+                    #arm_quat = arm_matrix.to_quaternion()
+                    #arm_quat.normalize()
 
                     for bone_name in arm.data.bones.keys():
                         #bone_matrix = mathutils.Matrix(arm_pose.bones[bone_name].poseMatrix)
@@ -852,12 +852,12 @@ def write_node(objects=[]):
 
                                 # Sometimes to_quaternion exhibits precision issue with parent bone
                                 # Use quaternion product instead of getting quaternion from the product.
-                                if not bone[BONE_PARENT]:
-                                     bone_rot =  arm_pose.bones[bone_name].matrix.to_quaternion() *  arm_quat
-                                     bone_rot.x = -bone_rot.x
-                                     tmp = bone_rot.z
-                                     bone_rot.z = bone_rot.y
-                                     bone_rot.y = tmp
+                                #if not bone[BONE_PARENT]:
+                                #     bone_rot =  arm_pose.bones[bone_name].matrix.to_quaternion() *  arm_quat
+                                #     bone_rot.x = -bone_rot.x
+                                #     tmp = bone_rot.z
+                                #     bone_rot.z = bone_rot.y
+                                #     bone_rot.y = tmp
 
                                 keys_stack.append([frame_count - first_frame+1, bone_name, bone_loc, bone_sca, bone_rot])
                                 if DEBUG: print("                <loc>", bone_loc, "</loc>")
