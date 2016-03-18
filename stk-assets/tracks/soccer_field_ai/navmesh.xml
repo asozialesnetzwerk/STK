@@ -605,6 +605,22 @@
 <vertex x="1.216051" y="0.000000" z="-69.550499" />
 <vertex x="-1.228394" y="0.000000" z="-74.272591" />
 <vertex x="1.216051" y="0.000000" z="-74.272591" />
+<vertex x="-3.672839" y="0.000000" z="-79.249825" />
+<vertex x="-7.339505" y="0.000000" z="-79.249825" />
+<vertex x="-10.594289" y="0.000000" z="-79.249825" />
+<vertex x="3.660495" y="0.000000" z="-79.249825" />
+<vertex x="7.327162" y="0.000000" z="-79.249825" />
+<vertex x="10.581944" y="0.000000" z="-79.249825" />
+<vertex x="-1.228394" y="0.000000" z="-79.249825" />
+<vertex x="1.216051" y="0.000000" z="-79.249825" />
+<vertex x="-3.672846" y="0.000000" z="79.320847" />
+<vertex x="-7.339513" y="0.000000" z="79.320847" />
+<vertex x="-10.517355" y="0.000000" z="79.320847" />
+<vertex x="3.660488" y="0.000000" z="79.320847" />
+<vertex x="7.327155" y="0.000000" z="79.320847" />
+<vertex x="10.504997" y="0.000000" z="79.320847" />
+<vertex x="-1.228402" y="0.000000" z="79.320847" />
+<vertex x="1.216043" y="0.000000" z="79.320847" />
 </vertices>
 <faces>
 <face indices="26 10 9 415 " adjacents="50 9 347 " />
@@ -1093,40 +1109,40 @@
 <face indices="516 324 320 537 " adjacents="487 257 479 450 " />
 <face indices="219 539 538 215 " adjacents="488 481 480 163 " />
 <face indices="592 539 540 594 " adjacents="481 488 489 462 " />
-<face indices="596 597 599 598 " adjacents="478 496 490 " />
+<face indices="596 597 599 598 " adjacents="478 496 563 490 " />
 <face indices="324 516 517 328 " adjacents="483 458 491 254 " />
 <face indices="174 540 539 219 " adjacents="492 485 484 203 " />
 <face indices="486 594 540 424 " adjacents="470 485 492 544 " />
-<face indices="542 596 598 549 " adjacents="482 486 507 " />
+<face indices="542 596 598 549 " adjacents="482 486 565 507 " />
 <face indices="328 517 518 284 " adjacents="487 466 495 284 " />
 <face indices="174 416 424 540 " adjacents="346 354 489 488 " />
 <face indices="495 274 545 597 " adjacents="516 500 496 478 " />
 <face indices="493 494 600 601 " adjacents="553 504 506 498 " />
 <face indices="284 518 425 414 " adjacents="491 474 355 340 " />
-<face indices="597 545 552 599 " adjacents="493 502 486 " />
+<face indices="597 545 552 599 " adjacents="493 502 566 486 " />
 <face indices="275 276 547 546 " adjacents="305 505 500 " />
 <face indices="279 493 601 559 " adjacents="4 494 511 513 " />
 <face indices="165 164 542 543 " adjacents="223 482 507 501 " />
 <face indices="274 275 546 545 " adjacents="304 497 502 493 " />
 <face indices="166 165 543 544 " adjacents="222 499 503 " />
-<face indices="545 546 553 552 " adjacents="500 505 496 " />
-<face indices="544 543 550 551 " adjacents="501 507 " />
+<face indices="545 546 553 552 " adjacents="500 505 561 496 " />
+<face indices="544 543 550 551 " adjacents="501 507 562 " />
 <face indices="494 169 556 600 " adjacents="552 512 509 494 " />
-<face indices="546 547 554 553 " adjacents="497 502 " />
-<face indices="601 600 602 603 " adjacents="494 509 511 " />
-<face indices="543 542 549 550 " adjacents="499 490 503 " />
+<face indices="546 547 554 553 " adjacents="497 564 502 " />
+<face indices="601 600 602 603 " adjacents="494 509 555 511 " />
+<face indices="543 542 549 550 " adjacents="499 490 567 503 " />
 <face indices="170 171 558 557 " adjacents="213 515 512 " />
-<face indices="600 556 563 602 " adjacents="504 519 506 " />
+<face indices="600 556 563 602 " adjacents="504 519 557 506 " />
 <face indices="281 280 560 561 " adjacents="297 513 517 " />
-<face indices="559 601 603 566 " adjacents="498 506 514 " />
+<face indices="559 601 603 566 " adjacents="498 506 559 514 " />
 <face indices="169 170 557 556 " adjacents="212 508 519 504 " />
 <face indices="280 279 559 560 " adjacents="298 498 514 510 " />
-<face indices="560 559 566 567 " adjacents="513 511 517 " />
-<face indices="557 558 565 564 " adjacents="508 519 " />
+<face indices="560 559 566 567 " adjacents="513 511 554 517 " />
+<face indices="557 558 565 564 " adjacents="508 556 519 " />
 <face indices="393 274 495 490 " adjacents="304 493 518 317 " />
-<face indices="561 560 567 568 " adjacents="510 514 " />
+<face indices="561 560 567 568 " adjacents="510 514 558 " />
 <face indices="490 495 496 489 " adjacents="516 478 520 549 " />
-<face indices="556 557 564 563 " adjacents="512 515 509 " />
+<face indices="556 557 564 563 " adjacents="512 515 560 509 " />
 <face indices="489 496 164 392 " adjacents="518 482 223 548 " />
 <face indices="570 572 573 571 " adjacents="303 211 441 523 " />
 <face indices="505 569 571 506 " adjacents="524 523 441 443 " />
@@ -1161,5 +1177,19 @@
 <face indices="541 548 492 491 " adjacents="545 7 553 550 " />
 <face indices="375 169 494 492 " adjacents="212 504 553 7 " />
 <face indices="492 494 493 491 " adjacents="552 494 4 551 " />
+<face indices="567 566 607 608 " adjacents="514 559 558 " />
+<face indices="603 602 610 611 " adjacents="506 557 559 " />
+<face indices="564 565 606 605 " adjacents="515 560 " />
+<face indices="602 563 604 610 " adjacents="509 560 555 " />
+<face indices="568 567 608 609 " adjacents="517 554 " />
+<face indices="566 603 611 607 " adjacents="511 555 554 " />
+<face indices="563 564 605 604 " adjacents="519 556 557 " />
+<face indices="552 553 616 615 " adjacents="502 564 566 " />
+<face indices="551 550 613 614 " adjacents="503 567 " />
+<face indices="598 599 619 618 " adjacents="486 566 565 " />
+<face indices="553 554 617 616 " adjacents="505 561 " />
+<face indices="549 598 618 612 " adjacents="490 563 567 " />
+<face indices="599 552 615 619 " adjacents="496 561 563 " />
+<face indices="550 549 612 613 " adjacents="507 565 562 " />
 </faces>
 </navmesh>
