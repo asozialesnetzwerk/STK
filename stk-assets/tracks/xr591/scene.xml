@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16343 -->
+<!-- Generated with script from SVN rev 16551 -->
 <scene>
   <lod>
    <group name="aliens">
@@ -130,6 +130,9 @@
     </curve>
   </object>
   <object id="Circle.055" type="animation" xyz="-57.13 26.01 9.65" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="sign_correct_direction.b3d" skeletal-animation="false">
+    <animated-texture name="arrows.png" dx="-0.500" />
+  </object>
+  <object id="Circle.056" type="animation" xyz="-57.13 26.01 9.65" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="sign_correct_direction2.b3d" skeletal-animation="false" if="isNotReverse">
     <animated-texture name="arrows.png" dx="-0.500" />
   </object>
   <object id="Plane.007" type="animation" xyz="-61.01 -6.67 -42.92" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="green_water_dist.b3d" displacing="true" skeletal-animation="false">

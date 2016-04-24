@@ -8,6 +8,7 @@
   <material name="acid_lake_bottom.jpg" reset="Y" falling-effect="Y" water-splash="Y"/>
   <material name="arc1.png" backface-culling="N" disable-z-write="Y" collision-detect="Y" collision-reaction="push" collision-particles="sparks.xml" shader="alphablend"/>
   <material name="arc2.png" reset="Y" backface-culling="N" disable-z-write="Y" shader="alphablend"/>
+  <material name="arrows.png" mirror-axis="U"/>
   <material name="curious.png" backface-culling="N" disable-z-write="Y" shader="alphablend"/>
   <material name="glass.png" backface-culling="N" disable-z-write="Y" shader="alphablend"/>
   <material name="halo.png" fog="N" backface-culling="N" disable-z-write="Y" ignore="Y" shader="alphablend"/>
