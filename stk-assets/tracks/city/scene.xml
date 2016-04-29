@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16538 -->
+<!-- Generated with script from SVN rev 16551 -->
 <scene>
   <lod>
-   <group name="tree_2">
-    <static-object lod_distance="50" lod_group="tree_2" model="tree_2_LOD50.b3d" xyz="78.00 -0.20 385.94" hpr="-0.0 -180.0 0.0" scale="1.20 1.20 1.20" interaction="static" skeletal-animation="false"/>
-    <static-object lod_distance="150" lod_group="tree_2" model="tree_2_LOD150.b3d" xyz="60.89 -0.20 385.94" hpr="-0.0 -180.0 0.0" scale="1.20 1.20 1.20" interaction="static" skeletal-animation="false"/>
-    <static-object lod_distance="500" lod_group="tree_2" model="tree_2_LOD500.b3d" xyz="45.18 -0.20 385.94" hpr="-0.0 -180.0 0.0" scale="1.20 1.20 1.20" interaction="static" skeletal-animation="false"/>
-   </group>
    <group name="tree_1">
     <static-object lod_distance="50" lod_group="tree_1" model="tree_1_LOD50.b3d" xyz="-16.00 -0.20 377.86" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
     <static-object lod_distance="150" lod_group="tree_1" model="tree_1_LOD150.b3d" xyz="-33.71 -0.20 377.86" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
     <static-object lod_distance="550" lod_group="tree_1" model="tree_1_LOD550.b3d" xyz="-50.30 -0.20 377.86" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+   </group>
+   <group name="tree_2">
+    <static-object lod_distance="50" lod_group="tree_2" model="tree_2_LOD50.b3d" xyz="78.00 -0.20 385.94" hpr="-0.0 -180.0 0.0" scale="1.20 1.20 1.20" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="150" lod_group="tree_2" model="tree_2_LOD150.b3d" xyz="60.89 -0.20 385.94" hpr="-0.0 -180.0 0.0" scale="1.20 1.20 1.20" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="500" lod_group="tree_2" model="tree_2_LOD500.b3d" xyz="45.18 -0.20 385.94" hpr="-0.0 -180.0 0.0" scale="1.20 1.20 1.20" interaction="static" skeletal-animation="false"/>
    </group>
   </lod>
   <track model="city_track.b3d" x="0" y="0" z="0">
