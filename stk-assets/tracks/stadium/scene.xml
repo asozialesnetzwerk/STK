@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16506 -->
+<!-- Generated with script from SVN rev 16538 -->
 <scene>
   <track model="stadium_track.b3d" x="0" y="0" z="0"/>
   <sun  xyz="-40.13 115.85 -44.63" ambient="79 75 70"/>
