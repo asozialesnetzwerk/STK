@@ -6,7 +6,7 @@
         designer       = "Anon"
         music          = "kart_grand_prix.music"
         arena          = "Y"
-        max-arena-players = "4"
+        max-arena-players = "8"
         screenshot     = "screenshot.png"
         smooth-normals = "false"
         default-number-of-laps = "3"
