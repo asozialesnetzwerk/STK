@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1024"
+   height="1024"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="stktex_launchpad42location_a.svg"
+   inkscape:export-filename="/home/jmclemencon/MyProjects/supertuxkart_media_repo/textures/roadSign/stktex_launchpad42location_a.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3796">
+      <stop
+         style="stop-color:#0b516a;stop-opacity:1;"
+         offset="0"
+         id="stop3798" />
+      <stop
+         style="stop-color:#0b516a;stop-opacity:0;"
+         offset="1"
+         id="stop3800" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3796"
+       id="linearGradient3802"
+       x1="220"
+       y1="292.36218"
+       x2="220"
+       y2="352.36218"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.95293684"
+     inkscape:cx="269.75246"
+     inkscape:cy="609.5106"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer2"
+     showgrid="false"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     inkscape:window-x="0"
+     inkscape:window-y="37"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid3755"
+       empspacing="5"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="back"
+     sodipodi:insensitive="true"
+     style="display:none">
+    <rect
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4227"
+       width="1072.474"
+       height="1091.363"
+       x="-23.086525"
+       y="-29.585043" />
+  </g>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-28.362183)">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:60px;line-height:125%;font-family:'Liberation Sans Narrow';-inkscape-font-specification:'Liberation Sans Narrow Bold Condensed';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none"
+       x="11.639739"
+       y="243.73407"
+       id="text3777-3"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="11.639739"
+         y="243.73407"
+         id="tspan4252">SARA SPACE AGENCY ORGANIZATION</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:90px;line-height:125%;font-family:'Liberation Sans Narrow';-inkscape-font-specification:'Liberation Sans Narrow Bold Condensed';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#0089ff;fill-opacity:1;stroke:none"
+       x="250.14948"
+       y="178.60988"
+       id="text3777-3-4"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="250.14948"
+         y="178.60988"
+         id="tspan4252-8">LAUNCHPAD 42</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:90px;line-height:125%;font-family:'Liberation Sans Narrow';-inkscape-font-specification:'Liberation Sans Narrow Bold Condensed';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none"
+       x="14.598929"
+       y="178.6441"
+       id="text3777-3-0"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="14.598929"
+         y="178.6441"
+         id="tspan4252-9">SSAO</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:40px;line-height:125%;font-family:'Liberation Sans Narrow';-inkscape-font-specification:'Liberation Sans Narrow Bold Condensed';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none"
+       x="21.296513"
+       y="89.740387"
+       id="text3777-3-7"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="21.296513"
+         y="89.740387"
+         id="tspan4252-7">Welcome to the Visitor Complex</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:45px;line-height:94.99999881%;font-family:'Liberation Sans Narrow';-inkscape-font-specification:'Liberation Sans Narrow Bold Condensed';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+       x="967.62103"
+       y="97.968781"
+       id="text3777-3-4-6"
+       sodipodi:linespacing="94.999999%"><tspan
+         sodipodi:role="line"
+         x="967.62103"
+         y="97.968781"
+         id="tspan4332">S</tspan><tspan
+         sodipodi:role="line"
+         x="967.62103"
+         y="140.71878"
+         id="tspan4340">S</tspan><tspan
+         sodipodi:role="line"
+         x="967.62103"
+         y="183.46877"
+         id="tspan4342">A</tspan><tspan
+         sodipodi:role="line"
+         x="967.62103"
+         y="226.21877"
+         id="tspan4344">O</tspan><tspan
+         sodipodi:role="line"
+         x="967.62103"
+         y="268.96878"
+         id="tspan4346" /><tspan
+         sodipodi:role="line"
+         x="967.62103"
+         y="311.71878"
+         id="tspan4354">S</tspan><tspan
+         sodipodi:role="line"
+         x="967.62103"
+         y="354.46878"
+         id="tspan4362">A</tspan><tspan
+         sodipodi:role="line"
+         x="967.62103"
+         y="397.21878"
+         id="tspan4364">R</tspan><tspan
+         sodipodi:role="line"
+         x="967.62103"
+         y="439.96878"
+         id="tspan4366">A</tspan><tspan
+         sodipodi:role="line"
+         x="967.62103"
+         y="482.71878"
+         id="tspan4368" /><tspan
+         sodipodi:role="line"
+         x="967.62103"
+         y="525.46881"
+         id="tspan4370">S</tspan><tspan
+         sodipodi:role="line"
+         x="967.62103"
+         y="568.21881"
+         id="tspan4372">P</tspan><tspan
+         sodipodi:role="line"
+         x="967.62103"
+         y="610.96881"
+         id="tspan4374">A</tspan><tspan
+         sodipodi:role="line"
+         x="967.62103"
+         y="653.71881"
+         id="tspan4376">C</tspan><tspan
+         sodipodi:role="line"
+         x="967.62103"
+         y="696.46881"
+         id="tspan4378">E</tspan><tspan
+         sodipodi:role="line"
+         x="967.62103"
+         y="739.21881"
+         id="tspan4380" /><tspan
+         sodipodi:role="line"
+         x="967.62103"
+         y="781.96881"
+         id="tspan4382">A</tspan><tspan
+         sodipodi:role="line"
+         x="967.62103"
+         y="824.71881"
+         id="tspan4384">G</tspan><tspan
+         sodipodi:role="line"
+         x="967.62103"
+         y="867.46881"
+         id="tspan4386">E</tspan><tspan
+         sodipodi:role="line"
+         x="967.62103"
+         y="910.21881"
+         id="tspan4388">N</tspan><tspan
+         sodipodi:role="line"
+         x="967.62103"
+         y="952.96881"
+         id="tspan4390">G</tspan><tspan
+         sodipodi:role="line"
+         x="967.62103"
+         y="995.71881"
+         id="tspan4392">Y</tspan></text>
+    <rect
+       style="opacity:1;fill:#0089ff;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4189"
+       width="694.69452"
+       height="78.704063"
+       x="12.592649"
+       y="265.32156" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:50px;line-height:125%;font-family:'Liberation Sans Narrow';-inkscape-font-specification:'Liberation Sans Narrow Bold Condensed';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffffa0;fill-opacity:1;stroke:none"
+       x="54.653275"
+       y="321.48831"
+       id="text3777-3-4-5"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="54.653275"
+         y="321.48831"
+         id="tspan4252-8-0">HOURS   MINUTES   SECONDS</tspan></text>
+  </g>
+</svg>
