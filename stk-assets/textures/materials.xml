@@ -11,6 +11,8 @@
   <material name="stklib_prayerFlags_a.png"   shader="grass" />
   
   <material name="stkflag_stkVertical_a.png"        shader="grass" />
+  <material name="stkflag_stkVerticalRed_a.png"        shader="grass" />
+  
   <material name="stkflag_saraVertical_a.png"       shader="grass" />
   <material name="stkflag_goldCupVertical_a.png"    shader="grass" />
   <material name="stkflag_orangeStartingLine_a.png" shader="alphatest" disable-z-write="Y"/>
@@ -42,6 +44,8 @@
   <material name="confetti.png"           shader="additive" ignore="Y"/>
 
   <material name="explode_spark.png"     shader="additive" ignore="Y"/>
+  <material name="stk_asianSunRay_a.png"     shader="additive" ignore="Y"/>
+
   <material name="flaring-star.png"      shader="additive" ignore="Y"/>
   <material name="smoke.png"             shader="alphablend" ignore="Y"/>
   <material name="smoke_nitro.png"       shader="alphablend" ignore="Y" disable-z-write="Y"/>
@@ -90,7 +94,9 @@
   <material name="stktex_valVerdeLocationAtlas_a.png" shader="alphatest"/>
   <material name="stktex_granParadisoLocation_a.png" shader="alphatest"/>
   <material name="stktex_silviaLocationAtlas_a.png" shader="alphatest"/>
-
+  <material name="stktex_launchpad42location_a.png" shader="alphatest"/>
+  
+  <material name="stktex_counterSSAO_a.png" shader="additive"/>
   
   <material name="stktex_branches_diff_a.png" shader="grass" />
   <material name="stkflag_valverdeVertical_a.png" shader="grass" />
@@ -206,6 +212,7 @@
   <material name="stktex_jungleLeaf_b.png" shader="grass" ignore="Y" />
   <material name="stktex_waterLily_a.png" shader="grass" ignore="Y" />
   <material name="stk_grassAlpha.png"         shader="grass"  ignore="Y"/>
+  <material name="stk_grassAlternate.png"         shader="grass"  ignore="Y"/>
   <material name="stk_generic_colorfabricA.png"         shader="grass"  ignore="Y"/>
   <material name="gfx_leaf_a.png" compositing="blend"/>
   <material name="stk_darkSkidMark_a.png" compositing="blend"/>
@@ -278,6 +285,7 @@
 
   <material name="stktex_hayFiber_a.png" shader="grass"  ignore="Y"/>
   <material name="stk_wheatA.png" shader="grass"  ignore="Y"/>
+  <material name="stk_snowSmallBush_a.png" shader="grass"  ignore="Y"/>
   
   
   <material name="stktex_palmTreeBark_a.png"  />
