@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16407 -->
+<!-- Generated with script from SVN rev 16551 -->
 <track  name           = "Temple"
         version        = "6"
         groups         = "standard"
         designer       = "Anon"
         music          = "kart_grand_prix.music"
         arena          = "Y"
-        max-arena-players = "8"
+        max-arena-players = "12"
         screenshot     = "screenshot.png"
         smooth-normals = "false"
         default-number-of-laps = "3"
