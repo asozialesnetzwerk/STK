@@ -2,7 +2,7 @@
 <!-- Generated with script from SVN rev 16551 -->
 <scene>
   <track model="temple_track.b3d" x="0" y="0" z="0"/>
-  <object id="lava" type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="reset" shape="exact" model="lava.b3d" reset="y" forcedbloom="true" glow="255 23 3" skeletal-animation="false">
+  <object id="lava" type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="reset" shape="exact" model="lava.b3d" reset="y" driveable="true" forcedbloom="true" glow="255 23 3" skeletal-animation="false">
   </object>
   <object id="lightning1" type="animation" xyz="-24.98 153.07 -358.09" hpr="-90.0 -176.9 -0.0" scale="0.01 0.01 0.01" interaction="ghost" model="lightning1.b3d" forcedbloom="true" skeletal-animation="false">
     <curve channel="ScaleX" interpolation="linear" extend="cyclic">
