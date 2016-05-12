@@ -44,7 +44,7 @@
   <material name="confetti.png"           shader="additive" ignore="Y"/>
 
   <material name="explode_spark.png"     shader="additive" ignore="Y"/>
-  <material name="stk_asianSunRay_a.png"     shader="additive" ignore="Y"/>
+  <material name="explode_spark.png"     shader="additive" ignore="Y"/>
 
   <material name="flaring-star.png"      shader="additive" ignore="Y"/>
   <material name="smoke.png"             shader="alphablend" ignore="Y"/>
@@ -84,8 +84,6 @@
   <material name="gfx_distord_AlphaTested.png" shader="alphatest"/>
   <material name="gfx_lightBlinker_a.png" shader="alphatest"/>
   <material name="gfx_lightBlinker_b.png" shader="alphatest"/>
-  <material name="gfx_rocketFlame_a.png" shader="additive"/>
-  <material name="stktex_fireCloud_a.png" shader="additive"/>
   
   <material name="stktex_generic_WoodA.png" >
     <sfx filename="wooden_bridge.ogg" rolloff="0.60" min_speed="9.00" max_speed="22.00" min_pitch="1.00" max_pitch="1.70" positional="Y" volume="1.00"/>
@@ -96,9 +94,7 @@
   <material name="stktex_valVerdeLocationAtlas_a.png" shader="alphatest"/>
   <material name="stktex_granParadisoLocation_a.png" shader="alphatest"/>
   <material name="stktex_silviaLocationAtlas_a.png" shader="alphatest"/>
-  <material name="stktex_launchpad42location_a.png" shader="alphatest"/>
-  
-  <material name="stktex_counterSSAO_a.png" shader="additive"/>
+
   
   <material name="stktex_branches_diff_a.png" shader="grass" />
   <material name="stkflag_valverdeVertical_a.png" shader="grass" />
@@ -182,15 +178,10 @@
   
   <material name="stktex_windowsSet_a.png" normal-map="stktex_windowsSet_a_nm.png" gloss-map="stktex_windowsSet_a_gloss.png" />
   
-  <material name="stk_generic_modernWindows_b.png"  gloss-map="stk_generic_modernWindows_b_gloss.png" />
-  
-  
   <material name="stk_generic_bedRockLava_a.png" shader="alphatest"/>
   <material name="stktex_churchRosette_a.png" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png" shader="alphatest"/>
   <material name="stktex_churchRosetteGlass_a.png" shader="alphablend"/>
   
-  
-  <material name="stkcrowd_lowPoly_b.png" shader="grass" ignore="Y" grass-speed="5" grass-amplitude="10"/>
 
   
   <material name="stk_terminalHappy_face_a.png" shader="alphatest"/>
@@ -246,9 +237,6 @@
   <material name="stk_goldMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png"/>
   <material name="stk_redMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stkflag_latexBluePinkPattern_a_gloss.png"/>
     
-    <material name="stktex_blimp_a.png"         gloss-map="stkflag_latexBluePinkPattern_a_gloss.png"/>
-    
-    
   <material name="stk_metalRustedBlue_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png"/>
   <material name="stk_futureYellowBox_a.png"        gloss-map="stk_futureYellowBox_a_gloss.png"/>
 
@@ -295,7 +283,6 @@
 
   <material name="stktex_hayFiber_a.png" shader="grass"  ignore="Y"/>
   <material name="stk_wheatA.png" shader="grass"  ignore="Y"/>
-  <material name="stk_snowSmallBush_a.png" shader="grass"  ignore="Y"/>
   
   
   <material name="stktex_palmTreeBark_a.png"  />
