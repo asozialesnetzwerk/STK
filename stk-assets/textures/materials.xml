@@ -150,7 +150,7 @@
   <material name="gfxGlow_blue_a.png" gloss-map="gfxGlow_generic_a_gloss.png"/>
   <material name="gfxGlow_green_a.png" gloss-map="gfxGlow_generic_a_gloss.png"/>
   
-  <material name="stktex_generic_lavaA.png" gloss-map="stktex_generic_lava_gloss.png"  />
+  <material name="stktex_generic_lavaA.png" gloss-map="stktex_generic_lava_gloss.png" reset="Y" />
 
   <material name="stk_mudpot_a.png" gloss-map="stk_mudpot_a_gloss.png" />
   <material name="stkflag_latexBluePinkPattern_a.png" gloss-map="stkflag_latexBluePinkPattern_a_gloss.png"/>
