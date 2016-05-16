@@ -97,6 +97,7 @@
   <material name="stktex_granParadisoLocation_a.png" shader="alphatest"/>
   <material name="stktex_silviaLocationAtlas_a.png" shader="alphatest"/>
   <material name="stktex_launchpad42location_a.png" shader="alphatest"/>
+  <material name="stktex_LasDunasLocationAtlas_a.png" shader="alphatest"/>
   
   <material name="stktex_counterSSAO_a.png" shader="additive"/>
   
@@ -150,7 +151,9 @@
   <material name="gfxGlow_blue_a.png" gloss-map="gfxGlow_generic_a_gloss.png"/>
   <material name="gfxGlow_green_a.png" gloss-map="gfxGlow_generic_a_gloss.png"/>
   
-  <material name="stktex_generic_lavaA.png" gloss-map="stktex_generic_lava_gloss.png" reset="Y" />
+  <material name="stktex_lasDunasSponsors_a.png" gloss-map="gfxGlow_generic_a_gloss.png"/>
+  
+  <material name="stktex_generic_lavaA.png" gloss-map="stktex_generic_lava_gloss.png"  />
 
   <material name="stk_mudpot_a.png" gloss-map="stk_mudpot_a_gloss.png" />
   <material name="stkflag_latexBluePinkPattern_a.png" gloss-map="stkflag_latexBluePinkPattern_a_gloss.png"/>
@@ -228,6 +231,9 @@
   <material name="gfx_sparkGreen_a.png" compositing="additive"/> 
   <material name="gfx_electricArc_a.png" compositing="additive"/>
   <material name="gfx_yellowBeam_a.png" compositing="additive"/>
+  
+  <material name="stktex_screenLed_a.png" compositing="additive"/>
+  <material name="stk_generic_clouds_a.png" gloss-map="gfxGlow_softScreen_a.png"/>
   
   <!-- Normal map -->
   <material name="stk_generic_rock_a.png" graphical-effect="normal_map" normal-map="stk_generic_rock_a_nm.png" gloss-map="stk_generic_rock_a_gloss.png"/>
