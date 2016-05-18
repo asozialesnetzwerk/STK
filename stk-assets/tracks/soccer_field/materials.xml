@@ -3,5 +3,5 @@
 <materials>
   <material name="goal.png" backface-culling="N" disable-z-write="Y" shader="alphablend"/>
   <material name="racetrack_stadium.jpg" collision-detect="Y" collision-reaction="push-soccer"/>
-  <material name="transparence.png" shader="alphablend" fog="N" disable-z-write="Y"/>
+  <material name="transparence.png" shader="alphablend" fog="N" collision-detect="Y" disable-z-write="Y" collision-reaction="push-soccer"/>
 </materials>
