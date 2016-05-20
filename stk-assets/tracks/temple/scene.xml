@@ -626,7 +626,7 @@
     </curve>
   </object>
   <sun  fog="true" fog-color="7 8 15" fog-max="1.0" fog-start="10.00" fog-end="750.00" xyz="-126.80 136.24 -73.21" sun-specular="33 22 16" sun-diffuse="24 29 30" ambient="255 255 255"/>
-  <weather particles="rain.xml" sound="rain.ogg"/>
+  <weather particles="rain.xml" sound="rain"/>
   <sky-box texture="skybox_top.png skybox_bottom.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png" sh-texture="lightbox_top.png skybox_bottom.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png"/>
   <camera far="1500.0"/>
   <particle-emitter kind="sprayx.xml" id="sprayx" xyz="-11.95 40.00 29322.74" h="0.00" clip_distance="750">
