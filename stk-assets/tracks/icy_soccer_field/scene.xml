@@ -3,7 +3,9 @@
 <scene>
   <track model="icy_soccer_field_track.b3d" x="0" y="0" z="0"/>
   <object type="movable" id="soccer_ball" xyz="-0.47 13.04 0.55" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
-          shape="sphere" mass="20.0" model="soccer_ball.b3d" soccer_ball="true" skeletal-animation="false"/>
+          shape="cylinderY" height="0.5" mass="20.0" friction="0.2" restitution="1.0" linear-factor="1.0 1.0 1.0"
+          angular-factor="0.1 1.0 0.1" linear-damping="0.0" angular-damping="0.9"
+          model="soccer_ball.b3d" soccer_ball="true" skeletal-animation="false"/>
   <sun  fog="true" fog-color="29 63 111" fog-max="1.0" fog-start="5.00" fog-end="150.00" xyz="-323.32 562.74 676.22" sun-diffuse="255 213 160" ambient="85 85 85"/>
   <sky-color rgb="56 255 202"/>
   <weather particles="snow.xml"/>
