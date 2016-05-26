@@ -2247,6 +2247,10 @@ class TrackExport:
         if len(on_kart_collision) > 0:
             flags.append("on-kart-collision=\"%s\""%on_kart_collision)
             
+        custom_xml = getObjectProperty(obj, "custom_xml", "")
+        if len(custom_xml) > 0:
+            flags.append(custom_xml)
+            
         if_condition = getObjectProperty(obj, "if", "")
         if len(if_condition) > 0:
             flags.append("if=\"%s\""%if_condition)
@@ -2456,6 +2460,10 @@ class TrackExport:
             on_kart_collision = getObjectProperty(obj, "on_kart_collision", "")
             if len(on_kart_collision) > 0:
                 flags.append("on-kart-collision=\"%s\""%on_kart_collision)
+            
+            custom_xml = getObjectProperty(obj, "custom_xml", "")
+            if len(custom_xml) > 0:
+                flags.append(custom_xml)
             
             if_condition = getObjectProperty(obj, "if", "")
             if len(if_condition) > 0:

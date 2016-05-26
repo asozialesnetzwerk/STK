@@ -316,6 +316,7 @@
             -->
             <StringProp id="if" name="Visible if..." default="" doc="Make this object conditionally visible based on a scripting function returning bool"/>
             <StringProp id="on_kart_collision" name="Kart collision callback" default="" doc="Scripting function to call when a kart hits this object"/>
+            <StringProp id="custom_xml" name="Custom XML (advanced)" default="" doc="Mostly for internal use, allow adding custom raw attributes to the XML output"/>
         </EnumChoice>
 
         
