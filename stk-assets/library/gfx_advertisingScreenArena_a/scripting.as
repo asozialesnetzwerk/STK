@@ -1,6 +1,6 @@
 void onStart()
 {
-    Utils::logInfo ("hi");
+    //Utils::logInfo ("hi");
     
     ArenaScreenTimeout@ timeout = ArenaScreenTimeout(0);
     Utils::TimeoutCallback@ timerDelegate = Utils::TimeoutCallback(timeout.onTimerComplete);
@@ -57,7 +57,7 @@ class ArenaTextTimeout
     
     void onTimerComplete2()
     {
-        Utils::logInfo("text disabled");
+        //Utils::logInfo("text disabled");
         ArenaResetDisplayText("gfx_advertisingScreenArena_a_main_proxy");
     }
 }
@@ -80,12 +80,12 @@ class ArenaScreenTimeout
         
         if(this.counter > 2)
         {
-           Utils::logInfo("o:o");
+           //Utils::logInfo("o:o");
            this.counter = 0;
         }
         else
         {
-            Utils::logInfo("ahaha");
+            //Utils::logInfo("ahaha");
         }
         
         ArenaEnableAd(instID, this.counter);
