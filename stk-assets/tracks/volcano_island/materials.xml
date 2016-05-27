@@ -36,5 +36,5 @@
   </material>
   <material name="sea.jpg" shader="alphablend" surface="Y" disable-z-write="Y"/>
   <material name="sea.png" shader="alphablend" ignore="Y" disable-z-write="Y"/>
-  <material name="seabed.jpg" reset="Y"/>
+  <material name="seabed.jpg" reset="Y" water-splash="Y"/>
 </materials>
