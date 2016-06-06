@@ -3,6 +3,7 @@ Boom_boom_boom.ogg          by Matt Thomas, license: GNU GPL v3 (or later)
 celtic.ogg                  by 0zone0ne and Krobonil, license: CC-BY-SA v3.0
 Demonhill.ogg               by 0zone0ne, license: CC-SA v3.0
 egypt.ogg                   by 0zone0ne, license: CC-SA v3.0
+farm.ogg                    by 0zone0ne and Krobonil, license: CC-BY-SA v3.0
 garden.ogg                  by DJHelium, license: CC-BY-SA 3.0
 hacienda.ogg                by Claude Werner (bollen), license: CC-BY-SA 3.0
 kart_grand_prix.ogg         by Weirwood, license: CC-BY-SA v3.0
