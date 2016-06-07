@@ -3,7 +3,7 @@
 <scene>
   <track model="soccer_field_track.b3d" x="0" y="0" z="0"/>
   <object type="movable" id="soccer_ball" xyz="-0.47 13.04 0.55" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
-          shape="sphere" mass="20.0" model="soccer_ball.b3d" soccer_ball="true" skeletal-animation="false"/>
+          shape="sphere" mass="20.0" model="soccer_ball.b3d" soccer_ball="true" skeletal-animation="false" restitution="0.3"/>
   <sun  xyz="-49.61 201.74 -195.83" sun-specular="120 120 120" sun-diffuse="150 150 160" ambient="100 100 110"/>
   <sky-box texture="genericskybox_top.jpg genericskybox_bottom.jpg genericskybox_east.jpg genericskybox_west.jpg genericskybox_south.jpg genericskybox_north.jpg" />
   <camera far="1000.0"/>
