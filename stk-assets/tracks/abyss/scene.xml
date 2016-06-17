@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16343 -->
+<!-- Generated with script from SVN rev 16551 -->
 <scene>
   <track model="abyss_track.b3d" x="0" y="0" z="0">
     <static-object  model="limit-mainbuilding.b3d" xyz="-20.60 19.46 -144.29" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
@@ -180,10 +180,10 @@
       <p c="200.000 1.000" h1="159.397 1.000" h2="240.603 1.000"/>
     </curve>
   </object>
-  <object id="Plane.020" type="animation" xyz="47.73 23.40 -243.21" hpr="0.0 10.3 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_flow_minor_a.b3d" skeletal-animation="false">
+  <object id="Plane.020" type="animation" xyz="47.73 23.40 -243.21" hpr="-0.0 10.3 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_flow_minor_a.b3d" skeletal-animation="false">
     <animated-texture name="stktex_waterfall_a.png" dy="-1.0000" />
   </object>
-  <object id="Plane.022" type="animation" xyz="47.58 23.37 -226.67" hpr="-0.0 174.9 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_flow_minor_a.b3d" skeletal-animation="false">
+  <object id="Plane.022" type="animation" xyz="47.58 23.37 -226.67" hpr="0.0 174.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_flow_minor_a.b3d" skeletal-animation="false">
     <animated-texture name="stktex_waterfall_a.png" dy="-1.0000" />
   </object>
   <object id="Plane.023" type="animation" xyz="74.64 23.37 -222.71" hpr="0.0 164.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_flow_minor_a.b3d" skeletal-animation="false">
@@ -270,9 +270,9 @@
   <light xyz="104.23 13.15 -143.00" id="Lamp.011" distance="25.00" energy="2.00" color="113 181 255">
   </light>
   <lightshaft xyz="-537.03 175.21 -67.61" id="Sun.001" opacity="0.50" color="109 217 255"/>
-  <default-start karts-per-row     ="2"
+  <default-start karts-per-row     ="3"
                  forwards-distance ="1.10"
-                 sidewards-distance="1.10"
+                 sidewards-distance="2.00"
                  upwards-distance  ="1.10"/>
   <library name="stklib_candle_a" id="stklib_candle_a_main_proxy" xyz="-23.25 18.71 -20.46" hpr="-0.0 -120.3 -0.0" scale="1.00 1.00 1.00">
   </library>
@@ -308,9 +308,9 @@
   </library>
   <library name="stklib_redCrab_a" id="stklib_redCrab_a_main_proxy.003" xyz="78.10 6.65 -24.51" hpr="12.5 -12.2 -2.9" scale="1.86 1.86 1.86">
   </library>
-  <library name="stklib_redSeaweed_a" id="stklib_redSeaweed_a_main_proxy.000" xyz="-166.26 11.20 -78.64" hpr="-0.0 100.5 -0.0" scale="1.47 1.47 1.47">
+  <library name="stklib_redSeaweed_a" id="stklib_redSeaweed_a_main_proxy.000" xyz="-166.26 11.20 -78.64" hpr="0.0 100.5 0.0" scale="1.47 1.47 1.47">
   </library>
-  <library name="stklib_redSeaweed_a" id="stklib_redSeaweed_a_main_proxy.001" xyz="-167.20 11.12 -51.93" hpr="-0.0 100.5 -0.0" scale="1.47 1.47 1.47">
+  <library name="stklib_redSeaweed_a" id="stklib_redSeaweed_a_main_proxy.001" xyz="-167.20 11.12 -51.93" hpr="0.0 100.5 0.0" scale="1.47 1.47 1.47">
   </library>
   <library name="stklib_redSeaweed_a" id="stklib_redSeaweed_a_main_proxy.002" xyz="-122.37 1.05 8.27" hpr="0.0 139.0 0.0" scale="1.47 1.47 1.47">
   </library>
@@ -480,13 +480,13 @@
   </library>
   <library name="stklib_seaLantern_a" id="stklib_seaLantern_a_main_proxy.001" xyz="47.73 4.00 -24.00" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_seaLantern_a" id="stklib_seaLantern_a_main_proxy.002" xyz="-147.04 4.00 -44.22" hpr="0.0 20.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_seaLantern_a" id="stklib_seaLantern_a_main_proxy.002" xyz="-147.04 4.00 -44.22" hpr="-0.0 20.0 -0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_seaLantern_a" id="stklib_seaLantern_a_main_proxy.003" xyz="-13.15 29.24 -152.16" hpr="0.0 -1.3 -0.0" scale="1.50 1.50 1.50">
   </library>
-  <library name="stklib_seaLantern_a" id="stklib_seaLantern_a_main_proxy.004" xyz="-125.36 4.00 -7.54" hpr="0.0 48.7 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_seaLantern_a" id="stklib_seaLantern_a_main_proxy.004" xyz="-125.36 4.00 -7.54" hpr="-0.0 48.7 -0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_seaLantern_a" id="stklib_seaLantern_a_main_proxy.005" xyz="-86.93 4.00 14.28" hpr="0.0 78.7 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_seaLantern_a" id="stklib_seaLantern_a_main_proxy.005" xyz="-86.93 4.00 14.28" hpr="-0.0 78.7 -0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_seaLantern_a" id="stklib_seaLantern_a_main_proxy.006" xyz="-147.35 4.00 -89.81" hpr="0.0 -16.3 0.0" scale="1.00 1.00 1.00">
   </library>
