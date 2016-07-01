@@ -2,5 +2,6 @@
 <!-- Generated with script from SVN rev Unknown -->
 <materials>
   <material name="goal.png" backface-culling="N" disable-z-write="Y" shader="alphablend"/>
+  <material name="puck.png" gloss-map="puck_gloss.png"/>
   <material name="transparence.png" shader="alphablend" fog="N" collision-detect="Y" disable-z-write="Y" collision-reaction="push-soccer"/>
 </materials>
