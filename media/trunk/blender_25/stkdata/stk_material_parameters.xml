@@ -11,6 +11,13 @@
                 <StringProp id="normal_map" name="Normal map"  default="" doc="Use normal maps for this material (the model must be exported as tangent for this to work)"/>
                 <StringProp id="mask" name="Mask image (optional)" default="" doc="Greyscale image containing the alpha channel (transparency) for this image"/>
                 <!--<StringProp id="light_map" name="Light map"  default=""/>-->
+                
+                <!-- Slowdown -->
+                <BoolProp id="colorizable" name="Colorizable (for karts)" default="false"
+                        doc="Used on karts in soccer mode to give a kart the team's colors">
+                    <FloatProp id="colorization_factor" name="Colorization factor" default="1.0" min="0.0" max="1.0"
+                                doc="How much to change color"/>
+                </BoolProp>
             </EnumChoice>
             
             <!-- Alpha testing -->

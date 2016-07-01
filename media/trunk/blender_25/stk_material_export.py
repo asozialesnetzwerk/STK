@@ -115,7 +115,9 @@ def writeMaterialsFile(sPath):
            'splatting_lightmap'    : {'default': "", 'parent': ('shader','splatting'), 'type': 'string'},
            #'water_shader_speed_1'  : {'default': 6.6667, 'parent': ('graphical_effect','water_shader'), 'type': 'number'},
            #'water_shader_speed_2'  : {'default': 4.0, 'parent': ('graphical_effect','water_shader'), 'type': 'number'},
-           'water_splash'          : {'default': "N", 'parent': None, 'type': 'bool'}
+           'water_splash'          : {'default': "N", 'parent': None, 'type': 'bool'},
+           'colorizable'           : {'default': "N", 'parent': ('shader','solid'), 'type': 'bool'},
+           'colorization_factor'   : {'default': "", 'parent': 'colorizable', 'type': 'number'}
     }
     
     #start_time = bsys.time()
