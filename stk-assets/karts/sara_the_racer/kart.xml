@@ -1,12 +1,11 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15441 -->
+<!-- Generated with script from SVN rev 16354 -->
 <kart name              = "Sara the Racer"
       version           = "2"
       model-file        = "sara the racer.b3d"
       icon-file         = "icon-sara.png"
       minimap-icon-file = "icon-sara.png"
       shadow-file       = "turbinia_shadow.png"
-      random-wheel-rot  = "true"
       type              = "light"
       groups            = "standard"
       rgb               = "1.00 1.00 1.00" >
