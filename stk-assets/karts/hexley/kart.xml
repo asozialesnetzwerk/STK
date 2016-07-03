@@ -1,12 +1,11 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 14368 -->
+<!-- Generated with script from SVN rev 16354 -->
 <kart name              = "Hexley"
       version           = "2"
       model-file        = "hexley.b3d"
       icon-file         = "hexleyicon.png"
       minimap-icon-file = "hexleyicon.png"
       shadow-file       = "hexley2shadow.png"
-      random-wheel-rot  = "true"
       type              = "light"
       groups            = "standard"
       rgb               = "0.78 0.23 0.23" >
