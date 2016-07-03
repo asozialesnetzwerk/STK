@@ -1,12 +1,11 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15441 -->
+<!-- Generated with script from SVN rev 16354 -->
 <kart name              = "Adiumy"
       version           = "2"
       model-file        = "adiumy.b3d"
       icon-file         = "adiumyicon.png"
       minimap-icon-file = "adiumyicon.png"
       shadow-file       = "adiumyshadow.png"
-      random-wheel-rot  = "true"
       type              = "medium"
       groups            = "standard"
       rgb               = "0.00 0.70 0.00" >
