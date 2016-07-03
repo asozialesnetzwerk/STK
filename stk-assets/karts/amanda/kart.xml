@@ -1,14 +1,12 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15441 -->
+<!-- Generated with script from SVN rev 16354 -->
 <kart name              = "Amanda"
       version           = "2"
       model-file        = "amanda.b3d"
       icon-file         = "amanda_icon.png"
       minimap-icon-file = "amanda_icon.png"
       shadow-file       = "amanda_shadow.png"
-      random-wheel-rot  = "true"
       type              = "heavy"
-      center-shift      = "0.00"
       groups            = "standard"
       rgb               = "1.00 1.00 1.00" >
   <sounds engine = "large"/>
