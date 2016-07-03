@@ -1,12 +1,11 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15441 -->
+<!-- Generated with script from SVN rev 16354 -->
 <kart name              = "Nolok"
       version           = "2"
       model-file        = "nolok.b3dz"
       icon-file         = "nolokicon.png"
       minimap-icon-file = "nolokicon.png"
       shadow-file       = "nolokshadow.png"
-      random-wheel-rot  = "true"
       type              = "medium"
       groups            = "standard"
       rgb               = "0.25 0.21 0.06" >
