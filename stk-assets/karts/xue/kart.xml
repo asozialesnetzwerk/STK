@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15441 -->
+<!-- Generated with script from SVN rev 16354 -->
 <kart name              = "Xue"
       version           = "2"
       model-file        = "xue.b3d"
       icon-file         = "xfce_icon64.png"
       minimap-icon-file = "xfce_icon32.png"
       shadow-file       = "shadow.png"
-      random-wheel-rot  = "false"
       type              = "medium"
       center-shift      = "0.30"
       groups            = "standard"
       rgb               = "0.03 0.40 1.00" >
   <sounds engine = "large"/>
   <animations left = "19"
+              left = "19"
               straight = "39"
               right = "59"
               start-winning = "79"
