@@ -1,12 +1,11 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15441 -->
+<!-- Generated with script from SVN rev 16354 -->
 <kart name              = "Gavroche"
       version           = "2"
       model-file        = "gavroche.b3d"
       icon-file         = "gavroche_icon.png"
       minimap-icon-file = "gavroche_icon.png"
       shadow-file       = "gavroche_shadow.png"
-      random-wheel-rot  = "true"
       type              = "medium"
       groups            = "standard"
       rgb               = "1.00 1.00 1.00" >
