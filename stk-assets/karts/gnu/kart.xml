@@ -1,12 +1,11 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15441 -->
+<!-- Generated with script from SVN rev 16354 -->
 <kart name              = "Gnu"
       version           = "2"
-      model-file        = "gnu.b3dz"
+      model-file        = "gnu.b3d"
       icon-file         = "gnuicon.png"
       minimap-icon-file = "gnuicon.png"
       shadow-file       = "gnushadow.png"
-      random-wheel-rot  = "true"
       type              = "medium"
       center-shift      = "0.70"
       groups            = "standard"
