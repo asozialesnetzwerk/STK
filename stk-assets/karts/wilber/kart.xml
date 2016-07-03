@@ -1,12 +1,11 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 14368 -->
+<!-- Generated with script from SVN rev 16354 -->
 <kart name              = "Wilber"
       version           = "2"
       model-file        = "wilber.b3dz"
       icon-file         = "wilbericon.png"
       minimap-icon-file = "wilbericon.png"
       shadow-file       = "wilbershadow.png"
-      random-wheel-rot  = "true"
       type              = "light"
       groups            = "standard"
       rgb               = "1.00 0.42 0.00" >
