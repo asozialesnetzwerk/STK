@@ -1,12 +1,11 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15441 -->
+<!-- Generated with script from SVN rev 16354 -->
 <kart name              = "Emule"
       version           = "2"
       model-file        = "emule.b3dz"
       icon-file         = "emule_icon128.png"
       minimap-icon-file = "emule_icon32.png"
       shadow-file       = "emule_shadow.png"
-      random-wheel-rot  = "true"
       type              = "medium"
       center-shift      = "0.00"
       groups            = "standard"
