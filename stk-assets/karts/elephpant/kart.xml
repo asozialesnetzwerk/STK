@@ -1,12 +1,11 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15441 -->
+<!-- Generated with script from SVN rev 16354 -->
 <kart name              = "Elephpant"
       version           = "2"
       model-file        = "elephpant.b3dz"
       icon-file         = "elephpanticon.png"
       minimap-icon-file = "elephpanticon.png"
       shadow-file       = "elephpantshadow.png"
-      random-wheel-rot  = "true"
       type              = "heavy"
       groups            = "standard"
       rgb               = "0.46 0.71 0.02" >
