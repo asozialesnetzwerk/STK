@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 8296 -->
+<!-- Generated with script from SVN rev Unknown -->
 <materials>
-<material name="konqiV1-name.png" backface-culling="N" disable-z-write="Y" compositing="blend"/>
-  
+  <material name="konqi vehicle texture up1.png" colorizable="Y" colorization-factor="0.00"/>
+  <material name="konqi_kerchief.png" colorizable="Y" colorization-factor="0.00"/>
 </materials>
-

@@ -1,12 +1,11 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15441 -->
+<!-- Generated with script from SVN rev 16354 -->
 <kart name              = "Konqi"
       version           = "2"
       model-file        = "konqi.b3d"
       icon-file         = "konqi_icon.png"
       minimap-icon-file = "konqi_icon.png"
       shadow-file       = "konqiV1 shadow.png"
-      random-wheel-rot  = "true"
       type              = "medium"
       groups            = "standard"
       rgb               = "0.00 0.59 0.00" >
