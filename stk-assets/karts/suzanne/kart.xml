@@ -1,12 +1,11 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15441 -->
+<!-- Generated with script from SVN rev 16354 -->
 <kart name              = "Suzanne"
       version           = "2"
       model-file        = "suzanne.b3d"
       icon-file         = "icon_large.png"
       minimap-icon-file = "icon32.png"
       shadow-file       = "shadow.png"
-      random-wheel-rot  = "true"
       type              = "medium"
       groups            = "standard"
       rgb               = "0.91 0.55 0.07" >
