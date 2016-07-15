@@ -117,7 +117,8 @@ def writeMaterialsFile(sPath):
            #'water_shader_speed_2'  : {'default': 4.0, 'parent': ('graphical_effect','water_shader'), 'type': 'number'},
            'water_splash'          : {'default': "N", 'parent': None, 'type': 'bool'},
            'colorizable'           : {'default': "N", 'parent': ('shader','solid'), 'type': 'bool'},
-           'colorization_factor'   : {'default': "", 'parent': 'colorizable', 'type': 'number'}
+           'colorization_factor'   : {'default': "", 'parent': 'colorizable', 'type': 'number'},
+           'colorization_mask'     : {'default': "", 'parent': 'colorizable', 'type': 'string'}
     }
     
     #start_time = bsys.time()
