@@ -141,6 +141,9 @@
         <EnumChoice id="medium" label="Medium" />
         <EnumChoice id="heavy" label="Heavy" />
     </EnumProp>
+    
+    <StringProp id="kartLean" name="Lean max (advanced)" default="" doc="Customize lean, for instance *0-10"/>
+    
 </BoolProp>
 
 

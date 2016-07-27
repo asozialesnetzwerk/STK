@@ -382,6 +382,9 @@ def exportKart(path):
     
     f.write('  <hat offset="' + hat_offset + '"/>\n')
     
+    if 'kartLean' in the_scene and len(the_scene['kartLean']) > 0:
+        f.write('  <lean max="' + the_scene['kartLean'] + '"/>\n')
+    
     f.write('</kart>\n')
     f.close()
 
