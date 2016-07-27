@@ -1,11 +1,9 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16538 -->
+<!-- Generated with script from SVN rev 16649 -->
 <scene>
   <track model="icy_soccer_field_track.b3d" x="0" y="0" z="0"/>
   <object type="movable" id="Puck" xyz="-0.48 13.95 0.58" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
-          shape="cylinderY" mass="20.0" friction="0.2" restitution="0.3" linear-factor="1.0 1.0 1.0"
-          angular-factor="0.1 1.0 0.1" linear-damping="0.0" angular-damping="0.9"
-          model="puck.b3d" soccer_ball="true" skeletal-animation="false"/>
+          shape="cylinderY" mass="20.0" model="puck.b3d" soccer_ball="true" friction="0.5" restitution="0.3" linear-factor="1.0 1.0 1.0" angular-factor="0.0 1.0 0.0" linear-damping="0.0" angular-damping="0.9" skeletal-animation="false"/>
   <sun  fog="true" fog-color="29 63 111" fog-max="1.0" fog-start="5.00" fog-end="150.00" xyz="-323.32 562.74 676.22" sun-diffuse="255 213 160" ambient="85 85 85"/>
   <sky-color rgb="56 255 202"/>
   <weather particles="snow.xml"/>
