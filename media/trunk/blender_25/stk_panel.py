@@ -1081,7 +1081,7 @@ class PanelBase:
 
 # ==== OBJECT PANEL ====
 class SuperTuxKartObjectPanel(bpy.types.Panel, PanelBase):
-    bl_label = "SuperTuxKart Properties"
+    bl_label = "SuperTuxKart Object Properties"
     bl_space_type = "PROPERTIES"
     bl_region_type = "WINDOW"
     bl_context = "object"
