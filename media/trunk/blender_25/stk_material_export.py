@@ -118,7 +118,8 @@ def writeMaterialsFile(sPath):
            'water_splash'          : {'default': "N", 'parent': None, 'type': 'bool'},
            'colorizable'           : {'default': "N", 'parent': ('shader','solid'), 'type': 'bool'},
            'colorization_factor'   : {'default': "", 'parent': 'colorizable', 'type': 'number'},
-           'colorization_mask'     : {'default': "", 'parent': 'colorizable', 'type': 'string'}
+           'colorization_mask'     : {'default': "", 'parent': 'colorizable', 'type': 'string'},
+           'hue_settings'          : {'default': "", 'parent': 'colorizable', 'type': 'string'}
     }
     
     #start_time = bsys.time()
