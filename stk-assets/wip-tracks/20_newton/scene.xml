@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15482 -->
+<!-- Generated with script from SVN rev 16649 -->
 <scene>
-  <track model="newton_track.b3d" x="0" y="0" z="0"/>
+  <track model="20_newton_track.b3d" x="0" y="0" z="0"/>
   <object id="Plane.048" type="animation" xyz="-0.00 1.97 -32.42" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="displacement_test.b3d" displacing="true" skeletal-animation="false">
   </object>
   <sun  xyz="0.00 278.07 119.60" sun-diffuse="255 250 186" ambient="120 120 120"/>
@@ -9,16 +9,23 @@
   <camera far="1000.0"/>
   <checks>
     <check-lap kind="lap" same-group="0" other-ids="1" />
-    <check-line kind="activate" other-ids="2" p1="80.73 335.13" p2="96.52 337.68"
-                min-height="-19.02" same-group="1"/>
-    <check-line kind="activate" other-ids="0" p1="-49.21 175.66" p2="-38.15 175.66"
-                min-height="-41.74" same-group="2"/>
+    <check-line kind="activate" other-ids="2" p1="76.60 -19.31" p2="96.15 -19.31"
+                min-height="-6.76" same-group="1"/>
+    <check-line kind="activate" other-ids="0" p1="-34.51 48.44" p2="-10.56 48.72"
+                min-height="-5.43" same-group="2"/>
   </checks>
-  <banana id="Empty" x="86.54" y="-2.84" z="107.05" drop="false" />
-  <banana id="Empty.001" x="86.54" y="-10.68" z="107.05" drop="false" />
-  <item id="Empty.002" x="86.54" y="-6.76" z="107.05" drop="false" />
-  <big-nitro id="Empty.003" x="86.54" y="-6.76" z="225.16" drop="false" />
-  <big-nitro id="Empty.004" x="89.06" y="-17.76" z="335.43" drop="false" />
+  <banana id="Empty" x="86.54" y="-2.84" z="107.05" />
+  <banana id="Empty.001" x="86.54" y="-10.68" z="107.05" />
+  <item id="Empty.002" x="86.54" y="-6.76" z="107.05" />
+  <big-nitro id="Empty.003" x="86.54" y="-6.76" z="225.16" />
+  <big-nitro id="Empty.004" x="89.06" y="-18.72" z="335.43" />
+  <item id="Empty.005" x="81.88" y="-5.99" z="-24.07" />
+  <item id="Empty.006" x="88.17" y="-6.42" z="-22.32" />
+  <item id="Empty.007" x="30.20" y="52.68" z="-60.64" />
+  <item id="Empty.008" x="-34.32" y="2.57" z="-69.70" />
+  <item id="Empty.009" x="106.29" y="-23.45" z="432.00" />
+  <item id="Empty.010" x="-31.13" y="-25.88" z="465.40" />
+  <item id="Empty.011" x="-44.95" y="-34.01" z="230.56" />
   <default-start karts-per-row     ="2"
                  forwards-distance ="1.10"
                  sidewards-distance="1.10"
