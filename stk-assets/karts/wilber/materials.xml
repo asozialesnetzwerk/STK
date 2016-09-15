@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev Unknown -->
 <materials>
-  <material name="wilber2neu.png" colorizable="Y" colorization-factor="0.00"/>
+  <material name="Wilber_wheel_diffuse.png" gloss-map="Wilber_wheel_gloss.png" colorizable="Y" colorization-factor="0.00" colorization-mask="Wilber_wheel_colorizationMask.png"/>
+  <material name="Wilber_bucket_diffuse.png" gloss-map="Wilber_bucket_gloss.png"/>
+  <material name="Wilber_diffuseMap.png" gloss-map="Wilber_glossMap.png" colorizable="Y" colorization-factor="0.00" colorization-mask="Wilber_colorizationMask.png"/>
 </materials>
