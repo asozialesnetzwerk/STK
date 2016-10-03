@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16506 -->
+<!-- Generated with script from SVN rev 16649 -->
 <scene>
   <track model="cocoa_temple_track.b3d" x="0" y="0" z="0">
     <static-object  model="boundaries.b3d" xyz="8.70 2.58 -313.78" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
@@ -40,7 +40,7 @@
   <object id="Plane.186" type="animation" xyz="141.10 -24.72 746.19" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_pond.b3d" displacing="true" skeletal-animation="false">
     <animated-texture name="jungleWater.png" dx="0.100" />
   </object>
-  <object id="Plane.192" type="animation" xyz="-52.01 -13.57 -35.25" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="reset" shape="box" model="reset-plane.b3d" reset="y" skeletal-animation="false">
+  <object id="reset_plane_flying" type="animation" xyz="-52.01 -13.57 -35.25" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="reset" shape="exact" model="reset-plane.b3d" reset="y" skeletal-animation="false">
   </object>
   <object id="road_b.002" type="animation" xyz="-54.24 -1.92 -117.82" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="cocoa_shredder.b3d" skeletal-animation="false">
     <curve channel="RotX" interpolation="linear" extend="cyclic">
@@ -937,8 +937,8 @@
   </object>
   <item id="Empty.000" x="287.95" y="20.77" z="-141.84" h="29.51" />
   <big-nitro id="Empty.001" x="-50.71" y="-0.10" z="-124.31" />
-  <small-nitro id="Empty.002" x="227.67" y="10.62" z="23.84" />
-  <banana id="Empty.003" x="232.85" y="11.70" z="24.46" />
+  <small-nitro id="Empty.002" x="227.67" y="8.46" z="23.84" />
+  <banana id="Empty.003" x="232.85" y="8.26" z="24.46" />
   <small-nitro id="Empty.004" x="253.17" y="14.67" z="-17.49" />
   <small-nitro id="Empty.005" x="247.78" y="17.94" z="-18.62" />
   <small-nitro id="Empty.006" x="242.01" y="19.03" z="-20.33" />
