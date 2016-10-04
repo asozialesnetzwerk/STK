@@ -1,5 +1,5 @@
 bay.ogg                     by 0zone0ne, license: CC-SA v3.0
-Boom_boom_boom.ogg          by Matt Thomas, license: GNU GPL v3 (or later)
+Boom_boom_boom.ogg          by Keith Baylis aka Vim, license: CC-BY-SA v4.0
 celtic.ogg                  by 0zone0ne and Krobonil, license: CC-BY-SA v3.0
 Demonhill.ogg               by 0zone0ne, license: CC-SA v3.0
 egypt.ogg                   by 0zone0ne, license: CC-SA v3.0
