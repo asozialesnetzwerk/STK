@@ -19,6 +19,6 @@
   <material name="track_01.jpg" backface-culling="N"/>
   <material name="wood_planks1.jpg" high-adhesion="Y" has-gravity="Y"/>
   <material name="woodBridge-subsea.jpg" high-adhesion="Y" has-gravity="Y"/>
-  <material name="zipper.png" shader="alphablend"/>
+  <material name="zipper.png" shader="alphablend" mirror-axis="V"/>
   <material name="zipper_effect.png" shader="alphablend"/>
 </materials>
