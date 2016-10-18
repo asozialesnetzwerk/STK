@@ -3,8 +3,6 @@
 <materials>
   <material name="brick1.png" backface-culling="N"/>
   <material name="bush3.png" ignore="Y" shader="alphatest"/>
-  <material name="stk_generic_grassA.png" max-speed="0.40"/>
-  <material name="stk_generic_grassA.png" max-speed="0.40"/>
   <material name="leaves2.png" ignore="Y" shader="alphatest"/>
   <material name="seabed.png" falling-effect="Y" water-splash="Y"/>
   <material name="tree_1.png" backface-culling="N" shader="alphatest"/>
@@ -14,6 +12,6 @@
   </material>
   <material name="wooden2.png" backface-culling="N" shader="alphatest"/>
   <material name="zipper_collect.png" shader="alphatest" mirror-axis="V">
-    <zipper max-speed-increase="15.0" duration="3.5" speed-gain="4.5" fade-out-time="3.0"/>
+    <zipper max-speed-increase="15.0" duration="3.5" speed-gain="4.5" fade-out-time="3.0" min-speed="-1.0"/>
   </material>
 </materials>
