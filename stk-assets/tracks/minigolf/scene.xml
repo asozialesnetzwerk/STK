@@ -1,35 +1,35 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15595 -->
+<!-- Generated with script from SVN rev 16649 -->
 <scene>
   <lod>
    <group name="pine_tree_lod">
-    <static-object lod_distance="70" lod_group="pine_tree_lod" model="pine_tree_lod_hight.b3d" xyz="-173.14 -66.23 -85.57" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38" interaction="static"/>
-    <static-object lod_distance="150" lod_group="pine_tree_lod" model="pine_tree_lod_medium.b3d" xyz="-150.27 -66.23 -85.57" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38" interaction="static"/>
-    <static-object lod_distance="300" lod_group="pine_tree_lod" model="pine_tree_lod_low.b3d" xyz="-134.14 -66.23 -85.57" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38" interaction="static"/>
+    <static-object lod_distance="70" lod_group="pine_tree_lod" model="pine_tree_lod_hight.b3d" xyz="-173.14 -66.23 -85.57" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="150" lod_group="pine_tree_lod" model="pine_tree_lod_medium.b3d" xyz="-150.27 -66.23 -85.57" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="300" lod_group="pine_tree_lod" model="pine_tree_lod_low.b3d" xyz="-134.14 -66.23 -85.57" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38" interaction="static" skeletal-animation="false"/>
    </group>
   </lod>
   <track model="minigolf_track.b3d" x="0" y="0" z="0">
-    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="78.01 6.26 -31.09" hpr="0.0 -75.4 0.0" scale="2.51 2.51 2.51"/>
-    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-62.59 13.56 -49.50" hpr="-9.1 146.6 -5.7" scale="2.67 2.67 2.67"/>
-    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-87.60 12.57 -44.69" hpr="-4.3 -160.4 -5.1" scale="1.71 1.71 1.71"/>
-    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-150.49 15.65 -18.18" hpr="-4.3 -160.4 -5.1" scale="2.38 2.38 2.38"/>
-    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-152.67 15.11 4.61" hpr="11.9 -105.2 -18.5" scale="3.29 3.91 3.29"/>
-    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-25.35 10.48 -53.97" hpr="59.3 -94.5 -55.9" scale="1.36 1.89 1.36"/>
-    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="116.14 4.34 -47.13" hpr="-8.0 -22.7 5.2" scale="1.86 2.08 1.86"/>
-    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-50.61 9.95 -48.79" hpr="1.2 -31.8 4.3" scale="1.36 1.89 1.36"/>
-    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="104.27 4.90 -63.07" hpr="-4.5 17.4 5.0" scale="1.75 2.12 1.75"/>
-    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-151.18 8.64 25.01" hpr="-2.7 -31.4 7.7" scale="1.57 2.20 1.58"/>
-    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="67.32 11.15 -83.67" hpr="-1.7 -137.9 -6.4" scale="1.73 2.10 1.74"/>
-    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="53.41 13.63 -79.69" hpr="-2.0 -139.8 -6.2" scale="1.57 1.90 1.57"/>
-    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="98.06 12.03 -91.40" hpr="0.3 139.9 -4.8" scale="1.57 1.90 1.57"/>
-    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="140.42 13.15 -65.04" hpr="5.6 -134.6 -0.1" scale="1.57 1.50 1.57"/>
-    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="-11.70 9.18 -64.62" hpr="7.0 -136.0 -5.1" scale="1.57 2.20 1.58"/>
-    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="145.40 14.54 -16.44" hpr="-10.0 140.8 -3.8" scale="3.29 3.91 3.29"/>
-    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="145.71 13.55 -42.63" hpr="-10.1 -129.8 5.4" scale="2.36 2.81 2.36"/>
-    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="113.35 3.38 66.84" hpr="-6.0 97.7 -12.6" scale="1.79 2.71 1.80"/>
-    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="85.76 7.99 115.09" hpr="6.0 -17.5 1.8" scale="1.58 2.39 1.58"/>
-    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="97.66 5.12 101.31" hpr="8.1 42.5 2.3" scale="1.42 2.15 1.43"/>
-    <static-object lod_instance="true" lod_group="pine_tree_lod" xyz="57.68 8.62 104.11" hpr="5.0 -41.4 2.2" scale="1.80 2.72 1.80"/>
+    <static-object  lod_instance="true" lod_group="pine_tree_lod" xyz="78.01 6.26 -31.09" hpr="0.0 -75.4 0.0" scale="2.51 2.51 2.51"/>
+    <static-object  lod_instance="true" lod_group="pine_tree_lod" xyz="-62.59 13.56 -49.50" hpr="-9.1 146.6 -5.7" scale="2.67 2.67 2.67"/>
+    <static-object  lod_instance="true" lod_group="pine_tree_lod" xyz="-87.60 12.57 -44.69" hpr="-4.3 -160.4 -5.1" scale="1.71 1.71 1.71"/>
+    <static-object  lod_instance="true" lod_group="pine_tree_lod" xyz="-150.49 15.65 -18.18" hpr="-4.3 -160.4 -5.1" scale="2.38 2.38 2.38"/>
+    <static-object  lod_instance="true" lod_group="pine_tree_lod" xyz="-152.67 15.11 4.61" hpr="11.9 -105.2 -18.5" scale="3.29 3.91 3.29"/>
+    <static-object  lod_instance="true" lod_group="pine_tree_lod" xyz="-25.35 10.48 -53.97" hpr="59.3 -94.5 -55.9" scale="1.36 1.89 1.36"/>
+    <static-object  lod_instance="true" lod_group="pine_tree_lod" xyz="116.14 4.34 -47.13" hpr="-8.0 -22.7 5.2" scale="1.86 2.08 1.86"/>
+    <static-object  lod_instance="true" lod_group="pine_tree_lod" xyz="-50.61 9.95 -48.79" hpr="1.2 -31.8 4.3" scale="1.36 1.89 1.36"/>
+    <static-object  lod_instance="true" lod_group="pine_tree_lod" xyz="104.27 4.90 -63.07" hpr="-4.5 17.4 5.0" scale="1.75 2.12 1.75"/>
+    <static-object  lod_instance="true" lod_group="pine_tree_lod" xyz="-151.18 8.64 25.01" hpr="-2.7 -31.4 7.7" scale="1.57 2.20 1.58"/>
+    <static-object  lod_instance="true" lod_group="pine_tree_lod" xyz="67.32 11.15 -83.67" hpr="-1.7 -137.9 -6.4" scale="1.73 2.10 1.74"/>
+    <static-object  lod_instance="true" lod_group="pine_tree_lod" xyz="53.41 13.63 -79.69" hpr="-2.0 -139.8 -6.2" scale="1.57 1.90 1.57"/>
+    <static-object  lod_instance="true" lod_group="pine_tree_lod" xyz="98.06 12.03 -91.40" hpr="0.3 139.9 -4.8" scale="1.57 1.90 1.57"/>
+    <static-object  lod_instance="true" lod_group="pine_tree_lod" xyz="140.42 13.15 -65.04" hpr="5.6 -134.6 -0.1" scale="1.57 1.50 1.57"/>
+    <static-object  lod_instance="true" lod_group="pine_tree_lod" xyz="-11.70 9.18 -64.62" hpr="7.0 -136.0 -5.1" scale="1.57 2.20 1.58"/>
+    <static-object  lod_instance="true" lod_group="pine_tree_lod" xyz="145.40 14.54 -16.44" hpr="-10.0 140.8 -3.8" scale="3.29 3.91 3.29"/>
+    <static-object  lod_instance="true" lod_group="pine_tree_lod" xyz="145.71 13.55 -42.63" hpr="-10.1 -129.8 5.4" scale="2.36 2.81 2.36"/>
+    <static-object  lod_instance="true" lod_group="pine_tree_lod" xyz="113.35 3.38 66.84" hpr="-6.0 97.7 -12.6" scale="1.79 2.71 1.80"/>
+    <static-object  lod_instance="true" lod_group="pine_tree_lod" xyz="85.76 7.99 115.09" hpr="6.0 -17.5 1.8" scale="1.58 2.39 1.58"/>
+    <static-object  lod_instance="true" lod_group="pine_tree_lod" xyz="97.66 5.12 101.31" hpr="8.1 42.5 2.3" scale="1.42 2.15 1.43"/>
+    <static-object  lod_instance="true" lod_group="pine_tree_lod" xyz="57.68 8.62 104.11" hpr="5.0 -41.4 2.2" scale="1.80 2.72 1.80"/>
   </track>
   <object id="cannon_ball" type="animation" xyz="-16.34 -5.55 66.60" hpr="-41.1 108.8 117.8" scale="1.00 1.00 1.00" interaction="explode" shape="sphere" model="Golfball_cannon.b3d" explode="y" tangents="true" skeletal-animation="false">
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
@@ -220,8 +220,8 @@
   <banana id="Empty.042" x="86.00" y="-1.30" z="32.70" />
   <banana id="Empty.043" x="-53.29" y="-8.45" z="33.94" />
   <item id="Empty.048" x="101.24" y="1.20" z="-23.03" />
-  <default-start karts-per-row     ="3"
-                 forwards-distance ="2.50"
-                 sidewards-distance="2.60"
+  <default-start karts-per-row     ="5"
+                 forwards-distance ="1.00"
+                 sidewards-distance="1.80"
                  upwards-distance  ="1.10"/>
 </scene>

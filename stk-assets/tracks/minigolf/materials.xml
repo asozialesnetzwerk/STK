@@ -11,7 +11,7 @@
   <material name="BurdockLeaf.png" backface-culling="N" ignore="Y" shader="alphatest"/>
   <material name="FieldPlant2.png" backface-culling="N" disable-z-write="Y" ignore="Y" grass-speed="1.50" shader="grass"/>
   <material name="flag.jpg" backface-culling="N"/>
-  <material name="foliage.png" backface-culling="N" clampv="Y" shader="grass"/>
+  <material name="foliage.png" backface-culling="N" clampv="Y" shader="grass" grass-speed="1.50" grass-amplitude="0.60"/>
   <material name="golfball_baked.jpg" normal-map="golfball_baked_normal.png"/>
   <material name="racetrack_blend-dark.png" backface-culling="N" ignore="Y" shader="alphatest"/>
   <material name="GrassTall.png" backface-culling="N" disable-z-write="Y" ignore="Y" grass-speed="1.50" shader="grass"/>
@@ -23,7 +23,6 @@
   <material name="seabed.jpg" falling-effect="Y" reset="Y"/>
   <material name="StreamPlant.png" backface-culling="N" ignore="Y" shader="alphatest"/>
   <material name="tarmac.jpg" slowdown-time="1.12" max-speed="0.95"/>
-  <material name="tree_1.png" backface-culling="N" disable-z-write="Y" shader="grass"/>
   <material name="tree_1.png" backface-culling="N" disable-z-write="Y" shader="grass" grass-speed="1.50"/>
   <material name="tree_noanim.png" backface-culling="N" disable-z-write="Y" grass-speed="1.50" shader="grass"/>
   <material name="water.png" backface-culling="N" surface="Y" shader="alphablend">
