@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <materials>
 
+
+  <material name="stklib_oldcar_a.png" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png" colorizable="Y" colorization-factor="0.00" colorization-mask="stklib_oldcar_a_mask.png" hue-settings="1 0.02 0.1 0.3 0.5 0.66 0.8 0.0"/>
+
   <!-- Booster -->
   <material name="gfx_booster_AlphaTest.png" shader="alphatest" >
     <zipper duration="3.5" max-speed-increase="15.0" fade-out-time="3.0" speed-gain="4.5" min-speed="37.0"/>
@@ -19,6 +22,9 @@
   <material name="stkflag_orangeBooster_a.png"      shader="alphatest" disable-z-write="Y" has-gravity="Y"/>
   <material name="stkflag_blueBooster_a.png"        shader="alphatest" disable-z-write="Y" has-gravity="Y"/>
   <material name="stkflag_redBooster_a.png"        shader="alphatest" disable-z-write="Y" has-gravity="Y"/>
+
+  <material name="stk_generic_sandRoad_a.png"       has-gravity="Y"/>
+
   <material name="stkflag_blueStartingLine_a.png"   shader="alphatest" />
   <material name="stkflag_albikStartingLine_a.png"   shader="alphatest" />
   <material name="stkflag_pinkStartingLine_a.png"   shader="alphatest" />
