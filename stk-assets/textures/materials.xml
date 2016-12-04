@@ -216,7 +216,7 @@
   
   <material name="stktex_stalactic_a.png" gloss-map="stk_generic_snow_a_gloss.png"  shader="alphatest"/>
 
-  <material name="stktex_palmLeaf_a.png" shader="grass" ignore="Y" />
+  <material name="stktex_palmLeaf_a.png" shader="grass" colorizable="Y" colorization-factor="0.00" hue-settings="1 0.02 0.1 0.3 0.5 0.66 0.8 0.0" ignore="Y" />
   <material name="stktex_palmLeafDry_a.png" shader="grass" ignore="Y" />
   <material name="stktex_jungleLiana_a.png" shader="grass" ignore="Y" />
   <material name="stktex_jungleLiana_b.png" shader="grass" ignore="Y" />
