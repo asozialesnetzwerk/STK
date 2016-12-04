@@ -116,7 +116,7 @@ def writeMaterialsFile(sPath):
            #'water_shader_speed_1'  : {'default': 6.6667, 'parent': ('graphical_effect','water_shader'), 'type': 'number'},
            #'water_shader_speed_2'  : {'default': 4.0, 'parent': ('graphical_effect','water_shader'), 'type': 'number'},
            'water_splash'          : {'default': "N", 'parent': None, 'type': 'bool'},
-           'colorizable'           : {'default': "N", 'parent': ('shader','solid'), 'type': 'bool'},
+           'colorizable'           : {'default': "N", 'parent': None, 'type': 'bool'},
            'colorization_factor'   : {'default': "", 'parent': 'colorizable', 'type': 'number'},
            'colorization_mask'     : {'default': "", 'parent': 'colorizable', 'type': 'string'},
            'hue_settings'          : {'default': "", 'parent': 'colorizable', 'type': 'string'}

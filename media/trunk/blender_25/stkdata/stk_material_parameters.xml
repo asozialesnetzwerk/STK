@@ -19,7 +19,7 @@
                                doc="Set the minimun resulting saturation of the new color, 0 means using the original saturation from texture"/>
                     <StringProp id="colorization_mask" name="Colorization mask" default="" doc="Determine which part of texture to be affected by colorization"/>
                     <StringProp id="hue_settings" name="Hue settings for colorization" default=""
-                                doc="Define list of hue for colorization, from > 0.0 to (or equal) 1, separated by spaces, STK will randomly pick one hue for colorization"/>
+                                doc="Define list of hue for colorization, from 0.0 to (or equal) 1 (0.0 means original color), separated by spaces, STK will randomly pick one hue for colorization"/>
                 </BoolProp>
             </EnumChoice>
             
@@ -31,6 +31,14 @@
                 <StringProp id="gloss_map" name="Gloss map"  default=""/>
                 <StringProp id="normal_map" name="Normal map"  default="" doc="Use normal maps for this material (the model must be exported as tangent for this to work)"/>
                 -->
+                <BoolProp id="colorizable" name="Colorizable (for library objects)" default="false"
+                        doc="Used to determine whether this texture can be colorized by STK (for library objects)">
+                    <FloatProp id="colorization_factor" name="Colorization factor" default="0.0" min="0.0" max="1.0"
+                               doc="Set the minimun resulting saturation of the new color, 0 means using the original saturation from texture"/>
+                    <StringProp id="colorization_mask" name="Colorization mask" default="" doc="Determine which part of texture to be affected by colorization"/>
+                    <StringProp id="hue_settings" name="Hue settings for colorization" default=""
+                                doc="Define list of hue for colorization, from 0.0 to (or equal) 1 (0.0 means original color), separated by spaces, STK will randomly pick one hue for colorization"/>
+                </BoolProp>
             </EnumChoice>
             
             <!-- Alpha blending -->
@@ -64,6 +72,14 @@
                 <LabelProp id="grass_help3" name="Use tones of grey to make vertices move more softly."/>
                 <FloatProp id="grass_speed" name="Waving speed" default="1.5" min="0.0" max="5.0" doc="Speed modifier for grass"/>
                 <FloatProp id="grass_amplitude" name="Waving amplitude" default="0.25" min="0.0" max="1.0" doc="Amplitude for grass movement"/>
+                <BoolProp id="colorizable" name="Colorizable (for library objects)" default="false"
+                        doc="Used to determine whether this texture can be colorized by STK (for library objects)">
+                    <FloatProp id="colorization_factor" name="Colorization factor" default="0.0" min="0.0" max="1.0"
+                               doc="Set the minimun resulting saturation of the new color, 0 means using the original saturation from texture"/>
+                    <StringProp id="colorization_mask" name="Colorization mask" default="" doc="Determine which part of texture to be affected by colorization"/>
+                    <StringProp id="hue_settings" name="Hue settings for colorization" default=""
+                                doc="Define list of hue for colorization, from 0.0 to (or equal) 1 (0.0 means original color), separated by spaces, STK will randomly pick one hue for colorization"/>
+                </BoolProp>
             </EnumChoice>
             
             <!-- Water -->
