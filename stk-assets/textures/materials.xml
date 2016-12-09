@@ -2,7 +2,17 @@
 <materials>
 
 
-  <material name="stklib_oldcar_a.png" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png" colorizable="Y" colorization-factor="0.00" colorization-mask="stklib_oldcar_a_mask.png" hue-settings="1 0.02 0.1 0.3 0.5 0.66 0.8 0.0"/>
+  <material name="stklib_oldcar_a.png"  gloss-map="stk_greyMetal_a_gloss.png" colorizable="Y" colorization-factor="0.00" colorization-mask="stklib_oldcar_a_mask.png"  hue-settings="1.0 0.02 0.1 0.3 0.5 0.66 0.8 0.0"/>
+
+  <material name="stk_spiralBlueShell_a.png" colorizable="Y" colorization-factor="0.00" colorization-mask="gfxrndColor_generic_a_mask.png"  hue-settings="0.8 0.9 0.0"/>
+
+  <material name="stktex_stonePurple_a.png"  gloss-map="stktex_stonePurple_a_gloss.png" 
+  colorizable="Y" colorization-factor="0.00" colorization-mask="gfxrndColor_generic_a_mask.png"  hue-settings="0.8 0.9 0.0"/>
+
+
+
+  
+
 
   <!-- Booster -->
   <material name="gfx_booster_AlphaTest.png" shader="alphatest" >
@@ -118,9 +128,9 @@
   
   <material name="stktex_deadTree_a.png" shader="alphatest" ignore="Y" />
   
-  <material name="stktex_coralBump_a.png" shader="grass" />
+  <material name="stktex_coralBump_a.png" shader="grass"  gloss-map="stktex_stonePurple_a_gloss.png" colorization-factor="0.00" colorization-mask="gfxrndColor_generic_a_mask.png"  hue-settings="0.8 0.9 0.0" />
   <material name="stktex_seaFlower_a.png" shader="grass" />
-  <material name="stktex_coralDisk_a.png" shader="grass" />
+  <material name="stktex_coralDisk_a.png" shader="grass" gloss-map="stktex_stonePurple_a_gloss.png"  colorization-factor="0.00" colorization-mask="gfxrndColor_generic_a_mask.png"  hue-settings="0.8 0.9 0.0"/>
   
     
   <material name="stktex_lowPalmTree_a.png" shader="alphatest" />
@@ -319,8 +329,6 @@
   <material name="stk_wheatA.png" shader="grass"  ignore="Y"/>
   <material name="stk_snowSmallBush_a.png" shader="grass"  ignore="Y"/>
   
-  
-  <material name="stktex_palmTreeBark_a.png"  />
   
   <material name="bumpy_surface.png">
     <particles base="smoke.xml" condition="skid" />
