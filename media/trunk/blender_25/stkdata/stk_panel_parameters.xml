@@ -44,6 +44,7 @@
         </EnumChoice>
     </EnumProp>
     <BoolProp id="arena" name="Is a battle Arena" default="false" doc="Whether this scene is a battle arena"/>
+    <BoolProp id="soccer" name="Is a soccer field" default="false" doc="Whether this scene is a soccer field"/>
     <BoolProp id="cutscene" name="Is a cutscene" default="false" box="false" doc="Check this if this blender file is a SuperTuxKart cutscene"/> 
     
     <FloatProp id="camera_far" name="Camera Far Clip" default="1000.0" min="0.0" max="5000.0"
