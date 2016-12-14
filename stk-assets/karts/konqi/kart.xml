@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16354 -->
+<!-- Generated with script from SVN rev 16729 -->
 <kart name              = "Konqi"
       version           = "2"
       model-file        = "konqi.b3d"
@@ -14,11 +14,11 @@
               straight = "9"
               right = "19"
               start-winning = "23"
-              start-winning-loop = "39"
-              end-winning = "79"
+              start-winning-loop = "49"
+              end-winning = "89"
               start-losing = "99"
-              start-losing-loop = "309"
-              end-losing = "374"/>
+              start-losing-loop = "119"
+              end-losing = "159"/>
   <wheels>
     <front-left position = "-0.371346 0.162530 0.494193"
                  model    = "wheel-front-left.b3d"       />
