@@ -11,7 +11,10 @@
 
 
 
-  
+    <material name="stktex_autumnLeaf_a.png"   shader="grass" 
+colorizable="Y" colorization-factor="0.00" colorization-mask="gfxrndColor_generic_a_mask.png"  hue-settings="0.1 0.05 0.0"
+
+/>
 
 
   <!-- Booster -->
@@ -335,7 +338,9 @@
   <material name="stktex_hayFiber_a.png" shader="grass"  ignore="Y"/>
   <material name="stk_wheatA.png" shader="grass"  ignore="Y"/>
   <material name="stk_snowSmallBush_a.png" shader="grass"  ignore="Y"/>
-  
+    <material name="stk_autumnSmallBush_a.png" shader="grass"  ignore="Y"
+colorizable="Y" colorization-factor="0.00" colorization-mask="gfxrndColor_generic_a_mask.png"  hue-settings="0.1 0.05 0.0 "
+/>
   
   <material name="bumpy_surface.png">
     <particles base="smoke.xml" condition="skid" />
