@@ -2168,6 +2168,21 @@ class TrackExport:
         
         # For now: armature animations are assumed to be looped
         if parent and parent.type=="ARMATURE":
+            first_frame = the_scene.frame_start
+            last_frame  = the_scene.frame_end
+            frame_start = []
+            frame_end = []
+            for i in range(first_frame, last_frame + 1):
+                for curr in the_scene.timeline_markers:
+                    if curr.frame == i:
+                        marker_name = curr.name.lower()
+                        if marker_name == "start":
+                            frame_start.append(i - 1)
+                        if marker_name == "end":
+                            frame_end.append(i - 1)
+            if len(frame_start) > 0 and len(frame_end) > 0:
+                flags.append('frame-start="%s"' % ' '.join(str(x) for x in frame_start))
+                flags.append('frame-end="%s"' % ' '.join(str(x) for x in frame_end))
             is_cyclic = False
             if parent.animation_data is not None and parent.animation_data.action is not None and \
                parent.animation_data.action.fcurves is not None:
