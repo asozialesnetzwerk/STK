@@ -9,11 +9,22 @@
           <FloatProp id="anim_dt" name="time between two frames" default="1.0" min="0.0" max="10.0"/>
         </BoolProp>
     </BoolProp>
+
+
+    <BoolProp id="enable_geo_detail" name="Enable geometry visibility details" default="false" doc="Allows the engine to know if an object can be hidden for performances reason">
+        <EnumProp id="geo_detail_level" name="Visibility" default="0"  doc="By default all objects are displayed. You can specify the level at witch the object will be visible">
+            <EnumChoice id="0" label="Always visible" />
+            <EnumChoice id="1" label="Visible when Medium quality or above" />
+            <EnumChoice id="2" label="Visible when High quality" />
+        </EnumProp>
+    </BoolProp>
     
     <!-- ********************************************************************* -->
     <!-- ************************** STK Object Type ************************** -->
     <!-- ********************************************************************* -->
     <EnumProp id="type" name="Type" default="none" doc="SuperTuxKart Object Type">
+
+
     
         <!-- ************* OBJECTS AND LOD ************* -->
         <EnumChoice id="__category__objects" label="Objects and LOD"/>
