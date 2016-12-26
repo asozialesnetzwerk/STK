@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15850 -->
+<!-- Generated with script from SVN rev 16649 -->
 <scene>
   <lod>
    <group name="_single_lod_stklib_redParrot_a_mainstklib_redParrot_a_main">
@@ -7,5 +7,6 @@
    </group>
   </lod>
   <object id="stklib_redParrot_a_main" type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" looped="y" interaction="ghost"  lod_instance="true" lod_group="_single_lod_stklib_redParrot_a_mainstklib_redParrot_a_main" model="stklib_redParrot_a_mainstklib_redParrot_a_main.b3d" skeletal-animation="true">
+    <geometry-detail level="2"/>
   </object>
 </scene>
