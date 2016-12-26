@@ -221,25 +221,6 @@ def checkForAnimatedTextures(lObjects):
         lAnimTextures.append( (anim_texture, dx, dy, dt, use_anim_texture_by_step) )
     return lAnimTextures
 
-
-# ------------------------------------------------------------------------------
-# Checks if there are any animated textures in any of the objects in the
-# list l.
-def checkForGeometryDetail(lObjects):
-    lGeometryDetail = []
-    for obj in lObjects:
-        use_geometry_detail = getObjectProperty(obj, "enable_geo_detail", "false")
-        if use_geometry_detail != 'true': continue
-
-        geometry_detail_level = getObjectProperty(obj, "geo_detail_level", 0)
-
-        if int(geometry_detail_level) < 0 or int(geometry_detail_level) > 2:
-            log_warning("object %s has an invalid geometry level configuration" % obj.name)
-            continue
-
-        lGeometryDetail.append( geometry_detail_level )
-    return lGeometryDetail
-
 # ------------------------------------------------------------------------------
 def writeAnimatedTextures(f, lAnimTextures):
     for (name, dx, dy, dt, use_anime_texture_by_step) in lAnimTextures:
@@ -257,11 +238,6 @@ def writeAnimatedTextures(f, lAnimTextures):
         if name is None or len(name) == 0:
             continue
         f.write("    <animated-texture name=\"%s\"%s%s%s/>\n"%(name, sdx, sdy, sdt) )
-
-def writeGeometryDetail(f, lGeometryDetail):
-    for level in lGeometryDetail:
-        f.write("    <geometry-detail level=\"%s\"/>\n"%(level) )
-        
 
 # ------------------------------------------------------------------------------
 def Round(f):
@@ -389,7 +365,6 @@ class WaterExporter:
             speed    = getObjectProperty(obj, "speed",  None     )
             length   = getObjectProperty(obj, "length", None     )
             lAnim    = checkForAnimatedTextures([obj])
-            lGeometryDetail = checkForGeometryDetail([obj])
             b3d_name = self.m_parent_track_exporter.exportLocalB3D(obj, self.m_export_path, name, True)
             s = "  <water model=\"%s\" %s" % (b3d_name, getXYZHPRString(obj))
             if height: s = "%s height=\"%.2f\""%(s, float(height))
@@ -2294,10 +2269,14 @@ class TrackExport:
         if_condition = getObjectProperty(obj, "if", "")
         if len(if_condition) > 0:
             flags.append("if=\"%s\""%if_condition)
-            
+
         lAnim = checkForAnimatedTextures([obj])
-        lGeometryDetail = checkForGeometryDetail([obj])
-                
+        detail_level = 0
+        if getObjectProperty(obj, "enable_geo_detail", "false") == 'true':
+            detail_level = int(getObjectProperty(obj, "geo_detail_level", 0))
+        if detail_level > 0:
+            flags.append("geometry-level=\"%d\"" % detail_level)
+
         if parent and parent.type=="ARMATURE":
             f.write("  <object id=\"%s\" type=\"%s\" %s %s>\n"% (obj.name, objectType, getXYZHPRString(parent), ' '.join(flags)))
         else:
@@ -2305,9 +2284,6 @@ class TrackExport:
             
         if lAnim:
             writeAnimatedTextures(f, lAnim)
-        
-        if lGeometryDetail:
-            writeGeometryDetail(f, lGeometryDetail)
 
         writeIPO(f, ipo)
         f.write("  </object>\n")
@@ -2333,12 +2309,16 @@ class TrackExport:
                     uses_skeletal_animation = True
                     
             if uses_skeletal_animation:
-                skeletal_anim_str = ' skeletal-animation="true"'
+                additional_prop_str = ' skeletal-animation="true"'
             else:
-                skeletal_anim_str = ' skeletal-animation="false"'
-                
+                additional_prop_str = ' skeletal-animation="false"'
+            detail_level = 0
+            if getObjectProperty(obj, "enable_geo_detail", "false") == 'true':
+                detail_level = int(getObjectProperty(obj, "geo_detail_level", 0))
+            if detail_level > 0:
+                additional_prop_str += " geometry-level=\"%d\"" % detail_level
             
-            f.write("    <static-object lod_distance=\"%i\" lod_group=\"%s\" model=\"%s\" %s interaction=\"%s\"%s/>\n" % (props['distance'], props['groupname'], b3d_name, getXYZHPRString(obj), getObjectProperty(obj, "interaction", "static"), skeletal_anim_str) )
+            f.write("    <static-object lod_distance=\"%i\" lod_group=\"%s\" model=\"%s\" %s interaction=\"%s\"%s/>\n" % (props['distance'], props['groupname'], b3d_name, getXYZHPRString(obj), getObjectProperty(obj, "interaction", "static"), additional_prop_str) )
             
     # --------------------------------------------------------------------------
     
@@ -2366,7 +2346,6 @@ class TrackExport:
             # are cached so it can be avoided to export two or more identical
             # objects.
             lAnim    = checkForAnimatedTextures([obj])
-            lGeometryDetail = checkForGeometryDetail([obj])
             name     = getObjectProperty(obj, "name", obj.name)
             if len(name) == 0: name = obj.name
             
@@ -2391,7 +2370,11 @@ class TrackExport:
             challenge_val = getObjectProperty(obj, "challenge", "")
             if len(challenge_val) > 0:
                 attributes.append("challenge=\"%s\""% challenge_val)
-                
+            detail_level = 0
+            if getObjectProperty(obj, "enable_geo_detail", "false") == 'true':
+                detail_level = int(getObjectProperty(obj, "geo_detail_level", 0))
+            if detail_level > 0:
+                attributes.append("geometry-level=\"%d\"" % detail_level)
             interaction = getObjectProperty(obj, "interaction", '??')
             if interaction == 'reset':
                 attributes.append("reset=\"y\"")
@@ -2410,14 +2393,9 @@ class TrackExport:
                 f.write("    <static-object %s>\n" % ' '.join(attributes))
                 writeAnimatedTextures(f, lAnim)
                 f.write("    </static-object>\n")
-            if lGeometryDetail:
-                f.write("    <static-object %s>\n" % ' '.join(attributes))
-                writeGeometryDetail(f, lGeometryDetail)
-                f.write("    </static-object>\n")
             else:
                 f.write("    <static-object %s/>\n" % ' '.join(attributes))
         writeAnimatedTextures(f, lAnimTextures)
-        writeGeometryDetail(f, lGeometryDetail)
 
     # --------------------------------------------------------------------------
     # Get LOD string for a given object (returns an empty string if object is not LOD)
@@ -2535,7 +2513,13 @@ class TrackExport:
                 flags.append('skeletal-animation="true"')
             else:
                 flags.append('skeletal-animation="false"')
-                
+
+            detail_level = 0
+            if getObjectProperty(obj, "enable_geo_detail", "false") == 'true':
+                detail_level = int(getObjectProperty(obj, "geo_detail_level", 0))
+            if detail_level > 0:
+                flags.append("geometry-level=\"%d\"" % detail_level)
+
             f.write('  <object type="movable" id=\"%s\" %s\n'% (obj.name, getXYZHPRString(obj)))
             f.write('          shape="%s" mass="%s" %s/>\n' % (shape, mass, ' '.join(flags)))
             
@@ -2708,7 +2692,6 @@ class TrackExport:
                 lOtherObjects.append(obj)
                 
         lAnimTextures  = checkForAnimatedTextures(lTrack)
-        lGeometryDetail = checkForGeometryDetail(lTrack)
         
         if len(lLODModels.keys()) > 0:
             f.write('  <lod>\n')
