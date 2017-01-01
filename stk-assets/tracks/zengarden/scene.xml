@@ -1,24 +1,10 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15937 -->
+<!-- Generated with script from SVN rev 16852 -->
 <scene>
   <lod>
-   <group name="sakuraPine">
-    <static-object lod_distance="45" lod_group="sakuraPine" model="sakuraPine_LOD45.b3d" xyz="-54.59 2.15 128.00" hpr="16.3 -118.9 -16.1" scale="0.92 0.92 0.92" interaction="static" skeletal-animation="false"/>
-    <static-object lod_distance="70" lod_group="sakuraPine" model="sakuraPine_LOD70.b3d" xyz="-54.59 2.15 147.31" hpr="16.3 -118.9 -16.1" scale="0.92 0.92 0.92" interaction="static" skeletal-animation="false"/>
-    <static-object lod_distance="100" lod_group="sakuraPine" model="sakuraPine_LOD100.b3d" xyz="-57.59 2.15 164.00" hpr="16.3 -118.9 -16.1" scale="0.92 0.92 0.92" interaction="static" skeletal-animation="false"/>
-    <static-object lod_distance="200" lod_group="sakuraPine" model="sakuraPine_LOD200.b3d" xyz="-57.59 2.15 187.00" hpr="16.3 -118.9 -16.1" scale="0.92 0.92 0.92" interaction="static" skeletal-animation="false"/>
-   </group>
    <group name="sakuraLow">
     <static-object lod_distance="100" lod_group="sakuraLow" model="sakuraLow_LOD100.b3d" xyz="-65.94 1.11 125.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
     <static-object lod_distance="500" lod_group="sakuraLow" model="sakuraLow_LOD500.b3d" xyz="-65.94 1.11 132.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
-   </group>
-   <group name="limit">
-    <static-object lod_distance="35" lod_group="limit" model="limit_LOD35.b3d" xyz="-33.25 0.46 170.90" hpr="-90.0 73.8 -0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
-    <static-object lod_distance="90" lod_group="limit" model="limit_LOD90.b3d" xyz="-33.25 0.46 173.90" hpr="-90.0 73.8 -0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
-   </group>
-   <group name="pagoda1">
-    <static-object lod_distance="50" lod_group="pagoda1" model="pagoda1_LOD50.b3d" xyz="-102.80 7.02 148.30" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
-    <static-object lod_distance="200" lod_group="pagoda1" model="pagoda1_LOD200.b3d" xyz="-102.80 7.02 168.30" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
    </group>
    <group name="bridge">
     <static-object lod_distance="50" lod_group="bridge" model="bridge_LOD50.b3d" xyz="-170.79 5.05 95.63" hpr="-90.0 50.0 -0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
@@ -30,62 +16,76 @@
     <static-object lod_distance="70" lod_group="fern" model="fern_LOD60.b3d" xyz="-26.50 0.00 134.66" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
     <static-object lod_distance="100" lod_group="fern" model="fern_LOD100.b3d" xyz="-26.94 0.00 142.30" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
    </group>
+   <group name="pagoda1">
+    <static-object lod_distance="50" lod_group="pagoda1" model="pagoda1_LOD50.b3d" xyz="-102.80 7.02 148.30" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="200" lod_group="pagoda1" model="pagoda1_LOD200.b3d" xyz="-102.80 7.02 168.30" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+   </group>
+   <group name="sakuraPine">
+    <static-object lod_distance="45" lod_group="sakuraPine" model="sakuraPine_LOD45.b3d" xyz="-54.59 2.15 128.00" hpr="16.3 -118.9 -16.1" scale="0.92 0.92 0.92" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="70" lod_group="sakuraPine" model="sakuraPine_LOD70.b3d" xyz="-54.59 2.15 147.31" hpr="16.3 -118.9 -16.1" scale="0.92 0.92 0.92" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="100" lod_group="sakuraPine" model="sakuraPine_LOD100.b3d" xyz="-57.59 2.15 164.00" hpr="16.3 -118.9 -16.1" scale="0.92 0.92 0.92" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="200" lod_group="sakuraPine" model="sakuraPine_LOD200.b3d" xyz="-57.59 2.15 187.00" hpr="16.3 -118.9 -16.1" scale="0.92 0.92 0.92" interaction="static" skeletal-animation="false"/>
+   </group>
    <group name="catailVeg">
-    <static-object lod_distance="50" lod_group="catailVeg" model="catailVeg_LOD50.b3d" xyz="-27.59 -3.04 153.05" hpr="0.0 -145.6 -0.0" scale="0.79 0.79 0.79" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="50" lod_group="catailVeg" model="catailVeg_LOD50.b3d" xyz="-27.59 -3.04 153.05" hpr="-0.0 -145.6 0.0" scale="0.79 0.79 0.79" interaction="static" skeletal-animation="false"/>
+   </group>
+   <group name="limit">
+    <static-object lod_distance="35" lod_group="limit" model="limit_LOD35.b3d" xyz="-33.25 0.46 170.90" hpr="-90.0 73.8 -0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="90" lod_group="limit" model="limit_LOD90.b3d" xyz="-33.25 0.46 173.90" hpr="-90.0 73.8 -0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
    </group>
   </lod>
   <track model="zengarden_track.b3d" x="0" y="0" z="0">
-    <static-object lod_instance="true" lod_group="bridge" xyz="-170.79 -16.09 41.63" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_instance="true" lod_group="fern" xyz="-133.22 0.06 22.93" hpr="-1.8 -118.4 -76.1" scale="0.76 0.76 0.76"/>
-    <static-object lod_instance="true" lod_group="pineTree1" xyz="-168.77 0.33 54.07" hpr="-90.0 51.0 -0.0" scale="0.94 0.94 0.94"/>
-    <static-object lod_instance="true" lod_group="fern" xyz="-92.29 0.23 45.56" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_instance="true" lod_group="fern" xyz="-90.72 0.23 30.16" hpr="-90.0 -80.2 -0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_instance="true" lod_group="fern" xyz="-111.89 0.23 45.56" hpr="-90.0 -31.5 -0.0" scale="0.75 0.75 0.75"/>
-    <static-object lod_instance="true" lod_group="fern" xyz="-115.72 0.23 38.29" hpr="-90.0 -53.1 0.0" scale="0.88 0.88 0.88"/>
-    <static-object lod_instance="true" lod_group="fern" xyz="-124.16 0.23 25.38" hpr="-58.6 -151.5 -24.9" scale="0.88 0.88 0.88"/>
-    <static-object lod_instance="true" lod_group="fern" xyz="-90.72 0.23 36.03" hpr="-90.0 3.0 -0.0" scale="1.34 1.34 1.34"/>
-    <static-object lod_instance="true" lod_group="fern" xyz="-90.72 0.23 40.71" hpr="-90.0 -78.1 -0.0" scale="0.89 0.89 0.89"/>
-    <static-object lod_instance="true" lod_group="fern" xyz="-133.22 0.06 22.93" hpr="-1.8 -118.4 -76.1" scale="0.76 0.76 0.76"/>
-    <static-object lod_instance="true" lod_group="fern" xyz="-140.46 0.06 25.52" hpr="-102.2 5.9 17.2" scale="0.76 0.76 0.76"/>
-    <static-object lod_instance="true" lod_group="fern" xyz="-151.79 0.06 36.10" hpr="-110.5 46.6 7.1" scale="1.32 1.32 1.32"/>
-    <static-object lod_instance="true" lod_group="fern" xyz="-169.69 -0.90 31.20" hpr="-90.0 42.8 -22.3" scale="1.32 1.32 1.32"/>
-    <static-object lod_instance="true" lod_group="fern" xyz="-163.71 -0.39 25.37" hpr="-90.0 42.8 -0.0" scale="1.32 1.32 1.32"/>
-    <static-object lod_instance="true" lod_group="fern" xyz="-180.51 0.16 20.52" hpr="-76.4 -37.7 -19.8" scale="1.32 1.32 1.32"/>
-    <static-object model="pineVeryLow.b3d" xyz="-138.68 12.49 3.94" hpr="-90.0 152.2 -0.0" scale="0.46 0.46 0.46"/>
-    <static-object model="pineVeryLow.b3d" xyz="-105.69 12.08 -56.80" hpr="-90.0 -37.0 -0.0" scale="0.41 0.41 0.41"/>
-    <static-object model="pineVeryLow.b3d" xyz="-160.68 9.69 -11.94" hpr="-90.0 152.2 -0.0" scale="0.59 0.59 0.59"/>
-    <static-object lod_instance="true" lod_group="pagoda1" xyz="-102.80 8.42 36.30" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.30"/>
-    <static-object lod_instance="true" lod_group="limit" xyz="-33.25 0.46 -58.07" hpr="-90.0 73.8 -0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_instance="true" lod_group="limit" xyz="-24.31 0.76 -39.82" hpr="-90.0 50.4 -0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_instance="true" lod_group="limit" xyz="4.82 0.53 -20.26" hpr="-90.0 16.3 0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_instance="true" lod_group="limit" xyz="-63.30 0.76 -2.00" hpr="-90.0 110.9 0.0" scale="1.00 1.00 1.00"/>
-    <static-object model="clound_animated.b3d" xyz="397.69 73.13 -19.16" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+    <static-object  lod_instance="true" lod_group="bridge" xyz="-170.79 -16.09 41.63" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="fern" xyz="-133.22 0.06 22.93" hpr="-1.8 -118.4 -76.1" scale="0.76 0.76 0.76"/>
+    <static-object  lod_instance="true" lod_group="pineTree1" xyz="-168.77 0.33 54.07" hpr="-90.0 51.0 -0.0" scale="0.94 0.94 0.94"/>
+    <static-object  lod_instance="true" lod_group="fern" xyz="-92.29 0.23 45.56" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="fern" xyz="-90.72 0.23 30.16" hpr="-90.0 -80.2 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="fern" xyz="-111.89 0.23 45.56" hpr="-90.0 -31.5 -0.0" scale="0.75 0.75 0.75"/>
+    <static-object  lod_instance="true" lod_group="fern" xyz="-115.72 0.23 38.29" hpr="-90.0 -53.1 0.0" scale="0.88 0.88 0.88"/>
+    <static-object  lod_instance="true" lod_group="fern" xyz="-124.16 0.23 25.38" hpr="-58.6 -151.5 -24.9" scale="0.88 0.88 0.88"/>
+    <static-object  lod_instance="true" lod_group="fern" xyz="-90.72 0.23 36.03" hpr="-90.0 3.0 -0.0" scale="1.34 1.34 1.34"/>
+    <static-object  lod_instance="true" lod_group="fern" xyz="-90.72 0.23 40.71" hpr="-90.0 -78.1 -0.0" scale="0.89 0.89 0.89"/>
+    <static-object  lod_instance="true" lod_group="fern" xyz="-133.22 0.06 22.93" hpr="-1.8 -118.4 -76.1" scale="0.76 0.76 0.76"/>
+    <static-object  lod_instance="true" lod_group="fern" xyz="-140.46 0.06 25.52" hpr="-102.2 5.9 17.2" scale="0.76 0.76 0.76"/>
+    <static-object  lod_instance="true" lod_group="fern" xyz="-151.79 0.06 36.10" hpr="-110.5 46.6 7.1" scale="1.32 1.32 1.32"/>
+    <static-object  lod_instance="true" lod_group="fern" xyz="-169.69 -0.90 31.20" hpr="-90.0 42.8 -22.3" scale="1.32 1.32 1.32"/>
+    <static-object  lod_instance="true" lod_group="fern" xyz="-163.71 -0.39 25.37" hpr="-90.0 42.8 -0.0" scale="1.32 1.32 1.32"/>
+    <static-object  lod_instance="true" lod_group="fern" xyz="-180.51 0.16 20.52" hpr="-76.4 -37.7 -19.8" scale="1.32 1.32 1.32"/>
+    <static-object  model="pineVeryLow.b3d" xyz="-138.68 12.49 3.94" hpr="-90.0 152.2 -0.0" scale="0.46 0.46 0.46"/>
+    <static-object  model="pineVeryLow.b3d" xyz="-105.69 12.08 -56.80" hpr="-90.0 -37.0 -0.0" scale="0.41 0.41 0.41"/>
+    <static-object  model="pineVeryLow.b3d" xyz="-160.68 9.69 -11.94" hpr="-90.0 152.2 -0.0" scale="0.59 0.59 0.59"/>
+    <static-object  lod_instance="true" lod_group="pagoda1" xyz="-102.80 8.42 36.30" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.30"/>
+    <static-object  lod_instance="true" lod_group="limit" xyz="-33.25 0.46 -58.07" hpr="-90.0 73.8 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="limit" xyz="-24.31 0.76 -39.82" hpr="-90.0 50.4 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="limit" xyz="4.82 0.53 -20.26" hpr="-90.0 16.3 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="limit" xyz="-63.30 0.76 -2.00" hpr="-90.0 110.9 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="clound_animated.b3d" xyz="397.69 73.13 -19.16" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
     <animated-texture name="gfx_cloudAnimated_a.png" dx="0.001"  dy="0.0625"  animByStep="true" dt="0.050" />
     </static-object>
-    <static-object model="clound_animated.b3d" xyz="279.66 64.56 -358.25" hpr="-16.5 37.3 14.1" scale="0.68 0.68 0.68">
+    <static-object  model="clound_animated.b3d" xyz="279.66 64.56 -358.25" hpr="-16.5 37.3 14.1" scale="0.68 0.68 0.68">
     <animated-texture name="gfx_cloudAnimated_a.png" dx="0.001"  dy="0.0625"  animByStep="true" dt="0.050" />
     </static-object>
-    <static-object model="clound_animated.b3d" xyz="266.32 -0.77 -6.49" hpr="10.0 24.9 2.4" scale="0.68 0.68 0.68">
+    <static-object  model="clound_animated.b3d" xyz="266.32 -0.77 -6.49" hpr="10.0 24.9 2.4" scale="0.68 0.68 0.68">
     <animated-texture name="gfx_cloudAnimated_a.png" dx="0.001"  dy="0.0625"  animByStep="true" dt="0.050" />
     </static-object>
-    <static-object model="Plane.007.b3d" xyz="-143.00 15.00 -74.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object lod_instance="true" lod_group="sakuraLow" xyz="-27.84 -11.89 -1.99" hpr="0.0 -0.0 0.0" scale="1.09 1.09 1.09"/>
-    <static-object model="waterLily.b3d" xyz="-141.27 -0.47 -49.21" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object model="waterLily.b3d" xyz="-134.82 -0.65 -53.79" hpr="0.0 -43.6 0.0" scale="0.78 0.78 0.78"/>
-    <static-object model="waterLily.b3d" xyz="-128.54 -0.47 -41.96" hpr="0.0 59.0 0.0" scale="0.78 0.78 0.78"/>
-    <static-object lod_instance="true" lod_group="catailVeg" xyz="-149.96 -3.04 -41.77" hpr="0.0 -119.7 -0.0" scale="0.60 0.60 0.60"/>
-    <static-object lod_instance="true" lod_group="catailVeg" xyz="-151.70 -3.04 -37.63" hpr="0.0 -145.6 -0.0" scale="0.79 0.79 0.79"/>
-    <static-object lod_instance="true" lod_group="catailVeg" xyz="-129.05 -3.04 -37.70" hpr="0.0 56.5 0.0" scale="0.60 0.60 0.60"/>
-    <static-object lod_instance="true" lod_group="catailVeg" xyz="-127.05 -3.04 -41.71" hpr="0.0 30.7 0.0" scale="0.79 0.79 0.79"/>
-    <static-object lod_instance="true" lod_group="catailVeg" xyz="-134.34 -3.04 -55.70" hpr="-0.0 97.7 -0.0" scale="0.66 0.66 0.66"/>
-    <static-object lod_instance="true" lod_group="catailVeg" xyz="-131.42 -3.04 -52.29" hpr="-0.0 123.6 -0.0" scale="0.80 0.80 0.80"/>
-    <static-object lod_instance="true" lod_group="catailVeg" xyz="-139.46 -3.04 -59.31" hpr="-0.0 -119.9 -0.0" scale="0.73 0.73 0.73"/>
-    <static-object lod_instance="true" lod_group="catailVeg" xyz="-141.21 -3.04 -54.15" hpr="-0.0 -145.8 -0.0" scale="0.89 0.89 0.89"/>
-    <static-object lod_instance="true" lod_group="sakuraPine" xyz="-16.21 0.95 -13.21" hpr="-8.3 -53.2 12.9" scale="1.21 1.21 1.21"/>
-    <static-object lod_instance="true" lod_group="sakuraPine" xyz="-19.22 0.95 0.00" hpr="16.3 -118.9 -16.1" scale="1.57 1.57 1.57"/>
-    <static-object lod_instance="true" lod_group="sakuraPine" xyz="-26.71 0.95 3.84" hpr="-5.2 136.7 -10.6" scale="1.47 1.47 1.47"/>
-    <static-object lod_instance="true" lod_group="sakuraPine" xyz="-93.09 0.55 27.58" hpr="30.9 -105.7 -29.8" scale="0.74 0.74 0.74"/>
-    <static-object lod_instance="true" lod_group="sakuraPine" xyz="-115.45 0.64 31.67" hpr="5.3 137.5 11.4" scale="0.74 0.74 0.74"/>
+    <static-object  model="Plane.007.b3d" xyz="-143.00 15.00 -74.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="sakuraLow" xyz="-27.84 -11.89 -1.99" hpr="0.0 -0.0 0.0" scale="1.09 1.09 1.09"/>
+    <static-object  model="waterLily.b3d" xyz="-141.27 -0.47 -49.21" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="waterLily.b3d" xyz="-134.82 -0.65 -53.79" hpr="0.0 -43.6 0.0" scale="0.78 0.78 0.78"/>
+    <static-object  model="waterLily.b3d" xyz="-128.54 -0.47 -41.96" hpr="-0.0 59.0 -0.0" scale="0.78 0.78 0.78"/>
+    <static-object  lod_instance="true" lod_group="catailVeg" xyz="-149.96 -3.04 -41.77" hpr="-0.0 -119.7 0.0" scale="0.60 0.60 0.60"/>
+    <static-object  lod_instance="true" lod_group="catailVeg" xyz="-151.70 -3.04 -37.63" hpr="-0.0 -145.6 0.0" scale="0.79 0.79 0.79"/>
+    <static-object  lod_instance="true" lod_group="catailVeg" xyz="-129.05 -3.04 -37.70" hpr="0.0 56.5 0.0" scale="0.60 0.60 0.60"/>
+    <static-object  lod_instance="true" lod_group="catailVeg" xyz="-127.05 -3.04 -41.71" hpr="0.0 30.7 0.0" scale="0.79 0.79 0.79"/>
+    <static-object  lod_instance="true" lod_group="catailVeg" xyz="-134.34 -3.04 -55.70" hpr="-0.0 97.7 -0.0" scale="0.66 0.66 0.66"/>
+    <static-object  lod_instance="true" lod_group="catailVeg" xyz="-131.42 -3.04 -52.29" hpr="-0.0 123.6 -0.0" scale="0.80 0.80 0.80"/>
+    <static-object  lod_instance="true" lod_group="catailVeg" xyz="-139.46 -3.04 -59.31" hpr="-0.0 -119.9 -0.0" scale="0.73 0.73 0.73"/>
+    <static-object  lod_instance="true" lod_group="catailVeg" xyz="-141.21 -3.04 -54.15" hpr="-0.0 -145.8 -0.0" scale="0.89 0.89 0.89"/>
+    <static-object  lod_instance="true" lod_group="sakuraPine" xyz="-16.21 0.95 -13.21" hpr="-8.3 -53.2 12.9" scale="1.21 1.21 1.21"/>
+    <static-object  lod_instance="true" lod_group="sakuraPine" xyz="-19.22 0.95 0.00" hpr="16.3 -118.9 -16.1" scale="1.57 1.57 1.57"/>
+    <static-object  lod_instance="true" lod_group="sakuraPine" xyz="-26.71 0.95 3.84" hpr="-5.2 136.7 -10.6" scale="1.47 1.47 1.47"/>
+    <static-object  lod_instance="true" lod_group="sakuraPine" xyz="-93.09 0.55 27.58" hpr="30.9 -105.7 -29.8" scale="0.74 0.74 0.74"/>
+    <static-object  lod_instance="true" lod_group="sakuraPine" xyz="-115.45 0.64 31.67" hpr="5.3 137.5 11.4" scale="0.74 0.74 0.74"/>
     <animated-texture name="monumentWater3.png" dy="-0.3000" />
     <animated-texture name="monumentWater2.png" dy="-0.4000" />
     <animated-texture name="monumentWater2.png" dy="-0.7000" />
@@ -108,7 +108,7 @@
   <water model="Plane.002.b3d" xyz="-140.20 -0.42 -46.58" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="0.10" speed="200.00" length="10.00">
     <animated-texture name="water_light2.png" dy="0.0500" />
   </water>
-  <particle-emitter kind="waterfall.xml" id="Empty" xyz="-183.36 0.77 50.63" h="0.00">
+  <particle-emitter kind="waterfall.xml" id="Empty" xyz="-183.36 0.77 50.63" h="0.00" >
   </particle-emitter>
   <!-- Hair system Circle.012, contains 100 particles -->
   <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.078" xyz="213.79 -42.60 44.75" hpr="-0.0 -0.0 0.0" scale="2.05 2.05 2.05"/>
@@ -213,10 +213,6 @@
   <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.078" xyz="146.14 -46.39 78.10" hpr="-0.0 -0.0 0.0" scale="2.45 2.45 2.45"/>
   <!-- END Hair system Circle.012 -->
 
-  <big-nitro id="Empty.001" x="-135.29" y="0.78" z="-46.43" />
-  <big-nitro id="Empty.002" x="-139.34" y="0.78" z="-40.47" />
-  <big-nitro id="Empty.003" x="-143.26" y="0.78" z="-40.41" />
-  <big-nitro id="Empty.004" x="-135.28" y="0.78" z="-42.67" />
   <small-nitro id="Empty.005" x="-117.49" y="0.14" z="50.06" />
   <banana id="Empty.006" x="-30.39" y="0.14" z="12.24" />
   <small-nitro id="Empty.007" x="-55.13" y="0.14" z="2.10" />
@@ -265,11 +261,11 @@
                  forwards-distance ="1.10"
                  sidewards-distance="2.00"
                  upwards-distance  ="1.10"/>
-  <library name="stklib_asianLantern_a" id="stklib_asianLantern_a_main_proxy.000" xyz="-155.09 6.76 47.75" hpr="0.0 19.6 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_asianLantern_a" id="stklib_asianLantern_a_main_proxy.000" xyz="-155.09 6.76 47.75" hpr="-0.0 19.6 -0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_asianLantern_a" id="stklib_asianLantern_a_main_proxy.001" xyz="-173.81 6.45 26.39" hpr="0.0 81.5 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_asianLantern_a" id="stklib_asianLantern_a_main_proxy.001" xyz="-173.81 6.45 26.39" hpr="-0.0 81.5 -0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_asianLantern_a" id="stklib_asianLantern_a_main_proxy.002" xyz="-0.11 3.99 23.49" hpr="-0.0 126.8 -0.0" scale="1.14 1.14 1.14">
+  <library name="stklib_asianLantern_a" id="stklib_asianLantern_a_main_proxy.002" xyz="-0.11 3.99 23.49" hpr="0.0 126.8 0.0" scale="1.14 1.14 1.14">
   </library>
   <library name="stklib_asianLantern_a" id="stklib_asianLantern_a_main_proxy.003" xyz="-9.48 4.33 27.36" hpr="0.0 91.8 0.0" scale="1.20 1.20 1.20">
   </library>
@@ -277,15 +273,15 @@
   </library>
   <library name="stklib_asianLantern_a" id="stklib_asianLantern_a_main_proxy.005" xyz="-90.04 4.18 61.03" hpr="0.0 119.6 0.0" scale="1.11 1.11 1.11">
   </library>
-  <library name="stklib_asianLantern_a" id="stklib_asianLantern_a_main_proxy.006" xyz="-102.80 4.22 63.44" hpr="0.0 87.3 0.0" scale="1.10 1.10 1.10">
+  <library name="stklib_asianLantern_a" id="stklib_asianLantern_a_main_proxy.006" xyz="-102.80 4.22 63.44" hpr="-0.0 87.3 -0.0" scale="1.10 1.10 1.10">
   </library>
-  <library name="stklib_asianLantern_a" id="stklib_asianLantern_a_main_proxy.007" xyz="-114.84 4.70 60.54" hpr="0.0 66.2 0.0" scale="1.24 1.24 1.24">
+  <library name="stklib_asianLantern_a" id="stklib_asianLantern_a_main_proxy.007" xyz="-114.84 4.70 60.54" hpr="-0.0 66.2 -0.0" scale="1.24 1.24 1.24">
   </library>
   <library name="stklib_asianLantern_a" id="stklib_asianLantern_a_main_proxy.008" xyz="-100.01 5.68 42.21" hpr="0.0 -70.3 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_asianLantern_a" id="stklib_asianLantern_a_main_proxy.009" xyz="-16.09 5.28 -49.83" hpr="0.0 -128.2 -0.0" scale="1.59 1.59 1.59">
+  <library name="stklib_asianLantern_a" id="stklib_asianLantern_a_main_proxy.009" xyz="-16.09 5.28 -49.83" hpr="-0.0 -128.2 0.0" scale="1.59 1.59 1.59">
   </library>
-  <library name="stklib_asianLantern_a" id="stklib_asianLantern_a_main_proxy.010" xyz="-27.72 4.98 -56.04" hpr="0.0 -104.2 -0.0" scale="1.64 1.64 1.64">
+  <library name="stklib_asianLantern_a" id="stklib_asianLantern_a_main_proxy.010" xyz="-27.72 4.98 -56.04" hpr="-0.0 -104.2 0.0" scale="1.64 1.64 1.64">
   </library>
   <library name="stklib_asianLantern_a" id="stklib_asianLantern_a_main_proxy.011" xyz="-158.19 4.34 -72.13" hpr="0.0 -47.6 0.0" scale="1.24 1.24 1.24">
   </library>
@@ -293,13 +289,13 @@
   </library>
   <library name="stklib_asianLantern_a" id="stklib_asianLantern_a_main_proxy.013" xyz="-145.37 4.32 -76.26" hpr="0.0 -72.6 0.0" scale="1.24 1.24 1.24">
   </library>
-  <library name="stklib_asianLantern_a" id="stklib_asianLantern_a_main_proxy.014" xyz="-171.38 6.63 42.97" hpr="0.0 81.5 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_asianLantern_a" id="stklib_asianLantern_a_main_proxy.014" xyz="-171.38 6.63 42.97" hpr="-0.0 81.5 -0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_asianLantern_a" id="stklib_asianLantern_a_main_proxy.015" xyz="-105.52 5.69 29.95" hpr="0.0 -70.3 0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_asianLantern_a" id="stklib_asianLantern_a_main_proxy.016" xyz="-66.03 3.89 1.42" hpr="0.0 -45.4 0.0" scale="1.11 1.11 1.11">
   </library>
-  <library name="stklib_asianWoodPost_a" id="stklib_asianWoodPost_a_main_proxy" xyz="0.22 0.00 23.96" hpr="-0.0 125.0 -0.0" scale="1.54 1.54 1.54">
+  <library name="stklib_asianWoodPost_a" id="stklib_asianWoodPost_a_main_proxy" xyz="0.22 0.00 23.96" hpr="0.0 125.0 0.0" scale="1.54 1.54 1.54">
   </library>
   <library name="stklib_asianWoodPost_a" id="stklib_asianWoodPost_a_main_proxy.001" xyz="-9.48 0.14 27.96" hpr="-0.0 90.0 0.0" scale="1.62 1.62 1.62">
   </library>
@@ -307,13 +303,13 @@
   </library>
   <library name="stklib_asianWoodPost_a" id="stklib_asianWoodPost_a_main_proxy.003" xyz="-89.78 0.29 61.53" hpr="0.0 117.7 0.0" scale="1.51 1.51 1.51">
   </library>
-  <library name="stklib_asianWoodPost_a" id="stklib_asianWoodPost_a_main_proxy.004" xyz="-102.84 0.37 63.99" hpr="0.0 85.5 0.0" scale="1.49 1.49 1.49">
+  <library name="stklib_asianWoodPost_a" id="stklib_asianWoodPost_a_main_proxy.004" xyz="-102.84 0.37 63.99" hpr="-0.0 85.5 -0.0" scale="1.49 1.49 1.49">
   </library>
-  <library name="stklib_asianWoodPost_a" id="stklib_asianWoodPost_a_main_proxy.005" xyz="-115.11 0.39 61.09" hpr="0.0 64.4 0.0" scale="1.67 1.67 1.67">
+  <library name="stklib_asianWoodPost_a" id="stklib_asianWoodPost_a_main_proxy.005" xyz="-115.11 0.39 61.09" hpr="-0.0 64.4 -0.0" scale="1.67 1.67 1.67">
   </library>
-  <library name="stklib_asianWoodPost_a" id="stklib_asianWoodPost_a_main_proxy.006" xyz="-15.57 -0.29 -50.43" hpr="0.0 -130.0 -0.0" scale="2.15 2.15 2.15">
+  <library name="stklib_asianWoodPost_a" id="stklib_asianWoodPost_a_main_proxy.006" xyz="-15.57 -0.29 -50.43" hpr="-0.0 -130.0 0.0" scale="2.15 2.15 2.15">
   </library>
-  <library name="stklib_asianWoodPost_a" id="stklib_asianWoodPost_a_main_proxy.007" xyz="-27.49 -0.73 -56.83" hpr="0.0 -106.0 -0.0" scale="2.21 2.21 2.21">
+  <library name="stklib_asianWoodPost_a" id="stklib_asianWoodPost_a_main_proxy.007" xyz="-27.49 -0.73 -56.83" hpr="-0.0 -106.0 0.0" scale="2.21 2.21 2.21">
   </library>
   <library name="stklib_asianWoodPost_a" id="stklib_asianWoodPost_a_main_proxy.008" xyz="-158.59 0.03 -72.60" hpr="0.0 -49.4 0.0" scale="1.67 1.67 1.67">
   </library>
@@ -323,19 +319,19 @@
   </library>
   <library name="stklib_asianWoodPost_a" id="stklib_asianWoodPost_a_main_proxy.011" xyz="-66.40 -0.00 1.01" hpr="0.0 -47.3 0.0" scale="1.51 1.51 1.51">
   </library>
-  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy" xyz="-16.02 1.63 37.05" hpr="-0.0 104.4 -0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy" xyz="-16.02 1.63 37.05" hpr="0.0 104.4 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.001" xyz="-33.98 3.13 31.24" hpr="-0.0 104.8 -0.0" scale="1.13 1.13 1.13">
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.001" xyz="-33.98 3.13 31.24" hpr="0.0 104.8 0.0" scale="1.13 1.13 1.13">
   </library>
   <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.002" xyz="-44.70 4.23 35.78" hpr="0.0 -74.1 0.0" scale="1.01 1.01 1.01">
   </library>
   <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.003" xyz="-53.57 5.44 31.49" hpr="0.0 -0.0 0.0" scale="1.01 1.01 1.01">
   </library>
-  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.004" xyz="-36.28 3.38 40.42" hpr="0.0 58.7 0.0" scale="1.16 1.16 1.16">
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.004" xyz="-36.28 3.38 40.42" hpr="-0.0 58.7 -0.0" scale="1.16 1.16 1.16">
   </library>
-  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.005" xyz="-48.49 3.04 19.96" hpr="-0.0 105.2 -0.0" scale="1.22 1.22 1.22">
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.005" xyz="-48.49 3.04 19.96" hpr="0.0 105.2 0.0" scale="1.22 1.22 1.22">
   </library>
-  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.006" xyz="-62.65 2.66 26.08" hpr="-0.0 146.9 -0.0" scale="0.73 0.73 0.73">
+  <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.006" xyz="-62.65 2.66 26.08" hpr="0.0 146.9 0.0" scale="0.73 0.73 0.73">
   </library>
   <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.007" xyz="-63.36 2.83 30.97" hpr="0.0 -50.3 0.0" scale="1.08 1.08 1.08">
   </library>
