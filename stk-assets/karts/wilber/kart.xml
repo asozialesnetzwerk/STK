@@ -1,16 +1,37 @@
 <?xml version="1.0"?>
-<kart name="Wilber" version="2" model-file="wilber.b3d" icon-file="wilbericon.png" minimap-icon-file="wilbericon32.png" shadow-file="wilbershadow.png" type="light" groups="standard" rgb="1.00 0.42 0.00" revision="3">
-    <sounds engine="small"/>
-    <animations left="0" straight="20" right="40" start-winning="80" start-winning-loop="149" end-winning="259" start-losing="287" start-losing-loop="324" end-losing="521"/>
-    <wheels>
-        <front-left position="-0.317082 0.174273 0.515819" model="wheel-front-left.b3d"/>
-        <front-right position="0.294673 0.174273 0.515819" model="wheel-front-right.b3d"/>
-        <rear-left position="-0.324686 0.209531 -0.402748" model="wheel-rear-left.b3d"/>
-        <rear-right position="0.302277 0.209531 -0.402748" model="wheel-rear-right.b3d"/>
-    </wheels>
-    <nitro-emitter>
-        <nitro-emitter-a position="-0.332807 0.305423 -0.840149"/>
-        <nitro-emitter-b position="-0.332807 0.305423 -0.840149"/>
-    </nitro-emitter>
-    <hat offset="0.0 0.21 0.04"/>
+<!-- Generated with script from SVN rev 16729 -->
+<kart name              = "Wilber"
+      version           = "2"
+      model-file        = "wilber.b3d"
+      icon-file         = "wilbericon.png"
+      minimap-icon-file = "wilbericon32.png"
+      shadow-file       = "wilbershadow.png"
+      type              = "light"
+      groups            = "standard"
+      rgb               = "1.00 0.42 0.00" >
+  <sounds engine = "small"/>
+  <animations left = "0"
+              straight = "20"
+              right = "40"
+              start-winning = "80"
+              start-winning-loop = "149"
+              end-winning = "259"
+              start-losing = "287"
+              start-losing-loop = "324"
+              end-losing = "521"/>
+  <wheels>
+    <front-left position = "-0.317082 0.174273 0.515819"
+                 model    = "wheel-front-left.b3d"       />
+    <front-right position = "0.294673 0.174273 0.515819"
+                 model    = "wheel-front-right.b3d"       />
+    <rear-left position = "-0.324686 0.209531 -0.402748"
+                 model    = "wheel-rear-left.b3d"       />
+    <rear-right position = "0.302277 0.209531 -0.402748"
+                 model    = "wheel-rear-right.b3d"       />
+  </wheels>
+  <nitro-emitter>
+    <nitro-emitter-a position = "-0.332807 0.305423 -0.840149" />
+    <nitro-emitter-b position = "-0.332807 0.305423 -0.840149" />
+  </nitro-emitter>
+  <hat offset="0.0 0.1 0.0"/>
 </kart>

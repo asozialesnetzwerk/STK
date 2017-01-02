@@ -1,6 +1,6 @@
 # Licensing work
 
-Wilber (3D kart) concept, model and textures + icon
+Wilber (3D kart) concept, model, textures, icon
 	- CC BY-SA 3.0 / author: Néd J. Édoire
 
 # Character information
