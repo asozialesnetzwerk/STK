@@ -126,7 +126,7 @@
     <StringProp id="icon" name="Icon" default="icon.png"
                 doc="Filename of the icon to display in the kart selection screen"/>
     <StringProp id="minimap_icon" name="Minimap Icon" default="icon.png" doc="Filename of the icon to display on the in-game minimap"/>
-    <StringProp id="shadow" name="Shadow" default="generic_shadow.png" doc="Filename of the file containing the shadow of this kart"/>
+    <StringProp id="shadow" name="Shadow" default="genericshadow.png" doc="Filename of the file containing the shadow of this kart"/>
     <ColorProp id="color" name="Color" default="255 255 255" doc="Color used to highlight the kart's icon in the interface"/>
     <FloatProp id="center_shift" name="Gravity Center Shift" default="0.0" doc="Can be used to lower the gravity center of the kart if it topples over too easily"/>
     <EnumProp id="engine_sfx" name="Engine sound" default="large">
