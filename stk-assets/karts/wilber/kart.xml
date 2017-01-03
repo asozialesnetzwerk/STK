@@ -5,7 +5,7 @@
       model-file        = "wilber.b3d"
       icon-file         = "wilbericon.png"
       minimap-icon-file = "wilbericon32.png"
-      shadow-file       = "wilbershadow.png"
+      shadow-file       = "wilber_shadow.png"
       type              = "light"
       groups            = "standard"
       rgb               = "1.00 0.42 0.00" >
