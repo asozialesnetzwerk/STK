@@ -18,7 +18,10 @@
               end-winning = "259"
               start-losing = "287"
               start-losing-loop = "324"
-              end-losing = "521"/>
+              end-losing = "521"
+              backpedal-left = "539"
+              backpedal = "559"
+              backpedal-right = "579"/>
   <wheels>
     <front-left position = "-0.317082 0.174273 0.515819"
                  model    = "wheel-front-left.b3d"       />
