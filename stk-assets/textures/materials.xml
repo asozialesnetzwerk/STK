@@ -207,6 +207,7 @@ colorizable="Y" colorization-factor="0.00" colorization-mask="gfxrndColor_generi
   <material name="stktex_cattail_diff_a.png" shader="grass" /> 
   
   <material name="stktex_usSignAtlas_a.png" shader="alphatest"/>
+  <material name="stktex_cockSilhouette_a.png" shader="alphatest"/>
   <material name="stk_blueTurbine_a.png" shader="alphatest"/>
   
   <material name="stkflag_computerSpam_a.png" shader="alphatest"/>
