@@ -130,7 +130,7 @@
   <checks>
     <check-lap kind="lap" same-group="0"  />
     <cannon p1="66.46 3.28 -103.78" p2="78.97 3.28 -93.28" target-p1="87.04 18.70 -133.65" target-p2="91.00 18.70 -125.16">
-    <curve channel="LocXYZ" speed="30.00" curvetype="bezier" extend="const">
+    <curve channel="LocXYZ" speed="25.00" curvetype="bezier" extend="const">
       <point c="72.086945 3.281668 -97.736847" h1="65.827896 0.265890 -88.888435" h2="78.345993 6.297449 -106.585274" />
       <point c="88.806755 19.073750 -131.177612" h1="85.431107 19.073750 -119.019806" h2="92.182404 19.073750 -143.335434" />
     </curve>
@@ -157,6 +157,11 @@
   <banana id="Empty.018" x="54.57" y="10.20" z="-224.82" h="79.98" />
   <item id="Empty.019" x="57.57" y="10.20" z="-224.83" h="-0.02" />
   <item id="Empty.020" x="51.57" y="10.20" z="-224.82" h="-0.02" />
+  <banana id="Empty.021" x="-66.05" y="8.73" z="-130.02" h="-26.74" />
+  <item id="Empty.022" x="-63.59" y="8.73" z="-128.68" h="-157.31" />
+  <banana id="Empty.023" x="-69.36" y="8.73" z="-130.89" h="-77.31" />
+  <small-nitro id="Empty.024" x="86.72" y="-0.44" z="-279.42" />
+  <small-nitro id="Empty.025" x="86.27" y="0.26" z="-283.81" />
   <lightshaft xyz="-78.81 74.41 -411.96" id="Sun.001" opacity="0.70" color="255 67 9"/>
   <default-start karts-per-row     ="3"
                  forwards-distance ="1.50"
