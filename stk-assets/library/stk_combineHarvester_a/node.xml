@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16649 -->
+<!-- Generated with script from SVN rev 16852 -->
 <scene>
   <object id="Plane" type="animation" xyz="0.27 -0.03 6.60" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="blades.b3d" skeletal-animation="false">
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
@@ -144,5 +144,7 @@
     </curve>
   </object>
   <particle-emitter kind="gfx_sandExplosion_a.xml" id="Empty" xyz="0.10 0.94 -9.15" h="-0.00" >
+  </particle-emitter>
+  <particle-emitter kind="black_smoke.xml" id="Empty.001" xyz="0.81 6.73 -7.96" h="-0.00" >
   </particle-emitter>
 </scene>
