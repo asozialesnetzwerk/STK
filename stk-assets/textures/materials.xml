@@ -115,7 +115,7 @@ colorizable="Y" colorization-factor="0.00" colorization-mask="gfxrndColor_generi
   <material name="gfx_rocketFlame_a.png" shader="additive"/>
   <material name="stktex_fireCloud_a.png" shader="additive"/>
   
-  <material name="stktex_generic_WoodA.png" >
+  <material name="stktex_generic_WoodA.png" has-gravity="Y">
     <sfx filename="wooden_bridge.ogg" rolloff="0.60" min_speed="9.00" max_speed="22.00" min_pitch="1.00" max_pitch="1.70" positional="Y" volume="1.00"/>
   </material>
   
