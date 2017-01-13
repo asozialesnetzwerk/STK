@@ -2,8 +2,6 @@
 <!-- Generated with script from SVN rev 16852 -->
 <scene>
   <track model="Harvest_track.b3d" x="0" y="0" z="0">
-    <static-object  model="stklib_armchair_a_main.b3d" xyz="68.69 11.84 -210.55" hpr="-0.0 -120.0 -0.0" scale="2.78 2.78 2.78"/>
-    <static-object  model="stklib_armchair_a_main.b3d" xyz="66.42 11.28 -242.03" hpr="-0.0 140.0 -0.0" scale="2.78 2.78 2.78"/>
     <static-object  model="stklib_hayBall_a_main.b3d" xyz="-39.54 6.43 -35.23" hpr="96.3 84.8 87.5" scale="1.20 1.20 1.20"/>
     <static-object  model="stklib_hayBall_a_main.b3d" xyz="-41.77 4.73 4.19" hpr="66.3 84.8 64.4" scale="1.20 1.20 1.20"/>
     <static-object  model="stklib_hayBall_a_main.b3d" xyz="-38.18 5.29 82.47" hpr="91.5 84.7 74.7" scale="1.20 1.20 1.20"/>
@@ -153,6 +151,12 @@
   <small-nitro id="Empty.012" x="179.16" y="5.54" z="40.57" />
   <small-nitro id="Empty.013" x="186.16" y="5.54" z="40.57" />
   <banana id="Empty.014" x="182.66" y="5.54" z="40.57" />
+  <banana id="Empty.015" x="127.76" y="10.58" z="-27.49" h="-10.02" />
+  <item id="Empty.016" x="127.76" y="10.58" z="-30.49" h="-90.02" />
+  <item id="Empty.017" x="127.76" y="10.58" z="-24.49" h="-90.02" />
+  <banana id="Empty.018" x="54.57" y="10.20" z="-224.82" h="79.98" />
+  <item id="Empty.019" x="57.57" y="10.20" z="-224.83" h="-0.02" />
+  <item id="Empty.020" x="51.57" y="10.20" z="-224.82" h="-0.02" />
   <lightshaft xyz="-78.81 74.41 -411.96" id="Sun.001" opacity="0.70" color="255 67 9"/>
   <default-start karts-per-row     ="3"
                  forwards-distance ="1.50"
@@ -232,6 +236,10 @@
   <library name="stklib_animalPig_a" id="stklib_animalPig_a_main_proxy.001" xyz="130.57 -12.75 -286.53" hpr="-0.0 -135.4 -0.0" scale="1.74 1.74 1.74">
   </library>
   <library name="stklib_animalPig_a" id="stklib_animalPig_a_main_proxy.002" xyz="129.07 -12.75 -303.02" hpr="-0.0 -123.0 -0.0" scale="2.73 2.73 2.73">
+  </library>
+  <library name="stklib_armchair_a" id="stklib_armchair_a_main_proxy" xyz="66.82 12.24 -209.29" hpr="-0.0 -147.7 -0.0" scale="3.42 3.42 3.42">
+  </library>
+  <library name="stklib_armchair_a" id="stklib_armchair_a_main_proxy.001" xyz="66.53 11.68 -242.51" hpr="-0.0 122.3 -0.0" scale="3.42 3.42 3.42">
   </library>
   <library name="stklib_autumnSmallBush_a" id="stklib_autumnSmallBush_a_main_proxy" xyz="113.73 2.14 107.15" hpr="0.0 -0.0 0.0" scale="2.33 2.33 2.33">
   </library>
