@@ -1,26 +1,11 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16337 -->
+<!-- Generated with script from SVN rev 16852 -->
 <scene>
   <track model="20_mansion_track.b3d" x="0" y="0" z="0">
     <static-object  model="limit.b3d" xyz="188.58 -13.75 -49.08" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
     <animated-texture name="stk_mudpot_a.png" dx="0.050" />
   </track>
   <object id="Plane.003" type="animation" xyz="171.94 -14.78 -182.84" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="swamp_water.b3d" displacing="true" skeletal-animation="false">
-  </object>
-  <object id="Plane.011" type="animation" xyz="582.58 67.92 -236.48" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="comet_cinematic.b3d" skeletal-animation="false">
-    <animated-texture name="vapor.png" dx="0.200" />
-    <curve channel="LocX" interpolation="bezier" extend="cyclic">
-      <p c="1.000 582.578" h1="-265.000 673.601" h2="267.000 491.555"/>
-      <p c="799.000 309.508" h1="533.000 400.532" h2="1065.000 218.485"/>
-    </curve>
-    <curve channel="LocZ" interpolation="bezier" extend="cyclic">
-      <p c="1.000 -236.479" h1="-265.000 -496.940" h2="267.000 23.981"/>
-      <p c="799.000 544.902" h1="533.000 284.441" h2="1065.000 805.362"/>
-    </curve>
-    <curve channel="LocY" interpolation="bezier" extend="cyclic">
-      <p c="1.000 67.925" h1="-265.000 67.925" h2="267.000 67.925"/>
-      <p c="799.000 67.925" h1="533.000 67.925" h2="1065.000 67.925"/>
-    </curve>
   </object>
   <sun  fog="true" fog-color="4 14 40" fog-max="0.5" fog-start="5.00" fog-end="100.00" xyz="296.24 373.55 -696.37" sun-diffuse="54 93 255" ambient="120 120 120"/>
   <weather particles="rain.xml" lightning="true"/>
@@ -189,9 +174,9 @@
   <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="233.94 -19.01 -213.60" hpr="-0.0 -0.0 0.0" scale="0.85 0.85 0.85"/>
   <!-- END Hair system Plane.003 -->
 
-  <light xyz="25.87 96.97 -225.65" id="Lamp" distance="10.00" energy="2.00" color="255 105 47">
+  <light xyz="25.87 96.97 -251.65" id="Lamp" distance="10.00" energy="2.00" color="255 105 47">
   </light>
-  <light xyz="60.01 62.48 -235.09" id="Lamp.001" distance="10.00" energy="2.00" color="255 105 47">
+  <light xyz="56.01 62.48 -261.09" id="Lamp.001" distance="10.00" energy="2.00" color="255 105 47">
   </light>
   <light xyz="115.90 -2.27 -114.82" id="Lamp.008" distance="20.00" energy="1.00" color="49 255 42">
   </light>
