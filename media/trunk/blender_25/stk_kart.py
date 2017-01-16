@@ -213,7 +213,7 @@ def saveAnimations(f):
                     "start-explosion", "end-explosion", "start-jump", "start-jump-loop", "end-jump",
                     "turning-l", "center", "turning-r", "repeat-losing", "repeat-winning",
                     "start-speed-weighted", "end-speed-weighted", "backpedal-left",
-                    "backpedal", "backpedal-right"]:
+                    "backpedal", "backpedal-right", "selection-start", "selection-end"]:
                     if markerName=="turning-l": markerName="left"
                     if markerName=="turning-r": markerName="right"
                     if markerName=="center": markerName="straight"
