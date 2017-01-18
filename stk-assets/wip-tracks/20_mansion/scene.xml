@@ -7,6 +7,8 @@
   </track>
   <object id="Plane.003" type="animation" xyz="171.94 -14.78 -182.84" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="swamp_water.b3d" displacing="true" skeletal-animation="false">
   </object>
+  <object id="stklib_chimney_a_main_proxy" type="animation" xyz="71.06 91.01 -270.80" hpr="0.0 -0.0 0.0" scale="3.88 3.88 3.88" interaction="ghost" model="stklib_chimney_a_main.b3d" skeletal-animation="false">
+  </object>
   <sun  fog="true" fog-color="4 14 40" fog-max="0.5" fog-start="5.00" fog-end="100.00" xyz="296.24 373.55 -696.37" sun-diffuse="54 93 255" ambient="120 120 120"/>
   <weather particles="rain.xml" lightning="true"/>
   <sky-box texture="skybox_side.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png" sh-texture="skybox_ibl_top.png skybox_ibl.png skybox_ibl.png skybox_ibl.png skybox_ibl.png skybox_ibl.png"/>
@@ -195,7 +197,13 @@
                  forwards-distance ="1.10"
                  sidewards-distance="1.10"
                  upwards-distance  ="1.10"/>
+  <library name="stklib_candle_a" id="stklib_candle_a_main_proxy" xyz="5.91 -0.62 -70.66" hpr="0.0 -0.0 0.0" scale="1.46 1.46 1.46">
+  </library>
+  <library name="stklib_candle_a" id="stklib_candle_a_main_proxy.001" xyz="4.65 -1.04 -70.42" hpr="-0.0 117.7 -0.0" scale="1.30 1.30 1.30">
+  </library>
   <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="225.81 -19.10 -103.20" hpr="-0.0 122.3 -0.0" scale="1.98 1.98 1.98">
+  </library>
+  <library name="stklib_chimney_b" id="stklib_chimney_b_main_proxy" xyz="15.92 112.40 -262.96" hpr="-0.0 90.0 0.0" scale="3.17 3.17 3.17">
   </library>
   <library name="stklib_deadTree_a" id="stklib_deadTree_a_main_proxy" xyz="10.92 -5.79 -67.41" hpr="0.4 0.7 -11.5" scale="1.00 1.00 1.00">
   </library>
