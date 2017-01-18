@@ -96,6 +96,8 @@
     <static-object  model="stklib_logBarrier_a_main.b3d" xyz="85.50 -0.16 -288.86" hpr="-3.3 3.8 -23.0" scale="1.00 1.00 1.00"/>
     <static-object  model="stklib_logBarrier_a_main.b3d" xyz="71.93 4.78 -283.81" hpr="-9.6 18.0 -24.2" scale="1.00 1.00 1.00"/>
     <static-object  model="stklib_logBarrier_a_main.b3d" xyz="59.84 8.76 -275.42" hpr="3.7 36.4 -18.4" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="71.95 2.77 113.02" hpr="-2.5 147.5 -1.2" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="85.96 2.77 121.00" hpr="-2.4 151.1 -1.1" scale="1.00 1.00 1.00"/>
     <animated-texture name="stkflag_greenCheckBorard_a.png" dx="0.080"  dy="0.2000" />
     <animated-texture name="stkflag_orangeBooster_a.png" dy="0.8000" />
   </track>
@@ -447,6 +449,42 @@
   </library>
   <library name="stklib_cornPlant_a" id="stklib_cornPlant_a_main_proxy.018" xyz="197.55 5.39 99.09" hpr="-0.0 83.0 -0.0" scale="1.25 1.25 1.25">
   </library>
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy" xyz="8.55 -0.08 17.32" hpr="0.0 -0.0 0.0" scale="1.97 1.97 1.97">
+  </library>
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.001" xyz="8.55 -0.08 14.32" hpr="0.0 -0.0 0.0" scale="1.58 1.58 1.58">
+  </library>
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.002" xyz="11.24 -0.08 15.55" hpr="0.0 -0.0 0.0" scale="1.97 1.97 1.97">
+  </library>
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.003" xyz="174.37 4.04 28.02" hpr="1.3 55.4 -4.5" scale="1.58 1.58 1.58">
+  </library>
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.004" xyz="-7.37 -0.08 15.04" hpr="0.0 -66.7 0.0" scale="1.58 1.58 1.58">
+  </library>
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.005" xyz="-7.62 -0.08 17.60" hpr="0.0 -66.7 0.0" scale="1.97 1.97 1.97">
+  </library>
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.006" xyz="189.70 5.31 54.58" hpr="-2.7 55.7 5.7" scale="1.58 1.58 1.58">
+  </library>
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.007" xyz="174.37 3.92 54.54" hpr="2.2 54.5 -4.5" scale="1.58 1.58 1.58">
+  </library>
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.008" xyz="57.79 7.46 -179.76" hpr="-6.9 53.1 0.2" scale="1.58 1.58 1.58">
+  </library>
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.009" xyz="55.77 7.07 -175.76" hpr="9.4 55.8 14.7" scale="1.58 1.58 1.58">
+  </library>
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.010" xyz="52.37 6.72 -171.89" hpr="-9.9 52.8 -3.6" scale="1.58 1.58 1.58">
+  </library>
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.011" xyz="46.87 3.26 99.76" hpr="0.0 55.0 0.0" scale="1.58 1.58 1.58">
+  </library>
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.012" xyz="53.05 3.34 99.99" hpr="8.9 54.5 11.4" scale="1.58 1.58 1.58">
+  </library>
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.013" xyz="58.94 3.37 101.74" hpr="0.0 55.0 0.0" scale="1.58 1.58 1.58">
+  </library>
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.014" xyz="9.51 -0.08 22.67" hpr="-0.0 118.3 -0.0" scale="1.97 1.97 1.97">
+  </library>
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.015" xyz="9.49 -0.08 25.24" hpr="-0.0 118.3 -0.0" scale="1.58 1.58 1.58">
+  </library>
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.016" xyz="-8.60 -0.08 25.15" hpr="-0.0 118.3 -0.0" scale="1.58 1.58 1.58">
+  </library>
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.017" xyz="-8.58 -0.08 22.57" hpr="-0.0 118.3 -0.0" scale="1.97 1.97 1.97">
+  </library>
   <library name="stklib_giantPlasticBag_a" id="stklib_giantPlasticBag_a_main_proxy" xyz="171.88 4.93 23.56" hpr="-0.1 -1.7 -4.9" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_giantPlasticBag_a" id="stklib_giantPlasticBag_a_main_proxy.001" xyz="112.55 -7.44 -258.84" hpr="-1.7 -26.4 5.1" scale="1.00 1.00 1.00">
@@ -624,5 +662,13 @@
   <library name="stklib_windpump_a" id="stklib_windpump_a_main_proxy" xyz="-88.07 15.33 -198.47" hpr="-0.0 103.5 -0.0" scale="1.50 1.50 1.50">
   </library>
   <library name="stklib_windpump_a" id="stklib_windpump_a_main_proxy.001" xyz="113.77 10.65 -142.48" hpr="-0.0 54.8 -0.0" scale="1.50 1.50 1.50">
+  </library>
+  <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy" xyz="53.29 8.38 -170.60" hpr="-90.0 49.7 -0.0" scale="0.64 0.33 0.33">
+  </library>
+  <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.001" xyz="59.04 8.38 -178.47" hpr="-90.0 57.9 -0.0" scale="0.64 0.33 0.33">
+  </library>
+  <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.002" xyz="47.00 4.70 101.20" hpr="-90.0 176.3 0.0" scale="0.64 0.33 0.33">
+  </library>
+  <library name="stklib_woodLittleBridge_a" id="stklib_woodLittleBridge_a_main_proxy.003" xyz="56.66 4.70 102.52" hpr="-90.0 168.1 -0.0" scale="0.64 0.33 0.33">
   </library>
 </scene>
