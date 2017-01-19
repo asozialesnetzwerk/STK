@@ -270,7 +270,7 @@ colorizable="Y" colorization-factor="0.00" colorization-mask="gfxrndColor_generi
   <material name="gfx_sparkFire_a.png" compositing="additive"/> 
   <material name="gfx_sparkBlue_a.png" compositing="additive"/>
   <material name="gfx_sparkGreen_a.png" compositing="additive"/> 
-  <material name="gfx_electricArc_a.png" compositing="additive"/>
+  <material name="gfx_electricArc_a.png" compositing="additive" ignore="Y"/>
   <material name="gfx_yellowBeam_a.png" compositing="additive"/>
   
   <material name="stkflag_lasDunasArena_a.png" compositing="additive"/> 
