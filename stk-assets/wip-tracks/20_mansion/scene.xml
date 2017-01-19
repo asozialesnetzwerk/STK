@@ -199,6 +199,14 @@
   </library>
   <library name="gfx_fireflies_a" id="gfx_fireflies_a_main_proxy.001" xyz="5.56 2.83 -70.05" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
+  <library name="gfx_lightning_a" id="gfx_lightning_a_main_proxy" xyz="-7.25 -4.45 -446.48" hpr="0.0 -81.8 0.0" scale="6.67 6.67 6.67">
+  </library>
+  <library name="gfx_lightning_a" id="gfx_lightning_a_main_proxy.001" xyz="-5.64 -4.45 164.41" hpr="4.8 127.6 -8.1" scale="9.11 9.11 9.11">
+  </library>
+  <library name="gfx_lightning_a" id="gfx_lightning_a_main_proxy.002" xyz="384.44 -44.31 -225.97" hpr="-81.2 -85.0 92.5" scale="9.11 9.11 9.11">
+  </library>
+  <library name="gfx_lightning_a" id="gfx_lightning_a_main_proxy.003" xyz="257.02 -44.31 -198.65" hpr="-1.4 -142.3 -4.6" scale="6.67 6.67 6.67">
+  </library>
   <library name="stklib_airConditioner_a" id="stklib_airConditioner_a_main_proxy" xyz="-18.51 40.82 -246.17" hpr="-0.0 180.0 -0.0" scale="2.14 2.14 2.14">
   </library>
   <library name="stklib_candle_a" id="stklib_candle_a_main_proxy" xyz="5.91 -0.62 -70.66" hpr="0.0 -0.0 0.0" scale="1.46 1.46 1.46">
