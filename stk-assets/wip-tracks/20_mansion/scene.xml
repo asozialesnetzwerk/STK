@@ -287,6 +287,8 @@
   </library>
   <library name="stklib_deadTree_a" id="stklib_deadTree_a_main_proxy.031" xyz="-37.93 -1.12 -110.50" hpr="-6.3 -162.8 0.7" scale="0.85 0.85 0.85">
   </library>
+  <library name="stklib_gramophone_a" id="stklib_gramophone_main_proxy" xyz="13.53 33.46 -306.92" hpr="-0.0 -125.0 -0.0" scale="1.00 1.00 1.00">
+  </library>
   <library name="stklib_jungleTree_a" id="stklib_jungleTree_a_main_proxy" xyz="88.83 -13.05 10.19" hpr="0.0 -0.0 0.0" scale="2.50 2.50 2.50">
   </library>
   <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy" xyz="196.97 -17.56 -222.27" hpr="-4.3 62.2 -4.4" scale="1.00 1.00 1.00">
