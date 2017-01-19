@@ -307,6 +307,14 @@
   </library>
   <library name="stklib_metalPostLamp_a" id="stklib_metalPostLamp_a_main_proxy.003" xyz="79.22 9.51 -151.15" hpr="-0.0 179.2 -0.0" scale="1.30 1.30 1.30">
   </library>
+  <library name="stklib_metalPostLamp_a" id="stklib_metalPostLamp_a_main_proxy.004" xyz="70.99 12.74 -186.97" hpr="0.0 73.7 0.0" scale="1.30 1.30 1.30">
+  </library>
+  <library name="stklib_metalPostLamp_a" id="stklib_metalPostLamp_a_main_proxy.005" xyz="13.72 14.82 -177.79" hpr="-0.0 123.7 -0.0" scale="1.30 1.30 1.30">
+  </library>
+  <library name="stklib_metalPostLamp_a" id="stklib_metalPostLamp_a_main_proxy.006" xyz="-47.09 21.29 -187.68" hpr="-0.0 178.7 -0.0" scale="1.30 1.30 1.30">
+  </library>
+  <library name="stklib_metalPostLamp_a" id="stklib_metalPostLamp_a_main_proxy.007" xyz="-13.80 24.00 -208.92" hpr="-0.0 93.7 -0.0" scale="1.30 1.30 1.30">
+  </library>
   <library name="stklib_mudpot_a" id="stklib_mudpot_a_main_proxy.000" xyz="106.74 -15.00 26.11" hpr="-0.0 -40.4 0.0" scale="1.34 1.34 1.34">
   </library>
   <library name="stklib_mudpot_a" id="stklib_mudpot_a_main_proxy.001" xyz="116.07 -13.72 -276.43" hpr="-0.0 -18.3 0.0" scale="1.85 1.85 1.85">
@@ -401,13 +409,13 @@
   </library>
   <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.020" xyz="79.20 18.32 -151.14" hpr="-0.0 -178.7 -0.0" scale="2.50 2.50 2.50">
   </library>
-  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.021" xyz="70.63 18.35 -184.85" hpr="0.0 73.4 0.0" scale="2.50 2.50 2.50">
+  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.021" xyz="71.01 21.44 -186.98" hpr="0.0 73.4 0.0" scale="2.50 2.50 2.50">
   </library>
-  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.022" xyz="15.54 20.33 -176.14" hpr="-0.0 128.3 -0.0" scale="2.50 2.50 2.50">
+  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.022" xyz="13.73 23.57 -177.79" hpr="-0.0 122.8 -0.0" scale="2.50 2.50 2.50">
   </library>
-  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.023" xyz="-49.03 26.32 -185.11" hpr="0.0 2.6 0.0" scale="2.50 2.50 2.50">
+  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.023" xyz="-47.11 30.03 -187.70" hpr="0.0 2.6 0.0" scale="2.50 2.50 2.50">
   </library>
-  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.024" xyz="-14.30 31.34 -209.11" hpr="-0.0 -86.5 0.0" scale="2.50 2.50 2.50">
+  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.024" xyz="-13.78 32.72 -208.90" hpr="-0.0 -86.5 0.0" scale="2.50 2.50 2.50">
   </library>
   <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.026" xyz="5.72 -1.04 26.03" hpr="-0.0 -130.0 -0.0" scale="2.50 2.50 2.50">
   </library>
@@ -492,14 +500,6 @@
   <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy.012" xyz="203.86 -8.51 -2.40" hpr="0.0 -41.5 0.0" scale="1.70 1.70 1.70">
   </library>
   <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy.013" xyz="162.34 -10.09 5.03" hpr="0.0 130.4 0.0" scale="1.70 1.70 1.70">
-  </library>
-  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy.018" xyz="71.17 12.60 -186.84" hpr="0.0 73.4 0.0" scale="1.70 1.70 1.70">
-  </library>
-  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy.019" xyz="14.22 14.58 -177.72" hpr="-0.0 128.3 -0.0" scale="1.70 1.70 1.70">
-  </library>
-  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy.020" xyz="-46.98 20.58 -185.26" hpr="0.0 2.6 0.0" scale="1.70 1.70 1.70">
-  </library>
-  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy.021" xyz="-14.12 25.60 -207.05" hpr="-0.0 -86.5 0.0" scale="1.70 1.70 1.70">
   </library>
   <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy.022" xyz="4.44 -6.78 27.64" hpr="-0.0 -130.0 -0.0" scale="1.70 1.70 1.70">
   </library>
