@@ -18,26 +18,24 @@ class FitchBarrelTimeout
     
     void onTimerComplete()
     {
-        Track::TrackObject@ part = Track::getTrackObject(this.instID, "stklib_fitchBarrel_a_cover");
-        part.setEnabled(false);
-        
-        Track::TrackObject@ part2 = Track::getTrackObject(this.instID, "stklib_fitchBarrel_a_bodyPartA");
-        part2.setEnabled(false);
-        
-        Track::TrackObject@ part3 = Track::getTrackObject(this.instID, "stklib_fitchBarrel_a_bodyPartB");
-        part3.setEnabled(false);
-        
-        Track::TrackObject@ part4 = Track::getTrackObject(this.instID, "stklib_fitchBarrel_a_bodyPartC");
-        part4.setEnabled(false);
-        
-        Track::TrackObject@ part5 = Track::getTrackObject(this.instID, "stklib_fitchBarrel_a_bodyPartD");
-        part5.setEnabled(false);
-        
-        Track::TrackObject@ part6 = Track::getTrackObject(this.instID, "stklib_fitchBarrel_a_bodyPartE");
-        part6.setEnabled(false);
-        
-        Track::TrackObject@ part7 = Track::getTrackObject(this.instID, "stklib_fitchBarrel_a_bottom");
-        part7.setEnabled(false);
+
+        array<string> barrel_parts = {
+            "stklib_fitchBarrel_a_cover",
+            "stklib_fitchBarrel_a_bodyPartA",
+            "stklib_fitchBarrel_a_bodyPartB",
+            "stklib_fitchBarrel_a_bodyPartC",
+            "stklib_fitchBarrel_a_bodyPartD",
+            "stklib_fitchBarrel_a_bodyPartE",
+            "stklib_fitchBarrel_a_bottom"
+        };
+
+        int counter = 0;
+        while(counter < barrel_parts.length())
+        {
+            Track::TrackObject@ part = Track::getTrackObject(this.instID, barrel_parts[counter]);
+            part.setEnabled(false);
+            counter++;
+        }
     }
 }
 
@@ -47,26 +45,23 @@ void blowUpFitchBarrel(string instID)
     Track::TrackObject@ wall = Track::getTrackObject(instID, "stklib_fitchBarrel_a_main");
     wall.setEnabled(false);
     
-    Track::TrackObject@ part = Track::getTrackObject(instID, "stklib_fitchBarrel_a_cover");
-    part.setEnabled(true);
-    
-    Track::TrackObject@ part2 = Track::getTrackObject(instID, "stklib_fitchBarrel_a_bodyPartA");
-    part2.setEnabled(true);
-    
-    Track::TrackObject@ part3 = Track::getTrackObject(instID, "stklib_fitchBarrel_a_bodyPartB");
-    part3.setEnabled(true);
-    
-    Track::TrackObject@ part4 = Track::getTrackObject(instID, "stklib_fitchBarrel_a_bodyPartC");
-    part4.setEnabled(true);
-    
-    Track::TrackObject@ part5 = Track::getTrackObject(instID, "stklib_fitchBarrel_a_bodyPartD");
-    part5.setEnabled(true);
-    
-    Track::TrackObject@ part6 = Track::getTrackObject(instID, "stklib_fitchBarrel_a_bodyPartE");
-    part6.setEnabled(true);
-    
-    Track::TrackObject@ part7 = Track::getTrackObject(instID, "stklib_fitchBarrel_a_bottom");
-    part7.setEnabled(true);
+    array<string> barrel_parts = {
+            "stklib_fitchBarrel_a_cover",
+            "stklib_fitchBarrel_a_bodyPartA",
+            "stklib_fitchBarrel_a_bodyPartB",
+            "stklib_fitchBarrel_a_bodyPartC",
+            "stklib_fitchBarrel_a_bodyPartD",
+            "stklib_fitchBarrel_a_bodyPartE",
+            "stklib_fitchBarrel_a_bottom"
+        };
+
+        int counter = 0;
+        while(counter < barrel_parts.length())
+        {
+            Track::TrackObject@ part = Track::getTrackObject(instID, barrel_parts[counter]);
+            part.setEnabled(true);
+            counter++;
+        }
     
     Track::TrackObject@ obj = Track::getTrackObject(instID, "stklib_fitchBarrel_a_sandExplosion");
     Track::ParticleEmitter@ emitter = obj.getParticleEmitter();
