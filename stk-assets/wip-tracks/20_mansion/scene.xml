@@ -437,6 +437,18 @@
   </library>
   <library name="stklib_pumpkin_a" id="stklib_pumpkin_a_main_proxy.003" xyz="-17.62 0.61 -68.47" hpr="-0.0 97.7 -0.0" scale="2.77 2.77 2.77">
   </library>
+  <library name="stklib_pumpkin_a" id="stklib_pumpkin_a_main_proxy.004" xyz="25.99 2.27 -112.00" hpr="-0.0 97.7 -0.0" scale="1.51 1.51 1.51">
+  </library>
+  <library name="stklib_pumpkin_a" id="stklib_pumpkin_a_main_proxy.005" xyz="63.55 12.55 -171.06" hpr="-0.0 97.7 -0.0" scale="1.51 1.51 1.51">
+  </library>
+  <library name="stklib_pumpkin_a" id="stklib_pumpkin_a_main_proxy.006" xyz="90.34 11.42 -174.10" hpr="-0.0 97.7 -0.0" scale="1.51 1.51 1.51">
+  </library>
+  <library name="stklib_pumpkin_a" id="stklib_pumpkin_a_main_proxy.007" xyz="-40.10 23.21 -204.08" hpr="-0.0 97.7 -0.0" scale="1.51 1.51 1.51">
+  </library>
+  <library name="stklib_pumpkin_a" id="stklib_pumpkin_a_main_proxy.008" xyz="-67.66 21.22 -192.21" hpr="-0.0 97.7 -0.0" scale="1.51 1.51 1.51">
+  </library>
+  <library name="stklib_pumpkin_a" id="stklib_pumpkin_a_main_proxy.009" xyz="30.17 30.30 -236.96" hpr="-10.4 109.8 -7.3" scale="1.25 1.25 1.25">
+  </library>
   <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="154.58 -19.02 -27.14" hpr="0.0 -0.0 0.0" scale="1.58 1.58 1.58">
   </library>
   <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy.001" xyz="243.82 -19.02 -27.35" hpr="0.0 -0.0 0.0" scale="1.58 1.58 1.58">
