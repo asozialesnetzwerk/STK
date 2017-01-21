@@ -449,6 +449,12 @@
   </library>
   <library name="stklib_cornPlant_a" id="stklib_cornPlant_a_main_proxy.018" xyz="197.55 5.39 99.09" hpr="-0.0 83.0 -0.0" scale="1.25 1.25 1.25">
   </library>
+  <library name="stklib_electricalBox_a" id="stklib_electricalBox_a_main_proxy" xyz="40.41 10.08 -238.23" hpr="0.0 85.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_electricalBox_a" id="stklib_electricalBox_a_main_proxy.001" xyz="116.18 -7.24 -242.23" hpr="0.0 -5.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_electricalBox_a" id="stklib_electricalBox_a_main_proxy.002" xyz="175.48 5.05 32.42" hpr="0.0 -5.0 0.0" scale="1.00 1.00 1.00">
+  </library>
   <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy" xyz="8.55 -0.08 17.32" hpr="0.0 -0.0 0.0" scale="1.97 1.97 1.97">
   </library>
   <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.001" xyz="8.55 -0.08 14.32" hpr="0.0 -0.0 0.0" scale="1.58 1.58 1.58">
