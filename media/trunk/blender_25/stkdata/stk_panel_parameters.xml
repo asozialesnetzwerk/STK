@@ -105,7 +105,12 @@
             <FloatProp id="colorlevel_outwhite" name="Output white" doc="The white output level" default="255.0" min="0.0" max="255.0"/>
         </BoolProp>
         -->
-        <BoolProp id="shadows" name="Dynamic shadows (STK 0.8.2)" default="true" doc="Whether to enable dynamic shadows"/>
+        <BoolProp id="shadows" name="Dynamic shadows" default="true" doc="Whether to enable dynamic shadows"/>
+        <EnumProp id="duringday" name="Track time" default="day" doc="Useful to turn on/off some lighting effect">
+            <EnumChoice id="day" label="Day" />
+            <EnumChoice id="night" label="Night" />
+        </EnumProp>
+
         <BoolProp id="fog" name="Fog" default="false" doc="Whether to enable fog in the track">
             <ColorProp id="fog_color" name="Fog Color" default="0 0 0" doc="Click here to pick the color of the fog"/>
             <FloatProp id="fog_start" name="Fog Start" default="50.0" min="0.0" max="1000.0"

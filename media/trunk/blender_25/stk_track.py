@@ -2047,6 +2047,8 @@ class TrackExport:
         has_cloud_shadows = (getSceneProperty(scene, "clouds", "false") == "true")
         #has_lens_flare  = (getSceneProperty(scene, "sunlensflare", "false") == "true")
         has_shadows     = (getSceneProperty(scene, "shadows", "false") == "true")
+
+        day_time        = getSceneProperty(scene, "duringday", "")
         
         #has_colorlevel  = (getSceneProperty(scene, "colorlevel", "false") == "true")
         #colorlevel_inblack = getSceneProperty(scene, "colorlevel_inblack", "0.0")
@@ -2143,6 +2145,11 @@ class TrackExport:
         #else:
         #    f.write("        lens-flare     = \"N\"\n")
         
+        if day_time == "day":
+            f.write("        is-during-day  = \"Y\"\n")
+        else:
+            f.write("        is-during-day  = \"N\"\n")
+
         if has_shadows:
             f.write("        shadows        = \"Y\"\n")
         else:
