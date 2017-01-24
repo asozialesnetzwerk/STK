@@ -90,7 +90,36 @@ def saveNitroEmitter(f, lNitroEmitter, path):
     f.write('    <nitro-emitter-b position = "%f %f %f" />\n' \
                 % (lNitroEmitter[1].location.x, lNitroEmitter[1].location.z, lNitroEmitter[1].location.y))
     f.write('  </nitro-emitter>\n')
+    
+# ------------------------------------------------------------------------------
 
+def saveHeadlights(f, lHeadlights, path):
+    if len(lHeadlights) == 0:
+        return
+    if 'b3d_export' not in dir(bpy.ops.screen):
+        log_error("Cannot find the B3D exporter, make sure you installed it properly")
+        return
+    
+    f.write('  <headlights>\n')
+    for obj in lHeadlights:
+        f.write('    <object position="%f %f %f" model="%s.b3d"/>\n' \
+                % (obj.location.x, obj.location.z, obj.location.y, obj.name))
+        
+        lOldPos = Vector([obj.location.x, obj.location.y, obj.location.z])
+        obj.location = Vector([0, 0, 0])
+        
+        global the_scene
+        the_scene.obj_list = [obj]
+        
+        bpy.ops.screen.b3d_export(localsp=False, mipmap=True, lights=False, vcolors=True,
+                                  vnormals=True, cameras=False, filepath=path + "/" + obj.name,
+                                  overwrite_without_asking=True)
+        the_scene.obj_list = []
+        
+        obj.location = lOldPos
+        
+    f.write('  </headlights>\n')
+        
 # ------------------------------------------------------------------------------
 # Save speed weighted
 def saveSpeedWeighted(f, lSpeedWeighted, path):
@@ -301,6 +330,7 @@ def exportKart(path):
     lKart         = []
     lNitroEmitter = []
     lSpeedWeighted = []
+    lHeadlights = []
     for obj in lObj:
         stktype = getProperty(obj, "type", "").strip().upper()
         name    = obj.name.upper()
@@ -312,6 +342,8 @@ def exportKart(path):
             lSpeedWeighted.append(obj)
         elif stktype=="IGNORE":
             pass
+        elif stktype=="HEADLIGHT":
+            lHeadlights.append(obj)
         # For backward compatibility
         #elif name in ["WHEELFRONT.R","WHEELFRONT.L", \
         #              "WHEELREAR.R", "WHEELREAR.L"     ]:
@@ -376,6 +408,7 @@ def exportKart(path):
     saveWheels(f, lWheels, path)
     saveNitroEmitter(f, lNitroEmitter, path)
     saveSpeedWeighted(f, lSpeedWeighted, path)
+    saveHeadlights(f, lHeadlights, path)
     
     hat_offset = "0.0 1.0 0.0"
     if 'hat_offset' in the_scene and len(the_scene['hat_offset']) > 0:
