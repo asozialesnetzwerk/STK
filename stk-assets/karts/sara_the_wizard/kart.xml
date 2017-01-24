@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16354 -->
+<!-- Generated with script from SVN rev 16945 -->
 <kart name              = "Sara the Wizard"
       version           = "2"
       model-file        = "sara the wizard.b3d"
@@ -14,7 +14,10 @@
               straight = "39"
               right = "59"
               start-jump = "99"
-              end-jump = "129"/>
+              end-jump = "129"
+              start-winning = "134"
+              start-winning-loop = "144"
+              end-winning = "159"/>
   <wheels>
     <rear-right position = "0.062147 0.069841 -0.593046"
                  model    = "wheel-rear-right.b3d"       />
@@ -32,6 +35,9 @@
   <speed-weighted-objects>
     <speed-weighted position="0.000000 0.000000 0.000000" model="Circle.003_Circle.002.b3d"  texture-speed-x="0.000000" texture-speed-y="1.500000"/>
   </speed-weighted-objects>
+  <headlights>
+    <object position="0.000000 0.000000 0.000000" model="Circle.003_Circle.010.b3d"/>
+  </headlights>
   <hat offset="0.0 0.2 0.0"/>
   <lean max="*0-10"/>
 </kart>

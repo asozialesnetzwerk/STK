@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16354 -->
+<!-- Generated with script from SVN rev 16945 -->
 <kart name              = "Beastie"
       version           = "2"
-      model-file        = "beastie.b3dz"
+      model-file        = "beastie.b3d"
       icon-file         = "beastie-icon.png"
       minimap-icon-file = "beastie-icon.png"
       shadow-file       = "beastie-shadow.png"
@@ -33,5 +33,8 @@
     <nitro-emitter-a position = "0.387257 0.615989 -0.635706" />
     <nitro-emitter-b position = "-0.382115 0.615989 -0.635706" />
   </nitro-emitter>
+  <headlights>
+    <object position="0.000000 0.217310 0.000000" model="Kart.001.b3d"/>
+  </headlights>
   <hat offset="0.0 0.24 -0.035"/>
 </kart>
