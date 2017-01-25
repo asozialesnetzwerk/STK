@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16354 -->
+<!-- Generated with script from SVN rev 16945 -->
 <kart name              = "Xue"
       version           = "2"
       model-file        = "xue.b3d"
@@ -32,5 +32,8 @@
   <speed-weighted-objects>
     <speed-weighted position="0.000000 0.000000 0.000000" model="hc.propeller.b3d"  speed-factor="10.000000"/>
   </speed-weighted-objects>
+  <headlights>
+    <object position="0.000000 0.000000 0.000000" model="hc.body.001.b3d"/>
+  </headlights>
   <hat offset="0.0 0.05 0.07"/>
 </kart>
