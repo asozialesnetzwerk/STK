@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16354 -->
+<!-- Generated with script from SVN rev 16945 -->
 <kart name              = "Amanda"
       version           = "2"
       model-file        = "amanda.b3d"
@@ -33,5 +33,8 @@
     <nitro-emitter-a position = "0.174150 0.384850 -0.710000" />
     <nitro-emitter-b position = "-0.174150 0.384850 -0.710000" />
   </nitro-emitter>
+  <headlights>
+    <object position="0.000000 0.336925 -0.400000" model="Fender.003.b3d"/>
+  </headlights>
   <hat offset="0.0 0.2 0.0"/>
 </kart>
