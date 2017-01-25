@@ -131,6 +131,9 @@ colorizable="Y" colorization-factor="0.00" colorization-mask="gfxrndColor_generi
   
   <material name="stktex_counterSSAO_a.png" shader="additive"/>
   
+    <material name="stk_headlight_a.png" shader="additive"/>
+    <material name="stk_headlight_halo_a.png" shader="additive"/>
+  
   <material name="stktex_branches_diff_a.png" shader="grass" />
   <material name="stkflag_valverdeVertical_a.png" shader="grass" />
   <material name="stkflag_nolok_a.png" shader="grass" />
