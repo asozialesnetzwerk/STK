@@ -28,8 +28,12 @@
     <rear-right position = "0.398760 0.170913 -0.438000"
                  model    = "wheel-rear-right.b3d"       />
   </wheels>
+  <nitro-emitter>
+    <nitro-emitter-a position = "-0.161255 0.191291 -0.659415" />
+    <nitro-emitter-b position = "0.159044 0.191291 -0.659415" />
+  </nitro-emitter>
   <headlights>
-    <object position="0.000000 0.000000 0.000000" model="Kart.000.b3d"/>
+    <object position="0.000000 0.000000 0.000000" model="Kart.003.b3d"/>
   </headlights>
   <hat offset="0.0 0.15 0.0"/>
 </kart>

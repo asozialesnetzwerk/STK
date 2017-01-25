@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16354 -->
+<!-- Generated with script from SVN rev 16945 -->
 <kart name              = "Emule"
       version           = "2"
-      model-file        = "emule.b3dz"
+      model-file        = "emule.b3d"
       icon-file         = "emule_icon128.png"
       minimap-icon-file = "emule_icon32.png"
       shadow-file       = "emule_shadow.png"
@@ -34,5 +34,8 @@
     <nitro-emitter-a position = "0.255852 0.362264 -0.586941" />
     <nitro-emitter-b position = "-0.250476 0.362264 -0.586941" />
   </nitro-emitter>
+  <headlights>
+    <object position="0.000000 0.064116 -0.589548" model="Circle.b3d"/>
+  </headlights>
   <hat offset="0.0 0.205 0.075"/>
 </kart>
