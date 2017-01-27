@@ -1,0 +1,22 @@
+# Licensing work
+
+Suzanne kart concept and 3D model and textures:
+	- GPL / author: Cédric Archambault, alias Céa (G+:https://plus.google.com/117805441573276168348/)
+Suzanne icon, headlights and tail lights (3D model and textures):
+	- CC BY-SA 3.0 / author: Néd J. Édoire
+
+# Character information
+
+Suzanne is the main figure of Blender 3D.
+
+https://www.blender.org/
+
+# License information:
+
+- Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
+	Visit the following link for detailed informations:
+	http://creativecommons.org/licenses/by-sa/3.0/
+
+- GNU General Public License (GPL)
+	Visit following the link for detailed informations:
+	http://www.gnu.org/licenses/gpl
