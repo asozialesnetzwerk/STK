@@ -12,6 +12,7 @@
         bloom          = "Y"
         bloom-threshold = "0.75"
         clouds         = "N"
+        is-during-day  = "N"
         shadows        = "Y"
 >
 </track>
