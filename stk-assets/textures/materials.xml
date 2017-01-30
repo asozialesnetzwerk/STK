@@ -23,19 +23,19 @@ colorizable="Y" colorization-factor="0.00" colorization-mask="gfxrndColor_generi
   </material>
 
   <!-- flags -->
-  <material name="stkflag_valverdeVertical_a.png"   shader="grass" />
-  <material name="stklib_prayerFlags_a.png"   shader="grass" />
+  <material name="stkflag_valverdeVertical_a.png"  gloss-map="stk_greyMetal_a_gloss.png"   shader="grass" />
+  <material name="stklib_prayerFlags_a.png"         gloss-map="stk_greyMetal_a_gloss.png"  shader="grass" />
 
   <material name="stktex_cornPlant_a.png"   shader="grass" />
   <material name="stklib_cornField_a.png"   shader="grass" />
   
-  <material name="stkflag_stkVertical_a.png"        shader="grass" /> 
-  <material name="stkflag_stkVerticalRed_a.png"        shader="grass" />
+  <material name="stkflag_stkVertical_a.png"      gloss-map="stk_greyMetal_a_gloss.png"  shader="grass" /> 
+  <material name="stkflag_stkVerticalRed_a.png"     shader="grass" />
   
   <material name="stk_grassLightcliff_a.png"        shader="grass" />
 
-  <material name="stkflag_saraVertical_a.png"       shader="grass" />
-  <material name="stkflag_goldCupVertical_a.png"    shader="grass" />
+  <material name="stkflag_saraVertical_a.png"    gloss-map="stk_greyMetal_a_gloss.png"    shader="grass" />
+  <material name="stkflag_goldCupVertical_a.png"   gloss-map="stk_greyMetal_a_gloss.png"   shader="grass" />
   <material name="stkflag_orangeStartingLine_a.png" shader="alphatest" disable-z-write="Y"/>
   <material name="stkflag_orangeBooster_a.png"      shader="alphatest" disable-z-write="Y" has-gravity="Y"/>
   <material name="stkflag_blueBooster_a.png"        shader="alphatest" disable-z-write="Y" has-gravity="Y"/>
@@ -134,10 +134,9 @@ colorizable="Y" colorization-factor="0.00" colorization-mask="gfxrndColor_generi
     <material name="stk_conelight_a.png" shader="additive"/>
     <material name="stk_headlight_halo_a.png" shader="additive"/>
   
-  <material name="stktex_branches_diff_a.png" shader="grass" />
-  <material name="stkflag_valverdeVertical_a.png" shader="grass" />
-  <material name="stkflag_nolok_a.png" shader="grass" />
-  <material name="stkflag_lamponeCouture_a.png" shader="grass" />
+  <material name="stktex_branches_diff_a.png"    gloss-map="stk_greyMetal_a_gloss.png"  shader="grass" />
+  <material name="stkflag_nolok_a.png"           gloss-map="stk_greyMetal_a_gloss.png"  shader="grass" />
+  <material name="stkflag_lamponeCouture_a.png"  gloss-map="stk_greyMetal_a_gloss.png"  shader="grass" />
   
   <material name="stktex_cocoaTreeLeaf_a.png" shader="grass" />
   
