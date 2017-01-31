@@ -453,6 +453,12 @@
   </library>
   <library name="stklib_pumpkin_a" id="stklib_pumpkin_a_main_proxy.009" xyz="30.17 30.30 -236.96" hpr="-10.4 109.8 -7.3" scale="1.25 1.25 1.25">
   </library>
+  <library name="stklib_skeletonHand_a" id="stklib_skeletonHand_a_main_proxy" xyz="5.36 -3.90 -31.23" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_skeletonHand_a" id="stklib_skeletonHand_a_main_proxy.001" xyz="-14.09 -4.09 -34.00" hpr="0.5 46.5 -10.4" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_skeletonHand_a" id="stklib_skeletonHand_a_main_proxy.002" xyz="-19.92 -2.99 -35.14" hpr="0.5 46.5 -10.4" scale="1.00 1.00 1.00">
+  </library>
   <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy" xyz="154.58 -19.02 -27.14" hpr="0.0 -0.0 0.0" scale="1.58 1.58 1.58">
   </library>
   <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy.001" xyz="243.82 -19.02 -27.35" hpr="0.0 -0.0 0.0" scale="1.58 1.58 1.58">
