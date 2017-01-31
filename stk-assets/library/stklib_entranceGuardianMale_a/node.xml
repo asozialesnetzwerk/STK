@@ -5,6 +5,6 @@
   </object>
   <light xyz="-7.88 14.96 3.41" id="Lamp" distance="25.00" energy="2.00" color="255 52 22">
   </light>
-  <light xyz="9.21 14.96 3.41" id="Lamp.001" distance="25.00" energy="2.00" color="255 52 22">
+  <light xyz="9.02 15.26 3.32" id="Lamp.001" distance="25.00" energy="2.00" color="255 52 22">
   </light>
 </scene>
