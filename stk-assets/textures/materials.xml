@@ -3,14 +3,8 @@
 
 
     <!--
-    HD textures     0.4
+    HD textures for tracks of the generation post cocoa temple
     -->
-    
-    <!--
-    Often decals are clamped to avoid complicated bugs
-    -->
-    <material name="hd_brokenWall_a.png" clampu="Y" clampv="Y"/>
-    <material name="stklama_gravelRoad_a.png" clampu="Y" clampv="Y"/>
     
     <material name="hd_leavesPalm_a.png"     shader="grass" ignore="Y" colorizable="Y" colorization-factor="0.00" hue-settings="0.0 0.2 0.25 0.3"/>
     <material name="hd_leavesPalm_b.png"     shader="grass" ignore="Y" />
