@@ -181,7 +181,7 @@ def writeBezierCurve(f, curve, speed, extend="cyclic"):
     if len(curve.data.splines) > 1:
         log_warning(curve.name + " contains multiple curves, will only export the first one")
     
-    f.write('    <curve channel="LocXYZ" speed="%.2f" curvetype="bezier" extend="%s">\n'\
+    f.write('    <curve channel="LocXYZ" speed="%.2f" interpolation="bezier" extend="%s">\n'\
             %(speed, extend))
     if curve.data.splines[0].type != 'BEZIER':
         log_warning(curve.name + " should be a bezier curve, not a " + curve.data.splines[0].type)
