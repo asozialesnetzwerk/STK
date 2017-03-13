@@ -138,8 +138,8 @@
                 min-height="3.27" same-group="1"/>
     <check-line kind="activate" other-ids="0" p1="128.35 -246.91" p2="112.09 -246.91"
                 min-height="-7.77" same-group="2"/>
-    <cannon p1="66.46 3.28 -103.78" p2="78.97 3.28 -93.28" target-p1="87.04 18.70 -133.65" target-p2="91.00 18.70 -125.16">
-    <curve channel="LocXYZ" speed="25.00" curvetype="bezier" extend="const">
+    <cannon p1="66.46 3.28 -103.78" p2="78.97 3.28 -93.28" target-p1="83.85 18.70 -131.16" target-p2="92.90 18.70 -128.74">
+    <curve channel="LocXYZ" speed="25.00" interpolation="bezier" extend="const">
       <point c="72.086945 3.281668 -97.736847" h1="65.827896 0.265890 -88.888435" h2="78.345993 6.297449 -106.585274" />
       <point c="88.806755 19.073750 -131.177612" h1="85.431107 19.073750 -119.019806" h2="92.182404 19.073750 -143.335434" />
     </curve>
