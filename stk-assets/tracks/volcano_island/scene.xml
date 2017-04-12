@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16551 -->
+<!-- Generated with script from SVN rev 16943 -->
 <scene>
   <track model="volcano_island_track.b3d" x="0" y="0" z="0"/>
   <object type="movable" id="coconut.000" xyz="-96.48 13.86 9.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
@@ -34,6 +34,9 @@
           shape="sphere" mass="0.10000000149011612" model="coconut.b3d" skeletal-animation="false"/>
   <object type="movable" id="coconut.015" xyz="-95.16 13.86 9.19" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
           shape="sphere" mass="0.10000000149011612" model="coconut.b3d" skeletal-animation="false"/>
+  <object id="road.001" type="animation" xyz="119.09 12.05 10.94" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" shape="exact" model="ReverseRamp.b3d" skeletal-animation="false" if="isTrackReverse">
+    <animated-texture name="stkflag_redBooster_a.png" dy="0.5000" />
+  </object>
   <object type="movable" id="road_close1" xyz="134.65 13.75 -51.19" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
           shape="box" mass="30.0" model="road_close1.b3d" skeletal-animation="false"/>
   <object type="movable" id="road_close1.001" xyz="139.17 13.75 -50.55" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"

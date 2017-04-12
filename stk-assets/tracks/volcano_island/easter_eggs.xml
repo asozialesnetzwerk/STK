@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16551 -->
+<!-- Generated with script from SVN rev 16943 -->
 <EasterEggHunt>
   <easy>
     <easter-egg x="-78.90" y="13.99" z="-120.62" h="-0.00" />
@@ -10,6 +10,7 @@
     <easter-egg x="36.30" y="14.03" z="-136.64" h="-0.00" />
   </easy>
   <medium>
+    <easter-egg x="-94.52" y="14.18" z="46.58" h="-0.00" />
     <easter-egg x="-118.68" y="14.00" z="3.84" h="-0.00" />
     <easter-egg x="-123.35" y="14.37" z="-71.81" h="-0.00" />
     <easter-egg x="-73.69" y="13.69" z="-104.98" h="-0.00" />

@@ -37,4 +37,7 @@
   <material name="sea.jpg" shader="alphablend" surface="Y" disable-z-write="Y"/>
   <material name="sea.png" shader="alphablend" ignore="Y" disable-z-write="Y"/>
   <material name="seabed.jpg" reset="Y" water-splash="Y"/>
+  <material name="stkflag_redBooster_a.png" shader="alphatest">
+    <zipper duration="3.5" max-speed-increase="25.0" fade-out-time="3.0" speed-gain="1.0" min-speed="99.0"/>
+  </material>
 </materials>
