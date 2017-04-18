@@ -34,7 +34,7 @@
           shape="sphere" mass="0.10000000149011612" model="coconut.b3d" skeletal-animation="false"/>
   <object type="movable" id="coconut.015" xyz="-95.16 13.86 9.19" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
           shape="sphere" mass="0.10000000149011612" model="coconut.b3d" skeletal-animation="false"/>
-  <object id="road.001" type="animation" xyz="119.09 12.05 10.94" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" shape="exact" model="ReverseRamp.b3d" skeletal-animation="false" if="isTrackReverse">
+  <object id="road.001" type="animation" xyz="119.09 12.05 10.94" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" shape="exact" model="ReverseRamp.b3d" driveable="true" skeletal-animation="false" if="isTrackReverse">
     <animated-texture name="stkflag_redBooster_a.png" dy="0.5000" />
   </object>
   <object type="movable" id="road_close1" xyz="134.65 13.75 -51.19" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
