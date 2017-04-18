@@ -181,9 +181,8 @@
     Released under CC-BY 3.0
 
 * splash
-    Based on 'Fish Splashing-SoundBible.com-250179430' sound bible, by blastwavefx.com, released under CC-BY-SA 3.0
-    and on 'Water vaporizing on hot Stones' by Natalie from pdsounds.org, released under public domain
-    Mix by Marianne Gagnon, released under CC-BY-SA 3.0
+    released under CCreative Commons Attribution-ShareAlike 4.0 International License
+    by The Audio Monkey - http://www.theaudiomonkey.co.uk
 
 * start_race
     Released under CC-BY-SA 3.0 license
