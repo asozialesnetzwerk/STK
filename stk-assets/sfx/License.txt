@@ -48,10 +48,9 @@
     with modifications by Marianne Gagnon
     released under public domain
 
-* crash
-    released under CC-BY-SA 3.0
-    layered and mixed by qubodup <qubodup.net>
-    recorded by Halleck <http://www.freesound.org/people/Halleck/>
+* crash, crash2, crash3
+    released under CCreative Commons Attribution-ShareAlike 4.0 International License
+    by The Audio Monkey - http://www.theaudiomonkey.co.uk
 
 * dark
     By 7by7, released under CC0 (public domain)
