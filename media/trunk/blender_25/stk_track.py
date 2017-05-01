@@ -2048,7 +2048,7 @@ class TrackExport:
         #has_lens_flare  = (getSceneProperty(scene, "sunlensflare", "false") == "true")
         has_shadows     = (getSceneProperty(scene, "shadows", "false") == "true")
 
-        day_time        = getSceneProperty(scene, "duringday", "")
+        day_time        = getSceneProperty(scene, "duringday", "day")
         
         #has_colorlevel  = (getSceneProperty(scene, "colorlevel", "false") == "true")
         #colorlevel_inblack = getSceneProperty(scene, "colorlevel_inblack", "0.0")
