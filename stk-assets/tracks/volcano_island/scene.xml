@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16943 -->
+<!-- Generated with script from SVN rev 17016 -->
 <scene>
   <track model="volcano_island_track.b3d" x="0" y="0" z="0"/>
   <object type="movable" id="coconut.000" xyz="-96.48 13.86 9.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
@@ -158,57 +158,41 @@
   <item id="Empty.029" x="81.56" y="16.41" z="122.75" />
   <item id="Empty.030" x="20.52" y="16.41" z="-51.36" />
   <small-nitro id="Empty.031" x="29.17" y="14.96" z="-140.98" />
-  <light xyz="-11.78 27.17 -19.86" id="Lamp" distance="50.00" energy="1.00" color="255 0 0">
+  <light xyz="-11.78 27.17 -19.86" id="Lamp" distance="10.00" energy="1.00" color="255 0 0">
   </light>
-  <light xyz="-5.13 27.75 -16.66" id="Lamp.001" distance="50.00" energy="1.00" color="255 0 0">
+  <light xyz="-5.13 27.75 -16.66" id="Lamp.001" distance="10.00" energy="1.00" color="255 0 0">
   </light>
-  <light xyz="1.89 28.33 -14.42" id="Lamp.002" distance="50.00" energy="1.00" color="255 0 0">
+  <light xyz="1.89 28.33 -14.42" id="Lamp.002" distance="10.00" energy="1.00" color="255 0 0">
   </light>
-  <light xyz="9.18 28.90 -13.37" id="Lamp.003" distance="50.00" energy="1.00" color="255 0 0">
+  <light xyz="9.18 28.90 -13.37" id="Lamp.003" distance="10.00" energy="1.00" color="255 0 0">
   </light>
-  <light xyz="16.58 29.51 -13.80" id="Lamp.004" distance="50.00" energy="1.00" color="255 0 0">
+  <light xyz="16.58 29.51 -13.80" id="Lamp.004" distance="10.00" energy="1.00" color="255 0 0">
   </light>
-  <light xyz="9.38 25.29 26.24" id="Lamp.005" distance="50.00" energy="1.00" color="255 0 0">
+  <light xyz="9.38 25.29 26.24" id="Lamp.005" distance="10.00" energy="1.00" color="255 0 0">
   </light>
-  <light xyz="16.69 25.14 24.78" id="Lamp.006" distance="50.00" energy="1.00" color="255 0 0">
+  <light xyz="16.69 25.14 24.78" id="Lamp.006" distance="10.00" energy="1.00" color="255 0 0">
   </light>
-  <light xyz="24.11 25.04 24.58" id="Lamp.007" distance="50.00" energy="1.00" color="255 0 0">
+  <light xyz="24.11 25.04 24.58" id="Lamp.007" distance="10.00" energy="1.00" color="255 0 0">
   </light>
-  <light xyz="31.44 24.95 25.51" id="Lamp.008" distance="50.00" energy="1.00" color="255 0 0">
+  <light xyz="31.44 24.95 25.51" id="Lamp.008" distance="10.00" energy="1.00" color="255 0 0">
   </light>
-  <light xyz="38.64 24.91 27.38" id="Lamp.009" distance="50.00" energy="1.00" color="255 0 0">
+  <light xyz="38.64 24.91 27.38" id="Lamp.009" distance="10.00" energy="1.00" color="255 0 0">
   </light>
-  <light xyz="25.19 15.66 69.79" id="magma_light" distance="75.00" energy="75.00" color="188 23 0">
+  <light xyz="25.19 15.66 69.79" id="magma_light" distance="25.00" energy="75.00" color="188 23 0">
   </light>
-  <light xyz="16.24 15.66 47.98" id="magma_light.001" distance="75.00" energy="75.00" color="188 23 0">
+  <light xyz="16.24 15.66 47.98" id="magma_light.001" distance="25.00" energy="75.00" color="188 23 0">
   </light>
-  <light xyz="-4.68 15.66 84.46" id="magma_light.002" distance="22.50" energy="6.00" color="188 23 0">
+  <light xyz="-4.68 15.66 84.46" id="magma_light.002" distance="22.50" energy="75.00" color="188 23 0">
   </light>
-  <light xyz="-5.15 15.66 -50.28" id="magma_light.003" distance="75.00" energy="30.00" color="188 23 0">
+  <light xyz="-5.15 15.66 -50.28" id="magma_light.003" distance="25.00" energy="30.00" color="188 23 0">
   </light>
-  <light xyz="13.01 15.66 -72.52" id="magma_light.004" distance="75.00" energy="75.00" color="188 23 0">
+  <light xyz="13.01 15.66 -72.52" id="magma_light.004" distance="25.00" energy="75.00" color="188 23 0">
   </light>
-  <light xyz="41.97 15.66 -45.30" id="magma_light.005" distance="52.50" energy="22.50" color="188 23 0">
+  <light xyz="41.97 15.66 -45.30" id="magma_light.005" distance="25.00" energy="22.50" color="188 23 0">
   </light>
-  <light xyz="-14.18 15.66 63.98" id="magma_light.006" distance="22.50" energy="6.00" color="188 23 0">
+  <light xyz="-14.18 15.66 63.98" id="magma_light.006" distance="22.50" energy="75.00" color="188 23 0">
   </light>
-  <light xyz="26.87 15.66 -29.12" id="magma_light.007" distance="22.50" energy="6.00" color="188 23 0">
-  </light>
-  <light xyz="-2.98 17.31 43.15" id="magma_light.008" distance="3.00" energy="1.50" color="188 23 0">
-  </light>
-  <light xyz="17.87 17.31 89.65" id="magma_light.009" distance="3.00" energy="1.50" color="188 23 0">
-  </light>
-  <light xyz="2.32 16.87 -23.33" id="magma_light.010" distance="3.75" energy="0.22" color="188 23 0">
-  </light>
-  <light xyz="38.82 18.03 -71.17" id="magma_light.011" distance="4.50" energy="0.45" color="188 23 0">
-  </light>
-  <light xyz="44.37 17.91 -64.93" id="magma_light.012" distance="4.50" energy="0.45" color="188 23 0">
-  </light>
-  <light xyz="1.34 16.30 -21.10" id="magma_light.013" distance="3.75" energy="0.22" color="188 23 0">
-  </light>
-  <light xyz="18.59 42.64 -54.11" id="magma_light.014" distance="150.00" energy="60.00" color="188 23 0">
-  </light>
-  <light xyz="11.44 42.64 68.15" id="magma_light.015" distance="150.00" energy="60.00" color="188 23 0">
+  <light xyz="26.87 15.66 -29.12" id="magma_light.007" distance="22.50" energy="75.00" color="188 23 0">
   </light>
   <lightshaft xyz="51.06 173.17 -598.44" id="sun_rays" opacity="0.35" color="238 255 25"/>
   <default-start karts-per-row     ="2"

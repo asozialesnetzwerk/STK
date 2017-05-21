@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16943 -->
+<!-- Generated with script from SVN rev 17016 -->
 <track  name           = "Volcan Island"
         version        = "6"
         groups         = "standard"
@@ -10,7 +10,7 @@
         default-number-of-laps = "2"
         reverse        = "Y"
         clouds         = "N"
-        is-during-day  = "N"
+        is-during-day  = "Y"
         shadows        = "Y"
 >
 </track>
