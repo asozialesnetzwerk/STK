@@ -108,6 +108,7 @@ colorizable="Y" colorization-factor="0.00" colorization-mask="gfxrndColor_generi
   <material name="particle_water.png"    shader="alphablend" ignore="Y"/>
   
   <material name="stktex_waterfall_a.png"    shader="alphablend" ignore="Y"/>
+  <material name="stk_spiderWeb_a.png"    shader="alphablend" ignore="Y"/>
   
   <material name="stk_generic_borderA.png" max-speed="0.4" slowdown-time="2.0" anisotropic="Y">
     <particles base="smoke.xml" condition="skid drive" />
@@ -140,6 +141,8 @@ colorizable="Y" colorization-factor="0.00" colorization-mask="gfxrndColor_generi
   <material name="stktex_silviaLocationAtlas_a.png" shader="alphatest"/>
   <material name="stktex_launchpad42location_a.png" shader="alphatest"/>
   <material name="stktex_LasDunasLocationAtlas_a.png" shader="alphatest"/>
+  <material name="stktex_mansionLocationAtlas_a.png" shader="alphatest"/>
+
   
   <material name="stktex_counterSSAO_a.png" shader="additive"/>
   
