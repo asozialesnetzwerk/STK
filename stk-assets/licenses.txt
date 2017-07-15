@@ -742,6 +742,11 @@ Copyright: Copyright 2012 Ivan "qubodup" Gabovitch
 License: CC-BY-SA 3.0 GPL3, GPL2
 Comment: From https://opengameart.org/content/car-engine-loop-96khz-4s
 
+Files: stk-assets/sfx/explosion.ogg
+Copyright: Copyright 2000 Steve Baker
+License: GPL2
+Comment: From original TuxKart, tuxkart.sf.net
+
 Files: stk-assets/textures/stkflag_stellacoffee_a.png
 Copyright:
  Public Domain by GDJ from OpenClipArt.org
