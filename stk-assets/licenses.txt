@@ -747,6 +747,26 @@ Copyright: Copyright 2000 Steve Baker
 License: GPL2
 Comment: From original TuxKart, tuxkart.sf.net
 
+Files: stk-assets/sfx/exotic-birds.ogg
+Copyright: Copyright ???? ?????
+Licenese: ????
+Comment: Ask samuncle
+
+Files: stk-assets/sfx/exotic-birds_2.ogg
+Copyright: Copyright ???? ?????
+License: ????
+Comment: Samuncle committed these, but I don't know their source.
+
+Files: stk-assets/sfx/fireworks_show.ogg
+Copyright: Copyright ???? ?????
+License: ????
+Comment: Samuncle committed these, but I don't know their source.
+
+Files: stk-assets/sfx/forcefield.ogg
+Copyright: Published 2007 aust_paul
+License: public-domain CC0
+Comment: From http://freesound.org/people/aust_paul/sounds/30935/
+
 Files: stk-assets/textures/stkflag_stellacoffee_a.png
 Copyright:
  Public Domain by GDJ from OpenClipArt.org
