@@ -68,8 +68,8 @@
     mixing and mash-up by Marianne Gagnon
     
 * engine_small
-    Released under GPL
-    by Richard Langridge, from the Trigger-Rally project
+    Released under CC-BY 3.0 & GPL 2 & GPL 3
+    By qubodup, https://opengameart.org/content/car-engine-loop-96khz-4s
     
 * explosion
     Released under the GNU GPL, coming from original (Super)TuxKart

@@ -693,18 +693,19 @@ Copyright: Copyright 2000 Steve Baker
 License: GPLv2
 
 Files: stk-assets/sfx/car_accel.ogg
-Copyright: Copyright ???? SnapJunkie
+Copyright: Copyright 2010 "SnapJunkie" or "SpeedJunkie"
 License: CC-BY 3.0
-Comment: Unknown source. The author was originally (possible erroneously) credited as "SpeedJunkie."
+Comment:
+ From http://soundbible.com/1456-Car-Accelerating.html. Probably edited by Marianne Gagnon. The author was (possible erroneously) credited as "SnapJunkie" in the file itself.
 
 Files: stk-assets/sfx/car_revup.ogg
-Copyright: Copyright ???? Mike Koenig
+Copyright: Copyright 2009 Mike Koenig
 License: CC-BY 3.0
-Comment: Unkonwn Source.
+Comment: From http://soundbible.com/804-Engine-Rev-Inside-Car.html
 
 File: stk-assets/sfx/clock.ogg
 Copyright: Not applicable---public domain by Natalie, published April 29, 2007
-License: Not applicable---public domain
+License: public-domain
 Comment: Source: http://web.archive.org/web/20160103115202/http://www.pdsounds.org:80/sounds/clock_ticking
 
 Files:
@@ -723,7 +724,23 @@ Copyright: Not applicable---public domain by 7by7 (date of publication unknown)
 License: CC0 (Public Domain)
 Comment: Source unknown
 
+Files: stk-assets/sfx/energy_bar_full.ogg
+Copyright: Published in 2007 "legoluft" <legoluft@legoluft.de>
+License: public-domain
+Comment: From the sound pack of the "Krank" game (krank.sf.net): http://opengameart.org/content/atmospheric-interaction
 
+Files: stk-assets/sfx/engine_large.ogg
+Copyright:
+ Copyright 2009 Mike Koenig
+ Copyright 2007 "Stephan"
+ Copyright 2011 Marianne Gagnon <auria.mg@gmail.com>
+ Copyright 2010 "SpeedJunkie" ("SnapJunkie")
+Comment: "Compressor Motor" by Stephen from http://pdsounds.org/sounds/compressor_motor. "Transfer Truck Idle and Drive" by Mike Koenig from http://soundbible.com/704-Transfer-Truck-Idle-And-Drive.html. "Car Accelerating" by "SpeedJunkie" from http://soundbible.com/1456-Car-Accelerating.html. Mixing and mash-up by Marianne Gagnon.
+
+Files: stk-assets/sfx/engine_small.ogg
+Copyright: Copyright 2012 Ivan "qubodup" Gabovitch
+License: CC-BY-SA 3.0 GPL3, GPL2
+Comment: From https://opengameart.org/content/car-engine-loop-96khz-4s
 
 Files: stk-assets/textures/stkflag_stellacoffee_a.png
 Copyright:
