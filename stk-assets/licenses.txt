@@ -773,6 +773,11 @@ Copyright: Copyright 2006 "kerri"
 License: CC-BY 3.0
 Comment: From http://freesound.org/people/kerri/sounds/27257/
 
+Files: goal_scored.ogg
+Copyright: Copyright 2012 jordiroquer
+License: CC-BY 3.0
+Comment: From http://freesound.org/people/jordiroquer/sounds/148153/
+
 Files: textures/stkflag_stellacoffee_a.png
 Copyright:
  Public Domain by GDJ from OpenClipArt.org
