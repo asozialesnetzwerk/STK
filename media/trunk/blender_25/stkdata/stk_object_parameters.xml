@@ -451,6 +451,10 @@
         <EnumChoice id="action_trigger" label="Action trigger" doc="Make something happen when driving there (FOR INTERNAL USE ONLY AT THIS TIME)">
             <StringProp id="action" name="Action" default="" doc="Name of the action to trigger"/>
             <FloatProp id="trigger_distance" name="Trigger Distance" default="5.0" doc="Distance at which this action is triggered"/>
+            <FloatProp id="reenable_timeout" name="Re-enable Timeout" default="999999.9" doc="Timeout before this action is re-triggered
+ after first triggering, 0 to make it always re-triggerable, 999999.9 to make it only once."/>
+            <StringProp id="triggered_object" name="Trigger which object in a library node" default="" doc="Name of the object for being triggered if
+ this is used in a library node"/>
             <EnumProp id="trigger_type" name="Trigger type" default="point">
                 <EnumChoice id="point" label="Point"/>
                 <EnumChoice id="cylinder" label="Cylinder"/>
