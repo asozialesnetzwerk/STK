@@ -3,6 +3,7 @@ Upstream-Name: Amanda Kart for SuperTuxKart
 Upstream-Contact: Julian Schönbächler <info@creative-forge.ch>
 Source: https://supertuxkart.net
 License: GPL ??? CC-BY-SA 3.0
+Comment: (from author) "Please contact me for any use which is not allowed by this license."
 
 Files:
  amanda_shadow.png
@@ -19,7 +20,6 @@ Files:
  wheel_gloss.png
  wheel.png
  amanda.b3d
- Fender.003.b3d
  wheel-front-left.b3d
  wheel-front-right.b3d
  wheel-rear-left.b3d
@@ -28,6 +28,11 @@ Files:
  materials.xml
 Copyright: Copyright 2015 Julian Schönbächler
 License: CC-BY-SA 3.0
+
+Files: Fender.003.b3d
+Copyright: Copyright 2017 Jean-Manuel Clémençon <sam.un@protonmail.com>
+License: CC-BY-SA 3.0
+Comment: Headlights
 
 Files: wheel.png
 Copyright:
