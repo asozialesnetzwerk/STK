@@ -1,0 +1,33 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Beastie Kart for SuperTuxKart
+Upstream-Contact: Lionel "Funto" Fuentes <funto66@users.sourceforge.net>
+Source: https://supertuxkart.net
+License: public-domain BSD-2-clause (NOT simplified BSD)
+
+Files:
+ beastie-shadow.png
+ beastie-icon.png
+ kart.png
+ *.xml
+ wheel-front-left.b3d
+ wheel-front-right.b3d
+ wheel-rear-left.b3d
+ wheel-rear-right.b3d
+Copyright: Copyright 2011 Lionel "Funto" Fuentes <funto66@users.sourceforge.net>
+License: BSD-2-clause (NOT simplified BSD)
+
+Files:
+ beastie.b3d
+ beastie_texture.png
+Copyright:
+ Copyright 2013 Micket
+ Copyright 2011, 2013 Lionel "Funto" Fuentes <funto66@users.sourceforge.net>
+License:
+ Originally released into public domain under the CC0 by Micket.
+ Funto added the armature from the previous Beastie model
+ under the BSD-2-clause (NOT simplified BSD)
+
+Files: Kart.001.b3d
+Copyright: Copyright 2017 Jean-Manuel Clémençon <sam.un@protonmail.com>
+License: CC-BY-SA 3.0
+Comment: Headlights added

@@ -1,0 +1,26 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: ElePHPant Kart for SuperTuxKart
+Upstream-Contact: Marianne "Auria" Gagnon <auria.mg@gmail.com>
+Source: https://supertuxkart.net
+License: CC-BY-SA 3.0
+
+Files:
+ auge.png
+ elephpant-neu.png
+ elephpantshadow.png
+ *.xml
+Copyright: Copyright 2009 "Tob" (Tobias Beyrer/"cheleb")
+License: CC-BY-SA 3.0
+
+Files:
+ elephpant.b3dz
+ wheel-front-left.b3d
+ wheel-front-right.b3d
+ wheel-rear-left.b3d
+ wheel-rear-right.b3d
+Copyright:
+ Copyright 2009 "Tob" (Tobias Beyrer/"cheleb")
+ Copyright 2009, 2010 STKRudy85
+ Copyright 2009, 2010 Xapantu <xapantu@users.sourceforge.net>
+License: CC-BY-SA 3.0
+ 
