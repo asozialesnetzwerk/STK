@@ -1,0 +1,37 @@
+Format: https://debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Pidgin Kart for SuperTuxKart
+Upstream-Contact: Marianne "Auria" Gagnon <auria.mg@gmail.com>
+Source: https://supertuxkart.net
+License: CC-BY-SA 3.0
+
+Files: Kart.003.b3d
+Copyright: Copyright 2017 Jean-Manuel "samuncle" Clémençon <sam.un@protonmail.com>
+License: CC-BY-SA 4.0
+Comment: This is the headlights model
+
+Files:
+ wheel-*.b3d
+ *.xml
+Copyright: Copyright 2009 Tobias "Tob" "cheleb" Beyrer
+License: CC-BY-SA 3.0
+
+Files: pidgin.b3d
+Copyright:
+ Copyright 2009 Tobias "Tob" cheleb" Beyrer
+ Copyright 2010 STKRudy85
+ Copyright 2013 chronomaster
+ Copyright 2015 Vincent "vlj" Lejeune
+License: CC-BY-SA 3.0
+
+Files:
+ pidgin-kart.png
+ pidgin.png
+ pidginshadow.png
+ pidginwheel.png
+ pidginwindow.png
+Copyright: Copyright 2009 Tobias "Tob" "Cheleb" Beyrer
+License: CC-BY-SA 3.0
+
+Files: pidginicon.png
+Copyright: Copyright 2010 Anthony "yeKcim" Carré <yeknan.free.fr>
+License: GPL 2.0
