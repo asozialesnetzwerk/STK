@@ -11,6 +11,6 @@
                  forwards-distance ="1.50"
                  sidewards-distance="1.80"
                  upwards-distance  ="1.10"/>
-  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy" xyz="0.00 0.00 7.00" hpr="0.0 -0.0 0.0" scale="1.90 1.90 1.90">
+  <library name="pbr_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy" xyz="0.00 0.00 7.00" hpr="0.0 -0.0 0.0" scale="1.90 1.90 1.90">
   </library>
 </scene>
