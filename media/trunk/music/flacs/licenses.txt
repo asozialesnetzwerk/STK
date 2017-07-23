@@ -1,0 +1,16 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: SuperTuxKart lossless musics
+Upstream-Contact:
+ Jean-Manuel "samuncle" Clémençon <sam.un@protonmail.com>
+ Joerg "hiker" Henrichs <henrichsjoerg@gmail.com>
+ Marianne "Auria" Gagnon <auria.mg@gmail.com>
+Source: https://supertuxkart.net
+License: Various
+
+Files: ravenbridge_mansion.flac
+Copyright: Copyright 2017 0zone0ne
+License: CC-BY-SA 3.0
+
+Files: ravenbridge_mansion_fast.flac
+Copyright: Copyright 2017 0zone0ne
+License: CC-BY-SA 3
