@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 17000 -->
+<scene>
+  <track model="pbr_test_track.b3d" x="0" y="0" z="0"/>
+  <sky-box texture="0001.png 0002.png 0003.png 0004.png 0006.png 0005.png" sh-texture="0001.png 0002.png 0003.png 0004.png 0006.png 0005.png"/>
+  <camera far="1000.0"/>
+  <checks>
+    <check-lap kind="lap" same-group="0"  />
+  </checks>
+  <default-start karts-per-row     ="3"
+                 forwards-distance ="1.50"
+                 sidewards-distance="1.80"
+                 upwards-distance  ="1.10"/>
+  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy" xyz="0.00 0.00 7.00" hpr="0.0 -0.0 0.0" scale="1.90 1.90 1.90">
+  </library>
+</scene>
