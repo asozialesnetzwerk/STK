@@ -8,9 +8,9 @@ Source: https://supertuxkart.net
 License: Various
 
 Files: ravenbridge_mansion.flac
-Copyright: Copyright 2017 0zone0ne
+Copyright: Copyright 2017 0zone0ne and krobonil
 License: CC-BY-SA 3.0
 
 Files: ravenbridge_mansion_fast.flac
-Copyright: Copyright 2017 0zone0ne
+Copyright: Copyright 2017 0zone0ne and krobonil
 License: CC-BY-SA 3
