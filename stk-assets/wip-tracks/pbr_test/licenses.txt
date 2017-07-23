@@ -1,0 +1,3 @@
+Files: *
+Copyright: 2017 jean-manuel clemencon
+License: CC-BY-SA	
