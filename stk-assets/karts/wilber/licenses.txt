@@ -1,0 +1,25 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Wilber Kart for SuperTuxKart
+Upstream-Contact: Néd J. "jymis" Édoire <nwad@crypticgate.net>
+Source: https://supertuxkart.net
+License: CC-BY-SA 3.0
+
+Files:
+ *.xml
+ wheel-*.b3d
+ wilber.b3d
+ Wilber_Body.001.b3d
+ Wilber_bucket_diffuse.png
+ Wilber_bucket_gloss.png
+ Wilber_colorizationMask.png
+ Wilber_diffuseMap.png
+ Wilber_glossMap.png
+ wilber_shadow.png
+ Wilber_wheel_colorizationMask.png
+ Wilber_wheel_diffuse.png
+ Wilber_wheel_gloss.png
+ wilbericon.png
+ wilbericon32.png
+Copyright: Copyright 2016, 2017 Néd J. "jymis" Édoire
+License: CC-BY-SA 3.0
+Comment: The headlights model (Wilber_Body.001.b3d) is copyright ONLY 2017 Néd J. Édoire
