@@ -5,9 +5,11 @@ Source: https://supertuxkart.net
 License: CC-BY-SA 3.0
 
 Files: Kart.003.b3d
-Copyright: Copyright 2017 Jean-Manuel "samuncle" Clémençon <sam.un@protonmail.com>
+Copyright:
+ Copyright 2017 Jean-Manuel "samuncle" Clémençon <sam.un@protonmail.com>
+ Copyright 2017 Néd J. "jymis" Édoire <nwad@crypticgate.net>
 License: CC-BY-SA 4.0
-Comment: This is the headlights model
+Comment: Headlights model by jymis (I think), but added by samuncle.
 
 Files:
  wheel-*.b3d

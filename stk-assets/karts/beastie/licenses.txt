@@ -28,6 +28,8 @@ License:
  under the BSD-2-clause (NOT simplified BSD)
 
 Files: Kart.001.b3d
-Copyright: Copyright 2017 Jean-Manuel Clémençon <sam.un@protonmail.com>
+Copyright:
+ Copyright 2017 Jean-Manuel Clémençon <sam.un@protonmail.com>
+ Copyright 2017 Néd J. "jymis" Édoire <nwad@crypticgate.net>
 License: CC-BY-SA 3.0
-Comment: Headlights added
+Comment: Headlights added by samuncle; headlights model by jymis

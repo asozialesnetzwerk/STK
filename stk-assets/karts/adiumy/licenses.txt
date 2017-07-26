@@ -12,6 +12,7 @@ Copyright:
  Copyright 2010 Xapantu
  Copyright 2015 Vincent Lejeune
  Copyright 2014, 2017 Jean-Manuel "samuncle" Clémençon <sam.un@protonmail.com>
+ Copyright 2017 Néd J. "jymis" Édoire <nwad@crypticgate.net>
 License: CC-BY-SA 3.0
 Comment:
  Original model by abejones. Animations created by STKRudy85, and

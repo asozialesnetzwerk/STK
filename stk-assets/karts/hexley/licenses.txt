@@ -9,4 +9,4 @@ Copyright:
  Copyright 2017 Néd J. "jymis" Édoire <nwad@crypticgate.net>
  Copyright 2017 Jean-Manuel "samuncle" Clémençon <sam.un@protonmail.com>
 License: CC-BY-SA 3.0
-Comment: Headlight mesh by Jean-Manuel Clémençon. Everything else by Néd J. Édoire
+Comment: Headlight mesh by jymis, but added by Jean-Manuel Clémençon. Everything else is by jymis.

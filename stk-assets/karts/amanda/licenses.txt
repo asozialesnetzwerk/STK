@@ -30,9 +30,11 @@ Copyright: Copyright 2015 Julian Schönbächler
 License: CC-BY-SA 3.0
 
 Files: Fender.003.b3d
-Copyright: Copyright 2017 Jean-Manuel Clémençon <sam.un@protonmail.com>
+Copyright:
+ Copyright 2017 Jean-Manuel Clémençon <sam.un@protonmail.com>
+ Copyright 2017 Néd J. "jymis" Édoire <nwad@crypticgate.net>
 License: CC-BY-SA 3.0
-Comment: Headlights
+Comment: Headlights (added by samuncle, model actually by jymis (?))
 
 Files: wheel.png
 Copyright:
