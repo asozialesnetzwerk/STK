@@ -313,7 +313,6 @@ Files:
  library/stklib_princessSaraDepartureAirport_a/*
  library/stklib_pumpkin_a/*
  library/stklib_pumpkin_a_mesh/* (???? - see http://forum.freegamedev.net/viewtopic.php?f=17&t=7100)
- library/stklib_quetzalcoatl_a/*
  library/stklib_ranchPortal_a/*
  library/stklib_redCrab_a/*
  library/stklib_redFlowerBush_a/*
@@ -391,6 +390,7 @@ Files:
  library/stklib_mermaid_a/*
  library/stklib_olmec_a/*
  library/stklib_piranha_a/*
+ library/stklib_quetzalcoatl_a/*
 Copyright: Copyright 2014 Anon
 License: CC-BY-SA 4.0 AND CC-BY-SA 3.0 Unported
 Comment: Source: http://forum.freegamedev.net/viewtopic.php?f=90&t=5726

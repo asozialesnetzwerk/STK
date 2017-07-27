@@ -21,6 +21,6 @@ Files:
 Copyright:
  Copyright 2009 "Tob" (Tobias Beyrer/"cheleb")
  Copyright 2009, 2010 STKRudy85
- Copyright 2009, 2010 Xapantu <xapantu@users.sourceforge.net>
+ Copyright 2009, 2010 Xapantu <xapantu@users.sf.net>
 License: CC-BY-SA 3.0
  

@@ -1,6 +1,6 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: Beastie Kart for SuperTuxKart
-Upstream-Contact: Lionel "Funto" Fuentes <funto66@users.sourceforge.net>
+Upstream-Contact: Lionel "Funto" Fuentes <funto66@users.sf.net>
 Source: https://supertuxkart.net
 License: public-domain BSD-2-clause (NOT simplified BSD)
 
@@ -13,7 +13,7 @@ Files:
  wheel-front-right.b3d
  wheel-rear-left.b3d
  wheel-rear-right.b3d
-Copyright: Copyright 2011 Lionel "Funto" Fuentes <funto66@users.sourceforge.net>
+Copyright: Copyright 2011 Lionel "Funto" Fuentes <funto66@users.sf.net>
 License: BSD-2-clause (NOT simplified BSD)
 
 Files:
@@ -21,7 +21,7 @@ Files:
  beastie_texture.png
 Copyright:
  Copyright 2013 Micket
- Copyright 2011, 2013 Lionel "Funto" Fuentes <funto66@users.sourceforge.net>
+ Copyright 2011, 2013 Lionel "Funto" Fuentes <funto66@users.sf.net>
 License:
  Originally released into public domain under the CC0 by Micket.
  Funto added the armature from the previous Beastie model
