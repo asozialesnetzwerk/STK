@@ -12,6 +12,10 @@ Copyright: Copyright 2009 Tobias "Tob" "Cheleb" Beyrer
 License: CC-BY-SA 3.0
 Comment: Originally part of Nolok kart
 
+Files: stk_animalPig_a.png
+Copyright: Copyright 2017 Jean-Manuel Clémençon
+License: ????
+
 Files: tapis.png
 Copyright: Copyright 2009 Benjamin Arnaudet
 License: GPL ???
