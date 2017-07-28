@@ -16,6 +16,21 @@ Files: stk_animalPig_a.png
 Copyright: Copyright 2017 Jean-Manuel Clémençon
 License: ????
 
+Files: stktex_generic_bambooB.png
+Copyright:
+ Copyright 2014 Anon
+ Copyright 2014 Jean-Manuel Clémençon
+License: CC-BY-SA 4.0
+Comment: From https://forum.freegamedev.net/viewtopic.php?f=90&t=5726
+
+Files:
+ stk_generic_blackCeramic_a.png
+ stk_generic_pinkCeramic_a.png
+ stk_generic_redCeramic_a.png
+Copyright: Copyright 2014 Anon
+License: CC-BY-SA 4.0 CC-BY-SA 3.0 Unported
+Comment: From https://forum.freegamedev.net/viewtopic.php?f=90&t=5726
+
 Files: tapis.png
 Copyright: Copyright 2009 Benjamin Arnaudet
 License: GPL ???
