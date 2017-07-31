@@ -1,0 +1,10 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Music for SuperTuxKart
+Upstream-Contact: Marianne "Auria" Gagnon <auria.mg@gmail.com>
+Source: https://supertuxkart.net
+Comment: This file is not complete
+
+Files: old_license_file_dont_delete_yet.txt
+Copyright: ...
+License: ...
+Comment: TODO: replace this

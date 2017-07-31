@@ -1,0 +1,197 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: 3D Gameplay Models for SuperTuxKart
+Upstream-Contact: Marianne "Auria" Gagnon <auria.mg@gmail.com>
+Source: https://supertuxkart.net
+License: Various
+
+Files:
+ anchor.b3d
+ anchor.png
+ anchor-attach-icon.png
+ anchor-icon.png
+ banana-low.b3d
+ bomb.b3d
+ bubblegum.b3d
+ bubblegum.png
+ cake.b3d
+ cake.png
+ chest.b3d
+ chest.jpg
+ gift-box.b3d
+ gift-box.png
+ gift-box-low.b3d
+ gift-loop.png
+ swap-icon.png (Assumed to be by MiniBjorn???)
+Copyright: Copyright 2008-2010 MiniBjorn
+License: CC-BY-SA 3.0
+Comment: Marianne Gagnon made slight modifications to the gift box model.
+
+Files:
+ bubblegum-nolok.b3d
+ bubblegum-nolok-low.b3d
+ bubblegum_nolok.jpg
+ bubblegum_shield_nolok.b3d
+ bubblegum_shield_nolok.png
+Copyright: Copyright 2013 Marianne Gagnon (????)
+License: ????
+Comment: Apparently SVN revisions were corrupted for the bubblegum shields. Very strange.
+
+Files:
+ bubblegum_shield.b3d
+ bubblegum_shield.png
+Copyright:
+ Copyright 2013 johannesr1
+ Copyright 2013 Marianne Gagnon
+License: ????
+Comment: Possibly ineligible for copyright protection since it's just a sphere and a single solid-color texture.
+
+Files: bubblegum-icon.png
+Copyright: Copyright 2013 johannesr1
+License: ????
+
+Files: balldimpledark.jpg
+Copyright: Copyright 2012 Hero
+License: CC-BY-SA 3.0
+
+Files:
+ banana.b3d
+Copyright: Copyright 2008 Thomas Oppl (Horace) <toppl@fh-sbg.ac.at>
+License: CC-BY-SA 3.0
+
+Files: banana.png
+Copyright: ?????
+License: ????
+Comment: See r2366. Maybe by Thomas Oppl? Who knows?
+
+Files: bomb-attach-icon.png
+Copyright: Copyright 2013 Néd J. Édoire
+License: ????
+
+Files: bowling.b3d
+Copyright: Copyright 2008, 2013 Marianne Gagnon
+License: ???
+Comment: Does this even qualify for copyright? It's just a textured icosphere.
+
+Files:
+ bowling.png
+ bowling-icon.png
+ cake-icon.png
+ easter_egg-icon.png
+ plunger-icon.png
+ rubber_ball-icon.png
+Copyright: Copyright 2011-2013 Totoplus62
+License: CC-BY-SA 3.0
+
+Files:
+ christmas_hat.b3d
+ christmas_hat.png
+ swatter.b3d
+ swatter.png
+Copyright: Copyright 2011, 2012 Lionel Fuentes
+License: CC-BY-SA 3.0
+
+Files:
+ easter_ears.b3d
+ easter_ears.png
+ jump-bomb.jpg
+ nitrotank-big.b3d
+ nitrotank-big-low.b3d
+ rubber_ball.b3d
+ stk_mod_nitroBarrel.png
+ stk_mod_nitroBottle.png
+ stk_mod_nitroLogo.png
+Copyright: Copyright 2011, 2013 Jean-Manuel Clémençon
+License: CC-BY-SA 4.0
+Comment: Nitro textures assumed to be done by Jean-Manuel Clémençon.
+
+Files:
+ easter_egg.b3d
+ easter_egg_3.png
+Copyright: Copyright 2013 Fraang
+License: CC-BY-SA 3.0
+
+Files: Hammer.jpg
+Copyright:
+ Copyright 2012 Marianne Gagnon
+ Copyright ???? Phillip Zinger
+ Copyright ???? Louise Price
+ Copyright ???? Smoth 007
+ Public Domain by Juangonzalez64
+License: CC-BY-SA 3.0
+Comment:
+ Texture made by Marianne Gagnon by incorporating images from the above authors listed in the
+ Copyright section. The images by Louise Price and Smoth 007 were originally released under
+ the CC-BY 2.0 and CC-BY-SA 2.0, but because this is a combined work, it is allowed to be
+ upgraded to the CC-BY-SA 3.0. The image by Phillip Zinger was originally under the CC-BY-SA 3.0.
+
+Files:
+ nitrotank-small.b3d
+ nitrotank-small-low.b3d
+Copyright:
+ Copyright 2008 donconso
+ Copyright 2009 MiniBjorn
+ Copyright 2013 Jean-Manuel Clémençon
+License: CC-BY-SA ????
+Comment:
+ I don't know what MiniBjorn changed to put this under his choice of license...
+ Jean-Manuel Clémençon redid the textures.
+
+Files:
+ swatter_anim2.b3d
+Copyright:
+ Copyright 2011 Lionel Fuentes
+ Copyright 2011 Marianne Gagnon
+License: CC-BY-SA 3.0
+
+Files:
+ swatter_nolok.b3d
+ trophy_bronze.b3d
+ trophy_gold.b3d
+ trophy_silver.b3d
+Copyright: Copyright 2012 Marianne Gagnon
+License: GPLv2 (????)
+
+Files: swatter-icon.png
+Copyright: Public Domain by Totoplus62 (2012)
+License: CC0
+
+Files:
+ thunderbird.b3d
+ thunderbird.png
+Copyright:
+ Copyright 2011 Lionel Fuentes
+ Copyright 2011 Kinsu
+License: CC-BY-SA 3.0
+
+Files:
+ tire.b3d
+Copyright:
+ Copyright ???? Thomas Oppl
+ Copyright 2011 Marianne Gagnon
+License: CC-BY-SA 3.0
+
+Files:
+ tnt-bomb.png
+Copyright:
+ Copyright 2012 Fraang
+ Copyright 2012 Marianne Gagnon
+License: CC-BY-SA 3.0
+Comment: Slight modifications made by Marianne Gagnon.
+
+Files: traffic_light.png
+Copyright: Copyright 2011 Fraang
+License: ????
+
+Files:
+ warning.b3d
+ warning.png
+Copyright: Copyright 2008 Constantin Pelikan (donconso)
+License: ????
+
+Files: zipper_collect.png
+Copyright: Public Domain by Connor (Added to repo in 2014)
+License: public-domain
+
+Files: zipper.png
+Copyright: Copyright (approximately) 2000 Steve Baker (?)
+License: GPLv????

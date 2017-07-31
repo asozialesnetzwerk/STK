@@ -1,0 +1,146 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Sound Effects for SuperTuxKart
+Upstream-Contact: Marianne "Auria" Gagnon <auria.mg@gmail.com>
+Source: https://supertuxkart.net
+License: Various
+Comment: This file is not yet complete.
+
+Files: airplane_jetEngine.ogg
+Copyright: Copyright 2011 Fritz Schlüter
+License: CC-BY-SA 3.0
+Comment: Excerpt (and, I think, amplification) of the original, which is located at https://commons.wikimedia.org/wiki/File:2011-06-05_19-32_Berlin_TXL_Airplane_Flyover_plus_Wingtip_Vortex.ogg
+
+Files: anvil.ogg
+Copyright: Copyright ????
+License: GPLv2+
+Comment: From Battle for Wesnoth project, apparently.
+
+Files: appear.ogg
+Copyright: Not Applicable---Public Domain
+License: CC0
+Comment: Created in 2006 by "martian." http://www.freesound.org/people/martian/sounds/19284/
+
+Files: ball_bounce.ogg
+Copyright: Copyright ???? wansti (SuperTux team)
+License: GPLv2+
+
+Files: boing.ogg
+Copyright: Not Applicable---Public Domain
+License: CC0
+Comment: By "vrodge" http://www.freesound.org/people/vrodge/sounds/119518/
+
+Files: bowling_roll.ogg
+Copyright:
+ Copyright 2008 Marianne "Auria" Gagnon
+ Copyright 2007 daveincamas
+License: CC-BY-SA 3.0, CC-BY 3.0
+Comment: See https://www.freesound.org/people/daveincamas/sounds/44233/, https://www.freesound.org/people/daveincamas/sounds/44246/, and https://www.freesound.org/people/daveincamas/sounds/44103/. Originally released under the Creative Commons Sampling Plus 1.0. Marianne Gagnon obtained permission to release under CC-BY-SA 3.0. Relicensed on website as CC-BY 3.0.
+
+Files: break.ogg
+Copyright:
+ Copyright ???? Daniel Simion
+ Copyright ???? BlastwaveFx
+License: CC-BY-SA 3.0
+Comment: May have been a combined work by Marianne Gagnon. TODO: Ask her.
+
+Files: bubblegum_explode.ogg
+Copyright:
+ Copyright 2006 Percy Duke
+ Copyright 2013 jjhouse4
+License: CC-BY 3.0
+Comment: See http://www.freesound.org/people/jjhouse4/sounds/197990/ and http://www.freesound.org/people/Percy%20Duke/sounds/23297/. Marianne Gagnon may have done the work of combining them. TODO: Ask her.
+
+Files: bzzt.ogg
+Copyright: Copyright 2000 Steve Baker
+License: GPLv2
+
+Files: car_accel.ogg
+Copyright: Copyright 2010 "SnapJunkie" or "SpeedJunkie"
+License: CC-BY 3.0
+Comment:
+ From http://soundbible.com/1456-Car-Accelerating.html. Probably edited by Marianne Gagnon. The author was (possible erroneously) credited as "SnapJunkie" in the file itself.
+
+Files: car_revup.ogg
+Copyright: Copyright 2009 Mike Koenig
+License: CC-BY 3.0
+Comment: From http://soundbible.com/804-Engine-Rev-Inside-Car.html
+
+File: clock.ogg
+Copyright: Not applicable---public domain by Natalie, published April 29, 2007
+License: public-domain
+Comment: Source: http://web.archive.org/web/20160103115202/http://www.pdsounds.org:80/sounds/clock_ticking
+
+Files:
+ crash.ogg
+ crash2.ogg
+ crash3.ogg
+ splash.ogg
+Copyright: Copyright 2017 The Audio Monkey
+License: CC-BY-SA 4.0
+Comment:
+ Author's website: https://theaudiomonkey.co.uk/ Minor (possibly non-copyrightable)
+ changes made to the splash sound the same year by OzoneOne.
+
+Files: dark.ogg
+Copyright: Not applicable---public domain by 7by7 (date of publication unknown)
+License: CC0 (Public Domain)
+Comment: Source unknown
+
+Files: energy_bar_full.ogg
+Copyright: Published in 2007 "legoluft" <legoluft@legoluft.de>
+License: public-domain
+Comment: From the sound pack of the "Krank" game (krank.sf.net): http://opengameart.org/content/atmospheric-interaction
+
+Files: engine_large.ogg
+Copyright:
+ Copyright 2009 Mike Koenig
+ Copyright 2007 "Stephan"
+ Copyright 2011 Marianne Gagnon <auria.mg@gmail.com>
+ Copyright 2010 "SpeedJunkie" ("SnapJunkie")
+License: CC-BY-SA 3.0
+Comment: "Compressor Motor" by Stephen from http://pdsounds.org/sounds/compressor_motor. "Transfer Truck Idle and Drive" by Mike Koenig from http://soundbible.com/704-Transfer-Truck-Idle-And-Drive.html. "Car Accelerating" by "SpeedJunkie" from http://soundbible.com/1456-Car-Accelerating.html. Mixing and mash-up by Marianne Gagnon.
+
+Files: engine_small.ogg
+Copyright: Copyright 2012 Ivan "qubodup" Gabovitch
+License: CC-BY-SA 3.0 GPL3, GPL2
+Comment: From https://opengameart.org/content/car-engine-loop-96khz-4s
+
+Files: explosion.ogg
+Copyright: Copyright 2000 Steve Baker
+License: GPL2
+Comment: From original TuxKart, tuxkart.sf.net
+
+Files: exotic-birds.ogg
+Copyright: Copyright ???? ?????
+License: ????
+Comment: Ask samuncle
+
+Files: exotic-birds_2.ogg
+Copyright: Copyright ???? ?????
+License: ????
+Comment: Samuncle committed these, but I don't know their source.
+
+Files: fireworks_show.ogg
+Copyright: Copyright ???? ?????
+License: ????
+Comment: Samuncle committed these, but I don't know their source.
+
+Files: forcefield.ogg
+Copyright: Published 2007 aust_paul
+License: public-domain CC0
+Comment: From http://freesound.org/people/aust_paul/sounds/30935/
+
+Files: gnu_flute.ogg
+Copyright: Copyright 2006 "kerri"
+License: CC-BY 3.0
+Comment: From http://freesound.org/people/kerri/sounds/27257/
+
+Files: goal_scored.ogg
+Copyright: Copyright 2012 jordiroquer
+License: CC-BY 3.0
+Comment: From http://freesound.org/people/jordiroquer/sounds/148153/
+
+Files: old_license_file_dont_delete_yet.txt
+Copyright: ....
+License: ....
+Comment: TODO: get rid of this
