@@ -140,6 +140,80 @@ Copyright: Copyright 2012 jordiroquer
 License: CC-BY 3.0
 Comment: From http://freesound.org/people/jordiroquer/sounds/148153/
 
+Files: goo.ogg
+Copyright:
+ Copyright 2009 Mike Koenig
+ Copyright 2010 Marianne "Auria" Gagnon <auria.mg@gmail.com>
+License: CC-BY 3.0
+Comment: Combined and modified from http://soundbible.com/511-Squish-1.html and http://soundbible.com/433-Water-Down-Gutter-2.html (both of which were CC-BY 3.0) by Auria.
+
+Files: gp_end.ogg
+Copyright: Copyright 2009 Mike Koenig
+License: CC-BY 3.0
+Comment: From http://soundbible.com/989-10-Second-Applause.html
+
+Files: grab_collectable.ogg
+Copyright: ????
+License: public-domain
+ These sound files are provided free of charge, without any representation or warranty whatsoever.
+ To the best of our knowledge, all wave, midi, and audio files presented here are in the public domain
+ and are available for use without restriction. (MT: This is the Tintagel license)
+Comment: From http://web.archive.org/web/20070210072156/http://www.freesoundfiles.tintagel.net:80/Audio/free-wave-files-chimes/CONGRATS.WAV
+
+Files: hammer.ogg
+Copyright:
+ Copyright 2010 snottyboi
+ Copyright 2010 Tomlija
+ Copyright 2009 Mike Koenig
+ Copyright 2006 Stickinthemud
+ Copyright 2012 Marianne "Auria" Gagnon <auria.mg@gmail.com>
+License: CC-BY 3.0
+Comment: Mixed by Auria from four CC-BY 3.0 sources:
+ http://soundbible.com/1375-Whip-Crack.html
+ http://freesound.org/people/Tomlija/sounds/98946/
+ http://soundbible.com/1217-Metal-Clang.html
+ http://freesound.org/people/Stickinthemud/sounds/27528/
+
+Files: horn.ogg
+Copyright:
+ Copyright 2009 Mike Koenig
+ Copyright 2009 Marianne "Auria" Gagnon <auria.mg@gmail.com>
+ Copyright 2011 Magne "Arthur" Djupvik <magned@users.sf.net>
+License: CC-BY 3.0
+Comment: Edited by Auria and Arthur. Original from http://soundbible.com/1048-Horn-Honk.html
+
+Files: inflate.ogg
+Copyright: Copyright 2006 neonaeon
+License: CC-BY 3.0
+Comment: From http://www.freesound.org/people/neonaeon/sounds/16572/
+
+Files: jump.ogg
+Copyright: ????
+License: ????
+Comment: Ask samuncle.
+
+Files: last_lap_fanfare.ogg
+Copyright: Copyright 2010 "Dundersylt"
+License: CC-BY-SA ???
+Comment: From https://forum.freegamedev.net/viewtopic.php?f=18&t=413. License version unknown.
+
+Files: lenautile_restaurant.ogg
+Copyright: Copyright 2015 "Alcappuccino"
+License: public-domain CC0
+Comment: From https://freesound.org/people/Alcappuccino/sounds/263528/
+
+Files: locked.ogg
+Copyright: ???? "Stephan"
+License: public-domain
+Comment: From pdsounds.org, but no link was recorded in the old license file.
+
+Files: machine_sound.ogg
+Copyright:
+ Copyright 2005 Swelk
+ Copyright 2012 Marianne "Auria" Gagnon <auria.mg@gmail.com>
+License: CC-BY 3.0
+Comment: Original from http://web.archive.org/web/20151121114545/http://www.freesound.org:80/people/swelk/sounds/12906/. Modified by Auria.
+
 Files: old_license_file_dont_delete_yet.txt
 Copyright: ....
 License: ....
