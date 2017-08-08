@@ -116,14 +116,14 @@ License: ????
 Comment: Ask samuncle
 
 Files: exotic-birds_2.ogg
-Copyright: Copyright ???? ?????
-License: ????
-Comment: Samuncle committed these, but I don't know their source.
+Copyright: Copyright 2011 "mpfeiffer"
+License: public-domain CC0
+Comment: From http://freesound.org/people/mpfeiffer/sounds/115758/
 
 Files: fireworks_show.ogg
-Copyright: Copyright ???? ?????
-License: ????
-Comment: Samuncle committed these, but I don't know their source.
+Copyright: Copyright 2011 sl130594
+License: public-domain CC0
+Comment: From http://freesound.org/people/sl130594/sounds/132273/
 
 Files: forcefield.ogg
 Copyright: Published 2007 aust_paul
