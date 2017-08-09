@@ -192,10 +192,15 @@ Copyright: ????
 License: ????
 Comment: Ask samuncle.
 
-Files: last_lap_fanfare.ogg
-Copyright: Copyright 2010 "Dundersylt"
-License: CC-BY-SA ???
-Comment: From https://forum.freegamedev.net/viewtopic.php?f=18&t=413. License version unknown.
+Files:
+ last_lap_fanfare.ogg
+ race_finish.ogg
+ track_intro.ogg
+Copyright: Copyright 2010 Alexander "Dundersylt" Björk
+License: CC-BY-SA 3.0+
+Comment:
+ From https://forum.freegamedev.net/viewtopic.php?f=18&t=413. 
+ License version not specified in the forum, but recorded in the old license file as specified above.
 
 Files: lenautile_restaurant.ogg
 Copyright: Copyright 2015 "Alcappuccino"
@@ -213,6 +218,80 @@ Copyright:
  Copyright 2012 Marianne "Auria" Gagnon <auria.mg@gmail.com>
 License: CC-BY 3.0
 Comment: Original from http://web.archive.org/web/20151121114545/http://www.freesound.org:80/people/swelk/sounds/12906/. Modified by Auria.
+
+Files: metal_clang.ogg
+Copyright:
+ Copyright 2008 dADDoiT
+ Copyright 2009 Mike Koenig
+ Copyright 2012 Marianne "Auria" Gagnon <auria.mg@gmail.com>
+License: CC-BY 3.0
+Comment:
+ I couldn't figure out exactly what files were mixed by Auria to create this, but
+ my assumptions are these files:
+ https://freesound.org/people/dADDoiT/sounds/49977/
+ https://freesound.org/people/dADDoiT/sounds/50048/
+ http://soundbible.com/1106-Small-Chain.html
+ http://soundbible.com/27-Belt-Buckle-Clink.html
+ http://soundbible.com/559-Chain-Dropped.html
+ Possibly more...
+
+Files: nitro.ogg
+Copyright:
+ Copyright 2012 Nic3_one
+ Copyright 2015 Marianne "Auria" Gagnon <auria.mg@gmail.com>
+License: public-domain CC0
+Comment: From http://www.freesound.org/people/Nic3_one/sounds/166542/, with minor modifications by Auria.
+
+Files: parachute.ogg
+Copyright: Copyright 2009 Christoph Egger <debian@christoph-egger.com>
+License: zlib GPL 2.0 CC-BY 3.0
+Comment: (From the old unformatted license file) "based on Public Domain Sounds from either pdsounds or ghb_pd"
+
+Files: plopp.ogg
+Copyright: Copyright 2013 johannesr1 <johannesr1@users.sf.net> (????)
+License: ????
+Comment: Not even sure this is the original author. No license info recorded.
+
+Files: plunger.ogg
+Copyright:
+ Copyright 2009 Mike Koenig
+ Copyright 2012 Marianne "Auria" Gagnon <auria.mg@gmail.com>
+License: CC-BY-SA 3.0
+Comment: Original from http://soundbible.com/845-Suction.html; modified by Auria.
+
+Files: portal.ogg
+Copyright: Copyright 2012 Magne "Arthur-D" Djupvik <magned@users.sf.net>
+License: CC-BY-SA 3.0
+
+Files: pre_start_race.ogg
+Copyright:
+ Copyright 2008-2010 Ulrich Metzner
+ Copyright 2010-2011 Iwan "qubodup" Gabovitch
+License: CC-BY-SA 3.0
+Comment:
+ From http://opengameart.org/content/race-start-beeps, which is based on
+ https://opengameart.org/content/church-bell, which is based on
+ https://commons.wikimedia.org/wiki/File:DKB_Dreierin.ogg
+
+Files: race_finish_victory.ogg
+Copyright:
+ Copyright 2009 Mike Koenig
+ Copyright 2010 Alexander "Dundersylt" Björk
+ Copyright 2016 QwertyChouskie
+License: CC-BY-SA 3.0
+Comment: Mixed from gp_win.ogg and race_finish.ogg by QwertyChouskie. gp_win is public domain.
+
+Files: rain.ogg
+Copyright:
+ Copyright 2009, 2011, or 2012 Mike Koenig
+ Copyright 2014 Dawid "deveee" Gan <deveee@users.sf.net>
+License: CC-BY 3.0 (?)
+Comment:
+ SVN commit message says it's from MegaGlest; MegaGlest SVN says it's from soundbible.
+ Deveee probably cropped it from one of the following recordings, though I honestly can't tell the difference.
+ http://soundbible.com/2011-Rain-Background.html
+ http://soundbible.com/1829-Medium-Rainstorm.html
+ http://soundbible.com/1158-Rain.html
 
 Files: old_license_file_dont_delete_yet.txt
 Copyright: ....
