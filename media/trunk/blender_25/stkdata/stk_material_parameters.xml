@@ -82,10 +82,6 @@
                 </BoolProp>
             </EnumChoice>
 
-            <EnumChoice id="displace" label="Displace Shader"
-                        doc="A shader to simulate light reflexions and moving waves on this surface">
-            </EnumChoice>
-
             <!-- Sphere map -->
             <EnumChoice id="spheremap" label="Reflection (Sphere mapping)"/>
             

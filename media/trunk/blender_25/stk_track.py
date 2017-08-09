@@ -624,10 +624,12 @@ class ActionTriggerExporter:
                 #    f.write("    <check-sphere xyz=\"%.2f %.2f %.2f\" radius=\"%.2f\"/>\n" % \
                 #            (obj.location[0], obj.location[2], obj.location[1], radius) )
                 if trigger_type == "point":
-                    f.write('  <object type="action-trigger" trigger-type="point" id=\"%s\" action="%s" distance="%s" %s/>\n' %\
+                    f.write('  <object type="action-trigger" trigger-type="point" id=\"%s\" action="%s" distance="%s" reenable-timeout="%s" triggered-object="%s" %s/>\n' %\
                         (obj.name,
                          getObjectProperty(obj, "action", ""),
                          getObjectProperty(obj, "trigger_distance", 5.0),
+                         getObjectProperty(obj, "reenable_timeout", 999999.9),
+                         getObjectProperty(obj, "triggered_object", ""),
                          originXYZ))
                 elif trigger_type == "cylinder":
                     radius = (obj.dimensions.x + obj.dimensions.y)/4 # divide by 2 to get average size, divide by 2 to get radius from diameter
