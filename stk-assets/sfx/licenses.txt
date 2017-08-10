@@ -111,12 +111,12 @@ License: GPL2
 Comment: From original TuxKart, tuxkart.sf.net
 
 Files: exotic-birds.ogg
-Copyright: Copyright ???? ?????
-License: ????
-Comment: Ask samuncle
+Copyright: Copyright 2013 James "swiftoid" Swift
+License: public-domain CC0
+Comment: From http://freesound.org/people/swiftoid/sounds/182501/
 
 Files: exotic-birds_2.ogg
-Copyright: Copyright 2011 "mpfeiffer"
+Copyright: Copyright 2011 "mpfeiffer" <www.monoacustico.com>
 License: public-domain CC0
 Comment: From http://freesound.org/people/mpfeiffer/sounds/115758/
 
@@ -292,6 +292,23 @@ Comment:
  http://soundbible.com/2011-Rain-Background.html
  http://soundbible.com/1829-Medium-Rainstorm.html
  http://soundbible.com/1158-Rain.html
+
+Files: river_loop.ogg
+Copyright: Copyright 2012 Adam Newns <www.vennaudio.com>
+License: public-domain CC0
+Comment: From http://freesound.org/people/Adam_N/sounds/166310/
+
+Files: sara_airport_pa.ogg
+Copyright:
+ Copyright 2012 "2887679652" <513.hopto.org (broken link)>
+ Copyright 2015 "WilliamS"
+ Copyright 2015 Jean-Manuel "samuncle" Clémençon <sam.un@protonmail.com>
+License: CC-BY-SA 4.0
+Comment:
+ Assembled by samuncle from public-domain sounds. The ding-dong sound effect is from here:
+ http://freesound.org/people/2887679652/sounds/171755/
+ And the voice acting is from this forum thread:
+ https://forum.freegamedev.net/viewtopic.php?f=90&t=6106
 
 Files: old_license_file_dont_delete_yet.txt
 Copyright: ....
