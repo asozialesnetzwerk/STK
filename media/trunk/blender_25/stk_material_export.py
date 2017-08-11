@@ -95,6 +95,7 @@ def writeMaterialsFile(sPath):
            'disable_z_write'       : {'default': "N", 'parent': None, 'type': 'bool'},
            'falling_effect'        : {'default': "N", 'parent': None, 'type': 'bool'},
            'gloss_map'             : {'default': "", 'parent': None, 'type': 'string'},
+           'combined_map'          : {'default': "", 'parent': None, 'type': 'string'},
            'grass_speed'           : {'default': 0.4, 'parent': ('shader','grass'), 'type': 'number'},
            'grass_amplitude'       : {'default': 0.25, 'parent': ('shader','grass'), 'type': 'number'},
            'ignore'                : {'default': "N", 'parent': None, 'type': 'bool'},
