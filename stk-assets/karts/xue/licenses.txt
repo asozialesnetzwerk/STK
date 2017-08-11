@@ -14,12 +14,14 @@ Files:
  skirt.png
 Copyright: Copyright 2014 "JunglePenguin" <js@junglepenguin.nl>
 License: CC-BY-SA 3.0
+Comment: From https://forum.freegamedev.net/viewtopic.php?f=18&t=4753
 
 Files:
  xfce_icon64.png
  xfce_icon32.png
 Copyright: Copyright 2013 Totoplus62
 License: ????
+Comment: From https://forum.freegamedev.net/viewtopic.php?f=18&t=4923, based on work by Ludsky.
 
 Files: hc.body.001.b3d
 Copyright:
