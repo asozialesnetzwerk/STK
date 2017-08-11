@@ -34,7 +34,13 @@ Copyright:
  Copyright 2008 Marianne "Auria" Gagnon
  Copyright 2007 daveincamas
 License: CC-BY-SA 3.0, CC-BY 3.0
-Comment: See https://www.freesound.org/people/daveincamas/sounds/44233/, https://www.freesound.org/people/daveincamas/sounds/44246/, and https://www.freesound.org/people/daveincamas/sounds/44103/. Originally released under the Creative Commons Sampling Plus 1.0. Marianne Gagnon obtained permission to release under CC-BY-SA 3.0. Relicensed on website as CC-BY 3.0.
+Comment:
+ See https://www.freesound.org/people/daveincamas/sounds/44233/,
+ https://www.freesound.org/people/daveincamas/sounds/44246/,
+ and https://www.freesound.org/people/daveincamas/sounds/44103/.
+ Originally released under the Creative Commons Sampling Plus 1.0. Either qubodup or Marianne Gagnon
+ obtained permission to release under CC-BY-SA 3.0. Relicensed on website as CC-BY 3.0.
+ See also https://forum.freegamedev.net/viewtopic.php?f=18&t=1628.
 
 Files: break.ogg
 Copyright:
@@ -80,6 +86,7 @@ License: CC-BY-SA 4.0
 Comment:
  Author's website: https://theaudiomonkey.co.uk/ Minor (possibly non-copyrightable)
  changes made to the splash sound the same year by OzoneOne.
+ From https://forum.freegamedev.net/viewtopic.php?f=18&t=7425
 
 Files: dark.ogg
 Copyright: Not applicable---public domain by 7by7 (date of publication unknown)
@@ -263,7 +270,9 @@ Files: portal.ogg
 Copyright: Copyright 2012 Magne "Arthur-D" Djupvik <magned@users.sf.net>
 License: CC-BY-SA 3.0
 
-Files: pre_start_race.ogg
+Files:
+ pre_start_race.ogg
+ start_race.ogg
 Copyright:
  Copyright 2008-2010 Ulrich Metzner
  Copyright 2010-2011 Iwan "qubodup" Gabovitch
@@ -310,7 +319,102 @@ Comment:
  And the voice acting is from this forum thread:
  https://forum.freegamedev.net/viewtopic.php?f=90&t=6106
 
-Files: old_license_file_dont_delete_yet.txt
-Copyright: ....
-License: ....
-Comment: TODO: get rid of this
+Files: shoot.ogg
+Copyright:
+ Copyright ???? (Someone from Wormux; see https://github.com/yeKcim/warmux/blob/master/trunk/data/authors.xml)
+ Copyright 2006 Lari Nieminen (Battle for Wesnoth)
+License: GPL 2.0
+Comment:
+ Seemingly based on these files:
+ https://github.com/yeKcim/warmux/blob/master/old/warmux-11.04/data/sound/default/weapons/rocket_flying.ogg
+ https://github.com/wesnoth/wesnoth/blob/master/data/core/sounds/axe.ogg
+ I could not find the wormux author's name... without looking through all the author's website for a mention of it. :(
+
+Files: skid.ogg
+Copyright:
+ Copyright 2009 Tom "audible-edge" Haigh <www.tomhaigh.com>
+ Copyright 2012 Iwan "qubodup" Gabovitch
+License: CC-BY 3.0
+Comment:
+ From https://opengameart.org/content/car-tire-squeal-skid-loop, which is based on
+ http://freesound.org/people/audible-edge/sounds/71739/
+
+Files: spaceship.ogg
+Copyright:
+ Copyright 2006 "Ch0cchi"
+ Copyright 2012 Marianne "Auria" Gagnon (?)
+License: CC-BY-SA 3.0
+Comment: Auria *probably* turned this into a looping sound effect, but no definite info on that.
+
+Files: strike.ogg
+Copyright:
+ Copyright 2009 juskiddink
+ Copyright 2011 Iwan "qubodup" Gabovitch <qubodup@gmail.com>
+License: CC-BY-SA 3.0
+Comment:
+ From https://opengameart.org/content/bowling-strike-hit, mixed by qubodup from the following:
+ http://freesound.org/people/juskiddink/sounds/82359/
+ http://freesound.org/people/juskiddink/sounds/82358/
+ qubodup obtained permission to reuse under the CC-BY-SA 3.0. Freesound only offers the CC-BY
+ as an option and thus the freesound.org links above mention the CC-BY.
+
+Files: swap.ogg
+Copyright: Copyright 2007 "Stephan"
+License: public-domain CC0
+Comment:
+ From http://pdsounds.org/effects/comic-spring-up-or-magic-trick/
+ I found this by looking through the backup of the database here:
+ pdsounds.tuxfamily.org. Currently pdsounds is still not 100% working but it sort-of works.
+ Although I could not actually listen to the sound at the link above, I confirmed it was the
+ same by examining the HTML, which referenced the same sound file (comic_doop.mp3) as I found
+ in the backup of the database, which I was able to confirm is the same as that in STK.
+
+Files: swatter.ogg
+Copyright: Copyright 2010 "Snottyboi"
+License: CC-BY 3.0
+Comment: From http://soundbible.com/1375-Whip-Crack.html
+
+Files: thunder.ogg
+Copyright:
+ Copyright 2009 Mike Koenig
+ Copyright 2011 Marianne "Auria" Gagnon <auria.mg@gmail.com>
+License: CC-BY 3.0
+Comment: From http://soundbible.com/318-Lightning-Strike-Summer-Storm.html, modified by Auria.
+
+Files: tractor_beam.ogg
+Copyright: Copyright 2007 "metamorphmuses" <metamorphmuses.com>
+License: CC-BY 3.0
+Comment: From http://freesound.org/people/metamorphmuses/sounds/35201/
+
+Files: ugh.ogg
+Copyright: Copyright 2000 Steve Baker <steve@sjbaker.org>
+License: GPL 2.0
+Comment: From original TuxKart
+
+Files: waterfall_loop_2.ogg
+Copyright: Copyright 2014 Leonard "VKProduktion" Graf <www.facebook.com/gleichbergpictures>
+License: public-domain CC0
+Comment: From http://freesound.org/people/VKProduktion/sounds/215711/
+
+Files: wee.ogg
+Copyright: Copyright 2000 Steve Baker <steve@sjbaker.org>
+License: GPL 2.0
+Comment: From original TuxKart
+
+Files: WilhelmScream.ogg
+Copyright: N/A
+License: public-domain
+Comment:
+ Considered public domain due to:
+ (1) Threshold of originality
+ (2) Lack of explicit copyright mention at time of publication when explicit notice was required.
+ Dubious; but supposedly no one's ever tried to sue anyone because of it.
+
+Files: wooden_bridge.ogg
+Copyright:
+ Copyright 2007 "Stephan"
+ Copyright 2010 Marianne "Auria" Gagnon <auria.mg@gmail.com>
+License: public-domain
+Comment:
+ From http://pdsounds.org/effects/knocking-on-wood-or-door/ (based on search of the archive
+ at pdsounds.tuxfamily.org), modified by Marianne Gagnon.

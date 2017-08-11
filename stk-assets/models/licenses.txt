@@ -19,12 +19,30 @@ Files:
  chest.jpg
  gift-box.b3d
  gift-box.png
- gift-box-low.b3d
- gift-loop.png
  swap-icon.png (Assumed to be by MiniBjorn???)
 Copyright: Copyright 2008-2010 MiniBjorn
 License: CC-BY-SA 3.0
 Comment: Marianne Gagnon made slight modifications to the gift box model.
+
+Files: gift-box-low.b3d
+Copyright:
+ Copyright 2011 MiniBjorn <minibjornstk@users.sf.net>
+ Copyright 2011, 2014 Marianne "Auria" Gagnon
+License: CC-BY-SA 3.0
+Comment:
+ Original mesh by MiniBjorn; low-poly version by Auria; improved again by MiniBjorn.
+ Revised again by Auria in 2014.
+
+Files: gift-loop.png
+Copyright:
+ Copyright 2008 MiniBjorn ("UnNamed") <minibjornstk@users.sf.net>
+ Copyright 2014 Marianne "Auria" Gagnon <auria.mg@gmail.com>
+License: CC-BY-SA 3.0
+Comment: Auria made the texture smoother-looking as part of adding glossmap support.
+
+Files: gift-loop-gloss.png
+Copyright: Copyright 2014 Marianne "Auria" Gagnon <auria.mg@gmail.com>
+License: ????
 
 Files:
  bubblegum-nolok.b3d
@@ -189,9 +207,9 @@ Copyright: Copyright 2008 Constantin Pelikan (donconso)
 License: ????
 
 Files: zipper_collect.png
-Copyright: Public Domain by Connor (Added to repo in 2014)
+Copyright: Copyright 2014 Connor
 License: public-domain
 
 Files: zipper.png
 Copyright: Copyright (approximately) 2000 Steve Baker (?)
-License: GPLv????
+License: GPL 2.0
