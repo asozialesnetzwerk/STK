@@ -672,16 +672,15 @@ class StartPositionExporter:
             id = int(getObjectProperty(obj, "start_index", "-1"))
             if id == "-1":
                 log_warning("Invalid start position " + id)
-
             dId2Obj[id] = obj
             
         l = dId2Obj.keys()
 
         if len(l) < 4 and getSceneProperty(scene, "arena",  "false") == "true":
             log_warning("You should define at least 4 start positions")
-            
-        for i in l:
-            f.write("  <start %s/>\n"%getXYZHString(dId2Obj[i]))
+
+        for key, value in sorted(dId2Obj.items()):
+            f.write("  <start %s/>\n"%getXYZHString(value))
 
             
 # ------------------------------------------------------------------------------
