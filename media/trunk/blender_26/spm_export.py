@@ -9,7 +9,7 @@
 # copies of the Software, and to permit persons to whom the Software is
 # furnished to do so, subject to the following conditions:
 #
-# The above copyright notice and th permission notice shall be included in all
+# The above copyright notice and this permission notice shall be included in all
 # copies or substantial portions of the Software.
 #
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
@@ -604,7 +604,6 @@ def writeSPMFile(filename, objects=[]):
                 all_triangles.append(t2)
 
     if arm_count != 0:
-        #all_triangles.sort(key = lambda x: x.m_armature_name)
         ExportArm.m_accumulated_bone = 0
         for arm_name in sorted(arm_dict.keys()):
             arm_dict[arm_name].buildIndex(all_triangles)
