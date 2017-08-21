@@ -1,9 +1,11 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16649 -->
+<!-- Generated with script from SVN rev 17016 -->
 <scene>
-  <track model="soccer_field_track.b3d" x="0" y="0" z="0"/>
+  <track model="soccer_field_track.spm" x="0" y="0" z="0">
+    <static-object  model="invisible_wall.spm" xyz="-0.01 5.56 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.61" interaction="physics-only"/>
+  </track>
   <object type="movable" id="soccer_ball" xyz="-0.47 7.00 0.55" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
-          shape="sphere" mass="20.0" model="soccer_ball.b3d" soccer_ball="true" restitution="0.6" skeletal-animation="false"/>
+          shape="sphere" mass="20.0" model="soccer_ball.spm" soccer_ball="true" restitution="0.6" skeletal-animation="false"/>
   <sky-box texture="genericskybox_top.jpg genericskybox_bottom.jpg genericskybox_east.jpg genericskybox_west.jpg genericskybox_south.jpg genericskybox_north.jpg" />
   <camera far="1000.0"/>
   <checks>
@@ -21,17 +23,17 @@
                  sidewards-distance="3.00"
                  upwards-distance  ="0.10"/>
   <start x="-6.54" y="0.10" z="55.07" h="180.00"/>
-  <start x="-6.74" y="0.10" z="-56.04" h="0.00"/>
-  <start x="-0.05" y="0.10" z="52.18" h="180.00"/>
-  <start x="-0.01" y="0.10" z="-53.06" h="0.00"/>
-  <start x="6.62" y="0.10" z="55.14" h="180.00"/>
-  <start x="5.39" y="0.10" z="-56.06" h="0.00"/>
-  <start x="4.77" y="0.10" z="52.18" h="180.00"/>
-  <start x="4.12" y="0.10" z="-53.06" h="0.00"/>
-  <start x="2.91" y="0.10" z="55.14" h="180.00"/>
   <start x="1.75" y="0.10" z="-56.06" h="0.00"/>
   <start x="-1.91" y="0.10" z="55.07" h="180.00"/>
   <start x="-2.37" y="0.10" z="-56.06" h="0.00"/>
   <start x="-4.68" y="0.10" z="52.18" h="180.00"/>
   <start x="-4.38" y="0.10" z="-53.18" h="0.00"/>
+  <start x="-0.01" y="0.10" z="-53.06" h="0.00"/>
+  <start x="-0.05" y="0.10" z="52.18" h="180.00"/>
+  <start x="6.62" y="0.10" z="55.14" h="180.00"/>
+  <start x="-6.74" y="0.10" z="-56.04" h="0.00"/>
+  <start x="5.39" y="0.10" z="-56.06" h="0.00"/>
+  <start x="4.77" y="0.10" z="52.18" h="180.00"/>
+  <start x="4.12" y="0.10" z="-53.06" h="0.00"/>
+  <start x="2.91" y="0.10" z="55.14" h="180.00"/>
 </scene>

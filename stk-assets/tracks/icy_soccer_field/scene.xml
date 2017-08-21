@@ -1,9 +1,11 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16649 -->
+<!-- Generated with script from SVN rev 17016 -->
 <scene>
-  <track model="icy_soccer_field_track.b3d" x="0" y="0" z="0"/>
+  <track model="icy_soccer_field_track.spm" x="0" y="0" z="0">
+    <static-object  model="invisible_wall.spm" xyz="-0.01 5.56 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.61" interaction="physics-only"/>
+  </track>
   <object type="movable" id="Puck" xyz="-0.48 7.00 0.58" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
-          shape="cylinderY" mass="20.0" model="puck.b3d" soccer_ball="true" friction="0.5" restitution="0.6" linear-factor="1.0 1.0 1.0" angular-factor="0.0 1.0 0.0" linear-damping="0.0" angular-damping="0.9" skeletal-animation="false"/>
+          shape="cylinderY" mass="20.0" model="puck.spm" soccer_ball="true" friction="0.5" restitution="0.6" linear-factor="1.0 1.0 1.0" angular-factor="0.0 1.0 0.0" linear-damping="0.0" angular-damping="0.9" skeletal-animation="false"/>
   <sun  fog="true" fog-color="29 63 111" fog-max="1.0" fog-start="5.00" fog-end="150.00" xyz="-323.32 562.74 676.22" sun-diffuse="255 213 160" ambient="85 85 85"/>
   <sky-color rgb="56 255 202"/>
   <weather particles="snow.xml"/>
@@ -25,6 +27,11 @@
                  sidewards-distance="1.80"
                  upwards-distance  ="1.10"/>
   <start x="-6.54" y="0.10" z="55.07" h="180.00"/>
+  <start x="1.75" y="0.10" z="-56.06" h="0.00"/>
+  <start x="-1.91" y="0.10" z="55.07" h="180.00"/>
+  <start x="-2.37" y="0.10" z="-56.06" h="0.00"/>
+  <start x="-4.68" y="0.10" z="52.18" h="180.00"/>
+  <start x="-4.38" y="0.10" z="-53.18" h="0.00"/>
   <start x="-6.74" y="0.10" z="-56.04" h="0.00"/>
   <start x="-0.05" y="0.10" z="52.18" h="180.00"/>
   <start x="-0.01" y="0.10" z="-53.06" h="0.00"/>
@@ -33,9 +40,4 @@
   <start x="4.77" y="0.10" z="52.18" h="180.00"/>
   <start x="4.12" y="0.10" z="-53.06" h="0.00"/>
   <start x="2.91" y="0.10" z="55.14" h="180.00"/>
-  <start x="1.75" y="0.10" z="-56.06" h="0.00"/>
-  <start x="-1.91" y="0.10" z="55.07" h="180.00"/>
-  <start x="-2.37" y="0.10" z="-56.06" h="0.00"/>
-  <start x="-4.68" y="0.10" z="52.18" h="180.00"/>
-  <start x="-4.38" y="0.10" z="-53.18" h="0.00"/>
 </scene>
