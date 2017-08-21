@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev 16945 -->
 <kart name              = "Emule"
-      version           = "2"
-      model-file        = "emule.b3d"
+      version           = "3"
+      model-file        = "emule.spm"
       icon-file         = "emule_icon128.png"
       minimap-icon-file = "emule_icon32.png"
       shadow-file       = "emule_shadow.png"
@@ -22,20 +22,20 @@
               end-losing = "479"/>
   <wheels>
     <front-left position = "-0.314000 0.146322 0.520000"
-                 model    = "wheel-front-left.b3d"       />
+                 model    = "wheel-front-left.spm"       />
     <front-right position = "0.314000 0.146322 0.520000"
-                 model    = "wheel-front-right.b3d"       />
+                 model    = "wheel-front-right.spm"       />
     <rear-left position = "-0.328000 0.146322 -0.375000"
-                 model    = "wheel-rear-left.b3d"       />
+                 model    = "wheel-rear-left.spm"       />
     <rear-right position = "0.327887 0.146322 -0.375000"
-                 model    = "wheel-rear-right.b3d"       />
+                 model    = "wheel-rear-right.spm"       />
   </wheels>
   <nitro-emitter>
     <nitro-emitter-a position = "0.255852 0.362264 -0.586941" />
     <nitro-emitter-b position = "-0.250476 0.362264 -0.586941" />
   </nitro-emitter>
   <headlights>
-    <object position="0.000000 0.064116 -0.589548" model="Circle.b3d"/>
+    <object position="0.000000 0.064116 -0.589548" model="Circle.spm"/>
   </headlights>
   <hat offset="0.0 0.205 0.075"/>
 </kart>

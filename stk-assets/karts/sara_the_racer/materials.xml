@@ -5,6 +5,5 @@
   <material name="hair.png" colorizable="Y" colorization-factor="0.00"/>
   <material name="motif.png" gloss-map="motif_gloss.png" colorizable="Y" colorization-factor="0.00"/>
   <material name="shoes_gloves.png" gloss-map="shoes_gloves_gloss.png" colorizable="Y" colorization-factor="0.00"/>
-  <material name="stk_conelight_a.png" shader="alphablend" backface-culling="N" disable-z-write="Y"/>
   <material name="turbinia_mainBody.png" gloss-map="turbinia_mainBody_gloss.png" colorizable="Y" colorization-factor="0.00"/>
 </materials>

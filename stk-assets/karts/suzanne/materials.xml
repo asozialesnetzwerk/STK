@@ -2,7 +2,6 @@
 <!-- Generated with script from SVN rev Unknown -->
 <materials>
   <material name="frontLight.png" gloss-map="frontLight_gloss.png"/>
-  <material name="headLight.png" gloss-map="headLight_gloss.png"/>
   <material name="kart.diffuse.png" gloss-map="kart.diffuse-gloss.png" colorizable="Y" colorization-factor="0.00" colorization-mask="suzanne_kart_colorizationMask.png"/>
   <material name="stk_conelight_a.png" shader="alphablend" backface-culling="N" disable-z-write="Y"/>
 </materials>

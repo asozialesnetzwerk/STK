@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16354 -->
+<!-- Generated with script from SVN rev 16945 -->
 <kart name              = "Nolok"
-      version           = "2"
-      model-file        = "nolok.b3dz"
+      version           = "3"
+      model-file        = "nolok.spm"
       icon-file         = "nolokicon.png"
       minimap-icon-file = "nolokicon.png"
       shadow-file       = "nolokshadow.png"
@@ -20,13 +20,13 @@
               end-losing = "516"/>
   <wheels>
     <front-left position = "-0.191663 0.113000 0.431415"
-                 model    = "wheel-front-left.b3d"       />
+                 model    = "wheel-front-left.spm"       />
     <front-right position = "0.192337 0.113000 0.433317"
-                 model    = "wheel-front-right.b3d"       />
+                 model    = "wheel-front-right.spm"       />
     <rear-left position = "-0.333243 0.145925 -0.421683"
-                 model    = "wheel-rear-left.b3d"       />
+                 model    = "wheel-rear-left.spm"       />
     <rear-right position = "0.302984 0.146000 -0.424683"
-                 model    = "wheel-rear-right.b3d"       />
+                 model    = "wheel-rear-right.spm"       />
   </wheels>
   <nitro-emitter>
     <nitro-emitter-a position = "0.194400 0.489350 -0.326533" />

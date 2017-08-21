@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev 16945 -->
 <kart name              = "Sara the Wizard"
-      version           = "2"
-      model-file        = "sara the wizard.b3d"
+      version           = "3"
+      model-file        = "sara the wizard.spm"
       icon-file         = "icon-sara.png"
       minimap-icon-file = "icon-sara.png"
       shadow-file       = "sara-shadow.png"
@@ -20,23 +20,23 @@
               end-winning = "159"/>
   <wheels>
     <rear-right position = "0.062147 0.069841 -0.593046"
-                 model    = "wheel-rear-right.b3d"       />
+                 model    = "wheel-rear-right.spm"       />
     <rear-left position = "-0.062147 0.069841 -0.593046"
-                 model    = "wheel-rear-left.b3d"       />
+                 model    = "wheel-rear-left.spm"       />
     <front-left position = "-0.193361 0.135471 0.448042"
-                 model    = "wheel-front-left.b3d"       />
+                 model    = "wheel-front-left.spm"       />
     <front-right position = "0.192284 0.135471 0.448042"
-                 model    = "wheel-front-right.b3d"       />
+                 model    = "wheel-front-right.spm"       />
   </wheels>
   <nitro-emitter>
     <nitro-emitter-a position = "-0.178905 0.268604 -0.499154" />
     <nitro-emitter-b position = "0.171986 0.268604 -0.499154" />
   </nitro-emitter>
   <speed-weighted-objects>
-    <speed-weighted position="0.000000 0.000000 0.000000" model="Circle.003_Circle.002.b3d"  texture-speed-x="0.000000" texture-speed-y="1.500000"/>
+    <speed-weighted position="0.000000 0.000000 0.000000" model="Circle.003_Circle.002.spm"  texture-speed-x="0.000000" texture-speed-y="1.500000"/>
   </speed-weighted-objects>
   <headlights>
-    <object position="0.000000 0.000000 0.000000" model="Circle.003_Circle.010.b3d"/>
+    <object position="0.000000 0.000000 0.000000" model="Circle.003_Circle.010.spm"/>
   </headlights>
   <hat offset="0.0 0.2 0.0"/>
   <lean max="*0-10"/>

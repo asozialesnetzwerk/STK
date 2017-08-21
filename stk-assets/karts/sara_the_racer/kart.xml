@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev 16945 -->
 <kart name              = "Sara the Racer"
-      version           = "2"
-      model-file        = "sara the racer.b3d"
+      version           = "3"
+      model-file        = "sara the racer.spm"
       icon-file         = "icon-sara.png"
       minimap-icon-file = "icon-sara.png"
       shadow-file       = "turbinia_shadow.png"
@@ -17,22 +17,19 @@
               end-jump = "79"/>
   <wheels>
     <rear-left position = "-0.143815 0.109919 -0.403447"
-                 model    = "wheel-rear-left.b3d"       />
+                 model    = "wheel-rear-left.spm"       />
     <rear-right position = "0.143815 0.109919 -0.403447"
-                 model    = "wheel-rear-right.b3d"       />
+                 model    = "wheel-rear-right.spm"       />
     <front-right position = "0.000000 0.097489 0.481675"
-                 model    = "wheel-front-right.b3d"       />
+                 model    = "wheel-front-right.spm"       />
   </wheels>
   <nitro-emitter>
     <nitro-emitter-a position = "0.015415 0.294082 -0.508180" />
     <nitro-emitter-b position = "-0.015024 0.294082 -0.508180" />
   </nitro-emitter>
   <speed-weighted-objects>
-    <speed-weighted position="-0.000000 0.269588 -0.364707" model="Plane.001.b3d"  texture-speed-x="0.500000" texture-speed-y="0.000000"/>
+    <speed-weighted position="-0.000000 0.269588 -0.364707" model="Plane.001.spm"  texture-speed-x="0.500000" texture-speed-y="0.000000"/>
   </speed-weighted-objects>
-  <headlights>
-    <object position="-0.000000 0.089529 0.452808" model="lights.b3d"/>
-  </headlights>
   <hat offset="0.0 0.2 0.0"/>
   <lean max="*0-6.6"/>
 </kart>

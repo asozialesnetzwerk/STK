@@ -3,4 +3,5 @@
 <materials>
   <material name="nolok_kart.png" colorizable="Y" colorization-factor="0.00"/>
   <material name="nolok_window.png" shader="alphablend" backface-culling="N" disable-z-write="Y"/>
+  <material name="Private-sphere.png" shader="alphablend" disable-z-write="Y"/>
 </materials>

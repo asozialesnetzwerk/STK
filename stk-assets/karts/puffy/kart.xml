@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16354 -->
+<!-- Generated with script from SVN rev 16945 -->
 <kart name              = "Puffy"
-      version           = "2"
-      model-file        = "puffy.b3d"
+      version           = "3"
+      model-file        = "puffy.spm"
       icon-file         = "puffy-icon.png"
       minimap-icon-file = "puffy-icon.png"
       shadow-file       = "puffy-shadow.png"
@@ -20,13 +20,13 @@
               end-losing = "591"/>
   <wheels>
     <front-left position = "-0.403249 0.165167 0.523572"
-                 model    = "wheel-front-left.b3d"       />
+                 model    = "wheel-front-left.spm"       />
     <front-right position = "0.404349 0.165167 0.524823"
-                 model    = "wheel-front-right.b3d"       />
+                 model    = "wheel-front-right.spm"       />
     <rear-left position = "-0.399166 0.221235 -0.470627"
-                 model    = "wheel-rear-left.b3d"       />
+                 model    = "wheel-rear-left.spm"       />
     <rear-right position = "0.396947 0.221235 -0.471024"
-                 model    = "wheel-rear-right.b3d"       />
+                 model    = "wheel-rear-right.spm"       />
   </wheels>
   <hat offset="0.0 1.0 0.0"/>
 </kart>

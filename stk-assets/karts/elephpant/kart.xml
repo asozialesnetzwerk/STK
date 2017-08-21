@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16354 -->
+<!-- Generated with script from SVN rev 16945 -->
 <kart name              = "Elephpant"
-      version           = "2"
-      model-file        = "elephpant.b3dz"
+      version           = "3"
+      model-file        = "elephpant.spm"
       icon-file         = "elephpanticon.png"
       minimap-icon-file = "elephpanticon.png"
       shadow-file       = "elephpantshadow.png"
@@ -20,13 +20,13 @@
               end-losing = "422"/>
   <wheels>
     <front-left position = "-0.245315 0.102874 0.469806"
-                 model    = "wheel-front-left.b3d"       />
+                 model    = "wheel-front-left.spm"       />
     <front-right position = "0.253327 0.102258 0.468561"
-                 model    = "wheel-front-right.b3d"       />
+                 model    = "wheel-front-right.spm"       />
     <rear-left position = "-0.372574 0.139018 -0.470285"
-                 model    = "wheel-rear-left.b3d"       />
+                 model    = "wheel-rear-left.spm"       />
     <rear-right position = "0.377162 0.139018 -0.470212"
-                 model    = "wheel-rear-right.b3d"       />
+                 model    = "wheel-rear-right.spm"       />
   </wheels>
   <hat offset="0.0 0.13 0.2"/>
 </kart>

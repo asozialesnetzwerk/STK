@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16729 -->
+<!-- Generated with script from SVN rev 16945 -->
 <kart name              = "Konqi"
-      version           = "2"
-      model-file        = "konqi.b3d"
+      version           = "3"
+      model-file        = "konqi.spm"
       icon-file         = "konqi_icon.png"
       minimap-icon-file = "konqi_icon.png"
       shadow-file       = "konqiV1 shadow.png"
@@ -21,13 +21,13 @@
               end-losing = "159"/>
   <wheels>
     <front-left position = "-0.371346 0.162530 0.494193"
-                 model    = "wheel-front-left.b3d"       />
+                 model    = "wheel-front-left.spm"       />
     <front-right position = "0.372000 0.162530 0.494193"
-                 model    = "wheel-front-right.b3d"       />
+                 model    = "wheel-front-right.spm"       />
     <rear-left position = "-0.404000 0.193000 -0.572000"
-                 model    = "wheel-rear-left.b3d"       />
+                 model    = "wheel-rear-left.spm"       />
     <rear-right position = "0.405000 0.193000 -0.572000"
-                 model    = "wheel-rear-right.b3d"       />
+                 model    = "wheel-rear-right.spm"       />
   </wheels>
   <nitro-emitter>
     <nitro-emitter-a position = "0.059507 0.116539 -0.770299" />

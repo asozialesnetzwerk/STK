@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16354 -->
+<!-- Generated with script from SVN rev 16945 -->
 <kart name              = "Gavroche"
-      version           = "2"
-      model-file        = "gavroche.b3d"
+      version           = "3"
+      model-file        = "gavroche.spm"
       icon-file         = "gavroche_icon.png"
       minimap-icon-file = "gavroche_icon.png"
       shadow-file       = "gavroche_shadow.png"
@@ -23,13 +23,13 @@
               start-jump-loop = "290"/>
   <wheels>
     <front-left position = "-0.300000 0.127000 0.370000"
-                 model    = "wheel-front-left.b3d"       />
+                 model    = "wheel-front-left.spm"       />
     <front-right position = "0.300000 0.127000 0.370000"
-                 model    = "wheel-front-right.b3d"       />
+                 model    = "wheel-front-right.spm"       />
     <rear-left position = "-0.300000 0.127000 -0.430000"
-                 model    = "wheel-rear-left.b3d"       />
+                 model    = "wheel-rear-left.spm"       />
     <rear-right position = "0.300000 0.127000 -0.430000"
-                 model    = "wheel-rear-right.b3d"       />
+                 model    = "wheel-rear-right.spm"       />
   </wheels>
   <nitro-emitter>
     <nitro-emitter-a position = "0.000000 0.240000 -0.580000" />

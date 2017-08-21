@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev 16945 -->
 <kart name              = "Wilber"
-      version           = "2"
-      model-file        = "wilber.b3d"
+      version           = "3"
+      model-file        = "wilber.spm"
       icon-file         = "wilbericon.png"
       minimap-icon-file = "wilbericon32.png"
       shadow-file       = "wilber_shadow.png"
@@ -24,20 +24,20 @@
               backpedal-right = "579"/>
   <wheels>
     <front-left position = "-0.317082 0.174273 0.515819"
-                 model    = "wheel-front-left.b3d"       />
+                 model    = "wheel-front-left.spm"       />
     <front-right position = "0.294673 0.174273 0.515819"
-                 model    = "wheel-front-right.b3d"       />
+                 model    = "wheel-front-right.spm"       />
     <rear-left position = "-0.324686 0.209531 -0.402748"
-                 model    = "wheel-rear-left.b3d"       />
+                 model    = "wheel-rear-left.spm"       />
     <rear-right position = "0.302277 0.209531 -0.402748"
-                 model    = "wheel-rear-right.b3d"       />
+                 model    = "wheel-rear-right.spm"       />
   </wheels>
   <nitro-emitter>
     <nitro-emitter-a position = "-0.332807 0.305423 -0.840149" />
     <nitro-emitter-b position = "-0.332807 0.305423 -0.840149" />
   </nitro-emitter>
   <headlights>
-    <object position="0.000000 0.000000 0.000000" model="Wilber_Body.001.b3d"/>
+    <object position="0.000000 0.000000 0.000000" model="Wilber_Body.001.spm"/>
   </headlights>
   <hat offset="0.0 0.1 0.0"/>
 </kart>

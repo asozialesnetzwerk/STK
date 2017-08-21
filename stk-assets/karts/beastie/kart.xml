@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev 16945 -->
 <kart name              = "Beastie"
-      version           = "2"
-      model-file        = "beastie.b3d"
+      version           = "3"
+      model-file        = "beastie.spm"
       icon-file         = "beastie-icon.png"
       minimap-icon-file = "beastie-icon.png"
       shadow-file       = "beastie-shadow.png"
@@ -21,20 +21,20 @@
               end-losing = "220"/>
   <wheels>
     <front-left position = "-0.336000 0.182370 0.363336"
-                 model    = "wheel-front-left.b3d"       />
+                 model    = "wheel-front-left.spm"       />
     <front-right position = "0.336000 0.182370 0.363336"
-                 model    = "wheel-front-right.b3d"       />
+                 model    = "wheel-front-right.spm"       />
     <rear-left position = "-0.336000 0.182370 -0.480000"
-                 model    = "wheel-rear-left.b3d"       />
+                 model    = "wheel-rear-left.spm"       />
     <rear-right position = "0.336000 0.182370 -0.480000"
-                 model    = "wheel-rear-right.b3d"       />
+                 model    = "wheel-rear-right.spm"       />
   </wheels>
   <nitro-emitter>
     <nitro-emitter-a position = "0.387257 0.615989 -0.635706" />
     <nitro-emitter-b position = "-0.382115 0.615989 -0.635706" />
   </nitro-emitter>
   <headlights>
-    <object position="0.000000 0.217310 0.000000" model="Kart.001.b3d"/>
+    <object position="0.000000 0.217310 0.000000" model="Kart.001.spm"/>
   </headlights>
   <hat offset="0.0 0.24 -0.035"/>
 </kart>

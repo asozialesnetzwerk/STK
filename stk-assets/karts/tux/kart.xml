@@ -1,12 +1,11 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15441 -->
+<!-- Generated with script from SVN rev 16945 -->
 <kart name              = "Tux"
-      version           = "2"
-      model-file        = "tux.b3d"
+      version           = "3"
+      model-file        = "tux.spm"
       icon-file         = "tux_icon.png"
       minimap-icon-file = "tux_icon.png"
       shadow-file       = "tux_shadow.png"
-      random-wheel-rot  = "true"
       type              = "medium"
       groups            = "standard"
       rgb               = "1.00 0.00 0.00" >
@@ -24,13 +23,13 @@
               start-jump-loop = "604"/>
   <wheels>
     <front-left position = "-0.319630 0.110000 0.410000"
-                 model    = "wheel-front-left.b3d"       />
+                 model    = "wheel-front-left.spm"       />
     <front-right position = "0.319625 0.110000 0.410000"
-                 model    = "wheel-front-right.b3d"       />
+                 model    = "wheel-front-right.spm"       />
     <rear-left position = "-0.355000 0.140000 -0.340000"
-                 model    = "wheel-rear-left.b3d"       />
+                 model    = "wheel-rear-left.spm"       />
     <rear-right position = "0.355000 0.140000 -0.340000"
-                 model    = "wheel-rear-right.b3d"       />
+                 model    = "wheel-rear-right.spm"       />
   </wheels>
   <nitro-emitter>
     <nitro-emitter-a position = "0.200000 0.360000 -0.580000" />
