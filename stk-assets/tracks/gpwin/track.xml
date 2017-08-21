@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev 17016 -->
 <track  name           = "GPwin"
-        version        = "6"
+        version        = "7"
         groups         = "standard"
         designer       = "QwertyChouskie, jean-manuel cl&#233;men&#231;on"
         music          = "win_theme.music"

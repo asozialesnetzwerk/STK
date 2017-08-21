@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev 17016 -->
 <scene>
-  <track model="gpwin_track.b3d" x="0" y="0" z="0">
+  <track model="gpwin_track.spm" x="0" y="0" z="0">
     <animated-texture name="stkflag_greenCheckBorard_a.png" dx="0.080"  dy="0.2000" />
   </track>
   <object id="Camera" type="cutscene_camera" xyz="-7.86 5.28 39.01" hpr="-76.3 86.5 0.0" scale="1.00 1.00 1.00" interaction="static" model="" skeletal-animation="false">
@@ -15,11 +15,11 @@
       <p c="1.000 5.283" h1="0.000 5.283" h2="2.000 5.283"/>
     </curve>
   </object>
-  <object id="Cylinder" type="animation" xyz="20.50 -2.51 44.90" hpr="-0.0 -0.0 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="gpwin_podium1.b3d" skeletal-animation="false">
+  <object id="Cylinder" type="animation" xyz="20.50 -2.51 44.90" hpr="-0.0 -0.0 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="gpwin_podium1.spm" skeletal-animation="false">
   </object>
-  <object id="Cylinder.001" type="animation" xyz="20.75 -2.61 40.90" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="gpwin_podium2.b3d" skeletal-animation="false">
+  <object id="Cylinder.001" type="animation" xyz="20.75 -2.61 40.90" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="gpwin_podium2.spm" skeletal-animation="false">
   </object>
-  <object id="Cylinder.002" type="animation" xyz="21.00 -2.51 36.90" hpr="-0.0 -0.0 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="gpwin_podium3.b3d" skeletal-animation="false">
+  <object id="Cylinder.002" type="animation" xyz="21.00 -2.51 36.90" hpr="-0.0 -0.0 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="gpwin_podium3.spm" skeletal-animation="false">
   </object>
   <sun  fog="true" fog-color="7 8 15" fog-max="0.800000011920929" fog-start="15.00" fog-end="500.00" xyz="-642.22 673.75 -219.26" sun-specular="211 235 110" sun-diffuse="26 82 101" ambient="120 120 120"/>
   <sky-box texture="skybox_top.png skybox_bottom.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png" sh-texture="lightbox_top.png skybox_bottom.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png"/>
@@ -124,9 +124,9 @@
   </library>
   <library name="stklib_roots_a" id="stklib_roots_a_main_proxy.020" xyz="238.17 4.69 112.42" hpr="81.1 -13.8 -170.5" scale="1.60 1.60 1.60">
   </library>
-  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy" xyz="26.49 10.14 51.12" hpr="-0.0 -100.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy" xyz="26.49 10.14 51.12" hpr="0.0 -100.0 -0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.001" xyz="29.35 10.14 34.91" hpr="-0.0 -100.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.001" xyz="29.35 10.14 34.91" hpr="0.0 -100.0 -0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_tropicalPlant_a" id="stklib_tropicalPlant_a_main_proxy" xyz="0.00 0.00 58.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
