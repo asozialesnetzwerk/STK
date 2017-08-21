@@ -7,7 +7,7 @@
     start-rotation: Rotation of the referee at start
     colors: Three texture names that are used for ready, set, go.  -->
 
-<referee model="thunderbird.b3d"
+<referee model="thunderbird.spm"
          first-rescue-frame="625"
          last-rescue-frame="700"
          first-start-frame="265"
