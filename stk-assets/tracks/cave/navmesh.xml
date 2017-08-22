@@ -1,4 +1,4 @@
-<navmesh>
+<?xml version="1.0"?><navmesh>
 <MaxVertsPerPoly nvp="4" />
 <vertices>
 <vertex x="-34.015854" y="-18.447990" z="28.925640" />

@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16506 -->
+<!-- Generated with script from SVN rev 17016 -->
 <scene>
-  <track model="battleisland_track.b3d" x="0" y="0" z="0">
-    <static-object model="Water.b3d" xyz="-3.16 -5.15 0.52" hpr="0.0 -0.0 0.0" scale="1.76 1.77 1.75">
+  <track model="battleisland_track.spm" x="0" y="0" z="0">
+    <static-object  model="Water.spm" xyz="-3.16 -5.15 0.52" hpr="0.0 -0.0 0.0" scale="1.76 1.77 1.75">
     <animated-texture name="seagloss.png" dx="0.020"  dy="0.0400" />
     </static-object>
   </track>
