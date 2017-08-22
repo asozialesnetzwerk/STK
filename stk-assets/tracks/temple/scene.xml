@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16649 -->
+<!-- Generated with script from SVN rev 17016 -->
 <scene>
-  <track model="temple_track.b3d" x="0" y="0" z="0"/>
-  <object id="lightning1" type="animation" xyz="-24.98 153.07 -358.09" hpr="-90.0 -176.9 -0.0" scale="0.01 0.01 0.01" interaction="ghost" model="lightning1.b3d" forcedbloom="true" skeletal-animation="false">
+  <track model="temple_track.spm" x="0" y="0" z="0">
+    <static-object  model="container.spm" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
+  </track>
+  <object id="lightning1" type="animation" xyz="-24.98 153.07 -358.09" hpr="-90.0 -176.9 -0.0" scale="0.01 0.01 0.01" interaction="ghost" model="lightning1.spm" forcedbloom="true" skeletal-animation="false">
     <curve channel="ScaleX" interpolation="linear" extend="cyclic">
       <p c="1.000 0.012"/>
       <p c="1872.990 0.012"/>
@@ -40,7 +42,7 @@
       <p c="4500.000 0.012"/>
     </curve>
   </object>
-  <object id="lightning1.001" type="animation" xyz="-164.36 153.07 341.72" hpr="-90.0 -12.4 -0.0" scale="0.01 0.01 0.01" interaction="ghost" model="lightning1.b3d" forcedbloom="true" skeletal-animation="false">
+  <object id="lightning1.001" type="animation" xyz="-164.36 153.07 341.72" hpr="-90.0 -12.4 -0.0" scale="0.01 0.01 0.01" interaction="ghost" model="lightning1.spm" forcedbloom="true" skeletal-animation="false">
     <curve channel="ScaleX" interpolation="linear" extend="cyclic">
       <p c="1.000 0.012"/>
       <p c="1872.990 0.012"/>
@@ -78,7 +80,7 @@
       <p c="4500.000 0.012"/>
     </curve>
   </object>
-  <object id="lightning1.002" type="animation" xyz="297.78 153.07 236.33" hpr="-90.0 60.6 0.0" scale="0.01 0.01 0.01" interaction="ghost" model="lightning1.b3d" forcedbloom="true" skeletal-animation="false">
+  <object id="lightning1.002" type="animation" xyz="297.78 153.07 236.33" hpr="-90.0 60.6 0.0" scale="0.01 0.01 0.01" interaction="ghost" model="lightning1.spm" forcedbloom="true" skeletal-animation="false">
     <curve channel="ScaleX" interpolation="linear" extend="cyclic">
       <p c="1.000 0.012"/>
       <p c="1872.990 0.012"/>
@@ -116,7 +118,7 @@
       <p c="4500.000 0.012"/>
     </curve>
   </object>
-  <object id="lightning2" type="animation" xyz="330.33 153.07 15.45" hpr="-90.0 89.7 0.0" scale="0.01 0.01 0.01" interaction="ghost" model="lightning2.b3d" forcedbloom="true" skeletal-animation="false">
+  <object id="lightning2" type="animation" xyz="330.33 153.07 15.45" hpr="-90.0 89.7 0.0" scale="0.01 0.01 0.01" interaction="ghost" model="lightning2.spm" forcedbloom="true" skeletal-animation="false">
     <curve channel="ScaleX" interpolation="linear" extend="cyclic">
       <p c="1.000 0.012"/>
       <p c="1872.990 0.012"/>
@@ -154,7 +156,7 @@
       <p c="4500.000 0.012"/>
     </curve>
   </object>
-  <object id="lightning2.001" type="animation" xyz="33.39 153.07 402.76" hpr="-90.0 -1.7 -0.0" scale="0.01 0.01 0.01" interaction="ghost" model="lightning2.b3d" forcedbloom="true" skeletal-animation="false">
+  <object id="lightning2.001" type="animation" xyz="33.39 153.07 402.76" hpr="-90.0 -1.7 -0.0" scale="0.01 0.01 0.01" interaction="ghost" model="lightning2.spm" forcedbloom="true" skeletal-animation="false">
     <curve channel="ScaleX" interpolation="linear" extend="cyclic">
       <p c="1.000 0.012"/>
       <p c="1872.990 0.012"/>
@@ -192,7 +194,7 @@
       <p c="4500.000 0.012"/>
     </curve>
   </object>
-  <object id="lightning2.002" type="animation" xyz="-328.64 153.07 -214.52" hpr="-90.0 -118.2 -0.0" scale="0.01 0.01 0.01" interaction="ghost" model="lightning2.b3d" forcedbloom="true" skeletal-animation="false">
+  <object id="lightning2.002" type="animation" xyz="-328.64 153.07 -214.52" hpr="-90.0 -118.2 -0.0" scale="0.01 0.01 0.01" interaction="ghost" model="lightning2.spm" forcedbloom="true" skeletal-animation="false">
     <curve channel="ScaleX" interpolation="linear" extend="cyclic">
       <p c="1.000 0.012"/>
       <p c="1872.990 0.012"/>
@@ -230,7 +232,7 @@
       <p c="4500.000 0.012"/>
     </curve>
   </object>
-  <object id="lightning3" type="animation" xyz="148.89 153.07 358.49" hpr="-90.0 21.1 -0.0" scale="0.01 0.01 0.01" interaction="ghost" model="lightning3.b3d" forcedbloom="true" skeletal-animation="false">
+  <object id="lightning3" type="animation" xyz="148.89 153.07 358.49" hpr="-90.0 21.1 -0.0" scale="0.01 0.01 0.01" interaction="ghost" model="lightning3.spm" forcedbloom="true" skeletal-animation="false">
     <curve channel="ScaleX" interpolation="linear" extend="cyclic">
       <p c="1.000 0.012"/>
       <p c="1872.990 0.012"/>
@@ -268,7 +270,7 @@
       <p c="4500.000 0.012"/>
     </curve>
   </object>
-  <object id="lightning3.001" type="animation" xyz="-327.18 153.07 206.52" hpr="-90.0 -68.8 -0.0" scale="0.01 0.01 0.01" interaction="ghost" model="lightning3.b3d" forcedbloom="true" skeletal-animation="false">
+  <object id="lightning3.001" type="animation" xyz="-327.18 153.07 206.52" hpr="-90.0 -68.8 -0.0" scale="0.01 0.01 0.01" interaction="ghost" model="lightning3.spm" forcedbloom="true" skeletal-animation="false">
     <curve channel="ScaleX" interpolation="linear" extend="cyclic">
       <p c="1.000 0.012"/>
       <p c="1872.990 0.012"/>
@@ -306,7 +308,7 @@
       <p c="4500.000 0.012"/>
     </curve>
   </object>
-  <object id="lightning4" type="animation" xyz="-345.26 153.07 36.31" hpr="-90.0 -83.7 0.0" scale="0.01 0.01 0.01" interaction="ghost" model="lightning4.b3d" forcedbloom="true" skeletal-animation="false">
+  <object id="lightning4" type="animation" xyz="-345.26 153.07 36.31" hpr="-90.0 -83.7 0.0" scale="0.01 0.01 0.01" interaction="ghost" model="lightning4.spm" forcedbloom="true" skeletal-animation="false">
     <curve channel="ScaleX" interpolation="linear" extend="cyclic">
       <p c="1.000 0.012"/>
       <p c="1872.990 0.012"/>
@@ -344,7 +346,7 @@
       <p c="4500.000 0.012"/>
     </curve>
   </object>
-  <object id="lightning4.001" type="animation" xyz="298.92 153.07 -205.76" hpr="-90.0 114.5 -0.0" scale="0.01 0.01 0.01" interaction="ghost" model="lightning4.b3d" forcedbloom="true" skeletal-animation="false">
+  <object id="lightning4.001" type="animation" xyz="298.92 153.07 -205.76" hpr="-90.0 114.5 -0.0" scale="0.01 0.01 0.01" interaction="ghost" model="lightning4.spm" forcedbloom="true" skeletal-animation="false">
     <curve channel="ScaleX" interpolation="linear" extend="cyclic">
       <p c="1.000 0.012"/>
       <p c="1872.990 0.012"/>
@@ -382,8 +384,8 @@
       <p c="4500.000 0.012"/>
     </curve>
   </object>
-  <object id="water" type="animation" xyz="-0.00 1.65 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water.b3d" skeletal-animation="false">
-    <animated-texture name="stktex_generic_waterWhite.png" dy="1.0000" />
+  <object id="water" type="animation" xyz="-0.00 1.65 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water.spm" displacing="true" skeletal-animation="false">
+    <animated-texture name="stktemple_waterWhite.png" dy="0.0500" />
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -0.000"/>
       <p c="1875.000 -0.000"/>
@@ -433,7 +435,7 @@
       <p c="4500.000 1.000"/>
     </curve>
   </object>
-  <object id="waterdeath" type="animation" xyz="0.00 -0.10 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="reset" shape="exact" model="waterdeath.b3d" reset="y" driveable="true" skeletal-animation="false">
+  <object id="waterdeath" type="animation" xyz="0.00 -0.10 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="reset" shape="exact" model="waterdeath.spm" reset="y" driveable="true" skeletal-animation="false">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 0.000"/>
       <p c="2999.000 0.000"/>
@@ -459,8 +461,8 @@
       <p c="4500.000 -0.100"/>
     </curve>
   </object>
-  <object id="waterfall" type="animation" xyz="-7.59 49.70 -0.10" hpr="-0.0 -168.6 -0.0" scale="1.60 0.00 1.31" interaction="ghost" model="waterfall.b3d" skeletal-animation="false">
-    <animated-texture name="stktex_generic_waterWhite.png" dy="2.0000" />
+  <object id="waterfall" type="animation" xyz="-7.59 49.70 -0.10" hpr="-0.0 -168.6 -0.0" scale="1.60 0.00 1.31" interaction="ghost" model="waterfall.spm" displacing="true" skeletal-animation="false">
+    <animated-texture name="stktemple_waterWhite.png" dy="0.0200" />
     <curve channel="ScaleX" interpolation="linear" extend="cyclic">
       <p c="1.000 1.598"/>
       <p c="1815.000 1.598"/>
@@ -514,113 +516,6 @@
       <p c="2963.000 49.697"/>
       <p c="3000.000 -3.728"/>
       <p c="4500.000 -3.728"/>
-    </curve>
-  </object>
-  <object id="waterfallwarp" type="animation" xyz="-7.59 49.70 -0.10" hpr="-0.0 -168.6 -0.0" scale="1.60 0.00 1.31" interaction="ghost" model="waterfallwarp.b3d" displacing="true" skeletal-animation="false">
-    <animated-texture name="stktex_generic_waterWhite.png" dy="2.0000" />
-    <curve channel="ScaleX" interpolation="linear" extend="cyclic">
-      <p c="1.000 1.598"/>
-      <p c="1815.000 1.598"/>
-      <p c="1853.000 1.365"/>
-      <p c="1890.000 1.365"/>
-      <p c="2963.000 1.365"/>
-      <p c="3000.000 1.365"/>
-      <p c="4500.000 1.365"/>
-    </curve>
-    <curve channel="ScaleZ" interpolation="linear" extend="cyclic">
-      <p c="1.000 1.309"/>
-      <p c="1815.000 1.309"/>
-      <p c="1853.000 1.119"/>
-      <p c="1890.000 1.119"/>
-      <p c="2963.000 1.119"/>
-      <p c="3000.000 1.119"/>
-      <p c="4500.000 1.119"/>
-    </curve>
-    <curve channel="ScaleY" interpolation="linear" extend="cyclic">
-      <p c="1.000 0.000"/>
-      <p c="1815.000 0.000"/>
-      <p c="1853.000 0.200"/>
-      <p c="1890.000 1.000"/>
-      <p c="2963.000 1.000"/>
-      <p c="3000.000 1.000"/>
-      <p c="4500.000 1.000"/>
-    </curve>
-    <curve channel="LocX" interpolation="linear" extend="cyclic">
-      <p c="1.000 -7.589"/>
-      <p c="1815.000 -7.589"/>
-      <p c="1853.000 -7.589"/>
-      <p c="1890.000 -7.589"/>
-      <p c="2963.000 -7.589"/>
-      <p c="3000.000 -7.589"/>
-      <p c="4500.000 -7.589"/>
-    </curve>
-    <curve channel="LocZ" interpolation="linear" extend="cyclic">
-      <p c="1.000 -0.098"/>
-      <p c="1815.000 -0.098"/>
-      <p c="1853.000 -0.098"/>
-      <p c="1890.000 -0.098"/>
-      <p c="2963.000 -0.098"/>
-      <p c="3000.000 -0.098"/>
-      <p c="4500.000 -0.098"/>
-    </curve>
-    <curve channel="LocY" interpolation="linear" extend="cyclic">
-      <p c="1.000 49.697"/>
-      <p c="1815.000 49.697"/>
-      <p c="1853.000 49.697"/>
-      <p c="1890.000 49.697"/>
-      <p c="2963.000 49.697"/>
-      <p c="3000.000 -3.728"/>
-      <p c="4500.000 -3.728"/>
-    </curve>
-  </object>
-  <object id="waterwarp" type="animation" xyz="-0.00 1.65 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="waterwarp.b3d" displacing="true" skeletal-animation="false">
-    <curve channel="LocX" interpolation="linear" extend="cyclic">
-      <p c="1.000 -0.000"/>
-      <p c="1875.000 -0.000"/>
-      <p c="2000.000 -0.000"/>
-      <p c="3000.000 -0.000"/>
-      <p c="3750.000 -0.000"/>
-      <p c="4500.000 -0.000"/>
-    </curve>
-    <curve channel="LocZ" interpolation="linear" extend="cyclic">
-      <p c="1.000 0.000"/>
-      <p c="1875.000 0.000"/>
-      <p c="2000.000 0.000"/>
-      <p c="3000.000 0.000"/>
-      <p c="3750.000 0.000"/>
-      <p c="4500.000 0.000"/>
-    </curve>
-    <curve channel="LocY" interpolation="linear" extend="cyclic">
-      <p c="1.000 1.650"/>
-      <p c="1875.000 1.650"/>
-      <p c="2000.000 2.347"/>
-      <p c="3000.000 2.347"/>
-      <p c="3750.000 2.347"/>
-      <p c="4500.000 1.650"/>
-    </curve>
-    <curve channel="ScaleX" interpolation="linear" extend="cyclic">
-      <p c="1.000 1.000"/>
-      <p c="1875.000 1.000"/>
-      <p c="2000.000 1.000"/>
-      <p c="3000.000 1.000"/>
-      <p c="3750.000 1.000"/>
-      <p c="4500.000 1.000"/>
-    </curve>
-    <curve channel="ScaleZ" interpolation="linear" extend="cyclic">
-      <p c="1.000 1.000"/>
-      <p c="1875.000 1.000"/>
-      <p c="2000.000 1.000"/>
-      <p c="3000.000 1.000"/>
-      <p c="3750.000 1.000"/>
-      <p c="4500.000 1.000"/>
-    </curve>
-    <curve channel="ScaleY" interpolation="linear" extend="cyclic">
-      <p c="1.000 1.000"/>
-      <p c="1875.000 1.000"/>
-      <p c="2000.000 1.000"/>
-      <p c="3000.000 0.000"/>
-      <p c="3750.000 0.000"/>
-      <p c="4500.000 1.000"/>
     </curve>
   </object>
   <sun  fog="true" fog-color="7 8 15" fog-max="1.0" fog-start="10.00" fog-end="750.00" xyz="-126.80 136.24 -73.21" sun-specular="33 22 16" sun-diffuse="24 29 30" ambient="255 255 255"/>
