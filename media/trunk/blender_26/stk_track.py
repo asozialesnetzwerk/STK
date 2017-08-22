@@ -3065,14 +3065,12 @@ def getlist(self):
 def setlist(self, value):
     global thelist
     thelist = value
-     
-
+    
 # ==== EXPORT OPERATOR ====
 class STK_Track_Export_Operator(bpy.types.Operator):
     bl_idname = ("screen.stk_track_export")
     bl_label = ("SuperTuxKart Track Export")
     filepath = bpy.props.StringProperty(subtype="FILE_PATH")
-    exportImages = bpy.props.BoolProperty(name="Copy texture files")
     exportScene = bpy.props.BoolProperty(name="Export scene", default=True)
     exportDrivelines = bpy.props.BoolProperty(name="Export drivelines", default=True)
     exportMaterials = bpy.props.BoolProperty(name="Export materials", default=True)
@@ -3163,7 +3161,8 @@ class STK_Track_Export_Operator(bpy.types.Operator):
         #        a custom scene property
         bpy.types.Scene.obj_list = property(getlist, setlist)
         
-        savescene_callback(self.filepath, self.exportImages, self.exportDrivelines, self.exportScene, self.exportMaterials)
+        exportImages = bpy.data.scenes[0].stk_track_export_images
+        savescene_callback(self.filepath, exportImages, self.exportDrivelines, self.exportScene, self.exportMaterials)
         return {'FINISHED'}
 
 
@@ -3248,6 +3247,9 @@ class STK_Track_Exporter_Panel(bpy.types.Panel):
             return
         
         row = layout.row()
+        row.prop(the_scene, 'stk_track_export_images', text="Copy texture files")
+        
+        row = layout.row()
         
         if isNotANode:
             row.operator("screen.stk_track_export", "Export track", icon='BLENDER')
@@ -3289,6 +3291,7 @@ def menu_func_export_stktrack(self, context):
     self.layout.operator(STK_Track_Export_Operator.bl_idname, text="STK Track")
 
 def register():
+    bpy.types.Scene.stk_track_export_images = bpy.props.BoolProperty(name="Export images")
     bpy.types.INFO_MT_file_export.append(menu_func_export_stktrack)
     bpy.utils.register_module(__name__)
 
