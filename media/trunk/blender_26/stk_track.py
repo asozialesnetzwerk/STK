@@ -3032,7 +3032,7 @@ class TrackExport:
         if exportScene:
             self.writeSceneFile(sPath, sTrackName, exporters, lTrack, lObjects, lSun)
             
-            if getSceneProperty(scene, 'is_stk_node', 'false') != 'true':
+            if len(lEasterEggs) > 0 and getSceneProperty(scene, 'is_stk_node', 'false') != 'true':
                 self.writeEasterEggsFile(sPath, lEasterEggs)
         
         # materials file
