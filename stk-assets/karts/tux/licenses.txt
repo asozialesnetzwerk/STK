@@ -19,8 +19,8 @@ Files:
  tuxkart.png
  wheel_gloss.png
  wheel.png
- wheel-*.b3d
- tux.b3d
+ wheel-*.spm
+ tux.spm
 Copyright: Copyright 2015 Julian "XGhost" Schönbächler <info@creative-forge.ch>
 License: CC-BY-SA 3.0
 Comment: This kart is completely original and is NOT a mere modification of the old Tux kart!

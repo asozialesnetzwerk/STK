@@ -4,7 +4,7 @@ Upstream-Contact: Marianne "Auria" Gagnon <auria.mg@gmail.com>
 Source: https://supertuxkart.net
 License: CC-BY-SA 3.0
 
-Files: Kart.003.b3d
+Files: Kart.003.spm
 Copyright:
  Copyright 2017 Jean-Manuel "samuncle" Clémençon <sam.un@protonmail.com>
  Copyright 2017 Néd J. "jymis" Édoire <nwad@crypticgate.net>
@@ -12,12 +12,12 @@ License: CC-BY-SA 4.0
 Comment: Headlights model by jymis (I think), but added by samuncle.
 
 Files:
- wheel-*.b3d
+ wheel-*.spm
  *.xml
 Copyright: Copyright 2009 Tobias "Tob" "cheleb" Beyrer
 License: CC-BY-SA 3.0
 
-Files: pidgin.b3d
+Files: pidgin.spm
 Copyright:
  Copyright 2009 Tobias "Tob" cheleb" Beyrer
  Copyright 2010 STKRudy85

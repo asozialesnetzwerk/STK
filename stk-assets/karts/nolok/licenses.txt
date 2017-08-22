@@ -22,14 +22,14 @@ Copyright:
 License: CC-BY-SA 3.0
 Comment: Marianne Gagnon modified the window texture to make it transparent.
 
-Files: wheel*.b3d
+Files: wheel*.spm
 Copyright:
  Copyright 2009 Tobias "Tob" "cheleb" Beyrer
  Copyright 2010 Marianne Gagnon
 License: CC-BY-SA 3.0
 Comment: Wheels modified by Marianne Gagnon to make them smoother.
 
-Files: nolok.b3dz
+Files: nolok.spmz
 Copyright:
  Copyright 2009 Tobias "Tob" "cheleb" Beyrer
  Copyright 2010 STKRudy85

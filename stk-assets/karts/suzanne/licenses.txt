@@ -7,14 +7,14 @@ License: GPL ??? and CC-BY-SA 3.0
 Files:
  icon_large.png
  icon32.png
- HeadLights.b3d
+ HeadLights.spm
  headLight.png
  headLight_gloss.png
  suzanne_kart_colorizationMask.png
 Copyright: Copyright 2017 Néd J. "jymis" Édoire <nwad@crypticgate.net>
 License: CC-BY-SA 3.0
 
-Files: suzanne.b3d
+Files: suzanne.spm
 Copyright:
  Copyright 2011 Cédric "Céa" Archambault <https://plus.google.com/117805441573276168348>
  Copyright 2016 Marianne "Auria" Gagnon <auria.mg@gmail.com>
@@ -26,7 +26,7 @@ Files:
  suzanne.diffuse.jpg
  kart.diffuse.png
  shadow.png
- wheel-*.b3d
+ wheel-*.spm
  *.xml
 Copyright: Copyright 2011 Cédric "Céa" Archambault <https://plus.google.com/117805441573276168348>
 License: GPL ???

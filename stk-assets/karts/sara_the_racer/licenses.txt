@@ -19,15 +19,15 @@ Files:
  shoes_gloves_gloss.png
  shoes_gloves.png
  turbinia_shadow.png
- Plane.001.b3d
- wheel-*.b3d
+ Plane.001.spm
+ wheel-*.spm
 Copyright: Copyright 2014 Jean-Manuel "samuncle" Clémençon <sam.un@protonmail.com>
 License: CC-BY-SA 3.0
 
 Files:
  turbinia_mainBody_gloss.png
  turbinia_mainBody.png
- sara?the?racer.b3d
+ sara?the?racer.spm
  *.xml
 Copyright:
  Copyright 2013, 2014 Jean-Manuel "samuncle" Clémençon
@@ -35,6 +35,6 @@ Copyright:
 License: CC-BY-SA 3.0
 Comment: Headlights, mirrors, and taillights added by jymis.
 
-Files: lights.b3d
+Files: lights.spm
 Copyright: Copyright 2017 Néd J. "jymis" Édoire
 License: CC-BY-SA 3.0

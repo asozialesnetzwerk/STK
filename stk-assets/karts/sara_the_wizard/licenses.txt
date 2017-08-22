@@ -10,7 +10,7 @@ License: ????
 Comment: From https://forum.freegamedev.net/viewtopic.php?f=18&t=4923&start=25
 
 Files:
- Circle.003_Circle.002.b3d
+ Circle.003_Circle.002.spm
  dress_border_gloss.png
  dress_border.png
  dress_textile.png
@@ -24,17 +24,17 @@ Files:
  stkkart_snowMobileMain.png
  stkkart_textileSara_gloss.png
  stkkart_textileSara.png
- wheel-*.b3d
+ wheel-*.spm
 Copyright: Copyright 2014, 2015 Jean-Manuel "samuncle" Clémençon
 License: CC-BY-SA 3.0
 
 Files:
- sara?the?wizard.b3d
+ sara?the?wizard.spm
  *.xml
 Copyright: Copyright 2013-2015 Jean-Manuel "samuncle" Clémençon
 License: CC-BY-SA 3.0
 
-Files: Circle.003_Circle.010.b3d
+Files: Circle.003_Circle.010.spm
 Copyright: Copyright 2017 Jean-Manuel "samuncle" Clémençon
 License: CC-BY-SA 3.0
 Comment: Headlights.

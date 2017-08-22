@@ -9,15 +9,15 @@ Files:
  beastie-icon.png
  kart.png
  *.xml
- wheel-front-left.b3d
- wheel-front-right.b3d
- wheel-rear-left.b3d
- wheel-rear-right.b3d
+ wheel-front-left.spm
+ wheel-front-right.spm
+ wheel-rear-left.spm
+ wheel-rear-right.spm
 Copyright: Copyright 2011 Lionel "Funto" Fuentes <funto66@users.sf.net>
 License: BSD-2-clause (NOT simplified BSD)
 
 Files:
- beastie.b3d
+ beastie.spm
  beastie_texture.png
 Copyright:
  Copyright 2013 Micket
@@ -27,7 +27,7 @@ License:
  Funto added the armature from the previous Beastie model
  under the BSD-2-clause (NOT simplified BSD)
 
-Files: Kart.001.b3d
+Files: Kart.001.spm
 Copyright:
  Copyright 2017 Jean-Manuel Clémençon <sam.un@protonmail.com>
  Copyright 2017 Néd J. "jymis" Édoire <nwad@crypticgate.net>

@@ -23,20 +23,20 @@ Copyright: Copyright 2013 Totoplus62
 License: ????
 Comment: From https://forum.freegamedev.net/viewtopic.php?f=18&t=4923, based on work by Ludsky.
 
-Files: hc.body.001.b3d
+Files: hc.body.001.spm
 Copyright:
  Copyright 2017 Néd J. "jymis" Édoire <nwad@crypticgate.net>
  Copyright 2017 Jean-Manual Clémençon <sam.un@protonmail.com>
 License: CC-BY-SA 3.0
 Comment: I think jymis is the original creator of the headlights model, but samuncle added them for this kart.
 
-Files: hc.propeller.b3d
+Files: hc.propeller.spm
 Copyright: Copyright 2014 Jean-Manuel "samuncle" Clémençon <sam.un@protonmail.com>
 License: ????
 Comment:
  Kinda hard to tell the exact copyright year. The repository was also corrupted around this time too. :(
 
-Files: xue.b3d
+Files: xue.spm
 Copyright: 
  Copyright 2013 JunglePenguin <js@junglepenguin.nl>
  Copyright 2014 Jean-Manuel "samuncle" Clémençon <sam.un@protonmail.com>

@@ -25,7 +25,7 @@ Copyright: Copyright ???? ?????
 License: ????
 Comment: Source unknown. Assumed to be by Bastian Salmela... LGPL...
 
-Files: *.b3d
+Files: *.spm
 Copyright:
  Copyright ???? Christian Framing
  Copyright 2013 betharatux1 (Indro)

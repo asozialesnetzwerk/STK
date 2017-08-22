@@ -5,8 +5,8 @@ Source: https://supertuxkart.net
 License: GPL ???
 
 Files:
- Carpet.b3d
- gnu.b3d
+ Carpet.spm
+ gnu.spm
 Copyright:
  Copyright 2009 Benjamin Arnaudet (Benjarsvn)
  Copyright 2010 STKRudy85

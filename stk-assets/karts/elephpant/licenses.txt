@@ -13,11 +13,11 @@ Copyright: Copyright 2009 "Tob" (Tobias Beyrer/"cheleb")
 License: CC-BY-SA 3.0
 
 Files:
- elephpant.b3dz
- wheel-front-left.b3d
- wheel-front-right.b3d
- wheel-rear-left.b3d
- wheel-rear-right.b3d
+ elephpant.spmz
+ wheel-front-left.spm
+ wheel-front-right.spm
+ wheel-rear-left.spm
+ wheel-rear-right.spm
 Copyright:
  Copyright 2009 "Tob" (Tobias Beyrer/"cheleb")
  Copyright 2009, 2010 STKRudy85

@@ -19,17 +19,17 @@ Files:
  motor.png
  wheel_gloss.png
  wheel.png
- amanda.b3d
- wheel-front-left.b3d
- wheel-front-right.b3d
- wheel-rear-left.b3d
- wheel-rear-right.b3d
+ amanda.spm
+ wheel-front-left.spm
+ wheel-front-right.spm
+ wheel-rear-left.spm
+ wheel-rear-right.spm
  kart.xml
  materials.xml
 Copyright: Copyright 2015 Julian Schönbächler
 License: CC-BY-SA 3.0
 
-Files: Fender.003.b3d
+Files: Fender.003.spm
 Copyright:
  Copyright 2017 Jean-Manuel Clémençon <sam.un@protonmail.com>
  Copyright 2017 Néd J. "jymis" Édoire <nwad@crypticgate.net>

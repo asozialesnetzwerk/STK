@@ -6,9 +6,9 @@ License: CC-BY-SA 3.0
 
 Files:
  *.xml
- wheel-*.b3d
- wilber.b3d
- Wilber_Body.001.b3d
+ wheel-*.spm
+ wilber.spm
+ Wilber_Body.001.spm
  Wilber_bucket_diffuse.png
  Wilber_bucket_gloss.png
  Wilber_colorizationMask.png
@@ -22,4 +22,4 @@ Files:
  wilbericon32.png
 Copyright: Copyright 2016, 2017 Néd J. "jymis" Édoire
 License: CC-BY-SA 3.0
-Comment: The headlights model (Wilber_Body.001.b3d) is copyright ONLY 2017 (not 2016) Néd J. Édoire
+Comment: The headlights model (Wilber_Body.001.spm) is copyright ONLY 2017 (not 2016) Néd J. Édoire

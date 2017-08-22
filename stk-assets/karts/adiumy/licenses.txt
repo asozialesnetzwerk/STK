@@ -5,7 +5,7 @@ Source: https://supertuxkart.net
 License: CC-BY-SA 3.0
 
 Files:
- *.b3d *.xml
+ *.spm *.xml
 Copyright:
  Copyright 2009 abejones
  Copyright 2009, 2010 STKRudy85

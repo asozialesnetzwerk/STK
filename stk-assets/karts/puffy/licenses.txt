@@ -3,7 +3,7 @@ Upstream-Name: Puffy Kart for SuperTuxKart
 Upstream-Contact: Marianne "Auria" Gagnon <auria.mg@gmail.com>
 Source: https://supertuxkart.net
 
-Files: puffy.b3d *.xml
+Files: puffy.spm *.xml
 Copyright:
  Copyright 2009 MiniBjorn
  Copyright 2010 STKRudy85
@@ -27,7 +27,7 @@ Files:
 Copyright: Copyright 2009 MiniBjorn
 License: CC-BY-SA 3.0
 
-Files: wheel-*.b3d
+Files: wheel-*.spm
 Copyright:
  Copyright 2009 MiniBjorn
  Copyright 2010 STKRudy85
