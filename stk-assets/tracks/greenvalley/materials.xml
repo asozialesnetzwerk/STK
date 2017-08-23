@@ -23,8 +23,6 @@
   <material name="road_dirt.jpg">
     <particles base="smoke_brown.xml" condition="skid"/>
   </material>
-  <material name="sheep_black.jpg" shader="unlit"/>
-  <material name="sheep_white.jpg" shader="unlit"/>
   <material name="stk_road_dirt.jpg">
     <particles base="smoke_brown.xml" condition="skid"/>
   </material>
@@ -33,7 +31,7 @@
   <material name="transparence2.png" shader="alphatest" disable-z-write="Y"/>
   <material name="vegetation_1.png" backface-culling="N" ignore="Y" shader="alphatest"/>
   <material name="water_light2.png" surface="Y" water-splash="Y" shader="alphablend">
-    <sfx filename="splash.ogg"/>
+    <sfx filename="splash.ogg" min_speed="5.00" max_speed="15.00" min_pitch="0.80" max_pitch="1.20" positional="true" rolloff="0.10"/>
     <particles base="splash.xml" condition="skid drive"/>
   </material>
   <material name="waterfall.png" disable-z-write="Y" shader="alphablend"/>
