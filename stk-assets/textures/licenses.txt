@@ -7,6 +7,16 @@ Upstream-Contact:
 Source: https://supertuxkart.net
 License: Various
 
+Files: ants.png
+Copyright: Unknown
+License: Unknown
+Comment: Added by samuncle in 2013. Real info unknown.
+
+Files: astro_turf.jpg
+Copyright: Copyright 2013 Totoplus62
+License: public-domain CC0
+Comment: From https://forum.freegamedev.net/viewtopic.php?f=18&t=3774
+
 Files: nolok_character.png
 Copyright: Copyright 2009 Tobias "Tob" "Cheleb" Beyrer
 License: CC-BY-SA 3.0
