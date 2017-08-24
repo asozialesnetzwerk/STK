@@ -1,12 +1,10 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15850 -->
+<!-- Generated with script from SVN rev 17016 -->
 <scene>
-  <track model="scotland_track.b3d" x="0" y="0" z="0">
-    <static-object model="water.b3d" xyz="85.81 -7.30 35.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
-    <animated-texture name="water_light.png" dx="-0.010"  dy="-0.0200" />
-    </static-object>
+  <track model="scotland_track.spm" x="0" y="0" z="0">
+    <static-object  model="water.spm" xyz="85.81 -7.30 35.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
   </track>
-  <object id="Sphere.099" type="animation" xyz="148.61 0.00 -181.44" hpr="0.0 -0.0 0.0" scale="0.13 0.13 0.13" interaction="none" model="nessy.b3d" skeletal-animation="false">
+  <object id="Sphere.099" type="animation" xyz="148.61 0.00 -181.44" hpr="0.0 -0.0 0.0" scale="0.13 0.13 0.13" interaction="none" model="nessy.spm" skeletal-animation="false">
     <curve channel="LocY" interpolation="bezier" extend="cyclic">
       <p c="-0.014 0.002" h1="-23.979 0.002" h2="23.952 0.002"/>
       <p c="61.504 4.044" h1="37.491 4.044" h2="114.816 4.044"/>
@@ -21,7 +19,7 @@
     <check-line kind="activate" other-ids="0" p1="225.98 -48.75" p2="225.09 -14.63"
                 min-height="1.62" same-group="1"/>
   </checks>
-  <water model="water2.b3d" xyz="-37.46 -4.81 10.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="0.05"/>
+  <water model="water2.spm" xyz="-37.46 -4.81 10.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="0.05"/>
   <object type="sfx-emitter" id="Empty" sound="sheep.ogg" rolloff="0.100" volume="1.0" max_dist="500.0" xyz="-8.59 1.69 -41.91" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </object>
   <banana id="BANA.001" x="-84.26" y="-1.31" z="47.05" />

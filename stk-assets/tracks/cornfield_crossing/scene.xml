@@ -1,112 +1,111 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev 17016 -->
 <scene>
-  <track model="cornfield_crossing_track.b3d" x="0" y="0" z="0">
-    <static-object  model="limit.b3d" xyz="46.30 7.69 -203.21" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
-    <static-object  model="rails_plane.b3d" xyz="46.30 7.69 -203.21" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="-39.54 6.43 -35.23" hpr="96.3 84.8 87.5" scale="1.20 1.20 1.20"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="-41.77 4.73 4.19" hpr="66.3 84.8 64.4" scale="1.20 1.20 1.20"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="-38.18 5.29 82.47" hpr="91.5 84.7 74.7" scale="1.20 1.20 1.20"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="-37.76 6.07 41.67" hpr="-84.4 93.5 -84.5" scale="1.20 1.20 1.20"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="-39.35 7.34 122.07" hpr="79.5 86.7 81.9" scale="1.20 1.20 1.20"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="-57.87 7.34 142.24" hpr="78.0 86.2 76.2" scale="1.20 1.20 1.20"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="17.67 1.59 15.85" hpr="-115.5 84.8 -25.6" scale="1.20 1.20 1.20"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="-56.99 6.75 102.05" hpr="-80.5 93.8 -79.6" scale="1.20 1.20 1.20"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="-58.77 5.55 22.34" hpr="66.3 84.8 64.4" scale="1.20 1.20 1.20"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="-56.82 9.62 -26.82" hpr="96.3 84.8 87.5" scale="1.20 1.20 1.20"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="-77.22 12.68 -36.02" hpr="96.3 84.8 87.5" scale="1.20 1.20 1.20"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="-101.07 11.79 3.98" hpr="86.6 85.0 73.0" scale="0.96 0.96 0.96"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="19.34 1.59 21.81" hpr="-115.5 84.8 -25.6" scale="1.20 1.20 1.20"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="-84.17 6.86 48.66" hpr="96.3 84.8 87.5" scale="1.20 1.20 1.20"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="149.06 8.45 24.14" hpr="-112.0 85.5 -28.1" scale="0.86 0.86 0.86"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="144.51 8.92 24.18" hpr="-112.0 85.5 -28.1" scale="0.86 0.86 0.86"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="147.13 12.29 24.43" hpr="-0.0 2.3 85.3" scale="0.86 0.86 0.86"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="140.23 10.73 36.99" hpr="90.2 4.7 89.1" scale="1.20 1.20 1.20"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="140.23 10.73 43.77" hpr="90.2 4.7 89.1" scale="1.20 1.20 1.20"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="140.25 15.85 40.39" hpr="90.2 4.7 89.1" scale="1.20 1.20 1.20"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="-2.21 0.98 99.67" hpr="-115.5 84.8 -25.6" scale="0.60 0.60 0.60"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="127.98 11.93 -7.30" hpr="90.2 4.7 -0.9" scale="0.83 0.83 0.83"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="127.98 11.93 -11.99" hpr="90.2 4.7 -0.9" scale="0.83 0.83 0.83"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="200.92 8.45 -126.50" hpr="8.8 179.8 -5.2" scale="1.20 1.20 1.20"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="128.17 15.30 -9.55" hpr="90.2 4.7 89.1" scale="0.83 0.83 0.83"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="205.78 9.10 -77.20" hpr="1.8 177.7 -4.7" scale="1.20 1.20 1.20"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="226.79 11.56 -57.86" hpr="0.0 -179.7 -3.5" scale="1.20 1.20 1.20"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="223.38 10.32 -95.49" hpr="1.8 177.7 -4.7" scale="1.20 1.20 1.20"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="225.01 10.91 -134.76" hpr="8.8 179.8 -5.2" scale="1.20 1.20 1.20"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="81.85 8.39 -163.69" hpr="-36.9 69.5 -42.4" scale="0.84 0.84 0.84"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="83.23 8.89 -167.75" hpr="-36.9 69.5 -42.4" scale="0.84 0.84 0.84"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="82.64 12.26 -165.38" hpr="-36.9 69.5 -42.4" scale="0.84 0.84 0.84"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="230.81 10.91 -169.26" hpr="8.8 179.8 -5.2" scale="1.20 1.20 1.20"/>
-    <static-object  model="stklib_hayBall_a_main.b3d" xyz="207.73 8.46 -160.85" hpr="8.8 179.8 -5.2" scale="1.20 1.20 1.20"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="-9.41 -0.72 0.00" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="10.81 -0.54 37.26" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="16.92 4.97 -164.14" hpr="-4.2 -141.0 4.0" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="63.97 7.69 -203.96" hpr="-0.0 -96.9 -0.0" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="-9.41 -0.72 -16.42" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="9.88 -0.72 -36.73" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="9.88 -0.72 -20.71" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="136.19 7.89 -18.80" hpr="0.0 -4.4 0.0" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="118.79 7.68 -37.17" hpr="1.8 169.3 8.7" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="135.72 7.89 -2.41" hpr="-0.0 88.9 -0.0" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="119.17 7.50 -53.37" hpr="-0.0 -92.2 -0.0" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="89.76 1.50 -48.06" hpr="-7.7 -29.0 14.3" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="78.60 -0.08 -60.47" hpr="-6.3 -48.0 8.0" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="66.63 2.86 -104.06" hpr="0.7 -129.4 6.7" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="18.53 0.00 93.44" hpr="1.5 26.0 6.7" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="9.07 -0.83 72.72" hpr="28.4 -85.9 -29.2" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="1.51 0.36 109.07" hpr="-2.9 -9.0 0.6" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="32.69 1.12 105.75" hpr="-3.7 -158.4 3.7" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="48.70 2.44 82.77" hpr="-3.1 -166.1 3.6" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="55.99 -0.08 -67.70" hpr="-3.7 -62.0 2.0" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="190.88 4.28 71.98" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="190.41 4.28 88.20" hpr="-0.0 88.9 -0.0" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="136.68 0.60 114.74" hpr="-2.0 177.7 -0.8" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="183.77 3.75 119.94" hpr="-0.0 72.6 -0.0" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="170.66 3.33 129.56" hpr="-0.0 36.9 -0.0" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="190.88 4.28 20.44" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="191.04 4.28 4.70" hpr="0.0 104.4 0.0" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="152.76 0.60 113.63" hpr="-1.9 -175.5 -0.8" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="139.26 2.08 131.85" hpr="-2.0 179.0 -0.8" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="123.15 2.08 131.43" hpr="-2.1 172.3 -0.8" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="-9.27 -0.72 -33.02" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="-16.78 0.25 -70.53" hpr="-1.7 165.8 -5.3" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="-8.21 -1.07 -57.31" hpr="-8.4 122.9 -10.1" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="-7.76 -0.72 42.27" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="-7.90 -0.72 58.88" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="94.63 1.44 107.30" hpr="-2.7 151.5 -6.0" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="81.04 2.69 99.56" hpr="-2.9 146.4 -1.7" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="165.97 5.09 -9.94" hpr="-4.8 152.3 -10.1" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="178.71 5.53 -24.53" hpr="5.4 -57.1 -4.9" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="3.85 3.94 -153.80" hpr="-1.0 -178.8 -0.5" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="46.30 7.69 -203.21" hpr="-0.0 -93.7 -0.0" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="45.06 7.69 -187.15" hpr="-3.7 -134.1 5.2" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="43.70 2.77 102.66" hpr="41.9 -91.4 -43.8" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="58.65 2.77 104.71" hpr="51.3 -91.3 -53.2" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="58.21 2.77 120.36" hpr="51.3 -91.3 -53.2" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="43.26 2.77 118.31" hpr="41.9 -91.4 -43.8" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="20.22 4.98 -144.68" hpr="-1.8 -151.1 2.8" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="5.99 4.98 -136.88" hpr="-0.4 178.5 2.4" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="-9.90 4.31 -137.49" hpr="0.1 168.6 2.5" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="-52.13 5.03 -137.81" hpr="1.8 -118.5 -2.1" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="-59.82 5.03 -124.05" hpr="3.1 -107.7 -3.4" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="-81.26 8.08 -114.26" hpr="-15.7 -86.2 15.6" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="-80.41 8.08 -98.12" hpr="4.5 -51.1 -7.1" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="-54.91 7.20 -161.45" hpr="-3.8 -134.3 2.1" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="-39.02 6.32 -164.28" hpr="1.4 -169.3 -4.2" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="125.27 -9.00 -267.00" hpr="-23.6 -80.6 23.5" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="85.50 -0.16 -288.86" hpr="-3.3 3.8 -23.0" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="71.93 4.78 -283.81" hpr="-9.6 18.0 -24.2" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="59.84 8.76 -275.42" hpr="3.7 36.4 -18.4" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="71.95 2.77 113.02" hpr="-2.5 147.5 -1.2" scale="1.00 1.00 1.00"/>
-    <static-object  model="stklib_logBarrier_a_main.b3d" xyz="85.96 2.77 121.00" hpr="-2.4 151.1 -1.1" scale="1.00 1.00 1.00"/>
+  <track model="cornfield_crossing_track.spm" x="0" y="0" z="0">
+    <static-object  model="limit.spm" xyz="46.30 7.69 -203.21" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
+    <static-object  model="rails_plane.spm" xyz="46.30 7.69 -203.21" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
+    <static-object  model="reset.spm" xyz="74.78 1.10 -112.83" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="-39.54 6.43 -35.23" hpr="96.3 84.8 87.5" scale="1.20 1.20 1.20"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="-41.77 4.73 4.19" hpr="66.3 84.8 64.4" scale="1.20 1.20 1.20"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="-38.18 5.29 82.47" hpr="91.5 84.7 74.7" scale="1.20 1.20 1.20"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="-37.76 6.07 41.67" hpr="-84.4 93.5 -84.5" scale="1.20 1.20 1.20"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="-39.35 7.34 122.07" hpr="79.5 86.7 81.9" scale="1.20 1.20 1.20"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="-57.87 7.34 142.24" hpr="78.0 86.2 76.2" scale="1.20 1.20 1.20"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="17.67 1.59 15.85" hpr="-115.5 84.8 -25.6" scale="1.20 1.20 1.20"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="-56.99 6.75 102.05" hpr="-80.5 93.8 -79.6" scale="1.20 1.20 1.20"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="-58.77 5.55 22.34" hpr="66.3 84.8 64.4" scale="1.20 1.20 1.20"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="-56.82 9.62 -26.82" hpr="96.3 84.8 87.5" scale="1.20 1.20 1.20"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="-77.22 12.68 -36.02" hpr="96.3 84.8 87.5" scale="1.20 1.20 1.20"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="-101.07 11.79 3.98" hpr="86.6 85.0 73.0" scale="0.96 0.96 0.96"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="19.34 1.59 21.81" hpr="-115.5 84.8 -25.6" scale="1.20 1.20 1.20"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="-84.17 6.86 48.66" hpr="96.3 84.8 87.5" scale="1.20 1.20 1.20"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="149.06 8.45 24.14" hpr="-112.0 85.5 -28.1" scale="0.86 0.86 0.86"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="144.51 8.92 24.18" hpr="-112.0 85.5 -28.1" scale="0.86 0.86 0.86"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="147.13 12.29 24.43" hpr="-0.0 2.3 85.3" scale="0.86 0.86 0.86"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="140.23 10.73 36.99" hpr="90.2 4.7 89.1" scale="1.20 1.20 1.20"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="140.23 10.73 43.77" hpr="90.2 4.7 89.1" scale="1.20 1.20 1.20"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="140.25 15.85 40.39" hpr="90.2 4.7 89.1" scale="1.20 1.20 1.20"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="-2.21 0.98 99.67" hpr="-115.5 84.8 -25.6" scale="0.60 0.60 0.60"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="127.98 11.93 -7.30" hpr="90.2 4.7 -0.9" scale="0.83 0.83 0.83"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="127.98 11.93 -11.99" hpr="90.2 4.7 -0.9" scale="0.83 0.83 0.83"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="200.92 8.45 -126.50" hpr="8.8 179.8 -5.2" scale="1.20 1.20 1.20"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="128.17 15.30 -9.55" hpr="90.2 4.7 89.1" scale="0.83 0.83 0.83"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="205.78 9.10 -77.20" hpr="1.8 177.7 -4.7" scale="1.20 1.20 1.20"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="226.79 11.56 -57.86" hpr="0.0 -179.7 -3.5" scale="1.20 1.20 1.20"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="223.38 10.32 -95.49" hpr="1.8 177.7 -4.7" scale="1.20 1.20 1.20"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="225.01 10.91 -134.76" hpr="8.8 179.8 -5.2" scale="1.20 1.20 1.20"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="81.85 8.39 -163.69" hpr="-36.9 69.5 -42.4" scale="0.84 0.84 0.84"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="83.23 8.89 -167.75" hpr="-36.9 69.5 -42.4" scale="0.84 0.84 0.84"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="82.64 12.26 -165.38" hpr="-36.9 69.5 -42.4" scale="0.84 0.84 0.84"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="230.81 10.91 -169.26" hpr="8.8 179.8 -5.2" scale="1.20 1.20 1.20"/>
+    <static-object  model="stklib_hayBall_a_main.spm" xyz="207.73 8.46 -160.85" hpr="8.8 179.8 -5.2" scale="1.20 1.20 1.20"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="-9.41 -0.72 0.00" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="10.81 -0.54 37.26" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="16.92 4.97 -164.14" hpr="-4.2 -141.0 4.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="63.97 7.69 -203.96" hpr="-0.0 -96.9 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="-9.41 -0.72 -16.42" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="9.88 -0.72 -36.73" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="9.88 -0.72 -20.71" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="136.19 7.89 -18.80" hpr="0.0 -4.4 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="118.79 7.68 -37.17" hpr="1.8 169.3 8.7" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="135.72 7.89 -2.41" hpr="0.0 88.9 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="119.17 7.50 -53.37" hpr="-0.0 -92.2 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="89.76 1.50 -48.06" hpr="-7.7 -29.0 14.3" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="78.60 -0.08 -60.47" hpr="-6.3 -48.0 8.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="66.63 2.86 -104.06" hpr="0.7 -129.4 6.7" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="18.53 0.00 93.44" hpr="1.5 26.0 6.7" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="9.07 -0.83 72.72" hpr="28.4 -85.9 -29.2" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="1.51 0.36 109.07" hpr="-2.9 -9.0 0.6" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="32.69 1.12 105.75" hpr="-3.7 -158.4 3.7" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="48.70 2.44 82.77" hpr="-3.1 -166.1 3.6" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="55.99 -0.08 -67.70" hpr="-3.7 -62.0 2.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="190.88 4.28 71.98" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="190.41 4.28 88.20" hpr="0.0 88.9 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="136.68 0.60 114.74" hpr="-2.0 177.7 -0.8" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="183.77 3.75 119.94" hpr="0.0 72.6 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="170.66 3.33 129.56" hpr="0.0 36.9 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="190.88 4.28 20.44" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="191.04 4.28 4.70" hpr="0.0 104.4 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="152.76 0.60 113.63" hpr="-1.9 -175.5 -0.8" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="139.26 2.08 131.85" hpr="-2.0 179.0 -0.8" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="123.15 2.08 131.43" hpr="-2.1 172.3 -0.8" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="-9.27 -0.72 -33.02" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="-16.78 0.25 -70.53" hpr="-1.7 165.8 -5.3" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="-8.21 -1.07 -57.31" hpr="-8.4 122.9 -10.1" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="-7.76 -0.72 42.27" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="-7.90 -0.72 58.88" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="94.63 1.44 107.30" hpr="-2.7 151.5 -6.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="81.04 2.69 99.56" hpr="-2.9 146.4 -1.7" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="165.97 5.09 -9.94" hpr="-4.8 152.3 -10.1" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="178.71 5.53 -24.53" hpr="5.4 -57.1 -4.9" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="3.85 3.94 -153.80" hpr="-1.0 -178.8 -0.5" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="46.30 7.69 -203.21" hpr="-0.0 -93.7 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="45.06 7.69 -187.15" hpr="-3.7 -134.1 5.2" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="43.70 2.77 102.66" hpr="41.9 -91.4 -43.8" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="58.65 2.77 104.71" hpr="51.3 -91.3 -53.2" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="58.21 2.77 120.36" hpr="51.3 -91.3 -53.2" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="43.26 2.77 118.31" hpr="41.9 -91.4 -43.8" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="20.22 4.98 -144.68" hpr="-1.8 -151.1 2.8" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="5.99 4.98 -136.88" hpr="-0.4 178.5 2.4" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="-9.90 4.31 -137.49" hpr="0.1 168.6 2.5" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="-52.13 5.03 -137.81" hpr="1.8 -118.5 -2.1" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="-59.82 5.03 -124.05" hpr="3.1 -107.7 -3.4" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="-81.26 8.08 -114.26" hpr="-15.7 -86.2 15.6" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="-80.41 8.08 -98.12" hpr="4.5 -51.1 -7.1" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="-54.91 7.20 -161.45" hpr="-3.8 -134.3 2.1" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="-39.02 6.32 -164.28" hpr="1.4 -169.3 -4.2" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="125.27 -9.00 -267.00" hpr="-23.6 -80.6 23.5" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="85.50 -0.16 -288.86" hpr="-3.3 3.8 -23.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="71.93 4.78 -283.81" hpr="-9.6 18.0 -24.2" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="59.84 8.76 -275.42" hpr="3.7 36.4 -18.4" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="71.95 2.77 113.02" hpr="-2.5 147.5 -1.2" scale="1.00 1.00 1.00"/>
+    <static-object  model="stklib_logBarrier_a_main.spm" xyz="85.96 2.77 121.00" hpr="-2.4 151.1 -1.1" scale="1.00 1.00 1.00"/>
     <animated-texture name="stkflag_greenCheckBorard_a.png" dx="0.080"  dy="0.2000" />
     <animated-texture name="stkflag_orangeBooster_a.png" dy="0.8000" />
   </track>
-  <object id="mud_water" type="animation" xyz="121.56 -11.48 -292.47" hpr="90.0 -0.0 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="mud_water.b3d" displacing="true" skeletal-animation="false">
+  <object id="mud_water" type="animation" xyz="121.56 -11.48 -292.47" hpr="90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="mud_water.spm" displacing="true" skeletal-animation="false">
   </object>
-  <object id="Plane.004" type="animation" xyz="86.71 2.91 -118.13" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_pond.b3d" displacing="true" skeletal-animation="false">
-  </object>
-  <object id="Plane.010" type="animation" xyz="127.80 8.56 40.77" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="train_wagon.b3d" skeletal-animation="false">
+  <object id="Plane.010" type="animation" xyz="127.80 8.56 40.77" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="train_wagon.spm" skeletal-animation="false">
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
       <p c="1.000 127.799" h1="-232.856 127.799" h2="234.856 127.799"/>
       <p c="600.000 127.799" h1="366.143 127.799" h2="900.226 127.799"/>
@@ -129,6 +128,8 @@
       <p c="2880.000 8.561" h1="2609.835 8.561" h2="3257.528 8.561"/>
       <p c="3847.000 8.561" h1="3469.472 8.561" h2="4224.528 8.561"/>
     </curve>
+  </object>
+  <object id="water_pond" type="animation" xyz="86.71 2.91 -118.13" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_pond.spm" displacing="true" skeletal-animation="false">
   </object>
   <sun  fog="true" fog-color="40 15 40" fog-max="0.699999988079071" fog-start="10.00" fog-end="750.00" xyz="-121.72 273.82 -411.52" sun-diffuse="255 72 23" ambient="85 85 85"/>
   <sky-box texture="0006.png 0001.png 0004.png 0002.png 0003.png 0005.png" sh-texture="farm_sky_test.jpg farm_sky_test.jpg farm_sky_test.jpg farm_sky_test.jpg farm_sky_test.jpg farm_sky_test.jpg"/>
@@ -328,9 +329,9 @@
   </library>
   <library name="stklib_autumnTree_a" id="stklib_autumnTree_a_main_proxy.015" xyz="111.00 10.39 -203.39" hpr="-0.0 -172.9 -0.0" scale="1.29 1.29 1.29">
   </library>
-  <library name="stklib_autumnTree_a" id="stklib_autumnTree_a_main_proxy.016" xyz="138.15 6.38 -232.84" hpr="-0.0 37.4 -0.0" scale="1.29 1.29 1.29">
+  <library name="stklib_autumnTree_a" id="stklib_autumnTree_a_main_proxy.016" xyz="138.15 6.38 -232.84" hpr="0.0 37.4 0.0" scale="1.29 1.29 1.29">
   </library>
-  <library name="stklib_autumnTree_a" id="stklib_autumnTree_a_main_proxy.017" xyz="147.06 -10.76 -281.07" hpr="-0.0 55.9 -0.0" scale="1.29 1.29 1.29">
+  <library name="stklib_autumnTree_a" id="stklib_autumnTree_a_main_proxy.017" xyz="147.06 -10.76 -281.07" hpr="0.0 55.9 0.0" scale="1.29 1.29 1.29">
   </library>
   <library name="stklib_bigAirBlower_a" id="stklib_bigAirBlower_a_main_proxy" xyz="169.03 4.33 96.77" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
   </library>
@@ -380,9 +381,9 @@
   </library>
   <library name="stklib_cabbage_a" id="stklib_cabbage_a_main_proxy.022" xyz="87.71 4.90 -84.92" hpr="-5.3 1.0 3.1" scale="1.13 1.13 1.13">
   </library>
-  <library name="stklib_carrot_a" id="stklib_carrot_a_main_proxy" xyz="46.13 1.91 -81.41" hpr="-0.0 11.3 -0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_carrot_a" id="stklib_carrot_a_main_proxy" xyz="46.13 1.91 -81.41" hpr="0.0 11.3 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_carrot_a" id="stklib_carrot_a_main_proxy.001" xyz="39.25 1.91 -82.21" hpr="-0.0 10.2 -0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_carrot_a" id="stklib_carrot_a_main_proxy.001" xyz="39.25 1.91 -82.21" hpr="0.0 10.2 0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_carrot_a" id="stklib_carrot_a_main_proxy.002" xyz="46.12 2.44 -86.74" hpr="-10.0 8.0 -0.9" scale="1.25 1.25 1.25">
   </library>
@@ -390,11 +391,11 @@
   </library>
   <library name="stklib_carrot_a" id="stklib_carrot_a_main_proxy.004" xyz="41.14 3.31 -97.45" hpr="-1.3 12.5 -3.4" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_carrot_a" id="stklib_carrot_a_main_proxy.005" xyz="48.97 2.89 -93.16" hpr="-0.0 11.3 -0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_carrot_a" id="stklib_carrot_a_main_proxy.005" xyz="48.97 2.89 -93.16" hpr="0.0 11.3 0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_carrot_a" id="stklib_carrot_a_main_proxy.006" xyz="33.67 3.31 -91.23" hpr="-1.3 12.5 -3.4" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="68.56 3.23 -122.78" hpr="0.0 122.3 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy" xyz="68.56 3.23 -122.78" hpr="-0.0 122.3 -0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy.001" xyz="57.24 3.23 -123.94" hpr="-0.0 70.1 -0.0" scale="1.00 1.00 1.00">
   </library>
@@ -402,39 +403,39 @@
   </library>
   <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy.003" xyz="95.55 3.23 -108.71" hpr="-0.0 70.1 -0.0" scale="0.76 0.76 0.76">
   </library>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy.004" xyz="98.81 3.23 -112.32" hpr="0.0 122.3 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy.004" xyz="98.81 3.23 -112.32" hpr="-0.0 122.3 -0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy.005" xyz="134.05 -11.20 -294.09" hpr="0.0 122.3 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy.005" xyz="134.05 -11.20 -294.09" hpr="-0.0 122.3 -0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy.006" xyz="122.17 -11.20 -307.30" hpr="-0.0 71.5 -0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy.007" xyz="137.20 -11.20 -289.90" hpr="0.0 104.9 0.0" scale="0.72 0.72 0.72">
+  <library name="stklib_cattail_a" id="stklib_cattail_a_main_proxy.007" xyz="137.20 -11.20 -289.90" hpr="-0.0 104.9 -0.0" scale="0.72 0.72 0.72">
   </library>
   <library name="stklib_chimney_b" id="stklib_chimney_b_main_proxy" xyz="78.50 36.29 -241.28" hpr="0.0 -0.0 0.0" scale="1.70 1.70 1.70">
   </library>
-  <library name="stklib_cornPlant_a" id="stklib_cornPlant_a_main_proxy.000" xyz="202.27 5.89 -4.23" hpr="-0.0 60.2 -0.0" scale="1.25 1.25 1.25">
+  <library name="stklib_cornPlant_a" id="stklib_cornPlant_a_main_proxy.000" xyz="202.27 5.89 -4.23" hpr="0.0 60.2 0.0" scale="1.25 1.25 1.25">
   </library>
-  <library name="stklib_cornPlant_a" id="stklib_cornPlant_a_main_proxy.001" xyz="198.37 5.39 5.67" hpr="-0.0 85.0 -0.0" scale="1.25 1.25 1.25">
+  <library name="stklib_cornPlant_a" id="stklib_cornPlant_a_main_proxy.001" xyz="198.37 5.39 5.67" hpr="0.0 85.0 0.0" scale="1.25 1.25 1.25">
   </library>
-  <library name="stklib_cornPlant_a" id="stklib_cornPlant_a_main_proxy.002" xyz="199.26 5.39 16.29" hpr="0.0 99.7 0.0" scale="1.25 1.25 1.25">
+  <library name="stklib_cornPlant_a" id="stklib_cornPlant_a_main_proxy.002" xyz="199.26 5.39 16.29" hpr="-0.0 99.7 -0.0" scale="1.25 1.25 1.25">
   </library>
-  <library name="stklib_cornPlant_a" id="stklib_cornPlant_a_main_proxy.003" xyz="212.69 5.39 -8.04" hpr="-0.0 48.5 -0.0" scale="1.25 1.25 1.25">
+  <library name="stklib_cornPlant_a" id="stklib_cornPlant_a_main_proxy.003" xyz="212.69 5.39 -8.04" hpr="0.0 48.5 0.0" scale="1.25 1.25 1.25">
   </library>
-  <library name="stklib_cornPlant_a" id="stklib_cornPlant_a_main_proxy.004" xyz="191.29 5.39 122.58" hpr="-0.0 63.0 -0.0" scale="1.25 1.25 1.25">
+  <library name="stklib_cornPlant_a" id="stklib_cornPlant_a_main_proxy.004" xyz="191.29 5.39 122.58" hpr="0.0 63.0 0.0" scale="1.25 1.25 1.25">
   </library>
-  <library name="stklib_cornPlant_a" id="stklib_cornPlant_a_main_proxy.005" xyz="197.85 5.39 27.17" hpr="-0.0 84.8 -0.0" scale="1.25 1.25 1.25">
+  <library name="stklib_cornPlant_a" id="stklib_cornPlant_a_main_proxy.005" xyz="197.85 5.39 27.17" hpr="0.0 84.8 0.0" scale="1.25 1.25 1.25">
   </library>
-  <library name="stklib_cornPlant_a" id="stklib_cornPlant_a_main_proxy.006" xyz="198.90 5.39 37.27" hpr="0.0 98.2 0.0" scale="1.40 1.40 1.40">
+  <library name="stklib_cornPlant_a" id="stklib_cornPlant_a_main_proxy.006" xyz="198.90 5.39 37.27" hpr="-0.0 98.2 -0.0" scale="1.40 1.40 1.40">
   </library>
   <library name="stklib_cornPlant_a" id="stklib_cornPlant_a_main_proxy.007" xyz="195.53 5.39 112.74" hpr="-0.0 70.2 -0.0" scale="1.25 1.25 1.25">
   </library>
-  <library name="stklib_cornPlant_a" id="stklib_cornPlant_a_main_proxy.008" xyz="189.42 5.39 136.30" hpr="0.0 90.9 0.0" scale="1.25 1.25 1.25">
+  <library name="stklib_cornPlant_a" id="stklib_cornPlant_a_main_proxy.008" xyz="189.42 5.39 136.30" hpr="-0.0 90.9 -0.0" scale="1.25 1.25 1.25">
   </library>
   <library name="stklib_cornPlant_a" id="stklib_cornPlant_a_main_proxy.009" xyz="198.78 5.39 47.50" hpr="-0.0 82.9 -0.0" scale="1.25 1.25 1.25">
   </library>
-  <library name="stklib_cornPlant_a" id="stklib_cornPlant_a_main_proxy.010" xyz="198.52 5.39 57.22" hpr="0.0 94.3 0.0" scale="1.25 1.25 1.25">
+  <library name="stklib_cornPlant_a" id="stklib_cornPlant_a_main_proxy.010" xyz="198.52 5.39 57.22" hpr="-0.0 94.3 -0.0" scale="1.25 1.25 1.25">
   </library>
-  <library name="stklib_cornPlant_a" id="stklib_cornPlant_a_main_proxy.011" xyz="188.93 5.39 147.00" hpr="-0.0 83.6 -0.0" scale="1.25 1.25 1.25">
+  <library name="stklib_cornPlant_a" id="stklib_cornPlant_a_main_proxy.011" xyz="188.93 5.39 147.00" hpr="0.0 83.6 0.0" scale="1.25 1.25 1.25">
   </library>
   <library name="stklib_cornPlant_a" id="stklib_cornPlant_a_main_proxy.012" xyz="169.72 8.45 -51.27" hpr="0.0 160.4 0.0" scale="1.25 1.25 1.25">
   </library>
@@ -442,11 +443,11 @@
   </library>
   <library name="stklib_cornPlant_a" id="stklib_cornPlant_a_main_proxy.014" xyz="198.02 5.39 77.42" hpr="0.0 90.6 0.0" scale="1.34 1.34 1.34">
   </library>
-  <library name="stklib_cornPlant_a" id="stklib_cornPlant_a_main_proxy.015" xyz="162.82 8.45 -52.33" hpr="0.0 173.9 0.0" scale="1.25 1.25 1.25">
+  <library name="stklib_cornPlant_a" id="stklib_cornPlant_a_main_proxy.015" xyz="162.82 8.45 -52.33" hpr="-0.0 173.9 -0.0" scale="1.25 1.25 1.25">
   </library>
   <library name="stklib_cornPlant_a" id="stklib_cornPlant_a_main_proxy.016" xyz="151.96 8.45 -54.26" hpr="0.0 176.1 0.0" scale="1.25 1.25 1.25">
   </library>
-  <library name="stklib_cornPlant_a" id="stklib_cornPlant_a_main_proxy.017" xyz="198.17 5.39 88.40" hpr="0.0 90.2 0.0" scale="1.25 1.25 1.25">
+  <library name="stklib_cornPlant_a" id="stklib_cornPlant_a_main_proxy.017" xyz="198.17 5.39 88.40" hpr="-0.0 90.2 -0.0" scale="1.25 1.25 1.25">
   </library>
   <library name="stklib_cornPlant_a" id="stklib_cornPlant_a_main_proxy.018" xyz="197.55 5.39 99.09" hpr="-0.0 83.0 -0.0" scale="1.25 1.25 1.25">
   </library>
@@ -472,11 +473,11 @@
   </library>
   <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.010" xyz="52.37 6.72 -171.89" hpr="-9.9 52.8 -3.6" scale="1.58 1.58 1.58">
   </library>
-  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.011" xyz="46.87 3.26 99.76" hpr="-0.0 55.0 -0.0" scale="1.58 1.58 1.58">
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.011" xyz="46.87 3.26 99.76" hpr="0.0 55.0 0.0" scale="1.58 1.58 1.58">
   </library>
   <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.012" xyz="53.05 3.34 99.99" hpr="8.9 54.5 11.4" scale="1.58 1.58 1.58">
   </library>
-  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.013" xyz="58.94 3.37 101.74" hpr="-0.0 55.0 -0.0" scale="1.58 1.58 1.58">
+  <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.013" xyz="58.94 3.37 101.74" hpr="0.0 55.0 0.0" scale="1.58 1.58 1.58">
   </library>
   <library name="stklib_fitchBarrel_a" id="stklib_fitchBarrel_a_main_proxy.014" xyz="9.51 -0.08 22.67" hpr="-0.0 118.3 -0.0" scale="1.97 1.97 1.97">
   </library>
@@ -490,11 +491,11 @@
   </library>
   <library name="stklib_giantPlasticBag_a" id="stklib_giantPlasticBag_a_main_proxy.001" xyz="112.55 -7.44 -258.84" hpr="-1.7 -26.4 5.1" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_greenRadioTower_a" id="stklib_greenRadioTower_a_main_proxy" xyz="191.63 5.17 26.60" hpr="0.0 180.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_greenRadioTower_a" id="stklib_greenRadioTower_a_main_proxy" xyz="191.63 5.17 26.60" hpr="-0.0 180.0 -0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_loudspeaker_a" id="stklib_loudspeaker_a_main_proxy" xyz="133.53 8.74 -16.78" hpr="0.0 -0.0 0.0" scale="0.52 0.52 0.52">
   </library>
-  <library name="stklib_loudspeaker_a" id="stklib_loudspeaker_a_main_proxy.001" xyz="120.60 8.60 -36.24" hpr="0.0 180.0 0.0" scale="0.52 0.52 0.52">
+  <library name="stklib_loudspeaker_a" id="stklib_loudspeaker_a_main_proxy.001" xyz="120.60 8.60 -36.24" hpr="-0.0 180.0 -0.0" scale="0.52 0.52 0.52">
   </library>
   <library name="stklib_mailbox_a" id="stklib_mailbox_a_main_proxy" xyz="14.44 5.44 -161.02" hpr="-0.0 -140.4 -0.0" scale="2.13 2.13 2.13">
   </library>
@@ -502,9 +503,9 @@
   </library>
   <library name="stklib_mineLantern_a" id="stklib_mineLantern_a_main_proxy.001" xyz="87.37 27.47 -125.69" hpr="-0.0 -105.7 -0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_mineLantern_a" id="stklib_mineLantern_a_main_proxy.002" xyz="92.16 23.85 -144.11" hpr="-0.0 78.0 -0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_mineLantern_a" id="stklib_mineLantern_a_main_proxy.002" xyz="92.16 23.85 -144.11" hpr="0.0 78.0 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_mineLantern_a" id="stklib_mineLantern_a_main_proxy.003" xyz="97.58 23.87 -163.31" hpr="-0.0 71.1 -0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_mineLantern_a" id="stklib_mineLantern_a_main_proxy.003" xyz="97.58 23.87 -163.31" hpr="0.0 71.1 0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_mineLantern_a" id="stklib_mineLantern_a_main_proxy.004" xyz="-1.62 2.17 99.71" hpr="-0.7 50.0 0.8" scale="1.00 1.00 1.00">
   </library>
@@ -512,11 +513,11 @@
   </library>
   <library name="stklib_mineLantern_a" id="stklib_mineLantern_a_main_proxy.006" xyz="65.13 14.84 -245.70" hpr="0.0 -70.5 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_mineLantern_a" id="stklib_mineLantern_a_main_proxy.007" xyz="106.94 -4.52 -191.05" hpr="-0.0 71.1 -0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_mineLantern_a" id="stklib_mineLantern_a_main_proxy.007" xyz="106.94 -4.52 -191.05" hpr="0.0 71.1 0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_oldCar_a" id="stklib_oldCar_a_main_proxy" xyz="60.95 7.31 -174.21" hpr="7.9 71.8 8.1" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_oldschoolLamp_a" id="stklib_oldschoolLamp_a_main_proxy" xyz="171.67 13.32 85.60" hpr="0.0 180.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_oldschoolLamp_a" id="stklib_oldschoolLamp_a_main_proxy" xyz="171.67 13.32 85.60" hpr="-0.0 180.0 -0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_oldschoolLamp_a" id="stklib_oldschoolLamp_a_main_proxy.001" xyz="181.91 20.32 54.12" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00">
   </library>
@@ -524,7 +525,7 @@
   </library>
   <library name="stklib_oldschoolLamp_a" id="stklib_oldschoolLamp_a_main_proxy.003" xyz="120.69 0.11 -248.26" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_pallet_a" id="stklib_pallet_a_main_proxy" xyz="162.46 6.27 99.04" hpr="65.0 -0.0 -0.0" scale="1.42 1.42 1.42">
+  <library name="stklib_pallet_a" id="stklib_pallet_a_main_proxy" xyz="162.46 6.27 99.04" hpr="65.0 -0.0 0.0" scale="1.42 1.42 1.42">
   </library>
   <library name="stklib_pallet_a" id="stklib_pallet_a_main_proxy.001" xyz="141.27 9.69 90.93" hpr="65.0 -90.0 0.0" scale="1.42 1.42 1.42">
   </library>
@@ -556,7 +557,7 @@
   </library>
   <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.006" xyz="78.56 4.88 -191.87" hpr="-0.0 -176.7 -0.0" scale="1.32 1.32 1.32">
   </library>
-  <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.007" xyz="79.59 4.88 -177.34" hpr="-0.0 25.3 -0.0" scale="1.20 1.20 1.20">
+  <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.007" xyz="79.59 4.88 -177.34" hpr="0.0 25.3 0.0" scale="1.20 1.20 1.20">
   </library>
   <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.008" xyz="86.43 10.19 -185.99" hpr="-0.0 -176.7 -0.0" scale="1.26 1.26 1.26">
   </library>
@@ -580,7 +581,7 @@
   </library>
   <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.018" xyz="-24.88 5.43 -99.05" hpr="0.0 -29.7 0.0" scale="0.96 0.96 0.96">
   </library>
-  <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.019" xyz="-30.94 5.59 -110.30" hpr="-0.0 64.8 -0.0" scale="1.62 1.62 1.62">
+  <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.019" xyz="-30.94 5.59 -110.30" hpr="0.0 64.8 0.0" scale="1.62 1.62 1.62">
   </library>
   <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.020" xyz="110.59 6.19 -53.28" hpr="0.0 59.0 0.0" scale="1.26 1.26 1.26">
   </library>
@@ -594,9 +595,9 @@
   </library>
   <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.025" xyz="143.83 -11.50 -311.10" hpr="0.0 13.6 0.0" scale="1.62 1.62 1.62">
   </library>
-  <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.026" xyz="153.82 -12.11 -294.46" hpr="0.0 165.7 0.0" scale="1.33 1.33 1.33">
+  <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.026" xyz="153.82 -12.11 -294.46" hpr="-0.0 165.7 -0.0" scale="1.33 1.33 1.33">
   </library>
-  <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.027" xyz="161.27 -13.42 -281.89" hpr="0.0 165.7 0.0" scale="1.62 1.62 1.62">
+  <library name="stklib_pinetree_a" id="stklib_pinetree_a_main_proxy.027" xyz="161.27 -13.42 -281.89" hpr="-0.0 165.7 -0.0" scale="1.62 1.62 1.62">
   </library>
   <library name="stklib_pumpkin_a" id="stklib_pumpkin_a_main_proxy" xyz="18.00 3.95 14.67" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
@@ -626,7 +627,7 @@
   </library>
   <library name="stklib_sagebrush_a" id="stklib_sagebrush_a_main_proxy" xyz="162.67 4.35 70.64" hpr="0.0 -12.3 0.0" scale="1.27 1.27 1.27">
   </library>
-  <library name="stklib_sagebrush_a" id="stklib_sagebrush_a_main_proxy.001" xyz="106.90 3.68 134.28" hpr="0.0 152.7 0.0" scale="1.27 1.27 1.27">
+  <library name="stklib_sagebrush_a" id="stklib_sagebrush_a_main_proxy.001" xyz="106.90 3.68 134.28" hpr="-0.0 152.7 -0.0" scale="1.27 1.27 1.27">
   </library>
   <library name="stklib_sagebrush_a" id="stklib_sagebrush_a_main_proxy.002" xyz="138.82 2.14 110.62" hpr="0.0 -69.3 0.0" scale="1.27 1.27 1.27">
   </library>
@@ -646,9 +647,9 @@
   </library>
   <library name="stklib_trainSemaphore_a" id="stklib_trainSemaphore_a_main_proxy" xyz="133.49 8.59 -18.05" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_trainSemaphore_a" id="stklib_trainSemaphore_a_main_proxy.001" xyz="122.49 8.59 -18.05" hpr="0.0 180.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_trainSemaphore_a" id="stklib_trainSemaphore_a_main_proxy.001" xyz="122.49 8.59 -18.05" hpr="-0.0 180.0 -0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_trainSemaphore_a" id="stklib_trainSemaphore_a_main_proxy.002" xyz="122.49 8.00 81.64" hpr="0.0 180.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_trainSemaphore_a" id="stklib_trainSemaphore_a_main_proxy.002" xyz="122.49 8.00 81.64" hpr="-0.0 180.0 -0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_trainSemaphore_a" id="stklib_trainSemaphore_a_main_proxy.003" xyz="133.49 8.00 81.64" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
@@ -656,11 +657,11 @@
   </library>
   <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy.001" xyz="91.10 2.91 -111.79" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy.002" xyz="74.94 2.89 -118.66" hpr="-0.0 -145.0 0.0" scale="1.03 1.03 1.03">
+  <library name="stklib_waterLily_a" id="stklib_waterLily_a_main_proxy.002" xyz="74.94 2.89 -118.66" hpr="0.0 -145.0 -0.0" scale="1.03 1.03 1.03">
   </library>
   <library name="stklib_weatherCock_a" id="stklib_weatherCock_a_main_proxy" xyz="42.89 27.31 -226.35" hpr="-0.0 -90.0 0.0" scale="1.50 1.50 1.50">
   </library>
-  <library name="stklib_windpump_a" id="stklib_windpump_a_main_proxy" xyz="-88.07 15.33 -198.47" hpr="0.0 103.5 0.0" scale="1.50 1.50 1.50">
+  <library name="stklib_windpump_a" id="stklib_windpump_a_main_proxy" xyz="-88.07 15.33 -198.47" hpr="-0.0 103.5 -0.0" scale="1.50 1.50 1.50">
   </library>
   <library name="stklib_windpump_a" id="stklib_windpump_a_main_proxy.001" xyz="113.77 10.65 -142.48" hpr="-0.0 54.8 -0.0" scale="1.50 1.50 1.50">
   </library>
