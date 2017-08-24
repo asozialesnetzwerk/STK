@@ -1,64 +1,64 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16387 -->
+<!-- Generated with script from SVN rev 17016 -->
 <scene>
   <lod>
-   <group name="treeMod1">
-    <static-object lod_distance="160" lod_group="treeMod1" model="treeMod1_LOD80.b3d" xyz="-157.94 0.00 52.24" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
-    <static-object lod_distance="300" lod_group="treeMod1" model="treeMod1_LOD170.b3d" xyz="-157.94 0.00 42.24" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
-   </group>
    <group name="pipe">
-    <static-object lod_distance="50" lod_group="pipe" model="pipe_LOD50.b3d" xyz="-176.78 -0.95 43.93" hpr="0.0 -22.9 0.0" scale="0.72 0.72 0.72" interaction="static" skeletal-animation="false"/>
-    <static-object lod_distance="170" lod_group="pipe" model="pipe_LOD170.b3d" xyz="-179.46 -3.37 47.90" hpr="-0.0 -173.3 -0.0" scale="0.72 0.72 0.72" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="50" lod_group="pipe" model="pipe_LOD50.spm" xyz="-176.78 -0.95 43.93" hpr="0.0 -22.9 0.0" scale="0.72 0.72 0.72" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="170" lod_group="pipe" model="pipe_LOD170.spm" xyz="-179.46 -3.37 47.90" hpr="-0.0 -173.3 -0.0" scale="0.72 0.72 0.72" interaction="static" skeletal-animation="false"/>
    </group>
    <group name="adScreen">
-    <static-object lod_distance="75" lod_group="adScreen" model="adScreen_LOD50.b3d" xyz="-128.48 3.00 50.30" hpr="0.0 -45.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
-    <static-object lod_distance="160" lod_group="adScreen" model="adScreen_LOD160.b3d" xyz="-126.45 2.00 50.23" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
-   </group>
-   <group name="wpill">
-    <static-object lod_distance="120" lod_group="wpill" model="wpill_LOD50.b3d" xyz="-143.11 5.74 44.54" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
-    <static-object lod_distance="250" lod_group="wpill" model="wpill_LOD150.b3d" xyz="-143.41 6.07 46.51" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="75" lod_group="adScreen" model="adScreen_LOD50.spm" xyz="-128.48 3.00 50.30" hpr="0.0 -45.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="160" lod_group="adScreen" model="adScreen_LOD160.spm" xyz="-126.45 2.00 50.23" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
    </group>
    <group name="pillard">
-    <static-object lod_distance="120" lod_group="pillard" model="pillard_LOD70.b3d" xyz="-109.17 7.97 55.92" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
-    <static-object lod_distance="180" lod_group="pillard" model="pillard_LOD180.b3d" xyz="-109.53 7.97 48.99" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="120" lod_group="pillard" model="pillard_LOD70.spm" xyz="-109.17 7.97 55.92" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="180" lod_group="pillard" model="pillard_LOD180.spm" xyz="-109.53 7.97 48.99" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+   </group>
+   <group name="treeMod1">
+    <static-object lod_distance="160" lod_group="treeMod1" model="treeMod1_LOD80.spm" xyz="-157.94 0.00 52.24" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="300" lod_group="treeMod1" model="treeMod1_LOD170.spm" xyz="-157.94 0.00 42.24" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+   </group>
+   <group name="wpill">
+    <static-object lod_distance="120" lod_group="wpill" model="wpill_LOD50.spm" xyz="-143.11 5.74 44.54" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="250" lod_group="wpill" model="wpill_LOD150.spm" xyz="-143.41 6.07 46.51" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
    </group>
   </lod>
-  <track model="snowtuxpeak_track.b3d" x="0" y="0" z="0">
+  <track model="snowtuxpeak_track.spm" x="0" y="0" z="0">
     <static-object  lod_instance="true" lod_group="pipe" xyz="-302.46 44.63 38.90" hpr="-0.0 -173.3 -0.0" scale="0.72 0.72 0.72"/>
     <static-object  lod_instance="true" lod_group="pipe" xyz="-226.12 32.37 -101.76" hpr="0.0 -22.9 0.0" scale="0.72 0.72 0.72"/>
-    <static-object  lod_instance="true" lod_group="adScreen" xyz="-218.04 20.82 33.88" hpr="0.0 -40.0 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="adScreen" xyz="-218.04 20.82 33.88" hpr="-0.0 -40.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object  lod_instance="true" lod_group="adScreen" xyz="-203.06 3.00 69.32" hpr="0.0 -45.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object  lod_instance="true" lod_group="adScreen" xyz="-342.16 22.00 -93.78" hpr="-0.0 135.0 -0.0" scale="1.00 1.00 1.00"/>
     <static-object  lod_instance="true" lod_group="adScreen" xyz="-337.16 13.90 69.42" hpr="-0.0 -135.0 -0.0" scale="1.00 1.00 1.00"/>
     <static-object  lod_instance="true" lod_group="adScreen" xyz="-216.03 32.00 -74.75" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object  model="PanelDisplay.001.b3d" xyz="-216.23 32.00 -74.75" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+    <static-object  model="PanelDisplay.001.spm" xyz="-216.23 32.00 -74.75" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
     <animated-texture name="blueZipper.png" dy="1.5000" />
     </static-object>
-    <static-object  model="PanelDisplay.002.b3d" xyz="-203.13 3.00 69.25" hpr="0.0 -45.0 0.0" scale="1.00 1.00 1.00">
+    <static-object  model="PanelDisplay.002.spm" xyz="-203.13 3.00 69.25" hpr="0.0 -45.0 0.0" scale="1.00 1.00 1.00">
     <animated-texture name="blueZipper_effect.png" dy="-0.1000" />
     </static-object>
-    <static-object  model="PanelDisplay.003.b3d" xyz="-203.20 3.00 69.18" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+    <static-object  model="PanelDisplay.003.spm" xyz="-203.20 3.00 69.18" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
     <animated-texture name="blueZipper.png" dy="1.5000" />
     </static-object>
-    <static-object  model="PanelDisplay.004.b3d" xyz="-337.06 13.92 69.18" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+    <static-object  model="PanelDisplay.004.spm" xyz="-337.06 13.92 69.18" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
     <animated-texture name="blueZipper.png" dy="1.5000" />
     </static-object>
-    <static-object  model="PanelDisplay.005.b3d" xyz="-337.13 14.00 69.25" hpr="-0.0 -135.0 -0.0" scale="1.00 1.00 1.00">
+    <static-object  model="PanelDisplay.005.spm" xyz="-337.13 14.00 69.25" hpr="-0.0 -135.0 -0.0" scale="1.00 1.00 1.00">
     <animated-texture name="blueZipper_effect.png" dy="-0.1000" />
     </static-object>
-    <static-object  model="PanelDisplay.006.b3d" xyz="-342.06 22.00 -93.68" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+    <static-object  model="PanelDisplay.006.spm" xyz="-342.06 22.00 -93.68" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
     <animated-texture name="blueZipper.png" dy="1.5000" />
     </static-object>
-    <static-object  model="PanelDisplay.007.b3d" xyz="-342.13 22.00 -93.75" hpr="-0.0 135.0 -0.0" scale="1.00 1.00 1.00">
+    <static-object  model="PanelDisplay.007.spm" xyz="-342.13 22.00 -93.75" hpr="-0.0 135.0 -0.0" scale="1.00 1.00 1.00">
     <animated-texture name="blueZipper_effect.png" dy="-0.1000" />
     </static-object>
-    <static-object  model="PanelDisplay.008.b3d" xyz="-216.13 32.00 -74.75" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+    <static-object  model="PanelDisplay.008.spm" xyz="-216.13 32.00 -74.75" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
     <animated-texture name="blueZipper_effect.png" dy="-0.1000" />
     </static-object>
-    <static-object  model="PanelDisplay.009.b3d" xyz="-218.12 20.82 33.82" hpr="0.0 -40.0 -0.0" scale="1.00 1.00 1.00">
+    <static-object  model="PanelDisplay.009.spm" xyz="-218.12 20.82 33.82" hpr="-0.0 -40.0 0.0" scale="1.00 1.00 1.00">
     <animated-texture name="blueZipper_effect.png" dy="-0.1000" />
     </static-object>
-    <static-object  model="PanelDisplay.b3d" xyz="-218.19 20.82 33.75" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+    <static-object  model="PanelDisplay.spm" xyz="-218.19 20.82 33.75" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
     <animated-texture name="blueZipper.png" dy="1.5000" />
     </static-object>
     <static-object  lod_instance="true" lod_group="pillard" xyz="-210.75 26.42 27.78" hpr="0.0 -0.0 0.0" scale="1.87 1.87 1.87"/>
@@ -74,33 +74,34 @@
     <static-object  lod_instance="true" lod_group="pillard" xyz="-214.65 44.86 -84.28" hpr="0.0 -0.0 0.0" scale="1.81 1.81 1.81"/>
     <static-object  lod_instance="true" lod_group="pillard" xyz="-214.65 37.39 -65.52" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object  lod_instance="true" lod_group="pillard" xyz="-224.06 25.41 41.44" hpr="0.0 -0.0 0.0" scale="0.74 0.74 0.74"/>
+    <static-object  model="reset.spm" xyz="-343.37 14.00 49.90" hpr="4.4 77.9 1.1" scale="1.00 1.00 1.00" interaction="physics-only"/>
     <static-object  lod_instance="true" lod_group="treeMod1" xyz="-353.00 12.94 -84.32" hpr="0.0 -0.0 0.0" scale="1.47 1.47 1.47"/>
     <static-object  lod_instance="true" lod_group="treeMod1" xyz="-240.93 21.19 -109.23" hpr="0.0 -27.4 0.0" scale="1.20 1.20 1.20"/>
     <static-object  lod_instance="true" lod_group="treeMod1" xyz="-230.87 22.95 -105.08" hpr="0.0 -0.0 0.0" scale="1.20 1.20 1.20"/>
     <static-object  lod_instance="true" lod_group="treeMod1" xyz="-210.13 21.36 -105.08" hpr="0.0 -33.8 0.0" scale="1.47 1.47 1.47"/>
     <static-object  lod_instance="true" lod_group="treeMod1" xyz="-210.13 21.36 -91.98" hpr="0.0 -43.3 0.0" scale="1.47 1.47 1.47"/>
     <static-object  lod_instance="true" lod_group="treeMod1" xyz="-206.99 19.84 -78.77" hpr="0.0 -43.3 0.0" scale="2.38 2.38 2.38"/>
-    <static-object  model="treelow1.b3d" xyz="-194.14 22.24 -106.53" hpr="-0.0 74.5 -0.0" scale="5.36 5.36 5.36"/>
-    <static-object  model="treelow1.b3d" xyz="-191.37 22.24 -97.51" hpr="-0.0 74.5 -0.0" scale="3.65 3.65 3.65"/>
+    <static-object  model="treelow1.spm" xyz="-194.14 22.24 -106.53" hpr="0.0 74.5 0.0" scale="5.36 5.36 5.36"/>
+    <static-object  model="treelow1.spm" xyz="-191.37 22.24 -97.51" hpr="0.0 74.5 0.0" scale="3.65 3.65 3.65"/>
     <static-object  lod_instance="true" lod_group="treeMod1" xyz="-191.02 12.99 -85.22" hpr="0.0 -43.3 0.0" scale="1.47 1.47 1.47"/>
-    <static-object  model="treelow1.b3d" xyz="-461.49 7.54 -323.21" hpr="-0.0 35.0 -0.0" scale="8.93 8.93 8.93"/>
-    <static-object  model="treelow1.b3d" xyz="-450.80 7.54 -323.21" hpr="-0.0 64.9 -0.0" scale="10.85 10.85 10.85"/>
-    <static-object  model="treelow1.b3d" xyz="-188.23 2.00 393.25" hpr="-0.0 35.0 -0.0" scale="14.00 14.00 14.00"/>
-    <static-object  model="treelow1.b3d" xyz="-163.50 2.00 393.25" hpr="-0.0 3.3 -0.0" scale="8.06 8.06 8.06"/>
-    <static-object  model="treelow1.b3d" xyz="-138.94 2.00 393.25" hpr="-0.0 74.5 -0.0" scale="13.24 13.24 13.24"/>
-    <static-object  model="treelow1.b3d" xyz="-202.73 22.24 -97.51" hpr="-0.0 74.5 -0.0" scale="3.65 3.65 3.65"/>
+    <static-object  model="treelow1.spm" xyz="-461.49 7.54 -323.21" hpr="0.0 35.0 0.0" scale="8.93 8.93 8.93"/>
+    <static-object  model="treelow1.spm" xyz="-450.80 7.54 -323.21" hpr="0.0 64.9 0.0" scale="10.85 10.85 10.85"/>
+    <static-object  model="treelow1.spm" xyz="-188.23 2.00 393.25" hpr="0.0 35.0 0.0" scale="14.00 14.00 14.00"/>
+    <static-object  model="treelow1.spm" xyz="-163.50 2.00 393.25" hpr="0.0 3.3 0.0" scale="8.06 8.06 8.06"/>
+    <static-object  model="treelow1.spm" xyz="-138.94 2.00 393.25" hpr="0.0 74.5 0.0" scale="13.24 13.24 13.24"/>
+    <static-object  model="treelow1.spm" xyz="-202.73 22.24 -97.51" hpr="0.0 74.5 0.0" scale="3.65 3.65 3.65"/>
     <static-object  lod_instance="true" lod_group="wpill" xyz="-338.61 10.27 6.06" hpr="0.0 -0.0 0.0" scale="1.80 1.80 1.80"/>
-    <static-object  lod_instance="true" lod_group="wpill" xyz="-337.82 10.27 -12.04" hpr="-0.0 61.0 -0.0" scale="1.80 1.80 1.80"/>
-    <static-object  lod_instance="true" lod_group="wpill" xyz="-349.61 10.27 5.42" hpr="-0.0 27.1 -0.0" scale="1.50 1.50 1.50"/>
+    <static-object  lod_instance="true" lod_group="wpill" xyz="-337.82 10.27 -12.04" hpr="0.0 61.0 0.0" scale="1.80 1.80 1.80"/>
+    <static-object  lod_instance="true" lod_group="wpill" xyz="-349.61 10.27 5.42" hpr="0.0 27.1 0.0" scale="1.50 1.50 1.50"/>
     <static-object  lod_instance="true" lod_group="wpill" xyz="-348.82 10.27 -12.68" hpr="0.0 -0.0 0.0" scale="1.50 1.50 1.50"/>
     <static-object  lod_instance="true" lod_group="wpill" xyz="-309.03 36.75 10.31" hpr="0.0 -0.0 0.0" scale="1.50 1.50 1.50"/>
     <static-object  lod_instance="true" lod_group="wpill" xyz="-310.37 36.28 2.75" hpr="0.0 -85.6 0.0" scale="1.82 1.82 1.82"/>
-    <static-object  lod_instance="true" lod_group="wpill" xyz="-309.88 35.71 -5.94" hpr="-0.0 89.5 -0.0" scale="1.50 1.50 1.50"/>
+    <static-object  lod_instance="true" lod_group="wpill" xyz="-309.88 35.71 -5.94" hpr="0.0 89.5 0.0" scale="1.50 1.50 1.50"/>
     <static-object  lod_instance="true" lod_group="wpill" xyz="-309.32 35.71 -14.76" hpr="0.0 -0.0 0.0" scale="1.74 1.74 1.74"/>
     <static-object  lod_instance="true" lod_group="wpill" xyz="-293.87 35.73 46.70" hpr="4.4 77.9 1.1" scale="1.80 1.80 1.80"/>
     <static-object  lod_instance="true" lod_group="wpill" xyz="-311.38 36.78 42.17" hpr="-1.2 139.0 -4.0" scale="1.80 1.80 1.80"/>
   </track>
-  <object id="Balloon" type="animation" xyz="-39.99 41.51 -180.02" hpr="-63.4 89.6 3.0" scale="7.33 7.33 7.33" interaction="none" model="Balloon.b3d" skeletal-animation="false">
+  <object id="Balloon" type="animation" xyz="-39.99 41.51 -180.02" hpr="-63.4 89.6 3.0" scale="7.33 7.33 7.33" interaction="none" model="Balloon.spm" skeletal-animation="false">
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
       <p c="0.172 -40.000" h1="-51.067 -40.000" h2="51.412 -40.000"/>
       <p c="169.894 99.158" h1="103.758 99.158" h2="310.133 99.158"/>
