@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15906 -->
+<!-- Generated with script from SVN rev 17016 -->
 <track  name           = "IntroCutscene"
-        version        = "6"
+        version        = "7"
         groups         = "standard"
         designer       = "mmg"
         cutscene       = "Y"
@@ -10,9 +10,8 @@
         smooth-normals = "false"
         default-number-of-laps = "3"
         reverse        = "N"
-        bloom          = "Y"
-        bloom-threshold = "0.75"
         clouds         = "N"
+        is-during-day  = "Y"
         shadows        = "Y"
 >
 </track>

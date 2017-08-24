@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15738 -->
+<!-- Generated with script from SVN rev 17016 -->
 <scene>
-  <track model="introcutscene2_track.b3d" x="0" y="0" z="0"/>
-  <object id="Camera.001" type="cutscene_camera" xyz="-87.57 7.90 61.38" hpr="-80.6 -171.4 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="" skeletal-animation="false">
+  <track model="introcutscene2_track.spm" x="0" y="0" z="0"/>
+  <object id="Camera.001" type="cutscene_camera" xyz="-89.58 7.68 47.45" hpr="91.0 -1.5 -176.6" scale="1.00 1.00 1.00" interaction="ghost" model="" skeletal-animation="false">
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="180.000 -87.570" h1="180.000 -87.570" h2="180.000 -87.570"/>
       <p c="180.025 -90.889" h1="180.025 -90.889" h2="180.026 -90.889"/>
@@ -87,7 +87,7 @@
       <p c="1384.681 -178.468" h1="1384.629 -178.468" h2="1384.733 -178.468"/>
     </curve>
   </object>
-  <object id="House.Door.005" type="animation" xyz="-91.74 1.66 34.80" hpr="0.5 -69.7 -0.0" scale="0.04 0.11 0.82" interaction="ghost" model="door.b3d" skeletal-animation="false">
+  <object id="House.Door.005" type="animation" xyz="-91.74 1.64 35.04" hpr="0.4 63.9 -0.0" scale="0.04 0.11 0.82" interaction="ghost" model="door.spm" skeletal-animation="false">
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="1.000 -91.742" h1="-64.980 -91.742" h2="66.980 -91.742"/>
       <p c="170.000 -91.742" h1="113.390 -91.742" h2="181.322 -91.742"/>
@@ -119,9 +119,9 @@
       <p c="199.000 63.887" h1="187.715 63.887" h2="210.285 63.887"/>
     </curve>
   </object>
-  <object id="Mesh.005" type="animation" xyz="-115.73 -0.02 40.52" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="vegetation.b3d" skeletal-animation="false">
+  <object id="Mesh.005" type="animation" xyz="-115.73 -0.02 40.52" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="vegetation.spm" skeletal-animation="false">
   </object>
-  <object id="Nolok" type="animation" xyz="-11.50 9.20 42.68" hpr="-14.9 19.8 -7.2" scale="1.00 1.00 1.00" interaction="ghost" model="Nolok_intro.b3d" skeletal-animation="true">
+  <object id="Nolok" type="animation" xyz="-88.80 6.41 41.17" hpr="-12.4 -0.0 -6.8" scale="0.77 0.77 0.77" interaction="ghost" model="Nolok_intro.spm" skeletal-animation="true">
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="1.000 -11.499" h1="-44.370 -11.499" h2="46.370 -11.499"/>
       <p c="149.000 -128.216" h1="94.690 -128.216" h2="162.211 -128.216"/>
@@ -282,7 +282,7 @@
       <p c="1521.000 0.131" h1="1505.384 0.131" h2="1536.616 0.131"/>
     </curve>
   </object>
-  <object id="NolokShip" type="animation" xyz="-13.81 8.94 42.48" hpr="-0.0 90.0 0.0" scale="1.26 1.26 1.26" interaction="static" shape="box" model="Ship.b3d" skeletal-animation="false">
+  <object id="NolokShip" type="animation" xyz="-86.48 6.18 42.26" hpr="-0.0 -90.0 0.0" scale="1.26 1.26 1.26" interaction="static" shape="box" model="Ship.spm" skeletal-animation="false">
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="1.000 -13.810" h1="-44.373 -13.810" h2="46.373 -13.810"/>
       <p c="149.000 -130.509" h1="93.640 -130.509" h2="162.466 -130.509"/>
@@ -413,7 +413,7 @@
       <p c="1539.734 1.261" h1="1516.804 1.261" h2="1562.665 1.261"/>
     </curve>
   </object>
-  <object id="Plane" type="animation" xyz="-92.93 0.46 33.48" hpr="90.0 0.8 0.0" scale="1.21 1.21 1.21" interaction="ghost" model="TuxIntro.b3d" skeletal-animation="true">
+  <object id="Plane" type="animation" xyz="-91.54 0.46 38.13" hpr="90.0 12.7 0.0" scale="1.21 1.21 1.21" interaction="ghost" model="TuxIntro.spm" skeletal-animation="true">
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="1.000 -92.934" h1="-76.692 -92.934" h2="78.692 -92.934"/>
       <p c="200.000 -92.934" h1="122.311 -92.934" h2="229.280 -92.934"/>
@@ -464,7 +464,7 @@
   <sun  xyz="-101.20 67.04 93.23" ambient="80 80 80"/>
   <sky-box texture="genericskybox_top.jpg genericskybox_bottom.jpg genericskybox_east.jpg genericskybox_west.jpg genericskybox_south.jpg genericskybox_north.jpg" />
   <camera far="1000.0"/>
-  <particle-emitter kind="smoke.xml" id="Spaceship_parrticles1" xyz="-8.49 8.79 45.99" h="0.00">
+  <particle-emitter kind="smoke.xml" id="Spaceship_parrticles1" xyz="-91.25 6.09 38.76" h="180.00" >
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="1.000 -8.490" h1="-44.372 -8.490" h2="46.372 -8.490"/>
       <p c="149.000 -125.189" h1="94.067 -109.017" h2="161.833 -128.967"/>
@@ -589,7 +589,7 @@
       <p c="1521.000 1.000" h1="1505.384 1.000" h2="1536.616 1.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="smoke.xml" id="Spaceship_parrticles2" xyz="-8.45 8.61 38.97" h="0.00">
+  <particle-emitter kind="smoke.xml" id="Spaceship_parrticles2" xyz="-91.43 6.13 45.76" h="180.00" >
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="1.000 -8.451" h1="-44.373 -8.451" h2="46.373 -8.451"/>
       <p c="149.000 -125.150" h1="94.125 -108.657" h2="161.827 -129.006"/>
@@ -719,7 +719,7 @@
   </particle-emitter>
   <object type="sfx-emitter" id="Empty" sound="nolok_speech.ogg" rolloff="0.001" volume="1.0" max_dist="1000.0" xyz="-89.49 7.86 44.46" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 374">
   </object>
-  <object type="sfx-emitter" id="Empty.001" sound="spaceship.ogg" rolloff="0.100" volume="1.0" max_dist="500.0" xyz="-9.51 8.39 50.66" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 25">
+  <object type="sfx-emitter" id="Empty.001" sound="spaceship.ogg" rolloff="0.100" volume="1.0" max_dist="500.0" xyz="-127.35 8.39 50.66" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 25">
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="1.000 -9.515" h1="-17.503 -9.515" h2="19.503 -9.515"/>
       <p c="62.000 -58.941" h1="44.774 -42.496" h2="75.555 -71.881"/>
@@ -739,7 +739,7 @@
       <p c="148.000 8.388" h1="133.164 8.388" h2="162.836 8.388"/>
     </curve>
   </object>
-  <object type="sfx-emitter" id="Empty.002" sound="spaceship.ogg" rolloff="0.100" volume="0.699999988079071" max_dist="500.0" xyz="-9.51 8.39 50.66" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 200">
+  <object type="sfx-emitter" id="Empty.002" sound="spaceship.ogg" rolloff="0.100" volume="0.699999988079071" max_dist="500.0" xyz="-89.38 6.13 52.14" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 200">
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="1.000 -9.515" h1="-17.503 -9.515" h2="19.503 -9.515"/>
       <p c="62.000 -58.941" h1="44.774 -42.496" h2="75.555 -71.881"/>
@@ -771,7 +771,7 @@
       <p c="294.000 6.128" h1="285.099 6.128" h2="302.901 6.128"/>
     </curve>
   </object>
-  <object type="sfx-emitter" id="Empty.003" sound="spaceship.ogg" rolloff="0.100" volume="0.699999988079071" max_dist="500.0" xyz="-9.51 8.39 50.66" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 1375">
+  <object type="sfx-emitter" id="Empty.003" sound="spaceship.ogg" rolloff="0.100" volume="0.699999988079071" max_dist="500.0" xyz="-88.95 5.38 52.14" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 1375">
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="1.000 -9.515" h1="-17.503 -9.515" h2="19.503 -9.515"/>
       <p c="62.000 -58.941" h1="44.774 -42.496" h2="75.555 -71.881"/>

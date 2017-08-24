@@ -5,7 +5,7 @@
   <material name="wood_planks1.jpg" backface-culling="N"/>
   <material name="Catail.png" backface-culling="N" disable-z-write="Y" ignore="Y" shader="alphatest"/>
   <material name="fence_pagoda.png" shader="alphatest"/>
-  <material name="gnu.png" backface-culling="N" shader="alphatest"/>
+  <material name="stktex_gnuMeditation_a.png" shader="alphatest"/>
   <material name="japanRedWood.png" backface-culling="N"/>
   <material name="japanRedWood.png" backface-culling="N"/>
   <material name="lanternDirection.png" backface-culling="N"/>

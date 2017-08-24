@@ -1,22 +1,22 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15906 -->
+<!-- Generated with script from SVN rev 17016 -->
 <scene>
-  <track model="introcutscene_track.b3d" x="0" y="0" z="0">
-    <static-object model="pineVeryLow.b3d" xyz="-125.39 11.62 9.12" hpr="-90.0 -175.6 -0.0" scale="0.50 0.50 0.50"/>
-    <static-object model="pineVeryLow.b3d" xyz="-82.19 11.62 -10.78" hpr="-90.0 -140.3 0.0" scale="0.50 0.50 0.50"/>
-    <static-object model="pineVeryLow.b3d" xyz="-88.79 9.91 -6.30" hpr="-90.0 -140.3 0.0" scale="0.50 0.50 0.50"/>
-    <static-object model="pineVeryLow.b3d" xyz="-135.52 9.91 6.66" hpr="-90.0 -171.1 -0.0" scale="0.50 0.50 0.50"/>
-    <static-object model="pineVeryLow.b3d" xyz="-40.62 11.62 -33.76" hpr="-90.0 117.7 0.0" scale="0.50 0.50 0.50"/>
-    <static-object model="pineVeryLow.b3d" xyz="-35.41 11.62 -22.76" hpr="-90.0 117.7 0.0" scale="0.50 0.50 0.50"/>
-    <static-object model="pineVeryLow.b3d" xyz="-27.30 11.62 -14.02" hpr="-90.0 142.6 0.0" scale="0.50 0.50 0.50"/>
-    <static-object model="pineVeryLow.b3d" xyz="-16.87 11.62 -7.04" hpr="-90.0 149.3 0.0" scale="0.50 0.50 0.50"/>
-    <static-object model="pineVeryLow.b3d" xyz="-6.72 11.62 -2.82" hpr="-90.0 153.6 0.0" scale="0.50 0.50 0.50"/>
-    <static-object model="pineVeryLow.b3d" xyz="4.42 11.62 0.85" hpr="-90.0 170.6 -0.0" scale="0.50 0.50 0.50"/>
-    <static-object model="pineVeryLow.b3d" xyz="-19.89 11.43 -9.78" hpr="-90.0 149.3 0.0" scale="0.50 0.50 0.50"/>
-    <static-object model="pineVeryLow.b3d" xyz="-29.90 10.92 -17.38" hpr="-89.9 133.3 1.0" scale="0.50 0.50 0.50"/>
-    <static-object model="pineVeryLow.b3d" xyz="-97.79 11.00 2.32" hpr="-90.0 -150.0 -0.0" scale="0.50 0.50 0.50"/>
+  <track model="introcutscene_track.spm" x="0" y="0" z="0">
+    <static-object  model="pineVeryLow.spm" xyz="-125.39 11.62 9.12" hpr="-90.0 -175.6 -0.0" scale="0.50 0.50 0.50"/>
+    <static-object  model="pineVeryLow.spm" xyz="-82.19 11.62 -10.78" hpr="-90.0 -140.3 0.0" scale="0.50 0.50 0.50"/>
+    <static-object  model="pineVeryLow.spm" xyz="-88.79 9.91 -6.30" hpr="-90.0 -140.3 0.0" scale="0.50 0.50 0.50"/>
+    <static-object  model="pineVeryLow.spm" xyz="-135.52 9.91 6.66" hpr="-90.0 -171.1 -0.0" scale="0.50 0.50 0.50"/>
+    <static-object  model="pineVeryLow.spm" xyz="-40.62 11.62 -33.76" hpr="-90.0 117.7 0.0" scale="0.50 0.50 0.50"/>
+    <static-object  model="pineVeryLow.spm" xyz="-35.41 11.62 -22.76" hpr="-90.0 117.7 0.0" scale="0.50 0.50 0.50"/>
+    <static-object  model="pineVeryLow.spm" xyz="-27.30 11.62 -14.02" hpr="-90.0 142.6 0.0" scale="0.50 0.50 0.50"/>
+    <static-object  model="pineVeryLow.spm" xyz="-16.87 11.62 -7.04" hpr="-90.0 149.3 0.0" scale="0.50 0.50 0.50"/>
+    <static-object  model="pineVeryLow.spm" xyz="-6.72 11.62 -2.82" hpr="-90.0 153.6 0.0" scale="0.50 0.50 0.50"/>
+    <static-object  model="pineVeryLow.spm" xyz="4.42 11.62 0.85" hpr="-90.0 170.6 -0.0" scale="0.50 0.50 0.50"/>
+    <static-object  model="pineVeryLow.spm" xyz="-19.89 11.43 -9.78" hpr="-90.0 149.3 0.0" scale="0.50 0.50 0.50"/>
+    <static-object  model="pineVeryLow.spm" xyz="-29.90 10.92 -17.38" hpr="-89.9 133.3 1.0" scale="0.50 0.50 0.50"/>
+    <static-object  model="pineVeryLow.spm" xyz="-97.79 11.00 2.32" hpr="-90.0 -150.0 -0.0" scale="0.50 0.50 0.50"/>
   </track>
-  <object id="Camera.001" type="cutscene_camera" xyz="-144.43 3.58 29.92" hpr="-100.4 74.5 -1.2" scale="1.00 1.00 1.00" interaction="ghost" model="" skeletal-animation="false">
+  <object id="Camera.001" type="cutscene_camera" xyz="-87.73 7.94 69.79" hpr="-80.6 -158.1 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="" skeletal-animation="false">
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="0.000 -144.430" h1="-36.830 -144.430" h2="36.830 -144.430"/>
       <p c="94.336 -128.838" h1="57.506 -138.523" h2="131.902 -118.960"/>
@@ -180,11 +180,11 @@
       <p c="876.957 1.000" h1="866.788 1.000" h2="887.126 1.000"/>
     </curve>
   </object>
-  <object id="Circle" type="animation" xyz="-112.60 10.56 -1.75" hpr="-0.0 17.6 -0.0" scale="1.14 1.14 1.14" interaction="ghost" model="Tori1.b3d" skeletal-animation="false">
+  <object id="Circle" type="animation" xyz="-112.60 10.56 -1.75" hpr="0.0 17.6 0.0" scale="1.14 1.14 1.14" interaction="ghost" model="Tori1.spm" skeletal-animation="false">
   </object>
-  <object id="Circle.001" type="animation" xyz="-33.46 0.44 20.69" hpr="0.0 -58.5 0.0" scale="1.14 1.14 1.14" interaction="ghost" model="Tori2.b3d" skeletal-animation="false">
+  <object id="Circle.001" type="animation" xyz="-33.46 0.44 20.69" hpr="0.0 -58.5 0.0" scale="1.14 1.14 1.14" interaction="ghost" model="Tori2.spm" skeletal-animation="false">
   </object>
-  <object id="Cylinder" type="animation" xyz="-180.94 7.02 50.62" hpr="0.0 -0.0 0.0" scale="0.09 0.09 0.09" interaction="static" shape="box" model="light.b3d" skeletal-animation="false">
+  <object id="Cylinder" type="animation" xyz="-196.92 7.02 50.62" hpr="0.0 -0.0 0.0" scale="0.09 0.09 0.09" interaction="static" shape="box" model="light.spm" skeletal-animation="false">
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="2.830 -180.944" h1="-222.200 -180.944" h2="227.860 -180.944"/>
       <p c="579.222 -210.553" h1="354.192 -210.553" h2="666.509 -210.553"/>
@@ -420,10 +420,9 @@
       <p c="1269.555 0.037" h1="1266.666 0.037" h2="1272.445 0.037"/>
     </curve>
   </object>
-  <object id="Gnu" type="animation" xyz="-98.65 1.82 50.86" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="Gnu_intro.b3d" skeletal-animation="true">
+  <object id="Gnu" type="animation" xyz="-167.00 11.58 50.97" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="Gnu_intro.spm" skeletal-animation="true">
     <curve channel="LocX" interpolation="bezier" extend="const">
-      <p c="1.000 -98.646" h1="-468.097 -98.646" h2="470.097 -98.646"/>
-      <p c="1202.546 -98.646" h1="1180.912 -98.646" h2="1206.873 -98.646"/>
+      <p c="1202.546 -98.646" h1="1198.219 -98.646" h2="1206.873 -98.646"/>
       <p c="1213.629 -99.563" h1="1209.302 -98.794" h2="1216.198 -100.019"/>
       <p c="1220.208 -101.357" h1="1217.640 -100.593" h2="1221.814 -101.835"/>
       <p c="1224.321 -102.683" h1="1222.715 -102.289" h2="1226.247 -103.156"/>
@@ -439,8 +438,7 @@
       <p c="1319.725 -167.000" h1="1302.386 -167.000" h2="1337.064 -167.000"/>
     </curve>
     <curve channel="LocZ" interpolation="bezier" extend="const">
-      <p c="1.000 50.861" h1="-468.097 50.861" h2="470.097 50.861"/>
-      <p c="1202.546 50.861" h1="1180.912 50.861" h2="1206.873 50.861"/>
+      <p c="1202.546 50.861" h1="1198.219 50.861" h2="1206.873 50.861"/>
       <p c="1213.629 51.301" h1="1209.302 50.956" h2="1216.198 51.505"/>
       <p c="1220.208 52.088" h1="1217.640 51.883" h2="1221.814 52.215"/>
       <p c="1224.321 52.250" h1="1222.715 52.250" h2="1226.247 52.250"/>
@@ -456,8 +454,7 @@
       <p c="1319.725 50.965" h1="1302.386 50.965" h2="1337.064 50.965"/>
     </curve>
     <curve channel="LocY" interpolation="bezier" extend="const">
-      <p c="1.000 1.821" h1="-468.097 1.821" h2="470.097 1.821"/>
-      <p c="1202.546 1.821" h1="1180.912 1.821" h2="1206.873 1.821"/>
+      <p c="1202.546 1.821" h1="1198.219 1.821" h2="1206.873 1.821"/>
       <p c="1213.629 1.821" h1="1209.302 1.821" h2="1216.198 1.821"/>
       <p c="1220.208 1.821" h1="1217.640 1.821" h2="1221.814 1.821"/>
       <p c="1224.321 1.821" h1="1222.715 1.821" h2="1226.247 1.821"/>
@@ -473,8 +470,7 @@
       <p c="1319.725 11.576" h1="1302.386 11.576" h2="1337.064 11.576"/>
     </curve>
     <curve channel="RotX" interpolation="bezier" extend="const">
-      <p c="1.000 -0.000" h1="-468.097 -0.000" h2="470.097 -0.000"/>
-      <p c="1202.546 -0.000" h1="1180.912 -0.000" h2="1206.873 -0.000"/>
+      <p c="1202.546 -0.000" h1="1198.219 -0.000" h2="1206.873 -0.000"/>
       <p c="1213.629 -0.000" h1="1209.302 -0.000" h2="1216.198 -0.000"/>
       <p c="1220.208 -0.000" h1="1217.640 -0.000" h2="1221.814 -0.000"/>
       <p c="1224.321 -0.000" h1="1222.715 -0.000" h2="1226.247 -0.000"/>
@@ -490,8 +486,7 @@
       <p c="1319.725 -0.000" h1="1302.386 -0.000" h2="1337.064 -0.000"/>
     </curve>
     <curve channel="RotZ" interpolation="bezier" extend="const">
-      <p c="1.000 -0.000" h1="-468.097 -0.000" h2="470.097 -0.000"/>
-      <p c="1202.546 -0.000" h1="1180.912 -0.000" h2="1206.873 -0.000"/>
+      <p c="1202.546 -0.000" h1="1198.219 -0.000" h2="1206.873 -0.000"/>
       <p c="1213.629 -0.000" h1="1209.302 -0.000" h2="1216.198 -0.000"/>
       <p c="1220.208 -0.000" h1="1217.640 -0.000" h2="1221.814 -0.000"/>
       <p c="1224.321 -0.000" h1="1222.715 -0.000" h2="1226.247 -0.000"/>
@@ -507,8 +502,7 @@
       <p c="1319.725 -0.000" h1="1302.386 -0.000" h2="1337.064 -0.000"/>
     </curve>
     <curve channel="RotY" interpolation="bezier" extend="const">
-      <p c="1.000 -0.000" h1="-468.097 -0.000" h2="470.097 -0.000"/>
-      <p c="1202.546 -0.000" h1="1180.912 -0.000" h2="1206.873 -0.000"/>
+      <p c="1202.546 -0.000" h1="1198.219 -0.000" h2="1206.873 -0.000"/>
       <p c="1213.629 -0.000" h1="1209.302 -0.000" h2="1216.198 -0.000"/>
       <p c="1220.208 -0.000" h1="1217.640 -0.000" h2="1221.814 -0.000"/>
       <p c="1224.321 -0.000" h1="1222.715 -0.000" h2="1226.247 -0.000"/>
@@ -572,47 +566,47 @@
       <p c="1319.725 1.000" h1="1302.386 1.000" h2="1337.064 1.000"/>
     </curve>
   </object>
-  <object id="Mesh.000" type="animation" xyz="-123.55 3.17 45.41" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="tree1.b3d" skeletal-animation="false">
+  <object id="Mesh.000" type="animation" xyz="-123.55 3.17 45.41" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="tree1.spm" skeletal-animation="false">
   </object>
-  <object id="Mesh.001" type="animation" xyz="-131.64 3.69 35.79" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="tree2.b3d" skeletal-animation="false">
+  <object id="Mesh.001" type="animation" xyz="-131.64 3.69 35.79" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="tree2.spm" skeletal-animation="false">
   </object>
-  <object id="Mesh.002" type="animation" xyz="-135.89 4.77 48.24" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="tree3.b3d" skeletal-animation="false">
+  <object id="Mesh.002" type="animation" xyz="-135.89 4.77 48.24" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="tree3.spm" skeletal-animation="false">
   </object>
-  <object id="Mesh.003" type="animation" xyz="-125.64 4.05 62.36" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="tree4.b3d" skeletal-animation="false">
+  <object id="Mesh.003" type="animation" xyz="-125.64 4.05 62.36" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="tree4.spm" skeletal-animation="false">
   </object>
-  <object id="Mesh.004" type="animation" xyz="-114.64 10.99 46.79" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="leaves1.b3d" skeletal-animation="false">
+  <object id="Mesh.004" type="animation" xyz="-114.64 10.99 46.79" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="leaves1.spm" skeletal-animation="false">
   </object>
-  <object id="Mesh.005" type="animation" xyz="-115.73 -0.02 40.52" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="vegetation.b3d" skeletal-animation="false">
+  <object id="Mesh.005" type="animation" xyz="-115.73 -0.02 40.52" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="vegetation.spm" skeletal-animation="false">
   </object>
-  <object id="Mesh.006" type="animation" xyz="-116.13 11.29 44.36" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="leaves2.b3d" skeletal-animation="false">
+  <object id="Mesh.006" type="animation" xyz="-116.13 11.29 44.36" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="leaves2.spm" skeletal-animation="false">
   </object>
-  <object id="Mesh.007" type="animation" xyz="-118.67 12.10 41.29" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="leaves3.b3d" skeletal-animation="false">
+  <object id="Mesh.007" type="animation" xyz="-118.67 12.10 41.29" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="leaves3.spm" skeletal-animation="false">
   </object>
-  <object id="Mesh.008" type="animation" xyz="-123.49 10.88 36.62" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="leaves4.b3d" skeletal-animation="false">
+  <object id="Mesh.008" type="animation" xyz="-123.49 10.88 36.62" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="leaves4.spm" skeletal-animation="false">
   </object>
-  <object id="Mesh.009" type="animation" xyz="-120.97 9.80 36.63" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="leaves5.b3d" skeletal-animation="false">
+  <object id="Mesh.009" type="animation" xyz="-120.97 9.80 36.63" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="leaves5.spm" skeletal-animation="false">
   </object>
-  <object id="Mesh.010" type="animation" xyz="-119.31 11.11 35.63" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="leaves6.b3d" skeletal-animation="false">
+  <object id="Mesh.010" type="animation" xyz="-119.31 11.11 35.63" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="leaves6.spm" skeletal-animation="false">
   </object>
-  <object id="Mesh.012" type="animation" xyz="-117.36 11.15 34.85" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="leaves7.b3d" skeletal-animation="false">
+  <object id="Mesh.012" type="animation" xyz="-117.36 11.15 34.85" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="leaves7.spm" skeletal-animation="false">
   </object>
-  <object id="Mesh.013" type="animation" xyz="-115.72 1.25 48.27" hpr="-90.0 -55.3 -0.0" scale="0.84 0.84 0.84" interaction="ghost" model="lamps.b3d" skeletal-animation="false">
+  <object id="Mesh.013" type="animation" xyz="-115.72 1.25 48.27" hpr="-90.0 -55.3 -0.0" scale="0.84 0.84 0.84" interaction="ghost" model="lamps.spm" skeletal-animation="false">
   </object>
-  <object id="Mesh.015" type="animation" xyz="-115.87 9.81 31.42" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="leaves8.b3d" skeletal-animation="false">
+  <object id="Mesh.015" type="animation" xyz="-115.87 9.81 31.42" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="leaves8.spm" skeletal-animation="false">
   </object>
-  <object id="Mesh.016" type="animation" xyz="-114.30 10.24 40.23" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="leaves10.b3d" skeletal-animation="false">
+  <object id="Mesh.016" type="animation" xyz="-114.30 10.24 40.23" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="leaves10.spm" skeletal-animation="false">
   </object>
-  <object id="Mesh.018" type="animation" xyz="-113.94 10.57 36.54" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="leaves12.b3d" skeletal-animation="false">
+  <object id="Mesh.018" type="animation" xyz="-113.94 10.57 36.54" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="leaves12.spm" skeletal-animation="false">
   </object>
-  <object id="Mesh.021" type="animation" xyz="-114.38 6.63 37.45" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="leaves13.b3d" skeletal-animation="false">
+  <object id="Mesh.021" type="animation" xyz="-114.38 6.63 37.45" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="leaves13.spm" skeletal-animation="false">
   </object>
-  <object id="Mesh.022" type="animation" xyz="-112.40 7.76 33.96" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="leaves14.b3d" skeletal-animation="false">
+  <object id="Mesh.022" type="animation" xyz="-112.40 7.76 33.96" hpr="-90.0 -97.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="leaves14.spm" skeletal-animation="false">
   </object>
-  <object id="Mesh.031" type="animation" xyz="-27.53 6.13 -30.80" hpr="-90.0 -65.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="terrain.b3d" skeletal-animation="false">
+  <object id="Mesh.031" type="animation" xyz="-27.53 6.13 -30.80" hpr="-90.0 -65.9 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="terrain.spm" skeletal-animation="false">
   </object>
-  <object id="Mesh.156" type="animation" xyz="-102.80 6.92 36.30" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="pagoda.b3d" skeletal-animation="false">
+  <object id="Mesh.156" type="animation" xyz="-102.80 6.92 36.30" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="pagoda.spm" skeletal-animation="false">
   </object>
-  <object id="Nolok" type="animation" xyz="-93.38 0.89 26.45" hpr="-5.1 37.4 26.8" scale="1.00 1.00 1.00" interaction="ghost" model="Nolok_intro.b3d" skeletal-animation="true">
+  <object id="Nolok" type="animation" xyz="-88.40 0.48 40.26" hpr="-14.9 19.8 -7.2" scale="1.00 1.00 1.00" interaction="ghost" model="Nolok_intro.spm" skeletal-animation="true">
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="0.943 -93.382" h1="-124.459 -93.382" h2="126.345 -93.382"/>
       <p c="322.148 -93.382" h1="277.953 -93.382" h2="330.988 -93.382"/>
@@ -771,7 +765,7 @@
       <p c="1319.725 1.000" h1="804.857 1.000" h2="1834.592 1.000"/>
     </curve>
   </object>
-  <object id="NolokShip" type="animation" xyz="-220.12 11.81 62.46" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00" interaction="static" shape="box" model="Ship.b3d" skeletal-animation="false">
+  <object id="NolokShip" type="animation" xyz="-167.70 18.16 50.52" hpr="-0.0 89.4 0.0" scale="1.00 1.00 1.00" interaction="static" shape="box" model="Ship.spm" skeletal-animation="false">
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="0.943 -220.125" h1="-325.369 -220.125" h2="327.256 -220.125"/>
       <p c="836.759 -165.445" h1="734.251 -220.125" h2="857.261 -154.509"/>
@@ -1010,7 +1004,7 @@
       <p c="1273.668 1.000" h1="1261.787 1.000" h2="1285.548 1.000"/>
     </curve>
   </object>
-  <object id="NolokShipMouth" type="animation" xyz="-222.10 10.92 62.46" hpr="90.0 -90.0 0.0" scale="1.00 1.00 1.00" interaction="static" shape="box" model="ShipMouth.b3d" skeletal-animation="false">
+  <object id="NolokShipMouth" type="animation" xyz="-165.73 17.27 50.55" hpr="88.4 89.4 0.0" scale="1.00 1.00 1.00" interaction="static" shape="box" model="ShipMouth.spm" skeletal-animation="false">
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="0.943 -222.100" h1="-325.369 -222.100" h2="327.256 -222.100"/>
       <p c="836.759 -167.420" h1="734.251 -222.100" h2="857.261 -156.484"/>
@@ -1285,7 +1279,7 @@
       <p c="1273.668 1.000" h1="1261.787 1.000" h2="1285.548 1.000"/>
     </curve>
   </object>
-  <object id="Plane" type="animation" xyz="-94.03 0.13 26.05" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="NolokShadow.b3d" skeletal-animation="false">
+  <object id="Plane" type="animation" xyz="-88.41 0.15 40.17" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="NolokShadow.spm" skeletal-animation="false">
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="435.832 -94.032" h1="421.837 -94.032" h2="449.827 -94.032"/>
       <p c="471.679 -94.854" h1="457.684 -94.605" h2="481.992 -95.038"/>
@@ -1353,12 +1347,12 @@
       <p c="599.976 -0.000" h1="586.718 -0.000" h2="613.235 -0.000"/>
     </curve>
   </object>
-  <object id="Tree.003" type="animation" xyz="-93.38 0.35 27.60" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="tree.b3d" skeletal-animation="false">
+  <object id="Tree.003" type="animation" xyz="-93.38 0.35 27.60" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="tree.spm" skeletal-animation="false">
   </object>
   <sun  xyz="-88.72 40.62 -29.66" ambient="105 105 105"/>
   <sky-box texture="genericskybox_top.jpg genericskybox_bottom.jpg genericskybox_east.jpg genericskybox_west.jpg genericskybox_south.jpg genericskybox_north.jpg" />
   <camera far="1000.0"/>
-  <particle-emitter kind="smoke.xml" id="Empty.006" xyz="-224.10 11.80 65.20" h="0.00">
+  <particle-emitter kind="smoke.xml" id="Empty.006" xyz="-162.10 18.03 47.83" h="82.51" >
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="0.943 -224.104" h1="-213.406 -224.104" h2="215.293 -224.104"/>
       <p c="549.978 -213.539" h1="335.629 -224.104" h2="619.955 -210.091"/>
@@ -1639,7 +1633,7 @@
       <p c="1272.023 1.000" h1="1268.812 1.000" h2="1275.234 1.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="smoke.xml" id="Empty.008" xyz="-224.28 11.80 59.75" h="0.00">
+  <particle-emitter kind="smoke.xml" id="Empty.008" xyz="-162.19 18.06 53.26" h="82.51" >
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="0.943 -224.282" h1="-213.406 -224.282" h2="215.293 -224.282"/>
       <p c="549.978 -213.385" h1="335.629 -224.282" h2="619.955 -209.828"/>
@@ -1924,7 +1918,7 @@
   </object>
   <object type="sfx-emitter" id="Empty.002" sound="appear.ogg" rolloff="0.001" volume="1.0" max_dist="500.0" xyz="-93.03 2.42 29.84" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 335">
   </object>
-  <object type="sfx-emitter" id="Empty.003" sound="spaceship.ogg" rolloff="0.050" volume="1.0" max_dist="85.0" xyz="-301.50 4.71 46.16" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  <object type="sfx-emitter" id="Empty.003" sound="spaceship.ogg" rolloff="0.050" volume="1.0" max_dist="85.0" xyz="-164.19 13.85 44.94" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="0.943 -301.503" h1="-275.649 -301.503" h2="277.535 -301.503"/>
       <p c="709.406 -197.453" h1="525.257 -227.789" h2="746.236 -191.385"/>
@@ -2011,7 +2005,7 @@
   </object>
   <object type="sfx-emitter" id="Empty.005" sound="button.ogg" rolloff="0.001" volume="1.0" max_dist="500.0" xyz="-88.17 1.04 41.20" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 760">
   </object>
-  <object type="sfx-emitter" id="Empty.007" sound="spaceship_engine.ogg" rolloff="0.100" volume="0.6499999761581421" max_dist="500.0" xyz="-132.63 3.94 57.80" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 865">
+  <object type="sfx-emitter" id="Empty.007" sound="spaceship_engine.ogg" rolloff="0.100" volume="0.6499999761581421" max_dist="500.0" xyz="-99.37 8.38 55.12" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 865">
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="874.494 -132.635" h1="868.083 -132.635" h2="880.905 -132.635"/>
       <p c="890.914 -113.914" h1="884.504 -119.597" h2="899.890 -105.959"/>
@@ -2058,7 +2052,7 @@
       <p c="913.903 1.000" h1="904.928 1.000" h2="922.878 1.000"/>
     </curve>
   </object>
-  <object type="sfx-emitter" id="Empty.009" sound="spaceship_engine_short.ogg" rolloff="0.100" volume="0.6499999761581421" max_dist="500.0" xyz="-132.63 3.94 57.80" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 1230">
+  <object type="sfx-emitter" id="Empty.009" sound="spaceship_engine_short.ogg" rolloff="0.100" volume="0.6499999761581421" max_dist="500.0" xyz="-165.28 10.45 55.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 1230">
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="874.494 -132.635" h1="868.083 -132.635" h2="880.905 -132.635"/>
       <p c="890.914 -113.914" h1="884.504 -119.597" h2="899.890 -105.959"/>
@@ -2132,7 +2126,7 @@
       <p c="1272.023 1.000" h1="1263.032 1.000" h2="1281.013 1.000"/>
     </curve>
   </object>
-  <object type="sfx-emitter" id="Empty.010" sound="machine_sound.ogg" rolloff="0.100" volume="0.6499999761581421" max_dist="500.0" xyz="-132.63 3.94 57.80" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 970">
+  <object type="sfx-emitter" id="Empty.010" sound="machine_sound.ogg" rolloff="0.100" volume="0.6499999761581421" max_dist="500.0" xyz="-99.37 8.38 55.12" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 970">
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="874.494 -132.635" h1="868.083 -132.635" h2="880.905 -132.635"/>
       <p c="890.914 -113.914" h1="884.504 -119.597" h2="899.890 -105.959"/>
@@ -2179,7 +2173,7 @@
       <p c="913.903 1.000" h1="904.928 1.000" h2="922.878 1.000"/>
     </curve>
   </object>
-  <object type="sfx-emitter" id="Empty.011" sound="machine_sound.ogg" rolloff="0.010" volume="1.0" max_dist="500.0" xyz="-132.63 3.94 57.80" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 1140">
+  <object type="sfx-emitter" id="Empty.011" sound="machine_sound.ogg" rolloff="0.010" volume="1.0" max_dist="500.0" xyz="-99.37 8.38 55.12" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 1140">
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="874.494 -132.635" h1="868.083 -132.635" h2="880.905 -132.635"/>
       <p c="890.914 -113.914" h1="884.504 -119.597" h2="899.890 -105.959"/>
@@ -2226,7 +2220,7 @@
       <p c="913.903 1.000" h1="904.928 1.000" h2="922.878 1.000"/>
     </curve>
   </object>
-  <object type="sfx-emitter" id="Empty.012" sound="machine_sound.ogg" rolloff="0.010" volume="1.0" max_dist="500.0" xyz="-132.63 3.94 57.80" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 1055">
+  <object type="sfx-emitter" id="Empty.012" sound="machine_sound.ogg" rolloff="0.010" volume="1.0" max_dist="500.0" xyz="-99.37 8.38 55.12" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" conditions="frame 1055">
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="874.494 -132.635" h1="868.083 -132.635" h2="880.905 -132.635"/>
       <p c="890.914 -113.914" h1="884.504 -119.597" h2="899.890 -105.959"/>
