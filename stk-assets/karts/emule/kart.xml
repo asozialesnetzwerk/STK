@@ -21,13 +21,13 @@
               start-losing-loop = "439"
               end-losing = "479"/>
   <wheels>
-    <front-left position = "-0.314000 0.146322 0.520000"
+    <front-left position = "-0.313568 0.146248 0.522587"
                  model    = "wheel-front-left.spm"       />
-    <front-right position = "0.314000 0.146322 0.520000"
+    <front-right position = "0.313654 0.146248 0.522587"
                  model    = "wheel-front-right.spm"       />
     <rear-left position = "-0.328000 0.146322 -0.375000"
                  model    = "wheel-rear-left.spm"       />
-    <rear-right position = "0.327887 0.146322 -0.375000"
+    <rear-right position = "0.333219 0.146248 -0.374675"
                  model    = "wheel-rear-right.spm"       />
   </wheels>
   <nitro-emitter>
@@ -35,7 +35,7 @@
     <nitro-emitter-b position = "-0.250476 0.362264 -0.586941" />
   </nitro-emitter>
   <headlights>
-    <object position="0.000000 0.064116 -0.589548" model="Circle.spm"/>
+    <object position="0.000000 0.064116 -0.589548" model="headlight_cone.spm"/>
   </headlights>
   <hat offset="0.0 0.205 0.075"/>
 </kart>
