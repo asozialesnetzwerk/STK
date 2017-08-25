@@ -1,24 +1,25 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16852 -->
+<!-- Generated with script from SVN rev 17016 -->
 <scene>
   <lod>
    <group name="aliens">
-    <static-object lod_distance="60" lod_group="aliens" model="aliens_hi.b3d" xyz="-48.21 7.16 98.45" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
-    <static-object lod_distance="200" lod_group="aliens" model="aliens_lo.b3d" xyz="-43.74 6.51 96.24" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="60" lod_group="aliens" model="aliens_hi.spm" xyz="-48.21 7.16 98.45" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="200" lod_group="aliens" model="aliens_lo.spm" xyz="-43.74 6.51 96.24" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
    </group>
    <group name="robot1">
-    <static-object lod_distance="40" lod_group="robot1" model="robot_high.b3d" xyz="32.59 -3.73 -203.25" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
-    <static-object lod_distance="200" lod_group="robot1" model="robot1_low.b3d" xyz="44.10 -3.73 -201.25" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="40" lod_group="robot1" model="robot_high.spm" xyz="32.59 -3.73 -203.25" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="200" lod_group="robot1" model="robot1_low.spm" xyz="44.10 -3.73 -201.25" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
    </group>
   </lod>
-  <track model="xr591_track.b3d" x="0" y="0" z="0">
-    <static-object  model="tube 2.b3d" xyz="-18.83 13.31 38.01" hpr="-0.0 -0.0 5.0" scale="1.00 1.00 1.00"/>
-    <static-object  model="tube 1.b3d" xyz="48.17 19.80 12.34" hpr="-0.0 180.0 -5.0" scale="1.00 1.00 1.00"/>
-    <static-object  model="lightBeam.b3d" xyz="146.34 -30.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+  <track model="xr591_track.spm" x="0" y="0" z="0">
+    <static-object  model="water2.spm" xyz="9.52 -15.80 105.18" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="tube 2.spm" xyz="-18.83 13.31 38.01" hpr="-0.0 -0.0 5.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="tube 1.spm" xyz="48.17 19.80 12.34" hpr="-0.0 180.0 -5.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="lightBeam.spm" xyz="146.34 -30.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object  lod_instance="true" lod_group="aliens" xyz="-54.25 10.16 100.87" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object  model="curiosity.b3d" xyz="-94.77 6.81 143.51" hpr="-0.0 -105.0 9.2" scale="3.27 3.27 3.27"/>
-    <static-object  model="curious.b3d" xyz="-94.29 8.90 142.70" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <static-object  model="love.b3d" xyz="-93.47 5.53 159.28" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="curiosity.spm" xyz="-94.77 6.81 143.51" hpr="-0.0 -105.0 9.2" scale="3.27 3.27 3.27"/>
+    <static-object  model="curious.spm" xyz="-94.29 8.90 142.70" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="love.spm" xyz="-93.47 5.53 159.28" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <animated-texture name="arrows.png" dx="-0.500" />
     <animated-texture name="acid_lake.jpg" dx="0.000"  dy="0.5000" />
     <animated-texture name="arc1.png" dx="0.000"  dy="0.1000" />
@@ -27,7 +28,7 @@
     <animated-texture name="arc1.png" dx="2.000" />
     <animated-texture name="arc2.png" dx="-1.700" />
   </track>
-  <object id="Circle.040" type="animation" xyz="239.89 102.36 138.50" hpr="-25.0 60.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="sky_beam_2.b3d" skeletal-animation="false">
+  <object id="Circle.040" type="animation" xyz="239.89 102.36 138.50" hpr="-25.0 60.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="sky_beam_2.spm" skeletal-animation="false">
     <curve channel="RotX" interpolation="bezier" extend="cyclic">
       <p c="1.000 -25.000" h1="-37.651 -25.000" h2="39.651 -25.000"/>
       <p c="100.000 -25.000" h1="61.349 -25.000" h2="139.041 -25.000"/>
@@ -44,7 +45,7 @@
       <p c="200.000 420.000" h1="160.959 349.726" h2="239.041 490.274"/>
     </curve>
   </object>
-  <object id="Circle.043" type="animation" xyz="239.89 102.36 -138.50" hpr="-25.0 120.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="sky_beam_3.b3d" skeletal-animation="false">
+  <object id="Circle.043" type="animation" xyz="239.89 102.36 -138.50" hpr="-25.0 120.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="sky_beam_3.spm" skeletal-animation="false">
     <curve channel="RotX" interpolation="bezier" extend="cyclic">
       <p c="1.000 -25.000" h1="-37.651 -25.000" h2="39.651 -25.000"/>
       <p c="100.000 -25.000" h1="61.349 -25.000" h2="139.041 -25.000"/>
@@ -61,7 +62,7 @@
       <p c="200.000 480.000" h1="160.959 409.726" h2="239.041 550.274"/>
     </curve>
   </object>
-  <object id="Circle.044" type="animation" xyz="-0.00 102.36 -277.00" hpr="-25.0 -180.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="sky_beam_4.b3d" skeletal-animation="false">
+  <object id="Circle.044" type="animation" xyz="-0.00 102.36 -277.00" hpr="-25.0 -180.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="sky_beam_4.spm" skeletal-animation="false">
     <curve channel="RotX" interpolation="bezier" extend="cyclic">
       <p c="1.000 -25.000" h1="-37.651 -25.000" h2="39.651 -25.000"/>
       <p c="100.000 -25.000" h1="61.349 -25.000" h2="139.041 -25.000"/>
@@ -78,7 +79,7 @@
       <p c="200.000 540.000" h1="160.959 469.726" h2="239.041 610.274"/>
     </curve>
   </object>
-  <object id="Circle.045" type="animation" xyz="-239.89 102.36 -138.50" hpr="-25.0 -120.0 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="sky_beam_5.b3d" skeletal-animation="false">
+  <object id="Circle.045" type="animation" xyz="-239.89 102.36 -138.50" hpr="-25.0 -120.0 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="sky_beam_5.spm" skeletal-animation="false">
     <curve channel="RotX" interpolation="bezier" extend="cyclic">
       <p c="1.000 -25.000" h1="-37.651 -25.000" h2="39.651 -25.000"/>
       <p c="100.000 -25.000" h1="61.349 -25.000" h2="139.041 -25.000"/>
@@ -95,7 +96,7 @@
       <p c="200.000 600.000" h1="160.959 529.726" h2="239.041 670.274"/>
     </curve>
   </object>
-  <object id="Circle.046" type="animation" xyz="-0.00 102.36 277.00" hpr="-25.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="sky_beam_1.b3d" skeletal-animation="false">
+  <object id="Circle.046" type="animation" xyz="-0.00 102.36 277.00" hpr="-25.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="sky_beam_1.spm" skeletal-animation="false">
     <curve channel="RotX" interpolation="bezier" extend="cyclic">
       <p c="1.000 -25.000" h1="-37.651 -25.000" h2="39.651 -25.000"/>
       <p c="100.000 -25.000" h1="61.349 -25.000" h2="139.041 -25.000"/>
@@ -112,7 +113,7 @@
       <p c="200.000 360.000" h1="160.959 289.726" h2="239.041 430.274"/>
     </curve>
   </object>
-  <object id="Circle.047" type="animation" xyz="-239.89 102.36 138.50" hpr="-25.0 -60.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="sky_beam_0.b3d" skeletal-animation="false">
+  <object id="Circle.047" type="animation" xyz="-239.89 102.36 138.50" hpr="-25.0 -60.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="sky_beam_0.spm" skeletal-animation="false">
     <curve channel="RotX" interpolation="bezier" extend="cyclic">
       <p c="1.000 -25.000" h1="-37.651 -25.000" h2="39.651 -25.000"/>
       <p c="100.000 -25.000" h1="61.349 -25.000" h2="139.041 -25.000"/>
@@ -129,22 +130,22 @@
       <p c="200.000 660.000" h1="160.959 589.726" h2="239.041 730.274"/>
     </curve>
   </object>
-  <object id="Circle.055" type="animation" xyz="-57.13 26.01 9.65" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="sign_correct_direction.b3d" skeletal-animation="false">
+  <object id="Circle.055" type="animation" xyz="-57.13 26.01 9.65" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="sign_correct_direction.spm" skeletal-animation="false">
     <animated-texture name="arrows.png" dx="-0.500" />
   </object>
-  <object id="Circle.056" type="animation" xyz="-57.13 26.01 9.65" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="sign_correct_direction2.b3d" skeletal-animation="false" if="isNotReverse">
+  <object id="Circle.056" type="animation" xyz="-57.13 26.01 9.65" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="sign_correct_direction2.spm" skeletal-animation="false" if="isNotReverse">
     <animated-texture name="arrows.png" dx="-0.500" />
   </object>
-  <object id="Plane.007" type="animation" xyz="-61.01 -6.67 -42.92" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="green_water_dist.b3d" displacing="true" skeletal-animation="false">
+  <object id="Plane.007" type="animation" xyz="-61.01 -6.67 -42.92" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="green_water_dist.spm" displacing="true" skeletal-animation="false">
   </object>
-  <object id="Sphere.012" type="animation" xyz="-60.00 -13.14 -35.13" hpr="-90.0 0.0 20.0" scale="1.18 1.18 1.18" interaction="ghost" model="monster2.b3d" skeletal-animation="false">
+  <object id="Sphere.012" type="animation" xyz="-60.00 -13.14 -35.13" hpr="-90.0 0.0 20.0" scale="1.18 1.18 1.18" interaction="ghost" model="monster2.spm" skeletal-animation="false">
     <curve channel="RotZ" interpolation="bezier" extend="cyclic">
       <p c="1.000 20.000" h1="-18.067 35.565" h2="20.067 4.435"/>
       <p c="50.000 -20.000" h1="30.870 -20.000" h2="69.521 -20.000"/>
       <p c="100.000 20.000" h1="80.542 4.433" h2="119.458 35.567"/>
     </curve>
   </object>
-  <object id="Sphere.020" type="animation" xyz="37.43 -16.93 137.83" hpr="-95.1 -0.1 -18.7" scale="1.00 1.00 1.00" interaction="ghost" model="monster1.b3d" skeletal-animation="false">
+  <object id="Sphere.020" type="animation" xyz="37.43 -16.93 137.83" hpr="-95.1 -0.1 -18.7" scale="1.00 1.00 1.00" interaction="ghost" model="monster1.spm" skeletal-animation="false">
     <curve channel="RotX" interpolation="bezier" extend="cyclic">
       <p c="1.000 -95.079" h1="-18.125 -99.729" h2="20.125 -90.430"/>
       <p c="50.000 -83.167" h1="30.870 -83.167" h2="69.521 -83.167"/>
@@ -172,8 +173,6 @@
     <check-line kind="activate" other-ids="0" p1="-82.02 -82.28" p2="-65.76 -77.93"
                 min-height="-7.09" same-group="2"/>
   </checks>
-  <water model="water2.b3d" xyz="9.52 -15.80 105.18" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="0.20"/>
-  <water model="water2.b3d" xyz="-45.52 -10.94 -77.94" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="0.20"/>
   <banana id="Empty" x="2.36" y="-1.03" z="-41.11" />
   <banana id="Empty.001" x="20.28" y="-3.91" z="-98.27" />
   <banana id="Empty.002" x="-39.94" y="-6.98" z="-35.24" />
@@ -251,9 +250,9 @@
   </light>
   <light xyz="-18.54 -10.95 94.83" id="Lamp.009" distance="25.00" energy="1.50" color="0 115 255">
   </light>
-  <light xyz="-2.18 8.69 0.14" id="Lamp.010" distance="25.00" energy="2.00" color="0 150 255">
+  <light xyz="-2.80 8.69 -18.77" id="Lamp.010" distance="25.00" energy="2.00" color="0 150 255">
   </light>
-  <light xyz="2.42 8.73 0.52" id="Lamp.011" distance="25.00" energy="2.00" color="0 150 255">
+  <light xyz="1.82 8.73 -18.98" id="Lamp.011" distance="25.00" energy="2.00" color="0 150 255">
   </light>
   <lightshaft xyz="867.35 86.67 21.85" id="Sun.001" opacity="0.50" color="255 95 52"/>
   <default-start karts-per-row     ="2"
