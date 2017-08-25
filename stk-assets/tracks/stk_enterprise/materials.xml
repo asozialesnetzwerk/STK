@@ -15,7 +15,6 @@
   <material name="lightLenFlareR.png" disable-z-write="Y" shader="alphablend"/>
   <material name="moonHalo.png" disable-z-write="Y" shader="alphablend"/>
   <material name="reset.png" disable-z-write="Y" falling-effect="Y" reset="Y"/>
-  <material name="spaceship_startline.png" ignore="Y" disable-z-write="Y"/>
   <material name="supp1k.png" reset="Y" mirror-axis="U"/>
   <material name="terminal_graphic.png" disable-z-write="Y"/>
   <material name="terminal_text.png" disable-z-write="Y"/>
