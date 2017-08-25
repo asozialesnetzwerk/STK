@@ -18,9 +18,9 @@
   <material name="mine_road.png">
     <particles base="smoke.xml" condition="skid"/>
   </material>
-  <material name="mine_water_reset.png" disable-z-write="Y" reset="Y" shader="alphablend"/>
+  <material name="mine_water_reset.png" disable-z-write="Y" shader="alphablend"/>
   <material name="plants.png" grass-speed="1.50" shader="grass"/>
-  <material name="transparence.png" collision-detect="Y" falling-effect="Y" shader="alphatest" water-splash="Y" collision-reaction="reset"/>
+  <material name="transparence.png" falling-effect="Y" reset="Y" shader="alphatest"/>
   <material name="wood_beam.png">
     <sfx filename="wooden_bridge.ogg" rolloff="0.60" min_speed="9.00" max_speed="22.00" min_pitch="1.00" max_pitch="1.70" positional="yes" volume="1.00"/>
   </material>
