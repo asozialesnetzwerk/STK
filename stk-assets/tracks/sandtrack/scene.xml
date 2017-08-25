@@ -1,33 +1,33 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16538 -->
+<!-- Generated with script from SVN rev 17016 -->
 <scene>
-  <track model="sandtrack_track.b3d" x="0" y="0" z="0">
-    <static-object  model="sand-clouds.b3d" xyz="-60.82 -129.98 280.19" hpr="-90.0 131.4 -0.0" scale="0.50 0.50 0.50">
+  <track model="sandtrack_track.spm" x="0" y="0" z="0">
+    <static-object  model="sand-clouds.spm" xyz="-60.82 -129.98 280.19" hpr="-90.0 131.4 -0.0" scale="0.50 0.50 0.50">
     <animated-texture name="gfx_sandAnimated_a.png" dx="0.002"  dy="0.0625"  animByStep="true" dt="0.050" />
     </static-object>
-    <static-object  model="sand-clouds.b3d" xyz="-231.17 -116.08 610.27" hpr="-89.0 131.9 5.7" scale="0.50 0.50 0.50">
+    <static-object  model="sand-clouds.spm" xyz="-231.17 -116.08 610.27" hpr="-89.0 131.9 5.7" scale="0.50 0.50 0.50">
     <animated-texture name="gfx_sandAnimated_a.png" dx="0.002"  dy="0.0625"  animByStep="true" dt="0.050" />
     </static-object>
-    <static-object  model="sand-clouds.b3d" xyz="-290.74 -128.69 146.31" hpr="-90.0 64.8 0.0" scale="0.50 0.50 0.50">
+    <static-object  model="sand-clouds.spm" xyz="-290.74 -128.69 146.31" hpr="-90.0 64.8 0.0" scale="0.50 0.50 0.50">
     <animated-texture name="gfx_sandAnimated_a.png" dx="0.002"  dy="0.0625"  animByStep="true" dt="0.050" />
     </static-object>
-    <static-object  model="sand-clouds.b3d" xyz="-507.99 -115.25 105.03" hpr="-90.0 64.8 0.0" scale="0.96 0.96 0.96">
+    <static-object  model="sand-clouds.spm" xyz="-507.99 -115.25 105.03" hpr="-90.0 64.8 0.0" scale="0.96 0.96 0.96">
     <animated-texture name="gfx_sandAnimated_a.png" dx="0.002"  dy="0.0625"  animByStep="true" dt="0.050" />
     </static-object>
-    <static-object  model="sand-clouds.b3d" xyz="206.70 -116.03 278.43" hpr="-90.0 177.1 -0.0" scale="0.96 0.96 0.96">
+    <static-object  model="sand-clouds.spm" xyz="206.70 -116.03 278.43" hpr="-90.0 177.1 -0.0" scale="0.96 0.96 0.96">
     <animated-texture name="gfx_sandAnimated_a.png" dx="0.002"  dy="0.0625"  animByStep="true" dt="0.050" />
     </static-object>
-    <static-object  model="sand-clouds.b3d" xyz="40.63 -121.20 319.69" hpr="-90.0 144.0 -0.0" scale="0.50 0.50 0.50">
+    <static-object  model="sand-clouds.spm" xyz="40.63 -121.20 319.69" hpr="-90.0 144.0 -0.0" scale="0.50 0.50 0.50">
     <animated-texture name="gfx_sandAnimated_a.png" dx="0.002"  dy="0.0625"  animByStep="true" dt="0.050" />
     </static-object>
-    <static-object  model="sand-clouds.b3d" xyz="-147.27 -121.21 396.79" hpr="-90.0 110.9 -0.0" scale="0.50 0.50 0.50">
+    <static-object  model="sand-clouds.spm" xyz="-147.27 -121.21 396.79" hpr="-90.0 110.9 -0.0" scale="0.50 0.50 0.50">
     <animated-texture name="gfx_sandAnimated_a.png" dx="0.002"  dy="0.0625"  animByStep="true" dt="0.050" />
     </static-object>
     <animated-texture name="water_light.png" dx="0.020" />
     <animated-texture name="water_light.png" dx="0.075" />
     <animated-texture name="water_light.png" dx="0.020" />
   </track>
-  <object id="water" type="animation" xyz="-23.55 -148.93 128.67" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="oasis-water-distord.b3d" displacing="true" skeletal-animation="false">
+  <object id="water" type="animation" xyz="-23.55 -148.93 128.67" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="oasis-water-distord.spm" displacing="true" skeletal-animation="false">
     <animated-texture name="oasis-water.png" dx="0.050" />
   </object>
   <sun  fog="true" fog-color="82 45 18" fog-max="0.20000000298023224" fog-start="15.00" fog-end="500.00" xyz="-108.94 186.06 528.91" sun-diffuse="255 208 70" ambient="255 208 70"/>
@@ -242,7 +242,7 @@
   </library>
   <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.014" xyz="-74.47 -136.24 -61.56" hpr="0.0 -0.2 -11.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy" xyz="9.81 -142.64 110.47" hpr="0.0 154.5 0.0" scale="0.77 0.77 0.77">
+  <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy" xyz="9.81 -142.64 110.47" hpr="-0.0 154.5 -0.0" scale="0.77 0.77 0.77">
   </library>
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.001" xyz="-11.10 -142.77 102.79" hpr="0.0 -0.0 0.0" scale="1.10 1.10 1.10">
   </library>
