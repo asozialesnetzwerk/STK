@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15937 -->
+<!-- Generated with script from SVN rev 17016 -->
 <track  name           = "Hacienda"
-        version        = "6"
+        version        = "7"
         groups         = "standard"
         designer       = "Jean-Manuel Cl&#233;men&#231;on"
         music          = "hacienda.music"
@@ -9,9 +9,8 @@
         smooth-normals = "true"
         default-number-of-laps = "3"
         reverse        = "Y"
-        bloom          = "Y"
-        bloom-threshold = "0.75"
         clouds         = "N"
+        is-during-day  = "Y"
         shadows        = "Y"
 >
 </track>
