@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16649 -->
+<!-- Generated with script from SVN rev 17016 -->
 <scene>
   <lod>
    <group name="pine_tree_lod">
-    <static-object lod_distance="70" lod_group="pine_tree_lod" model="pine_tree_lod_hight.b3d" xyz="-173.14 -66.23 -85.57" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38" interaction="static" skeletal-animation="false"/>
-    <static-object lod_distance="150" lod_group="pine_tree_lod" model="pine_tree_lod_medium.b3d" xyz="-150.27 -66.23 -85.57" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38" interaction="static" skeletal-animation="false"/>
-    <static-object lod_distance="300" lod_group="pine_tree_lod" model="pine_tree_lod_low.b3d" xyz="-134.14 -66.23 -85.57" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="70" lod_group="pine_tree_lod" model="pine_tree_lod_hight.spm" xyz="-173.14 -66.23 -85.57" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="150" lod_group="pine_tree_lod" model="pine_tree_lod_medium.spm" xyz="-150.27 -66.23 -85.57" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="300" lod_group="pine_tree_lod" model="pine_tree_lod_low.spm" xyz="-134.14 -66.23 -85.57" hpr="0.0 -0.0 0.0" scale="2.38 2.38 2.38" interaction="static" skeletal-animation="false"/>
    </group>
   </lod>
-  <track model="minigolf_track.b3d" x="0" y="0" z="0">
+  <track model="minigolf_track.spm" x="0" y="0" z="0">
     <static-object  lod_instance="true" lod_group="pine_tree_lod" xyz="78.01 6.26 -31.09" hpr="0.0 -75.4 0.0" scale="2.51 2.51 2.51"/>
     <static-object  lod_instance="true" lod_group="pine_tree_lod" xyz="-62.59 13.56 -49.50" hpr="-9.1 146.6 -5.7" scale="2.67 2.67 2.67"/>
     <static-object  lod_instance="true" lod_group="pine_tree_lod" xyz="-87.60 12.57 -44.69" hpr="-4.3 -160.4 -5.1" scale="1.71 1.71 1.71"/>
@@ -31,7 +31,7 @@
     <static-object  lod_instance="true" lod_group="pine_tree_lod" xyz="97.66 5.12 101.31" hpr="8.1 42.5 2.3" scale="1.42 2.15 1.43"/>
     <static-object  lod_instance="true" lod_group="pine_tree_lod" xyz="57.68 8.62 104.11" hpr="5.0 -41.4 2.2" scale="1.80 2.72 1.80"/>
   </track>
-  <object id="cannon_ball" type="animation" xyz="-16.34 -5.55 66.60" hpr="-41.1 108.8 117.8" scale="1.00 1.00 1.00" interaction="explode" shape="sphere" model="Golfball_cannon.b3d" explode="y" tangents="true" skeletal-animation="false">
+  <object id="cannon_ball" type="animation" xyz="-16.34 -5.55 66.60" hpr="-41.1 108.8 117.8" scale="1.00 1.00 1.00" interaction="explode" shape="sphere" model="Golfball_cannon.spm" explode="y" tangents="true" skeletal-animation="false">
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
       <p c="1.000 -16.337" h1="-0.171 -16.337" h2="2.171 -16.337"/>
       <p c="4.000 -16.337" h1="2.829 -16.337" h2="5.171 -16.337"/>
@@ -93,7 +93,7 @@
       <p c="73.000 85.956" h1="48.802 85.956" h2="97.198 85.956"/>
     </curve>
   </object>
-  <object id="Cube.006" type="animation" xyz="101.51 19.81 -11.43" hpr="0.0 -0.0 0.0" scale="0.92 0.92 0.92" interaction="ghost" model="windmill_arm1.b3d" skeletal-animation="false">
+  <object id="Cube.006" type="animation" xyz="101.51 19.81 -11.43" hpr="0.0 -0.0 0.0" scale="0.92 0.92 0.92" interaction="ghost" model="windmill_arm1.spm" skeletal-animation="false">
     <curve channel="RotX" interpolation="linear" extend="cyclic">
       <p c="1.000 -0.000"/>
       <p c="50.000 -0.000"/>
@@ -117,36 +117,36 @@
     </curve>
   </object>
   <object type="movable" id="Icosphere.001" xyz="75.90 1.57 -52.99" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
-          shape="sphere" mass="15.0" model="Golfball.b3d" tangents="true" skeletal-animation="false"/>
+          shape="sphere" mass="15.0" model="Golfball.spm" tangents="true" skeletal-animation="false"/>
   <object type="movable" id="Icosphere.002" xyz="77.97 1.57 -51.38" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
-          shape="sphere" mass="15.0" model="Golfball.b3d" tangents="true" skeletal-animation="false"/>
+          shape="sphere" mass="15.0" model="Golfball.spm" tangents="true" skeletal-animation="false"/>
   <object type="movable" id="Icosphere.003" xyz="79.00 1.57 -54.68" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
-          shape="sphere" mass="15.0" model="Golfball.b3d" tangents="true" skeletal-animation="false"/>
+          shape="sphere" mass="15.0" model="Golfball.spm" tangents="true" skeletal-animation="false"/>
   <object type="movable" id="Icosphere.004" xyz="73.20 1.57 -51.19" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
-          shape="sphere" mass="15.0" model="Golfball.b3d" tangents="true" skeletal-animation="false"/>
+          shape="sphere" mass="15.0" model="Golfball.spm" tangents="true" skeletal-animation="false"/>
   <object type="movable" id="Icosphere.005" xyz="102.95 1.38 -25.08" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
-          shape="sphere" mass="15.0" model="Golfball.b3d" tangents="true" skeletal-animation="false"/>
+          shape="sphere" mass="15.0" model="Golfball.spm" tangents="true" skeletal-animation="false"/>
   <object type="movable" id="Icosphere.006" xyz="-64.40 -8.25 30.72" hpr="0.0 -44.7 0.0" scale="1.00 1.00 1.00"
-          shape="sphere" mass="15.0" model="Golfball.b3d" tangents="true" skeletal-animation="false"/>
+          shape="sphere" mass="15.0" model="Golfball.spm" tangents="true" skeletal-animation="false"/>
   <object type="movable" id="Icosphere.007" xyz="-65.00 -8.32 27.41" hpr="-0.0 -172.1 -0.0" scale="1.00 1.00 1.00"
-          shape="sphere" mass="15.0" model="Golfball.b3d" tangents="true" skeletal-animation="false"/>
+          shape="sphere" mass="15.0" model="Golfball.spm" tangents="true" skeletal-animation="false"/>
   <object type="movable" id="Icosphere.008" xyz="153.00 1.10 -110.00" hpr="0.0 -0.0 0.0" scale="1.16 1.16 1.16"
-          shape="sphere" mass="15.0" model="Golfball.b3d" skeletal-animation="false"/>
-  <object id="Plane.021" type="animation" xyz="14.00 -56.64 -4.42" hpr="0.0 -42.2 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="duck2.b3d" skeletal-animation="false">
+          shape="sphere" mass="15.0" model="Golfball.spm" skeletal-animation="false"/>
+  <object id="Plane.021" type="animation" xyz="14.00 -56.64 -4.42" hpr="0.0 -42.2 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="duck2.spm" skeletal-animation="false">
     <curve channel="LocY" interpolation="bezier" extend="cyclic">
       <p c="1.000 -56.645" h1="-5.242 -56.645" h2="7.242 -56.645"/>
       <p c="17.000 -57.270" h1="10.754 -57.270" h2="36.128 -57.270"/>
       <p c="66.000 -56.659" h1="46.871 -56.659" h2="85.129 -56.659"/>
     </curve>
   </object>
-  <object id="Plane.022" type="animation" xyz="59.86 -56.64 -7.97" hpr="-0.0 -141.4 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="duck3.b3d" skeletal-animation="false">
+  <object id="Plane.022" type="animation" xyz="59.86 -56.64 -7.97" hpr="-0.0 -141.4 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="duck3.spm" skeletal-animation="false">
     <curve channel="LocY" interpolation="bezier" extend="cyclic">
       <p c="1.000 -56.645" h1="-13.053 -56.645" h2="15.053 -56.645"/>
       <p c="37.000 -57.270" h1="22.946 -57.270" h2="44.027 -57.270"/>
       <p c="55.000 -56.659" h1="47.977 -56.659" h2="62.023 -56.659"/>
     </curve>
   </object>
-  <object id="Plane.023" type="animation" xyz="-45.80 -56.64 16.85" hpr="-0.0 -116.1 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="duck.b3d" skeletal-animation="false">
+  <object id="Plane.023" type="animation" xyz="-45.80 -56.64 16.85" hpr="-0.0 -116.1 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="duck.spm" skeletal-animation="false">
     <curve channel="LocY" interpolation="bezier" extend="cyclic">
       <p c="1.000 -56.645" h1="-13.834 -56.645" h2="15.834 -56.645"/>
       <p c="39.000 -57.270" h1="24.165 -57.270" h2="46.027 -57.270"/>
@@ -178,10 +178,10 @@
     <camera type="static_follow_kart" xyz="60.935028 37.335701 -51.578594" distance="40.0"/> <!-- Camera.011 -->
     <camera type="static_follow_kart" xyz="41.571308 10.605044 -13.372969" distance="25.0"/> <!-- Camera.012 -->
   </end-cameras>
-  <water model="vlag.b3d" xyz="43.25 -1.92 -39.84" hpr="-8.7 -20.8 -0.2" scale="1.00 1.00 1.00" height="1.00" speed="500.00" length="5.00"/>
-  <water model="vlag.b3d" xyz="-60.82 -3.53 -73.76" hpr="-8.8 23.6 -0.2" scale="1.00 1.23 1.01" height="1.00" speed="500.00" length="5.00"/>
-  <water model="vlag.b3d" xyz="-135.13 -1.92 57.52" hpr="-9.4 -108.7 0.7" scale="1.00 1.00 1.00" height="1.00" speed="500.00" length="5.00"/>
-  <water model="Water.b3d" xyz="-42.98 -57.32 2.96" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="0.20" speed="200.00" length="2.00">
+  <water model="vlag.spm" xyz="43.25 -1.92 -39.84" hpr="-8.7 -20.8 -0.2" scale="1.00 1.00 1.00" height="1.00" speed="500.00" length="5.00"/>
+  <water model="vlag.spm" xyz="-60.82 -3.53 -73.76" hpr="-8.8 23.6 -0.2" scale="1.00 1.23 1.01" height="1.00" speed="500.00" length="5.00"/>
+  <water model="vlag.spm" xyz="-135.13 -1.92 57.52" hpr="-9.4 -108.7 0.7" scale="1.00 1.00 1.00" height="1.00" speed="500.00" length="5.00"/>
+  <water model="Water.spm" xyz="-42.98 -57.32 2.96" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" height="0.20" speed="200.00" length="2.00">
     <animated-texture name="water.png" dx="0.010"  dy="-0.0050" />
   </water>
   <small-nitro id="Empty" x="-17.75" y="1.20" z="-20.61" />
