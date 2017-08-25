@@ -481,10 +481,7 @@ def writeSPMFile(filename, objects=[]):
             continue
 
         arm = obj.find_armature()
-        if spm_parameters.get("apply-modifiers"):
-            mesh = obj.to_mesh(the_scene, True, 'PREVIEW')
-        else:
-            mesh = obj.data
+        mesh = obj.to_mesh(the_scene, spm_parameters.get("apply-modifiers"), 'PREVIEW')
         if spm_parameters.get("local-space"):
             mesh_matrix = mathutils.Matrix()
         else:
