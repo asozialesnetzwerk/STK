@@ -504,6 +504,8 @@ def writeSPMFile(filename, objects=[]):
             uv_one = False
             uv_two = False
 
+        if uv_one == False:
+            print(obj.name)
         for i, f in enumerate(mesh.tessfaces):
             texture_one = ""
             texture_two = ""
@@ -658,12 +660,14 @@ def writeSPMFile(filename, objects=[]):
 
     # No SPMS so always 1 sector count
     spm_buffer += writeUint16(1)
-    spm_buffer += writeUint16(material_count)
+
+    vbo_ibo = bytearray()
     vertices_dict = {}
     vertices = []
     indices = []
     tex_cmp = all_triangles[0].m_texture_cmp
     material_count = 0
+    mesh_buffer_count = 0
     Vertex.m_cmp_joint = arm_count != 0
 
     for t_idx in range(0, len(all_triangles) + 1):
@@ -671,24 +675,25 @@ def writeSPMFile(filename, objects=[]):
         if t_idx < len(all_triangles) else "NULL"
         if cur_cmp != tex_cmp or len(vertices) > 65532:
             tex_cmp = cur_cmp
-            spm_buffer += writeUint(len(vertices))
-            spm_buffer += writeUint(len(indices))
-            spm_buffer += writeUint16(material_count)
+            vbo_ibo += writeUint(len(vertices))
+            vbo_ibo += writeUint(len(indices))
+            vbo_ibo += writeUint16(material_count)
             #print(len(vertices))
             #print(len(indices))
             assert len(vertices) < 65536
             for vertex in vertices:
-                spm_buffer += vertex.writeVertex(\
+                vbo_ibo += vertex.writeVertex(\
                 all_triangles[t_idx -1].m_texture_one != "",\
                 all_triangles[t_idx -1].m_texture_two != "",\
                 export_vcolor, arm_count != 0)
             for index in indices:
                 if len(vertices) > 255:
-                    spm_buffer += writeUint16(index)
+                    vbo_ibo += writeUint16(index)
                 else:
-                    spm_buffer += writeUint8(index)
+                    vbo_ibo += writeUint8(index)
             if not len(vertices) > 65532:
                 material_count = material_count + 1
+            mesh_buffer_count += 1
             vertices_dict = {}
             vertices = []
             indices = []
@@ -706,6 +711,9 @@ def writeSPMFile(filename, objects=[]):
                 vertices_dict[vertex] = vertex_location
             else:
                 indices.append(vertices_dict[vertex])
+
+    spm_buffer += writeUint16(mesh_buffer_count)
+    spm_buffer += vbo_ibo
 
     if arm_count != 0:
         spm_buffer += writeUint8(len(arm_dict))
