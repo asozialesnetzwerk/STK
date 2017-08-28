@@ -5,6 +5,7 @@
   <material name="carpet.png" backface-culling="N" ignore="Y"/>
   <material name="clouds.png" fog="N" disable-z-write="Y" shader="alphablend"/>
   <material name="dead_tree.png" backface-culling="N" ignore="Y" shader="alphatest"/>
+  <material name="ghost.png" shader="alphablend" disable-z-write="Y"/>
   <material name="halo.png" fog="N" disable-z-write="Y"/>
   <material name="iron-fence.png" backface-culling="N" disable-z-write="Y" shader="alphatest"/>
   <material name="jackolantern.png" fog="N"/>
