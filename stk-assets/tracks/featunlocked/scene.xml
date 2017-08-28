@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 15738 -->
+<!-- Generated with script from SVN rev 17016 -->
 <scene>
-  <track model="featunlocked_track.b3d" x="0" y="0" z="0"/>
+  <track model="featunlocked_track.spm" x="0" y="0" z="0"/>
   <object id="Camera.001" type="cutscene_camera" xyz="-24.93 18.63 -43.60" hpr="-72.0 26.2 -0.0" scale="1.00 1.00 1.00" interaction="static" model="" skeletal-animation="false">
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="1.000 -24.926" h1="-39.603 -24.926" h2="41.603 -24.926"/>
@@ -41,7 +41,7 @@
       <p c="105.000 1.000" h1="64.397 1.000" h2="145.603 1.000"/>
     </curve>
   </object>
-  <object id="ChestBody" type="animation" xyz="-0.00 -0.33 0.38" hpr="0.0 0.0 -0.0" scale="1.00 1.00 1.00" interaction="static" shape="box" model="Chest.b3d" skeletal-animation="false">
+  <object id="ChestBody" type="animation" xyz="-0.00 -0.33 0.38" hpr="0.0 0.0 -0.0" scale="1.00 1.00 1.00" interaction="static" shape="box" model="Chest.spm" skeletal-animation="false">
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="20.000 -0.000" h1="4.774 -0.000" h2="35.226 -0.000"/>
       <p c="59.000 -0.006" h1="53.144 -0.006" h2="60.171 -0.006"/>
@@ -115,7 +115,7 @@
       <p c="69.000 1.000" h1="67.829 1.000" h2="70.171 1.000"/>
     </curve>
   </object>
-  <object id="ChestLid" type="animation" xyz="0.04 4.46 3.21" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="chestLid.b3d" skeletal-animation="false">
+  <object id="ChestLid" type="animation" xyz="0.04 4.46 3.21" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="chestLid.spm" skeletal-animation="false">
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="20.000 0.038" h1="4.774 0.038" h2="35.226 0.038"/>
       <p c="59.000 0.038" h1="53.144 0.038" h2="60.171 0.038"/>
@@ -207,7 +207,7 @@
       <p c="103.000 1.000" h1="95.582 1.000" h2="110.418 1.000"/>
     </curve>
   </object>
-  <object id="Key" type="animation" xyz="0.00 3.26 -19.83" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" shape="box" model="ChestKey.b3d" skeletal-animation="false">
+  <object id="Key" type="animation" xyz="0.00 3.26 -19.83" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" shape="box" model="ChestKey.spm" skeletal-animation="false">
     <curve channel="LocX" interpolation="bezier" extend="const">
       <p c="1.000 0.000" h1="-6.418 0.000" h2="8.418 0.000"/>
       <p c="20.000 0.000" h1="12.582 0.000" h2="27.808 0.000"/>
@@ -299,10 +299,10 @@
       <p c="69.000 1.000" h1="67.829 1.000" h2="70.171 1.000"/>
     </curve>
   </object>
-  <object id="Plane" type="animation" xyz="-10.39 -7.46 70.80" hpr="0.0 -0.0 0.0" scale="187.74 187.74 187.74" interaction="ghost" model="water.b3d" skeletal-animation="false">
+  <object id="Plane" type="animation" xyz="-10.39 -7.46 70.80" hpr="0.0 -0.0 0.0" scale="187.74 187.74 187.74" interaction="ghost" model="water.spm" skeletal-animation="false">
     <animated-texture name="seagloss.png" dx="-0.050"  dy="-0.1000" />
   </object>
-  <object id="Plane.002" type="animation" xyz="-10.39 -7.46 70.80" hpr="0.0 -0.0 0.0" scale="187.74 187.74 187.74" interaction="ghost" model="land.b3d" skeletal-animation="false">
+  <object id="Plane.002" type="animation" xyz="-10.39 -7.46 70.80" hpr="0.0 -0.0 0.0" scale="187.74 187.74 187.74" interaction="ghost" model="land.spm" skeletal-animation="false">
     <animated-texture name="seagloss.png" dx="-0.050"  dy="-0.1000" />
   </object>
   <sun  fog="true" fog-color="194 210 234" fog-max="0.5" fog-start="150.00" fog-end="200.00" xyz="42.75 133.41 -128.47" ambient="87 94 84"/>
