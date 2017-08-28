@@ -300,6 +300,9 @@ class ExportArm:
                     tmp_buf += writeInt16(-1)
 
             unique_frame = getUniqueFrame(self.m_arm)
+            if len(unique_frame) == 0:
+                print('No keyframes found for armature: {}'.format(self.m_arm.name))
+                assert False
             tmp_buf += writeUint16(len(unique_frame))
             for frame in unique_frame:
                 bpy.context.scene.frame_set(frame)
@@ -504,8 +507,8 @@ def writeSPMFile(filename, objects=[]):
             uv_one = False
             uv_two = False
 
-        if uv_one == False:
-            print(obj.name)
+        if len(mesh.tessfaces) == 0:
+            print('{} has no mesh, please check it'.format(obj.name))
         for i, f in enumerate(mesh.tessfaces):
             texture_one = ""
             texture_two = ""
@@ -619,6 +622,7 @@ def writeSPMFile(filename, objects=[]):
         if useless_arm:
             arm_count = 0
 
+    assert len(all_triangles) > 0
     all_triangles.sort(key = lambda x: x.m_texture_cmp)
     spm_buffer = bytearray()
 
