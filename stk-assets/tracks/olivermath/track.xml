@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16343 -->
+<!-- Generated with script from SVN rev 17016 -->
 <track  name           = "Oliver's Math Class"
-        version        = "6"
+        version        = "7"
         groups         = "standard"
         designer       = "Oliver &amp; Steve Baker"
         music          = "Boom_boom_boom.music"
@@ -9,9 +9,8 @@
         smooth-normals = "false"
         default-number-of-laps = "6"
         reverse        = "Y"
-        bloom          = "Y"
-        bloom-threshold = "0.75"
         clouds         = "N"
+        is-during-day  = "Y"
         shadows        = "Y"
 >
 </track>
