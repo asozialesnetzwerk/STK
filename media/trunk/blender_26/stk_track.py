@@ -2579,7 +2579,7 @@ class TrackExport:
                 f.write("    <easter-egg %s />\n" % getXYZHString(obj))
         f.write("  </hard>\n")
         
-        f.write("</EasterEggHunt>")
+        f.write("</EasterEggHunt>\n")
         
         
     # --------------------------------------------------------------------------
