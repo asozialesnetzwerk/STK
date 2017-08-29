@@ -2,11 +2,21 @@
 <!-- Generated with script from SVN rev 17016 -->
 <scene>
   <lod>
-   <group name="sakuraPine">
-    <static-object lod_distance="45" lod_group="sakuraPine" model="sakuraPine_LOD45.spm" xyz="-54.59 2.15 128.00" hpr="16.3 -118.9 -16.1" scale="0.92 0.92 0.92" interaction="static" skeletal-animation="false"/>
-    <static-object lod_distance="70" lod_group="sakuraPine" model="sakuraPine_LOD70.spm" xyz="-54.59 2.15 147.31" hpr="16.3 -118.9 -16.1" scale="0.92 0.92 0.92" interaction="static" skeletal-animation="false"/>
-    <static-object lod_distance="100" lod_group="sakuraPine" model="sakuraPine_LOD100.spm" xyz="-57.59 2.15 164.00" hpr="16.3 -118.9 -16.1" scale="0.92 0.92 0.92" interaction="static" skeletal-animation="false"/>
-    <static-object lod_distance="200" lod_group="sakuraPine" model="sakuraPine_LOD200.spm" xyz="-57.59 2.15 187.00" hpr="16.3 -118.9 -16.1" scale="0.92 0.92 0.92" interaction="static" skeletal-animation="false"/>
+   <group name="sakuraLow">
+    <static-object lod_distance="100" lod_group="sakuraLow" model="sakuraLow_LOD100.spm" xyz="-65.94 1.11 125.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="500" lod_group="sakuraLow" model="sakuraLow_LOD500.spm" xyz="-65.94 1.11 132.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+   </group>
+   <group name="fern">
+    <static-object lod_distance="40" lod_group="fern" model="fern_LOD30.spm" xyz="-25.13 0.00 127.66" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="70" lod_group="fern" model="fern_LOD60.spm" xyz="-26.50 0.00 134.66" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="100" lod_group="fern" model="fern_LOD100.spm" xyz="-26.94 0.00 142.30" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+   </group>
+   <group name="pagoda1">
+    <static-object lod_distance="50" lod_group="pagoda1" model="pagoda1_LOD50.spm" xyz="-102.80 7.02 148.30" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="200" lod_group="pagoda1" model="pagoda1_LOD200.spm" xyz="-102.80 7.02 168.30" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+   </group>
+   <group name="catailVeg">
+    <static-object lod_distance="50" lod_group="catailVeg" model="catailVeg_LOD50.spm" xyz="-27.59 -3.04 153.05" hpr="0.0 -145.6 -0.0" scale="0.79 0.79 0.79" interaction="static" skeletal-animation="false"/>
    </group>
    <group name="bridge">
     <static-object lod_distance="50" lod_group="bridge" model="bridge_LOD50.spm" xyz="-170.79 5.05 95.63" hpr="-90.0 50.0 -0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
@@ -17,21 +27,11 @@
     <static-object lod_distance="35" lod_group="limit" model="limit_LOD35.spm" xyz="-33.25 0.46 170.90" hpr="-90.0 73.8 -0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
     <static-object lod_distance="90" lod_group="limit" model="limit_LOD90.spm" xyz="-33.25 0.46 173.90" hpr="-90.0 73.8 -0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
    </group>
-   <group name="pagoda1">
-    <static-object lod_distance="50" lod_group="pagoda1" model="pagoda1_LOD50.spm" xyz="-102.80 7.02 148.30" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
-    <static-object lod_distance="200" lod_group="pagoda1" model="pagoda1_LOD200.spm" xyz="-102.80 7.02 168.30" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
-   </group>
-   <group name="fern">
-    <static-object lod_distance="40" lod_group="fern" model="fern_LOD30.spm" xyz="-25.13 0.00 127.66" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
-    <static-object lod_distance="70" lod_group="fern" model="fern_LOD60.spm" xyz="-26.50 0.00 134.66" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
-    <static-object lod_distance="100" lod_group="fern" model="fern_LOD100.spm" xyz="-26.94 0.00 142.30" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
-   </group>
-   <group name="sakuraLow">
-    <static-object lod_distance="100" lod_group="sakuraLow" model="sakuraLow_LOD100.spm" xyz="-65.94 1.11 125.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
-    <static-object lod_distance="500" lod_group="sakuraLow" model="sakuraLow_LOD500.spm" xyz="-65.94 1.11 132.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
-   </group>
-   <group name="catailVeg">
-    <static-object lod_distance="50" lod_group="catailVeg" model="catailVeg_LOD50.spm" xyz="-27.59 -3.04 153.05" hpr="0.0 -145.6 -0.0" scale="0.79 0.79 0.79" interaction="static" skeletal-animation="false"/>
+   <group name="sakuraPine">
+    <static-object lod_distance="45" lod_group="sakuraPine" model="sakuraPine_LOD45.spm" xyz="-54.59 2.15 128.00" hpr="16.3 -118.9 -16.1" scale="0.92 0.92 0.92" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="70" lod_group="sakuraPine" model="sakuraPine_LOD70.spm" xyz="-54.59 2.15 147.31" hpr="16.3 -118.9 -16.1" scale="0.92 0.92 0.92" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="100" lod_group="sakuraPine" model="sakuraPine_LOD100.spm" xyz="-57.59 2.15 164.00" hpr="16.3 -118.9 -16.1" scale="0.92 0.92 0.92" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="200" lod_group="sakuraPine" model="sakuraPine_LOD200.spm" xyz="-57.59 2.15 187.00" hpr="16.3 -118.9 -16.1" scale="0.92 0.92 0.92" interaction="static" skeletal-animation="false"/>
    </group>
   </lod>
   <track model="zengarden_track.spm" x="0" y="0" z="0">
