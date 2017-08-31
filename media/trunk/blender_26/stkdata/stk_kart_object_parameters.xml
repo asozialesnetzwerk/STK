@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0"?>
-<Properties>
+<Properties
+    bl-label="-"
+>
 
     <!-- ******** STK Object Type ******** -->
     <EnumProp id="type" name="Type" default="none" doc="SuperTuxKart Object Type">

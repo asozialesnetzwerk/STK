@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
-<Properties>
+<Properties
+    bl-label="SuperTuxKart Image Properties"
+>
     <PropGroup id="propgroup_visual" name="Display">
         <!-- Shader -->
         <EnumProp id="shader" name="Shader" default="solid" doc="Select the shader that should be used to render this material">

@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0"?>
-<Properties>
+<Properties
+    bl-label="SuperTuxKart Scene Properties"
+>
 
 <BoolProp id="is_stk_node" name="Is a SuperTuxKart library node (WIP feature)" default="false" box="false" doc="Check this if this blender file is a SuperTuxKart library node">
     <StringProp id="name" name="Code (folder name)" default="myNewNode" doc="Name of the node"/>

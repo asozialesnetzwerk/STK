@@ -930,7 +930,7 @@ def getPropertiesFromXML(filename, contextLevel):
     node = xml.dom.minidom.parse(filename)
     for curr in node.childNodes:
         if curr.localName == "Properties":
-            return ["bl-label", parseProperties(curr, contextLevel, idprefix)]
+            return [curr.getAttribute("bl-label"), parseProperties(curr, contextLevel, idprefix)]
     raise Exception("No <Properties> node in " + filename)
 
 import os.path
@@ -1085,7 +1085,7 @@ class PanelBase:
 
 # ==== OBJECT PANEL ====
 class SuperTuxKartObjectPanel(bpy.types.Panel, PanelBase):
-    bl_label = "SuperTuxKart Object Properties"
+    bl_label = STK_PER_OBJECT_TRACK_PROPERTIES[0]
     bl_space_type = "PROPERTIES"
     bl_region_type = "WINDOW"
     bl_context = "object"
@@ -1124,7 +1124,7 @@ class SuperTuxKartObjectPanel(bpy.types.Panel, PanelBase):
 
 # ==== SCENE PANEL ====
 class SuperTuxKartScenePanel(bpy.types.Panel, PanelBase):
-    bl_label = "SuperTuxKart Scene Properties"
+    bl_label = SCENE_PROPS[0]
     bl_space_type = "PROPERTIES"
     bl_region_type = "WINDOW"
     bl_context = "scene"
@@ -1236,7 +1236,7 @@ bpy.utils.register_class(STK_SelectImage)
 
 
 class SuperTuxKartImagePanel(bpy.types.Panel, PanelBase):
-    bl_label = "SuperTuxKart Image Properties"
+    bl_label = STK_MATERIAL_PROPERTIES[0]
     bl_space_type = "PROPERTIES"
     bl_region_type = "WINDOW"
     bl_context = "scene"

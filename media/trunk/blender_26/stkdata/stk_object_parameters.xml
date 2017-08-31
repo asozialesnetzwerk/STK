@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0"?>
-<Properties>
+<Properties
+    bl-label="SuperTuxKart Object Properties"
+>
 
     <BoolProp id="enable_anim_texture" name="Use animated Texture" default="false" doc="Make a texture on this object move">
         <StringProp id="anim_texture" name="Texture to animate" default="" doc="Filename of the texture to animate"/>
