@@ -58,12 +58,12 @@ class STK_MissingProps_Object(bpy.types.Operator):
         
         if is_kart:
             properties = OrderedDict([])
-            for curr in STK_PER_OBJECT_KART_PROPERTIES:
+            for curr in STK_PER_OBJECT_KART_PROPERTIES[1]:
                 properties[curr.id] = curr
             createProperties(obj, properties)
         elif is_track or is_node:
             properties = OrderedDict([])
-            for curr in STK_PER_OBJECT_TRACK_PROPERTIES:
+            for curr in STK_PER_OBJECT_TRACK_PROPERTIES[1]:
                 properties[curr.id] = curr
             print('creating', properties, 'on', obj.name)
             createProperties(obj, properties)
@@ -77,7 +77,7 @@ class STK_MissingProps_Scene(bpy.types.Operator):
     def execute(self, context):
         scene = context.scene
         properties = OrderedDict([])
-        for curr in SCENE_PROPS:
+        for curr in SCENE_PROPS[1]:
             properties[curr.id] = curr
         createProperties(scene, properties)
         return {'FINISHED'}
@@ -89,7 +89,7 @@ class STK_MissingProps_Material(bpy.types.Operator):
     def execute(self, context):
         material = getObject(context, CONTEXT_MATERIAL)
         properties = OrderedDict([])
-        for curr in STK_MATERIAL_PROPERTIES:
+        for curr in STK_MATERIAL_PROPERTIES[1]:
             properties[curr.id] = curr
         createProperties(material, properties)
         return {'FINISHED'}
@@ -930,7 +930,7 @@ def getPropertiesFromXML(filename, contextLevel):
     node = xml.dom.minidom.parse(filename)
     for curr in node.childNodes:
         if curr.localName == "Properties":
-            return parseProperties(curr, contextLevel, idprefix)
+            return ["bl-label", parseProperties(curr, contextLevel, idprefix)]
     raise Exception("No <Properties> node in " + filename)
 
 import os.path
@@ -948,18 +948,22 @@ print("(STK) Loading XML files from ", datapath)
 
 panel_params_path = os.path.join(datapath, "stk_panel_parameters.xml")
 print("(STK) Loading scene properties from ", panel_params_path)
+SCENE_PROPS = []
 SCENE_PROPS = getPropertiesFromXML(panel_params_path, contextLevel=CONTEXT_SCENE)
 
 object_params_path = os.path.join(datapath, "stk_object_parameters.xml")
 print("(STK) Loading object properties from ", object_params_path)
+STK_PER_OBJECT_TRACK_PROPERTIES = []
 STK_PER_OBJECT_TRACK_PROPERTIES = getPropertiesFromXML(object_params_path, contextLevel=CONTEXT_OBJECT)
 
 kart_params_path = os.path.join(datapath, "stk_kart_object_parameters.xml")
 print("(STK) Loading kart properties from ", kart_params_path)
+STK_PER_OBJECT_KART_PROPERTIES = []
 STK_PER_OBJECT_KART_PROPERTIES = getPropertiesFromXML(kart_params_path, contextLevel=CONTEXT_OBJECT)
 
 material_params_path = os.path.join(datapath, "stk_material_parameters.xml")
 print("(STK) Loading material properties from ", material_params_path)
+STK_MATERIAL_PROPERTIES = []
 STK_MATERIAL_PROPERTIES = getPropertiesFromXML(material_params_path, contextLevel=CONTEXT_MATERIAL)
 
 
@@ -1087,9 +1091,9 @@ class SuperTuxKartObjectPanel(bpy.types.Panel, PanelBase):
     bl_context = "object"
     
     def draw(self, context):
-    
+
         layout = self.layout
-        
+
         is_track = ("is_stk_track" in context.scene and context.scene["is_stk_track"] == "true")
         is_node = ("is_stk_node" in context.scene and context.scene["is_stk_node"] == "true")
         is_kart = ("is_stk_kart" in context.scene and context.scene["is_stk_kart"] == "true")
@@ -1107,13 +1111,13 @@ class SuperTuxKartObjectPanel(bpy.types.Panel, PanelBase):
         if obj is not None:
             if is_track or is_node:
                 properties = OrderedDict([])
-                for curr in STK_PER_OBJECT_TRACK_PROPERTIES:
+                for curr in STK_PER_OBJECT_TRACK_PROPERTIES[1]:
                     properties[curr.id] = curr
                 self.recursivelyAddProperties(properties, layout, obj, CONTEXT_OBJECT)
                 
             if is_kart:
                 properties = OrderedDict([])
-                for curr in STK_PER_OBJECT_KART_PROPERTIES:
+                for curr in STK_PER_OBJECT_KART_PROPERTIES[1]:
                     properties[curr.id] = curr
                 self.recursivelyAddProperties(properties, layout, obj, CONTEXT_OBJECT)
 
@@ -1132,7 +1136,7 @@ class SuperTuxKartScenePanel(bpy.types.Panel, PanelBase):
         if obj is not None:
             
             properties = OrderedDict([])
-            for curr in SCENE_PROPS:
+            for curr in SCENE_PROPS[1]:
                 properties[curr.id] = curr
             
             self.recursivelyAddProperties(properties, layout, obj, CONTEXT_SCENE)
@@ -1221,7 +1225,7 @@ class STK_SelectImage(bpy.types.Operator):
         if self.name in bpy.data.images:
             
             properties = OrderedDict([])
-            for curr in STK_MATERIAL_PROPERTIES:
+            for curr in STK_MATERIAL_PROPERTIES[1]:
                 properties[curr.id] = curr
             
             createProperties(bpy.data.images[self.name], properties)
@@ -1263,7 +1267,7 @@ class SuperTuxKartImagePanel(bpy.types.Panel, PanelBase):
         if obj is not None:
             
             properties = OrderedDict([])
-            for curr in STK_MATERIAL_PROPERTIES:
+            for curr in STK_MATERIAL_PROPERTIES[1]:
                 properties[curr.id] = curr
                 
             self.recursivelyAddProperties(properties, layout, obj, CONTEXT_MATERIAL)
@@ -1325,7 +1329,7 @@ class STK_AddObject(bpy.types.Operator):
                     elif self.value == 'sfx_emitter':
                         curr.empty_draw_type = 'SPHERE'
                         
-                    for prop in STK_PER_OBJECT_TRACK_PROPERTIES:
+                    for prop in STK_PER_OBJECT_TRACK_PROPERTIES[1]:
                         if prop.name == "Type":
                             createProperties(curr, prop.values[self.value].subproperties)
                             break
