@@ -10,8 +10,8 @@ void onStart()
         Track::Animator@ animator = water.getIPOAnimator();
         animator.setPaused(true);
         
-        Track::TrackObject@ waterwarp = Track::getTrackObject("", "waterwarp");
-        Track::Animator@ animator2 = waterwarp.getIPOAnimator();
+        Track::TrackObject@ waterfall = Track::getTrackObject("", "waterfall");
+        Track::Animator@ animator2 = waterfall.getIPOAnimator();
         animator2.setPaused(true);
         
         Track::TrackObject@ waterdeath = Track::getTrackObject("", "waterdeath");
