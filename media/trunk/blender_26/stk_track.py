@@ -877,6 +877,9 @@ class NavmeshExporter:
                 
                 navmeshfile.write('<?xml version="1.0"?>')
                 navmeshfile.write('<navmesh>\n')
+                min_height_testing = getObjectProperty(navmesh_obj, "min_height_testing", -1.0)
+                max_height_testing = getObjectProperty(navmesh_obj, "max_height_testing", 5.0)
+                navmeshfile.write('<height-testing min="%f" max="%f"/>\n' % (min_height_testing, max_height_testing))
                 navmeshfile.write('<MaxVertsPerPoly nvp="4" />\n')
                 navmeshfile.write('<vertices>\n')
                 
@@ -1147,6 +1150,8 @@ class DrivelineExporter:
         f.write("<?xml version=\"1.0\"?>\n")
         f.write("<!-- Generated with script from SVN rev %s -->\n"%getScriptVersion())
         f.write("<quads>\n")
+        f.write('  <height-testing min="%f" max="%f"/>\n' %\
+        (lSorted[0].min_height_testing, lSorted[0].max_height_testing))
 
         for driveline in lSorted:
             driveline.writeQuads(f)
@@ -1508,7 +1513,9 @@ class Driveline:
         self.strict_lap = convertTextToYN(getObjectProperty(driveline,
                                                       "strict_lapline", "N") ) \
                            == "Y"
-        
+        self.min_height_testing = getObjectProperty(driveline, "min_height_testing", -1.0)
+        self.max_height_testing = getObjectProperty(driveline, "max_height_testing", 5.0)
+
     # --------------------------------------------------------------------------
     # Returns the name of the driveline
     def getName(self):

@@ -498,10 +498,14 @@
             <ObjRefProp id="activate" name="Activate" default=""
                         filter="lambda self, o : 'type' in o and o['type'] == 'check'"
                         doc="Which check structure to activate when crossing the lap line"/>
+            <FloatProp id="min_height_testing" name="Min height testing" default="-1.0" doc="Vertical height smaller this value will not be considered on-quad"/>
+            <FloatProp id="max_height_testing" name="Max height testing" default="5.0" doc="Vertical height larger this value will not be considered on-quad"/>
         </EnumChoice>
         <EnumChoice id="navmesh" label="Navmesh" doc="Navmesh (for battle arenas)" >
+            <FloatProp id="min_height_testing" name="Min height testing" default="-1.0" doc="Vertical height smaller this value will not be considered on-quad"/>
+            <FloatProp id="max_height_testing" name="Max height testing" default="5.0" doc="Vertical height larger this value will not be considered on-quad"/>
         </EnumChoice>
-        
+
         <!-- Goal -->
         <EnumChoice id="goal" label="Goal line (soccer mode)" doc="A point is scored when a soccer ball crosses this line" >
             <BoolProp id="first_goal" name="First goal" default="true" doc="Checked=first goal, unchecked=second goal"/>
