@@ -156,7 +156,7 @@ def writeMatrixAsLocRotScale(mat):
 
 def getUniqueFrame(armature):
     unique_frame = []
-    if armature.animation_data.action:
+    if armature.animation_data and armature.animation_data.action:
         ipo = armature.animation_data.action.fcurves
         for curve in ipo:
             if "pose" in curve.data_path:
@@ -209,6 +209,10 @@ def getUniqueFrame(armature):
             except (AttributeError) as e:
                 pass
 
+    if len(unique_frame) == 0:
+        print('No keyframes found for armature: {},'
+        ' please remove the armature if it contains no keyframe.'.format(armature.name))
+        assert False
     unique_frame.sort()
     #for frame in unique_frame:
     #    print('unique_frame:{} {}'.format(frame, armature.name))
@@ -300,9 +304,6 @@ class ExportArm:
                     tmp_buf += writeInt16(-1)
 
             unique_frame = getUniqueFrame(self.m_arm)
-            if len(unique_frame) == 0:
-                print('No keyframes found for armature: {}'.format(self.m_arm.name))
-                assert False
             tmp_buf += writeUint16(len(unique_frame))
             for frame in unique_frame:
                 bpy.context.scene.frame_set(frame)
