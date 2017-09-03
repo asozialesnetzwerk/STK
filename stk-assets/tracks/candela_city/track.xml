@@ -4,7 +4,7 @@
         version        = "7"
         groups         = "standard"
         designer       = "Jean-Manuel Cl&#233;men&#231;on"
-        music          = "kart_grand_prix.music"
+        music          = "theGreatFair.music"
         screenshot     = "screenshot.jpg"
         smooth-normals = "false"
         default-number-of-laps = "3"
