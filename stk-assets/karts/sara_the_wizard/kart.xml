@@ -10,14 +10,16 @@
       groups            = "standard"
       rgb               = "1.00 1.00 1.00" >
   <sounds engine = "large"/>
-  <animations left = "19"
-              straight = "39"
-              right = "59"
-              start-jump = "99"
-              end-jump = "129"
-              start-winning = "134"
-              start-winning-loop = "144"
-              end-winning = "159"/>
+  <animations left = "0"
+              straight = "20"
+              right = "40"
+              start-jump = "41"
+              end-jump = "71"
+              start-winning = "72"
+              end-winning = "188"
+              start-losing = "189"
+              start-losing-loop = "195"
+              end-losing = "220"/>
   <wheels>
     <rear-right position = "0.062147 0.069841 -0.593046"
                  model    = "wheel-rear-right.spm"       />
@@ -33,10 +35,10 @@
     <nitro-emitter-b position = "0.171986 0.268604 -0.499154" />
   </nitro-emitter>
   <speed-weighted-objects>
-    <speed-weighted position="0.000000 0.000000 0.000000" model="Circle.003_Circle.002.spm"  texture-speed-x="0.000000" texture-speed-y="1.500000"/>
+    <speed-weighted position="0.000000 0.000000 0.000000" model="speed_weight_object.spm"  texture-speed-x="0.000000" texture-speed-y="1.500000"/>
   </speed-weighted-objects>
   <headlights>
-    <object position="0.000000 0.000000 0.000000" model="Circle.003_Circle.010.spm"/>
+    <object position="0.000000 0.000000 0.000000" model="headlight.spm"/>
   </headlights>
   <hat offset="0.0 0.2 0.0"/>
   <lean max="*0-10"/>
