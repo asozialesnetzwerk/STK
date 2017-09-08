@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev 17016 -->
 <quads>
+  <height-testing min="-1.000000" max="5.000000"/>
   <!-- Driveline: racetrack.000 -->
   <quad   p0="-5.019 0.355 18.822" p1="5.838 0.355 18.822" p2="5.838 0.355 24.698" p3="-5.019 0.355 24.698"/>
   <quad  p0="0:3" p1="0:2" p2="5.838 0.355 30.573" p3="-5.019 0.355 30.573"/>
