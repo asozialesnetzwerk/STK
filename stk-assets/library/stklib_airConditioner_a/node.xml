@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16852 -->
+<!-- Generated with script from SVN rev 17016 -->
 <scene>
   <lod>
-   <group name="_single_lod_stklib_airConditioner_a_fan">
-    <static-object lod_distance="60" lod_group="_single_lod_stklib_airConditioner_a_fan" model="stklib_airConditioner_a_fan.b3d" xyz="-0.65 0.75 -0.65" hpr="-82.5 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" skeletal-animation="false" geometry-level="2"/>
-   </group>
    <group name="_single_lod_stklib_airConditioner_a_main">
-    <static-object lod_distance="100" lod_group="_single_lod_stklib_airConditioner_a_main" model="stklib_airConditioner_a_main.b3d" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false" geometry-level="1"/>
+    <static-object lod_distance="100" lod_group="_single_lod_stklib_airConditioner_a_main" model="stklib_airConditioner_a_main.spm" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false" geometry-level="1"/>
+   </group>
+   <group name="_single_lod_stklib_airConditioner_a_fan">
+    <static-object lod_distance="60" lod_group="_single_lod_stklib_airConditioner_a_fan" model="stklib_airConditioner_a_fan.spm" xyz="-0.65 0.75 -0.65" hpr="-82.5 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" skeletal-animation="false" geometry-level="2"/>
    </group>
   </lod>
-  <object id="Circle" type="animation" xyz="-0.65 0.75 -0.65" hpr="-82.5 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="_single_lod_stklib_airConditioner_a_fan" model="stklib_airConditioner_a_fan.b3d" skeletal-animation="false" geometry-level="2">
+  <object id="Circle" type="animation" xyz="-0.65 0.75 -0.65" hpr="-82.5 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="_single_lod_stklib_airConditioner_a_fan" model="stklib_airConditioner_a_fan.spm" skeletal-animation="false" geometry-level="2">
     <curve channel="RotX" interpolation="bezier" extend="cyclic">
       <p c="14.000 -359.775" h1="2.418 -430.491" h2="24.996 -292.640"/>
       <p c="44.000 -181.644" h1="32.232 -250.721" h2="55.875 -111.933"/>
@@ -26,6 +26,6 @@
       <p c="73.000 -0.000" h1="61.488 -0.000" h2="84.912 -0.000"/>
     </curve>
   </object>
-  <object id="stklib_airConditioner_a_main" type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" shape="box"  lod_instance="true" lod_group="_single_lod_stklib_airConditioner_a_main" model="stklib_airConditioner_a_main.b3d" skeletal-animation="false" geometry-level="1">
+  <object id="stklib_airConditioner_a_main" type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" shape="box"  lod_instance="true" lod_group="_single_lod_stklib_airConditioner_a_main" model="stklib_airConditioner_a_main.spm" skeletal-animation="false" geometry-level="1">
   </object>
 </scene>

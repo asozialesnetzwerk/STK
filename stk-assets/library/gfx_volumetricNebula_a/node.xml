@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16343 -->
+<!-- Generated with script from SVN rev 17016 -->
 <scene>
-  <object id="Cube" type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="gfx_volumetricNebulaGlowingStars_a.b3d" skeletal-animation="false">
+  <object id="Cube" type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="gfx_volumetricNebulaGlowingStars_a.spm" skeletal-animation="false">
   </object>
   <object type="billboard" id="Plane" texture="stktex_nebulaCloud_a.png" xyz="0.00 16.13 0.00" 
              width="75.906" height="75.906" >

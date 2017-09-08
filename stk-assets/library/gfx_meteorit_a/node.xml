@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16343 -->
+<!-- Generated with script from SVN rev 17016 -->
 <scene>
-  <object id="Sphere" type="animation" xyz="-0.21 0.00 -0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="gfx_meteorit_a_meteor.b3d" skeletal-animation="false">
+  <object id="Sphere" type="animation" xyz="-0.21 0.00 -0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="gfx_meteorit_a_meteor.spm" skeletal-animation="false">
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
       <p c="1.000 -0.213" h1="-22.425 -0.213" h2="24.425 -0.213"/>
       <p c="61.000 -61.046" h1="37.575 -34.616" h2="82.473 -85.273"/>
@@ -33,7 +33,7 @@
       <p c="116.000 0.050" h1="94.527 0.050" h2="137.473 0.050"/>
     </curve>
   </object>
-  <object id="Sphere.001" type="animation" xyz="-59.58 190.07 -0.00" hpr="0.0 -0.0 0.0" scale="0.40 0.40 0.40" interaction="ghost" model="gfx_meteorit_a_meteor2.b3d" skeletal-animation="false">
+  <object id="Sphere.001" type="animation" xyz="-59.58 190.07 -0.00" hpr="0.0 -0.0 0.0" scale="0.40 0.40 0.40" interaction="ghost" model="gfx_meteorit_a_meteor2.spm" skeletal-animation="false">
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
       <p c="1.000 -59.581" h1="-22.034 -59.581" h2="24.034 -59.581"/>
       <p c="60.000 -97.455" h1="58.048 -97.455" h2="60.390 -97.455"/>

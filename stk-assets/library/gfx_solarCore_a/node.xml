@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16343 -->
+<!-- Generated with script from SVN rev 17016 -->
 <scene>
   <object type="billboard" id="Plane" texture="stktex_yellowNebulaCloud_a.png" xyz="23.65 48.26 -47.96" 
              width="140.626" height="140.626" >

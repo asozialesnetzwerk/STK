@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<!-- Generated with script from SVN rev Unknown -->
-<materials>
-  <material name="upheavalHand_bones_diffuse.png" gloss-map="upheavalHand_bones_gloss.png"/>
-  <material name="upheavalHand_flesh_diffuse.png" shader="alphablend" backface-culling="N" disable-z-write="Y"/>
-</materials>

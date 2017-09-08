@@ -29,7 +29,7 @@ class FitchBarrelTimeout
             "stklib_fitchBarrel_a_bottom"
         };
 
-        int counter = 0;
+        uint counter = 0;
         while(counter < barrel_parts.length())
         {
             Track::TrackObject@ part = Track::getTrackObject(this.instID, barrel_parts[counter]);
@@ -55,7 +55,7 @@ void blowUpFitchBarrel(string instID)
             "stklib_fitchBarrel_a_bottom"
         };
 
-        int counter = 0;
+        uint counter = 0;
         while(counter < barrel_parts.length())
         {
             Track::TrackObject@ part = Track::getTrackObject(instID, barrel_parts[counter]);

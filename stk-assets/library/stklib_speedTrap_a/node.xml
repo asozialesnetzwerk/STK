@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16343 -->
+<!-- Generated with script from SVN rev 17016 -->
 <scene>
-  <object id="stklib_speedTrap_a_flash" type="animation" xyz="0.00 -200.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="stklib_speedTrap_a_flash.b3d" skeletal-animation="false">
+  <object id="stklib_speedTrap_a_flash" type="animation" xyz="0.00 -200.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="stklib_speedTrap_a_flash.spm" skeletal-animation="false">
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
       <p c="1.000 0.000" h1="-0.562 0.000" h2="2.562 0.000"/>
       <p c="5.000 0.000" h1="3.438 0.000" h2="5.390 0.000"/>
@@ -39,7 +39,7 @@
       <p c="247.000 -200.000" h1="158.377 -200.000" h2="335.623 -200.000"/>
     </curve>
   </object>
-  <object id="stklib_speedTrap_a_main" type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="stklib_speedTrap_a_main.b3d" skeletal-animation="false">
+  <object id="stklib_speedTrap_a_main" type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="stklib_speedTrap_a_main.spm" skeletal-animation="false">
   </object>
   <light xyz="0.65 -248.49 -1.75" id="Lamp" distance="30.00" energy="100.00" color="255 27 44">
     <curve channel="LocX" interpolation="bezier" extend="cyclic">

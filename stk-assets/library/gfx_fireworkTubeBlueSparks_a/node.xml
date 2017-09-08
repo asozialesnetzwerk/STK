@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
-<!-- Generated with script from SVN rev 16343 -->
+<!-- Generated with script from SVN rev 17016 -->
 <scene>
   <lod>
    <group name="_single_lod_gfx_fireworkTubeBlue_a_flame_2">
-    <static-object lod_distance="100" lod_group="_single_lod_gfx_fireworkTubeBlue_a_flame_2" model="gfx_fireworkTubeBlue_a_flame_2.b3d" xyz="-0.00 1.60 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" skeletal-animation="false"/>
+    <static-object lod_distance="100" lod_group="_single_lod_gfx_fireworkTubeBlue_a_flame_2" model="gfx_fireworkTubeBlue_a_flame_2.spm" xyz="-0.00 1.60 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" skeletal-animation="false"/>
    </group>
    <group name="_single_lod_gfx_fireworkTubeBlue_a_flame">
-    <static-object lod_distance="100" lod_group="_single_lod_gfx_fireworkTubeBlue_a_flame" model="gfx_fireworkTubeBlue_a_flame.b3d" xyz="-0.00 1.60 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="100" lod_group="_single_lod_gfx_fireworkTubeBlue_a_flame" model="gfx_fireworkTubeBlue_a_flame.spm" xyz="-0.00 1.60 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
    </group>
   </lod>
-  <object id="Circle" type="animation" xyz="-0.00 1.60 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" shape="box"  lod_instance="true" lod_group="_single_lod_gfx_fireworkTubeBlue_a_flame" model="gfx_fireworkTubeBlue_a_flame.b3d" skeletal-animation="false">
+  <object id="Circle" type="animation" xyz="-0.00 1.60 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" shape="box"  lod_instance="true" lod_group="_single_lod_gfx_fireworkTubeBlue_a_flame" model="gfx_fireworkTubeBlue_a_flame.spm" skeletal-animation="false">
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
       <p c="1.000 -0.000" h1="-3.685 -0.000" h2="5.685 -0.000"/>
       <p c="13.000 -0.000" h1="8.315 -0.000" h2="14.562 -0.000"/>
@@ -41,7 +41,7 @@
       <p c="17.000 0.368" h1="15.438 0.368" h2="18.562 0.368"/>
     </curve>
   </object>
-  <object id="gfx_fireworkTube_a_flame_2" type="animation" xyz="-0.00 1.60 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="_single_lod_gfx_fireworkTubeBlue_a_flame_2" model="gfx_fireworkTubeBlue_a_flame_2.b3d" skeletal-animation="false">
+  <object id="gfx_fireworkTube_a_flame_2" type="animation" xyz="-0.00 1.60 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost"  lod_instance="true" lod_group="_single_lod_gfx_fireworkTubeBlue_a_flame_2" model="gfx_fireworkTubeBlue_a_flame_2.spm" skeletal-animation="false">
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
       <p c="1.000 -0.000" h1="-1.342 -0.000" h2="3.342 -0.000"/>
       <p c="7.000 -0.000" h1="4.658 -0.000" h2="8.562 -0.000"/>
@@ -73,7 +73,7 @@
       <p c="11.000 0.368" h1="9.438 0.368" h2="12.562 0.368"/>
     </curve>
   </object>
-  <object id="gfx_fireworkTubeBlueSparks_a_main" type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="gfx_fireworkTubeBlueSparks_a_main.b3d" skeletal-animation="false">
+  <object id="gfx_fireworkTubeBlueSparks_a_main" type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="gfx_fireworkTubeBlueSparks_a_main.spm" skeletal-animation="false">
   </object>
   <particle-emitter kind="gfx_firework_a.xml" id="Empty" xyz="0.00 2.00 0.00" h="0.00" clip_distance="100">
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
