@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<library name="redParrot_a" category="animal">
-      <img path="stklib_redParrot_a.png">
-      <model path="stklib_redParrot_a/stklib_redParrot_a_mainstklib_redParrot_a_main.b3d">
-      <tag name="parrot">
-      <tag name="bird">
-</library>

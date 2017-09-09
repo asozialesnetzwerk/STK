@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<library name="stklib_fitchBarreltest" category="city">
-      <img path="stklib_fitchBarreltest_a.png">
-      <model path="stklib_fitchBarrelTest_a/stklib_fitchBarreltest_a_main.b3d">
-      <tag name="barrel">
-      <tag name="city">
-      <tag name="wood">
-</library>

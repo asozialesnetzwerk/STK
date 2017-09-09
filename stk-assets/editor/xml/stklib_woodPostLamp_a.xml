@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<library name="woodPostLamp" category="city">
-      <img path="stklib_woodPostLamp_a_main.png">
-      <model path="stklib_woodPostLamp_a/stklib_woodPostLamp_a_main.b3d">
-      <tag name="lamp">
-      <tag name="city">
-      <tag name="Post">
-      <tag name="PostLamp">
-</library>

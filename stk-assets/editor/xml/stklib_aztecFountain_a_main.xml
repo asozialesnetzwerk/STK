@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<library name="fountain" category="aztec">
-      <img path="stklib_aztecFountain.png">
-      <model path="stklib_aztecFountain_a/stklib_aztecFountain_a_main.b3d">
-      <tag name="statue">
-      <tag name="monster">
-      <tag name="head">
-</library>

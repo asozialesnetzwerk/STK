@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<library name="chimney" category="city">
-      <img path="stklib_chimney_a.png">
-      <model path="stklib_chimney_a/stklib_chimney_a_main.b3d">
-</library>

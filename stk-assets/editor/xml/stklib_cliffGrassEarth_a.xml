@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<library name="cliffWidthGrass" category="plant">
-      <img path="stklib_cliffGrassEarth_a.png">
-      <model path="stklib_cliffGrassEarth_a/stklib_cliffGrassEarth_a.b3d">
-      <tag name="grass">
-      <tag name="cliff">
-      <tag name="stone">
-      <tag name="outdoor">
-</library>

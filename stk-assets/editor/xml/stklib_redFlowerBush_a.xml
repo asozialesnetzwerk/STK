@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<library name="redFlowerBush_a" category="plant">
-      <img path="stklib_redFlowerBush_a.png">
-      <model path="stklib_redFlowerBush_a/stklib_redFlowerBush_a_main.b3d">
-      <tag name="flower">
-      <tag name="bush">
-      <tag name="redflower">
-</library>

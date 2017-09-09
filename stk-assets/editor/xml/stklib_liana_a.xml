@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<library name="liana_a" category="plant">
-      <img path="stklib_liana_a.png">
-      <model path="stklib_liana_a/stklib_liana_a_main.b3d">
-      <tag name="jungle">
-      <tag name="vegetable">
-</library>

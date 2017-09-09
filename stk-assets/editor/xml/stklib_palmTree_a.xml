@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<library name="palmTree_a" category="plant">
-      <img path="stklib_palmTree_a.png">
-      <model path="stklib_palmTree_a/stklib_palmTree_a_main.b3d">
-      <tag name="tree">
-      <tag name="palm">
-</library>
