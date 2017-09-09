@@ -64,7 +64,7 @@ def on_load(arg):
         
     f.write("<library name=\"" + objname + "\" category=\"" + category + "\">\n")
     f.write("<img path=\"" + image_file_name + "\">\n")
-    f.write("<model path=\"" + path_parts[-1] + "/" + path_parts[-1] + "_main.b3d\">\n")
+    f.write("<model path=\"" + path_parts[-1] + "/" + path_parts[-1] + "_main.spm\">\n")
     # TODO: tags
     f.write("</library>")
     f.close()
