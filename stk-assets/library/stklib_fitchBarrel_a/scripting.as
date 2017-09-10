@@ -10,12 +10,12 @@ void onFitchBarrelCollision(int idKart, const string libraryInstance, const stri
 class FitchBarrelTimeout
 {
     string instID;
-    
+
     FitchBarrelTimeout(string instID)
     {
         this.instID = instID;
     }
-    
+
     void onTimerComplete()
     {
 
@@ -44,7 +44,7 @@ void blowUpFitchBarrel(string instID)
 {
     Track::TrackObject@ wall = Track::getTrackObject(instID, "stklib_fitchBarrel_a_main");
     wall.setEnabled(false);
-    
+
     array<string> barrel_parts = {
             "stklib_fitchBarrel_a_cover",
             "stklib_fitchBarrel_a_bodyPartA",
@@ -62,12 +62,16 @@ void blowUpFitchBarrel(string instID)
             part.setEnabled(true);
             counter++;
         }
-    
+
     Track::TrackObject@ obj = Track::getTrackObject(instID, "stklib_fitchBarrel_a_sandExplosion");
-    Track::ParticleEmitter@ emitter = obj.getParticleEmitter();
-    emitter.setEmissionRate(1.0);
-    emitter.stopIn(0.1);
-    
+    if (obj !is null)
+    {
+        // Will be null if particles are disabled
+        Track::ParticleEmitter@ emitter = obj.getParticleEmitter();
+        emitter.setEmissionRate(1.0);
+        emitter.stopIn(0.1);
+    }
+
     FitchBarrelTimeout@ timeout = FitchBarrelTimeout(instID);
     Utils::TimeoutCallback@ timerDelegate = Utils::TimeoutCallback(timeout.onTimerComplete);
     Utils::setTimeoutDelegate(timerDelegate, 20.0);
