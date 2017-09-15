@@ -13,7 +13,7 @@ Copyright: Copyright 2009 "Tob" (Tobias Beyrer/"cheleb")
 License: CC-BY-SA 3.0
 
 Files:
- elephpant.spmz
+ elephpant.spm
  wheel-front-left.spm
  wheel-front-right.spm
  wheel-rear-left.spm

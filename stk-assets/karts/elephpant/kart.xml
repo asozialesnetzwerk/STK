@@ -28,5 +28,8 @@
     <rear-right position = "0.377162 0.139018 -0.470212"
                  model    = "wheel-rear-right.spm"       />
   </wheels>
-  <hat offset="0.0 0.13 0.2"/>
+  <hat position="0.003064 0.886405 -0.018843"
+       rotation="-0.000012 -180.000005 0.000009"
+       scale="1.126621 1.126621 1.126621"
+       bone="Head"/>
 </kart>

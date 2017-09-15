@@ -27,7 +27,9 @@ License:
  Funto added the armature from the previous Beastie model
  under the BSD-2-clause (NOT simplified BSD)
 
-Files: Kart.001.spm
+Files:
+ headlight_1.spm
+ headlight_2.spm
 Copyright:
  Copyright 2017 Jean-Manuel Clémençon <sam.un@protonmail.com>
  Copyright 2017 Néd J. "jymis" Édoire <nwad@crypticgate.net>
