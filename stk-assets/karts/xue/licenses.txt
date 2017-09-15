@@ -23,7 +23,7 @@ Copyright: Copyright 2013 Totoplus62
 License: ????
 Comment: From https://forum.freegamedev.net/viewtopic.php?f=18&t=4923, based on work by Ludsky.
 
-Files: hc.body.001.spm
+Files: headlight.spm
 Copyright:
  Copyright 2017 Néd J. "jymis" Édoire <nwad@crypticgate.net>
  Copyright 2017 Jean-Manual Clémençon <sam.un@protonmail.com>

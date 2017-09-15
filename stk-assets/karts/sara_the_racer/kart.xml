@@ -29,13 +29,28 @@
     <front-right position = "0.000000 0.097489 0.481675"
                  model    = "wheel-front-right.spm"       />
   </wheels>
+  <speed-weighted-objects>
+    <speed-weighted position="-0.000000 0.269588 -0.364707" model="exhaust.spm"  texture-speed-x="0.500000" texture-speed-y="0.000000"/>
+  </speed-weighted-objects>
   <nitro-emitter>
     <nitro-emitter-a position = "0.015415 0.294082 -0.508180" />
     <nitro-emitter-b position = "-0.015024 0.294082 -0.508180" />
   </nitro-emitter>
-  <speed-weighted-objects>
-    <speed-weighted position="-0.000000 0.269588 -0.364707" model="exhaust.spm"  texture-speed-x="0.500000" texture-speed-y="0.000000"/>
-  </speed-weighted-objects>
-  <hat offset="0.0 0.2 0.0"/>
+  <headlights>
+    <object position="0.041786 0.416673 0.488877"
+            rotation="0.000000 180.000005 0.000005"
+            scale="1.000000 1.000000 1.000000"
+            bone="bike_tilting"
+            model="headlight_1.spm"/>
+    <object position="-0.043390 0.416673 0.488877"
+            rotation="0.000000 180.000005 0.000005"
+            scale="1.000000 1.000000 1.000000"
+            bone="bike_tilting"
+            model="headlight_2.spm"/>
+  </headlights>
+  <hat position="0.006900 0.954977 0.044615"
+       rotation="3.577326 0.508202 0.338355"
+       scale="1.000000 1.000000 1.000000"
+       bone="head"/>
   <lean max="*0-6.6"/>
 </kart>

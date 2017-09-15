@@ -29,7 +29,9 @@ Files:
 Copyright: Copyright 2015 Julian Schönbächler
 License: CC-BY-SA 3.0
 
-Files: Fender.003.spm
+Files:
+ headlight_1.spm
+ headlight_2.spm
 Copyright:
  Copyright 2017 Jean-Manuel Clémençon <sam.un@protonmail.com>
  Copyright 2017 Néd J. "jymis" Édoire <nwad@crypticgate.net>
