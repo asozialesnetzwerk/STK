@@ -106,6 +106,7 @@ def saveHeadlights(f, lHeadlights, path, straight_frame):
             if straight_frame == -1:
                 print("Missing striaght frame for saving straight location")
                 assert False
+            bpy.context.scene.frame_set(straight_frame)
             loc, rot, scale = obj.matrix_world.decompose()
             rot = rot.to_euler('XZY')
             rad2deg = -180.0 / 3.1415926535;
@@ -423,6 +424,7 @@ def exportKart(path):
             if straight_frame == -1:
                 print("Missing striaght frame for saving straight location")
                 assert False
+            bpy.context.scene.frame_set(straight_frame)
             loc, rot, scale = hat_object.matrix_world.decompose()
             rot = rot.to_euler('XZY')
             rad2deg = -180.0 / 3.1415926535;
