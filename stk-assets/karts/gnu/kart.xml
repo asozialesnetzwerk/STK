@@ -42,8 +42,8 @@
             color="193 255 24"
             model="arabic_lantern.spm"/>
   </headlights>
-  <hat position="0.004377 1.082119 0.031119"
-       rotation="-9.413746 179.999991 0.000079"
+  <hat position="0.003658 1.078422 0.033520"
+       rotation="-22.299497 179.995074 -0.356987"
        scale="1.000000 1.000000 1.000000"
-       bone="Head"/>
+       bone="Museau"/>
 </kart>
