@@ -44,7 +44,7 @@
             model="headlight_2.spm"/>
   </headlights>
   <hat position="-0.000000 0.757441 -0.020529"
-       rotation="0.000013 179.999978 0.000003"
+       rotation="-0.000015 -0.000027 0.000003"
        scale="0.800000 0.800000 0.800000"
        bone="Head"/>
 </kart>

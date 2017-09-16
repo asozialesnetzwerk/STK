@@ -29,7 +29,7 @@
                  model    = "wheel-rear-right.spm"       />
   </wheels>
   <hat position="0.003064 0.886405 -0.018843"
-       rotation="-0.000012 -180.000005 0.000009"
+       rotation="-0.000005 -0.000010 0.000009"
        scale="1.126621 1.126621 1.126621"
        bone="Head"/>
 </kart>

@@ -7,6 +7,11 @@ Upstream-Contact:
 Source: https://supertuxkart.net
 License: Various
 
+Files: materials.xml
+Copyright: Unknown
+License: Unknown
+Comment: Material infos, not sure if license is needed
+
 Files: ants.png
 Copyright: Unknown
 License: Unknown
