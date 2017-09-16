@@ -101,36 +101,41 @@ def saveHeadlights(f, lHeadlights, path, straight_frame):
         return
     
     f.write('  <headlights>\n')
+    instancing_objects = {}
     for obj in lHeadlights:
+        bone_name = None
         if obj.parent and obj.parent_type == 'BONE':
             if straight_frame == -1:
                 print("Missing striaght frame for saving straight location")
                 assert False
+            bone_name = obj.parent_bone
             bpy.context.scene.frame_set(straight_frame)
-            loc, rot, scale = obj.matrix_world.decompose()
-            rot = rot.to_euler('XZY')
-            rad2deg = -180.0 / 3.1415926535;
-            f.write('    <object position="%f %f %f"\n            rotation="%f %f %f"'
-                '\n            scale="%f %f %f"\n            bone="%s"'
-                '\n            model="%s.spm"/>\n' \
-                % (loc[0], loc[2], loc[1], rot[0] * rad2deg, rot[2] * rad2deg, rot[1] * rad2deg,\
-                scale[0], scale[2], scale[1], obj.parent_bone, obj.name))
+        loc, rot, scale = obj.matrix_world.decompose()
+        rot = rot.to_euler('XZY')
+        rad2deg = -180.0 / 3.1415926535;
+        flags = []
+        flags.append('    <object position="%f %f %f"\n' % (loc[0], loc[2], loc[1]))
+        flags.append('           rotation="%f %f %f"\n' % (rot[0] * rad2deg, rot[2] * rad2deg, rot[1] * rad2deg))
+        flags.append('           scale="%f %f %f"\n' % (scale[0], scale[2], scale[1]))
+        if bone_name:
+            flags.append('           bone="%s"\n' % bone_name)
+        headlight_color = getProperty(obj, 'headlight_color', '255 255 255')
+        if headlight_color != '255 255 255':
+            flags.append('           color=\"%s\"\n' % headlight_color)
+
+        exported_name = obj.name
+        if obj.data.name in instancing_objects:
+            exported_name = instancing_objects[obj.data.name]
         else:
-            loc, rot, scale = obj.matrix_world.decompose()
-            rad2deg = -180.0 / 3.1415926535;
-            rot = rot.to_euler('XZY')
-            f.write('    <object position="%f %f %f"\n            rotation="%f %f %f"'
-                '\n            scale="%f %f %f"'
-                '\n            model="%s.spm"/>\n' \
-                % (loc[0], loc[2], loc[1], rot[0] * rad2deg, rot[2] * rad2deg, rot[1] * rad2deg,\
-                scale[0], scale[2], scale[1], obj.name))
+            instancing_objects[obj.data.name] = obj.name
+            global the_scene
+            the_scene.obj_list = [obj]
+            bpy.ops.screen.spm_export(localsp=True, filepath=path + "/" + obj.name,
+                                      export_tangent=False, overwrite_without_asking=True)
+            the_scene.obj_list = []
 
-        global the_scene
-        the_scene.obj_list = [obj]
-        bpy.ops.screen.spm_export(localsp=True, filepath=path + "/" + obj.name,
-                                  export_tangent=False, overwrite_without_asking=True)
-        the_scene.obj_list = []
-
+        flags.append('           model="%s.spm"/>\n' % exported_name)
+        f.write('%s' % ' '.join(flags))
     f.write('  </headlights>\n')
 
 # ------------------------------------------------------------------------------
