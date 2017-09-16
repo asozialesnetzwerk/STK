@@ -21,12 +21,29 @@
               end-losing = "479"
               start-speed-weighted = "481"
               end-speed-weighted = "501"/>
+  <speed-weighted-objects>
+    <speed-weighted position="0.000000 0.300000 0.000000" model="Carpet.spm" />
+  </speed-weighted-objects>
   <nitro-emitter>
     <nitro-emitter-a position = "0.323666 0.122335 -0.360474" />
     <nitro-emitter-b position = "-0.308955 0.122335 -0.360474" />
   </nitro-emitter>
-  <speed-weighted-objects>
-    <speed-weighted position="0.000000 0.300000 0.000000" model="Carpet.spm" />
-  </speed-weighted-objects>
-  <hat offset="0.0 0.245 0.15"/>
+  <headlights>
+    <object position="-0.149595 0.560550 0.419007"
+            rotation="-1.036070 162.941047 -0.788703"
+            scale="1.000000 1.000000 1.000000"
+            bone="Bras-1-L"
+            color="193 255 24"
+            model="arabic_lantern.spm"/>
+    <object position="0.149985 0.560174 0.419846"
+            rotation="-0.532357 125.149884 -0.564802"
+            scale="1.000000 1.000000 1.000000"
+            bone="Bras-1-R"
+            color="193 255 24"
+            model="arabic_lantern.spm"/>
+  </headlights>
+  <hat position="0.004377 1.082119 0.031119"
+       rotation="-9.413746 179.999991 0.000079"
+       scale="1.000000 1.000000 1.000000"
+       bone="Head"/>
 </kart>
