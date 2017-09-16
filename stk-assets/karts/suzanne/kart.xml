@@ -37,7 +37,17 @@
     <nitro-emitter-b position = "-0.215846 0.452646 -0.680885" />
   </nitro-emitter>
   <headlights>
-    <object position="0.000000 0.000000 0.000000" model="HeadLights.spm"/>
+    <object position="0.268592 0.116848 0.664858"
+            rotation="0.000000 -0.000000 0.000000"
+            scale="1.000000 1.000000 1.000000"
+            model="headlight_1.spm"/>
+    <object position="-0.285844 0.115960 0.657149"
+            rotation="0.000000 -0.000000 0.000000"
+            scale="1.000000 1.000000 1.000000"
+            model="headlight_2.spm"/>
   </headlights>
-  <hat offset="0.0 0.2 0.05"/>
+  <hat position="0.006090 0.690562 -0.075912"
+       rotation="1.561133 4.812912 -0.435586"
+       scale="1.000000 1.000000 1.000000"
+       bone="Head"/>
 </kart>
