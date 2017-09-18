@@ -24,3 +24,8 @@ Files:
 Copyright: Copyright 2015 Julian "XGhost" Schönbächler <info@creative-forge.ch>
 License: CC-BY-SA 3.0
 Comment: This kart is completely original and is NOT a mere modification of the old Tux kart!
+
+Files:
+ headlight.spm
+Copyright: Copyright 2017 Benau
+License: public-domain
