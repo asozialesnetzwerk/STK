@@ -140,45 +140,62 @@ def saveHeadlights(f, lHeadlights, path, straight_frame):
 
 # ------------------------------------------------------------------------------
 # Save speed weighted
-def saveSpeedWeighted(f, lSpeedWeighted, path):
+def saveSpeedWeighted(f, lSpeedWeighted, path, straight_frame):
     if len(lSpeedWeighted) == 0:
         return
     if 'spm_export' not in dir(bpy.ops.screen):
         log_error("Cannot find the spm exporter, make sure you installed it properly")
         return
-    
+
     f.write('  <speed-weighted-objects>\n')
+    instancing_objects = {}
     for obj in lSpeedWeighted:
-        strengthFactor = float(getProperty(obj, "speed-weighted-strength-factor", -1.0))
-        speedFactor    = float(getProperty(obj, "speed-weighted-speed-factor",    -1.0))
-        textureSpeedX  = float(getProperty(obj, "speed-weighted-texture-speed-x", 0.0))
-        textureSpeedY  = float(getProperty(obj, "speed-weighted-texture-speed-y", 0.0))
-        
-        strAttributes=""
-        if strengthFactor >= 0.0:
-            strAttributes = strAttributes + ' strength-factor="%f"' % strengthFactor
-        if speedFactor >= 0.0:
-            strAttributes = strAttributes + ' speed-factor="%f"' % speedFactor
-        if textureSpeedX != 0.0 or textureSpeedY != 0.0:
-            strAttributes = strAttributes + ' texture-speed-x="%f" texture-speed-y="%f"' % (textureSpeedX, textureSpeedY)
-        
-        f.write('    <speed-weighted position="%f %f %f" model="%s.spm" %s/>\n' \
-                % (obj.location.x, obj.location.z, obj.location.y, obj.name, strAttributes))
-        
-        lOldPos = Vector([obj.location.x, obj.location.y, obj.location.z])
-        obj.location = Vector([0, 0, 0])
-        
-        global the_scene
-        the_scene.obj_list = [obj]
-        
-        bpy.ops.screen.spm_export(localsp=False, filepath=path + "/" + obj.name,
-                                  export_tangent=False, overwrite_without_asking=True)
-        the_scene.obj_list = []
-        
-        obj.location = lOldPos
-        
+        bone_name = None
+        if obj.parent and obj.parent_type == 'BONE':
+            if straight_frame == -1:
+                print("Missing striaght frame for saving straight location")
+                assert False
+            bone_name = obj.parent_bone
+            bpy.context.scene.frame_set(straight_frame)
+        loc, rot, scale = obj.matrix_world.decompose()
+        rot = rot.to_euler('XZY')
+        rad2deg = -180.0 / 3.1415926535;
+        flags = []
+        flags.append('    <object position="%f %f %f"\n' % (loc[0], loc[2], loc[1]))
+        flags.append('           rotation="%f %f %f"\n' % (rot[0] * rad2deg, rot[2] * rad2deg, rot[1] * rad2deg))
+        flags.append('           scale="%f %f %f"\n' % (scale[0], scale[2], scale[1]))
+        if bone_name:
+            flags.append('           bone="%s"\n' % bone_name)
+
+        strength_factor = float(getProperty(obj, "speed-weighted-strength-factor", -1.0))
+        speed_factor    = float(getProperty(obj, "speed-weighted-speed-factor",    -1.0))
+        texture_speed_x = float(getProperty(obj, "speed-weighted-texture-speed-x", 0.0))
+        texture_speed_y = float(getProperty(obj, "speed-weighted-texture-speed-y", 0.0))
+
+        attr = ""
+        if strength_factor >= 0.0:
+            attr = attr + ' strength-factor="%f"' % strength_factor
+        if speed_factor >= 0.0:
+            attr = attr + ' speed-factor="%f"' % speed_factor
+        if texture_speed_x != 0.0 or texture_speed_y != 0.0:
+            attr = attr + ' texture-speed-x="%f" texture-speed-y="%f"' % (texture_speed_x, texture_speed_y)
+        flags.append('          %s\n' % attr)
+
+        exported_name = obj.name
+        if obj.data.name in instancing_objects:
+            exported_name = instancing_objects[obj.data.name]
+        else:
+            instancing_objects[obj.data.name] = obj.name
+            global the_scene
+            the_scene.obj_list = [obj]
+            bpy.ops.screen.spm_export(localsp=True, filepath=path + "/" + obj.name,
+                                      export_tangent=False, overwrite_without_asking=True)
+            the_scene.obj_list = []
+
+        flags.append('           model="%s.spm"/>\n' % exported_name)
+        f.write('%s' % ' '.join(flags))
     f.write('  </speed-weighted-objects>\n')
-    
+
 # ------------------------------------------------------------------------------
 def saveWheels(f, lWheels, path):
     if len(lWheels) == 0:
@@ -257,8 +274,7 @@ def saveAnimations(f):
                     "end-winning", "start-losing", "start-losing-loop", "end-losing",
                     "start-explosion", "end-explosion", "start-jump", "start-jump-loop", "end-jump",
                     "turning-l", "center", "turning-r", "repeat-losing", "repeat-winning",
-                    "start-speed-weighted", "end-speed-weighted", "backpedal-left",
-                    "backpedal", "backpedal-right", "selection-start", "selection-end"]:
+                    "backpedal-left", "backpedal", "backpedal-right", "selection-start", "selection-end"]:
                     if markerName=="turning-l": markerName="left"
                     if markerName=="turning-r": markerName="right"
                     if markerName=="center": markerName="straight"
@@ -409,7 +425,7 @@ def exportKart(path):
     f.write('      minimap-icon-file = "%s"\n' % kart_map_icon)
     f.write('      shadow-file       = "%s"\n' % kart_shadow)
     f.write('      type              = "%s"\n' % kart_type)
-    
+
     center_shift = the_scene['center_shift']
     if center_shift and center_shift != 0:
         f.write('      center-shift      = "%.2f"\n' % center_shift)
@@ -420,7 +436,7 @@ def exportKart(path):
     saveSounds(f, kart_engine_sfx)
     straight_frame = saveAnimations(f)
     saveWheels(f, lWheels, path)
-    saveSpeedWeighted(f, lSpeedWeighted, path)
+    saveSpeedWeighted(f, lSpeedWeighted, path, straight_frame)
     saveNitroEmitter(f, lNitroEmitter, path)
     saveHeadlights(f, lHeadlights, path, straight_frame)
 
