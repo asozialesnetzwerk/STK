@@ -15,9 +15,9 @@
               right = "29"
               start-winning = "69"
               end-winning = "89"
-              start-losing = "99"
-              start-losing-loop = "109"
-              end-losing = "119"/>
+              start-losing = "100"
+              start-losing-loop = "110"
+              end-losing = "120"/>
   <wheels>
     <front-left position = "-0.371461 0.124264 0.303000"
                  model    = "wheel-front-left.spm"       />
@@ -33,7 +33,17 @@
     <nitro-emitter-b position = "0.159044 0.191291 -0.659415" />
   </nitro-emitter>
   <headlights>
-    <object position="0.000000 0.000000 0.000000" model="Kart.003.spm"/>
+    <object position="-0.147122 0.112550 0.487146"
+            rotation="0.000000 -0.000000 0.000000"
+            scale="1.000000 1.000000 1.000000"
+            model="headlight_1.spm"/>
+    <object position="0.153012 0.107950 0.491304"
+            rotation="0.000000 -0.000000 0.000000"
+            scale="1.000000 1.000000 1.000000"
+            model="headlight_2.spm"/>
   </headlights>
-  <hat offset="0.0 0.15 0.0"/>
+  <hat position="-0.008784 0.567582 -0.153440"
+       rotation="-9.040618 -4.054806 1.098720"
+       scale="1.000000 1.000010 1.000000"
+       bone="Head"/>
 </kart>

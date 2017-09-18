@@ -4,7 +4,7 @@ Upstream-Contact: Marianne Gagnon <auria.mg@gmail.com>
 Source: https://supertuxkart.net
 Comment: Some confusion about the real authors of some files (see below)
 
-Files: *.png *.xml
+Files: *.png *.jpg *.xml
 Copyright: Copyright 2013 betharatux1
 License: GPL ???
 Comment: We'll just assume that these are betharatux1's works... See License.txt file

@@ -4,7 +4,9 @@ Upstream-Contact: Marianne "Auria" Gagnon <auria.mg@gmail.com>
 Source: https://supertuxkart.net
 License: CC-BY-SA 3.0
 
-Files: Kart.003.spm
+Files:
+ headlight_1.spm
+ headlight_2.spm
 Copyright:
  Copyright 2017 Jean-Manuel "samuncle" Clémençon <sam.un@protonmail.com>
  Copyright 2017 Néd J. "jymis" Édoire <nwad@crypticgate.net>
