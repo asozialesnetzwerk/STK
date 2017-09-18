@@ -31,7 +31,11 @@
                  model    = "wheel-front-right.spm"       />
   </wheels>
   <speed-weighted-objects>
-    <speed-weighted position="0.000000 0.000000 0.000000" model="speed_weight_object.spm"  texture-speed-x="0.000000" texture-speed-y="1.500000"/>
+    <object position="0.000000 0.000000 0.000000"
+            rotation="-90.000003 -0.000000 0.000000"
+            scale="1.000000 1.000000 1.000000"
+            texture-speed-x="0.000000" texture-speed-y="1.500000"
+            model="speed_weight_object.spm"/>
   </speed-weighted-objects>
   <nitro-emitter>
     <nitro-emitter-a position = "-0.178905 0.268604 -0.499154" />

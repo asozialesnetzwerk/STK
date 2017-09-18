@@ -20,12 +20,15 @@
               start-losing = "219"
               start-losing-loop = "259"
               end-losing = "289"
-              start-speed-weighted = "299"
-              end-speed-weighted = "329"
               start-jump = "339"
               end-jump = "359"/>
   <speed-weighted-objects>
-    <speed-weighted position="0.000000 0.000000 0.000000" model="hc.propeller.spm"  speed-factor="10.000000"/>
+    <object position="0.000000 0.579103 -0.369239"
+            rotation="0.000000 0.000000 -0.000000"
+            scale="1.000000 1.000000 1.000000"
+            bone="hc.body"
+            speed-factor="10.000000"
+            model="hc.propeller.spm"/>
   </speed-weighted-objects>
   <nitro-emitter>
     <nitro-emitter-a position = "0.342230 0.484809 -0.547407" />

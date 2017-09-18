@@ -23,9 +23,7 @@
               end-losing = "269"
               backpedal-left = "289"
               backpedal = "309"
-              backpedal-right = "329"
-              start-speed-weighted = "349"
-              end-speed-weighted = "369"/>
+              backpedal-right = "329"/>
   <wheels>
     <front-left position = "-0.279106 0.178959 0.715315"
                  model    = "wheel-front-left.spm"       />
@@ -36,12 +34,23 @@
     <rear-right position = "0.279106 0.178959 -0.425105"
                  model    = "wheel-rear-right.spm"       />
   </wheels>
+  <speed-weighted-objects>
+    <object position="0.122654 0.427813 0.079780"
+            rotation="-0.000003 -0.000000 0.000000"
+            scale="1.000000 1.000000 1.000000"
+            bone="Kart"
+            speed-factor="2.000000"
+            model="Vehicle.Dashboard.Needle.spm"/>
+  </speed-weighted-objects>
   <nitro-emitter>
     <nitro-emitter-a position = "-0.266855 0.375222 -0.664861" />
     <nitro-emitter-b position = "-0.266855 0.375222 -0.664861" />
   </nitro-emitter>
   <headlights>
-    <object position="0.000000 0.000000 -0.062491" model="Vehicle.Lightbulb.spm"/>
+    <object position="-0.000424 0.428561 0.741379"
+            rotation="-0.000003 -0.000000 0.000000"
+            scale="0.885334 0.885334 0.885334"
+            bone="Kart"
+            model="Vehicle.Lightbulb.spm"/>
   </headlights>
-  <hat offset="0.0 0.1 0.0"/>
 </kart>

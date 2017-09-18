@@ -18,9 +18,7 @@
               end-winning = "159"
               start-losing = "169"
               start-losing-loop = "199"
-              end-losing = "209"
-              start-speed-weighted = "219"
-              end-speed-weighted = "239"/>
+              end-losing = "209"/>
   <wheels>
     <front-left position = "-0.397559 0.161885 0.255742"
                  model    = "wheel-front-left.spm"       />
@@ -32,7 +30,11 @@
                  model    = "wheel-rear-right.spm"       />
   </wheels>
   <speed-weighted-objects>
-    <speed-weighted position="0.000000 0.000000 0.000000" model="hc.propeller.spm"  speed-factor="1.000000"/>
+    <object position="0.180017 0.366649 -0.038550"
+            rotation="0.000000 -0.000000 0.000000"
+            scale="1.000000 1.000000 1.000000"
+            speed-factor="1.000000"
+            model="hc.propeller.spm"/>
   </speed-weighted-objects>
   <nitro-emitter>
     <nitro-emitter-a position = "0.203126 0.391161 -0.397603" />
