@@ -50,3 +50,8 @@ Files: tapis.png
 Copyright: Copyright 2009 Benjamin Arnaudet
 License: GPL ???
 Comment: Originally part of Gnu kart
+
+Files: explode.png
+Copyright: Copyright 2008-2010 MiniBjorn
+License: CC-BY-SA 3.0
+Comment: From License.txt
