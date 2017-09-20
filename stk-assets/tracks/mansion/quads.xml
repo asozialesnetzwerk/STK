@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <!-- Generated with script from SVN rev 17016 -->
 <quads>
+  <height-testing min="-1.000000" max="5.000000"/>
   <!-- Driveline: BezierCurve.003 -->
   <quad   p0="5.229 -2.624 56.584" p1="-2.606 -2.624 55.629" p2="-1.951 -2.354 50.312" p3="5.950 -2.354 50.836"/>
   <quad  p0="0:3" p1="0:2" p2="-1.800 -1.267 33.348" p3="6.115 -1.267 33.164"/>

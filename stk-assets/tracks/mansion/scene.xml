@@ -2,11 +2,6 @@
 <!-- Generated with script from SVN rev 17016 -->
 <scene>
   <lod>
-   <group name="jackOlantern">
-    <static-object lod_distance="200" lod_group="jackOlantern" model="Circle.026.spm" xyz="73.20 0.15 11.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
-    <static-object lod_distance="400" lod_group="jackOlantern" model="Circle.028.spm" xyz="73.27 0.08 14.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
-    <static-object lod_distance="500" lod_group="jackOlantern" model="Circle.027.spm" xyz="73.27 0.08 17.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
-   </group>
    <group name="dead_tree">
     <static-object lod_distance="150" lod_group="dead_tree" model="Mesh.012.spm" xyz="73.39 1.70 43.07" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
     <static-object lod_distance="175" lod_group="dead_tree" model="Mesh.015.spm" xyz="73.39 1.70 26.07" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
@@ -15,10 +10,10 @@
    <group name="tombStone">
     <static-object lod_distance="70" lod_group="tombStone" model="BezierCurve.002.spm" xyz="43.50 -3.04 -2.68" hpr="0.0 -87.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
    </group>
-   <group name="pumpkin">
-    <static-object lod_distance="20" lod_group="pumpkin" model="Circle.023.spm" xyz="68.27 0.08 11.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
-    <static-object lod_distance="40" lod_group="pumpkin" model="Circle.024.spm" xyz="68.27 0.08 14.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
-    <static-object lod_distance="80" lod_group="pumpkin" model="Circle.025.spm" xyz="68.27 0.08 17.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+   <group name="jackOlantern">
+    <static-object lod_distance="200" lod_group="jackOlantern" model="Circle.026.spm" xyz="73.20 0.15 11.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="400" lod_group="jackOlantern" model="Circle.028.spm" xyz="73.27 0.08 14.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="500" lod_group="jackOlantern" model="Circle.027.spm" xyz="73.27 0.08 17.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
    </group>
    <group name="lantern">
     <static-object lod_distance="20" lod_group="lantern" model="Mesh.002.spm" xyz="64.24 2.78 41.08" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
@@ -26,6 +21,11 @@
    </group>
    <group name="old_barrier">
     <static-object lod_distance="60" lod_group="old_barrier" model="metal_barrier.spm" xyz="58.15 4.09 41.48" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+   </group>
+   <group name="pumpkin">
+    <static-object lod_distance="20" lod_group="pumpkin" model="Circle.023.spm" xyz="68.27 0.08 11.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="40" lod_group="pumpkin" model="Circle.024.spm" xyz="68.27 0.08 14.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="80" lod_group="pumpkin" model="Circle.025.spm" xyz="68.27 0.08 17.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
    </group>
   </lod>
   <track model="mansion_track.spm" x="0" y="0" z="0">
