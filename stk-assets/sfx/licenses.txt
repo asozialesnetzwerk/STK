@@ -418,3 +418,10 @@ License: public-domain
 Comment:
  From http://pdsounds.org/effects/knocking-on-wood-or-door/ (based on search of the archive
  at pdsounds.tuxfamily.org), modified by Marianne Gagnon.
+
+Files: static-radio.ogg
+Copyright:
+ Copyright 2005 nicStage
+ Copyright 2017 Jean-Manuel Clémençon (samuncle)
+License: CC-BY 3.0
+Comment: From http://freesound.org/people/nicStage/sounds/1906/ (modified by samuncle)
