@@ -145,6 +145,7 @@ colorizable="Y" colorization-factor="0.00" colorization-mask="gfxrndColor_generi
   <material name="stktex_silviaLocationAtlas_a.png" shader="alphatest"/>
   <material name="stktex_launchpad42location_a.png" shader="alphatest"/>
   <material name="stktex_LasDunasLocationAtlas_a.png" shader="alphatest"/>
+  <material name="stktex_puertoEncanto_a.png" shader="alphatest"/>
   <material name="stktex_mansionLocationAtlas_a.png" shader="alphatest"/>
 
   

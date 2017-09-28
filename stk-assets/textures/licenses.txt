@@ -34,6 +34,7 @@ Files:
  stkflag_pumpkin_a.png
  stkflag_pumpkin_a_gloss.png
  stklib_coniferSnow_a_low.png
+ stktex_puertoEncanto_a.png
 Copyright: Copyright 2017 Jean-Manuel Clémençon
 License: CC-BY-SA 3.0
 
