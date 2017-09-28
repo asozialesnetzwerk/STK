@@ -27,9 +27,15 @@ Copyright: Copyright 2009 Tobias "Tob" "Cheleb" Beyrer
 License: CC-BY-SA 3.0
 Comment: Originally part of Nolok kart
 
-Files: stk_animalPig_a.png
+Files: 
+ stk_animalPig_a.png
+ stk_terminalCode_a.png
+ stk_transcriptDataSignal_a.png
+ stkflag_pumpkin_a.png
+ stkflag_pumpkin_a_gloss.png
+ stklib_coniferSnow_a_low.png
 Copyright: Copyright 2017 Jean-Manuel Clémençon
-License: ????
+License: CC-BY-SA 3.0
 
 Files: stktex_generic_bambooB.png
 Copyright:

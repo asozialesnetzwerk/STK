@@ -42,7 +42,8 @@ colorizable="Y" colorization-factor="0.00" colorization-mask="gfxrndColor_generi
   <material name="stktex_cornPlant_a.png"   shader="grass" />
   <material name="stklib_cornField_a.png"   shader="grass" />
   
-  <material name="stkflag_stkVertical_a.png"      gloss-map="stk_greyMetal_a_gloss.png"  shader="grass" /> 
+  <material name="stkflag_stkVertical_a.png"      gloss-map="stk_greyMetal_a_gloss.png"  shader="grass" />
+  <material name="stkflag_pumpkin_a.png"      gloss-map="stkflag_pumpkin_a_gloss.png"  shader="grass" /> 
   <material name="stkflag_stkVerticalRed_a.png"     shader="grass" />
   
   <material name="stk_grassLightcliff_a.png"        shader="grass" />
@@ -110,6 +111,8 @@ colorizable="Y" colorization-factor="0.00" colorization-mask="gfxrndColor_generi
   
   <material name="stktex_waterfall_a.png"    shader="alphablend" ignore="Y"/>
   <material name="stk_spiderWeb_a.png"    shader="alphablend" ignore="Y"/>
+
+  <material name="stk_terminalCode_a.png"    shader="additive" ignore="Y"/>
   
   <material name="stk_generic_borderA.png" max-speed="0.4" slowdown-time="2.0" anisotropic="Y">
     <particles base="smoke.xml" condition="skid drive" />
