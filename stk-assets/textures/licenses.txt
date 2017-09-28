@@ -8,14 +8,14 @@ Source: https://supertuxkart.net
 License: Various
 
 Files: materials.xml
-Copyright: Unknown
+Copyright: SuperTuxKart dev team
 License: Unknown
 Comment: Material infos, not sure if license is needed
 
 Files: ants.png
-Copyright: Unknown
-License: Unknown
-Comment: Added by samuncle in 2013. Real info unknown.
+Copyright: Jean-Manuel Clémençon
+License: CC-BY-SA 3.0
+Comment: Added by samuncle in 2013.
 
 Files: astro_turf.jpg
 Copyright: Copyright 2013 Totoplus62
