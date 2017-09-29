@@ -891,6 +891,15 @@ class NavmeshExporter:
                 
                 for face in bm.faces:
                     navmeshfile.write('<face indices="')
+                    if len(face.verts) != 4:
+                        log_error('Use only quad for navmesh, face %d not quad!' % face.index)
+                        log_error('To find it out, select the navmesh object and toggle edit mode, than in python console:')
+                        log_error('me = bpy.data.objects[\'%s\'].data' % self.m_objects[0].name)
+                        log_error('import bmesh')
+                        log_error('bm = bmesh.from_edit_mesh(me)')
+                        log_error('bm.faces[%d].select = True' % face.index)
+                        log_error('bmesh.update_edit_mesh(me, True)')
+                        assert False
                     for vert in face.verts:
                         navmeshfile.write('%d ' % vert.index)
                     
