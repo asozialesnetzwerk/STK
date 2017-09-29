@@ -16,7 +16,7 @@
    version="1.1"
    inkscape:version="0.92.1 r15371"
    sodipodi:docname="stktex_MansionLocationAtlas_a.svg"
-   inkscape:export-filename="/home/jmclemencon/MyProjects/supertuxkart_media_repo/textures/roadSign/stktex_LasDunasLocationAtlas_a.png"
+   inkscape:export-filename="D:\supertuxkart\stk-media-repo\textures\roadSign\stktex_mansionLocationAtlas_a.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs
@@ -50,14 +50,14 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.0004883"
-     inkscape:cx="333.6622"
-     inkscape:cy="591.94419"
+     inkscape:zoom="1.4149041"
+     inkscape:cx="89.042493"
+     inkscape:cy="322.75101"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="3840"
-     inkscape:window-height="2066"
+     inkscape:window-height="2126"
      inkscape:window-x="-11"
      inkscape:window-y="-11"
      inkscape:window-maximized="1"
@@ -133,5 +133,37 @@
          x="23.988287"
          y="437.02536"
          id="tspan953" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:Autobahn;-inkscape-font-specification:Autobahn;letter-spacing:0px;word-spacing:0px;fill:#252525;fill-opacity:1;stroke:none;"
+       x="20.496096"
+       y="1102.7303"
+       id="text4498"><tspan
+         sodipodi:role="line"
+         id="tspan4496"
+         x="20.496096"
+         y="1102.7303">RAVENBRIDGE ESTATE</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:Autobahn;-inkscape-font-specification:Autobahn;letter-spacing:0px;word-spacing:0px;fill:#252525;fill-opacity:1;stroke:none"
+       x="23.721272"
+       y="470.59018"
+       id="text4498-4"><tspan
+         sodipodi:role="line"
+         id="tspan4496-0"
+         x="23.721272"
+         y="470.59018">SWAMP</tspan><tspan
+         sodipodi:role="line"
+         x="23.721272"
+         y="520.59021"
+         id="tspan4500">MANSION</tspan><tspan
+         sodipodi:role="line"
+         x="23.721272"
+         y="570.59021"
+         id="tspan4502">BRIDGE</tspan><tspan
+         sodipodi:role="line"
+         x="23.721272"
+         y="620.59021"
+         id="tspan4504">OUTFLOW PIPE</tspan></text>
   </g>
 </svg>
