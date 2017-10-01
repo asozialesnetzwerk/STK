@@ -3,5 +3,5 @@
 <materials>
   <material name="kiki.png" colorizable="Y" colorization-factor="0.70" colorization-mask="kiki_colorization_mask.png"/>
   <material name="stktex_generic_WoodG.png" colorizable="Y" colorization-factor="0.00"/>
-  <material name="stktex_generic_WoodH.png" colorizable="Y" colorization-factor="0.00"/>
+  <material name="wood_planks1.jpg" colorizable="Y" colorization-factor="0.00"/>
 </materials>

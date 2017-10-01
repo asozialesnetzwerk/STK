@@ -12,7 +12,10 @@
   <sounds engine = "small"/>
   <animations left = "0"
               straight = "20"
-              right = "40"/>
+              right = "40"
+              backpedal-left = "41"
+              backpedal = "61"
+              backpedal-right = "81"/>
   <wheels>
     <front-left position = "-0.219670 0.118839 0.402471"
                  model    = "wheel-front-left.spm"       />
@@ -52,4 +55,8 @@
             scale="0.749093 0.749093 0.749093"
             model="headlight.spm"/>
   </headlights>
+  <hat position="0.002805 0.950496 -0.055523"
+       rotation="2.234933 0.000004 -0.000002"
+       scale="0.542276 0.542277 0.542277"
+       bone="head"/>
 </kart>
