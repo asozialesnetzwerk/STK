@@ -21,7 +21,9 @@
               start-losing-loop = "259"
               end-losing = "289"
               start-jump = "339"
-              end-jump = "359"/>
+              end-jump = "359"
+              selection-start = "360"
+              selection-end = "390"/>
   <speed-weighted-objects>
     <object position="0.000000 0.579103 -0.369239"
             rotation="0.000000 0.000000 -0.000000"
@@ -41,8 +43,8 @@
             bone="hc.body"
             model="headlight.spm"/>
   </headlights>
-  <hat position="-0.002810 0.831088 0.227025"
-       rotation="6.398487 1.783929 0.528567"
+  <hat position="-0.004588 0.834031 0.225675"
+       rotation="4.632516 0.000001 -0.000004"
        scale="1.000000 1.000000 1.000000"
        bone="head"/>
 </kart>
