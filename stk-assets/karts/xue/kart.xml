@@ -43,8 +43,8 @@
             bone="hc.body"
             model="headlight.spm"/>
   </headlights>
-  <hat position="-0.004588 0.834031 0.225675"
-       rotation="4.632516 0.000001 -0.000004"
+  <hat position="-0.004588 0.831128 0.226894"
+       rotation="6.387587 0.000001 -0.000004"
        scale="1.000000 1.000000 1.000000"
        bone="head"/>
 </kart>
