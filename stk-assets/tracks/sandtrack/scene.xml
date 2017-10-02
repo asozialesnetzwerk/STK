@@ -242,7 +242,7 @@
   </library>
   <library name="stklib_lowPalmTree_a" id="stklib_lowPalmTree_a_main_proxy.014" xyz="-74.47 -136.24 -61.56" hpr="0.0 -0.2 -11.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy" xyz="9.81 -142.64 110.47" hpr="-0.0 154.5 -0.0" scale="0.77 0.77 0.77">
+  <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy" xyz="9.81 -142.64 110.47" hpr="0.0 154.5 0.0" scale="0.77 0.77 0.77">
   </library>
   <library name="stklib_palmTree_a" id="stklib_palmTree_a_main_proxy.001" xyz="-11.10 -142.77 102.79" hpr="0.0 -0.0 0.0" scale="1.10 1.10 1.10">
   </library>
