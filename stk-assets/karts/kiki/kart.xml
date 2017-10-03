@@ -10,12 +10,14 @@
       groups            = "standard"
       rgb               = "0.01 0.72 1.00" >
   <sounds engine = "small"/>
-  <animations left = "0"
-              straight = "20"
-              right = "40"
-              backpedal-left = "41"
-              backpedal = "61"
-              backpedal-right = "81"/>
+  <animations selection-start = "0"
+              selection-end = "120"
+              left = "121"
+              straight = "141"
+              right = "161"
+              backpedal-left = "162"
+              backpedal = "182"
+              backpedal-right = "202"/>
   <wheels>
     <front-left position = "-0.219670 0.118839 0.402471"
                  model    = "wheel-front-left.spm"       />
@@ -27,7 +29,7 @@
                  model    = "wheel-rear-right.spm"       />
   </wheels>
   <speed-weighted-objects>
-    <object position="0.003637 0.399513 -0.148205"
+    <object position="0.002439 0.401483 -0.150821"
             rotation="-64.629722 0.000015 0.000003"
             scale="1.000000 1.000000 1.000000"
             bone="hips"
@@ -55,7 +57,7 @@
             scale="0.749093 0.749093 0.749093"
             model="headlight.spm"/>
   </headlights>
-  <hat position="0.002805 0.950496 -0.055523"
+  <hat position="0.001607 0.952466 -0.058139"
        rotation="2.234933 0.000004 -0.000002"
        scale="0.542276 0.542277 0.542277"
        bone="head"/>
