@@ -57,4 +57,5 @@
        scale="1.000000 1.000000 1.000000"
        bone="head"/>
   <lean max="*0-6.6"/>
+  <exhaust file="kart_exhaust.xml"/>
 </kart>

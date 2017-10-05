@@ -53,4 +53,5 @@
             bone="Kart"
             model="Vehicle.Lightbulb.spm"/>
   </headlights>
+  <exhaust file="kart_exhaust.xml"/>
 </kart>

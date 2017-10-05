@@ -50,4 +50,5 @@
        rotation="8.117022 -0.621197 0.808938"
        scale="1.000000 1.000000 1.000000"
        bone="Head"/>
+  <exhaust file="kart_exhaust.xml"/>
 </kart>
