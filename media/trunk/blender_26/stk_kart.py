@@ -464,7 +464,9 @@ def exportKart(path):
 
     if 'kartLean' in the_scene and len(the_scene['kartLean']) > 0:
         f.write('  <lean max="' + the_scene['kartLean'] + '"/>\n')
-    
+    if 'exhaust_xml' in the_scene and len(the_scene['exhaust_xml']) > 0:
+        f.write('  <exhaust file="' + the_scene['exhaust_xml'] + '"/>\n')
+
     f.write('</kart>\n')
     f.close()
 
