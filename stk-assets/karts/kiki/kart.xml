@@ -20,7 +20,12 @@
               backpedal-right = "202"
               start-winning = "203"
               start-winning-loop = "224"
-              end-winning = "256"/>
+              end-winning = "256"
+              start-losing = "257"
+              start-losing-loop = "275"
+              end-losing = "299"
+              start-jump = "300"
+              end-jump = "321"/>
   <wheels>
     <front-left position = "-0.219670 0.118839 0.402471"
                  model    = "wheel-front-left.spm"       />
