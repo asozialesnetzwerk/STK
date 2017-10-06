@@ -1,6 +1,16 @@
 <?xml version="1.0"?>
 <materials>
 
+    <!-- Global sticking textures -->
+    <material name="stkflag_orangeBooster_a.png" shader="alphatest" disable-z-write="Y" has-gravity="Y"/>
+    <material name="stkflag_blueBooster_a.png" shader="alphatest" disable-z-write="Y" has-gravity="Y"/>
+    <material name="stkflag_redBooster_a.png" shader="alphatest" disable-z-write="Y" has-gravity="Y"/>
+    <material name="stk_generic_gridA.png" shader="alphatest" has-gravity="Y"/>
+    <material name="stktex_generic_cobbleStoneA.png" has-gravity="Y" graphical-effect="normal_map" normal-map="stktex_generic_cobbleStoneA_nm.png"/>
+    <material name="stk_generic_dirtRoad_a.png" has-gravity="Y" graphical-effect="normal_map" normal-map="stk_generic_dirtRoad_a_nm.png"/>
+    <material name="stk_generic_sandRoad_a.png" has-gravity="Y"/>
+    <!-- End of global sticking textures -->
+
   <material name="stktex_gnuMeditation_a.png" shader="alphatest" colorizable="Y" colorization-factor="0.00" colorization-mask="stktex_gnuMeditation_mask.png" hue-settings="1 0.02 0.1 0.3 0.5 0.66 0.8"/>
     <!--
     HD textures for tracks of the generation post cocoa temple
@@ -51,14 +61,7 @@ colorizable="Y" colorization-factor="0.00" colorization-mask="gfxrndColor_generi
   <material name="stkflag_saraVertical_a.png"    gloss-map="stk_greyMetal_a_gloss.png"    shader="grass" />
   <material name="stkflag_goldCupVertical_a.png"   gloss-map="stk_greyMetal_a_gloss.png"   shader="grass" />
   <material name="stkflag_orangeStartingLine_a.png" shader="alphatest" disable-z-write="Y"/>
-  <material name="stkflag_orangeBooster_a.png"      shader="alphatest" disable-z-write="Y" has-gravity="Y"/>
-  <material name="stkflag_blueBooster_a.png"        shader="alphatest" disable-z-write="Y" has-gravity="Y"/>
-  <material name="stkflag_redBooster_a.png"        shader="alphatest" disable-z-write="Y" has-gravity="Y"/>
-
   <material name="stk_wheatA_anim.png" shader="alphatest" />
-
-  <material name="stk_generic_sandRoad_a.png"       has-gravity="Y"/>
-
   <material name="stkflag_blueStartingLine_a.png"   shader="alphatest" />
   <material name="stkflag_albikStartingLine_a.png"   shader="alphatest" />
   <material name="stkflag_pinkStartingLine_a.png"   shader="alphatest" />
@@ -134,7 +137,7 @@ colorizable="Y" colorization-factor="0.00" colorization-mask="gfxrndColor_generi
 
   <material name="gfx_fireflies_a.png" shader="additive" ignore="Y"/>
   
-  <material name="stktex_generic_WoodA.png" has-gravity="Y">
+  <material name="stktex_generic_WoodA.png">
     <sfx filename="wooden_bridge.ogg" rolloff="0.60" min_speed="9.00" max_speed="22.00" min_pitch="1.00" max_pitch="1.70" positional="Y" volume="1.00"/>
   </material>
   
@@ -214,7 +217,6 @@ colorizable="Y" colorization-factor="0.00" colorization-mask="gfxrndColor_generi
   
   <material name="stkflag_leatherPatern_a.png" gloss-map="stkflag_leatherPatern_gloss.png"/>
   
-  <material name="stk_generic_gridA.png" shader="alphatest" has-gravity="Y"/>
   <material name="stktex_lowPalmLeaf_a.png" shader="grass" colorizable="Y" colorization-factor="0.00" hue-settings="0.2 0.25 0.3 0.35 0.4 0.0"/>
   <material name="stklib_conifer_a_low.png" shader="grass"/>
   <material name="stktex_seaweed_a.png" shader="grass"/>
@@ -310,10 +312,6 @@ colorizable="Y" colorization-factor="0.00" colorization-mask="gfxrndColor_generi
     <material name="stktex_snowRock_a.png" graphical-effect="normal_map" normal-map="stktex_snowRock_a_nm.png" gloss-map="stktex_snowRock_a_gloss.png"/>
   
   <material name="stk_generic_brickA.png" graphical-effect="normal_map" normal-map="stk_generic_brickA_nm.png" gloss-map="stk_generic_brickA_gloss.png"/>
-  
-  <material name="stktex_generic_cobbleStoneA.png" has-gravity="Y" graphical-effect="normal_map" normal-map="stktex_generic_cobbleStoneA_nm.png"/>
-  <material name="stk_generic_dirtRoad_a.png" has-gravity="Y" graphical-effect="normal_map" normal-map="stk_generic_dirtRoad_a_nm.png"/>
-  
   <material name="stktex_generic_rockA.png"        graphical-effect="normal_map" normal-map="stktex_generic_rockA_nm.png" gloss-map="stktex_generic_rockA_gloss.png"/>
   <material name="stk_greyMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png"/>
   <material name="stk_goldMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png"/>
@@ -340,16 +338,6 @@ colorizable="Y" colorization-factor="0.00" colorization-mask="gfxrndColor_generi
   <material name="stktex_generic_aztekWall_a.png"  graphical-effect="normal_map" normal-map="stktex_generic_aztekWall_a_nm.png"/>
   <material name="stk_generic_grassB.png"          graphical-effect="normal_map" normal-map="stk_generic_grassB_nm.png"/> 
   <material name="stktex_generic_WoodB.png"        graphical-effect="normal_map" normal-map="stktex_generic_WoodB_nm.png" gloss-map="stktex_generic_WoodB_gloss.png"/>
-  
-
-  
-  
-  
-  
-  <material name="stk_generic_ironA.png" has-gravity="Y" />
-  <material name="stktex_generic_concreteA.png" has-gravity="Y" />
-  
-  
    <material name="gfx_bubble_a.png"  shader="alphablend"  light="N"/>
    <material name="stktex_clouds_a.png"  shader="additive"  light="N"/> 
    
