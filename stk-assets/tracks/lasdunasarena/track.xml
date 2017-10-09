@@ -4,7 +4,7 @@
         version        = "7"
         groups         = "standard"
         designer       = "Jean-Manuel Cl&#233;men&#231;on"
-        music          = "kart_grand_prix.music"
+        music          = "egypt.music"
         arena          = "Y"
         max-arena-players = "10"
         screenshot     = "screenshot.jpg"
