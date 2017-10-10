@@ -29,9 +29,14 @@ Copyright:
 License: CC-BY-SA 3.0
 Comment: Wheels modified by Marianne Gagnon to make them smoother.
 
-Files: nolok.spmz
+Files: nolok.spm
 Copyright:
  Copyright 2009 Tobias "Tob" "cheleb" Beyrer
  Copyright 2010 STKRudy85
 License: CC-BY-SA 3.0
 Comment: Model by cheleb, animation by STKRudy85.
+
+Files: headlight.spm 
+Copyright:
+ Copyright 2017 Benau
+License: CC-BY-SA 3.0
