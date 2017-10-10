@@ -63,3 +63,7 @@ Files: explode.png
 Copyright: Copyright 2008-2010 MiniBjorn
 License: CC-BY-SA 3.0
 Comment: From License.txt
+
+Files: stkflag_nolokArmories_a.png
+Copyright: Copyright 2017 samuncle based on nolokicon.png by Anthony "yeKcim" Carré <yeknan.free.fr>
+License: GPL 2.0
