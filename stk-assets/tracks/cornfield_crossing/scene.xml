@@ -398,195 +398,195 @@
   </library>
   <library name="stklib_greenRadioTower_a" id="stklib_greenRadioTower_a_main_proxy" xyz="191.63 5.17 26.60" hpr="-0.0 180.0 -0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy" xyz="207.73 8.46 -160.85" hpr="8.8 179.8 -5.2" scale="1.20 1.20 1.20">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy" xyz="-39.54 6.43 -35.23" hpr="96.3 84.8 87.5" scale="1.20 1.20 1.20">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.001" xyz="-39.54 6.43 -35.23" hpr="96.3 84.8 87.5" scale="1.20 1.20 1.20">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.001" xyz="-41.77 4.73 4.19" hpr="66.3 84.8 64.4" scale="1.20 1.20 1.20">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.002" xyz="-41.77 4.73 4.19" hpr="66.3 84.8 64.4" scale="1.20 1.20 1.20">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.002" xyz="-38.18 5.29 82.47" hpr="91.5 84.7 74.7" scale="1.20 1.20 1.20">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.003" xyz="-38.18 5.29 82.47" hpr="91.5 84.7 74.7" scale="1.20 1.20 1.20">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.003" xyz="-37.76 6.07 41.67" hpr="-84.4 93.5 -84.5" scale="1.20 1.20 1.20">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.004" xyz="-37.76 6.07 41.67" hpr="-84.4 93.5 -84.5" scale="1.20 1.20 1.20">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.004" xyz="-39.35 7.34 122.07" hpr="79.5 86.7 81.9" scale="1.20 1.20 1.20">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.005" xyz="-39.35 7.34 122.07" hpr="79.5 86.7 81.9" scale="1.20 1.20 1.20">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.005" xyz="-57.87 7.34 142.24" hpr="78.0 86.2 76.2" scale="1.20 1.20 1.20">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.006" xyz="-84.17 6.86 48.66" hpr="96.3 84.8 87.5" scale="1.20 1.20 1.20">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.006" xyz="17.67 1.59 15.85" hpr="-115.5 84.8 -25.6" scale="1.20 1.20 1.20">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.007" xyz="-57.87 7.34 142.24" hpr="78.0 86.2 76.2" scale="1.20 1.20 1.20">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.007" xyz="-56.99 6.75 102.05" hpr="-80.5 93.8 -79.6" scale="1.20 1.20 1.20">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.008" xyz="-56.99 6.75 102.05" hpr="-80.5 93.8 -79.6" scale="1.20 1.20 1.20">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.008" xyz="-58.77 5.55 22.34" hpr="66.3 84.8 64.4" scale="1.20 1.20 1.20">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.009" xyz="-58.77 5.55 22.34" hpr="66.3 84.8 64.4" scale="1.20 1.20 1.20">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.009" xyz="-56.82 9.62 -26.82" hpr="96.3 84.8 87.5" scale="1.20 1.20 1.20">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.010" xyz="-56.82 9.62 -26.82" hpr="96.3 84.8 87.5" scale="1.20 1.20 1.20">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.010" xyz="-77.22 12.68 -36.02" hpr="96.3 84.8 87.5" scale="1.20 1.20 1.20">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.011" xyz="-77.22 12.68 -36.02" hpr="96.3 84.8 87.5" scale="1.20 1.20 1.20">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.011" xyz="-101.07 11.79 3.98" hpr="86.6 85.0 73.0" scale="0.96 0.96 0.96">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.012" xyz="17.67 1.59 15.85" hpr="-115.5 84.8 -25.6" scale="1.20 1.20 1.20">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.012" xyz="19.34 1.59 21.81" hpr="-115.5 84.8 -25.6" scale="1.20 1.20 1.20">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.013" xyz="-101.07 11.79 3.98" hpr="86.6 85.0 73.0" scale="0.96 0.96 0.96">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.013" xyz="-84.17 6.86 48.66" hpr="96.3 84.8 87.5" scale="1.20 1.20 1.20">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.014" xyz="19.34 1.59 21.81" hpr="-115.5 84.8 -25.6" scale="1.20 1.20 1.20">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.014" xyz="149.06 8.45 24.14" hpr="-112.0 85.5 -28.1" scale="0.86 0.86 0.86">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.015" xyz="149.06 8.45 24.14" hpr="-112.0 85.5 -28.1" scale="0.86 0.86 0.86">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.015" xyz="144.51 8.92 24.18" hpr="-112.0 85.5 -28.1" scale="0.86 0.86 0.86">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.016" xyz="144.51 8.92 24.18" hpr="-112.0 85.5 -28.1" scale="0.86 0.86 0.86">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.016" xyz="147.13 12.29 24.43" hpr="-0.0 2.3 85.3" scale="0.86 0.86 0.86">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.017" xyz="147.13 12.29 24.43" hpr="-0.0 2.3 85.3" scale="0.86 0.86 0.86">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.017" xyz="140.23 10.73 36.99" hpr="90.2 4.7 89.1" scale="1.20 1.20 1.20">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.018" xyz="140.23 10.73 36.99" hpr="90.2 4.7 89.1" scale="1.20 1.20 1.20">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.018" xyz="140.23 10.73 43.77" hpr="90.2 4.7 89.1" scale="1.20 1.20 1.20">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.019" xyz="140.23 10.73 43.77" hpr="90.2 4.7 89.1" scale="1.20 1.20 1.20">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.019" xyz="140.25 15.85 40.39" hpr="90.2 4.7 89.1" scale="1.20 1.20 1.20">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.020" xyz="128.17 15.30 -9.55" hpr="90.2 4.7 89.1" scale="0.83 0.83 0.83">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.020" xyz="-2.21 0.98 99.67" hpr="-115.5 84.8 -25.6" scale="0.60 0.60 0.60">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.021" xyz="140.25 15.85 40.39" hpr="90.2 4.7 89.1" scale="1.20 1.20 1.20">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.021" xyz="127.98 11.93 -7.30" hpr="90.2 4.7 -0.9" scale="0.83 0.83 0.83">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.022" xyz="127.98 11.93 -7.30" hpr="90.2 4.7 -0.9" scale="0.83 0.83 0.83">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.022" xyz="127.98 11.93 -11.99" hpr="90.2 4.7 -0.9" scale="0.83 0.83 0.83">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.023" xyz="-2.21 0.98 99.67" hpr="-115.5 84.8 -25.6" scale="0.60 0.60 0.60">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.023" xyz="200.92 8.45 -126.50" hpr="8.8 179.8 -5.2" scale="1.20 1.20 1.20">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.024" xyz="127.98 11.93 -11.99" hpr="90.2 4.7 -0.9" scale="0.83 0.83 0.83">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.024" xyz="128.17 15.30 -9.55" hpr="90.2 4.7 89.1" scale="0.83 0.83 0.83">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.025" xyz="200.92 8.45 -126.50" hpr="8.8 179.8 -5.2" scale="1.20 1.20 1.20">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.025" xyz="205.78 9.10 -77.20" hpr="1.8 177.7 -4.7" scale="1.20 1.20 1.20">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.026" xyz="205.78 9.10 -77.20" hpr="1.8 177.7 -4.7" scale="1.20 1.20 1.20">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.026" xyz="226.79 11.56 -57.86" hpr="0.0 -179.7 -3.5" scale="1.20 1.20 1.20">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.027" xyz="226.79 11.56 -57.86" hpr="0.0 -179.7 -3.5" scale="1.20 1.20 1.20">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.027" xyz="223.38 10.32 -95.49" hpr="1.8 177.7 -4.7" scale="1.20 1.20 1.20">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.028" xyz="223.38 10.32 -95.49" hpr="1.8 177.7 -4.7" scale="1.20 1.20 1.20">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.028" xyz="225.01 10.91 -134.76" hpr="8.8 179.8 -5.2" scale="1.20 1.20 1.20">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.029" xyz="225.01 10.91 -134.76" hpr="8.8 179.8 -5.2" scale="1.20 1.20 1.20">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.029" xyz="81.85 8.39 -163.69" hpr="-36.9 69.5 -42.4" scale="0.84 0.84 0.84">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.030" xyz="81.85 8.39 -163.69" hpr="-36.9 69.5 -42.4" scale="0.84 0.84 0.84">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.030" xyz="83.23 8.89 -167.75" hpr="-36.9 69.5 -42.4" scale="0.84 0.84 0.84">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.031" xyz="83.23 8.89 -167.75" hpr="-36.9 69.5 -42.4" scale="0.84 0.84 0.84">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.031" xyz="82.64 12.26 -165.38" hpr="-36.9 69.5 -42.4" scale="0.84 0.84 0.84">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.032" xyz="82.64 12.26 -165.38" hpr="-36.9 69.5 -42.4" scale="0.84 0.84 0.84">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.032" xyz="230.81 10.91 -169.26" hpr="8.8 179.8 -5.2" scale="1.20 1.20 1.20">
   </library>
-  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.033" xyz="230.81 10.91 -169.26" hpr="8.8 179.8 -5.2" scale="1.20 1.20 1.20">
+  <library name="stklib_hayBall_a" id="stklib_hayBall_a_main_proxy.033" xyz="207.73 8.46 -160.85" hpr="8.8 179.8 -5.2" scale="1.20 1.20 1.20">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy" xyz="85.96 2.77 121.00" hpr="-2.4 151.1 -1.1" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy" xyz="-9.41 -0.72 0.00" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.001" xyz="-9.41 -0.72 0.00" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.001" xyz="10.81 -0.54 37.26" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.002" xyz="178.71 5.53 -24.53" hpr="5.4 -57.1 -4.9" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.002" xyz="16.92 4.97 -164.14" hpr="-4.2 -141.0 4.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.003" xyz="10.81 -0.54 37.26" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.003" xyz="63.97 7.69 -203.96" hpr="-0.0 -96.9 -0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.004" xyz="63.97 7.69 -203.96" hpr="-0.0 -96.9 -0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.004" xyz="-9.41 -0.72 -16.42" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.005" xyz="-9.41 -0.72 -16.42" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.005" xyz="9.88 -0.72 -36.73" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.006" xyz="9.88 -0.72 -36.73" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.006" xyz="9.88 -0.72 -20.71" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.007" xyz="9.88 -0.72 -20.71" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.007" xyz="136.19 7.89 -18.80" hpr="0.0 -4.4 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.008" xyz="136.19 7.89 -18.80" hpr="0.0 -4.4 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.008" xyz="118.79 7.68 -37.17" hpr="1.8 169.3 8.7" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.009" xyz="118.79 7.68 -37.17" hpr="1.8 169.3 8.7" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.009" xyz="135.72 7.89 -2.41" hpr="-0.0 88.9 -0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.010" xyz="135.72 7.89 -2.41" hpr="-0.0 88.9 -0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.010" xyz="119.17 7.50 -53.37" hpr="-0.0 -92.2 -0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.011" xyz="119.17 7.50 -53.37" hpr="-0.0 -92.2 -0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.011" xyz="89.76 1.50 -48.06" hpr="-7.7 -29.0 14.3" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.012" xyz="89.76 1.50 -48.06" hpr="-7.7 -29.0 14.3" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.012" xyz="78.60 -0.08 -60.47" hpr="-6.3 -48.0 8.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.013" xyz="78.60 -0.08 -60.47" hpr="-6.3 -48.0 8.0" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.013" xyz="66.63 2.86 -104.06" hpr="0.7 -129.4 6.7" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.014" xyz="66.63 2.86 -104.06" hpr="0.7 -129.4 6.7" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.014" xyz="18.53 0.00 93.44" hpr="1.5 26.0 6.7" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.015" xyz="18.53 0.00 93.44" hpr="1.5 26.0 6.7" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.015" xyz="9.07 -0.83 72.72" hpr="28.4 -85.9 -29.2" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.016" xyz="9.07 -0.83 72.72" hpr="28.4 -85.9 -29.2" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.016" xyz="1.51 0.36 109.07" hpr="-2.9 -9.0 0.6" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.017" xyz="1.51 0.36 109.07" hpr="-2.9 -9.0 0.6" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.017" xyz="32.69 1.12 105.75" hpr="-3.7 -158.4 3.7" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.018" xyz="32.69 1.12 105.75" hpr="-3.7 -158.4 3.7" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.018" xyz="48.70 2.44 82.77" hpr="-3.1 -166.1 3.6" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.019" xyz="48.70 2.44 82.77" hpr="-3.1 -166.1 3.6" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.019" xyz="55.99 -0.08 -67.70" hpr="-3.7 -62.0 2.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.020" xyz="55.99 -0.08 -67.70" hpr="-3.7 -62.0 2.0" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.020" xyz="190.88 4.28 71.98" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.021" xyz="190.88 4.28 71.98" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.021" xyz="190.41 4.28 88.20" hpr="-0.0 88.9 -0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.022" xyz="191.04 4.28 4.70" hpr="0.0 104.4 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.022" xyz="136.68 0.60 114.74" hpr="-2.0 177.7 -0.8" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.023" xyz="190.41 4.28 88.20" hpr="-0.0 88.9 -0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.023" xyz="183.77 3.75 119.94" hpr="-0.0 72.6 -0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.024" xyz="183.77 3.75 119.94" hpr="-0.0 72.6 -0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.024" xyz="170.66 3.33 129.56" hpr="-0.0 36.9 -0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.025" xyz="170.66 3.33 129.56" hpr="-0.0 36.9 -0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.025" xyz="190.88 4.28 20.44" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.026" xyz="190.88 4.28 20.44" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.026" xyz="191.04 4.28 4.70" hpr="0.0 104.4 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.027" xyz="136.68 0.60 114.74" hpr="-2.0 177.7 -0.8" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.027" xyz="152.76 0.60 113.63" hpr="-1.9 -175.5 -0.8" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.028" xyz="152.76 0.60 113.63" hpr="-1.9 -175.5 -0.8" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.028" xyz="139.26 2.08 131.85" hpr="-2.0 179.0 -0.8" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.029" xyz="139.26 2.08 131.85" hpr="-2.0 179.0 -0.8" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.029" xyz="123.15 2.08 131.43" hpr="-2.1 172.3 -0.8" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.030" xyz="123.15 2.08 131.43" hpr="-2.1 172.3 -0.8" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.030" xyz="-9.27 -0.72 -33.02" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.031" xyz="-9.27 -0.72 -33.02" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.031" xyz="-16.78 0.25 -70.53" hpr="-1.7 165.8 -5.3" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.032" xyz="-16.78 0.25 -70.53" hpr="-1.7 165.8 -5.3" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.032" xyz="-8.21 -1.07 -57.31" hpr="-8.4 122.9 -10.1" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.033" xyz="-8.21 -1.07 -57.31" hpr="-8.4 122.9 -10.1" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.033" xyz="-7.76 -0.72 42.27" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.034" xyz="-7.76 -0.72 42.27" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.034" xyz="-7.90 -0.72 58.88" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.035" xyz="-7.90 -0.72 58.88" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.035" xyz="94.63 1.44 107.30" hpr="-2.7 151.5 -6.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.036" xyz="94.63 1.44 107.30" hpr="-2.7 151.5 -6.0" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.036" xyz="81.04 2.69 99.56" hpr="-2.9 146.4 -1.7" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.037" xyz="81.04 2.69 99.56" hpr="-2.9 146.4 -1.7" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.037" xyz="165.97 5.09 -9.94" hpr="-4.8 152.3 -10.1" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.038" xyz="165.97 5.09 -9.94" hpr="-4.8 152.3 -10.1" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.038" xyz="178.71 5.53 -24.53" hpr="5.4 -57.1 -4.9" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.039" xyz="16.92 4.97 -164.14" hpr="-4.2 -141.0 4.0" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.039" xyz="3.85 3.94 -153.80" hpr="-1.0 -178.8 -0.5" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.040" xyz="3.85 3.94 -153.80" hpr="-1.0 -178.8 -0.5" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.040" xyz="46.30 7.69 -203.21" hpr="-0.0 -93.7 -0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.041" xyz="46.30 7.69 -203.21" hpr="-0.0 -93.7 -0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.041" xyz="45.06 7.69 -187.15" hpr="-3.7 -134.1 5.2" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.042" xyz="45.06 7.69 -187.15" hpr="-3.7 -134.1 5.2" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.042" xyz="43.70 2.77 102.66" hpr="41.9 -91.4 -43.8" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.043" xyz="43.70 2.77 102.66" hpr="41.9 -91.4 -43.8" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.043" xyz="58.65 2.77 104.71" hpr="51.3 -91.3 -53.2" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.044" xyz="58.65 2.77 104.71" hpr="51.3 -91.3 -53.2" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.044" xyz="58.21 2.77 120.36" hpr="51.3 -91.3 -53.2" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.045" xyz="58.21 2.77 120.36" hpr="51.3 -91.3 -53.2" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.045" xyz="43.26 2.77 118.31" hpr="41.9 -91.4 -43.8" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.046" xyz="43.26 2.77 118.31" hpr="41.9 -91.4 -43.8" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.046" xyz="20.22 4.98 -144.68" hpr="-1.8 -151.1 2.8" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.047" xyz="20.22 4.98 -144.68" hpr="-1.8 -151.1 2.8" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.047" xyz="5.99 4.98 -136.88" hpr="-0.4 178.5 2.4" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.048" xyz="5.99 4.98 -136.88" hpr="-0.4 178.5 2.4" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.048" xyz="-9.90 4.31 -137.49" hpr="0.1 168.6 2.5" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.049" xyz="-9.90 4.31 -137.49" hpr="0.1 168.6 2.5" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.049" xyz="-52.13 5.03 -137.81" hpr="1.8 -118.5 -2.1" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.050" xyz="-52.13 5.03 -137.81" hpr="1.8 -118.5 -2.1" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.050" xyz="-59.82 5.03 -124.05" hpr="3.1 -107.7 -3.4" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.051" xyz="-59.82 5.03 -124.05" hpr="3.1 -107.7 -3.4" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.051" xyz="-81.26 8.08 -114.26" hpr="-15.7 -86.2 15.6" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.052" xyz="-81.26 8.08 -114.26" hpr="-15.7 -86.2 15.6" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.052" xyz="-80.41 8.08 -98.12" hpr="4.5 -51.1 -7.1" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.053" xyz="-80.41 8.08 -98.12" hpr="4.5 -51.1 -7.1" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.053" xyz="-54.91 7.20 -161.45" hpr="-3.8 -134.3 2.1" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.054" xyz="-54.91 7.20 -161.45" hpr="-3.8 -134.3 2.1" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.054" xyz="-39.02 6.32 -164.28" hpr="1.4 -169.3 -4.2" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.055" xyz="-39.02 6.32 -164.28" hpr="1.4 -169.3 -4.2" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.055" xyz="125.27 -9.00 -267.00" hpr="-23.6 -80.6 23.5" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.056" xyz="125.27 -9.00 -267.00" hpr="-23.6 -80.6 23.5" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.056" xyz="85.50 -0.16 -288.86" hpr="-3.3 3.8 -23.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.057" xyz="85.50 -0.16 -288.86" hpr="-3.3 3.8 -23.0" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.057" xyz="71.93 4.78 -283.81" hpr="-9.6 18.0 -24.2" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.058" xyz="71.93 4.78 -283.81" hpr="-9.6 18.0 -24.2" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.058" xyz="59.84 8.76 -275.42" hpr="3.7 36.4 -18.4" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.059" xyz="59.84 8.76 -275.42" hpr="3.7 36.4 -18.4" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.059" xyz="71.95 2.77 113.02" hpr="-2.5 147.5 -1.2" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.060" xyz="71.95 2.77 113.02" hpr="-2.5 147.5 -1.2" scale="1.00 1.00 1.00">
+  <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.060" xyz="85.96 2.77 121.00" hpr="-2.4 151.1 -1.1" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_loudspeaker_a" id="stklib_loudspeaker_a_main_proxy" xyz="133.53 8.74 -16.78" hpr="0.0 -0.0 0.0" scale="0.52 0.52 0.52">
   </library>
