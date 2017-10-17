@@ -172,6 +172,7 @@ colorizable="Y" colorization-factor="0.00" colorization-mask="gfxrndColor_generi
   
     
   <material name="stktex_lowPalmTree_a.png" shader="alphatest" />
+  <material name="stkflag_nolokArmories_a.png" shader="alphatest" />
   <material name="stklama_gravelRoad_a.png" shader="alphatest" ignore="Y" />
   <material name="stklama_roadSeparator_a.png" shader="alphatest" ignore="Y" />
   
@@ -313,6 +314,7 @@ colorizable="Y" colorization-factor="0.00" colorization-mask="gfxrndColor_generi
     <material name="stktex_snowRock_a.png" graphical-effect="normal_map" normal-map="stktex_snowRock_a_nm.png" gloss-map="stktex_snowRock_a_gloss.png"/>
   
   <material name="stk_generic_brickA.png" graphical-effect="normal_map" normal-map="stk_generic_brickA_nm.png" gloss-map="stk_generic_brickA_gloss.png"/>
+  
   <material name="stktex_generic_rockA.png"        graphical-effect="normal_map" normal-map="stktex_generic_rockA_nm.png" gloss-map="stktex_generic_rockA_gloss.png"/>
   <material name="stk_greyMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png"/>
   <material name="stk_goldMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png"/>
