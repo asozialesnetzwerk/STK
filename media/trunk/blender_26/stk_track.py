@@ -1468,27 +1468,19 @@ class DrivelineExporter:
             log_warning("Cannon start " + start.name + " is not a line made of 2 vertices as expected")
         if len(end.data.vertices) != 2:
             log_warning("Cannon end " + end.name + " is not a line made of 2 vertices as expected")
-        
-        startloc = start.location
-        endloc = end.location
-        
-        start_matrix = start.rotation_euler.to_matrix()
-        end_matrix = end.rotation_euler.to_matrix()
-        
+
         curvename = getObjectProperty(start, "cannonpath", "")
-        
-        start_pt1 = start.data.vertices[0].co*start_matrix + startloc
-        start_pt2 = start.data.vertices[1].co*start_matrix + startloc
-        end_pt1 = end.data.vertices[0].co*end_matrix + endloc
-        end_pt2 = end.data.vertices[1].co*end_matrix + endloc
-        
+        start_pt1 = start.matrix_world * start.data.vertices[0].co
+        start_pt2 = start.matrix_world * start.data.vertices[1].co
+        end_pt1 = end.matrix_world * end.data.vertices[0].co
+        end_pt2 = end.matrix_world * end.data.vertices[1].co
 
         f.write('    <cannon p1="%.2f %.2f %.2f" p2="%.2f %.2f %.2f" target-p1="%.2f %.2f %.2f" target-p2="%.2f %.2f %.2f">\n'%\
                 (start_pt1[0], start_pt1[2], start_pt1[1],
                  start_pt2[0], start_pt2[2], start_pt2[1],
                  end_pt1[0],   end_pt1[2],   end_pt1[1],
                  end_pt2[0],   end_pt2[2],   end_pt2[1]))
-        
+
         if len(curvename) > 0:
             writeBezierCurve(f, bpy.data.objects[curvename], \
                              getObjectProperty(start, "cannonspeed", 50.0), "const" )
