@@ -9,6 +9,13 @@
     <material name="stktex_generic_cobbleStoneA.png" has-gravity="Y" graphical-effect="normal_map" normal-map="stktex_generic_cobbleStoneA_nm.png"/>
     <material name="stk_generic_dirtRoad_a.png" has-gravity="Y" graphical-effect="normal_map" normal-map="stk_generic_dirtRoad_a_nm.png"/>
     <material name="stk_generic_sandRoad_a.png" has-gravity="Y"/>
+    <material name="stktex_pupleCarpet_a.png" has-gravity="Y"/>
+    
+    <material name="stktex_generic_WoodA.png" has-gravity="Y">
+      <sfx filename="wooden_bridge.ogg" rolloff="0.60" min_speed="9.00" max_speed="22.00" min_pitch="1.00" max_pitch="1.70" positional="Y" volume="1.00"/>
+    </material>
+
+
     <!-- End of global sticking textures -->
 
   <material name="stktex_gnuMeditation_a.png" shader="alphatest" colorizable="Y" colorization-factor="0.00" colorization-mask="stktex_gnuMeditation_mask.png" hue-settings="1 0.02 0.1 0.3 0.5 0.66 0.8"/>
@@ -141,9 +148,7 @@ colorizable="Y" colorization-factor="0.00" colorization-mask="gfxrndColor_generi
 
   <material name="gfx_fireflies_a.png" shader="additive" ignore="Y"/>
   
-  <material name="stktex_generic_WoodA.png">
-    <sfx filename="wooden_bridge.ogg" rolloff="0.60" min_speed="9.00" max_speed="22.00" min_pitch="1.00" max_pitch="1.70" positional="Y" volume="1.00"/>
-  </material>
+
   
   
   <material name="stktex_ants_a.png" shader="alphatest"/>
