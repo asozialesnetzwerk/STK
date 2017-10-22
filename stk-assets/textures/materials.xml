@@ -110,6 +110,9 @@ colorizable="Y" colorization-factor="0.00" colorization-mask="gfxrndColor_generi
   <material name="gfx_blueStars_a.png"   shader="additive" ignore="Y"/>
   <material name="zipper-particle.png"   shader="additive" ignore="Y"/>
   <material name="waterparticles.png"    shader="alphablend" ignore="Y"/>
+
+  <material name="stkcrowd_ghost_a.png"    shader="alphablend" ignore="Y"/>
+  
   <material name="gfx_mud_a.png"    shader="alphablend" ignore="Y"/>
   <material name="particle_water.png"    shader="alphablend" ignore="Y"/>
   

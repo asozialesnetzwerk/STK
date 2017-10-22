@@ -40,6 +40,11 @@ Files:
 Copyright: Copyright 2017 Jean-Manuel Clémençon
 License: CC-BY-SA 3.0
 
+Files: 
+ stkcrowd_ghost_a.png
+Copyright: Copyright 2017 Auria
+License: CC-BY-SA 3.0
+
 Files: stktex_generic_bambooB.png
 Copyright:
  Copyright 2014 Anon
