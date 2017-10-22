@@ -5,7 +5,6 @@
   <material name="bubble.png" fog="N" backface-culling="N" disable-z-write="Y" ignore="Y" shader="alphablend"/>
   <material name="bubble_solid_texture.png" collision-detect="Y" collision-reaction="push" collision-particles="sparks.xml" shader="alphatest"/>
   <material name="BurdockLeaf.png" backface-culling="N" ignore="Y" shader="alphatest"/>
-  <material name="castelwall.jpg" backface-culling="N"/>
   <material name="city_tree_leaves.jpg" ignore="Y" backface-culling="N" disable-z-write="Y" mask="city_tree_leaves_alpha.jpg" shader="alphatest"/>
   <material name="column_diffuse.jpg" normal-map="column_normal_map.png"/>
   <material name="CornusAmericana.png" backface-culling="N" ignore="Y" shader="alphatest"/>
