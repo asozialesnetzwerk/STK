@@ -51,13 +51,13 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.1246866"
-     inkscape:cx="500.3893"
-     inkscape:cy="447.39572"
+     inkscape:cx="306.94901"
+     inkscape:cy="570.23737"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="5760"
-     inkscape:window-height="3206"
+     inkscape:window-width="3840"
+     inkscape:window-height="2126"
      inkscape:window-x="-11"
      inkscape:window-y="-11"
      inkscape:window-maximized="1"
@@ -187,7 +187,8 @@
          sodipodi:role="line"
          x="23.721272"
          y="820.59021"
-         id="tspan4506">Pumpkin's Park</tspan></text>
+         id="tspan4506"
+         style="fill:#ffac00;fill-opacity:1">Pumpkin's Park</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:26.66666603px;line-height:1.25;font-family:'PT Serif';-inkscape-font-specification:'PT Serif Bold';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
@@ -231,7 +232,7 @@
          id="tspan953-6" /></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:40px;line-height:1.25;font-family:'PT Serif';-inkscape-font-specification:'PT Serif Bold';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffb300;fill-opacity:1;stroke:none"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:40px;line-height:1.25;font-family:'PT Serif';-inkscape-font-specification:'PT Serif Bold';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#dcdcdc;fill-opacity:1;stroke:none;"
        x="640.11658"
        y="790.91565"
        id="text142-6-3"><tspan
