@@ -73,3 +73,8 @@ Comment: From License.txt
 Files: stkflag_nolokArmories_a.png
 Copyright: Copyright 2017 samuncle based on nolokicon.png by Anthony "yeKcim" Carré <yeknan.free.fr>
 License: GPL 2.0
+
+Files: stktex_monkey_a.png
+Copyright: Copyright 2011 Cédric "Céa" Archambault <https://plus.google.com/117805441573276168348>
+License: GPL ???
+

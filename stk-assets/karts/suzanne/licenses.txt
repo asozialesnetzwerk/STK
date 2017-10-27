@@ -24,7 +24,6 @@ Comment: Auria reduced the number of animation bones.
 
 Files:
  Wheel.diffuse.jpg
- suzanne.diffuse.jpg
  kart.diffuse.png
  shadow.png
  wheel-*.spm
