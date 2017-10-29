@@ -31,7 +31,7 @@
     <static-object  lod_instance="true" lod_group="pine_tree_lod" xyz="97.66 5.12 101.31" hpr="8.1 42.5 2.3" scale="1.42 2.15 1.43"/>
     <static-object  lod_instance="true" lod_group="pine_tree_lod" xyz="57.68 8.62 104.11" hpr="5.0 -41.4 2.2" scale="1.80 2.72 1.80"/>
   </track>
-  <object id="cannon_ball" type="animation" xyz="-16.34 -5.55 66.60" hpr="-41.1 108.8 117.8" scale="1.00 1.00 1.00" interaction="explode" shape="sphere" model="Golfball_cannon.spm" explode="y" tangents="true" skeletal-animation="false">
+  <object id="cannon_ball" type="animation" xyz="-37.13 -7.47 28.48" hpr="-41.1 108.8 117.8" scale="1.00 1.00 1.00" interaction="explode" shape="sphere" model="Golfball_cannon.spm" explode="y" tangents="true" skeletal-animation="false">
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
       <p c="1.000 -16.337" h1="-0.171 -16.337" h2="2.171 -16.337"/>
       <p c="4.000 -16.337" h1="2.829 -16.337" h2="5.171 -16.337"/>
@@ -93,7 +93,7 @@
       <p c="73.000 85.956" h1="48.802 85.956" h2="97.198 85.956"/>
     </curve>
   </object>
-  <object id="Cube.006" type="animation" xyz="101.51 19.81 -11.43" hpr="0.0 -0.0 0.0" scale="0.92 0.92 0.92" interaction="ghost" model="windmill_arm1.spm" skeletal-animation="false">
+  <object id="Cube.006" type="animation" xyz="101.51 19.81 -11.43" hpr="-0.0 -0.0 113.4" scale="0.92 0.92 0.92" interaction="ghost" model="windmill_arm1.spm" skeletal-animation="false">
     <curve channel="RotX" interpolation="linear" extend="cyclic">
       <p c="1.000 -0.000"/>
       <p c="50.000 -0.000"/>
@@ -132,21 +132,21 @@
           shape="sphere" mass="15.0" model="Golfball.spm" tangents="true" skeletal-animation="false"/>
   <object type="movable" id="Icosphere.008" xyz="153.00 1.10 -110.00" hpr="0.0 -0.0 0.0" scale="1.16 1.16 1.16"
           shape="sphere" mass="15.0" model="Golfball.spm" skeletal-animation="false"/>
-  <object id="Plane.021" type="animation" xyz="14.00 -56.64 -4.42" hpr="0.0 -42.2 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="duck2.spm" skeletal-animation="false">
+  <object id="Plane.021" type="animation" xyz="14.00 -56.66 -4.42" hpr="0.0 -42.2 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="duck2.spm" skeletal-animation="false">
     <curve channel="LocY" interpolation="bezier" extend="cyclic">
       <p c="1.000 -56.645" h1="-5.242 -56.645" h2="7.242 -56.645"/>
       <p c="17.000 -57.270" h1="10.754 -57.270" h2="36.128 -57.270"/>
       <p c="66.000 -56.659" h1="46.871 -56.659" h2="85.129 -56.659"/>
     </curve>
   </object>
-  <object id="Plane.022" type="animation" xyz="59.86 -56.64 -7.97" hpr="-0.0 -141.4 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="duck3.spm" skeletal-animation="false">
+  <object id="Plane.022" type="animation" xyz="59.86 -56.71 -7.97" hpr="-0.0 -141.4 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="duck3.spm" skeletal-animation="false">
     <curve channel="LocY" interpolation="bezier" extend="cyclic">
       <p c="1.000 -56.645" h1="-13.053 -56.645" h2="15.053 -56.645"/>
       <p c="37.000 -57.270" h1="22.946 -57.270" h2="44.027 -57.270"/>
       <p c="55.000 -56.659" h1="47.977 -56.659" h2="62.023 -56.659"/>
     </curve>
   </object>
-  <object id="Plane.023" type="animation" xyz="-45.80 -56.64 16.85" hpr="-0.0 -116.1 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="duck.spm" skeletal-animation="false">
+  <object id="Plane.023" type="animation" xyz="-45.80 -56.68 16.85" hpr="-0.0 -116.1 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="duck.spm" skeletal-animation="false">
     <curve channel="LocY" interpolation="bezier" extend="cyclic">
       <p c="1.000 -56.645" h1="-13.834 -56.645" h2="15.834 -56.645"/>
       <p c="39.000 -57.270" h1="24.165 -57.270" h2="46.027 -57.270"/>
@@ -165,7 +165,7 @@
   </checks>
   <end-cameras>
     <camera type="static_follow_kart" xyz="-31.347261 7.883405 -37.556545" distance="50.0"/> <!-- Camera -->
-    <camera type="static_follow_kart" xyz="-54.303005 0.246248 -30.253376" distance="30.0"/> <!-- Camera.001 -->
+    <camera type="static_follow_kart" xyz="-54.303005 6.968119 -30.253376" distance="30.0"/> <!-- Camera.001 -->
     <camera type="static_follow_kart" xyz="-85.884789 5.406722 -6.234883" distance="30.0"/> <!-- Camera.002 -->
     <camera type="static_follow_kart" xyz="-119.035538 0.187697 -15.456582" distance="25.0"/> <!-- Camera.003 -->
     <camera type="static_follow_kart" xyz="-104.210182 -5.452283 29.863569" distance="40.0"/> <!-- Camera.004 -->
