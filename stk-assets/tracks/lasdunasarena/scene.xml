@@ -750,9 +750,9 @@
   </library>
   <library name="stklib_tiresBarrier_a" id="stklib_tiresBarrier_a_main_proxy.009" xyz="-43.69 -3.19 -81.08" hpr="-0.0 180.0 -0.0" scale="2.50 2.50 2.50">
   </library>
-  <library name="stklib_tiresBarrier_a" id="stklib_tiresBarrier_a_main_proxy.010" xyz="-67.92 -8.00 -8.37" hpr="-0.0 90.0 0.0" scale="3.02 3.02 3.02">
+  <library name="stklib_tiresBarrier_a" id="stklib_tiresBarrier_a_main_proxy.010" xyz="-67.92 -8.00 -8.71" hpr="-0.0 90.0 0.0" scale="3.48 3.02 3.02">
   </library>
-  <library name="stklib_tiresBarrier_a" id="stklib_tiresBarrier_a_main_proxy.011" xyz="-67.92 -6.08 -9.02" hpr="-0.0 90.0 0.0" scale="3.02 3.02 3.02">
+  <library name="stklib_tiresBarrier_a" id="stklib_tiresBarrier_a_main_proxy.011" xyz="-67.92 -6.04 -8.71" hpr="-0.0 90.0 0.0" scale="3.48 3.02 3.02">
   </library>
   <library name="stklib_tiresBarrier_a" id="stklib_tiresBarrier_a_main_proxy.012" xyz="-43.69 -2.11 80.92" hpr="0.0 -0.0 -0.0" scale="2.50 2.50 2.50">
   </library>
@@ -780,32 +780,32 @@
   </library>
   <library name="stklib_watertower_a" id="stklib_watertower_a_main_proxy" xyz="378.17 -25.06 -785.55" hpr="0.0 -0.0 0.0" scale="3.02 3.02 3.02">
   </library>
-  <library name="stklib_wilbertSecurity_a" id="stklib_wilbertSecurity_a_main_proxy.000" xyz="-90.72 -1.13 -22.54" hpr="0.0 0.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_wilbertSecurity_a" id="stklib_wilbertSecurity_a_main_proxy.000" xyz="-90.72 -1.13 -22.54" hpr="-0.0 116.6 -0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_wilbertSecurity_a" id="stklib_wilbertSecurity_a_main_proxy.001" xyz="-90.72 -1.13 42.46" hpr="0.0 0.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_wilbertSecurity_a" id="stklib_wilbertSecurity_a_main_proxy.001" xyz="-90.72 -1.13 42.46" hpr="-0.0 116.6 -0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_wilbertSecurity_a" id="stklib_wilbertSecurity_a_main_proxy.002" xyz="-90.72 -1.13 22.46" hpr="-0.0 -180.0 -0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_wilbertSecurity_a" id="stklib_wilbertSecurity_a_main_proxy.002" xyz="-90.72 -1.13 22.46" hpr="0.0 -63.4 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_wilbertSecurity_a" id="stklib_wilbertSecurity_a_main_proxy.003" xyz="90.66 -1.13 22.46" hpr="-0.0 -180.0 -0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_wilbertSecurity_a" id="stklib_wilbertSecurity_a_main_proxy.003" xyz="90.66 -1.13 22.46" hpr="0.0 -63.4 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_wilbertSecurity_a" id="stklib_wilbertSecurity_a_main_proxy.004" xyz="90.66 -1.13 42.46" hpr="0.0 0.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_wilbertSecurity_a" id="stklib_wilbertSecurity_a_main_proxy.004" xyz="90.66 -1.13 42.46" hpr="-0.0 116.6 -0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_wilbertSecurity_a" id="stklib_wilbertSecurity_a_main_proxy.005" xyz="90.66 -1.13 -22.54" hpr="0.0 0.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_wilbertSecurity_a" id="stklib_wilbertSecurity_a_main_proxy.005" xyz="90.66 -1.13 -22.54" hpr="-0.0 116.6 -0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_wilbertSecurity_a" id="stklib_wilbertSecurity_a_main_proxy.006" xyz="90.66 -1.13 -42.54" hpr="-0.0 -180.0 -0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_wilbertSecurity_a" id="stklib_wilbertSecurity_a_main_proxy.006" xyz="90.66 -1.13 -42.54" hpr="0.0 -63.4 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_wilbertSecurity_a" id="stklib_wilbertSecurity_a_main_proxy.007" xyz="-49.77 -1.29 -20.80" hpr="0.0 0.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_wilbertSecurity_a" id="stklib_wilbertSecurity_a_main_proxy.007" xyz="-49.77 -1.29 -20.80" hpr="-0.0 116.6 -0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_wilbertSecurity_a" id="stklib_wilbertSecurity_a_main_proxy.008" xyz="-49.92 -1.29 -34.14" hpr="0.0 -40.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_wilbertSecurity_a" id="stklib_wilbertSecurity_a_main_proxy.008" xyz="-49.92 -1.29 -34.14" hpr="0.0 76.6 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_wilbertSecurity_a" id="stklib_wilbertSecurity_a_main_proxy.009" xyz="49.09 -1.29 32.55" hpr="-0.0 140.0 -0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_wilbertSecurity_a" id="stklib_wilbertSecurity_a_main_proxy.009" xyz="49.09 -1.29 32.55" hpr="0.0 -103.4 -0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_wilbertSecurity_a" id="stklib_wilbertSecurity_a_main_proxy.010" xyz="48.94 -1.29 19.21" hpr="0.0 -180.0 -0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_wilbertSecurity_a" id="stklib_wilbertSecurity_a_main_proxy.010" xyz="48.94 -1.29 19.21" hpr="-0.0 -63.4 0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_wilbertSecurity_a" id="stklib_wilbertSecurity_a_main_proxy.011" xyz="-90.72 -1.13 -0.54" hpr="0.0 0.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_wilbertSecurity_a" id="stklib_wilbertSecurity_a_main_proxy.011" xyz="-90.72 -1.13 -0.54" hpr="-0.0 116.6 -0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_wilbertSecurity_a" id="stklib_wilbertSecurity_a_main_proxy.012" xyz="44.98 -1.08 73.56" hpr="0.0 0.0 0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_wilbertSecurity_a" id="stklib_wilbertSecurity_a_main_proxy.012" xyz="44.98 -1.08 73.56" hpr="-0.0 116.6 -0.0" scale="1.00 1.00 1.00">
   </library>
-  <library name="stklib_wilbertSecurity_a" id="stklib_wilbertSecurity_a_main_proxy.024" xyz="-90.72 -1.13 -42.54" hpr="-0.0 -180.0 -0.0" scale="1.00 1.00 1.00">
+  <library name="stklib_wilbertSecurity_a" id="stklib_wilbertSecurity_a_main_proxy.024" xyz="-90.72 -1.13 -42.54" hpr="0.0 -63.4 0.0" scale="1.00 1.00 1.00">
   </library>
 </scene>
