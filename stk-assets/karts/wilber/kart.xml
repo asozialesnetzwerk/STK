@@ -23,11 +23,11 @@
               backpedal = "559"
               backpedal-right = "579"/>
   <wheels>
-    <front-left position = "-0.317082 0.174273 0.515819"
+    <front-left position = "-0.317326 0.174053 0.517318"
                  model    = "wheel-front-left.spm"       />
-    <front-right position = "0.294673 0.174273 0.515819"
+    <front-right position = "0.294669 0.174053 0.517318"
                  model    = "wheel-front-right.spm"       />
-    <rear-left position = "-0.324686 0.209531 -0.402748"
+    <rear-left position = "-0.324684 0.209531 -0.402748"
                  model    = "wheel-rear-left.spm"       />
     <rear-right position = "0.302277 0.209531 -0.402748"
                  model    = "wheel-rear-right.spm"       />
