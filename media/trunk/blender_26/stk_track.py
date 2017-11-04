@@ -211,7 +211,8 @@ def checkForAnimatedTextures(lObjects):
         if anim_texture is None or len(anim_texture) == 0:
             log_warning("object %s has an invalid animated-texture configuration" % obj.name)
             continue
-        
+        #if anim_texture == 'stk_animated_mudpot_a.png':
+        print('{}'.format(anim_texture))
         dx = getObjectProperty(obj, "anim_dx", 0)
         dy = getObjectProperty(obj, "anim_dy", 0)
         dt = getObjectProperty(obj, "anim_dt", 0)
@@ -812,8 +813,13 @@ class LightsExporter:
             colR = int(obj.data.color[0] * 255)
             colG = int(obj.data.color[1] * 255)
             colB = int(obj.data.color[2] * 255)
-            f.write('  <light %s id=\"%s\" distance="%.2f" energy="%.2f" color="%i %i %i">\n' \
+
+            f.write('  <light %s id=\"%s\" distance="%.2f" energy="%.2f" color="%i %i %i"' \
                     % (getXYZString(obj), obj.name, obj.data.distance, obj.data.energy, colR, colG, colB))
+            if_condition = getObjectProperty(obj, "if", "")
+            if len(if_condition) > 0:
+                f.write(' if=\"%s\"' % if_condition)
+            f.write('>\n')
             if obj.animation_data and obj.animation_data.action and obj.animation_data.action.fcurves and len(obj.animation_data.action.fcurves) > 0:
                 writeIPO(f, obj.animation_data)
             f.write('  </light>\n')

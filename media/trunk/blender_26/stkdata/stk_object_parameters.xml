@@ -337,11 +337,12 @@
         <!-- ************* LIGHTS AND SUN ************* -->
         <EnumChoice id="__category__lights_spacer" label=""/>
         <EnumChoice id="__category__lights" label="Lights and sun"/>
-    
+
         <!-- Light -->
         <EnumChoice id="light" label="Light" doc="A dynamic light emitter (STK 0.8.2)">
+            <StringProp id="if" name="Visible if..." default="" doc="Make this light conditionally visible based on a scripting function returning bool"/>
         </EnumChoice>
-        
+
         <!-- Light shaft -->
         <EnumChoice id="lightshaft_emitter" label="Light shaft (god rays) emitter (STK 0.8.2)">
             <FloatProp id="lightshaft_opacity" name="Strength (opacity)" default="0.7"/>
