@@ -11,24 +11,30 @@
     <animated-texture name="stktex_waterfall_a.png" dy="-0.5000" />
     <animated-texture name="stktex_waterfall_a.png" dy="-0.5000" />
     <animated-texture name="stkflag_greenCheckBorard_a.png" dy="0.8000" />
-    <animated-texture name="stkflag_greenCheckBorard_a.png" dy="0.8000" />
     <animated-texture name="stkflag_orangeBooster_a.png" dy="0.8000" />
-    <animated-texture name="stkflag_orangeBooster_a.png" dy="0.8000" />
-    <animated-texture name="stkflag_greenCheckBorard_a.png" dy="0.8000" />
-    <animated-texture name="stkflag_orangeBooster_a.png" dy="0.8000" />
-    <animated-texture name="zipper_jungle.png" dy="0.8000" />
-    <animated-texture name="stkflag_greenCheckBorard_a.png" dy="0.8000" />
+    <animated-texture name="stktex_waterfall_a.png" dy="-0.5000" />
+    <animated-texture name="stktex_ants_a.png" dy="0.5000" />
+    <animated-texture name="stktex_ants_a.png" dy="0.5000" />
+    <animated-texture name="stktex_waterfall_a.png" dy="-0.5000" />
+    <animated-texture name="stktex_waterfall_a.png" dy="-0.5000" />
+    <animated-texture name="stktex_waterfall_a.png" dy="-0.5000" />
     <animated-texture name="stktex_waterfall_a.png" dy="-0.5000" />
     <animated-texture name="stkflag_greenCheckBorard_a.png" dx="0.080"  dy="0.2000" />
-    <animated-texture name="stktex_ants_a.png" dy="0.5000" />
-    <animated-texture name="stktex_ants_a.png" dy="0.5000" />
-    <animated-texture name="stktex_waterfall_a.png" dy="-0.5000" />
-    <animated-texture name="stktex_waterfall_a.png" dy="-0.5000" />
-    <animated-texture name="stktex_waterfall_a.png" dy="-0.5000" />
-    <animated-texture name="stktex_waterfall_a.png" dy="-0.5000" />
     <animated-texture name="stkflag_greenCheckBorard_a.png" dx="0.080"  dy="0.2000" />
   </track>
+  <object id="big_jump_pad" type="animation" xyz="24.34 12.65 42.46" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" shape="exact" model="big_jump_pad.spm" driveable="true" skeletal-animation="false" if="isTrackNotReverse">
+    <animated-texture name="stkflag_greenCheckBorard_a.png" dx="0.080"  dy="0.2000" />
+  </object>
+  <object id="big_jump_pad_reverse" type="animation" xyz="28.93 12.37 41.79" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" shape="exact" model="big_jump_pad_reverse.spm" driveable="true" skeletal-animation="false" if="isTrackReverse">
+    <animated-texture name="stkflag_greenCheckBorard_a.png" dx="0.080"  dy="0.2000" />
+  </object>
   <object id="Circle.002" type="animation" xyz="-54.26 0.97 -169.38" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="roaster_displacement.spm" displacing="true" skeletal-animation="false">
+  </object>
+  <object id="Cube.042" type="animation" xyz="-48.75 -1.75 -123.94" hpr="0.0 145.1 0.0" scale="1.00 1.00 1.00" interaction="static" shape="exact" model="nitro_platform_zipper.spm" driveable="true" skeletal-animation="false" if="isTrackNotReverse">
+    <animated-texture name="zipper_jungle.png" dy="0.8000" />
+  </object>
+  <object id="Cube.043" type="animation" xyz="-47.07 -2.78 -126.82" hpr="0.0 145.1 0.0" scale="1.00 1.00 1.00" interaction="static" shape="exact" model="nitro_platform.spm" driveable="true" skeletal-animation="false" if="isTrackNotReverse">
+    <animated-texture name="stkflag_greenCheckBorard_a.png" dy="0.8000" />
   </object>
   <object id="Plane.005" type="animation" xyz="141.10 -24.72 746.19" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_river_distord.spm" displacing="true" skeletal-animation="false">
     <animated-texture name="jungleWater.png" dx="0.100" />
@@ -56,7 +62,7 @@
       <p c="250.000 -0.000"/>
     </curve>
   </object>
-  <object id="Text" type="animation" xyz="23.59 12.34 42.30" hpr="0.0 -10.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="start_text.spm" skeletal-animation="false">
+  <object id="Text" type="animation" xyz="23.59 12.34 42.30" hpr="0.0 -10.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="start_text.spm" skeletal-animation="false" if="isTrackNotReverse">
     <curve channel="ScaleX" interpolation="bezier" extend="cyclic">
       <p c="1.000 1.000" h1="-19.692 1.000" h2="21.692 1.000"/>
       <p c="54.000 1.200" h1="33.308 1.200" h2="62.979 1.200"/>
@@ -73,6 +79,29 @@
       <p c="77.000 1.000" h1="62.164 1.000" h2="91.836 1.000"/>
     </curve>
   </object>
+  <object id="Text_reverse" type="animation" xyz="25.17 12.34 42.58" hpr="-0.0 170.0 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="start_text_reverse.spm" skeletal-animation="false" if="isTrackReverse">
+    <curve channel="ScaleX" interpolation="bezier" extend="cyclic">
+      <p c="1.000 1.000" h1="-19.692 1.000" h2="21.692 1.000"/>
+      <p c="54.000 1.200" h1="33.308 1.200" h2="62.979 1.200"/>
+      <p c="77.000 1.000" h1="68.021 1.000" h2="85.979 1.000"/>
+    </curve>
+    <curve channel="ScaleZ" interpolation="bezier" extend="cyclic">
+      <p c="1.000 1.000" h1="-7.979 1.000" h2="9.979 1.000"/>
+      <p c="24.000 1.200" h1="15.021 1.200" h2="44.692 1.200"/>
+      <p c="77.000 1.000" h1="56.308 1.000" h2="97.692 1.000"/>
+    </curve>
+    <curve channel="ScaleY" interpolation="bezier" extend="cyclic">
+      <p c="1.000 1.000" h1="-13.836 1.000" h2="15.836 1.000"/>
+      <p c="39.000 1.200" h1="24.164 1.200" h2="53.836 1.200"/>
+      <p c="77.000 1.000" h1="62.164 1.000" h2="91.836 1.000"/>
+    </curve>
+  </object>
+  <object id="zipper_animation" type="animation" xyz="-54.22 6.14 -56.13" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="zipper_animation.spm" skeletal-animation="false" if="isTrackNotReverse">
+    <animated-texture name="stkflag_orangeBooster_a.png" dy="0.8000" />
+  </object>
+  <object id="zipper_animation_reverse" type="animation" xyz="-53.93 -1.61 -15.60" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="zipper_animation_reverse.spm" skeletal-animation="false" if="isTrackReverse">
+    <animated-texture name="stkflag_orangeBooster_a.png" dy="0.8000" />
+  </object>
   <sun  fog="true" fog-color="37 74 64" fog-max="0.20000000298023224" fog-start="15.00" fog-end="750.00" xyz="-642.22 673.75 -219.26" sun-specular="211 235 110" sun-diffuse="211 235 110" ambient="120 120 120"/>
   <sky-box texture="SKY0005.png SKY0006.png skybox_aa.jpg skybox_aa.jpg skybox_aa.jpg skybox_aa.jpg" sh-texture="skybox5.jpg skybox6.png skybox_ibl.jpg skybox_ibl.jpg skybox_ibl.jpg skybox_ibl.jpg"/>
   <camera far="2000.0"/>
@@ -82,6 +111,12 @@
                 min-height="17.95" same-group="1"/>
     <check-line kind="activate" other-ids="0" p1="-38.02 -222.26" p2="-61.97 -228.00"
                 min-height="-1.96" same-group="2"/>
+    <cannon p1="-47.10 11.25 -54.77" p2="-61.39 11.26 -54.77" target-p1="-45.25 -1.28 -13.81" target-p2="-62.51 -1.38 -13.76">
+    <curve channel="LocXYZ" speed="25.00" interpolation="bezier" extend="const">
+      <point c="-54.022003 11.150574 -54.891800" h1="-54.160027 10.795378 -66.135468" h2="-53.883980 11.505768 -43.648136" />
+      <point c="-54.118294 -1.377873 -13.822636" h1="-54.803108 -1.377873 -26.421776" h2="-53.433479 -1.377873 -1.223492" />
+    </curve>
+    </cannon>
   </checks>
   <particle-emitter kind="gfx_fallingLeaf_a.xml" id="Empty" xyz="106.02 13.14 34.32" h="0.00" >
   </particle-emitter>
@@ -936,7 +971,7 @@
   <object type="sfx-emitter" id="Empty.051" sound="river_loop.ogg" rolloff="0.000" volume="1.0" max_dist="130.0" xyz="183.50 -2.19 133.56" hpr="0.0 45.0 0.0" scale="70.54 70.54 70.54">
   </object>
   <item id="Empty.000" x="287.95" y="20.77" z="-141.84" h="29.51" />
-  <big-nitro id="Empty.001" x="-50.71" y="-0.10" z="-124.31" />
+  <big-nitro id="Empty.001" x="-53.41" y="1.46" z="-116.93" drop="false" />
   <small-nitro id="Empty.002" x="227.67" y="8.46" z="23.84" />
   <banana id="Empty.003" x="232.85" y="8.26" z="24.46" />
   <small-nitro id="Empty.004" x="253.17" y="14.67" z="-17.49" />
@@ -947,7 +982,7 @@
   <banana id="Empty.009" x="190.46" y="-0.73" z="117.12" />
   <item id="Empty.010" x="292.33" y="20.77" z="-149.58" h="29.51" />
   <banana id="Empty.011" x="290.27" y="21.44" z="-145.75" />
-  <item id="Empty.012" x="68.61" y="-0.73" z="50.42" h="-18.69" />
+  <item id="Empty.012" x="92.79" y="-0.73" z="41.81" h="-14.00" />
   <banana id="Empty.013" x="242.38" y="20.35" z="-119.39" h="77.08" />
   <item id="Empty.014" x="246.57" y="19.68" z="-118.24" h="106.59" />
   <item id="Empty.015" x="238.05" y="19.68" z="-120.78" h="106.59" />
@@ -971,7 +1006,7 @@
   <banana id="Empty.033" x="-63.74" y="-2.64" z="-137.70" h="-295.52" />
   <small-nitro id="Empty.035" x="239.47" y="11.76" z="-200.69" />
   <small-nitro id="Empty.036" x="313.89" y="19.03" z="-146.18" />
-  <item id="Empty.052" x="66.71" y="-0.73" z="43.92" h="-18.69" />
+  <item id="Empty.052" x="91.43" y="-0.73" z="35.18" h="-14.00" />
   <item id="Empty.053" x="205.39" y="22.23" z="-239.90" h="-168.27" />
   <big-nitro id="Empty.055" x="300.36" y="14.40" z="-196.30" />
   <item id="Empty.057" x="301.96" y="16.41" z="-200.95" />
@@ -995,17 +1030,17 @@
   </light>
   <light xyz="-33.98 14.64 -53.29" id="Lamp.008" distance="25.00" energy="1.00" color="255 255 255">
   </light>
-  <light xyz="20.29 12.34 43.75" id="Lamp.009" distance="25.00" energy="2.00" color="248 255 154">
+  <light xyz="20.83 12.34 44.00" id="Lamp.009" distance="5.00" energy="2.00" color="248 255 154" if="isTrackNotReverse">
   </light>
-  <light xyz="20.98 12.34 39.81" id="Lamp.010" distance="25.00" energy="2.00" color="248 255 154">
+  <light xyz="21.52 12.34 40.06" id="Lamp.010" distance="5.00" energy="2.00" color="248 255 154" if="isTrackNotReverse">
   </light>
-  <light xyz="246.79 20.26 -142.82" id="Lamp.011" distance="5.00" energy="1.50" color="248 255 154">
+  <light xyz="246.48 19.21 -145.54" id="Lamp.011" distance="5.00" energy="1.50" color="248 255 154" if="isTrackNotReverse">
   </light>
-  <light xyz="256.40 20.26 -137.27" id="Lamp.012" distance="5.00" energy="1.50" color="248 255 154">
+  <light xyz="259.72 19.21 -139.83" id="Lamp.012" distance="5.00" energy="1.50" color="248 255 154" if="isTrackNotReverse">
   </light>
-  <light xyz="249.90 20.26 -141.02" id="Lamp.013" distance="5.00" energy="1.50" color="248 255 154">
+  <light xyz="250.83 19.21 -143.82" id="Lamp.013" distance="5.00" energy="1.50" color="248 255 154" if="isTrackNotReverse">
   </light>
-  <light xyz="253.20 20.26 -139.12" id="Lamp.014" distance="5.00" energy="1.50" color="248 255 154">
+  <light xyz="255.28 19.21 -141.76" id="Lamp.014" distance="5.00" energy="1.50" color="248 255 154" if="isTrackNotReverse">
   </light>
   <light xyz="153.78 -1.36 144.57" id="Lamp.015" distance="5.00" energy="1.50" color="248 255 154">
   </light>
@@ -1031,15 +1066,15 @@
   </light>
   <light xyz="185.95 -1.36 153.31" id="Lamp.026" distance="5.00" energy="1.50" color="248 255 154">
   </light>
-  <light xyz="-56.12 7.71 -57.13" id="Lamp.027" distance="5.00" energy="1.50" color="248 255 154">
+  <light xyz="-56.12 7.71 -57.13" id="Lamp.027" distance="5.00" energy="1.50" color="248 255 154" if="isTrackNotReverse">
   </light>
-  <light xyz="-52.32 7.71 -57.13" id="Lamp.028" distance="5.00" energy="1.50" color="248 255 154">
+  <light xyz="-52.32 7.71 -57.13" id="Lamp.028" distance="5.00" energy="1.50" color="248 255 154" if="isTrackNotReverse">
   </light>
-  <light xyz="-59.82 7.71 -57.13" id="Lamp.029" distance="5.00" energy="1.50" color="248 255 154">
+  <light xyz="-59.82 7.71 -57.13" id="Lamp.029" distance="5.00" energy="1.50" color="248 255 154" if="isTrackNotReverse">
   </light>
-  <light xyz="-48.72 7.71 -57.13" id="Lamp.030" distance="5.00" energy="1.50" color="248 255 154">
+  <light xyz="-48.72 7.71 -57.13" id="Lamp.030" distance="5.00" energy="1.50" color="248 255 154" if="isTrackNotReverse">
   </light>
-  <light xyz="-48.62 -0.86 -124.43" id="Lamp.031" distance="5.00" energy="1.50" color="248 255 154">
+  <light xyz="-48.62 -0.86 -124.43" id="Lamp.031" distance="1.00" energy="1.50" color="248 255 154" if="isTrackNotReverse">
   </light>
   <light xyz="-53.44 3.08 -147.42" id="Lamp.032" distance="25.00" energy="5.00" color="255 80 25">
   </light>
@@ -1048,6 +1083,26 @@
   <light xyz="-53.44 11.99 -85.53" id="Lamp.034" distance="25.00" energy="5.00" color="255 80 25">
   </light>
   <light xyz="-64.98 0.26 -176.39" id="Lamp.035" distance="25.00" energy="5.00" color="255 80 25">
+  </light>
+  <light xyz="27.31 12.34 41.09" id="Lamp.036" distance="5.00" energy="2.00" color="248 255 154" if="isTrackReverse">
+  </light>
+  <light xyz="26.62 12.34 45.03" id="Lamp.037" distance="5.00" energy="2.00" color="248 255 154" if="isTrackReverse">
+  </light>
+  <light xyz="-48.55 -0.39 -16.06" id="Lamp.038" distance="5.00" energy="1.50" color="248 255 154" if="isTrackReverse">
+  </light>
+  <light xyz="-59.65 -0.39 -16.06" id="Lamp.039" distance="5.00" energy="1.50" color="248 255 154" if="isTrackReverse">
+  </light>
+  <light xyz="-52.15 -0.39 -16.06" id="Lamp.040" distance="5.00" energy="1.50" color="248 255 154" if="isTrackReverse">
+  </light>
+  <light xyz="-55.95 -0.39 -16.06" id="Lamp.041" distance="5.00" energy="1.50" color="248 255 154" if="isTrackReverse">
+  </light>
+  <light xyz="264.00 19.42 -169.50" id="Lamp.042" distance="5.00" energy="1.50" color="248 255 154" if="isTrackReverse">
+  </light>
+  <light xyz="257.65 19.42 -170.22" id="Lamp.043" distance="5.00" energy="1.50" color="248 255 154" if="isTrackReverse">
+  </light>
+  <light xyz="269.97 19.42 -168.95" id="Lamp.044" distance="5.00" energy="1.50" color="248 255 154" if="isTrackReverse">
+  </light>
+  <light xyz="251.75 19.42 -171.11" id="Lamp.045" distance="5.00" energy="1.50" color="248 255 154" if="isTrackReverse">
   </light>
   <lightshaft xyz="-1406.06 496.57 -237.14" id="Sun.001" opacity="0.80" color="217 255 93"/>
   <default-start karts-per-row     ="3"
