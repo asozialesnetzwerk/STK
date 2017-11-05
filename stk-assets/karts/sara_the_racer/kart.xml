@@ -52,8 +52,8 @@
             bone="bike_tilting"
             model="headlight_2.spm"/>
   </headlights>
-  <hat position="0.006900 0.954977 0.044615"
-       rotation="3.577326 0.508202 0.338355"
+  <hat position="0.001994 0.956203 0.044615"
+       rotation="3.577324 0.508202 0.338355"
        scale="1.000000 1.000000 1.000000"
        bone="head"/>
   <lean max="*0-6.6"/>
