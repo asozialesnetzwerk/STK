@@ -64,9 +64,9 @@
   </checks>
   <particle-emitter kind="black_smoke.xml" id="Empty.030" xyz="78.39 40.51 -241.34" h="-90.00" >
   </particle-emitter>
-  <item id="Empty" x="0.38" y="0.63" z="56.01" />
-  <item id="Empty.001" x="3.38" y="0.63" z="56.01" />
-  <item id="Empty.002" x="-2.62" y="0.63" z="56.01" />
+  <item id="Empty" x="0.55" y="0.63" z="71.59" />
+  <item id="Empty.001" x="3.55" y="0.63" z="71.59" />
+  <item id="Empty.002" x="-2.45" y="0.63" z="71.59" />
   <item id="Empty.003" x="72.07" y="5.91" z="107.11" h="-55.02" />
   <item id="Empty.004" x="75.51" y="5.91" z="102.20" h="-55.02" />
   <banana id="Empty.005" x="73.79" y="5.91" z="104.66" h="24.98" />
