@@ -8,6 +8,7 @@
     <static-object  model="baggage_belt.spm" xyz="81.06 25.86 -62.07" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
     <animated-texture name="stktex_generic_bambooB.png" dx="-0.200" />
     </static-object>
+    <static-object  model="wooden_bridge_physics.spm" xyz="-125.55 9.96 23.64" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
     <static-object  model="limits.spm" xyz="-86.60 4.32 128.13" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
     <animated-texture name="stkflag_orangeBooster_a.png" dy="0.5000" />
     <animated-texture name="stkflag_greenCheckBorard_a.png" dx="0.080"  dy="0.2000" />
