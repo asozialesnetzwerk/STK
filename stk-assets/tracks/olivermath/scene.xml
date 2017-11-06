@@ -4,6 +4,8 @@
   <track model="olivermath_track.spm" x="0" y="0" z="0">
     <static-object  model="limits.spm" xyz="-20.67 0.66 25.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
   </track>
+  <object id="grp55" type="animation" xyz="34.75 4.13 64.11" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" shape="exact" model="easter_egg_ruler.spm" driveable="true" skeletal-animation="false" if="isEasterEgg">
+  </object>
   <sun  fog="true" fog-color="35 28 21" fog-max="0.20000000298023224" fog-start="15.00" fog-end="150.00" xyz="182.84 216.71 -12.69" sun-diffuse="255 251 176" ambient="85 85 85"/>
   <sky-box texture="mathclassceiling.png mathclassceiling.png mathclassceiling.png mathclassceiling.png mathclassceiling.png mathclassceiling.png" sh-texture="mathclassceiling_ibl.png mathclassceiling_ibl.png mathclassceiling_ibl.png mathclassceiling_ibl.png mathclassceiling_ibl.png mathclassceiling_ibl.png"/>
   <camera far="1200.0"/>
@@ -19,14 +21,14 @@
     </curve>
     </cannon>
   </checks>
-  <banana id="eBanana.001" x="30.00" y="1.00" z="60.00" />
+  <banana id="eBanana.001" x="12.63" y="1.00" z="59.79" />
   <item id="eItem" x="39.76" y="1.00" z="33.96" />
   <item id="eItem.001" x="2.79" y="1.00" z="68.64" />
   <item id="eItem.002" x="45.61" y="1.00" z="34.65" />
   <item id="eItem.003" x="8.47" y="1.00" z="77.82" />
   <item id="eItem.005" x="15.46" y="1.00" z="4.25" />
   <item id="eItem.006" x="12.17" y="1.00" z="4.30" />
-  <item id="eItem.007" x="35.00" y="1.00" z="62.00" />
+  <item id="eItem.007" x="20.90" y="1.00" z="64.35" />
   <item id="eItem.008" x="5.41" y="1.00" z="73.34" />
   <item id="eItem.009" x="-42.60" y="1.00" z="53.63" />
   <item id="eItem.010" x="-49.41" y="1.00" z="53.57" />
