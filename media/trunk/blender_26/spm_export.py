@@ -22,7 +22,7 @@
 
 """
 Name: 'SPM Exporter (.spm)...'
-Blender: 262
+Blender: 270
 Group: 'Export'
 Tooltip: 'Export to space paritioned mesh file format (.spm)'
 """
@@ -35,12 +35,12 @@ bl_info = {
     "name": "SPM (Space paritioned mesh) Model Exporter",
     "description": "Exports a blender scene or object to the SPM format",
     "version": (1,0),
-    "blender": (2, 6, 2),
+    "blender": (2, 7, 0),
     "api": 31236,
     "location": "File > Export",
     "category": "Import-Export"}
 
-import bpy, sys, os, os.path, struct, math, string, mathutils
+import bpy, sys, os, os.path, struct, math, string, mathutils, bmesh
 
 spm_parameters = {}
 the_scene = None
@@ -131,7 +131,14 @@ def write2101010Rev(vector3):
         part = (int)((v * 512.0) - 0.5)
     ret |= (part & 1023) << 20
 
-    part = 0
+    if len(vector3) == 4:
+        v = min(1.0, max(-1.0, vector3[3]));
+        if v > 0.0:
+            part = (int)((v * 1.0) + 0.5);
+        else:
+            part = (int)((v * 2.0) - 0.5);
+    else:
+        part = 0
     ret |= (part & 3) << 30
     return writeUint(ret)
 
@@ -205,6 +212,13 @@ def getUniqueFrame(armature):
                             global_key = 1 if global_key == 0 else global_key
                             #print('f: {} {}'.format(global_key, constraint.target.name))
                             if not global_key in unique_frame:
+                                #bpy.context.scene.frame_set(global_key)
+                                #bpy.context.scene.frame_current = global_key
+                                #armature.update_tag(refresh={'OBJECT', 'DATA'})
+                                #bpy.context.scene.update()
+                                #if constraint.influence == 0.0:
+                                    #print('unused')
+                                    #continue
                                 unique_frame.append(global_key)
             except (AttributeError) as e:
                 pass
@@ -328,6 +342,7 @@ class Vertex:
         self.m_normal = []
         self.m_color = []
         self.m_all_uvs = []
+        self.m_tangent = []
         self.m_joints = []
         self.m_weights = []
         self.m_hash = 0
@@ -339,12 +354,13 @@ class Vertex:
         str(round(self.m_normal[0], 3)) + str(round(self.m_normal[1], 3)) +\
         str(round(self.m_normal[2], 3)) + str(round(self.m_all_uvs[0], 3)) +\
         str(round(self.m_all_uvs[3], 3)) + str(self.m_joints[0]) +\
-        str(self.m_joints[1]) + str(round(self.m_weights[0], 3))) if Vertex.m_cmp_joint\
+        str(self.m_joints[1]) + str(round(self.m_weights[0], 3)) +\
+        str(self.m_tangent[3])) if Vertex.m_cmp_joint\
         else hash(str(round(self.m_position[0], 3)) +\
         str(round(self.m_position[1], 3)) + str(round(self.m_position[2], 3)) +\
         str(round(self.m_normal[0], 3)) + str(round(self.m_normal[1], 3)) +\
         str(round(self.m_normal[2], 3)) + str(round(self.m_all_uvs[0], 3)) +\
-        str(round(self.m_all_uvs[3], 3)))
+        str(round(self.m_all_uvs[3], 3)) + str(self.m_tangent[3]))
 
     def __hash__(self):
         return self.m_hash
@@ -370,7 +386,8 @@ class Vertex:
         equals(self.m_weights[0], other.m_weights[0]) and\
         equals(self.m_weights[1], other.m_weights[1]) and\
         equals(self.m_weights[2], other.m_weights[2]) and\
-        equals(self.m_weights[3], other.m_weights[3]) if Vertex.m_cmp_joint\
+        equals(self.m_weights[3], other.m_weights[3]) and\
+        self.m_tangent[3] == other.m_tangent[3] if Vertex.m_cmp_joint\
         else equals(self.m_position[0], other.m_position[0]) and\
         equals(self.m_position[1], other.m_position[1]) and\
         equals(self.m_position[2], other.m_position[2]) and\
@@ -383,9 +400,10 @@ class Vertex:
         equals(self.m_all_uvs[0], other.m_all_uvs[0]) and\
         equals(self.m_all_uvs[1], other.m_all_uvs[1]) and\
         equals(self.m_all_uvs[2], other.m_all_uvs[2]) and\
-        equals(self.m_all_uvs[3], other.m_all_uvs[3])
+        equals(self.m_all_uvs[3], other.m_all_uvs[3]) and\
+        self.m_tangent[3] == other.m_tangent[3]
 
-    def writeVertex(self, uv_1, uv_2, vcolor, write_joints):
+    def writeVertex(self, uv_1, uv_2, vcolor, write_joints, need_export_tangent):
         tmp_buf = bytearray()
         for i in range(0, 3):
             tmp_buf += writeFloat(self.m_position[i])
@@ -403,6 +421,8 @@ class Vertex:
         if uv_1:
             tmp_buf += writeHalfFloat(self.m_all_uvs[0])
             tmp_buf += writeHalfFloat(self.m_all_uvs[1])
+            if need_export_tangent:
+                tmp_buf += write2101010Rev(self.m_tangent)
             if uv_2:
                 tmp_buf += writeHalfFloat(self.m_all_uvs[2])
                 tmp_buf += writeHalfFloat(self.m_all_uvs[3])
@@ -423,6 +443,7 @@ class Triangle:
         self.m_normal = []
         self.m_color = []
         self.m_all_uvs = []
+        self.m_tangent = []
         self.m_all_joints = [[-1, -1, -1, -1], [-1, -1, -1, -1],\
         [-1, -1, -1, -1]]
         self.m_all_weights = [[0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0],\
@@ -432,6 +453,7 @@ class Triangle:
         self.m_texture_two = ""
         self.m_texture_cmp = ""
         self.m_armature_name = ""
+        self.m_hash = 0
 
     def get3Vertices(self):
         vertices = []
@@ -441,10 +463,32 @@ class Triangle:
             vertices[i].m_normal = self.m_normal[i]
             vertices[i].m_color = self.m_color[i]
             vertices[i].m_all_uvs = self.m_all_uvs[i]
+            vertices[i].m_tangent = self.m_tangent[i]
             vertices[i].m_joints = self.m_all_joints[i]
             vertices[i].m_weights = self.m_all_weights[i]
             vertices[i].setHashString()
         return vertices
+
+    def __hash__(self):
+        return self.m_hash
+
+    def __eq__(self, other):
+        return self.m_position[0][0] == other.m_position[0][0] and\
+        self.m_position[0][1] == other.m_position[0][1] and\
+        self.m_position[0][2] == other.m_position[0][2] and\
+        self.m_position[1][0] == other.m_position[1][0] and\
+        self.m_position[1][1] == other.m_position[1][1] and\
+        self.m_position[1][2] == other.m_position[1][2] and\
+        self.m_position[2][0] == other.m_position[2][0] and\
+        self.m_position[2][1] == other.m_position[2][1] and\
+        self.m_position[2][2] == other.m_position[2][2]
+
+    def setHashString(self):
+        self.m_hash = hash(str(round(self.m_position[0][0], 7)) +\
+        str(round(self.m_position[0][1], 7)) + str(round(self.m_position[0][2], 7)) +\
+        str(round(self.m_position[1][0], 7)) + str(round(self.m_position[1][1], 7)) +\
+        str(round(self.m_position[1][2], 7)) + str(round(self.m_position[2][0], 7)) +\
+        str(round(self.m_position[2][1], 7)) + str(round(self.m_position[2][2], 7)))
 
 # ==== Write SPM File ====
 # (main exporter function)
@@ -462,6 +506,7 @@ def writeSPMFile(filename, objects=[]):
             exp_obj = bpy.data.objects
 
     has_vertex_color = False
+    need_export_tangent = spm_parameters.get("export-tangent")
     arm_count = 0
     arm_dict = {}
     all_triangles = []
@@ -480,18 +525,37 @@ def writeSPMFile(filename, objects=[]):
     if arm_count != 0:
         bpy.context.scene.frame_set(static_mesh_frame)
 
+    tangents_triangles_dict = {}
     for obj in exp_obj:
         if obj.type != "MESH":
             continue
 
-        arm = obj.find_armature()
-        mesh = obj.to_mesh(the_scene, spm_parameters.get("apply-modifiers"), 'PREVIEW')
         if spm_parameters.get("local-space"):
             mesh_matrix = mathutils.Matrix()
         else:
             mesh_matrix = obj.matrix_world.copy()
-
         exported_matrix = axis_conversion * mesh_matrix
+
+        arm = obj.find_armature()
+        mesh = obj.to_mesh(the_scene, spm_parameters.get("apply-modifiers"), 'PREVIEW', False)
+        if len(mesh.vertices) == 0:
+            print('{} has no vertices, please check it'.format(obj.name))
+            continue
+
+        bm = bmesh.new()
+        bm.from_mesh(mesh)
+        bmesh.ops.transform(bm, matrix = exported_matrix, verts = bm.verts)
+        bmesh.ops.triangulate(bm, faces = bm.faces)
+        # reverse the triangle winding for coordinate system in stk
+        bmesh.ops.reverse_faces(bm, faces = bm.faces)
+        bm.to_mesh(mesh)
+        bm.free()
+
+        mesh.calc_tessface()
+        if len(mesh.tessfaces) == 0:
+            print('{} has no faces, please check it'.format(obj.name))
+            continue
+
         uv_one = True
         uv_two = True
         if (len(mesh.tessface_uv_textures) > 1):
@@ -508,8 +572,25 @@ def writeSPMFile(filename, objects=[]):
             uv_one = False
             uv_two = False
 
-        if len(mesh.tessfaces) == 0:
-            print('{} has no mesh, please check it'.format(obj.name))
+        # Smooth tangents ourselves
+        for poly in mesh.polygons:
+            poly.use_smooth = False
+
+        if uv_one and need_export_tangent:
+            mesh.calc_tangents()
+            for poly in mesh.polygons:
+                # Because of triangulated
+                assert(len(poly.loop_indices) == 3)
+                poly_tri = Triangle()
+                for li in poly.loop_indices:
+                    poly_tri.m_position.append(mesh.vertices[mesh.loops[li].vertex_index].co)
+                    loc_tan = mathutils.Vector(mesh.loops[li].tangent)
+                    loc_tan.normalize()
+                    poly_tri.m_tangent.append\
+                    ((loc_tan[0], loc_tan[1], loc_tan[2], mesh.loops[li].bitangent_sign))
+                poly_tri.setHashString()
+                tangents_triangles_dict[poly_tri] = poly_tri.m_tangent
+
         for i, f in enumerate(mesh.tessfaces):
             texture_one = ""
             texture_two = ""
@@ -522,7 +603,7 @@ def writeSPMFile(filename, objects=[]):
             texture_cmp = ''.join([texture_one, texture_two])
             vertex_list = []
             for j, v in enumerate(f.vertices):
-                vertices = exported_matrix * mesh.vertices[v].co
+                vertices = mesh.vertices[v].co
                 if bounding_boxes[0] == 99999999.0:
                     bounding_boxes[0] = vertices[0]
                     bounding_boxes[1] = vertices[1]
@@ -547,9 +628,7 @@ def writeSPMFile(filename, objects=[]):
                         bounding_boxes[5] = vertices[2]
 
                 nor_vec = mathutils.Vector(mesh.vertices[v].normal)
-                nor_vec.rotate(exported_matrix)
                 nor_vec.normalize()
-
                 all_uvs = [0.0, 0.0, 0.0, 0.0]
                 if uv_one:
                     all_uvs[0] = mesh.tessface_uv_textures[0].data[i].uv[j][0]
@@ -581,30 +660,33 @@ def writeSPMFile(filename, objects=[]):
                 vertex_list.append((vertices, nor_vec, vertex_color, all_uvs, each_joint_data))
 
             t1 = Triangle()
-            for t in [2, 1, 0]:
-                t1.m_position.append(vertex_list[t][0])
-                t1.m_normal.append(vertex_list[t][1])
-                t1.m_color.append(vertex_list[t][2])
-                t1.m_all_uvs.append(vertex_list[t][3])
-                t1.m_all_joints_weights.append(vertex_list[t][4])
+            # Because of triangulated
+            assert(len(vertex_list) == 3)
+            for vertex in vertex_list:
+                t1.m_position.append(vertex[0])
+                t1.m_normal.append(vertex[1])
+                t1.m_color.append(vertex[2])
+                t1.m_all_uvs.append(vertex[3])
+                t1.m_all_joints_weights.append(vertex[4])
             t1.m_texture_one = texture_one
             t1.m_texture_two = texture_two
             t1.m_texture_cmp = texture_cmp
             t1.m_armature_name = arm.data.name if arm != None else "NULL"
+            t1.setHashString()
+            if t1 in tangents_triangles_dict:
+                t1.m_tangent = tangents_triangles_dict[t1]
+                #print("tangent:")
+                #print(t1.m_tangent)
+            else:
+                if need_export_tangent and uv_one:
+                    print("Missing a triangle from loop map")
+                t1.m_tangent = [(0.0, 0.0, 0.0, 1.0), (0.0, 0.0, 0.0, 1.0), (0.0, 0.0, 0.0, 1.0)]
             all_triangles.append(t1)
-            if (len(vertex_list) != 3):
-                t2 = Triangle()
-                for t in [3, 2, 0]:
-                    t2.m_position.append(vertex_list[t][0])
-                    t2.m_normal.append(vertex_list[t][1])
-                    t2.m_color.append(vertex_list[t][2])
-                    t2.m_all_uvs.append(vertex_list[t][3])
-                    t2.m_all_joints_weights.append(vertex_list[t][4])
-                t2.m_texture_one = texture_one
-                t2.m_texture_two = texture_two
-                t2.m_texture_cmp = texture_cmp
-                t2.m_armature_name = arm.data.name if arm != None else "NULL"
-                all_triangles.append(t2)
+        if need_export_tangent: 
+            mesh.free_tangents()
+    if need_export_tangent and len(tangents_triangles_dict) == 0:
+        print('{} (one of the object in the list) have no uvmap'.format(exp_obj[0].name))
+        need_export_tangent = False
 
     if arm_count != 0:
         ExportArm.m_accumulated_bone = 0
@@ -639,13 +721,15 @@ def writeSPMFile(filename, objects=[]):
 
     # bit 0: export-normal
     # bit 1: export-vcolor
-    # bit 2: export-tangent (unsupported in python)
+    # bit 2: export-tangent
     byte = 0
     if spm_parameters.get("export-normal"):
         byte = 1
     export_vcolor = spm_parameters.get("export-vcolor") and has_vertex_color
     if export_vcolor:
         byte = 1 << 1 | byte
+    if need_export_tangent:
+        byte = 1 << 2 | byte
     spm_buffer += writeUint8(byte)
     for position in bounding_boxes:
         spm_buffer += writeFloat(position)
@@ -687,10 +771,21 @@ def writeSPMFile(filename, objects=[]):
             #print(len(indices))
             assert len(vertices) < 65536
             for vertex in vertices:
+                if need_export_tangent:
+                    tangent = mathutils.Vector((0.0, 0.0, 0.0))
+                    bitangent_sign = vertices_dict.get(vertex)[1][0][3]
+                    #print("All tangents accumlated:")
+                    #print(vertices_dict.get(vertex)[1])
+                    for each_tan in vertices_dict.get(vertex)[1]:
+                        tangent = tangent +\
+                        mathutils.Vector((each_tan[0], each_tan[1], each_tan[2]))
+                    tangent.normalize()
+                    vertex.m_tangent =\
+                    (tangent[0], tangent[1], tangent[2], bitangent_sign)
                 vbo_ibo += vertex.writeVertex(\
                 all_triangles[t_idx -1].m_texture_one != "",\
                 all_triangles[t_idx -1].m_texture_two != "",\
-                export_vcolor, arm_count != 0)
+                export_vcolor, arm_count != 0, need_export_tangent)
             for index in indices:
                 if len(vertices) > 255:
                     vbo_ibo += writeUint16(index)
@@ -713,9 +808,10 @@ def writeSPMFile(filename, objects=[]):
                 vertex_location = len(vertices)
                 indices.append(vertex_location)
                 vertices.append(vertex)
-                vertices_dict[vertex] = vertex_location
+                vertices_dict[vertex] = [vertex_location, [vertex.m_tangent]]
             else:
-                indices.append(vertices_dict[vertex])
+                indices.append(vertices_dict[vertex][0])
+                vertices_dict[vertex][1].append(vertex.m_tangent)
 
     spm_buffer += writeUint16(mesh_buffer_count)
     spm_buffer += vbo_ibo
@@ -761,7 +857,7 @@ class SPM_Export_Operator(bpy.types.Operator):
     keyframes_only = bpy.props.BoolProperty(name="Export keyframes only for animated mesh", default = True)
     export_normal = bpy.props.BoolProperty(name="Export normal in mesh", default = True)
     export_vcolor = bpy.props.BoolProperty(name="Export vertex color in mesh", default = True)
-    export_tangent = bpy.props.BoolProperty(name="Calculate tangent and bitangents for mesh", default = True)
+    export_tangent = bpy.props.BoolProperty(name="Calculate tangent and bitangent sign for mesh", default = True)
     static_mesh_frame = bpy.props.IntProperty(name="Frame for static mesh usage", default = -1)
 
     def invoke(self, context, event):
