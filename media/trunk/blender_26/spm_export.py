@@ -421,11 +421,11 @@ class Vertex:
         if uv_1:
             tmp_buf += writeHalfFloat(self.m_all_uvs[0])
             tmp_buf += writeHalfFloat(self.m_all_uvs[1])
-            if need_export_tangent:
-                tmp_buf += write2101010Rev(self.m_tangent)
             if uv_2:
                 tmp_buf += writeHalfFloat(self.m_all_uvs[2])
                 tmp_buf += writeHalfFloat(self.m_all_uvs[3])
+            if need_export_tangent:
+                tmp_buf += write2101010Rev(self.m_tangent)
         if write_joints:
             tmp_buf += writeInt16(self.m_joints[0])
             tmp_buf += writeInt16(self.m_joints[1])
@@ -525,8 +525,9 @@ def writeSPMFile(filename, objects=[]):
     if arm_count != 0:
         bpy.context.scene.frame_set(static_mesh_frame)
 
-    tangents_triangles_dict = {}
+    all_no_uv_one = True
     for obj in exp_obj:
+        tangents_triangles_dict = {}
         if obj.type != "MESH":
             continue
 
@@ -577,6 +578,8 @@ def writeSPMFile(filename, objects=[]):
             poly.use_smooth = False
 
         if uv_one and need_export_tangent:
+            if all_no_uv_one:
+                all_no_uv_one = False
             mesh.calc_tangents()
             for poly in mesh.polygons:
                 # Because of triangulated
@@ -684,7 +687,7 @@ def writeSPMFile(filename, objects=[]):
             all_triangles.append(t1)
         if need_export_tangent: 
             mesh.free_tangents()
-    if need_export_tangent and len(tangents_triangles_dict) == 0:
+    if need_export_tangent and all_no_uv_one:
         print('{} (one of the object in the list) have no uvmap'.format(exp_obj[0].name))
         need_export_tangent = False
 
