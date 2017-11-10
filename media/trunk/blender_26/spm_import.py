@@ -51,7 +51,7 @@ def decompressHalfFloat(bytes):
     if sys.version_info[0] == 3 and sys.version_info[1] > 5:
         return struct.unpack("<e", bytes)[0]
     else:
-        float16 = int(struct.unpack('H', bytes)[0])
+        float16 = int(struct.unpack('<H', bytes)[0])
         # sign
         s = (float16 >> 15) & 0x00000001
         # exponent
