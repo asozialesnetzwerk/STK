@@ -40,9 +40,45 @@ bl_info = {
     "location": "File > Import",
     "category": "Import-Export"}
 
-import bpy, bpy_extras, os, os.path, struct, string, bmesh
+import bmesh, bpy, bpy_extras, os, os.path, struct, string, sys
 from bpy_extras.image_utils import load_image
 spm_version = 1
+
+def reinterpretCastIntToFloat(int_val):
+    return struct.unpack('f', struct.pack('I', int_val))[0]
+
+def decompressHalfFloat(bytes):
+    if sys.version_info[0] == 3 and sys.version_info[1] > 5:
+        return struct.unpack("<e", bytes)[0]
+    else:
+        float16 = int(struct.unpack('H', bytes)[0])
+        # sign
+        s = (float16 >> 15) & 0x00000001
+        # exponent
+        e = (float16 >> 10) & 0x0000001f
+        # fraction
+        f = float16 & 0x000003ff
+
+        if e == 0:
+            if f == 0:
+                return reinterpretCastIntToFloat(int(s << 31))
+            else:
+                while not (f & 0x00000400):
+                    f = f << 1
+                    e -= 1
+                e += 1
+                f &= ~0x00000400
+                #print(s,e,f)
+        elif e == 31:
+            if f == 0:
+                return reinterpretCastIntToFloat(int((s << 31) | 0x7f800000))
+            else:
+                return reinterpretCastIntToFloat(int((s << 31) | 0x7f800000 |
+                    (f << 13)))
+
+        e = e + (127 -15)
+        f = f << 13
+        return reinterpretCastIntToFloat(int((s << 31) | (e << 23) | f))
 
 def generateMeshBuffer(spm, vertices_count, indices_count,
                        read_normal, read_vcolor, read_tangent,
@@ -81,10 +117,12 @@ def generateMeshBuffer(spm, vertices_count, indices_count,
                 r, g, b = struct.unpack('<BBB', spm.read(3))
                 vc = [r / 255.0, g / 255.0, b / 255.0]
         if uv_one:
-            u, v = struct.unpack('<ee', spm.read(4))
+            u = decompressHalfFloat(spm.read(2))
+            v = decompressHalfFloat(spm.read(2))
             v = 1.0 - v
             if uv_two:
-                u_2, v_2 = struct.unpack('<ee', spm.read(4))
+                u_2 = decompressHalfFloat(spm.read(2))
+                v_2 = decompressHalfFloat(spm.read(2))
                 v_2 = 1.0 - v_2
             if read_tangent:
                 # Unused
