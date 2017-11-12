@@ -5,13 +5,13 @@
    <group name="miniLamp">
     <static-object lod_distance="150" lod_group="miniLamp" model="miniLampPost_low.spm" xyz="-156.19 3.73 -49.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" skeletal-animation="false"/>
    </group>
-   <group name="death_grass_chunk">
-    <static-object lod_distance="60" lod_group="death_grass_chunk" model="death_grass_chunk_hight.spm" xyz="274.55 -15.84 -24.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
-    <static-object lod_distance="100" lod_group="death_grass_chunk" model="death_grass_chunk_low.spm" xyz="274.55 -15.84 -30.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
-   </group>
    <group name="grass_chunk">
     <static-object lod_distance="60" lod_group="grass_chunk" model="grass_chunk_hight.spm" xyz="266.88 -15.84 -24.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
     <static-object lod_distance="100" lod_group="grass_chunk" model="grass_chunk_low.spm" xyz="266.88 -15.84 -30.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+   </group>
+   <group name="death_grass_chunk">
+    <static-object lod_distance="60" lod_group="death_grass_chunk" model="death_grass_chunk_hight.spm" xyz="274.55 -15.84 -24.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="100" lod_group="death_grass_chunk" model="death_grass_chunk_low.spm" xyz="274.55 -15.84 -30.76" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
    </group>
   </lod>
   <track model="lighthouse_track.spm" x="0" y="0" z="0">
@@ -326,6 +326,20 @@
   <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.018" xyz="-54.53 -13.12 -54.20" hpr="-0.1 -38.0 -0.2" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_logBarrier_a" id="stklib_logBarrier_a_main_proxy.019" xyz="-59.69 -13.12 -70.23" hpr="0.2 -71.7 -0.5" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_logBarrierEndPost_a" id="stklib_logBarrierEndPost_a_main_proxy" xyz="-57.11 -12.41 -83.62" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_logBarrierEndPost_a" id="stklib_logBarrierEndPost_a_main_proxy.001" xyz="47.89 -14.89 -57.99" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_logBarrierEndPost_a" id="stklib_logBarrierEndPost_a_main_proxy.002" xyz="-0.39 -16.13 -27.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_logBarrierEndPost_a" id="stklib_logBarrierEndPost_a_main_proxy.003" xyz="91.78 -16.89 -1.96" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_logBarrierEndPost_a" id="stklib_logBarrierEndPost_a_main_proxy.004" xyz="-41.10 -12.49 -43.43" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_logBarrierEndPost_a" id="stklib_logBarrierEndPost_a_main_proxy.005" xyz="182.09 9.58 -87.16" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_logBarrierEndPost_a" id="stklib_logBarrierEndPost_a_main_proxy.006" xyz="209.72 9.44 -87.65" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
   </library>
   <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy" xyz="163.43 10.62 -66.55" hpr="0.0 -26.4 0.0" scale="3.06 3.06 3.06">
   </library>
