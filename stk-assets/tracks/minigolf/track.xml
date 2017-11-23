@@ -4,7 +4,7 @@
         version        = "7"
         groups         = "standard"
         designer       = "Mac &amp;&amp; Rubberduck"
-        music          = "Boom_boom_boom.music"
+        music          = "bay.music"
         screenshot     = "minigolf.jpg"
         smooth-normals = "false"
         default-number-of-laps = "3"
