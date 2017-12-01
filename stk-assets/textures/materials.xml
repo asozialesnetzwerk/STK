@@ -18,6 +18,7 @@
 
     <!-- End of global sticking textures -->
 
+  <material name="konqi.jpg" colorizable="Y" colorization-mask="konqi_colorization_mask.png" hue-settings="1 0.02 0.1 0.3 0.5 0.66 0.8"/>
   <material name="kiki.png" colorizable="Y" colorization-factor="0.9" colorization-mask="kiki_colorization_mask.png" hue-settings="1 0.02 0.1 0.3 0.5 0.66 0.8"/>
     <!--
     HD textures for tracks of the generation post cocoa temple
