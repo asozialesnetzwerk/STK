@@ -18,7 +18,7 @@
 
     <!-- End of global sticking textures -->
 
-  <material name="stktex_gnuMeditation_a.png" shader="alphatest" colorizable="Y" colorization-factor="0.00" colorization-mask="stktex_gnuMeditation_mask.png" hue-settings="1 0.02 0.1 0.3 0.5 0.66 0.8"/>
+  <material name="kiki.png" colorizable="Y" colorization-factor="0.9" colorization-mask="kiki_colorization_mask.png" hue-settings="1 0.02 0.1 0.3 0.5 0.66 0.8"/>
     <!--
     HD textures for tracks of the generation post cocoa temple
     -->
@@ -31,6 +31,8 @@
     <!--
     END of HD textures
     -->
+
+  <material name="stktex_gnuMeditation_a.png" shader="alphatest" colorizable="Y" colorization-factor="0.00" colorization-mask="stktex_gnuMeditation_mask.png" hue-settings="1 0.02 0.1 0.3 0.5 0.66 0.8"/>
 
   <material name="stkflag_nolokArmories_a.png" shader="alphatest"/>
   <material name="stklib_oldcar_a.png"  gloss-map="stk_greyMetal_a_gloss.png" colorizable="Y" colorization-factor="0.00" colorization-mask="stklib_oldcar_a_mask.png"  hue-settings="1.0 0.02 0.1 0.3 0.5 0.66 0.8 0.0"/>
