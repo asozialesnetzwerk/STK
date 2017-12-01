@@ -73,6 +73,8 @@
   </library>
   <library name="stklib_chimney_b" id="stklib_chimney_b_main_proxy.001" xyz="-20.45 13.46 73.57" hpr="0.0 -15.0 0.0" scale="1.00 1.00 1.00">
   </library>
+  <library name="stklib_kikiPainter_a" id="stklib_kikiPainter_a_main_proxy" xyz="-10.82 0.39 64.07" hpr="-0.4 -180.0 0.0" scale="1.00 1.00 1.00">
+  </library>
   <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy" xyz="-21.02 1.82 -3.70" hpr="0.0 -0.0 0.0" scale="1.53 1.53 1.53">
   </library>
   <library name="stklib_lowPineTree_a" id="stklib_lowPineTree_a_main_proxy.001" xyz="-26.62 0.86 -15.10" hpr="0.0 70.4 0.0" scale="1.53 1.53 1.53">
