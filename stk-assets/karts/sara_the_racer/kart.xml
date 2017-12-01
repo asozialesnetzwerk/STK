@@ -22,37 +22,37 @@
               start-losing-loop = "144"
               end-losing = "165"/>
   <wheels>
-    <rear-left position = "-0.143815 0.109919 -0.403447"
+    <rear-left position = "-0.143815 0.171158 -0.403447"
                  model    = "wheel-rear-left.spm"       />
-    <rear-right position = "0.143815 0.109919 -0.403447"
+    <rear-right position = "0.143815 0.171158 -0.403447"
                  model    = "wheel-rear-right.spm"       />
-    <front-right position = "0.000000 0.097489 0.481675"
+    <front-right position = "0.000000 0.171107 0.481675"
                  model    = "wheel-front-right.spm"       />
   </wheels>
   <speed-weighted-objects>
-    <object position="-0.000000 0.269588 -0.364707"
-            rotation="9.629410 2.709944 -15.571315"
+    <object position="-0.000000 0.330826 -0.364707"
+            rotation="9.629412 2.709944 -15.571315"
             scale="0.474882 0.474882 0.474882"
             texture-speed-x="0.500000" texture-speed-y="0.000000"
             model="exhaust.spm"/>
   </speed-weighted-objects>
   <nitro-emitter>
-    <nitro-emitter-a position = "0.015415 0.294082 -0.508180" />
-    <nitro-emitter-b position = "-0.015024 0.294082 -0.508180" />
+    <nitro-emitter-a position = "0.015415 0.355320 -0.508180" />
+    <nitro-emitter-b position = "-0.015024 0.355320 -0.508180" />
   </nitro-emitter>
   <headlights>
-    <object position="0.042844 0.413887 0.479152"
-            rotation="-0.000000 -0.000000 0.000005"
+    <object position="0.043065 0.477769 0.479152"
+            rotation="-0.000000 -0.000000 -1.625122"
             scale="1.000000 1.000000 1.000000"
             bone="bike_tilting"
             model="headlight_1.spm"/>
-    <object position="-0.042845 0.413887 0.479157"
-            rotation="-0.000000 -0.000000 0.000005"
+    <object position="-0.042845 0.471207 0.479157"
+            rotation="-0.000000 -0.000000 -1.625122"
             scale="1.000000 1.000000 1.000000"
             bone="bike_tilting"
             model="headlight_2.spm"/>
   </headlights>
-  <hat position="0.001994 0.956203 0.044615"
+  <hat position="0.001994 1.017442 0.044615"
        rotation="3.577324 0.508202 0.338355"
        scale="1.000000 1.000000 1.000000"
        bone="head"/>
