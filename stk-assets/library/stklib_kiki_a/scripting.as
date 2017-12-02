@@ -29,13 +29,13 @@ namespace stklib_kiki_a
                     kiki_mesh.useAnimationSet(0);
                 }
             }
-        }
-        else if (kiki_mesh !is null)
-        {
-            // For now use painting animation if kiki is used alone
-            kiki_mesh.removeAllAnimationSet();
-            kiki_mesh.addAnimationSet(110, 287);
-            kiki_mesh.useAnimationSet(0);
+            else
+            {
+                // For now use painting animation if kiki is used alone
+                kiki_mesh.removeAllAnimationSet();
+                kiki_mesh.addAnimationSet(110, 287);
+                kiki_mesh.useAnimationSet(0);
+            }
         }
     }
 }
