@@ -118,6 +118,11 @@ other files
 window.png (selfmade)
 img_0572 based on an image from BurningWell
 
+material textures
+	trak2_holes1a_gloss.png
+	stk_greyMetal_a_gloss.png
+
+	licensed under CC BY-SA 3.0 by auria
 
 	
 
