@@ -9,8 +9,8 @@ License: Various
 
 Files: materials.xml
 Copyright: SuperTuxKart dev team
-License: Unknown
-Comment: Material infos, not sure if license is needed
+License: CC-BY-SA 3.0
+Comment: Material data
 
 Files: kiki.png kiki_colorization_mask.png konqi.jpg konqi_colorization_mask.png
 Copyright: Benau
