@@ -7,6 +7,11 @@ Upstream-Contact:
 Source: https://supertuxkart.net
 License: GPL2+ and CC-BY-SA
 
+Files: check_licenses.php
+Copyright: Copyright 2017-2018 Matthew Trescott <matthewtrescott@gmail.com>
+License: GPL 3.0+
+Comment: Super hacky but will check for undocumented files that you're about to add
+
 Files: editor/*
 Copyright: 
  Copyright 2014-2015 Csaba Molnar
