@@ -18,8 +18,10 @@
 
     <!-- End of global sticking textures -->
 
+
   <material name="konqi.jpg" colorizable="Y" colorization-mask="konqi_colorization_mask.png" hue-settings="1 0.02 0.1 0.3 0.5 0.66 0.8"/>
   <material name="kiki.png" colorizable="Y" colorization-factor="0.9" colorization-mask="kiki_colorization_mask.png" hue-settings="1 0.02 0.1 0.3 0.5 0.66 0.8"/>
+  <material name="stktex_gnuMeditation_a.png" shader="solid" colorizable="Y" colorization-factor="0.00" colorization-mask="stktex_gnuMeditation_mask.png" hue-settings="1 0.02 0.1 0.3 0.5 0.66 0.8"/>
     <!--
     HD textures for tracks of the generation post cocoa temple
     -->
@@ -33,23 +35,19 @@
     END of HD textures
     -->
 
-  <material name="stktex_gnuMeditation_a.png" shader="alphatest" colorizable="Y" colorization-factor="0.00" colorization-mask="stktex_gnuMeditation_mask.png" hue-settings="1 0.02 0.1 0.3 0.5 0.66 0.8"/>
+  <material name="jungleWater.png" shader="displace" ignore="Y"/>
+  <material name="gfx_distord_AlphaTested.png" shader="displace" ignore="Y"/>
+
+  <material name="stktex_generic_WoodH.png" uv-two-tex="stk_generic_roadTrailDecal_a.png" shader="decal"/>
 
   <material name="stkflag_nolokArmories_a.png" shader="alphatest"/>
   <material name="stklib_oldcar_a.png"  gloss-map="stk_greyMetal_a_gloss.png" colorizable="Y" colorization-factor="0.00" colorization-mask="stklib_oldcar_a_mask.png"  hue-settings="1.0 0.02 0.1 0.3 0.5 0.66 0.8 0.0"/>
 
-  <material name="stk_spiralBlueShell_a.png" colorizable="Y" colorization-factor="0.00" colorization-mask="gfxrndColor_generic_a_mask.png"  hue-settings="0.8 0.9 0.0"/>
+  <material name="stk_spiralBlueShell_a.png" colorizable="Y" hue-settings="0.8 0.9 0.0"/>
 
-  <material name="stktex_stonePurple_a.png"  gloss-map="stktex_stonePurple_a_gloss.png" 
-  colorizable="Y" colorization-factor="0.00" colorization-mask="gfxrndColor_generic_a_mask.png"  hue-settings="0.8 0.9 0.0"/>
+  <material name="stktex_stonePurple_a.png"  gloss-map="stktex_stonePurple_a_gloss.png" colorizable="Y" hue-settings="0.8 0.9 0.0"/>
 
-
-
-    <material name="stktex_autumnLeaf_a.png"   shader="grass" 
-colorizable="Y" colorization-factor="0.00" colorization-mask="gfxrndColor_generic_a_mask.png"  hue-settings="0.1 0.05 0.0"
-
-/>
-
+  <material name="stktex_autumnLeaf_a.png" shader="grass" colorizable="Y" hue-settings="0.1 0.05 0.0"/>
 
   <!-- Booster -->
   <material name="gfx_booster_AlphaTest.png" shader="alphatest" >
@@ -143,7 +141,6 @@ colorizable="Y" colorization-factor="0.00" colorization-mask="gfxrndColor_generi
   <material name="stktex_animatedFire_a.png" disable-z-write="Y" shader="additive"/>
   <material name="stktex_animatedPinkFire_a.png" disable-z-write="Y" shader="additive"/>
   
-  <material name="gfx_distord_AlphaTested.png" shader="alphatest"/>
   <material name="gfx_lightBlinker_a.png" shader="alphatest"/>
   <material name="gfx_lightBlinker_b.png" shader="alphatest"/>
   <material name="gfx_rocketFlame_a.png" shader="additive"/>
@@ -177,9 +174,9 @@ colorizable="Y" colorization-factor="0.00" colorization-mask="gfxrndColor_generi
   
   <material name="stktex_deadTree_a.png" shader="alphatest" ignore="Y" />
   
-  <material name="stktex_coralBump_a.png" shader="grass"  gloss-map="stktex_stonePurple_a_gloss.png" colorization-factor="0.00" colorization-mask="gfxrndColor_generic_a_mask.png"  hue-settings="0.8 0.9 0.0" />
+  <material name="stktex_coralBump_a.png" shader="grass"  gloss-map="stktex_stonePurple_a_gloss.png" hue-settings="0.8 0.9 0.0" />
   <material name="stktex_seaFlower_a.png" shader="grass" />
-  <material name="stktex_coralDisk_a.png" shader="grass" gloss-map="stktex_stonePurple_a_gloss.png"  colorization-factor="0.00" colorization-mask="gfxrndColor_generic_a_mask.png"  hue-settings="0.8 0.9 0.0"/>
+  <material name="stktex_coralDisk_a.png" shader="grass" gloss-map="stktex_stonePurple_a_gloss.png" hue-settings="0.8 0.9 0.0"/>
   
     
   <material name="stktex_lowPalmTree_a.png" shader="alphatest" />
@@ -371,9 +368,7 @@ colorizable="Y" colorization-factor="0.00" colorization-mask="gfxrndColor_generi
   <material name="stktex_hayFiber_a.png" shader="grass"  ignore="Y"/>
   <material name="stk_wheatA.png" shader="grass"  ignore="Y"/>
   <material name="stk_snowSmallBush_a.png" shader="grass"  ignore="Y"/>
-    <material name="stk_autumnSmallBush_a.png" shader="grass"  ignore="Y"
-colorizable="Y" colorization-factor="0.00" colorization-mask="gfxrndColor_generic_a_mask.png"  hue-settings="0.1 0.05 0.0 "
-/>
+  <material name="stk_autumnSmallBush_a.png" shader="grass" ignore="Y" colorizable="Y" colorization-factor="0.00" hue-settings="0.1 0.05 0.0 "/>
   
   <material name="bumpy_surface.png">
     <particles base="smoke.xml" condition="skid" />
@@ -402,7 +397,7 @@ colorizable="Y" colorization-factor="0.00" colorization-mask="gfxrndColor_generi
   <material name="chrome.png"            light="N" sphere="Y"/>
   <material name="chrome2.png"           light="N" sphere="Y"/>
   <material name="clouds.png"            light="N" reset="Y" ignore="Y"/>
-  <material name="coniferous_tree.jpg"   mask="coniferous_tree_alpha.jpg" compositing="coverage" light="N" ignore="Y"/>
+  <material name="coniferous_tree.jpg"   mask="coniferous_tree_alpha.jpg" shader="alphatest"  ignore="Y"/>
   <material name="dirt2sand.png"         anisotropic="Y"/>
   
   <material name="earth.png" slowdown-time="4" max-speed="0.5">
