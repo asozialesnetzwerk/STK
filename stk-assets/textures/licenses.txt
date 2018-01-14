@@ -35,16 +35,58 @@ Copyright: Copyright 2009 Tobias "Tob" "Cheleb" Beyrer
 License: CC-BY-SA 3.0
 Comment: Originally part of Nolok kart
 
-Files: 
+Files:
+ hd_palmTreeBark_a_Albedo.png
+ hd_palmTreeBark_a_Normal.png
+ hd_palmTreeLeaf_a_Albedo.png
+ hd_palmTreeLeafDry_a_Albedo.png
+Copyright: Converted to albedo map by Jean-Manuel Clémençon, original work Copyright 2015 Oliver M-H
+License: CC-BY-SA 3.0
+Comment: https://www.blendswap.com/blends/view/83370
+
+Files:
+ hd_palmTreeLeaf_b_Albedo.png
+Copyright: Converted to albedo map by Jean-Manuel Clémençon, original work by Marianne Gagnon, made from public domain images from BurningWell, http://www.publicdomainpictures.net
+License: CC-BY-SA 4.0
+
+Files:
+ ants.png
  stk_animalPig_a.png
  stk_terminalCode_a.png
  stk_transcriptDataSignal_a.png
  stkflag_pumpkin_a.png
- stkflag_pumpkin_a_gloss.png
  stklib_coniferSnow_a_low.png
  stktex_puertoEncanto_a.png
  stklib_jackOLantern_a.png
  stklib_moonDecal_a.png
+ gfxGlow_generic_a_gloss.png
+ motif_gloss.png
+ stkflag_asianPaperLantern_a_gloss.png
+ stkflag_latexBluePinkPattern_a_gloss.png
+ stkflag_leatherPatern_gloss.png
+ stkflag_pumpkin_a_gloss.png
+ stktex_beachball_a_gloss.png
+ stktex_frozenWaterFall_a_glossy.png
+ stktex_generic_lava_gloss.png
+ stktex_generic_roadSnow_a_gloss.png
+ stktex_generic_rockA_gloss.png
+ stktex_generic_WoodB_gloss.png
+ stktex_planetEarth_a_gloss.png
+ stktex_snowRock_a_gloss.png
+ stktex_stonePurple_a_gloss.png
+ stktex_windowsSet_a_gloss.png
+ stk_futureYellowBox_a_gloss.png
+ stk_generic_brickA_gloss.png
+ stk_generic_ice_a_gloss.png
+ stk_generic_modernWindows_b_gloss.png
+ stk_generic_rock_a_gloss.png
+ stk_generic_snow_a_gloss.png
+ stk_greyMetal_a_gloss.png
+ stk_lightGreyMetal_a_gloss.png
+ stk_metalDoor_a_gloss.png
+ stk_mudpot_a_gloss.png
+ stk_solarPanel_gloss.png
+ trophy_glossmap.png
 Copyright: Copyright 2017 Jean-Manuel Clémençon
 License: CC-BY-SA 3.0
 

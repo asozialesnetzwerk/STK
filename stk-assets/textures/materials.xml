@@ -1,6 +1,20 @@
 <?xml version="1.0"?>
 <materials>
 
+  <!-- Custom shader test -->
+
+<!--
+    <material name="spmat_genericAsphaltGrey_a_albedo.png" shader="spmat_road" tex-layer-4="spmat_genericPebbles_a_albedo.png" tex-layer-5="spmat_genericBrownDirt_a_albedo.png"/>
+
+    <material name="spmat_genericBrownDirt_a_albedo.png" shader="spmat_road" tex-layer-4="spmat_genericPebbles_a_albedo.png" tex-layer-5="spmat_genericBrownDirt_a_albedo.png"/>
+-->
+
+    <!-- Palm tree textures -->
+    <material name="hd_palmTreeLeaf_a_Albedo.png"     shader="grass" />
+    <material name="hd_palmTreeLeafDry_a_Albedo.png"  shader="grass" />
+    <material name="hd_palmTreeLeaf_b_Albedo.png"     shader="grass" />
+    <material name="hd_palmTreeBark_a_Albedo.png" normal-map="hd_palmTreeBark_a_Normal.png"/>
+
     <!-- Global sticking textures -->
     <material name="stkflag_orangeBooster_a.png" shader="alphatest" disable-z-write="Y" has-gravity="Y"/>
     <material name="stkflag_blueBooster_a.png" shader="alphatest" disable-z-write="Y" has-gravity="Y"/>
