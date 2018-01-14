@@ -3,6 +3,6 @@
 <materials>
   <material name="cell_shadow.png" shader="alphablend"/>
   <material name="chain2.png" backface-culling="N" shader="alphatest"/>
-  <material name="stktex_gnuMeditation_a.png" shader="alphatest" backface-culling="N"/>
+  <material name="stktex_gnuMeditation_a.png" backface-culling="N"/>
   <material name="tuxkartshadow.png" shader="alphablend"/>
 </materials>
