@@ -127,7 +127,7 @@ def writeMaterialsFile(sPath):
            'max_speed'             : {'default': 1.0, 'parent': 'use_slowdown', 'type': 'number'},
            'water_splash'          : {'default': "N", 'parent': None, 'type': 'bool'},
            'colorizable'           : {'default': "N", 'parent': None, 'type': 'bool'},
-           'colorization_factor'   : {'default': "", 'parent': 'colorizable', 'type': 'number'},
+           'colorization_factor'   : {'default': 0.0, 'parent': 'colorizable', 'type': 'number'},
            'colorization_mask'     : {'default': "", 'parent': 'colorizable', 'type': 'string'},
            'hue_settings'          : {'default': "", 'parent': 'colorizable', 'type': 'string'}
     }
