@@ -87,6 +87,26 @@ Files:
  stk_mudpot_a_gloss.png
  stk_solarPanel_gloss.png
  trophy_glossmap.png
+ stk_futureYellowBox_a_Normal.png
+ stk_generic_bedRock_a_Normal.png
+ stk_generic_brickA_Normal.png
+ stk_generic_dirtRoad_a_Normal.png
+ stk_generic_grassB_Normal.png
+ stk_generic_ice_a_Normal.png
+ stk_generic_ironA_Normal.png
+ stk_generic_rock_a_Normal.png
+ stk_generic_snow_a_Normal.png
+ stk_greyMetal_a_Normal.png
+ stk_solarPanel_a_Normal.png
+ stktex_frozenWaterFall_a_Normal.png
+ stktex_generic_aztekWall_a_Normal.png
+ stktex_generic_cobbleStoneA_Normal.png
+ stktex_generic_lavaA_Normal.png
+ stktex_generic_roadSnow_a_Normal.png
+ stktex_generic_rockA_Normal.png
+ stktex_generic_WoodB_Normal.png
+ stktex_snowRock_a_Normal.png
+ stktex_windowsSet_a_Normal.png
 Copyright: Copyright 2017 Jean-Manuel Clémençon
 License: CC-BY-SA 3.0
 

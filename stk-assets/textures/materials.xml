@@ -20,8 +20,8 @@
     <material name="stkflag_blueBooster_a.png" shader="alphatest" disable-z-write="Y" has-gravity="Y"/>
     <material name="stkflag_redBooster_a.png" shader="alphatest" disable-z-write="Y" has-gravity="Y"/>
     <material name="stk_generic_gridA.png" shader="alphatest" has-gravity="Y"/>
-    <material name="stktex_generic_cobbleStoneA.png" has-gravity="Y" graphical-effect="normal_map" normal-map="stktex_generic_cobbleStoneA_nm.png"/>
-    <material name="stk_generic_dirtRoad_a.png" has-gravity="Y" graphical-effect="normal_map" normal-map="stk_generic_dirtRoad_a_nm.png"/>
+    <material name="stktex_generic_cobbleStoneA.png" has-gravity="Y" graphical-effect="normal_map" normal-map="stktex_generic_cobbleStoneA_Normal.png"/>
+    <material name="stk_generic_dirtRoad_a.png" has-gravity="Y" graphical-effect="normal_map" normal-map="stk_generic_dirtRoad_a_Normal.png"/>
     <material name="stk_generic_sandRoad_a.png" has-gravity="Y"/>
     <material name="stktex_pupleCarpet_a.png" has-gravity="Y"/>
     
@@ -151,7 +151,7 @@
   <material name="stk_glassPanel_a.png"       shader="alphablend" ignore="Y"/>
   <material name="stk_generic_ice_alpha.png"  shader="alphablend"/> 
   
-  <!-- Textures graphical-effect="normal_map" normal-map="stktex_generic_cobbleStoneA_nm.png" -->
+  <!-- Textures graphical-effect="normal_map" normal-map="stktex_generic_cobbleStoneA_Normal.png" -->
   <material name="stktex_animatedFire_a.png" disable-z-write="Y" shader="additive"/>
   <material name="stktex_animatedPinkFire_a.png" disable-z-write="Y" shader="additive"/>
   
@@ -213,11 +213,11 @@
   <material name="motif.png" gloss-map="motif_gloss.png" />
   <material name="stktex_beachball_a.png" gloss-map="stktex_beachball_a_gloss.png" />
 
-  <material name="stk_solarPanel_a.png" gloss-map="stk_solarPanel_gloss.png" graphical-effect="normal_map" normal-map="stk_solarPanel_a_nm.png" ignore="y"/>
+  <material name="stk_solarPanel_a.png" gloss-map="stk_solarPanel_gloss.png" graphical-effect="normal_map" normal-map="stk_solarPanel_a_Normal.png" ignore="y"/>
 
-  <material name="stk_generic_snow_a.png" max-speed="0.70" gloss-map="stk_generic_snow_a_gloss.png" normal-map="stk_generic_snow_a_nm.png"/>
+  <material name="stk_generic_snow_a.png" max-speed="0.70" gloss-map="stk_generic_snow_a_gloss.png" normal-map="stk_generic_snow_a_Normal.png"/>
   
-  <material name="stktex_generic_roadSnow_a.png" gloss-map="stktex_generic_roadSnow_a_gloss.png" normal-map="stktex_generic_roadSnow_a_nm.png"/>
+  <material name="stktex_generic_roadSnow_a.png" gloss-map="stktex_generic_roadSnow_a_gloss.png" normal-map="stktex_generic_roadSnow_a_Normal.png"/>
 
   <material name="stkflag_asianPaperLantern_a.png" gloss-map="stkflag_asianPaperLantern_a_gloss.png"/>
 
@@ -268,16 +268,16 @@
   
   <material name="stk_lowPolyBuilding_a.png" shader="alphatest" /> 
   
-  <material name="stk_metalGlobe_a.png" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png" shader="alphatest"/>
+  <material name="stk_metalGlobe_a.png" normal-map="stk_greyMetal_a_Normal.png" gloss-map="stk_greyMetal_a_gloss.png" shader="alphatest"/>
   
   
-  <material name="stktex_windowsSet_a.png" normal-map="stktex_windowsSet_a_nm.png" gloss-map="stktex_windowsSet_a_gloss.png" />
+  <material name="stktex_windowsSet_a.png" normal-map="stktex_windowsSet_a_Normal.png" gloss-map="stktex_windowsSet_a_gloss.png" />
   
   <material name="stk_generic_modernWindows_b.png"  gloss-map="stk_generic_modernWindows_b_gloss.png" />
   
   
   <material name="stk_generic_bedRockLava_a.png" shader="alphatest"/>
-  <material name="stktex_churchRosette_a.png" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png" shader="alphatest"/>
+  <material name="stktex_churchRosette_a.png" normal-map="stk_greyMetal_a_Normal.png" gloss-map="stk_greyMetal_a_gloss.png" shader="alphatest"/>
   <material name="stktex_churchRosetteGlass_a.png" shader="alphablend"/>
   
   
@@ -329,40 +329,40 @@
   <material name="stk_generic_sunsetPattern_a.png" gloss-map="gfxGlow_softScreen_a.png"/>
   
   <!-- Normal map -->
-  <material name="stk_generic_rock_a.png" graphical-effect="normal_map" normal-map="stk_generic_rock_a_nm.png" gloss-map="stk_generic_rock_a_gloss.png"/>
-  <material name="stk_generic_ice_a.png" graphical-effect="normal_map" normal-map="stk_generic_ice_a_nm.png" gloss-map="stk_generic_ice_a_gloss.png"/>
+  <material name="stk_generic_rock_a.png" graphical-effect="normal_map" normal-map="stk_generic_rock_a_Normal.png" gloss-map="stk_generic_rock_a_gloss.png"/>
+  <material name="stk_generic_ice_a.png" graphical-effect="normal_map" normal-map="stk_generic_ice_a_Normal.png" gloss-map="stk_generic_ice_a_gloss.png"/>
   
-    <material name="stktex_frozenWaterFall_a.png" graphical-effect="normal_map" normal-map="stktex_frozenWaterFall_a_nm.png" gloss-map="stktex_frozenWaterFall_a_glossy.png"/>
-    <material name="stktex_snowRock_a.png" graphical-effect="normal_map" normal-map="stktex_snowRock_a_nm.png" gloss-map="stktex_snowRock_a_gloss.png"/>
+    <material name="stktex_frozenWaterFall_a.png" graphical-effect="normal_map" normal-map="stktex_frozenWaterFall_a_Normal.png" gloss-map="stktex_frozenWaterFall_a_glossy.png"/>
+    <material name="stktex_snowRock_a.png" graphical-effect="normal_map" normal-map="stktex_snowRock_a_Normal.png" gloss-map="stktex_snowRock_a_gloss.png"/>
   
-  <material name="stk_generic_brickA.png" graphical-effect="normal_map" normal-map="stk_generic_brickA_nm.png" gloss-map="stk_generic_brickA_gloss.png"/>
+  <material name="stk_generic_brickA.png" graphical-effect="normal_map" normal-map="stk_generic_brickA_Normal.png" gloss-map="stk_generic_brickA_gloss.png"/>
   
-  <material name="stktex_generic_rockA.png"        graphical-effect="normal_map" normal-map="stktex_generic_rockA_nm.png" gloss-map="stktex_generic_rockA_gloss.png"/>
-  <material name="stk_greyMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png"/>
-  <material name="stk_goldMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png"/>
-  <material name="stk_redMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stkflag_latexBluePinkPattern_a_gloss.png"/>
+  <material name="stktex_generic_rockA.png"        graphical-effect="normal_map" normal-map="stktex_generic_rockA_Normal.png" gloss-map="stktex_generic_rockA_gloss.png"/>
+  <material name="stk_greyMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_Normal.png" gloss-map="stk_greyMetal_a_gloss.png"/>
+  <material name="stk_goldMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_Normal.png" gloss-map="stk_greyMetal_a_gloss.png"/>
+  <material name="stk_redMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_Normal.png" gloss-map="stkflag_latexBluePinkPattern_a_gloss.png"/>
     
     <material name="stktex_blimp_a.png"         gloss-map="stkflag_latexBluePinkPattern_a_gloss.png"/>
     
     
-  <material name="stk_metalRustedBlue_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png"/>
+  <material name="stk_metalRustedBlue_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_Normal.png" gloss-map="stk_greyMetal_a_gloss.png"/>
   <material name="stk_futureYellowBox_a.png"        gloss-map="stk_futureYellowBox_a_gloss.png"/>
 
 <material name="stk_electronicalPattern_a.png" shader="additive" disable-z-write="Y"/> 
   
-  <material name="stk_lightGrayMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_lightGreyMetal_a_gloss.png"/>
-  <material name="stk_blueMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_lightGreyMetal_a_gloss.png"/>
-  <material name="stk_darkGrayMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_nm.png" gloss-map="stk_lightGreyMetal_a_gloss.png"/> 
+  <material name="stk_lightGrayMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_Normal.png" gloss-map="stk_lightGreyMetal_a_gloss.png"/>
+  <material name="stk_blueMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_Normal.png" gloss-map="stk_lightGreyMetal_a_gloss.png"/>
+  <material name="stk_darkGrayMetal_a.png"        graphical-effect="normal_map" normal-map="stk_greyMetal_a_Normal.png" gloss-map="stk_lightGreyMetal_a_gloss.png"/> 
 <material name="stktex_hexaJetRCAlivery_a.png"         gloss-map="stk_lightGreyMetal_a_gloss.png"/>
 <material name="stktex_trijetTCPlivery_a.png"         gloss-map="stk_lightGreyMetal_a_gloss.png"/> 
   
-  <material name="stk_generic_bedRock_a.png"        graphical-effect="normal_map" normal-map="stk_generic_bedRock_a_nm.png" gloss-map="stk_generic_rock_a_gloss.png"/> 
-  <material name="stk_generic_pinkcrystal_a.png"        graphical-effect="normal_map" normal-map="stk_generic_bedRock_a_nm.png" gloss-map="stk_greyMetal_a_gloss.png"/> 
+  <material name="stk_generic_bedRock_a.png"        graphical-effect="normal_map" normal-map="stk_generic_bedRock_a_Normal.png" gloss-map="stk_generic_rock_a_gloss.png"/> 
+  <material name="stk_generic_pinkcrystal_a.png"        graphical-effect="normal_map" normal-map="stk_generic_bedRock_a_Normal.png" gloss-map="stk_greyMetal_a_gloss.png"/> 
   
-  <material name="stktex_generic_waterRockA.png"        graphical-effect="normal_map" normal-map="stktex_generic_rockA_nm.png" gloss-map="stktex_generic_rockA_gloss.png"/>
-  <material name="stktex_generic_aztekWall_a.png"  graphical-effect="normal_map" normal-map="stktex_generic_aztekWall_a_nm.png"/>
-  <material name="stk_generic_grassB.png"          graphical-effect="normal_map" normal-map="stk_generic_grassB_nm.png"/> 
-  <material name="stktex_generic_WoodB.png"        graphical-effect="normal_map" normal-map="stktex_generic_WoodB_nm.png" gloss-map="stktex_generic_WoodB_gloss.png"/>
+  <material name="stktex_generic_waterRockA.png"        graphical-effect="normal_map" normal-map="stktex_generic_rockA_Normal.png" gloss-map="stktex_generic_rockA_gloss.png"/>
+  <material name="stktex_generic_aztekWall_a.png"  graphical-effect="normal_map" normal-map="stktex_generic_aztekWall_a_Normal.png"/>
+  <material name="stk_generic_grassB.png"          graphical-effect="normal_map" normal-map="stk_generic_grassB_Normal.png"/> 
+  <material name="stktex_generic_WoodB.png"        graphical-effect="normal_map" normal-map="stktex_generic_WoodB_Normal.png" gloss-map="stktex_generic_WoodB_gloss.png"/>
    <material name="gfx_bubble_a.png"  shader="alphablend"  light="N"/>
    <material name="stktex_clouds_a.png"  shader="additive"  light="N"/> 
    
