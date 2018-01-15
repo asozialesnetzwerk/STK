@@ -384,7 +384,7 @@
       <p c="4500.000 0.012"/>
     </curve>
   </object>
-  <object id="water" type="animation" xyz="-0.00 1.65 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water.spm" displacing="true" skeletal-animation="false">
+  <object id="water" type="animation" xyz="-0.00 1.65 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water.spm" skeletal-animation="false">
     <animated-texture name="stktemple_waterWhite.png" dy="0.0500" />
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -0.000"/>
