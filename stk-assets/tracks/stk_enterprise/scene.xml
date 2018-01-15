@@ -5,8 +5,12 @@
     <static-object  model="window_doors.spm" xyz="78.67 10.20 -118.25" hpr="0.0 -0.0 0.0" scale="1.08 1.08 1.08"/>
     <static-object  model="window_doors.spm" xyz="78.67 10.20 -12.75" hpr="-0.0 180.0 -0.0" scale="1.08 1.08 1.08"/>
     <static-object  model="invisible_walls.spm" xyz="203.57 25.94 -108.29" hpr="0.0 -0.0 0.0" scale="50.25 50.25 94.18" interaction="physics-only"/>
+    <static-object  model="ramp.spm" xyz="208.50 9.00 90.00" hpr="-0.0 -90.0 0.0" scale="1.00 1.00 1.00">
     <animated-texture name="blueZipper.png" dy="0.8000" />
+    </static-object>
+    <static-object  model="ramp.spm" xyz="239.50 9.00 90.00" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00">
     <animated-texture name="blueZipper.png" dy="0.8000" />
+    </static-object>
     <animated-texture name="arc1.png" dx="2.000" />
     <animated-texture name="arc1.png" dx="-0.800" />
     <animated-texture name="arc2.png" dx="1.000" />
@@ -25,15 +29,12 @@
     <animated-texture name="arc2.png" dx="1.000" />
     <animated-texture name="arc2.png" dx="1.000" />
     <animated-texture name="arc1.png" dx="2.000" />
-    <animated-texture name="supp1k.png" dx="0.516" />
-    <animated-texture name="supp1k.png" dx="0.516" />
     <animated-texture name="stkflag_blueCheckBorard_a.png" dx="0.080"  dy="0.2000" />
-    <animated-texture name="planet_earth1.jpg" dx="0.010" />
-    <animated-texture name="moon.jpg" dx="0.001" />
-    <animated-texture name="terminal_text.png" dy="0.1000" />
-    <animated-texture name="terminal_text.png" dy="0.1000" />
   </track>
   <object id="door_a.002" type="animation" xyz="99.55 11.02 244.15" hpr="-0.0 180.0 -0.0" scale="1.08 1.08 1.08" interaction="ghost" model="window_dor.spm" skeletal-animation="false">
+  </object>
+  <object id="earth" type="animation" xyz="-15.00 82.00 -300.00" hpr="-0.0 145.0 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="earth.spm" skeletal-animation="false">
+    <animated-texture name="planet_earth1.jpg" dx="0.010" />
   </object>
   <object type="movable" id="movable_box_1" xyz="270.22 10.39 -10.38" hpr="0.0 -9.8 0.0" scale="1.23 1.23 1.23"
           shape="box" mass="25.0" model="Box.spm" skeletal-animation="false"/>
@@ -47,6 +48,12 @@
           shape="box" mass="25.0" model="Box.spm" skeletal-animation="false"/>
   <object type="movable" id="movable_box_6" xyz="270.67 10.39 -13.84" hpr="0.0 25.9 0.0" scale="1.23 1.23 1.23"
           shape="box" mass="25.0" model="Box.spm" skeletal-animation="false"/>
+  <object id="moving_arrows_1" type="animation" xyz="201.83 12.50 6.74" hpr="0.0 -0.0 -0.0" scale="88.26 34.05 34.05" interaction="ghost" model="arrows.spm" skeletal-animation="false">
+    <animated-texture name="supp1k.png" dx="0.516" />
+  </object>
+  <object id="moving_arrows_2" type="animation" xyz="364.77 12.50 2.49" hpr="-0.0 -0.0 180.0" scale="88.26 34.05 34.05" interaction="ghost" model="arrows.spm" skeletal-animation="false">
+    <animated-texture name="supp1k.png" dx="0.516" />
+  </object>
   <object id="Plane.003" type="animation" xyz="191.21 15.02 -67.92" hpr="0.0 -0.0 0.0" scale="1.01 1.01 1.01" interaction="ghost" model="screen_halo.spm" skeletal-animation="false">
     <curve channel="ScaleX" interpolation="bezier" extend="cyclic">
       <p c="1.000 1.000" h1="-10.321 1.000" h2="12.321 1.000"/>
@@ -383,6 +390,15 @@
       <p c="90.000 90.000" h1="78.288 90.000" h2="101.712 90.000"/>
       <p c="120.000 90.000" h1="108.288 90.000" h2="131.712 90.000"/>
     </curve>
+  </object>
+  <object id="Sphere.001" type="animation" xyz="83.64 103.36 228.23" hpr="-0.0 145.0 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="moon.spm" skeletal-animation="false">
+    <animated-texture name="moon.jpg" dx="0.001" />
+  </object>
+  <object id="terminal" type="animation" xyz="47.67 7.72 245.10" hpr="90.0 -65.0 -90.0" scale="1.00 1.00 1.00" interaction="ghost" model="terminal.spm" skeletal-animation="false">
+    <animated-texture name="terminal_text.png" dy="0.1000" />
+  </object>
+  <object id="terminal_1" type="animation" xyz="193.60 15.02 -67.92" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="terminal_1.spm" skeletal-animation="false">
+    <animated-texture name="terminal_text.png" dy="0.1000" />
   </object>
   <object id="Text" type="animation" xyz="-7.43 10.82 28.30" hpr="0.0 89.8 0.0" scale="1.00 1.00 1.01" interaction="ghost" model="start_text.spm" skeletal-animation="false">
     <curve channel="ScaleX" interpolation="bezier" extend="cyclic">
