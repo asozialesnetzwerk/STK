@@ -1993,7 +1993,7 @@ class TrackExport:
         global the_scene
         the_scene.obj_list = [obj]
         bpy.ops.screen.spm_export(localsp=True, filepath=sPath+"/"+name,
-                                  export_tangent=getSceneProperty(scene, 'precalculate_tangents', 'false'),
+                                  export_tangent=getSceneProperty(the_scene, 'precalculate_tangents', 'false') == 'true',
                                   overwrite_without_asking=True, applymodifiers=applymodifiers)
         the_scene.obj_list = []
         #bpy.ops.screen.spm_export.skip_dialog = False
@@ -3012,7 +3012,7 @@ class TrackExport:
         
         if exportScene and getSceneProperty(bpy.data.scenes[0], 'is_stk_node', 'false') != 'true':
             bpy.ops.screen.spm_export(localsp=False, filepath=sPath+"/"+sTrackName, do_sp=False,
-                                      export_tangent=getSceneProperty(scene, 'precalculate_tangents', 'false'),
+                                      export_tangent=getSceneProperty(scene, 'precalculate_tangents', 'false') == 'true',
                                       overwrite_without_asking=True)
         scene.obj_list = []
         
