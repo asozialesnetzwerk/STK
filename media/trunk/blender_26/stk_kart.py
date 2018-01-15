@@ -131,7 +131,9 @@ def saveHeadlights(f, lHeadlights, path, straight_frame):
             global the_scene
             the_scene.obj_list = [obj]
             bpy.ops.screen.spm_export(localsp=True, filepath=path + "/" + obj.name,
-                                      export_tangent=False, overwrite_without_asking=True)
+                                      export_tangent='precalculate_tangents' in bpy.context.scene\
+                                      and bpy.context.scene['precalculate_tangents'] == 'true',
+                                      overwrite_without_asking=True)
             the_scene.obj_list = []
 
         flags.append('           model="%s.spm"/>\n' % exported_name)
@@ -189,7 +191,9 @@ def saveSpeedWeighted(f, lSpeedWeighted, path, straight_frame):
             global the_scene
             the_scene.obj_list = [obj]
             bpy.ops.screen.spm_export(localsp=True, filepath=path + "/" + obj.name,
-                                      export_tangent=False, overwrite_without_asking=True)
+                                      export_tangent='precalculate_tangents' in bpy.context.scene\
+                                      and bpy.context.scene['precalculate_tangents'] == 'true',
+                                      overwrite_without_asking=True)
             the_scene.obj_list = []
 
         flags.append('           model="%s.spm"/>\n' % exported_name)
@@ -245,7 +249,9 @@ def saveWheels(f, lWheels, path):
         the_scene.obj_list = [wheel]
         
         bpy.ops.screen.spm_export(localsp=False, filepath=path + "/" + lWheelNames[index],
-                                  export_tangent=False, overwrite_without_asking=True)
+                                  export_tangent='precalculate_tangents' in bpy.context.scene\
+                                  and bpy.context.scene['precalculate_tangents'] == 'true',
+                                  overwrite_without_asking=True)
         the_scene.obj_list = []
         
     
@@ -476,7 +482,9 @@ def exportKart(path):
         log_error("Cannot find the spm exporter, make sure you installed it properly")
         return
     
-    bpy.ops.screen.spm_export(localsp=False, filepath=path+"/"+model_file, export_tangent=False,
+    bpy.ops.screen.spm_export(localsp=False, filepath=path+"/"+model_file,
+                              export_tangent='precalculate_tangents' in bpy.context.scene\
+                              and bpy.context.scene['precalculate_tangents'] == 'true',
                               overwrite_without_asking=True, static_mesh_frame = straight_frame)
     the_scene.obj_list = []
     

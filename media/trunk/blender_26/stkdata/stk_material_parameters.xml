@@ -4,16 +4,32 @@
 >
     <PropGroup id="propgroup_visual" name="Display">
         <!-- Shader -->
-        <EnumProp id="shader" name="Shader" default="solid" doc="Select the shader that should be used to render this material">
-            
+        <EnumProp id="shader" name="Shader" default="sp_shader" doc="Select the shader that should be used to render this material">
+            <!-- SP shader -->
+            <EnumChoice id="sp_shader" label="SP shader (git STK only)">
+                <StringProp id="shader_name" name="Name of shader"  default=""/>
+                <StringProp id="uv_two_tex" name="Second UV layer texture (if exists)"  default="" doc="If UV map 2 is needed, enter its texture name here"/>
+                <StringProp id="tex_layer_2" name="Texture layer 2"  default="" doc="Texture layer 2 in shader"/>
+                <StringProp id="tex_layer_3" name="Texture layer 3"  default="" doc="Texture layer 3 in shader"/>
+                <StringProp id="tex_layer_4" name="Texture layer 4"  default="" doc="Texture layer 4 in shader"/>
+                <StringProp id="tex_layer_5" name="Texture layer 5"  default="" doc="Texture layer 5 in shader"/>
+                <StringProp id="mask" name="Mask image (optional)" default="" doc="Greyscale image containing the alpha channel (transparency) for this image"/>
+                <!-- Slowdown -->
+                <BoolProp id="colorizable" name="Colorizable (for library objects and karts)" default="false"
+                        doc="Used to determine whether this texture can be colorized by STK (for library objects and karts)">
+                    <FloatProp id="colorization_factor" name="Colorization factor" default="0.0" min="0.0" max="1.0"
+                               doc="Set the minimun resulting saturation of the new color, 0 means using the original saturation from texture"/>
+                    <StringProp id="colorization_mask" name="Colorization mask" default="" doc="Determine which part of texture to be affected by colorization, this will be encoded into the alpha channel of texture, so don't use in transparent shader."/>
+                    <StringProp id="hue_settings" name="Hue settings for colorization" default=""
+                                doc="Define list of hue for colorization, from 0.0 to (or equal) 1 (0.0 means original color), separated by spaces, STK will randomly pick one hue for colorization, no need to define for karts."/>
+                </BoolProp>
+            </EnumChoice>
             <!-- Generic solid -->
             <EnumChoice id="solid" label="Generic (solid)">
                 <LabelProp id="solid_help" name="Uses UV layer 0"/>
                 <StringProp id="gloss_map" name="Gloss map"  default=""/>
                 <StringProp id="normal_map" name="Normal map"  default="" doc="Use normal maps for this material (the model must be exported as tangent for this to work)"/>
                 <StringProp id="mask" name="Mask image (optional)" default="" doc="Greyscale image containing the alpha channel (transparency) for this image"/>
-                <!--<StringProp id="light_map" name="Light map"  default=""/>-->
-                
                 <!-- Slowdown -->
                 <BoolProp id="colorizable" name="Colorizable (for library objects and karts)" default="false"
                         doc="Used to determine whether this texture can be colorized by STK (for library objects and karts)">
@@ -25,56 +41,33 @@
                 </BoolProp>
             </EnumChoice>
 
-            <!-- Generic PBR solid -->
-            <EnumChoice id="solid_pbr" label="Generic PBR (solid)">
-                <LabelProp id="solid_pbr_help" name="Experimental feature (use with caution)"/>
-                <StringProp id="combined_map" name="Metal/Rough/Emit map"  default=""/>
-                <StringProp id="normal_map" name="Normal map"  default="" doc="Use normal maps for this material"/>
-            </EnumChoice>
-
-            
             <!-- Alpha testing -->
             <EnumChoice id="alphatest" label="Cutout transparency (alpha test)">
                 <LabelProp id="alphatest_help" name="Uses UV layer 0"/>
                 <StringProp id="mask" name="Mask image (optional)" default="" doc="Greyscale image containing the alpha channel (transparency) for this image"/>
-                <!--
-                <StringProp id="gloss_map" name="Gloss map"  default=""/>
-                <StringProp id="normal_map" name="Normal map"  default="" doc="Use normal maps for this material (the model must be exported as tangent for this to work)"/>
-                -->
                 <BoolProp id="colorizable" name="Colorizable (for library objects and karts)" default="false"
                         doc="Used to determine whether this texture can be colorized by STK (for library objects and karts)">
-                    <FloatProp id="colorization_factor" name="Colorization factor" default="0.0" min="0.0" max="1.0"
-                               doc="Set the minimun resulting saturation of the new color, 0 means using the original saturation from texture"/>
-                    <StringProp id="colorization_mask" name="Colorization mask" default="" doc="Determine which part of texture to be affected by colorization"/>
                     <StringProp id="hue_settings" name="Hue settings for colorization" default=""
                                 doc="Define list of hue for colorization, from 0.0 to (or equal) 1 (0.0 means original color), separated by spaces, STK will randomly pick one hue for colorization, no need to define for karts."/>
                 </BoolProp>
             </EnumChoice>
-            
+
             <!-- Alpha blending -->
             <EnumChoice id="alphablend" label="Transparent (alpha blend)">
                 <LabelProp id="alphablend_help" name="Uses UV layer 0"/>
                 <StringProp id="mask" name="Mask image (optional)" default="" doc="Greyscale image containing the alpha channel (transparency) for this image"/>
-                <!--
-                <StringProp id="gloss_map" name="Gloss map"  default=""/>
-                <StringProp id="normal_map" name="Normal map"  default="" doc="Use normal maps for this material (the model must be exported as tangent for this to work)"/>
-                -->
-                <BoolProp id="disable_z_write" name="Disable writing to Z-buffer (recommended)" default="true"
-                    doc="disable writing to the Z buffer (useful for materials with transparency, if irrlicht fails to do proper alpha sorting, in order not to hide what is behind)"/>
             </EnumChoice>
-            
+
             <!-- Additive -->
             <EnumChoice id="additive" label="Additive">
                 <LabelProp id="additive_help" name="Uses UV layer 0"/>
-                <BoolProp id="disable_z_write" name="Disable writing to Z-buffer (recommended)" default="true"
-                    doc="disable writing to the Z buffer (useful for materials with transparency, if irrlicht fails to do proper alpha sorting, in order not to hide what is behind)"/>
             </EnumChoice>
-            
+
             <!-- solid unlit -->
             <EnumChoice id="unlit" label="Unlit (solid)">
                 <LabelProp id="unlit_help" name="This material will ignore lights/shadows and always be at full brightness. Uses UV layer 0"/>
             </EnumChoice>
-            
+
             <!-- Vegetation -->
             <EnumChoice id="grass" label="Vegetation" doc="Shader that makes something wave as if under the wind, usually used for vegetation">
                 <LabelProp id="grass_help" name="Use vertex painting and paint in black the vertices that"/>
@@ -84,17 +77,11 @@
                 <FloatProp id="grass_amplitude" name="Waving amplitude" default="0.25" min="0.0" max="1.0" doc="Amplitude for grass movement"/>
                 <BoolProp id="colorizable" name="Colorizable (for library objects and karts)" default="false"
                         doc="Used to determine whether this texture can be colorized by STK (for library objects and karts)">
-                    <FloatProp id="colorization_factor" name="Colorization factor" default="0.0" min="0.0" max="1.0"
-                               doc="Set the minimun resulting saturation of the new color, 0 means using the original saturation from texture"/>
-                    <StringProp id="colorization_mask" name="Colorization mask" default="" doc="Determine which part of texture to be affected by colorization"/>
                     <StringProp id="hue_settings" name="Hue settings for colorization" default=""
                                 doc="Define list of hue for colorization, from 0.0 to (or equal) 1 (0.0 means original color), separated by spaces, STK will randomly pick one hue for colorization, no need to define for karts."/>
                 </BoolProp>
             </EnumChoice>
 
-            <!-- Sphere map -->
-            <EnumChoice id="spheremap" label="Reflection (Sphere mapping)"/>
-            
             <!-- Splatting -->
             <EnumChoice id="splatting" label="Splatting" default="false"
                         doc="Use splatting (multiple textures with smooth transitions)">
@@ -102,31 +89,8 @@
                 <StringProp id="splatting_texture_2" name="Green Texture" default=""/>
                 <StringProp id="splatting_texture_3" name="Blue Texture"  default=""/>
                 <StringProp id="splatting_texture_4" name="Black Texture" default=""/>
-                <!--
-                <StringProp id="splatting_lightmap" name="Lightmap (optional)" default=""/>
-                -->
             </EnumChoice>
-            
-            <!-- Bubble -->
-            <!-- <EnumChoice id="bubble" label="Bubble (wavy texture)"/> -->
-            
         </EnumProp>
-    
-        <!-- Affected by fog -->
-        <!--
-        <BoolProp id="fog" name="Affected by fog (if any)" default="true"
-                doc="Whether this material is affected by fog (if there is fog in this track)"/>
-        -->
-        
-        <!-- Backface culling -->
-        <BoolProp id="backface_culling" name="Backface Culling" default="true"
-                doc="If checked, this material will only be visible on the side of the normal"/>
-                
-        <!-- Clamp -->
-        <BoolProp id="clampu" name="Clamp texture horizontally" default="false"
-                doc="if checked, this texture will not be repeated horizontally (if the UV texturing goes beyond the texture bounds)"/>
-        <BoolProp id="clampv" name="Clamp texture vertically" default="false"
-                doc="if checked, this texture will not be repeated vertically (if the UV texturing goes beyond the texture bounds)"/>
 
         <!-- Flip when reverse -->
         <EnumProp id="mirror_axis" name="Mirror in reversed races" default="none" doc="When the race is played in the opposite direction, indicates whether to flip this texture">
@@ -134,39 +98,9 @@
             <EnumChoice id="U" label="U (horizontally)"/>
             <EnumChoice id="V" label="V (vertically)"/>
         </EnumProp>
-        
-        <!-- Compositing -->
-        <!--
-        <EnumProp id="compositing" name="Compositing Type" default="none" doc="How to composite this texture with what is behind it">
-            <EnumChoice id="none" label="None"/>
-            <EnumChoice id="blend" label="Alpha Blend" doc="Use transparency on this texture, using the alpha channel or a specified external mask">
-                <StringProp id="mask" name="Mask image (optional)" default="" doc="Greyscale image containing the alpha channel (transparency) for this image"/>
-                <BoolProp id="disable_z_write" name="Disable writing to Z-buffer" default="true"
-                    doc="disable writing to the Z buffer (useful for materials with transparency, if irrlicht fails to do proper alpha sorting, in order not to hide what is behind)"/>
-            </EnumChoice>
-            <EnumChoice id="test" label="Alpha Test" doc="Use fully-opaque-or-fully-transparent transparency on this texture, using the alpha channel or a specified external mask">
-                <StringProp id="mask" name="Mask image (optional)" default="" doc="Greyscale image containing the alpha channel (transparency) for this image"/>
-                <BoolProp id="disable_z_write" name="Disable writing to Z-buffer" default="true"
-                    doc="disable writing to the Z buffer (useful for materials with transparency, if irrlicht fails to do proper alpha sorting, in order not to hide what is behind)"/>
-            </EnumChoice>
-            <EnumChoice id="additive" label="Additive Blending" doc="Brighten up anything under by adding the current color on top (useful for fire or light)">
-                <StringProp id="mask" name="Mask image (optional)" default="" doc="Greyscale image containing the alpha channel (transparency) for this image"/>
-                <BoolProp id="disable_z_write" name="Disable writing to Z-buffer" default="true"
-                    doc="disable writing to the Z buffer (useful for materials with transparency, if irrlicht fails to do proper alpha sorting, in order not to hide what is behind)"/>
-            </EnumChoice>
-        </EnumProp>
-        -->
-        
-        <!-- Additive lightmap -->
-        <!--
-        <BoolProp id="additive_lightmap" name="Lightmap is additive" default="false"
-                doc="Make lightmap additive (only makes sense if this material has a lightmap)"/>
-        -->
+
     </PropGroup>
-    
-    
-    
-    
+
     <PropGroup id="propgroup_interaction" name="Interaction">
         
         <!-- Below shallow water -->

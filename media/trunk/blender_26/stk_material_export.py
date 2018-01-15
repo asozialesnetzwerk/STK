@@ -61,6 +61,10 @@ def convertTextToYN(sText):
     else:
         return "Y"
 
+def merge_materials(x, y):
+    z = x.copy()
+    z.update(y)
+    return z
 
 # Writes the materials files, which includes all texture definitions 
 # (remember: Blenders "image" objects are STK's "material" objects)
@@ -82,47 +86,52 @@ def writeMaterialsFile(sPath):
     if not materfound:
         print("No Materials defined.")
         return
-    
-    lMaterialProperties = {
-           'fog'                   : {'default': "Y", 'parent': None, 'type': 'bool'},
-           'backface_culling'      : {'default': "Y", 'parent': None, 'type': 'bool'},
+
+    sp_mat_props = {
+           'shader_name'            : {'default': "", 'parent': None, 'type': 'string'},
+           'uv_two_tex'             : {'default': "", 'parent': None, 'type': 'string'},
+           'tex_layer_2'            : {'default': "", 'parent': None, 'type': 'string'},
+           'tex_layer_3'             : {'default': "", 'parent': None, 'type': 'string'},
+           'tex_layer_4'            : {'default': "", 'parent': None, 'type': 'string'},
+           'tex_layer_5'             : {'default': "", 'parent': None, 'type': 'string'}
+    }
+
+    old_mat_props = {
+           'shader'                : {'default': 'solid', 'parent': None, 'type': 'string'},
+           'splatting_texture_1'   : {'default': "", 'parent': ('shader','splatting'), 'type': 'string'},
+           'splatting_texture_2'   : {'default': "", 'parent': ('shader','splatting'), 'type': 'string'},
+           'splatting_texture_3'   : {'default': "", 'parent': ('shader','splatting'), 'type': 'string'},
+           'splatting_texture_4'   : {'default': "", 'parent': ('shader','splatting'), 'type': 'string'},
+           'normal_map'            : {'default': "", 'parent': None, 'type': 'string'},
+           'gloss_map'             : {'default': "", 'parent': None, 'type': 'string'},
+           'clampu'                : {'default': "N", 'parent': None, 'type': 'bool'},
+           'clampv'                : {'default': "N", 'parent': None, 'type': 'bool'},
+           'grass_speed'           : {'default': 0.4, 'parent': ('shader','grass'), 'type': 'number'},
+           'grass_amplitude'       : {'default': 0.25, 'parent': ('shader','grass'), 'type': 'number'}
+    }
+
+    other_mat_props = {
            'below_surface'         : {'default': "N", 'parent': None, 'type': 'bool'},
            'collision_detect'      : {'default': "N", 'parent': None, 'type': 'bool'},
            'collision_particles'   : {'default': "", 'parent': 'collision_detect', 'type': 'string'},
            'collision_reaction'    : {'default': "none", 'parent': 'collision_detect', 'type': 'string'},
-           'clampu'                : {'default': "N", 'parent': None, 'type': 'bool'},
-           'clampv'                : {'default': "N", 'parent': None, 'type': 'bool'},
-           'disable_z_write'       : {'default': "N", 'parent': None, 'type': 'bool'},
            'falling_effect'        : {'default': "N", 'parent': None, 'type': 'bool'},
-           'gloss_map'             : {'default': "", 'parent': None, 'type': 'string'},
-           'combined_map'          : {'default': "", 'parent': None, 'type': 'string'},
-           'grass_speed'           : {'default': 0.4, 'parent': ('shader','grass'), 'type': 'number'},
-           'grass_amplitude'       : {'default': 0.25, 'parent': ('shader','grass'), 'type': 'number'},
            'ignore'                : {'default': "N", 'parent': None, 'type': 'bool'},
            'mask'                  : {'default': "", 'parent': None, 'type': 'string'},
            'mirror_axis'           : {'default': "none", 'parent': None, 'type': 'string'},
-           'normal_map'            : {'default': "", 'parent': None, 'type': 'string'},
            'reset'                 : {'default': "N", 'parent': None, 'type': 'bool'},
            'surface'               : {'default': "N", 'parent': None, 'type': 'bool'},
            'high_adhesion'         : {'default': "N", 'parent': None, 'type': 'bool'},
            'has_gravity'           : {'default': "N", 'parent': None, 'type': 'bool'},
            'slowdown_time'         : {'default': 1.0, 'parent': 'use_slowdown', 'type': 'number'},
            'max_speed'             : {'default': 1.0, 'parent': 'use_slowdown', 'type': 'number'},
-           'shader'                : {'default': 'solid', 'parent': None, 'type': 'string'},
-           'splatting_texture_1'   : {'default': "", 'parent': ('shader','splatting'), 'type': 'string'},
-           'splatting_texture_2'   : {'default': "", 'parent': ('shader','splatting'), 'type': 'string'},
-           'splatting_texture_3'   : {'default': "", 'parent': ('shader','splatting'), 'type': 'string'},
-           'splatting_texture_4'   : {'default': "", 'parent': ('shader','splatting'), 'type': 'string'},
-           'splatting_lightmap'    : {'default': "", 'parent': ('shader','splatting'), 'type': 'string'},
-           #'water_shader_speed_1'  : {'default': 6.6667, 'parent': ('graphical_effect','water_shader'), 'type': 'number'},
-           #'water_shader_speed_2'  : {'default': 4.0, 'parent': ('graphical_effect','water_shader'), 'type': 'number'},
            'water_splash'          : {'default': "N", 'parent': None, 'type': 'bool'},
            'colorizable'           : {'default': "N", 'parent': None, 'type': 'bool'},
            'colorization_factor'   : {'default': "", 'parent': 'colorizable', 'type': 'number'},
            'colorization_mask'     : {'default': "", 'parent': 'colorizable', 'type': 'string'},
            'hue_settings'          : {'default': "", 'parent': 'colorizable', 'type': 'string'}
     }
-    
+
     #start_time = bsys.time()
     print("Writing material file --> \t")
 
@@ -142,7 +151,7 @@ def writeMaterialsFile(sPath):
         abs_texture_path = bpy.path.abspath(i.filepath)
         if not bpy.path.is_subdir(abs_texture_path, blendfile_dir):
             continue
-    
+
         #iterate through material definitions and collect data
         sImage = ""
         sSFX = ""
@@ -158,15 +167,21 @@ def writeMaterialsFile(sPath):
         for sAttrib in i.keys():
             if sAttrib not in l:
                 l.append( (sAttrib, i[sAttrib]) )
-        
+
+        #check if it's a sp material first
+        sp_mat = getIdProperty(i, "shader", default="", set_value_if_undefined=0) == "sp_shader"
+        if sp_mat == True:
+            mat_dic = merge_materials(other_mat_props, sp_mat_props)
+        else:
+            mat_dic = merge_materials(other_mat_props, old_mat_props)
+
         for AProperty,ADefault in l:
             # Don't add the (default) values to the property list
             currentValue = getIdProperty(i, AProperty, ADefault, set_value_if_undefined=0)
-            
             #Correct for all the ways booleans can be represented (true/false;yes/no;zero/not_zero) 
-            if AProperty in lMaterialProperties and lMaterialProperties[AProperty]['type'] == 'bool':
+            if AProperty in mat_dic and mat_dic[AProperty]['type'] == 'bool':
                 currentValue = convertTextToYN(currentValue)
-            
+
             #These items pertain to the soundeffects (starting with sfx_)
             if AProperty.strip().startswith("sfx_"):
                 strippedName = AProperty.strip()[len("sfx_"):]
@@ -189,10 +204,10 @@ def writeMaterialsFile(sPath):
                 #These items are standard items
                 prop = AProperty.strip()#.lower()
                 
-                if prop in lMaterialProperties.keys():
+                if prop in mat_dic.keys():
                     
                     # if this property is conditional on another
-                    cond = lMaterialProperties[prop]['parent']
+                    cond = mat_dic[prop]['parent']
                     
                     conditionPassed = False
                     if cond is None:
@@ -204,13 +219,16 @@ def writeMaterialsFile(sPath):
                         conditionPassed = True
                         
                     
-                    if currentValue != lMaterialProperties[prop]['default'] and conditionPassed:
+                    if currentValue != mat_dic[prop]['default'] and conditionPassed:
+                        fixed_property = AProperty
+                        if AProperty == 'shader_name':
+                            fixed_property = 'shader'
                         if isinstance(currentValue, float):
                             # In blender, proeprties use '_', but STK still expects '-'
-                            sImage = "%s %s=\"%.2f\""%(sImage,AProperty.replace("_","-"),currentValue)
+                            sImage = "%s %s=\"%.2f\""%(sImage,fixed_property.replace("_","-"),currentValue)
                         else:
                             # In blender, proeprties use '_', but STK still expects '-'
-                            sImage = "%s %s=\"%s\""%(sImage,AProperty.replace("_","-"),(currentValue+'').strip())
+                            sImage = "%s %s=\"%s\""%(sImage,fixed_property.replace("_","-"),(currentValue+'').strip())
 
         # Now write the main content of the materials.xml file
         if sImage or hasSoundeffect or hasParticle or hasZipper:

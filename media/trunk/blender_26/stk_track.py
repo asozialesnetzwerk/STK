@@ -1992,7 +1992,8 @@ class TrackExport:
         #        a custom scene property
         global the_scene
         the_scene.obj_list = [obj]
-        bpy.ops.screen.spm_export(localsp=True, filepath=sPath+"/"+name, export_tangent=False,
+        bpy.ops.screen.spm_export(localsp=True, filepath=sPath+"/"+name,
+                                  export_tangent=getSceneProperty(scene, 'precalculate_tangents', 'false'),
                                   overwrite_without_asking=True, applymodifiers=applymodifiers)
         the_scene.obj_list = []
         #bpy.ops.screen.spm_export.skip_dialog = False
@@ -2244,9 +2245,6 @@ class TrackExport:
         if getObjectProperty(obj, "driveable", "false") == "true":
             flags.append('driveable="true"')
 
-        if getObjectProperty(obj, "tangents", "false") == "true":
-            flags.append('tangents="true"')
-        
         if getObjectProperty(obj, "forcedbloom", "false") == "true":
             flags.append('forcedbloom="true"')
         
@@ -2340,19 +2338,7 @@ class TrackExport:
                 additional_prop_str += " geometry-level=\"%d\"" % detail_level
             
             f.write("    <static-object lod_distance=\"%i\" lod_group=\"%s\" model=\"%s\" %s interaction=\"%s\"%s/>\n" % (props['distance'], props['groupname'], spm_name, getXYZHPRString(obj), getObjectProperty(obj, "interaction", "static"), additional_prop_str) )
-            
-    # --------------------------------------------------------------------------
-    
-    #def writeInstancingModel(self, f, sPath, name, obj):
-    #    spm_name = self.exportLocalSPM(obj, sPath, name, True)
-    #    
-    #    tangents_str = ""
-    #    if getObjectProperty(obj, "tangents", "false") == "true":
-    #        tangents_str = ' tangents="true" '
-    #    
-    #    f.write("    <static-object model=\"%s\" lod_group=\"%s\" %s interaction=\"%s\"%s/>\n" % (spm_name, name, getXYZHPRString(obj), getObjectProperty(obj, "interaction", "static"), tangents_str) )
 
-            
     # --------------------------------------------------------------------------
     # Write the objects that are part of the track (but not animated or
     # physical).
@@ -2403,10 +2389,6 @@ class TrackExport:
                 attributes.append("explode=\"y\"")
             elif interaction == 'flatten':
                 attributes.append("flatten=\"y\"")
-            
-            if getObjectProperty(obj, "tangents", "false") == "true":
-                attributes.append("tangents=\"true\"")
-            
             if interaction == 'physicsonly':
                 attributes.append('interaction="physics-only"')
             
@@ -2487,10 +2469,7 @@ class TrackExport:
             
             if type != "lod_instance":
                 flags.append('model="%s"' % spm_name)
-            
-            if getObjectProperty(obj, "tangents", "false") == "true":
-                flags.append('tangents="true"')
-            
+
             if getObjectProperty(obj, "forcedbloom", "false") == "true":
                 flags.append('forcedbloom="true"')
             
@@ -3033,7 +3012,8 @@ class TrackExport:
         
         if exportScene and getSceneProperty(bpy.data.scenes[0], 'is_stk_node', 'false') != 'true':
             bpy.ops.screen.spm_export(localsp=False, filepath=sPath+"/"+sTrackName, do_sp=False,
-                                      export_tangent=False, overwrite_without_asking=True)
+                                      export_tangent=getSceneProperty(scene, 'precalculate_tangents', 'false'),
+                                      overwrite_without_asking=True)
         scene.obj_list = []
         
         #write_spm_file(sFilename+"_track.spm")

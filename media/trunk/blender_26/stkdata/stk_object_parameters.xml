@@ -129,9 +129,6 @@
                        doc="Distance from the camera at which this level of detail starts being used"/>
             <StringProp id="lod_name" name="LOD Group Name" default="SomeModel" doc="Name of the LOD group this object is part of"/>
             <StringProp id="name" name="Model Filename" default="" doc="Name of the model to export"/>
-            <!--
-            <BoolProp id="tangents" name="Use Tangent Space" default="false" doc="Export object in tangent space, which is required for normal mapping"/>
-            -->
         </EnumChoice>
         <EnumChoice id="single_lod" label="LOD Standalone" doc="An object that will only be visible when the camera is close enough (shortcut for LOD objects that don't have multiple levels)">
             <StringProp id="name" name="Name" default="" doc="Name of this object, used to name the model file when exporting (if not specified, the blender name of the object will be used)" />
@@ -313,14 +310,8 @@
                     </EnumProp>
                 </EnumChoice>
             </EnumProp>
-            <!--
-            <BoolProp id="tangents" name="Use Tangent Space" default="false" doc="Export object in tangent space, which is required for normal mapping"/>
-            -->
             <BoolProp id="driveable" name="Driveable (STK 0.8.2)" default="false" doc="Karts can drive on this object."/>
             <BoolProp id="soccer_ball" name="Is Soccer Ball (Soccer mode)" default="false" doc="Exported object is a soccer ball (used for soccer mode)"/>
-            <!--
-            <BoolProp id="instancing" name="Instancing (STK 0.8.2, with library)" default="false" doc="An instancing should be specified in a lubrary, then imported in tracks where each instancing will use hardware instancing"/>
-            -->
             <BoolProp id="forcedbloom" name="Glow (bloom) (STK 0.8.2)" default="false" doc="Enable a bloom effect on this particular object, making it glow"/>
             <ColorProp id="outline" name="Glow (outline) (STK 0.8.2)" default="" doc="Enable a glowing outline on this particular object"/>
             <BoolProp id="displacing" name="Refraction/reflection (STK 0.8.2)" default="false" doc="Enable an aquarium type effect on this material, appropriate for glasses behind which there is water. The mesh with this effect will itself be invisible and be used to mark the boundaries of the effect."/>
