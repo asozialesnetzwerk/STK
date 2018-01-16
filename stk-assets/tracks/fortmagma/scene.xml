@@ -43,11 +43,6 @@
     </static-object>
     <static-object  model="Plane.062.spm" xyz="-131.58 39.59 -76.19" hpr="-0.0 139.4 -0.0" scale="1.00 1.00 1.00"/>
     <animated-texture name="lava.png" dy="-0.1000" />
-    <animated-texture name="lava.png" dy="-0.1000" />
-    <animated-texture name="lava.png" dy="-0.1000" />
-    <animated-texture name="lava.png" dy="-0.1000" />
-    <animated-texture name="lava.png" dy="-0.1000" />
-    <animated-texture name="lava.png" dy="-0.1000" />
     <animated-texture name="zipper.png" dy="1.5000" />
   </track>
   <object id="BezierCurve.003" type="animation" xyz="-161.72 0.64 -33.25" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="roadpart.spm" skeletal-animation="false">
@@ -69,7 +64,7 @@
       <p c="77.000 40.999" h1="52.014 40.999" h2="101.986 40.999"/>
     </curve>
   </object>
-  <object id="Cube" type="animation" xyz="-152.41 2.47 2.31" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="TunnelDisplace.spm" displacing="true" skeletal-animation="false">
+  <object id="Cube" type="animation" xyz="-152.41 2.47 2.31" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="TunnelDisplace.spm" skeletal-animation="false">
   </object>
   <object type="movable" id="Gem.002" xyz="-103.69 32.51 -35.42" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"
           shape="sphere" mass="5.0" model="diamond.spm" skeletal-animation="false"/>
@@ -519,6 +514,21 @@
       <p c="76.000 42.107" h1="75.611 39.966" h2="76.389 44.249"/>
       <p c="77.000 45.279" h1="76.610 45.279" h2="77.390 45.279"/>
     </curve>
+  </object>
+  <object id="lava" type="animation" xyz="-180.16 11.06 42.19" hpr="-0.0 -134.7 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="lava.spm" skeletal-animation="false">
+    <animated-texture name="lava.png" dy="-0.1000" />
+  </object>
+  <object id="lava.001" type="animation" xyz="-251.60 17.58 66.83" hpr="-0.0 -98.8 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="lava.spm" skeletal-animation="false">
+    <animated-texture name="lava.png" dy="-0.1000" />
+  </object>
+  <object id="lava.002" type="animation" xyz="-164.38 17.54 178.73" hpr="0.0 -42.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="lava.spm" skeletal-animation="false">
+    <animated-texture name="lava.png" dy="-0.1000" />
+  </object>
+  <object id="lava.003" type="animation" xyz="-79.83 1.43 137.04" hpr="0.0 -0.7 0.0" scale="0.71 0.71 0.71" interaction="ghost" model="lava.spm" skeletal-animation="false">
+    <animated-texture name="lava.png" dy="-0.1000" />
+  </object>
+  <object id="lava.004" type="animation" xyz="-52.51 1.52 88.45" hpr="0.0 59.9 0.0" scale="0.71 0.71 0.71" interaction="ghost" model="lava.spm" skeletal-animation="false">
+    <animated-texture name="lava.png" dy="-0.1000" />
   </object>
   <object id="Mesh.014" type="animation" xyz="-115.18 9.74 -38.64" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="winFrame.spm" skeletal-animation="false">
   </object>
