@@ -20,10 +20,11 @@ Files: kiki.png kiki_colorization_mask.png konqi.jpg konqi_colorization_mask.png
 Copyright: Benau
 License: CC-BY-SA 3.0
 
-Files: ants.png jungleWater.png
+Files: ants.png jungleWater.png oceanicWater.png
 Copyright: Jean-Manuel Clémençon
 License: CC-BY-SA 3.0
-Comment: Added by samuncle in 2013, jungleWater.png moved from cocoa temple
+Comment:
+ Added by samuncle in 2013, jungleWater.png moved from cocoa temple, oceanicWater.png moved from abyss
 
 Files: astro_turf.jpg
 Copyright: Copyright 2013 Totoplus62

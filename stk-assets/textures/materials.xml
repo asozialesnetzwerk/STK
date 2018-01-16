@@ -50,6 +50,7 @@
     -->
 
   <material name="jungleWater.png" shader="displace" ignore="Y"/>
+  <material name="oceanicWater.png" shader="displace" ignore="Y"/>
   <material name="gfx_distord_AlphaTested.png" shader="displace" ignore="Y"/>
 
   <material name="stktex_generic_WoodH.png" uv-two-tex="stk_generic_roadTrailDecal_a.png" shader="decal"/>
