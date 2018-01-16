@@ -217,8 +217,6 @@
       <p c="796.000 -21.558" h1="728.459 -21.558" h2="863.541 -21.558"/>
     </curve>
   </object>
-  <object id="Plane.003" type="animation" xyz="-21.02 -5.46 0.68" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_ocean.spm" displacing="true" skeletal-animation="false">
-  </object>
   <object id="Plane.005" type="animation" xyz="-30.34 6.46 11.28" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="runway_mark.spm" skeletal-animation="false">
   </object>
   <object id="Plane.007" type="animation" xyz="-28.45 15.89 954.80" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="airplane_contrail.spm" skeletal-animation="false">
