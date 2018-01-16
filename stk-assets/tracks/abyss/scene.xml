@@ -3,13 +3,13 @@
 <scene>
   <track model="abyss_track.spm" x="0" y="0" z="0">
     <static-object  model="limit-mainbuilding.spm" xyz="-20.60 19.46 -144.29" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
-    <animated-texture name="underwater_lights.png" dx="0.050" />
     <animated-texture name="stkflag_blueCheckBorard_a.png" dx="0.080"  dy="0.2000" />
     <animated-texture name="stk_lowPolyFish_a.png" dx="0.500" />
     <animated-texture name="stk_lowPolyFish_a.png" dx="0.500" />
     <animated-texture name="stk_lowPolyFish_a.png" dx="0.500" />
   </track>
-  <object id="Circle.002" type="animation" xyz="-63.96 18.90 -67.61" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="restaurant-distortion.spm" displacing="true" skeletal-animation="false">
+  <object id="Circle.027" type="animation" xyz="-20.91 76.20 -88.05" hpr="0.0 -0.0 -15.0" scale="1.00 1.00 1.00" interaction="ghost" model="underwater_lights.spm" skeletal-animation="false">
+    <animated-texture name="underwater_lights.png" dx="0.050" />
   </object>
   <object id="Circle.048" type="animation" xyz="133.32 -34.08 145.54" hpr="88.5 -0.8 9.9" scale="1.00 1.00 1.00" interaction="ghost" model="submarine_sphere_a.spm" skeletal-animation="false">
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
@@ -144,8 +144,6 @@
       <p c="179.000 89.326" h1="175.096 89.326" h2="182.904 89.326"/>
       <p c="189.000 96.309" h1="185.096 96.309" h2="192.904 96.309"/>
     </curve>
-  </object>
-  <object id="Cube.008" type="animation" xyz="116.91 10.44 -131.95" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water-pond-distortion.spm" displacing="true" skeletal-animation="false">
   </object>
   <object id="Plane.006" type="animation" xyz="-65.96 18.90 -67.61" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="windows_restaurant.spm" skeletal-animation="false">
   </object>
