@@ -131,7 +131,7 @@ Copyright: Copyright 2014 Anon
 License: CC-BY-SA 4.0 CC-BY-SA 3.0 Unported
 Comment: From https://forum.freegamedev.net/viewtopic.php?f=90&t=5726
 
-Files: tapis.png
+Files: tapis.png stktex_gnuMeditation_a.png stktex_gnuMeditation_fur.png
 Copyright: Copyright 2009 Benjamin Arnaudet
 License: GPL ???
 Comment: Originally part of Gnu kart

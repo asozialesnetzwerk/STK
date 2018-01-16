@@ -31,21 +31,21 @@
     <nitro-emitter-b position = "-0.308955 0.122335 -0.360474" />
   </nitro-emitter>
   <headlights>
-    <object position="-0.149599 0.560597 0.419003"
-            rotation="-1.036173 162.941416 -0.801166"
-            scale="1.000000 0.999457 0.999999"
+    <object position="-0.149595 0.560550 0.419007"
+            rotation="-1.036070 162.941047 -0.788703"
+            scale="1.000000 1.000000 1.000000"
             bone="Bras-1-L"
             color="193 255 24"
             model="arabic_lantern.spm"/>
-    <object position="0.149986 0.560232 0.419844"
-            rotation="-0.532869 125.149925 -0.566508"
-            scale="0.999999 0.999456 1.000000"
+    <object position="0.149985 0.560174 0.419846"
+            rotation="-0.532357 125.149884 -0.564802"
+            scale="1.000000 1.000000 1.000000"
             bone="Bras-1-R"
             color="193 255 24"
             model="arabic_lantern.spm"/>
   </headlights>
-  <hat position="0.003658 1.078315 0.033591"
-       rotation="22.314535 -0.004841 -0.356968"
-       scale="1.000000 0.999546 0.999909"
+  <hat position="0.003658 1.078422 0.033520"
+       rotation="22.299480 -0.004927 -0.356989"
+       scale="1.000000 1.000000 1.000000"
        bone="Museau"/>
 </kart>

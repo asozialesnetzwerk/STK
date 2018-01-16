@@ -35,7 +35,8 @@
 
   <material name="konqi.jpg" colorizable="Y" colorization-mask="konqi_colorization_mask.png" hue-settings="1 0.02 0.1 0.3 0.5 0.66 0.8"/>
   <material name="kiki.png" colorizable="Y" colorization-factor="0.9" colorization-mask="kiki_colorization_mask.png" hue-settings="1 0.02 0.1 0.3 0.5 0.66 0.8"/>
-  <material name="stktex_gnuMeditation_a.png" shader="solid" colorizable="Y" colorization-factor="0.00" colorization-mask="stktex_gnuMeditation_mask.png" hue-settings="1 0.02 0.1 0.3 0.5 0.66 0.8"/>
+  <material name="stktex_gnuMeditation_a.png" shader="solid" colorizable="Y" colorization-mask="stktex_gnuMeditation_mask.png" hue-settings="1 0.02 0.1 0.3 0.5 0.66 0.8"/>
+  <material name="stktex_gnuMeditation_fur.png" shader="alphablend" ignore="Y"/>
     <!--
     HD textures for tracks of the generation post cocoa temple
     -->
