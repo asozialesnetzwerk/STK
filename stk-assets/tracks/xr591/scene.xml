@@ -20,7 +20,6 @@
     <static-object  model="curiosity.spm" xyz="-94.77 6.81 143.51" hpr="-0.0 -105.0 9.2" scale="3.27 3.27 3.27"/>
     <static-object  model="curious.spm" xyz="-94.29 8.90 142.70" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object  model="love.spm" xyz="-93.47 5.53 159.28" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
-    <animated-texture name="arrows.png" dx="-0.500" />
     <animated-texture name="acid_lake.jpg" dx="0.000"  dy="0.5000" />
     <animated-texture name="arc1.png" dx="0.000"  dy="0.1000" />
     <animated-texture name="arc1.png" dx="0.000"  dy="0.1000" />
@@ -28,6 +27,9 @@
     <animated-texture name="arc1.png" dx="2.000" />
     <animated-texture name="arc2.png" dx="-1.700" />
   </track>
+  <object id="arrows" type="animation" xyz="-0.22 0.65 -3.23" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="arrows.spm" skeletal-animation="false">
+    <animated-texture name="arrows.png" dx="-0.500" />
+  </object>
   <object id="Circle.040" type="animation" xyz="239.89 102.36 138.50" hpr="-25.0 60.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="sky_beam_2.spm" skeletal-animation="false">
     <curve channel="RotX" interpolation="bezier" extend="cyclic">
       <p c="1.000 -25.000" h1="-37.651 -25.000" h2="39.651 -25.000"/>
@@ -136,7 +138,9 @@
   <object id="Circle.056" type="animation" xyz="-57.13 26.01 9.65" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="sign_correct_direction2.spm" skeletal-animation="false" if="isNotReverse">
     <animated-texture name="arrows.png" dx="-0.500" />
   </object>
-  <object id="Plane.007" type="animation" xyz="-61.01 -6.67 -42.92" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="green_water_dist.spm" displacing="true" skeletal-animation="false">
+  <object id="Plane.007" type="animation" xyz="-61.01 -6.67 -42.92" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="green_water_dist.spm" skeletal-animation="false">
+  </object>
+  <object id="Plane.008" type="animation" xyz="-61.01 -6.67 -42.92" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="green_water_dist_1.spm" skeletal-animation="false">
   </object>
   <object id="Sphere.012" type="animation" xyz="-60.00 -13.14 -35.13" hpr="-90.0 0.0 20.0" scale="1.18 1.18 1.18" interaction="ghost" model="monster2.spm" skeletal-animation="false">
     <curve channel="RotZ" interpolation="bezier" extend="cyclic">

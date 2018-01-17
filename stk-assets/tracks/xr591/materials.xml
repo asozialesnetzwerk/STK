@@ -6,17 +6,17 @@
     <particles condition="skid drive" base="acid_splash.xml"/>
   </material>
   <material name="acid_lake_bottom.jpg" reset="Y" falling-effect="Y" water-splash="Y"/>
-  <material name="arc1.png" backface-culling="N" disable-z-write="Y" collision-detect="Y" collision-reaction="push" collision-particles="sparks.xml" shader="alphablend"/>
-  <material name="arc2.png" reset="Y" backface-culling="N" disable-z-write="Y" shader="alphablend"/>
+  <material name="arc1.png" collision-detect="Y" collision-reaction="push" collision-particles="sparks.xml" shader="alphablend"/>
+  <material name="arc2.png" reset="Y" shader="alphablend"/>
   <material name="arrows.png" mirror-axis="U"/>
-  <material name="curious.png" backface-culling="N" disable-z-write="Y" shader="alphablend"/>
-  <material name="glass.png" backface-culling="N" disable-z-write="Y" shader="alphablend"/>
-  <material name="halo.png" fog="N" backface-culling="N" disable-z-write="Y" ignore="Y" shader="alphablend"/>
-  <material name="light-1.png" fog="N" disable-z-write="Y" ignore="Y" shader="alphablend"/>
-  <material name="light.png" fog="N" disable-z-write="Y" ignore="Y" shader="additive"/>
-  <material name="love.png" backface-culling="N" disable-z-write="Y" shader="alphablend"/>
+  <material name="curious.png" shader="alphablend"/>
+  <material name="glass.png" shader="alphablend"/>
+  <material name="halo.png" ignore="Y" shader="alphablend"/>
+  <material name="light-1.png" ignore="Y" shader="alphablend"/>
+  <material name="light.png" ignore="Y" shader="additive"/>
+  <material name="love.png" shader="alphablend"/>
   <material name="trail.png">
     <particles base="smoke_red.xml" condition="skid"/>
   </material>
-  <material name="transparence.png" backface-culling="N" falling-effect="Y" reset="Y" shader="alphatest"/>
+  <material name="transparence.png" falling-effect="Y" reset="Y" shader="alphatest"/>
 </materials>
