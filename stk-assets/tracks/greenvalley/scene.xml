@@ -273,7 +273,6 @@
     <static-object  lod_instance="true" lod_group="flower4" xyz="260.16 -1.17 -93.08" hpr="0.0 20.1 0.0" scale="1.05 1.05 1.05"/>
     <static-object  lod_instance="true" lod_group="flower4" xyz="260.78 -2.27 -96.65" hpr="-0.0 134.7 -0.0" scale="1.05 1.05 1.05"/>
     <static-object  lod_instance="true" lod_group="flower4" xyz="261.38 -5.72 -112.01" hpr="-0.0 109.6 -0.0" scale="1.05 1.05 1.05"/>
-    <static-object  model="water_road_splash_layer.spm" xyz="214.49 -12.12 -117.21" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
     <static-object  lod_instance="true" lod_group="WaterPlant1" xyz="230.92 -13.25 -131.01" hpr="0.0 27.6 0.0" scale="1.26 1.26 1.26"/>
     <static-object  lod_instance="true" lod_group="WaterPlant1" xyz="229.78 -13.25 -129.86" hpr="0.0 27.6 0.0" scale="1.26 1.26 1.26"/>
     <static-object  lod_instance="true" lod_group="WaterPlant1" xyz="231.81 -14.61 -134.95" hpr="0.0 27.6 0.0" scale="1.26 1.26 1.26"/>
@@ -310,8 +309,6 @@
   <object id="model_tree_4_faces.034" type="animation" xyz="171.73 30.96 -410.81" hpr="0.0 -79.4 0.0" scale="1.94 1.94 1.94" interaction="ghost" model="tree_model_4_faces.spm" skeletal-animation="false">
   </object>
   <object id="model_tree_4_faces.1823" type="animation" xyz="0.00 0.00 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="trees_far.spm" skeletal-animation="false">
-  </object>
-  <object id="water_surface.001" type="animation" xyz="84.25 -11.20 -4.12" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_surface.spm" displacing="true" skeletal-animation="false">
   </object>
   <sun  xyz="314.42 251.81 -195.27" sun-color="255 255 255" sun-specular="255 255 255" sun-diffuse="255 255 255" ambient="108 120 112"/>
   <sky-box texture="w_sky_6.jpg grass2.jpg w_sky_2.jpg w_sky_4.jpg w_sky_3.jpg w_sky_1.jpg" sh-texture="w_sky_6.jpg grass2.jpg w_sky_2.jpg w_sky_4.jpg w_sky_3.jpg w_sky_1.jpg"/>
