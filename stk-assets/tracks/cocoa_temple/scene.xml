@@ -27,7 +27,7 @@
   <object id="Cube.043" type="animation" xyz="-47.07 -2.78 -126.82" hpr="0.0 145.1 0.0" scale="1.00 1.00 1.00" interaction="static" shape="exact" model="nitro_platform.spm" driveable="true" skeletal-animation="false" if="isTrackNotReverse">
     <animated-texture name="stkflag_greenCheckBorard_a.png" dy="0.8000" />
   </object>
-  <object id="Plane.005" type="animation" xyz="141.10 -24.72 746.19" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_river_distord.spm" displacing="true" skeletal-animation="false">
+  <object id="Plane.005" type="animation" xyz="141.10 -24.72 746.19" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_river_distord.spm" skeletal-animation="false">
     <animated-texture name="jungleWater.png" dx="0.100" />
   </object>
   <object id="Plane.044" type="animation" xyz="-54.24 -1.92 -117.82" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="hotChocolate.spm" skeletal-animation="false">
@@ -36,7 +36,7 @@
   <object id="Plane.074" type="animation" xyz="-54.26 0.97 -169.38" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="cocoa_snake.spm" skeletal-animation="false">
     <animated-texture name="stktex_generic_bambooB.png" dx="0.300" />
   </object>
-  <object id="Plane.186" type="animation" xyz="141.10 -24.72 746.19" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_pond.spm" displacing="true" skeletal-animation="false">
+  <object id="Plane.186" type="animation" xyz="141.10 -24.72 746.19" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_pond.spm" skeletal-animation="false">
     <animated-texture name="jungleWater.png" dx="0.100" />
   </object>
   <object id="road_b.002" type="animation" xyz="-54.24 -1.92 -117.82" hpr="-91.4 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="cocoa_shredder.spm" skeletal-animation="false">

@@ -6,7 +6,7 @@
     <static-object  model="rails_plane.spm" xyz="46.30 7.69 -203.21" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
     <static-object  model="reset.spm" xyz="74.78 1.10 -112.83" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="physics-only"/>
   </track>
-  <object id="mud_water" type="animation" xyz="121.56 -11.48 -292.47" hpr="90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="mud_water.spm" displacing="true" skeletal-animation="false">
+  <object id="mud_water" type="animation" xyz="121.56 -11.48 -292.47" hpr="90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="mud_water.spm" skeletal-animation="false">
   </object>
   <object id="Plane.010" type="animation" xyz="127.80 8.56 40.77" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="train_wagon.spm" skeletal-animation="false">
     <curve channel="LocX" interpolation="bezier" extend="cyclic">
@@ -44,7 +44,7 @@
   <object id="ramp_2_non_rev" type="animation" xyz="72.81 3.67 -98.27" hpr="14.5 -45.0 -0.0" scale="1.00 1.00 1.00" interaction="ghost" model="ramp_2_non_rev.spm" skeletal-animation="false" if="isTrackNotReverse">
     <animated-texture name="stkflag_orangeBooster_a.png" dy="0.8000" />
   </object>
-  <object id="water_pond" type="animation" xyz="86.71 2.91 -118.13" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_pond.spm" displacing="true" skeletal-animation="false">
+  <object id="water_pond" type="animation" xyz="86.71 2.91 -118.13" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_pond.spm" skeletal-animation="false">
   </object>
   <sun  fog="true" fog-color="40 15 40" fog-max="0.699999988079071" fog-start="10.00" fog-end="750.00" xyz="-121.72 273.82 -411.52" sun-diffuse="255 72 23" ambient="85 85 85"/>
   <sky-box texture="0006.png 0001.png 0004.png 0002.png 0003.png 0005.png" sh-texture="farm_sky_test.jpg farm_sky_test.jpg farm_sky_test.jpg farm_sky_test.jpg farm_sky_test.jpg farm_sky_test.jpg"/>

@@ -183,7 +183,7 @@
   <object id="Plane.003" type="animation" xyz="171.27 -18.42 61.61" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="car_traffic.spm" skeletal-animation="false">
     <animated-texture name="stk_lowPolyCars_a.png" dx="0.500" />
   </object>
-  <object id="Plane.004" type="animation" xyz="12.84 -10.70 66.02" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_canal.spm" displacing="true" skeletal-animation="false">
+  <object id="Plane.004" type="animation" xyz="12.84 -10.70 66.02" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water_canal.spm" skeletal-animation="false">
   </object>
   <object id="Plane.007" type="animation" xyz="865.41 113.27 -548.24" hpr="0.0 134.8 0.0" scale="2.88 2.06 2.88" interaction="ghost" model="volcano_static.spm" skeletal-animation="false">
   </object>

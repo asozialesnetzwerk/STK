@@ -444,7 +444,7 @@
   </object>
   <object id="Plane.131" type="animation" xyz="116.50 -5.92 -144.59" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="crystal_glow.spm" forcedbloom="true" skeletal-animation="false">
   </object>
-  <object id="water_distord" type="animation" xyz="-9.86 -5.47 -45.45" hpr="-0.0 -166.3 -0.0" scale="15.14 15.14 15.14" interaction="ghost" model="water_distord.spm" displacing="true" skeletal-animation="false">
+  <object id="water_distord" type="animation" xyz="-9.86 -5.47 -45.45" hpr="-0.0 -166.3 -0.0" scale="15.14 15.14 15.14" interaction="ghost" model="water_distord.spm" skeletal-animation="false">
   </object>
   <object id="water_visual" type="animation" xyz="-9.86 -5.76 -45.45" hpr="-0.0 -166.3 -0.0" scale="15.14 15.14 15.14" interaction="ghost" model="water_visual.spm" skeletal-animation="false">
     <animated-texture name="mine_water_reset.png" dx="0.200" />

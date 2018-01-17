@@ -384,7 +384,7 @@
       <p c="4500.000 0.012"/>
     </curve>
   </object>
-  <object id="water" type="animation" xyz="-0.00 1.65 0.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="water.spm" skeletal-animation="false">
+  <object id="water" type="animation" xyz="-0.00 2.35 0.00" hpr="0.0 -0.0 0.0" scale="1.00 0.15 1.00" interaction="ghost" model="water.spm" skeletal-animation="false">
     <animated-texture name="stktemple_waterWhite.png" dy="0.0500" />
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -0.000"/>
@@ -461,7 +461,7 @@
       <p c="4500.000 -0.100"/>
     </curve>
   </object>
-  <object id="waterfall" type="animation" xyz="-7.59 49.70 -0.10" hpr="-0.0 -168.6 -0.0" scale="1.60 0.00 1.31" interaction="ghost" model="waterfall.spm" displacing="true" skeletal-animation="false">
+  <object id="waterfall" type="animation" xyz="-7.59 49.70 -0.10" hpr="-0.0 -168.6 -0.0" scale="1.37 1.00 1.12" interaction="ghost" model="waterfall.spm" skeletal-animation="false">
     <animated-texture name="stktemple_waterWhite.png" dy="0.0200" />
     <curve channel="ScaleX" interpolation="linear" extend="cyclic">
       <p c="1.000 1.598"/>
@@ -522,7 +522,7 @@
   <weather particles="rain.xml" sound="rain"/>
   <sky-box texture="skybox_top.png skybox_bottom.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png" sh-texture="lightbox_top.png skybox_bottom.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png"/>
   <camera far="1500.0"/>
-  <particle-emitter kind="sprayx.xml" id="sprayx" xyz="-11.95 40.00 29322.74" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx.xml" id="sprayx" xyz="-0.10 0.00 249.87" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -11.947"/>
       <p c="1814.000 -11.947"/>
@@ -560,7 +560,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx.xml" id="sprayx.001" xyz="4655.54 40.00 30032.00" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx.xml" id="sprayx.001" xyz="39.67 0.00 255.91" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 4655.542"/>
       <p c="1814.000 4655.542"/>
@@ -598,7 +598,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx.xml" id="sprayx.002" xyz="7984.21 40.00 30702.53" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx.xml" id="sprayx.002" xyz="68.04 0.00 261.62" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 7984.215"/>
       <p c="1814.000 7984.215"/>
@@ -636,7 +636,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx.xml" id="sprayx.003" xyz="12007.36 40.00 31588.57" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx.xml" id="sprayx.003" xyz="102.32 0.00 269.17" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 12007.358"/>
       <p c="1814.000 12007.358"/>
@@ -674,7 +674,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx.xml" id="sprayx.004" xyz="15192.35 40.00 31852.00" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx.xml" id="sprayx.004" xyz="129.46 0.00 271.42" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 15192.350"/>
       <p c="1814.000 15192.350"/>
@@ -712,7 +712,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx.xml" id="sprayx.005" xyz="18463.68 40.00 30385.86" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx.xml" id="sprayx.005" xyz="157.33 0.00 258.93" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 18463.678"/>
       <p c="1814.000 18463.678"/>
@@ -750,7 +750,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx.xml" id="sprayx.006" xyz="21039.95 40.00 27378.89" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx.xml" id="sprayx.006" xyz="179.29 0.00 233.30" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 21039.953"/>
       <p c="1814.000 21039.953"/>
@@ -788,7 +788,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx.xml" id="sprayx.007" xyz="24048.53 40.00 23885.19" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx.xml" id="sprayx.007" xyz="204.92 0.00 203.53" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 24048.527"/>
       <p c="1814.000 24048.527"/>
@@ -826,7 +826,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx.xml" id="sprayx.008" xyz="19505.76 40.00 -25160.28" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx.xml" id="sprayx.008" xyz="166.21 0.00 -214.40" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 19505.764"/>
       <p c="1814.000 19505.764"/>
@@ -864,7 +864,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx.xml" id="sprayx.009" xyz="15417.17 40.00 -27369.77" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx.xml" id="sprayx.009" xyz="131.37 0.00 -233.23" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 15417.172"/>
       <p c="1814.000 15417.172"/>
@@ -902,7 +902,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx.xml" id="sprayx.010" xyz="11431.89 40.00 -28464.18" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx.xml" id="sprayx.010" xyz="97.41 -0.00 -242.55" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 11431.889"/>
       <p c="1814.000 11431.889"/>
@@ -940,7 +940,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx.xml" id="sprayx.011" xyz="7446.61 40.00 -29558.58" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx.xml" id="sprayx.011" xyz="63.45 -0.00 -251.88" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 7446.607"/>
       <p c="1814.000 7446.607"/>
@@ -978,7 +978,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx.xml" id="sprayx.012" xyz="3461.32 40.00 -30652.98" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx.xml" id="sprayx.012" xyz="29.49 -0.00 -261.20" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 3461.325"/>
       <p c="1814.000 3461.325"/>
@@ -1016,7 +1016,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx.xml" id="sprayx.013" xyz="95.52 40.00 -31540.89" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx.xml" id="sprayx.013" xyz="0.81 -0.00 -268.77" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 95.516"/>
       <p c="1814.000 95.516"/>
@@ -1054,7 +1054,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx.xml" id="sprayx.014" xyz="-3976.92 40.00 -30637.50" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx.xml" id="sprayx.014" xyz="-33.89 -0.00 -261.07" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -3976.917"/>
       <p c="1814.000 -3976.917"/>
@@ -1092,7 +1092,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx.xml" id="sprayx.015" xyz="-8049.35 40.00 -29734.10" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx.xml" id="sprayx.015" xyz="-68.59 -0.00 -253.37" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -8049.352"/>
       <p c="1814.000 -8049.352"/>
@@ -1130,7 +1130,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx.xml" id="sprayx.016" xyz="-12121.79 40.00 -28830.71" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx.xml" id="sprayx.016" xyz="-103.29 -0.00 -245.67" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -12121.785"/>
       <p c="1814.000 -12121.785"/>
@@ -1168,7 +1168,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx.xml" id="sprayx.017" xyz="-16194.22 40.00 -27927.31" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx.xml" id="sprayx.017" xyz="-138.00 -0.00 -237.98" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -16194.220"/>
       <p c="1814.000 -16194.220"/>
@@ -1206,7 +1206,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx.xml" id="sprayx.018" xyz="-20266.65 40.00 -27023.92" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx.xml" id="sprayx.018" xyz="-172.70 -0.00 -230.28" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -20266.650"/>
       <p c="1814.000 -20266.650"/>
@@ -1244,7 +1244,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx.xml" id="sprayx.019" xyz="-27112.78 40.00 14558.58" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx.xml" id="sprayx.019" xyz="-231.04 -0.00 124.06" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -27112.783"/>
       <p c="1814.000 -27112.783"/>
@@ -1282,7 +1282,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx.xml" id="sprayx.020" xyz="-4014.05 40.00 29585.56" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx.xml" id="sprayx.020" xyz="-34.20 0.00 252.11" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -4014.050"/>
       <p c="1814.000 -4014.050"/>
@@ -1320,7 +1320,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx.xml" id="sprayx.021" xyz="-8016.15 40.00 29848.39" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx.xml" id="sprayx.021" xyz="-68.31 0.00 254.35" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -8016.153"/>
       <p c="1814.000 -8016.153"/>
@@ -1358,7 +1358,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx.xml" id="sprayx.022" xyz="-12018.26 40.00 30111.22" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx.xml" id="sprayx.022" xyz="-102.41 0.00 256.59" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -12018.257"/>
       <p c="1814.000 -12018.257"/>
@@ -1396,7 +1396,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx.xml" id="sprayx.023" xyz="-16020.36 40.00 30374.05" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx.xml" id="sprayx.023" xyz="-136.51 0.00 258.83" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -16020.361"/>
       <p c="1814.000 -16020.361"/>
@@ -1434,7 +1434,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx_.xml" id="sprayx_" xyz="2617.52 40.00 29672.39" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx_.xml" id="sprayx_" xyz="22.30 -0.00 252.85" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 2617.521"/>
       <p c="1814.000 2617.521"/>
@@ -1472,7 +1472,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx_.xml" id="sprayx_.001" xyz="6347.20 40.00 30348.40" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx_.xml" id="sprayx_.001" xyz="54.09 -0.00 258.61" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 6347.203"/>
       <p c="1814.000 6347.203"/>
@@ -1510,7 +1510,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx_.xml" id="sprayx_.002" xyz="10076.88 40.00 31024.40" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx_.xml" id="sprayx_.002" xyz="85.87 -0.00 264.37" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 10076.885"/>
       <p c="1814.000 10076.885"/>
@@ -1548,7 +1548,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx_.xml" id="sprayx_.003" xyz="13806.57 40.00 31700.41" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx_.xml" id="sprayx_.003" xyz="117.65 -0.00 270.13" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 13806.565"/>
       <p c="1814.000 13806.565"/>
@@ -1586,7 +1586,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx_.xml" id="sprayx_.004" xyz="16807.76 40.00 31166.21" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx_.xml" id="sprayx_.004" xyz="143.22 -0.00 265.58" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 16807.758"/>
       <p c="1814.000 16807.758"/>
@@ -1624,7 +1624,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx_.xml" id="sprayx_.005" xyz="-2014.63 40.00 29437.43" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx_.xml" id="sprayx_.005" xyz="-17.17 -0.00 250.84" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -2014.634"/>
       <p c="1814.000 -2014.634"/>
@@ -1662,7 +1662,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx_.xml" id="sprayx_.006" xyz="-5992.25 40.00 29705.96" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx_.xml" id="sprayx_.006" xyz="-51.06 -0.00 253.13" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -5992.246"/>
       <p c="1814.000 -5992.246"/>
@@ -1700,7 +1700,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx_.xml" id="sprayx_.007" xyz="-9969.86 40.00 29974.49" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx_.xml" id="sprayx_.007" xyz="-84.96 0.00 255.42" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -9969.857"/>
       <p c="1814.000 -9969.857"/>
@@ -1738,7 +1738,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx_.xml" id="sprayx_.008" xyz="-13947.47 40.00 30243.02" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx_.xml" id="sprayx_.008" xyz="-118.85 0.00 257.71" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -13947.469"/>
       <p c="1814.000 -13947.469"/>
@@ -1776,7 +1776,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx_.xml" id="sprayx_.009" xyz="-17653.13 40.00 30356.15" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx_.xml" id="sprayx_.009" xyz="-150.43 0.00 258.67" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -17653.135"/>
       <p c="1814.000 -17653.135"/>
@@ -1814,7 +1814,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx_.xml" id="sprayx_.010" xyz="-18401.52 40.00 -27456.21" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx_.xml" id="sprayx_.010" xyz="-156.80 0.00 -233.96" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -18401.521"/>
       <p c="1814.000 -18401.521"/>
@@ -1852,7 +1852,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx_.xml" id="sprayx_.011" xyz="-14125.76 40.00 -28413.88" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx_.xml" id="sprayx_.011" xyz="-120.37 0.00 -242.12" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -14125.757"/>
       <p c="1814.000 -14125.757"/>
@@ -1890,7 +1890,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx_.xml" id="sprayx_.012" xyz="-10042.26 40.00 -29224.98" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx_.xml" id="sprayx_.012" xyz="-85.57 0.00 -249.03" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -10042.260"/>
       <p c="1814.000 -10042.260"/>
@@ -1928,7 +1928,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx_.xml" id="sprayx_.013" xyz="-6028.69 40.00 -30189.92" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx_.xml" id="sprayx_.013" xyz="-51.37 0.00 -257.26" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -6028.687"/>
       <p c="1814.000 -6028.687"/>
@@ -1966,7 +1966,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx_.xml" id="sprayx_.014" xyz="-1735.42 40.00 -31196.81" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx_.xml" id="sprayx_.014" xyz="-14.79 0.00 -265.84" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -1735.421"/>
       <p c="1814.000 -1735.421"/>
@@ -2004,7 +2004,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx_.xml" id="sprayx_.015" xyz="1956.51 40.00 -31126.89" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx_.xml" id="sprayx_.015" xyz="16.67 0.00 -265.24" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 1956.508"/>
       <p c="1814.000 1956.508"/>
@@ -2042,7 +2042,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx_.xml" id="sprayx_.016" xyz="5508.59 40.00 -30133.99" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx_.xml" id="sprayx_.016" xyz="46.94 -0.00 -256.78" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 5508.591"/>
       <p c="1814.000 5508.591"/>
@@ -2080,7 +2080,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx_.xml" id="sprayx_.017" xyz="9480.21 40.00 -29043.19" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx_.xml" id="sprayx_.017" xyz="80.78 0.00 -247.48" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 9480.212"/>
       <p c="1814.000 9480.212"/>
@@ -2118,7 +2118,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx_.xml" id="sprayx_.018" xyz="13353.94 40.00 -28008.33" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx_.xml" id="sprayx_.018" xyz="113.79 0.00 -238.67" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 13353.938"/>
       <p c="1814.000 13353.938"/>
@@ -2156,7 +2156,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx_.xml" id="sprayx_.019" xyz="17856.97 40.00 -26316.20" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx_.xml" id="sprayx_.019" xyz="152.16 -0.00 -224.25" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 17856.975"/>
       <p c="1814.000 17856.975"/>
@@ -2194,7 +2194,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayx_.xml" id="sprayx_.020" xyz="-26299.77 40.00 15629.03" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayx_.xml" id="sprayx_.020" xyz="-224.11 0.00 133.18" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -26299.768"/>
       <p c="1814.000 -26299.768"/>
@@ -2232,7 +2232,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz.xml" id="sprayz" xyz="18457.26 40.00 30187.20" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz.xml" id="sprayz" xyz="157.28 0.00 257.23" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 18457.260"/>
       <p c="1814.000 18457.260"/>
@@ -2270,7 +2270,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz.xml" id="sprayz.001" xyz="21033.54 40.00 27220.08" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz.xml" id="sprayz.001" xyz="179.23 0.00 231.95" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 21033.537"/>
       <p c="1814.000 21033.537"/>
@@ -2308,7 +2308,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz.xml" id="sprayz.002" xyz="24042.11 40.00 23726.38" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz.xml" id="sprayz.002" xyz="204.87 0.00 202.18" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 24042.107"/>
       <p c="1814.000 24042.107"/>
@@ -2346,7 +2346,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz.xml" id="sprayz.003" xyz="26954.57 40.00 19842.31" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz.xml" id="sprayz.003" xyz="229.69 0.00 169.08" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 26954.572"/>
       <p c="1814.000 26954.572"/>
@@ -2384,7 +2384,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz.xml" id="sprayz.004" xyz="25566.77 40.00 15654.11" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz.xml" id="sprayz.004" xyz="217.86 0.00 133.39" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 25566.768"/>
       <p c="1814.000 25566.768"/>
@@ -2422,7 +2422,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz.xml" id="sprayz.005" xyz="26136.76 40.00 11242.88" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz.xml" id="sprayz.005" xyz="222.72 0.00 95.80" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 26136.762"/>
       <p c="1814.000 26136.762"/>
@@ -2460,7 +2460,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz.xml" id="sprayz.006" xyz="26781.09 40.00 7153.81" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz.xml" id="sprayz.006" xyz="228.21 0.00 60.96" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 26781.094"/>
       <p c="1814.000 26781.094"/>
@@ -2498,7 +2498,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz.xml" id="sprayz.007" xyz="27797.17 40.00 3114.31" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz.xml" id="sprayz.007" xyz="236.87 0.00 26.54" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 27797.168"/>
       <p c="1814.000 27797.168"/>
@@ -2536,7 +2536,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz.xml" id="sprayz.008" xyz="27226.19 40.00 -1025.31" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz.xml" id="sprayz.008" xyz="232.00 0.00 -8.74" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 27226.189"/>
       <p c="1814.000 27226.189"/>
@@ -2574,7 +2574,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz.xml" id="sprayz.009" xyz="26059.93 40.00 -5163.85" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz.xml" id="sprayz.009" xyz="222.06 0.00 -44.00" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 26059.928"/>
       <p c="1814.000 26059.928"/>
@@ -2612,7 +2612,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz.xml" id="sprayz.010" xyz="24893.67 40.00 -9302.39" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz.xml" id="sprayz.010" xyz="212.13 0.00 -79.27" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 24893.668"/>
       <p c="1814.000 24893.668"/>
@@ -2650,7 +2650,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz.xml" id="sprayz.011" xyz="23727.41 40.00 -13440.93" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz.xml" id="sprayz.011" xyz="202.19 0.00 -114.53" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 23727.408"/>
       <p c="1814.000 23727.408"/>
@@ -2688,7 +2688,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz.xml" id="sprayz.012" xyz="22561.15 40.00 -17579.47" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz.xml" id="sprayz.012" xyz="192.25 0.00 -149.80" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 22561.150"/>
       <p c="1814.000 22561.150"/>
@@ -2726,7 +2726,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz.xml" id="sprayz.013" xyz="21394.89 40.00 -21718.01" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz.xml" id="sprayz.013" xyz="182.31 0.00 -185.06" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 21394.889"/>
       <p c="1814.000 21394.889"/>
@@ -2764,7 +2764,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz.xml" id="sprayz.014" xyz="19856.94 40.00 -25051.22" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz.xml" id="sprayz.014" xyz="169.21 0.00 -213.47" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 19856.939"/>
       <p c="1814.000 19856.939"/>
@@ -2802,7 +2802,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz.xml" id="sprayz.015" xyz="-20289.61 40.00 -26725.08" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz.xml" id="sprayz.015" xyz="-172.89 -0.00 -227.73" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -20289.609"/>
       <p c="1814.000 -20289.609"/>
@@ -2840,7 +2840,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz.xml" id="sprayz.016" xyz="-23074.20 40.00 -23173.65" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz.xml" id="sprayz.016" xyz="-196.62 -0.00 -197.47" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -23074.197"/>
       <p c="1814.000 -23074.197"/>
@@ -2878,7 +2878,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz.xml" id="sprayz.017" xyz="-24219.96 40.00 -19145.67" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz.xml" id="sprayz.017" xyz="-206.38 -0.00 -163.15" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -24219.961"/>
       <p c="1814.000 -24219.961"/>
@@ -2916,7 +2916,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz.xml" id="sprayz.018" xyz="-25365.72 40.00 -15117.69" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz.xml" id="sprayz.018" xyz="-216.15 -0.00 -128.82" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -25365.725"/>
       <p c="1814.000 -25365.725"/>
@@ -2954,7 +2954,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz.xml" id="sprayz.019" xyz="-26511.49 40.00 -11089.71" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz.xml" id="sprayz.019" xyz="-225.91 -0.00 -94.50" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -26511.486"/>
       <p c="1814.000 -26511.486"/>
@@ -2992,7 +2992,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz.xml" id="sprayz.020" xyz="-27657.25 40.00 -7061.73" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz.xml" id="sprayz.020" xyz="-235.67 -0.00 -60.17" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -27657.254"/>
       <p c="1814.000 -27657.254"/>
@@ -3030,7 +3030,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz.xml" id="sprayz.021" xyz="-28803.02 40.00 -3033.75" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz.xml" id="sprayz.021" xyz="-245.44 -0.00 -25.85" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -28803.018"/>
       <p c="1814.000 -28803.018"/>
@@ -3068,7 +3068,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz.xml" id="sprayz.022" xyz="-29187.53 40.00 529.87" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz.xml" id="sprayz.022" xyz="-248.71 -0.00 4.52" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -29187.531"/>
       <p c="1814.000 -29187.531"/>
@@ -3106,7 +3106,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz.xml" id="sprayz.023" xyz="-28689.69 40.00 4532.47" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz.xml" id="sprayz.023" xyz="-244.47 -0.00 38.62" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -28689.693"/>
       <p c="1814.000 -28689.693"/>
@@ -3144,7 +3144,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz.xml" id="sprayz.024" xyz="-28191.86 40.00 8535.06" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz.xml" id="sprayz.024" xyz="-240.23 -0.00 72.73" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -28191.857"/>
       <p c="1814.000 -28191.857"/>
@@ -3182,7 +3182,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz.xml" id="sprayz.025" xyz="-27694.02 40.00 12537.66" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz.xml" id="sprayz.025" xyz="-235.99 -0.00 106.84" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -27694.021"/>
       <p c="1814.000 -27694.021"/>
@@ -3220,7 +3220,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz.xml" id="sprayz.027" xyz="-25131.71 40.00 16253.45" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz.xml" id="sprayz.027" xyz="-214.15 -0.00 138.50" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -25131.709"/>
       <p c="1814.000 -25131.709"/>
@@ -3258,7 +3258,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz.xml" id="sprayz.028" xyz="-23368.33 40.00 20281.98" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz.xml" id="sprayz.028" xyz="-199.13 -0.00 172.83" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -23368.332"/>
       <p c="1814.000 -23368.332"/>
@@ -3296,7 +3296,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz.xml" id="sprayz.029" xyz="-21604.95 40.00 24310.51" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz.xml" id="sprayz.029" xyz="-184.10 -0.00 207.16" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -21604.953"/>
       <p c="1814.000 -21604.953"/>
@@ -3334,7 +3334,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz.xml" id="sprayz.030" xyz="-19965.44 40.00 27893.12" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz.xml" id="sprayz.030" xyz="-170.13 -0.00 237.68" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -19965.439"/>
       <p c="1814.000 -19965.439"/>
@@ -3372,7 +3372,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz.xml" id="sprayz.031" xyz="-17599.97 40.00 30461.69" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz.xml" id="sprayz.031" xyz="-149.97 -0.00 259.57" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -17599.973"/>
       <p c="1814.000 -17599.973"/>
@@ -3410,7 +3410,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz_.xml" id="sprayz_" xyz="20667.69 40.00 -23466.08" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz_.xml" id="sprayz_" xyz="176.11 0.00 -199.96" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 20667.689"/>
       <p c="1814.000 20667.689"/>
@@ -3448,7 +3448,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz_.xml" id="sprayz_.001" xyz="22077.78 40.00 -19632.04" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz_.xml" id="sprayz_.001" xyz="188.13 0.00 -167.29" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 22077.779"/>
       <p c="1814.000 22077.779"/>
@@ -3486,7 +3486,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz_.xml" id="sprayz_.002" xyz="23254.80 40.00 -15518.31" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz_.xml" id="sprayz_.002" xyz="198.16 0.00 -132.24" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 23254.797"/>
       <p c="1814.000 23254.797"/>
@@ -3524,7 +3524,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz_.xml" id="sprayz_.003" xyz="24431.81 40.00 -11404.58" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz_.xml" id="sprayz_.003" xyz="208.19 0.00 -97.18" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 24431.812"/>
       <p c="1814.000 24431.812"/>
@@ -3562,7 +3562,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz_.xml" id="sprayz_.004" xyz="25608.83 40.00 -7290.85" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz_.xml" id="sprayz_.004" xyz="218.22 0.00 -62.13" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 25608.832"/>
       <p c="1814.000 25608.832"/>
@@ -3600,7 +3600,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz_.xml" id="sprayz_.005" xyz="26785.85 40.00 -3177.12" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz_.xml" id="sprayz_.005" xyz="228.25 0.00 -27.07" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 26785.850"/>
       <p c="1814.000 26785.850"/>
@@ -3638,7 +3638,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz_.xml" id="sprayz_.006" xyz="27962.86 40.00 936.62" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz_.xml" id="sprayz_.006" xyz="238.28 0.00 7.98" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 27962.863"/>
       <p c="1814.000 27962.863"/>
@@ -3676,7 +3676,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz_.xml" id="sprayz_.007" xyz="27278.20 40.00 5125.16" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz_.xml" id="sprayz_.007" xyz="232.44 0.00 43.67" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 27278.199"/>
       <p c="1814.000 27278.199"/>
@@ -3714,7 +3714,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz_.xml" id="sprayz_.008" xyz="26472.71 40.00 9152.61" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz_.xml" id="sprayz_.008" xyz="225.58 0.00 77.99" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 26472.709"/>
       <p c="1814.000 26472.709"/>
@@ -3752,7 +3752,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz_.xml" id="sprayz_.009" xyz="25888.73 40.00 13421.70" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz_.xml" id="sprayz_.009" xyz="220.60 0.00 114.37" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 25888.730"/>
       <p c="1814.000 25888.730"/>
@@ -3790,7 +3790,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz_.xml" id="sprayz_.010" xyz="26512.98 40.00 17811.62" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz_.xml" id="sprayz_.010" xyz="225.92 0.00 151.78" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 26512.984"/>
       <p c="1814.000 26512.984"/>
@@ -3828,7 +3828,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz_.xml" id="sprayz_.011" xyz="25620.50 40.00 21715.82" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz_.xml" id="sprayz_.011" xyz="218.32 0.00 185.05" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 25620.504"/>
       <p c="1814.000 25620.504"/>
@@ -3866,7 +3866,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz_.xml" id="sprayz_.012" xyz="22691.74 40.00 25456.52" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz_.xml" id="sprayz_.012" xyz="193.36 0.00 216.92" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 22691.744"/>
       <p c="1814.000 22691.744"/>
@@ -3904,7 +3904,7 @@
       <p c="4500.000 0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz_.xml" id="sprayz_.013" xyz="19733.99 40.00 28646.26" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz_.xml" id="sprayz_.013" xyz="168.16 -0.00 244.10" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 19733.988"/>
       <p c="1814.000 19733.988"/>
@@ -3942,7 +3942,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz_.xml" id="sprayz_.014" xyz="16937.19 40.00 31401.10" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz_.xml" id="sprayz_.014" xyz="144.33 -0.00 267.58" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 16937.193"/>
       <p c="1814.000 16937.193"/>
@@ -3980,7 +3980,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz_.xml" id="sprayz_.015" xyz="-18720.42 40.00 29318.97" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz_.xml" id="sprayz_.015" xyz="-159.52 -0.00 249.83" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -18720.420"/>
       <p c="1814.000 -18720.420"/>
@@ -4018,7 +4018,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz_.xml" id="sprayz_.016" xyz="-20717.28 40.00 26147.49" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz_.xml" id="sprayz_.016" xyz="-176.54 -0.00 222.81" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -20717.275"/>
       <p c="1814.000 -20717.275"/>
@@ -4056,7 +4056,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz_.xml" id="sprayz_.017" xyz="-22110.04 40.00 22472.61" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz_.xml" id="sprayz_.017" xyz="-188.41 -0.00 191.50" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -22110.039"/>
       <p c="1814.000 -22110.039"/>
@@ -4094,7 +4094,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz_.xml" id="sprayz_.018" xyz="-24157.24 40.00 18210.41" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz_.xml" id="sprayz_.018" xyz="-205.85 -0.00 155.18" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -24157.236"/>
       <p c="1814.000 -24157.236"/>
@@ -4132,7 +4132,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz_.xml" id="sprayz_.019" xyz="-26892.43 40.00 14988.60" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz_.xml" id="sprayz_.019" xyz="-229.16 -0.00 127.72" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -26892.426"/>
       <p c="1814.000 -26892.426"/>
@@ -4170,7 +4170,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz_.xml" id="sprayz_.020" xyz="-27932.80 40.00 10525.04" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz_.xml" id="sprayz_.020" xyz="-238.02 -0.00 89.69" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -27932.801"/>
       <p c="1814.000 -27932.801"/>
@@ -4208,7 +4208,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz_.xml" id="sprayz_.021" xyz="-28396.73 40.00 6639.57" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz_.xml" id="sprayz_.021" xyz="-241.98 -0.00 56.58" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -28396.734"/>
       <p c="1814.000 -28396.734"/>
@@ -4246,7 +4246,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz_.xml" id="sprayz_.022" xyz="-28947.66 40.00 2522.14" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz_.xml" id="sprayz_.022" xyz="-246.67 -0.00 21.49" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -28947.660"/>
       <p c="1814.000 -28947.660"/>
@@ -4284,7 +4284,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz_.xml" id="sprayz_.023" xyz="-29092.64 40.00 -1218.34" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz_.xml" id="sprayz_.023" xyz="-247.91 -0.00 -10.38" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -29092.639"/>
       <p c="1814.000 -29092.639"/>
@@ -4322,7 +4322,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz_.xml" id="sprayz_.024" xyz="-28222.76 40.00 -5074.81" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz_.xml" id="sprayz_.024" xyz="-240.49 -0.00 -43.24" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -28222.760"/>
       <p c="1814.000 -28222.760"/>
@@ -4360,7 +4360,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz_.xml" id="sprayz_.025" xyz="-27120.91 40.00 -8931.28" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz_.xml" id="sprayz_.025" xyz="-231.10 -0.00 -76.11" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -27120.910"/>
       <p c="1814.000 -27120.910"/>
@@ -4398,7 +4398,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz_.xml" id="sprayz_.026" xyz="-25961.07 40.00 -13106.71" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz_.xml" id="sprayz_.026" xyz="-221.22 -0.00 -111.69" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -25961.068"/>
       <p c="1814.000 -25961.068"/>
@@ -4436,7 +4436,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz_.xml" id="sprayz_.027" xyz="-24772.23 40.00 -17195.14" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz_.xml" id="sprayz_.027" xyz="-211.09 -0.00 -146.52" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -24772.234"/>
       <p c="1814.000 -24772.234"/>
@@ -4474,7 +4474,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz_.xml" id="sprayz_.028" xyz="-23844.36 40.00 -20993.62" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz_.xml" id="sprayz_.028" xyz="-203.18 -0.00 -178.89" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -23844.363"/>
       <p c="1814.000 -23844.363"/>
@@ -4512,7 +4512,7 @@
       <p c="4500.000 -0.000"/>
     </curve>
   </particle-emitter>
-  <particle-emitter kind="sprayz_.xml" id="sprayz_.029" xyz="-21756.65 40.00 -25169.04" h="0.00" clip_distance="750">
+  <particle-emitter kind="sprayz_.xml" id="sprayz_.029" xyz="-185.39 -0.00 -214.47" h="0.00" clip_distance="750">
     <curve channel="LocX" interpolation="linear" extend="cyclic">
       <p c="1.000 -21756.650"/>
       <p c="1814.000 -21756.650"/>
